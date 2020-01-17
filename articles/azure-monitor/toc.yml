@@ -6,6 +6,8 @@
       href: overview.md
     - name: Changements terminologiques
       href: terminology.md
+    - name: Questions fréquentes (FAQ)
+      href: faq.md
 - name: Démarrages rapides
   items:
     - name: Superviser une ressource azure
@@ -113,14 +115,6 @@
       href: visualizations.md
     - name: Intégrations des partenaires
       href: platform/partners.md
-    - name: Questions fréquentes (FAQ)
-      items:
-        - name: Log Analytics
-          displayName: FAQ
-          href: platform/log-faq.md
-        - name: Application Insights
-          displayName: FAQ
-          href: app/troubleshoot-faq.md
 - name: Guides pratiques
   items:
     - name: Gérer Azure Monitor
@@ -162,6 +156,8 @@
       items:
         - name: Vue d'ensemble d’Application Insights
           href: app/app-insights-overview.md
+        - name: Questions fréquentes (FAQ)
+          href: app/troubleshoot-faq.md
         - name: Supervision basée sur le code
           items:
             - name: ASP.NET Core
@@ -535,6 +531,8 @@
           items:
             - name: Vue d’ensemble des agents
               href: platform/agents-overview.md
+            - name: Questions fréquentes (FAQ)
+              href: 'faq.md#agents'
             - name: Extension Diagnostics Azure
               items:
                 - name: Vue d’ensemble
@@ -633,7 +631,7 @@
             - name: Questions fréquentes (FAQ) sur la disponibilité générale
               href: insights/vminsights-ga-release-faq.md
             - name: Questions fréquentes (FAQ)
-              href: insights/vminsights-faq.md
+              href: 'faq.md#azure-monitor-for-vms-preview'
             - name: Activer la supervision
               items:
                 - name: Vue d’ensemble de l’activation de la supervision
@@ -679,7 +677,7 @@
             - name: Vue d’ensemble
               href: insights/container-insights-overview.md
             - name: Questions fréquentes (FAQ)
-              href: insights/container-insights-faq.md
+              href: 'faq.md#azure-monitor-for-containers'
             - name: Activer la supervision
               items:
                 - name: Vue d’ensemble de l’activation de la supervision

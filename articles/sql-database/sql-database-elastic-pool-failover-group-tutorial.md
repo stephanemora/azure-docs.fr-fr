@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Ajouter un pool élastique à un groupe de basculement'
+title: 'Tutoriel : Ajouter un pool élastique à un groupe de basculement'
 description: Ajoutez un pool élastique Azure SQL Database à un groupe de basculement à l’aide du portail Azure, de PowerShell ou d’Azure CLI.
 services: sql-database
 ms.service: sql-database
@@ -11,28 +11,28 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/27/2019
-ms.openlocfilehash: e2ae9afaf7c1dcc1794b90d4851fdd60298b5ad6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c57f9eed2147504dd7b3313d58468fb76ab40caa
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823887"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552540"
 ---
-# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Didacticiel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement
+# <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutoriel : Ajouter un pool élastique Azure SQL Database à un groupe de basculement
 
-Configurez un groupe de basculement pour un pool élastique Azure SQL Database et tester le basculement à l’aide du portail Azure.  Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Configurez un groupe de basculement pour un pool élastique Azure SQL Database et tester le basculement à l’aide du portail Azure.  Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
-> - Créer une base de données unique Azure SQL Database
+> - Créer une base de données unique Azure SQL Database.
 > - Ajouter la base de données unique à un pool élastique 
 > - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour deux pools élastiques entre deux serveurs SQL logiques
 > - Tester le basculement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel, veillez à disposer des éléments suivants : 
 
-- Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas.
+- Un abonnement Azure. [Créez un compte gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 
 
 ## <a name="1---create-a-single-database"></a>1 - Créer une base de données unique 
@@ -43,7 +43,7 @@ Pour suivre ce tutoriel, veillez à disposer des éléments suivants :
 Dans cette étape, vous allez créer un pool élastique et y ajouter votre base de données unique. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Créez votre pool élastique avec le Portail Azure. 
 
@@ -55,10 +55,10 @@ Créez votre pool élastique avec le Portail Azure.
     ![Sélectionner un pool élastique](media/sql-database-elastic-pool-failover-group-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Configurez votre pool élastique avec les valeurs suivantes :
-   - **Nom** : spécifiez un nom unique pour votre pool élastique, par exemple `myElasticPool`. 
+   - **Name** : spécifiez un nom unique pour votre pool élastique, par exemple `myElasticPool`. 
    - **Abonnement**: Sélectionnez votre abonnement dans la liste déroulante.
    - **Groupe de ressources** : sélectionnez `myResourceGroup` dans la liste déroulante, le groupe de ressources que vous avez créé dans la section 1. 
-   - **Server** (Serveur) : sélectionnez dans la liste déroulante le serveur créé dans la section 1.  
+   - **Serveur** : sélectionnez dans la liste déroulante le serveur créé dans la section 1.  
 
        ![Créer un serveur pour le pool élastique](media/sql-database-elastic-pool-failover-group-tutorial/use-existing-server-for-elastic-pool.png)
 
@@ -126,10 +126,10 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 ---
 
 ## <a name="3---create-the-failover-group"></a>3 - Créer le groupe de basculement 
-Lors de cette étape, vous allez créer un [groupe de basculement](sql-database-auto-failover-group.md) entre un serveur SQL Azure existant et un nouveau serveur SQL Azure dans une autre région. Ensuite, vous ajouterez le pool élastique au groupe de basculement. 
+Dans de cette étape, vous allez créer un [groupe de basculement](sql-database-auto-failover-group.md) entre un serveur SQL Azure existant et un nouveau serveur SQL Azure dans une autre région. Ensuite, vous ajouterez le pool élastique au groupe de basculement. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Créez votre groupe de basculement avec le Portail Azure. 
 
@@ -146,7 +146,7 @@ Créez votre groupe de basculement avec le Portail Azure.
 1. Dans la page **Groupe de basculement**, entrez ou sélectionnez les valeurs suivantes, puis sélectionnez **Créer** :
     - **Nom du groupe de basculement** : Tapez un nom de groupe de basculement unique, par exemple `failovergrouptutorial`. 
     - **Serveur secondaire** : Sélectionnez l’option permettant de *configurer les paramètres requis*, puis choisissez de **Créer un serveur**. Vous pouvez également choisir un serveur existant en tant que serveur secondaire. Après avoir entré les valeurs suivantes pour votre nouveau serveur secondaire, sélectionnez **Sélectionner**. 
-        - **Nom du serveur** : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`. 
+        - **Nom du serveur** : Tapez un nom unique pour le serveur secondaire, par exemple `mysqlsecondary`. 
         - **Connexion administrateur au serveur** : Tapez `azureuser`.
         - **Mot de passe** : tapez un mot de passe complexe qui répond aux exigences de mot de passe.
         - **Emplacement** : choisissez un emplacement dans la liste déroulante, tel que `East US`. Cet emplacement ne peut pas être le même que celui de votre serveur principal.
@@ -252,7 +252,7 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 Dans cette étape, vous allez faire basculer votre groupe de basculement sur le serveur secondaire, puis effectuer une restauration automatique en utilisant le portail Azure. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Testez le basculement de votre groupe de basculement à l’aide du portail Azure. 
 
@@ -352,12 +352,12 @@ Cette partie du tutoriel utilise les cmdlets PowerShell suivantes :
 
 ---
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 
 Nettoyez les ressources en supprimant le groupe de ressources. 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 
 1. Accédez à votre groupe de ressources sur le [portail Azure](https://portal.azure.com).
@@ -378,7 +378,6 @@ Nettoyez vos ressources avec PowerShell.
    Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
    Write-host "Resource group removed =" $resourceGroupName
    ```
----
 
 Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 
@@ -386,7 +385,10 @@ Cette partie du tutoriel utilise la cmdlet PowerShell suivante :
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
-Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à une documentation spécifique.
+---
+
+> [!IMPORTANT]
+> Si vous souhaitez conserver le groupe de ressources tout en supprimant la base de données secondaire, retirez-la du groupe de basculement avant de la supprimer. La suppression d’une base de données secondaire avant son retrait du groupe de basculement peut entraîner un comportement imprévisible. 
 
 ## <a name="full-script"></a>Script complet
 
@@ -412,17 +414,17 @@ Ce script utilise les commandes suivantes. Chaque commande du tableau renvoie à
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Supprime un groupe de ressources. | 
 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 Aucun script n’est disponible pour le portail Azure.
 
 ---
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez ajouté un pool élastique Azure SQL Database à un groupe de basculement et testé le basculement. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, vous avez ajouté un pool élastique Azure SQL Database à un groupe de basculement et testé le basculement. Vous avez appris à :
 
 > [!div class="checklist"]
-> - Créer une base de données unique Azure SQL Database
+> - Créer une base de données unique Azure SQL Database.
 > - Ajouter la base de données unique à un pool élastique 
 > - Créer un [groupe de basculement](sql-database-auto-failover-group.md) pour deux pools élastiques entre deux serveurs SQL logiques
 > - Tester le basculement.
@@ -430,4 +432,4 @@ Dans ce tutoriel, vous avez ajouté un pool élastique Azure SQL Database à un 
 Passez au tutoriel suivant sur la migration à l’aide de DMS.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Migrer SQL Server vers une base de données mise en pool à l’aide de DMS](../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)
+> [Tutoriel : Migrer SQL Server vers une base de données mise en pool à l’aide de DMS](../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json)

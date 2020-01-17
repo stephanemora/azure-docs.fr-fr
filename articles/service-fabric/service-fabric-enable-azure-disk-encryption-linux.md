@@ -1,24 +1,14 @@
 ---
-title: Activer le chiffrement de disque pour les clusters Linux Azure Service Fabric | Microsoft Docs
+title: Activer le chiffrement de disque pour les clusters Linux
 description: Cet article décrit comment activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux en utilisant Azure Resource Manager et Azure Key Vault.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: navya
-ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/22/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5bcfad63df69010851dde66b0c8935e63a509455
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: d990cfdee9a497135c67d99431807a85f8105b3b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599593"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609891"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-linux"></a>Activer le chiffrement de disque pour les nœuds de cluster Azure Service Fabric dans Linux 
 > [!div class="op_single_selector"]
@@ -29,7 +19,7 @@ ms.locfileid: "68599593"
 
 Dans ce didacticiel, vous allez apprendre à activer le chiffrement de disque sur les nœuds de cluster Azure Service Fabric dans Linux. Vous devez effectuer ces étapes pour chacun des types de nœuds et groupes de machines virtuelles identiques. Pour chiffrer les nœuds, nous allons utiliser les fonctionnalités d’Azure Disk Encryption sur les groupes de machines virtuelles identiques.
 
-Le guide aborde les thèmes suivants :
+Le guide aborde les thèmes suivants :
 
 * Concepts clés à connaître lors de l’activation du chiffrement de disque sur des groupes de machines virtuelles identiques de cluster Service Fabric dans Linux.
 * Étapes à suivre avant d’activer le chiffrement de disque sur les nœuds de cluster Service Fabric dans Linux.
@@ -39,24 +29,24 @@ Le guide aborde les thèmes suivants :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
  **Inscription automatique**
 
-La préversion du chiffrement de disque des groupes de machines virtuelles identiques nécessite une inscription automatique. Procédez comme suit :
+La préversion du chiffrement de disque des groupes de machines virtuelles identiques nécessite une inscription automatique. Utiliser les étapes suivantes :
 
 1. Exécutez la commande suivante : 
     ```powershell
     Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
     ```
-2. Attendez 10 minutes environ jusqu’à ce que l’état indique *Inscrit*. Vous pouvez vérifier l’état en exécutant la commande suivante :
+2. Attendez 10 minutes environ jusqu’à ce que l’état indique *Inscrit*. Vous pouvez vérifier l’état en exécutant la commande suivante :
     ```powershell
     Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
     Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
     ```
 **Azure Key Vault**
 
-1. Créez un coffre de clés dans le même abonnement et la même région que le groupe identique. Sélectionnez ensuite la stratégie d’accès **EnabledForDiskEncryption** sur le coffre de clés à l’aide de sa cmdlet PowerShell. Vous pouvez également définir la stratégie à l’aide de l’interface utilisateur Key Vault dans le portail Azure à l’aide de la commande suivante :
+1. Créez un coffre de clés dans le même abonnement et la même région que le groupe identique. Sélectionnez ensuite la stratégie d’accès **EnabledForDiskEncryption** sur le coffre de clés à l’aide de sa cmdlet PowerShell. Vous pouvez également définir la stratégie à l’aide de l’interface utilisateur Key Vault dans le Portail Azure à l’aide de la commande suivante :
     ```powershell
     Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
     ```

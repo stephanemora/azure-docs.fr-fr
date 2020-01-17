@@ -21,16 +21,12 @@
           displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
     - name: Utiliser le navigateur
       href: luis-get-started-get-intent-from-browser.md
-    - name: Utilisation du Kit de développement logiciel (SDK) .NET
+    - name: Utiliser le SDK
       items:
-        - name: Créer et gérer une application
-          href: sdk-csharp-quickstart-authoring-app.md
+        - name: Création d’une application
+          href: sdk-authoring.md
         - name: Interroger le point de terminaison de prédiction
-          href: sdk-csharp-quickstart-query-prediction-endpoint.md
-    - name: Utilisation du Kit de développement logiciel (SDK) Python
-      items:
-        - name: Créer et gérer une application
-          href: sdk-python-quickstart-authoring-app.md
+          href: sdk-query-prediction-endpoint.md
     - name: Utiliser les API REST
       items:
         - name: Reconnaître l’intention

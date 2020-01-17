@@ -9,16 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 10/07/2019
+ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420036"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427075"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
+
+>Soyez notifié de la disponibilité des mises à jour sur cette page en faisant un copier-coller de cette URL : `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` dans votre lecteur de flux RSS.
 
 Pour vous informer des développements les plus récents, cet article détaille les thèmes suivants :
 
@@ -33,6 +35,40 @@ Pour vous informer des développements les plus récents, cet article détaille 
 > Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-sdk), Azure CLI ou l’un des kits de développement logiciel (SDK) pris en charge.
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="november-2019"></a>Novembre 2019
+
+### <a name="live-transcription-preview"></a>Transcription en direct (préversion)
+
+La transcription en direct est désormais en préversion publique et peut être utilisée dans la région USA Ouest 2.
+
+La transcription en direct est conçue pour fonctionner conjointement avec les événements en direct comme une fonctionnalité complémentaire.  Elle est prise en charge à la fois pour les événements directs et les événements en direct avec un encodage Standard ou Premium.  Lorsque cette fonctionnalité est activée, le service utilise la fonctionnalité de [reconnaissance vocale](../../cognitive-services/speech-service/speech-to-text.md) de Cognitive Services pour transcrire les paroles du fichier audio entrant en texte. Ce texte, accompagné de fichiers vidéo et audio dans les protocoles MPEG-DASH et HLS, est ensuite mis à disposition pour diffusion. La facturation est basée sur un nouveau compteur complémentaire qui est un coût supplémentaire à l’événement en direct lorsqu’il est dans l’état « En cours d’exécution ».  Pour plus d’informations sur la transcription en direct et la facturation, consultez [Transcription en direct](live-transcription.md)
+
+> [!NOTE]
+> Actuellement, la transcription en direct est disponible uniquement en tant que fonctionnalité d’évaluation dans la région USA Ouest 2. Pour l’instant, elle prend seulement en charge la transcription en texte des Mots parlés en anglais (en-us).
+
+### <a name="content-protection"></a>Protection du contenu
+
+La fonctionnalité *Prévention de la relecture de jeton* publiée dans des régions limitées en septembre est désormais disponible dans toutes les régions.
+Les clients de Media Services peuvent maintenant définir une limite au nombre de fois où le même jeton peut être utilisé pour demander une clé ou une licence. Pour plus d’informations, consultez [Prévention de la relecture de jeton](content-protection-overview.md#token-replay-prevention).
+
+### <a name="new-recommended-live-encoder-partners"></a>Nouveaux encodeurs live partenaires recommandés
+
+Ajout de la prise en charge des nouveaux encodeurs partenaires recommandés ci-dessous pour le streaming en direct RTMP :
+
+- [Cambria Live 4.3](https://www.capellasystems.net/products/cambria-live/)
+- [Caméras GoPro Hero7/8 et Max action](https://gopro.com/help/articles/block/getting-started-with-live-streaming)
+- [Restream.io](https://restream.io/)
+
+### <a name="file-encoding-enhancements"></a>Améliorations de l’encodage des fichiers
+
+- Amélioration des performances et du multithreading pour le redimensionnement dans Media Encoder Standard. Dans des conditions spécifiques, le client doit voir une augmentation des performances du codage VOD de 5 à 40 %. Le contenu à faible complexité encodé en plusieurs vitesses de transmission dispose des meilleures améliorations de performances. 
+- L’encodage standard gère maintenant une cadence GOP régulière pour les contenus à fréquence d’images variable (VFR) lors d’un encodage VOD en cas d’utilisation du paramètre GOP basé sur le temps.  Cela signifie qu’un client soumettant un contenu de fréquence d’images mixte variant entre 15 et 30 images par seconde par exemple doit maintenant voir les distances GOP normales calculées sur la sortie vers des fichiers MP4 de streaming à débit adaptatif. Cela permet d’améliorer la possibilité de basculer entre les pistes en cas de diffusion sur TLS ou DASH. 
+-  Amélioration de la synchronisation AV pour un contenu source avec une fréquence d’images variable (VFR)
+
+### <a name="video-indexer-video-analytics"></a>Video Indexer, analyse vidéo
+
+- Les images clés extraites à l’aide de la présélection VideoAnalyzer sont désormais dans la résolution d’origine de la vidéo au lieu d’être redimensionnées. L’extraction d’images clés en haute résolution vous donne des images avec la qualité d’origine et vous permet d’utiliser les Modèles d’intelligence artificielle basés sur une image fournis par les services Computer Vision et Custom Vision de Microsoft pour obtenir encore plus d’informations à partir de votre vidéo.
 
 ## <a name="september-2019"></a>Septembre 2019
 
@@ -74,7 +110,7 @@ Pour plus d'informations, consultez [Migration de WAME vers Media Encoder Standa
 
 Lors du streaming de contenu protégé par une restriction de jeton, les utilisateurs finaux doivent obtenir un jeton envoyé dans le cadre de la requête de remise de clé. La fonctionnalité de *prévention de relecture de jeton* permet aux clients de Media Services de limiter le nombre de fois qu’un même jeton peut être utilisé pour demander une clé ou une licence. Pour plus d’informations, consultez [Prévention de la relecture de jeton](content-protection-overview.md#token-replay-prevention).
 
-Cette fonctionnalité est actuellement disponible dans les régions USA Centre et USA Centre-Ouest.
+Depuis juillet, la fonctionnalité d’évaluation était uniquement disponible dans les régions USA Centre et USA Centre-Ouest.
 
 ## <a name="june-2019"></a>Juin 2019
 
@@ -82,12 +118,12 @@ Cette fonctionnalité est actuellement disponible dans les régions USA Centre e
 
 Vous pouvez désormais découper ou sous-découper une vidéo lors de son encodage à l’aide d’un [travail](https://docs.microsoft.com/rest/api/media/jobs). 
 
-Cette fonctionnalité peut être utilisée avec n’importe quelle [transformation](https://docs.microsoft.com/rest/api/media/transforms) qui est générée en utilisant les présélections [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset)ou [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
+Cette fonctionnalité peut être utilisée avec n’importe quelle [transformation](https://docs.microsoft.com/rest/api/media/transforms) qui est générée en utilisant les présélections [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) ou [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
 
-Consultez les exemples :
+Consultez les exemples :
 
 * [Sous-cliper une vidéo avec .NET](subclip-video-dotnet-howto.md)
-* [Sous-découper une vidéo avec REST](subclip-video-rest-howto.md)
+* [Sous-cliper une vidéo avec REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>Mai 2019
 
@@ -110,7 +146,7 @@ Media Services est maintenant disponible dans les régions Corée Centre et Cor�
 
 Pour plus d’informations, consultez [Clouds et régions dans lesquels Media Services v3 est présent](azure-clouds-regions.md).
 
-### <a name="performance-improvements"></a>Amélioration des performances
+### <a name="performance-improvements"></a>Optimisation des performances
 
 Ajout de mises à jour incluant l’amélioration des performances Media Services.
 
@@ -140,7 +176,7 @@ L'événement [Microsoft.Media.JobOutputProgress](media-services-event-schemas.m
 
 ### <a name="media-encoder-standard-and-mpi-files"></a>Fichiers Media Encoder Standard et MPI 
 
-En cas d'encodage avec Media Encoder Standard pour produire des fichiers MP4, un nouveau fichier .mpi est généré et ajouté à la ressource de sortie. Ce fichier MPI est destiné à améliorer les performances pour les scénarios d'[empaquetage dynamique](dynamic-packaging-overview.md) et de diffusion en continu.
+En cas d'encodage avec Media Encoder Standard pour produire des fichiers MP4, un nouveau fichier .mpi est généré et ajouté à la ressource de sortie. Ce fichier MPI est destiné à améliorer les performances pour les scénarios d’[empaquetage dynamique](dynamic-packaging-overview.md) et de diffusion en continu.
 
 Vous ne devez ni modifier ni supprimer le fichier MPI, ni dépendre de l'existence (ou non) d'un tel fichier dans votre service.
 

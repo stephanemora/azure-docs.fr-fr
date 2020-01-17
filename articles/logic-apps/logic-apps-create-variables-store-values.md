@@ -1,17 +1,17 @@
 ---
-title: Créer et gérer des variables pour stocker des valeurs
-description: Comment stocker et gérer des valeurs en utilisant des variables dans Azure Logic Apps
+title: Créer et gérer des variables pour stocker et transmettre des valeurs
+description: Découvrez comment stocker, gérer, utiliser et transmettre des valeurs à l’aide de variables dans vos tâches et flux de travail automatisés créés avec Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 55984082a6b287e9f7cdca005a24ef3c18032491
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793172"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75456699"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Stocker et gérer des valeurs en utilisant des variables dans Azure Logic Apps
 
@@ -29,7 +29,7 @@ Les variables existent et sont globales uniquement au sein de l’instance d’a
 > [!IMPORTANT]
 > Par défaut, les cycles dans une boucle « For each » s’exécutent en parallèle. Quand vous utilisez des variables dans des boucles, exécutez la boucle [séquentiellement](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) afin que les variables retournent des résultats prévisibles.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
@@ -65,10 +65,10 @@ Vous pouvez créer une variable et déclarer son type de données et sa valeur i
 
 1. Entrez ces informations sur votre variable, comme indiqué ci-dessous :
 
-   | Propriété | Obligatoire | Value |  Description |
+   | Propriété | Obligatoire | Valeur |  Description |
    |----------|----------|-------|--------------|
-   | **Nom** | OUI | <*variable-name*> | Nom de la variable à incrémenter |
-   | **Type** | OUI | <*variable-type*> | Type de données de la variable. |
+   | **Nom** | Oui | <*variable-name*> | Nom de la variable à incrémenter |
+   | **Type** | Oui | <*variable-type*> | Type de données de la variable. |
    | **Valeur** | Non | <*start-value*> | Valeur initiale de votre variable. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur initiale de votre variable. |
    |||||
 
@@ -205,9 +205,9 @@ Pour augmenter ou *incrémenter* une variable d’une valeur constante, ajoutez 
 
 1. Fournissez les informations suivantes pour l’incrémentation de votre variable :
 
-   | Propriété | Obligatoire | Value |  Description |
+   | Propriété | Obligatoire | Valeur |  Description |
    |----------|----------|-------|--------------|
-   | **Nom** | OUI | <*variable-name*> | Nom de la variable à incrémenter |
+   | **Nom** | Oui | <*variable-name*> | Nom de la variable à incrémenter |
    | **Valeur** | Non | <*increment-value*> | Valeur utilisée pour incrémenter la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour l’incrémentation de votre variable. |
    ||||
 
@@ -232,7 +232,7 @@ Si vous passez du concepteur à l’éditeur en mode Code, voici comment l’act
 },
 ```
 
-## <a name="example-create-loop-counter"></a>Exemple : créer un compteur de boucle
+## <a name="example-create-loop-counter"></a>Exemple : créer un compteur de boucle
 
 Des variables sont couramment utilisées pour compter le nombre d’exécutions d’une boucle. Cet exemple montre comment créer et utiliser des variables pour cette tâche en créant une boucle qui compte les pièces jointes à un e-mail.
 
@@ -282,7 +282,7 @@ Des variables sont couramment utilisées pour compter le nombre d’exécutions 
 
    ![Ajouter une action qui envoie les résultats](./media/logic-apps-create-variables-store-values/send-email-results.png)
 
-1. Enregistrez votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
@@ -326,9 +326,9 @@ Pour diminuer ou *décrémenter* une variable d’une valeur constante, procéde
 
 Voici les propriétés disponibles pour l’action **Décrémenter une variable** :
 
-| Propriété | Obligatoire | Value |  Description |
+| Propriété | Obligatoire | Valeur |  Description |
 |----------|----------|-------|--------------|
-| **Nom** | OUI | <*variable-name*> | Nom de la variable à décrémenter | 
+| **Nom** | Oui | <*variable-name*> | Nom de la variable à décrémenter | 
 | **Valeur** | Non | <*increment-value*> | Valeur de la décrémentation de la variable. La valeur par défaut est 1. <p><p>**Conseil** : Bien que cette valeur soit facultative, nous vous recommandons de la définir afin de toujours connaître la valeur spécifique pour la décrémentation de votre variable. |
 ||||| 
 
@@ -359,10 +359,10 @@ Pour attribuer une valeur différente à une variable, procédez de la même man
 
 Voici les propriétés disponibles pour l’action **Définir une variable** :
 
-| Propriété | Obligatoire | Value |  Description |
+| Propriété | Obligatoire | Valeur |  Description |
 |----------|----------|-------|--------------|
-| **Nom** | OUI | <*variable-name*> | Nom de la variable à modifier |
-| **Valeur** | OUI | <*new-value*> | Valeur que vous souhaitez attribuer à la variable. Le type de données des deux doit être identique. |
+| **Nom** | Oui | <*variable-name*> | Nom de la variable à modifier |
+| **Valeur** | Oui | <*new-value*> | Valeur que vous souhaitez attribuer à la variable. Le type de données des deux doit être identique. |
 ||||| 
 
 > [!NOTE]
@@ -413,14 +413,14 @@ Pour les variables qui stockent des chaînes ou des tableaux, vous pouvez insér
    * **Ajouter à une variable chaîne**
    * **Ajouter à une variable tableau** 
 
-1. Spécifiez la valeur à ajouter à la fin de la chaîne ou du tableau. Cette valeur est obligatoire.
+1. Spécifiez la valeur à ajouter à la fin de la chaîne ou du tableau. Cette valeur est requise.
 
 Voici les propriétés disponibles pour les actions **Ajouter à...**  :
 
-| Propriété | Obligatoire | Value |  Description |
+| Propriété | Obligatoire | Valeur |  Description |
 |----------|----------|-------|--------------|
-| **Nom** | OUI | <*variable-name*> | Nom de la variable à modifier |
-| **Valeur** | OUI | <*append-value*> | Valeur que vous souhaitez ajouter, qui peut être de tout type |
+| **Nom** | Oui | <*variable-name*> | Nom de la variable à modifier |
+| **Valeur** | Oui | <*append-value*> | Valeur que vous souhaitez ajouter, qui peut être de tout type |
 |||||
 
 Si vous passez du concepteur à l’éditeur en mode Code, voici comment l’action **Ajouter à une variable tableau** s’affiche dans la définition de votre application logique, qui est au format JSON. Cet exemple crée une variable tableau et ajoute une autre valeur à la fin du tableau. Le résultat est une variable mise à jour qui contient ce tableau : `[1,2,3,"red"]`

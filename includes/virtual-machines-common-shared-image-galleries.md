@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 067ac0f7f000f749f61d302db4c5c6b856e698a2
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74875505"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75663156"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images managées. Les galeries d’images partagées proposent les éléments suivants :
 
 - une réplication mondiale et managée des images ;
 - la gestion de versions et le regroupement d’images pour faciliter la gestion ;
-- des images hautement disponibles avec des comptes ZRS (Zone Redundant Storage) dans les régions qui prennent en charge les zones de disponibilité Azure (le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillance de zone) ;
+- des images hautement disponibles avec des comptes ZRS (Zone Redundant Storage) dans les régions qui prennent en charge les zones de disponibilité Azure Le stockage redondant interzone (ZRS) offre une meilleure résilience en cas de défaillances de zones.
 - le partage entre différents abonnements, voire entre locataires Active Directory, à l’aide du contrôle d’accès en fonction du rôle (RBAC) ;
 - la mise à l’échelle de vos déploiements avec des réplicas d’image dans chaque région.
 
@@ -49,7 +49,7 @@ Une définition d’image est un regroupement logique des versions d’une image
 
 Il existe trois paramètres pour chaque définition d’image, qui sont utilisés les uns avec les autres : **Publisher**, **Offre** et **SKU**. Ils permettent de rechercher une définition d’image spécifique. Des versions d'image peuvent partager une ou deux de ces valeurs, mais pas les trois.  Par exemple, voici trois définitions d'image et leurs valeurs :
 
-|Définition de l’image|Publisher|Offre|Sku|
+|Définition de l’image|Serveur de publication|Offre|Sku|
 |---|---|---|---|
 |myImage1|Contoso|Finances|Backend|
 |myImage2|Contoso|Finances|Serveur frontal|
@@ -71,7 +71,7 @@ Voici d’autres paramètres qui peuvent être configurés sur votre définition
 
 ## <a name="generalized-and-specialized-images"></a>Images généralisées et spécialisées
 
-Il existe deux états de système d'exploitation pris en charge par Galerie d’images partagées. Généralement, les images nécessitent que la machine virtuelle utilisée pour créer l'image ait été généralisée avant de créer l'image. La généralisation est un processus qui supprime de la machine virtuelle les informations spécifiques à la machine et à l'utilisateur. Pour Windows, l’outil Sysprep est utilisé. Pour Linux, vous pouvez utiliser [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` ou les paramètres `-deprovision+user`.
+Il existe deux états de système d'exploitation pris en charge par Galerie d’images partagées. Généralement, les images nécessitent que la machine virtuelle utilisée pour créer l'image ait été généralisée avant de créer l'image. La généralisation est un processus qui supprime de la machine virtuelle les informations spécifiques à la machine et à l'utilisateur. Pour Windows, l’outil Sysprep est utilisé. Pour Linux, vous pouvez utiliser les paramètres [waagent](https://github.com/Azure/WALinuxAgent), `-deprovision` ou `-deprovision+user`.
 
 Les machines virtuelles spécialisées n'ont pas été soumises à un processus de suppression des informations et des comptes spécifiques aux machines. Par ailleurs, les machines virtuelles créées à partir d'images spécialisées ne sont associées à aucun `osProfile`. Cela signifie que les images spécialisées auront certaines limites.
 
@@ -83,7 +83,7 @@ Les machines virtuelles spécialisées n'ont pas été soumises à un processus 
 > Les images spécialisées sont actuellement en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> **Limitations connues de la préversion :** Les machines virtuelles peuvent uniquement être créées à partir d’images spécialisées à l’aide du portail ou de l’API. Il n'y a pas de support CLI ou PowerShell pour la préversion.
+> **Limitations connues de la préversion :** Les machines virtuelles peuvent uniquement être créées à partir d’images spécialisées à l’aide du portail ou de l’API. Il n’y a pas de support CLI ou PowerShell pour la préversion.
 
 
 ## <a name="regional-support"></a>Prise en charge régionale
@@ -144,14 +144,14 @@ Les régions sur lesquelles est répliquée une version d’image partagée peuv
 
 ![Graphique montrant comment répliquer des images](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>Access
+## <a name="access"></a>Accès
 
 Tout comme la Galerie d’images partagées, la définition d’image et la version d’image sont des ressources, qui peuvent être partagées à l’aide des contrôle d’accès en fonction du rôle (RBAC) Azure natifs intégrés. Le contrôle d’accès en fonction du rôle (RBAC) vous permet de partager ces ressources avec d’autres utilisateurs, principaux de service et groupes. Vous pouvez même partager l’accès avec des personnes en dehors du locataire au sein duquel ils ont été créés. Un utilisateur disposant d’un accès à la version d’image partagée peut déployer une machine virtuelle ou un groupe de machines virtuelles identiques.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
 
 | Partagé avec l’utilisateur     | Galerie d’images partagées | Définition de l’image | Version d’image |
 |----------------------|----------------------|--------------|----------------------|
-| Galerie d’images partagées | OUI                  | Oui          | OUI                  |
-| Définition de l’image     | Non                   | OUI          | OUI                  |
+| Galerie d’images partagées | Oui                  | Oui          | Oui                  |
+| Définition de l’image     | Non                   | Oui          | Oui                  |
 
 Nous vous recommandons de partager les images au niveau de la galerie, afin de proposer une expérience optimale. Nous vous déconseillons de partager des versions d’images individuelles. Pour en savoir plus sur le contrôle d’accès en fonction du rôle (RBAC), consultez la section relative à la [gestion de l’accès aux ressources Azure à l’aide du contrôle d’accès en fonction du rôle (RBAC)](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -200,7 +200,7 @@ Vous pouvez créer la ressource de galerie d’images partagées à l’aide de 
 - [Créer une version d’image dans une galerie d’images partagées](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Créer une machine virtuelle à partir d’une version d’image](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
+## <a name="frequently-asked-questions"></a>Forum aux questions 
 
 * [Comment lister toutes les ressources de galerie d’images partagées de différents abonnements ?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [Puis-je déplacer mon image existante vers la galerie d’images partagées ?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
@@ -239,9 +239,9 @@ Pour lister toutes les ressources de galerie d’images partagées de différent
  
 Oui. Il existe 3 scénarios basés sur les types d’images.
 
- Scénario 1 : Si vous avez une image managée, vous pouvez créer une définition et une version de cette image.
+ Scénario 1 : Si vous avez une image managée dans le même abonnement que votre SIG, vous pouvez créer une définition et une version de cette image.
 
- Scénario 2 : Si vous avez une image non managée, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
+ Scénario 2 : Si vous avez une image non managée dans le même abonnement que votre SIG, vous pouvez créer une image managée de l’image, puis créer une définition et une version de cette image. 
 
  Scénario 3 : Si vous avez un VHD dans votre système de fichiers local, vous devez le charger sur une image managée pour pouvoir ensuite créer une définition et une version de cette image.
 

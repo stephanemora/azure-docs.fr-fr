@@ -1,5 +1,5 @@
 ---
-title: Optimiser le coût des ressources Azure Cosmos DB avec une capacité réservée
+title: Capacité réservée dans Azure Cosmos DB pour optimiser les coûts
 description: Découvrez comment acheter une capacité réservée Azure Cosmos DB pour réduire vos coûts de calcul.
 author: bandersmsft
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 0ee43fe0996c05f4e59f6107ba52fac19b83cdef
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0a956a1372ba1535b9d918333bd7411a4ca6abe4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756955"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441926"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -40,7 +40,7 @@ La taille de la réservation doit être basée sur la quantité totale de débit
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Acheter une capacité réservée Azure Cosmos DB
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
+1. Connectez-vous au [portail Azure](https://portal.azure.com).  
 
 2. Sélectionnez **Tous les services** > **Réservations** > **Ajouter**.  
 

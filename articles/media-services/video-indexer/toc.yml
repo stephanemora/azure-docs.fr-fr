@@ -1,13 +1,13 @@
 - name: Documentation relative à Video Indexer
   href: ./index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Qu’est-ce que Video Indexer ?
       href: video-indexer-overview.md
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: Prise en main
+    - name: Bien démarrer
       href: video-indexer-get-started.md
     - name: Inviter des utilisateurs
       href: invite-users.md
@@ -17,7 +17,7 @@
       href: video-indexer-use-apis.md
 - name: Concepts
   items:
-    - name: Vue d'ensemble
+    - name: Vue d’ensemble
       href: video-indexer-concepts.md
     - name: Comparer les présélections Video Indexer et Media Services
       href: compare-video-indexer-with-media-services-presets.md
@@ -29,7 +29,7 @@
       href: live-stream-analysis.md
     - name: Personnalisation de modèles de contenu
       items:
-        - name: Vue d'ensemble
+        - name: Vue d’ensemble
           href: customize-content-models-overview.md
         - name: Personnages animés
           href: animated-characters-recognition.md
@@ -37,7 +37,7 @@
           href: customize-brands-model-overview.md
         - name: Langage
           href: customize-language-model-overview.md
-        - name: Personne
+        - name: Person
           href: customize-person-model-overview.md
 - name: Guides pratiques
   items:
@@ -45,7 +45,7 @@
       href: connect-to-azure.md
     - name: Gérer le compte connecté à Azure
       href: manage-account-connected-to-azure.md
-    - name: Utiliser une API pour charger et indexer des vidéos
+    - name: Charger et indexer des vidéos
       href: upload-index-videos.md
     - name: Examiner une sortie Video Indexer
       href: video-indexer-output-json-v2.md
@@ -67,7 +67,7 @@
       items:
         - name: Personnages animés
           href: animated-characters-recognition.md
-        - name: Personne
+        - name: Person
           items:
             - name: utilisation du site web Video Indexer
               href: customize-person-model-with-website.md

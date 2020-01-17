@@ -12,16 +12,16 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 7a8fe0f21ea8b31fb26727e2220f7395e2d71c2c
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: bb6961d87fd08af78db495b700acf34fbf4944a1
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555370"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552547"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Découverte et classification des données pour Azure SQL Database et SQL Data Warehouse
 
-Découverte et classification des données offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage** & et la **protection** des données sensibles dans vos bases de données.
+Découverte et classification des données offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage** et la  & **génération de rapports** des données sensibles dans vos bases de données.
 
 La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
 
@@ -149,7 +149,7 @@ Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne
 - Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 # <a name="rest-apistabazure-rest-api"></a>[API Rest](#tab/azure-rest-api)
-Vous pouvez également utiliser des API REST pour gérer par programme les classifications. Les API REST publiées prennent en charge les opérations suivantes :
+Vous pouvez utiliser des API REST pour gérer par programme les classifications et les recommandations. Les API REST publiées prennent en charge les opérations suivantes :
 
 - [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crée ou met à jour l’étiquette de sensibilité d’une colonne donnée
 - [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : supprime l’étiquette de sensibilité d’une colonne donnée
@@ -157,13 +157,12 @@ Vous pouvez également utiliser des API REST pour gérer par programme les class
 - [Activer la recommandation](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/enablerecommendation) : active les recommandations de sensibilité sur une colonne donnée (les recommandations sont activées par défaut sur toutes les colonnes)
 - [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : obtient l’étiquette de sensibilité d’une colonne donnée
 - [Liste actuelle par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listcurrentbydatabase) : affiche les étiquettes de sensibilité actuelles d’une base de données spécifiée
-
 - [Liste recommandée par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) : affiche les étiquettes de sensibilité recommandées d’une base de données spécifiée
 
 # <a name="powershell-cmdlettabazure-powelshell"></a>[Applet de commande PowerShell](#tab/azure-powelshell)
-Vous pouvez utiliser PowerShell pour faire en sorte que toutes les colonnes recommandées se trouvent dans une base de données Azure SQL Database et une instance managée.
+Vous pouvez utiliser PowerShell pour gérer les classifications et les recommandations pour Azure SQL Database et Managed Instance.
 
-### <a name="powershell-cmdlet-for-azure-sql-database"></a>Applet de commande PowerShell pour Azure SQL Database
+### <a name="powershell-cmdlet-for-azure-sql-database"></a>Cmdlet PowerShell pour Azure SQL Database
 - [Get-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [Set-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [Remove-AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -183,7 +182,7 @@ Vous pouvez utiliser PowerShell pour faire en sorte que toutes les colonnes reco
 
 ## <a id="subheading-6"></a>Étapes suivantes
 
-- En savoir plus sur [Advanced Data Security](sql-database-advanced-data-security.md).
+- En savoir plus sur [Advanced Data Security](sql-database-advanced-data-security.md)
 - Vous pouvez configurer [l’audit Azure SQL Database](sql-database-auditing.md) pour effectuer la surveillance et l’audit de l’accès à vos données sensibles classifiées.
 
 <!--Anchors-->

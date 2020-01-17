@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/30/2018
 ms.author: kumud
-ms.openlocfilehash: 465d44ea823c99afbb4f25541d64770c114ba7e2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13d74fbb4a7c133ca2365fd2cbfce4b3d2bea72e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730509"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75350592"
 ---
 # <a name="diagnose-a-virtual-machine-routing-problem"></a>Diagnostiquer un problème de routage sur une machine virtuelle
 
@@ -30,19 +30,15 @@ Dans cet article, vous apprenez à diagnostiquer un problème de routage en rega
 
 Vous essayez de vous connecter à une machine virtuelle, mais la connexion échoue. Afin de déterminer la raison pour laquelle vous ne pouvez pas vous connecter à la machine virtuelle, consultez les itinéraires effectifs d’une interface réseau au moyen du [portail](#diagnose-using-azure-portal) Azure, de [PowerShell](#diagnose-using-powershell), ou d’[Azure CLI](#diagnose-using-azure-cli).
 
-Les étapes qui suivent supposent que vous disposez d’une machine virtuelle existante qui permet d’afficher les itinéraires effectifs. Si vous ne possédez pas une telle machine, commencez par déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour pouvoir accomplir les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMVMNic*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *USA Est*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
+Les étapes qui suivent supposent que vous disposez d’une machine virtuelle existante qui permet d’afficher les itinéraires effectifs. Si vous ne possédez pas une telle machine, commencez par déployer une machine virtuelle [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) pour pouvoir accomplir les tâches de cet article. Les exemples contenus dans cet article sont prévus pour une machine virtuelle nommée *myVM*, et une interface réseau appelée *myVMNic1*. La machine virtuelle et l’interface réseau se trouvent dans un groupe de ressources nommé *myResourceGroup*, et se situent dans la région *USA Est*. Modifiez les valeurs dans les étapes, selon le cas, pour la machine virtuelle dont vous analysez le problème.
 
 ## <a name="diagnose-using-azure-portal"></a>Diagnostiquer à l’aide du portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte Azure disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 2. En haut du portail Azure, dans la zone de recherche, indiquez le nom d’une machine virtuelle en cours d’exécution. Quand le nom de cette machine virtuelle apparaît dans les résultats de la recherche, sélectionnez-le.
-3. Sélectionnez **Diagnostiquer et résoudre les problèmes**, puis sous **Étapes recommandées**, sélectionnez les **itinéraires effectifs** au point 7, comme illustré dans l’image suivante :
-
-    ![Afficher les itinéraires effectifs](./media/diagnose-network-routing-problem/view-effective-routes.png)
-
-4. Les itinéraires effectifs d’une interface réseau nommée **myVMVMNic** sont montrés dans l’image suivante :
-
-     ![Afficher les itinéraires effectifs](./media/diagnose-network-routing-problem/effective-routes.png)
+3. Sous **Paramètres** sur la gauche, sélectionnez **Mise en réseau** et accédez à la ressource d’interface réseau en sélectionnant son nom.
+     ![Afficher les interfaces réseau](./media/diagnose-network-routing-problem/view-nics.png)
+4. Sur la gauche, sélectionnez **Itinéraires effectifs**. Les itinéraires effectifs d’une interface réseau nommée **myVMNic1** sont Montrés dans l’image suivante : ![Afficher les itinéraires effectifs](./media/diagnose-network-routing-problem/view-effective-routes.png)
 
     S’il existe plusieurs interfaces réseau attachées à la machine virtuelle, vous pouvez voir les itinéraires effectifs de chaque interface réseau en sélectionnant les interfaces une à une. Chaque interface réseau pouvant se trouver dans un sous-réseau différent, ces interfaces peuvent chacune disposer de plusieurs itinéraires effectifs.
 
@@ -58,11 +54,11 @@ Même si dans les étapes précédentes, les itinéraires effectifs ont été af
 
 Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell sur votre ordinateur, vous devez utiliser le module Azure PowerShell version 1.0.0 ou ultérieure. Exécutez `Get-Module -ListAvailable Az` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell localement, vous devez aussi exécuter `Connect-AzAccount` pour vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Obtenez les itinéraires effectifs d’une interface réseau avec [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
+Obtenez les itinéraires effectifs d’une interface réseau avec [Get-AzEffectiveRouteTable](/powershell/module/az.network/get-azeffectiveroutetable). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMNic1*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
 ```azurepowershell-interactive
 Get-AzEffectiveRouteTable `
-  -NetworkInterfaceName myVMVMNic `
+  -NetworkInterfaceName myVMNic1 `
   -ResourceGroupName myResourceGroup `
   | Format-Table
 ```
@@ -82,20 +78,20 @@ Le résultat ressemble à ce qui suit :
 ```powershell
 NetworkInterfaces
 -----------------
-{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic
+{/subscriptions/<ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMNic1
 ```
 
-Dans la précédente sortie, le nom d’interface réseau est *myVMVMNic*.
+Dans la précédente sortie, le nom d’interface réseau est *myVMNic1*.
 
 ## <a name="diagnose-using-azure-cli"></a>Diagnostiquer à l’aide d’Azure CLI
 
 Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/bash), ou en exécutant l’interface CLI à partir de votre ordinateur. Azure CLI version 2.0.32 ou ultérieure est nécessaire pour cet article. Exécutez `az --version` pour rechercher la version installée. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI](/cli/azure/install-azure-cli). Si vous exécutez Azure CLI localement, vous devez aussi exécuter `az login` et vous connecter à Azure avec un compte disposant des [autorisations nécessaires](virtual-network-network-interface.md#permissions).
 
-Obtenez les itinéraires effectifs d’une interface réseau avec [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMVMNic*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
+Obtenez les itinéraires effectifs d’une interface réseau avec [az network nic show-effective-route-table](/cli/azure/network/nic#az-network-nic-show-effective-route-table). L’exemple suivant récupère les itinéraires effectifs d’une interface réseau nommée *myVMNic1*, qui se trouve dans un groupe de ressources appelé *myResourceGroup* :
 
 ```azurecli-interactive
 az network nic show-effective-route-table \
-  --name myVMVMNic \
+  --name myVMNic1 \
   --resource-group myResourceGroup
 ```
 

@@ -12,20 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 12/17/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/08/2019
-ms.openlocfilehash: 0725b4fc80fc3a41491bdb9ed084d33b36b490b8
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 6ddadcafd4f068f6516039017a3d491095c78e30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213090"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378260"
 ---
 # <a name="registration-management"></a>Gestion des inscriptions
-
-## <a name="overview"></a>Vue d'ensemble
 
 Cette rubrique explique comment inscrire des appareils auprès des hubs de notification en vue de recevoir des notifications Push. Elle donne une description générale des inscriptions, puis présente les deux principaux modes d’inscription des appareils : l’inscription de l’appareil directement auprès du hub de notification et l’inscription via un serveur principal d’application.
 
@@ -42,7 +40,7 @@ Une inscription associe le handle PNS (Platform Notification Service, service de
 
 ### <a name="installations"></a>Installations
 
-Une installation est une inscription améliorée qui inclut un conteneur de propriétés associées à des opérations push. C’est la meilleure approche, et la plus récente, pour inscrire vos appareils. Toutefois, elle n’est actuellement pas prise en charge par le Kit de développement logiciel .NET côté client ([SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Cela signifie que si vous vous inscrivez à partir de l'appareil client lui-même, vous devrez utiliser l’approche [API REST Notification Hubs](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) pour prendre en charge ces installations. Si vous utilisez un service principal, vous devriez être en mesure d'utiliser [SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+Une installation est une inscription améliorée qui inclut un conteneur de propriétés associées à des opérations push. C’est la meilleure approche, et la plus récente, pour inscrire vos appareils. Toutefois, elle n’est actuellement pas prise en charge par le Kit de développement logiciel .NET côté client ([SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/)).  Cela signifie que si vous vous inscrivez à partir de l'appareil client lui-même, vous devrez utiliser l’approche [API REST Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation) pour prendre en charge ces installations. Si vous utilisez un service principal, vous devriez être en mesure d'utiliser [SDK Notification Hub pour les opérations de serveur principal](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 Voici certains avantages essentiels que présente l’utilisation d’installations :
 
@@ -50,7 +48,7 @@ Voici certains avantages essentiels que présente l’utilisation d’installati
 - Le modèle d’installation prend en charge un format de balise spécial (`$InstallationId:{INSTALLATION_ID}`) qui permet l’envoi d’une notification directement à un appareil spécifique. Par exemple, si le code de l’application définit l’ID d’installation `joe93developer` pour cet appareil particulier, un développeur peut cibler cet appareil lors de l’envoi d’une notification à la balise `$InstallationId:{joe93developer}`. Ceci vous permet de cibler un appareil spécifique sans avoir à effectuer aucun codage supplémentaire.
 - L’utilisation d’installations vous permet également d’effectuer des mises à jour partielles d’inscriptions. La mise à jour partielle d’une installation est demandée avec une méthode PATCH utilisant la [norme JSON-Patch](https://tools.ietf.org/html/rfc6902). Cette opération est utile lorsque vous voulez mettre à jour des balises sur l’inscription. Il n’est pas nécessaire de retirer la totalité de l’inscription et de renvoyer à nouveau toutes les balises précédentes.
 
-Une installation peut contenir les propriétés suivantes. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) ou [Propriétés d’installation](https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.installation).
+Une installation peut contenir les propriétés suivantes. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec l’API REST](/rest/api/notificationhubs/create-overwrite-installation) ou [Propriétés d’installation](/dotnet/api/microsoft.azure.notificationhubs.installation).
 
 ```json
 // Example installation format to show some supported properties
@@ -100,7 +98,7 @@ Les inscriptions et les installations doivent contenir un handle PNS valide pour
 
 Si vous voulez utiliser des [modèles](notification-hubs-templates-cross-platform-push-messages.md), l’installation de l’appareil contient également tous les modèles associés à cet appareil au format JSON (voir l’exemple ci-dessus). Les noms de modèles permettent de cibler différents modèles pour le même appareil.
 
-Le nom de chaque modèle correspond à un corps de modèle et à un ensemble de balises en option. De plus, chaque plateforme peut avoir des propriétés de modèle supplémentaires. Dans le cas de Windows Store (via WNS) et de Windows Phone 8 (à l’aide de MPNS), un ensemble supplémentaire d’en-têtes peut faire partie du modèle. Dans le cas d’APNs, vous pouvez définir une propriété d’expiration sur une constante ou une expression de modèle. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec REST](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation) .
+Le nom de chaque modèle correspond à un corps de modèle et à un ensemble de balises en option. De plus, chaque plateforme peut avoir des propriétés de modèle supplémentaires. Dans le cas de Windows Store (via WNS) et de Windows Phone 8 (à l’aide de MPNS), un ensemble supplémentaire d’en-têtes peut faire partie du modèle. Dans le cas d’APNs, vous pouvez définir une propriété d’expiration sur une constante ou une expression de modèle. Pour obtenir la liste complète des propriétés d’installation, consultez [Créer ou remplacer une installation avec REST](/rest/api/notificationhubs/create-overwrite-installation) .
 
 ### <a name="secondary-tiles-for-windows-store-apps"></a>Vignettes secondaires pour les applications Windows Store
 
@@ -112,7 +110,7 @@ Le dictionnaire SecondaryTiles utilise le même paramètre TileId que celui qui 
 
 Lors de la gestion de l’inscription d’un appareil à partir des applications clientes, le serveur principal est uniquement chargé d’envoyer des notifications. Les applications clientes conservent les handles PNS à jour et inscrivent les balises. L’image suivante illustre ce modèle :
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
+![Inscription à partir de l’appareil](./media/notification-hubs-registration-management/notification-hubs-registering-on-device.png)
 
 L’appareil extrait d’abord le handle PNS du PNS, puis s’inscrit directement auprès du hub de notification. Une fois l’inscription effectuée, le serveur principal de l’application peut envoyer une notification ciblant cette inscription. Pour plus d’informations sur l’envoi de notifications, consultez [Routage et expressions de balises](notification-hubs-tags-segment-push-message.md).
 
@@ -125,11 +123,11 @@ L’inscription à partir de l’appareil est la méthode la plus simple, mais p
 
 ### <a name="example-code-to-register-with-a-notification-hub-from-a-device-using-an-installation"></a>Exemple de code permettant de s’inscrire auprès d’un hub de notification à partir d’un appareil à l’aide d’une installation
 
-Pour l’instant, il n’est pris en charge qu’à l’aide de l’ [API REST Notification Hubs](https://docs.microsoft.com/rest/api/notificationhubs/create-overwrite-installation).
+Pour l’instant, il n’est pris en charge qu’à l’aide de l’ [API REST Notification Hubs](/rest/api/notificationhubs/create-overwrite-installation).
 
 Vous pouvez également utiliser la méthode PATCH utilisant la [norme JSON-Patch](https://tools.ietf.org/html/rfc6902) pour la mise à jour de l’installation.
 
-```
+```csharp
 class DeviceInstallation
 {
     public string installationId { get; set; }
@@ -210,7 +208,7 @@ else
 
 Ces méthodes créent ou mettent à jour une inscription de l’appareil sur lequel elles sont appelées. Cela signifie que pour mettre à jour le handle ou les balises, vous devez remplacer la totalité de l’inscription. Sachez que les inscriptions sont temporaires, et que vous devez donc toujours disposer d’un stockage fiable avec les balises actuelles dont a besoin un appareil spécifique.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -265,7 +263,7 @@ catch (Microsoft.WindowsAzure.Messaging.RegistrationGoneException e)
 
 La gestion des inscriptions à partir du serveur principal nécessite l’écriture de code supplémentaire. L’application de l’appareil doit fournir le handle PNS mis à jour au serveur principal à chaque démarrage de l’application (avec les balises et les modèles), et le serveur principal doit mettre à jour ce handle sur le hub de notification. L’image suivante illustre cette conception :
 
-![](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
+![Gestion des inscriptions](./media/notification-hubs-registration-management/notification-hubs-registering-on-backend.png)
 
 Les avantages de la gestion des inscriptions à partir du serveur principal incluent la possibilité de modifier les balises aux inscriptions, même lorsque l’application correspondante est inactive sur l’appareil, et d’authentifier l’application cliente avant d’ajouter une balise à son inscription.
 
@@ -275,7 +273,7 @@ L’appareil client obtient toujours son handle PNS et les propriétés d’inst
 
 Vous pouvez également utiliser la méthode PATCH utilisant la [norme JSON-Patch](https://tools.ietf.org/html/rfc6902) pour la mise à jour de l’installation.
 
-```
+```csharp
 // Initialize the Notification Hub
 NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(listenConnString, hubName);
 
@@ -321,7 +319,7 @@ public async Task<HttpResponseMessage> Put(DeviceInstallation deviceUpdate)
 
 À partir de votre serveur principal d’application, vous pouvez effectuer les opérations CRUD de base sur les inscriptions. Par exemple :
 
-```
+```csharp
 var hub = NotificationHubClient.CreateClientFromConnectionString("{connectionString}", "hubName");
 
 // create a registration description object of the correct type, e.g.

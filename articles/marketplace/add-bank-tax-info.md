@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: blevens
-ms.openlocfilehash: bb6abc616be98f85228c4f84f37b26110b48c2ed
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9ad4841d805b604d0f44a9e0dc08eed15aa9c1f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824014"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75431989"
 ---
 # <a name="add-bank-and-tax-information"></a>Ajouter des informations fiscales et bancaires  
 
@@ -22,7 +22,7 @@ Les informations fiscales et bancaires sont requises pour toutes les offres comm
 
 ## <a name="partner-center"></a>Espace partenaire
 
-Les informations bancaires et fiscales sont désormais gérées dans l'Espace partenaire. Les instructions de configuration de ces paramètres sont disponibles à la section « Détails financiers » de [Gérer votre compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#financial-details).
+Les informations bancaires et fiscales sont désormais gérées dans l'Espace partenaire. Les instructions de configuration de ces paramètres sont disponibles à la page « Vue d’ensemble de la Place de marché commerciale » de [Gérer votre compte Espace partenaires](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#payout-account).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

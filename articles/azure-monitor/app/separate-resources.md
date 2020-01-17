@@ -1,5 +1,5 @@
 ---
-title: Séparation des télémétries de développement, de test et de publication dans Azure Application Insights | Documents Microsoft
+title: Séparation des données de télémétrie dans Azure Application Insights
 description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c58a54dd4916b5687d46cbf4b816bd656113f9ff
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406413"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
 
@@ -73,7 +73,7 @@ Dans le portail [portal.azure.com](https://portal.azure.com), ajoutez une ressou
 
 ![Cliquez sur Nouveau > Application Insights](./media/separate-resources/01-new.png)
 
-* **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md)Microsoft Azure. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web.
+* **type d’application** définit le contenu du panneau de présentation et les propriétés disponibles dans [Metrics ExplorerMicrosoft Azure. Si vous ne voyez pas votre type d’application, choisissez un des types web pour les pages web.
 * **Groupe de ressources** facilite la gestion des propriétés telles que le [contrôle d’accès](../../azure-monitor/app/resources-roles-access-control.md). Vous pouvez utiliser des groupes de ressources distincts pour le développement, le test et la production.
 * **Abonnement** est votre compte de paiement dans Azure.
 * **Emplacement** correspond à l’endroit où nous conservons vos données. Actuellement, il n’est pas possible de le modifier. 

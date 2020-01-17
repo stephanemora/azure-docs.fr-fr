@@ -1,25 +1,16 @@
 ---
-title: Proxy inverse Azure Service Fabric | Microsoft Docs
+title: Proxy inverse Azure Service Fabric
 description: Utilisez le proxy inverse de Service Fabric pour assurer les communications avec les microservices de l’intérieur et de l’extérieur du cluster.
-services: service-fabric
-documentationcenter: .net
 author: BharatNarasimman
-manager: chackdan
-editor: vturecek
-ms.assetid: 47f5c1c1-8fc8-4b80-a081-bc308f3655d3
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: required
 ms.date: 11/03/2017
 ms.author: bharatn
-ms.openlocfilehash: 6ce6f1f6559b43a64fb7edd0773a20f8ee0cf8a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fa4c6e46dd786b833087f892d995e85b5d2ea47
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837939"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464299"
 ---
 # <a name="reverse-proxy-in-azure-service-fabric"></a>Proxy inverse dans Azure Service Fabric
 Le proxy inverse intégré à Azure Service Fabric permet aux microservices exécutés dans un cluster Service Fabric de découvrir d’autres services détenant des points de terminaison http et de communiquer avec ces services.
@@ -87,7 +78,7 @@ http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?
 * **TargetReplicaSelector :** spécifie le mode de sélection à utiliser pour le réplica cible ou l’instance.
   * Lorsque le service cible est avec état, le paramètre TargetReplicaSelector peut être défini sur :  « PrimaryReplica », « RandomSecondaryReplica » ou « RandomReplica ». Lorsque ce paramètre n’est pas spécifié, la valeur par défaut est « PrimaryReplica ».
   * Lorsque le service cible est sans état, le proxy inverse transfère la demande à une instance aléatoire de la partition de service.
-* **Timeout :**  spécifie le délai d’attente de la requête HTTP créée par le proxy inverse pour le service, pour le compte de la requête du client. La valeur par défaut est de 60 secondes. Paramètre facultatif.
+* **Timeout :**  spécifie le délai d’attente de la requête HTTP créée par le proxy inverse pour le service, pour le compte de la requête du client. La valeur par défaut est 60 secondes. Il s'agit d'un paramètre facultatif.
 
 ### <a name="example-usage"></a>Exemple d’utilisation
 Prenons l’exemple du service *fabric:/MyApp/MyService*, qui ouvre un écouteur HTTP sur l’URL suivante :

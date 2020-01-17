@@ -1,25 +1,16 @@
 ---
-title: Modifier les paramètres de KVSActorStateProvider dans les acteurs Azure Service Fabric | Microsoft Docs
+title: Modifier les paramètres KVSActorStateProvider
 description: Découvrez comment configurer les acteurs avec état Azure Service Fabric de type KVSActorStateProvider.
-services: Service-Fabric
-documentationcenter: .net
 author: sumukhs
-manager: chackdan
-editor: ''
-ms.assetid: dbed72f4-dda5-4287-bd56-da492710cd96
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 8b10ef18fd389179a4f5422783606c45fa2e0d32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cdb115bd57cf3d5af4388f4efa03c2522feef9ca
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60728047"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609772"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Configuration de Reliable Actors - KVSActorStateProvider
 Vous pouvez modifier la configuration par défaut de KVSActorStateProvider en modifiant le fichier settings.xml généré dans la racine du package Microsoft Visual Studio sous le dossier Config de l’acteur spécifié.
@@ -32,7 +23,7 @@ Le runtime Azure Service Fabric recherche des noms de sections prédéfinis dans
 > 
 
 ## <a name="replicator-security-configuration"></a>Configuration de la sécurité du réplicateur
-Les configurations de sécurité du réplicateur sont utilisées pour sécuriser le canal de communication utilisé pendant la réplication. Un service ne peut donc pas afficher le trafic de réplication d’un autre service, ce qui garantit la sécurité des données rendues hautement disponibles.
+Les configurations de sécurité du réplicateur sont utilisées pour sécuriser le canal de communication utilisé lors de la réplication. Un service ne peut donc pas afficher le trafic de réplication d’un autre service, ce qui garantit la sécurité des données rendues hautement disponibles.
 Par défaut, une section de configuration de sécurité vide empêche de sécuriser la réplication.
 
 > [!IMPORTANT]
@@ -49,12 +40,12 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
 ### <a name="section-name"></a>Nom de la section
 &lt;ActorName&gt;ServiceReplicatorConfig
 
-### <a name="configuration-names"></a>Noms des configurations
-| Nom | Unité | Valeur par défaut | Remarques |
+### <a name="configuration-names"></a>Noms de configuration
+| Name | Unité | Valeur par défaut | Notes |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondes |0.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
 | ReplicatorEndpoint |N/A |Aucune valeur par défaut (paramètre obligatoire) |Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Pour en savoir plus sur la définition de ressources de point de terminaison dans le manifeste de service, consultez [Ressources du manifeste de service](service-fabric-service-manifest-resources.md) . |
-| RetryInterval |Secondes |5\. |Période après laquelle le réplicateur retransmet un message s'il ne reçoit aucun accusé de réception pour une opération. |
+| RetryInterval |Secondes |5 |Période après laquelle le réplicateur retransmet un message s'il ne reçoit aucun accusé de réception pour une opération. |
 | MaxReplicationMessageSize |Octets |50 Mo |Taille maximale des données de réplication pouvant être transmises dans un même message. |
 | MaxPrimaryReplicationQueueSize |Nombre d'opérations |1 024 |Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
 | MaxSecondaryReplicationQueueSize |Nombre d'opérations |2 048 |Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
@@ -66,11 +57,11 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
 ### <a name="section-name"></a>Nom de la section
 &lt;ActorName&gt;ServiceLocalStoreConfig
 
-### <a name="configuration-names"></a>Noms des configurations
-| Nom | Unité | Valeur par défaut | Remarques |
+### <a name="configuration-names"></a>Noms de configuration
+| Name | Unité | Valeur par défaut | Notes |
 | --- | --- | --- | --- |
 | MaxAsyncCommitDelayInMilliseconds |Millisecondes |200 |Définit l'intervalle maximal de traitement par lot pour les validations de magasin local durables. |
-| MaxVerPages |Nombre de pages |16 384 |Nombre maximal de pages de version dans la base de données du magasin local. Il détermine le nombre maximal de transactions en attente. |
+| MaxVerPages |Nombre de pages |16384 |Nombre maximal de pages de version dans la base de données du magasin local. Il détermine le nombre maximal de transactions en attente. |
 
 ## <a name="sample-configuration-file"></a>Exemple de fichier de configuration
 ```xml
@@ -94,7 +85,7 @@ La configuration par défaut est générée par le modèle Visual Studio et devr
    </Section>
 </Settings>
 ```
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 Le paramètre BatchAcknowledgementInterval contrôle la latence de la réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception).
 Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
 

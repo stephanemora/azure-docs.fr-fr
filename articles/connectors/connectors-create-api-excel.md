@@ -1,22 +1,22 @@
 ---
-title: Se connecter à Excel Online
-description: Gérer les données avec les API REST de Excel Online et Azure Logic Apps
+title: Gérer les données, feuilles de calcul et tables dans Excel Online
+description: Gérer les données de feuilles de calcul et de tables dans Excel Online pour les entreprises ou dans Excel Online pour OneDrive à l’aide d’Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: a4356b4f88df3fc457917be563a79e9054a1638e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1df1219590aa94331a4404b1315eb7231c59699
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445883"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gérer les données Excel Online avec Azure Logic Apps
 
-Avec Azure Logic Apps et le connecteur Excel Online, vous pouvez créer des tâches et des workflows automatisés basés sur vos données dans Excel Online Entreprise ou OneDrive. Ce connecteur fournit des actions qui vous aident à travailler avec vos données et à gérer des feuilles de calcul, par exemple :
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le connecteur [Excel Online pour les entreprises](/connectors/excelonlinebusiness/) ou le connecteur [Excel Online pour OneDrive](/connectors/excelonline/), vous pouvez créer des tâches et des flux de travail automatisés basés sur vos données dans Excel Online pour les entreprises ou OneDrive. Ce connecteur fournit des actions qui vous aident à travailler avec vos données et à gérer des feuilles de calcul, par exemple :
 
 * Créer des tables et des feuilles de calcul.
 * Obtenir et gérer des feuilles de calcul, des tables et des lignes.
@@ -29,7 +29,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 > [!NOTE]
 > Les connecteurs [Excel Online pour les entreprises](/connectors/excelonlinebusiness/) et [Excel en ligne pour OneDrive](/connectors/excelonline/) fonctionnent avec Azure Logic Apps et diffère du [connecteur Excel pour PowerApps](/connectors/excel/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -40,7 +40,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 * Des connaissances de base en [création d’applications logiques](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L’application logique à partir de laquelle vous souhaitez accéder à vos données Excel Online. Ce connecteur fournit uniquement des actions, par conséquent, pour démarrer votre application logique, sélectionnez un déclencheur distinct, par exemple, le déclencheur **Périodicité**.
+* L’application logique à partir de laquelle vous souhaitez accéder à vos données Excel Online. Ce connecteur ne fournit que des actions ; ainsi, pour démarrer votre application logique, sélectionnez un déclencheur distinct, par exemple, le déclencheur **Périodicité**.
 
 ## <a name="add-excel-action"></a>Ajouter une action Excel
 

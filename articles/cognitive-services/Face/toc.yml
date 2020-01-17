@@ -1,9 +1,9 @@
-- name: Documentation sur l'API Face
+- name: Documentation Visage
   href: index.yml
 - name: Vue d’ensemble
   expanded: true
   items:
-    - name: Qu’est ce que le l’API Visage ?
+    - name: "Qu’est ce que le service Visage\_?"
       href: Overview.md
 - name: Démarrages rapides
   items:
@@ -77,7 +77,7 @@
           href: face-resource-container-config.md
         - name: Utiliser des instances de conteneur
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: Utilisez le service connecté de l’API Visage
+    - name: Utiliser le service connecté Visage
       href: vs-face-connected-service.md
 - name: Informations de référence
   items:
@@ -101,7 +101,7 @@
   items:
     - name: Exemples
       items:
-        - name: Exemples d’API Visage
+        - name: Exemples de visage
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: Tarification et limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'

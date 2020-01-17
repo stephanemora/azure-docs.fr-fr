@@ -1,5 +1,5 @@
 ---
-title: Compromis entre disponibilité et performance pour différents niveaux de cohérence dans Azure Cosmos DB
+title: Compromis entre cohérence, disponibilité et niveau de performance d’Azure Cosmos DB
 description: Compromis entre disponibilité et performance pour différents niveaux de cohérence dans Azure Cosmos DB.
 author: markjbrown
 ms.author: mjbrown
@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a16acfc8f9be820e9cc9b3bd59d6675b7f75d2ef
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990617"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445561"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>Cohérence, disponibilité et compromis sur les performances 
 
@@ -69,7 +69,7 @@ Les comptes Cosmos configurés pour une architecture multimaître ne peuvent pas
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les compromis en matière de distribution globale et de cohérence générale dans les systèmes distribués. Consultez les articles suivants :
+En savoir plus sur les compromis en matière de distribution globale et de cohérence générale dans les systèmes distribués. Voir les articles suivants :
 
 - [Compromis en matière de cohérence dans la conception des systèmes de base de données distribuées modernes](https://www.computer.org/csdl/magazine/co/2012/02/mco2012020037/13rRUxjyX7k)
 - [Haute disponibilité](high-availability.md)

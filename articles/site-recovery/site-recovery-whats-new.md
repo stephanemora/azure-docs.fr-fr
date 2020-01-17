@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: aa98509ba71ec0797d4b59be9e4df1dea064c933
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091702"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75351459"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -189,7 +189,7 @@ Le [Correctif cumulatif 38](https://support.microsoft.com/help/4513507/) fournit
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif)
 
 
-### <a name="general"></a>Généralités
+### <a name="general"></a>Général
 
 Site Recovery prend désormais en charge l’utilisation de comptes de stockage v2 à usage général pour le stockage de cache ou le stockage cible. Auparavant, seul v1 était pris en charge.
 
@@ -348,7 +348,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
  
 **Fonctionnalité** | **Détails**
 --- | ---
-**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10/7.6, et nouvelles versions de noyau pour Ubuntu, Debian et SUSE.
+**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 et Oracle Linux 7.6, et nouvelles versions de noyau pour Ubuntu, Debian et SUSE.
 
 
 ### <a name="update-rollup-31"></a>Correctif cumulatif 31 
@@ -364,7 +364,7 @@ Le [Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-ro
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Fonctionnalité** | **Détails**
 --- | ---
-**Prise en charge de Linux** | Nouvelle prise en charge d’Oracle Linux 6.8 et 6.9/7.0, et pour le noyau UEK5.
+**Prise en charge de Linux** |  Nouvelle prise en charge d’Oracle Linux 6.8, Oracle Linux 6.9 et Oracle Linux 7.0 avec le noyau compatible Red Hat et pour le noyau Unbreakable Enterprise Kernel (UEK) Release 5.
 **LVM** | Prend désormais en charge les volumes LVM et LVM2.<br/><br/> Le répertoire /boot des partitions de disque et des volumes LVM est maintenant pris en charge.
 **Directories** | Prend désormais en charge les répertoires configurés en tant que partitions distinctes, ou les systèmes de fichiers qui ne se trouvent pas sur le même disque système :<br/><br/> /(root), /boot, /usr, /usr/local, /var, /etc.
 **Windows Server 2008** | Prend désormais en charge les disques dynamiques.
@@ -376,7 +376,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
 --- | ---
-**Prise en charge de Linux** | Nouvelle prise en charge d’Oracle Linux 6.8 et 6.9/7.0, et du noyau UEK5.
+**Prise en charge de Linux** | Nouvelle prise en charge d’Oracle Linux 6.8, Oracle Linux 6.9 et Oracle Linux 7.0 avec le noyau compatible Red Hat et pour le noyau Unbreakable Enterprise Kernel (UEK) Release 5.
 **Système de fichiers Linux BTRFS** | Pris en charge pour les machines virtuelles Azure.
 **Machines virtuelles Azure dans les zones de disponibilité** | Vous pouvez activer la réplication vers une autre région pour les machines virtuelles Azure déployées dans les zones de disponibilité. Vous pouvez désormais activer la réplication pour une machine virtuelle Azure et définir comme cible du basculement une instance de machine virtuelle unique, une machine virtuelle dans un groupe à haute disponibilité ou une machine virtuelle dans une zone de disponibilité. Le paramètre n’impacte pas la réplication. [Lisez](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region/) l’annonce.
 **Stockage avec pare-feu (portail/PowerShell)** | Nouvelle prise en charge des [comptes de stockage avec pare-feu](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Vous pouvez répliquer des machines virtuelles Azure avec des disques non managés sur des comptes de stockage avec pare-feu sur une autre région Azure pour les scénarios de récupération d’urgence.<br/><br/> Vous pouvez utiliser des comptes de stockage avec pare-feu en tant que comptes de stockage cibles pour des disques non managés.<br/><br/> Fonction prise en charge dans le portail et avec PowerShell.

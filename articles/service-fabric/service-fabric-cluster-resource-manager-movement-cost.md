@@ -1,28 +1,19 @@
 ---
-title: 'Service Fabric Cluster Resource Manager : Coût du déplacement | Microsoft Docs'
-description: Présentation du coût du mouvement pour les services Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: 'Service Fabric Cluster Resource Manager : Coût du déplacement'
+description: En savoir plus sur le coût du déplacement pour les services Service Fabric, et sur la façon dont il peut être spécifié pour répondre à n’importe quel besoin architectural, y compris une configuration dynamique.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: f022f258-7bc0-4db4-aa85-8c6c8344da32
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 80845fca8d163a4ebe9257f19825624acef3a815
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: af3e01d0d5a605c052be24eed8e14ee3449e2c79
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243013"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563341"
 ---
 # <a name="service-movement-cost"></a>Coût du déplacement de services
-L’un des facteurs que Service Fabric Cluster Resource Manager prend en compte pour déterminer les modifications à apporter à un cluster est leur coût. La notion de « coût » est mise en balance avec la capacité d’amélioration du cluster. Le coût est pris en compte lors du déplacement de services à des fins d’équilibrage, de défragmentation ou autres. L’objectif est de répondre aux exigences en limitant les perturbations et le coût. 
+L’un des facteurs que Service Fabric Cluster Resource Manager prend en compte pour déterminer les modifications à apporter à un cluster est leur coût. La notion de « coût » est mise en balance avec la capacité d’amélioration du cluster. Le coût est pris en compte lors du déplacement de services à des fins d’équilibrage, de défragmentation ou autres. L’objectif est de répondre aux exigences en limitant les perturbations et le coût.
 
 Le déplacement de services coûte au minimum du temps processeur et de la bande passante réseau. Pour les services avec état, il suppose de copier l’état de ces services, ce qui consomme davantage de mémoire et de disque. Réduire le coût des solutions fournies par Azure Service Fabric Cluster Resource Manager permet de s’assurer que les ressources du cluster ne sont pas exploitées inutilement. Mais il ne faut pas non plus ignorer les solutions qui pourraient améliorer considérablement l’allocation de ressources dans le cluster.
 
@@ -33,7 +24,7 @@ Cette stratégie fonctionne bien. Mais, comme avec les charges par défaut ou st
 ## <a name="setting-move-costs"></a>Définir les coûts de déplacement 
 Vous pouvez spécifier le coût par défaut de déplacement d’un service lors de sa création :
 
-PowerShell :
+PowerShell :
 
 ```posh
 New-ServiceFabricService -ApplicationName $applicationName -ServiceName $serviceName -ServiceTypeName $serviceTypeName –Stateful -MinReplicaSetSize 3 -TargetReplicaSetSize 3 -PartitionSchemeSingleton -DefaultMoveCost Medium
@@ -51,7 +42,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 
 Vous pouvez également spécifier ou mettre à jour dynamiquement MoveCost pour un service après sa création : 
 
-PowerShell : 
+PowerShell : 
 
 ```posh
 Update-ServiceFabricService -Stateful -ServiceName "fabric:/AppName/ServiceName" -DefaultMoveCost High
@@ -81,7 +72,7 @@ MoveCost comporte cinq niveaux : Zero, Low, Medium, High et VeryHigh. Les règl
 * À l’exception de Zero et VeryHigh, ces niveaux MoveCost sont liés les uns aux autres. 
 * Un coût de déplacement de zéro signifie que le déplacement est gratuit et ne doit pas compter dans le score de la solution.
 * Le fait de régler votre coût de déplacement sur High ou VeryHigh ne permet *pas* de garantir que le réplica ne sera *jamais* déplacé.
-* Les réplicas avec un coût de déplacement VeryHigh sont déplacés uniquement une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon (même si elle nécessite de déplacer de nombreux autres réplicas pour résoudre la violation)
+* Les réplicas avec un coût de déplacement VeryHigh sont déplacés uniquement si une violation de contrainte existant dans le cluster ne peut pas être résolue d’une autre façon (même si elle nécessite de déplacer de nombreux autres réplicas pour résoudre la violation)
 
 
 

@@ -1,20 +1,16 @@
 ---
-title: Configurer un environnement de développement Windows pour créer des applications Service Fabric Mesh | Microsoft Docs
+title: Configurer un environnement de développement Windows pour Service Fabric Mesh
 description: Configurez votre environnement de développement Windows afin de pouvoir créer une application de maillage Service Fabric et la déployer dans Azure Service Fabric Mesh.
-services: service-fabric-mesh
-keywords: ''
 author: dkkapur
 ms.author: dekapur
 ms.date: 12/12/2018
 ms.topic: conceptual
-ms.service: service-fabric-mesh
-manager: chakdan
-ms.openlocfilehash: 5ab817c65ab562f37b456cc3589624c1876084f0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a674047722d4deca02d8f4d38a0826e479065037
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66428203"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496364"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurer votre environnement de développement Windows pour créer des applications Service Fabric Mesh
 
@@ -56,7 +52,7 @@ Si Hyper-V n’est pas activé sur votre ordinateur, le programme d’installati
 
 #### <a name="install-docker-on-windows-server-2016"></a>Installer Docker sous Windows Server 2016
 
-Si le rôle Hyper-V n’est pas activé, ouvrez PowerShell en tant qu’administrateur et exécutez la commande suivante pour activer Hyper-V, puis redémarrez votre ordinateur. Pour plus d’informations, voir [Docker Enterprise Edition pour Windows Server][download-docker-server].
+Si le rôle Hyper-V n’est pas activé, ouvrez PowerShell en tant qu’administrateur et exécutez la commande suivante pour activer Hyper-V, puis redémarrez votre ordinateur. Pour plus d’informations, consultez [Docker Enterprise Edition pour Windows Server][download-docker-server].
 
 ```powershell
 Install-WindowsFeature -Name Hyper-V -IncludeManagementTools
@@ -77,7 +73,7 @@ Install-WindowsFeature Containers
 Installez le runtime, le kit de développement logiciel (SDK) et les outils Service Fabric Mesh dans l’ordre suivant.
 
 1. Installez le [Kit de développement logiciel (SDK) Service Fabric Mesh][download-sdkmesh] à l’aide de Web Platform Installer. Cela installera également le Kit de développement logiciel (SDK) et le runtime Microsoft Azure Service Fabric.
-2. Installez [l’extension Visual Studio Service Fabric Mesh Tools (préversion)][download-tools] à partir de Visual Studio Marketplace.
+2. Installez l’[extension Visual Studio Service Fabric Mesh Tools (préversion)][download-tools] à partir de Visual Studio Marketplace.
 
 ## <a name="build-a-cluster"></a>Générer un cluster
 

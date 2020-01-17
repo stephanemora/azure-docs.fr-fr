@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 398b68221681f0d14dbcc20ac7c0cb603313eaee
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f6a7f3e4e1470bc3788ceae68f035f68f05ae449
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919461"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423546"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Application web qui appelle des API web - acquisition d’un jeton pour l’application
 
@@ -33,7 +33,7 @@ Maintenant que vous avez généré l’objet d’application cliente, vous allez
 
 Les méthodes de contrôleur sont protégées par un attribut `[Authorize]` qui force les utilisateurs à s’authentifier pour utiliser l’application web. Voici le code qui appelle Microsoft Graph.
 
-```CSharp
+```csharp
 [Authorize]
 public class HomeController : Controller
 {
@@ -54,7 +54,7 @@ Le service `ITokenAcquisition` est injecté par ASP.NET par injection de dépend
 
 Voici un code simplifié de l’action du HomeController, qui obtient un jeton pour appeler Microsoft Graph.
 
-```CSharp
+```csharp
 public async Task<IActionResult> Profile()
 {
  // Acquire the access token

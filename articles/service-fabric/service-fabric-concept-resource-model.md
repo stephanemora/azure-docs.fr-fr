@@ -1,18 +1,14 @@
 ---
-title: Modèle de ressource d’application Azure Service Fabric | Microsoft Docs
+title: Modèle de ressource d’application Azure Service Fabric
 description: Cet article fournit une vue d’ensemble de la gestion d’une application Service Fabric Azure avec Azure Resource Manager
-services: service-fabric
-author: athinanthny
-ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 10/21/2019
-ms.author: atsenthi
-ms.openlocfilehash: b9a3534c24649e71385cd8fdc8b4981ac471cf90
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b3cf0b8f21565a8d51b16ff6c8b4c52bbfe8edc8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752317"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464808"
 ---
 # <a name="what-is-the-service-fabric-application-resource-model"></a>Qu’est-ce qu’un modèle de ressource d’application Service Fabric ?
 Le déploiement d’applications Service Fabric dans votre cluster Service Fabric par le biais d’Azure Resource Manager est recommandé. Cette méthode permet de décrire les applications et les services au format JSON et de les déployer dans le même modèle Resource Manager que votre cluster. Au lieu de déployer et de gérer des applications via PowerShell ou Azure CLI, il n’est pas nécessaire d’attendre que le cluster soit prêt. Le processus d’inscription, d’approvisionnement et de déploiement d’applications peut s’effectuer en une seule étape. Il est recommandé de gérer le cycle de vie des applications dans votre cluster. Pour plus d’informations, consultez les [meilleures pratiques](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
@@ -28,7 +24,7 @@ Dans ce document, découvrez comment :
 > [!div class="checklist"]
 > * déployer des ressources d’application à l’aide d’Azure Resource Manager 
 > * mettre à niveau des ressources d’application à l’aide d’Azure Resource Manager
-> * supprimer des ressources d’application
+> * Supprimer des ressources d’application
 
 ## <a name="deploy-application-resources-using-azure-resource-manager"></a>déployer des ressources d’application à l’aide d’Azure Resource Manager  
 Pour déployer une application et ses services à l’aide du modèle de ressources d’application Azure Resource Manager, vous devez empaqueter le code de l’application, télécharger le package, puis référencer l’emplacement du package dans un modèle Azure Resource Manager en tant que ressource d’application. Pour plus d’informations, consultez [Empaqueter une application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
@@ -72,7 +68,7 @@ L’exemple d’application contient des [Modèles Azure Resource Manager](https
 >
 >
 
-| Paramètre              | Description                                 | Exemples                                                      | Commentaires                                                     |
+| Paramètre              | Description                                 | Exemple                                                      | Commentaires                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | Le nom du cluster de déploiement | sf-cluster123                                                |                                                              |
 | application            | Nom de l’application                 | Vote                                                       |

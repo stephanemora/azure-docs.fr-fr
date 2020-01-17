@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: a4258b51acfa603c156bc35cdb2cbc3b16f37ab0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 85b1d6b532ba11819947558226291e62af6b5119
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278364"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75690928"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Surveiller visuellement Azure Data Factory
 
@@ -35,8 +35,8 @@ L’affichage de la surveillance par défaut est la liste des exécutions de pip
 | Duration | Durée d’exécution (HH:MM:SS) |
 | Déclenché par | Nom du déclencheur qui a démarré le pipeline |
 | Statut | **Échec**, **Réussite**, **En cours**, **Annulée** ou **En file d'attente** |
-| annotations | Balises filtrables associées à un pipeline  |
-| parameters | Paramètres d’exécution de pipeline (paires nom/valeur) |
+| Annotations | Balises filtrables associées à un pipeline  |
+| Paramètres | Paramètres d’exécution de pipeline (paires nom/valeur) |
 | Error | En cas d’échec du pipeline, l’erreur d’exécution |
 | ID d’exécution | ID de l’exécution de pipeline |
 
@@ -93,7 +93,7 @@ Activez/désactivez si les exécutions du pipeline seront décroissantes ou croi
 | Nom du pipeline | Filtrez en fonction du nom du pipeline. |
 | Démarrage de l’exécution |  Déterminez l’intervalle de temps des exécutions de pipeline affichées. Il existe des options de filtre rapide comme **Dernières 24 heures**, **La semaine dernière**, **Les 30 derniers jours**, et vous pouvez aussi sélectionner une heure et une date personnalisées. |
 | État de l’exécution | Filtrez les exécutions par état : **Réussite**, **Échec**, **En file d’attente**, **Annulée** ou **En cours**. |
-| annotations | Filtrer en fonction des balises appliquées à chaque pipeline |
+| Annotations | Filtrer en fonction des balises appliquées à chaque pipeline |
 | Exécutions | Filtrer si vous souhaitez voir des nouvelles exécutions de pipelines |
 
 ![Options de filtrage](media/monitor-visually/filter.png)
@@ -113,6 +113,12 @@ Vous pouvez réexécuter des activités à l’intérieur d’un pipeline. Séle
 ![Afficher les exécutions d’activités](media/monitor-visually/rerun-activities-image1.png)
 
 ![Sélectionner une exécution d’activité](media/monitor-visually/rerun-activities-image2.png)
+
+### <a name="rerun-from-failed-activity"></a>Réexécuter à partir d’une activité ayant échoué
+
+Si une activité échoue, expire ou est annulée, vous pouvez réexécuter le pipeline à partir de cette activité ayant échoué en sélectionnant **Réexécuter à partir d’une activité ayant échoué**.
+
+![Réexécuter une activité ayant échoué](media/monitor-visually/rerun-failed-activity.png)
 
 ### <a name="view-rerun-history"></a>Voir l’historique des réexécutions
 

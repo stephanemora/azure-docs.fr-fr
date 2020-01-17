@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 11/08/2019
 ms.author: tamram
-ms.openlocfilehash: 0fda881b805eb3a967cf3b05f6c6df8c65d20730
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 2ed88d8abb7cbe96093b68d89030e6e464a35541
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905780"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392415"
 ---
 | Ressource | Cible        |
 |----------|---------------|
@@ -20,9 +20,9 @@ ms.locfileid: "73905780"
 | Taille maximale d’un bloc dans un objet blob d’ajout | 4 Mio |
 | Taille maximale d’un objet blob d’ajout | 50 000 x 4 Mio (environ 195 Gio) |
 | Taille maximale d’un objet blob de pages | 8 Tio |
-| Nombre maximal de stratégies d’accès stockées par conteneur d’objets blob | 5\. |
+| Nombre maximal de stratégies d’accès stockées par conteneur d’objets blob | 5 |
 |Taux de requêtes cibles pour un seul objet blob | Jusqu’à 500 requêtes par seconde |
 |Débit cible pour un blob de page unique | Jusqu’à 60 Mio par seconde |
 |Débit cible pour un objet blob de blocs unique |Jusqu’à la limite d’entrée/sortie du compte de stockage<sup>1</sup> |
 
-<sup>1</sup> Le débit cible d’un objet unique dépend de plusieurs facteurs, dont et sans s’y limiter : concurrence, taille de la demande, niveau de performance, vitesse des chargements à la source et des téléchargements à la destination. Pour tirer parti des améliorations de performances des [objets blob de bloc à haut débit](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), utilisez une taille de demande Put Blob ou Put Block inférieure à 4 MiB (inférieure à 256 Kio pour le stockage d’objets blob de bloc ou le stockage Data Lake Gen2 avec performances premium).
+<sup>1</sup> Le débit pour un seul objet blob dépend de plusieurs facteurs, dont et sans s’y limiter : concurrence, taille de la demande, niveau de performance, vitesse des chargements à la source et des téléchargements à la destination. Pour tirer parti des améliorations des performances des [objets blob de blocs à haut débit](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/), chargez des objets blob ou des blocs plus volumineux. En particulier, appelez l’opération [Put Blob](/rest/api/storageservices/put-blob) ou [Put Block](/rest/api/storageservices/put-block) avec une taille d’objet blob ou de bloc supérieure à 4 Mio pour les comptes de stockage standard. Pour les objets blob de blocs Premium ou pour les comptes de stockage Data Lake Storage Gen2, utilisez une taille de bloc ou d’objet blob supérieure à 256 Kio.

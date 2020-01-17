@@ -1,19 +1,19 @@
 ---
 title: SDK REST du serveur de requêtes Phoenix - Azure HDInsight
 description: Installer et utiliser le SDK REST pour le serveur de requêtes Phoenix dans Azure HDInsight.
-ms.service: hdinsight
 author: ashishthaps
 ms.author: ashishth
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/04/2017
-ms.openlocfilehash: c9e9258fb7ace93d0866463563d328456cbd1daa
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 01/01/2020
+ms.openlocfilehash: 84c2bad1004029fe61dcfc19321957a170284587
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311681"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75612255"
 ---
 # <a name="apache-phoenix-query-server-rest-sdk"></a>SDK REST Apache Phoenix Query Server
 
@@ -77,7 +77,7 @@ Voici certaines propriétés intéressantes :
 | Lecture seule | Booléen indiquant si la connexion est en lecture seule. |
 | TransactionIsolation | Entier indiquant le niveau d’isolation des transactions selon la spécification JDBC ; consultez le tableau suivant.|
 | Catalogue | Nom du catalogue à utiliser lors de la récupération des propriétés de connexion. |
-| Schéma | Nom du schéma à utiliser lors de la récupération des propriétés de connexion. |
+| schéma | Nom du schéma à utiliser lors de la récupération des propriétés de connexion. |
 | IsDirty | Booléen indiquant si les propriétés ont été modifiées. |
 
 Voici les valeurs `TransactionIsolation` :
@@ -94,7 +94,7 @@ Voici les valeurs `TransactionIsolation` :
 
 HBase, comme n’importe quel autre SGBDR, stocke les données dans des tables. Phoenix utilise des requêtes SQL standard pour créer de nouvelles tables lors de la définition de la clé primaire et des types de colonnes.
 
-Cet exemple et tous les suivants utilisez l’objet `PhoenixClient` instancié tel que défini dans [Instancier un nouvel objet PhoenixClient](#instantiate-new-phoenixclient-object).
+Cet exemple et tous les exemples suivants utilisent l’objet `PhoenixClient` instancié tel que défini dans [Instancier un nouvel objet PhoenixClient](#instantiate-new-phoenixclient-object).
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -170,7 +170,7 @@ Cet exemple montre une insertion de données individuelles, en faisant référen
 var states = new List<string> { "AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY" };
 ```
 
-La valeur de colonne `StateProvince` de la table sera utilisée dans une opération de sélection suivante.
+La valeur de colonne `StateProvince` de la table sera utilisée dans une opération de sélection ultérieure.
 
 ```csharp
 string connId = Guid.NewGuid().ToString();
@@ -277,7 +277,7 @@ finally
 }
 ```
 
-La structure d’exécution d’une instruction d’insertion est similaire à la création d’une nouvelle table. Notez qu’à la fin du bloc `try`, la transaction est validée explicitement. Cet exemple répète une transaction d’insertion 300 fois. L’exemple suivant montre un processus d’insertion par lot plus efficace.
+La structure d’exécution d’une instruction d’insertion est similaire à la création d’une nouvelle table. À la fin du bloc `try`, la transaction est validée explicitement. Cet exemple répète une transaction d’insertion 300 fois. L’exemple suivant montre un processus d’insertion par lot plus efficace.
 
 ## <a name="batch-insert-data"></a>Insertion par lot des données
 
@@ -393,7 +393,7 @@ finally
 
 Dans un environnement de test, l’insertion individuellement de 300 nouveaux enregistrements a nécessité près de 2 minutes. En revanche, l’insertion des 300 enregistrements par lot n’a pris que 6 secondes.
 
-## <a name="select-data"></a>Sélectionner des données
+## <a name="select-data"></a>Sélectionner les données
 
 Cet exemple montre comment réutiliser une connexion pour exécuter plusieurs requêtes :
 
@@ -537,7 +537,7 @@ MH: 6
 FM: 5
 ```
 
-## <a name="next-steps"></a>Étapes suivantes 
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Apache Phoenix dans HDInsight](../hdinsight-phoenix-in-hdinsight.md)
 * [Utilisation du SDK REST Apache HBase](apache-hbase-rest-sdk.md)

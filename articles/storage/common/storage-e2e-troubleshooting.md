@@ -1,21 +1,23 @@
 ---
-title: Résolution des problèmes de stockage Azure avec les diagnostics et Message Analyzer | Microsoft Docs
+title: Résolution des problèmes liés aux opérations de données avec les diagnostics et Message Analyzer
+titleSuffix: Azure Storage
 description: Didacticiel illustrant la résolution des problèmes de bout en bout avec Azure Storage Analytics, AzCopy et Microsoft Message Analyzer
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/15/2017
+ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2ca81280bed52508c606a5a693fe0162837ac117
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 7a0cf3c41929eb6a020a9d4761b08a2a4f2f6caa
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854623"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460387"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Résolution des problèmes de bout en bout avec les métriques et la journalisation Stockage Azure, AzCopy et Message Analyzer
+
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
 
 Diagnostic et résolution des problèmes sont essentiels pour la création et la prise en charge d'applications clientes avec Microsoft Azure Storage. En raison de la nature distribuée d'une application Azure, diagnostic et résolution des erreurs et des problèmes de performances peuvent être plus complexes que dans les environnements traditionnels.
@@ -25,6 +27,7 @@ Dans ce didacticiel, nous allons montrer comment identifier certaines erreurs qu
 Ce didacticiel fournit une exploration pratique d'un scénario de dépannage de bout en bout. Pour un guide conceptuel détaillé du dépannage des applications de stockage Azure, consultez la page [Analyse, diagnostic et résolution des problèmes rencontrés sur Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
 ## <a name="tools-for-troubleshooting-azure-storage-applications"></a>Outils de résolution des problèmes dans les applications Azure Storage
+
 Pour résoudre les problèmes des applications clientes utilisant Microsoft Azure Storage, vous pouvez faire appel à une combinaison d'outils afin de déterminer quand un problème s'est produit et quelle peut en être la cause. Ces outils incluent :
 
 * **Azure Storage Analytics**. [Azure Storage Analytics](/rest/api/storageservices/Storage-Analytics) fournit des métriques et une journalisation pour Azure Storage.
@@ -39,6 +42,7 @@ Pour résoudre les problèmes des applications clientes utilisant Microsoft Azur
 * **Microsoft Message Analyzer**. Message Analyzer est un outil qui utilise des fichiers journaux et affiche les données des journaux dans un format visuel qui facilite le filtrage, la recherche et le regroupement des données de journaux dans des ensembles utiles dont vous pouvez vous servir pour analyser les erreurs et les problèmes de performances. Pour plus d'informations sur Message Analyzer, consultez la page [Guide d'exploitation de Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) .
 
 ## <a name="about-the-sample-scenario"></a>À propos de l'exemple de scénario
+
 Pour ce didacticiel, nous allons examiner un scénario où les métriques Azure Storage indiquent un faible taux de réussite pour une application qui appelle le stockage Azure. La métrique de taux faible de réussite (indiquée en tant que **PercentSuccess** dans le [portail Azure](https://portal.azure.com) et dans les tables de mesures) assure le suivi des opérations qui réussissent, mais qui retournent un code d’état HTTP supérieur à 299. Dans les fichiers journaux de stockage côté serveur, ces opérations sont enregistrées avec un statut de transaction **ClientOtherErrors**. Pour plus d'informations sur les métriques de faible taux de réussite, consultez la rubrique [Les métriques indiquent une valeur PercentSuccess faible ou les entrées du journal d'analyse incluent des opérations avec un statut de transaction ClientOtherErrors](storage-monitoring-diagnosing-troubleshooting.md#metrics-show-low-percent-success).
 
 Les opérations d’Azure Storage peuvent renvoyer les codes d’état HTTP supérieurs à 299 dans le cadre de leur fonctionnement normal. Mais dans certains cas, ces erreurs indiquent que vous pouvez peut-être optimiser votre application cliente pour améliorer les performances.
@@ -48,29 +52,31 @@ Dans ce scénario, nous allons considérer comme un faible taux de réussite tou
 Pour notre exemple de scénario, une fois que nous avons établi que la métrique du taux de réussite est inférieure à 100 %, nous allons examiner les journaux d’activité afin de rechercher les erreurs correspondant aux métriques et les utiliser pour déterminer ce qui provoque le taux de réussite plus faible. Nous examinerons plus particulièrement les erreurs dans la plage 400. Ensuite, nous étudierons plus en détail les erreurs 404 (Introuvable).
 
 ### <a name="some-causes-of-400-range-errors"></a>Certaines causes d'erreurs dans la plage 400
+
 Les exemples ci-dessous présentent un échantillon d'erreurs dans la plage 400 pour des demandes sur le stockage d'objets blob d'Azure, avec leurs causes possibles. Toutes ces erreurs, ainsi que des erreurs dans la plage 300 et la plage 500, peuvent contribuer à un faible taux de réussite.
 
 Notez que les listes ci-dessous sont loin d'être complètes. Pour plus d'informations sur les erreurs générales dans Azure Storage et sur les erreurs propres à chacun des services de stockage, consultez la page [Codes d'état et d'erreur](https://msdn.microsoft.com/library/azure/dd179382.aspx) sur MSDN.
 
-**Exemples de code d’état 404 (Introuvable)**
+#### <a name="status-code-404-not-found-examples"></a>Exemples de code d’état 404 (Introuvable)
 
 Se produit lorsqu'une opération de lecture sur un conteneur ou un objet blob échoue parce que l'objet blob ou le conteneur est introuvable.
 
 * Se produit si un conteneur ou un objet blob a été supprimé par un autre client avant cette demande.
 * Se produit si vous utilisez un appel d'API qui crée le conteneur ou l'objet blob après avoir vérifié s'il existe. Les API CreateIfNotExists effectuent un appel HEAD pour vérifier l'existence du conteneur ou de l'objet blob ; s'il n'existe pas, une erreur 404 est retournée, puis un second appel PUT est effectué pour écrire le conteneur ou l'objet blob.
 
-**Exemples de code d'état 409 (Conflit)**
+#### <a name="status-code-409-conflict-examples"></a>Exemples de code d’état 409 (Conflit)
 
 * Se produit si vous utilisez une API de création pour créer un conteneur ou un objet blob, sans vérification préalable de l'existence, et qu'un conteneur ou un objet blob avec ce nom existe déjà.
 * Se produit si un conteneur est supprimé et que vous tentez de créer un nouveau conteneur portant le même nom avant que l'opération de suppression ne soit terminée.
 * Se produit si vous spécifiez un bail sur un conteneur ou un objet blob, alors qu'il existe déjà un bail.
 
-**Exemples de code d'état 412 (Échec de la précondition)**
+#### <a name="status-code-412-precondition-failed-examples"></a>Exemples de code d’état 412 (Échec de la précondition)
 
 * Se produit lorsque la condition spécifiée par un en-tête conditionnel n'a pas été remplie.
 * Se produit lorsque l'ID de bail spécifié ne correspond pas à l'ID de bail sur le conteneur ou l'objet blob.
 
 ## <a name="generate-log-files-for-analysis"></a>Génération de fichiers journaux pour l'analyse
+
 Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec trois types de fichiers journaux différents, mais vous pouvez travailler avec celui de votre choix :
 
 * Le **journal du serveur**, qui est créé lorsque vous activez la journalisation Azure Storage. Le journal du serveur contient des données sur chaque opération appelée sur un des services Azure Storage - objet blob, file d'attente, table et fichier. Le journal du serveur indique quelle opération a été appelée et quel code d'état a été retourné, ainsi que d'autres détails sur la demande et la réponse.
@@ -78,9 +84,11 @@ Dans ce didacticiel, nous allons utiliser Message Analyzer pour travailler avec 
 * Le **journal de suivi du réseau HTTP**, qui collecte les données sur les données des demandes et réponses HTTP/HTTPS, notamment pour les opérations sur Azure Storage. Dans ce didacticiel, nous allons générer le suivi réseau via Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configuration de la journalisation et des métriques côté serveur
+
 Tout d’abord, nous allons devoir configurer la journalisation et les métriques du stockage Azure afin d’avoir des données du côté client à analyser. Vous pouvez configurer la journalisation et les métriques de plusieurs manières : via le [portail Azure](https://portal.azure.com), à l’aide de PowerShell ou par programme. Consultez [Activer les métriques](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) et [Activer la journalisation](storage-analytics-logging.md#enable-storage-logging) pour plus d’informations sur la configuration de la journalisation et des métriques.
 
 ### <a name="configure-net-client-side-logging"></a>Configuration de la journalisation côté client .NET
+
 Pour configurer la journalisation côté client pour une application .NET, activez les diagnostics .NET dans le fichier de configuration de l'application (web.config ou app.config). Pour plus d’informations, consultez les pages [Journalisation côté client avec la bibliothèque cliente de stockage .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) et [Journalisation côté client avec le Kit de développement logiciel (SDK) Microsoft Azure Storage pour Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) sur MSDN.
 
 Le journal côté client inclut des informations détaillées sur la manière dont le client prépare la demande, puis reçoit et traite la réponse.
@@ -88,6 +96,7 @@ Le journal côté client inclut des informations détaillées sur la manière do
 La bibliothèque cliente de stockage stocke les données du journal côté client à l'emplacement spécifié dans le fichier de configuration de l'application (web.config ou app.config).
 
 ### <a name="collect-a-network-trace"></a>Collecte d'un suivi réseau
+
 Vous pouvez utiliser Message Analyzer pour collecter un suivi réseau HTTP/HTTPS pendant l'exécution de votre application cliente. Message Analyzer utilise [Fiddler](https://www.telerik.com/fiddler) sur le serveur principal. Avant de collecter le suivi réseau, nous vous recommandons de configurer Fiddler pour enregistrer le trafic HTTPS non chiffré :
 
 1. Installez [Fiddler](https://www.telerik.com/download/fiddler).
@@ -106,20 +115,17 @@ Dans le didacticiel, collectez et enregistrez d’abord un suivi réseau dans Me
 5. Dans la boîte de dialogue **Advanced Settings (Paramètres avancés)** , cliquez sur l’onglet **Provider (Fournisseur)** .
 6. Dans le champ **Filtre de nom d'hôte** , indiquez vos points de terminaison de stockage séparés par des espaces. Par exemple, vous pouvez spécifier vos points de terminaison comme suit (remplacez `storagesample` par le nom de votre compte de stockage) :
 
-    ```   
-    storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net
-    ```
+    `storagesample.blob.core.windows.net storagesample.queue.core.windows.net storagesample.table.core.windows.net`
 
 7. Fermez la boîte de dialogue, puis cliquez sur **Redémarrer** pour commencer à collecter le suivi avec le filtre de nom d'hôte en place, afin que seul le trafic réseau d'Azure Storage soit inclus dans le suivi.
 
 > [!NOTE]
 > Après avoir terminé la collecte de votre suivi réseau, nous vous recommandons fortement de rétablir les paramètres que vous avez éventuellement modifiés dans Fiddler pour déchiffrer le trafic HTTPS. Dans la boîte de dialogue Fiddler Options (Options de Fiddler), désactivez les cases à cocher **Capture HTTPS CONNECTs (Capturer les CONNECT HTTPS)** et **Decrypt HTTPS Traffic (Déchiffrer le trafic HTTPS)** .
->
->
 
 Pour plus de détails, voir la page [Utilisation des fonctionnalités de suivi réseau](https://technet.microsoft.com/library/jj674819.aspx) sur Technet.
 
 ## <a name="review-metrics-data-in-the-azure-portal"></a>Revue des données des métriques dans le portail Azure
+
 Une fois que votre application a fonctionné pendant une période donnée, vous pouvez consulter les graphiques des métriques qui apparaissent dans le [portail Azure](https://portal.azure.com) pour observer la façon dont votre service a fonctionné.
 
 D’abord, accédez à votre compte de stockage dans le Portail Azure. Par défaut, un graphique de surveillance avec la mesure **pourcentage de réussite** mesure s’affiche dans le panneau du compte. Si vous avez modifié précédemment le graphique pour afficher des mesures différentes, ajoutez la mesure **pourcentage de réussite**.
@@ -134,6 +140,7 @@ Pour plus d’informations sur l’ajout et la personnalisation de graphiques de
 >
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Utiliser AzCopy pour copier les journaux d’activité de serveur dans un répertoire local
+
 Azure Storage écrit les données des journaux de serveur dans des objets blob, tandis que les métriques sont écrites dans des tables. Les objets blob de journal sont disponibles dans le fameux conteneur `$logs` de votre compte de stockage. Les objets blob de journal sont nommés hiérarchiquement par année, mois, jour et heure, afin que vous puissiez localiser facilement la plage de temps que vous souhaitez examiner. Par exemple, dans le compte `storagesample`, le conteneur des objets blob de journal pour le 01/02/2015, de 8-9 h, est `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. Les objets blob individuels dans ce conteneur sont nommés de manière séquentielle, à partir de `000000.log`.
 
 Vous pouvez utiliser l'outil en ligne de commande AzCopy pour télécharger ces fichiers journaux côté serveur à l'emplacement de votre choix sur votre ordinateur local. Par exemple, vous pouvez utiliser la commande suivante pour télécharger les fichiers journaux pour les opérations sur des objets blob qui ont eu lieu le 2 janvier 2015 dans le dossier `C:\Temp\Logs\Server`. Remplacez `<storageaccountname>` par le nom de votre compte de stockage et `<storageaccountkey>` par la clé d'accès de votre compte :
@@ -141,16 +148,19 @@ Vous pouvez utiliser l'outil en ligne de commande AzCopy pour télécharger ces 
 ```azcopy
 AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
 ```
+
 AzCopy est disponible en téléchargement sur la page [Téléchargements Azure](https://azure.microsoft.com/downloads/) . Pour plus d’informations sur l’utilisation d’AzCopy, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).
 
 Pour plus d’informations sur le téléchargement des journaux d’activité côté serveur, consultez [Télécharger les données de journal d’activité de la journalisation du stockage](https://msdn.microsoft.com/library/azure/dn782840.aspx#DownloadingStorageLogginglogdata).
 
 ## <a name="use-microsoft-message-analyzer-to-analyze-log-data"></a>Utilisation de Microsoft Message Analyzer pour analyser les données de journal
+
 Microsoft Message Analyzer est un outil de capture, d'affichage et d'analyse du trafic de messagerie de protocole, des événements et des autres messages du système ou des applications dans les scénarios de résolution des problèmes et de diagnostic. Message Analyzer vous permet également de charger, d'agréger et d'analyser les données de journal et les fichiers de suivi enregistrés. Pour plus d'informations sur Message Analyzer, consultez la page [Guide d'exploitation de Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx).
 
 Message Analyzer inclut des ressources pour Azure Storage qui vous aident à analyser les journaux d’activité du serveur, du client et du réseau. Dans cette section, nous aborderons l’utilisation de ces outils pour résoudre le problème de faible pourcentage de réussite dans les journaux d’activité de stockage.
 
 ### <a name="download-and-install-message-analyzer-and-the-azure-storage-assets"></a>Téléchargement et installation de Message Analyzer et des ressources Azure Storage
+
 1. Téléchargez [Message Analyzer](https://www.microsoft.com/download/details.aspx?id=44226) depuis le Centre de téléchargement de Microsoft et exécutez le programme d'installation.
 2. Lancez Message Analyzer.
 3. Dans le menu **Tools (Outils)** , sélectionnez **Asset Manager (Gestionnaire de biens)** . Dans la boîte de dialogue **Asset Manager (Gestionnaire de biens)** , sélectionnez **Downloads (Téléchargements)** , puis filtrez sur **Azure Storage**. Vous verrez les ressources Azure Storage, comme illustré ci-après.
@@ -170,6 +180,7 @@ Message Analyzer inclut des ressources pour Azure Storage qui vous aident à ana
 >
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importation de vos fichiers journaux dans Message Analyzer
+
 Vous pouvez importer tous vos fichiers journaux enregistrés (côté serveur, côté client et réseau) dans une session de Microsoft Message Analyzer pour l'analyse.
 
 1. Dans le menu **File (Fichier)** de Microsoft Message Analyzer, cliquez sur **New Session (Nouvelle session)** , puis sur **Blank Session (Session vide)** . Dans la boîte de dialogue **Nouvelle session** , entrez un nom pour votre session d'analyse. Dans le panneau **Session Details (Détails de la session)** , cliquez sur le bouton **Files (Fichiers)** .
@@ -191,11 +202,13 @@ Si vous avez encore une grande quantité de données de journal, vous pouvez sp�
 Pour plus d'informations sur l'importation des données de journal dans Microsoft Message Analyzer, consultez la page [Récupération des données des messages](https://technet.microsoft.com/library/dn772437.aspx) sur TechNet.
 
 ### <a name="use-the-client-request-id-to-correlate-log-file-data"></a>Utilisation de l'ID de demande client pour mettre en corrélation des données de fichiers journaux
+
 La bibliothèque cliente de stockage Azure génère automatiquement un ID de demande client unique pour chaque demande. Cette valeur est écrite dans le journal du client, le journal du serveur et le suivi du réseau ; vous pouvez ainsi l’utiliser pour mettre en corrélation des données entre les trois journaux d’activité dans Message Analyzer. Pour plus d'informations sur l'ID de demande client, consultez la rubrique [ID de la demande client](storage-monitoring-diagnosing-troubleshooting.md#client-request-id) .
 
 Les sections ci-dessous expliquent comment utiliser des vues avec des dispositions préconfigurées et personnalisées pour mettre en corrélation et regrouper les données en fonction de l'ID de demande client.
 
 ### <a name="select-a-view-layout-to-display-in-the-analysis-grid"></a>Sélection d'une disposition de vue à afficher dans la grille d'analyse
+
 Les ressources de stockage de Message Analyzer incluent les dispositions de vue Azure Storage, qui sont des vues préconfigurées que vous pouvez utiliser pour afficher vos données avec des regroupements et des colonnes utiles dans différents scénarios. Vous pouvez également créer des dispositions de vue personnalisées et les enregistrer pour pouvoir les réutiliser.
 
 L’illustration ci-dessous présente le menu **View Layout (Disposition de vue)** , auquel vous pouvez accéder en sélectionnant **View Layout (Disposition de vue)** dans le ruban de la barre d’outils. Les dispositions de vue Azure Storage sont regroupées sous le nœud **Azure Storage** dans le menu. Vous pouvez rechercher `Azure Storage` dans la zone de recherche pour filtrer les disposition de vue et afficher uniquement celles d’Azure Storage. Vous pouvez également sélectionner l'étoile en regard d'une disposition de vue pour l'ajouter aux Favoris et l'afficher au début du menu.
@@ -216,6 +229,7 @@ L'illustration ci-dessous présente cette disposition de vue appliquée à l'exe
 Outre les dispositions de vue Azure Storage, vous pouvez également définir et enregistrer vos propres dispositions. Vous pouvez également sélectionner d'autres champs souhaités pour le regroupement des données et enregistrer le regroupement dans le cadre de votre disposition personnalisée.
 
 ### <a name="apply-color-rules-to-the-analysis-grid"></a>Application de règles de couleur à la grille d'analyse
+
 Les ressources de stockage incluent également des règles de couleur, qui offrent un moyen visuel d'identifier les différents types d'erreur dans la grille d'analyse. Les règles de couleur prédéfinies s'appliquent aux erreurs HTTP et n'apparaissent par conséquent que pour le suivi du serveur et du réseau.
 
 Pour appliquer des règles de couleur, sélectionnez **Règles de couleur** à partir du ruban de la barre d'outils. Les règles de couleur Azure Storage apparaissent dans le menu. Pour le didacticiel, sélectionnez **Erreurs du client (StatusCode entre 400 et 499)** , comme illustré dans l'image ci-dessous.
@@ -225,6 +239,7 @@ Pour appliquer des règles de couleur, sélectionnez **Règles de couleur** à p
 Outre les règles de couleur Azure Storage, vous pouvez également définir et enregistrer vos propres règles de couleur.
 
 ### <a name="group-and-filter-log-data-to-find-400-range-errors"></a>Regroupement et filtrage des données de journal pour rechercher les erreurs de la plage 400
+
 Nous allons ensuite regrouper et filtrer les données de journal pour rechercher toutes les erreurs dans la plage 400.
 
 1. Recherchez la colonne **StatusCode** dans la grille d’analyse, cliquez avec le bouton droit sur le titre de la colonne et sélectionnez **Group (Grouper)** .
@@ -232,9 +247,7 @@ Nous allons ensuite regrouper et filtrer les données de journal pour rechercher
 3. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)** , puis **View Filter (Filtre d’affichage)** .
 4. Pour filtrer les données de journal de manière à n’afficher que les erreurs de la plage 400, ajoutez les critères de filtre suivants dans la fenêtre **View Filter (Filtre d’affichage)** , puis cliquez sur **Apply (Appliquer)**  :
 
-    ```   
-    (AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)
-    ```
+    `(AzureStorageLog.StatusCode >= 400 && AzureStorageLog.StatusCode <=499) || (HTTP.StatusCode >= 400 && HTTP.StatusCode <= 499)`
 
 L'illustration ci-dessous montre les résultats du regroupement et du filtre. Si vous développez le champ **ClientRequestID** sous le regroupement correspondant au code d'état 409, par exemple, une opération qui a provoqué ce code d'état s'affiche.
 
@@ -247,11 +260,10 @@ Après avoir appliqué ce filtre, vous verrez que les lignes du journal du clien
 >
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
 >
-> Ce filtre retourne toutes les lignes du journal du client et uniquement les lignes du journal du serveur et du journal HTTP où le code d'état est supérieur à 400. Si vous l’appliquez à la disposition de la vue regroupée par ID de demande client et module, vous pouvez rechercher ou faire défiler les entrées de journal pour rechercher celles où les trois journaux d’activité sont représentés.   
->
->
+> Ce filtre retourne toutes les lignes du journal du client et uniquement les lignes du journal du serveur et du journal HTTP où le code d'état est supérieur à 400. Si vous l’appliquez à la disposition de la vue regroupée par ID de demande client et module, vous pouvez rechercher ou faire défiler les entrées de journal pour rechercher celles où les trois journaux d’activité sont représentés.
 
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrage des données du journal pour rechercher les erreurs 404
+
 Les ressources de stockage incluent les filtres prédéfinis que vous pouvez utiliser pour limiter les données du journal afin de trouver les erreurs ou les tendances que vous recherchez. Ensuite, nous allons appliquer deux filtres prédéfinis : un qui filtre les journaux d’activité de suivi du serveur et du réseau pour rechercher les erreurs 404 et l’autre qui filtre les données sur une période spécifiée.
 
 1. Affichez la fenêtre d'outil Filtre d'affichage si elle n'est pas déjà affichée. Dans le ruban de la barre d’outils, sélectionnez **Tool Windows (Fenêtres d’outil)** , puis **View Filter (Filtre d’affichage)** .
@@ -260,14 +272,13 @@ Les ressources de stockage incluent les filtres prédéfinis que vous pouvez uti
 4. Modifiez l'horodatage indiqué dans le filtre en indiquant la plage que vous souhaitez afficher. Cela vous aidera à limiter la plage de données à analyser.
 5. Le filtre doit apparaître comme dans l'exemple ci-dessous. Cliquez sur **Appliquer** pour appliquer le filtre à la grille d'analyse.
 
-    ```   
-    ((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
-    (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)
-    ```
+    `((AzureStorageLog.StatusCode == 404 || HTTP.StatusCode == 404)) And
+    (#Timestamp >= 2014-10-20T16:36:38 and #Timestamp <= 2014-10-20T16:36:39)`
 
     ![Disposition de vue Azure Storage](./media/storage-e2e-troubleshooting/404-filtered-errors1.png)
 
 ### <a name="analyze-your-log-data"></a>Analyse des données du journal
+
 Maintenant que vous avez regroupé et filtré vos données, vous pouvez examiner les détails des demandes individuelles qui ont généré des erreurs 404. Dans la disposition de la vue actuelle, les données sont regroupées par ID de demande client, puis par source du journal. Dans la mesure où le filtrage porte sur les demandes où le champ StatusCode contient 404, nous voyons seulement les données de suivi du serveur et du réseau, pas les données du journal du client.
 
 L'illustration ci-dessous montre une demande spécifique où une opération Get Blob a généré une erreur 404 parce que l'objet blob n'existait pas. Notez que certaines colonnes ont été supprimées de la vue standard pour afficher les données pertinentes.
@@ -281,9 +292,7 @@ Ensuite, nous allons mettre en corrélation cet ID de demande du client avec les
 3. Dans le ruban de la barre d’outils, sélectionnez **View Layout (Disposition de vue)** , puis **All .NET Client Columns (Toutes les colonnes de client .NET)** sous la section **Azure Storage**. Cette disposition de la vue affiche les données à partir du journal du client ainsi que les journaux d’activité de suivi du serveur et du réseau. Par défaut, elle est triée en fonction de la colonne **MessageNumber** .
 4. Ensuite, recherchez le journal du client pour l'ID de demande client. Dans le ruban de la barre d’outils, sélectionnez **Find Messages (Rechercher des messages)** , puis spécifiez un filtre personnalisé sur l’ID de demande client dans le champ **Find (Rechercher)** . Utilisez cette syntaxe pour le filtre en indiquant votre propre ID de demande client :
 
-    ```
-    *ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"
-    ```
+    `*ClientRequestId == "398bac41-7725-484b-8a69-2a9e48fc669a"`
 
 Message Analyzer localise et sélectionne la première entrée de journal dans laquelle les critères de recherche correspondent à l'ID de demande client. Dans le journal du client, il existe plusieurs entrées pour chaque ID de demande client ; vous pouvez donc les regrouper sur le champ **ClientRequestId** pour pouvoir les afficher toutes ensemble. L'illustration ci-dessous montre tous les messages du journal du client pour l'ID de demande client spécifié.
 
@@ -294,6 +303,7 @@ Message Analyzer localise et sélectionne la première entrée de journal dans l
 Une fois que vous connaissez l'adresse de l'objet blob qui a généré l'erreur 404, vous pouvez effectuer un examen plus approfondi. Si vous recherchez les entrées du journal pour les autres messages associés à des opérations sur le même objet blob, vous pouvez vérifier si le client a précédemment supprimé l'entité.
 
 ## <a name="analyze-other-types-of-storage-errors"></a>Analyse des autres types d'erreur de stockage
+
 Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos données de journal, vous pouvez analyser d'autres types d'erreur avec les dispositions de vue, les règles de couleur , la recherche et le filtrage. Les tableaux ci-dessous répertorient certains problèmes que vous pouvez rencontrer et les critères de filtre que vous pouvez utiliser pour les localiser. Pour plus d'informations sur la construction des filtres et le langage de filtrage de Message Analyzer, consultez la page [Filtrage des données de message](https://technet.microsoft.com/library/jj819365.aspx).
 
 | Pour examiner... | Utiliser l'expression de filtre... | L’expression s’applique au journal (client, serveur, réseau, tout) |
@@ -315,10 +325,11 @@ Maintenant que vous êtes familiarisé avec Message Analyzer pour analyser vos d
 | Plage horaire dans les journaux d’activité serveur |AzureStorageLog.Timestamp >= 2014-10-20T16:36:38 et AzureStorageLog.Timestamp <= 2014-10-20T16:36:39 |Serveur |
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d'informations sur les scénarios de résolution des problèmes de bout en bout dans Azure Storage, consultez les ressources suivantes :
 
 * [Analyser, diagnostiquer et dépanner Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)
 * [Analyse du stockage](https://msdn.microsoft.com/library/azure/hh343270.aspx)
 * [Surveiller un compte de stockage dans le portail Azure](storage-monitor-storage-account.md)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md)
-* [Guide d'exploitation de Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx)
+* [Microsoft Message Analyzer Operating Guide (Guide des opérations Microsoft Message Analyzer)](https://technet.microsoft.com/library/jj649776.aspx)

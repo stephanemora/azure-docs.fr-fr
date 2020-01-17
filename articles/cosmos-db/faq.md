@@ -1,5 +1,5 @@
 ---
-title: Questions fréquentes sur les différentes API dans Azure Cosmos DB
+title: Forum aux questions sur les différentes API dans Azure Cosmos DB
 description: Obtenez des réponses aux questions fréquemment posées sur Azure Cosmos DB, un service de base de données multimodèle distribué globalement. Découvrez la capacité, les niveaux de performances et la mise à l’échelle.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8c8d33a2cd9a25942e1df7eacc7a676debf29ec1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: dc627fc4bb7be449547a07cc34eb2cb3694964e9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220234"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445433"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Questions fréquentes sur les différentes API dans Azure Cosmos DB
 
@@ -315,7 +315,7 @@ Certains paramètres sont gérés sur la méthode de CreateCloudTableClient et d
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>Y a-t-il des changements pour les clients qui utilisent les kits SDK de stockage Table Azure existants ?
 
-Aucune. Il n’y a aucune modification pour les clients existants ou nouveaux utilisant le Kit de développement logiciel (SDK) de stockage Table Azure existant.
+Aucun. Il n’y a aucune modification pour les clients existants ou nouveaux utilisant le Kit de développement logiciel (SDK) de stockage Table Azure existant.
 
 ### <a name="how-do-i-view-table-data-thats-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Comment faire pour afficher les données de table qui sont stockées dans Azure Cosmos DB afin de les utiliser avec l’API Table ?
 
@@ -476,7 +476,7 @@ Oui, si vous ne remplacez pas le débit de table (TableThroughput) dans le fichi
 
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Les prix varient-ils pour les clients existants du service de stockage Table Azure ?
 
-Aucune. Le tarif reste inchangé pour les clients existants du stockage Table Azure.
+Aucun. Le tarif reste inchangé pour les clients existants du stockage Table Azure.
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Comment le prix est-il calculé pour l’API Table ?
 

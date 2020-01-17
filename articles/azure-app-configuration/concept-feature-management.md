@@ -1,23 +1,17 @@
 ---
-title: Gestion des fonctionnalités Azure App Configuration | Microsoft Docs
+title: Gestion des fonctionnalités Azure App Configuration
 description: Vue d’ensemble de la façon dont Azure App Configuration peut être utilisé pour activer et désactiver des fonctionnalités des applications à la demande.
-services: azure-app-configuration
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 46f39e87e4e4cf115cbc1fceeabf0dab38fade28
-ms.sourcegitcommit: 51a7669c2d12609f54509dbd78a30eeb852009ae
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 04/19/2019
+ms.openlocfilehash: 48aebfe1ba6af348e98e5600075f3a9e9dce1a8e
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/30/2019
-ms.locfileid: "66393357"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495776"
 ---
 # <a name="feature-management-overview"></a>Vue d’ensemble de la gestion des fonctionnalités
 

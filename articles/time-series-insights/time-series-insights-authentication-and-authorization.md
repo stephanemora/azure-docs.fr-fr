@@ -10,18 +10,23 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/14/2019
+ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: d47f846f77d3552288dfea43b417d8c60856f41a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327887"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460426"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
 Ce document explique comment inscrire une application dans Azure Active Directory à l'aide du nouveau panneau Azure Active Directory. Les applications inscrites dans Azure Active Directory permettent aux utilisateurs de s’authentifier et d'utiliser l’API Azure Time Series Insight associée à un environnement Time Series Insights.
+
+> [!IMPORTANT]
+> Azure Time Series Insights prend en charge les deux bibliothèques d’authentification suivantes :
+> * La version la plus récente de la bibliothèque [MSAL (Microsoft Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * La bibliothèque [Azure ADAL (Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="service-principal"></a>Principal du service
 
@@ -76,74 +81,83 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
 ### <a name="client-app-initialization"></a>Initialisation de l'application cliente
 
-1. Utilisez l'**ID de l'application** et la **clé secrète client** (clé de l'application) à partir de la section d'inscription de l'application Azure Active Directory afin d'obtenir le jeton pour le compte de l’application.
+* Les développeurs peuvent utiliser la [Bibliothèque d’authentification Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) ou la [Bibliothèque d’authentification Azure Active Directory (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) pour s’authentifier auprès d’Azure Time Series Insights.
 
-    Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet, voir [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
+* Par exemple, pour s’authentifier à l’aide de la bibliothèque ADAL :
 
-    ```csharp
-    // Enter your Active Directory tenant domain name
-    var tenant = "YOUR_AD_TENANT.onmicrosoft.com";
-    var authenticationContext = new AuthenticationContext(
-        $"https://login.microsoftonline.com/{tenant}",
-        TokenCache.DefaultShared);
+   1. Utilisez l'**ID de l'application** et la **clé secrète client** (clé de l'application) à partir de la section d'inscription de l'application Azure Active Directory afin d'obtenir le jeton pour le compte de l’application.
 
-    AuthenticationResult token = await authenticationContext.AcquireTokenAsync(
-        // Set the resource URI to the Azure Time Series Insights API
-        resource: "https://api.timeseries.azure.com/",
-        clientCredential: new ClientCredential(
-            // Application ID of application registered in Azure Active Directory
-            clientId: "YOUR_APPLICATION_ID",
-            // Application key of the application that's registered in Azure Active Directory
-            clientSecret: "YOUR_CLIENT_APPLICATION_KEY"));
+   1. Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet, voir [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
 
-    string accessToken = token.AccessToken;
-    ```
+        [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
-1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Insights Azure Time Series.
+   1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Insights Azure Time Series.
+
+* Les développeurs peuvent également choisir de s’authentifier à l’aide de la bibliothèque MSAL. Pour en savoir plus, consultez [Migration vers MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration). 
 
 ## <a name="common-headers-and-parameters"></a>Paramètres et en-têtes communs
 
 Cette section décrit les en-têtes de requête HTTP et les paramètres qui sont couramment utilisés pour exécuter des requêtes sur les API Time Series Insights en disponibilité générale et en préversion. Les exigences spécifiques aux API sont décrites plus en détail dans la [documentation de référence sur l’API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/).
 
+> [!TIP]
+> Lisez les [Informations de référence sur l’API REST Azure](https://docs.microsoft.com/rest/api/azure/) pour en savoir plus sur l’utilisation des API REST, la création de requêtes HTTP et la gestion des réponses HTTP.
+
 ### <a name="authentication"></a>Authentication
 
 Pour exécuter des requêtes authentifiées sur les [API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#). 
-
-> [!IMPORTANT]
-> Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
-> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc conforme à : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
 > Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [SDK JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), consultez l’[exemple de visualisation hébergé du SDK client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.
 
 ### <a name="http-headers"></a>En-têtes HTTP
 
-En-têtes de requête nécessaires :
+Les en-têtes de requête obligatoires sont décrits ci-dessous.
 
-- `Authorization` pour l’authentification et l’autorisation. Un jeton de porteur OAuth 2.0 valide doit être passé dans l’en-tête d’autorisation. Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
+| En-tête de requête obligatoire | Description |
+| --- | --- |
+| Autorisation | Pour s’authentifier auprès d’Azure Time Series Insights, un jeton de porteur OAuth 2.0 valide doit être passé dans l’en-tête d’**autorisation**. | 
 
-En-têtes de requête facultatifs :
+> [!IMPORTANT]
+> Le jeton doit être émis exactement vers la ressource `https://api.timeseries.azure.com/` (également appelée « audience » du jeton).
+> * Votre **AuthURL** [Postman](https://www.getpostman.com/) sera donc : `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> * `https://api.timeseries.azure.com/` est valide, mais `https://api.timeseries.azure.com` ne l’est pas.
 
-- `Content-type` - Seul `application/json` est pris en charge.
-- `x-ms-client-request-id` - ID de requête client. Le service enregistre cette valeur. Permet au service de suivre l’opération d’un service à l’autre.
-- `x-ms-client-session-id` - ID de session du client. Le service enregistre cette valeur. Permet au service de suivre un groupe d’opérations connexes d’un service à l’autre.
-- `x-ms-client-application-name` - Nom de l’application qui a généré cette requête. Le service enregistre cette valeur.
+Les en-têtes de requête facultatifs sont décrits ci-dessous.
 
-En-têtes de réponse :
+| En-tête de demande facultatif. | Description |
+| --- | --- |
+| Content-Type | Seul `application/json` est pris en charge. |
+| x-ms-client-request-id | ID de requête client. Le service enregistre cette valeur. Permet au service de suivre l’opération d’un service à l’autre. |
+| x-ms-client-session-id | ID de session du client. Le service enregistre cette valeur. Permet au service de suivre un groupe d’opérations connexes d’un service à l’autre. |
+| x-ms-client-application-name | Nom de l’application qui a généré cette requête. Le service enregistre cette valeur. |
 
-- `Content-type` - Seul `application/json` est pris en charge.
-- `x-ms-request-id` - ID de requête généré par le serveur. Peut être utilisé pour demander à Microsoft d’examiner une requête.
+Les en-têtes de réponse facultatifs mais recommandés sont décrits ci-dessous.
+
+| En-tête de réponse | Description |
+| --- | --- |
+| Content-Type | Seul `application/json` est pris en charge. |
+| x-ms-request-id | ID de requête généré par le serveur. Peut être utilisé pour demander à Microsoft d’examiner une requête. |
+| x-ms-property-not-found-behavior | En-tête de réponse facultatif de l’API GA. Les valeurs possibles sont `ThrowError` (par défaut) ou `UseNull`. |
 
 ### <a name="http-parameters"></a>Paramètres HTTP
 
-Paramètres de chaîne de requête d’URL obligatoires :
+> [!TIP]
+> Pour plus d’informations sur les informations de requête obligatoires et facultatives, consultez la [documentation de référence](https://docs.microsoft.com/rest/api/time-series-insights/).
 
-- `api-version=2016-12-12`
-- `api-version=2018-11-01-preview`
+Les paramètres de chaîne de requête d’URL obligatoires dépendent de la version de l’API.
 
-Paramètres de chaîne de requête d’URL facultatifs :
+| Libérer | Valeurs de version d’API possibles |
+| --- |  --- |
+| Disponibilité générale | `api-version=2016-12-12`|
+| PRÉVERSION | `api-version=2018-11-01-preview` |
+| PRÉVERSION | `api-version=2018-08-15-preview` |
 
-- `timeout=<timeout>` - Délai d’attente côté serveur pour l’exécution des requêtes. S’applique uniquement aux API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) et [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`.
+Les paramètres de chaîne de requête d’URL facultatifs incluent la définition d’un délai d’expiration pour les durées d’exécution des requêtes HTTP.
+
+| Paramètre de requête facultatif | Description | Version |
+| --- |  --- | --- |
+| `timeout=<timeout>` | Délai d’attente côté serveur pour l’exécution des requêtes HTTP. S’applique uniquement aux API [Get Environment Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) et [Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api). La valeur du délai d’attente doit être au format de durée ISO 8601, par exemple `"PT20S"`, et doit être comprise dans la plage `1-30 s`. La valeur par défaut est `30 s`. | GA |
+| `storeType=<storeType>` | Pour les environnements Préversion avec le magasin Warm activé, la requête peut être exécutée sur `WarmStore` ou `ColdStore`. Ce paramètre dans la requête définit le magasin sur lequel la requête doit être exécutée. S’il n’est pas défini, la requête est exécutée sur le magasin Cold. Pour interroger le magasin Warm, **storeType** doit être défini sur `WarmStore`. S’il n’est pas défini, la requête est exécutée par rapport au magasin Cold. | PRÉVERSION |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -151,6 +165,6 @@ Paramètres de chaîne de requête d’URL facultatifs :
 
 - Pour des exemples de code de l'API Time Series Insights en préversion, consultez [Interroger des données en préversion à l’aide de données C# ](./time-series-insights-update-query-data-csharp.md).
 
-- Pour obtenir des informations de référence sur l’API, consultez le [document de référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- Pour obtenir des informations de référence sur l’API, consultez la documentation de [référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Découvrez comment [créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md).

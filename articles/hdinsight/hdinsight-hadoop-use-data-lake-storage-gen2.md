@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 89b86124d6da0d0d659ed0673585eadbf1008aa3
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.custom: hdinsightactive
+ms.date: 01/02/2020
+ms.openlocfilehash: b45b27fd2e3dc6cf92d83934d571df25c2ce204f
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847290"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75644985"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight
 
@@ -36,7 +36,7 @@ Si vous souhaitez créer un cluster HDInsight qui utilise Data Lake Storage Gen2
 
 Créez une identité managée affectée à l’utilisateur, si vous n’en avez pas encore.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le coin supérieur gauche, cliquez sur **Créer une ressource**.
 1. Dans la zone de recherche, tapez **user assigned (utilisateur affecté)** , puis cliquez sur **Identité managée affectée par l'utilisateur**.
 1. Cliquez sur **Créer**.
@@ -51,7 +51,7 @@ Pour plus d’informations sur le fonctionnement des identités managées dans A
 
 Créez un compte de stockage Azure Data Lake Storage Gen2.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le coin supérieur gauche, cliquez sur **Créer une ressource**.
 1. Dans la zone de recherche, tapez **storage (stockage)** , puis cliquez sur **Compte de stockage**.
 1. Cliquez sur **Créer**.
@@ -100,7 +100,7 @@ Affectez l’identité managée au rôle **Propriétaire des données Blob du st
 
 Vous pouvez [télécharger un exemple de fichier de modèle](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) et [télécharger un exemple de fichier de paramètres](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Avant d’utiliser le modèle et l’extrait de code Azure CLI ci-dessous, remplacez les espaces réservés suivants par leurs valeurs correctes :
 
-| Placeholder | Description |
+| Espace réservé | Description |
 |---|---|
 | `<SUBSCRIPTION_ID>` | L’ID de votre abonnement Azure |
 | `<RESOURCEGROUPNAME>` | Le groupe de ressources dans lequel vous souhaitez créer le cluster et le compte de stockage. |
@@ -147,6 +147,10 @@ az group deployment create --name HDInsightADLSGen2Deployment \
     --parameters parameters.json
 ```
 
+## <a name="create-a-cluster-with-data-lake-storage-gen2-through-azure-powershell"></a>Créer un cluster avec Data Lake Storage Gen2 par le biais d’Azure PowerShell
+
+L’utilisation de PowerShell pour créer un cluster HDInsight avec Azure Data Lake Storage Gen2 n’est pas prise en charge actuellement.
+
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Contrôle d’accès à Data Lake Storage Gen2 dans HDInsight
 
 ### <a name="what-kinds-of-permissions-does-data-lake-storage-gen2-support"></a>Quels sont les types d’autorisation pris en charge par Data Lake Storage Gen2 ?
@@ -181,7 +185,7 @@ Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage 
     abfs://<containername>@<accountname>.dfs.core.windows.net/<file.path>/
     ```
 
-* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
+* **Utilisation du format de chemin d’accès raccourci**. Avec cette approche, vous remplacez le chemin d’accès à la racine du cluster par :
 
     ```
     abfs:///<file.path>/
@@ -193,7 +197,7 @@ Il existe plusieurs méthodes pour accéder aux fichiers dans Data Lake Storage 
     /<file.path>/
     ```
 
-### <a name="data-access-examples"></a>Exemples d'accès aux données
+### <a name="data-access-examples"></a>Exemples d’accès aux données
 
 Les exemples sont basés sur une [connexion ssh](./hdinsight-hadoop-linux-use-ssh-unix.md) au nœud principal du cluster. Les exemples utilisent les trois schémas d’URI. Remplacez `CONTAINERNAME` et `STORAGEACCOUNT` par les valeurs correspondantes
 
@@ -229,9 +233,9 @@ Les exemples sont basés sur une [connexion ssh](./hdinsight-hadoop-linux-use-ss
     hdfs dfs -ls /sampledata3/
     ```
 
-#### <a name="creating-a-hive-table"></a>Création d'une table Hive
+#### <a name="creating-a-hive-table"></a>Création d’une table Hive
 
-Trois emplacements de fichiers sont indiqués à titre d'illustration. Pour l'exécution réelle, n'utilisez qu'une seule des entrées `LOCATION`.
+Trois emplacements de fichiers sont indiqués à titre d’illustration. Pour l’exécution réelle, n’utilisez qu’une seule des entrées `LOCATION`.
 
 ```hql
 DROP TABLE myTable;
@@ -254,4 +258,4 @@ LOCATION '/example/data/';
 
 * [Azure HDInsight integration with Data Lake Storage Gen2 preview - ACL and security update](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
 * [Présentation d’Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-* [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+* [Tutoriel : Extraire, transformer et charger des données à l’aide d’Interactive Query sur Azure HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)

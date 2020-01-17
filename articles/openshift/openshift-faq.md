@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b4e78db9f3aa3a8f678212c7fcd1b97ed4834b1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582397"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75378209"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>FAQ sur Azure Red Hat OpenShift
 
@@ -121,7 +121,7 @@ Les journaux Syslog, Docker, journal et dmesg sont gérés par le service manag�
 
 ## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Comment un client peut-il accéder aux métriques telles que l’UC ou la mémoire au niveau du nœud, en vue d’effectuer une mise à l’échelle ou un débogage, par exemple ? Je n’arrive pas à exécuter `kubectl top` sur un cluster ARO.
 
-`kubectl top` n’est pas disponible sur Red Hat OpenShift. Il nécessite une source de métriques de secours Heapster (déprécié) ou metrics-server (incube ou alpha), et ni l’un ni l’autre ne sont inclus dans la pile de supervision OpenShift.
+Les clients peuvent accéder aux indicateurs de performance de l’UC/la mémoire au niveau du nœud à l’aide de la commande `oc adm top nodes` ou `kubectl top nodes` avec le rôle de cluster client-administrateur.  Les clients peuvent également accéder aux indicateurs de performance de l’UC/la mémoire de `pods` à l’aide de la commande `oc adm top pods` ou `kubectl top pods`
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Quelle est la configuration par défaut du planificateur pod pour ARO ?
 
@@ -137,7 +137,7 @@ Pour plus d’informations, consultez [Choisir le bon nombre de domaines d’err
 
 ## <a name="is-there-a-way-to-manage-pod-placement"></a>Existe-t-il un moyen de gérer l’emplacement des pods ?
 
-Avec la mise à jour imminente de l’administrateur client, les clients auront la possibilité d’obtenir des nœuds et d’afficher des étiquettes.  Cela permettra de cibler les machines virtuelles du groupe identique.
+Les clients ont la possibilité d’obtenir des nœuds et d’afficher des étiquettes en tant que client-administrateur.  Cela permettra de cibler les machines virtuelles du groupe identique.
 
 Vous devez être prudent avec certaines étiquettes :
 
@@ -147,7 +147,7 @@ Vous devez être prudent avec certaines étiquettes :
 
 ## <a name="what-is-the-maximum-number-of-pods-in-an-aro-cluster-what-is-the-maximum-number-of-pods-per-node-in-aro"></a>Quel est le nombre maximal de pods que peut contenir un cluster ARO ?  Quel est le nombre maximal de pods que peut contenir un nœud dans ARO ?
 
-Pour plus d’informations, consultez la [documentation OpenShift](https://docs.openshift.com/container-platform/3.11/scaling_performance/cluster_limits.html#scaling-performance-current-cluster-limits). Red Hat OpenShift 3.11 a une limite de 250 pods par nœud et [ARO est limité à 20 nœuds de calcul](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available). Ainsi, le nombre maximal de pods pris en charge dans un cluster ARO est donc de 250*20 = 5000.
+ Azure Red Hat OpenShift 3.11 a une limite de 50 pods par nœud et [ARO est limité à 20 nœuds de calcul](https://docs.microsoft.com/azure/openshift/openshift-faq#what-cluster-operations-are-available). Ainsi, le nombre maximal de pods pris en charge dans un cluster ARO est de 50 x 20 = 1 000.
 
 ## <a name="can-we-specify-ip-ranges-for-deployment-on-the-private-vnet-avoiding-clashes-with-other-corporate-vnets-once-peered"></a>Est-il possible de spécifier des plages d’adresses IP pour un déploiement sur un réseau virtuel privé, en évitant les conflits avec d’autres réseaux virtuels d’entreprise après l’appairage ?
 

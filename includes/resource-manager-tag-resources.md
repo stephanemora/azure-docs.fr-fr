@@ -5,17 +5,17 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 01/03/2020
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6d8f29e9272f3e05bb585c032240cce67c37d2bf
+ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74451500"
+ms.lasthandoff: 01/05/2020
+ms.locfileid: "75665136"
 ---
-1. Pour afficher les mot clés d’une ressource ou d’un groupe de ressources, recherchez les mots clés existants dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide.
+1. Pour afficher les balises d’une ressource ou d’un groupe de ressources, recherchez les balises existantes dans la vue d’ensemble. Si vous n’avez préalablement appliqué aucune balise, cette liste est vide.
    
      ![Afficher les mots clés d’une ressource ou d’un groupe de ressources](./media/resource-manager-tag-resources/view-tags.png)
 1. Pour ajouter un mot clé, sélectionnez **Cliquez ici pour ajouter des mots clés**.
@@ -52,7 +52,7 @@ Pour attribuer des balises en bloc à plusieurs ressources :
 
 Pour afficher toutes les ressources ayant un mot clé :
 
-1. Dans le menu du Portail Azure, sélectionnez **Tous les services**. Sélectionnez **Générale**, puis **Balises**.
+1. Dans le menu du portail Azure, sélectionnez **Tous les services**. Sélectionnez **Générale**, puis **Balises**.
 
      ![Rechercher par mot clé](./media/resource-manager-tag-resources/find-tags-general.png)
 
@@ -63,11 +63,3 @@ Pour afficher toutes les ressources ayant un mot clé :
 1. Toutes les ressources associées à ce mot clé sont affichées.
 
      ![Afficher les ressources par mot clé](./media/resource-manager-tag-resources/view-resources-by-tag.png)
-
-1. Pour un accès rapide, épinglez la vue au tableau de bord.
-
-     ![Épingler au tableau de bord](./media/resource-manager-tag-resources/pin-to-dashboard.png)
-
-1. La vue est disponible à partir du tableau de bord.
-
-     ![tableau de bord](./media/resource-manager-tag-resources/dashboard-with-view.png)

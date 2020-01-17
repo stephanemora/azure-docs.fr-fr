@@ -1,25 +1,16 @@
 ---
-title: Configurer Reliable Services dans Azure Service Fabric | Microsoft Docs
-description: En savoir plus sur la configuration de Reliable Services avec état dans Azure Service Fabric.
-services: Service-Fabric
-documentationcenter: .net
+title: Configuration des Reliable Services dans Azure Service Fabric
+description: Apprenez-en davantage sur la configuration des Reliable Services avec état dans une application Azure Service Fabric à l’échelle mondiale et pour un service unique.
 author: sumukhs
-manager: chackdan
-editor: vturecek
-ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 60a4669e20aa8aaf80ae174c88631f3dc572656d
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 9743213394b59af701b25b8be9dd48cf4310b499
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242890"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75645512"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.
@@ -27,8 +18,8 @@ Il existe deux ensembles de paramètres de configuration pour les services fiabl
 ## <a name="global-configuration"></a>Configuration globale
 La configuration de service fiable globale est spécifiée dans le manifeste de cluster sous la section KtlLogger. Elle permet la configuration de l’emplacement et de la taille du journal partagé, ainsi que des limites de mémoire globales utilisées par l’enregistreur d’événements. Le manifeste de cluster est un fichier XML simple qui contient les paramètres et les configurations qui s’appliquent à l’ensemble des nœuds et des services du cluster. Le fichier a généralement pour nom ClusterManifest.xml. Vous pouvez voir le manifeste de cluster de votre cluster à l’aide de la commande PowerShell Get-ServiceFabricClusterManifest.
 
-### <a name="configuration-names"></a>Noms des configurations
-| Nom | Unité | Valeur par défaut | Remarques |
+### <a name="configuration-names"></a>Noms de configuration
+| Name | Unité | Valeur par défaut | Notes |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Ko |8388608 |Nombre minimal de Ko à allouer en mode noyau pour le pool de mémoire tampon d’écriture de l’enregistreur d’événements. Ce pool de mémoire est utilisé pour la mise en cache des informations d’état avant l’écriture sur le disque. |
 | WriteBufferMemoryPoolMaximumInKB |Ko |Aucune limite |Taille maximale que peut atteindre le pool de mémoire tampon d’écriture de l’enregistreur d’événements. |
@@ -59,7 +50,7 @@ Si vous souhaitez modifier cette valeur dans votre environnement de développeme
    </Section>
 ```
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 L’enregistreur dispose d’un pool global de mémoire allouée provenant de la mémoire du noyau non paginée disponible pour tous les services fiables sur un nœud pour mettre en cache les données d’état avant l’écriture dans le journal dédié associé du réplica de service fiable. La taille du pool est contrôlée par les paramètres WriteBufferMemoryPoolMinimumInKB et WriteBufferMemoryPoolMaximumInKB. WriteBufferMemoryPoolMinimumInKB spécifie la taille initiale de ce pool de mémoire et la taille minimale à laquelle peut se réduire le pool de mémoire. WriteBufferMemoryPoolMaximumInKB est la taille maximale que peut atteindre le pool de mémoire. Chaque réplica de service fiable qui est ouvert peut augmenter la taille du pool de mémoire d’une quantité déterminée par le système jusqu’à WriteBufferMemoryPoolMaximumInKB. Si la demande de mémoire au pool de mémoire dépasse la quantité disponible, les requêtes de mémoire sont retardées jusqu’à ce que la mémoire soit disponible. Par conséquent, si le pool de mémoire tampon d’écriture est trop petit pour une configuration particulière, les performances peuvent être affectées.
 
 Les paramètres SharedLogId et SharedLogPath sont toujours utilisés ensemble pour définir le GUID et l’emplacement du journal partagé par défaut pour tous les nœuds du cluster. Le journal partagé par défaut est utilisé pour tous les services fiables qui ne spécifient pas les paramètres dans le fichier settings.xml pour le service spécifique. Pour des performances optimales, les fichiers journaux partagés doivent être placés sur des disques uniquement utilisés pour le fichier journal partagé afin de réduire la contention.
@@ -108,18 +99,18 @@ ReplicatorConfig
 > 
 > 
 
-### <a name="configuration-names"></a>Noms des configurations
-| Nom | Unité | Valeur par défaut | Remarques |
+### <a name="configuration-names"></a>Noms de configuration
+| Name | Unité | Valeur par défaut | Notes |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondes |0.015 |Durée d'attente du réplicateur secondaire après la réception d'une opération et avant de renvoyer un accusé de réception au réplicateur principal. Tous les autres accusés de réception à envoyer pour les opérations traitées durant cet intervalle sont envoyés sous la forme d'une réponse. |
 | ReplicatorEndpoint |N/A |Aucune valeur par défaut (paramètre obligatoire) |Adresse IP et port que le réplicateur principal/secondaire utilise pour communiquer avec d'autres réplicateurs dans le jeu de réplicas. Doit faire référence à un point de terminaison de ressource TCP dans le manifeste de service. Reportez-vous aux [ressources du manifeste de service](service-fabric-service-manifest-resources.md) pour en savoir plus sur la définition des ressources de point de terminaison dans le manifeste de service. |
 | MaxPrimaryReplicationQueueSize |Nombre d'opérations |8 192 |Nombre maximal d'opérations dans la file d'attente principale. Une opération est libérée quand le réplicateur principal reçoit un accusé de réception de tous les réplicateurs secondaires. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
-| MaxSecondaryReplicationQueueSize |Nombre d'opérations |16 384 |Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
+| MaxSecondaryReplicationQueueSize |Nombre d'opérations |16384 |Nombre maximal d'opérations dans la file d'attente secondaire. Une opération est libérée une fois son état devenu hautement disponible grâce à la persistance. Cette valeur doit être supérieure à 64 et être une puissance de 2. |
 | CheckpointThresholdInMB |Mo |50 |Quantité d'espace du fichier journal après lequel l'état est vérifié. |
 | MaxRecordSizeInKB |Ko |1 024 |Taille maximale de l'enregistrement que le réplicateur peut écrire dans le journal. Cette valeur doit être un multiple de 4 et supérieure à 16. |
 | MinLogSizeInMB |Mo |0 (système déterminé) |Taille minimale du journal des transactions. Le journal ne peut pas être tronqué à une taille inférieure à ce paramètre. 0 indique que le réplicateur détermine la taille minimale du journal. Si vous augmentez cette valeur, vous augmentez la possibilité de faire des copies partielles et des sauvegardes incrémentielles, car la probabilité de la troncation des enregistrements de journaux pertinents est réduite. |
-| TruncationThresholdFactor |Facteur |2 |Détermine à partir de quelle taille du journal la troncation est déclenchée. Le seuil de troncation est déterminé par MinLogSizeInMB multiplié par TruncationThresholdFactor. TruncationThresholdFactor doit être supérieur à 1. MinLogSizeInMB * TruncationThresholdFactor doit être inférieur à MaxStreamSizeInMB. |
-| ThrottlingThresholdFactor |Facteur |4 |Détermine à partir de quelle taille du journal la troncation du réplication commence. Le seuil de limitation (en Mo) est déterminé par Max ((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). Le seuil de limitation (en Mo) doit être supérieur au seuil de troncation (en Mo). Le seuil de troncation (en Mo) doit être inférieur à MaxStreamSizeInMB. |
+| TruncationThresholdFactor |Factor |2 |Détermine à partir de quelle taille du journal la troncation est déclenchée. Le seuil de troncation est déterminé par MinLogSizeInMB multiplié par TruncationThresholdFactor. TruncationThresholdFactor doit être supérieur à 1. MinLogSizeInMB * TruncationThresholdFactor doit être inférieur à MaxStreamSizeInMB. |
+| ThrottlingThresholdFactor |Factor |4 |Détermine à partir de quelle taille du journal la troncation du réplication commence. Le seuil de limitation (en Mo) est déterminé par Max ((MinLogSizeInMB * ThrottlingThresholdFactor),(CheckpointThresholdInMB * ThrottlingThresholdFactor)). Le seuil de limitation (en Mo) doit être supérieur au seuil de troncation (en Mo). Le seuil de troncation (en Mo) doit être inférieur à MaxStreamSizeInMB. |
 | MaxAccumulatedBackupLogSizeInMB |Mo |800 |Taille cumulée maximale (en Mo) des journaux d’activité de sauvegarde dans une séquence de journaux d’activité de sauvegarde donnée. Des demandes de sauvegarde incrémentielle échouent si la sauvegarde incrémentielle génère un journal de sauvegarde qui provoque la cumulation des journaux d’activité de sauvegarde, étant donné que la sauvegarde complète pertinente est supérieure à cette taille. Dans ce cas, l’utilisateur doit effectuer une sauvegarde complète. |
 | SharedLogId |GUID |"" |Spécifie un GUID unique à utiliser pour identifier le fichier journal partagé utilisé avec ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogId est spécifié, SharedLogPath doit l'être aussi. |
 | SharedLogPath |Nom de chemin complet |"" |Spécifie le chemin d'accès complet où sera créé le fichier journal partagé pour ce réplica. En règle générale, les services ne doivent pas utiliser ce paramètre. Toutefois, si SharedLogPath est spécifié, SharedLogId doit l'être aussi. |
@@ -181,7 +172,7 @@ class MyStatefulService : StatefulService
 ```
 
 
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
 BatchAcknowledgementInterval contrôle la latence de réplication. La valeur « 0 » entraîne la latence la plus faible possible, au détriment du débit (car davantage de messages d'accusé de réception doivent être envoyés et traités, chacun contenant moins d'accusés de réception).
 Plus la valeur de BatchAcknowledgementInterval est élevée, plus le débit de réplication général est élevé, au détriment d'une plus grande latence de l'opération. Cela se traduit directement par une latence dans la validation des transactions.
 

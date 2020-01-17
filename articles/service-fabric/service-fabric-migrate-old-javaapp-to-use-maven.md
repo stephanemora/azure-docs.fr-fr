@@ -1,30 +1,21 @@
 ---
-title: Migrer du Kit de développement logiciel (SDK) Java vers Maven - Mettre à jour les anciennes applications Java d’Azure Service Fabric pour utiliser Maven | Microsoft Docs
+title: Migrer du Kit de développement logiciel (SDK) Java vers Maven
 description: Mettez à jour les anciennes applications Java qui utilisaient le Kit de développement logiciel (SDK) Java Service Fabric, pour extraire des dépendances Java Service Fabric dans Maven. Une fois l’installation terminée, vos anciennes applications Java devraient pouvoir générer.
-services: service-fabric
-documentationcenter: java
 author: rapatchi
-manager: chackdan
-editor: ''
-ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/23/2017
 ms.author: rapatchi
-ms.openlocfilehash: dbd85b3647a60ce873c1a55b851bd47ece103282
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5e126ebdf3b89470472391c59d378c7a6d39b86
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60718392"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75609806"
 ---
 # <a name="update-your-previous-java-service-fabric-application-to-fetch-java-libraries-from-maven"></a>Mettez à jour votre précédente application Java Service Fabric pour extraire des bibliothèques Java dans Maven
 Nous avons récemment déplacé des binaires Java du Kit de développement logiciel (SDK) Java Service Fabric vers un hébergement Maven. Vous pouvez dorénavant utiliser le référentiel **mavencentral** pour extraire les dépendances Java récentes de Service Fabric. Ce démarrage rapide vous aide à mettre à jour vos applications Java existantes, créées plus tôt pour qu’elles fonctionnent avec le Kit de développement logiciel (SDK) Java Service Fabric, à l’aide du modèle Yeoman ou Eclipse, afin de les rendre compatibles avec le build basé sur Maven.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 1. Vous devez tout d’abord désinstaller le Kit de développement logiciel (SDK) Java existant.
 
    ```bash
@@ -167,7 +158,7 @@ task copyDeps <<{
     }
 }
 ```
-Maintenant, pour extraire les dépendances depuis Maven, le fichier ``build.gradle`` **mis à jour** disposerait des parties correspondantes suivantes :
+Maintenant, pour extraire les dépendances depuis Maven, le fichier **mis à jour** ``build.gradle`` disposerait des parties correspondantes suivantes :
 ```
 repositories {
         mavenCentral()
@@ -241,7 +232,7 @@ dependencies {
 .
 .
 ```
-Maintenant, pour extraire les dépendances depuis Maven, le fichier ``build.gradle`` **mis à jour** disposerait des parties correspondantes suivantes :
+Maintenant, pour extraire les dépendances depuis Maven, le fichier **mis à jour** ``build.gradle`` disposerait des parties correspondantes suivantes :
 ```
 repositories {
     mavenCentral()
@@ -313,7 +304,7 @@ task copyDeps<< {
     }
 }
 ```
-Maintenant, pour extraire les dépendances depuis Maven, le fichier ``build.gradle`` **mis à jour** disposerait des parties correspondantes suivantes :
+Maintenant, pour extraire les dépendances depuis Maven, le fichier **mis à jour** ``build.gradle`` disposerait des parties correspondantes suivantes :
 ```
 repositories {
     mavenCentral()
@@ -413,7 +404,7 @@ task copyDeps<< {
         }
 }
 ```
-Maintenant, pour extraire les dépendances depuis Maven, le fichier ``build.gradle`` **mis à jour** disposerait des parties correspondantes suivantes :
+Maintenant, pour extraire les dépendances depuis Maven, le fichier **mis à jour** ``build.gradle`` disposerait des parties correspondantes suivantes :
 ```
 repositories {
     mavenCentral()

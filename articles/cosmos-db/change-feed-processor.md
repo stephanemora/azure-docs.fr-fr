@@ -1,6 +1,6 @@
 ---
-title: Utilisation de la bibliothèque du processeur de flux de modification dans Azure Cosmos DB
-description: Découvrez comment utiliser la bibliothèque du processeur de flux de modification Azure Cosmos DB pour lire le flux de modification, les composants du processeur de flux de modification et le cycle de vie de l’implémentation.
+title: Bibliothèque du processeur de flux de modification dans Azure Cosmos DB
+description: Découvrez comment utiliser la bibliothèque du processeur de flux de modification Azure Cosmos DB pour lire le flux de modification et les composants du processeur de flux de modification.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ea2b72e926923357e9ee7dac87720292fbbf9696
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7f5e46068844da538864fdfaa03ca7023e4372
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872228"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445579"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processeur de flux de modification dans Azure Cosmos DB 
 

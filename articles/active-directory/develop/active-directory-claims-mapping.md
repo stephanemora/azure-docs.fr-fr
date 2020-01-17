@@ -1,5 +1,5 @@
 ---
-title: Personnaliser des revendications pour des applications de locataire Azure AD
+title: Personnaliser les revendications d’application cliente Azure AD (PowerShell)
 titleSuffix: Microsoft identity platform
 description: Cette page décrit le mappage de revendications Azure Active Directory.
 services: active-directory
@@ -14,14 +14,14 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6ad2d6ec7a98a82917916bba2930149705ebfd87
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918421"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531069"
 ---
-# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Activation Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
+# <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procédure : Personnaliser des revendications émises dans des jetons pour une application spécifique dans un locataire (préversion)
 
 > [!NOTE]
 > Cette fonctionnalité remplace la [personnalisation des revendications](active-directory-saml-claims-customization.md) offerte au moyen du portail aujourd'hui. Sur la même application, si vous personnalisez des revendications à l’aide du portail en plus de la méthode Graph/PowerShell détaillée dans ce document, les jetons émis pour cette application ignorent la configuration définie dans le portail. Les configurations effectuées au moyen des méthodes décrites dans ce document n’apparaissent pas dans le portail.
@@ -51,7 +51,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | Ensemble de revendications de base | Inclut les revendications émises par défaut pour les jetons (en plus de l’ensemble de revendications principal). Vous pouvez omettre ou modifier des revendications de base à l’aide de stratégies de mappage de revendications. |
 | Ensemble de revendications restreint | Ne peut pas être modifié à l’aide d’une stratégie. La source de données ne peut pas être modifiée, et aucune transformation n’est appliquée lors de la génération de ces revendications. |
 
-### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tableau 1 : Ensemble de revendications restreint JSON Web Token (JWT)
+### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tableau 1 : Ensemble de revendications restreint JSON Web Token (JWT)
 
 | Type de revendication (nom) |
 | ----- |
@@ -158,7 +158,7 @@ Il existe des ensembles de revendications qui définissent comment et quand ils 
 | refreshtoken |
 | request_nonce |
 | resource |
-| role |
+| rôle |
 | roles |
 | scope |
 | scp |
@@ -411,12 +411,18 @@ Selon la méthode choisie, un ensemble d’entrées et sorties est attendu. Déf
 
 | Méthode de transformation | Restrictions |
 | ----- | ----- |
-| ExtractMailPrefix | Aucun |
+| ExtractMailPrefix | None |
 | Join | Le suffixe joint doit être un domaine vérifié du locataire de ressources. |
 
 ### <a name="custom-signing-key"></a>Clé de signature personnalisée
 
-Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes.  Les applications pour lesquelles le mappage de revendications est activé doivent vérifier un URI spécial pour leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
+Une clé de signature personnalisée doit être affectée à l’objet de principal du service pour qu’une stratégie de mappage de revendications entre en vigueur. Cela garantit la reconnaissance que les jetons ont été modifiés par le créateur de la stratégie de mappage de revendications et protège les applications contre les stratégies de mappage de revendications créées par des personnes malveillantes. Pour ajouter une clé de signature personnalisée, vous pouvez utiliser la cmdlet Azure PowerShell `new-azureadapplicationkeycredential` pour créer des informations d’identification de clé symétrique pour votre objet d’application. Pour plus d’informations sur cette cmdlet Azure PowerShell, cliquez [ici](https://docs.microsoft.com/powershell/module/Azuread/New-AzureADApplicationKeyCredential?view=azureadps-2.0).
+
+Les applications pour lesquelles le mappage de revendications est activé doivent valider leurs clés de signature de jeton en ajoutant `appid={client_id}` à leurs [demandes de métadonnées OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document). Le format du document de métadonnées OpenID Connect que vous utilisez se trouve ci-dessous : 
+
+```
+https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration?appid={client-id}
+```
 
 ### <a name="cross-tenant-scenarios"></a>Scénarios inter-locataires
 
@@ -430,7 +436,7 @@ Des stratégies de mappage de revendications peuvent être attribuées uniquemen
 
 Dans Azure AD, de nombreux scénarios sont possibles où vous pouvez personnaliser des revendications émises dans des jetons pour des principaux du service spécifiques. Cette section décrit quelques scénarios courants qui peuvent vous aider à comprendre comment utiliser le type de stratégie de mappage de revendications.
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables requises
 
 Dans les exemples suivants, vous créez, mettez à jour, liez et supprimez des stratégies pour les principaux du service. Si vous débutez avec Azure AD, nous vous recommandons de vous [documenter sur l’obtention d’un locataire Azure Active Directory](quickstart-create-new-tenant.md) avant de continuer avec ces exemples.
 
@@ -448,7 +454,7 @@ Pour commencer, suivez les étapes ci-dessous :
    Get-AzureADPolicy
    ```
 
-#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour omettre les revendications de base des jetons émis pour un principal du service
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour omettre les revendications de base des jetons émis pour un principal du service
 
 Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revendications de base des jetons émis pour des principaux du service liés.
 
@@ -471,7 +477,7 @@ Dans cet exemple, vous créez une stratégie qui supprime l’ensemble de revend
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour inclure EmployeeID et TenantCountry en tant que revendications dans des jetons émis pour un principal du service
+#### <a name="example-create-and-assign-a-policy-to-include-the-employeeid-and-tenantcountry-as-claims-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie pour inclure EmployeeID et TenantCountry en tant que revendications dans des jetons émis pour un principal du service
 
 Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCountry à des jetons émis pour des principaux du service liés. EmployeeID est émis en tant que type de revendication de nom dans les jetons SAML et JWT. TenantCountry est émis en tant que type de revendication de pays dans les jetons SAML et JWT. Dans cet exemple, nous continuons à inclure les ensembles de revendications de base dans les jetons.
 
@@ -495,7 +501,7 @@ Dans cet exemple, vous créez une stratégie qui ajoute EmployeeID et TenantCoun
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
 
-#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie qui utilise une transformation de revendications dans des jetons émis pour un principal du service
+#### <a name="example-create-and-assign-a-policy-that-uses-a-claims-transformation-in-tokens-issued-to-a-service-principal"></a>Exemple : Créer et attribuer une stratégie qui utilise une transformation de revendications dans des jetons émis pour un principal du service
 
 Dans cet exemple, vous créez une stratégie qui émet une revendication personnalisée « JoinedData » pour des jetons JWT émis pour des principaux du service liés. Cette revendication contient une valeur créée en joignant les données stockées dans l’attribut extensionattribute1 sur l’objet utilisateur avec « .sandbox ». Dans cet exemple, nous excluons l’ensemble de revendications de base des jetons.
 

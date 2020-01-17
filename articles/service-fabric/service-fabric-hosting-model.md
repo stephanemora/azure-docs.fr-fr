@@ -1,23 +1,16 @@
 ---
-title: Modèle d’hébergement Azure Service Fabric | Microsoft Docs
+title: Modèle d’hébergement Azure Service Fabric
 description: Décrit la relation entre les réplicas (ou instances) d’un service Service Fabric déployé et le processus hôte du service.
-services: service-fabric
-documentationcenter: .net
 author: harahma
-manager: chackdan
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: d2d958a89bff40483e1cd473538f7d1a6971d266
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 69c7edb08693937aad5a658e0b22b00cd2a81647
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60483569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75464578"
 ---
 # <a name="azure-service-fabric-hosting-model"></a>Modèle d’hébergement Azure Service Fabric
 Cet article fournit une vue d’ensemble des modèles d’hébergement d’applications fournis par Azure Service Fabric et décrit les différences entre les modèles à **processus partagé** et à **processus exclusif**. Il décrit le fonctionnement d’une application déployée sur un nœud Service Fabric, et présente la relation entre les réplicas (ou instances) du service et le processus hôte du service.
@@ -59,7 +52,7 @@ La section précédente décrit le modèle d’hébergement par défaut fourni p
 ## <a name="exclusive-process-model"></a>Modèle à processus exclusif
 L’autre modèle d’hébergement fourni par Service Fabric est le modèle à processus exclusif. Dans ce modèle, sur un nœud donné, chaque réplica réside dans son propre processus dédié. Service Fabric active une nouvelle copie de *ServicePackage* (qui démarre tous les *CodePackages* qu’il contient). Les réplicas sont placés dans le *CodePackage* qui inscrit le *ServiceType* du service auquel appartient le réplica. 
 
-Si vous utilisez Service Fabric 5.6 ou version ultérieure, vous pouvez choisir le modèle à processus exclusif lorsque vous créez un service (à l’aide de [PowerShell][p1], [REST][r1] ou [FabricClient][c1]). Spécifiez **ServicePackageActivationMode** en tant que « ExclusiveProcess ».
+Si vous utilisez Service Fabric 5.6 ou version ultérieure, vous pouvez choisir le Modèle à processus exclusif lorsque vous créez un service (à l’aide de [PowerShell][p1], [REST][r1] ou [FabricClient][c1]). Spécifiez **ServicePackageActivationMode** en tant que « ExclusiveProcess ».
 
 ```powershell
 PS C:\>New-ServiceFabricService -ApplicationName "fabric:/App1" -ServiceName "fabric:/App1/ServiceA" -ServiceTypeName "MyServiceType" -Stateless -PartitionSchemeSingleton -InstanceCount -1 -ServicePackageActivationMode "ExclusiveProcess"
@@ -106,7 +99,7 @@ Lorsque vous utilisez uniquement le modèle à processus partagé pour une appli
 >
 >- Dans le modèle d’hébergement à processus exclusif, **ServicePackageActivationMode** est égal à **ExclusiveProcess**. Pour utiliser ce paramètre, vous devez le spécifier explicitement au moment de la création du service. 
 >
->- Pour voir le modèle d’hébergement d’un service, interrogez la [description du service][p2] et regardez la valeur de **ServicePackageActivationMode**.
+>- Pour voir le Modèle d’hébergement d’un service, interrogez la [description du service][p2] et regardez la valeur de **ServicePackageActivationMode**.
 >
 >
 
@@ -118,7 +111,7 @@ Pour connaître le **ServicePackageActivationId** d’un package de services dé
 > [!NOTE]
 >- Sous le modèle d’hébergement à processus partagé, une seule copie d’un *ServicePackage* est activée sur un nœud donné et pour une application donnée. Le **ServicePackageActivationId** est alors égal à une *chaîne vide* et il n’est pas nécessaire de le spécifier lors de l’exécution des opérations associées au package de services déployé. 
 >
-> - Sous le modèle d’hébergement à processus exclusif, une ou plusieurs copies d’un *ServicePackage* peuvent être actives sur un nœud donné et pour une application donnée. Chaque activation est associée à un *ServicePackageActivationId* **non vide**, spécifié lors de l’exécution des opérations associées au package de services déployé. 
+> - Sous le modèle d’hébergement à processus exclusif, une ou plusieurs copies d’un *ServicePackage* peuvent être actives sur un nœud donné et pour une application donnée. Chaque activation est associée à un **ServicePackageActivationId** *non vide*, spécifié lors de l’exécution des opérations associées au package de services déployé. 
 >
 > - Si le **ServicePackageActivationId** est omis, la valeur par défaut est une *chaîne vide*. En présence d’un package de services déployé qui a été activé sous le modèle à processus partagé, l’opération est exécutée dans ce package. Dans le cas contraire, l’opération échoue.
 >
@@ -127,7 +120,7 @@ Pour connaître le **ServicePackageActivationId** d’un package de services dé
 >
 
 ## <a name="guest-executable-and-container-applications"></a>Applications d’exécutables invités et de conteneurs
-Service Fabric traite les applications [d’exécutable invité][a2] et de [conteneur][a3] en tant que services sans état, qui sont autonomes. Il n’y a pas de runtime Service Fabric dans *ServiceHost* (processus ou conteneur). Étant donné que ces services sont autonomes, le nombre de réplicas par *ServiceHost* n’est pas applicable à ces services. La configuration la plus couramment utilisée avec ces services est la partition unique avec un [InstanceCount][c2] égal à -1 (une seule copie du code de service exécutée sur chaque nœud du cluster). 
+Service Fabric traite les applications d’[exécutable invité][a2] et de [conteneur][a3] en tant que services sans état, qui sont autonomes. Il n’y a pas de runtime Service Fabric dans *ServiceHost* (processus ou conteneur). Étant donné que ces services sont autonomes, le nombre de réplicas par *ServiceHost* n’est pas applicable à ces services. La configuration la plus couramment utilisée avec ces services est la partition unique avec un [InstanceCount][c2] égal à -1 (une seule copie du code de service exécutée sur chaque nœud du cluster). 
 
 Le **ServicePackageActivationMode** par défaut pour ces services est **SharedProcess**. Dans ce cas, Service Fabric active uniquement une copie de *ServicePackage* sur un nœud pour une application donnée.  Cela signifie qu’une seule copie du code de service exécutera un nœud. Si vous souhaitez que plusieurs copies de votre code de service s’exécutent sur un nœud, spécifiez **ServicePackageActivationMode** en tant que **ExclusiveProcess** au moment de la création du service. Par exemple, vous pouvez le faire lorsque vous créez plusieurs services (*Service1* à *ServiceN*) de *ServiceType* (spécifié dans *ServiceManifest*), ou si votre service comprend plusieurs partitions. 
 

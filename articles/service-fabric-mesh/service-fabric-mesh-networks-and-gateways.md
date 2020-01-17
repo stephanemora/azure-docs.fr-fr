@@ -1,26 +1,17 @@
 ---
-title: Présentation de la gestion réseau Azure Service Fabric | Microsoft Docs
+title: Présentation de la gestion réseau Azure Service Fabric
 description: Apprenez-en plus sur les réseaux, les passerelles et le routage de trafic intelligent dans Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/26/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b0e1047c5bbd7d8caaf2afd8b002be1c46837852
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc793e2991783cc9b7b46d92fcc8e0267feb529b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811045"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459140"
 ---
 # <a name="introduction-to-networking-in-service-fabric-mesh-applications"></a>Présentation de la gestion réseau dans les applications Service Fabric Mesh
 Cet article décrit les différents types d’équilibreurs de charge, comment les passerelles connectent le réseau de vos applications à d’autres réseaux, et comment le trafic est acheminé entre les services dans vos applications.

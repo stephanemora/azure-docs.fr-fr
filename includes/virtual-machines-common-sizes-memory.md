@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: da47a471ddcf2c083ed127b79e4d3da9713d2ed4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09f379279a7247f87b9e0830414a5e4363f41cdb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719048"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467524"
 ---
 Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoire/processeur supérieur pour les serveurs de base de données relationnelle, les caches moyens à grands et l’analytique en mémoire. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur la bande passante réseau et le débit de stockage pour chaque taille de ce regroupement.
 
@@ -35,9 +35,9 @@ Les tailles de machine virtuelle à mémoire optimisée offrent un ration mémoi
 
 ACU : 160-190 <sup>1</sup>
 
-Premium Storage : Pris en charge
+Premium Storage : Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 Les instances de la série ESv3 sont dotées des processeurs Intel® Xeon® 8171M 2,1 GHz (Skylake) ou Intel® Xeon® E5-2673 v4 2,3 GHz (Broadwell) et peuvent atteindre 3,5 GHz avec la technologie Intel Turbo Boost 2.0 et utiliser le stockage Premium. Les tailles des machines virtuelles de la série ESv3 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
@@ -46,11 +46,11 @@ Les instances de la série ESv3 sont dotées des processeurs Intel® Xeon® 8171
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------------------------|
 | Standard_E2s_v3 | 2      | 16          | 32             | 4              | 4000 / 32 (50)                                                       | 3200 / 48                                | 2 / 1 000                                   |
 | Standard_E4s_v3&nbsp;<sup>2</sup> | 4      | 32          | 64             | 8              | 8000 / 64 (100)                                                      | 6400 / 96                                | 2 / 2 000                                   |
-| Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16000 / 128 (200)                                                    | 12800 / 192                              | 4 / 4000                                       |
+| Standard_E8s_v3&nbsp;<sup>2</sup> | 8      | 64          | 128            | 16             | 16000 / 128 (200)                                                    | 12800 / 192                              | 4/4000                                       |
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32000 / 256 (400)                                                    | 25600 / 384                              | 8 / 8000                                       |
 | Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 40000 / 320 (400)                                                    | 32000 / 480                              | 8 / 10000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64000 / 512 (800)                                                    | 51200 / 768                              | 8 / 16 000                             |
-| Standard_E48s_v3&nbsp;<sup>2</sup> | 48     | 384         | 768            | 32             | 96 000/768 (1 200)                                                   | 76 800/1 152                             | 8/24 000                             |
+| Standard_E48s_v3&nbsp;<sup>2</sup> | 48     | 384         | 768            | 32             | 96 000/768 (1 200)                                                   | 76800 / 1152                             | 8 / 24000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128000 / 1024 (1600)                                                   | 80000 / 1200                             | 8 / 30000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128000 / 1024 (1600)                                                   | 80000 / 1200                             | 8 / 30000                             |
 
@@ -65,25 +65,25 @@ Les instances de la série ESv3 sont dotées des processeurs Intel® Xeon® 8171
 
 ACU : 230 - 260
 
-Premium Storage : Pris en charge
+Premium Storage : Prise en charge
 
-Mise en cache du Stockage Premium : Pris en charge
+Mise en cache du Stockage Premium : Prise en charge
 
 Les tailles de la série Easv4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une fréquence maximale renforcée de 3,35 GHz et utiliser un SSD Premium. Les tailles des machines virtuelles de la série Easv4 sont idéales pour les applications d’entreprise nécessitant une mémoire importante.
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (Mbps) |
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 |-----|-----|-----|-----|-----|-----|-----|-----|
 | Standard_E2as_v4|2|16|32|4|4000 / 32 (50)|3200 / 48|2 / 1 000 |
 | Standard_E4as_v4|4|32|64|8|8000 / 64 (100)|6400 / 96|2 / 2 000 |
 | Standard_E8as_v4|8|64|128|16|16000 / 128 (200)|12800 / 192|4/4000 |
-| Standard_E16as_v4|16|128|256|32|32000 / 255 (400)|25600 / 384|8 / 8000 |
+| Standard_E16as_v4|16|128|256|32|32 000 / 255 (400)|25600 / 384|8 / 8000 |
 | Standard_E20as_v4|20|160|320|32|40000 / 320 (500)|32000 / 480|8 / 10000 |
-| Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 / 16 000 |
+| Standard_E32as_v4|32|256|512|32|64 000 / 510 (800)|51200 / 768|8 / 16 000 |
 | Standard_E48as_v4 <sup>**</sup> |48|384|768|32|  | | 
 | Standard_E64as_v4 <sup>**</sup> |64|512|1 024|32| | | 
 | Standard_E96as_v4 <sup>**</sup> |96|672|1344|32| | |  
 
-<sup>**</sup>  Ces tailles sont en préversion. Si vous souhaitez essayer ces tailles plus grandes, inscrivez-vous à [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
+<sup>**</sup>  Ces tailles sont en préversion. Si vous souhaitez essayer ces grandes tailles, inscrivez-vous à l’adresse [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="ev3-series"></a>Série Ev3 
 
@@ -98,15 +98,15 @@ Les instances de la série Ev3 sont dotées des processeurs Intel® Xeon® 8171M
 Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser les disques de stockage Premium, utilisez des machines virtuelles au format ESv3. Les tarifs et compteurs de facturation pour les tailles ESv3 sont identiques à ceux de la série Ev3. 
 
 
-| Size            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / Mbits/s en lecture / Mbits/s en écriture | Cartes réseau (max)/Bande passante réseau |
+| Size            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Cartes réseau (max)/Bande passante réseau |
 |-----------------|-----------|-------------|----------------|----------------|----------------------------------------------------------|------------------------------|
 | Standard_E2_v3  | 2         | 16          | 50             | 4              | 3000/46/23                                               | 2 / 1 000                 |
 | Standard_E4_v3  | 4         | 32          | 100            | 8              | 6000/93/46                                               | 2 / 2 000                 |
-| Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4 / 4000                     |
+| Standard_E8_v3  | 8         | 64          | 200            | 16             | 12000/187/93                                             | 4/4000                     |
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / 8000                     |
 | Standard_E20_v3 | 20        | 160         | 500            | 32             | 30000/469/234                                            | 8 / 10000                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / 16 000                 |
-| Standard_E48_v3 | 48        | 384         | 1 200            | 32             | 96000/1000/500                                            | 8/24 000                 |
+| Standard_E48_v3 | 48        | 384         | 1200            | 32             | 96000/1000/500                                            | 8 / 24000                 |
 | Standard_E64_v3 | 64        | 432         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30000           |
 | Standard_E64i_v3&nbsp;<sup>2,&nbsp;3</sup> | 64        | 432         | 1 600           | 32             | 96000/1000/500                                           | 8 / 30000           |
 
@@ -126,7 +126,7 @@ Mise en cache du Stockage Premium : Non pris en charge
 
 Les tailles de la série Eav4 sont basées sur le processeur AMD EPYC<sup>TM</sup> 7452 de 2,35 Ghz, qui peut atteindre une Fmax renforcée de 3,35 GHz et utiliser le stockage Premium. Les tailles des machines virtuelles de la série Eav4 sont idéales pour les applications d’entreprise nécessitant une mémoire importante. Le stockage sur disque de données est facturé séparément des machines virtuelles. Pour utiliser un SSD Premium, utilisez les tailles de la série Easv4. Les tarifs et les compteurs de facturation pour les tailles Easv4 sont identiques à celles de la série Eav3.
 
-| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Nombre max de cartes réseau / Bande passante réseau attendue (Mbps) |
+| Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire max. : IOPS / MBps en lecture / MBps en écriture | Nombre max. de cartes réseau / Bande passante réseau attendue (Mbits/s) |
 | -----|-----|-----|-----|-----|-----|-----|
 | Standard\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 / 1 000 |
 | Standard\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 / 2 000 |
@@ -134,19 +134,19 @@ Les tailles de la série Eav4 sont basées sur le processeur AMD EPYC<sup>TM</s
 | Standard\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
 | Standard\_E20a\_v4|20|160|500|32|30000 / 468 / 234|8 / 10000 |
 | Standard\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16 000 |
-| Standard\_E48a\_v4 <sup>**</sup> |48|384|1 200|32| | |
+| Standard\_E48a\_v4 <sup>**</sup> |48|384|1200|32| | |
 | Standard\_E64a\_v4 <sup>**</sup> |64|512|1 600|32| | |
 | Standard\_E96a\_v4 <sup>**</sup> |96|672|2 400|32| | |
 
-<sup>**</sup>  Ces tailles sont en préversion.  Si vous souhaitez essayer ces tailles plus grandes, inscrivez-vous à [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
+<sup>**</sup>  Ces tailles sont en préversion.  Si vous souhaitez essayer ces grandes tailles, inscrivez-vous à l’adresse [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview).
 
 ## <a name="mv2-series"></a>Série Mv2
 
 ACU : 188-280<sup>1</sup>
 
-Premium Storage : Pris en charge
+Premium Storage : Prise en charge
 
-Mise en cache du Stockage Premium : Pris en charge
+Mise en cache du Stockage Premium : Prise en charge
 
 Accélérateur d’écriture : [Pris en charge](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
@@ -169,9 +169,9 @@ La série Mv2 offre une plateforme à haut débit et faible latence sur un proce
 
 ACU : 160-180 <sup>1</sup>
 
-Premium Storage : Pris en charge
+Premium Storage : Prise en charge
 
-Mise en cache du Stockage Premium : Pris en charge
+Mise en cache du Stockage Premium : Prise en charge
 
 Les tailles de la série M sont basées sur le processeur Intel(R) Xeon(R) E7-8890 v3 @ 2,50 GHz   
 
@@ -210,9 +210,9 @@ Accélérateur d’écriture :  [Pris en charge](https://docs.microsoft.com/azu
 
 ACU : 210 - 250 <sup>1</sup>
 
-Premium Storage : Pris en charge
+Premium Storage : Prise en charge
 
-Mise en cache du Stockage Premium : Pris en charge
+Mise en cache du Stockage Premium : Prise en charge
 
 Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 8171M 2,1 GHz (Skylake), Intel® Xeon® E5 2673 v4 2,3 GHz (Broadwell) ou Intel® Xeon® E5-2673 v3 2,4 GHz (Haswell).
 
@@ -225,7 +225,7 @@ Les tailles de la série DSv2 s’exécutent sur les processeurs Intel® Xeon® 
 | Standard_DS15_v2&nbsp;<sup>2</sup> |20 |140 |280 |64 |80000 / 640 (720) |64000 / 960 |8 / 25000&nbsp;<sup>4</sup>
 
 <sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou MBps) avec une machine virtuelle de la série DSv2 peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d'informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).  
-<sup>2</sup> L’instance est isolée sur un matériel dédié à un client unique.  
+<sup>2</sup> L’instance est isolée sur le matériel Intel Haswell et dédiée à un seul client.  
 <sup>3</sup> Tailles avec nombre de cœurs limité disponibles.  
 <sup>4</sup> 25 000 MBps avec mise en réseau accélérée. 
 

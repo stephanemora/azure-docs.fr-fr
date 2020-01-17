@@ -1,25 +1,14 @@
 ---
 title: Déploiement d’Azure Service Fabric à l’aide de PowerShell
-description: Comment déployer et supprimer des applications dans Service Fabric avec PowerShell.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: b120ffbf-f1e3-4b26-a492-347c29f8f66b
-ms.service: service-fabric
-ms.devlang: dotnet
+description: Découvrez comment supprimer et déployer des applications dans Azure Service Fabric et comment effectuer ces actions dans PowerShell.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/19/2018
-ms.author: atsenthi
-ms.openlocfilehash: 0080ba0807a4cb31fedeb132932e2e08137dd40b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e3fdd194f2949f1246e991968e02b3278f33f7db
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013286"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614500"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>Déployer et supprimer des applications avec PowerShell
 
@@ -45,9 +34,9 @@ Une fois déployée, l’application n’est plus nécessaire, vous pouvez suppr
 
 Si vous utilisez Visual Studio pour déployer et déboguer des applications dans votre cluster de développement local, toutes les étapes précédentes sont gérées automatiquement à l’aide d’un script PowerShell.  Ce script se trouve dans le dossier *Scripts* du projet d’application. Cet article fournit des précisions sur les actions de ce script afin que vous puissiez effectuer les mêmes opérations en dehors de Visual Studio. 
 
-Une autre façon de déployer une application consiste à utiliser un approvisionnement externe. Le package d’application peut être [conditionné en tant que `sfpkg` ](service-fabric-package-apps.md#create-an-sfpkg) et chargé dans un magasin externe. Dans ce cas, le chargement dans le magasin d’images n’est pas nécessaire. Le déploiement nécessite les étapes suivantes :
+Une autre façon de déployer une application consiste à utiliser un approvisionnement externe. Le package d’application peut être [conditionné en tant que `sfpkg`](service-fabric-package-apps.md#create-an-sfpkg) et chargé dans un magasin externe. Dans ce cas, le chargement dans le magasin d’images n’est pas nécessaire. Le déploiement nécessite les étapes suivantes :
 
-1. Charger le `sfpkg` dans un magasin externe. Le magasin externe peut être n’importe quel magasin qui expose un point de terminaison http ou https REST.
+1. Charger le `sfpkg` dans un magasin externe. Le magasin externe peut être n’importe quel magasin qui expose un point de terminaison HTTP ou HTTPS REST.
 2. Inscrire le type d’application à l’aide de l’URI de téléchargement externe et les informations sur le type d’application.
 2. Créer l’instance d’application.
 
@@ -58,7 +47,7 @@ Pour le nettoyage, supprimez les instances de l’application et annulez l’ins
 
  
 
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
+## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
 Avant d’exécuter des commandes PowerShell dans le cadre de cet article, commencez toujours par vous connecter au cluster Service Fabric à l’aide de la commande [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps). Pour vous connecter au cluster de développement local, exécutez la commande suivante :
 
@@ -142,7 +131,7 @@ Par exemple, voici les statistiques de compression pour certains packages, qui i
 |----------------:|---------:|---------------:|---------------------------:|
 |100|100|00:00:03.3547592|60|
 |512|100|00:00:16.3850303|307|
-|1 024|500|00:00:32.5907950|615|
+|1 024|500|00:00:32.5907950|615|
 |2 048|1 000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
@@ -323,7 +312,7 @@ Pour désinscrire un type d’application spécifique, exécutez [Unregister-Ser
 Unregister-ServiceFabricApplicationType MyApplicationType 1.0.0
 ```
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="copy-servicefabricapplicationpackage-asks-for-an-imagestoreconnectionstring"></a>Copy-ServiceFabricApplicationPackage demande un ImageStoreConnectionString
 
