@@ -1,43 +1,10 @@
 - name: Vue d’ensemble
-  items:
-    - name: Qu’est-ce qu’une collection d’espaces de travail Power BI ?
-      href: what-are-power-bi-workspace-collections.md
-    - name: Nouveautés dans les collections d’espaces de travail Power BI
-      href: whats-new.md
-- name: Prise en main
-  items:
-    - name: Prendre en main les collections d’espaces de travail Power BI
-      href: get-started.md
-    - name: Prise en main d’un exemple
-      href: get-started-sample.md
-    - name: Forum Aux Questions
-      href: faq.md
+- name: Bien démarrer
 - name: Procédures
   items:
     - name: Planifier et concevoir
-      items:
-        - name: Scénarios courants
-          href: scenarios.md
-    - name: gérer
-      items:
-        - name: Se connecter à une source de données
-          href: connect-datasource.md
-        - name: Incorporer un rapport Power BI
-          href: embed-report.md
-        - name: Interagir avec les rapports
-          href: interact-with-reports.md
-        - name: Créer un rapport à partir d’un jeu de données
-          href: create-report-from-dataset.md
-        - name: Enregistrer des rapports
-          href: save-reports.md
-        - name: Basculer entre l’affichage et la modification
-          href: toggle-mode.md
+    - name: Gérer
     - name: Sécuriser
-      items:
-        - name: Authentification et autorisation
-          href: app-token-flow.md
-        - name: Sécurité au niveau des lignes avec Collections d’espaces de travail Power BI
-          href: row-level-security.md
 - name: Informations de référence
   items:
     - name: Exemples de code
