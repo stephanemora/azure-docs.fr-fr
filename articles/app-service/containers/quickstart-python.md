@@ -78,7 +78,7 @@ flask run
 
 ---
 
-Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse `http://localhost:5000/`. L’application affiche le message **Hello World !** .
+Ouvrez un navigateur web et accédez à l’exemple d’application à l’adresse `http://http://<app-name>.azurewebsites.net`. L’application affiche le message **Hello World !** .
 
 ![Exécuter un exemple d’application Python localement](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
