@@ -52,7 +52,7 @@ Dans une fenêtre de terminal, utilisez les commandes ci-dessous (qui diffèrent
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
-export FLASK_APP=application.py
+FLASK_APP=application.py
 flask run
 ```
 
