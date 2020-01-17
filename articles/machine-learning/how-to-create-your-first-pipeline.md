@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4f84eba6b23278391afd2de11d9072c9a378db05
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5b2fa550029c35ca989d6746254298cf1e92992d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646589"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75764573"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Créer et exécuter des pipelines de Machine Learning avec le kit SDK Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de com
 
 * Créez un [espace de travail Azure Machine Learning](how-to-manage-workspace.md) afin de contenir toutes les ressources de votre pipeline.
 
-* [Configurez votre environnement de développement](service/how-to-configure-environment.md) pour installer le Kit de développement logiciel (SDK) Azure Machine Learning ou utilisez une [instance de calcul Azure Machine Learning (préversion)](concept-compute-instance.md) avec le Kit de développement logiciel (SDK) déjà installé.
+* [Configurez votre environnement de développement](how-to-configure-environment.md) pour installer le Kit de développement logiciel (SDK) Azure Machine Learning ou utilisez une [instance de calcul Azure Machine Learning (préversion)](concept-compute-instance.md) avec le Kit de développement logiciel (SDK) déjà installé.
 
 > [!NOTE]
 > Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
@@ -132,7 +132,7 @@ iris_tabular_dataset = Dataset.Tabular.from_delimited_files([(def_blob_store, 't
 
  Vous créez un `FileDataset` à l’aide de [from_files](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
 
- Pour plus d’informations sur l’utilisation des jeux de données, consultez [Ajouter et inscrire des jeux de données](service/how-to-create-register-datasets.md) ou [cet exemple de notebook](https://aka.ms/train-datasets).
+ Pour plus d’informations sur l’utilisation des jeux de données, consultez [Ajouter et inscrire des jeux de données](how-to-create-register-datasets.md) ou [cet exemple de notebook](https://aka.ms/train-datasets).
 
 ## <a name="set-up-compute-target"></a>Configurer la cible de calcul
 

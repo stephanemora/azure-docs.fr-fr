@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 12522de6bec4698f8a5b7a931bbc382f65a74265
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 19b7fbe5541bda5e6e2c265681e292f452cd57c0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534313"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044267"
 ---
 # <a name="model-interpretability-for-local-and-remote-runs"></a>Interprétabilité des modèles pour les exécutions locales et distantes
 
@@ -333,10 +333,10 @@ Vous pouvez charger le tracé d’importance de fonctionnalité locale pour tout
     jupyter labextension install microsoft-mli-widget
     ```
 
-Pour charger le tableau de bord de visualisation, utilisez le code suivant :
+Pour charger le tableau de bord de visualisation, utilisez le code suivant.
 
 ```python
-from azureml.contrib.interpret.visualize import ExplanationDashboard
+from interpret_community.widget import ExplanationDashboard
 
 ExplanationDashboard(global_explanation, model, x_test)
 ```
@@ -362,7 +362,7 @@ Suivez un de ces parcours pour accéder au tableau de bord de visualisation dans
    [![Tableau de bord de visualisation - Importance de fonctionnalité locale](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Volet **Modèles**
-  1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
+  1. Si vous avez enregistré votre modèle d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), vous pouvez sélectionner **Modèles** dans le volet gauche pour l’afficher.
   1. Sélectionnez un modèle, puis l'onglet **Explications** pour voir le tableau de bord de visualisation des explications.
 
 ## <a name="interpretability-at-inference-time"></a>Interprétabilité au moment de l’inférence
@@ -427,7 +427,7 @@ Vous pouvez déployer l’explicatif avec le modèle d’origine et peut être u
 
 1. Déployez l’image sur une cible de calcul en procédant comme suit :
 
-   1. Si nécessaire, enregistrez votre modèle de prédiction d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+   1. Si nécessaire, enregistrez votre modèle de prédiction d’origine en suivant les étapes décrites dans [Déployer des modèles avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
    1. Créez un fichier de scoring.
 

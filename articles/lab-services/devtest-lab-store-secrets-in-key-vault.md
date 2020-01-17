@@ -14,19 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: b05772124ef4bd4408c5926031e7fce51075eeac
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 3f16d84f66f2da6094054d161f286070fc86a73b
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690749"
+ms.locfileid: "75720121"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Stocker des secrets dans un coffre de clés dans Azure DevTest Labs
 Vous pouvez avoir besoin d’entrer un secret complexe lorsque vous utilisez Azure DevTest Labs : un mot de passe pour votre machine virtuelle Windows, une clé SSH publique pour votre machine virtuelle Linux ou un jeton d’accès personnel pour cloner votre dépôt Git via un artefact. Les secrets sont généralement longs et ont des caractères aléatoires. Par conséquent, la saisie d’un secret peut être difficile et peu pratique, surtout si vous l’utilisez plusieurs fois.
 
 Pour résoudre ce problème tout en conservant vos secrets dans un emplacement sûr, DevTest Labs prend en charge le stockage des secrets dans un [coffre de clés Azure](../key-vault/key-vault-overview.md). Quand un utilisateur enregistre un secret pour la première fois, le service DevTest Labs crée automatiquement un coffre de clés dans le groupe de ressources qui contient le laboratoire et stocke le secret dans le coffre de clés. DevTest Labs crée un coffre de clés distinct pour chaque utilisateur. 
 
-[!NOTE]
 Veuillez noter que l’utilisateur du laboratoire devra d’abord créer une machine virtuelle de laboratoire avant de pouvoir créer un secret dans le coffre de clés. Cela est dû au fait que le service DevTest Lab doit associer l’utilisateur du laboratoire à un document utilisateur valide avant qu’il ne soit autorisé à créer et à stocker des secrets dans son coffre de clés. 
 
 

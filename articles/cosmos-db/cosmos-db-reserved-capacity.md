@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 0a956a1372ba1535b9d918333bd7411a4ca6abe4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83ecb0ad85a02c8c05b9d7e504e578afd98ed7b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441926"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969350"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Optimiser les coûts avec une capacité réservée dans Azure Cosmos DB
 
@@ -20,9 +20,9 @@ La capacité réservée Azure Cosmos DB vous permet de faire des économies en v
 
 La capacité réservée Azure Cosmos DB peut réduire sensiblement vos coûts Cosmos DB, jusqu’à 65 % sur les prix habituels avec un engagement d’un ou de trois ans. La capacité réservée permet de bénéficier d’une remise, sans impacter l’état d’exécution de vos ressources Azure Cosmos DB.
 
-La capacité réservée Azure Cosmos DB couvre le débit provisionné pour vos ressources. Elle ne couvre pas les frais de stockage et de réseau. Dès que vous achetez une réservation, les frais de débit qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. Pour plus d’informations sur les réservations, consultez l’article [Réservations Azure](../billing/billing-save-compute-costs-reservations.md).
+La capacité réservée Azure Cosmos DB couvre le débit provisionné pour vos ressources. Elle ne couvre pas les frais de stockage et de réseau. Dès que vous achetez une réservation, les frais de débit qui correspondent aux attributs de la réservation ne sont plus facturés au tarif du paiement à l’utilisation. Pour plus d’informations sur les réservations, consultez l’article [Réservations Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
-Vous pouvez acheter de la capacité réservée Azure Cosmos DB sur le [portail Azure](https://portal.azure.com). Payez la réservation [à l’avance ou par paiements mensuels](../billing/billing-monthly-payments-reservations.md). Pour acheter une capacité réservée :
+Vous pouvez acheter de la capacité réservée Azure Cosmos DB sur le [portail Azure](https://portal.azure.com). Payez la réservation [à l’avance ou par paiements mensuels](../cost-management-billing/reservations/monthly-payments-reservations.md). Pour acheter une capacité réservée :
 
 * Vous devez disposer du rôle Propriétaire sur au moins un abonnement Entreprise ou individuel avec des tarifs de paiement à l’utilisation.  
 * Pour les abonnements Entreprise, **Add Reserved Instances** (Ajouter des instances réservées) doit être activé dans le [portal EA](https://ea.azure.com). Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
@@ -74,22 +74,22 @@ Quand votre réservation expire, vos instances Azure Cosmos DB continuent de s�
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Annuler, échanger ou rembourser des réservations
 
-Pour obtenir de l’aide sur l’identification de la capacité réservée appropriée, consultez [Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md).
+Pour obtenir de l’aide sur l’identification de la capacité réservée appropriée, consultez [Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
-Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Vous pouvez annuler, échanger ou rembourser des réservations avec certaines limitations. Pour plus d’informations, consultez [Échanges et remboursements en libre-service pour les réservations Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 La remise de réservation est appliquée automatiquement aux ressources Azure Cosmos DB qui correspondent à l’étendue et aux attributs de la réservation. Vous pouvez mettre à jour l’étendue de la réservation par le biais du portail Azure, de PowerShell, d’Azure CLI ou de l’API.
 
-*  Pour découvrir comment les remises sur capacité réservée sont appliquées à Azure Cosmos DB, consultez [Comprendre la remise sur réservation Azure](../billing/billing-understand-cosmosdb-reservation-charges.md).
+*  Pour découvrir comment les remises sur capacité réservée sont appliquées à Azure Cosmos DB, consultez [Comprendre la remise sur réservation Azure](../cost-management-billing/reservations/understand-cosmosdb-reservation-charges.md).
 
 * Pour plus d’informations sur les réservations Azure, consultez les articles suivants :
 
-   * [Qu’est-ce qu’une réservation Azure ?](../billing/billing-save-compute-costs-reservations.md)  
-   * [Gérer les réservations Azure](../billing/billing-manage-reserved-vm-instance.md)  
-   * [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../billing/billing-understand-reserved-instance-usage-ea.md)  
-   * [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../billing/billing-understand-reserved-instance-usage.md)
+   * [Qu’est-ce qu’une réservation Azure ?](../cost-management-billing/reservations/save-compute-costs-reservations.md)  
+   * [Gérer les réservations Azure](../cost-management-billing/reservations/manage-reserved-vm-instance.md)  
+   * [Comprendre l’utilisation d’une réservation pour votre Accord de Mise en Œuvre Entreprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)  
+   * [Comprendre l’utilisation d’une réservation pour votre abonnement avec paiement à l’utilisation](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
    * [Réservations Azure dans le cadre du programme Fournisseur de solutions cloud de l’Espace Partenaires](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.

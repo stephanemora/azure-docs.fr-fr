@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459375"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980182"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
 Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de groupe identique de base et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss).
@@ -75,7 +75,7 @@ Toutes les ressources nécessitent les propriétés `type`, `name`, `apiVersion`
 ```
 
 ## <a name="specify-location"></a>Spécifier l’emplacement
-Pour spécifier l’emplacement du réseau virtuel, utilisez une [fonction de modèle Resource Manager](../azure-resource-manager/resource-group-template-functions.md). Cette fonction doit être placée entre guillemets et crochets, comme suit : `"[<template-function>]"`. Dans ce cas, utilisez la fonction `resourceGroup`. Elle ne prend aucun argument et renvoie un objet JSON avec des métadonnées concernant le groupe de ressources cible de ce déploiement. Le groupe de ressources est défini par l’utilisateur au moment du déploiement. Cette valeur est ensuite indexée dans cet objet JSON avec `.location` pour obtenir l’emplacement de l’objet JSON.
+Pour spécifier l’emplacement du réseau virtuel, utilisez une [fonction de modèle Resource Manager](../azure-resource-manager/templates/template-functions.md). Cette fonction doit être placée entre guillemets et crochets, comme suit : `"[<template-function>]"`. Dans ce cas, utilisez la fonction `resourceGroup`. Elle ne prend aucun argument et renvoie un objet JSON avec des métadonnées concernant le groupe de ressources cible de ce déploiement. Le groupe de ressources est défini par l’utilisateur au moment du déploiement. Cette valeur est ensuite indexée dans cet objet JSON avec `.location` pour obtenir l’emplacement de l’objet JSON.
 
 ```json
        "location": "[resourceGroup().location]",

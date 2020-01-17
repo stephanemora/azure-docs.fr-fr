@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: a91035773d4427f0f3c07097eb3e02fc08c5f375
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528757"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771817"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Déboguer de manière interactive sur une instance de calcul Azure Machine Learning avec VS Code Remote
 
@@ -23,7 +23,7 @@ Dans cet article, vous allez apprendre à configurer Visual Studio Code Remote s
 > [!NOTE]
 > Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
 
-+ Une [Instance de calcul Azure Machine Learning](/azure/machine-learning/service/concept-compute-instance) est une station de travail Cloud complètement managée pour les scientifiques des données qui fournit des fonctionnalités de gestion et de préparation de l’entreprise pour les administrateurs informatiques. 
++ Une [Instance de calcul Azure Machine Learning](concept-compute-instance.md) est une station de travail Cloud complètement managée pour les scientifiques des données qui fournit des fonctionnalités de gestion et de préparation de l’entreprise pour les administrateurs informatiques. 
 
 
 + Le développement [Visual Studio Code Remote](https://code.visualstudio.com/docs/remote/remote-overview) vous permet d’utiliser un conteneur, un ordinateur distant ou le sous-système Windows pour Linux (WSL) en tant qu’environnement de développement complet. 
@@ -117,4 +117,4 @@ Voici quelques détails sur les champs :
 
 Maintenant que vous avez configuré Visual Studio Code Remote, vous pouvez utiliser une instance de calcul comme calcul à distance à partir de Visual Studio Code pour déboguer votre code de manière interactive. 
 
-[Tutoriel : Effectuer l’apprentissage de votre premier modèle ML](/azure/machine-learning/service/tutorial-1st-experiment-sdk-train) montre comment utiliser une instance de calcul avec un notebook intégré.
+[Tutoriel : Effectuer l’apprentissage de votre premier modèle ML](tutorial-1st-experiment-sdk-train.md) montre comment utiliser une instance de calcul avec un notebook intégré.

@@ -1,28 +1,28 @@
 ---
 title: Facturation de la Place de marché commerciale | Place de marché Azure
 description: Cet article couvre les rubriques liées au commerce dans la Place de marché commerciale.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
-ms.openlocfilehash: 3f610dbc2c5cf052729857c09de1d437e52ac20a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a483f143b70a4969114c078b3b0a6f960c4b6b41
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475167"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976076"
 ---
-# <a name="commercial-marketplace-billing"></a>Facturation de la Place de marché commerciale 
+# <a name="commercial-marketplace-billing"></a>Facturation de la Place de marché commerciale
 
 Cet article couvre les rubriques liées au commerce dans la Place de marché commerciale :
 
-- [Options de publication de la Place de marché](#marketplace-publishing-options) 
+- [Options de publication de la Place de marché](#marketplace-publishing-options)
 - [Présentation générale des offres Transaction](#transact-general-overview)
 - [Modèles de facturation des offres Transaction](#transact-billing-models)
 
-## <a name="marketplace-publishing-options"></a>Options de publication de la Place de marché 
+## <a name="marketplace-publishing-options"></a>Options de publication de la Place de marché
 
 La Place de marché commerciale offre plusieurs options de publication pour les éditeurs.
 
@@ -36,9 +36,9 @@ En plus des options de publication Liste et Essai, les éditeurs disposent de l�
 
 ## <a name="transact-general-overview"></a>Présentation générale des offres Transaction
 
-Lorsque vous choisissez l’option de publication Transaction, Microsoft permet la vente de logiciels tiers et le déploiement de certains types d’offres dans l’abonnement Azure du client. Pour choisir le modèle de facturation et le type d’offre, l’éditeur doit prendre en compte la facturation des frais d’infrastructure et ses propres frais de licence logicielle. 
+Lorsque vous choisissez l’option de publication Transaction, Microsoft permet la vente de logiciels tiers et le déploiement de certains types d’offres dans l’abonnement Azure du client. Pour choisir le modèle de facturation et le type d’offre, l’éditeur doit prendre en compte la facturation des frais d’infrastructure et ses propres frais de licence logicielle.
 
-L’option de publication Transaction est actuellement disponible pour ces types d’offres : machines virtuelles, applications Azure et applications SaaS. 
+L’option de publication Transaction est actuellement disponible pour ces types d’offres : machines virtuelles, applications Azure et applications SaaS.
 
 ![Offres Translation dans la Place de marché Azure](./media/transact-amp.png)
 
