@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment configurer, lancer et gérer l
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 4789ef1e0e09df521f8cab539d972e9e669e0a58
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554908"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450157"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Sauvegarder une machine virtuelle Azure à l’aide de la sauvegarde Azure via une API REST
 
@@ -41,7 +41,7 @@ L’opération « Actualiser » est une [opération asynchrone](https://docs.m
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |204 Pas de contenu     |         |  OK sans contenu retourné      |
 |202 Accepté     |         |     Acceptée    |
@@ -100,11 +100,11 @@ Cette opération est une opération *GET*.
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupProtectableItems?api-version=2016-12-01&$filter=backupManagementType eq 'AzureIaasVM'
 ```
 
-L’URI *GET* contient tous les paramètres requis. Aucun corps de demande supplémentaire n’est nécessaire.
+L’URI *GET* contient tous les paramètres obligatoires. Aucun corps de demande supplémentaire n’est nécessaire.
 
 #### <a name="responses-1"></a>Réponses
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Pour créer un élément protégé, voici les composants du corps de la demande.
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Propriétés de ressource ProtectedItem         |
 
@@ -208,7 +208,7 @@ La création d’un élément protégé est une [opération asynchrone](https://
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Pour déclencher une sauvegarde à la demande, voici les composants du corps de la demande.
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Propriétés de BackupRequestResource         |
 
@@ -319,7 +319,7 @@ Le déclenchement d’une sauvegarde à la demande est une [opération asynchron
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |202 Accepté     |         |     Acceptée    |
 
@@ -427,22 +427,44 @@ L’arrêt de la protection avec suppression des données est une opération *DE
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
-`{containerName}` et `{protectedItemName}` sont tels que créés [ci-dessus](#responses-1). `{fabricName}` est « Azure ». Dans notre exemple, cela se traduit par :
+`{containerName}` et `{protectedItemName}` sont tels que créés [ci-dessus](#responses-1). `{fabricName}` correspond à « Azure ». Dans notre exemple, cela se traduit par :
 
 ```http
 DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
-### <a name="responses-2"></a>Réponses
+#### <a name="responses-2"></a>Réponses
 
 L’opération *DELETE* sur la protection est une [opération asynchrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). ce qui signifie qu’elle crée une autre opération qui doit faire l’objet d’un suivi distinct.
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 204 (Pas de contenu) quand cette opération est terminée.
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |204 Pas de contenu     |         |  Pas de contenu       |
 |202 Accepté     |         |     Acceptée    |
+
+> [!IMPORTANT]
+> Pour vous protéger contre les scénarios de suppression accidentelle, une fonctionnalité de [suppression réversible](use-restapi-update-vault-properties.md#soft-delete-state) est disponible pour le coffre Recovery Services. Si la suppression réversible du coffre est activée, l’opération de suppression ne supprime pas immédiatement les données. Elles seront conservées pendant 14 jours, puis purgées définitivement. Le client n’est pas facturé pour le stockage pendant cette période de 14 jours. Pour annuler l’opération de suppression, reportez-vous à la section [Annuler la suppression](#undo-the-stop-protection-and-delete-data).
+
+### <a name="undo-the-stop-protection-and-delete-data"></a>Annuler l’arrêt de la protection et supprimer les données
+
+L’annulation de la suppression accidentelle est semblable à la création de l’élément de sauvegarde. Une fois la suppression annulée, l’élément est conservé, mais aucune sauvegarde ultérieure n’est déclenchée.
+
+L’annulation de la suppression est une opération *PUT* qui est très similaire à [la modification de la stratégie](#changing-the-policy-of-protection) et/ou [l’activation de la protection](#enabling-protection-for-the-azure-vm). Il vous suffit de fournir l’intention d’annuler la suppression avec la variable *isRehydrate* dans [le corps de la demande](#example-request-body) et de soumettre la demande. Par exemple :  Pour annuler la suppression de testVM, le corps de la demande suivant doit être utilisé.
+
+```http
+{
+  "properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "protectionState": "ProtectionStopped",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "isRehydrate": true
+  }
+}
+```
+
+La réponse suivra le même format que celui mentionné [pour le déclenchement d’une sauvegarde à la demande](#example-responses-3). Le travail résultant doit être suivi, comme expliqué dans le [document surveiller les travaux avec une API REST](backup-azure-arm-userestapi-managejobs.md#tracking-the-job).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,6 @@
 ---
-title: BuildingBlocks - Azure Active Directory B2C | Microsoft Docs
+title: BuildingBlocks
+titleSuffix: Azure AD B2C
 description: Spécifiez l’élément BuildingBlocks d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ab2b11749aa57065a1a4d688b02fed97731ab7c
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 87157980a352f9665852c78a94dcfc227c08b487
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68464745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367552"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -52,26 +53,29 @@ L’élément **BuildingBlocks** est ajouté à l’intérieur de l’élément 
     <Localization>
       ...
     </Localization>
+    <DisplayControls>
+      ...
+    </DisplayControls>
  </BuildingBlocks>
 ```
 
 L’élément **BuildingBlocks** contient les éléments suivants qui doivent être spécifiés dans l’ordre défini :
 
-- [ClaimsSchema](claimsschema.md) : définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos types de revendications. Un type de revendication est similaire à une variable dans de nombreux langages de programmation. Vous pouvez utiliser le type de revendication pour recueillir des données à partir de l’utilisateur de votre application, recevoir des revendications à partir de fournisseurs d’identité sociale, envoyer et recevoir des données à partir d’une API REST personnalisée, ou stocker des données internes utilisées par votre stratégie personnalisée. 
+- [ClaimsSchema](claimsschema.md) : définit les types de revendications qui peuvent être référencés dans le cadre de la stratégie. Le schéma de revendications est l’endroit où vous déclarez vos types de revendications. Un type de revendication est similaire à une variable dans de nombreux langages de programmation. Vous pouvez utiliser le type de revendication pour recueillir des données à partir de l’utilisateur de votre application, recevoir des revendications à partir de fournisseurs d’identité sociale, envoyer et recevoir des données à partir d’une API REST personnalisée, ou stocker des données internes utilisées par votre stratégie personnalisée.
 
 - [Predicates et PredicateValidationsInput](predicates.md) : vous permettent d’effectuer un processus de validation afin de vous assurer que seules des données correctement formées sont entrées dans une revendication.
- 
-- [ClaimsTransformations](claimstransformations.md) : contient une liste des transformations de revendications qui peuvent être utilisées dans votre stratégie.  Une transformation de revendication convertit une revendication en une autre. Dans la transformation de revendication, vous spécifiez une méthode de transformation, telle que : 
-    - Remplacement de la casse d’une revendication de chaîne par celle spécifiée. Par exemple, changement d’une chaîne de minuscules en majuscules.
-    - Comparaison de deux revendications et retour d’une revendication avec la valeur true indiquant que les revendications correspondent, ou false dans le cas contraire.
-    - Création d’une revendication de chaîne à partir du paramètre fourni dans la stratégie.
-    - Création d’une chaîne aléatoire à l’aide du générateur de nombres aléatoires.
-    - Mise en forme d’une revendication en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# `String.Format`.
-    
+
+- [ClaimsTransformations](claimstransformations.md) : contient une liste des transformations de revendications qui peuvent être utilisées dans votre stratégie.  Une transformation de revendication convertit une revendication en une autre. Dans la transformation de revendication, vous spécifiez une méthode de transformation, telle que :
+  - Remplacement de la casse d’une revendication de chaîne par celle spécifiée. Par exemple, changement d’une chaîne de minuscules en majuscules.
+  - Comparaison de deux revendications et retour d’une revendication avec la valeur true indiquant que les revendications correspondent, ou false dans le cas contraire.
+  - Création d’une revendication de chaîne à partir du paramètre fourni dans la stratégie.
+  - Création d’une chaîne aléatoire à l’aide du générateur de nombres aléatoires.
+  - Mise en forme d’une revendication en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# `String.Format`.
+
 - InputValidation – Cet élément vous permet d’effectuer des agrégations booléennes similaires à *et* et *ou*.
 
-- [ContentDefinitions](contentdefinitions.md) : contient des URL pour les modèles HTML5 à utiliser dans votre parcours utilisateur. Dans une stratégie personnalisée, une définition de contenu définit l’URI de page HTML5 qui est utilisée pour une étape spécifiée dans le parcours utilisateur. Par exemple, les pages de connexion ou d’inscription, de réinitialisation du mot de passe ou d’erreur. Vous pouvez modifier l’apparence en substituant le LoadUri du fichier HTML5. Vous pouvez aussi créer des définitions de contenu en fonction de vos besoins. Cet élément peut contenir une référence de ressources localisées à l’aide d’un ID de localisation.
+- [ContentDefinitions](contentdefinitions.md) : contient des URL pour les modèles HTML5 à utiliser dans votre parcours utilisateur. Dans une stratégie personnalisée, une définition de contenu définit l’URI de page HTML5 qui est utilisée pour une étape spécifiée dans le parcours utilisateur. Il peut s’agir, par exemple, de pages de connexion ou d’inscription, de réinitialisation de mot de passe ou d’erreur. Vous pouvez modifier l’apparence en remplaçant l’URI LoadUri du fichier HTML5. Vous pouvez aussi créer des définitions de contenu en fonction de vos besoins. Cet élément peut contenir une référence de ressources localisées à l’aide d’un ID de localisation.
 
 - [Localization](localization.md) : vous permet de prendre en charge plusieurs langues. La prise en charge de la localisation dans les stratégies vous permet de configurer la liste des langues prises en charge dans une stratégie et de choisir une langue par défaut. Les collections et les chaînes propres à une langue sont également prises en charge.
 
-
+- [DisplayControls](display-controls.md) : définit les contrôles à afficher sur une page. Les contrôles d’affichage ont des fonctionnalités spéciales et interagissent avec les profils techniques de validation de serveur principal. Les contrôles d’affichage sont actuellement en **préversion**.

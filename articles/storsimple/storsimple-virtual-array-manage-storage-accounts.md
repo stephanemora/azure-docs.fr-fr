@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
 ms.author: alkohli
-ms.openlocfilehash: a992851deda0659509c0ee4ea5de76b19734f017
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ac539b44f09663e6eac5651646d3c9cd02e45b3c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128836"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75360002"
 ---
 # <a name="use-storsimple-device-manager-to-manage-storage-account-credentials-for-storsimple-virtual-array"></a>Utilisation de StorSimple Device Manager pour gérer les informations d’identification du compte de stockage pour StorSimple Virtual Array
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 La section **Configuration** du panneau du service StorSimple Device Manager de votre instance StorSimple Virtual Array présente les paramètres de service globaux pouvant être créés dans le service StorSimple Manager. Ces paramètres peuvent être appliqués à tous les appareils connectés au service et incluent les éléments suivants :
 
 * Informations d’identification du compte de stockage
@@ -110,7 +110,7 @@ Vous pouvez modifier des informations d’identification du compte de stockage u
 4. Dans le panneau **Propriétés** des informations d’identification du compte de stockage, procédez comme suit :
    
    1. Si nécessaire, vous pouvez modifier le réglage de l’option **Activer le mode SSL**.
-   2. Vous pouvez choisir de régénérer les clés d’accès de vos informations d’identification de compte de stockage. Pour plus d’informations, consultez [Régénération des clés de compte de stockage](../storage/common/storage-account-manage.md#access-keys). Fournissez la nouvelle clé des informations d’identification de compte de stockage. Pour un compte de stockage Azure, il s’agit de la clé d’accès primaire.
+   2. Vous pouvez choisir de régénérer les clés d’accès de vos informations d’identification de compte de stockage. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](../storage/common/storage-account-keys-manage.md). Fournissez la nouvelle clé des informations d’identification de compte de stockage. Pour un compte de stockage Azure, il s’agit de la clé d’accès primaire.
    3. Pour enregistrer les paramètres, cliquez sur **Enregistrer** en haut du panneau **Propriétés**. Les paramètres sont mis à jour sur le panneau **Informations d’identification du compte de stockage**.
       
       ![Modification des informations d’identification de compte de stockage](./media/storsimple-virtual-array-manage-storage-accounts/ova-edit-storageacct.png)

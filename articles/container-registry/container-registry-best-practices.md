@@ -3,16 +3,18 @@ title: Bonnes pratiques concernant les registres
 description: Découvrez comment utiliser votre instance Azure Container Registry de manière efficace en suivant ces meilleures pratiques.
 ms.topic: article
 ms.date: 09/27/2018
-ms.openlocfilehash: 4b0512674358d4db2e29596408ebbf44af4ea2a9
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7efea468a6c5c042f709d8a5bb493516458ce52b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455315"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445789"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
 
 En suivant ces meilleures pratiques, vous pouvez optimiser les performances et la rentabilité d’utilisation de votre registre Docker privé dans Azure.
+
+Consultez également les [Suggestions pour la création de balises et de versions pour les images de conteneurs](container-registry-image-tag-version.md) pour des stratégies de création de balises et de versions pour les images dans votre registre. 
 
 ## <a name="network-close-deployment"></a>Déploiement proche du réseau
 
@@ -31,7 +33,7 @@ Pour savoir comment utiliser la géo-réplication, consultez le didacticiel en t
 
 Grâce aux espaces de noms de référentiel, vous pouvez autoriser le partage d’un même registre entre plusieurs groupes au sein de votre organisation. Les registres peuvent être partagés entre plusieurs déploiements et équipes. Azure Container Registry prend en charge les espaces de noms imbriqués de manière à faciliter l’isolement de groupes.
 
-Prenons par exemple les balises d’image de conteneur suivantes : Les images qui sont utilisées dans l’ensemble de l’entreprise, telles que `aspnetcore`, sont placées dans l’espace de noms racine, tandis que les images de conteneur détenues par les groupes Production et Marketing utilisent chacune leurs propres espaces de noms.
+Prenons par exemple les balises d’image de conteneur suivantes : Les images qui sont utilisées dans l’ensemble de l’entreprise, telles que `aspnetcore`, sont placées dans l’espace de noms racine, tandis que les images de conteneur détenues par les groupes Produits et Marketing utilisent chacune leurs propres espaces de noms.
 
 ```
 contoso.azurecr.io/aspnetcore:2.0

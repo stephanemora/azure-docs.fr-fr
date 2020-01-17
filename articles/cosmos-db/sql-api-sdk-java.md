@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561893"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444840"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "74561893"
 > * [API REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [Exécuteur en bloc – .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [Exécuteur en bloc - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Exécuteur en bloc – Java](sql-api-sdk-bulk-executor-java.md)
 
 Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les opérations synchrones. Pour la prise en charge asynchrone, utilisez le [Kit de développement (SDK) Java asynchrone de l’API SQL](sql-api-sdk-async-java.md). 
 
@@ -48,6 +48,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * Actualisations du cache des plages de clés de partition optimisées.
+* Résout le scénario dans lequel le kit SDK n’a pas d’indicateur de fractionnement de partition du serveur et entraîne incorrectement l’actualisation des caches de routage côté client.
 
 ### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
 * Actualisations optimisées du cache de collection.
@@ -226,7 +227,7 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * Prise en charge de l'index géospatial
 * Validation de la propriété ID pour toutes les ressources. Les ID des ressources ne peuvent pas contenir les caractères ?, /, #, \, ou se terminer par un espace.
-* Ajout du nouvel en-tête « progression de la transformation de l’index » à ResourceResponse.
+* Ajoute le nouvel en-tête « progression de la transformation de l'index » à ResourceResponse.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * Implémente la stratégie d'indexation V2
@@ -253,7 +254,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 <br/>
 
-| Version | Date de lancement | Date de suppression |
+| Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
 | [2.1.3](#2.1.3) |13 mars 2018 |--- |
 | [2.1.2](#2.1.2) |09 mars 2018 |--- |
@@ -278,7 +279,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 | [1.9.2](#1.9.2) |28 octobre 2016 |30 mai 2020 |
 | [1.9.1](#1.9.1) |26 octobre 2016 |30 mai 2020 |
 | [1.9.0](#1.9.0) |3 octobre 2016 |30 mai 2020 |
-| [1.8.1](#1.8.1) |30 juin 2016 |30 mai 2020 |
+| [1.8.1](#1.8.1) |30 juin 2016 |30 mai 2020 |
 | [1.8.0](#1.8.0) |14 juin 2016 |30 mai 2020 |
 | [1.7.1](#1.7.1) |30 avril 2016 |30 mai 2020 |
 | [1.7.0](#1.7.0) |27 avril 2016 |30 mai 2020 |
@@ -298,7 +299,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 | 0.9.1-prelease |19 décembre 2014 |29 février 2016 |
 | 0.9.0-prelease |10 décembre 2014 |29 février 2016 |
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi

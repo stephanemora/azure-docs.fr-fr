@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173523"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75450195"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -94,10 +94,10 @@ Le tableau suivant récapitule les fonctionnalités prises en charge pour les di
 
 **Fonctionnalité** | **Sauvegarde directe de fichiers et de dossiers (à l’aide de l’agent MARS)** | **Sauvegarde de machines virtuelles Azure** | **Ordinateurs ou applications avec DPM/MABS**
 --- | --- | --- | ---
-Sauvegarder vers le coffre | ![OUI][green] | ![OUI][green] | ![OUI][green]
-Sauvegarder sur disque DPM/MABS, puis sur Azure | | | ![OUI][green]
-Compresser les données envoyées pour la sauvegarde | ![OUI][green] | Aucune compression n’est effectuée lors du transfert des données. Le stockage croît légèrement, mais la restauration est plus rapide.  | ![OUI][green]
-Exécuter une sauvegarde incrémentielle |![OUI][green] |![OUI][green] |![OUI][green]
+Sauvegarder vers le coffre | ![Oui][green] | ![Oui][green] | ![Oui][green]
+Sauvegarder sur disque DPM/MABS, puis sur Azure | | | ![Oui][green]
+Compresser les données envoyées pour la sauvegarde | ![Oui][green] | Aucune compression n’est effectuée lors du transfert des données. Le stockage croît légèrement, mais la restauration est plus rapide.  | ![Oui][green]
+Exécuter une sauvegarde incrémentielle |![Oui][green] |![Oui][green] |![Oui][green]
 Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> Uniquement pour les serveurs DPM/MABS déployés localement.
 
 ![Clé de table](./media/backup-architecture/table-key.png)
@@ -174,7 +174,7 @@ Pour plus d’informations sur le stockage sur disque et les types de disques di
 Vous pouvez sauvegarder des machines virtuelles Azure en utilisant un stockage premium avec Sauvegarde Azure :
 
 - Lors du processus de sauvegarde de machines virtuelles avec un stockage premium, le service Sauvegarde crée un emplacement intermédiaire temporaire nommé *AzureBackup-* dans le compte de stockage. La taille de l’emplacement intermédiaire est égale à celle de la capture instantanée du point de récupération.
-- Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. [Plus d’informations](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits) Ne modifiez pas l’emplacement intermédiaire.
+- Vérifiez que le compte de stockage Premium dispose d’un espace libre suffisant pour prendre en compte cet emplacement intermédiaire temporaire. Pour plus d’informations, consultez [Objectifs de scalabilité pour les comptes de stockage d’objets blob de pages Premium](../storage/blobs/scalability-targets-premium-page-blobs.md). Ne modifiez pas l’emplacement intermédiaire.
 - Une fois la sauvegarde terminée, l’emplacement intermédiaire est supprimé.
 - Le prix du stockage utilisé pour l’emplacement intermédiaire est conforme à la [tarification du stockage Premium](../virtual-machines/windows/disks-types.md#billing).
 

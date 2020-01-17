@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a346b264afc23e21ccf3e6d5dbf7a8f5d96518d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 93b8387d4453a3d83bcce55c739548d914545f2f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75430064"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -38,20 +38,148 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple :  « Nom de l’entreprise : \\"Contoso"\\ »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [BitAnd](#bitand) &nbsp;&nbsp;&nbsp;&nbsp; [CBool](#cbool) &nbsp;&nbsp;&nbsp;&nbsp; [Coalesce](#coalesce) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToBase64](#converttobase64) &nbsp;&nbsp;&nbsp;&nbsp; [ConvertToUTF8Hex](#converttoutf8hex) &nbsp;&nbsp;&nbsp;&nbsp; [Count](#count) &nbsp;&nbsp;&nbsp;&nbsp; [CStr](#cstr) &nbsp;&nbsp;&nbsp;&nbsp; [DateFromNum](#datefromnum) &nbsp;[FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Guid](#guid) &nbsp;&nbsp;&nbsp;&nbsp; [InStr](#instr) &nbsp;&nbsp;&nbsp;&nbsp; [IsNull](#isnull) &nbsp;&nbsp;&nbsp;&nbsp; [IsNullOrEmpty](#isnullorempty) &nbsp;&nbsp;&nbsp;&nbsp; [IsPresent](#ispresent) &nbsp;&nbsp;&nbsp;&nbsp; [IsString](#isstring) &nbsp;&nbsp;&nbsp;&nbsp; [Item](#item) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Left](#left) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [RemoveDuplicates](#removeduplicates) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)&nbsp;&nbsp;&nbsp;&nbsp; [Word](#word)
 
 ---
-### <a name="append"></a>Append
+### <a name="append"></a>Ajouter
 **Fonction :**<br> Append(source, suffixe)
 
 **Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **suffix** |Obligatoire |Chaîne |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **suffix** |Obligatoire |String |Chaîne que vous souhaitez ajouter à la fin de la valeur source. |
+
+---
+### <a name="bitand"></a>BitAnd
+**Fonction :**<br> BitAnd(value1, value2)
+
+**Description :**<br> Cette fonction convertit les deux paramètres de la représentation binaire et définit un bit sur :
+
+0 - si un des bits, ou les deux bits correspondants dans value1 et value2 ont pour valeur 0                                                  
+1 - si les deux bits correspondants sont définis sur 1.                                    
+
+En d’autres termes, elle renvoie 0 dans tous les cas, sauf si les bits correspondants de ces deux paramètres sont définis sur 1.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **value1** |Obligatoire |num |Valeur numérique qui doit être liée par AND avec value2|
+| **value2** |Obligatoire |num |Valeur numérique qui doit être liée par AND avec value1|
+
+**Exemple :**<br>
+BitAnd(&HF, &HF7)                                                                                
+11110111 AND 00000111 = 00000111 donc BitAnd renvoie 7, la valeur binaire de 00000111
+
+---
+### <a name="cbool"></a>CBool
+**Fonction :**<br> CBool(Expression)
+
+**Description :**<br> CBool renvoie une valeur booléenne basée sur l’expression évaluée. Si l’expression renvoie une valeur autre que zéro, CBool renvoie la valeur True, sinon elle renvoie False.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Obligatoire | expression | Toute expression valide |
+
+**Exemple :**<br>
+CBool([attribute1] = [attribute2])                                                                    
+Retourne True si les attributs ont la même valeur.
+
+---
+### <a name="coalesce"></a>Coalesce
+**Fonction :**<br> Coalesce(source1, source2, ..., defaultValue)
+
+**Description :**<br> Renvoie la première valeur source qui n’est pas NULL. Si tous les arguments ont la valeur NULL et que defaultValue est présent, defaultValue est renvoyé. Si tous les arguments ont la valeur NULL et que defaultValue n’est pas présent, Coalesce renvoie la valeur NULL.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **source1  … sourceN** | Obligatoire | String |Requis, nombre de fois variable. Généralement le nom de l’attribut de l’objet source. |
+| **defaultValue** | Facultatif | String | Valeur par défaut à utiliser lorsque toutes les valeurs sources sont NULL. Peut être une chaîne vide ("").
+
+---
+### <a name="converttobase64"></a>ConvertToBase64
+**Fonction :**<br> ConvertToBase64(source)
+
+**Description :**<br> La fonction ConvertToBase64 convertit une chaîne en chaîne Unicode base64.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Obligatoire |String |Chaîne à convertir en base 64|
+
+**Exemple :**<br>
+ConvertToBase64("Hello world!")                                                                                                        
+Renvoie « SABlAGwAbABvACAAdwBvAHIAbABkACEA ».
+
+---
+### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
+**Fonction :**<br> ConvertToUTF8Hex(source)
+
+**Description :**<br> La fonction ConvertToUTF8Hex convertit une chaîne en valeur hexadécimale encodée UTF8.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Obligatoire |String |Chaîne à convertir en hexadécimale UTF8|
+
+**Exemple :**<br>
+ConvertToUTF8Hex("Hello world!")                                                                                                         
+Renvoie 48656C6C6F20776F726C6421.
+
+---
+### <a name="count"></a>Count
+**Fonction :**<br> Count(attribute)
+
+**Description :**<br> La fonction Count renvoie le nombre d’éléments dans un attribut à valeurs multiples.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute** |Obligatoire |attribut |Attribut à valeurs multiples dont les éléments seront comptés|
+
+---
+### <a name="cstr"></a>CChaîne
+**Fonction :**<br> CStr(value)
+
+**Description :**<br> la fonction CStr convertit une valeur en un type de données de chaîne.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **value** |Obligatoire | numérique, référence ou booléenne | Peut être une valeur numérique, un attribut de référence ou une valeur booléenne. |
+
+**Exemple :**<br>
+CStr([dn])                                                            
+Renvoie « cn=Joe,dc=contoso,dc=com »
+
+---
+### <a name="datefromnum"></a>DateFromNum
+**Fonction :**<br> DateFromNum(value)
+
+**Description :**<br> La fonction DateFromNum convertit une valeur au format de date AD en un type DateTime.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **value** |Obligatoire | Date | Date AD à convertir en type DateTime |
+
+**Exemple :**<br>
+DateFromNum([lastLogonTimestamp])                                                                                                   
+DateFromNum(129699324000000000)                                                            
+Renvoie une valeur DateTime représentant 2012-01-01 23:00:00.
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,11 +189,115 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **inputFormat** |Obligatoire |String |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **outputFormat** |Obligatoire |String |Format de la date de sortie. |
+
+---
+### <a name="guid"></a>Guid
+**Fonction :**<br> Guid()
+
+**Description :**<br> La fonction Guid génère un nouveau GUID aléatoire.
+
+---
+### <a name="instr"></a>InStr
+**Fonction :**<br> InStr(value1,value2,start,compareType)
+
+**Description :**<br> La fonction InStr recherche la première occurrence d’une sous-chaîne dans une chaîne.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **value1** |Obligatoire |String |Chaîne dans laquelle rechercher |
+| **value2** |Obligatoire |String |Chaîne à trouver |
+| **start** |Facultatif |Integer |Position de départ pour trouver la sous-chaîne|
+| **compareType** |Facultatif |Enum |Peut être vbTextCompare ou vbBinaryCompare |
+
+**Exemple :**<br>
+InStr("The quick brown fox","quick")                                                                             
+Prend la valeur 5.
+
+InStr("repEated","e",3,vbBinaryCompare)                                                                                  
+Prend la valeur 7.
+
+---
+### <a name="isnull"></a>IsNull
+**Fonction :**<br> IsNull(Expression)
+
+**Description :**<br> La fonction IsNull renvoie true si l’expression correspond à la valeur Null. Dans le cas d’un attribut, la valeur Null est exprimée par l’absence de ce dernier.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Obligatoire |expression |Expression à évaluer |
+
+**Exemple :**<br>
+IsNull([displayName])                                                                                                
+Renvoie True si l’attribut est absent
+
+---
+### <a name="isnullorempty"></a>IsNullorEmpty
+**Fonction :**<br> IsNullOrEmpty(Expression)
+
+**Description :**<br> La fonction IsNullOrEmpty renvoie la valeur true si l’expression a pour valeur Null ou s’il s’agit d’une chaîne vide. Dans le cas d’un attribut, cela donne la valeur True si l’attribut est absent ou est présent mais qu’il s’agit d’une chaîne vide.
+L’inverse de cette fonction est nommé IsPresent.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Obligatoire |expression |Expression à évaluer |
+
+**Exemple :**<br>
+IsNullOrEmpty([displayName])                                               
+Renvoie True si l’attribut est absent ou s’il s’agit d’une chaîne vide
+
+---
+### <a name="ispresent"></a>IsPresent
+**Fonction :**<br> IsNullOrEmpty(Expression)
+
+**Description :**<br> La fonction IsPresent renvoie true si l’expression correspond à une chaîne qui n’a pas la valeur Null et n’est pas vide. L’inverse de cette fonction est appelé IsNullOrEmpty.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Obligatoire |expression |Expression à évaluer |
+
+**Exemple :**<br>
+Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])
+
+---
+### <a name="isstring"></a>IsString
+**Fonction :**<br> IsString(Expression)
+
+**Description :**<br> La fonction IsString prend la valeur True si l’expression peut être évaluée en tant que type de chaîne.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **expression** |Obligatoire |expression |Expression à évaluer |
+
+---
+### <a name="item"></a>Élément
+**Fonction :**<br> Item(attribute, index)
+
+**Description :**<br> La fonction Item renvoie un élément à partir d’une chaîne/d’un attribut à valeurs multiples.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute** |Obligatoire |Attribut |Attribut à valeurs multiples à rechercher |
+| **index** |Obligatoire |Integer | Index d’un élément dans la chaîne à valeurs multiples|
+
+**Exemple :**<br>
+Item([proxyAddresses], 1)
 
 ---
 ### <a name="join"></a>Join
@@ -77,24 +309,44 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **separator** |Obligatoire |Chaîne |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
-| **source1  … sourceN** |Requis, nombre de fois variable |Chaîne |Valeurs de chaîne à joindre ensemble. |
+| **separator** |Obligatoire |String |Chaîne utilisée pour séparer les valeurs sources quand elles sont concaténées en une seule chaîne. Peut être "" si aucun séparateur n’est requis. |
+| **source1  … sourceN** |Requis, nombre de fois variable |String |Valeurs de chaîne à joindre ensemble. |
 
 ---
-### <a name="mid"></a>Mid
+### <a name="left"></a>Gauche
+**Fonction :**<br> Left(String,NumChars)
+
+**Description :**<br> La fonction Left renvoie un nombre spécifié de caractères en partant de la gauche d’une chaîne. Si numChars = 0, retourne une chaîne vide.
+Si numChars < 0, retourne une chaîne d’entrée.
+Si la chaîne est null, retourne une chaîne vide.
+Si la chaîne contient moins de caractères que le nombre spécifié dans numChars, une chaîne identique à la chaîne (c’est-à-dire, contenant tous les caractères du paramètre 1) est renvoyée.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **Chaîne** |Obligatoire |Attribut | Chaîne à partir de laquelle renvoyer des caractères |
+| **NumChars** |Obligatoire |Integer | Un nombre identifiant le nombre de caractères à retourner à partir du début (gauche) de la chaîne|
+
+**Exemple :**<br>
+Left(“John Doe”, 3)                                                            
+Renvoie « Joh »
+
+---
+### <a name="mid"></a>ExtracChaîne
 **Fonction :**<br> Mid(source, début, longueur)
 
 **Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut. |
-| **start** |Obligatoire |integer |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
-| **length** |Obligatoire |integer |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
+| **source** |Obligatoire |String |Généralement le nom de l’attribut. |
+| **start** |Obligatoire |entier |Index dans la chaîne **source** où la sous-chaîne doit commencer. Le premier caractère dans la chaîne aura l’index 1, le deuxième caractère aura l’index 2, et ainsi de suite. |
+| **length** |Obligatoire |entier |Longueur de la sous-chaîne. Si la longueur se termine à l’extérieur de la chaîne **source**, la fonction retourne la sous-chaîne de l’index **start** jusqu’à la fin de l’index **source**. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -104,21 +356,37 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne | Généralement un attribut de nom ou de prénom. |
+| **source** |Obligatoire |String | Généralement un attribut de nom ou de prénom. |
 
 ---
-### <a name="not"></a>not
+### <a name="not"></a>Not
 **Fonction :**<br> Not(source)
 
 **Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne «*False* ». Sinon, elle retourne «*True*».
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne de type Boolean |Les valeurs **sources** attendues sont « True » ou « False ». |
+
+---
+### <a name="removeduplicates"></a>RemoveDuplicates
+**Fonction :**<br> RemoveDuplicates(attribute)
+
+**Description :**<br> La fonction RemoveDuplicates prend une chaîne à valeurs multiples et vérifie que chaque valeur est unique.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **attribute** |Obligatoire |Attribut à valeurs multiples |Attribut à valeurs multiples dont les doublons seront supprimés|
+
+**Exemple :**<br>
+RemoveDuplicates([proxyAddresses])                                                                                                       
+Renvoie un attribut proxyAddress expurgé duquel toutes les valeurs en double ont été supprimées
 
 ---
 ### <a name="replace"></a>Replace
@@ -146,15 +414,15 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement, nom de l’attribut de l’objet **source**. |
-| **oldValue** |Facultatif |Chaîne |Valeur à remplacer dans **source** ou **template**. |
-| **regexPattern** |Facultatif |Chaîne |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand **replacementPropertyName** est utilisé, modèle pour extraire la valeur de **replacementPropertyName**. |
-| **regexGroupName** |Facultatif |Chaîne |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe en tant que **replacementValue** à partir de **replacementPropertyName** uniquement quand **replacementPropertyName** est utilisé. |
-| **replacementValue** |Facultatif |Chaîne |Nouvelle valeur par laquelle remplacer l’ancienne. |
-| **replacementAttributeName** |Facultatif |Chaîne |Nom de l’attribut à utiliser pour la valeur de remplacement. |
-| **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
+| **source** |Obligatoire |String |Généralement, nom de l’attribut de l’objet **source**. |
+| **oldValue** |Facultatif |String |Valeur à remplacer dans **source** ou **template**. |
+| **regexPattern** |Facultatif |String |Modèle d’expression régulière pour la valeur à remplacer dans **source**. Ou, quand **replacementPropertyName** est utilisé, modèle pour extraire la valeur de **replacementPropertyName**. |
+| **regexGroupName** |Facultatif |String |Nom du groupe à l’intérieur de **regexPattern**. Nous extrayons la valeur de ce groupe en tant que **replacementValue** à partir de **replacementPropertyName** uniquement quand **replacementPropertyName** est utilisé. |
+| **replacementValue** |Facultatif |String |Nouvelle valeur par laquelle remplacer l’ancienne. |
+| **replacementAttributeName** |Facultatif |String |Nom de l’attribut à utiliser pour la valeur de remplacement. |
+| **template** |Facultatif |String |Lorsque la valeur **template** est fournie, nous recherchons la valeur **oldValue** dans le modèle et la remplaçons par la valeur **source**. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -171,9 +439,9 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer. |
+| **uniqueValueRule1  … uniqueValueRuleN** |Au moins 2 requis, aucune limite supérieure |String | Liste des règles de génération de valeur unique à évaluer. |
 
 
 ---
@@ -184,9 +452,9 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |Obligatoire |Chaîne |Objet **[appRoleAssignments]** . |
+| **[appRoleAssignments]** |Obligatoire |String |Objet **[appRoleAssignments]** . |
 
 ---
 ### <a name="split"></a>Split
@@ -196,10 +464,10 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
-| **délimiteur** |Obligatoire |Chaîne |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
+| **source** |Obligatoire |String |**source** à mettre à jour. |
+| **délimiteur** |Obligatoire |String |Spécifie le caractère qui sera utilisé pour fractionner la chaîne (exemple : « , ») |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -209,24 +477,24 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |**source** à mettre à jour. |
+| **source** |Obligatoire |String |**source** à mettre à jour. |
 
 ---
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Commutateur
 **Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description :**<br> quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres. La fonction ne doit pas être utilisée pour les attributs référentiels tels que le gestionnaire. 
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |**Source** à mettre à jour. |
-| **defaultValue** |Facultatif |Chaîne |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
-| **key** |Obligatoire |Chaîne |**Key** avec laquelle comparer la valeur **source**. |
-| **value** |Obligatoire |Chaîne |Valeur de remplacement pour la **source** correspondant à la clé. |
+| **source** |Obligatoire |String |**Source** à mettre à jour. |
+| **defaultValue** |Facultatif |String |Valeur par défaut à utiliser quand la source ne correspond à aucune clé. Peut être une chaîne vide (""). |
+| **key** |Obligatoire |String |**Key** avec laquelle comparer la valeur **source**. |
+| **value** |Obligatoire |String |Valeur de remplacement pour la **source** correspondant à la clé. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -236,10 +504,10 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source |
-| **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source |
+| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -249,10 +517,37 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 **Paramètres :**<br> 
 
-| Nom | Requis / Répétition | Type | Notes |
+| Name | Requis / Répétition | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **culture** |Facultatif |Chaîne |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+| **source** |Obligatoire |String |Généralement le nom de l’attribut de l’objet source. |
+| **culture** |Facultatif |String |Le format du nom de culture basé sur RFC 4646 est *languagecode2-country/regioncode2*, où *languagecode2* correspond au code de langue à deux lettres et *country/regioncode2* au code de sous-culture à deux lettres, par exemple, ja-JP pour le japonais (Japon) et en-US pour l’anglais (États-Unis). Si un code de langue à deux lettres n'est pas disponible, un code à trois lettres dérivé de la norme ISO 639-2 est utilisé.|
+
+---
+### <a name="word"></a>Word
+**Fonction :**<br> Word(String,WordNumber,Delimiters)
+
+**Description :**<br> La fonction Word retourne un mot contenu dans une chaîne, en fonction des paramètres qui décrivent les délimiteurs à utiliser et le nombre de mots à retourner. Chaque chaîne de caractères contenue dans la chaîne séparée par l’un des caractères figurant dans delimiters est identifiée en tant que mot :
+
+Si number < 1, retourne une chaîne vide.
+Si string a la valeur null, renvoie une chaîne vide.
+Si la chaîne contient moins de mots ou ne contient pas les mots identifiés par les séparateurs, une chaîne vide est renvoyée.
+
+**Paramètres :**<br> 
+
+| Name | Requis / Répétition | Type | Notes |
+| --- | --- | --- | --- |
+| **Chaîne** |Obligatoire |Attribut à valeurs multiples |Chaîne à partir de laquelle renvoyer un mot.|
+| **WordNumber** |Obligatoire | Integer | Nombre identifiant le nombre de mots à renvoyer|
+| **delimiters** |Obligatoire |String| Une chaîne représentant le ou les délimiteurs à utiliser pour identifier les mots|
+
+**Exemple :**<br>
+Word(“The quick brown fox”,3,” “)                                                                                       
+Retourne « brown ».
+
+Word("This,string!has&many separators",3,",!&#")                                                                       
+Renvoie « has »
+
+---
 
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
@@ -379,6 +674,18 @@ En fonction du prénom, du deuxième prénom et du nom de famille de l’utilisa
 * **SORTIE** : « John.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com n’existe pas déjà dans le répertoire
 * **SORTIE** : « J.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com existe déjà dans le répertoire
 * **SORTIE** : « Jo.Smith@contoso.com » si les deux valeurs UPN précédentes existent déjà dans le répertoire
+
+### <a name="flow-mail-value-if-not-null-otherwise-flow-userprincipalname"></a>Valeur de courrier dynamique si non NULL ; dans le cas contraire, transmission de userPrincipalName
+Vous souhaitez transmettre l’attribut de messagerie, s’il est présent. Si ce n’est pas le cas, vous souhaitez transmettre la valeur de userPrincipalName à la place.
+
+**Expression :** <br>
+`Coalesce([mail],[userPrincipalName])`
+
+**Exemple d’entrée/sortie :** <br>
+
+* **ENTRÉE** (mail) : NULL
+* **ENTRÉE** (userPrincipalName) : « John.Doe@contoso.com »
+* **SORTIE**:  "John.Doe@contoso.com"
 
 ## <a name="related-articles"></a>Articles connexes
 * [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)

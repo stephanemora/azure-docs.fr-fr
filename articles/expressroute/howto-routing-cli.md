@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 1683b57aa50cff00d26cc3400b8ab7a903a2c8e0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: dbda73e022ebaad283641ce2f54a5962aeb4cb60
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083241"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75436827"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Créer et modifier le peering d’un circuit ExpressRoute à l’aide de l’interface CLI
 
 Cet article vous aide à créer et gérer la configuration de routage/le peering d’un circuit ExpressRoute dans le modèle de déploiement Resource Manager à l’aide de l’interface CLI. Vous pouvez également mettre à jour, supprimer et déprovisionner des peerings d’un circuit ExpressRoute, ainsi qu’en vérifier l’état. Si vous souhaitez utiliser une autre méthode pour votre circuit, sélectionnez un article dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Interface de ligne de commande Azure](howto-routing-cli.md)
+> * [Azure CLI](howto-routing-cli.md)
+> * [Peering public](about-public-peering.md)
 > * [Vidéo - Peering privé](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vidéo - Peering public](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Vidéo - Peering Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-routing-classic.md)
 > 
@@ -37,7 +37,7 @@ Cet article vous aide à créer et gérer la configuration de routage/le peering
 
 Ces instructions s'appliquent uniquement aux circuits créés avec des fournisseurs de services proposant des services de connectivité de couche 2. Si vous utilisez un fournisseur de services proposant des services gérés de couche 3 (généralement un VPN IP, comme MPLS), votre fournisseur de connectivité configure et gère le routage pour vous.
 
-Vous pouvez configurer un, deux ou les trois peerings (privé Azure, public Azure et Microsoft) pour un circuit ExpressRoute. Vous pouvez configurer les peerings dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque peering. Pour plus d’informations sur les domaines de routage et les peerings, consultez [Domaines de routage ExpressRoute](expressroute-circuit-peerings.md).
+Vous pouvez configurer le peering privé et le peering Microsoft pour un circuit ExpressRoute (le peering public Azure est déprécié pour les nouveaux circuits). Les peerings peuvent être configurés dans l’ordre de votre choix. Toutefois, vous devez veiller à finaliser une par une la configuration de chaque peering. Pour plus d’informations sur les domaines de routage et les peerings, consultez [Domaines de routage ExpressRoute](expressroute-circuit-peerings.md). Pour obtenir des informations sur le peering public, consultez [Peering public ExpressRoute](about-public-peering.md).
 
 ## <a name="msft"></a>Peering Microsoft
 
@@ -107,7 +107,7 @@ Cette section explique comment créer, obtenir, mettre à jour et supprimer la c
    * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
    * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets.
    * Préfixes publiés : Vous devez fournir la liste de tous les préfixes que vous prévoyez de publier sur la session BGP. Seuls les préfixes d'adresses IP publiques sont acceptés. Si vous prévoyez d’envoyer un jeu de préfixes, vous pouvez envoyer une liste séparée par des virgules. Ces préfixes doivent être enregistrés en votre nom dans un registre RIR / IRR.
-   * **Facultatif -** ASN du client : Si vous publiez des préfixes non inscrits au numéro AS de peering, vous pouvez spécifier le numéro AS auquel ils sont inscrits.
+   * **Facultatif -** ASN du client : si vous publiez des préfixes non enregistrés dans le numéro AS de peering, vous pouvez spécifier le numéro AS avec lequel ils sont enregistrés.
    * Nom du registre de routage : Vous pouvez spécifier les registres RIR/IRR sur lesquels le numéro AS et les préfixes sont inscrits.
    * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.
 
@@ -325,139 +325,6 @@ Vous pouvez supprimer votre configuration de peering en exécutant l’exemple s
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-## <a name="public"></a>Peering public Azure
-
-Cette section explique comment créer, obtenir, mettre à jour et supprimer la configuration de peering public Azure pour un circuit ExpressRoute.
-
-> [!Note]
-> Le peering public Azure est déprécié pour les nouveaux circuits. Pour plus d’informations, consultez [Peering ExpressRoute](expressroute-circuit-peerings.md).
->
-
-### <a name="to-create-azure-public-peering"></a>Pour créer un peering public Azure
-
-1. Installez la dernière version de l’interface Azure CLI. Vous devez utiliser la dernière version de l’interface de ligne de commande (CLI) Azure.* Prenez connaissance de la [configuration requise](expressroute-prerequisites.md) et des [workflows](expressroute-workflows.md) avant de commencer la configuration.
-
-   ```azurecli-interactive
-   az login
-   ```
-
-   Sélectionnez l’abonnement pour lequel vous souhaitez créer le circuit ExpressRoute.
-
-   ```azurecli-interactive
-   az account set --subscription "<subscription ID>"
-   ```
-2. Créez un circuit ExpressRoute.  Suivez les instructions permettant de [créer un circuit ExpressRoute](howto-circuit-cli.md) et faites-le approvisionner par votre fournisseur de connectivité. Si votre fournisseur de connectivité propose des services gérés de couche 3, vous pouvez lui demander d’activer le peering public Azure pour vous. Dans ce cas, vous n'aurez pas besoin de suivre les instructions indiquées dans les sections suivantes. Toutefois, si votre fournisseur de connectivité ne gère pas le routage pour vous, après avoir créé votre circuit, continuez la configuration à l’aide de la procédure qui suit.
-
-3. Vérifiez que le circuit ExpressRoute est approvisionné et activé. Consultez l’exemple qui suit :
-
-   ```azurecli-interactive
-   az network express-route list
-   ```
-
-   La réponse ressemble à ce qui suit :
-
-   ```azurecli
-   "allowClassicOperations": false,
-   "authorizations": [],
-   "circuitProvisioningState": "Enabled",
-   "etag": "W/\"1262c492-ffef-4a63-95a8-a6002736b8c4\"",
-   "gatewayManagerEtag": null,
-   "id": "/subscriptions/81ab786c-56eb-4a4d-bb5f-f60329772466/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit",
-   "location": "westus",
-   "name": "MyCircuit",
-   "peerings": [],
-   "provisioningState": "Succeeded",
-   "resourceGroup": "ExpressRouteResourceGroup",
-   "serviceKey": "1d05cf70-1db5-419f-ad86-1ca62c3c125b",
-   "serviceProviderNotes": null,
-   "serviceProviderProperties": {
-    "bandwidthInMbps": 200,
-    "peeringLocation": "Silicon Valley",
-    "serviceProviderName": "Equinix"
-   },
-   "serviceProviderProvisioningState": "Provisioned",
-   "sku": {
-    "family": "UnlimitedData",
-    "name": "Standard_MeteredData",
-    "tier": "Standard"
-   },
-   "tags": null,
-   "type": "Microsoft.Network/expressRouteCircuits]
-   ```
-
-4. Configurez le peering public Azure pour le circuit. Assurez-vous que vous disposez des informations suivantes avant de continuer.
-
-   * Un sous-réseau /30 pour le lien principal. Ce doit être un préfixe IPv4 public valide.
-   * Un sous-réseau /30 pour le lien secondaire. Ce doit être un préfixe IPv4 public valide.
-   * Un ID VLAN valide pour établir ce peering. Assurez-vous qu'aucun autre peering sur le circuit n'utilise le même ID VLAN.
-   * Un numéro AS pour le peering. Vous pouvez utiliser des numéros à 2 et 4 octets.
-   * **Facultatif :** un hachage MD5 si vous choisissez d’en utiliser un.
-
-   Exécutez l’exemple suivant pour configurer le peering public Azure pour votre circuit :
-
-   ```azurecli-interactive
-   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering
-   ```
-
-   Si vous choisissez d’utiliser un hachage MD5, exécutez l’exemple suivant :
-
-   ```azurecli-interactive
-   az network express-route peering create --circuit-name MyCircuit --peer-asn 100 --primary-peer-subnet 12.0.0.0/30 -g ExpressRouteResourceGroup --secondary-peer-subnet 12.0.0.4/30 --vlan-id 200 --peering-type AzurePublicPeering --SharedKey "A1B2C3D4"
-   ```
-
-   > [!IMPORTANT]
-   > Veillez à spécifier votre numéro AS comme ASN de peering et non pas comme ASN client.
-
-### <a name="getpublic"></a>Pour afficher les détails d’un peering public Azure
-
-Vous pouvez obtenir les détails de la configuration à l’aide de l’exemple suivant :
-
-```azurecli
-az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
-```
-
-Le résultat ressemble à l’exemple suivant :
-
-```azurecli
-{
-  "azureAsn": 12076,
-  "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",
-  "gatewayManagerEtag": "18",
-  "id": "/subscriptions/9a0c2943-e0c2-4608-876c-e0ddffd1211b/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/MyCircuit/peerings/AzurePublicPeering",
-  "lastModifiedBy": "Customer",
-  "microsoftPeeringConfig": null,
-  "name": "AzurePublicPeering",
-  "peerAsn": 7671,
-  "peeringType": "AzurePublicPeering",
-  "primaryAzurePort": "",
-  "primaryPeerAddressPrefix": "",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "ExpressRouteResourceGroup",
-  "routeFilter": null,
-  "secondaryAzurePort": "",
-  "secondaryPeerAddressPrefix": "",
-  "sharedKey": null,
-  "state": "Enabled",
-  "stats": null,
-  "vlanId": 100
-}
-```
-
-### <a name="updatepublic"></a>Pour mettre à jour la configuration de peering public Azure
-
-Vous pouvez mettre à jour toute partie de la configuration à l’aide de l’exemple suivant : Dans cet exemple, l’ID VLAN du circuit est mis à jour de 200 à 600.
-
-```azurecli-interactive
-az network express-route peering update --vlan-id 600 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
-```
-
-### <a name="deletepublic"></a>Pour supprimer un peering public Azure
-
-Vous pouvez supprimer votre configuration de peering en exécutant l’exemple suivant :
-
-```azurecli-interactive
-az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePublicPeering
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

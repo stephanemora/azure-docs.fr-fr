@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 94ae9035c1657c1ce20c40234ddca95ae30d9edd
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f7f32cc7f160a7ac9253b60e8c0c13926c110ac2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677532"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407103"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configuration du kit de développement logiciel (SDK) Application Insights à l’aide du fichier ApplicationInsights.config ou .xml
 Le kit de développement logiciel (SDK) .NET Application Insights se compose d’un certain nombre de packages NuGet. Le [package principal](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fournit l'API pour l'envoi des données télémétriques à Application Insights. Des [packages supplémentaires](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) fournissent les *modules* et les *initialiseurs* de télémétrie pour le suivi télémétrique automatique de votre application et de son contexte. La modification du fichier config permet d’activer ou de désactiver les modules et initialiseurs de télémétrie, et de définir les paramètres pour certains d’entre eux.
@@ -179,8 +179,8 @@ Ces paramètres ont un effet sur la manière dont le kit de développement logic
 #### <a name="maxtelemetrybuffercapacity"></a>MaxTelemetryBufferCapacity
 Nombre d’éléments de télémétrie qui peuvent être stockés dans la mémoire du kit de développement logiciel (SDK). Une fois ce nombre atteint, la mémoire tampon de télémétrie est vidée : les éléments de télémétrie sont envoyés au serveur Application Insights.
 
-* Min : 1
-* Max : 1 000
+* Min : 1
+* Max : 1 000
 * Valeur par défaut : 500
 
 ```
@@ -197,9 +197,9 @@ Nombre d’éléments de télémétrie qui peuvent être stockés dans la mémoi
 #### <a name="flushintervalinseconds"></a>FlushIntervalInSeconds
 Détermine la fréquence à laquelle les données stockées en mémoire doivent être vidées (envoyées à Application Insights).
 
-* Min : 1
-* Max : 300
-* Valeur par défaut : 5.
+* Min : 1
+* Max : 300
+* Valeur par défaut : 5
 
 ```
 
@@ -215,8 +215,8 @@ Détermine la fréquence à laquelle les données stockées en mémoire doivent 
 #### <a name="maxtransmissionstoragecapacityinmb"></a>MaxTransmissionStorageCapacityInMB
 Détermine la taille maximale en Mo allouée au stockage persistant sur le disque local. Ce stockage est utilisé pour les éléments de télémétrie persistants qui n’ont pas pu être transmis au point de terminaison Application Insights. Une fois la capacité de stockage atteinte, les nouveaux éléments de télémétrie sont ignorés.
 
-* Min : 1
-* Max : 100
+* Min : 1
+* Max : 100
 * Valeur par défaut : 10
 
 ```
@@ -230,47 +230,23 @@ Détermine la taille maximale en Mo allouée au stockage persistant sur le disqu
    </ApplicationInsights>
 ```
 
-#### <a name="local-forwarder"></a>Redirecteur local
-
-[Redirecteur local](opencensus-local-forwarder.md) est un agent qui collecte des données de télémétrie Application Insights ou [OpenCensus](https://opencensus.io/) sur une variété de kits de développement logiciel (SDK) et d’infrastructures, et les achemine vers Application Insights. Il peut être exécuté sous Windows et Linux. Lorsqu’il est associé avec le kit SDK Java Application Insights, le redirecteur local fournit une prise en charge complète pour les [métriques en temps réel](../../azure-monitor/app/live-stream.md) et l’échantillonnage adaptatif.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-Si vous utilisez le starter SpringBoot, ajoutez le code suivant à votre fichier de configuration (application.properies) :
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Les valeurs par défaut sont les mêmes pour la configuration du fichier application.properties SpringBoot et du fichier applicationinsights.xml.
-
 ## <a name="instrumentationkey"></a>InstrumentationKey
 Ce paramètre détermine la ressource Application Insights dans laquelle vos données s’affichent. En général, vous créez une ressource séparée, avec une clé distincte, pour chacune de vos applications.
 
 Si vous souhaitez définir la clé de manière dynamique, par exemple si vous souhaitez transmettre des résultats de votre application vers différentes ressources, vous pouvez omettre la clé du fichier de configuration, et la définir plutôt dans le code.
 
-Définissez la clé dans TelemetryConfiguration.Active pour toutes les instances de TelemetryClient, y compris les modules standard de télémétrie. Définissez-la dans une méthode d’initialisation, telle que global.aspx.cs dans un service ASP.NET :
+Pour définir la clé pour toutes les instances de TelemetryClient, y compris les modules standard de télémétrie. Définissez-la dans une méthode d’initialisation, telle que global.aspx.cs dans un service ASP.NET :
 
 ```csharp
+using Microsoft.ApplicationInsights.Extensibility;
+using Microsoft.ApplicationInsights;
 
     protected void Application_Start()
     {
-      Microsoft.ApplicationInsights.Extensibility.
-        TelemetryConfiguration.Active.InstrumentationKey =
-          // - for example -
-          WebConfigurationManager.AppSettings["ikey"];
-      //...
+        TelemetryConfiguration configuration = TelemetryConfiguration.CreateDefault();
+        configuration.InstrumentationKey = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx";
+        var telemetryClient = new TelemetryClient(configuration);
+   
 ```
 
 Si vous souhaitez simplement envoyer un ensemble spécifique d’événements à une autre ressource, vous pouvez définir la clé pour un TelemetryClient spécifique :

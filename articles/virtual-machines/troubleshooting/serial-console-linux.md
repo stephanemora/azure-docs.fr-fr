@@ -1,6 +1,6 @@
 ---
 title: Console série Azure pour Linux | Microsoft Docs
-description: Console série bidirectionnelle pour machines virtuelles et groupes de machines virtuelles identiques Azure.
+description: Console série bidirectionnelle pour les machines virtuelles Azure et les groupe de machines virtuelles identiques.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c1ca3ac55c1c995ac858e758d6930b49c5ea1c
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: abee04afca45a2d6f558858b4490c8be1f37a2f8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75451279"
 ---
 # <a name="azure-serial-console-for-linux"></a>Console série Azure pour Linux
 
@@ -29,10 +29,10 @@ La console série fonctionne de la même manière pour les machines virtuelles e
 Pour en savoir plus sur la console série Windows, consultez [Console série Windows](../windows/serial-console.md).
 
 > [!NOTE]
-> La console série est généralement disponible dans les régions Azure globales. Elle n’est pas encore disponible dans les clouds Azure Government, ni dans les clouds Azure - Chine.
+> La console série est généralement disponible dans les régions Azure Mondiales et en préversion publique dans Azure Government. Elle n’est pas encore disponible dans le cloud Azure Chine.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Votre machine virtuelle ou votre instance de groupe de machines virtuelles identiques doit utiliser le modèle de déploiement Resource Manager. Les déploiements classiques ne sont pas pris en charge.
 
@@ -101,7 +101,7 @@ Toutes les données envoyées sur les canaux sont chiffrées.
 Tous les accès à la console série sont journalisés dans les journaux d’activité [Diagnostics de démarrage](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la machine virtuelle. L’accès à ces journaux d’activité est détenu et contrôlé par l’administrateur de la machine virtuelle Azure.
 
 > [!CAUTION]
-> Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux d’activité Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux d’activité sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Toutefois, nous vous recommandons de suivre les bonnes pratiques concernant l’utilisation du Bureau à distance pour tout élément susceptible d’impliquer des secrets et/ou des informations d’identification personnelle.
+> Aucun mot de passe d’accès pour la console n’est journalisé. Toutefois, si des commandes exécutées dans la console contiennent ou affichent des mots de passe, des secrets, des noms d’utilisateur ou toute autre forme d’informations d’identification personnelle (PII), ces derniers sont écrits dans les journaux d’activité Diagnostics de démarrage de la machine virtuelle. Ils sont accompagnés de tout autre texte visible dans le cadre de l’implémentation de la fonctionnalité de scrollback de la console série. Ces journaux d’activité sont circulaires et seules les personnes disposant d’autorisations de lecture pour le compte de stockage de diagnostics peuvent y accéder. Si vous entrez des données ou des commandes qui contiennent des secrets ou des informations d’identification personnelle, nous vous recommandons d’utiliser SSH à Moins que la console série soit absolument nécessaire.
 
 ### <a name="concurrent-usage"></a>Utilisation simultanée
 Si un utilisateur est connecté à la console série alors qu’un autre utilisateur demande l’accès à la même machine virtuelle, le premier utilisateur est déconnecté pendant que le second utilisateur est connecté.
@@ -121,7 +121,7 @@ La console série comprend une prise en charge intégrée des lecteurs d’écra
 ## <a name="known-issues"></a>Problèmes connus
 Nous sommes conscients de certains problèmes liés à la console série et au système d’exploitation de machine virtuelle. Voici une liste de ces problèmes et la procédure d’atténuation associée pour les machines virtuelles Linux. Ces problèmes et atténuations s’appliquent aux machines virtuelles et aux instances de groupe de machines virtuelles identiques. S’ils ne correspondent pas à l’erreur que vous voyez, consultez l’[article sur les erreurs de service courantes avec la console série](./serial-console-errors.md).
 
-Problème                           |   Atténuation
+Problème                           |   Limitation des risques
 :---------------------------------|:--------------------------------------------|
 L’utilisation de la touche **Entrée** après la bannière de connexion n’entraîne pas l’affichage d’une invite de connexion. | Pour plus d’informations, consultez [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui empêche Linux de se connecter au port série.
 Le texte de la console série n’occupe l’écran que partiellement (souvent après l’utilisation d’un éditeur de texte). | Les consoles série ne gèrent pas la négociation sur la taille de fenêtre ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), ce qui signifie qu’aucun signal SIGWINCH ne sera envoyé pour mettre à jour la taille de l’écran et la machine virtuelle ne connaîtra pas la taille de votre terminal. Installez xterm ou un utilitaire similaire pour disposer de la commande `resize`, puis exécutez `resize`.
@@ -129,7 +129,7 @@ Le collage de chaînes longues ne fonctionne pas. | La console série limite la 
 Entrée de clavier erratique dans les images SLES BYOS. L’entrée de clavier n’est reconnue que de manière sporadique. | Il s’agit d’un problème avec le package Plymouth. Plymouth ne doit pas être exécuté dans Azure tant que vous n’avez pas besoin d’un écran de démarrage. Plymouth interfère avec la capacité de la plateforme à utiliser la console série. Supprimez Plymouth avec `sudo zypper remove plymouth`, puis redémarrez. Vous pouvez également modifier la ligne du noyau de votre configuration GRUB en ajoutant `plymouth.enable=0` à la fin de la ligne. Vous pouvez le faire en [modifiant l’entrée de démarrage au moment du démarrage](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), ou en modifiant la ligne GRUB_CMDLINE_LINUX dans `/etc/default/grub`, en regénérant GRUB avec `grub2-mkconfig -o /boot/grub2/grub.cfg`, puis en redémarrant la machine.
 
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 **Q. Comment puis-je envoyer des commentaires ?**
 
@@ -169,7 +169,7 @@ R. Oui. Comme la console série ne nécessite pas de clés SSH, il vous suffit d
 ## <a name="next-steps"></a>Étapes suivantes
 * Utilisez la console série pour [accéder au GRUB et au mode mono-utilisateur](serial-console-grub-single-user-mode.md).
 * Utilisez la console série pour les [appels SysRq et NMI](serial-console-nmi-sysrq.md).
-* Découvrez comment utiliser la console série pour [activer GRUB dans plusieurs distributions](serial-console-grub-proactive-configuration.md) 
+* Découvrez comment utiliser la console série pour [activer GRUB dans plusieurs distributions](serial-console-grub-proactive-configuration.md)
 * La console série est également disponible pour les [machines virtuelles Windows](../windows/serial-console.md).
 * En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md).
 

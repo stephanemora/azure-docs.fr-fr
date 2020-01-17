@@ -1,5 +1,5 @@
 ---
-title: Solution Analyseur de performances réseau dans Azure Log Analytics | Microsoft Docs
+title: Connectivité de service de la solution Network Performance Monitor - Azure Log Analytics
 description: Utilisez la fonctionnalité Moniteur de connectivité de service dans Network Performance Monitor pour surveiller la connectivité réseau sur n’importe quel point de terminaison ayant un port TCP ouvert.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: dd02dad6d0f5b42181ad0bb27201384a6336ed6e
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898814"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551503"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 

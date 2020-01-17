@@ -1,25 +1,14 @@
 ---
-title: Déployer et mettre à niveau des applications et services avec Azure Resource Manager | Microsoft Docs
+title: Déployer et mettre à niveau avec Azure Resource Manager
 description: Découvrez comment déployer des applications et services sur un cluster Service Fabric à l’aide d’un modèle Azure Resource Manager.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 12/06/2017
-ms.author: atsenthi
-ms.openlocfilehash: 0bec430cbb98452f8c852c96053f3f699ce5098e
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: a2dfe54bf2c6b4fa8814f10c10576a73727a7417
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71153588"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75610248"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 

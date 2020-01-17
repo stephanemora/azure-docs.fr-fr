@@ -1,6 +1,6 @@
 ---
-title: Considérations relatives à la conception des groupes de machines virtuelles identiques Azure | Microsoft Docs
-description: En savoir plus sur les considérations relatives à la conception des groupes de machines virtuelles identiques Azure
+title: Considérations relatives à la conception de Microsoft Azure Virtual Machine Scale Sets
+description: En savoir plus sur les considérations relatives à la conception de Microsoft Azure Virtual Machine Scale Sets. Comparez les fonctionnalités des groupes identiques à celles des machines virtuelles.
 keywords: machine virtuelle linux, groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: manayar
-ms.openlocfilehash: 67bbad7e73f33d73d4c3f1d4f7e5599d2ef914e3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4238e96465a1fd7ad3e73c62134437cd819fba8a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359441"
 ---
 # <a name="design-considerations-for-scale-sets"></a>Considérations relatives à la conception des groupes de machines virtuelles identiques
 Cet article présente les considérations à prendre en compte pour créer des groupes de machines virtuelles identiques. Pour plus d'informations sur les groupes de machines virtuelles identiques, reportez-vous à la rubrique [Présentation des groupes de machines virtuelles identiques](virtual-machine-scale-sets-overview.md).

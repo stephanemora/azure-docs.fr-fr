@@ -2,18 +2,18 @@
 title: Créer des clusters Apache Hadoop à l’aide de l’API REST Azure - Azure
 description: Découvrez comment créer des clusters HDInsight en soumettant des modèles Azure Resource Manager à l’API REST Azure.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2018
-ms.author: hrasheed
-ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.custom: hdinsightactive
+ms.date: 12/10/2019
+ms.openlocfilehash: e2d63626ec548f0107d7af935af32e90d6972849
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152000"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435527"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Créer des clusters Apache Hadoop à l’aide de l’API REST Azure
 
@@ -341,9 +341,9 @@ curl -X "GET" "https://management.azure.com/subscriptions/$SUBSCRIPTIONID/resour
 
 Cette commande renvoie un document JSON renfermant des informations sur le déploiement. L’élément `"provisioningState"` contient l’état du déploiement. Si cet élément contient la valeur `"Succeeded"`, cela indique que le déploiement a été correctement effectué.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
-Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](hdinsight-hadoop-create-linux-clusters-portal.md).
+Si vous rencontrez des problèmes lors de la création de clusters HDInsight, reportez-vous aux [exigences de contrôle d’accès](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -352,7 +352,6 @@ Vous avez créé un cluster HDInsight. Pour apprendre à l’utiliser, consultez
 ### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
 
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters Apache HBase

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 98d3fa50f405658b33f879ed8e7b95667cddcedf
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064125"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75367108"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
@@ -176,3 +176,4 @@ Voici un exemple de consentement pour des conditions d’utilisation basées sur
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour savoir comment supprimer et exporter des données utilisateur, consultez [Gérer les données utilisateur](manage-user-data.md).
+- Pour obtenir un exemple de stratégie personnalisée qui implémente une invite de conditions d’utilisation, consultez [Une stratégie IEF B2C personnalisée - S’inscrire et se connecter avec une invite de commandes « Conditions d’utilisation »](https://github.com/azure-ad-b2c/samples/tree/master/policies/sign-in-sign-up-versioned-tou).

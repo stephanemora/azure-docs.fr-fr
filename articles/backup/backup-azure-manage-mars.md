@@ -4,73 +4,16 @@ description: Découvrez comment gérer et surveiller les sauvegardes de l’agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: f299bdeebab4f42721255d462101f0065a640fab
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665591"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496973"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gérer les sauvegardes de l’agent Microsoft Azure Recovery Services (MARS) à l’aide du service Sauvegarde Azure
 
 Cet article explique comment gérer les fichiers et dossiers qui sont sauvegardés avec l’agent Microsoft Azure Recovery Services.
-
-## <a name="create-a-backup-policy"></a>Créer une stratégie de sauvegarde
-
-La stratégie de sauvegarde spécifie à quel moment prendre des instantanés des données pour créer des points de récupération et la durée de conservation des points de récupération. Vous configurez la stratégie de sauvegarde à l’aide de l’agent MARS.
-
-Créez une stratégie comme suit :
-
-1. Après le téléchargement et l’inscription de l’agent MARS, lancez la console de l’agent. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure** sur votre ordinateur.  
-2. Dans **Actions**, cliquez sur **Planifier la sauvegarde**.
-
-    ![Planifier une sauvegarde de Windows Server](./media/backup-configure-vault/schedule-first-backup.png)
-3. Dans l’Assistant Planifier la sauvegarde > **Prise en main**, cliquez sur **Suivant**.
-4. Dans **Sélectionner les éléments à sauvegarder**, cliquez sur **Ajouter des éléments**.
-
-    ![Sélectionner les éléments à sauvegarder](./media/backup-azure-manage-mars/select-item-to-backup.png)
-
-5. Dans **Sélectionner des éléments**, sélectionnez ce que vous souhaitez sauvegarder, puis cliquez sur **OK**.
-
-    ![Éléments sélectionnés à sauvegarder](./media/backup-azure-manage-mars/selected-items-to-backup.png)
-
-6. Dans **Sélectionner les éléments à sauvegarder**, cliquez sur **Suivant**.
-7. Sur la page **Spécifier la planification de la sauvegarde**, indiquez à quel moment vous souhaitez effectuer des sauvegardes quotidiennes ou hebdomadaires. Cliquez ensuite sur **Suivant**.
-
-    - Un point de récupération est créé lorsqu’une sauvegarde est effectuée.
-    - Le nombre de points de récupération créés dans votre environnement dépend de votre planification de sauvegarde.
-
-8. Vous pouvez planifier des sauvegardes quotidiennes, jusqu’à trois fois par jour. Par exemple, la capture d’écran montre deux sauvegardes quotidiennes, l’une à minuit et l’autre à 18h.
-
-    ![Planification quotidienne](./media/backup-configure-vault/day-schedule.png)
-
-9. Vous pouvez également exécuter des sauvegardes hebdomadaires. Par exemple, la capture d’écran montre des sauvegardes effectuées un dimanche et un mercredi sur deux à 9h30 et 1h.
-
-    ![Planification hebdomadaire](./media/backup-configure-vault/week-schedule.png)
-
-10. Sur la page **Sélectionner la stratégie de conservation**, spécifiez la façon dont vous stockez les copies historiques de vos données. Cliquez ensuite sur **Suivant**.
-
-    - Les paramètres de conservation spécifient les points de récupération à stocker, ainsi que la durée pendant laquelle ils doivent être stockés.
-    - Par exemple, lorsque vous définissez un paramètre de conservation quotidienne, vous indiquez qu’à l’heure spécifiée pour la conservation quotidienne, le dernier point de récupération sera conservé pendant le nombre de jours spécifié. Ou, autre exemple, vous pouvez spécifier une stratégie de conservation mensuelle pour indiquer que le point de récupération créé le 30 de chaque mois doit être stocké pendant 12 mois.
-    - La conservation quotidienne et hebdomadaire des points de récupération coïncide généralement avec la planification de sauvegarde. Cela signifie que lorsque la sauvegarde est déclenchée en fonction de la planification, le point de récupération créé par la sauvegarde est stocké pendant la durée indiquée dans la stratégie de conservation quotidienne ou hebdomadaire.
-    - Par exemple, dans la capture d’écran suivante : - Les sauvegardes quotidiennes à minuit et 18h sont conservées pendant sept jours.
-            - Les sauvegardes effectuées le samedi à minuit et 18h sont conservées pendant quatre semaines.
-            - Les sauvegardes effectuées le samedi de la dernière semaine du mois à minuit et 18h sont conservées pendant 12 mois.
-            - Les sauvegardes effectuées le samedi au cours de la dernière semaine du mois de mars sont conservées pendant 10 ans.
-
-    ![Exemple de conservation](./media/backup-configure-vault/retention-example.png)
-
-11. Dans **Choisir le type de sauvegarde initiale**, décidez si vous souhaitez effectuer la sauvegarde initiale sur le réseau ou utiliser la sauvegarde en mode hors connexion (pour plus d’informations sur la sauvegarde en mode hors connexion, consultez cet [article](backup-azure-backup-import-export.md)). Pour effectuer la sauvegarde initiale sur le réseau, sélectionnez **Sur le réseau automatiquement** et cliquez sur **Suivant**.
-
-    ![Type de sauvegarde initiale](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
-
-12. Dans **Confirmation**, passez en revue les informations, puis cliquez sur **Terminer**.
-    ![Confirmer le type de sauvegarde](./media/backup-azure-manage-mars/confirm-backup-type.png)
-
-13. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
-  ![Confirmer la modification du processus de sauvegarde](./media/backup-azure-manage-mars/confirm-modify-backup-process.png)
-
-Vous devez créer une stratégie sur chaque ordinateur sur lequel l’agent est installé.
 
 ## <a name="modify-a-backup-policy"></a>Modifier une stratégie de sauvegarde
 
@@ -83,7 +26,7 @@ Lorsque vous modifiez une stratégie de sauvegarde, vous pouvez ajouter de nouve
   - La resélection de ces éléments entraîne une première sauvegarde complète et les modifications apportées à la nouvelle stratégie ne sont pas appliquées aux anciennes sauvegardes.
   - La désélection d’un volume entier conserve la sauvegarde précédente sans possibilité de modifier la stratégie de conservation.
 - **Paramètres d’exclusion** : utilisez cette option pour exclure des éléments spécifiques de la sauvegarde.
-  
+
 ### <a name="add-new-items-to-existing-policy"></a>Ajouter de nouveaux éléments à une stratégie existante
 
 1. Dans **Actions**, cliquez sur **Planifier la sauvegarde**.
@@ -158,12 +101,17 @@ Il existe deux façons d’arrêter la protection de la sauvegarde de fichiers e
 ### <a name="stop-protection-and-retain-backup-data"></a>Arrêter la protection et conserver les données de sauvegarde
 
 1. Ouvrez la console de gestion de MARS, accédez au **volet Actions** et **sélectionnez Planifier la sauvegarde**.
+
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/mars-actions.png)
 1. Dans la page **Sélectionner un élément de stratégie**, sélectionnez **Modifier la planification de sauvegarde pour vos fichiers et dossiers** et cliquez sur **Suivant**.
+
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/select-policy-item-retain-data.png)
-1. Dans la page **Modifier ou arrêter une sauvegarde planifiée**, sélectionnez **Ne plus utiliser cette panification de sauvegarde, mais conserver les sauvegardes stockées jusqu’à la réactivation de la planification**. Ensuite, sélectionnez **Suivant**.  
+1. Dans la page **Modifier ou arrêter une sauvegarde planifiée**, sélectionnez **Ne plus utiliser cette panification de sauvegarde, mais conserver les sauvegardes stockées jusqu’à la réactivation de la planification**. Ensuite, sélectionnez **Suivant**.
+
     ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/stop-schedule-backup.png)
-1. Dans **Suspendre la sauvegarde planifiée**, vérifiez les informations, puis cliquez sur **Terminer** ![Modifier ou arrêter une sauvegarde planifiée.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
+1. Dans **Suspendre la sauvegarde planifiée**, vérifiez les informations, puis cliquez sur **Terminer**.
+
+    ![Modifiez ou arrêtez une sauvegarde planifiée.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
 1. Dans **Modifier le processus de sauvegarde**, vérifiez que la suspension de la sauvegarde de la planification est à l’état de réussite, puis cliquez sur **Fermer** pour terminer.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Arrêter la protection et supprimer les données de sauvegarde
@@ -194,15 +142,34 @@ Une fois les éléments de sauvegarde locaux supprimés, effectuez les étapes s
 Si vous avez arrêté la protection tout en conservant les données et avez décidé de reprendre la protection, vous pouvez réactiver la planification de sauvegarde en modifiant la stratégie de sauvegarde.
 
 1. Dans **Actions** sélectionnez **Planifier la sauvegarde**.
-1. Sélectionnez **Réactiver la planification de sauvegarde. Vous pouvez également modifier les éléments de sauvegarde ou les heures**, puis cliquer sur **Suivant**.
+1. Sélectionnez **Réactiver la planification de sauvegarde. Vous pouvez également modifier les éléments de sauvegarde ou les heures**, puis cliquer sur **Suivant**.<br>
+
     ![Supprimez l’infrastructure de sauvegarde.](./media/backup-azure-manage-mars/re-enable-policy-next.png)
 1. Dans **Sélectionner les éléments à sauvegarder**, cliquez sur **Suivant**.
+
     ![Supprimez l’infrastructure de sauvegarde.](./media/backup-azure-manage-mars/re-enable-next.png)
 1. Dans **Spécifier la planification de sauvegarde**, spécifiez la planification de sauvegarde, puis cliquez sur **Suivant**.
 1. Dans **Sélectionner une stratégie de conservation**, spécifiez la durée de conservation, puis cliquez sur **Suivant**.
 1. Enfin, dans l’écran **Confirmation**, vérifiez les détails de la stratégie, puis cliquez sur **Terminer**.
 
+## <a name="re-generate-passphrase"></a>Régénérer la phrase secrète
+
+Une phrase secrète est utilisée pour chiffrer et déchiffrer les données lors de la sauvegarde ou de la restauration de votre ordinateur local à l’aide de l’agent MARS sur ou à partir d’Azure. Si vous avez perdu ou oublié la phrase secrète, vous pouvez la régénérer (à condition que votre machine soit toujours inscrite auprès du coffre Recovery Services et que la sauvegarde soit configurée) en procédant comme suit :
+
+- Dans la console de l’agent MARS, accédez à **volet Actions** > **Modifier les propriétés** >. Accédez ensuite à l’**onglet Chiffrement**.<br>
+- Cochez la case **Modifier la phrase secrète**.<br>
+- Entrez une nouvelle phrase secrète ou cliquez sur **Générer une phrase secrète**.
+- Cliquez sur **Parcourir** pour enregistrer la nouvelle phrase secrète.
+
+    ![Générez une phrase secrète.](./media/backup-azure-manage-mars/passphrase.png)
+- Cliquez sur **OK** pour appliquer les Modifications.  Si la [fonctionnalité de sécurité](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) est activée sur le portail Azure pour le coffre Recovery Services, vous êtes invité à entrer le code PIN de sécurité. Pour recevoir le code PIN, effectuez les étapes décrites dans cet [article](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
+- Collez le code PIN de sécurité à partir du portail, puis cliquez sur **OK** pour appliquer les Modifications.<br>
+
+    ![Générez une phrase secrète.](./media/backup-azure-manage-mars/passphrase2.png)
+- Assurez-vous que la phrase secrète est enregistrée en toute sécurité à un autre emplacement (autre que la machine source), de préférence dans Azure Key Vault. Suivez toutes les phrases secrètes si vous avez plusieurs machines sauvegardées avec les agents MARS.
+
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur les scénarios pris en charge et les limitations, reportez-vous à la [Matrice de prise en charge pour MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Pour plus d’informations sur les scénarios pris en charge et les limitations, reportez-vous à la [Matrice de prise en charge pour l’agent MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
 - En savoir plus sur le [comportement de conservation de la stratégie de sauvegarde à la demande](backup-configure-vault.md#on-demand-backup-policy-retention-behavior).

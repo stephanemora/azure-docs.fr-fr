@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628031515a9b0fdf3aa7b7ec88ee1b6b7f41f51
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 68cabbd00dd0b738590109cc39d8df82f5b7362d
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672189"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75681167"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gérer un plan App Service dans Azure
 
@@ -24,11 +24,15 @@ Un [plan Azure App Service](overview-hosting-plans.md) fournit les ressources n�
 
 Vous pouvez créer un plan App Service vide ou en créer un dans le cadre de la création d’une application.
 
-1. Sur le [Portail Azure](https://portal.azure.com), sélectionnez **Nouveau** > **Application web** ou un autre type d’application App Service.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource**.
 
-   ![Créer une application dans le portail Azure.][createWebApp]
+   ![Créez une ressource dans le Portail Azure.][createResource] 
 
-2. Configurez la section **Détails de l’instance** avant de configurer le plan App Service. Des paramètres comme **Publier** et **Systèmes d’exploitation** sont susceptibles de modifier les niveaux tarifaires disponibles de votre plan App Service. **Région** détermine l’emplacement de création du plan App Service.
+1. Sélectionnez **Nouveau** > **Application web** ou un autre type d’application App Service.
+
+   ![Créer une application dans le portail Azure.][createWebApp] 
+
+2. Configurez la section **Détails de l’instance** avant de configurer le plan App Service. Des paramètres comme **Publier** et **Systèmes d’exploitation** sont susceptibles de modifier les niveaux tarifaires disponibles de votre plan App Service. **Région** détermine l’emplacement de création du plan App Service. 
    
 3. Dans la section **Plan App Service**, sélectionnez un plan ou créez-en un en sélectionnant **Créer**.
 
@@ -48,7 +52,7 @@ Vous pouvez déplacer une application vers un autre plan App Service tant que le
 > Quand vous créez un plan, vous ne pouvez pas choisir l’espace web à utiliser, mais vous pouvez spécifier que le plan soit créé dans le même espace web qu’un autre plan existant. En résumé, tous les plans créés avec la même combinaison groupe de ressources/région sont déployés au sein du même espace web. Par exemple, si vous avez créé un plan dans le groupe de ressources A et la région B, tous les plans que vous créerez par la suite dans ce groupe de ressources A et cette région B seront déployés dans le même espace web. Notez que vous ne pouvez pas déplacer les plans vers d’autres espaces web après leur création et que, pour cette raison, vous ne pouvez pas déplacer un plan dans « le même espace web » qu’un autre plan en le déplaçant vers un autre groupe de ressources.
 > 
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à l’application à déplacer.
+1. Dans le [Portail Azure](https://portal.azure.com), cherchez et sélectionnez **App Services**, puis sélectionnez l’application que vous souhaitez déplacer.
 
 2. Dans le menu de gauche, sélectionnez **Modifier le plan App Service**.
 
@@ -97,3 +101,4 @@ Par défaut, pour éviter des frais inattendus, quand vous supprimez la dernièr
 [change]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/change-appserviceplan.png
 [createASP]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-appserviceplan.png
 [createWebApp]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-web-app.png
+[createResource]: ./media/azure-web-sites-web-hosting-plans-in-depth-overview/create-a-resource.png

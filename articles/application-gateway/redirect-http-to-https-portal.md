@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: dcbc20f768ae80404979d47f23e7e08098757b41
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012878"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75613327"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Créer une passerelle d’application avec redirection de HTTP vers HTTPS à l’aide du portail Azure
 
@@ -118,15 +118,15 @@ Tout d’abord, ajoutez l’écouteur appelé *myListener* pour le port 80.
 
 ### <a name="add-a-routing-rule-with-a-redirection-configuration"></a>Ajouter une règle d’acheminement avec une configuration de redirection
 
-1. Dans **myAppGateway**, sélectionnez **Règles**, puis **+ De base**.
-2. Pour le **nom**, tapez *Rule2*.
+1. Dans **myAppGateway**, sélectionnez **Règles**, puis **+Règle de routage des demandes**.
+2. Pour le **Nom de la règle**, tapez *Rule2*.
 3. Vérifiez que **MyListener** est sélectionné pour l’écouteur.
-4. Cochez la case **Configurer la redirection**.
+4. Cliquez sur l’onglet **Cibles principales** et sélectionnez **Type de cible** en tant que *Redirection*.
 5. Pour **Type de redirection**, sélectionnez **Permanent**.
 6. Pour **Cible de redirection**, sélectionnez **Écouteur**.
 7. Vérifiez que l’**écouteur cible** est défini sur **appGatewayHttpListener**.
-8. Sélectionnez l’option **Inclure la chaîne de requête**, et cochez les cases **Inclure le chemin d’accès**.
-9. Sélectionnez **OK**.
+8. Pour **Inclure la chaîne de requête** et **Inclure le chemin d’accès**, sélectionnez *Oui*.
+9. Sélectionnez **Ajouter**.
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Créer un groupe de machines virtuelles identiques
 
@@ -215,7 +215,7 @@ Vous pouvez obtenir l’adresse IP publique d’application à partir de la page
 1. Sélectionnez **myAppGateway**.
 2. Sur la page de **présentation**, prenez note de l’adresse IP indiquée dans **Adresses IP publiques frontales**.
 
-3. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple, http://52.170.203.149
+3. Copiez l’adresse IP publique, puis collez-la dans la barre d’adresses de votre navigateur. Par exemple : http://52.170.203.149
 
    ![Avertissement de sécurité](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

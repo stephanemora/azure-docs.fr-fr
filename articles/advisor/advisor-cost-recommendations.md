@@ -1,19 +1,14 @@
 ---
-title: Réduire les coûts de service grâce à Azure Advisor | Microsoft Docs
+title: Réduire les coûts de service grâce à Azure Advisor
 description: Le conseiller Azure permet d’optimiser le coût de vos déploiements Azure.
-services: advisor
-documentationcenter: NA
-author: saket-ms
-ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: sagupt
-ms.openlocfilehash: 9f074c8077f41392fa9d45022a6a7a537964afa9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: afa5a4068d2ec5f4730d261801760fe68d7a330e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180586"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443124"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Réduire les coûts de service grâce à Azure Advisor
 
@@ -21,7 +16,7 @@ Le conseiller vous aide à optimiser et à réduire votre dépense Azure globale
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimiser le coût de la machine virtuelle en redimensionnant ou en arrêtant les instances sous-utilisées 
 
-Alors que certains scénarios d’application peuvent par définition entraîner une faible utilisation, vous pouvez souvent faire des économies grâce à la gestion de la taille de vos machines virtuelles et de leur nombre. Les modèles d'évaluation avancée d'Advisor envisagent l'arrêt d'une machine virtuelle lorsqu'un P95ème de la valeur maximale d'utilisation de l'UC est inférieur à 3 % et que l'utilisation du réseau est inférieure à 2 % sur une période de 7 jours. La taille des machines virtuelles est considérée comme adéquate lorsqu'il est possible d'intégrer la charge actuelle dans une référence SKU plus petite (au sein de la même famille de références SKU) ou dans un plus petit nombre d'instances, de manière à ce que la charge actuelle ne dépasse pas 80 % d'utilisation pour les charges de travail non orientées utilisateur et 40 % pour les charges de travail orientées utilisateur. Le type de charge de travail est ici déterminé en analysant les caractéristiques d'utilisation de l'UC de la charge de travail.
+Alors que certains scénarios d’application peuvent par définition entraîner une faible utilisation, vous pouvez souvent faire des économies grâce à la gestion de la taille de vos machines virtuelles et de leur nombre. Les Modèles d’évaluation avancée d’Advisor envisagent l’arrêt d’une machine virtuelle lorsqu’un P95ème de la valeur maximale d’utilisation de l’UC est inférieur à 3 % et que l’utilisation du réseau est inférieure à 2 % sur une période de 7 jours. La taille des machines virtuelles est considérée comme adéquate lorsqu'il est possible d'intégrer la charge actuelle dans une référence SKU plus petite (au sein de la même famille de références SKU) ou dans un plus petit nombre d'instances, de manière à ce que la charge actuelle ne dépasse pas 80 % d'utilisation pour les charges de travail non orientées utilisateur et 40 % pour les charges de travail orientées utilisateur. Le type de charge de travail est ici déterminé en analysant les caractéristiques d'utilisation de l'UC de la charge de travail.
 
 Les actions recommandées sont l'arrêt ou le redimensionnement, en fonction des ressources recommandées. Advisor vous fournit une estimation des économies réalisables avec l'une ou l'autre des actions recommandées (redimensionnement ou arrêt). En outre, pour l'action recommandée de redimensionnement, Advisor fournit des informations sur les références SKU actuelles et cibles. 
 
@@ -54,15 +49,17 @@ Pour économiser jusqu'à 60 %, nous vous recommandons de stocker vos instantan
 
 ## <a name="how-to-access-cost-recommendations-in-azure-advisor"></a>Accès aux recommandations de coût dans Azure Advisor
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com), puis ouvrez [Advisor](https://aka.ms/azureadvisordashboard).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
-2.  Dans le tableau de bord Advisor, cliquez sur l’onglet **Coût**.
+1. Recherchez et sélectionnez [**Advisor**](https://aka.ms/azureadvisordashboard) à partir de n’importe quelle page.
+
+1. Dans le tableau de bord **Advisor**, sélectionnez l’onglet **Coût**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour en savoir plus sur les recommandations d’Advisor, consultez les ressources suivantes :
 * [Présentation du conseiller](advisor-overview.md)
-* [Prise en main](advisor-get-started.md)
+* [Bien démarrer](advisor-get-started.md)
 * [Recommandations du conseiller en matière de performances](advisor-performance-recommendations.md)
 * [Recommandations du conseiller en matière de haute disponibilité](advisor-high-availability-recommendations.md)
 * [Recommandations du conseiller en matière de sécurité](advisor-security-recommendations.md)

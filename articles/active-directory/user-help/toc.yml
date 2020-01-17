@@ -2,44 +2,36 @@
   href: index.yml
 - name: Aide relative à la vérification en deux étapes
   items:
-    - name: Vue d'ensemble
-      href: user-help-two-step-verification-overview.md
-    - name: Configurer vos méthodes de vérification à deux facteurs
-      items:
-        - name: Vue d'ensemble
-          href: multi-factor-authentication-end-user-first-time.md
-        - name: Configurer une application d’authentification
-          href: multi-factor-authentication-setup-auth-app.md
-        - name: Configurer un appareil mobile
-          href: multi-factor-authentication-setup-phone-number.md
-        - name: Configurer un téléphone de bureau
-          href: multi-factor-authentication-setup-office-phone.md
+    - name: "Qu’est-ce que la page Vérification supplémentaire\_?"
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Configurer une application d’authentification
+      href: multi-factor-authentication-setup-auth-app.md
+    - name: Configurer un appareil mobile
+      href: multi-factor-authentication-setup-phone-number.md
+    - name: Configurer un téléphone de bureau
+      href: multi-factor-authentication-setup-office-phone.md
     - name: Gérer vos paramètres
       href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Obtenir de l’aide
-      href: multi-factor-authentication-end-user-troubleshoot.md
     - name: Gérer les mots de passe d’application
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Comment se connecter
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Obtenir de l’aide
+      href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Aide relative à la réinitialisation du mot de passe
   items:
-    - name: Vue d'ensemble
-      href: user-help-password-reset-overview.md
     - name: Se connecter pour réinitialiser un mot de passe
       href: active-directory-passwords-reset-register.md
     - name: Réinitialiser votre mot de passe
       href: active-directory-passwords-update-your-own-password.md
 - name: Aide relative à l’application Microsoft Authenticator
   items:
-    - name: Vue d'ensemble
+    - name: "Qu’est-ce que l’application Microsoft Authenticator\_?"
       href: user-help-auth-app-overview.md
     - name: Télécharger et installer l’application
       href: user-help-auth-app-download-install.md
     - name: Ajouter des comptes
       items:
-        - name: Vue d'ensemble
-          href: user-help-auth-app-add-account-overview.md
         - name: Ajouter un compte professionnel ou scolaire
           href: user-help-auth-app-add-work-school-account.md
         - name: Ajouter un compte Microsoft personnel
@@ -52,14 +44,14 @@
       href: user-help-auth-app-sign-in.md
     - name: Sauvegarder et récupérer vos comptes
       href: user-help-auth-app-backup-recovery.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: user-help-auth-app-faq.md
 - name: Aide du portail Mon compte
   items:
-    - name: Vue d'ensemble
+    - name: "Qu’est-ce que le portail Mon compte\_?"
       href: my-account-portal-overview.md
     - name: Gérer vos informations de sécurité
-      href: user-help-security-info-overview.md
+      href: security-info-setup-signin.md
     - name: Gérer vos appareils connectés
       href: my-account-portal-devices-page.md
     - name: Changer votre mot de passe
@@ -72,14 +64,10 @@
       href: my-account-portal-sign-ins-page.md
 - name: Aide relative aux informations de sécurité (préversion)
   items:
-    - name: Vue d'ensemble
-      href: user-help-security-info-overview.md
     - name: Ajouter des informations de sécurité pendant la connexion
       href: security-info-setup-signin.md
     - name: Ajouter ou mettre à jour les méthodes d’informations de sécurité
       items:
-        - name: Vue d'ensemble
-          href: security-info-add-update-methods-overview.md
         - name: Configurer une application d’authentification
           href: security-info-setup-auth-app.md
         - name: Configurer la messagerie texte
@@ -98,8 +86,6 @@
       href: user-help-sign-in.md?toc=./toc.json
 - name: Aide relative à la gestion des appareils
   items:
-    - name: Vue d'ensemble
-      href: user-help-device-mgmt-overview.md
     - name: Joindre votre appareil de travail
       href: user-help-join-device-on-network.md
     - name: Inscrire votre appareil personnel pour le travail
@@ -108,8 +94,6 @@
       href: user-help-device-remediation.md
 - name: Aide du portail MyApps
   items:
-    - name: Vue d'ensemble
-      href: my-apps-portal-end-user-overview.md
     - name: "Accéder au portail Mes\_applications et l’utiliser"
       href: my-apps-portal-end-user-access.md
     - name: Mettre à jour vos informations de profil et de compte
@@ -122,8 +106,6 @@
       href: my-apps-portal-end-user-troubleshoot.md
 - name: Aide sur le portail Mes applications (préversion)
   items:
-    - name: Vue d'ensemble
-      href: my-applications-portal-overview.md
     - name: "Accéder au portail Mes\_applications et l’utiliser"
       href: my-applications-portal-access.md
     - name: Accéder et utiliser les espaces de travail

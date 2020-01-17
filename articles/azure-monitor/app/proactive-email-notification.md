@@ -1,6 +1,6 @@
 ---
-title: Détection intelligente Azure Application Insights – Modification à venir des destinataires par défaut des notifications | Microsoft Docs
-description: Surveillez les suivis d’application avec Azure Application Insights afin de déterminer si les données de télémétrie du suivi présentent des anomalies.
+title: Changement de notification de détection intelligente - Azure Application Insights
+description: Passez aux destinataires des notifications par défaut depuis la détection intelligente. La détection intelligente vous permet de superviser les suivis d’application avec Azure Application Insights afin de déterminer si les données de télémétrie du suivi présentent des anomalies.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa1f98b5a9ee592a4c702e87e365eff7941194d4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 493deea89586347d5847895acd5eb73a866f84ac
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820613"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432451"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Modification des notifications par e-mail de la détection intelligente
 

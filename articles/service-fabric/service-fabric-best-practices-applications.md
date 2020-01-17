@@ -1,25 +1,16 @@
 ---
-title: Meilleures pratiques de conception d’application Azure Service Fabric | Microsoft Docs
-description: Meilleures pratiques pour le développement d’applications Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Meilleures pratiques de conception d’application Azure Service Fabric
+description: Bonnes pratiques et considérations relatives à la conception pour développer des applications et services à l’aide d’Azure Service Fabric.
 author: markfussell
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: eec5daf0100d527886a508f5adbdb2b0e3010b09
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 755e3c1eb649bc6c8ecc084d18e9904cc90b1282
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262257"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551843"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Meilleures pratiques de conception d’application Azure Service Fabric
 

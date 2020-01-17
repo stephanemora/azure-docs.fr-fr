@@ -5,23 +5,21 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/23/2019
+ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a0325a7fd3aca3d27b24c193a9f131546a70d80b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566251"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466448"
 ---
 Les instantanés incrémentiels (préversion) sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous essayez de télécharger ou d'utiliser un instantané incrémentiel, tout le disque dur virtuel est utilisé. Cette nouvelle fonctionnalité de capture instantanée des disques managés peut améliorer leur rentabilité car il n'est plus nécessaire de stocker l'intégralité du disque avec chaque instantané, sauf si vous y tenez. Comme pour les instantanés classiques, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou pour créer un instantané classique.
 
 Il existe un certain nombre de différences entre un instantané incrémentiel et un instantané classique. Les instantanés incrémentiels utilisent toujours le stockage HDD Standard, quel que soit le type de stockage du disque, alors que les instantanés classiques peuvent utiliser des disques SSD premium. Si vous utilisez des instantanés classiques sur le Stockage Premium pour effectuer un scale-up de déploiements de machines virtuelles, nous vous recommandons d'utiliser des images personnalisées sur le stockage standard dans [Shared Image Gallery](../articles/virtual-machines/linux/shared-image-galleries.md). Cela vous aidera à atteindre une plus grande échelle à moindre coût. En outre, les instantanés incrémentiels offrent potentiellement une meilleure fiabilité avec un [stockage redondant interzone](../articles/storage/common/storage-redundancy-zrs.md) (ZRS). Si le stockage ZRS est disponible dans la région sélectionnée, l'instantané incrémentiel l'utilisera automatiquement. Si le stockage ZRS n'est pas disponible dans la région, l'instantané utilisera par défaut le [stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md) (LRS). Vous pouvez remplacer ce comportement et sélectionner un autre type de stockage manuellement, mais nous vous le déconseillons.
 
 Les instantanés incrémentiels offrent également une capacité différentielle, qui est uniquement disponible pour les disques managés. Ils vous permettent d'obtenir les modifications apportées entre deux instantanés incrémentiels des mêmes disques managés, jusqu'au niveau bloc. Vous pouvez utiliser cette fonctionnalité pour réduire l'empreinte de vos données lors de la copie d'instantanés d'une région à une autre.
-
-Si vous ne vous êtes pas encore inscrit pour bénéficier de la préversion et que vous souhaitez commencer à utiliser des instantanés incrémentiels, envoyez-nous un e-mail à l’adresse AzureDisks@microsoft.com pour accéder à la préversion publique.
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -156,8 +154,4 @@ Vous pouvez également utiliser des modèles Azure Resource Manager pour créer 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-1. Si vous ne vous êtes pas encore inscrit pour bénéficier de la préversion et que vous souhaitez commencer à utiliser des instantanés incrémentiels, envoyez-nous un e-mail à l’adresse AzureDisks@microsoft.com pour accéder à la préversion publique. 
-
-2. Explorez les exemples suivants pour la copie entre régions des instantanés incrémentiels à l’aide de la fonctionnalité différentielle   
-
-    - [Utilisation des kits SDK Azure .NET](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots)
+Si vous souhaitez voir un exemple de code illustrant la capacité différentielle des instantanés incrémentiels à l’aide de .NET, consultez [Copy Azure Managed Disks backups to another region with differential capability of incremental snapshots](https://github.com/Azure-Samples/managed-disks-dotnet-backup-with-incremental-snapshots) (Copier des sauvegardes de disques managés Azure dans une autre région avec la fonctionnalité différentielle des instantanés incrémentiels).

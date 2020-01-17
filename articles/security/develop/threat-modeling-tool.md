@@ -1,26 +1,18 @@
 ---
-title: Outil Microsoft de modélisation des menaces - Azure | Microsoft Docs
-description: La page principale de l’Outil Microsoft de modélisation des menaces, contenant des informations sur la prise en main de l’outil, notamment le processus de modélisation des menaces
-services: security
-documentationcenter: na
+title: Vue d’ensemble de Microsoft Threat Modeling Tool - Azure
+description: Vue d’ensemble de l’Outil Microsoft de modélisation des menaces, contenant des informations sur la prise en main de l’outil, notamment le processus de modélisation des menaces.
 author: jegeib
-manager: jegeib
-editor: jegeib
-ms.assetid: na
+ms.author: jegeib
 ms.service: security
 ms.subservice: security-develop
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
-ms.author: jegeib
-ms.openlocfilehash: 47ae7661874bec211935315679e6e2c79e6d59ef
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 0d800102b6f6ff77944a2b625d3bcecef69c1ee9
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727819"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75548755"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Outil Microsoft de modélisation des menaces
 
@@ -57,7 +49,7 @@ Le tableau ci-dessous contient des liens importants pour vous familiariser avec 
 
 Voici quelques articles plus anciens qui sont toujours applicables à la modélisation des menaces aujourd'hui :
 
-* [Article sur l’importance de la modélisation des menaces](https://msdn.microsoft.com/magazine/dd347831.aspx)
+* [Article sur l’importance de la modélisation des menaces](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Formation publiée par Trustworthy Computing](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Découvrez le travail de quelques experts de l’outil de modélisation des menaces :

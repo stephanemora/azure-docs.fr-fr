@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: 2e5cebb05549c2bd3cd810da58930efdae1422e4
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 313b9c92b10d3170eb71bb8290a9388bb8dcc67c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838615"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427522"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Créer un modèle d’analyse des sentiments dans Azure Machine Learning Studio (classique)
 
@@ -50,7 +50,7 @@ Que se passe-t-il si vous souhaitez utiliser une liste de mots vides personnalis
 
 Une fois le pré-traitement terminé, nous fractionnons les données en jeux d’apprentissage et de test.
 
-## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Étape 2 : extraire des vecteurs de fonctions numériques du texte pré-traité ;
+## <a name="step-2-extract-numeric-feature-vectors-from-pre-processed-text"></a>Étape 2 : extraire des vecteurs de fonctions numériques du texte pré-traité ;
 Pour générer un modèle de données de texte, vous devez généralement convertir du texte de forme libre en vecteurs de fonctions numériques. Dans cet exemple, nous utilisons le module [Extract N-Gram Features from Text](https://msdn.microsoft.com/library/azure/mt762916.aspx) (Extraire des fonctionnalités N-grammes du texte) pour transformer les données texte dans ce format. Ce module prend une colonne de mots séparés par des espaces blancs et compile un dictionnaire de mots, ou N-grammes de mots, qui apparaissent dans votre jeu de données. Ensuite, il compte le nombre de fois où chaque mot, ou N-gramme, apparaît dans chaque enregistrement et crée des vecteurs de fonction à partir de ce décompte. Dans ce didacticiel, nous définissons la taille N-gramme sur 2, donc nos vecteurs de fonctions incluent des mots uniques ou des combinaisons de deux mots qui se suivent.
 
 ![Extraire les N-grammes](./media/text-analytics-module-tutorial/extract-ngrams.png)
@@ -63,14 +63,14 @@ En outre, vous pouvez utiliser la sélection de fonctionnalités pour sélection
 
 En guise d’alternative à l’utilisation du module d’extraction des fonctionnalités N-grammes, vous pouvez utiliser le module de hachage de fonctionnalité. Notez cependant que le module [Hachage de fonctionnalité](https://msdn.microsoft.com/library/azure/dn906018.aspx) ne possède pas de capacité de sélection de fonctionnalité intégrée, ou pondération TF*IDF.
 
-## <a name="step-3-train-classification-or-regression-model"></a>Étape 3 : former le modèle de classification ou de régression ;
+## <a name="step-3-train-classification-or-regression-model"></a>Étape 3 : former le modèle de classification ou de régression ;
 À présent, le texte a été transformé en colonnes de fonctions numériques. Le jeu de données contient toujours des colonnes de type chaîne issues des étapes précédentes, donc nous utilisons Sélectionner des colonnes dans le jeu de données pour les exclure.
 
-Nous utilisons ensuite [Régression logistique à deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) pour prédire notre cible : note de critique élevée ou faible. À ce stade, le problème d’analyse de texte a été transformé en un problème de classification standard. Vous pouvez utiliser les outils disponibles dans la version classique d’Azure Machine Learning Studio pour améliorer le modèle. Par exemple, vous pouvez faire des essais avec des classifieurs différents pour déterminer la précision des résultats qu’ils donnent, ou vous pouvez utiliser le réglage d’hyperparamètre pour améliorer la précision.
+Nous utilisons ensuite [Régression logistique à deux classes](https://msdn.microsoft.com/library/azure/dn905994.aspx) pour prédire notre cible : note de critique élevée ou faible. À ce stade, le problème d’analyse de texte a été transformé en un problème de classification standard. Vous pouvez utiliser les outils disponibles dans Azure Machine Learning Studio (classique) pour améliorer le modèle. Par exemple, vous pouvez faire des essais avec des classifieurs différents pour déterminer la précision des résultats qu’ils donnent, ou vous pouvez utiliser le réglage d’hyperparamètre pour améliorer la précision.
 
 ![Apprentissage et Notation](./media/text-analytics-module-tutorial/scoring-text.png)
 
-## <a name="step-4-score-and-validate-the-model"></a>Étape 4 : noter et valider le modèle ;
+## <a name="step-4-score-and-validate-the-model"></a>Étape 4 : noter et valider le modèle ;
 Comment valider le modèle formé ? Nous le notons en fonction du jeu de données de test et nous en évaluons la précision. Toutefois, le modèle a appris le vocabulaire des N-grammes et leur pondération à partir du jeu de données d’apprentissage. Par conséquent, nous devons utiliser ce vocabulaire et ces pondérations lors de l’extraction de fonctionnalités à partir des données de test, plutôt que de créer de nouveau le vocabulaire. Par conséquent, nous ajoutons le module d’extraction de fonctionnalités N-grammes à la branche de notation de l’expérience, nous connectons le vocabulaire de sortie à partir de la branche d’apprentissage et nous définissons le mode du vocabulaire en lecture seule. Nous désactivons également le filtrage de N-grammes en fonction de la fréquence en définissant le minimum sur 1 instance et le maximum sur 100 %, et en désactivant la sélection de fonctionnalités.
 
 Une fois que la colonne de texte dans les données de test a été transformée en colonnes de fonctions numériques, nous excluons les colonnes de type chaîne des étapes précédentes, comme dans la branche d’apprentissage. Nous utilisons ensuite le module Noter le modèle pour effectuer des prévisions et le module Évaluer un modèle pour évaluer la précision.

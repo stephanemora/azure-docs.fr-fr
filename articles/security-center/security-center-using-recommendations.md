@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 69fa9d24d24c26a7d945c27e86739475f9883b27
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b496523f6205532ea7a4278671e3be6986935a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200699"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75355282"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Utiliser les recommandations Azure Security Center pour améliorer la sécurité
 Vous pouvez réduire les risques d’un incident de sécurité en configurant une stratégie de sécurité, puis en implémentant les recommandations fournies par Azure Security Center. Cet article explique comment utiliser les stratégies de sécurité et les recommandations d'Azure Security Center pour prévenir une attaque de sécurité. 
@@ -63,7 +63,7 @@ Dans le cadre de ses activités de supervision quotidiennes, Jeff se connecte à
 
 5. Quand il clique sur **Compute et applications**, il voit la liste des recommandations et les gère en fonction de leur impact sur le degré de sécurisation.
 
-6. Jeff a de nombreuses machines virtuelles accessibles sur Internet. Étant donné que leurs ports sont exposés, il craint qu’un attaquant ne prenne le contrôle des serveurs. Jeff choisit donc d’utiliser un (**accès aux machines virtuelles juste-à-temps**) [security-center-just-in-time.md].
+6. Jeff a de nombreuses machines virtuelles accessibles sur Internet. Étant donné que leurs ports sont exposés, il craint qu’un attaquant ne prenne le contrôle des serveurs. Jeff choisit donc d’utiliser [**l’accès juste-à-temps aux machines virtuelles**](security-center-just-in-time.md).
 
 Jeff continue de parcourir les recommandations de priorité élevée et moyenne et choisit de les appliquer ou pas. Pour chaque recommandation, il examine les informations détaillées fournies par Security Center pour se faire une idée des ressources impactées, de l’impact du degré de sécurisation, de la signification de chaque recommandation et des étapes à suivre pour atténuer chaque problème.
 

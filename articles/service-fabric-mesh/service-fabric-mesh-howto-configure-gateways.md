@@ -1,25 +1,17 @@
 ---
-title: Configurer une passerelle pour router les demandes | Microsoft Docs
+title: Configurer une passerelle pour router les demandes
 description: Découvrez comment configurer la passerelle qui gère le trafic entrant de votre ou vos applications exécutées sur Service Fabric Mesh.
-services: service-fabric-mesh
-documentationcenter: .net
 author: dkkapur
-manager: chakdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/28/2018
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: b4fc6f91ee2429205974b9cb7ceb05b7cff53f15
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: ec408403d4baa0f211c6bfe867a15c96513693cb
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034208"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461952"
 ---
 # <a name="configure-a-gateway-resource-to-route-requests"></a>Configurer une ressource Passerelle pour router les demandes
 

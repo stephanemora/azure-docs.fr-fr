@@ -1,21 +1,21 @@
 ---
-title: Automatiser le déploiement de ressources pour une application de fonction dans Azure Functions
+title: Automatiser le déploiement des ressources d’application de fonction dans Azure
 description: Découvrez comment créer un modèle Azure Resource Manager qui déploie votre application de fonction.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 9c222937831c0e8017a390b16ef192783e9e564a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230522"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433141"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
 Vous pouvez utiliser un modèle Azure Resource Manager pour déployer une application de fonction. Cet article présente les ressources et paramètres nécessaires pour effectuer cette opération. Vous devrez peut-être déployer des ressources supplémentaires, selon les [déclencheurs et liaisons](functions-triggers-bindings.md) présents dans votre application de fonction.
 
-Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Pour en savoir plus sur la création de modèles, voir [Création de modèles Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
 
 Pour des exemples de modèles, consultez :
 - [Function app on Consumption plan] (Application de fonction dans le plan Consommation)
@@ -25,7 +25,7 @@ Pour des exemples de modèles, consultez :
 
 Un déploiement d’Azure Functions comprend généralement les ressources suivantes :
 
-| Ressource                                                                           | Prérequis | Référence sur la syntaxe et les propriétés                                                         |   |
+| Ressource                                                                           | Condition requise | Référence sur la syntaxe et les propriétés                                                         |   |
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | Une application de fonction                                                                     | Obligatoire    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | Un compte de [stockage Azure](../storage/index.yml)                                   | Obligatoire    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
@@ -135,7 +135,7 @@ La ressource d’application de fonction est définie à l’aide d’une ressou
 
 Une application de fonction doit inclure les paramètres d’application suivants :
 
-| Nom du paramètre                 | Description                                                                               | Valeurs utilisées dans l’exemple                        |
+| Nom du paramètre                 | Description                                                                               | Exemples de valeurs                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | Chaîne de connexion à un compte de stockage que le runtime Functions utilise pour la mise en file d’attente interne | Voir [Compte de stockage](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Version du runtime Azure Functions                                                | `~2`                                  |
@@ -462,7 +462,7 @@ Une application de fonction sur un plan App Service doit avoir la propriété `s
 
 Les applications Linux doivent également inclure une propriété `linuxFxVersion` sous `siteConfig`. Si vous déployez simplement du code, cette valeur est déterminée par votre pile de runtime souhaitée :
 
-| Pile            | Exemple de valeur                                         |
+| Pile            | Valeur d'exemple                                         |
 |------------------|-------------------------------------------------------|
 | Python           | `DOCKER|microsoft/azure-functions-python3.6:2.0`      |
 | JavaScript       | `DOCKER|microsoft/azure-functions-node8:2.0`          |
@@ -638,9 +638,9 @@ Une application de fonction dispose de nombreuses ressources enfant que vous pou
 Vous pouvez utiliser une des méthodes suivantes pour déployer votre modèle :
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Bouton Déployer dans Azure
 

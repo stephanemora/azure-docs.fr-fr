@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: b5304f2f9af3f3dac5a1259669cdd78548c2e832
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7ea7051b24deeddea25b1db771b73a226f650067
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933727"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75401146"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Solutions de monitoring dans Azure Monitor
 Les solutions de monitoring exploitent les services Azure pour offrir des insights supplémentaires sur le fonctionnement d’une application ou d’un service en particulier. Cet article offre une vue d’ensemble des solutions de monitoring Azure et des informations sur leur utilisation et leur installation.
@@ -29,22 +29,20 @@ Vous pouvez ajouter des solutions de monitoring à Azure Monitor pour toutes les
 ## <a name="use-monitoring-solutions"></a>Utiliser des solutions de supervision
 Ouvrez la page **Vue d’ensemble** d’Azure Monitor pour afficher la vignette de chacune des solutions installées dans l’espace de travail. 
 
-1. Connectez-vous au portail Azure.
-1. Ouvrez **Tous les services** et recherchez **Monitor**.
+1. Accédez au [portail Azure](https://ms.portal.azure.com). Recherchez et sélectionnez **Surveiller**.
 1. Sous le menu **Insights**, sélectionnez **Plus**.
 1. Utilisez les zones de liste déroulante en haut de l’écran pour modifier l’espace de travail ou l’intervalle de temps utilisé pour les vignettes.
 1. Cliquez sur la vignette d’une solution pour ouvrir la vue correspondante incluant une analyse plus détaillée des données collectées par la solution.
 
-![Vue d'ensemble](media/solutions/overview.png)
+![Vue d’ensemble](media/solutions/overview.png)
 
 Les solutions de monitoring peuvent contenir plusieurs types de ressources Azure, que vous pouvez visualiser comme n’importe quelle autre ressource. Par exemple, les requêtes de journal incluses dans la solution apparaissent sous **Requêtes de solutions** dans [Explorateur de requêtes](../log-query/get-started-portal.md#load-queries). Vous pouvez les utiliser lorsque vous effectuez une analyse ad hoc avec des [requêtes de journal](../log-query/log-query-overview.md).
 
 ## <a name="list-installed-monitoring-solutions"></a>Lister les solutions de monitoring installées 
 Suivez la procédure ci-dessous pour lister les solutions de monitoring installées dans votre abonnement.
 
-1. Connectez-vous au portail Azure.
-1. Ouvrez **Tous les services** et recherchez **Solutions**.
-4. Vous obtenez la liste des solutions installées dans l’ensemble de vos espaces de travail. Le nom de la solution est suivi du nom de l’espace de travail dans lequel elle est installée.
+1. Accédez au [portail Azure](https://ms.portal.azure.com). Recherchez et sélectionnez **Solutions**.
+1. Vous obtenez la liste des solutions installées dans l’ensemble de vos espaces de travail. Le nom de la solution est suivi du nom de l’espace de travail dans lequel elle est installée.
 1. Utilisez les zones de liste déroulante en haut de l’écran pour filtrer les solutions par abonnement ou par groupe de ressources.
 
 

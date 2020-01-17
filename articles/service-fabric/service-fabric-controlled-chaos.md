@@ -1,25 +1,16 @@
 ---
-title: Induire un chaos dans les clusters Service Fabric | Microsoft Docs
+title: Induire un chaos dans les clusters Service Fabric
 description: Utilisation des API du service d’injection d’erreurs et d’analyse du cluster pour gérer le chaos dans le cluster.
-services: service-fabric
-documentationcenter: .net
 author: motanv
-manager: anmola
-editor: motanv
-ms.assetid: 2bd13443-3478-4382-9a5a-1f6c6b32bfc9
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 02/05/2018
 ms.author: motanv
-ms.openlocfilehash: 7a22b17d45218c2f78220f980605b3c211495606
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 37b451abd0a519dff17aba9b2d6c42b4762f30cd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543741"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463171"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induire un chaos contrôlé dans les clusters Service Fabric
 Les systèmes distribués à grande échelle, comme les infrastructures cloud, sont par définition peu fiables. Azure Service Fabric permet aux développeurs d’écrire des services distribués fiables sur une infrastructure peu fiable. Pour écrire des services distribués robustes sur une infrastructure non fiable, les développeurs doivent pouvoir tester la stabilité de leurs services, tandis que l’infrastructure sous-jacente non fiable passe par des transitions d’état complexes en raison d’erreurs.

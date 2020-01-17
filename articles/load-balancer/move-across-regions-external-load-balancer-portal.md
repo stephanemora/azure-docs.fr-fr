@@ -6,12 +6,12 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 9358d99c66b3b8e3d6988b1881e51c11848ad97b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5cd5ce2635ce05c4d5962f12ddc3945342897ecd
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300628"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75638491"
 ---
 # <a name="move-an-external-load-balancer-to-another-region-by-using-the-azure-portal"></a>Déplacer un équilibreur de charge externe vers une autre région à l’aide du portail Azure
 
@@ -20,7 +20,7 @@ Il existe différents scénarios dans lesquels vous pouvez avoir à déplacer un
 Vous ne pouvez pas à proprement parler déplacer un équilibreur de charge externe Azure d’une région vers une autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante et l’adresse IP publique d’un équilibreur de charge externe. Vous pouvez ensuite déplacer la ressource dans une autre région en exportant l’équilibreur de charge et l’adresse IP publique vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant les modèles dans la nouvelle région. Pour plus d’informations sur Resource Manager et les modèles, consultez [Exporter des groupes de ressources vers des modèles](https://docs.microsoft.com/azure/azure-resource-manager/manage-resource-groups-powershell#export-resource-groups-to-templates).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Vérifiez que l’équilibreur de charge externe se trouve dans la région Azure à partir de laquelle vous souhaitez effectuer le déplacement.
 
@@ -32,7 +32,7 @@ Vous ne pouvez pas à proprement parler déplacer un équilibreur de charge exte
 
 - Vérifiez que votre abonnement Azure vous permet de créer des équilibreurs de charge externes dans la région cible. Contactez le support pour activer le quota requis.
 
-- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout d’équilibreurs de charge. Consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- Vérifiez que votre abonnement dispose de suffisamment de ressources pour prendre en charge l’ajout d’équilibreurs de charge. Consultez [Abonnement Azure et limites, quotas et contraintes de service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#networking-limits).
 
 ## <a name="prepare-and-move"></a>Préparer et déplacer
 Les procédures suivantes montrent comment préparer l’équilibreur de charge externe pour le déplacement à l’aide d’un modèle Resource Manager, et déplacer la configuration de l’équilibreur de charge externe vers la région cible à l’aide du portail Azure. Vous devez commencer par exporter la configuration d’adresse IP publique de l’équilibreur de charge externe.
@@ -141,7 +141,7 @@ Les procédures suivantes montrent comment préparer l’équilibreur de charge 
  
 13. Sélectionnez **Enregistrer** dans l’éditeur en ligne.
 
-14. Sélectionnez OPTIONS DE BASE > Abonnement pour choisir l’abonnement dans lequel l’adresse IP publique cible sera déployée.
+14. Sélectionnez **OPTIONS DE BASE** > **Abonnement** pour choisir l’abonnement dans lequel l’adresse IP publique cible sera déployée.
 
 15. Sélectionnez **OPTIONS DE BASE** > **Groupe de ressources** pour choisir le groupe de ressources dans lequel l’adresse IP publique cible sera déployée. Vous pouvez sélectionner **Créer** afin de créer un groupe de ressources pour l’adresse IP publique cible. Vérifiez que le nom n’est pas identique à celui du groupe de ressources source de l’adresse IP publique cible existante.
 
@@ -411,7 +411,7 @@ Pour valider les modifications et terminer le déplacement de l’adresse IP pub
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez déplacé un équilibreur de charge externe Azure d’une région à une autre et vous avez nettoyé les ressources sources. Pour en savoir plus sur le déplacement de ressources entre régions et la reprise d’activité après sinistre dans Azure, consultez :
+Dans ce tutoriel, vous avez déplacé un équilibreur de charge externe Azure d’une région à une autre et vous avez nettoyé les ressources sources. Pour plus d’informations sur le déplacement de ressources entre régions et la reprise d’activité dans Azure, consultez :
 
 
 - [Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)

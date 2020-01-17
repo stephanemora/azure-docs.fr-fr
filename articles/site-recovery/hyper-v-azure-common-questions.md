@@ -1,24 +1,20 @@
 ---
 title: Questions courantes sur la récupération d’urgence pour Hyper-V avec Azure Site Recovery
 description: Cet article récapitule les questions courantes sur la configuration de la reprise d’activité de machines virtuelles Hyper-V locales sur Azure à l’aide du site Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 8f3a04c70b88987fc91dbed3c186d04826b75726
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 7c5f55fbea67567ddf7a2afa6a61f6c76568d829
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954058"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498193"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Questions courantes sur la reprise d’activité d’Hyper-V sur Azure
 
 Cet article fournit des réponses aux questions courantes qui se posent lors de la réplication de machines virtuelles Hyper-V en local vers Azure. 
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="how-is-site-recovery-priced"></a>Comment les tarifs Azure Site Recovery sont-ils fixés ?
 Pour plus d’informations, consultez [Tarification Site Recovery ](https://azure.microsoft.com/pricing/details/site-recovery/).
@@ -202,14 +198,17 @@ Site Recovery n’installe rien explicitement sur des machines virtuelles Hyper-
 ### <a name="how-do-i-fail-over-to-azure"></a>Comment basculer vers Azure ?
 
 Vous pouvez effectuer un basculement planifié ou non planifié vers Azure à partir de machines virtuelles Hyper-V locales.
-    - Si vous exécutez un basculement planifié, les machines virtuelles sources sont arrêtées pour éviter toute perte de données.
-    - Vous pouvez exécuter un basculement non planifié si votre site principal est inaccessible.
-    - Vous pouvez basculer une seule machine ou créer des plans de récupération pour orchestrer le basculement de plusieurs machines.
-    - Vous exécutez un basculement. Une fois la première phase du basculement effectuée, vous pouvez voir les machines virtuelles de réplication créées dans Azure. Si nécessaire, vous pouvez affecter une adresse IP publique à la machine virtuelle. Vous validez ensuite le basculement, pour accéder à la charge de travail à partir de la machine virtuelle Azure de réplication.
+
+- Si vous exécutez un basculement planifié, les machines virtuelles sources sont arrêtées pour éviter toute perte de données.
+- Vous pouvez exécuter un basculement non planifié si votre site principal est inaccessible.
+- Vous pouvez basculer une seule machine ou créer des plans de récupération pour orchestrer le basculement de plusieurs machines.
+- Le basculement comporte deux parties :
+    - Une fois la première phase du basculement effectuée, vous pouvez voir les machines virtuelles de réplication créées dans Azure. Si nécessaire, vous pouvez affecter une adresse IP publique à la machine virtuelle.
+    - Vous validez ensuite le basculement, pour accéder à la charge de travail à partir de la machine virtuelle Azure de réplication.
    
 
 ### <a name="how-do-i-access-azure-vms-after-failover"></a>Comment accéder aux machines virtuelles Azure après un basculement ?
-Après un basculement, vous pouvez accéder aux machines virtuelles Azure via une connexion Internet sécurisée, via un réseau privé virtuel de site à site ou via Azure ExpressRoute. Vous devez préparer un certain nombre de choses afin de vous connecter. [En savoir plus](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)
+Après un basculement, vous pouvez accéder aux machines virtuelles Azure via une connexion Internet sécurisée, via un réseau privé virtuel de site à site ou via Azure ExpressRoute. Vous devez préparer un certain nombre de choses afin de vous connecter. [Plus d’informations](failover-failback-overview.md#connect-to-azure-after-failover)
 
 ### <a name="is-failed-over-data-resilient"></a>Est-ce que les données ayant fait l’objet d’un basculement sont résilientes ?
 Azure est conçu pour la résilience. Site Recovery est prévu pour assurer le basculement vers un centre de données Azure secondaire, dans le respect du contrat SLA Azure. En cas de basculement, nous nous assurons que vos métadonnées et vos coffres restent dans la même région géographique que vous avez choisie pour votre coffre.
@@ -232,4 +231,4 @@ Une fois votre infrastructure locale à nouveau opérationnelle, vous pouvez eff
 5. Une fois les charges de travail restaurées automatiquement, vous activez la réplication inverse, afin que les machines virtuelles locales soient répliquées vers Azure à nouveau.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Puis-je effectuer la restauration à un autre emplacement ?
-Oui, si vous effectuez le basculement vers Azure, vous pouvez effectuer la restauration à un autre emplacement si celui d’origine n’est pas disponible. [Plus d’informations](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment)
+Oui, si vous effectuez le basculement vers Azure, vous pouvez effectuer la restauration à un autre emplacement si celui d’origine n’est pas disponible. [Plus d’informations](hyper-v-azure-failback.md#fail-back-to-an-alternate-location)

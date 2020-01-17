@@ -1,25 +1,16 @@
 ---
-title: Notifications Reliable Services | Microsoft Docs
-description: Documentation conceptuelle relative aux notifications Reliable Services Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Notifications Reliable Services
+description: Documentation conceptuelle sur les notifications de Service Fabric Reliable Services pour le gestionnaire d’état et le dictionnaire fiables
 author: mcoskun
-manager: chackdan
-editor: masnider,vturecek
-ms.assetid: cdc918dd-5e81-49c8-a03d-7ddcd12a9a76
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 6/29/2017
 ms.author: mcoskun
-ms.openlocfilehash: d009749b7bc31595be26124b9d1eee7666e95bd4
-ms.sourcegitcommit: 978e1b8cac3da254f9d6309e0195c45b38c24eb5
+ms.openlocfilehash: 1f3239ea1da252ccd84c6572b562756c8fd1677d
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67551666"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75639562"
 ---
 # <a name="reliable-services-notifications"></a>Notifications Reliable Services
 Les notifications permettent aux clients de suivre les modifications apportées à un objet qui les intéresse. Deux types d’objets prennent en charge les notifications : le *Gestionnaire d’état fiable* et le *Dictionnaire fiable*.
@@ -35,9 +26,9 @@ Les notifications sont déclenchées dans le cadre de l’application d’opéra
 Le Gestionnaire d’état fiable fournit des notifications pour les événements suivants :
 
 * Transaction
-  * Validation
+  * Commit
 * Gestionnaire d’état
-  * Reconstruction
+  * Reconstruire
   * Ajout d’un état fiable
   * Suppression d’un état fiable
 

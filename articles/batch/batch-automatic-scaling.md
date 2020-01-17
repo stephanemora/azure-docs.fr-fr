@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/24/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: ab16fc959a332076cac1d615b86d37e8c66e2f67
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: c3c94805c18b0a7a3052158871c5fafce2dd5a33
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933697"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75660713"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Créer une formule automatique pour la mise à l’échelle des nœuds de calcul dans un pool Batch
 
@@ -34,7 +34,7 @@ Cet article décrit les différentes entités qui composent vos formules de mise
 > [!IMPORTANT]
 > Lorsque vous créez un compte Batch, vous pouvez spécifier la [configuration du compte](batch-api-basics.md#account), qui détermine si les pools sont alloués dans un abonnement au service Batch (par défaut), ou dans votre abonnement utilisateur. Si vous avez créé votre compte Batch avec la configuration de service Batch par défaut, votre compte est limité à un nombre maximal de cœurs utilisables pour le traitement. Le service Batch met à l’échelle des nœuds uniquement jusqu’à cette limite de cœurs. C’est pourquoi le service Batch peut ne pas atteindre le nombre cible de nœuds de calcul spécifié par une formule de mise à l’échelle automatique. Consultez [Quotas et limites du service Azure Batch](batch-quota-limit.md) pour obtenir des instructions sur l’affichage et l’augmentation des quotas de votre compte.
 >
->Si vous avez créé votre compte avec la configuration d’abonnement utilisateur, votre compte partage le quota de cœurs associé à l’abonnement. Pour en savoir plus, consultez le paragraphe [Limites de machines virtuelles](../azure-subscription-service-limits.md#virtual-machines-limits) de la section [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md).
+>Si vous avez créé votre compte avec la configuration d’abonnement utilisateur, votre compte partage le quota de cœurs associé à l’abonnement. Pour en savoir plus, consultez le paragraphe [Limites de machines virtuelles](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) de la section [Abonnement Azure et limites, quotas et contraintes de service](../azure-resource-manager/management/azure-subscription-service-limits.md).
 >
 >
 
@@ -89,7 +89,7 @@ $NodeDeallocationOption = taskcompletion;
 
 Cet exemple crée un pool qui commence par 25 nœuds basse priorité. Chaque fois qu’un nœud basse priorité est reporté, il est remplacé par un nœud dédié. Comme pour le premier exemple, la variable `maxNumberofVMs` empêche le pool de dépasser 25 machines virtuelles. Cet exemple est utile pour tirer parti des machines virtuelles basse priorité, tout en garantissant que seul un nombre fixe de reports se produit pendant la durée de vie du pool.
 
-## <a name="variables"></a>variables
+## <a name="variables"></a>Variables
 
 Vous pouvez utiliser aussi bien des variables **définies par le service** que des variables **définies par l’utilisateur** dans les formules de mise à l’échelle automatique. Les variables définies par le service sont intégrées dans le service Batch. Certaines variables définies par le service sont en lecture-écriture, tandis que d’autres sont en lecture seule. Les variables définies par l’utilisateur sont des variables que vous définissez. Dans l’exemple de formule illustré dans la section précédente, `$TargetDedicatedNodes` et `$PendingTasks` sont des variables définies par le service. Les variables `startingNumberOfVMs` et `maxNumberofVMs` sont des variables définies par l’utilisateur.
 
@@ -121,7 +121,7 @@ Vous pouvez obtenir la valeur des variables définies par le service ci-après p
 | $WallClockSeconds |Nombre de secondes consommées. |
 | $MemoryBytes |Nombre moyen de mégaoctets utilisés. |
 | $DiskBytes |Nombre moyen de gigaoctets utilisés sur les disques locaux. |
-| $DiskReadBytes |Nombre d’octets lus. |
+| $DiskReadBytes |Nombre d'octets lus. |
 | $DiskWriteBytes |Nombre d’octets écrits. |
 | $DiskReadOps |Nombre d’opérations de lecture sur disque effectuées. |
 | $DiskWriteOps |Nombre d’opérations d’écriture sur disque effectuées. |
@@ -382,7 +382,7 @@ $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Créer un pool avec mise à l’échelle automatique avec des Kits de développement logiciel (SDK) Batch
 
-La mise à l’échelle automatique du pool peut être configurée à l' aide d’un des [Kits de développement logiciel (SDK) Batch](batch-apis-tools.md#azure-accounts-for-batch-development), des [cmdlets PowerShell Batch](https://docs.microsoft.com/rest/api/batchservice/) de l’[API Rest Batch](batch-powershell-cmdlets-get-started.md) et de l’interface [CLI Batch](batch-cli-get-started.md). Cette section vous propose des exemples pour .NET et Python.
+La mise à l’échelle automatique du pool peut être configurée à l’ aide d’un des [Kits de développement logiciel (SDK) Batch](batch-apis-tools.md#azure-accounts-for-batch-development), des [cmdlets PowerShell Batch](https://docs.microsoft.com/rest/api/batchservice/) de l’[API Rest Batch](batch-powershell-cmdlets-get-started.md) et de l’interface [CLI Batch](batch-cli-get-started.md). Cette section vous propose des exemples pour .NET et Python.
 
 ### <a name="net"></a>.NET
 
@@ -654,7 +654,7 @@ Error:
 
 Passons en revue quelques formules illustrant les différentes façons d’ajuster la quantité de ressources de calcul dans un pool.
 
-### <a name="example-1-time-based-adjustment"></a>Exemple 1 : ajustement en fonction du temps
+### <a name="example-1-time-based-adjustment"></a>Exemple 1 : ajustement en fonction du temps
 
 Supposons que vous souhaitiez ajuster la taille du pool selon le jour et l’heure. Cet exemple montre comment augmenter ou diminuer le nombre de nœuds dans le pool en conséquence.
 
@@ -669,7 +669,7 @@ $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-2-task-based-adjustment"></a>Exemple 2 : ajustement en fonction de la tâche
+### <a name="example-2-task-based-adjustment"></a>Exemple 2 : ajustement en fonction de la tâche
 
 Dans cet exemple, la taille du pool est ajustée en fonction du nombre de tâches présentes dans la file d’attente. Les commentaires et les sauts de ligne sont acceptés dans les chaînes de formule.
 
@@ -689,7 +689,7 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Exemple 3 : comptabilisation des tâches parallèles
+### <a name="example-3-accounting-for-parallel-tasks"></a>Exemple 3 : comptabilisation des tâches parallèles
 
 Cet exemple montre l’ajustement de la taille du pool en fonction du nombre de tâches. Cette formule prend également en compte la valeur [MaxTasksPerComputeNode][net_maxtasks] qui a été définie pour le pool. Cette approche est particulièrement utile dans les situations où [l’exécution parallèle de tâches](batch-parallel-node-tasks.md) a été activée sur votre pool.
 
@@ -711,7 +711,7 @@ $TargetDedicatedNodes = max(0,min($targetVMs,3));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-4-setting-an-initial-pool-size"></a>Exemple 4 : définition d’une taille de pool initiale
+### <a name="example-4-setting-an-initial-pool-size"></a>Exemple 4 : définition d’une taille de pool initiale
 
 Cet exemple montre un extrait de code C# avec une formule de mise à l’échelle automatique qui définit la taille du pool sur un certain nombre de nœuds pour une période initiale. La taille du pool est ensuite ajustée en fonction du nombre de tâches en cours d’exécution et actives une fois la période initiale écoulée.
 

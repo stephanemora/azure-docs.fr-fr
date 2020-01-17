@@ -1,31 +1,27 @@
 ---
-title: Connexion des données Azure Information Protection à Azure Sentinel | Microsoft Docs
+title: Connecter Azure Information Protection à Azure Sentinel
 description: Découvrez comment connecter les données Azure Information Protection dans Azure Sentinel.
 services: sentinel
-documentationcenter: na
 author: cabailey
 manager: rkarlin
 ms.assetid: bfa2eca4-abdc-49ce-b11a-0ee229770cdd
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/24/2019
 ms.author: cabailey
-ms.openlocfilehash: a2760b53dbb9776501cb5e58c681045743471166
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: ef97ad601436faf44b0f49bd48d78c4c9420c7c8
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261818"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75563681"
 ---
 # <a name="connect-data-from-azure-information-protection"></a>Connecter des données depuis Azure Information Protection
 
 > [!IMPORTANT]
 > Le connecteur de données Azure Information Protection dans Azure Sentinel est actuellement en préversion publique.
-> Cette fonctionnalité est fournie sans contrat de niveau de service et n’est pas recommandée pour des charges de travail en production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Cette fonctionnalité est fournie sans contrat de niveau de service et est déconseillée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Vous pouvez activer le streaming des informations de journalisation d’[Azure Information Protection](https://azure.microsoft.com/services/information-protection/) vers Azure Sentinel en configurant le connecteur de données Azure Information Protection. Azure Information Protection vous aide à contrôler et à sécuriser toutes vos données sensibles qui sont stockées dans le cloud ou localement.
 
@@ -39,7 +35,7 @@ En revanche, si les informations de journalisation d’Azure Information Protect
     
     Si vous changez l’espace de travail, les nouvelles données de rapport pour Azure Information Protection seront désormais stockées dans l’espace de travail utilisé pour Azure Sentinel, et les données historiques ne seront pas disponibles dans Azure Sentinel. De plus, si l’espace de travail précédent était configuré pour des requêtes, alertes ou API REST personnalisées, celles-ci doivent être reconfigurées pour l’espace de travail Azure Sentinel afin de pouvoir les utiliser avec Azure Information Protection. Aucune reconfiguration n’est nécessaire pour les clients et services qui utilisent Azure Information Protection.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - L’un des rôles d’administrateur Azure AD suivants pour votre locataire : 
     - Administrateur Azure Information Protection

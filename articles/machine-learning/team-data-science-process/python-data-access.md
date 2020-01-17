@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b86d643540e46f9a4fc86c83fc77d739bfba418
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427382"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -96,7 +96,7 @@ Les jetons d’autorisation sont gérés sur la page **JETONS D’AUTORISATION**
     ![Collez le code dans le notebook][ipython-dataset]
 
 ## <a name="accessingIntermediateDatasets"></a>Accès aux jeux de données intermédiaires à partir d'expériences de Machine Learning
-Après l’exécution d’une expérience dans la version classique de Machine Learning Studio, il est possible d’accéder aux jeux de données intermédiaires depuis les nœuds de sortie des modules. Les jeux de données intermédiaires sont des données qui ont été créées et utilisées pour les étapes intermédiaires lorsqu'un outil de modèle a été exécuté.
+Après l’exécution d’une expérience dans Machine Learning Studio (classique), il est possible d’accéder aux jeux de données intermédiaires depuis les nœuds de modules de sortie. Les jeux de données intermédiaires sont des données qui ont été créées et utilisées pour les étapes intermédiaires lorsqu'un outil de modèle a été exécuté.
 
 Les jeux de données intermédiaires sont accessibles tant que le format de données est compatible avec la bibliothèque cliente Python.
 
@@ -172,7 +172,7 @@ Vous pouvez également y accéder par l'index :
     ds = ws.datasets[0]
 
 
-### <a name="metadata"></a>Metadata
+### <a name="metadata"></a>Métadonnées
 Les jeux de données ont des métadonnées, en plus du contenu. (Les jeux de données intermédiaires sont une exception à cette règle et n'ont pas de métadonnées.)
 
 Certaines valeurs de métadonnées sont affectées par l'utilisateur lors de la création :

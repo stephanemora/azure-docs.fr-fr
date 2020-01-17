@@ -1,25 +1,16 @@
 ---
-title: Disponibilité des services Service Fabric | Microsoft Docs
-description: Décrit la détection des erreurs, le basculement et la récupération des services
-services: service-fabric
-documentationcenter: .net
+title: Disponibilité des services Service Fabric
+description: Décrit la détection des erreurs, le basculement et la récupération d’un service dans une application Azure Service Fabric.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 279ba4a4-f2ef-4e4e-b164-daefd10582e4
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: dd10af0d3c8a57168a27a039286ea0ec4c1dad02
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5306439184561e8dec8303a7b149f51d6c2f6e08
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310942"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551860"
 ---
 # <a name="availability-of-service-fabric-services"></a>Disponibilité des services Service Fabric
 Cet article offre une vue d’ensemble de la manière dont Azure Service Fabric maintient la disponibilité d’un service.

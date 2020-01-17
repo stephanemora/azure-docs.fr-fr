@@ -3,12 +3,12 @@ title: Résoudre les problèmes de sauvegarde de base de données SQL Server
 description: Informations de résolution des problèmes de sauvegarde de bases de données SQL Server exécutées sur des machines virtuelles Azure avec Sauvegarde Azure.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: 95f7966fa59f0a1f6f6a3c9c6832cc573f89e05c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172123"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75659251"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Résoudre les problèmes de sauvegarde des bases de données SQL Server avec Sauvegarde Azure
 
@@ -20,7 +20,26 @@ Pour plus d’informations sur le processus et les limitations de la sauvegarde,
 
 Pour configurer la protection d’une base de données SQL Server sur une machine virtuelle, vous devez installer l’extension **AzureBackupWindowsWorkload** sur cette machine virtuelle. Si vous recevez l’erreur **UserErrorSQLNoSysadminMembership**, cela signifie que votre instance SQL Server n’a pas les autorisations de sauvegarde nécessaires. Pour corriger cette erreur, suivez les étapes décrites dans [Définir des autorisations de machine virtuelle](backup-azure-sql-database.md#set-vm-permissions).
 
-## <a name="error-messages"></a>messages d'erreur
+## <a name="troubleshoot-discover-and-configure-issues"></a>Résoudre les problèmes de découverte et de configuration
+Une fois que vous avez créé et configuré un coffre Recovery Services, la découverte des bases de données et de la configuration de la sauvegarde est un processus en deux étapes.<br>
+
+![sql](./media/backup-azure-sql-database/sql.png)
+
+Pendant la configuration de la sauvegarde, si la machine virtuelle SQL et ses instances ne sont pas visibles dans les **bases de données de détection dans les machines virtuelles** et dans **Configurer la sauvegarde** (voir l’image ci-dessus), assurez-vous que :
+
+### <a name="step-1-discovery-dbs-in-vms"></a>Étape 1 : Bases de données de détection dans les machines virtuelles
+
+- Si la machine virtuelle n’est pas répertoriée dans la liste des machines virtuelles détectées et qu’elle n’est pas inscrite pour la sauvegarde SQL dans un autre coffre, suivez les étapes de la [sauvegarde SQL Server de détection](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#discover-sql-server-databases).
+
+### <a name="step-2-configure-backup"></a>Étape 2 : Configurez une sauvegarde
+
+- Si le coffre dans lequel la machine virtuelle SQL est inscrite est le même coffre que celui utilisé pour protéger les bases de données, suivez les étapes [Configurer la sauvegarde](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#configure-backup).
+
+Si la machine virtuelle SQL doit être inscrite dans le nouveau coffre, elle doit être désinscrite de l’ancien coffre.  L’annulation de l’inscription d’une machine virtuelle SQL à partir du coffre nécessite que toutes les sources de données protégées soient arrêtées, vous pouvez ensuite supprimer les données sauvegardées. La suppression des données sauvegardées est une opération destructrice.  Une fois que vous avez consulté et pris toutes les précautions nécessaires pour annuler l’inscription de la machine virtuelle SQL, inscrivez cette même machine virtuelle dans un nouveau coffre et réessayez l’opération de sauvegarde.
+
+
+
+## <a name="error-messages"></a>Messages d’erreur
 
 ### <a name="backup-type-unsupported"></a>Type de sauvegarde non pris en charge
 
@@ -125,18 +144,27 @@ L’opération est bloquée, car vous avez atteint la limite du nombre d’opér
 |---|---|---|
 L’opération est bloquée, car le coffre a atteint sa limite maximale pour ces opérations autorisées dans une plage de 24 heures. | Lorsque vous avez atteint la limite maximale autorisée pour une opération dans une plage de 24 heures, cette erreur est survenue. Cette erreur se produit généralement en cas d’opérations à grande échelle, comme une modification de la stratégie ou la protection automatique. Contrairement au cas de CloudDosAbsoluteLimitReached, il n’y a pas grand-chose à faire pour résoudre cet état. En fait, le service Sauvegarde Azure réessaiera les opérations en interne pour tous les éléments en question.<br> Par exemple :  si vous avez un grand nombre de sources de données protégées par une stratégie et que vous essayez de modifier cette stratégie, des tâches de protection de configuration sont déclenchées pour chaque élément protégé et peuvent parfois atteindre la limite maximale autorisée pour de telles opérations par jour.| Le service Sauvegarde Azure réessaiera automatiquement cette opération après 24 heures.
 
+### <a name="usererrorvminternetconnectivityissue"></a>UserErrorVMInternetConnectivityIssue
+
+| Message d’erreur | Causes possibles | Action recommandée |
+|---|---|---|
+La machine virtuelle ne peut pas contacter le service Sauvegarde Azure en raison de problèmes de connectivité Internet. | La machine virtuelle a besoin d’une connectivité sortante vers le service de Sauvegarde Azure, le stockage Azure ou les services Azure Active Directory.| - Si vous utilisez NSG pour limiter la connectivité, vous devez utiliser la balise de service Sauvegarde Azure pour autoriser l’accès sortant à la Sauvegarde Azure vers Sauvegarde Azure, le service Sauvegarde Azure, Stockage Azure ou les services Azure Active Directory. Suivez ces [étapes](https://docs.microsoft.com/azure/backup/backup-sql-server-database-azure-vms#allow-access-using-nsg-tags) pour autoriser l’accès.<br>- Assurez-vous que DNS résout les points de terminaison Azure.<br>- Vérifiez si la machine virtuelle se trouve derrière un équilibreur de charge bloquant l’accès à Internet. La détection fonctionnera en affectant une adresse IP publique aux machines virtuelles.<br>- Vérifiez qu’aucun pare-feu/antivirus/proxy ne bloque les appels aux trois services cibles ci-dessus.
+
+
 ## <a name="re-registration-failures"></a>Échecs de réinscription
 
 Vérifiez la présence d’un ou plusieurs des symptômes suivants avant de déclencher l’opération de réinscription :
 
 * Toutes les opérations (comme la sauvegarde, la restauration et la configuration de la sauvegarde) échouent sur la machine virtuelle avec un des codes d’erreur suivants : **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**.
-* La zone **État de la sauvegarde** pour l’élément de sauvegarde indique **Non accessible**. Éliminez toutes les autres causes susceptibles d’entraîner le même état :
+* Si la zone de l’**État de la sauvegarde** de l’élément de sauvegarde affiche **Inaccessible**, excluez toutes les autres causes susceptibles d’entraîner le même état :
 
-  * Absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle  
-  * Arrêt de la machine virtuelle, de sorte que les sauvegardes ne peuvent pas avoir lieu
-  * Problèmes de réseau  
+  * absence d’autorisation pour effectuer les opérations liées à la sauvegarde sur la machine virtuelle ;
+  * arrêt de la machine virtuelle, de sorte que les sauvegardes ne peuvent pas avoir lieu ;
+  * problèmes de réseau.
 
-  ![État « Inaccessible » dans la réinscription d’une machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
+   ![Réinscription de machine virtuelle](./media/backup-azure-sql-database/re-register-vm.png)
+
+
 
 * Avec un groupe de disponibilité Always On, les sauvegardes échouent après la modification d’une préférence de sauvegarde ou après un basculement.
 

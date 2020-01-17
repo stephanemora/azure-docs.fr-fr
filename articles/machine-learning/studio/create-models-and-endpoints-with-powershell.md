@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: d7999488302098980ff9306836ec9d54aceac3be
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: ae9550e797ad13f78f222cb6120f040721914964
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837854"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454776"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>Utiliser PowerShell pour créer des modèles Studio (classique) et points de terminaison de service web à partir d’une expérience
 
@@ -25,7 +25,7 @@ Supposez par exemple que vous avez une franchise de location de vélos à l’é
 
 Vous pourriez former votre modèle une fois à l’aide d’une version fusionnée de tous les jeux de données et de tous les emplacements. Toutefois, chacun de vos emplacements a un environnement unique. Une meilleure approche consiste donc à former le modèle de régression séparément à l’aide du jeu de données de chacun. Ainsi, chaque modèle formé peut prendre en compte les différences en termes de taille de magasin, de volume, de géographie, de population, de qualité de l’environnement de circulation pour les vélos, et ainsi de suite.
 
-Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans la version classique d’Azure Machine Learning Studio représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
+Cela pourrait être la meilleure approche, mais vous ne souhaitez pas créer 1 000 expériences d’apprentissage dans Azure Machine Learning Studio (classique) représentant chacune un emplacement unique. Cette tâche serait non seulement intensive mais également inefficace, dans la mesure où chaque expérience aurait les mêmes composants, à l’exception du jeu de données d’apprentissage.
 
 Heureusement, vous pouvez obtenir le même résultat en utilisant l’[API de reformation Azure Machine Learning Studio (classique)](/azure/machine-learning/studio/retrain-machine-learning-model) et en automatisant la tâche avec [Azure Machine Learning Studio (classique) PowerShell](powershell-module.md).
 

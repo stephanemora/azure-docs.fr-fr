@@ -1,6 +1,6 @@
 ---
-title: Convertir un modèle de jeu de mise à l’échelle Azure Resource Manager pour utiliser un disque géré | Microsoft Docs
-description: Convertissez un modèle de groupe identique pour utiliser modèle de jeu de mise à l’échelle de disque géré.
+title: Convertir un modèle de groupe identique pour utiliser un disque géré
+description: Convertir un modèle de groupe de machines virtuelles identiques Azure Resource Manager en un modèle de groupe identique de disque managé.
 keywords: Jeux de mise à l’échelle de machine virtuelle
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/18/2017
 ms.author: manayar
-ms.openlocfilehash: b2d1738b85799079b3af7ab39c5cb1799a38d382
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6419da8e87ac32e763e3e796bb49daa562d68030
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60731735"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75359611"
 ---
 # <a name="convert-a-scale-set-template-to-a-managed-disk-scale-set-template"></a>Convertir un modèle de groupe identique pour utiliser modèle de jeu de mise à l’échelle de disque géré
 

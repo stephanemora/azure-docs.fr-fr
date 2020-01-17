@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/15/2019
-ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.date: 11/16/2019
+ms.openlocfilehash: de1366b1bf45301d3d26a4f721ef2828f79be98d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539181"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75460644"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Journalisation des métriques et diagnostics d’Azure SQL Database
 
@@ -63,23 +63,24 @@ Vous pouvez configurer les bases de données SQL Azure et les bases de données 
 
 | Analyse des données de télémétrie pour les bases de données | Prise en charge d’une base de données unique et d’une base de données mise en pool | Prise en charge de la base de données d’instance |
 | :------------------- | ----- | ----- |
-| [Métriques de base](#basic-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | OUI | Non |
-| [Métriques avancées d’instance et d’application](#advanced-metrics) :  contient la taille du fichier journal et des données de la base de données système tempdb ainsi que le pourcentage d’utilisation du fichier journal de tempdb. | OUI | Non |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête comme les statistiques concernant l’utilisation du processeur et la durée des requêtes. | OUI | OUI |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes (ce que vos requêtes ont attendu) comme CPU, LOG et LOCKING. | OUI | OUI |
-| [Erreurs](#errors-dataset) : contient des informations sur les erreurs SQL au niveau d’une base de données. | OUI | OUI |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset) : contient des informations sur le temps qu’une base de données a passé à attendre différents types d’attente. | OUI | Non |
-| [Timeouts](#time-outs-dataset) : contient des informations sur les erreurs SQL au niveau d’une base de données. | OUI | Non |
-| [Blocks](#blockings-dataset) : contient des informations sur les événements bloquants au niveau d’une base de données. | OUI | Non |
-| [Deadlocks](#deadlocks-dataset) : contient des informations sur les événements Deadlock au niveau d’une base de données. | OUI | Non |
-| [AutomaticTuning](#automatic-tuning-dataset) : contient des informations sur les recommandations de réglage automatique pour une base de données. | OUI | Non |
-| [SQLInsights](#intelligent-insights-dataset) : contient des informations Intelligent Insights relatives aux performances pour une base de données. Pour plus d’informations, consultez [Intelligent Insights](sql-database-intelligent-insights.md). | OUI | OUI |
+| [Métriques de base](#basic-metrics) : Pourcentage DTU/CPU, Limite DTU/CPU, Pourcentage de lecture de données physiques, Pourcentage d’écriture du journal, Connexions réussies/en échec/bloquées par pare-feu, Pourcentage de sessions, Pourcentage de workers, Stockage, Pourcentage de stockage, Pourcentage de stockage XTP. | Oui | Non |
+| [Métriques avancées d’instance et d’application](#advanced-metrics) :  contient la taille du fichier journal et des données de la base de données système tempdb ainsi que le pourcentage d’utilisation du fichier journal de tempdb. | Oui | Non |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics) : contient des informations sur les statistiques d’exécution de requête comme les statistiques concernant l’utilisation du processeur et la durée des requêtes. | Oui | Oui |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics) : contient des informations sur les statistiques d’attente des requêtes (ce que vos requêtes ont attendu) comme CPU, LOG et LOCKING. | Oui | Oui |
+| [Erreurs](#errors-dataset) : contient des informations sur les erreurs SQL au niveau d’une base de données. | Oui | Oui |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset) : contient des informations sur le temps qu’une base de données a passé à attendre différents types d’attente. | Oui | Non |
+| [Timeouts](#time-outs-dataset) : contient des informations sur les erreurs SQL au niveau d’une base de données. | Oui | Non |
+| [Blocks](#blockings-dataset) : contient des informations sur les événements bloquants au niveau d’une base de données. | Oui | Non |
+| [Deadlocks](#deadlocks-dataset) : contient des informations sur les événements Deadlock au niveau d’une base de données. | Oui | Non |
+| [AutomaticTuning](#automatic-tuning-dataset) : contient des informations sur les recommandations de réglage automatique pour une base de données. | Oui | Non |
+| [SQLInsights](#intelligent-insights-dataset) : contient des informations Intelligent Insights relatives aux performances pour une base de données. Pour plus d’informations, consultez [Intelligent Insights](sql-database-intelligent-insights.md). | Oui | Oui |
 
 > [!IMPORTANT]
 > Les pools élastiques et les instances gérées disposent de leurs propres données de télémétrie de diagnostic à partir des bases de données qu’ils contiennent. Il est important de noter que les données de télémétrie de diagnostic sont configurées séparément pour chaque ressource, comme indiqué ci-dessous.
 
 > [!NOTE]
-> Pour activer la diffusion en continu des journaux d’activité d’audit, consultez [Configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2) et les [journaux d’activité d’audit dans les journaux Azure Monitor et Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> - Pour activer la diffusion en continu des journaux d’activité d’audit, consultez [Configurer l’audit pour votre base de données](sql-database-auditing.md#subheading-2) et les [journaux d’activité d’audit dans les journaux Azure Monitor et Azure Event Hubs](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242).
+> - Les paramètres de diagnostic ne peuvent pas être configurés pour les **bases de données système**, telles que les bases de données master, msdb, model, resoure et tempdb.
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -158,7 +159,7 @@ Vous pouvez configurer une ressource d’instance gérée de sorte qu’elle col
 
 | Ressource | Supervision des données de télémétrie |
 | :------------------- | ------------------- |
-| **Instance gérée** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contient le nombre de vCores, le pourcentage de processeur moyen, le requêtes d’E/S, les octets lus/écrits, l’espace de stockage réservé et l’espace de stockage utilisé. |
+| **instance gérée** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance) contient le nombre de vCores, le pourcentage de processeur moyen, le requêtes d’E/S, les octets lus/écrits, l’espace de stockage réservé et l’espace de stockage utilisé. |
 
 Pour configurer la diffusion en continu des données de télémétrie de diagnostic pour les instances gérées et les bases de données d’instance, vous devez faire **les deux** réglages suivants :
 
@@ -217,7 +218,7 @@ Pour activer la diffusion en continu des données de télémétrie de diagnostic
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements à venir sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments pour les commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 Vous pouvez activer les métriques et la journalisation des diagnostics à l’aide de PowerShell.
 
@@ -270,7 +271,7 @@ Indiquez l’ID de ressource d’espace de travail \<$WSID\> comme paramètre au
 
    Remplacez \<subID\> par l’ID d’abonnement, \<RG_NAME\> par le nom de groupe de ressources, puis \<WS_NAME\> par le nom d’espace de travail.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Vous pouvez activer les métriques et la journalisation des diagnostics à l’aide d’Azure CLI.
 
@@ -491,7 +492,7 @@ Les détails des données de télémétrie disponibles pour tous les journaux so
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Category|Nom de la catégorie. Toujours : QueryStoreRuntimeStatistics |
-|OperationName|Nom de l’opération. Toujours : QueryStoreRuntimeStatisticsEvent |
+|NomOpération|Nom de l’opération. Toujours : QueryStoreRuntimeStatisticsEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |
@@ -542,7 +543,7 @@ En savoir plus sur les [données de statistiques d’exécution du magasin des r
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Category|Nom de la catégorie. Toujours : QueryStoreWaitStatistics |
-|OperationName|Nom de l’opération. Toujours : QueryStoreWaitStatisticsEvent |
+|NomOpération|Nom de l’opération. Toujours : QueryStoreWaitStatisticsEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |
@@ -579,8 +580,8 @@ Découvrez-en davantage sur les [données des statistiques d’attente du magasi
 |TimeGenerated [UTC]|Horodatage indiquant à quel moment le journal a été enregistré |
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
-|Category|Nom de la catégorie. Toujours : Errors |
-|OperationName|Nom de l’opération. Toujours : ErrorEvent |
+|Category|Nom de la catégorie. Toujours : Erreurs |
+|NomOpération|Nom de l’opération. Toujours : ErrorEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |
@@ -609,7 +610,7 @@ En savoir plus sur les [messages d’erreur SQL Server](https://docs.microsoft.c
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Category|Nom de la catégorie. Toujours : DatabaseWaitStatistics |
-|OperationName|Nom de l’opération. Toujours : DatabaseWaitStatisticsEvent |
+|NomOpération|Nom de l’opération. Toujours : DatabaseWaitStatisticsEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |
@@ -638,7 +639,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Category|Nom de la catégorie. Toujours : Délais d’expiration |
-|OperationName|Nom de l’opération. Toujours : TimeoutEvent |
+|NomOpération|Nom de l’opération. Toujours : TimeoutEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |
@@ -661,7 +662,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Category|Nom de la catégorie. Toujours : Blocs |
-|OperationName|Nom de l’opération. Toujours : BlockEvent |
+|NomOpération|Nom de l’opération. Toujours : BlockEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |
@@ -685,7 +686,7 @@ Apprenez-en davantage sur les [statistiques d’attente de base de données](htt
 |Type|Toujours : AzureDiagnostics |
 |ResourceProvider|Nom du fournisseur de ressources. Toujours : MICROSOFT.SQL |
 |Category|Nom de la catégorie. Toujours : Blocages |
-|OperationName|Nom de l’opération. Toujours : DeadlockEvent |
+|NomOpération|Nom de l’opération. Toujours : DeadlockEvent |
 |Ressource|Nom de la ressource |
 |ResourceType|Nom du type de ressource. Toujours : SERVEURS/BASES DE DONNÉES |
 |SubscriptionId|GUID d’abonnement de la base de données |

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer le provisionnement entrant SuccessFactors dans Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer le provisionnement entrant SuccessFactors dans Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer le provisionnement entrant à partir de SuccessFactors
 services: active-directory
 author: cmmdesai
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: cc17b8158c847bff5f07d6088a99566dc499d1bf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 80812d1989e528a5a0f2333e92a068093d7b6b90
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914761"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75528213"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Didacticiel : Configurer le provisionnement d’utilisateurs SAP SuccessFactors vers Active Directory (préversion)
+# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutoriel : Configurer le provisionnement d’utilisateurs SAP SuccessFactors vers Active Directory (préversion)
 L’objectif de ce tutoriel est de présenter les étapes à effectuer pour provisionner les utilisateurs de SuccessFactors Employee Central dans Active Directory (AD) et Azure AD, avec réécriture facultative de l’adresse e-mail dans SuccessFactors. Cette intégration est en préversion publique et prend en charge la récupération de plus de [70 attributs utilisateur](../manage-apps/sap-successfactors-attribute-reference.md) à partir de SuccessFactors Employee Central.
 
 >[!NOTE]
 >Utilisez ce tutoriel si les utilisateurs que vous souhaitez provisionner à partir de SuccessFactors ont besoin d’un compte AD local et éventuellement d’un compte Azure AD. Si les utilisateurs de SuccessFactors ont seulement besoin d’un compte Azure AD (utilisateurs cloud uniquement), consultez le tutoriel sur la [configuration du provisionnement d’utilisateurs de SAP SuccessFactors vers Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md). 
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le [service de provisionnement d’utilisateurs Azure Active Directory](../manage-apps/user-provisioning.md) s’intègre à [SuccessFactors Central Employee](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) afin de gérer le cycle de vie des identités des utilisateurs. 
 
-Les workflows de provisionnement d’utilisateurs SuccessFactors pris en charge par le service de provisionnement d’utilisateurs Azure AD autorisent l’automatisation des scénarios de gestion du cycle de vie des identités et des ressources humaines suivants :
+Les workflows de provisionnement d’utilisateurs SuccessFactors pris en charge par le service de provisionnement d’utilisateurs Azure AD permettent d’automatiser les scénarios de gestion du cycle de vie des identités et des ressources humaines suivants :
 
 * **Nouvelles embauches** : quand un nouvel employé est ajouté à SuccessFactors, un compte d’utilisateur est créé automatiquement dans Active Directory, Azure Active Directory et éventuellement dans Office 365 et d’[autres applications SaaS prises en charge par Azure AD](../manage-apps/user-provisioning.md), avec réécriture de l’adresse e-mail dans SuccessFactors.
 
@@ -50,7 +50,7 @@ Cette solution de provisionnement d’utilisateurs SuccessFactors vers Active Di
 
 * Les organisations qui ont besoin du provisionnement d’utilisateurs direct de SuccessFactors vers Active Directory.
 
-* Les organisations qui imposent le provisionnement d’utilisateurs à l’aide de données provenant de [SuccessFactors Employee Central (EC)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html).
+* Les organisations qui imposent le provisionnement d’utilisateurs avec des données provenant de [SuccessFactors Employee Central (EC)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html).
 
 * Les organisations qui ont besoin de synchroniser les utilisateurs entrants/changeant de poste/sortants avec une ou plusieurs unités d’organisation, domaines ou forêts Active Directory seulement sur la base d’informations de modifications détectées dans [SuccessFactors Employee Central (EC)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html).
 
@@ -63,7 +63,7 @@ Cette section décrit l’architecture de la solution de provisionnement des uti
 * **Flux de données RH faisant autorité – de SuccessFactors vers Active Directory local :** dans ce flux, les événements concernant les employés (comme les nouveaux recrutements, les transferts, les fins de contrat) se produisent d’abord dans SuccessFactors Employee Central dans le cloud, puis les données des événements transitent dans Active Directory local par le biais d’Azure AD et l’agent de provisionnement. Selon l’événement, cela peut provoquer des opérations de création/mise à jour/activation/désactivation dans AD.
 * **Flux de réécriture des e-mails – d’Active Directory local vers SuccessFactors :** une fois la création du compte terminée dans Active Directory, il est synchronisé avec Azure AD par le biais de la synchronisation Azure AD Connect et l’attribut d’e-mail peut être réécrit dans SuccessFactors.
 
-  ![Vue d'ensemble](./media/sap-successfactors-inbound-provisioning/sf2ad-overview.png)
+  ![Vue d’ensemble](./media/sap-successfactors-inbound-provisioning/sf2ad-overview.png)
 
 ### <a name="end-to-end-user-data-flow"></a>Flux de données utilisateur de bout en bout
 
@@ -117,7 +117,7 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
   >[!NOTE]
   >Pour obtenir la liste complète des attributs récupérés par cette application de provisionnement, consultez [Référence des attributs SuccessFactors](../manage-apps/sap-successfactors-attribute-reference.md)
 
-* Cliquez sur **Done** (Terminé). Cliquez sur **Save Changes** (Enregistrer les modifications).
+* Cliquez sur **Done** (Terminé). Cliquez sur **Enregistrer les modifications**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Créer un groupe d’autorisations pour l’utilisateur des API
 
@@ -152,13 +152,13 @@ Collaborez avec votre équipe d’administration SuccessFactors ou votre partena
 
 Cette section présente les étapes à suivre pour configurer le provisionnement de comptes d’utilisateur de SuccessFactors vers chacun des domaines Active Directory concernés par votre intégration.
 
-* [Ajouter l’application du connecteur de provisionnement et télécharger l’agent de provisionnement](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [Ajouter l’application du connecteur d’approvisionnement et télécharger l’agent d’approvisionnement](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
 * [Installer et configurer les agents d'approvisionnement locaux](#part-2-install-and-configure-on-premises-provisioning-agents)
 * [Configurer la connectivité à SuccessFactors et Active Directory](#part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory)
 * [Configurer les mappages d'attributs](#part-4-configure-attribute-mappings)
 * [Activer et lancer l'approvisionnement des utilisateurs](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Partie 1 : Ajouter l’application du connecteur de provisionnement et télécharger l’agent de provisionnement
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>Première partie : Ajouter l’application du connecteur d’approvisionnement et télécharger l’agent d’approvisionnement
 
 **Pour configurer le provisionnement SuccessFactors vers Active Directory**
 
@@ -174,16 +174,16 @@ Cette section présente les étapes à suivre pour configurer le provisionnement
 
 6. Une fois l’application ajoutée et l’écran de détails de l’application affiché, sélectionnez **Approvisionnement**
 
-7. Définissez le **Mode** **Approvisionnement** sur **Automatique**
+7. Définissez **Mode** **d’approvisionnement** sur **Automatique**
 
-8. Cliquez sur la bannière d’informations affichée pour télécharger l’agent de provisionnement. 
+8. Cliquez sur la bannière d’informations affichée pour télécharger l’agent d’approvisionnement. 
    > [!div class="mx-imgBorder"]
-   > ![Télécharger l’agent](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Écran Télécharger l’Agent")
+   > ![Télécharger l’agent](./media/sap-successfactors-inbound-provisioning/download-pa-agent.png "Écran Télécharger l’agent")
 
 
-### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Partie 2 : Installer et configurer des agents de provisionnement locaux
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>Deuxième partie : Installer et configurer des agents de provisionnement locaux
 
-Pour tout provisionnement vers une instance locale d’Active Directory, l’agent de provisionnement doit être installé sur un serveur doté de .NET Framework 4.7.1+ et d’un accès réseau aux domaines Active Directory souhaités.
+Pour tout approvisionnement vers une instance locale d’Active Directory, l’agent d’approvisionnement doit être installé sur un serveur doté de .NET Framework 4.7.1+ et d’un accès réseau aux domaines Active Directory souhaités.
 
 > [!TIP]
 > Vous pouvez vérifier la version du .NET Framework sur votre serveur en suivant les instructions fournies [ici](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
@@ -240,7 +240,7 @@ Transférez le programme d’installation de l’agent téléchargé sur l’hô
   
    ![Services](./media/workday-inbound-tutorial/services.png)
 
-### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Partie 3 : Dans l’application de provisionnement, configurer la connectivité à SuccessFactors et Active Directory
+### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Troisième partie : Dans l’application de provisionnement, configurer la connectivité à SuccessFactors et Active Directory
 Lors de cette étape, nous allons établir la connectivité avec SuccessFactors et Active Directory dans le portail Azure. 
 
 1. Dans le portail Azure, revenez à l’application de provisionnement d’utilisateur SuccessFactors vers Active Directory créée dans la [Partie 1](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent).
@@ -256,17 +256,17 @@ Lors de cette étape, nous allons établir la connectivité avec SuccessFactors 
    * **Forêt Active Directory :** « nom » de votre domaine Active Directory, tel qu'il est inscrit auprès de l'agent. Utilisez le menu déroulant pour sélectionner le domaine cible à approvisionner. Cette valeur correspond généralement à une chaîne de type : *contoso.com*
 
    * **Conteneur Active Directory :** entrez le nom unique du conteneur où l’agent doit créer des comptes d’utilisateur par défaut.
-        Exemple : *OU=Users,DC=contoso,DC=com*
+        Exemple : *OU=Users,DC=contoso,DC=com*
         > [!NOTE]
         > Ce paramètre concerne seulement les créations de comptes d’utilisateur si l’attribut *parentDistinguishedName* attribut n’est pas configuré dans les mappages d’attributs. Ce paramètre n’est pas utilisé pour la recherche d’utilisateurs ni pour les opérations de mise à jour. Toute la sous-arborescence du domaine se trouve dans l’étendue de l’opération de recherche.
 
    * **E-mail de notification :** entrez votre adresse e-mail et cochez la case « Envoyer un e-mail en cas de défaillance ».
-         > [!NOTE]
-         > The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+    > [!NOTE]
+    > Le service Azure AD Provisioning envoie la notification par e-mail si le travail de provisionnement passe à l’état [Mise en quarantaine](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
    * Cliquez sur le bouton **Tester la connexion**. Si le test de connexion aboutit, cliquez sur le bouton **Enregistrer**, en haut de l'écran. En cas d’échec, vérifiez que les informations d’identification de SuccessFactors et celles d’Active Directory configurées dans le programme d’installation de l’agent sont valides.
     >[!div class="mx-imgBorder"]
-    >![Portail Azure](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
+    >![Azure portal](./media/sap-successfactors-inbound-provisioning/sf2ad-provisioning-creds.png)
 
    * Une fois les informations d’identification enregistrées, la section **Mappages** affiche le mappage par défaut **Synchroniser les employés SuccessFactors avec l’instance locale d’Active Directory**.
 
@@ -278,15 +278,15 @@ Dans cette section, vous allez configurer le flux des données utilisateur de Su
 
 1. Dans le champ **Portée de l’objet source**, vous pouvez sélectionner les ensembles d’utilisateurs de SuccessFactors concernés par le provisionnement vers AD, en définissant des filtres basés sur des attributs. L’étendue par défaut est « tous les utilisateurs de SuccessFactors ». Exemples de filtres :
 
-   * Exemple : Étendue pour les utilisateurs avec un personIdExternal compris entre 1000000 et 2000000 (2000000 exclus)
+   * Exemple : Étendue pour les utilisateurs avec un personIdExternal compris entre 1000000 et 2000000 (2000000 exclus)
 
       * Attribut : personIdExternal
 
       * Opérateur : REGEX Match
 
-      * Valeur : (1[0-9][0-9][0-9][0-9][0-9][0-9])
+      * Valeur : (1[0-9][0-9][0-9][0-9][0-9][0-9])
 
-   * Exemple : Uniquement les employés et non les employés occasionnels
+   * Exemple : Uniquement les employés et non les employés occasionnels
 
       * Attribut : EmployeeID
 
@@ -363,5 +363,5 @@ Une fois les configurations d’application de provisionnement SuccessFactors ef
 * [Découvrez comment configurer la réécriture d’e-mail vers SuccessFactors](sap-successfactors-writeback-tutorial.md)
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
 * [Découvrez comment configurer l’authentification unique entre SuccessFactors et Azure Active Directory](successfactors-tutorial.md)
-* [Découvrez comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)
+* [Découvrir comment intégrer d’autres applications SaaS à Azure Active Directory](tutorial-list.md)
 * [Découvrez comment exporter et importer vos configurations de provisionnement](../manage-apps/export-import-provisioning-configuration.md)

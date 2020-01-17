@@ -2,13 +2,13 @@
 title: Informations de référence pour Azure Functions à destination des développeurs Python
 description: Développer des fonctions avec Python
 ms.topic: article
-ms.date: 04/16/2018
-ms.openlocfilehash: 7c8ce87fdf396bc488a7deaf576eea28f989e0e4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/13/2019
+ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226644"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75409087"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -280,28 +280,30 @@ Dans cette fonction, la valeur du paramètre de requête `name` est obtenue à p
 
 De même, vous pouvez définir les `status_code` et `headers` pour le message de réponse dans l’objet [HttpResponse] retourné.
 
-## <a name="concurrency"></a>Accès concurrentiel
+## <a name="scaling-and-concurrency"></a>Mise à l’échelle et accès concurrentiel
 
-Par défaut, le runtime Functions Python ne peut traiter qu’un appel de fonction à la fois. Ce niveau de concurrence peut ne pas suffire dans une ou plusieurs des conditions suivantes :
+Par défaut, Azure Functions surveille automatiquement la charge sur votre application et crée des instances d’hôte supplémentaires pour Python, si nécessaire. Functions utilise des seuils intégrés (non configurables par l’utilisateur) pour différents types de déclencheurs pour décider quand ajouter des instances, comme l’ancienneté des messages et la taille de la file d’attente pour QueueTrigger. Pour plus d’informations, consultez [Fonctionnement des plans Consommation et Premium](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-+ Vous essayez de gérer plusieurs appels effectués en même temps.
-+ Vous traitez un grand nombre d’événements d’E/S.
-+ Votre application est liée aux E/S.
+Ce comportement de mise à l’échelle est suffisant pour de nombreuses applications. Toutefois, les applications présentant l’une des caractéristiques suivantes ne peuvent pas être mises à l’échelle de manière aussi efficace :
 
-Dans ces cas de figure, vous pouvez améliorer les performances par une exécution asynchrone et l’utilisation de plusieurs processus Worker de langage.  
+- L’application doit gérer un grand nombre d’appels simultanés.
+- L’application traite un grand nombre d’événements d’E/S.
+- L’application est liée aux E/S.
+
+Dans de tels cas, vous pouvez améliorer encore plus les performances en ayant recours à des modèles asynchrones et en utilisant plusieurs processus Worker de langage.
 
 ### <a name="async"></a>Async
 
-Nous vous recommandons d’utiliser l’instruction `async def` pour que votre fonction s’exécute en tant que coroutine asynchrone.
+Étant donné que Python est un runtime à thread unique, une instance de l’hôte pour Python ne peut traiter qu’un seul appel de fonction à la fois. Pour les applications qui traitent un grand nombre d’événements d’E/S et/ou qui sont liés à des E/S, vous pouvez améliorer les performances en exécutant des fonctions de manière asynchrone.
+
+Pour exécuter une fonction de manière asynchrone, utilisez l’instruction `async def`, qui exécute la fonction avec [asyncio](https://docs.python.org/3/library/asyncio.html) directement :
 
 ```python
-# Runs with asyncio directly
-
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Quand la fonction `main()` est synchrone (sans le qualificateur `async`), elle s’exécute automatiquement dans un pool de threads `asyncio`.
+Une fonction sans le mot clé `async` est exécutée automatiquement dans un pool de threads asyncio :
 
 ```python
 # Runs in an asyncio thread-pool
@@ -312,7 +314,9 @@ def main():
 
 ### <a name="use-multiple-language-worker-processes"></a>Utiliser plusieurs processus Worker de langage
 
-Par défaut, chaque instance d’hôte Functions a un seul processus Worker de langage. Toutefois, il est possible d’utiliser plusieurs processus Worker de langage par instance d’hôte. Les appels de fonction peuvent alors être répartis uniformément entre ces processus Worker de langage. Pour modifier cette valeur, utilisez le paramètre d’application [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). 
+Par défaut, chaque instance d’hôte Functions a un seul processus Worker de langage. Vous pouvez augmenter le nombre de processus Worker par hôte (jusqu’à 10) à l’aide du paramètre d’application [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count). Azure Functions essaie ensuite de distribuer uniformément les appels de fonction simultanés à ces différents Workers. 
+
+FUNCTIONS_WORKER_PROCESS_COUNT s’applique à chaque hôte créé par Functions lors du scale-out de votre application pour répondre à la demande. 
 
 ## <a name="context"></a>Context
 
@@ -356,7 +360,7 @@ def main(req):
     # ... use CACHED_DATA in code
 ```
 
-## <a name="environment-variables"></a>Variables d’environnement
+## <a name="environment-variables"></a>Variables d'environnement
 
 Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposés en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres en déclarant `import os` puis en utilisant `setting = os.environ["setting-name"]`.
 

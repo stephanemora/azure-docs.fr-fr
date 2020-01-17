@@ -56,6 +56,12 @@
           href: tutorial-1st-r-experiment.md
     - name: Interface CLI de Machine Learning
       href: tutorial-train-deploy-model-cli.md
+    - name: Visual Studio Code
+      items:
+        - name: Configurer l’extension Azure Machine Learning
+          href: tutorial-setup-vscode-extension.md
+        - name: Entraîner et déployer un modèle de classification d’images TensorFlow
+          href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: Exemples
   items:
     - name: Notebooks Jupyter
@@ -151,9 +157,6 @@
         - name: Définir les répertoires d’entrée et de sortie
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: "Utiliser l’extension VS\_Code"
-          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
-          href: how-to-vscode-tools.md
         - name: Débogage interactif
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
@@ -397,3 +400,6 @@
     - name: Qu’est devenu Workbench
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md
+    - name: Fonctionnalités d’accessibilité d concepteur
+      displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
+      href: designer-accessibility.md

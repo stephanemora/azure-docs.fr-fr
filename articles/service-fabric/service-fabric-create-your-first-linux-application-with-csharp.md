@@ -1,25 +1,14 @@
 ---
-title: Créer votre première application Azure Service Fabric sur Linux à l’aide de C# | Microsoft Docs
+title: Créer votre première application Azure Service Fabric sur Linux à l’aide de C#
 description: Découvrez comment créer et déployer une application Service Fabric à l’aide de C# et de .NET Core 2.0.
-services: service-fabric
-documentationcenter: csharp
-author: mani-ramaswamy
-manager: chackdan
-editor: ''
-ms.assetid: 5a96d21d-fa4a-4dc2-abe8-a830a3482fb1
-ms.service: service-fabric
-ms.devlang: csharp
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 04/11/2018
-ms.author: atsenthi
-ms.openlocfilehash: 8c34f50e8eb9d9793c146c38aca47691b04049c0
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 202dde933b41a98c1c119f422d47cbdbb0be84ae
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167296"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75458125"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Créer votre première application Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -30,7 +19,7 @@ ms.locfileid: "72167296"
 
 Service Fabric fournit des Kits de développement logiciel (SDK) pour générer des services Linux dans .NET Core et Java. Dans ce didacticiel, nous apprenons à créer une application pour Linux et à générer un service à l’aide de C# sur .NET Core 2.0.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer, assurez-vous que vous avez bien [configuré votre environnement de développement Linux](service-fabric-get-started-linux.md). Si vous utilisez Mac OS X, vous pouvez [configurer un environnement Linux à boîtier unique sur une machine virtuelle à l’aide de Vagrant](service-fabric-get-started-mac.md).
 
 Il vous sera également utile d’installer l’[interface de ligne de commande Service Fabric](service-fabric-cli.md)

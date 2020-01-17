@@ -1,25 +1,15 @@
 ---
-title: Planification de la capacité du cluster Service Fabric | Microsoft Docs
+title: Planification de la capacité du cluster Service Fabric
 description: Considérations en matière de planification de la capacité du cluster Service Fabric. Types de nœuds, opérations, durabilité et niveaux de fiabilité
-services: service-fabric
-documentationcenter: .net
-author: ChackDan
-manager: chackdan
-editor: ''
-ms.assetid: 4c584f4a-cb1f-400c-b61f-1f797f11c982
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6e60fc10dd7e0eec24de4a089d09d914624dcfbc
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333102"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463307"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -76,8 +66,8 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 
 | Niveau de durabilité  | Nombre minimal de machines virtuelles exigées | Références SKU de machines virtuelles prises en charge                                                                  | Mises à jour que vous apportez à votre groupe de machines virtuelles identiques                               | Mises à jour et maintenance lancées par Azure                                                              | 
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Gold             | 5\.                              | Références (SKU) de nœuds complets dédiées à un seul client (par exemple, L32s, GS5, G5, DS15_v2, D15_v2) | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Peuvent être suspendues pendant 2 heures par domaine de mise à niveau (UD) pour accorder du temps supplémentaire pour la récupération de réplicas à partir d’échecs précédents |
-| Silver           | 5\.                              | Machines virtuelles avec un seul cœur ou plus avec un disque SSD local d’au moins 50 Go                      | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
+| Or             | 5                              | Références (SKU) de nœuds complets dédiées à un seul client (par exemple, L32s, GS5, G5, DS15_v2, D15_v2) | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Peuvent être suspendues pendant 2 heures par domaine de mise à niveau (UD) pour accorder du temps supplémentaire pour la récupération de réplicas à partir d’échecs précédents |
+| Argent           | 5                              | Machines virtuelles avec un seul cœur ou plus avec un disque SSD local d’au moins 50 Go                      | Peuvent être différées jusqu’à ce qu’elles soient approuvées par le cluster Service Fabric | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
 | Bronze           | 1                              | Machines virtuelles avec un disque SSD local d’au moins 50 Go                                              | Ne sont pas différées par le cluster Service Fabric           | Ne peuvent pas être différées pour quelque durée que ce soit                                                    |
 
 > [!WARNING]
@@ -143,8 +133,8 @@ Voici la recommandation sur le choix du niveau de fiabilité.  Le nombre de nœu
 | --- | --- |
 | 1 |Ne spécifiez pas le paramètre de niveau de fiabilité. Le système le calcule. |
 | 3 |Bronze |
-| 5 ou 6|Silver |
-| 7 ou 8 |Gold |
+| 5 ou 6|Argent |
+| 7 ou 8 |Or |
 | 9 et plus |Platinum |
 
 ## <a name="primary-node-type---capacity-guidance"></a>Type de nœud principal - Recommandations en matière de capacité

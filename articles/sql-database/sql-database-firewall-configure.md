@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 5c1a146a12fd8881982826e0a87868a6eaf05cb1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9db6b5ff517a1b0d67e59591ee634dfad685527b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851816"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75461470"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Règles de pare-feu IP Azure SQL Database et Azure SQL Data Warehouse
 
@@ -101,7 +101,7 @@ Quand un ordinateur tente de se connecter à votre serveur de base de données �
 
 ### <a name="connections-from-inside-azure"></a>Connexions à partir d’Azure
 
-Pour autoriser des applications hébergées dans Azure à se connecter à votre serveur SQL, vous devez activer les connexions Azure. Quand une application tente de se connecter à votre serveur de base de données à partir d’Azure, le pare-feu vérifie que les connexions Azure sont autorisées. Un paramètre de pare-feu avec des adresses IP de début et de fin définies sur *0.0.0.0* indique que les connexions Azure sont autorisées. Si la connexion n’est pas autorisée, la demande n’atteint pas le serveur SQL Database.
+Pour autoriser des applications hébergées dans Azure à se connecter à votre serveur SQL, vous devez activer les connexions Azure. Quand une application tente de se connecter à votre serveur de base de données à partir d’Azure, le pare-feu vérifie que les connexions Azure sont autorisées. Un paramètre de pare-feu avec des adresses IP de début et de fin définies sur *0.0.0.0* indique que les connexions Azure sont autorisées. Vous pouvez l’activer directement à partir du panneau du portail Azure en définissant des règles de pare-feu, ainsi qu’en définissant **Autoriser les services et les ressources Azure à accéder à ce serveur** sur **Activé** dans les paramètres **Pare-feux et réseaux virtuels**. Si la connexion n’est pas autorisée, la demande n’atteint pas le serveur SQL Database.
 
 > [!IMPORTANT]
 > Cette option configure le pare-feu pour autoriser toutes les connexions à partir d’Azure, notamment les connexions issues des abonnements d’autres clients. Si vous sélectionnez cette option, vérifiez que votre connexion et vos autorisations utilisateur limitent l’accès aux seuls utilisateurs autorisés.
@@ -147,7 +147,7 @@ La page de présentation de votre serveur s’ouvre. Elle affiche le nom de serv
 
 ### <a name="use-transact-sql-to-manage-ip-firewall-rules"></a>Gérer des règles de pare-feu IP avec Transact-SQL
 
-| Vue de catalogue ou procédure stockée | Niveau | Description |
+| Vue de catalogue ou procédure stockée | Level | Description |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Serveur |Affiche les règles de pare-feu IP au niveau du serveur actuelles |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Serveur |Crée ou met à jour les règles de pare-feu IP au niveau du serveur |
@@ -181,7 +181,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 > [!IMPORTANT]
 > Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements sont désormais destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans les modules Az et AzureRm sont sensiblement identiques.
 
-| Applet de commande | Niveau | Description |
+| Applet de commande | Level | Description |
 | --- | --- | --- |
 | [Get-AzSqlServerFirewallRule](/powershell/module/az.sql/get-azsqlserverfirewallrule) |Serveur |Retourne les règles de pare-feu au niveau du serveur actuelles |
 | [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) |Serveur |Crée une règle de pare-feu au niveau du serveur |
@@ -203,7 +203,7 @@ New-AzSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ### <a name="use-cli-to-manage-server-level-ip-firewall-rules"></a>Gérer des règles de pare-feu IP au niveau du serveur avec l’interface de ligne de commande
 
-| Applet de commande | Niveau | Description |
+| Applet de commande | Level | Description |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Serveur|Crée une règle de pare-feu IP de serveur|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Serveur|Liste les règles de pare-feu IP sur un serveur|
@@ -225,7 +225,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ### <a name="use-a-rest-api-to-manage-server-level-ip-firewall-rules"></a>Gérer des règles de pare-feu IP au niveau du serveur avec une API REST
 
-| API | Niveau | Description |
+| API | Level | Description |
 | --- | --- | --- |
 | [Règles de pare-feu - List by Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Serveur |Affiche les règles de pare-feu IP au niveau du serveur actuelles |
 | [Règles de pare-feu - Create ou Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Serveur |Crée ou met à jour les règles de pare-feu IP au niveau du serveur |

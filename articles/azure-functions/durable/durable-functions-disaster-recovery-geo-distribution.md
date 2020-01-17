@@ -1,20 +1,18 @@
 ---
-title: Récupération d’urgence et géodistribution dans Durable Functions - Azure
+title: Récupération d’urgence et géodistribution - Azure Durable Functions
 description: En savoir plus sur la récupération d’urgence et la géodistribution dans Durable Functions.
 author: MS-Santi
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ba459d2d2f3aaf595c1d834e2b29a231e3b2bb12
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7951f216143bef0d48a6b751beff3f8f4316b9bd
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232944"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433327"
 ---
-# <a name="disaster-recovery-and-geo-distribution"></a>Récupération d’urgence et géo-distribution
-
-## <a name="overview"></a>Vue d'ensemble
+# <a name="disaster-recovery-and-geo-distribution-in-azure-durable-functions"></a>Récupération d’urgence et géodistribution dans Azure Durable Functions
 
 Dans Durable Functions, tous les états sont rendu persistants dans le stockage Azure. Un [hub de tâches](durable-functions-task-hubs.md) est un conteneur logique réservé aux ressources du stockage Azure qui sont utilisées pour les orchestrations. Les fonctions d’orchestrateur et d’activité peuvent interagir entre elles uniquement si elles appartiennent au même hub de tâches.
 Les scénarios décrits proposent des options de déploiement pour augmenter la disponibilité et réduire les temps d’arrêt lors des opérations de récupération d’urgence.

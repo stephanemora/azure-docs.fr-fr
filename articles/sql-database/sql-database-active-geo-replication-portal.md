@@ -1,6 +1,6 @@
 ---
-title: 'Portail Azure : géoréplication'
-description: Configurer la géoréplication pour une base de données unique ou mise en pool dans Azure SQL Database dans le portail Azure et initier le basculement
+title: 'Tutoriel : Géoréplication et basculement dans le portail'
+description: Configurez la géoréplication pour une base de données unique ou mise en pool dans Azure SQL Database à l’aide du portail Azure et initiez le basculement.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 7ddaefb0f65db1cfc828e4baa844f6d8e01f9d2e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 601c537a51e29ae1f107127e1b83c07448eee9ab
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808121"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75348875"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Configurer la géoréplication active pour Azure SQL Database dans le portail Azure et initier le basculement
 
@@ -24,7 +24,7 @@ Cet article montre comment configurer la [géoréplication active pour les bases
 
 Pour plus d’informations sur les groupes de basculement automatique avec les bases de données uniques et mises en pool, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des bases de données uniques et mises en pool](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Pour plus d’informations sur les groupes de basculement automatique avec Managed Instance, consultez [Meilleures pratiques d’utilisation des groupes de basculement avec des instances gérées](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer la géo-réplication active à l’aide du portail Azure, vous devez disposer des ressources suivantes :
 
@@ -33,7 +33,7 @@ Pour configurer la géo-réplication active à l’aide du portail Azure, vous d
 > [!Note]
 > Lorsque vous utilisez le portail Azure, pour créer une base de données secondaire, vous devez utiliser l'abonnement associé à la base de données principale. Si la base de données secondaire doit être associée à un autre abonnement, utilisez l'[API REST Créer une base de données](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) ou l'[API Transact-SQL ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql).
 
-## <a name="add-a-secondary-database"></a>Ajout d'une base de données secondaire
+## <a name="add-a-secondary-database"></a>Ajouter une base de données secondaire
 
 Les étapes suivantes créent une nouvelle base de données secondaire dans un partenariat géo-réplication.  
 
@@ -69,7 +69,7 @@ La base de données secondaire peut être basculée en base de données primaire
 2. Dans le panneau SQL Database, sélectionnez **Tous les paramètres** > **Géoréplication**.
 3. Dans la liste **SECONDAIRES**, sélectionnez la base de données qui doit devenir la nouvelle base primaire et cliquez sur **Basculement**.
 
-    ![Basculement](./media/sql-database-geo-replication-failover-portal/secondaries.png)
+    ![failover](./media/sql-database-geo-replication-failover-portal/secondaries.png)
 4. Cliquez sur **Oui** pour commencer le basculement.
 
 La commande fait immédiatement basculer la base de données secondaire vers le rôle primaire. Ce processus doit normalement se terminer dans un délai de 30 secondes ou moins.

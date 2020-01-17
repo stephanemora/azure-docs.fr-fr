@@ -1,5 +1,5 @@
 ---
-title: Obtenir un jeton pour les applications de bureau appelant des API web | Azure
+title: Acquérir un jeton pour appeler l’API web (application de bureau) | Azure
 titleSuffix: Microsoft identity platform
 description: Découvrir comment générer une application de bureau qui appelle des API web (acquisition d’un jeton pour l’application)
 services: active-directory
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 89a9426b1ed0ccd3c5f9eec576e5d78bf3d3dfc2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423890"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>Application de bureau conçue pour appeler des API web - acquérir un jeton
 
@@ -38,7 +38,7 @@ L’API web est définie par ses valeurs de `scopes`. Quelle que soit l’expér
 
 ### <a name="in-msalnet"></a>Dans MSAL.NET
 
-```CSharp
+```csharp
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
@@ -155,7 +155,7 @@ L’exemple suivant montre le code minimal permettant d’obtenir un jeton de ma
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 ### <a name="in-msalnet"></a>Dans MSAL.NET
 
-```CSharp
+```csharp
 string[] scopes = new string[] {"user.read"};
 var app = PublicClientApplicationBuilder.Create(clientId).Build();
 var accounts = await app.GetAccountsAsync();
@@ -184,7 +184,7 @@ Sur Android, vous devez également spécifier l’activité parente (au moyen de
 
 Étant interactive, l’interface utilisateur est importante. `AcquireTokenInteractive` présente un paramètre facultatif spécifique qui permet de préciser, pour les plateformes qui le prennent en charge, l’interface utilisateur parente. Lorsqu’il est utilisé dans une application de bureau, `.WithParentActivityOrWindow` présente un type différent selon la plateforme :
 
-```CSharp
+```csharp
 // net45
 WithParentActivityOrWindow(IntPtr windowPtr)
 WithParentActivityOrWindow(IWin32Window window)
@@ -202,7 +202,7 @@ Remarques :
 - Sur Windows, vous devez appeler `AcquireTokenInteractive` à partir du thread d’interface utilisateur, afin que le navigateur intégré obtienne le contexte de synchronisation de l’interface utilisateur approprié.  Ne pas appeler depuis le thread d’interface utilisateur peut occasionner des messages qui ne pompent pas correctement et/ou des scénarios de blocage avec l’interface utilisateur. Un moyen d’appeler MSAL, à partir du thread d’interface utilisateur si vous n’êtes pas déjà sur ce thread, consiste à utiliser `Dispatcher` sur WPF.
 - Si vous utilisez WPF, vous pouvez vous servir de la classe `WindowInteropHelper.Handle` pour obtenir une fenêtre à partir d’un contrôle WPF. L’appel est alors le suivant, à partir d’un contrôle WPF (`this`) :
 
-  ```CSharp
+  ```csharp
   result = await app.AcquireTokenInteractive(scopes)
                     .WithParentActivityOrWindow(new WindowInteropHelper(this).Handle)
                     .ExecuteAsync();
@@ -226,7 +226,7 @@ La classe définit les constantes suivantes :
 
 Ce modificateur est utilisé dans un scénario élaboré, suivant lequel vous souhaitez obtenir le consentement préalable de l’utilisateur pour plusieurs ressources en amont (et ne souhaitez pas utiliser le consentement incrémentiel, qui est normalement utilisé avec MSAL.NET / la plateforme d’identités Microsoft). Consultez les détails dans le [Guide pratique pour obtenir le consentement préalable de l’utilisateur sur plusieurs ressources](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
 
-```CSharp
+```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)
                      .WithExtraScopeToConsent(scopesForVendorApi)
                      .ExecuteAsync();
@@ -253,7 +253,7 @@ L’hôte de votre `end Url` est toujours `redirectUri`. Pour intercepter cette 
 
 `WithCustomWebUi` est un point d’extensibilité qui vous permet de fournir votre propre interface utilisateur dans des applications clientes publiques, et de laisser l’utilisateur passer par le point de terminaison /Authorize du fournisseur d’identité pour se connecter et donner son consentement. MSAL.NET peut, alors, échanger le code d’authentification pour obtenir un jeton. Il est par exemple utilisé dans Visual Studio, pour que des applications électrons (par exemple les commentaires VS) fournissent l’interaction web tout en laissant MSAL.NET faire le gros du travail. Vous pouvez également l’utiliser si vous voulez fournir UI automation. Dans les applications clientes publiques, MSAL.NET utilise la norme PKCE ([RFC 7636 - Proof Key for Code Exchange by OAuth Public Clients](https://tools.ietf.org/html/rfc7636)) pour garantir le respect de la sécurité : seul MSAL.NET peut échanger le code.
 
-  ```CSharp
+  ```csharp
   using Microsoft.Identity.Client.Extensions;
   ```
 
@@ -264,7 +264,7 @@ Pour pouvoir utiliser `.WithCustomWebUI`, vous devez effectuer les opérations s
   1. Implémenter l’interface `ICustomWebUi`. Voir [ici](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70). Vous devez en fait implémenter une méthode `AcquireAuthorizationCodeAsync` qui accepte l’URL du code d’autorisation (calculé par MSAL.NET), qui permet à l’utilisateur d’interagir avec le fournisseur d’identité, puis qui retourne l’URL par l’intermédiaire de laquelle le fournisseur d’identité aura rappelé votre implémentation (y compris le code d’autorisation). Si vous rencontrez des problèmes, votre implémentation doit lever une exception `MsalExtensionException` afin de pouvoir coopérer efficacement avec MSAL.
   2. Dans votre appel `AcquireTokenInteractive`, vous pouvez utiliser le modificateur `.WithCustomUI()` en passant l’instance de votre interface utilisateur web personnalisée
 
-     ```CSharp
+     ```csharp
      result = await app.AcquireTokenInteractive(scopes)
                        .WithCustomWebUi(yourCustomWebUI)
                        .ExecuteAsync();
@@ -284,7 +284,7 @@ L’équipe de MSAL.NET a réécrit nos tests d’interface utilisateur pour tir
 
 Pour utiliser cette structure, vous pouvez écrire quelque chose de semblable à ce qui suit :
 
-```CSharp
+```csharp
 IPublicClientApplication app;
 ...
 
@@ -443,7 +443,7 @@ Vous n’avez normalement besoin que d’un paramètre (`scopes`). Cependant, en
 
 L’exemple suivant met en évidence le cas le plus courant, avec des explications sur le genre d’exceptions que vous pouvez obtenir, et leurs solutions d’atténuation :
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -560,13 +560,13 @@ Vous pouvez également acquérir un jeton en fournissant le nom d’utilisateur 
 
 ### <a name="this-flow-isnt-recommended"></a>Ce flux n’est pas conseillé.
 
-Ce flux est **déconseillé**, car votre application, qui demande un utilisateur pour son mot de passe, n’est pas sécurisée. Pour des informations plus détaillées sur ce problème, voyez [cet article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Vous pouvez également utiliser le [Flux de code d’appareil](https://aka.ms/msal-net-device-code-flow).
+Ce flux est **déconseillé**, car votre application, qui demande un utilisateur pour son mot de passe, n’est pas sécurisée. Pour plus d’informations sur ce problème, consultez [cet article](https://news.microsoft.com/features/whats-solution-growing-problem-passwords-says-microsoft/). Le flux par défaut pour l’acquisition d’un jeton silencieusement sur les machines Windows jointes à un domaine est [l’authentification Windows intégrée](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Integrated-Windows-Authentication). Vous pouvez également utiliser le [Flux de code d’appareil](https://aka.ms/msal-net-device-code-flow).
 
 > [!NOTE]
 > Bien que cette méthode puisse parfois s’avérer utile (scénarios DevOps), si vous souhaitez utiliser le Nom d’utilisateur/mot de passe dans des scénarios interactifs pour lesquels vous fournissez votre propre interface utilisateur, prenez le temps de réfléchir à un moyen qui pourrait vous en détourner. En utilisant le nom d’utilisateur/mot de passe, vous renoncez à un certain nombre de choses :
 >
 > - Principes de base de l’identité moderne : les mots de passe sont récupérés et relus. Du fait de ce concept d’un secret partagé qui peut être intercepté.
-> C’est incompatible avec l’authentification sans mot de passe ;
+> C’est incompatible avec l’option sans mot de passe.
 > - Les utilisateurs devant passer par MFA ne pourront pas se connecter (en l’absence de toute interaction) ;
 > - Les utilisateurs ne pourront pas se servir de l’authentification unique.
 
@@ -590,7 +590,7 @@ Les contraintes suivantes s’appliquent également :
 
 L’exemple suivant présente un cas simplifié :
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -631,7 +631,7 @@ static async Task GetATokenForGraph()
 
 L’exemple suivant met en évidence le cas le plus courant, avec des explications sur le genre d’exceptions que vous pouvez obtenir, et leurs solutions d’atténuation :
 
-```CSharp
+```csharp
 static async Task GetATokenForGraph()
 {
  string authority = "https://login.microsoftonline.com/contoso.com";
@@ -894,12 +894,12 @@ L’authentification interactive avec Azure AD nécessite un navigateur web (pou
 
 `IPublicClientApplication` contient une méthode nommée `AcquireTokenWithDeviceCode`.
 
-```CSharp
+```csharp
  AcquireTokenWithDeviceCode(IEnumerable<string> scopes,
                             Func<DeviceCodeResult, Task> deviceCodeResultCallback)
 ```
 
-Cette méthode accepte en tant que paramètres :
+Cette méthode accepte comme paramètres :
 
 - `scopes` qui permet de demander un jeton d’accès pour
 - Un rappel qui doit recevoir `DeviceCodeResult`
@@ -908,7 +908,7 @@ Cette méthode accepte en tant que paramètres :
 
 L’exemple de code suivant met en évidence le cas le plus courant, avec des explications sur le genre d’exceptions que vous pouvez obtenir, et sa solution d’atténuation.
 
-```CSharp
+```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
 private readonly string[] Scopes = new string[] { "user.read" };
@@ -1119,7 +1119,7 @@ Voici un exemple d’implémentation naïve de la sérialisation personnalisée 
 
 Après avoir généré l’application, vous activez la sérialisation en appelant ``TokenCacheHelper.EnableSerialization()`` et en passant l’application `UserTokenCache`.
 
-```CSharp
+```csharp
 app = PublicClientApplicationBuilder.Create(ClientId)
     .Build();
 TokenCacheHelper.EnableSerialization(app.UserTokenCache);
@@ -1127,7 +1127,7 @@ TokenCacheHelper.EnableSerialization(app.UserTokenCache);
 
 Cette classe d’assistance ressemble à l’extrait de code suivant :
 
-```CSharp
+```csharp
 static class TokenCacheHelper
  {
   public static void EnableSerialization(ITokenCache tokenCache)
@@ -1184,7 +1184,7 @@ Une préversion de sérialiseur basé sur un fichier de cache de jeton de qualit
 
 Si vous voulez implémenter une sérialisation du cache de jeton au format de cache unifié (commun à ADAL.NET 4.x, MSAL.NET 2.x et avec d’autres versions de MSAL de même génération ou antérieures, sur la même plateforme), vous pouvez vous inspirer du code suivant :
 
-```CSharp
+```csharp
 string appLocation = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location;
 string cacheFolder = Path.GetFullPath(appLocation) + @"..\..\..\..");
 string adalV3cacheFileName = Path.Combine(cacheFolder, "cacheAdalV3.bin");
@@ -1201,7 +1201,7 @@ FilesBasedTokenCacheHelper.EnableSerialization(app.UserTokenCache,
 
 Cette fois-ci, la classe d’assistance ressemble au code suivant :
 
-```CSharp
+```csharp
 using System;
 using System.IO;
 using System.Security.Cryptography;

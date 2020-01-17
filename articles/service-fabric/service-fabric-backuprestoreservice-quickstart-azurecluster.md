@@ -1,27 +1,18 @@
 ---
 title: Sauvegarde et restauration périodiques dans Azure Service Fabric
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour activer la sauvegarde périodique des données de votre application.
-services: service-fabric
-documentationcenter: .net
 author: hrushib
-manager: chackdan
-editor: hrushib
-ms.assetid: FAA58600-897E-4CEE-9D1C-93FACF98AD1C
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 83a267453cd0c4f36fa5819d9d29934cf543bb76
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f56fcb7d1dde700d954c3b55bcf8cd7759893521
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209614"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75526326"
 ---
-# <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric 
+# <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Sauvegarde et restauration périodiques dans un cluster Azure Service Fabric
 > [!div class="op_single_selector"]
 > * [Clusters sur Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters autonomes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
@@ -54,7 +45,7 @@ Service Fabric fournit un ensemble d’API pour obtenir les fonctions suivantes 
 - Suspendre temporairement les sauvegardes
 - Gérer la rétention des sauvegardes (à venir)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Cluster Service Fabric avec Fabric version 6.4 ou ultérieure. Consultez cet [article](service-fabric-cluster-creation-via-arm.md) pour la procédure de création d’un cluster Service Fabric à l’aide du modèle de ressource Azure.
 * Certificat X.509 pour le chiffrement des secrets nécessaire pour se connecter au stockage pour stocker les sauvegardes. Consultez [l’article](service-fabric-cluster-creation-via-arm.md) pour savoir comment obtenir ou créer un certificat X.509.
 * Application avec état fiable Service Fabric générée avec le kit SDK Service Fabric version 3.0 ou ultérieure. Pour les applications qui ciblent .NET Core 2.0, l’application doit être générée à l’aide du SDK Service Fabric version 3.1 ou ultérieure.

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 178fa7d5f129a12736ec068fca605ba24cd37839
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0c04e7812d023cd394b54cf03bcca11a5589b18a
+ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955861"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75564739"
 ---
 Les erreurs signalées dans Azure Functions peuvent avoir l’une des origines suivantes :
 
@@ -37,6 +37,6 @@ Les déclencheurs suivants prennent en charge les nouvelles tentatives intégré
 * [Stockage File d’attente Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (file d’attente/rubrique)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Par défaut, ces déclencheurs retentent les requêtes jusqu’à cinq fois. Après la cinquième tentative, les deux déclencheurs écrivent un message dans une [file d’attente de messages incohérents](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
+Par défaut, ces déclencheurs retentent les requêtes jusqu’à cinq fois. Après la cinquième tentative, le Stockage File d’attente Azure et les déclencheurs Azure Service Bus écrivent un message dans une [file d’attente de messages incohérents](..\articles\azure-functions\functions-bindings-storage-queue.md#trigger---poison-messages).
 
 Pour tous les autres types de déclencheurs ou de liaisons, vous devez implémenter manuellement les stratégies de nouvelle tentative. Les implémentations manuelles peuvent impliquer l’écriture d’informations sur les erreurs dans une [file d’attente de messages incohérents](..\articles\azure-functions\functions-bindings-storage-blob.md#trigger---poison-blobs). Le fait d’écrire des données dans une file d’attente de messages incohérents vous permet de retenter des opérations ultérieurement. Cette approche est la même que celle utilisée par le déclencheur du stockage Blob.

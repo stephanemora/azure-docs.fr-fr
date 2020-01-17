@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 6fc1af356d035c4db73f761ce679f7ad16126d4f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5f3e6cf8c5de8d5f3de17ad0b5d4bb4c004c06df
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442996"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Sécuriser l’accès au serveur d’API à l’aide de plages d’adresses IP autorisées dans Azure Kubernetes Service (AKS)
 
@@ -21,7 +21,7 @@ Dans Kubernetes, le serveur d’API reçoit des requêtes pour effectuer des act
 Cet article vous montre comment utiliser des plages d’adresses IP autorisées pour le serveur d’API pour définir quelles adresses IP et CIDR peuvent accéder plan de contrôle.
 
 > [!IMPORTANT]
-> Sur les nouveaux clusters, les plages d’adresses IP autorisées du serveur d’API sont uniquement prises en charge sur l’équilibreur de charge SKUS *Standard*. Les clusters existants avec l’équilibreur de charge SKU *De base* et les plages d’adresses IP autorisées du serveur d’API sont configurés pour continuer à fonctionner normalement. Ces clusters continueront de fonctionner pendant leur mise à niveau.
+> Sur les nouveaux clusters, les plages d’adresses IP autorisées du serveur d’API sont uniquement prises en charge sur l’équilibreur de charge SKUS *Standard*. Les clusters existants avec l’équilibreur de charge SKU *De base* et les plages d’adresses IP autorisées du serveur d’API sont configurés pour continuer à fonctionner normalement, mais ils ne peuvent pas être migrés vers un équilibreur de charge SKU *Standard*. Ces clusters existants continueront de fonctionner si leur version de Kubernetes ou leur plan de contrôle sont mis à niveau.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 

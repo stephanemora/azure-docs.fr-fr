@@ -1,22 +1,23 @@
 ---
 title: Application .NET d’authentification non interactive – Azure HDInsight
 description: Découvrez comment créer des applications .NET d’authentification non interactives dans Azure HDInsight.
-ms.reviewer: jasonh
 author: hrasheed-msft
-ms.service: hdinsight
-ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 05/14/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0781d9fd58e079517b3f3dc8fba06fb448a8fa19
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.reviewer: jasonh
+ms.service: hdinsight
+ms.topic: conceptual
+ms.custom: hdinsightactive
+ms.date: 12/23/2019
+ms.openlocfilehash: 1fbb4ef2341148de4026f47fc06a54bbfa60fff6
+ms.sourcegitcommit: 801e9118fae92f8eef8d846da009dddbd217a187
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494928"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500124"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Créer une application .NET HDInsight d’authentification non interactive
-Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’identité de l’application (non interactive) ou sous l’identité de l’utilisateur connecté à l’application (interactive). Cet article vous présente la création d’une application .NET d’authentification non interactive pour se connecter à Azure et gérer HDInsight. Pour voir un exemple d’application interactive, consultez [Se connecter à Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
+
+Exécutez votre application Microsoft .NET Azure HDInsight sous l’identité de l’application (non interactive) ou sous l’identité de l’utilisateur connecté à l’application (interactive). Cet article vous présente la création d’une application .NET d’authentification non interactive pour se connecter à Azure et gérer HDInsight. Pour voir un exemple d’application interactive, consultez [Se connecter à Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight).
 
 À partir de votre application .NET non interactive, vous avez besoin des éléments suivants :
 
@@ -24,32 +25,33 @@ Vous pouvez exécuter votre application Microsoft .NET Azure HDInsight sous l’
 * L’ID client d’application Azure Active Directory (Azure AD). Voir [Créer une application Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) et la rubrique [Obtenir un ID d’application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 * La clé secrète de l’application Azure AD. Voir la rubrique sur [l’obtention de la clé d’authentification de l’application](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
 
-## <a name="prerequisites"></a>Prérequis
-* Un cluster HDInsight. Voir le [didacticiel de prise en main](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
+## <a name="prerequisites"></a>Conditions préalables requises
+
+Un cluster HDInsight. Voir le [didacticiel de prise en main](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Affecter un rôle à l’application Azure AD
-Affectez à votre application Azure AD un [rôle](../role-based-access-control/built-in-roles.md), pour lui accorder l’autorisation d’effectuer des actions. Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue. (Par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie que l’application peut lire le groupe de ressources et toutes les ressources qu’il contient). Dans cet article, vous définissez l’étendue au niveau du groupe de ressources. Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
+
+Affectez à votre application Azure AD un [rôle](../role-based-access-control/built-in-roles.md), pour lui accorder l’autorisation d’effectuer des actions. Vous pouvez définir l’étendue au niveau de l’abonnement, du groupe de ressources ou de la ressource. Les autorisations sont héritées des niveaux inférieurs de l’étendue. Par exemple, l’ajout d’une application au rôle Lecteur pour un groupe de ressources signifie que l’application peut lire le groupe de ressources et toutes les ressources qu’il contient. Dans cet article, vous définissez l’étendue au niveau du groupe de ressources. Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
 
 **Pour ajouter le rôle propriétaire à l’application Azure AD**
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez **Groupe de ressources**.
-3. Sélectionnez le groupe de ressources qui contient le cluster HDInsight sur lequel vous exécuterez votre requête Hive plus tard dans cet article. Si vous avez un grand nombre de groupes de ressources, vous pouvez utiliser le filtre pour trouver celui qui que vous intéresse.
-4. Dans le menu du groupe de ressources, sélectionnez **Contrôle d’accès (IAM)** .
-5. Sélectionnez l’onglet **Attributions de rôles** pour voir les attributions de rôles actuelles.
-6. En haut de la page, sélectionnez **Ajouter une attribution de rôle**.
-7. Suivez les instructions pour ajouter le rôle Propriétaire à votre application Azure AD. Une fois le rôle ajouté, l’application est listée sous le rôle Propriétaire. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Accédez au groupe de ressources qui contient le cluster HDInsight sur lequel vous exécuterez votre requête Hive plus tard dans cet article. Si vous avez un grand nombre de groupes de ressources, vous pouvez utiliser le filtre pour trouver celui qui que vous intéresse.
+1. Dans le menu du groupe de ressources, sélectionnez **Contrôle d’accès (IAM)** .
+1. Sélectionnez l’onglet **Attributions de rôles** pour voir les attributions de rôles actuelles.
+1. En haut de la page, sélectionnez **+ Ajouter**.
+1. Suivez les instructions pour ajouter le rôle Propriétaire à votre application Azure AD. Une fois le rôle ajouté, l’application est listée sous le rôle Propriétaire.
 
 ## <a name="develop-an-hdinsight-client-application"></a>Développement d’une application cliente HDInsight
 
-1. Création d’une application console C#.
+1. Créez une application console C#.
 2. Ajoutez les packages [NuGet](https://www.nuget.org/) suivants :
 
         Install-Package Microsoft.Azure.Common.Authentication -Pre
         Install-Package Microsoft.Azure.Management.HDInsight -Pre
         Install-Package Microsoft.Azure.Management.Resources -Pre
 
-3. Exécutez le code suivant :
+3. Exécutez le code ci-dessous :
 
     ```csharp
     using System;
@@ -117,8 +119,8 @@ Affectez à votre application Azure AD un [rôle](../role-based-access-control/b
     }
     ```
 
-
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Créez une application Azure Active Directory et un principal du service dans le portail Azure](../active-directory/develop/howto-create-service-principal-portal.md).
 * Découvrez comment [authentifier un principal du service à l’aide d’Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 * En savoir plus sur le [Contrôle d’accès en fonction du rôle dans Azure (RBAC)](../role-based-access-control/role-assignments-portal.md).

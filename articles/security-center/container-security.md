@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 9cb4f6ec7331a2d0eb03beb2680c882484b69541
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7bd097885d629a6c8541b57195f2a2996e45ffaf
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868488"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552659"
 ---
 # <a name="container-security-in-security-center"></a>Sécurité des conteneurs dans Security Center
 
@@ -32,9 +32,9 @@ Cet article décrit comment améliorer, superviser et garantir la sécurité de 
 [![Onglet Sécurité des conteneurs d’Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Gestion des vulnérabilités : analyse des images conteneurs (préversion)
-Pour surveiller votre Azure Container Registry, assurez-vous que vous êtes sur le niveau standard de Security Center (consultez [tarification](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)). Activez ensuite le pack facultatif de registres de conteneurs. Quand une nouvelle image est envoyée (push), Security Center l’analyse avec un scanneur fourni par Qualys, leader des solutions de gestion des vulnérabilités.
+Pour surveiller votre Azure Container Registry, assurez-vous que vous êtes sur le niveau standard de Security Center (consultez [tarification](/azure/security-center/security-center-pricing)). Activez ensuite le pack facultatif de registres de conteneurs. Quand une nouvelle image est envoyée (push), Security Center l’analyse avec un scanneur fourni par Qualys, leader des solutions de gestion des vulnérabilités.
 
-Si des problèmes sont détectés par Qualys ou Security Center, vous recevez une notification dans le tableau de bord de Security Center. Pour chaque vulnérabilité, Security Center fournit des recommandations actionnables, accompagnées d’une classification de gravité et de conseils sur la façon de corriger le problème. Pour plus d’informations sur les recommandations de Security Center, consultez la liste des recommandations fournie [ici](recommendations-compute-and-apps.md).
+Si des problèmes sont détectés par Qualys ou Security Center, vous recevez une notification dans le tableau de bord de Security Center. Pour chaque vulnérabilité, Security Center fournit des recommandations actionnables, accompagnées d’une classification de gravité et de conseils sur la façon de corriger le problème. Pour plus d’informations sur les recommandations de Security Center, consultez la [liste de référence des recommandations](recommendations-reference.md).
 
 ## <a name="environment-hardening"></a>Sécurisation renforcée de l’environnement
 

@@ -1,25 +1,14 @@
 ---
-title: Présentation des microservices sur Azure | Microsoft Docs
+title: Introduction aux microservices sur Azure
 description: Pourquoi créer des applications cloud avec une approche de microservices est important pour le développement d’applications modernes et comment Azure Service Fabric fournit une plateforme pour y parvenir.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: ''
-ms.assetid: fae2be85-0ab4-4cd3-9d1f-e0d95fe1959b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/18/2019
-ms.author: atsenthi
-ms.openlocfilehash: 5bcb52165c7cae18b807eff03c80b51eae8e2717
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: e23c571d2000b5565da018d6ddf70a6388cb9226
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466323"
 ---
 # <a name="why-use-a-microservices-approach-to-building-applications"></a>Pourquoi utiliser une approche de microservices pour la conception d’applications ?
 

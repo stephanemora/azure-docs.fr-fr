@@ -4,16 +4,16 @@ description: Découvrez comment personnaliser les canaux de télémétrie dans l
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cef8a06fb7e4cfb713d6531f23df9ae9c5836b68
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: cef35ae5cb2b66385332a3b1f9ebe177ea26a3e4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173625"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406358"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canaux de télémétrie dans Application Insights
 
@@ -138,7 +138,7 @@ Le canal `ServerTelemetryChannel` est conseillé dans la plupart des scénarios 
 
 Si vous devez effectuer un vidage synchrone, nous vous conseillons d’utiliser `InMemoryChannel`.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Le canal Application Insights garantit-il toujours la remise des données de télémétrie ? Si ce n’est pas le cas, quels sont les scénarios dans lesquels les données de télémétrie peuvent être perdues ?
 
@@ -146,7 +146,7 @@ En bref, la réponse est qu’aucun des canaux intégrés n’offre une garantie
 
 1. Les éléments en mémoire sont perdus quand l’application plante.
 
-1. Les données de télémétrie sont perdues si les problèmes de réseau rencontrés durent trop longtemps. Elles sont stockées sur le disque local durant les pannes réseau ou en cas de problèmes avec le serveur back-end d’Application Insights. Toutefois, les éléments datant de plus de 24 heures sont supprimés.
+1. Les données de télémétrie sont perdues si les problèmes de réseau rencontrés durent trop longtemps. Elles sont stockées sur le disque local durant les pannes réseau ou en cas de problèmes avec le serveur back-end d’Application Insights. Toutefois, les éléments datant de plus de 48 heures sont supprimés.
 
 1. Dans Windows, les emplacements par défaut sur le disque où sont stockées les données de télémétrie sont les dossiers %LOCALAPPDATA% ou %TEMP%. Ces emplacements se trouvent généralement sur la machine locale. Si l’application est migrée physiquement d’un emplacement à un autre, les données de télémétrie stockées à l’emplacement d’origine sont perdues.
 

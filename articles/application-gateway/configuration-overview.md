@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
+ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996628"
+ms.lasthandoff: 01/04/2020
+ms.locfileid: "75658336"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -25,7 +25,7 @@ Cette image illustre une application dotée de trois écouteurs. Les deux premie
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Réseau virtuel Azure et sous-réseau dédié
 
@@ -46,9 +46,9 @@ Nous vous recommandons d’utiliser une taille de sous-réseau d’au moins /28.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Groupes de sécurité réseau sur le sous-réseau Application Gateway
 
-Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gateway. Mais il existe plusieurs restrictions :
+Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gateway. Mais quelques restrictions s’appliquent :
 
-- Vous devez autoriser le trafic Internet entrant sur les ports TCP 65503-65534 pour la référence (SKU) Application Gateway v1, et sur les ports TCP 65200-65535 pour la référence (SKU) v2 avec le sous-réseau de destination en tant que *Any*. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Des entités externes, notamment les clients de ces passerelles, ne peuvent pas lancer des modifications sur ces points de terminaison sans les certificats appropriés en place.
+- Vous devez autoriser le trafic Internet entrant sur les ports TCP 65503-65534 pour la référence (SKU) Application Gateway v1, et sur les ports TCP 65200-65535 pour la référence (SKU) v2 avec le sous-réseau de destination en tant que **Any** et la source en tant que balise de service **GatewayManager**. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Les entités externes, y compris les clients de ces passerelles, ne peuvent pas communiquer avec ces points de terminaison.
 
 - La connectivité Internet sortante ne peut pas être bloquée. Les règles de trafic sortant par défaut dans le groupe de sécurité réseau permettent une connectivité Internet. Nous vous recommandons :
 
@@ -57,12 +57,12 @@ Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gate
 
 - Le trafic en provenance de la balise **AzureLoadBalancer** doit être autorisé.
 
-##### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Autoriser l’accès d’Application Gateway à quelques adresses IP sources
+#### <a name="allow-application-gateway-access-to-a-few-source-ips"></a>Autoriser l’accès d’Application Gateway à quelques adresses IP sources
 
 Pour ce scénario, utilisez des groupes de sécurité réseau sur le sous-réseau Application Gateway. Placez les restrictions suivantes sur le sous-réseau dans cet ordre de priorité :
 
-1. Autorisez le trafic entrant à partir d’une plage d’adresses IP ou d’une adresse IP source vers la destination (l’ensemble du sous-réseau Application Gateway ou l’adresse IP front-end privée configurée spécifique). Le groupe de sécurité réseau ne fonctionne pas sur une adresse IP publique.
-2. Autorisez les requêtes entrantes de toutes les sources vers les ports 65503-65534 pour la référence SKU Application Gateway v1 et vers les ports 65200-65535 pour la référence SKU v2 de la [communication sur l'intégrité du serveur principal](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
+1. Autorisez le trafic entrant à partir d’une adresse IP source ou d’une plage d’adresses IP avec la destination comme plage d’adresses de sous-réseau Application Gateway et le port de destination comme votre port d’accès entrant, par exemple, le port 80 pour l’accès HTTP.
+2. Autorisez les demandes entrantes à partir de la source comme balise de service **GatewayManager** et la destination **Any** et les ports de destination 65503-65534 pour la référence SKU Application Gateway v1, et les ports 65200-65535 pour la référence SKU v2 pour les [communications de l’état d’intégrité du back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ces ports sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés en place, les entités externes ne peuvent pas lancer des modifications sur ces points de terminaison.
 3. Autorisez les sondes Azure Load Balancer entrantes (balise *AzureLoadBalancer*) et le trafic de réseau virtuel entrant (balise *VirtualNetwork*) sur le [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/security-overview).
 4. Bloquez tout autre trafic entrant avec une règle Tout refuser.
 5. Autoriser le trafic sortant vers internet pour toutes les destinations.
@@ -74,10 +74,10 @@ Pour la référence SKU v1, les routes définies par l’utilisateur sont prises
 Pour la référence SKU v2, les routages définis par l’utilisateur (UDR) ne sont pas pris en charge sur le sous-réseau Application Gateway. Pour plus d’informations, consultez [Référence SKU v2 d’Azure Application Gateway](application-gateway-autoscaling-zone-redundant.md#differences-with-v1-sku).
 
 > [!NOTE]
-> Les routages définis par l’utilisateur (UDR) ne sont pas pris en charge pour la référence SKU v2.  Si vous avez besoin des UDR, vous devez continuer à déployer la référence SKU v1.
+> Les routages définis par l’utilisateur (UDR) ne sont pas pris en charge pour la référence SKU v2 à l’heure actuelle.
 
 > [!NOTE]
-> L’utilisation de routes définies par l’utilisateur sur le sous-réseau Application Gateway entraîne l’indication de l’état d’intégrité « Inconnu » dans l’[affichage de l’intégrité du back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health). Elle entraîne également l’échec de la génération des journaux et métriques Application Gateway. Nous vous recommandons de ne pas utiliser de routes définies par l’utilisateur sur le sous-réseau Application Gateway afin de pouvoir voir l’état d’intégrité, les journaux et les métriques du back-end.
+> L’utilisation de routes définies par l’utilisateur sur le sous-réseau Application Gateway est susceptible d’entraîner l’indication de l’état d’intégrité « Inconnu » dans l’[affichage de l’intégrité du back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health). Elle peut également entraîner l’échec de la génération des journaux et métriques Application Gateway. Nous vous recommandons de ne pas utiliser de routes définies par l’utilisateur sur le sous-réseau Application Gateway afin de pouvoir voir l’état d’intégrité, les journaux et les métriques du back-end.
 
 ## <a name="front-end-ip"></a>Adresse IP front-end
 
@@ -169,7 +169,7 @@ Vous configurez la stratégie SSL pour contrôler les versions du protocole SSL.
 
 Après avoir créé un écouteur, vous l’associez à une règle de routage des demandes. Cette règle détermine la manière dont les demandes reçues sur l’écouteur sont routées vers le back-end.
 
-## <a name="request-routing-rules"></a>Règles de routage des demandes
+## <a name="request-routing-rules"></a>Règles de routage des requêtes
 
 Quand vous créez une passerelle d’application à l’aide du portail Azure, vous créez une règle par défaut (*rule1*). Cette règle lie l’écouteur par défaut (*appGatewayHttpListener*) au pool de back-ends par défaut (*appGatewayBackendPool*) et aux paramètres HTTP du back-end par défaut ( *appGatewayBackendHttpSettings*). Après avoir créé la passerelle, vous pouvez modifier les paramètres de la règle par défaut ou créer des règles.
 

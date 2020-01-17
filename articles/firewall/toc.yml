@@ -35,6 +35,8 @@
       href: rule-processing.md
     - name: Balises de service
       href: service-tags.md
+    - name: Certifications de conformité
+      href: compliance-certifications.md
 - name: Guides pratiques
   items:
     - name: Déployer avec Azure PowerShell

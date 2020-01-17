@@ -13,23 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 4a6d733b490edd892136f6febcc90c29a5a865e1
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b7e5b0286cdd15834b84e4fd3e619c6555054823
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766801"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75552999"
 ---
 # <a name="protect-your-machines-and-applications"></a>Protéger vos machines et applications
-Quand Security Center identifie des failles de sécurité potentielles, il crée des recommandations qui vous guident tout au long du processus de configuration des contrôles nécessaires. 
+Quand Azure Security Center identifie des failles de sécurité potentielles, des suggestions sont émises pour vous guider tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
 
-Cet article explique la page **Calcul et applications** de la section de sécurité des ressources d’Azure Security Center. Il décrit également certaines des recommandations qui y figurent.
+Cet article explique la page **Calcul et applications** de la section sur la sécurité des ressources de Security Center.
 
-Pour obtenir la liste complète des recommandations pour les services de calcul et d’applications, consultez [Suggestions de calcul et d’applications](recommendations-compute-and-apps.md).
+Pour obtenir la liste complète des recommandations que vous pouvez voir dans cette page, consultez [Recommandations relatives aux données et au stockage](recommendations-reference.md#recs-computeapp).
+
 
 ## <a name="view-the-security-of-your-compute-and-apps-resources"></a>Voir la sécurité de vos ressources de calcul et d’applications
 
-![Tableau de bord de Security Center](./media/security-center-virtual-machine-recommendations/overview.png)
+[![Tableau de bord de Security Center](./media/security-center-virtual-machine-recommendations/overview.png)](./media/security-center-virtual-machine-recommendations/overview.png#lightbox)
 
 Pour voir l’état de vos ressources de calcul et d’applications, sélectionnez **Calcul et applications** sous **Ressources** dans la barre latérale Security Center. Les onglets suivants sont disponibles :
 
@@ -74,7 +75,8 @@ L’icône qui s’affiche sous chaque recommandation vous aide à identifier ra
 
 Pour explorer au niveau du détail les suggestions de sécurité pour chaque machine virtuelle, cliquez sur celle-ci.
 Ce panneau comporte des informations détaillées sur la sécurité de la machine virtuelle ou de l’ordinateur. L’action recommandée et le niveau de gravité de chaque problème sont affichés en bas.
-![Services cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)
+
+[![Services cloud](./media/security-center-virtual-machine-recommendations/recommendation-list.png)](./media/security-center-virtual-machine-recommendations/recommendation-list.png#lightbox)
 
 ### <a name="cloud-services"></a>Services cloud
 Pour les services cloud, une suggestion est créée lorsque la version du système d’exploitation est obsolète.
@@ -141,6 +143,7 @@ Si vous souhaitez paramétrer tous les groupes identiques existants pour install
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les articles suivants :
 
+* [Liste complète des recommandations en matière de sécurité d’Azure Security Center](recommendations-reference.md)
 * [Surveiller l’identité et l’accès dans Azure Security Center](security-center-identity-access.md)
 * [Protection de votre réseau dans Azure Security Center](security-center-network-recommendations.md)
 * [Protection de votre service SQL Azure dans Azure Security Center](security-center-sql-service-recommendations.md)

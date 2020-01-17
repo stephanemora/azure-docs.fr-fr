@@ -1,5 +1,5 @@
 ---
-title: Créer une identité d’application Azure avec PowerShell | Azure
+title: Créer une identité d’application Azure (PowerShell) | Azure
 titleSuffix: Microsoft identity platform
 description: Explique comment utiliser Azure PowerShell pour créer une application et un principal du service Azure Active Directory, et comment accorder à l’application l’accès aux ressources par le biais du contrôle d’accès en fonction du rôle. Il explique comment authentifier l’application avec un certificat.
 services: active-directory
@@ -15,14 +15,14 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a6732789ccaf1f5f33ce09592cfa06727908e1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a31b3b24c324d471a13775f2d64ea79f1d861703
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963730"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75424514"
 ---
-# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Activation Utiliser Azure PowerShell pour créer un principal du service avec un certificat
+# <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Procédure : Utiliser Azure PowerShell pour créer un principal du service avec un certificat
 
 Lorsque vous avez une application ou un script qui doit pouvoir accéder à des ressources, vous pouvez configurer une identité pour l’application et authentifier l’application avec ses propres informations d’identification. Cette identité est connue en tant que principal de service. Cette approche vous permet d’effectuer les opérations suivantes :
 
@@ -214,7 +214,7 @@ Get-AzADApplication -DisplayName exampleapp | New-AzADAppCredential `
   -StartDate $cert.NotBefore
 ```
 
-## <a name="debug"></a>Déboguer
+## <a name="debug"></a>Débogage
 
 Lors de la création d’un principal du service, vous pouvez rencontrer les erreurs suivantes :
 

@@ -1,6 +1,6 @@
 - name: Documentation relative à l’accès conditionnel
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que l’accès conditionnel\_?"
       href: overview.md
@@ -19,6 +19,8 @@
       href: concept-conditional-access-policy-common.md
     - name: Composants des stratégies d’accès conditionnel
       href: concept-conditional-access-policies.md
+    - name: Applications cloud et actions
+      href: concept-conditional-access-cloud-apps.md
     - name: Conditions
       href: conditions.md
     - name: Conditions d’emplacement
@@ -40,7 +42,7 @@
   items:
     - name: Planifier votre déploiement d’accès conditionnel
       href: plan-conditional-access.md
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       href: best-practices.md
     - name: Stratégies d’accès conditionnel courantes
       items:
@@ -78,7 +80,7 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrer les stratégies classiques
       href: policy-migration-mfa.md
-    - name: Résolution de problèmes
+    - name: Dépannage
       items:
         - name: Résoudre les problèmes avec l’outil What If
           href: troubleshoot-conditional-access-what-if.md

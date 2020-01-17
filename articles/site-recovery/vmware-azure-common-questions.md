@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 508fa7e33cd8572d70b7ebf261edba67fd40dd93
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 16892ec729f56f8c8e1713379285e07fbc0dd4d1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084165"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495424"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
 Cet article répond aux questions courantes que vous pouvez vous poser lorsque vous déployez la récupération d’urgence de machines virtuelles VMware locales sur Azure.
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-do-i-need-for-vmware-vm-disaster-recovery"></a>De quoi ai-je besoin pour la récupération d’urgence d’une machine virtuelle VMware ?
 
@@ -176,7 +176,7 @@ Oui, vous pouvez ajouter de nouvelles machines virtuelles à un groupe de répli
 
 ### <a name="can-i-modify-vms-that-are-replicating-by-adding-or-resizing-disks"></a>Puis-je modifier les machines virtuelles répliquées via l’ajout ou le redimensionnement de disques ?
 
-Pour la réplication VMware vers Azure, vous pouvez modifier la taille de disque. Si vous souhaitez ajouter de nouveaux disques, vous devez ajouter le disque et réactiver la protection de la machine virtuelle.
+Pour la réplication VMware vers Azure, vous pouvez modifier la taille de disque des machines virtuelles source. Si vous souhaitez ajouter de nouveaux disques, vous devez ajouter le disque et réactiver la protection de la machine virtuelle.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-server-without-impacting-ongoing-replication"></a>Puis-je migrer des machines locales vers un nouveau vCenter Server sans que cela compromette la réplication en cours ?
 
@@ -344,9 +344,6 @@ Oui. Si vous effectuez le basculement vers Azure, vous pouvez effectuer la resta
 
 Lorsque vous effectuez la restauration à partir d’Azure, les données d’Azure sont recopiées vers votre machine virtuelle locale et un accès privé est requis.
 
-### <a name="can-i-resize-the-azure-vm-after-failover"></a>Puis-je redimensionner la machine virtuelle Azure après basculement ?
-
-Non, vous ne pouvez modifier ni la taille ni le type de la machine virtuelle cible après le basculement.
 
 ## <a name="automation-and-scripting"></a>Automatisation et scripts
 

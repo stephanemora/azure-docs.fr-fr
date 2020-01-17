@@ -1,25 +1,16 @@
 ---
-title: 'CLI Azure Service Fabric : sfctl partition | Microsoft Docs'
-description: Décrit les commandes sfctl partition de l’interface de ligne de commande (CLI) Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'Interface CLI Azure Service Fabric : sfctl partition'
+description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Inclut une liste des commandes liées à la gestion des partitions pour un service.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: 2c2ebb7cb08cb6b6b2130290c81fa9e07766b5e2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c50fcb348dad7960be81f80ecb7c455dbffaadb3
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901083"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646056"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 Interroge et gère des partitions pour tout service.
@@ -65,11 +56,11 @@ Elle déclenche l’appel de l’API OnDataLossAsync de la partition.  Cette API
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-data-loss-status"></a>sfctl partition data-loss-status
 Permet d’obtenir la progression d’une opération de perte de données dans une partition démarrée à l’aide de l’API StartDataLoss.
@@ -89,11 +80,11 @@ Permet d’obtenir la progression d’une opération de perte de données démar
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-health"></a>sfctl partition health
 Permet d’obtenir l’intégrité de la partition Service Fabric spécifiée.
@@ -114,11 +105,11 @@ EventsHealthStateFilter permet de filtrer la collection d’événements d’int
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-info"></a>sfctl partition info
 Permet d’obtenir des informations sur une partition Service Fabric.
@@ -136,11 +127,11 @@ Permet d’obtenir des informations sur la partition spécifiée. La réponse in
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-list"></a>sfctl partition list
 Permet d’obtenir la liste des partitions d’un service Service Fabric.
@@ -152,18 +143,18 @@ La réponse inclut l’ID de la partition, les informations de schéma de partit
 |Argument|Description|
 | --- | --- |
 | --service-id [Requis] | Identité du service. Cet ID est généralement le nom complet du service sans le schéma d’URI « fabric\: ». À compter de la version 6.0, les noms hiérarchiques sont délimités par le caractère « \~ ». Par exemple, si un service est nommé « fabric\:/myapp/app1/svc1 », son identité est « myapp\~app1\~svc1 » dans les versions 6.0 et ultérieures, et « myapp/app1/svc1 » dans les versions précédentes. |
-| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de continuation avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de continuation ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
+| --continuation-token | Le paramètre de jeton de liaison permet d’obtenir le jeu de résultats suivant. Un jeton de liaison avec une valeur non vide est inclus dans la réponse de l’API quand les résultats du système ne tiennent pas dans une seule réponse. Lorsque cette valeur est transmise à l’appel d’API suivant, l’API retourne le jeu de résultats suivant. S’il n’existe pas de résultats supplémentaires, le jeton de liaison ne contient pas de valeur. La valeur de ce paramètre ne doit pas être codée URL. |
 | --timeout -t | Délai d’attente du serveur pour l’exécution de l’opération en secondes. Il spécifie la durée pendant laquelle le client attend la fin de l’opération demandée. La valeur par défaut de ce paramètre est de 60 secondes.  Valeur par défaut \: 60. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-load"></a>sfctl partition load
 Permet d’obtenir les informations de chargement de la partition Service Fabric spécifiée.
@@ -181,11 +172,11 @@ Retourne des informations sur le chargement de la partition spécifiée. La rép
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-load-reset"></a>sfctl partition load-reset
 Réinitialise le chargement actuel d’une partition Service Fabric.
@@ -203,11 +194,11 @@ Redéfinit le chargement actuel d’une partition Service Fabric sur le chargeme
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-quorum-loss"></a>sfctl partition quorum-loss
 Entraîne une perte de quorum pour une partition de service avec état.
@@ -229,11 +220,11 @@ Cette API est utile dans une situation de perte de quorum temporaire dans votre 
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-quorum-loss-status"></a>sfctl partition quorum-loss-status
 Permet d’obtenir la progression d’une opération de perte de quorum dans une partition démarrée à l’aide de l’API StartQuorumLoss.
@@ -253,11 +244,11 @@ Permet d’obtenir la progression d’une opération de perte de quorum démarr�
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-recover"></a>sfctl partition recover
 Indique au cluster Service Fabric qu’il doit tenter de récupérer une partition spécifique qui est actuellement bloquée dans la perte de quorum.
@@ -275,11 +266,11 @@ Cette opération doit être effectuée uniquement s’il est avéré que les ré
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-recover-all"></a>sfctl partition recover-all
 Indique au cluster Service Fabric qu’il doit tenter de récupérer les services (notamment les services système) qui sont actuellement bloqués dans la perte de quorum.
@@ -296,16 +287,16 @@ Cette opération doit être effectuée uniquement s’il est avéré que les ré
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-report-health"></a>sfctl partition report-health
 Envoie un rapport d’intégrité sur la partition Service Fabric.
 
-Signale l’état d’intégrité de la partition Service Fabric spécifiée. Le rapport doit contenir des informations sur la source du rapport d’intégrité et sur la propriété dont il fait état. Il est envoyé à une partition de passerelle Service Fabric, qui opère son transfert vers le magasin d’intégrité. Le rapport peut être accepté par la passerelle, mais rejeté par le magasin d’intégrité après une validation supplémentaire. Par exemple, le magasin d’intégrité peut rejeter le rapport en raison d’un paramètre non valide, comme un numéro de séquence obsolète. Pour voir si le rapport a été appliqué dans le magasin d’intégrité, vérifiez qu’il s’affiche dans la section des événements.
+Signale l’état d’intégrité de la partition Service Fabric spécifiée. Le rapport doit contenir les informations sur la source du rapport d’intégrité et sur la propriété dont il fait état. Il est envoyé à une partition de passerelle Service Fabric, qui opère son transfert vers le magasin d’intégrité. Le rapport peut être accepté par la passerelle, mais rejeté par le magasin d’intégrité après une validation supplémentaire. Par exemple, le magasin d’intégrité peut rejeter le rapport en raison d’un paramètre non valide, comme un numéro de séquence obsolète. Pour voir si le rapport a été appliqué dans le magasin d’intégrité, vérifiez qu’il s’affiche dans la section des événements.
 
 ### <a name="arguments"></a>Arguments
 
@@ -326,11 +317,11 @@ Signale l’état d’intégrité de la partition Service Fabric spécifiée. Le
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-restart"></a>sfctl partition restart
 Cette API redémarre tout ou partie des réplicas ou instances de la partition spécifiée.
@@ -351,11 +342,11 @@ Cette API est particulièrement utile pour tester le basculement. Si elle est ut
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-restart-status"></a>sfctl partition restart-status
 Permet d’obtenir la progression d’une opération de redémarrage de partition démarrée à l’aide de l’API StartPartitionRestart.
@@ -375,11 +366,11 @@ Permet d’obtenir la progression d’une opération de redémarrage de partitio
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-partition-svc-name"></a>sfctl partition svc-name
 Permet d’obtenir le nom du service Service Fabric d’une partition.
@@ -397,11 +388,11 @@ Permet d’obtenir le nom du service de la partition spécifiée. Une erreur 404
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

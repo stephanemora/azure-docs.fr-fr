@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 090a066afb24c4776f9844b8850264ffad842c59
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 57bc60cab7e6980f7051af6fc4685bd2a426f4ce
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350069"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422417"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Opérations Azure Active Directory Connect Health
 Cette rubrique décrit les différentes opérations que vous pouvez effectuer à l’aide d’Azure Active Directory (Azure AD) Connect Health.
@@ -32,7 +32,6 @@ Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie d
 > [!NOTE]
 > Les notifications par courrier électronique sont activées par défaut.
 >
->
 
 ### <a name="to-enable-azure-ad-connect-health-email-notifications"></a>Pour activer les notifications par courrier électronique Azure AD Connect Health
 1. Ouvrez le panneau **Alertes** pour le service pour lequel vous souhaitez recevoir des notifications par courrier électronique.
@@ -41,6 +40,13 @@ Vous pouvez configurer le service Azure AD Connect Health pour qu’il envoie d
 4. Cochez la case si vous souhaitez que tous les administrateurs généraux reçoivent des notifications par courrier électronique.
 5. Si vous souhaitez recevoir des notifications par courrier électronique à d’autres adresses, indiquez-les dans la zone **Destinataires d’e-mail supplémentaires**. Pour supprimer une adresse e-mail de cette liste, cliquez avec le bouton droit sur l’entrée, puis sélectionnez **Supprimer**.
 6. Pour valider les modifications, cliquez sur **Enregistrer**. Les modifications prennent effet après l’enregistrement.
+
+>[!NOTE] 
+> En cas de problème de traitement des demandes de synchronisation dans notre service principal, ce service envoie un e-mail de notification avec les détails de l’erreur à l’adresse de messagerie du contact administratif de votre locataire. Nous avons reçu des commentaires de clients pour qui, dans certains cas, le volume de ces messages est trop important, ce qui nous permet de modifier la façon dont nous envoyons ces messages. 
+>
+> Au lieu d’envoyer un message pour chaque erreur de synchronisation à chaque fois que cela se produit, nous enverrons une synthèse quotidienne de toutes les erreurs renvoyées par le service principal. Cela permet aux clients de traiter ces erreurs de manière plus efficace et de réduire le nombre de messages d’erreur dupliqués.
+>
+> Nous prévoyons de mettre en œuvre cette modification le 15 janvier 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Supprimer une instance de serveur ou de service
 
@@ -99,10 +105,10 @@ Quand vous supprimez une instance de service, tenez compte des points suivants 
 ## <a name="manage-access-with-role-based-access-control"></a>Gérer l’accès à l’aide du contrôle d’accès en fonction du rôle
 Le [contrôle d’accès en fonction du rôle (RBAC)](../../role-based-access-control/role-assignments-portal.md) pour Azure AD Connect Health fournit l’accès aux utilisateurs et aux groupes autres que les administrateurs généraux. Le contrôle d’accès en fonction du rôle affecte des rôles aux groupes et aux utilisateurs concernés, et un mécanisme permet de limiter les administrateurs généraux dans votre annuaire.
 
-### <a name="roles"></a>contrôleur
+### <a name="roles"></a>Rôles
 Azure AD Connect Health prend en charge les rôles intégrés suivants :
 
-| Rôle | Autorisations |
+| Role | Autorisations |
 | --- | --- |
 | Propriétaire |Les propriétaires peuvent *gérer l’accès* (par exemple, affecter un rôle à un utilisateur ou à un groupe), *afficher toutes les informations* (par exemple, afficher des alertes) à partir du portail et *modifier les paramètres* (par exemple, envoyer des notifications par courrier électronique) au sein d’Azure AD Connect Health. <br>Par défaut, ce rôle est affecté de manière immuable aux administrateurs généraux Azure AD. |
 | Contributeur |Les contributeurs peuvent *afficher toutes les informations* (par exemple, afficher des alertes) à partir du portail et *modifier les paramètres* (par exemple, envoyer des notifications par courrier électronique) au sein d’Azure AD Connect Health. |
@@ -120,10 +126,10 @@ L’autorisation est accordée si un utilisateur final a accès au niveau Annuai
 
 ### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Autoriser l’accès des utilisateurs ou des groupes à Azure AD Connect Health
 Les étapes suivantes montrent comment autoriser l’accès.
-#### <a name="step-1-select-the-appropriate-access-scope"></a>Étape 1 : Sélectionner l’étendue d’accès appropriée
+#### <a name="step-1-select-the-appropriate-access-scope"></a>Étape 1 : Sélectionner l’étendue d’accès appropriée
 Pour autoriser un accès utilisateur au niveau *toutes les instances de service* dans Azure AD Connect Health, ouvrez le panneau principal dans Azure AD Connect Health.<br>
 
-#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Étape 2 : Ajouter des utilisateurs et des groupes, et affecter des rôles
+#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Étape 2 : Ajouter des utilisateurs et des groupes, et affecter des rôles
 1. Dans la section **Configurer**, cliquez sur **Utilisateurs**.<br>
    ![Capture d’écran de la barre latérale de ressource d’Azure AD Connect Health](./media/how-to-connect-health-operations/startRBAC.png)
 2. Sélectionnez **Ajouter**.

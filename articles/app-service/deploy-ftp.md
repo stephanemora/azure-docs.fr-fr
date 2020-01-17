@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/18/2019
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7bc637b5719da3c5f5e5607436aa7da0721f5a9e
+ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671718"
+ms.lasthandoff: 01/06/2020
+ms.locfileid: "75680912"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Déployer votre application dans Azure App Service avec FTP/S
 
@@ -21,15 +21,21 @@ Le point de terminaison FTP/S de votre application est déjà actif. Aucune conf
 
 ## <a name="open-ftp-dashboard"></a>Ouvrir le tableau de bord FTP
 
-Dans le [portail Azure](https://portal.azure.com), accédez à la [page de ressources](../azure-resource-manager/manage-resources-portal.md#manage-resources) de votre application.
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **App Services**.
 
-Pour ouvrir le tableau de bord FTP, cliquez sur **Centre de déploiement** > **FTP** > **Tableau de bord**.
+    ![Recherchez App Services.](media/app-service-continuous-deployment/search-for-app-services.png)
 
-![Ouvrir le tableau de bord FTP](./media/app-service-deploy-ftp/open-dashboard.png)
+2. Sélectionnez l’application web à déployer.
+
+    ![Sélectionnez votre application.](media/app-service-continuous-deployment/select-your-app.png)
+
+3. Sélectionnez **Centre de déploiement** > **FTP** > **Tableau de bord**.
+
+    ![Ouvrir le tableau de bord FTP](./media/app-service-deploy-ftp/open-dashboard.png)
 
 ## <a name="get-ftp-connection-information"></a>Obtention des informations de connexion FTP
 
-Dans le tableau de bord FTP, cliquez sur **Copier** pour copier le point de terminaison FTPS et les informations d’identification de l’application.
+Dans le tableau de bord FTP, sélectionnez **Copier** pour copier le point de terminaison FTPS et les informations d’identification de l’application.
 
 ![Copier les informations FTP](./media/app-service-deploy-ftp/ftp-dashboard.png)
 
@@ -96,7 +102,7 @@ Pour déterminer un problème de déploiement ou d’exécution, consultez [Depl
 ### <a name="im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue"></a>Je ne peux pas envoyer par FTP et publier mon code. Comment puis-je résoudre le problème ?
 Vérifiez que vous avez entré le nom d’hôte et les [informations d’identification](#open-ftp-dashboard) corrects. Vérifiez également que les ports FTP suivants sur votre machine ne sont pas bloqués par un pare-feu :
 
-- Port de connexion de contrôle FTP : 21
+- Port de connexion de contrôle FTP : 21
 - Port de connexion de données FTP : 989, 10001-10300
  
 ### <a name="how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode"></a>Comment puis-je me connecter à FTP dans Azure App Service via le mode passif ?
@@ -106,6 +112,6 @@ Azure App Service prend en charge la connexion via les modes actif et passif. Le
 
 Pour des scénarios de déploiement plus avancés, consultez [Déploiement Git local vers Azure App Service](deploy-local-git.md). Le déploiement GIT vers Azure autorise le contrôle de version, la restauration du package, MSBuild et bien plus encore.
 
-## <a name="more-resources"></a>Autres ressources
+## <a name="more-resources"></a>Plus de ressources
 
 * [Informations d’identification du déploiement d’Azure App Service](deploy-configure-credentials.md)

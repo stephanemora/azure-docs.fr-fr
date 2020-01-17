@@ -10,15 +10,15 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 8fd88c3bfad962f264efa030d0a3aea44e95dc8c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839759"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427682"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Analyse de l’attrition des clients à l’aide d’Azure Machine Learning Studio (classique)
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article présente une implémentation de référence d’un projet d’analyse de l’attrition des clients, créé à l’aide de Microsoft Azure Machine Learning Studio (classique). Il aborde différents modèles génériques associés afin d’apporter une résolution holistique au problème de l’attrition des clients. Nous mesurons également la précision des modèles générés à l’aide de Machine Learning (ML), en déterminant des directions à suivre pour la suite du développement.  
 
 ### <a name="acknowledgements"></a>Remerciements
@@ -71,7 +71,7 @@ L'analyse des données volumineuses est un ajout intéressant. Actuellement, les
  
 
 ## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Implémentation de l’archétype de modélisation de Machine Learning Studio (classique)
-Compte tenu du problème décrit, quelle est la meilleure façon d'implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de la version classique d’Azure Machine Learning Studio.  
+Compte tenu du problème décrit, quelle est la meilleure façon d'implémenter une méthode de modélisation et de notation intégrée ? Dans cette section, nous verrons comment nous y sommes parvenus à l’aide de Microsoft Azure Machine Learning Studio (classique).  
 
 L’approche multi-modèles est incontournable pour concevoir un archétype global d’attrition. Même la partie évaluative (prédictive) de la méthode doit être multi-modèles.  
 
@@ -135,7 +135,7 @@ Nous avons également envoyé le jeu de données de notation à un modèle compa
 Dans cette section, nous présentons nos découvertes sur l’exactitude des modèles en fonction du jeu de données d’évaluation.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>Exactitude et précision de la notation
-En général, l’implémentation dans la version classique d’Azure Machine Learning Studio est derrière SAP en termes d’exactitude et ce, d’environ 10 à 15 % (aire sous la courbe, ASC).  
+En général, l’implémentation dans Azure Machine Learning Studio (classique) est derrière SAP en termes d’exactitude et ce, d’environ 10 à 15 % (aire sous la courbe, ASC).  
 
 Toutefois, la mesure la plus importante en termes d’attrition est le taux de classification incorrecte : parmi les clients les plus enclins à l’attrition, quels sont ceux qui n’ont **pas** quitté un fournisseur, mais ont bénéficié malgré tout d’un traitement spécial ? Le schéma suivant compare ces différents taux de classification incorrecte pour tous les modèles :  
 
@@ -200,17 +200,17 @@ Cette observation importante est souvent ignorée par les entreprises, qui préf
 
 Cependant, la promesse d’une analyse autonome à l’aide de Microsoft Azure Machine Learning Studio (classique) permet d’envisager que les quatre catégories d’informations, évaluées par division ou service, deviendront des sources utiles pour l’apprentissage automatique relatif à l’attrition.  
 
-Une autre fonctionnalité passionnante proposée par ma version classique d’Azure Machine Learning Studio est la possibilité d’ajouter un module personnalisé dans le référentiel des modules prédéfinis qui sont déjà disponibles. Cette capacité permet surtout de sélectionner des bibliothèques et de créer des modèles pour les marchés verticaux. C’est un facteur de différenciation primordial de la version classique d’Azure Machine Learning Studio sur le marché.  
+Une autre fonctionnalité passionnante proposée par Azure Machine Learning Studio (classique) est la possibilité d’ajouter un module personnalisé dans le référentiel des modules prédéfinis qui sont déjà disponibles. Cette capacité permet surtout de sélectionner des bibliothèques et de créer des modèles pour les marchés verticaux. C’est un facteur de différenciation primordial d’Azure Machine Learning Studio (classique) sur le marché.  
 
 Nous espérons pouvoir à nouveau évoquer ce sujet, notamment en ce qui concerne l’analyse des données volumineuses.
   
 
 ## <a name="conclusion"></a>Conclusion
-Ce document détaille une approche rationnelle pour la gestion d’un problème commun, l’attrition, à l’aide d’une structure générique. Nous avons envisagé un prototype de modèle de notation, que nous avons implémenté à l’aide de la version classique d’Azure Machine Learning Studio. Enfin, nous avons évalué l'exactitude et les performances de la solution prototype par rapport aux algorithmes comparables dans SAP.  
+Ce document détaille une approche rationnelle pour la gestion d’un problème commun, l’attrition, à l’aide d’une structure générique. Nous avons envisagé un prototype de modèle de notation, que nous avons implémenté à l’aide d’Azure Machine Learning Studio (classique). Enfin, nous avons évalué l'exactitude et les performances de la solution prototype par rapport aux algorithmes comparables dans SAP.  
 
  
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 [1] Analyse prédictive : Beyond the Predictions, W. McKnight, Information Management, juillet/août 2011, p.18-20.  
 
 [2] Article Wikipedia : [Exactitude et précision](https://en.wikipedia.org/wiki/Accuracy_and_precision)

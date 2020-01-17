@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e1db978dbb7b63aaa4e9d189486faa0dfef520d1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035881"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75662900"
 ---
 Azure Data Factory est un service mutualisé qui possède, par défaut, les limites suivantes pour garantir la protection des abonnements clients contre les autres charges de travail. Pour augmenter les limites jusqu'à la limite maximale pour votre abonnement, contactez le support.
 
@@ -28,12 +28,13 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Les exécutions d’activités externes simultanées par abonnement par [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Les activités externes sont gérées sur le runtime d’intégration, mais s’exécutent sur des services liés, notamment Databricks, une procédure stockée, HDInsights et autres.</small> | 3000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Les exécutions d’activités de pipeline simultanées par abonnement par [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Les activités de pipeline s’exécutent sur le runtime d’intégration, notamment la recherche, GetMetadata et la suppression. </small>| 1 000 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Les opérations de création simultanées par abonnement pour chaque [région d’Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Notamment tester la connexion, parcourir la liste des dossiers des tables, afficher un aperçu des données. | 200 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Unités d’intégration simultanée de données<sup>1</sup> consommation par abonnement pour chaque [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Groupe de régions 1<sup>2</sup> : 6000<br>Groupe de régions 2<sup>2</sup> : 3000<br>Groupe de régions 3<sup>2</sup> : 1 500 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Unités d’intégration simultanée de données<sup>1</sup> consommation par abonnement pour chaque [région Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Groupe de régions 1<sup>2</sup> : 6000<br>Groupe de régions 2<sup>2</sup> : 3000<br>Groupe de régions 3<sup>2</sup> : 1500 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Activités maximales par pipeline, notamment les activités internes relatives aux conteneurs | 40 | 40 |
 | Nombre maximal de runtime d'intégration liés pouvant être créés pour un même runtime d'intégration auto-hébergé | 100 | [Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Nombre maximal de paramètres par pipeline | 50 | 50 |
 | Éléments ForEach | 100 000 | 100 000 |
 | Parallélisme ForEach | 20 | 50 |
+| Nombre maximal d’exécutions en file d’attente par pipeline | 100 | 100 |
 | Caractères par expression | 8 192 | 8 192 |
 | Intervalle minimal de déclencheur de fenêtre bascule | 15 min | 15 min |
 | Délai d’expiration maximal pour les exécutions d’activité de pipeline | 7 jours | 7 jours |
@@ -51,7 +52,7 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 
 <sup>1</sup> L’unité d’intégration de données (DIU) est utilisée dans une opération de copie de cloud à cloud, pour en savoir plus consultez [Unités d’intégration de données (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Pour plus d’informations sur la facturation, consultez [Tarification d’Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/).
 
-<sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) est [disponible à l'échelle mondiale](https://azure.microsoft.com/global-infrastructure/services/) pour assurer la conformité des données, l'efficacité et des coûts de sortie réseau réduits. 
+<sup>2</sup> [Azure Integration Runtime](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) est [disponible à l’échelle Mondiale](https://azure.microsoft.com/global-infrastructure/services/) pour assurer la conformité des données, l’efficacité et des coûts de sortie réseau réduits. 
 
 | Groupe de régions | Régions | 
 | -------- | ------ |
@@ -65,7 +66,6 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 
 | **Ressource** | **Limite par défaut** | **Limite maximale** |
 | --- | --- | --- |
-| Fabriques de données d’un abonnement Azure |50 |[Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Pipelines dans une fabrique de données |2 500 |[Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Jeux de données dans une fabrique de données |5 000 |[Contacter le support](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Tranches simultanées par jeu de données |10 |10 |
@@ -88,4 +88,4 @@ Azure Data Factory est un service mutualisé qui possède, par défaut, les lim
 | Délai d’expiration des nouvelles tentatives |1 seconde |1 seconde |
 
 #### <a name="web-service-call-limits"></a>Limites d’appels du service web
-Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../articles/azure-subscription-service-limits.md#resource-group-limits).
+Azure Resource Manager fixe des limites aux appels d’API. Vous pouvez effectuer des appels d’API à une fréquence comprise dans les [limites d’API d’Azure Resource Manager](../articles/azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).

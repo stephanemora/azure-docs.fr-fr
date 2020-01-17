@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7113fd7f17fd7695e25489931d7a6cbf35e334ec
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472470"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442815"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>Mise à jour d’un cluster Azure Kubernetes Service (AKS)
 
@@ -26,6 +26,7 @@ Pour les besoins de cet article, vous devez utiliser Azure CLI version 2.0.65 ou
 
 > [!WARNING]
 > Une mise à niveau de cluster AKS déclenche une isolation et un drainage de vos nœuds. Si vous n’avez qu’un quota de calcul faible, la mise à niveau peut échouer.  Pour plus d’informations, consultez l’article [Augmenter les quotas](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289).
+> Si vous exécutez votre propre déploiement de mise à l’échelle automatique de cluster, désactivez-le (vous pouvez le mettre à l’échelle sur zéro réplica) pendant la mise à niveau, car il y aura un risque d’interférence avec le processus de mise à niveau. La mise à l’échelle automatique managée le gère automatiquement. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>Recherchez les mises à niveau du cluster AKS disponibles
 

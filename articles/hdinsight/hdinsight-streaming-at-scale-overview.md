@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/19/2018
-ms.openlocfilehash: 76d1947ae6fbdf7577cc9b8db9d902dc55350b7f
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.custom: hdinsightactive
+ms.date: 12/17/2019
+ms.openlocfilehash: 006310f1a0efa69881bbe6d6ea4403b9c50402e6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435392"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Diffusion en continu à l’échelle dans HDInsight
 

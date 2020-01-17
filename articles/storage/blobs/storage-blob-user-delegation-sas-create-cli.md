@@ -1,33 +1,35 @@
 ---
 title: Utiliser Azure CLI pour créer une SAS de délégation d’utilisateur pour un conteneur ou un objet blob
 titleSuffix: Azure Storage
-description: Découvrez comment créer une SAS de délégation d’utilisateur (préversion) avec des informations d’identification Azure Active Directory avec Azure CLI.
+description: Découvrez comment créer une SAP de délégation d’utilisateur avec des informations d’identification Azure Active Directory à l’aide d’Azure CLI.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e1a81b25042501a166cee122279d21e3702cd419
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892547"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75371987"
 ---
-# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet BLOB avec l’interface de ligne de commande Azure (préversion)
+# <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli"></a>Créer une SAP de délégation d’utilisateur pour un conteneur ou un objet blob avec l’interface Azure CLI
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur ou un objet BLOB avec l’interface de ligne de commande Azure (préversion).
+Cet article explique comment utiliser les informations d’identification Azure Active Directory (Azure AD) pour créer une SAP de délégation d’utilisateur pour un conteneur ou un objet BLOB avec l’interface de ligne de commande Azure.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
 ## <a name="install-the-latest-version-of-the-azure-cli"></a>Installez la dernière version de l’interface de ligne de commande Azure
 
 Pour utiliser l’interface de ligne de commande Azure afin de sécuriser une SAP avec des informations d’identification Azure AD, commencez par vérifier que vous avez installé la dernière version de l’interface de ligne de commande Azure. Pour plus d'informations sur l'installation de l’interface de ligne de commande Azure, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
+
+Pour créer une SAP de délégation d’utilisateur à l’aide d’Azure CLI, assurez-vous d’avoir installé la version 2.0.78 ou ultérieure. Utilisez la commande `az --version` pour vérifier la version installée.
 
 ## <a name="sign-in-with-azure-ad-credentials"></a>Se connecter avec les informations d'identification Azure AD
 

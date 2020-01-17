@@ -1,5 +1,5 @@
 ---
-title: Gérer les accès invité avec les révisions d’accès - Azure Active Directory | Microsoft Docs
+title: Gérer l’accès invité avec les révisions d’accès - Azure AD
 description: Gérer les utilisateurs invités en tant que membres d’un groupe ou affectés à une application avec les révisions d’accès Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 12/13/2018
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a982b97bcef6a24f026bf6ad2943661db18d6af0
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 562a94bbbd1999b9ca9cf0c65cdb816848648133
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75422473"
 ---
 # <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gérer l’accès invité avec les révisions d’accès Azure AD
 
@@ -33,11 +33,11 @@ Vous pouvez également facilement vous assurer que les utilisateurs invités dis
 > [!NOTE]
 > Ce document se concentre sur la revue de l’accès des utilisateurs invités. Si vous souhaitez réviser l’accès de tous les utilisateurs, et pas uniquement celui des invités, consultez l’article [Manage user access with access reviews](manage-user-access-with-access-reviews.md) (Gérer l’accès utilisateur à l’aide des révisions d’accès). Si vous voulez examiner l’appartenance d’un utilisateur à un rôle d’administrateur tel que le rôle Administrateur général, consultez [Démarrer une révision d’accès dans Azure AD Privileged Identity Management](../privileged-identity-management/pim-how-to-start-security-review.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Azure AD Premium P2
 
-Pour en savoir plus, consultez la section relative à [l’identification des utilisateurs qui doivent disposer de licences](access-reviews-overview.md#which-users-must-have-licenses).
+Pour en savoir plus, consultez [Quels utilisateurs doivent avoir des licences ?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="create-and-perform-an-access-review-for-guests"></a>Créer et exécuter une révision d’accès pour des invités
 
@@ -74,7 +74,7 @@ Vous pouvez demander à un commanditaire, tel que le propriétaire d’un groupe
 
 1. Pour créer une révision d’accès pour le groupe, choisissez d’y inclure uniquement les utilisateurs invités. Spécifiez ensuite un ou plusieurs réviseurs. Pour plus d’informations, consultez [Créer une révision d’accès de groupes ou d’applications](create-access-review.md).
 
-2. Demandez aux réviseurs de donner leur avis. Par défaut, chacun d’eux reçoit un e-mail de la part de Azure AD contenant un lien vers le volet d’accès, dans lequel ils peuvent [réviser l’accès aux groupes ou aux applications](perform-access-review.md).
+2. Demandez aux réviseurs de donner leur avis. Par défaut, chacun d’eux reçoit un e-mail provenant d’Azure AD et contenant un lien vers le panneau d’accès, dans lequel ils peuvent [réviser l’accès à des groupes ou à des applications](perform-access-review.md).
 
 3. Une fois que les réviseurs ont fait part de leur avis, arrêtez la révision d’accès et appliquez les modifications. Pour plus d’informations, consultez [Effectuer une révision d’accès de groupes ou d’applications](complete-access-review.md).
 
@@ -96,7 +96,7 @@ Vous pouvez demander à un commanditaire, tel que le propriétaire d’une appli
 
 1. Pour créer une révision d’accès pour l’application, choisissez d’y inclure uniquement les invités. Définissez ensuite un ou plusieurs utilisateurs comme réviseurs. Pour plus d’informations, consultez [Créer une révision d’accès de groupes ou d’applications](create-access-review.md).
 
-2. Demandez aux réviseurs de donner leur avis. Par défaut, chacun d’eux reçoit un e-mail de la part de Azure AD contenant un lien vers le volet d’accès, dans lequel ils peuvent [réviser l’accès aux groupes ou aux applications](perform-access-review.md).
+2. Demandez aux réviseurs de donner leur avis. Par défaut, chacun d’eux reçoit un e-mail provenant d’Azure AD et contenant un lien vers le panneau d’accès, dans lequel ils peuvent [réviser l’accès à des groupes ou à des applications](perform-access-review.md).
 
 3. Une fois que les réviseurs ont fait part de leur avis, arrêtez la révision d’accès et appliquez les modifications. Pour plus d’informations, consultez [Effectuer une révision d’accès de groupes ou d’applications](complete-access-review.md).
 

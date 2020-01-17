@@ -1,17 +1,17 @@
 ---
-title: Utilisation de données géospatiales dans un compte d’API SQL Azure Cosmos DB
+title: Utiliser des données géospatiales dans un compte d’API SQL Azure Cosmos DB
 description: Découvrez comment créer, indexer et interroger des objets spatiaux avec Azure Cosmos DB et l’API SQL.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: sngun
-ms.openlocfilehash: 1b26f78c6d44123ef1baa3c55fd16c3340d59dd4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e48f6c52aa2d633ea20fd0dae70c7aa1380bb50d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616841"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441885"
 ---
 # <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utiliser des données d’emplacement géospatiales et GeoJSON avec un compte d’API SQL Azure Cosmos DB
 
@@ -94,7 +94,7 @@ En plus des points, des LineStrings et des polygones, GeoJSON spécifie égaleme
 ### <a name="coordinate-reference-systems"></a>Coordination des systèmes de référence
 Étant donné que la forme de la terre est irrégulière, les coordonnées des données géospatiales sont représentées dans de nombreux systèmes de coordonnées de référence (CRS), chacun ayant ses propres images de référence et unités de mesure. Par exemple, le « National Grid of Britain » est un système de référence précis pour le Royaume-Uni, mais en dehors. 
 
-Le CRS moderne le plus populaire est le World Geodetic System [WGS-84](http://earth-info.nga.mil/GandG/wgs84/). Les périphériques GPS et de nombreux services de mappage, notamment les API Bing Maps et Google Maps, utilisent le WGS-84. Azure Cosmos DB prend en charge l’indexation et l’interrogation de données géographiques uniquement à l’aide du CRS WGS-84. 
+Le CRS moderne le plus populaire est le World Geodetic System [WGS-84](https://earth-info.nga.mil/GandG/update/index.php). Les périphériques GPS et de nombreux services de mappage, notamment les API Bing Maps et Google Maps, utilisent le WGS-84. Azure Cosmos DB prend en charge l’indexation et l’interrogation de données géographiques uniquement à l’aide du CRS WGS-84. 
 
 ## <a name="creating-documents-with-spatial-data"></a>Création de documents avec les données spatiales
 Lorsque vous créez des documents qui contiennent des valeurs GeoJSON, ils sont automatiquement indexés avec un index spatial conformément à la stratégie d'indexation du conteneur. Si vous travaillez avec un Kit de développement logiciel (SDK) Azure Cosmos DB dans un langage saisi dynamiquement comme Python ou Node.js, vous devez créer un GeoJSON valide.
@@ -153,7 +153,7 @@ Azure Cosmos DB prend en charge les fonctions intégrées Open Geospatial Consor
 |**Utilisation**|**Description**|
 |---|---|
 | ST_DISTANCE (spatial_expr, spatial_expr) | Retourne la distance entre les deux expressions Point, Polygone ou LineString de GeoJSON.|
-|ST_WITHIN (spatial_expr, spatial_expr) | Retourne une expression booléenne indiquant si le premier objet GeoJSON (Point, Polygone ou LineString) se trouve dans le second objet GeoJSON (Point, Polygone ou LineString).|
+|ST_WITHIN (spatial_expr, spatial_expr) | Renvoie une expression booléenne indiquant si le premier objet GeoJSON (Point, Polygone ou LineString) se trouve dans le second objet GeoJSON (Point, Polygone ou LineString).|
 |ST_INTERSECTS (spatial_expr, spatial_expr)| Retourne une expression booléenne indiquant si les deux objets GeoJSON spécifiés (Point, Polygone ou LineString) se croisent.|
 |ST_ISVALID| Renvoie une valeur booléenne indiquant si l’expression Point, Polygone ou LineString GeoJSON spécifiée est valide.|
 | ST_ISVALIDDETAILED| Renvoie une valeur JSON contenant une valeur booléenne si l’expression Point, Polygone ou LineString GeoJSON spécifiée est valide et, dans le cas contraire, le motif sous forme de valeur de chaîne.|

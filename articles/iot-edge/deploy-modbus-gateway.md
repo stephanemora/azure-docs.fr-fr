@@ -6,18 +6,18 @@ manager: philmea
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 649c7f620b83464d1bb56cf4b8191b0747105f01
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8a9f0008f1a1ea1a57f3c0e7e17b8cf3ae5e959c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434542"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connecter des appareils Modbus TCP via une passerelle d’appareils IoT Edge
 
-Si vous souhaitez connecter des appareils IoT utilisant les protocoles Modbus TCP ou RTU à un hub IoT Azure, utilisez un appareil IoT Edge comme passerelle. Le périphérique de passerelle lit les données à partir de vos appareils Modbus, puis les communique dans le cloud en utilisant un protocole pris en charge.
+Si vous souhaitez connecter des appareils IoT utilisant les protocoles Modbus TCP ou RTU à un hub IoT Azure, vous pouvez utiliser un appareil IoT Edge comme passerelle. Le périphérique de passerelle lit les données à partir de vos appareils Modbus, puis les communique dans le cloud en utilisant un protocole pris en charge.
 
 ![Les appareils Modbus se connectent à IoT Hub via une passerelle IoT Edge](./media/deploy-modbus-gateway/diagram.png)
 
@@ -25,14 +25,14 @@ Cet article vous explique comment créer votre propre image conteneur pour un mo
 
 Cet article suppose que vous utilisez le protocole Modbus TCP. Pour plus d’informations sur la façon de configurer le module pour prendre en charge le protocole Modbus RTU, consultez le projet [Module Modbus Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) sur GitHub.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Un appareil Azure IoT Edge. Pour une procédure détaillée montrant comment en configurer un, consultez [Déployer Azure IoT Edge sur Windows](quickstart.md) ou [Linux](quickstart-linux.md).
 * Chaîne de connexion de clé primaire de l’appareil IoT Edge.
-* Un appareil Modbus physique ou simulé prenant en charge Modbus TCP.
+* Un appareil Modbus physique ou simulé prenant en charge Modbus TCP. Vous devez connaître son adresse IPv4.
 
 ## <a name="prepare-a-modbus-container"></a>Préparer un conteneur Modbus
 
-Si vous souhaitez tester la fonctionnalité de passerelle Modbus, Microsoft propose un module d’exemple que vous pouvez utiliser. Vous pouvez accéder au module à partir de la Place de marché Azure, de [Modbus](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview) ou avec l’URI d’image **mcr.microsoft.com/azureiotedge/modbus:1.0**.
+Si vous souhaitez tester la fonctionnalité de passerelle Modbus, Microsoft propose un module d’exemple que vous pouvez utiliser. Vous pouvez accéder au module à partir de la Place de marché Azure, de [Modbus](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot.edge-modbus?tab=Overview) ou avec l’URI d’image `mcr.microsoft.com/azureiotedge/modbus:1.0`.
 
 Si vous souhaitez créer votre propre module et le personnaliser en fonction de votre environnement, un projet open source [Module Modbus Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) existe sur GitHub. Suivez les instructions du projet pour créer votre propre image conteneur. Pour créer une image de conteneur, reportez-vous aux rubriques [Développer des modules C# dans Visual Studio](how-to-visual-studio-develop-csharp-module.md) ou [Développer des modules dans Visual Studio Code](how-to-vs-code-develop-module.md). Ces articles fournissent des instructions sur la création de modules et sur la publication des images conteneur sur un registre.
 
@@ -46,62 +46,27 @@ Cette section est consacrée au déploiement de l’exemple de module Modbus de 
 
 3. Sélectionnez **Définir des modules**.
 
-4. Ajouter le module Modbus :
+4. Dans la section **Modules IoT Edge**, ajoutez le module Modbus :
 
-   1. Cliquez sur **Ajouter** et sélectionnez **Module IoT Edge**.
+   1. Cliquez sur la liste déroulante **Ajouter** et sélectionnez **Module Place de marché**.
+   2. Recherchez `Modbus`, puis sélectionnez le **Module Modbus TCP** de Microsoft.
+   3. Le module est automatiquement configuré pour votre IoT Hub et apparaît dans la liste des modules IoT Edge. Les itinéraires sont également configurés automatiquement. Sélectionnez **Revoir + créer**.
+   4. Passez en revue le manifeste de déploiement et sélectionnez **Créer**.
 
-   2. Dans le champ **Nom**, saisissez « modbus».
+5. Sélectionnez le module Modbus `ModbusTCPModule` dans la liste et sélectionnez l’onglet **Paramètres de jumeau de module**. Le JSON requis pour les propriétés de représentation du module souhaitées est automatiquement rempli.
 
-   3. Dans le champ **Image**, saisissez l’URI d’image de l’exemple de conteneur : `mcr.microsoft.com/azureiotedge/modbus:1.0`.
+6. Recherchez la propriété **SlaveConnection** dans le JSON et définissez sa valeur sur l’adresse IPv4 de votre appareil Modbus.
 
-   4. Cochez la case **Activer** pour mettre à jour les propriétés souhaitées des représentations du module.
+7. Sélectionnez **Update**.
 
-   5. Copiez le JSON suivant dans la zone de texte. Remplacez la valeur de **SlaveConnection** par l’adresse IPv4 de votre appareil Modbus.
+8. Sélectionnez **Vérifier + Créer**, vérifiez le déploiement, puis sélectionnez **Créer**.
 
-      ```JSON
-      {
-        "properties.desired":{
-          "PublishInterval":"2000",
-          "SlaveConfigs":{
-            "Slave01":{
-              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{
-                "Op01":{
-                  "PollingInterval": "1000",
-                  "UnitId":"1",
-                  "StartAddress":"40001",
-                  "Count":"2",
-                  "DisplayName":"Voltage"
-                }
-              }
-            }
-          }
-        }
-      }
-      ```
-
-   6. Sélectionnez **Enregistrer**.
-
-5. Revenez à l’étape **Ajouter des modules** et sélectionnez **Suivant**.
-
-7. À l’étape **Spécifier des itinéraires**, copiez le JSON ci-dessous dans la zone de texte. Cet itinéraire envoie tous les messages collectés par le module Modbus vers IoT Hub. Dans cette route, **modbusOutput** correspond au point de terminaison utilisé par le module Modbus pour transmettre des données, et **$upstream** est une destination spéciale qui indique au hub IoT Edge d’envoyer des messages à IoT Hub.
-
-   ```JSON
-   {
-     "routes": {
-       "modbusToIoTHub":"FROM /messages/modules/modbus/outputs/modbusOutput INTO $upstream"
-     }
-   }
-   ```
-
-8. Sélectionnez **Suivant**.
-
-9. À l’étape **Vérifier le déploiement**, sélectionnez **Envoyer**.
-
-10. Revenez à la page de détails de l’appareil et sélectionnez **Actualiser**. Vous devez voir le nouveau module **modbus** en cours d’exécution avec le runtime IoT Edge.
+9. Revenez à la page de détails de l’appareil et sélectionnez **Actualiser**. Vous devez voir le nouveau module `ModbusTCPModule` en cours d’exécution avec le runtime IoT Edge.
 
 ## <a name="view-data"></a>Afficher les données
-Afficher les données provenant du module modbus :
+
+Afficher les données provenant du module Modbus :
+
 ```cmd/sh
 iotedge logs modbus
 ```
@@ -110,5 +75,5 @@ Vous pouvez afficher les données de télémétrie envoyées par l’appareil à
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la façon dont les appareils IoT Edge peuvent agir en tant que passerelles, consultez [Créer un appareil IoT Edge agissant comme une passerelle transparente](./how-to-create-transparent-gateway.md).
-- Pour plus d’informations sur le fonctionnement des modules IoT Edge, consultez [Comprendre les modules Azure IoT Edge](iot-edge-modules.md).
+* Pour plus d’informations sur la façon dont les appareils IoT Edge peuvent agir en tant que passerelles, consultez [Créer un appareil IoT Edge agissant comme une passerelle transparente](./how-to-create-transparent-gateway.md).
+* Pour plus d’informations sur le fonctionnement des modules IoT Edge, consultez [Comprendre les modules Azure IoT Edge](iot-edge-modules.md).

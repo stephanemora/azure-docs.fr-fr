@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: 1f31bb78fced6db2a26559cbd098407823161dfc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928761"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646895"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 
@@ -156,6 +156,8 @@ Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 - Les versions de GitHub Enterprise antérieures à 2.14.0 ne fonctionnent pas dans le navigateur Microsoft Edge.
 
 - L’intégration de GitHub aux outils de création visuelle Data Factory ne fonctionne que dans la version généralement disponible de Data Factory.
+
+- Un maximum de 1 000 entités par type de ressource (par exemple, des pipelines et des jeux de données) peut être extrait à partir d’une seule branche GitHub. Si cette limite est atteinte, il est suggéré de fractionner vos ressources en fabriques distinctes.
 
 ## <a name="switch-to-a-different-git-repo"></a>Passer à un autre dépôt Git
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 5c882d286a73900f58ef06e7c51b05c7237e39a7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848627"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425343"
 ---
 # <a name="combined-security-information-registration-preview"></a>Inscription d’informations de sécurité combinée (préversion)
 
@@ -34,7 +34,7 @@ L’inscription combinée d’informations de sécurité Azure AD n’est pas d
 |     |
 
 > [!IMPORTANT]
-> Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences voient uniquement la nouvelle expérience de la page Mon profil. La nouvelle page Mon profil s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com ](https://myprofile.microsoft.com).
+> Les utilisateurs activés pour la préversion d’origine et l’expérience d’inscription combinée améliorée voient le nouveau comportement. Les utilisateurs activés pour les deux expériences voient uniquement la nouvelle expérience de la page Mon profil. La nouvelle page Mon profil s’aligne sur l’apparence de l’inscription combinée et offre une expérience transparente pour les utilisateurs. Les utilisateurs peuvent voir la page Mon profil en accédant à [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 
 > [!NOTE] 
 > Un message d’erreur peut s’afficher lors de la tentative d’accès à l’option Informations de sécurité. Par exemple, « Désolé, nous ne pouvons pas vous connecter ». Dans ce cas, vérifiez que vous n’avez pas d’objet de configuration ou de stratégie de groupe qui bloque les cookies tiers sur le navigateur Web. 
@@ -47,17 +47,17 @@ Les pages Mon profil sont localisées sur la base des paramètres de langue de l
 
 L’inscription combinée prend en charge les méthodes et les actions d’authentification suivantes :
 
-|   | Register | Modifier | Supprimer |
+|   | Inscrire | Modifier | DELETE |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Oui (jusqu'à 5) | Non | OUI |
-| Autre application d’authentification | Oui (jusqu'à 5) | Non | OUI |
-| Jeton matériel | Non | Non | OUI |
-| Téléphone | OUI | Oui | OUI |
-| Autre téléphone | OUI | Oui | OUI |
+| Microsoft Authenticator | Oui (jusqu'à 5) | Non | Oui |
+| Autre application d’authentification | Oui (jusqu'à 5) | Non | Oui |
+| Jeton matériel | Non | Non | Oui |
+| Téléphone | Oui | Oui | Oui |
+| Autre téléphone | Oui | Oui | Oui |
 | Téléphone de bureau | Non | Non | Non |
-| Email | OUI | Oui | OUI |
-| Questions de sécurité | OUI | Non | OUI |
-| Mots de passe d'application | OUI | Non | OUI |
+| Email | Oui | Oui | Oui |
+| Questions de sécurité | Oui | Non | Oui |
+| Mots de passe d'application | Oui | Non | Oui |
 
 > [!NOTE]
 > Les mots de passe d’application sont disponibles uniquement pour les utilisateurs qui ont été paramétrés pour l’authentification multifacteur. Les mots de passe d’application ne sont pas disponibles pour les utilisateurs activés pour l’authentification multifacteur via une stratégie d’accès conditionnel.
@@ -108,7 +108,7 @@ Cet organigramme décrit les méthodes qui sont montrées à un utilisateur lors
 
 Si vous avez activé l’authentification multifacteur et la réinitialisation SSPR, nous vous recommandons d’appliquer l’inscription à l’authentification multifacteur.
 
-Si la stratégie SSPR nécessite que les utilisateurs vérifient leurs informations de sécurité à intervalles réguliers, les utilisateurs sont interrompus pendant la connexion et toutes leurs méthodes inscrites leur sont montrées. Ils peuvent confirmer les informations actuelles si elle sont à jour, ou apporter des modifications si nécessaire.
+Si la stratégie SSPR nécessite que les utilisateurs vérifient leurs informations de sécurité à intervalles réguliers, les utilisateurs sont interrompus pendant la connexion et toutes leurs méthodes inscrites leur sont montrées. Ils peuvent confirmer les informations actuelles si elle sont à jour, ou apporter des modifications si nécessaire. Les utilisateurs doivent effectuer une authentification multifacteur lors de l’accès à cette page.
 
 ### <a name="manage-mode"></a>Mode de gestion
 
@@ -144,7 +144,7 @@ Un utilisateur qui a configuré précédemment au moins une méthode pouvant êt
 
 [Rapport d’utilisation et d’insights SSPR et MFA](howto-authentication-methods-usage-insights.md)
 
-[Méthodes disponibles pour l'authentification multifacteur et la réinitialisation de mot de passe en libre-service](concept-authentication-methods.md)
+[Méthodes disponibles pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service](concept-authentication-methods.md)
 
 [Configurer la réinitialisation du mot de passe en libre-service](howto-sspr-deployment.md)
 

@@ -1,5 +1,5 @@
 ---
-title: Profiler des applications web exécutées sur une machine virtuelle Azure avec Application Insights Profiler | Microsoft Docs
+title: Profilez des applications web sur une machine virtuelle Azure - Application Insights Profiler
 description: Profilez des applications web sur une machine virtuelle Azure avec Application Insights Profiler.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 046128fda385486f5a92d215e349760483c5dfa4
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432363"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profiler des applications web s’exécutant sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques avec Application Insights Profiler
 

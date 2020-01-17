@@ -4,12 +4,12 @@ ms.service: databox
 ms.topic: include
 ms.date: 04/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 653c175a559f5c0b7dc551b396e91276332df20a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 8840e6649058837207c75dbdf7baa5c0b11ef387
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177707"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467501"
 ---
 Votre appareil est associé à un compte de stockage qui est utilisé en tant que destination pour vos données dans Azure. L’accès au compte de stockage est contrôlé par l’abonnement et deux clés d’accès au stockage de 512 bits associées à ce compte de stockage.
 
@@ -18,5 +18,5 @@ L’une des clés est utilisée pour l’authentification lorsque l’appareil D
 De nombreux centres de données ont recours à la rotation des clés pour des raisons de sécurité. Nous vous recommandons de suivre ces méthodes recommandées pour la rotation des clés :
 
 - Votre clé de compte de stockage est similaire au mot de passe racine pour votre compte de stockage. Protégez soigneusement votre clé de compte. Ne communiquez pas le mot de passe à d’autres utilisateurs, ne le codez pas en dur et ne l’enregistrez pas en texte brut, où que ce soit.
-- [Régénérez votre clé de compte](../articles/storage/common/storage-account-manage.md#regenerate-access-keys) via le portail Azure si vous pensez qu’elle a été compromise.
+- Régénérez votre clé de compte via le Portail Azure si vous pensez qu’elle a été compromise. Pour plus d’informations, consultez [Gérer les clés d’accès au compte de stockage](../articles/storage/common/storage-account-keys-manage.md).
 - Votre administrateur Azure doit changer ou régénérer régulièrement la clé primaire ou secondaire à l’aide de la section Stockage du portail Azure pour accéder directement au compte de stockage.

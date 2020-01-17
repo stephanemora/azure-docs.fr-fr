@@ -1,6 +1,6 @@
 ---
-title: En savoir plus sur les modèles de groupes de machines virtuelles identiques | Microsoft Docs
-description: Découvrez comment créer un modèle de groupe de machines virtuelles identiques de base
+title: En savoir plus sur les modèles de groupes de machines virtuelles identiques
+description: Découvrez comment créer un Modèle de groupe identique de base pour les groupes de machines virtuelles identiques Azure en quelques étapes simples.
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 267c715de67df57abd30ac18966b8b3b8440810c
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459375"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
 Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de groupe identique de base et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss).
@@ -51,7 +51,7 @@ Ensuite, définissez deux paramètres, `adminUsername` et `adminPassword`. Les p
     }
   },
 ```
-## <a name="define-variables"></a>Définir les variables
+## <a name="define-variables"></a>Définir des variables
 Les modèles Resource Manager vous permettent également de définir les variables à utiliser par la suite dans le modèle. Comme l’exemple n’utilise aucune variable, l’objet JSON est vide.
 
 ```json

@@ -1,29 +1,23 @@
 ---
-title: Stockage de paires clé-valeur dans Azure App Configuration | Microsoft Docs
-description: Vue d’ensemble de la façon dont les données de configuration sont stockées dans Azure App Configuration
-services: azure-app-configuration
-documentationcenter: ''
+title: Stockage de paires clé-valeur dans Azure App Configuration
+description: Vue d’ensemble de la façon dont les données de configuration sont stockées dans Azure App Configuration.
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.service: azure-app-configuration
-ms.devlang: na
-ms.topic: overview
-ms.workload: tbd
-ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 054de294c9edb0fe5b75da4ac7fd54ce987123de
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.service: azure-app-configuration
+ms.topic: conceptual
+ms.date: 04/19/2019
+ms.openlocfilehash: 11e019e276944e0c3f50d604420046979b5f3fbb
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185219"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75495271"
 ---
 # <a name="keys-and-values"></a>Clés et valeurs
 
 Azure App Configuration stocke les données de configuration sous la forme de paires clé-valeur. Les paires clé-valeur constituent un moyen simple mais souple de représenter divers types de paramètres d’application que les développeurs connaissent bien.
 
-## <a name="keys"></a>Clés
+## <a name="keys"></a>Keys
 
 Les clés servent de nom pour les paires clé-valeur ; elles sont utilisées pour stocker et récupérer des valeurs correspondantes. Il est courant d’organiser les clés dans un espace de noms hiérarchique en utilisant un caractère délimiteur, comme `/` ou `:`. Utilisez la convention qui convient le mieux à votre application. App Configuration traite les clés dans leur ensemble. Il n’analyse pas les clés pour déterminer la structure de leur nom ou pour appliquer une règle quelconque.
 

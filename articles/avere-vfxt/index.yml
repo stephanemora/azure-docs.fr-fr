@@ -8,10 +8,10 @@ metadata:
   author: ekpgh
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 10/09/2019
+  ms.date: 12/19/2019
   ms.author: rohogue
 abstract:
-  description: "Avere vFXT for Azure fournit une couche de mise en cache basée sur le cloud pour les tâches haute performance computing (HPC) gourmandes en données. En mettant en cache les fichiers proches de vos nœuds de traitement, Avere vFXT accélère les temps de lecture et vous permet de travailler plus facilement, y compris pendant les pics de charge. Avere vFXT fonctionne mieux avec les systèmes comprenant entre 1\_000 et 40\_000 cœurs clients. <p>Average vFXT fonctionne avec votre stockage de données existant pour amener les fichiers à proximité des ressources de calcul Azure. Les fichiers actifs sont toujours stockés à long terme dans votre centre de données."
+  description: "Avere vFXT for Azure fournit une couche de mise en cache basée sur le cloud pour les tâches haute performance computing (HPC) gourmandes en données. En mettant en cache les fichiers proches de vos nœuds de traitement, Avere vFXT accélère les temps de lecture et vous permet de travailler plus facilement, même pendant les pics de charge. Avere vFXT fonctionne mieux avec les systèmes comprenant entre 1\_000 et 40\_000 cœurs clients. <p>Average vFXT fonctionne avec votre stockage de données existant pour amener les fichiers à proximité des ressources de calcul Azure. Les fichiers actifs sont toujours stockés à long terme dans votre centre de données."
 sections:
   - title: Commencer avec Avere vFXT pour Azure
     items:

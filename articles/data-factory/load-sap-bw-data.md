@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 971871c28bd1b38b134c04b0334fbe99d1d655c1
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75440205"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copier des données de SAP Business Warehouse à l’aide d’Azure Data Factory
 
@@ -25,7 +25,7 @@ Cet article explique comment utiliser Azure Data Factory pour copier des donnée
 > [!TIP]
 > Pour des informations générales sur la copie des données à partir de SAP BW, y compris sur le flux d’intégration et d’extraction delta de SAP BW Open Hub, consultez l’article [Copier des données à partir de SAP Business Warehouse via Open Hub à l’aide d’Azure Data Factory](connector-sap-business-warehouse-open-hub.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - **Azure Data Factory** : Si vous n’en avez pas encore, suivez ces étapes pour [créer une fabrique de données](quickstart-create-data-factory-portal.md#create-a-data-factory).
 
@@ -156,11 +156,15 @@ Dans la page **Prise en main** de la fabrique de données, sélectionnez **Crée
 
    - **SAPOpenHubDestinationName** : Spécifiez le nom de la table Open Hub à partir de laquelle copier les données.
 
-   - **ADLSGen2SinkPath** : Spécifiez le chemin de destination Azure Data Lake Storage Gen2 vers lequel copier les données. Si le chemin d’accès n’existe pas, l’activité de copie Data Factory en crée un lors de l’exécution.
+   - **Data_Destination_Container** : spécifiez la destination du conteneur Azure Data Lake Storage Gen2 vers lequel copier les données. Si le conteneur n’existe pas, l’activité de copie Data Factory en crée un lors de l’exécution.
+  
+   - **Data_Destination_Directory** : spécifiez le chemin d’accès du dossier sous le conteneur Azure Data Lake Storage Gen2 vers lequel copier les données. Si le chemin d’accès n’existe pas, l’activité de copie Data Factory en crée un lors de l’exécution.
+  
+   - **HighWatermarkBlobContainer** : spécifiez le conteneur dans lequel stocker la valeur de limite supérieure.
 
-   - **HighWatermarkBlobPath** : Spécifiez le chemin de stockage de la valeur de limite supérieure, par exemple `container/path`.
+   - **HighWatermarkBlobDirectory** : spécifiez le chemin d’accès du dossier sous le conteneur dans lequel stocker la valeur de limite supérieure.
 
-   - **HighWatermarkBlobName** : Spécifiez le nom de l’objet blob de stockage de la valeur de limite supérieure, par exemple `requestIdCache.txt`. Dans le stockage Blob, accédez au chemin d’accès HighWatermarkBlobPath+HighWatermarkBlobName correspond, par exemple *container/path/requestIdCache.txt*. Créez un fichier avec un contenu 0.
+   - **HighWatermarkBlobName** : Spécifiez le nom de l’objet blob de stockage de la valeur de limite supérieure, par exemple `requestIdCache.txt`. Dans le stockage Blob, accédez au chemin d’accès HighWatermarkBlobContainer+HighWatermarkBlobDirectory+HighWatermarkBlobName, tel que *container/path/requestIdCache.txt*. Créez un fichier avec un contenu 0.
 
       ![Contenu de l’objet blob](media/load-sap-bw-data/blob.png)
 
@@ -185,11 +189,11 @@ Dans la page **Prise en main** de la fabrique de données, sélectionnez **Crée
          }
          ```
 
-      3. Ajoutez une action **Créer un objet blob**. Pour **Chemin d’accès du dossier** et **Nom d’objet Blob**, utilisez les mêmes valeurs que celles configurées précédemment au niveau des paramètres **HighWatermarkBlobPath** et **HighWatermarkBlobName**.
+      3. Ajoutez une action **Créer un objet blob**. Pour **Chemin d’accès du dossier** et **Nom d’objet Blob**, utilisez les mêmes valeurs que celles configurées précédemment au niveau des paramètres *HighWatermarkBlobContainer+HighWatermarkBlobDirectory* et *HighWatermarkBlobName*.
 
       4. Sélectionnez **Enregistrer**. Ensuite, copiez la valeur de l’**URL HTTP POST** à utiliser dans le pipeline Data Factory.
 
-4. Après avoir fourni les paramètres du pipeline Data Factory, sélectionnez **Déboguer** > **Terminer** pour exécuter la validation de la configuration. Sinon, sélectionnez **Publier tout** pour publier les modifications, puis choisissez **Déclencheur** pour effectuer l’exécution.
+4. Après avoir fourni les paramètres du pipeline Data Factory, sélectionnez **Déboguer** > **Terminer** pour exécuter la validation de la configuration. Sinon, sélectionnez **Publier** pour publier toutes les modifications, puis choisissez **Ajouter un déclencheur** pour effectuer l’exécution.
 
 ## <a name="sap-bw-open-hub-destination-configurations"></a>Configuration des destinations SAP BW Open Hub
 

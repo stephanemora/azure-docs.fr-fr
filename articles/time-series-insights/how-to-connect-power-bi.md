@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ef7d78b292561e87eac12200bc0b9d68299759d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75443628"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Visualiser des données à partir de Time Series Insights dans Power BI
 
@@ -29,7 +29,7 @@ Vous découvrirez comment effectuer les actions suivantes :
 
 Veillez à vous inscrire pour obtenir un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Télécharger et installer la dernière version de [Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 * Avoir ou créer une [instance Azure Time Series Insights en préversion](time-series-insights-update-how-to-manage.md)
@@ -70,7 +70,7 @@ Pour commencer :
 
    1. Si vous n’avez pas configuré votre instance Time Series Insights pour le **magasin Warm**, vous recevrez un avertissement.
 
-       [![Connecter](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
+       [![Avertissement du magasin Warm](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
        > Vous pouvez configurer votre instance existante pour le **magasin Warm** dans le portail Azure.

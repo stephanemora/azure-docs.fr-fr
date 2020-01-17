@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 7a55cc9398cc511ced0a43f0d7a0c1aa6e37f155
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/20/2019
+ms.openlocfilehash: 069fc83e773c00be41e21e23fc01c589c13d687d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790402"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75372701"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>Extensions PostgreSQL dans Azure Database pour PostgreSQL - Serveur unique
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions regroupent plusieurs objets SQL associés au sein d’un package qui peut être chargé ou supprimé de votre base de données à l’aide d’une seule commande. Une fois chargées dans la base de données, les extensions fonctionnent comme des fonctionnalités intégrées.
@@ -252,6 +252,26 @@ CREATE EXTENSION IF NOT EXISTS timescaledb CASCADE;
 > Si vous voyez une erreur, vérifiez que vous avez [redémarré le serveur](howto-restart-server-portal.md) après l’enregistrement de shared_preload_libraries. 
 
 Vous pouvez maintenant créer une hypertable TimescaleDB [à partir de zéro](https://docs.timescale.com/getting-started/creating-hypertables) ou migrer des [données de série chronologiques existantes dans PostgreSQL](https://docs.timescale.com/getting-started/migrating-data).
+
+### <a name="restoring-a-timescale-database"></a>Restauration d’une base de données d’échelle de temps
+Pour restaurer une base de données d’échelle de temps à l’aide de pg_dump et pg_restore, vous devez exécuter deux procédures d’assistance dans la base de données de destination : `timescaledb_pre_restore()` et `timescaledb_post restore()`.
+
+Préparez d’abord la base de données de destination :
+
+```SQL
+--create the new database where you'll perform the restore
+CREATE DATABASE tutorial;
+\c tutorial --connect to the database 
+CREATE EXTENSION timescaledb;
+
+SELECT timescaledb_pre_restore();
+```
+
+Vous pouvez maintenant exécuter pg_dump sur la base de données d’origine, puis effectuer pg_restore. Après la restauration, veillez à exécuter la commande suivante dans la base de données restaurée :
+
+```SQL
+SELECT timescaledb_post_restore();
+```
 
 
 ## <a name="next-steps"></a>Étapes suivantes

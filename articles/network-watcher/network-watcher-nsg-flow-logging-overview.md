@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 1da1bc330af9d2b652c44114e44dc6d6c9f0d575
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 2530c9b2f366bd64013c7125b4d7984ca2a69248
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559169"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454289"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Présentation de la journalisation des flux pour les groupes de sécurité réseau
 
@@ -36,7 +36,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 Vous pouvez analyser les journaux de flux et obtenir des informations sur votre trafic réseau à l’aide de l’[analytique du trafic](traffic-analytics.md).
 
-Les mêmes stratégies de conservation que celles des autres journaux d’activité s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 2147483647 jours. Si aucune stratégie de rétention n’est définie, les journaux d’activité sont conservés indéfiniment.
+Les mêmes stratégies de conservation que celles des autres journaux d’activité s’appliquent aux journaux de flux. Vous pouvez définir la stratégie de conservation de journal entre 1 jour et 365 jours. Si aucune stratégie de rétention n’est définie, les journaux d’activité sont conservés indéfiniment.
 
 > [!NOTE] 
 > L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0.
@@ -78,7 +78,7 @@ La version 2 des journaux présente l’état du flux. Vous pouvez configurer la
 
 L’état du flux *B* est enregistré lorsqu’un flux est lancé. L’état du flux *C* et l’état du flux *E* sont les états qui marquent respectivement la continuation d’un flux et son arrêt. Les deux états *C* et *E* contiennent des informations sur la bande passante du trafic.
 
-**Exemple**: tuples de flux à partir d’une conversation TCP entre 185.170.185.105:35370 and 10.2.0.4:23 :
+**Exemple** : tuples de flux à partir d’une conversation TCP entre 185.170.185.105:35370 and 10.2.0.4:23 :
 
 « 1493763938,185.170.185.105,10.2.0.4,35370,23,T,I,A,B,,,, » « 1493695838,185.170.185.105,10.2.0.4,35370,23,T,I,A,C,1021,588096,8005,4610880 » « 1493696138,185.170.185.105,10.2.0.4,35370,23,T,I,A,E,52,29952,47,27072 »
 
@@ -95,14 +95,13 @@ Le texte ci-dessous est un exemple de journal de flux. Comme vous pouvez le voir
 3. Aucun point de terminaison de service : en raison d’une limitation actuelle, les journaux peuvent uniquement être émis directement vers des comptes de stockage et non par le biais de points de terminaison de service. Pour obtenir de l’aide sur la suppression de points de terminaison de service existants, consultez [Comment utiliser les journaux de flux de groupe de sécurité réseau avec des point de terminaison de service ?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints).
 4. Rotation des clés auto-gérée : si vous modifiez (ou effectuez la rotation) des clés d’accès à votre compte de stockage, les journaux de flux de groupe de sécurité réseau cessent de fonctionner. Pour corriger ce problème, vous devez désactiver puis réactiver les journaux de flux de groupe de sécurité réseau.
 
-**Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons que la journalisation de flux NSG soit activée sur tous les groupes de sécurité réseau auxquels le sous-réseau ou l’interface réseau d’une ressource est appliqué pour vous assurer que tout le trafic est enregistré. Consultez [Évaluation du trafic](../virtual-network/security-overview.md#how-traffic-is-evaluated) pour obtenir plus d’informations sur les groupes de sécurité réseau. 
+**Activer la journalisation de flux NSG sur tous les groupes de sécurité réseau associés à une ressource** : la journalisation de flux dans Azure est configurée sur la ressource NSG. Un flux ne peut être associé qu’à une règle de groupe de sécurité réseau. Dans les scénarios où plusieurs groupes de sécurité réseau sont utilisés, nous recommandons que la journalisation de flux NSG soit activée sur tous les groupes de sécurité réseau auxquels le sous-réseau ou l’interface réseau d’une ressource est appliqué pour vous assurer que tout le trafic est enregistré. Pour en savoir plus, consultez [Évaluation du trafic](../virtual-network/security-overview.md#how-traffic-is-evaluated) dans les groupes de sécurité réseau.
 
-**Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux d’activité produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Consultez [Tarifs Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/) pour de plus amples informations.
-
-> [!IMPORTANT]
-> Actuellement, il existe un problème où les [journaux de flux de groupe de sécurité réseau](network-watcher-nsg-flow-logging-overview.md) pour Network Watcher ne sont pas automatiquement supprimés du Stockage Blob selon les paramètres de stratégie de rétention. Si vous avez une stratégie de rétention différente de zéro, nous vous recommandons de supprimer régulièrement les blobs de stockage qui ont dépassé leur période de rétention afin d’éviter des frais supplémentaires. Pour plus d’informations sur la suppression des blobs de stockage du journal de flux de groupe de sécurité réseau, consultez [Supprimer des blobs de stockage du journal de flux de groupe de sécurité réseau](network-watcher-delete-nsg-flow-log-blobs.md).
+**Coûts de la journalisation de flux** : la journalisation de flux NSG est facturée selon le volume de journaux d’activité produits. Un volume de trafic élevé peut entraîner un volume important de journaux de flux avec les coûts associés. Les tarifs des journaux de flux NSG n’incluent pas les coûts de stockage afférents. L’utilisation de la fonctionnalité de stratégie de conservation avec la journalisation des flux de groupe de sécurité réseau peut entraîner un volume élevé d’opérations de stockage avec les coûts associés. Si vous n’avez pas besoin de la fonctionnalité de stratégie de conservation, nous vous recommandons de définir cette valeur sur 0. Pour en savoir plus, consultez [Tarifs Network Watcher](https://azure.microsoft.com/pricing/details/network-watcher/) et [Tarifs du stockage Azure](https://azure.microsoft.com/pricing/details/storage/) pour de plus amples informations.
 
 **Flux entrants journalisés à partir d’adresses IP Internet dans des machines virtuelles sans IP publiques** : Les machines virtuelles qui n’ont pas d’IP publique attribuée via une IP publique associée à la carte d’interface réseau en tant qu’IP publique de niveau d’instance, ou qui font partie d’un pool principal équilibreur de charge de base, utilisent une [architecture de système en réseau par défaut](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) et ont une adresse IP affectée par Azure afin de faciliter la connectivité sortante. Par conséquent, vous pouvez observer des entrées de journal de flux pour les flux d’adresses IP Internet, si le flux est destiné à un port dans la plage de ports attribués à l’architecture de système en réseau. Bien qu’Azure n’autorise pas ces flux vers les machines virtuelles, la tentative est journalisée et apparaît par conception dans le journal de flux du Groupe de sécurité réseau Network Watcher. Nous recommandons que le trafic Internet entrant indésirable soit explicitement bloqué avec le Groupe de sécurité réseau.
+
+**Nombre d’octets et de paquets incorrect pour les flux sans état** : [Les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) sont implémentés en tant que [pare-feu avec état](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). Toutefois, de nombreuses règles internes/par défaut qui contrôlent le flux du trafic sont implémentées sans état. En raison des limitations de la plateforme, les nombres d’octets et de paquets ne sont pas enregistrés pour les flux sans état (autrement dit, les flux de trafic passant par les règles sans état), ils sont enregistrés uniquement pour les flux avec état. Par conséquent, le nombre d’octets et de paquets signalé dans les journaux de flux NSG (et Traffic Analytics) peut différer des flux réels. La résolution de cette limitation est prévue avant juin 2020.
 
 ## <a name="sample-log-records"></a>Exemples d’enregistrements de journal
 

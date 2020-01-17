@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: d43f95b91df7d0c9c442339de51936200f4688e2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871157"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75441254"
 ---
 # <a name="linq-to-sql-translation"></a>Conversion LINQ en SQL
 
@@ -64,13 +64,13 @@ Le fournisseur LINQ inclus avec le kit SDK .NET SQL prend en charge les opérate
 - **OrderBy** et **OrderByDescending** : sont convertis en ORDER BY avec ASC ou DESC.
 - Les opérateurs **Count**, **Sum**, **Min**, **Max** et **Average** pour l’agrégation, et leurs équivalents asynchrones **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** et **AverageAsync**.
 - **CompareTo** : se traduit par des comparaisons de plages. Généralement utilisés pour les chaînes, car elles ne sont pas comparables dans .NET.
-- **Take** : est converti en SQL TOP pour limiter les résultats provenant d’une requête.
+- **Skip** et **Take** : traduit en SQL OFFSET et LIMIT afin de limiter les résultats d’une requête et d’effectuer la pagination.
 - **Fonctions mathématiques** : prennent en charge la conversion des fonctions .NET `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`, `Tan` et `Truncate` vers les fonctions intégrées SQL équivalentes.
 - **Fonctions de chaîne** : prennent en charge la conversion des fonctions .NET `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd` et `TrimStart` vers les fonctions intégrées SQL équivalentes.
 - **Fonctions de tableau** : prennent en charge la conversion des fonctions .NET `Concat`, `Contains` et `Count` vers les fonctions intégrées SQL équivalentes.
 - **Fonctions d’extension géospatiale** : prennent en charge la conversion des méthodes stub `Distance`, `IsValid`, `IsValidDetailed` et `Within` vers les fonctions intégrées SQL équivalentes.
 - **Fonction d’extension de fonction définie par l’utilisateur** : prend en charge la conversion de la méthode stub `UserDefinedFunctionProvider.Invoke` vers la fonction définie par l’utilisateur correspondante.
-- **Miscellaneous** : prend en charge la conversion des opérateurs conditionnels et `Coalesce`. Peut convertir traduire `Contains` en chaîne CONTAINS, ARRAY_CONTAINS ou SQL IN, selon le contexte.
+- **Miscellaneous** : prend en charge la conversion des opérateurs conditionnels et `Coalesce`. Peut convertir `Contains` en chaîne CONTAINS, ARRAY_CONTAINS ou SQL IN, selon le contexte.
 
 ## <a name="examples"></a>Exemples
 

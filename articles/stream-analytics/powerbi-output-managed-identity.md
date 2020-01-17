@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0c5f64e08446698bbd8d1ee4af5454e3aa1dd5ff
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 264c434849d5d5afb5934873c75d172a3783ac86
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693790"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459673"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi-preview"></a>Utiliser une identité managée pour authentifier votre travail Azure Stream Analytics vers Power BI (préversion)
 
@@ -19,7 +19,7 @@ L’[authentification d’identité managée](../active-directory/managed-identi
 
 Cet article vous montre comment activer une identité managée pour une ou des sorties Power BI d’un travail Azure Stream Analytics via le Portail Azure et un déploiement d’Azure Resource Manager.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les éléments suivants sont requis pour l’utilisation de cette fonctionnalité :
 
@@ -169,6 +169,29 @@ Azure Resource Manager vous permet d’automatiser entièrement le déploiement 
 3. Sélectionnez **Ajouter** et fermez le volet.
 
    ![Ajouter un travail Stream Analytics à un espace de travail Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-add-job-to-powerbi-workspace.png)
+
+### <a name="use-the-power-bi-powershell-cmdlets"></a>Utiliser les cmdlets PowerShell Power BI
+
+1. Installez les cmdlets PowerShell Power BI `MicrosoftPowerBIMgmt`.
+
+   > [!Important]
+   > Vérifiez que vous utilisez la version 1.0.821 ou ultérieure des cmdlets.
+
+```powershell
+Install-Module -Name MicrosoftPowerBIMgmt
+```
+
+2. Connectez-vous à Power BI.
+
+```powershell
+Login-PowerBI
+```
+
+3. Ajoutez votre travail Stream Analytics en tant que contributeur à l’espace de travail.
+
+```powershell
+Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -PrincipalType App -AccessRight Contributor
+```
 
 ### <a name="use-the-power-bi-rest-api"></a>Utiliser l’API REST Power BI
 

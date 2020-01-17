@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427666"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Guide du langage de spécification des réseaux neuronaux Net# pour Azure Machine Learning Studio (classique)
 
@@ -56,7 +56,7 @@ En outre, Net# prend en charge les quatre types de faisceaux de connexions avanc
 
 ## <a name="supported-customizations"></a>Personnalisations prises en charge
 
-L’architecture des modèles de réseau neuronal que vous créez dans la version classique de Microsoft Azure Machine Learning Studio peut bénéficier d’une personnalisation avancée grâce à Net#. Vous pouvez :
+L’architecture des modèles de réseau neuronal que vous créez dans Microsoft Azure Machine Learning Studio (classique) peut bénéficier d’une personnalisation avancée grâce à Net#. Vous pouvez :
 
 + créer des couches masquées et contrôler le nombre de nœuds dans chaque couche ;
 + spécifier la façon dont les couches doivent être connectées les unes aux autres ;
@@ -454,7 +454,7 @@ output Digit [10] from Hid3 all;
 + Le nombre de poids par noyau est de `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. Ou `26 * 50 = 1300`.
 + Vous pouvez calculer les nœuds de chaque couche masquée comme suit :
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5` `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
 + Vous pouvez calculer le nombre total de nœuds en utilisant la dimensionnalité déclarée de la couche, [50, 5, 5], comme suit : `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`

@@ -1,20 +1,19 @@
 ---
 title: Exécuter des exemples MapReduce Apache Hadoop dans HDInsight - Azure
 description: Bien démarrer avec des exemples MapReduce dans des fichiers jar inclus dans HDInsight. Utilisez le protocole SSH pour vous connecter au cluster, puis utilisez la commande Hadoop pour exécuter des exemples de travaux.
-keywords: exemple de fichier jar Hadoop, exemples de fichiers jar hadoop, exemples mapreduce hadoop, exemples mapreduce
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.author: hrasheed
-ms.openlocfilehash: f0251e3926c569b45ebebcd18b98df5af4564443
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 12/12/2019
+ms.openlocfilehash: 58f7d99af638c8d03bbce46b7fcf8204aaca11d9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706666"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435747"
 ---
 # <a name="run-the-mapreduce-examples-included-in-hdinsight"></a>Exécuter les exemples MapReduce inclus dans HDInsight
 
@@ -22,7 +21,7 @@ ms.locfileid: "64706666"
 
 Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dans HDInsight.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un cluster Apache Hadoop sur HDInsight. Consultez [Bien démarrer avec HDInsight sur Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
@@ -30,34 +29,34 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
 
 ## <a name="the-mapreduce-examples"></a>Exemples MapReduce
 
-**Emplacement** : Les exemples se trouvent sur le cluster HDInsight dans `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`.
+Les exemples se trouvent sur le cluster HDInsight dans `/usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar`. Le code source de ces exemples est inclus dans le cluster HDInsight dans `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
 
-**Contenu** : Les exemples suivants sont contenus dans cette archive :
+Les exemples suivants sont contenus dans cette archive :
 
-* `aggregatewordcount`: Programme mapreduce basé sur une agrégation qui compte les mots des fichiers d’entrée.
-* `aggregatewordhist`: Programme mapreduce basé sur une agrégation qui calcule l’histogramme des mots des fichiers d’entrée.
-* `bbp`: Programme mapreduce qui utilise Bailey-Borwein-Plouffe pour calculer les chiffres exacts de Pi.
-* `dbcount`: Exemple de travail qui compte les journaux d’activité de consultation de pages stockés dans une base de données.
-* `distbbp`: Programme mapreduce qui utilise une formule de type BBP pour calculer le nombre exact de bits de Pi.
-* `grep`: Programme mapreduce qui compte les correspondances regex dans l’entrée.
-* `join`: Travail qui effectue une jointure sur des jeux de données triés, à partition égale.
-* `multifilewc`: Travail qui compte les mots de plusieurs fichiers.
-* `pentomino`: Programme mapreduce de disposition de vignettes permettant de trouver des solutions aux problèmes de pentomino.
-* `pi`: Programme mapreduce qui estime la valeur de Pi à l’aide de la méthode quasi Monte-Carlo.
-* `randomtextwriter`: Programme mapreduce qui écrit 10 Go de données textuelles aléatoires par nœud.
-* `randomwriter`: Programme mapreduce qui écrit 10 Go de données aléatoires par nœud.
-* `secondarysort`: Exemple définissant un tri secondaire lors de la phase de réduction.
-* `sort`: Programme mapreduce qui trie les données écrites par l’enregistreur aléatoire.
-* `sudoku`: Solveur de sudoku.
-* `teragen`: Générateur de données pour le programme terasort.
-* `terasort`: Exécute le terasort.
-* `teravalidate`: Vérification des résultats du programme terasort.
-* `wordcount`: Programme mapreduce qui compte les mots des fichiers d’entrée.
-* `wordmean`: Programme mapreduce qui compte la longueur moyenne des mots dans les fichiers d’entrée.
-* `wordmedian`: Programme mapreduce qui compte la longueur moyenne des mots dans les fichiers d’entrée.
-* `wordstandarddeviation`: Programme mapreduce qui compte l’écart type de la longueur des mots dans les fichiers d’entrée.
-
-**Code source** : Le code source de ces exemples est inclus dans le cluster HDInsight dans `/usr/hdp/current/hadoop-client/src/hadoop-mapreduce-project/hadoop-mapreduce-examples`.
+|Exemple |Description |
+|---|---|
+|aggregatewordcount|Compte les Mots dans les fichiers d’entrée.|
+|aggregatewordhist|Calcule l’histogramme des Mots dans les fichiers d’entrée.|
+|bbp|Utilise Bailey-Borwein-Plouffe pour calculer le nombre exact de chiffres de Pi.|
+|dbcount|Compte les journaux d’activité de consultation de pages stockés dans une base de données.|
+|distbbp|Utilise une formule de type BBP pour calculer le nombre exact de bits de Pi.|
+|grep|Compte les correspondances regex dans l’entrée.|
+|join|Effectue une jointure sur des jeux de données triés, à partition égale.|
+|multifilewc|Compte les Mots de plusieurs fichiers.|
+|pentomino|Programme de disposition de vignettes permettant de trouver des solutions aux problèmes de pentomino.|
+|pi|Estime la valeur de Pi à l’aide de la méthode quasi Monte-Carlo.|
+|randomtextwriter|Écrit 10 Go de données textuelles aléatoires par nœud.|
+|randomwriter|Écrit 10 Go de données aléatoires par nœud.|
+|secondarysort|Définit un tri secondaire lors de la phase de réduction.|
+|sort|Trie les données écrites par l’enregistreur aléatoire.|
+|sudoku|Solveur de sudoku.|
+|teragen|Générateur de données pour le programme terasort.|
+|terasort|Exécute le terasort.|
+|teravalidate|Vérification des résultats du programme terasort.|
+|wordcount|Compte les Mots dans les fichiers d’entrée.|
+|wordmean|Compte la longueur Moyenne des Mots dans les fichiers d’entrée.|
+|wordmedian|Compte la longueur médiane des Mots dans les fichiers d’entrée.|
+|wordstandarddeviation|Compte l’écart type de la longueur des Mots dans les fichiers d’entrée.|
 
 ## <a name="run-the-wordcount-example"></a>Exécuter l’exemple wordcount
 
@@ -67,7 +66,7 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
     ssh sshuser@CLUSTER-ssh.azurehdinsight.net
     ```
 
-2. À l’invite `username@#######:~$` , utilisez la commande suivante pour répertorier les exemples :
+2. Dans la session SSH, utilisez la commande suivante pour répertorier les exemples :
 
     ```bash
     yarn jar /usr/hdp/current/hadoop-mapreduce-client/hadoop-mapreduce-examples.jar
@@ -83,7 +82,9 @@ Découvrez comment exécuter les exemples MapReduce inclus à Apache Hadoop dan
 
     Le message suivant s’affiche :
 
-        Usage: wordcount <in> [<in>...] <out>
+    ```output
+    Usage: wordcount <in> [<in>...] <out>
+    ```
 
     Ce message indique que vous pouvez fournir plusieurs chemins d’accès d’entrée pour les documents sources. Le chemin d’accès final correspond à l’emplacement de stockage de la sortie (nombre de mots dans les documents sources).
 
@@ -209,6 +210,5 @@ Utilisez les étapes suivantes pour générer des données, trier, puis valider 
 
 Dans cet article, vous avez appris à exécuter les exemples inclus avec les clusters HDInsight sous Linux. Pour des didacticiels sur l’utilisation de Pig, Hive et MapReduce avec HDInsight, consultez les rubriques suivantes :
 
-* [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
 * [Utiliser Apache Hive avec Apache Hadoop sur HDInsight](hdinsight-use-hive.md)
 * [Utiliser MapReduce avec Apache Hadoop sur HDInsight](hdinsight-use-mapreduce.md)

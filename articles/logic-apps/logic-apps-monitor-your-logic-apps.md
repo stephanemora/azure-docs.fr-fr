@@ -1,6 +1,6 @@
 ---
 title: Vérifier l’état, configurer la journalisation et recevoir des alertes
-description: Superviser l’état, journaliser les données de diagnostic et configurer les alertes pour Azure Logic Apps
+description: Surveiller l’état, configurer la journalisation et activer les alertes pour diagnostiquer les erreurs et les problèmes dans Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 07/21/2017
-ms.openlocfilehash: ca1e2836ddfb38de640a5a90cf53e416b8923c04
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ce29d6eb7bfefea6d9030d4cbb162936ff60c83d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791914"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428795"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -291,6 +291,6 @@ Par exemple, l’événement `ActionCompleted` a les propriétés `clientTrackin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Automatiser le déploiement de l’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatiser le déploiement d’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Scénarios B2B et communication avec Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Surveiller les messages B2B](../logic-apps/logic-apps-monitor-b2b-message.md)

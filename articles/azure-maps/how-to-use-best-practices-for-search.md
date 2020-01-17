@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429177"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408714"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Meilleures pratiques en matière d’utilisation du service Recherche Azure Maps
 
@@ -25,9 +25,9 @@ Le [service Recherche](https://docs.microsoft.com/rest/api/maps/search) Azure Ma
 * Lire la structure de réponse des recherches d’adresse
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte, suivez les instructions fournies dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) et les étapes décrites dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin de récupérer une clé primaire d’abonnement pour votre compte.
+Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour plus d’informations sur la création d’un compte, suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) et les étapes décrites dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin de récupérer une clé primaire d’abonnement pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 > [!Tip]
 > Pour interroger le service de recherche, vous pouvez utiliser [l’application Postman](https://www.getpostman.com/apps) afin de générer des appels REST, ou vous avez la possibilité de recourir à l’environnement de développement d’API que vous préférez.

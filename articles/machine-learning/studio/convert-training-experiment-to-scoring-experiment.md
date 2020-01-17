@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 03/28/2017
-ms.openlocfilehash: 4b07150ac9f35085763786c505d3d746428a542b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e397cfaa9ce521ebe3c2f46ef6cc015bff3112f7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839678"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75454824"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio-classic"></a>Comment préparer un modèle au déploiement dans Azure Machine Learning Studio (classique)
 
 Azure Machine Learning Studio (classique) vous donne les outils nécessaires pour développer un modèle d’analyse prédictive, puis le faire fonctionner en le déployant sous forme de service web Azure.
 
-Pour cela, vous utiliserez la version classique de Studio afin de créer une expérience, appelée *expérience de formation*, dans laquelle vous entraînerez, évaluerez et modifierez votre modèle. Une fois satisfait, vous préparerez votre modèle au déploiement en convertissant votre expérience de formation en une *expérience prédictive* configurée pour évaluer les données utilisateur.
+Pour cela, vous utiliserez Studio (classique) afin de créer une expérience, appelée *expérience de formation*, dans laquelle vous entraînerez, évaluerez et Modifierez votre Modèle. Une fois satisfait, vous préparerez votre modèle au déploiement en convertissant votre expérience de formation en une *expérience prédictive* configurée pour évaluer les données utilisateur.
 
 Vous pouvez voir un exemple de ce processus dans [Tutoriel 1 : Prédire le risque de crédit](tutorial-part1-credit-risk.md).
 
@@ -28,7 +28,7 @@ Cet article étudie en détail la façon dont une expérience de formation est c
 
 
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d’ensemble 
 
 Le processus de conversion d’une expérience d’apprentissage en expérience prédictive comprend trois étapes :
 

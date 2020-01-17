@@ -3,12 +3,12 @@ title: Vue d’ensemble des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 874d2e657c2c9d7cba7874ff9815c61f9bbe8ef7
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941700"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75433079"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -115,7 +115,7 @@ La version du runtime Functions utilisée par les applications publiées dans Az
 
 ### <a name="locally-developed-application-versions"></a>Versions d’une application développée en local
 
-Vous pouvez effectuer les mises à jour suivantes aux applications de fonction qui changent localement les versions ciblées.
+Vous pouvez effectuer les mises à jour suivantes sur les applications de fonction afin de changer localement les versions ciblées.
 
 #### <a name="visual-studio-runtime-versions"></a>Versions du runtime Visual Studio
 

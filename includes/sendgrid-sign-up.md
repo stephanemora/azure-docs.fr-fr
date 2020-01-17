@@ -1,24 +1,24 @@
 ---
-author: erikre
+author: georgewallace
 ms.service: multiple
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: erikre
-ms.openlocfilehash: 96c4da8465a87fee4c00bfc6177515c94910704a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: gwallace
+ms.openlocfilehash: e38cecfe206f21f9189493e7ed6e8f0cadda9cd9
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176740"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75463537"
 ---
-Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à [toutes les API][all APIs] (Web, SMTP, Event, Parse, etc.). Pour plus d’informations sur les services supplémentaires proposés par SendGrid, visitez la page [Solutions SendGrid][SendGrid Solutions].
+Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits chaque mois. Ces 25 000 courriers électroniques mensuels gratuits vous donnent accès aux rapports avancés, aux analyses et à [toutes les API][all APIs] (Web, SMTP, Event, Parse, etc.). Pour plus d’informations sur les services supplémentaires proposés par SendGrid, visitez la page [Solutions SendGrid][SendGrid Solutions].
 
 ### <a name="to-sign-up-for-a-sendgrid-account"></a>Création d’un compte SendGrid
 1. Connectez-vous au [portail Azure][Azure portal].
-2. Dans le menu de gauche, cliquez sur **Créer une ressource**.
+2. Dans le menu du portail Azure ou dans la page d’accueil, sélectionnez **Créer une ressource**.
 
     ![command-bar-new][command-bar-new]
-3. Cliquez sur **Modules complémentaires**, puis sur **Service de messagerie SendGrid**.
+3. Recherchez et sélectionnez **SendGrid**.
 
     ![store-sendgrid][sendgrid-store]
 4. Remplissez le formulaire d’inscription, puis sélectionnez **Créer**.
@@ -34,11 +34,11 @@ Les clients Azure peuvent débloquer 25 000 courriers électroniques gratuits 
 10. Saisissez un **code de promotion**, le cas échéant.
 11. Entrez vos **informations de contact**.
 12. Lisez et acceptez les **conditions juridiques**.
-13. Après avoir confirmé votre achat, une fenêtre contextuelle **Déploiement a réussi** apparaît et votre compte s’affiche dans la section **Toutes les ressources**.
+13. Après avoir confirmé votre achat, une fenêtre contextuelle **Déploiement a réussi** apparaît et votre compte s’affiche.
 
     ![toutes-les-ressources][all-resources]
 
-    Après avoir effectué votre achat et cliqué sur le bouton **Gérer** pour lancer le processus de vérification par courrier électronique, vous recevrez un e-mail de la part de SendGrid vous demandant de vérifier votre compte. Si vous ne recevez pas cet e-mail ou si vous avez des difficultés pour vérifier votre compte, veuillez consulter ce forum aux questions.
+    Après avoir effectué votre achat et cliqué sur le bouton **Gérer** pour lancer le processus de vérification par courrier électronique, vous recevrez un e-mail de la part de SendGrid vous demandant de vérifier votre compte. Si vous ne recevez pas cet e-mail ou si vous avez des difficultés pour vérifier votre compte, veuillez consulter notre FAQ.
 
     ![gestion][manage]
 

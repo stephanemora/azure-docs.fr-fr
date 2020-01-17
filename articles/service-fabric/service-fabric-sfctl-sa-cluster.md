@@ -1,25 +1,16 @@
 ---
-title: Interface de ligne de commande Azure Service Fabric - sfctl sa-cluster | Microsoft Docs
-description: Décrit les commandes de cluster autonome sfctl de l’interface de ligne de commande Azure Service Fabric.
-services: service-fabric
-documentationcenter: na
+title: 'Azure Service Fabric CLI : sfctl sa-cluster'
+description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient une liste de commandes pour la gestion des clusters autonomes.
 author: jeffj6123
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: cli
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: multiple
 ms.date: 9/17/2019
 ms.author: jejarry
-ms.openlocfilehash: ecdd288d7cb320b91ab4c69697d334f8d9459e62
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 765d7d76cb13758417bb3927ff9620026ca763b1
+ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901012"
+ms.lasthandoff: 01/03/2020
+ms.locfileid: "75646022"
 ---
 # <a name="sfctl-sa-cluster"></a>sfctl sa-cluster
 Permet de gérer les clusters Service Fabric autonomes.
@@ -48,11 +39,11 @@ La configuration du cluster contient les propriétés du cluster qui incluent de
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ## <a name="sfctl-sa-cluster-config-upgrade"></a>sfctl sa-cluster config-upgrade
 Commence la mise à niveau de la configuration d’un cluster autonome Service Fabric.
@@ -80,11 +71,11 @@ Valide les paramètres de mise à niveau de la configuration fournis et démarre
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 ### <a name="examples"></a>Exemples
 
@@ -109,11 +100,11 @@ Permet d’obtenir les détails de l’état de mise à niveau de la configurati
 
 |Argument|Description|
 | --- | --- |
-| --debug | Augmente le détail de la journalisation pour afficher tous les journaux d’activité de débogage. |
-| --help -h | Affiche ce message d’aide et quitte. |
+| --debug | Augmentez le niveau de détail de la journalisation pour afficher tous les journaux de débogage. |
+| --help -h | Affichez ce message d’aide et quittez. |
 | --output -o | Format de sortie.  Valeurs autorisées \: json, jsonc, table, tsv.  Valeur par défaut \: json. |
-| --query | Chaîne de requête JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
-| --verbose | Augmente le détail de la journalisation. Utilisez --debug pour les journaux d’activité de débogage complets. |
+| --query | Chaîne de requêtes JMESPath. Pour obtenir plus d’informations et des exemples, consultez : http\://jmespath.org/. |
+| --verbose | Augmentez le niveau de détail de la journalisation. Utilisez --debug pour des journaux de débogage complets. |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

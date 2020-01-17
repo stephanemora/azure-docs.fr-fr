@@ -1,7 +1,7 @@
 ---
 title: 'Transformation de sélection de colonnes : sur le module Modifier les métadonnées'
-titleSuffix: Azure Machine Learning service
-description: Découvrez comment utiliser le module Transformation de sélection de colonnes dans le service Azure Machine Learning pour créer une transformation qui sélectionne le même sous-ensemble de colonnes que dans le jeu de données concerné.
+titleSuffix: Azure Machine Learning
+description: Découvrez comment utiliser le module Transformation de sélection de colonnes dans Azure Machine Learning pour créer une transformation qui sélectionne le même sous-ensemble de colonnes que dans le jeu de données concerné.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 383adeb2bd081893d4202239cb97c12bf9a5a170
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75428474"
 ---
 # <a name="select-columns-transform"></a>Transformation de sélection de colonnes
 
@@ -55,4 +55,4 @@ Ce processus d’enregistrement, puis d’application d’une sélection de colo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning service. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

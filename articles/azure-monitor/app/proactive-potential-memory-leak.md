@@ -1,5 +1,5 @@
 ---
-title: Détection intelligente - Fuite de mémoire potentielle détectée par Azure Application Insights | Microsoft Docs
+title: Détecter des fuites de mémoire - Détection intelligente Azure Application Insights
 description: Surveiller les applications avec Azure Application Insights pour détecter les fuites de mémoire potentielles.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/12/2017
-ms.openlocfilehash: f07da754c6c9e0ad0541db12740c1d80f7f884fd
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cc6074732a86be02a8d8c596c46e154db4e8ad7f
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75406458"
 ---
 # <a name="memory-leak-detection-preview"></a>Détection des fuites de mémoire (version préliminaire)
 
@@ -28,6 +28,6 @@ Non, une notification ne signifie pas que votre application rencontre réellemen
 
 ## <a name="how-do-i-fix-it"></a>Comment la corriger ?
 Les notifications incluent des informations de diagnostic qui facilitent le processus d’analyse de diagnostic :
-1. **Tri.** La notification vous montre la quantité d’augmentation de mémoire (en Go) et l’intervalle de temps au cours duquel celle-ci s’est produite. Ceci vous permet d’attribuer une priorité au problème.
+1. **Triage.** La notification vous montre la quantité d’augmentation de mémoire (en Go) et l’intervalle de temps au cours duquel celle-ci s’est produite. Ceci vous permet d’attribuer une priorité au problème.
 2. **Portée.** Combien de machines présentent un modèle de fuite de mémoire ? Combien d’exceptions ont été déclenchées au cours de la fuite de mémoire potentielle ? Ces informations peuvent être obtenues dans la notification.
 3. **Diagnostic**. La détection contient le modèle de fuite de mémoire, montrant la consommation de mémoire du processus au fil du temps. Pour mieux diagnostiquer le problème, vous pouvez également utiliser les éléments liés et les rapports pointant vers des informations de prise en charge.

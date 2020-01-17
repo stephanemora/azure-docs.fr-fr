@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: dcd2f5f00c00ce0f74c07bfb7ba8e81316d9a53e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8a7e5243428eb88a2757b675c7d66dbfb3c66a30
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456670"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75459983"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Charger un disque dur virtuel dans Azure à l'aide d'Azure PowerShell
 
@@ -23,11 +23,11 @@ Si vous fournissez une solution de sauvegarde pour les machines virtuelles IaaS 
 
 Actuellement, le chargement direct est pris en charge pour les disques managés de type HDD Standard, SSD Standard et SSD Premium. Il n'est pas encore pris en charge pour les disques SSD Ultra.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Téléchargez la dernière [version d'AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
+- Téléchargez la dernière [version d’AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installez le module Azure PowerShell](/powershell/azure/install-Az-ps).
-- Si vous envisagez de charger un disque dur virtuel à partir de on-pem : Un disque dur virtuel [préparé pour Azure](prepare-for-upload-vhd-image.md) et stocké localement.
+- Si vous envisagez de charger un VHD à partir d’un emplacement local : Un VHD [préparé pour Azure](prepare-for-upload-vhd-image.md) et stocké localement.
 - Ou un disque managé dans Azure, si vous envisagez d’effectuer une action de copie.
 
 ## <a name="create-an-empty-managed-disk"></a>Créer un disque managé vierge
@@ -71,7 +71,7 @@ Maintenant que vous disposez d'une SAS pour votre disque managé vierge, vous po
 
 Utilisez AzCopy v10 pour charger votre fichier de disque dur virtuel local sur un disque managé en spécifiant l'URI de la SAS que vous avez générée.
 
-Ce chargement présente le même débit que le disque [HDD Standard](disks-types.md#standard-hdd) correspondant. Par exemple, pour une taille correspondant à S4, vous aurez un débit allant jusqu'à 60 Mio/s. Mais pour une taille correspondant à S70, le débit ira jusqu'à 500 Mio/s.
+Ce chargement présente le même débit que le disque [HDD Standard](disks-types.md#standard-hdd) correspondant. Par exemple, pour une taille correspondant à S4, vous aurez un débit allant jusqu'à 60 Mio/s. Mais pour une taille correspondant à S70, le débit ira jusqu’à 500 Mio/s.
 
 ```
 AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
@@ -79,7 +79,7 @@ AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageB
 
 Si votre SAS expire pendant le chargement et que vous n'avez pas encore appelé `revoke-access`, vous pouvez obtenir une nouvelle SAS pour poursuivre le chargement en utilisant de nouveau `grant-access`.
 
-Lorsque vous avez terminé le chargement et que vous n'avez plus rien à écrire sur le disque, révoquez la SAS. La révocation de la SAS changera l'état du disque managé et vous permettra de le joindre à une machine virtuelle.
+Lorsque vous avez terminé le chargement et que vous n’avez plus rien à écrire sur le disque, révoquez la SAS. La révocation de la SAS changera l'état du disque managé et vous permettra de le joindre à une machine virtuelle.
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
@@ -92,7 +92,7 @@ Le chargement direct simplifie également le processus de copie d’un disque ma
 Le script suivant effectuera cette opération pour vous. Le processus est similaire aux étapes décrites précédemment, à quelques différences près puisque vous utilisez un disque existant.
 
 > [!IMPORTANT]
-> Vous devez ajouter un décalage de 512 quand vous fournissez la taille en octets d’un disque managé d’Azure. En effet, Azure omet le pied de page lors du retour de la taille du disque. Si vous ne le faites pas, la copie échouera. Le script suivant s'en charge pour vous.
+> Vous devez ajouter un décalage de 512 quand vous fournissez la taille en octets d’un disque managé d’Azure. En effet, Azure omet le pied de page lors du retour de la taille du disque. Si vous ne le faites pas, la copie échouera. Le script suivant s’en charge pour vous.
 
 Remplacez `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` et `<yourTargetLocationHere>` (la valeur d'emplacement pourrait par exemple être uswest2) par vos valeurs, puis exécutez le script suivant afin de copier un disque managé.
 

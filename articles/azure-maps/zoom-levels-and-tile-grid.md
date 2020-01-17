@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6dced7106b59f0e5a05c7ed6ff3e3368978cb083
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407582"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
 
@@ -47,7 +47,7 @@ Le tableau suivant fournit la liste complète des valeurs pour les niveaux de zo
 |2|39135.8|10018764.8|
 |3|19567.9|5009382.4|
 |4|9783.9|2504678.4|
-|5\.|4892|1252352|
+|5|4892|1252352|
 |6|2446|626176|
 |7|1223|313088|
 |8|611.5|156544|
@@ -138,12 +138,12 @@ La grille de zoom pour le niveau de zoom 1 est proposée ici :
 
 ## <a name="quadkey-indices"></a>Index Quadkey
 
-Certaines plateformes de mappage utilisent une convention d’affectation de noms d’indexation quadkey qui associe les coordonnées ZY d’une mosaïque dans une chaîne à une seule dimension appelée clés quadtree ou « quadkeys » en abrégé. Chaque quadkey identifie de façon unique une seule mosaïque à un niveau de détail particulier et elle peut être utilisée comme clé dans les index B-Tree des bases de données courantes. Les kits de développement logiciel (SDK) Azure Maps prennent en charge la superposition des couches de mosaïques qui utilisent la Convention d’affectation de noms quadkey en plus des autres conventions d’affectation de noms, décrites dans le document [Ajouter une couche de mosaïques](map-add-tile-layer.md).
+Certaines plateformes de mappage utilisent une convention d’affectation de noms d’indexation `quadkey` qui associe les coordonnées ZY d’une mosaïque dans une chaîne à une seule dimension appelée clés `quadtree` ou `quadkeys` en abrégé. Chaque `quadkey` identifie de façon unique une seule mosaïque à un niveau de détail particulier et elle peut être utilisée comme clé dans les index B-Tree des bases de données courantes. Les kits de développement logiciel (SDK) Azure Maps prennent en charge la superposition des couches de mosaïques qui utilisent la Convention d’affectation de noms `quadkey` en plus des autres conventions d’affectation de noms, décrites dans le document [Ajouter une couche de mosaïques](map-add-tile-layer.md).
 
 > [!NOTE]
-> La convention d’affectation de noms quadkeys fonctionne uniquement pour les niveaux de zoom de niveau un ou plus. Le Kit de développement logiciel (SDK) Azure Maps prend en charge le niveau de zoom 0, qui constitué d’une seule mosaïque pour l’ensemble du monde. 
+> La convention d’affectation de noms `quadkeys` fonctionne uniquement pour les niveaux de zoom de niveau un ou plus. Le Kit de développement logiciel (SDK) Azure Maps prend en charge le niveau de zoom 0, qui constitué d’une seule mosaïque pour l’ensemble du monde. 
 
-Pour convertir des coordonnées de mosaïque en une quadkey, les bits des coordonnées Y et X sont entrelacés, et le résultat est interprété comme un nombre en base 4 (avec des zéros non significatifs) et converti en chaîne. Par exemple, avec les coordonnées XY (3, 5) d’une mosaïque donnée au niveau 3, la quadkey est déterminée comme suit:
+Pour convertir des coordonnées de mosaïque en une `quadkey`, les bits des coordonnées Y et X sont entrelacés, et le résultat est interprété comme un nombre en base 4 (avec des zéros non significatifs) et converti en chaîne. Par exemple, avec les coordonnées XY (3, 5) d’une mosaïque donnée au niveau 3, la `quadkey` est déterminée comme suit :
 
 ```
 tileX = 3 = 011 (base 2)
@@ -153,13 +153,13 @@ tileY = 5 = 1012 (base 2)
 quadkey = 100111 (base 2) = 213 (base 4) = "213"
 ```
 
-Les quadkeys possèdent plusieurs propriétés intéressantes. Tout d’abord, la longueur d’une quadkey (le nombre de chiffres) est égale au niveau de zoom de la mosaïque correspondante. Deuxièmement, la quadkey de toute mosaïque commence par la quadkey de sa mosaïque parente (la mosaïque conteneur au niveau précédent). Comme indiqué dans l’exemple ci-dessous, la mosaïque 2 est le parent des mosaïques 20 à 23 :
+Les `Qquadkeys` possèdent plusieurs propriétés intéressantes. Tout d’abord, la longueur d’une `quadkey` (le nombre de chiffres) est égale au niveau de zoom de la mosaïque correspondante. Deuxièmement, la `quadkey` de toute mosaïque commence par la `quadkey` de sa mosaïque parente (la mosaïque conteneur au niveau précédent). Comme indiqué dans l’exemple ci-dessous, la mosaïque 2 est le parent des mosaïques 20 à 23 :
 
 <center>
 
 ![Pyramide de mosaïques quadkey](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Enfin, les quadkeys fournissent une clé d’index unidimensionnelle qui préserve habituellement la proximité des mosaïques dans l’espace XY. En d’autres termes, deux mosaïques ayant des coordonnées XY proches ont généralement des quadkeys relativement proches les unes des autres. Cela est important pour optimiser les performances de la base de données, car les mosaïques voisines font souvent l’objet de requêtes dans des groupes et il est souhaitable de les conserver sur les mêmes blocs de disque, afin de réduire le nombre de lectures.
+Enfin, les `quadkeys` fournissent une clé d’index unidimensionnelle qui préserve habituellement la proximité des mosaïques dans l’espace XY. En d’autres termes, deux mosaïques ayant des coordonnées XY proches ont généralement des `quadkeys` relativement proches les unes des autres. Cela est important pour optimiser les performances de la base de données, car les mosaïques voisines font souvent l’objet de requêtes dans des groupes et il est souhaitable de les conserver sur les mêmes blocs de disque, afin de réduire le nombre de lectures.
 
 ## <a name="tile-math-source-code"></a>Code source mathématique de mosaïque
 
@@ -422,6 +422,7 @@ namespace AzureMaps
             var sinLatitude = Math.Sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.Log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = MapSize(zoom, tileSize);
             tileX = (int)Math.Floor(Clip(x * mapSize + 0.5, 0, mapSize - 1) / tileSize);
             tileY = (int)Math.Floor(Clip(y * mapSize + 0.5, 0, mapSize - 1) / tileSize);
@@ -802,6 +803,7 @@ module AzureMaps {
             var sinLatitude = Math.sin(latitude * Math.PI / 180);
             var y = 0.5 - Math.log((1 + sinLatitude) / (1 - sinLatitude)) / (4 * Math.PI);
 
+            //tileSize needed in calculations as in rare cases the multiplying/rounding/dividing can make the difference of a pixel which can result in a completely different tile. 
             var mapSize = this.MapSize(zoom, tileSize);
 
             return {

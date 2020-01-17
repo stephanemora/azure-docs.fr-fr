@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75392344"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
@@ -21,7 +21,7 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 > [!NOTE]
 > Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. Si aucune colonne de limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables. Si ces limites ont été augmentées par le support dans le passé et si vous ne voyez pas les limites mises à jour dans les tables suivantes, vous pouvez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| Ressource | Limite maximale/par défaut | 
+| Ressource | Limite par défaut/maximale | 
 | --- | --- |
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
@@ -59,13 +59,12 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
-| Ressource | Limite maximale/par défaut |
+| Ressource | Limite par défaut/maximale |
 | --- | --- |
 | Équilibreurs de charge | 1 000 | 
 | Règles par ressource, De base | 250 |
 | Règles par ressource, Standard | 1 500 | 
-| Règles par configuration IP | 299 |
-| Règles par groupe de sécurité réseau | 300 |
+| Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300 |
 | Configuration d’adresses IP frontales, De base | 200 |
 | Configurations d’adresses IP frontales, Standard | 600 |
 | Pool principal, De base | 100, un seul groupe à haute disponibilité |
@@ -90,6 +89,6 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 | Itinéraires définis par l’utilisateur par table d’itinéraire |400 |400 |
 | Adresses IP publiques (dynamiques) |500 |500 |
 | Adresses IP publiques réservées |500 |500 |
-| Adresse IP virtuelle publique par déploiement |5\. |Contacter le support technique |
+| Adresse IP virtuelle publique par déploiement |5 |Contacter le support technique |
 | Adresses IP virtuelles privées (équilibrage de charge interne) par déploiement |1 |1 |
 | Listes de contrôle d’accès (ACL) par point de terminaison |50 |50 |

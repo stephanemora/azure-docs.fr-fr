@@ -1,25 +1,14 @@
 ---
-title: Modèle d’application Azure Service Fabric | Microsoft Docs
-description: Comment modéliser et décrire des applications et des services dans Service Fabric.
-services: service-fabric
-documentationcenter: .net
-author: athinanthny
-manager: chackdan
-editor: mani-ramaswamy
-ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
-ms.service: service-fabric
-ms.devlang: dotnet
+title: Modèle d’application Azure Service Fabric
+description: Comment modéliser et décrire des applications et des services dans Azure Service Fabric à l’aide de fichiers manifestes d’application et de service.
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 2/23/2018
-ms.author: atsenthi
-ms.openlocfilehash: 750970233cbcb14d901dbb5fa94f649f6ff8ae6c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7179686b7d4ef2df267cb95ece8f83d5fb7682b8
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60621410"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551877"
 ---
 # <a name="model-an-application-in-service-fabric"></a>Modéliser une application dans Service Fabric
 Cet article fournit une vue d’ensemble du modèle d’application Azure Service Fabric et explique comment définir une application et un service via des fichiers manifestes.

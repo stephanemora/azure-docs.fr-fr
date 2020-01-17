@@ -1,6 +1,6 @@
 ---
-title: Déployer des modules à partir de la ligne de commande - Azure IoT Edge | Microsoft Docs
-description: Utiliser l’extension IoT pour Azure CLI afin de déployer des modules sur un appareil IoT Edge
+title: Déployer des Modules à partir de la ligne de commande Azure CLI - Azure IoT Edge
+description: Utilisez Azure CLI avec l’extension Azure IoT pour envoyer un Module IoT Edge de votre IoT Hub à votre appareil IoT Edge, comme configuré par un manifeste de déploiement.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 72535b69c81aee880eb16bf5d10e11dedb36f3a7
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c63180e77a15c6fc7cbee06ad2eb344b50b97ab7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457458"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75434339"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Déployer des modules Azure IoT Edge avec Azure CLI
 
@@ -24,7 +24,7 @@ Une fois que vous avez créé des modules IoT Edge avec votre logique métier, v
 
 Cet article explique comment créer un manifeste de déploiement JSON, puis utiliser ce fichier pour étendre le déploiement à un appareil IoT Edge. Pour plus d’informations sur la création d’un déploiement ciblant plusieurs appareils en fonction de leurs balises partagées, consultez [Déployer et surveiller des modules IoT Edge à grande échelle](how-to-deploy-monitor-cli.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un [hub IoT](../iot-hub/iot-hub-create-using-cli.md) dans votre abonnement Azure.
 * Un [appareil IoT Edge](how-to-register-device.md#register-with-the-azure-cli) avec le runtime IoT Edge installé.
@@ -39,69 +39,74 @@ Pour déployer des modules avec Azure CLI, enregistrez localement le manifeste d
 
 Par exemple, voici un manifeste de déploiement de base comportant un seul module :
 
-   ```json
-   {
-     "modulesContent": {
-       "$edgeAgent": {
-         "properties.desired": {
-           "schemaVersion": "1.0",
-           "runtime": {
-             "type": "docker",
-             "settings": {
-               "minDockerVersion": "v1.25",
-               "loggingOptions": "",
-               "registryCredentials": {}
-             }
-           },
-           "systemModules": {
-             "edgeAgent": {
-               "type": "docker",
-               "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-                 "createOptions": "{}"
-               }
-             },
-             "edgeHub": {
-               "type": "docker",
-               "status": "running",
-               "restartPolicy": "always",
-               "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-                 "createOptions": "{}"
-               }
-             }
-           },
-           "modules": {
-             "SimulatedTemperatureSensor": {
-               "version": "1.0",
-               "type": "docker",
-               "status": "running",
-               "restartPolicy": "always",
-               "settings": {
-                 "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
-                 "createOptions": "{}"
-               }
-             }
-           }
-         }
-       },
-       "$edgeHub": {
-         "properties.desired": {
-           "schemaVersion": "1.0",
-           "routes": {
-               "route": "FROM /* INTO $upstream"
-           },
-           "storeAndForwardConfiguration": {
-             "timeToLiveSecs": 7200
-           }
-         }
-       },
-       "SimulatedTemperatureSensor": {
-         "properties.desired": {}
-       }
-     }
-   }
-   ```
+```json
+{
+  "content": {
+    "modulesContent": {
+      "$edgeAgent": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "runtime": {
+            "type": "docker",
+            "settings": {
+              "minDockerVersion": "v1.25",
+              "loggingOptions": "",
+              "registryCredentials": {}
+            }
+          },
+          "systemModules": {
+            "edgeAgent": {
+              "type": "docker",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "createOptions": "{}"
+              }
+            },
+            "edgeHub": {
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
+              }
+            }
+          },
+          "modules": {
+            "SimulatedTemperatureSensor": {
+              "version": "1.0",
+              "type": "docker",
+              "status": "running",
+              "restartPolicy": "always",
+              "settings": {
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0",
+                "createOptions": "{}"
+              }
+            }
+          }
+        }
+      },
+      "$edgeHub": {
+        "properties.desired": {
+          "schemaVersion": "1.0",
+          "routes": {
+            "upstream": "FROM /messages/* INTO $upstream"
+          },
+          "storeAndForwardConfiguration": {
+            "timeToLiveSecs": 7200
+          }
+        }
+      },
+      "SimulatedTemperatureSensor": {
+        "properties.desired": {
+          "SendData": true,
+          "SendInterval": 5
+        }
+      }
+    }
+  }
+}
+```
 
 ## <a name="deploy-to-your-device"></a>Déployer sur votre appareil
 

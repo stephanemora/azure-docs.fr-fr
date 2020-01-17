@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5c045a4b5ccda47b786d86f1c004e9da4c8d85f3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112297"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75374703"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modèle de série chronologique dans Azure Time Series Insights en préversion
 
@@ -24,12 +24,13 @@ Cet article décrit le modèle de série chronologique, les fonctionnalités et 
 > [!TIP]
 >  * Pour obtenir un exemple de modèle de série chronologique en direct, accédez à l’environnement de  [démonstration du parc éolien de Contoso](https://insights.timeseries.azure.com/preview/samples).
 > * Pour découvrir comment naviguer dans l’interface utilisateur du modèle de série chronologique, consultez l’article sur l’[explorateur d’Azure Time Series Insights (préversion)](time-series-insights-update-explorer.md).
+> * Découvrez [comment utiliser le modèle de série chronologique](time-series-insights-update-how-to-tsm.md) à l’aide de l’explorateur web Time Series Insights.
 
 ## <a name="summary"></a>Résumé
 
 En règle générale, les données collectées à partir d’appareils IoT manquent d’informations contextuelles, ce qui empêche de rechercher et d’analyser rapidement les capteurs. Le principal objectif du modèle de série chronologique est de simplifier la recherche et l’analyse des données IoT ou de série chronologique. Vous pouvez atteindre cet objectif grâce à la collecte, la maintenance et l’enrichissement des données d’une série chronologique afin d’obtenir des jeux de données prêts à l’emploi pour l’analytique.
 
-## <a name="scenario-contosos-new-smart-oven"></a>Scénario : Nouveau four intelligent de Contoso
+## <a name="scenario-contosos-new-smart-oven"></a>Scénario : Nouveau four intelligent de Contoso
 
 **Prenons le scénario fictif d’un four intelligent Contoso.** Dans ce scénario, supposons que chaque four intelligent Contoso possède cinq capteurs de température, un pour chacun des quatre brûleurs supérieurs et un pour le four lui-même. Jusqu’à récemment, chaque capteur de température Contoso envoyait, stockait et visualisait ses données individuellement. Pour la surveillance des appareils ménagers, Contoso s’appuyait sur des graphiques de base, un pour chaque capteur individuel.
 
@@ -48,11 +49,11 @@ Ces limites ont révélé l’importance d’outils intelligents d’agrégation
 
 **Le modèle de série chronologique offre une solution pratique** pour bon nombre des scénarios rencontrés dans cet exemple fictif :
 
-[![Diagramme du modèle de série chronologique](media/v2-update-tsm/tsi-charting.png)](media/v2-update-tsm/tsi-charting.png#lightbox)
+[![Exemple de graphique de four intelligent de modèle de série chronologique](media/v2-update-tsm/time-series-model-smart-oven.png)](media/v2-update-tsm/time-series-model-smart-oven.png#lightbox)
 
-* Le modèle de série chronologique joue un rôle essentiel dans les requêtes et la navigation, car il contextualise les données en permettant d’établir des comparaisons dans des intervalles de temps et entre les types de capteurs et d’appareils.
-* Les données sont davantage contextualisées parce que les données conservées dans le modèle de série chronologique préservent les calculs de requête de série chronologique en tant que variables et les utilisent au moment de la requête.
-* Le modèle de série chronologique organise et agrège les données pour améliorer les fonctionnalités de visualisation et de gestion.
+* Le modèle de série chronologique joue un rôle essentiel dans les requêtes et la navigation, car il contextualise les données en permettant d’établir des comparaisons dans des intervalles de temps et entre les types de capteurs et d’appareils. (**A**) 
+* Les données sont davantage contextualisées parce que les données conservées dans le modèle de série chronologique préservent les calculs de requête de série chronologique en tant que variables et les réutilisent au moment de la requête.
+* Le modèle de série chronologique organise et agrège les données pour améliorer les fonctionnalités de visualisation et de gestion. (**B**) 
 
 ### <a name="key-capabilities"></a>Fonctionnalités clés
 
@@ -62,7 +63,7 @@ Pour faciliter la gestion de la contextualisation, la préversion d’Azure Time
 * définir des relations parent-enfant pour activer la navigation, la recherche et la référence ;
 * définir les propriétés associées aux instances, définies comme *champs d’instance*, et s’en servir pour créer des hiérarchies.
 
-### <a name="components"></a>Composants
+### <a name="components"></a>Components
 
 Un modèle de série chronologique comprend trois composants de base :
 
@@ -72,7 +73,7 @@ Un modèle de série chronologique comprend trois composants de base :
 
 Ces composants sont combinés pour spécifier un modèle de série chronologique et pour organiser vos données Azure Time Series Insights.
 
-[![Aperçu du modèle de la série chronologique](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[![Graphique de vue d’ensemble du modèle de la série chronologique](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
 Un modèle de série chronologique peut être créé et géré par le biais de l’interface [Time Series Insights (préversion)](time-series-insights-update-how-to-tsm.md). Les paramètres de modèle de série chronologique peuvent être gérés via l’[API Model Settings](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
 
@@ -90,7 +91,7 @@ Une fois qu’une source d’événement est configurée pour l’environnement 
 
 La [démonstration du parc éolien de Contoso](https://insights.timeseries.azure.com/preview/samples) fournit plusieurs exemples d’instances en direct.
 
-[![Instances de modèle de série chronologique](media/v2-update-tsm/instance.png)](media/v2-update-tsm/instance.png#lightbox)
+[![Exemple d’instance de modèle de série chronologique](media/v2-update-tsm/time-series-model-instance.png)](media/v2-update-tsm/time-series-model-instance.png#lightbox)
 
 ### <a name="instance-properties"></a>Propriétés de l’instance
 
@@ -100,7 +101,7 @@ Les instances sont définies par **timeSeriesId**, **typeId**, **name**, **descr
 | --- | ---|
 | timeSeriesId | UUID de la série chronologique à laquelle l’instance est associée. |
 | typeId | UUID du type de modèle de série chronologique auquel l’instance est associée. Par défaut, toutes les nouvelles instances découvertes sont associées à un type par défaut.
-| Nom | La propriété **name** est facultative et sensible à la casse. Si **name** n’est pas disponible, la valeur par défaut est **timeSeriesId**. Si un nom est fourni, **timeSeriesId** est toujours disponible dans le [puits](time-series-insights-update-explorer.md#4-time-series-well). |
+| name | La propriété **name** est facultative et sensible à la casse. Si **name** n’est pas disponible, la valeur par défaut est **timeSeriesId**. Si un nom est fourni, **timeSeriesId** est toujours disponible dans le [puits](time-series-insights-update-explorer.md#4-time-series-well). |
 | description | Texte de description de l’instance. |
 | hierarchyIds | Définit les hiérarchies auxquelles l’instance appartient. |
 | instanceFields | Propriétés d’une instance et toutes les données statiques qui définissent une instance. Ils définissent les valeurs des propriétés d’une hiérarchie ou non et prennent en charge l’indexation pour effectuer des opérations de recherche. |
@@ -112,18 +113,18 @@ Les instances ont la représentation JSON suivante :
 
 ```JSON
 {
-    "timeSeriesId": ["PU2"],
-    "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
-    "hierarchyIds": ["95f0a8d1-a3ef-4549-b4b3-f138856b3a12"],
-    "description": "Pump #2",
-    "instanceFields": {
-        "Location": "Redmond",
-        "Fleet": "Fleet 5",
-        "Unit": "Pump Unit 3",
-        "Manufacturer": "Contoso",
-        "ScalePres": "0.54",
-        "scaleTemp": "0.54"
-    }
+  "timeSeriesId": ["PU2"],
+  "typeId": "545314a5-7166-4b90-abb9-fd93966fa39b",
+  "hierarchyIds": ["95f0a8d1-a3ef-4549-b4b3-f138856b3a12"],
+  "description": "Pump #2",
+  "instanceFields": {
+    "Location": "Redmond",
+    "Fleet": "Fleet 5",
+    "Unit": "Pump Unit 3",
+    "Manufacturer": "Contoso",
+    "ScalePres": "0.54",
+    "scaleTemp": "0.54"
+  }
 }
 ```
 
@@ -138,7 +139,7 @@ Vous pouvez configurer plusieurs hiérarchies dans un environnement Time Series 
 
 L’interface client de [démonstration du parc éolien Contoso](https://insights.timeseries.azure.com/preview/samples) affiche une hiérarchie d’instances et de types standard.
 
-[![Hiérarchies de modèle de série chronologique](media/v2-update-tsm/hierarchy.png)](media/v2-update-tsm/hierarchy.png#lightbox)
+[![Exemple de hiérarchie de modèle de série chronologique](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
 ### <a name="hierarchy-definition"></a>Définition des hiérarchies
 
@@ -147,7 +148,7 @@ Les hiérarchies sont définies par **id**, **name** et **source** de hiérarchi
 | Propriété | Description |
 | ---| ---|
 | id | Identificateur unique de la hiérarchie, qui est utilisé, par exemple, lorsque vous définissez une instance. |
-| Nom | Chaîne utilisée afin de fournir un nom pour la hiérarchie. |
+| name | Chaîne utilisée afin de fournir un nom pour la hiérarchie. |
 | source | Spécifie la hiérarchie ou le chemin d’accès de l’organisation qui se présente sous la forme d’un ordre descendant parent-enfant de la hiérarchie que les utilisateurs souhaitent créer. Les propriétés parent-enfant sont mappées aux champs d’instance. |
 
 Les hiérarchies sont représentées au format JSON comme suit :
@@ -181,7 +182,7 @@ Les hiérarchies sont représentées au format JSON comme suit :
 
 Dans l’exemple JSON précédent :
 
-* `Location` définit une hiérarchie avec des `states` parents et des `cities` enfants. Chaque `location` peut avoir plusieurs `states`, lesquels peuvent avoir à leur tour plusieurs `cities`.
+* `Location` définit une hiérarchie avec une `states` parent et un `cities` enfant. Chaque `location` peut avoir plusieurs `states`, lesquelles peuvent avoir à leur tour plusieurs `cities`.
 * `ManufactureDate` définit une hiérarchie avec une `year` parent et un `month` enfant. Chaque `ManufactureDate` peut avoir plusieurs `years`, lesquelles peuvent avoir à leur tour plusieurs `months`.
 
 > [!TIP]
@@ -227,7 +228,7 @@ Un type peut avoir une ou plusieurs variables. Par exemple, une instance de mod�
 
 La [démonstration du parc éolien Contoso](https://insights.timeseries.azure.com/preview/samples) permet de visualiser plusieurs types de modèles de série chronologique associés à leurs instances respectives.
 
-[![Types de modèles de série chronologique](media/v2-update-tsm/types.png)](media/v2-update-tsm/types.png#lightbox)
+[![Exemple de type de modèle de série chronologique](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
 > Pour un support relatif à l’API d’instance Time Series Insights et à la CRUD, consultez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de type](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
@@ -239,7 +240,7 @@ Les types de modèles de série chronologique sont définis par **id**, **name**
 | Propriété | Description |
 | ---| ---|
 | id | UUID du type. |
-| Nom | Chaîne utilisée afin de fournir un nom pour le type. |
+| name | Chaîne utilisée afin de fournir un nom pour le type. |
 | description | Description sous forme de chaîne pour le type. |
 | variables | Spécifient les variables associées au type. |
 
@@ -283,7 +284,7 @@ Les types sont conformes à l’exemple JSON suivant :
 }
 ```
 
-### <a name="variables"></a>variables
+### <a name="variables"></a>Variables
 
 Les types Time Series Insights peuvent avoir de nombreuses variables qui spécifient des règles de formule et de calcul sur les événements.
 
@@ -295,14 +296,14 @@ Chaque variable peut être de trois *types* : *numérique*, *catégoriel* et *a
 
 Le tableau suivant répertorie les propriétés pertinentes pour chaque genre de variable.
 
-[![Types de modèles de série chronologique](media/v2-update-tsm/variable-table.png)](media/v2-update-tsm/variable-table.png#lightbox)
+[![Table de variables de modèle de série chronologique](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
 
 #### <a name="numeric-variables"></a>Variables numériques
 
 | Propriétés de la variable | Description |
 | --- | ---|
 | Variable filter | Les filtres sont des clauses conditionnelles facultatives pour limiter le nombre de lignes à prendre en compte pour le calcul. |
-| Variable value | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs ou transformées à l’aide d’expressions de série chronologique. Les variables de type numérique doivent être du type *Double*.|
+| Valeur de variable | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs ou transformées à l’aide d’expressions de série chronologique. Les variables de type numérique doivent être du type *Double*.|
 | Interpolation de variables | L’interpolation spécifie comment reconstruire un signal en utilisant des données existantes. Les options d’interpolation *pas à pas* et *linéaire* sont disponibles pour les variables numériques. |
 | Variable aggregation | Prend en charge le calcul par le biais des opérateurs *Avg*, *Min*, *Max*, *Sum*, *Count*, *First*, *Last* et pondérés dans le temps (*Avg*, *Min*, *Max*, *Sum*, *Left*). |
 
@@ -332,7 +333,7 @@ Les variables sont conformes à l’exemple JSON suivant :
 | Propriétés de la variable | Description |
 | --- | ---|
 | Variable filter | Les filtres sont des clauses conditionnelles facultatives pour limiter le nombre de lignes à prendre en compte pour le calcul. |
-| Variable value | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs. Les variables de type catégoriel doivent être *Long* ou *String*. |
+| Valeur de variable | Valeurs de télémétrie utilisées pour le calcul provenant de l’appareil ou des capteurs. Les variables de type catégoriel doivent être *Long* ou *String*. |
 | Interpolation de variables | L’interpolation spécifie comment reconstruire un signal en utilisant des données existantes. L’option d’interpolation *pas à pas* est disponible pour les variables catégorielles. |
 | Catégories de variables | Les catégories créent un mappage entre les valeurs provenant de l’appareil ou des capteurs et une étiquette. |
 | Catégorie par défaut de la variable | La catégorie par défaut correspond à toutes les valeurs qui ne sont pas mappées dans la propriété « catégories ». |
@@ -342,7 +343,9 @@ Les variables sont conformes à l’exemple JSON suivant :
 ```JSON
 "Status": {
   "kind": "categorical",
-  "value": "toLong($event.[Status].Double)",
+  "value": {
+     "tsx": "toLong($event.[Status].Double)" 
+},
   "interpolation": {
     "kind": "step",
     "boundary": {
@@ -389,5 +392,7 @@ Les variables sont stockées dans la définition de type d’un modèle de séri
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Voir [Azure Time Series Insights (préversion) - Stockage et entrée](./time-series-insights-update-storage-ingress.md).
+
 - En savoir plus sur les opérations courantes du modèle de série chronologique dans [Modélisation des données dans Azure Time Series Insights (préversion)](./time-series-insights-update-how-to-tsm.md).
+
 - Lire la nouvelle documentation de référence sur les [modèles de série chronologique](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).

@@ -1,25 +1,16 @@
 ---
-title: Surveillance au niveau de plateforme d’Azure Service Fabric | Microsoft Docs
+title: Surveillance au niveau de plateforme d’Azure Service Fabric
 description: Découvrez les événements et journaux d’activité au niveau de la plateforme utilisés pour surveiller et diagnostiquer les clusters Azure Service Fabric.
-services: service-fabric
-documentationcenter: .net
 author: srrengar
-manager: chackdan
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: cbdbedf32e8a3dad85262f287b27a03df780d95a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 720cc157111293146b796f8567f94a4f1f4830c6
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393059"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75376934"
 ---
 # <a name="monitoring-the-cluster"></a>Surveillance du cluster
 

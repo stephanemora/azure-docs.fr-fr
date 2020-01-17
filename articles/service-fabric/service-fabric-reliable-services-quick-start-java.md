@@ -1,27 +1,18 @@
 ---
-title: Créer votre premier service fiable Azure Service Fabric dans Java | Microsoft Docs
+title: Créer votre premier service fiable dans Java
 description: Introduction à la création d'une application Microsoft Azure Service Fabric avec des services avec et sans état.
-services: service-fabric
-documentationcenter: java
 author: suhuruli
-manager: chackdan
-editor: ''
-ms.assetid: 7831886f-7ec4-4aef-95c5-b2469a5b7b5d
-ms.service: service-fabric
-ms.devlang: java
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 6bf8c632a7513d018745bc74aa0a1db95a39af8b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3b301a7a9039f1fe8095950f0a5a4e23eb52a9b
+ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62130124"
+ms.lasthandoff: 01/02/2020
+ms.locfileid: "75614211"
 ---
-# <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
+# <a name="get-started-with-reliable-services-in-java"></a>Prise en main de Reliable Services dans Java
 > [!div class="op_single_selector"]
 > * [C# sur Windows](service-fabric-reliable-services-quick-start.md)
 > * [Java sur Linux](service-fabric-reliable-services-quick-start-java.md)

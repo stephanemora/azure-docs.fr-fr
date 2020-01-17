@@ -29,6 +29,10 @@
       href: security-center-compliance-dashboard.md
 - name: Concepts
   items:
+    - name: Niveau de sécurité dans Security Center
+      href: security-center-secure-score.md
+    - name: Le niveau de sécurité avancé
+      href: secure-score-security-controls.md
     - name: Autorisations
       href: security-center-permissions.md
     - name: Sécurité des données
@@ -73,8 +77,6 @@
           href: security-center-alert-validation.md
 - name: Guides pratiques
   items:
-    - name: Améliorer votre score de sécurité
-      href: security-center-secure-score.md
     - name: Mettre à niveau vers la sécurité avancée
       href: security-center-onboarding.md
     - name: Analyser vos machines virtuelles à la recherche de vulnérabilités

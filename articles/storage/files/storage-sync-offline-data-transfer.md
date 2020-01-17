@@ -1,5 +1,5 @@
 ---
-title: Migrer des données vers Azure File Sync à l’aide d’Azure Data Box et d’autres méthodes
+title: Migrer des données vers Azure File Sync avec Azure Data Box
 description: Migrez des données en bloc d’une manière compatible avec Azure File Sync.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9264aa6d24256b991abefe35b41045caa2e76d67
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997782"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457367"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrer des données en bloc vers Azure File Sync
 Vous pouvez migrer des données en bloc vers Azure File Sync de deux manières :
@@ -49,7 +49,7 @@ Voici comment configurer Azure File Sync d’une manière compatible avec des ou
 
 ![Diagramme illustrant la configuration d’Azure File Sync](media/storage-sync-files-offline-data-transfer/data-box-integration-1-600.png)
 
-| Étape | Détails |
+| Étape | Detail |
 |---|---------------------------------------------------------------------------------------|
 | ![Étape 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Commandez votre Data Box](../../databox/data-box-deploy-ordered.md). La gamme Data Box propose [plusieurs produits](https://azure.microsoft.com/services/storage/databox/data) répondant vos besoins. Lorsque vous recevez votre Data Box, suivez sa [documentation pour copier vos données](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) vers ce chemin d’accès UNC sur la Data Box : *\\<DeviceIPAddres\>\<StorageAccountName_AzFile\>\<ShareName\>* . Ici, *ShareName* est le nom du partage intermédiaire. Renvoyez la Data Box à Azure. |
 | ![Étape 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Attendez que vos fichiers s’affichent dans les partages de fichiers Azure que vous avez choisis comme partages intermédiaires temporaires. *N’activez pas la synchronisation sur ces partages.* |

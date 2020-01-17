@@ -7,24 +7,24 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 7/5/2019
+ms.date: 01/06/2020
 ms.author: dapine
-ms.openlocfilehash: 2080d283c6cb7466dcb4847a81d76a4c3109217a
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 700a04b58c13a9c7fd5301875226ca234cabeb96
+ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012124"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75689445"
 ---
 ## <a name="create-an-azure-container-instance-resource-from-the-azure-cli"></a>Créer une ressource d’instance de conteneur Azure depuis Azure CLI
 
-Le YAML ci-dessous définit la ressource Azure Container Instance. Copiez et collez le contenu dans un nouveau fichier nommé `my-aci.yaml`, et remplacez les valeurs commentés par les vôtres. Reportez-vous au [format de modèle][template-format] pour obtenir du YAML valide. Reportez-vous à [Référentiels et images de conteneur][repositories-and-images] pour les noms d’image disponibles et leur référentiel correspondant.
+Le YAML ci-dessous définit la ressource Azure Container Instance. Copiez et collez le contenu dans un nouveau fichier nommé `my-aci.yaml`, et remplacez les valeurs commentés par les vôtres. Reportez-vous au [format de modèle][template-format] pour obtenir du YAML valide. Reportez-vous à [Référentiels et images de conteneur][repositories-and-images] pour les noms d’image disponibles et leur référentiel correspondant. Pour plus d’informations sur la référence YAML pour les instances de conteneur, consultez [Référence YAML : Azure Container Instances][aci-yaml-ref].
 
 ```YAML
 apiVersion: 2018-10-01
 location: # < Valid location >
 name: # < Container Group name >
-imageRegistryCredentials:
+imageRegistryCredentials: # This is required when pulling a non-public image
   - server: containerpreview.azurecr.io
     username: # < The username for the preview container registry >
     password: # < The password for the preview container registry >
@@ -47,6 +47,12 @@ properties:
       ports:
         - port: 5000
   osType: Linux
+  volumes: # This node, is only required for container instances that pull their model in at runtime, such as LUIS.
+  - name: aci-file-share
+    azureFile:
+      shareName: # < File share name >
+      storageAccountName: # < Storage account name>
+      storageAccountKey: # < Storage account key >
   restartPolicy: OnFailure
   ipAddress:
     type: Public
@@ -73,7 +79,7 @@ La sortie de la commande est `Running...` si valide. Un peu après, la sortie de
 
 [azure-container-create]: https://docs.microsoft.com/cli/azure/container?view=azure-cli-latest#az-container-create
 [template-format]: https://docs.microsoft.com/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups#template-format
-
+[aci-yaml-ref]: ../../../container-instances/container-instances-reference-yaml.md
 [repositories-and-images]: ../../cognitive-services-container-support.md#container-repositories-and-images
 [location-to-resource]: ../../../container-instances/container-instances-region-availability.md#availability---general
 [secure-values]: ../../../container-instances/container-instances-environment-variables.md#secure-values

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 41166d57a8ea9b9cf34f76ecce318351d5131794
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559978"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75408897"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 
@@ -22,12 +22,14 @@ Cet article explique comment utiliser le [service d’image statique](https://do
 
 Pour afficher une superposition géométrique, des étiquettes et des repères personnalisés, vous pouvez utiliser l’application Postman. Vous pouvez utiliser les [API du service de données](https://docs.microsoft.com/rest/api/maps/data) d’Azure Maps pour stocker et afficher les superpositions.
 
+> [!Tip]
+> Il est souvent plus économique d’utiliser le kit SDK d’Azure Maps Web pour afficher une carte simple sur une page Web que d’utiliser le service d’images statiques. Le kit SDK Web utilise des vignettes de carte et, sauf si l’utilisateur effectue un panoramique et un zoom sur la carte, il ne génère souvent qu’une fraction de transaction par charge de carte. Notez que le kit SDK Azure Maps Web dispose d’options pour désactiver le panoramique et le zoom. En outre, le kit de développement logiciel (SDK) web Azure Maps offre beaucoup plus d’options de visualisation de données qu’un service web de cartes statiques.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
-Pour suivre les procédures décrites dans cet article, vous devez commencer par créer un compte Azure Maps en suivant les instructions fournies dans [Gérer le compte](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) et les étapes décrites dans [Obtenir la clé primaire](./tutorial-search-location.md#getkey) afin de récupérer une clé primaire d’abonnement pour votre compte.
+Pour accomplir les procédures de cet article, vous devez d’abord créer un compte Azure Maps et obtenir la clé de compte Maps. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps, puis effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Afficher des repères avec des étiquettes et une image personnalisée

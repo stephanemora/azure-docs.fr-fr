@@ -1,35 +1,38 @@
 ---
-title: Exiger un transfert sécurisé dans le stockage Azure | Microsoft Docs
-description: Découvrez la fonctionnalité Transfert sécurisé requis pour Stockage Azure et apprenez à l’activer.
+title: Exiger un transfert sécurisé pour garantir des connexions sécurisées
+titleSuffix: Azure Storage
+description: Découvrez comment exiger un transfert sécurisé pour les demandes vers le stockage Azure. Lorsque vous avez besoin d’un transfert sécurisé pour un compte de stockage, toutes les demandes provenant d’une connexion non sécurisée sont rejetées.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 06/20/2017
+ms.topic: how-to
+ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 7239e7fbe1221acc3c302260045d6fc510db2cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3b2d78bd929e23d49a57f337022f6678114bb5fe
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65148569"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75457451"
 ---
-# <a name="require-secure-transfer-in-azure-storage"></a>Exiger un transfert sécurisé dans Stockage Azure
+# <a name="require-secure-transfer-to-ensure-secure-connections"></a>Exiger un transfert sécurisé pour garantir des connexions sécurisées
 
-L’option Transfert sécurisé requis améliore la sécurité de votre compte de stockage en autorisant uniquement les requêtes relatives au compte provenant de connexions sécurisées. Par exemple, lorsque vous appelez des API REST pour accéder à votre compte de stockage, vous devez vous connecter à l’aide du protocole HTTPS. La fonctionnalité « Transfert sécurisé requis » rejette les requêtes qui utilisent le protocole HTTP.
+Vous pouvez configurer votre compte de stockage pour accepter les demandes émanant des connexions sécurisées uniquement en définissant la propriété **Transfert sécurisé requis** pour le compte de stockage. Lorsque vous avez besoin d’un transfert sécurisé, toutes les demandes provenant d’une connexion non sécurisée sont rejetées. Microsoft vous recommande de toujours exiger un transfert sécurisé pour tous vos comptes de stockage.
 
-Lorsque vous utilisez le service Azure Files, toute connexion sans chiffrement échoue si l’option Transfert sécurisé requis est activée. Cela inclut des scénarios utilisant SMB 2.1, SMB 3.0 sans chiffrement et certaines versions du client SMB Linux. 
+Lorsque le transfert sécurisé est exigé, un appel vers une opération de l’API REST de stockage Azure doit être effectué via HTTPS. Toute requête effectuée via HTTP est rejetée.
 
-Par défaut, l’option « Transfert sécurisé requis » est désactivée quand vous créez un compte de stockage avec le SDK. Et elle est activée par défaut quand vous créez un compte de stockage dans le portail Azure.
+La connexion à un partage de fichiers Azure via SMB sans chiffrement échoue lorsque le transfert sécurisé est requis pour le compte de stockage. Parmi les exemples de connexions non sécurisées figurent celles effectuées sur SMB 2.1, SMB 3.0 sans chiffrement ou certaines versions du client SMB Linux.
+
+Par défaut, la propriété **Transfert sécurisé requis** est activée quand vous créez un compte de stockage dans le portail Azure. Toutefois, elle est désactivée lorsque vous créez un compte de stockage avec un kit de développement logiciel (SDK).
 
 > [!NOTE]
 > Étant donné que Stockage Azure ne prend pas en charge le protocole HTTPS pour les noms de domaine personnalisés, cette option n’est pas appliquée lorsque vous utilisez un nom de domaine personnalisé. En outre, les comptes de stockage classiques ne sont pas pris en charge.
 
-## <a name="enable-secure-transfer-required-in-the-azure-portal"></a>Activer l’option Transfert sécurisé requis dans le portail Azure
+## <a name="require-secure-transfer-in-the-azure-portal"></a>Exiger un transfert sécurisé dans le portail Azure
 
-Vous pouvez activer le paramètre Transfert sécurisé requis lorsque vous créez un compte de stockage dans le [portail Azure](https://portal.azure.com). Vous pouvez également l’activer pour les comptes de stockage existants.
+Vous pouvez activer la propriété **Transfert sécurisé requis** lorsque vous créez un compte de stockage dans le [portail Azure](https://portal.azure.com). Vous pouvez également l’activer pour les comptes de stockage existants.
 
 ### <a name="require-secure-transfer-for-a-new-storage-account"></a>Exiger un transfert sécurisé pour un nouveau compte de stockage
 
@@ -46,19 +49,19 @@ Vous pouvez activer le paramètre Transfert sécurisé requis lorsque vous crée
 
    ![Volet de menu du compte de stockage](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
-## <a name="enable-secure-transfer-required-programmatically"></a>Activer le paramètre « Transfert sécurisé requis » par programmation
+## <a name="require-secure-transfer-from-code"></a>Exiger un transfert sécurisé à partir du code
 
-Pour exiger un transfert sécurisé par programme, utilisez le paramètre _supportsHttpsTrafficOnly_ dans les propriétés de compte de stockage avec l’API REST, des outils ou des bibliothèques :
+Pour exiger un transfert sécurisé par programme, définissez la propriété _supportsHttpsTrafficOnly_ sur le compte de stockage. Vous pouvez définir cette propriété à l’aide de l’API REST du fournisseur de ressources de stockage, de bibliothèques clientes ou d’outils :
 
-* [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (version : 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount) (version : 0.7)
-* [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (version : 2.0.11)
-* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (version : 1.1.0)
-* [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (version : 6.3.0)
-* [SDK Python](https://pypi.python.org/pypi/azure-mgmt-storage/1.1.0) (version : 1.1.0)
-* [SDK Ruby](https://rubygems.org/gems/azure_mgmt_storage) (version : 0.11.0)
+* [REST API](/rest/api/storagerp/storageaccounts)
+* [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
+* [INTERFACE DE LIGNE DE COMMANDE](/cli/azure/storage/account)
+* [NodeJS](https://www.npmjs.com/package/azure-arm-storage/)
+* [Kit de développement logiciel (SDK) .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
+* [Kit de développement logiciel (SDK) Python](https://pypi.org/project/azure-mgmt-storage)
+* [Kit de développement logiciel (SDK) Ruby](https://rubygems.org/gems/azure_mgmt_storage)
 
-### <a name="enable-secure-transfer-required-setting-with-powershell"></a>Activer le paramètre « Transfert sécurisé requis » avec PowerShell
+## <a name="require-secure-transfer-with-powershell"></a>Exiger un transfert sécurisé avec PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -69,7 +72,7 @@ Exécutez `Connect-AzAccount` pour créer une connexion avec Azure.
  Utilisez la ligne de commande ci-dessous pour vérifier le paramètre :
 
 ```powershell
-> Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
+Get-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}"
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : False
@@ -80,7 +83,7 @@ EnableHttpsTrafficOnly : False
 Utilisez la ligne de commande ci-dessous pour activer le paramètre :
 
 ```powershell
-> Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
+Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $True
 StorageAccountName     : {StorageAccountName}
 Kind                   : Storage
 EnableHttpsTrafficOnly : True
@@ -88,16 +91,16 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-### <a name="enable-secure-transfer-required-setting-with-cli"></a>Activer le paramètre « Transfert sécurisé requis » avec l’interface de ligne de commande
+## <a name="require-secure-transfer-with-azure-cli"></a>Exiger un transfert sécurisé avec Azure CLI
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
- Utilisez la ligne de commande ci-dessous pour vérifier le paramètre :
+ Utilisez la commande ci-dessous pour vérifier le paramètre :
 
 ```azurecli-interactive
-> az storage account show -g {ResourceGroupName} -n {StorageAccountName}
+az storage account show -g {ResourceGroupName} -n {StorageAccountName}
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": false,
@@ -107,10 +110,10 @@ EnableHttpsTrafficOnly : True
 
 ```
 
-Utilisez la ligne de commande ci-dessous pour activer le paramètre :
+Utilisez la commande ci-dessous pour activer le paramètre :
 
 ```azurecli-interactive
-> az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
+az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only true
 {
   "name": "{StorageAccountName}",
   "enableHttpsTrafficOnly": true,
@@ -121,4 +124,5 @@ Utilisez la ligne de commande ci-dessous pour activer le paramètre :
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui, une fois réunies, permettent aux développeurs de créer des applications sécurisées. Pour plus d’informations, consultez notre [guide de sécurité Stockage Azure](storage-security-guide.md).
+
+[Recommandations de sécurité pour Stockage Blob](../blobs/security-recommendations.md)

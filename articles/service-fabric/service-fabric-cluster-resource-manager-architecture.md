@@ -1,25 +1,16 @@
 ---
-title: Architecture du Gestionnaire de ressources | Microsoft Docs
-description: Vue d’ensemble de l’architecture du Gestionnaire de ressources Service Fabric.
-services: service-fabric
-documentationcenter: .net
+title: Architecture Resource Manager
+description: Vue d’ensemble et informations architecturales au sujet du service Azure Service Fabric Cluster Resource Manager.
 author: masnider
-manager: chackdan
-editor: ''
-ms.assetid: 6c4421f9-834b-450c-939f-1cb4ff456b9b
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bfbdb05e8d2764d2b878e22d236cae30519da176
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 94ed906533d108081d620e9b183ecfee249d85ca
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62113969"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551690"
 ---
 # <a name="cluster-resource-manager-architecture-overview"></a>Vue d’ensemble de l’architecture Cluster Resource Manager
 Service Fabric Cluster Resource Manager est un service central qui s’exécute dans le cluster. Il gère l’état souhaité des services dans le cluster, notamment au niveau de la consommation des ressources et des règles de placement. 
@@ -34,7 +25,7 @@ Pour gérer les ressources de votre cluster, Service Fabric Cluster Resource Man
 
 La consommation des ressources d’un service donné peut évoluer au fil du temps et les services prennent généralement en charge plusieurs types de ressources. Dans différents services, il peut s’agir de ressources physiques réelles et de ressources physiques mesurées. Les services peuvent assurer le suivi des mesures physiques comme la consommation de mémoire et de disque. En général, les services peuvent se soucier des mesures logiques, comme « WorkQueueDepth » ou « TotalRequests ». Des mesures logiques et physiques peuvent être utilisées dans le même cluster. Les mesures peuvent être partagées entre plusieurs services ou être spécifiques à un service particulier.
 
-## <a name="other-considerations"></a>Autres points à considérer
+## <a name="other-considerations"></a>Autres considérations
 Les propriétaires et les opérateurs du cluster peuvent être différents des auteurs du service ou de l’application, ou il s’agit au minimum des mêmes personnes, mais avec des rôles différents. Lorsque vous développez votre application, vous avez quelques informations sur les éléments qu’elle nécessite. Vous avez une estimation des ressources qu’elle consomme et comment les différents services doivent être déployés. Par exemple, le niveau web doit s’exécuter sur des nœuds exposés à Internet, ce qui n’est pas le cas des services de base de données. Autre exemple : les services web sont probablement contraints par le processeur et le réseau, tandis que les services de niveau données s’occupent davantage de la consommation de mémoire et de disque. Toutefois, les tâches qui incombent à la personne qui gère un incident sur site pour ce service en production ou une mise à niveau du service, sont différentes et nécessitent des outils différents. 
 
 Le cluster et les services sont dynamiques :

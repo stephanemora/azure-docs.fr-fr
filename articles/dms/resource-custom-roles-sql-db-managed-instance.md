@@ -1,6 +1,7 @@
 ---
-title: Rôles personnalisés pour les migrations en ligne de SQL Server vers SQL Database Managed Instance | Microsoft Docs
-description: Apprenez à utiliser les rôles personnalisés pour les migrations en ligne de SQL Server vers SQL Database Managed Instance.
+title: 'Rôles personnalisés : Migrations en lignes de SQL Server vers une instance gérée SQL'
+titleSuffix: Azure Database Migration Service
+description: Apprenez à utiliser les rôles personnalisés pour les migrations en ligne de SQL Server vers Azure SQL Database Managed Instance.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -8,15 +9,15 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: mvc
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 8148e029bf343613a230b20d0397fa7851c96712
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 85c70968eb0f8a5752bbfa338918a8bba2fe7794
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942150"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75437692"
 ---
 # <a name="custom-roles-for-sql-server-to-sql-database-managed-instance-online-migrations"></a>Rôles personnalisés pour les migrations en ligne de SQL Server vers SQL Database Managed Instance
 

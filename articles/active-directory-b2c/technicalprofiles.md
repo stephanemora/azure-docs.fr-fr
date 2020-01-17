@@ -1,5 +1,6 @@
 ---
-title: TechnicalProfiles | Microsoft Docs
+title: TechnicalProfiles
+titleSuffix: Azure AD B2C
 description: Spécifiez l’élément TechnicalProfiles d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -7,21 +8,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e1192c8d0057d77306a1ffb06dd9bae12b7634ca
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 3275e31744faba5b029e5a4619a51420400b9d0a
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998739"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75425607"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Un élément **TechnicalProfiles** contient un ensemble de profils techniques pris en charge par le fournisseur de revendication. Chaque fournisseur de revendications doit avoir un ou plusieurs profils techniques déterminant les points de terminaison et protocoles nécessaires pour communiquer avec lui. Un fournisseur de revendications peut avoir plusieurs profils techniques.
+Un élément **TechnicalProfiles** contient un ensemble de profils techniques pris en charge par le fournisseur de revendication. Chaque fournisseur de revendications doit avoir un ou plusieurs profils techniques déterminant les points de terminaison et les protocoles nécessaires pour communiquer avec lui. Un fournisseur de revendications peut avoir plusieurs profils techniques.
 
 ```XML
 <ClaimsProvider>
@@ -76,13 +77,13 @@ L’élément **TechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 |---------|---------|---------|
-| Id | OUI | Identificateur unique du profil technique. Le profil technique peut être référencé à l’aide de cet identificateur à partir d’autres éléments dans le fichier de stratégie. Par exemple, **OrchestrationSteps** et **ValidationTechnicalProfile**. |
+| Id | Oui | Identificateur unique du profil technique. Le profil technique peut être référencé à l’aide de cet identificateur à partir d’autres éléments dans le fichier de stratégie. Par exemple, **OrchestrationSteps** et **ValidationTechnicalProfile**. |
 
 L’élément **TechnicalProfile** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Domaine | 0:1 | Nom de domaine pour le profil technique. Par exemple, si votre profil technique Spécifie le fournisseur d’identité Facebook, le nom de domaine est Facebook.com. |
+| Domain | 0:1 | Nom de domaine pour le profil technique. Par exemple, si votre profil technique Spécifie le fournisseur d’identité Facebook, le nom de domaine est Facebook.com. |
 | DisplayName | 0:1 | Nom du profil technique qui peut être affiché aux utilisateurs. |
 | Description | 0:1 | Description du profil technique qui peut être affichée aux utilisateurs. |
 | Protocol | 0:1 | Protocole utilisé pour la communication avec l’autre partie. |
@@ -93,6 +94,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | InputClaimsTransformations | 0:1 | Liste des références précédemment définies aux transformations de revendications qui doivent être exécutées avant l’envoi de toute revendication au fournisseur de revendications ou à la partie de confiance. |
 | InputClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont pris en tant qu’entrée dans le profil technique. |
 | PersistedClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont conservés par le fournisseur de revendications, qui a trait au profil technique. |
+| DisplayClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont présentés par le fournisseur de revendications, qui a trait au [profil technique autodéclaré](self-asserted-technical-profile.md). La fonctionnalité DisplayClaims est actuellement en **préversion**. |
 | OutputClaims | 0:1 | Liste des références précédemment définies aux types de revendications qui sont pris en tant que sortie dans le profil technique. |
 | OutputClaimsTransformations | 0:1 | Liste des références précédemment définies aux transformations de revendications qui doivent être exécutées après la réception des revendications provenant du fournisseur de revendications. |
 | ValidationTechnicalProfiles | 0:n | Liste des références à d’autres profils techniques que le profil technique utilise à des fins de validation. Pour plus d’informations, voir [Profil technique de validation](validation-technical-profile.md)|
@@ -102,32 +104,32 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | UseTechnicalProfileForSessionManagement | 0:1 | Autre profil technique à utiliser pour la gestion de session. |
 |EnabledForUserJourneys| 0:1 |Contrôle si le profil technique est exécuté dans un parcours utilisateur.  |
 
-### <a name="protocol"></a>Protocol
+## <a name="protocol"></a>Protocol
 
 L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted` ou `None`. |
+| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C et utilisé dans le cadre du profil technique. Valeurs possibles : `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted` ou `None`. |
 | Handler | Non | Lorsque le nom de protocole est défini sur `Proprietary`, spécifiez le nom complet de l’assembly qu’Azure AD B2C utilise pour déterminer le gestionnaire de protocole. |
 
-### <a name="metadata"></a>Métadonnées
+## <a name="metadata"></a>Métadonnées
 
 Un élément **Metadata** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Item | 0:n | Métadonnées relatives au profil technique. Chaque type de profil technique a un ensemble différent d’éléments de métadonnées. Pour plus d’informations, voir la section consacrée aux types de profils techniques. |
+| Élément | 0:n | Métadonnées relatives au profil technique. Chaque type de profil technique a un ensemble différent d’éléments de métadonnées. Pour plus d’informations, voir la section consacrée aux types de profils techniques. |
 
-#### <a name="item"></a>Item
+### <a name="item"></a>Élément
 
 L’élément **Item** de l’élément **Metadata** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Clé | OUI | Clé de métadonnées. Pour obtenir la liste des éléments de métadonnées, voir chaque type de profil technique. |
+| Clé | Oui | Clé de métadonnées. Pour obtenir la liste des éléments de métadonnées, voir chaque type de profil technique. |
 
-### <a name="cryptographickeys"></a>CryptographicKeys
+## <a name="cryptographickeys"></a>CryptographicKeys
 
 L’élément **CryptographicKeys** contient les éléments suivants :
 
@@ -135,16 +137,16 @@ L’élément **CryptographicKeys** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | Clé | 1:n | Clé de chiffrement utilisée dans ce profil technique. |
 
-#### <a name="key"></a>Clé
+### <a name="key"></a>Clé
 
 L’élément **Key** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Id | Non | Identificateur unique d’une paire de clés spécifique référencé à partir d’autres éléments dans le fichier de stratégie. |
-| StorageReferenceId | OUI | Identificateur d’un conteneur de clé de stockage référencé à partir d’autres éléments dans le fichier de stratégie. |
+| StorageReferenceId | Oui | Identificateur d’un conteneur de clé de stockage référencé à partir d’autres éléments dans le fichier de stratégie. |
 
-### <a name="inputclaimstransformations"></a>InputClaimsTransformations
+## <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
 L’élément **InputClaimsTransformations** contient l’élément suivant :
 
@@ -152,15 +154,15 @@ L’élément **InputClaimsTransformations** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | Identificateur d’une transformation de revendications qui doit être exécutée avant l’envoi de toute revendication au fournisseur de revendications ou à la partie de confiance. Une transformation de revendications peut être utilisée pour modifier des revendications ClaimsSchema existantes ou en générer de nouvelles. |
 
-#### <a name="inputclaimstransformation"></a>InputClaimsTransformation
+### <a name="inputclaimstransformation"></a>InputClaimsTransformation
 
 L’élément **InputClaimsTransformation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | OUI | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
+| ReferenceId | Oui | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
 
-### <a name="inputclaims"></a>InputClaims
+## <a name="inputclaims"></a>InputClaims
 
 L’élément **InputClaims** contient l’élément suivant :
 
@@ -168,15 +170,37 @@ L’élément **InputClaims** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | Type de revendication d’entrée attendu. |
 
-#### <a name="inputclaim"></a>InputClaim
+### <a name="inputclaim"></a>InputClaim
 
 L’élément **InputClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
 | DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
 | PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
+
+## <a name="displayclaims"></a>DisplayClaims
+
+L’élément **DisplayClaims** contient l’élément suivant :
+
+| Élément | Occurrences | Description |
+| ------- | ----------- | ----------- |
+| DisplayClaim | 1:n | Type de revendication d’entrée attendu. |
+
+La fonctionnalité DisplayClaims est actuellement en **préversion**.
+
+### <a name="displayclaim"></a>DisplayClaim
+
+L’élément **DisplayClaim** contient les attributs suivants :
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| ClaimTypeReferenceId | Non | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| DisplayControlReferenceId | Non | Identificateur d’un [contrôle d’affichage](display-controls.md) déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| Obligatoire | Non | Indique si la revendication d’affichage est requise. |
+
+L’élément **DisplayClaim** nécessite que vous spécifiiez un `ClaimTypeReferenceId` ou un `DisplayControlReferenceId`.
 
 ### <a name="persistedclaims"></a>PersistedClaims
 
@@ -186,17 +210,17 @@ L’élément **PersistedClaims** contient les éléments suivants :
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | Type de revendication à conserver. |
 
-#### <a name="persistedclaim"></a>PersistedClaim
+### <a name="persistedclaim"></a>PersistedClaim
 
 L’élément **PersistedClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
 | DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
 | PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
-### <a name="outputclaims"></a>OutputClaims
+## <a name="outputclaims"></a>OutputClaims
 
 L’élément **OutputClaims** contient l’élément suivant :
 
@@ -204,18 +228,18 @@ L’élément **OutputClaims** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | Type de revendication de sortie attendu. |
 
-#### <a name="outputclaim"></a>OutputClaim
+### <a name="outputclaim"></a>OutputClaim
 
 L’élément **OutputClaim** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
+| ClaimTypeReferenceId | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie ou d’un fichier de stratégie parent. |
 | DefaultValue | Non | Valeur par défaut à utiliser pour créer une revendication si la revendication indiquée par l’identificateur ClaimTypeReferenceId n’existe pas, de sorte que le profil technique puisse utiliser la revendication obtenue comme InputClaim. |
 |AlwaysUseDefaultValue |Non |Forcer l’utilisation de la valeur par défaut.  |
 | PartnerClaimType | Non | Identificateur du type de revendication du partenaire externe auquel le type de revendication de stratégie spécifié mappe. Si l’attribut PartnerClaimType n’est pas spécifié, le type de revendication de stratégie spécifié est mappé au type de revendication de partenaire du même nom. Utilisez cette propriété lorsque le nom de votre type de revendication diffère de celui de l’autre partie. Par exemple, le nom de la première revendication est « givenName », tandis que le partenaire utilise une revendication nommée « first_name ». |
 
-### <a name="outputclaimstransformations"></a>OutputClaimsTransformations
+## <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 
 L’élément **OutputClaimsTransformations** contient l’élément suivant :
 
@@ -223,15 +247,15 @@ L’élément **OutputClaimsTransformations** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | Identificateurs de transformations de revendications qui doivent être exécutées avant l’envoi de toute revendication au fournisseur de revendications ou à la partie de confiance. Une transformation de revendications peut être utilisée pour modifier des revendications ClaimsSchema existantes ou en générer de nouvelles. |
 
-#### <a name="outputclaimstransformation"></a>OutputClaimsTransformation
+### <a name="outputclaimstransformation"></a>OutputClaimsTransformation
 
 L’élément **OutputClaimsTransformation** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | OUI | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
+| ReferenceId | Oui | Identificateur d’une transformation de revendications déjà défini dans le fichier de stratégie ou un fichier de stratégie parent. |
 
-### <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
+## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
 L’élément **ValidationTechnicalProfiles** contient l’élément suivant :
 
@@ -239,39 +263,40 @@ L’élément **ValidationTechnicalProfiles** contient l’élément suivant :
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | Identificateur des profils techniques utilisés pour valider la totalité ou certaines des revendications de sortie du profil technique de référencement. Toutes les revendications d’entrée du profil technique référencé doivent apparaître dans les revendications de sortie du profil technique de référencement. |
 
-#### <a name="validationtechnicalprofile"></a>ValidationTechnicalProfile
+### <a name="validationtechnicalprofile"></a>ValidationTechnicalProfile
 
 L’élément **ValidationTechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | OUI | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
+| ReferenceId | Oui | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
 
-###  <a name="subjectnaminginfo"></a>SubjectNamingInfo
+## <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 L’élément **SubjectNamingInfo** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ClaimType | OUI | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie. |
+| ClaimType | Oui | Identificateur d’un type de revendication déjà défini dans la section ClaimsSchema du fichier de stratégie. |
 
-### <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
+## <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
 L’élément **IncludeTechnicalProfile** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | OUI | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
+| ReferenceId | Oui | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
 
-### <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
+## <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
 L’élément **UseTechnicalProfileForSessionManagement** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | OUI | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
+| ReferenceId | Oui | Identificateur d’un profil technique déjà défini dans le fichier de stratégie ou dans un fichier de stratégie parent. |
 
-### <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
+## <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
+
 L’élément **ClaimsProviderSelections** dans un parcours utilisateur définit la liste et l’ordre des options de sélection de fournisseur de revendications. Avec l’élément **EnabledForUserJourneys**, vous filtrez le fournisseur de revendications disponible pour l’utilisateur. L’élément **EnabledForUserJourneys** contient l’une des valeurs suivantes :
 
 - **Always**, exécuter le profil technique.

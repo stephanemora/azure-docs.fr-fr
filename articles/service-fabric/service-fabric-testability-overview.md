@@ -1,25 +1,16 @@
 ---
-title: Vue d’ensemble du service d’analyse des erreurs | Documents Microsoft
+title: Vue d’ensemble du service d’analyse des erreurs
 description: Cet article décrit le service d’analyse des erreurs dans Service Fabric qui permet de produire des erreurs et d’exécuter des scénarios de test sur vos services.
-services: service-fabric
-documentationcenter: .net
 author: anmolah
-manager: chackdan
-editor: vturecek
-ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
-ms.service: service-fabric
-ms.devlang: dotnet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d5c770a4d823ebe9b2700b081c407c54dd1d18a3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60544810"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75465571"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduction au service d’analyse des erreurs
 Le service d’analyse des erreurs est conçu pour tester les services qui s’appuient sur Microsoft Azure Service Fabric. Avec le service d’analyse des erreurs, vous pouvez provoquer des erreurs significatives et exécuter des scénarios de test complets sur vos applications. Ces erreurs et scénarios exercent et valident les nombreux états et transitions qu’un service connaît tout au long de sa durée de vie, le tout de manière contrôlée, sécurisée et cohérente.

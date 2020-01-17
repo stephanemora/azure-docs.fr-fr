@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: normesta
 ms.reviewer: bensack
-ms.openlocfilehash: d76ea317271ae0e8eb0d54fcfee5dc005d836fc1
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 156999c6b6d8451516ac1c0f095e1a864420d0b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75354829"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen2-by-using-power-bi"></a>Analyser des données dans Azure Data Lake Storage Gen2 à l’aide de Power BI
 
 Dans cet article, vous allez apprendre à utiliser Power BI Desktop pour analyser et visualiser les données stockées dans un compte de stockage doté d’un espace de noms hiérarchique (Azure Data Lake Storage Gen2).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
@@ -27,6 +27,7 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 > * Un abonnement Azure. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 > * Un compte de stockage doté d’un espace de noms hiérarchique. Pour créer un test, suivez [ces](data-lake-storage-quickstart-create-account.md) instructions.
 > Cet article suppose que vous avez déjà créé un compte nommé `myadlsg2`.
+> * Vous bénéficiez de l’un des rôles suivants pour le compte de stockage : **Lecteur de données blob**, **Contributeur aux données blob** ou **Propriétaire des données Blob**.
 > * Un exemple de fichier de données nommé `Drivers.txt`, situé dans votre compte de stockage.
 > Vous pouvez télécharger cet exemple à partir du [Référentiel Azure Data Lake Git](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/Drivers.txt), puis charger ce fichier dans votre compte de stockage.
 > * **Power BI Desktop**. Vous pouvez le télécharger à partir du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=45331). 

@@ -1,17 +1,17 @@
 ---
-title: Commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB
+title: Commandes d’extension MongoDB pour gérer les données dans les API d’Azure Cosmos DB pour MongoDB
 description: Cet article décrit comment utiliser les commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: sngun
-ms.openlocfilehash: 94b1048befc8716caf5f7f51adb1f95d047d4077
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f57b274715eb1c8a4d517f5655c09c366574d412
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64925650"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75445220"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utiliser les commandes d’extension MongoDB pour gérer les données stockées dans les API d’Azure Cosmos DB pour MongoDB 
 
@@ -45,10 +45,10 @@ Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction   |  chaîne  |   Nom de la commande personnalisée, qui doit être "CreateDatabase".      |
+| customAction   |  string  |   Nom de la commande personnalisée, qui doit être "CreateDatabase".      |
 | offerThroughput | int  | Débit approvisionné que vous définissez sur la base de données. Ce paramètre est facultatif. |
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
@@ -87,10 +87,10 @@ Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    |    chaîne     |   Nom de la commande personnalisée. Il doit être "UpdateDatabase".      |
+| customAction    |    string     |   Nom de la commande personnalisée. Il doit être "UpdateDatabase".      |
 |  offerThroughput   |  int       |     Nouveau débit approvisionné que vous souhaitez définir sur la base de données.    |
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
@@ -120,9 +120,9 @@ Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-|  customAction   |   chaîne      |   Nom de la commande personnalisée. Il doit être "GetDatabase".|
+|  customAction   |   string      |   Nom de la commande personnalisée. Il doit être "GetDatabase".|
         
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 Si la commande réussit, la réponse contient un document avec les champs suivants :
 
@@ -162,12 +162,12 @@ Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    | chaîne | Nom de la commande personnalisée. Il doit être "CreateCollection".     |
-| collection      | chaîne | Nom de la collection                                   |
+| customAction    | string | Nom de la commande personnalisée. Il doit être "CreateCollection".     |
+| collection      | string | Nom de la collection                                   |
 | offerThroughput | int    | Débit approvisionné à définir sur la base de données. Ce paramètre est facultatif. |
-| shardKey        | chaîne | Chemin d’accès des clés de partition pour créer une collection partitionnée. Ce paramètre est facultatif. |
+| shardKey        | string | Chemin d’accès des clés de partition pour créer une collection partitionnée. Ce paramètre est facultatif. |
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
@@ -207,11 +207,11 @@ Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-|  customAction   |   chaîne      |   Nom de la commande personnalisée. Il doit être "UpdateCollection".      |
-|  collection   |   chaîne      |   Nom de la collection.       |
+|  customAction   |   string      |   Nom de la commande personnalisée. Il doit être "UpdateCollection".      |
+|  collection   |   string      |   Nom de la collection.       |
 | offerThroughput   |int|   Débit approvisionné à définir sur la collection.|
 
-## <a name="output"></a>Sortie
+## <a name="output"></a>Output
 
 Retourne une réponse de commande personnalisée par défaut. Consultez la [sortie par défaut](#default-output) de la commande personnalisée pour connaître les paramètres de la sortie.
 
@@ -242,10 +242,10 @@ Le tableau suivant décrit les paramètres inclus dans la commande :
 
 |**Champ**|**Type** |**Description** |
 |---------|---------|---------|
-| customAction    |   chaîne      |   Nom de la commande personnalisée. Il doit être "GetCollection".      |
-| collection    |    chaîne     |    Nom de la collection.     |
+| customAction    |   string      |   Nom de la commande personnalisée. Il doit être "GetCollection".      |
+| collection    |    string     |    Nom de la collection.     |
 
-### <a name="output"></a>Sortie
+### <a name="output"></a>Output
 
 Si la commande réussit, la réponse contient un document avec les champs suivants.
 

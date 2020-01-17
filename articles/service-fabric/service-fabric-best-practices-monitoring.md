@@ -1,25 +1,16 @@
 ---
-title: Bonnes pratiques de supervision pour Azure Service Fabric | Microsoft Docs
-description: Bonnes pratiques relatives à la supervision des clusters et des applications Service Fabric
-services: service-fabric
-documentationcenter: .net
+title: Bonnes pratiques de supervision pour Azure Service Fabric
+description: Bonnes pratiques et considérations de conception pour la surveillance des clusters et des applications à l’aide d’Azure Service Fabric.
 author: peterpogorski
-manager: chackdan
-editor: ''
-ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
-ms.service: service-fabric
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: d90daaf18e5161053e00671b7667d05ec8e5db76
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: af03223e8b007cbd2a00d54c3076056cd110ecc9
+ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60533807"
+ms.lasthandoff: 12/31/2019
+ms.locfileid: "75551814"
 ---
 # <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 

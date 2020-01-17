@@ -1,5 +1,6 @@
 ---
-title: Exemple de stratégie de Gestion des API Azure – Autoriser la demande à l’aide d’un agent d’autorisation externe | Microsoft Docs
+title: Exemple de stratégie de Gestion des API - Autoriser une requête à l’aide d’un agent d’autorisation externe
+titleSuffix: Azure API Management
 description: Exemple de stratégie de Gestion des API Azure – Explique comment autoriser les demandes à l’aide d’un agent d’autorisation externe qui encapsule une logique d’authentification/autorisation personnalisée ou héritée.
 services: api-management
 documentationcenter: ''
@@ -12,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: apimpm
-ms.openlocfilehash: 92836e0bfe43a41ad6547c68bc0b9a326528862c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 99bf1068042eb7ab0c43e2a683ca7116d2e426f3
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074166"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75442496"
 ---
 # <a name="authorize-requests-using-external-authorizer"></a>Autoriser les demandes à l’aide d’un agent d’autorisation externe
 

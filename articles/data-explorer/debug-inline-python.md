@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: f0bf81ce6392e1650d9986d81a55eac9c416c24d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 96bd66f96b04bd7032d976ba9ebbbeb60c8415e7
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74820455"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75444470"
 ---
 # <a name="debug-kusto-query-language-inline-python-using-vs-code"></a>Déboguer le code Python inline dans le langage de requête Kusto avec VS Code
 
@@ -23,7 +23,7 @@ Les outils du langage de requête Kusto ne sont pas pratiques pour développer e
 > [!NOTE]
 > Ce workflow peut uniquement être utilisé pour déboguer des tables d’entrée relativement petites (jusqu’à quelques Mo). C’est pourquoi vous devrez peut-être limiter l’entrée pour le débogage.  Si vous avez besoin de traiter une table volumineuse, limitez-la au débogage à l’aide de `| take`, `| sample` ou `where rand() < 0.x`.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Installez la [distribution Anaconda](https://www.anaconda.com/distribution/#download-section) Python. Dans **Options avancées**, sélectionnez **Ajouter Anaconda à ma variable d’environnement PATH**.
 2. Installer [Visual Studio Code](https://code.visualstudio.com/Download)
@@ -32,7 +32,7 @@ Les outils du langage de requête Kusto ne sont pas pratiques pour développer e
 ## <a name="run-your-query-in-your-client-application"></a>Exécuter votre requête dans votre application cliente
 
 1. Dans votre application cliente, préfixez une requête contenant du code Python inline avec `set query_python_debug;`
-1. Exécutez la requête.
+1. Exécute la requête.
     * Kusto Explorer : VS Code se lance automatiquement avec le script *debug_python.py*.
     * Interface utilisateur web Kusto : 
         1. Téléchargez et enregistrez *debug_python.py*, *df.txt* et *kargs.txt*. Dans la fenêtre, sélectionnez **Autoriser**. **Enregistrez** les fichiers dans le répertoire sélectionné. 

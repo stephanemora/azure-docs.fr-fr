@@ -1,5 +1,5 @@
 ---
-title: Obtenir des jetons dans des applications démon appelant des API web - Plateforme d’identités Microsoft | Azure
+title: Acquérir des jetons pour appeler une API web (application démon) - Plateforme d’identités Microsoft | Azure
 description: Apprenez à générer une application démon qui appelle des API web (acquisition de jetons)
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0588e20467701512da6542da0d87fca786dcc793
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 58952bdb58619693b31ee4705b6f9f704431657d
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920291"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75423958"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Application démon conçue pour appeler des API web - acquisition d'un jeton
 
@@ -33,7 +33,7 @@ L'étendue à demander pour un flux d'informations d'identification client est l
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
@@ -70,7 +70,7 @@ Au moment d’acquérir un jeton pour l’application, vous utiliserez `AcquireT
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-```CSharp
+```csharp
 using Microsoft.Identity.Client;
 
 // With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
@@ -185,7 +185,7 @@ Pour plus d'informations, consultez la documentation du protocole : [Plateforme
 
 Dans MSAL.NET, `AcquireTokenForClient` utilise le **cache de jetons d'application** (toutes les autres méthodes AcquireTokenXX utilisent le cache de jetons d'utilisateur). N'appelez pas `AcquireTokenSilent` avant d'appeler `AcquireTokenForClient` car `AcquireTokenSilent` utilise le cache de jetons d'**utilisateur**. `AcquireTokenForClient` vérifie le cache de jetons d'**application** et le met à jour.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Avez-vous utilisé l'étendue resource/.default ?
 

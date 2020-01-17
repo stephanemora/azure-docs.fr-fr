@@ -3,12 +3,12 @@ title: Sauvegarder une base de données SAP HANA sur Azure avec Sauvegarde Azure
 description: Dans cet article, découvrez comment sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: ed47f18c9dabc685d6fbe02804562ef86a93190a
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 3246f6cf8046e0a0c5795059ad3448b70130e7e1
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285787"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75496957"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Sauvegarder des bases de données SAP HANA dans des machines virtuelles Azure
 
@@ -24,7 +24,7 @@ Dans cet article, vous allez apprendre à :
 > * Configurer des sauvegardes
 > * Exécuter un travail de sauvegarde à la demande
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Reportez-vous aux sections [conditions préalables](tutorial-backup-sap-hana-db.md#prerequisites) et [configuration des autorisations](tutorial-backup-sap-hana-db.md#setting-up-permissions) pour configurer la base de données pour la sauvegarde.
 
@@ -34,18 +34,24 @@ Pour toutes les opérations, la machine virtuelle SAP HANA nécessite une connec
 
 * Vous pouvez télécharger les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) des centres de données Azure, puis autoriser l’accès à ces adresses.
 * Si vous utilisez des Groupes de sécurité réseau (NSG), vous pouvez utiliser la [balise de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud pour autoriser toutes les adresses IP publiques Azure. Vous pouvez modifier les règles NSG à l’aide de la [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0).
-* Le port 443 doit être ajouté à la liste verte puisque le transport s’effectue via HTTPS.
+* Le port 443 doit être ajouté à la liste verte puisque le transport s’effectue via HTTPS.
 
 ## <a name="onboard-to-the-public-preview"></a>Intégration à la préversion publique
 
 Exécutez la procédure d’intégration à la préversion publique ci-après :
 
 * Dans le portail, inscrivez votre ID d’abonnement auprès du fournisseur de services Recovery Services en [suivant les instructions de cet article](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal).
-* Pour PowerShell, exécutez cette cmdlet. Ce processus doit s’achever en présentant la mention « Inscrit ».
+* Pour le module « Az » dans PowerShell, exécutez cette cmdlet. Ce processus doit s’achever en présentant la mention « Inscrit ».
 
     ```powershell
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
+* Si vous utilisez le module « AzureRM » dans PowerShell, exécutez cette cmdlet. Ce processus doit s’achever en présentant la mention « Inscrit ».
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
+    ```
+    
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -58,7 +64,7 @@ Exécutez la procédure d’intégration à la préversion publique ci-après :
    * Si une machine virtuelle n’est pas répertoriée alors qu’elle devrait l’être, vérifiez si elle a déjà été sauvegardée dans un coffre.
    * Plusieurs machines virtuelles peuvent avoir le même nom, mais appartenir à différents groupes de ressources.
 
-3. Dans **Sélectionner des machines Virtuelles**, cliquez sur le lien pour télécharger le script qui fournit des autorisations pour le service de Sauvegarde Azure afin d’accéder aux machines virtuelles SAP HANA pour la détection des bases de données.
+3. Dans **Sélectionner les machines virtuelles**, cliquez sur le lien pour télécharger le script qui autorise le service Sauvegarde Azure à accéder aux machines virtuelles SAP HANA pour la découverte des bases de données.
 4. Exécutez le script sur chacune des machines virtuelles hébergeant les bases de données SAP HANA que vous souhaitez sauvegarder.
 5. Après avoir exécuté le script sur les machines virtuelles, dans **Sélectionner les machines virtuelles**, sélectionnez les machines souhaitées. Ensuite, cliquez sur **Découvrir les bases de données**.
 6. Le service Sauvegarde Azure détecte toutes les bases de données SAP HANA résidant sur la machine virtuelle. Lors de la détection, le service Sauvegarde Azure inscrit la machine virtuelle auprès du coffre et y installe une extension. Aucun agent n’est installé sur la base de données.
@@ -74,7 +80,7 @@ Maintenant, activez la sauvegarde.
     ![Configurez une sauvegarde](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. Dans **Sélectionner les éléments à sauvegarder**, sélectionnez toutes les bases de données que vous souhaitez protéger, puis choisissez **OK**.
 
-    ![Sélectionner des éléments à sauvegarder](./media/backup-azure-sap-hana-database/select-items.png)
+    ![Sélectionner les éléments à sauvegarder](./media/backup-azure-sap-hana-database/select-items.png)
 3. Dans **Stratégie de sauvegarde** > **Choisir une stratégie de sauvegarde**, créez une stratégie de sauvegarde pour les bases de données en suivant les instructions ci-dessous.
 
     ![Choisir une stratégie de sauvegarde](./media/backup-azure-sap-hana-database/backup-policy.png)
@@ -106,7 +112,7 @@ Spécifiez les paramètres de stratégie comme suit :
 
 3. Dans **Durée de rétention**, configurez les paramètres de rétention pour la sauvegarde complète.
     * Par défaut, toutes les options sont sélectionnées. Désactivez les limites de durée de rétention que vous ne souhaitez pas utiliser et définissez celles qui vous intéressent.
-    * La période de rétention minimale pour tout type de sauvegarde (complète/différentielle/fichier journal) est de sept jours.
+    * La période de rétention minimale est de sept jours pour tous les types de sauvegardes (complète/différentielle/fichier journal).
     * Des points de récupération sont marqués pour la rétention et varient selon la durée de rétention. Par exemple, si vous sélectionnez une sauvegarde complète quotidienne, seule une sauvegarde complète est déclenchée chaque jour.
     * La sauvegarde d’un jour spécifique est marquée et conservée conformément à la durée de rétention hebdomadaire et aux paramètres.
     * Les durées de rétention mensuelle et annuelle ont le même comportement.
@@ -124,7 +130,7 @@ Spécifiez les paramètres de stratégie comme suit :
 
 7. Cliquez sur **OK** pour enregistrer la stratégie et revenir au menu **Stratégie de sauvegarde** principal.
 8. Sélectionnez **Sauvegarde de fichier journal** pour ajouter une stratégie de sauvegarde de fichier journal.
-    * Dans **Sauvegarde de fichier journal**, sélectionnez **Activer**.  Cette désactivation ne peut pas être effectuée, car SAP HANA gère toutes les sauvegardes de fichiers journaux.
+    * Dans **Sauvegarde de fichier journal**, sélectionnez **Activer**.  Cette option ne peut pas être désactivée, car SAP HANA gère toutes les sauvegardes de fichiers journaux.
     * Définissez les contrôles de fréquence et de rétention.
 
     > [!NOTE]
@@ -132,6 +138,9 @@ Spécifiez les paramètres de stratégie comme suit :
 
 9. Cliquez sur **OK** pour enregistrer la stratégie et revenir au menu **Stratégie de sauvegarde** principal.
 10. Après avoir défini la stratégie de sauvegarde, cliquez sur **OK**.
+
+> [!NOTE]
+> Chaque sauvegarde de fichier journal est chaînée à la sauvegarde complète précédente pour former une chaîne de récupération. Cette sauvegarde complète est conservée jusqu’à la fin de la durée de conservation de la dernière sauvegarde de fichier journal. Il est donc possible que la sauvegarde complète soit conservée pour une durée supplémentaire afin que tous les journaux puissent être récupérés. Supposons que l’utilisateur effectue une sauvegarde complète hebdomadaire, une sauvegarde différentielle par jour et des journaux d’activité toutes les 2 heures. Tous sont conservés 30 jours. Cependant, la sauvegarde complète hebdomadaire ne peut être réellement nettoyée/supprimée que lorsque la sauvegarde complète suivante est disponible, à savoir après 30 + 7 jours. Par exemple, la sauvegarde complète hebdomadaire a lieu le 16 novembre. Conformément à la stratégie de rétention, elle doit être conservée jusqu’au 16 décembre. La dernière sauvegarde de fichier journal de cette sauvegarde complète a lieu avant la prochaine sauvegarde complète planifiée, le 22 novembre. Tant que ce journal n’est pas disponible, jusqu’au 22 décembre, la sauvegarde complète du 16 novembre ne peut pas être supprimée. La sauvegarde complète du 16 novembre est donc conservée jusqu’au 22 décembre.
 
 ## <a name="run-an-on-demand-backup"></a>Exécuter une sauvegarde à la demande
 

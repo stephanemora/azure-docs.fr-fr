@@ -1,5 +1,5 @@
 ---
-title: 'Modèle de données de télémétrie d’Azure Application Insights : télémétrie des traces | Microsoft Docs'
+title: Modèle de données Azure Application Insights - Télémétrie des traces
 description: Modèle de données Application Insights pour la télémétrie des traces
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 855a93d8a6350c625fe0820fae83644aec3459ed
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 6e188039a86f4c655df3098be1d769668dcf3571
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75407135"
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Télémétrie de trace : Modèle de données Application Insights
 

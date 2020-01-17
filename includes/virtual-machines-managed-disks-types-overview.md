@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 45168c23964c735a4bd51ba11c2340d4ff95fed4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 31a9da0678f602afcc117e5b2f7927af379da668
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012419"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75468298"
 ---
 Azure Managed Disks propose quatre types de disque, chaque type étant destiné à des scénarios clients spécifiques.
 
 ## <a name="disk-comparison"></a>Comparaison des disques
 
-Le tableau suivant compare quatre types de disque managé : les disques Ultra, les disques SSD Premium, les disques SSD Standard et les disques HDD Standard pour vous aider dans votre choix.
+Le tableau suivant compare quatre types de disque managé : les disques Ultra, les disques SSD Premium, les disques SSD Standard et les disques HDD Standard pour vous aider dans votre choix.
 
 |   | Disque Ultra   | SSD Premium   | SSD Standard   | HDD Standard   |
 |---------|---------|---------|---------|---------|

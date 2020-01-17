@@ -1,26 +1,17 @@
 ---
-title: Surveillance et diagnostics dans les applications Azure Service Fabric mesh | Microsoft Docs
+title: Surveillance et diagnostics pour les applications Azure Service Fabric Mesh
 description: Découvrez l’application de surveillance et de diagnostic dans Service Fabric mesh sur Azure.
-services: service-fabric-mesh
-documentationcenter: .net
 author: srrengar
-manager: timlt
-editor: ''
-ms.assetid: ''
-ms.service: service-fabric-mesh
-ms.devlang: dotNet
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 03/19/2019
 ms.author: srrengar
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 36c9a5d75c4a72365638619ab85d451df647feb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 247a1de4d00668371337295616d31caf101f0cc5
+ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939820"
+ms.lasthandoff: 12/26/2019
+ms.locfileid: "75498148"
 ---
 # <a name="monitoring-and-diagnostics"></a>Surveillance et diagnostics
 Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. La surveillance et les diagnostics pour Service Fabric mesh portent sur trois types principaux de données de diagnostic :
@@ -72,7 +63,7 @@ L’environnement Mesh expose un certain nombre de métriques indiquant le fonct
 Chaque métrique est disponible sur les différentes dimensions afin que vous puissiez voir les agrégats à différents niveaux. Voici la liste actuelle des dimensions :
 
 * ApplicationName
-* ServiceName
+* NomService
 * ServiceReplicaName
 * CodePackageName
 
