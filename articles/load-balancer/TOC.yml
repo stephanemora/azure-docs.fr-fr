@@ -4,8 +4,6 @@
   items:
     - name: "Qu’est-ce que l’équilibrage de charge\_?"
       href: load-balancer-overview.md
-    - name: "Qu’est-ce que Load Balancer Standard\_?"
-      href: load-balancer-standard-overview.md
 - name: Démarrage rapide
   items:
     - name: Créer un Standard Load Balancer

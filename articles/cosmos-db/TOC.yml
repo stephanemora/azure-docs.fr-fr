@@ -851,8 +851,6 @@
         - name: Gérer des niveaux de cohérence
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: Implémenter une synchronisation personnalisée
-          href: how-to-custom-synchronization.md
         - name: Configurer des stratégies de résolution de conflits
           href: how-to-manage-conflicts.md
     - name: Débit approvisionné

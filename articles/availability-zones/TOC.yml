@@ -33,7 +33,7 @@
         - name: Load Balancer
           items:
             - name: "Qu’est-ce que l’équilibrage de charge\_?"
-              href: ../load-balancer/load-balancer-standard-overview.md
+              href: ../load-balancer/load-balancer-overview.md
             - name: Standard Load Balancer et zones de disponibilité
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Créer un équilibrage de charge standard public et redondant dans une zone
@@ -57,7 +57,7 @@
                   href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
         - name: Adresse IP publique
           href: '../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address'
-        - name: Base de données SQL
+        - name: SQL Database
           items:
             - name: Zones de disponibilité avec SQL Database
               href: '../sql-database/sql-database-high-availability.md#zone-redundant-configuration'
