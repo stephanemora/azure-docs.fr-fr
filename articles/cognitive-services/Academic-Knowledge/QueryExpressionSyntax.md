@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3b87e04c2d6380a0ee4157e73db0cd4057fadee1
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 4056ecba7ac80436952228da9e1b74dc7382448c
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68704926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75448950"
 ---
 # <a name="query-expression-syntax"></a>Syntaxe d’expression de requête
 
@@ -28,6 +28,7 @@ Chaque attribut d’entité pouvant être inclus dans une expression de requête
 
 Certaines des données d’entité sont stockées en tant qu’attributs composites, comme l’indique le point « . » dans le nom de l’attribut. Par exemple, les informations d’auteur et de collaboration sont représentées sous forme d’attribut composite. Elles contiennent 4 composants : AuN, AuId, AfN et AfId. Ces composants sont des éléments de données distincts qui forment une valeur d’attribut d’entité unique.
 
+Remarque : Toutes les expressions de requête doivent être en minuscules et sans caractères spéciaux.
 
 **Attribut de chaîne : valeur unique** (inclut les correspondances aux synonymes)  
 Ti='indexation par analyse sémantique latente'  
