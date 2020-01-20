@@ -148,5 +148,5 @@ Lisez cet [article](alerts-metric.md) pour en savoir plus sur la configuration d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-  Pour découvrir les meilleures pratiques en matière de création de tableaux de bord actionnables avec des métriques, voir [Création de tableaux de bord d’indicateurs de performance clés personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards).
+  Pour découvrir les meilleures pratiques en matière de création de tableaux de bord actionnables avec des métriques, Voir [Créer des tableaux de bord d’indicateur de performance clé](https://docs.microsoft.com/azure/application-insights/app-insights-tutorial-dashboards).
 
