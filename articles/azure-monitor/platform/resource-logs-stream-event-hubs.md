@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b8e244dc00b4ed61a802f5c9f39149a7c020768a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 00dcc1c1a1d823ab0f2497e47641916d391ee37b
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530831"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750343"
 ---
 # <a name="stream-azure-platform-logs-to-azure-event-hubs"></a>Diffuser en continu les journaux de plateforme Azure vers Azure Event Hubs
-[Les journaux de plateforme](resource-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent.  Cet article décrit la diffusion en continu des journaux d’activité de plateformes à des hubs d’événements pour envoyer des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux d’activité.
+[Les journaux de plateforme](platform-logs-overview.md) dans Azure, y compris le journal d’activité Azure et les journaux de ressources, fournissent des informations de diagnostic et d’audit détaillées pour les ressources Azure et la plateforme Azure dont elles dépendent.  Cet article décrit la diffusion en continu des journaux d’activité de plateformes à des hubs d’événements pour envoyer des données à des systèmes externes tels que des solutions SIEM tierces et d’autres solutions d’analytique des journaux d’activité.
 
 
 ## <a name="what-you-can-do-with-platform-logs-sent-to-an-event-hub"></a>Comment utiliser les journaux d’activité de plateformes envoyés à un Event Hub
@@ -135,7 +135,7 @@ Voici des exemples de données de sortie provenant d’Event Hubs pour un journa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Découvrez plus d’informations sur les journaux de ressource](resource-logs-overview.md)
+* [Découvrez plus d’informations sur les journaux de ressource](platform-logs-overview.md)
 * [Créer un paramètre de diagnostic pour collecter les journaux et les mesures dans Azure](diagnostic-settings.md).
 * [Diffuser en continu des journaux d’activité Azure Active Directory avec Azure Monitor](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md).
 * [Prise en main d’Azure Event Hubs](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).

@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Documentation sur Azure Maps
-summary: Microsoft Azure Maps offre aux développeurs de tous les secteurs d’activité de puissantes fonctionnalités géospatiales comprenant les toutes dernières données cartographiques pour fournir un contexte géographique aux applications mobiles et web. Azure Maps est un jeu d’API REST conforme à l’API Azure One pour les cartes, la recherche, les itinéraires, le trafic, la mobilité, la météo, les fuseaux horaires, la géolocalisation, le geofencing, les données cartographiques et les opérations spatiales. Il est accompagné de kits SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
+summary: 'Microsoft Azure Maps fournit aux développeurs de tous les secteurs d’activité des fonctionnalités géospatiales puissantes. Ces fonctionnalités géospatiales s’accompagnent des données de mappage les plus récentes. Azure Maps est disponible pour les applications web et mobiles. Azure Maps est un ensemble d’API REST conforme à Azure One API. Les services suivants ne sont qu’une vue d’ensemble de ce que peut offrir Azure Maps : cartes, recherche, routage, trafic, mobilité, météo, fuseaux horaires, géolocalisation, geofencing, données cartographiques et opérations spatiales. Les kits SDK Web et Android rendent le développement simple, souple et portable sur plusieurs plateformes.'
 metadata:
   title: Documentation sur Azure Maps | Microsoft Docs
   description: Découvrez Azure Maps et comment l’utiliser pour fournir des services géospatiaux à votre application web ou mobile.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 66721caadce09816368d673c217c9bf97daf1b6c
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 1/15/2020
+  ms.openlocfilehash: f4ae414179f77413e5d5daa4fda635e0bf24c2aa
+  ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75408647"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76264099"
 landingContent:
 - title: À propos d’Azure Maps
   linkLists:
@@ -94,7 +94,7 @@ landingContent:
       url: how-to-add-tile-layer-android-map.md
     - text: Ajouter une forme à une carte
       url: how-to-add-shapes-to-android-map.md
-- title: Développement avec Location Based Services
+- title: Développement avec Location-Based Services
   linkLists:
   - linkListType: concept
     links:

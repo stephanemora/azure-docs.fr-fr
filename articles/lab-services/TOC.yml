@@ -66,8 +66,6 @@
           href: enable-browser-connection-lab-virtual-machines.md
         - name: Configurer la gestion des coûts
           href: devtest-lab-configure-cost-management.md
-        - name: Envoyer des notifications d’arrêt automatique
-          href: devtest-lab-auto-shutdown.md
         - name: Définir le démarrage automatique pour les machines virtuelles lab
           href: devtest-lab-auto-startup-vm.md
         - name: Mettre à l’échelle votre laboratoire
@@ -124,8 +122,8 @@
           href: devtest-lab-resize-vm.md
         - name: Redéploiement d’une machine virtuelle
           href: devtest-lab-redeploy-vm.md
-        - name: Configurer l’arrêt automatique d’une machine virtuelle
-          href: devtest-lab-auto-shutdown-vm.md
+        - name: Configurer l’arrêt automatique des machines virtuelles de calcul et de laboratoire
+          href: devtest-lab-auto-shutdown.md
         - name: Créer et gérer des machines virtuelles revendicables
           href: devtest-lab-add-claimable-vm.md
         - name: Configurer des secrets
