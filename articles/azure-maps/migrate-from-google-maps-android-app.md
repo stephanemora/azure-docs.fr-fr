@@ -1,20 +1,20 @@
 ---
-title: Migrer une application Android | Microsoft Docs
-description: Tutoriel sur la façon de migrer une application Android de Google Maps vers Microsoft Azure Maps.
+title: 'Tutoriel : Migrer une application Android |Microsoft Azure Maps'
+description: Comment migrer une application Android de Google Maps vers Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 60d8fcc9879e89276aad80bbaf3a0edf244a45b8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 643d48cb931bcec1a8a3385d2ec24a394660c368
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475419"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75909185"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Migrer une application Android à partir de Google Maps
 
@@ -716,7 +716,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Couche de mosaïques Google Maps](media/migrate-google-maps-android-app/google-maps-tile-layer.png)</center>
 
-**Après : Azure Maps**
+**Après : Azure Maps**
 
 Dans Azure Maps, une couche de mosaïques peut être ajoutée à la carte à peu près de la même façon que n’importe quelle autre couche. Une URL mise en forme qui a les espaces réservés x, y et zoom (`{x}`, `{y}`, `{z}` respectivement) est utilisée pour indiquer à la couche où accéder aux mosaïques. Les couches de mosaïques dans Azure Maps prennent également en charge les espaces réservés `{quadkey}`, `{bbox-epsg-3857}` et `{subdomain}`. Pour rendre la couche de mosaïques semi-transparente, une valeur d’opacité de 0,8 est utilisée. Notez que l’opacité et la transparence, bien que similaires, utilisent des valeurs inverses. Pour les convertir entre elles, il suffit de soustraire leur valeur du nombre 1.
 
@@ -759,7 +759,7 @@ public void onMapReady(GoogleMap googleMap) {
 
 ![Trafic Google Maps](media/migrate-google-maps-android-app/google-maps-traffic.png)</center>
 
-**Après : Azure Maps**
+**Après : Azure Maps**
 
 Azure Maps offre plusieurs options différentes pour l’affichage du trafic. Les incidents de trafic, tels que les fermetures de route et les accidents, peuvent être affichés sous forme d’icônes sur la carte. Des routes codées en couleurs représentant le flux de trafic peuvent être superposées sur la carte ; les couleurs peuvent être modifiées pour tenir compte de la limite de vitesse indiquée, d’un retard prévu normal ou d’un retard absolu. Les données d’incident dans Azure Maps sont mises à jour toutes les minutes et les données de transit toutes les deux minutes.
 

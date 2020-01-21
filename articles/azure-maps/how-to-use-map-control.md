@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec le contrôle de carte web dans Azure Maps | Microsoft Docs
-description: Découvrez comment utiliser la bibliothèque JavaScript côté client de contrôle de carte Azure Maps.
+title: Bien démarrer avec le contrôle de carte web | Microsoft Azure Maps
+description: Découvrez comment utiliser la bibliothèque Javascript côté client du contrôle de carte Microsoft Azure Maps pour effectuer le rendu de cartes et de fonctionnalités Azure Maps intégrées dans votre application web ou mobile.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d70d0e1107a6ee1b53b178d8912c1b808472b142
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d50b97ad47f4b09ae4fec363e7d0a2c7f6b841df
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432910"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911354"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le contrôle de carte Azure Maps
 

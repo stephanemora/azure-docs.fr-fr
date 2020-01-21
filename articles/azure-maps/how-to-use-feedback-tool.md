@@ -1,6 +1,6 @@
 ---
-title: Comment fournir des commentaires sur des données à Azure Maps | Microsoft Docs
-description: Fournissez des commentaires sur les données à l’aide de l’outil de commentaires Azure Maps.
+title: Fournir des commentaires sur des données à Azure Maps | Microsoft Azure Maps
+description: Fournissez des commentaires sur les données à l’aide de l’outil de commentaires Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/19/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 28c463204080296e431edb3c30b4fdd66f07a189
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 59670742586f596a817ad52383160a38358a6786
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776590"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911380"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Fournir des commentaires sur des données à Azure Maps
 

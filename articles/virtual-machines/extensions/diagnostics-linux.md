@@ -2,19 +2,19 @@
 title: Calcul Azure - Extension de diagnostic Linux
 description: Comment configurer l’extension de diagnostic Linux Azure pour collecter des métriques et consigner les événements provenant de machines virtuelles Linux qui s’exécutent dans Azure.
 services: virtual-machines-linux
-author: abhijeetgaiha
+author: MicahMcKittrick-MSFT
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: gwallace
-ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 8b69da027878edddb3b553c097865a86985357f5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359360"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970107"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Utilisez l’extension de diagnostic Linux pour surveiller les métriques et les journaux d’activité
 
@@ -197,7 +197,7 @@ Si vous avez créé une signature SAS valable jusqu’au 1er janvier 2018 à min
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Pour plus d’informations sur la génération de jetons SAS pour les Event Hubs, consultez [cette page web](../../event-hubs/event-hubs-authentication-and-security-model-overview.md).
+Pour plus d’informations sur la génération et l’extraction d’informations de jetons SAS pour les Event Hubs, consultez [cette page web](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>Récepteur JsonBlob
 
@@ -602,8 +602,8 @@ Dans chaque cas, les données sont également chargées dans :
 ```json
 {
   "StorageAccount": "yourdiagstgacct",
-  "sampleRateInSeconds": 15,
   "ladCfg": {
+    "sampleRateInSeconds": 15,
     "diagnosticMonitorConfiguration": {
       "performanceCounters": {
         "sinks": "MyMetricEventHub,MyJsonMetricsBlob",

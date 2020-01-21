@@ -1,6 +1,6 @@
 ---
-title: Format de données Geofence GeoJSON dans Azure Maps | Microsoft Docs
-description: En savoir plus sur le format de données Geofence GeoJSON dans Azure Maps
+title: Format de données GeoJSON pour la limite géographique | Microsoft Azure Maps
+description: Dans cet article, vous découvrirez comment préparer les données de limite géographique qui peuvent être utilisées dans les API GET et POST Geofence de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5946180c161a38a30f44e235ce0b626fd70a5400
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: f853962bba7302affd78d5ef267460893ea80a33
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735138"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911594"
 ---
 # <a name="geofencing-geojson-data"></a>Données Geofencing GeoJSON
 
@@ -30,7 +30,7 @@ Les données de la limite géographique ou d’un ensemble de limites géographi
 * `expiredTime` est la date et l’heure d’expiration des données de limite géographique. Si la valeur de `userTime` dans la requête est ultérieure à cette valeur, les données de la limite géographique correspondantes sont considérées comme données expirées de données et ne sont pas interrogées. Dans ce cas, le geometryId de cette limite géographique figurera dans le tableau `expiredGeofenceGeometryId` dans la réponse de la limite géographique.
 * `validityPeriod` est une liste de périodes de validité pour la limite géographique. Si la valeur de `userTime` dans la requête se situe en dehors de la période de validité, les données de la limite géographique correspondantes sont considérées comme non valides et ne seront pas être interrogées. Le geometryId de cette limite géographique figure dans le tableau `invalidPeriodGeofenceGeometryId` dans la réponse de la limite géographique. Le tableau suivant présente les propriétés de l’élément validityPeriod.
 
-| Nom | Type | Obligatoire  | Description |
+| Name | Type | Obligatoire  | Description |
 | :------------ |:------------: |:---------------:| :-----|
 | startTime | Datetime  | true | Date et heure de début de la période de validité. |
 | endTime   | Datetime  | true |  Date et heure de fin de la période de validité. |

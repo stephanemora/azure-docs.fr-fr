@@ -127,7 +127,7 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 | Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
 | Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
 | Marathi | `mr` | Dévanâgarî `Deva` | --> | Latin `Latn` |
-| Oriya | `or` | Oriya `Orya` | <--> | Latin `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latin `Latn` |
 | Pendjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbe (cyrillique) | `sr-Cyrl` | Cyrillique `Cyrl`  | --> | Latin `Latn` |
 | Serbe (latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillique `Cyrl`|
