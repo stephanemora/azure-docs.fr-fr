@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: d198ee2e1fa8d3afeacda53c2ad6b91d69abca2a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 14e33bf77144e4cd5728ec85d3012dc0ba717ece
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195760"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945652"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Déployer et configurer un pare-feu Azure dans un réseau hybride à l’aide d’Azure PowerShell
 
@@ -47,13 +47,13 @@ Si vous préférez utiliser le portail Azure pour suivre ce didacticiel, reporte
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour cet article, vous devez exécuter PowerShell localement. Les modules Azure PowerShell doivent être installés. Exécutez `Get-Module -ListAvailable Az` pour trouver la version. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Après avoir vérifié la version PowerShell, exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
 Il existe trois conditions clés pour que ce scénario fonctionne correctement :
 
-- Un itinéraire défini par l’utilisateur (UDR) sur le sous-réseau spoke qui pointe vers l’adresse IP du Pare-feu Azure en tant que passerelle par défaut. La propagation des itinéraires BGP doit être **désactivée** sur cette table de routage.
+- Un itinéraire défini par l’utilisateur (UDR) sur le sous-réseau spoke qui pointe vers l’adresse IP du Pare-feu Azure en tant que passerelle par défaut. La propagation de l’itinéraire de la passerelle de réseau virtuel doit être **désactivée** sur cette table de routage.
 - Un UDR sur le sous-réseau de passerelle hub doit pointer vers l’adresse IP du pare-feu comme prochain tronçon pour les réseaux spoke.
 
    Aucun UDR n’est requis sur le sous-réseau du Pare-feu Azure, puisqu’il apprend les itinéraires à partir de BGP.
@@ -64,7 +64,7 @@ Pour plus d'informations sur la création de ces itinéraires, consultez la sect
 >[!NOTE]
 >Le Pare-feu Azure doit avoir une connectivité Internet directe. Si votre AzureFirewallSubnet prend connaissance d’un itinéraire par défaut pour votre réseau local via le protocole BGP, vous devez le remplacer par un UDR 0.0.0.0/0 avec la valeur **NextHopType** définie sur **Internet** pour garantir une connectivité Internet directe.
 >
->Pour l’heure, Pare-feu Azure ne prend pas en charge le tunneling forcé. Si votre configuration nécessite un tunneling forcé vers un réseau local et que vous pouvez déterminer les préfixes IP cibles pour vos destinations Internet, vous pouvez configurer ces plages en faisant du réseau local le tronçon suivant via une route définie par l’utilisateur sur le sous-réseau AzureFirewallSubnet. Vous pouvez aussi utiliser le protocole BGP pour définir ces routes.
+>Pour l’heure, Pare-feu Azure ne prend pas en charge le tunneling forcé. Si votre configuration nécessite un tunneling forcé vers un réseau local et que vous pouvez déterminer les préfixes IP cibles pour vos destinations Internet, vous pouvez configurer ces plages en faisant du réseau local le tronçon suivant avec une route définie par l’utilisateur sur le sous-réseau AzureFirewallSubnet. Vous pouvez aussi utiliser le protocole BGP pour définir ces routes.
 
 >[!NOTE]
 >Le trafic entre les réseaux virtuels directement appairés est acheminé directement même si l’UDR pointe vers le Pare-feu Azure en tant que passerelle par défaut. Pour envoyer un trafic de sous-réseau à sous-réseau au pare-feu dans ce scénario, un UDR doit contenir explicitement le préfixe du réseau cible dans les deux sous-réseaux.
@@ -355,7 +355,7 @@ Set-AzVirtualNetwork
 
 #Now create the default route
 
-#Create a table, with BGP route propagation disabled
+#Create a table, with BGP route propagation disabled. The property is now called "Virtual network gateway route propagation," but the API still refers to the parameter as "DisableBgpRoutePropagation."
 $routeTableSpokeDG = New-AzRouteTable `
   -Name 'UDR-DG' `
   -ResourceGroupName $RG1 `
@@ -489,7 +489,7 @@ Set-AzFirewall -AzureFirewall $azfw
 
 Maintenant, réexécutez les tests. Cette fois, ils doivent échouer. Fermez les bureaux à distance existants avant de tester les règles modifiées.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **FW-Hybrid-Test** pour supprimer toutes les ressources associées au pare-feu.
 
@@ -497,4 +497,4 @@ Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, 
 
 Ensuite, vous pouvez surveiller les journaux d’activité de Pare-feu Azure.
 
-[Didacticiel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)
+[Tutoriel : Superviser les journaux d’activité de Pare-feu Azure](./tutorial-diagnostics.md)

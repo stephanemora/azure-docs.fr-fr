@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 34abb93dd54245e03baaa6efe0130d951f7565bf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3e0dd6e0bb81aef340dc83288e6e5c0af0bf11c6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927729"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867371"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison REST à l’aide d’Azure Data Factory
 
@@ -36,17 +36,17 @@ Plus précisément, ce connecteur REST générique prend en charge ce qui suit 
 
 - La récupération des données à partir du point de terminaison REST à l’aide des méthodes **GET** ou **POST**.
 - Le récupération de données avec une des authentifications suivantes : **Anonyme**, **De base**, **Principal de service AAD** et **Identités managées pour ressources Azure**.
-- La **[Pagination](#pagination-support)**  dans les API REST.
+- La **[Pagination](#pagination-support)** dans les API REST.
 - La copie de la réponse JSON REST [en l’état](#export-json-response-as-is) ou son analyse à l’aide d’un [mappage de schéma](copy-activity-schema-and-type-mapping.md#schema-mapping). Seule la charge utile de réponse dans **JSON** est prise en charge.
 
 > [!TIP]
 > Pour tester une requête pour l’extraction de données avant de configurer le connecteur REST dans Data Factory, obtenez des informations à partir de la spécification d’API sur les exigences d’en-tête et de corps. Vous pouvez vous servir d’outils tels que Postman ou un navigateur web pour valider.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,11 +58,11 @@ Les propriétés prises en charge pour le service lié REST sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** doit être définie sur **RestService**. | OUI |
-| url | URL de base du service REST. | OUI |
+| type | La propriété **type** doit être définie sur **RestService**. | Oui |
+| url | URL de base du service REST. | Oui |
 | enableServerCertificateValidation | Indique s’il faut ou non valider le certificat SSL côté serveur lors de la connexion au point de terminaison. | Non<br /> (la valeur par défaut est **true**) |
-| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | OUI |
-| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Prérequis](#prerequisites). À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non |
+| authenticationType | Type d’authentification utilisé pour se connecter au service REST. Les valeurs autorisées sont **Anonyme**, **De base**, **AadServicePrincipal** et **ManagedServiceIdentity**. Pour d’autres propriétés et exemples, voir les sections correspondantes ci-dessous. | Oui |
+| connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion au magasin de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, cette propriété utilise Azure Integration Runtime par défaut. |Non |
 
 ### <a name="use-basic-authentication"></a>Utiliser une authentification de base
 
@@ -70,8 +70,8 @@ Définissez la propriété **authenticationType** sur **De base**. Outre les pro
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison REST. | OUI |
-| password | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| userName | Nom d’utilisateur à utiliser pour accéder au point de terminaison REST. | Oui |
+| password | Mot de passe de l’utilisateur (valeur **userName**). Vous pouvez marquer ce champ en tant que type **SecureString** pour le stocker de manière sécurisée dans Data Factory. Vous pouvez également [référencer un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 
 **Exemple**
 
@@ -103,10 +103,10 @@ Définissez la propriété **authenticationType** sur **AadServicePrincipal**. O
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | OUI |
-| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
-| locataire | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | OUI |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| OUI |
+| servicePrincipalId | Spécifiez l’ID de l’application Azure Active Directory. | Oui |
+| servicePrincipalKey | Spécifiez la clé de l’application Azure Active Directory. Marquez ce champ en tant que **SecureString** afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
+| tenant | Spécifiez les informations de locataire (nom de domaine ou ID de locataire) dans lesquels se trouve votre application. Récupérez-le en pointant la souris dans le coin supérieur droit du Portail Azure. | Oui |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
 
 **Exemple**
 
@@ -140,7 +140,7 @@ Définissez la propriété **authenticationType** sur **ManagedServiceIdentity**
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| OUI |
+| aadResourceId | Spécifiez la ressource AAD pour laquelle vous demandez une autorisation, par exemple, `https://management.core.windows.net`.| Oui |
 
 **Exemple**
 
@@ -172,7 +172,7 @@ Pour copier des données à partir de REST, les propriétés suivantes sont pris
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | OUI |
+| type | La propriété **type** du jeu de données doit être définie sur **RestResource**. | Oui |
 | relativeUrl | URL relative de la ressource qui contient les données. Quand cette propriété n’est pas spécifiée, seule l’URL indiquée dans la définition du service lié est utilisée. Le connecteur HTTP copie les données à partir de l’URL combinée : `[URL specified in linked service]/[relative URL specified in dataset]`. | Non |
 
 Si vous avez défini `requestMethod`, `additionalHeaders`, `requestBody` et `paginationRules` dans le jeu de données, il reste pris en charge tel quel, mais nous vous suggérons d’utiliser le nouveau modèle dans la source d’activité à l’avenir.
@@ -208,7 +208,7 @@ Les propriétés prises en charge dans la section **source** de l’activité de
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | OUI |
+| type | La propriété **type** de la source d’activité de copie doit être définie sur **RestSource**. | Oui |
 | requestMethod | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non |
 | additionalHeaders | En-têtes de requête HTTP supplémentaires. | Non |
 | requestBody | Corps de la requête HTTP. | Non |
@@ -371,6 +371,75 @@ La configuration de la source de l’activité de copie REST correspondante, en 
     }
 }
 ```
+
+## <a name="use-oauth"></a>Utiliser OAuth
+Cette section décrit comment utiliser un modèle de solution pour copier des données à partir d’un connecteur REST dans Azure Data Lake Storage au format JSON à l’aide d’OAuth. 
+
+### <a name="about-the-solution-template"></a>À propos du modèle de solution
+
+Le modèle comporte deux activités :
+- L’activité **Web** récupère le jeton du porteur, puis le transmet à l’activité de copie suivante en tant qu’autorisation.
+- L’activité **Copier** copie les données de REST vers Azure Data Lake Storage.
+
+Le modèle définit deux paramètres :
+- **SinkContainer** est le chemin d’accès au dossier racine dans lequel les données sont copiées dans votre Azure Data Lake Storage. 
+- **SinkDirectory** est le chemin du répertoire sous la racine où les données sont copiées dans votre Azure Data Lake Storage. 
+
+### <a name="how-to-use-this-solution-template"></a>Utiliser ce modèle de solution
+
+1. Accédez au modèle **Copier à partir de REST ou HTTP à l’aide de OAuth**. Créez une connexion pour la connexion source. 
+    ![Créer des connexions](media/solution-template-copy-from-rest-or-http-using-oauth/source-connection.png)
+
+    Voici les principales étapes pour les nouveaux paramètres de service lié (REST) :
+    
+     1. Sous **URL de base**, spécifiez le paramètre d’URL pour votre propre service REST source. 
+     2. Pour **Type d’authentification**, choisissez *Anonyme*.
+        ![Nouvelle connexion REST](media/solution-template-copy-from-rest-or-http-using-oauth/new-rest-connection.png)
+
+2. Créez une connexion pour la connexion de destination.  
+    ![Nouvelle connexion Gen2](media/solution-template-copy-from-rest-or-http-using-oauth/destination-connection.png)
+
+3. Sélectionnez **Utiliser ce modèle**.
+    ![Utiliser ce modèle](media/solution-template-copy-from-rest-or-http-using-oauth/use-this-template.png)
+
+4. Vous pouvez voir le pipeline créé comme indiqué dans l’exemple suivant :  ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline.png)
+
+5. Sélectionnez l’activité **Web**. Dans **Paramètres**, spécifiez l’**URL**, la **méthode**, les **en-têtes** et le **corps** correspondants pour récupérer le jeton du porteur OAuth à partir de l’API de connexion du service à partir duquel vous souhaitez copier des données. L’espace réservé dans le modèle illustre un exemple de norme OAuth Azure Active Directory (AAD). Remarque : l’authentification AAD est prise en charge en mode natif par le connecteur REST, qui ici n’est qu’un exemple de flux OAuth. 
+
+    | Propriété | Description |
+    |:--- |:--- |:--- |
+    | URL |Spécifiez l’URL à partir de laquelle récupérer le jeton du porteur OAuth. Dans l’exemple, c’est https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
+    | Méthode | Méthode HTTP. Les valeurs autorisées sont **Post** et **Get**. | 
+    | headers | L’en-tête est défini par l’utilisateur, qui fait référence à un nom d’en-tête dans la requête HTTP. | 
+    | body | Corps de la requête HTTP. | 
+
+    ![Pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/web-settings.png)
+
+6. Dans l’activité **Copier les données**, sélectionnez l’onglet *Source*, vous pouvez voir que le jeton du porteur (access_token) récupéré à partir de l’étape précédente est transmis à l’activité Copier les données en tant qu’**Autorisation** sous les en-têtes supplémentaires. Confirmez les paramètres pour les propriétés suivantes avant de démarrer une exécution de pipeline.
+
+    | Propriété | Description |
+    |:--- |:--- |:--- | 
+    | Méthode de requête | Méthode HTTP. Les valeurs autorisées sont **Get** (par défaut) et **Post**. | 
+    | En-têtes supplémentaires | En-têtes de requête HTTP supplémentaires.| 
+
+   ![Copier l’authentification source](media/solution-template-copy-from-rest-or-http-using-oauth/copy-data-settings.png)
+
+7. Sélectionnez **Déboguer**, entrez les **Paramètres**, puis sélectionnez **Terminer**.
+   ![Exécution du pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/pipeline-run.png) 
+
+8. Lorsque l’exécution du pipeline s’effectue correctement, vous pouvez voir le résultat similaire à l’exemple suivant : ![Résultat de l’exécution du pipeline](media/solution-template-copy-from-rest-or-http-using-oauth/run-result.png) 
+
+9. Cliquez sur l’icône de sortie de WebActivity dans la colonne **Actions**, vous voyez l’access_token retourné par le service.
+
+   ![Sortie de jeton](media/solution-template-copy-from-rest-or-http-using-oauth/token-output.png) 
+
+10. Cliquez sur l’icône d’entrée de CopyActivity dans la colonne **Actions**, vous voyez que l’access_token récupéré par WebActivity est transmis à CopyActivity à des fins d’authentification. 
+
+    ![Entrée de jeton](media/solution-template-copy-from-rest-or-http-using-oauth/token-input.png)
+        
+    >[!CAUTION] 
+    >Pour éviter la journalisation des jetons en texte brut, activez la sortie sécurisée dans l’activité Web et l’entrée sécurisée dans l’activité de copie.
+
 
 ## <a name="export-json-response-as-is"></a>Exporter la réponse JSON en l’état
 

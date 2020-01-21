@@ -2,38 +2,32 @@
 title: Déployer des hôtes dédiés Azure à l’aide de CLI
 description: Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI.
 services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/29/2019
+ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: ece9967321cfca44b102d78722f0df3d8f980bdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036405"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834924"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Aperçu : Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure CLI
  
 
 Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
 
 Vérifiez que vous avez installé Azure CLI version 2.0.70 ou version ultérieure, et que vous êtes connecté à un compte Azure avec `az login`. 
 
-> [!IMPORTANT]
-> Les hôtes dédiés Azure sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitations connues de la préversion**
-> - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-> - La préversion initiale prend en charge les séries de machines virtuelles suivantes : DSv3 et ESv3. 
+
+## <a name="limitations"></a>Limites
+
+- Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
+- La version initiale prend en charge les séries de machines virtuelles suivantes : DSv3 et ESv3. 
  
 
 ## <a name="create-resource-group"></a>Créer un groupe de ressources 
@@ -86,8 +80,7 @@ az vm host group create \
  
 ## <a name="create-a-host"></a>Créer un hôte 
 
-À présent, créons un hôte dédié dans le groupe hôte. En plus d’un nom pour l’hôte, vous devez fournir la référence SKU pour l’hôte. La référence SKU de l’hôte capture la série de machines virtuelles prises en charge, ainsi que la génération du matériel pour l’hôte dédié.  Lors de la préversion, nous allons prendre en charge les valeurs de SKU d’hôte suivantes : DSv3_Type1 et ESv3_Type1.
-
+À présent, créons un hôte dédié dans le groupe hôte. En plus d’un nom pour l’hôte, vous devez fournir la référence SKU pour l’hôte. La référence SKU de l’hôte capture la série de machines virtuelles prises en charge, ainsi que la génération du matériel pour l’hôte dédié.  Les valeurs SKU sont prises en charge : DSv3_Type1 et ESv3_Type1.
 
 Pour en savoir plus sur les références SKU et la tarification des hôtes, consultez la section relative à la [tarification des hôtes dédiés Azure](https://aka.ms/ADHPricing).
 
@@ -280,8 +273,8 @@ az group delete -n myDHResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus, consultez la page de présentation [Hôtes dédiés](dedicated-hosts.md).
+- Pour en savoir plus, voir la page de présentation [Hôtes dédiés](dedicated-hosts.md).
 
 - Le [Portail Microsoft Azure](dedicated-hosts-portal.md) permet également de créer des hôtes dédiés.
 
-- Un exemple de modèle, trouvé [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
+- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
