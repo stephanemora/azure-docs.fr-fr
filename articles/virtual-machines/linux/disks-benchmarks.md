@@ -7,12 +7,12 @@ ms.date: 01/11/2019
 ms.topic: conceptual
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 454ed6123d65d49947d90075c2fa68e11c6e36ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 640ec54e9634751d05c2cea90d7c03d02e7a3387
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462563"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720053"
 ---
 # <a name="benchmarking-a-disk"></a>Benchmarking d’un disque
 
@@ -26,7 +26,6 @@ Pour suivre les exemples ci-dessous, créez une machine virtuelle DS14 Standard 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Parcourez notre article de conception pour de hautes performances. Dans celui-ci, vous créez une check-list semblable à votre application prototype existante. À l’aide des outils de benchmarking, vous pouvez simuler les charges de travail et mesurer les performances de l’application prototype. En procédant ainsi, vous pouvez déterminer quelle offre de disque peut satisfaire ou dépasser les exigences de performances de votre application. Vous pouvez ensuite implémenter les mêmes règles pour votre application de production.
+Reportez-vous à notre article sur la [conception pour de hautes performances](premium-storage-performance.md).
 
-> [!div class="nextstepaction"]
-> Consultez l’article sur le début de la [conception pour de hautes performances](premium-storage-performance.md).
+Dans cet article, vous créez une check-list semblable à votre application prototype existante. À l’aide des outils de benchmarking, vous pouvez simuler les charges de travail et mesurer les performances de l’application prototype. En procédant ainsi, vous pouvez déterminer quelle offre de disque peut satisfaire ou dépasser les exigences de performances de votre application. Vous pouvez ensuite implémenter les mêmes règles pour votre application de production.

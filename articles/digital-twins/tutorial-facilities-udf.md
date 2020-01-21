@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Superviser l’espace d’un appareil IoT - Azure Digital Twins | Microsoft Docs'
+title: 'Tutoriel : Superviser l’espace d’un appareil IoT - Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment provisionner vos ressources spatiales et superviser les conditions de travail avec Azure Digital Twins en suivant les étapes de ce tutoriel.
 services: digital-twins
 ms.author: alinast
@@ -8,19 +8,19 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/13/2019
-ms.openlocfilehash: 80fd1275f3bf9585ff8e40a94d0de2d422baec71
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6cf6a8f7de181a81d60028e33ba2631815c8ca04
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383224"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895366"
 ---
-# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Didacticiel : Provisionner votre bâtiment et superviser les conditions de travail avec la préversion d’Azure Digital Twins
+# <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Tutoriel : Provisionner votre bâtiment et superviser les conditions de travail avec la préversion d’Azure Digital Twins
 
 Ce didacticiel montre comment utiliser la préversion d’Azure Digital Twins pour surveiller les conditions de température et le niveau de confort souhaités pour vos espaces. Après avoir [configuré votre exemple de bâtiment](tutorial-facilities-setup.md), vous pouvez le provisionner et exécuter des fonctions personnalisées dans vos données de capteur en suivant les étapes de ce tutoriel.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Définir les conditions à superviser.
@@ -28,7 +28,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Simuler des données de capteur.
 > * Obtenir les résultats d’une fonction définie par l’utilisateur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce tutoriel suppose que vous avez [terminé votre configuration Azure Digital Twins](tutorial-facilities-setup.md). Avant de poursuivre, assurez-vous que vous avez les éléments suivants :
 
@@ -38,7 +38,7 @@ Ce tutoriel suppose que vous avez [terminé votre configuration Azure Digital Tw
 - Le [kit SDK .NET Core version 2.1.403 ou ultérieure](https://www.microsoft.com/net/download) sur votre machine de développement pour générer et exécuter l’exemple. Exécutez `dotnet --version` pour vérifier que la version appropriée est installée. 
 - [Visual Studio Code](https://code.visualstudio.com/) pour explorer l’exemple de code. 
 
-> [!TIP]
+>[!TIP]
 > Utilisez un nom d’instance Digital Twins unique si vous provisionnez une nouvelle instance.
 
 ## <a name="define-conditions-to-monitor"></a>Définition des conditions à surveiller
@@ -74,7 +74,7 @@ Notez également la section nommée **roleassignments**. Il affecte le rôle d�
 
    Modifiez le fichier JavaScript pour surveiller la température ainsi que d’autres conditions. Ajoutez les lignes de code suivantes pour rechercher les conditions où aucun mouvement n’est détecté dans la salle, où le niveau de dioxyde de carbone est inférieur à 1 000 ppm et celui de la température inférieur à 25,5 degrés Celsius (78 degrés Fahrenheit).
 
-   > [!NOTE]
+   >[!NOTE]
    > Cette section modifie le fichier *src\actions\userDefinedFunctions\availability.js* afin que vous puissiez apprendre en détail une façon d’écrire une fonction définie par l’utilisateur. Toutefois, vous pouvez choisir d’utiliser directement le fichier [src\actions\userDefinedFunctions\availabilityForTutorial.js](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availabilityForTutorial.js) dans votre configuration. Ce fichier contient toutes les modifications requises pour ce didacticiel. Si vous utilisez ce fichier à la place, veillez à utiliser le nom de fichier approprié pour la clé **script** dans le fichier [src\actions\provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml).
 
     a. En haut du fichier, ajoutez les lignes suivantes pour la température en-dessous du commentaire `// Add your sensor type here`:
@@ -178,7 +178,7 @@ Notez également la section nommée **roleassignments**. Il affecte le rôle d�
     dotnet run ProvisionSample
     ```
 
-   > [!IMPORTANT]
+   >[!IMPORTANT]
    > Pour empêcher tout accès non autorisé à votre API de gestion Digital Twins, l’application **occupancy-quickstart** vous oblige à vous connecter avec vos informations d’identification de compte Azure. Elle enregistre vos informations d’identification pour une courte période, afin que vous n’ayez pas besoin de vous connecter à chaque exécution. Lorsque ce programme s’exécute pour la première fois et que vos informations d’identification enregistrées expirent, l’application vous dirige vers une page de connexion et vous donne un code propre à la session qui doit être entré sur cette page. Suivez les instructions de l’invite pour vous connecter avec votre compte Azure.
 
 1. Une fois votre compte authentifié, l’application commence à créer un exemple de graphe spatial, tel que configuré dans *provisionSample.yaml*. Attendez la fin du provisionnement. Cette opération peut prendre quelques minutes. Examinez ensuite les messages dans la fenêtre de commande et voyez comment votre graphe spatial est créé. Remarquez la façon dont l’application crée un hub IoT au niveau du nœud racine ou de `Venue`.
@@ -187,7 +187,7 @@ Notez également la section nommée **roleassignments**. Il affecte le rôle d�
 
     [![Provisionner l’exemple](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
-> [!TIP]
+>[!TIP]
 > Si au cours de l’opération de provisionnement, vous obtenez un message d’erreur semblable à celui-ci : « L’opération d’E/S a été abandonnée en raison d’une sortie du thread ou d’une requête d’application », essayez de réexécuter la commande. Il est possible que le client HTTP ait expiré suite à un problème de réseau.
 
 ## <a name="simulate-sensor-data"></a>Simulation de données de capteur
@@ -229,12 +229,12 @@ Dans cette section, vous utilisez le projet nommé *device-connectivity* dans l�
     dotnet run
     ```
 
-   > [!NOTE]
+   >[!NOTE]
    > Comme l’exemple de simulation ne communique pas directement avec votre instance Digital Twin, aucune authentification n’est nécessaire.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Obtention des résultats de la fonction définie par l’utilisateur
 
-La fonction définie par l’utilisateur s’exécute chaque fois que votre instance reçoit des données du capteur et de l’appareil. Cette section interroge votre instance Azure Digital Twins afin d’obtenir les résultats de la fonction définie par l’utilisateur. Vous pouvez alors visualiser la disponibilité d’une pièce, la qualité de l’air à l’intérieur et sa température pratiquement en temps réel. 
+La fonction définie par l’utilisateur s’exécute chaque fois que votre instance reçoit des données du capteur et de l’appareil. Cette section interroge votre instance Azure Digital Twins afin d’obtenir les résultats de la fonction définie par l’utilisateur. Vous serez alors informé de la disponibilité d’une pièce, de la qualité de l’air à l’intérieur et de sa température pratiquement en temps réel. 
 
 1. Ouvrez la fenêtre de commande que vous avez utilisée pour provisionner l’exemple, ou une nouvelle fenêtre de commande, et accédez de nouveau au dossier **occupancy-quickstart\src** de l’exemple.
 
@@ -246,17 +246,17 @@ La fonction définie par l’utilisateur s’exécute chaque fois que votre inst
 
 La fenêtre de sortie illustre la façon dont la fonction définie par l’utilisateur s’exécute et intercepte les événements à partir de la simulation d’appareil. 
 
-   [![Sortie de la fonction définie par l’utilisateur](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![Sortie de la fonction définie par l’utilisateur](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png)](./media/tutorial-facilities-udf/adt-tutorial-udf-running.png#lightbox)
 
 Si la condition supervisée est remplie, la fonction définie par l’utilisateur détermine la valeur de l’espace avec le message approprié, comme nous l’avons vu [plus tôt](#create-a-user-defined-function). La fonction `GetAvailableAndFreshSpaces` affiche le message sur la console.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 
 1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Toutes les ressources**, puis votre groupe de ressources Digital Twins et **Supprimer**.
 
-    > [!TIP]
+    >[!TIP]
     > Si vous avez rencontré des difficultés pour supprimer votre instance de Digital Twins, une mise à jour du service a été déployée avec le correctif. Réessayez de supprimer votre instance.
 
 2. Si nécessaire, supprimez les exemples d’applications de votre machine de travail.
@@ -266,7 +266,7 @@ Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous p
 Maintenant que vous avez provisionné vos espaces et créé une infrastructure pour déclencher des notifications personnalisées, vous pouvez passer à l’un des tutoriels suivants :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Recevoir des notifications à partir de vos espaces Azure Digital Twins à l’aide de Logic Apps](tutorial-facilities-events.md)
+> [Tutoriel : Recevoir des notifications à partir de vos espaces Azure Digital Twins à l’aide de Logic Apps](tutorial-facilities-events.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
+> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)

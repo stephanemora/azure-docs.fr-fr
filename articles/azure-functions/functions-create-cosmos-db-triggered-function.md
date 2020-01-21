@@ -5,12 +5,12 @@ ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e321fcdf4b5871cf4a55e7018229569a337e8305
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 830c7cdee247118ed24fc9b3a2a9efe8609c75d0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230923"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863273"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -18,9 +18,9 @@ Découvrez comment créer une fonction qui est déclenchée quand des données s
 
 ![Affichez le message dans les journaux d’activité.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 + Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -49,7 +49,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 1. Choisissez **Autres modèles**, puis **Terminer et afficher les modèles**.
 
-    ![Page de démarrage rapide de la fonction Choisir d’autres modèles](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
+    ![Page de démarrage rapide Functions permettant de choisir d’autres modèles](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
 1. Dans le champ Rechercher, tapez `cosmos`, puis choisissez le modèle **Déclencheur Azure Cosmos DB**.
 
@@ -65,9 +65,9 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nom** | Default | Utilisez le nom de fonction par défaut suggéré par le modèle.|
     | **Connexion de compte Azure Cosmos DB** | Nouveau paramètre | Sélectionnez **Nouveau**, puis choisissez votre **Abonnement**, le **Compte de base de données** que vous avez créé précédemment, puis **Sélectionner**. Cette opération crée un paramètre d’application pour votre connexion de compte. Ce paramètre est utilisé par la liaison pour se connecter à la base de données. |
-    | **Nom de la collection** | Éléments | Nom de la collection à surveiller. |
-    | **Créer la collection de baux si elle n’existe pas** | Activé | La collection n’existe pas, vous devez la créer. |
-    | **Nom de la base de données** | Tâches | Nom de la base de données avec la collection à surveiller. |
+    | **Nom du conteneur** | Éléments | Nom du conteneur à superviser. |
+    | **Créer le conteneur de baux s’il n’existe pas** | Activé | Le conteneur n’existe pas encore. Créez-le. |
+    | **Nom de la base de données** | Tâches | Nom de la base de données avec le conteneur à superviser. |
 
 1. Cliquez sur **Créer** pour créer votre fonction déclenchée par Azure Cosmos DB. Une fois la fonction créée, le code de fonction basé sur le modèle s’affiche.  
 
@@ -75,9 +75,9 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     Ce modèle de fonction écrit le nombre de documents et le premier ID de document dans les journaux d’activité.
 
-Ensuite, vous vous connectez à votre compte Azure Cosmos DB et créez la collection `Items` dans la base de données `Tasks`.
+Ensuite, vous vous connectez à votre compte Azure Cosmos DB et créez le conteneur `Items` dans la base de données `Tasks`.
 
-## <a name="create-the-items-collection"></a>Créer la collection d’éléments
+## <a name="create-the-items-container"></a>Créer le conteneur d’éléments
 
 1. Ouvrez une deuxième instance du [portail Azure](https://portal.azure.com) sous un nouvel onglet dans le navigateur.
 
@@ -87,33 +87,32 @@ Ensuite, vous vous connectez à votre compte Azure Cosmos DB et créez la collec
 
 1. Sélectionnez votre compte Azure Cosmos DB, puis sélectionnez **Explorateur de données**. 
 
-1. Dans **Collections**, choisissez **taskDatabase**, puis sélectionnez **Nouvelle collection**.
+1. Sous **API SQL**, choisissez la base de données **Tâches** et sélectionnez **Nouveau conteneur**.
 
-    ![Création d'une collection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection.png)
+    ![Créez un conteneur.](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container.png)
 
-1. Dans **Ajouter une collection**, utilisez les paramètres présentés dans le tableau situé sous l’image. 
+1. Dans **Ajouter un conteneur**, utilisez les paramètres présentés dans le tableau situé sous l’image. 
 
-    ![Définir la collection taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
+    ![Définir le conteneur des tâches](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-container2.png)
 
     | Paramètre|Valeur suggérée|Description |
     | ---|---|--- |
     | **ID de base de données** | Tâches |Nom de votre nouvelle base de données. Ce nom doit correspondre au nom défini dans votre liaison de fonction. |
-    | **ID de la collection** | Éléments | Nom de la nouvelle collection. Ce nom doit correspondre au nom défini dans votre liaison de fonction.  |
-    | **Capacité de stockage** | Fixe (10 Go)|Utilisez la valeur par défaut. Cette valeur correspond à la capacité de stockage de la base de données. |
-    | **Débit** |400 RU| Utilisez la valeur par défaut. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. |
-    | **[Clé de partition](../cosmos-db/partition-data.md)** | /category|Clé de partition qui distribue les données uniformément à chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. | 
+    | **ID de conteneur** | Éléments | Nom du nouveau conteneur. Ce nom doit correspondre au nom défini dans votre liaison de fonction.  |
+    | **[Clé de partition](../cosmos-db/partition-data.md)** | /category|Clé de partition qui distribue les données uniformément à chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir un conteneur performant. | 
+    | **Débit** |400 RU| Utilisez la valeur par défaut. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. |    
 
-1. Cliquez sur **OK** pour créer la collection d’éléments. La création de la collection peut prendre un peu de temps.
+1. Cliquez sur **OK** pour créer le conteneur d’éléments. La création du conteneur peut prendre un peu de temps.
 
-Une fois créée la collection spécifiée dans la liaison de fonction, vous pouvez tester la fonction en ajoutant des documents à cette nouvelle collection.
+Une fois que le conteneur spécifié dans la liaison de fonction a été créé, vous pouvez tester la fonction en ajoutant des éléments à ce nouveau conteneur.
 
 ## <a name="test-the-function"></a>Tester la fonction
 
-1. Développez la nouvelle collection **taskCollection** dans l’Explorateur de données, choisissez **Documents**, puis sélectionnez **Nouveau document**.
+1. Développez le nouveau conteneur **Éléments** dans l’Explorateur de données, choisissez **Éléments**, puis sélectionnez **Nouvel élément**.
 
-    ![Créer un document dans taskCollection](./media/functions-create-cosmos-db-triggered-function/create-document-in-collection.png)
+    ![Créer un élément dans un conteneur d’éléments](./media/functions-create-cosmos-db-triggered-function/create-item-in-container.png)
 
-1. Remplacez le contenu du nouveau document par le contenu suivant, puis choisissez **Enregistrer**.
+1. Remplacez le contenu du nouvel élément par le contenu suivant, puis choisissez **Enregistrer**.
 
         {
             "id": "task1",
@@ -127,7 +126,7 @@ Une fois créée la collection spécifiée dans la liaison de fonction, vous pou
 
 1. (Facultatif) Accédez à votre document, apportez une modification, puis cliquez sur **Mettre à jour**. Ensuite, revenez aux journaux d’activité de la fonction, puis vérifiez que la mise à jour a également déclenché la fonction.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer et déployer des modules personnalisés - Machine Learning sur Azure IoT Edge'
+title: 'Tutoriel : Créer et déployer des modules personnalisés - Machine Learning sur Azure IoT Edge'
 description: Ce tutoriel montre comment créer et déployer des modules IoT Edge qui traitent les données d’appareils de nœuds terminaux via un modèle Machine Learning, puis envoient les insights à IoT Hub.
 author: kgremban
 manager: philmea
@@ -8,14 +8,14 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3cba7781ac80ae567b2bfd54c4131429ed94b90f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701849"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772361"
 ---
-# <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Didacticiel : Créer et déployer des modules IoT Edge personnalisés
+# <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Tutoriel : Créer et déployer des modules IoT Edge personnalisés
 
 > [!NOTE]
 > Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Si vous êtes arrivé directement à cet article, nous vous encourageons à commencer par le [premier article](tutorial-machine-learning-edge-01-intro.md) de la série afin d’obtenir de meilleurs résultats.

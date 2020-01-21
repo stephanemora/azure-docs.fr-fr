@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 50dd97107296c70ba9dde162b723f49a658a3994
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72b6c1f86b18df172994827ec78eb109fe82454e
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355919"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913795"
 ---
 ## <a name="benefits-of-managed-disks"></a>Avantages des disques managés
 
@@ -55,7 +55,7 @@ Les disques managés offrent deux types de chiffrement différents. Le premier e
 
 ### <a name="server-side-encryption"></a>Chiffrement côté serveur
 
-Le [chiffrement côté serveur Azure](../articles/virtual-machines/windows/disk-encryption.md) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. Le chiffrement côté serveur est activé par défaut pour l’ensemble des disques managés, captures instantanées et images dans toutes les régions où des disques managés sont disponibles. Vous pouvez autoriser Azure à gérer vos clés pour vous - il s’agit alors de clés gérées par la plateforme - ou vous pouvez gérer les clés vous-même - il s’agit alors de clés gérées par le client (préversion). Pour plus d’informations, voir la [page du FAQ sur la fonctionnalité Disques managés](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption).
+Le [chiffrement côté serveur Azure](../articles/virtual-machines/windows/disk-encryption.md) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. Le chiffrement côté serveur est activé par défaut pour l’ensemble des disques managés, captures instantanées et images dans toutes les régions où des disques managés sont disponibles. Vous pouvez soit autoriser Azure à gérer vos clés pour vous (clés gérées par la plateforme), soit les gérer vous-même (clés gérées par le client). Pour plus d’informations, voir la [page du FAQ sur la fonctionnalité Disques managés](../articles/virtual-machines/windows/faq-for-disks.md#managed-disks-and-storage-service-encryption).
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 

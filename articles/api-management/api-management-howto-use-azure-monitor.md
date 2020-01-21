@@ -13,18 +13,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707198"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028356"
 ---
 # <a name="monitor-published-apis"></a>Surveiller les API publiées
 
 Avec Azure Monitor, vous pouvez visualiser, interroger, acheminer, archiver et agir sur les métriques ou les journaux d’activité provenant de vos ressources Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Afficher les journaux d’activité
@@ -36,10 +36,10 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 
 > [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
@@ -48,7 +48,7 @@ La vidéo suivante montre comment surveiller la gestion des API à l’aide d’
 
 Le service Gestion des API émet des métriques chaque minute, pour une visibilité en quasi temps réel de l’intégrité de vos API. Voici un récapitulatif d’une partie des métriques disponibles :
 
-* Capacité (préversion) : vous permet de prendre des décisions concernant la mise à niveau/rétrogradation de vos services APIM. La métrique est émise chaque minute et reflète la capacité de la passerelle au moment de la création de rapports. Le calcul de cette métrique, dont la valeur est comprise entre 0 et 100, repose sur les ressources de la passerelle, telles que l’utilisation du processeur et de la mémoire.
+* Fonctionnalité : vous aide à prendre des décisions concernant la mise à niveau/le passage à une version antérieure de vos services APIM. La métrique est émise chaque minute et reflète la capacité de la passerelle au moment de la création de rapports. Le calcul de cette métrique, dont la valeur est comprise entre 0 et 100, repose sur les ressources de la passerelle, telles que l’utilisation du processeur et de la mémoire.
 * Nombre total de demandes de passerelle : le nombre de requêtes d’API dans la période. 
 * Demandes de la passerelle ayant abouti : le nombre de requêtes d’API ayant reçu des codes de réponse HTTP de succès, dont 304, 307 et toute valeur inférieure à 301 (par exemple, 200).
 * Demandes de la passerelle ayant échoué : le nombre de requêtes d’API ayant reçu des codes de réponse HTTP d’échec, dont 400 et toute valeur supérieure à 500.
@@ -185,8 +185,8 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | isRequestSuccess | boolean | True si la requête HTTP a échoué avec le code d’état de réponse dans la plage 2xx ou 3xx |
 | time | date-time | Horodatage du début du traitement de la requête par la passerelle |
 | operationName | string | Valeur constante « Microsoft.ApiManagement/GatewayLogs » |
-| category | string | Valeur constante « GatewayLogs » |
-| durationMS | integer | Nombre de millisecondes entre le moment où la passerelle a reçu la requête et celui où la réponse complète a été envoyée. Elle comprend clienTime, cacheTime et backendTime. |
+| catégorie | string | Valeur constante « GatewayLogs » |
+| durationMS | entier | Nombre de millisecondes entre le moment où la passerelle a reçu la requête et celui où la réponse complète a été envoyée. Elle comprend clienTime, cacheTime et backendTime. |
 | callerIpAddress | string | Adresse IP de l’appelant de passerelle immédiat (peut être un intermédiaire) |
 | correlationId | string | Identificateur de requête http unique assigné par le service Gestion des API |
 | location | string | Nom de la région Azure dans laquelle se trouvait la passerelle qui a traité la requête |
@@ -196,17 +196,17 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | method | string | Méthode HTTP de la requête entrante |
 | url | string | URL de la requête entrante |
 | clientProtocol | string | Version du protocole HTTP de la requête entrante |
-| responseCode | integer | Code d’état de la réponse HTTP envoyée à un client |
+| responseCode | entier | Code d’état de la réponse HTTP envoyée à un client |
 | backendMethod | string | Méthode HTTP de la requête envoyée à un serveur principal |
 | backendUrl | string | URL de la requête envoyée à un serveur principal |
-| backendResponseCode | integer | Code de la réponse HTTP reçue d’un serveur principal |
+| backendResponseCode | entier | Code de la réponse HTTP reçue d’un serveur principal |
 | backendProtocol | string | Version du protocole HTTP de la requête envoyée à un service principal | 
-| requestSize | integer | Nombre d’octets reçus d’un client au cours du traitement de la requête | 
-| responseSize | integer | Nombre d’octets envoyés à un client au cours du traitement de la requête | 
+| requestSize | entier | Nombre d’octets reçus d’un client au cours du traitement de la requête | 
+| responseSize | entier | Nombre d’octets envoyés à un client au cours du traitement de la requête | 
 | cache | string | État d’implication du cache du service Gestion des API dans le traitement des requêtes (par exemple, atteint, manqué, aucun) | 
-| cacheTime | integer | Nombre de millisecondes consacrées à l’ensemble des E/S du cache du service Gestion des API (connexion, envoi et réception d’octets) | 
-| backendTime | integer | Nombre de millisecondes consacrées à l’ensemble des E/S du serveur principal (connexion, envoi et réception d’octets) | 
-| clientTime | integer | Nombre de millisecondes consacrées à l’ensemble des E/S du client (connexion, envoi et réception d’octets) | 
+| cacheTime | entier | Nombre de millisecondes consacrées à l’ensemble des E/S du cache du service Gestion des API (connexion, envoi et réception d’octets) | 
+| backendTime | entier | Nombre de millisecondes consacrées à l’ensemble des E/S du serveur principal (connexion, envoi et réception d’octets) | 
+| clientTime | entier | Nombre de millisecondes consacrées à l’ensemble des E/S du client (connexion, envoi et réception d’octets) | 
 | apiId | string | Identificateur d’entité d’API pour la requête actuelle | 
 | operationId | string | Identificateur d’entité d’opération pour la requête actuelle | 
 | productId | string | Identificateur d’entité de produit pour la requête actuelle | 
@@ -214,7 +214,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 | apimSubscriptionId | string | Identificateur d’entité d’abonnement pour la requête actuelle | 
 | backendId | string | Identificateur d’entité de serveur principal pour la requête actuelle | 
 | lastError | object | Dernière erreur de traitement de requête | 
-| elapsed | integer | Nombre de millisecondes écoulées entre le moment où la passerelle a reçu la requête et celui où l’erreur s’est produite | 
+| elapsed | entier | Nombre de millisecondes écoulées entre le moment où la passerelle a reçu la requête et celui où l’erreur s’est produite | 
 | source | string | Nom du gestionnaire interne de traitement ou de stratégie qui a provoqué l’erreur | 
 | scope | string | Étendue du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
 | section | string | Section du document de stratégie qui contient la stratégie qui a provoqué l’erreur | 
@@ -223,7 +223,7 @@ Le service Gestion des API fournit actuellement des journaux de diagnostic (par 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Afficher les journaux d’activité

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 12/17/2019
-ms.openlocfilehash: c93ff5d97826ee618716cc15361a439a5429d696
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437751"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708289"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Démarrage rapide : Créer une instance en mode hybride à l’aide du portail Azure et d’Azure Database Migration Service
 
@@ -172,7 +172,7 @@ Actuellement, la désinstallation d’Azure Database Migration Service en mode h
 
 ## <a name="set-up-the-azure-database-migration-service-hybrid-worker-using-powershell"></a>Installer le Worker hybride Azure Database Migration Service à l’aide de PowerShell
 
-Vous pouvez installer le Worker hybride Azure Database Migration Service par le biais du portail Azure, mais aussi l’installer au moyen d’un script PowerShell que nous fournissons. Avec ce script, vous automatisez les étapes d’installation du Worker après avoir créé une instance d’Azure Database Migration Service en mode hybride. Le script :
+Vous pouvez installer le Worker hybride Azure Database Migration Service par le biais du portail Azure, mais aussi l’installer au moyen d’un [script PowerShell](https://techcommunity.microsoft.com/gxcuf89792/attachments/gxcuf89792/MicrosoftDataMigration/119/1/DMS_Hybrid_Script.zip) que nous fournissons. Avec ce script, vous automatisez les étapes d’installation du Worker après avoir créé une instance d’Azure Database Migration Service en mode hybride. Le script :
 
 1. Crée une AdApp.
 2. Télécharge le programme d’installation.

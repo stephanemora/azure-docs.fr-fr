@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821292"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045626"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Liaison privée pour Azure SQL Database et Data Warehouse (préversion)
 
@@ -50,14 +50,14 @@ Grâce à Liaison privée, les clients peuvent activer l’accès entre différe
 
 ### <a name="creation-process"></a>Processus de création
 Vous pouvez créer des points de terminaison privés avec le portail, PowerShell ou Azure CLI :
-- [Portal](../private-link/create-private-endpoint-portal.md)
+- [Portail](../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../private-link/create-private-endpoint-powershell.md)
 - [INTERFACE DE LIGNE DE COMMANDE](../private-link/create-private-endpoint-cli.md)
 
 ### <a name="approval-process"></a>Processus d’approbation
 Une fois que l’administrateur réseau a créé le point de terminaison privé (PE), l’administrateur SQL peut gérer la connexion de point de terminaison privé (PEC) à la base de données.
 
-1. Accédez à la ressource SQL Server dans le Portail Azure.
+1. Accédez à la ressource SQL Server dans le portail Azure en suivant les étapes figurant dans la capture d’écran ci-dessous.
 
     - (1) Sélectionner les connexions de point de terminaison privé dans le volet gauche
     - (2) Liste de toutes les connexions de point de terminaison privé (PEC)
@@ -146,8 +146,10 @@ Le résultat indique qu’une adresse IP est active : il s’agit de l’adress
 
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Vérifier la connectivité à l’aide de SSMS (SQL Server Management Studio)
+> [!NOTE]
+>Utilisez le  **nom de domaine complet (FQDN)** du serveur dans les chaînes de connexion de vos clients. Par conception, toute tentative de connexion directe à l’adresse IP échoue.
 
-La dernière étape consiste à utiliser [SSMS pour établir la connexion à la base de données SQL](sql-database-connect-query-ssms.md). Une fois que vous êtes connecté à la base de données SQL à l’aide de SSMS, exécutez la requête suivante pour vérifier que la connexion est établie à partir de l’adresse IP privée de la machine virtuelle Azure :
+Suivez les étapes décrites ici afin d’utiliser [SSMS pour vous connecter à la base de données SQL](sql-database-connect-query-ssms.md). Une fois que vous êtes connecté à la base de données SQL à l’aide de SSMS, exécutez la requête suivante pour vérifier que la connexion est établie à partir de l’adresse IP privée de la machine virtuelle Azure :
 
 ````
 select client_net_address from sys.dm_exec_connections 

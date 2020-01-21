@@ -1,32 +1,25 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix stockée dans le stockage Blob, C# – Service Speech'
-titleSuffix: Azure Cognitive Services
-description: TBD
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b8b650920c03b14c7d55aafd6ecdb43dafaafafe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 1022a744564ed61a90973f7bba3eb32e9a632b46
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467311"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942685"
 ---
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de :
 
 > [!div class="checklist"]
+> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
+> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?pivots=programmming-language-csharp)
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Charger un fichier source dans un objet blob Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Ouvrez votre projet dans Visual Studio.
 
@@ -35,7 +28,7 @@ La première étape consiste à vérifier que votre projet est ouvert dans Visua
 1. Lancez Visual Studio 2019.
 2. Chargez votre projet et ouvrez `Program.cs`.
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Ajouter une référence à NewtonSoftJSon
+## <a name="add-a-reference-to-newtonsoftjson"></a>Ajouter une référence à Newtonsoft.Json
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **helloworld**, puis sélectionnez **Gérer les packages NuGet** pour afficher le gestionnaire de package NuGet.
 
@@ -45,7 +38,7 @@ La première étape consiste à vérifier que votre projet est ouvert dans Visua
 
 1. Dans la zone de recherche, tapez *Newtonsoft.Json*, puis sélectionnez **Entrée**.
 
-1. Dans les résultats de la recherche, sélectionnez le package **Newtonsoft.Json**, puis sélectionnez **Installer** pour installer la dernière version stable.
+1. Dans les résultats de la recherche, sélectionnez le package [**Newtonsoft.Json**](https://www.nuget.org/packages/Newtonsoft.Json), puis sélectionnez **Installer** pour installer la dernière version stable.
 
 1. Acceptez tous les contrats et licences pour démarrer l’installation.
 
@@ -56,7 +49,9 @@ La première étape consiste à vérifier que votre projet est ouvert dans Visua
 Nous allons ajouter du code qui servira de squelette à notre projet
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
-(vous devrez remplacer les valeurs de `YourSubscriptionKey`, `YourServiceRegion` et `YourFileUrl` par vos propres valeurs).
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
+
 ## <a name="json-wrappers"></a>Wrappers JSON
 
 Étant donné que l’API REST accepte les requêtes au format JSON et retourne également des résultats au format JSON, nous pourrions interagir avec elles en utilisant uniquement des chaînes, même si cela n’est pas recommandé.

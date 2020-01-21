@@ -5,12 +5,12 @@ ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
 ms.date: 11/13/2018
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 147ad4bd20ee1c7ae8f1529e1b3bc0e4f3e7dbb0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 222e4a98974a1af40ff860cfc4fdb246d9c97bca
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230840"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769385"
 ---
 # <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Démarrage rapide : Créer votre première fonction à partir de la ligne de commande à l’aide d’Azure CLI
 
@@ -18,7 +18,7 @@ Cette rubrique de démarrage rapide vous guide dans la création de votre premi�
 
 Vous pouvez suivre les étapes ci-dessous en utilisant un ordinateur Mac, Windows ou Linux.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’exécuter cet exemple, vous devez disposer des éléments suivants :
 
@@ -46,7 +46,7 @@ Avant d’exécuter cet exemple, vous devez disposer des éléments suivants :
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
-Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. La Function App fournit un environnement d’exécution sans serveur de votre code de fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. Créez une Function App à l’aide de la commande [az functionapp create](/cli/azure/functionapp#az-functionapp-create). 
+Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. La Function App fournit un environnement d’exécution sans serveur de votre code de fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement, la mise à l’échelle et le partage des ressources. Créez une Function App à l’aide de la commande [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
 Dans la commande suivante, indiquez un nom d’application de fonction unique là où se trouve l’espace réservé `<APP_NAME>`, et le nom du compte de stockage pour `<STORAGE_NAME>`. La valeur `<APP_NAME>` est utilisée en tant que domaine DNS par défaut pour la Function App. Pour cette raison, ce nom doit être unique sur l’ensemble des applications dans Azure. Vous devez également définir le runtime `<language>` pour votre application de fonction à partir de `dotnet` (C#) ou `node` (JavaScript).
 

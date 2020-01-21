@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2b80e09f086cfaa90174dc9abc5a5cd06294036e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73794957"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770422"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -35,8 +35,8 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 | Action | Description |
 | ------ | ----------- |
 |**[Identifier les composants visuels à l’aide de balises](concept-tagging-images.md)**|Identifier les composants visuels d’une image et les marquer à l’aide de balises à partir d’un ensemble de milliers d’objets, d’êtres vivants, de scènes et d’actions reconnaissables. Quand les étiquettes sont ambigües ou inhabituelles, la réponse de l’API fournit des conseils pour clarifier le contexte de l’étiquette. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.|
-|**[Détecter des objets](concept-object-detection.md)**| La détection d’objets est similaire au balisage, mais l’API retourne les coordonnées de cadre englobant pour chaque balise appliquée. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection répertorie ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter d’autres relations entre les objets dans une image. Elle vous permet également de savoir quand il existe plusieurs instances de la même balise dans une image.|
-|**[Détecter les marques](concept-brand-detection.md)**|Identifiez les marques commerciales dans les images ou vidéos à partir d’une base de données de milliers de logos internationaux. Vous pouvez utiliser cette fonctionnalité, par exemple, pour déterminer quelles marques sont les plus populaires sur les réseaux sociaux ou prédominants en termes de placement de produit dans les médias.|
+|**[Détecter des objets](concept-object-detection.md)**| La détection d’objets est similaire au balisage, mais l’API retourne les coordonnées de cadre englobant pour chaque balise appliquée. Par exemple, si une image contient un chien, un chat et une personne, l’opération de détection liste ces objets ainsi que leurs coordonnées dans l’image. Vous pouvez utiliser cette fonctionnalité pour traiter d’autres relations entre les objets dans une image. Elle vous permet également de savoir quand il existe plusieurs instances de la même balise dans une image.|
+|**[Détecter les marques](concept-brand-detection.md)**|Identifiez les marques commerciales dans les images ou vidéos à partir d’une base de données de milliers de logos internationaux. Vous pouvez utiliser cette fonctionnalité, par exemple, pour déterminer quelles marques sont les plus populaires sur les réseaux sociaux, et lesquelles prédominent dans les médias.|
 |**[Catégoriser une image](concept-categorizing-images.md)**|Identifier et catégoriser une image dans son ensemble en utilisant une [taxonomie des catégories](Category-Taxonomy.md) comprenant des hiérarchies héréditaires parent/enfant. Les catégories peuvent être utilisées seules ou avec nos nouveaux modèles de balisage.<br/>Actuellement, l’anglais est la seule langue prise en charge pour le balisage et la catégorisation des images.|
 |**[Décrire une image](concept-describing-images.md)**|Générer une description de l’intégralité d’une image dans un langage lisible utilisant des phrases complètes. Les algorithmes du service Vision par ordinateur génèrent différentes descriptions selon les objets identifiés dans l’image. Chacune des descriptions est évaluée, et un score de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas.|
 |**[Détecter les visages](concept-detecting-faces.md)** |Détecter les visages dans une image et fournir des informations sur chaque visage détecté. Le service Vision par ordinateur indique les coordonnées, le rectangle, le sexe et l’âge pour chaque visage détecté.<br/>Le service Vision par ordinateur fournit un sous-ensemble des fonctionnalités du service [Visage](/azure/cognitive-services/face/). Utilisez le service Visage pour effectuer une analyse plus détaillée (reconnaissance faciale, détection de la posture, etc.).|
@@ -48,7 +48,7 @@ Vous pouvez analyser des images pour obtenir des informations détaillées sur l
 
 ## <a name="extract-text-from-images"></a>Extraire du texte à partir des images
 
-Vous pouvez utiliser l’[API Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères exploitable automatiquement. L’API Read utilise nos derniers modèles et fonctionne avec le texte dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, les affiches, les cartes de visite, les lettres et les tableaux blancs. Actuellement, l’anglais est la seule langue prise en charge.
+Vous pouvez utiliser l’API [Read](concept-recognizing-text.md#read-api) du service Vision par ordinateur pour extraire le texte imprimé ou manuscrit d’images dans un flux de caractères exploitable automatiquement. L’API Read utilise nos derniers modèles et fonctionne avec le texte dont les surfaces et arrière-plans diffèrent, tels que les accusés de réception, les affiches, les cartes de visite, les lettres et les tableaux blancs. Actuellement, l’anglais est la seule langue prise en charge.
 
 Vous pouvez également utiliser l’API [OCR (reconnaissance optique des caractères)](concept-recognizing-text.md#ocr-optical-character-recognition-api) pour extraire le texte imprimé en plusieurs langues. Le cas échéant, la fonction OCR corrige la rotation du texte reconnu et fournit les coordonnées du cadre de chaque mot. La fonction OCR prend en charge 25 langues et détecte automatiquement la langue du texte reconnu.
 
@@ -77,6 +77,6 @@ Comme avec tous les services Cognitive Services, les développeurs utilisant le 
 
 Démarrez avec le service Vision par ordinateur en suivant un guide de démarrage rapide :
 
-- [Démarrage rapide : SDK .NET Vision par ordinateur](quickstarts-sdk/csharp-sdk.md)
-- [Démarrage rapide : SDK Python Vision par ordinateur](quickstarts-sdk/python-sdk.md)
-- [Démarrage rapide : SDK Java Vision par ordinateur](quickstarts-sdk/java-sdk.md)
+- [Démarrage rapide : SDK .NET Vision par ordinateur](quickstarts-sdk/csharp-sdk.md)
+- [Démarrage rapide : SDK Python Vision par ordinateur](quickstarts-sdk/python-sdk.md)
+- [Démarrage rapide : SDK Java Vision par ordinateur](quickstarts-sdk/java-sdk.md)

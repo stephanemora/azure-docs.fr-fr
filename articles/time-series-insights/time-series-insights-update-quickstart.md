@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 12/20/2019
-ms.openlocfilehash: b97c8c51bc63fb0c1ff0070714e7393d11ea0dbf
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 023128d35030f99458bc5fd2c7a4a155a856e4c9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497475"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861504"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>Démarrage rapide : Explorer l’environnement de démonstration Azure Time Series Insights (préversion)
 
@@ -45,7 +45,7 @@ L’Explorateur Time Series Insights (préversion) présente des données histor
 
       [![W7 dans Contoso Plant 1](media/v2-update-quickstart/quick-start-generator-speed.png)](media/v2-update-quickstart/quick-start-generator-speed.png#lightbox)
 
-1. Dernièrement, Contoso a détecté un incendie sur l’éolienne **W7**. Les opinions varient sur ce qui a provoqué l’incendie. Dans Time Series Insights, nous pouvons constater que le capteur d’alerte incendie a été activé au cours de l’incendie.
+1. Dernièrement, Contoso a détecté un incendie sur l’éolienne **W7**. Les opinions varient sur ce qui a provoqué l’incendie. Dans Time Series Insights, le capteur d’alerte incendie qui a été activé au cours de l’incendie est affiché.
 
    1. Remplacez la plage d’affichage par **Du 09/03/17 20:00:00.00 au 10/03/17 20:00:00.00 (UTC)** .
    1. Sélectionnez **Safety System** > **FireAlert**.
@@ -100,7 +100,7 @@ Avec Time Series Insights et la télémétrie des capteurs, nous avons découver
 
       [![Sélection d’un intervalle de temps de 60 jours](media/v2-update-quickstart/quick-start-expand-interval-range.png)](media/v2-update-quickstart/quick-start-expand-interval-range.png#lightbox)
 
-1. Vous pouvez ajouter d’autres points de données de capteur pour fournir davantage de contexte. Plus il y a de capteurs, plus il est facile de cerner le problème. Nous allons placer un marqueur pour voir les valeurs réelles. 
+1. Vous pouvez ajouter d’autres points de données de capteur pour fournir davantage de contexte. Plus il y a de capteurs, plus il est facile de cerner le problème. Nous allons placer un marqueur pour afficher les valeurs réelles. 
 
     1. Sélectionnez **Generator System**, puis sélectionnez trois capteurs : **GridVoltagePhase1**, **GridVoltagePhase2** et **GridVoltagePhase3**.
     1. Placez un marqueur sur le dernier point de données dans la zone visible.

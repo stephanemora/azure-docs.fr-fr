@@ -3,12 +3,12 @@ title: Créer une application de fonction sur Linux à l’aide du portail Azure
 description: Apprenez à créer votre première fonction Azure pour une exécution sans serveur à l’aide du portail Azure.
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: d48bfc8888afe6b7a46151d2030519f752169551
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7689b24a4f9bf17d495917bbf4078d6e5fe4fcff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410499"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971444"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Créer une application de fonction dans un plan App Service sur Linux
 
@@ -24,7 +24,7 @@ Connectez-vous au portail Azure sur <https://portal.azure.com> avec votre compte
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
-Vous devez disposer d’une application de fonction pour héberger l’exécution de vos fonctions sur Linux. L’application de fonction fournit un environnement pour l’exécution de votre code de fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. Dans cet article, vous créez un plan App Service lorsque vous créez votre application de fonction.
+Vous devez disposer d’une application de fonction pour héberger l’exécution de vos fonctions sur Linux. L’application de fonction fournit un environnement pour l’exécution de votre code de fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement, la mise à l’échelle et le partage des ressources. Dans cet article, vous créez un plan App Service lorsque vous créez votre application de fonction.
 
 1. Cliquez sur le bouton **Créer une ressource** en haut à gauche du portail Azure, puis sélectionnez **Calcul** > **Application de fonction**.
 
@@ -44,7 +44,7 @@ Vous devez disposer d’une application de fonction pour héberger l’exécutio
     | **[Plan d’hébergement](functions-scale.md)** | Plan App Service | Plan d’hébergement qui définit la façon dont les ressources sont allouées à votre Function App. Si vous exécutez dans un plan App Service, vous pouvez gérer la [mise à l’échelle de votre application de fonction](functions-scale.md).  |
     | **Plan/lieu App Service** | Créer un plan | Choisissez **Créer** et fournissez le nom du **plan App Service**. Choisissez un **emplacement** dans une [région](https://azure.microsoft.com/regions/) proche de chez vous, ou proche d’autres services auxquels vos fonctions ont accès. Choisissez votre **[niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/linux/)** . <br/>Vous ne pouvez pas exécuter des applications de fonction Linux et Windows dans le même plan App Service. |
     | **Pile d’exécution** | Langage préféré | Choisissez un runtime qui prend en charge votre langage de programmation de fonction favori. Choisissez **.NET** pour les fonctions C# et F#. |
-    | **[Stockage](../storage/common/storage-quickstart-create-account.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](functions-scale.md#storage-account-requirements). |
+    | **[Stockage](../storage/common/storage-account-create.md)** |  Nom globalement unique |  Créez un compte de stockage utilisé par votre application de fonction. Les noms des comptes de stockage doivent comporter entre 3 et 24 caractères, uniquement des lettres minuscules et des chiffres. Vous pouvez également utiliser un compte existant qui doit répondre aux [exigences relatives aux comptes de stockage](functions-scale.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | activé | Application Insights est déactivé par défaut. Nous vous recommandons d’activer l’intégration d’Application Insights maintenant et de choisir un emplacement près de votre emplacement de plan App Service. Si vous souhaitez le faire ultérieurement, consultez [Surveiller Azure Functions](functions-monitoring.md).  |
 
 3. Sélectionnez **Créer** pour configurer et déployer l’application de fonction.

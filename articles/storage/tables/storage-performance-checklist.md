@@ -8,18 +8,18 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 588f9595dbe04b98cb8d70a33beb5740d812bd7c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89581c8ae2fbdbb55a2abfbd527c8fdcf4b65761
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457616"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749554"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check-list des performances et de la scalabilité pour le stockage Table
 
 Microsoft a mis au point un certain nombre de pratiques qui ont fait leurs preuves pour le développement d’applications hautes performances avec le stockage Table. Cette check-list fournit des pratiques clés que les développeurs peuvent utiliser pour optimiser les performances. Gardez ces pratiques à l’esprit lorsque vous concevez votre application et tout au long du processus de développement.
 
-Le stockage Azure a des objectifs de scalabilité et de performances pour la capacité, le taux de transactions et la bande passante. Pour plus d’informations sur les objectifs de scalabilité du stockage Azure, consultez [Objectifs de scalabilité et de performances du stockage Azure pour les comptes de stockage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+Le stockage Azure a des objectifs de scalabilité et de performances pour la capacité, le taux de transactions et la bande passante. Pour plus d’informations sur les cibles de scalabilité de Stockage Azure, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json) et [Cibles de scalabilité et de performances pour le stockage Table](scalability-targets.md).
 
 ## <a name="checklist"></a>Liste de contrôle
 
@@ -289,5 +289,6 @@ Si vous effectuez des insertions par lot, puis récupérez des plages d’entit�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Objectifs de performance et d’extensibilité du service Stockage Azure pour les comptes de stockage](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
+- [Objectifs de scalabilité et de performances pour le stockage Table](scalability-targets.md)
+- [Objectifs de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
 - [Codes d’état et d’erreur](/rest/api/storageservices/Status-and-Error-Codes2)

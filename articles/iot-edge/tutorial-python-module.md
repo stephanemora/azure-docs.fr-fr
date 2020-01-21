@@ -10,16 +10,16 @@ ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8f937bcfb1bd03c970f21263c1cd09a1c3baba0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e353a65544e86e702bd216db5c8b5f81f033c46a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429417"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772242"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer et déployer un module IoT Edge Python pour des appareils Linux
 
-Utilisez Visual Studio Code pour écrire du code C et le déployer sur un appareil Linux exécutant Azure IoT Edge. 
+Utilisez Visual Studio Code pour écrire du code Python et le déployer sur un appareil Linux exécutant Azure IoT Edge. 
 
 Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur sur l’appareil IoT Edge que vous configurez dans le guide de démarrage rapide. Dans ce tutoriel, vous allez apprendre à :    
 
@@ -100,7 +100,7 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 
-Visual Studio Code peut développer des modules C pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
+Visual Studio Code peut développer des modules Python pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
 
 1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge : définir la plateforme cible par défaut pour la solution Edge), ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre. 
 

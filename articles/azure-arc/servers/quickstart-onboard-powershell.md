@@ -10,18 +10,18 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, Update
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: e7a527fc290433390436eac3d4c291f2a32bf2b3
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 814be233c80213f84fb81a62caf152536ef4811f
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951443"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834075"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>Démarrage rapide : Connecter des machines à Azure avec Azure Arc pour les serveurs - PowerShell
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Passez en revue les clients pris en charge et la configuration réseau requise dans la [Vue d’ensemble d’Azure Arc pour les serveurs](overview.md).
 
@@ -35,6 +35,9 @@ Un principal du service est une identité de gestion limitée spéciale qui ne d
 ### <a name="steps-to-create-the-service-principal"></a>Étapes de création du principal du service
 
 Dans cet exemple, nous allons utiliser [Azure PowerShell](/powershell/azure/install-az-ps) pour créer un nom de principal du service (SPN). Vous pouvez également suivre les étapes indiquées sous [Créer un principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) pour cette tâche.
+
+> [!NOTE]
+> Quand vous créez le principal de service, vous devez être Propriétaire ou Administrateur de l’accès utilisateur sur l’abonnement à utiliser pour l’intégration. Si vous n’avez pas les autorisations appropriées pour créer les attributions de rôles, le principal de service sera créé, mais il ne pourra pas intégrer de machines.
 
 Le rôle `Azure Connected Machine Onboarding` contient uniquement les autorisations requises pour l’intégration. Vous pouvez définir l’autorisation d’un SPN pour permettre à son étendue de couvrir un groupe de ressources ou un abonnement.
 
@@ -142,7 +145,7 @@ Sur Windows, ouvrez PowerShell en tant qu’administrateur sur un nœud cible et
   --service-principal-secret "{your-spn-password}" `
   --resource-group "{your-resource-group-name}" `
   --tenant-id "{your-tenant-id}" `
-  --location "{location-of-your-resource-group}" `
+  --location "{desired-location}" `
   --subscription-id "{your-subscription-id}"
 ```
 
@@ -164,7 +167,7 @@ Paramètres :
 * `tenant-id` : GUID du locataire. Vous pouvez le trouver dans le portail Azure en sélectionnant **Azure Active Directory** -> **Propriétés** -> **ID de répertoire**.
 * `subscription-id` : GUID de l’abonnement, dans Azure, où vous souhaitez connecter votre ordinateur.
 * `resource-group` : Groupe de ressources auquel vous souhaitez connecter votre ordinateur.
-* `location` : Consultez [Régions Azure et emplacements](https://azure.microsoft.com/global-infrastructure/regions/). Cet emplacement peut être identique ou différent de l’emplacement du groupe de ressources. Pour la préversion publique, le service est pris en charge dans **WestUS2** et **Europe Ouest**.
+* `location` : Consultez [Régions Azure et emplacements](https://azure.microsoft.com/global-infrastructure/regions/). Cet emplacement peut être identique ou différent de l’emplacement du groupe de ressources. Pour la préversion publique, le service est pris en charge dans les régions **USA Ouest 2**, **Asie Sud-Est** et **Europe Ouest**.
 * `resource-name` :  (*Facultatif*) Utilisé pour la représentation de ressource Azure de votre ordinateur local. Si vous ne spécifiez pas cette valeur, le nom d’hôte de l’ordinateur sera utilisé.
 
 Vous trouverez plus d’informations sur l’outil « azcmagent » dans [Informations de référence Azcmagent](azcmagent-reference.md).

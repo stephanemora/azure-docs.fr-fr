@@ -9,22 +9,22 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 420db19a5ddcddfe37fa1a922e792fc0c8bc5b66
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701919"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912295"
 ---
-# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
+# <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutoriel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
 Utilisez Azure Notebooks pour développer un module Machine Learning et déployez-le sur un appareil Linux exécutant Azure IoT Edge. 
 
-Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide tout au long du déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir des données de température de machine simulée. Pour plus d'informations sur Azure Machine Learning sur IoT Edge, consultez la [documentation Azure Machine Learning](../machine-learning/service/how-to-deploy-to-iot.md).
+Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide tout au long du déploiement d’un module Azure Machine Learning qui prédit l’échec d’un appareil à partir des données de température de machine simulée. Pour plus d'informations sur Azure Machine Learning sur IoT Edge, consultez la [documentation Azure Machine Learning](../machine-learning/how-to-deploy-and-where.md).
 
 Le module Azure Machine Learning que vous créez dans ce didacticiel lit les données de l’environnement générées par votre appareil et étiquette les messages comme étant anormaux ou pas.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un module Azure Machine Learning
@@ -38,7 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Un appareil Azure IoT Edge :
 
@@ -49,7 +49,7 @@ Un appareil Azure IoT Edge :
 Ressources cloud :
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
-* Un espace de travail Azure Machine Learning. Pour savoir comment créer et utiliser un module Azure Machine Learning, suivez les instructions fournies dans [Utiliser le portail Azure pour bien démarrer avec Azure Machine Learning](../machine-learning/service/quickstart-get-started.md).
+* Un espace de travail Azure Machine Learning. Pour savoir comment créer et utiliser un module Azure Machine Learning, suivez les instructions fournies dans [Utiliser le portail Azure pour bien démarrer avec Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md).
    * Notez le nom de l’espace de travail, le groupe de ressources et l’ID de l’abonnement. Ces valeurs sont toutes disponibles dans la vue d’ensemble de l’espace de travail, sur le portail Azure. Vous utiliserez ces valeurs plus tard dans ce tutoriel pour connecter un notebook Azure aux ressources de votre espace de travail. 
 
 
@@ -133,7 +133,7 @@ Vous devrez peut-être utiliser `sudo` afin de bénéficier des autorisations é
 
 ### <a name="view-data-arriving-at-your-iot-hub"></a>Afficher les données reçues par votre hub IoT
 
-Vous pouvez afficher les messages appareil-à-cloud reçus par votre hub IoT à l’aide de [l’extension Azure IoT Hub Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anciennement l’extension Azure IoT Toolkit).
+Vous pouvez afficher les messages appareil-à-cloud reçus par votre hub IoT à l’aide de l’[extension Azure IoT Hub pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 Les étapes suivantes montrent comment configurer Visual Studio Code pour surveiller les messages appareil-à-cloud reçus par votre hub IoT.
 
@@ -151,7 +151,7 @@ Les étapes suivantes montrent comment configurer Visual Studio Code pour survei
 
    ![Réponse d'Azure Machine Learning dans le corps du message](./media/tutorial-deploy-machine-learning/ml-output.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test.
 

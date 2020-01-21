@@ -5,14 +5,14 @@ services: private-link
 author: malopMSFT
 ms.service: private-link
 ms.topic: overview
-ms.date: 11/04/2019
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 127807a57598fcfe239db39cb9874bca955da44e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647354"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867559"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Qu’est-ce que Liaison privée Azure ? (Préversion)
 Azure Private Link vous permet d’accéder aux services PaaS Azure (par exemple Stockage Azure, Azure Cosmos DB et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [Point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également créer votre propre [service Liaison privée](private-link-service-overview.md) dans votre réseau virtuel et le distribuer en privé à vos clients. L’expérience de configuration et de consommation à l’aide du service Liaison privée Azure est cohérente entre les services PaaS Azure, appartenant au client et de partenaires partagés.
@@ -46,6 +46,9 @@ Le service Liaison privée Azure offre les avantages suivants :
 |  |  Azure SQL Database         | Toutes les régions publiques      |   PRÉVERSION      |
 ||Azure SQL Data Warehouse.| Toutes les régions publiques |PRÉVERSION|
 ||Azure Cosmos DB| USA Centre-Ouest, USA Ouest, USA Centre Nord |PRÉVERSION|
+|  |  Azure Database pour PostgreSQL - Serveur unique         | Toutes les régions publiques      |   PRÉVERSION      |
+|  |  Azure Database pour MySQL         | Toutes les régions publiques      |   PRÉVERSION      |
+|  |  Azure Database for MariaDB         | Toutes les régions publiques      |   PRÉVERSION      |
 
 Pour obtenir les notifications les plus récentes, consultez la [page relative aux mises à jour du réseau virtuel Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

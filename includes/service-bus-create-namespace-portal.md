@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67177292"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75927871"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Créer un espace de noms dans le Portail Azure
 Pour commencer à utiliser des entités de messagerie Service Bus dans Azure, vous devez d’abord créer un espace de noms avec un nom unique dans Azure. Ce dernier fournit un conteneur d’étendue pour l’adressage des ressources Service Bus au sein de votre application.
@@ -33,7 +33,7 @@ Pour créer un espace de noms :
     4. Pour l’option **Abonnement**, choisissez un abonnement Azure dans lequel créer l’espace de noms.
     5. Pour l’option **Groupe de ressources**, choisissez un groupe de ressources existant dans lequel l’espace de noms sera utilisé, ou créez-en un nouveau.      
     6. Pour l’option **Emplacement**, choisissez la région dans laquelle héberger votre espace de noms.
-    7. Sélectionnez **Créer**. Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
+    7. Sélectionnez **Create** (Créer). Le système crée l’espace de noms de service et l’active. Vous devrez peut-être attendre plusieurs minutes afin que le système approvisionne des ressources pour votre compte.
    
         ![Créer un espace de noms](./media/service-bus-create-namespace-portal/create-namespace.png)
 4. Vérifiez que l’espace de noms Service Bus est correctement déployé. Pour voir les notifications, sélectionnez l’**icône représentant une cloche (Alertes)** dans la barre d’outils. Sélectionnez le **nom du groupe de ressources** dans la notification, comme illustré dans l’image. Vous voyez le groupe de ressources qui contient l’espace de noms Service Bus.

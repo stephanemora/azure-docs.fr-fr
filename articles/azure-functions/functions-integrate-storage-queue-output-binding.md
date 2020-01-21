@@ -5,12 +5,12 @@ ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
 ms.topic: quickstart
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 73f8d23dcd53b4cbbb3fbd902c789e868c2b021b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226884"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769181"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Ajouter des messages au stockage de files d’attente Azure, à l’aide de Functions
 
@@ -18,7 +18,7 @@ Dans Azure Functions, les liaisons d’entrée et de sortie fournissent une mét
 
 ![Message de file d’attente affiché dans l’Explorateur Stockage](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce guide de démarrage rapide :
 
@@ -103,7 +103,7 @@ Dans cette section, vous ajoutez le code qui écrit un message dans la file d’
 
     ![Ajoutez une liaison de sortie de stockage de files d’attente à une fonction dans le Portail Azure.](./media/functions-integrate-storage-queue-output-binding/functions-test-run-function.png)
 
-    Notez que **Corps de la demande** contient la valeur `name` *Azure*. Cette valeur s’affiche dans le message de file d’attente qui est créé lorsque la fonction est appelée.
+    Notez que **Corps de la demande** contient la valeur `name`*Azure*. Cette valeur s’affiche dans le message de file d’attente qui est créé lorsque la fonction est appelée.
     
     Plutôt que de sélectionner **Exécuter** ici, vous pouvez appeler la fonction en entrant une URL dans un navigateur et en spécifiant la valeur `name` dans la chaîne de requête. La méthode du navigateur est affichée dans le [démarrage rapide précédent](functions-create-first-azure-function.md#test-the-function).
 
@@ -149,7 +149,7 @@ Ignorez cette section si vous avez déjà installé et connecté l’Explorateur
 
 1. Exécutez de nouveau la fonction, et vous verrez un nouveau message s’afficher dans la file d’attente.  
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [Clean up resources](../../includes/functions-quickstart-cleanup.md)]
 

@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/28/2019
+ms.date: 1/8/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: a7d25dfad20d8eff25020070d0bb32d5777fdb62
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561502"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754594"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise d’activité après sinistre en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce didacticiel vous montre comment configurer la récupération d’urgence pour des machines virtuelles Azure en les répliquant d’une région Azure vers un autre. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment configurer la récupération d’urgence pour des machines virtuelles Azure en les répliquant d’une région Azure vers un autre. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un coffre Recovery Services
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence pour
 > [!NOTE]
 > Cet article fournit des instructions pour déployer la reprise d’activité après sinistre avec les paramètres les plus simples. Si vous souhaitez en savoir plus sur les paramètres personnalisés, consultez les articles listés sous la [section Procédures](azure-to-azure-how-to-enable-replication.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -77,15 +77,18 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
-Si vous souhaitez contrôler la connectivité sortante à l’aide d’adresses IP au lieu d’utiliser des URL, autorisez ces adresses pour les règles de pare-feu, de proxy et de groupe de sécurité réseau basées sur les adresses IP.
+Si vous utilisez un groupe de sécurité réseau, créez des règles de groupe de sécurité réseau basées sur des étiquettes de service pour l’accès à Stockage Azure, à Azure Active Directory, au service Site Recovery et à la supervision Site Recovery. [Plus d’informations](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
+
+Si vous souhaitez contrôler la connectivité sortante à l’aide d’adresses IP plutôt que des règles de groupe de sécurité réseau, autorisez ces adresses pour les règles de pare-feu, de proxy et de groupe de sécurité réseau basées sur les adresses IP.
+
+>[!NOTE]
+>Nous vous recommandons de toujours configurer des règles de groupe de sécurité réseau avec des étiquettes de service pour l’accès sortant.
 
   - [Plages IP de centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
   - [Plages IP de centres de données Microsoft Azure en Allemagne](https://www.microsoft.com/download/details.aspx?id=54770)
   - [Plages IP de centres de données Microsoft Azure en Chine](https://www.microsoft.com/download/details.aspx?id=42064)
   - [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Adresses IP de points de terminaison du service Site Recovery](https://aka.ms/site-recovery-public-ips)
-
-Si vous utilisez un groupe de sécurité réseau, vous pouvez créer des règles de groupe de sécurité réseau basées sur une balise de service de stockage pour la région source. [Plus d’informations](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
 
 ## <a name="verify-azure-vm-certificates"></a>Vérifier les certificats des machines virtuelles Azure
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839554"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941556"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Démarrage rapide : Comment s’inscrire et charger votre première vidéo
 
@@ -32,6 +32,12 @@ Pour commencer à développer avec Video Indexer, accédez au site web [Video In
 > [!NOTE]
 > Un nom de vidéo ne doit pas dépasser 80 caractères.
 
+### <a name="supported-file-formats-for-video-indexer"></a>Formats de fichiers pris en charge pour Video Indexer
+
+Pour obtenir la liste des formats de fichiers que vous pouvez utiliser avec Video Indexer, consultez l’article [conteneur d’entrée/formats de fichiers](../latest/media-encoder-standard-formats.md#input-containerfile-formats).
+
+### <a name="upload-a-video"></a>Charger une vidéo
+
 1. Connectez-vous au site web [Video Indexer](https://www.videoindexer.ai/).
 2. Pour charger une vidéo, appuyez sur le bouton ou le lien **Charger**.
 
@@ -45,7 +51,9 @@ Pour commencer à développer avec Video Indexer, accédez au site web [Video In
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous pouvez maintenant utiliser le site web [Video Indexer](video-indexer-view-edit.md) ou [Video Indexer Developer Portal](video-indexer-use-apis.md) pour afficher les insights de la vidéo. 
+Pour plus d’informations, consultez [Charger et indexer des vidéos](upload-index-videos.md).
+
+Une fois que vous avez chargé et indexé une vidéo, vous pouvez commencer à utiliser le site web [Video Indexer](video-indexer-view-edit.md) ou [Video Indexer Developer Portal](video-indexer-use-apis.md) pour voir les insights de la vidéo. 
 
 ## <a name="see-also"></a>Voir aussi
 

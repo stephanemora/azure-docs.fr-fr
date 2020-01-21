@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 106252b7c77f9ee3d6b9bdebafce3441d9c4b090
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224230"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971902"
 ---
-# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault 
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure Key Vault 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -35,13 +35,20 @@ Vous allez apprendre à effectuer les actions suivantes :
 > * Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault 
 > * Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault 
+
+## <a name="enable"></a>Activer
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Accorder l'accès  
  
-À l’aide d’identités managées pour ressources Azure, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD.  Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser des identités managées pour les ressources Azure avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez des identités managées de machine virtuelle afin d’accéder à Key Vault pour récupérer les informations d’identification. 
+Cette section montre comment accorder à votre machine virtuelle l’accès à un secret stocké dans un coffre de clés. À l’aide d’identités managées pour ressources Azure, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure AD.  Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser des identités managées pour les ressources Azure avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez des identités managées de machine virtuelle afin d’accéder à Key Vault pour récupérer les informations d’identification. 
 
 Tout d’abord, nous devons créer un Key Vault et accorder son accès à l’identité managée attribuée par le système de machine virtuelle.   
 
@@ -66,9 +73,9 @@ Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aid
 5. Laissez les champs pour la date d’activation et la date d’expiration vides, puis pour **Activé**, laissez la valeur **Oui**. 
 6. Cliquez sur **Créer** pour créer le secret. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer un secret de Key Vault  
+## <a name="access-data"></a>Accéder aux données  
 
-Si PowerShell 4.3.1 ou version ultérieure n’est pas installé, vous devez [télécharger et installer la dernière version](https://docs.microsoft.com/powershell/azure/overview).
+Cette section montre comment obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et comment l’utiliser pour récupérer un secret dans le coffre de clés. Si PowerShell 4.3.1 ou version ultérieure n’est pas installé, vous devez [télécharger et installer la dernière version](https://docs.microsoft.com/powershell/azure/overview).
 
 Tout d’abord, nous utilisons l’identité managée attribuée par le système de machine virtuelle pour obtenir un jeton d’accès permettant de s’authentifier auprès de Key Vault :
  
@@ -108,6 +115,13 @@ Tout d’abord, nous utilisons l’identité managée attribuée par le système
     ```
     
 Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utiliser pour vous authentifier sur un service qui requiert un nom et un mot de passe. 
+
+
+## <a name="disable"></a>Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

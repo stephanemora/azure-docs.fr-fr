@@ -2,24 +2,20 @@
 title: Exemple de script Azure PowerShell - Changer la plage de ports RDP | Microsoft Docs
 description: Exemple de script Azure PowerShell - Changer la plage de ports RDP d’un cluster déployé
 services: service-fabric
-documentationcenter: ''
-author: athinanthny
-manager: chackdan
-editor: ''
 tags: azure-service-management
-ms.assetid: ''
+author: athinanthny
+ms.author: atsenthi
 ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: 4ca7b4085a3978dc3218480c5c8a42679d80de23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.custom: sfrev
+ms.openlocfilehash: b3d922cb5a7cdf34e63731ab32f21c94d7b6bca0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035666"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76025005"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Mettre à jour les valeurs de la plage de ports RDP
 
@@ -27,7 +23,7 @@ Cet exemple de script change les valeurs de la plage de ports RDP sur les machin
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview). 
+Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview).
 
 ## <a name="sample-script"></a>Exemple de script
 

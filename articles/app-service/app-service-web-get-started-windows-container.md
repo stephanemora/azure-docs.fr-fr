@@ -4,12 +4,12 @@ description: Déployez votre premier conteneur Windows personnalisé dans Azure 
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b618c4f1a24e4089cac2ddf34e61bab156aefdd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 7901498772b8e746fb2c87a5237f06ab279e3b64
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671348"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922311"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Exécuter un conteneur Windows personnalisé dans Azure (préversion)
 
@@ -17,7 +17,7 @@ ms.locfileid: "74671348"
 
 Ce guide de démarrage rapide montre comment déployer une application ASP.NET, dans une image Windows, sur [Docker Hub](https://hub.docker.com/) à partir de Visual Studio. Vous exécutez l’application dans un conteneur personnalisé au sein d’Azure App Service.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -79,7 +79,7 @@ Créez une application web ASP.NET en effectuant les étapes suivantes :
 
 ## <a name="create-a-windows-container-app"></a>Créer une application de conteneur Windows
 
-1. Connectez-vous au [Portail Azure]( https://portal.azure.com).
+1. Connectez-vous au [portail Azure]( https://portal.azure.com).
 
 1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure.
 
@@ -163,7 +163,7 @@ Les journaux d’activité en continu ressemblent à ceci :
 
 ## <a name="use-a-different-parent-image"></a>Utiliser une autre image parente
 
-Vous êtes libre d’utiliser une autre image Docker personnalisée pour exécuter votre application. Toutefois, vous devez choisir l’[image parente](https://docs.docker.com/develop/develop-images/baseimages/) correcte pour l’infrastructure que vous souhaitez :
+Vous êtes libre d’utiliser une autre image Docker personnalisée pour exécuter votre application. Toutefois, vous devez choisir l’[image parente (image de base)](https://docs.docker.com/develop/develop-images/baseimages/) appropriée pour l’infrastructure souhaitée :
 
 - Pour déployer des applications .NET Framework, utilisez une image parente basée sur la version Windows Server Core 2019 [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc). 
 - Pour déployer des applications .NET Core, utilisez une image parente basée sur la version Windows Server Nano 1809 [Semi-Annual Servicing Channel (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel). 
@@ -171,7 +171,7 @@ Vous êtes libre d’utiliser une autre image Docker personnalisée pour exécut
 Le téléchargement d’une image parente lors du démarrage de l’application peut prendre un certain temps. Toutefois, vous pouvez réduire le temps de démarrage en utilisant l’une des images parentes suivantes déjà mises en cache dans Azure App Service :
 
 - [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
-- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 : cette image est le conteneur de base utilisé dans les images Microsoft Windows Nano Server Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet).
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 : cette image est le conteneur de base utilisé dans les images Microsoft Windows Nano Server Microsoft [ASP.NET Core](https://hub.docker.com/_/microsoft-dotnet-core-aspnet/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

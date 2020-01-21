@@ -1,14 +1,14 @@
 ---
 title: 'Démarrage rapide : Nouvelle affectation de stratégie avec Azure CLI'
 description: Dans ce guide de démarrage rapide, vous allez utiliser Azure CLI pour créer une attribution Azure Policy afin d’identifier les ressources non conformes.
-ms.date: 11/25/2019
+ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 80dbccdb728da94d9f9fdd0aeb506ade40fd7394
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f76191d97a936c745fc2b13b54011e787e0b5e6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482635"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978321"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Démarrage rapide : Créer une affectation de stratégie pour identifier les ressources non conformes avec Azure CLI
 
@@ -19,7 +19,7 @@ Ce démarrage rapide vous guide pas à pas dans le processus de création d’un
 
 Azure CLI permet de créer et de gérer des ressources Azure à partir de la ligne de commande ou dans des scripts. Ce guide utilise l’interface de ligne de commande Azure pour créer une attribution de stratégie et identifier les ressources non conformes dans votre environnement Azure.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -31,7 +31,7 @@ Azure CLI permet de créer et de gérer des ressources Azure à partir de la lig
   az provider register --namespace 'Microsoft.PolicyInsights'
   ```
 
-  Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../../azure-resource-manager/resource-manager-supported-services.md).
+  Pour plus d’informations sur l’inscription et l’affichage des fournisseurs de ressources, consultez [Fournisseurs et types de ressources](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 - Si ce n’est pas déjà fait, installez [ARMClient](https://github.com/projectkudu/ARMClient). C’est un outil qui envoie des requêtes HTTP aux API Azure Resource Manager.
 
@@ -39,7 +39,7 @@ Azure CLI permet de créer et de gérer des ressources Azure à partir de la lig
 
 ## <a name="create-a-policy-assignment"></a>Créer une affectation de stratégie
 
-Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et affectez la définition **Auditer les machines virtuelles qui n’utilisent pas de disques managés**. La définition de cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans la définition de stratégie.
+Dans ce guide de démarrage rapide, vous créez une attribution de stratégie et affectez la définition **Auditer les machines virtuelles qui n’utilisent pas de disques managés**. Cette stratégie identifie les ressources qui ne sont pas conformes aux conditions définies dans sa définition.
 
 Exécutez la commande suivante pour créer une attribution de stratégie :
 
@@ -58,17 +58,16 @@ La commande précédente utilise les informations suivantes :
 
 Pour afficher les ressources qui ne sont pas conformes à cette nouvelle attribution, obtenez l’ID d’attribution de stratégie en exécutant les commandes suivantes :
 
-```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+```azurecli-interactive
+az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
 ```
 
-Pour plus d’informations sur les ID d’affectation de stratégie, consultez [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
+Pour plus d’informations sur les ID d’affectation de stratégie, consultez [az policy assignment](/cli/azure/policy/assignment).
 
 Exécutez ensuite la commande suivante pour obtenir les ID des ressources non conformes, intégrés dans un fichier JSON :
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Vos résultats doivent ressembler à l’exemple suivant :
@@ -99,7 +98,7 @@ Vos résultats doivent ressembler à l’exemple suivant :
 
 Les résultats sont comparables à ce que vous devriez généralement voir sous **Ressources non conformes** dans la vue du portail Azure.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Utilisez la commande suivante pour supprimer l’affectation créée :
 
@@ -111,7 +110,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 Dans ce démarrage rapide, vous avez affecté une définition de stratégie pour identifier les ressources non conformes de votre environnement Azure.
 
-Pour en savoir plus sur l’affectation de stratégies pour vérifier que les nouvelles ressources sont conformes, suivez le didacticiel :
+Pour en savoir plus sur l’affectation de stratégies visant à vérifier que les nouvelles ressources sont conformes, suivez le tutoriel :
 
 > [!div class="nextstepaction"]
 > [Création et gestion des stratégies](./tutorials/create-and-manage.md)

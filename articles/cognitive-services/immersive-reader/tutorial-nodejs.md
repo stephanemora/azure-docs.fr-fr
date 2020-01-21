@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Lancer le Lecteur immersif à l’aide de Node.js'
+title: 'Tutoriel : Lancer le Lecteur immersif à l’aide de Node.js'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application Node.js qui lance le Lecteur immersif.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 37453e1fdd8fdcfc89468731980581652027343c
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338501"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945253"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Didacticiel : Lancer le lecteur immersif (Node.js)
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Tutoriel : Lancer le lecteur immersif (Node.js)
 
-Dans la [présentation](./overview.md), vous avez appris ce qu’est le Lecteur immersif et comment il implémente des techniques éprouvées pour améliorer la compréhension de la lecture pour les apprenants en langue, les lecteurs émergents et les étudiants présentant des difficultés d’apprentissage. Dans ce tutoriel, vous allez créer une application web Node.js qui lance le Lecteur immersif. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans la [présentation](./overview.md), vous avez appris ce qu’est le Lecteur immersif et comment il implémente des techniques éprouvées pour améliorer la compréhension de la lecture pour les apprenants en langue, les lecteurs émergents et les étudiants présentant des difficultés d’apprentissage. Dans ce tutoriel, vous allez créer une application web Node.js qui lance le Lecteur immersif. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une application web Node.js avec Express
@@ -31,9 +31,9 @@ Dans la [présentation](./overview.md), vous avez appris ce qu’est le Lecteur 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Ressource Lecteur immersif configurée pour l’authentification Azure Active Directory (Azure AD). Suivez [ces instructions](./azure-active-directory-authentication.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’environnement. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.
+* Une ressource de lecteur immersif configurée pour l’authentification Azure Active Directory. Suivez [ces instructions](./how-to-create-immersive-reader.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’environnement. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.
 * [Node.js](https://nodejs.org/) et [Yarn](https://yarnpkg.com)
 * Un IDE tel que [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -111,14 +111,14 @@ router.get('/getimmersivereaderlaunchparams', function(req, res) {
                 if (err) {
                     return res.status(500).send('CogSvcs IssueToken error');
                 }
-        
+
                 const token = JSON.parse(tokenResponse).access_token;
                 const subdomain = process.env.SUBDOMAIN;
                 return res.send({token: token, subdomain: subdomain});
         }
   );
 });
- 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -149,7 +149,7 @@ Le point de terminaison d’API **getimmersivereaderlaunchparams** doit être s�
           p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
           div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
           script.
-        
+
             function getImmersiveReaderLaunchParamsAsync() {
                     return new Promise((resolve, reject) => {
                         $.ajax({
@@ -165,7 +165,7 @@ Le point de terminaison d’API **getimmersivereaderlaunchparams** doit être s�
                         });
                     });
             }
-        
+
             async function launchImmersiveReader() {
                     const content = {
                             title: document.getElementById('title').innerText,
@@ -174,11 +174,11 @@ Le point de terminaison d’API **getimmersivereaderlaunchparams** doit être s�
                                     lang: 'en'
                             }]
                     };
-            
+
                     const launchParams = await getImmersiveReaderLaunchParamsAsync();
                     const token = launchParams.token;
                     const subdomain = launchParams.subdomain;
-            
+
                     ImmersiveReader.launchAsync(token, subdomain, content);
             }
     ```

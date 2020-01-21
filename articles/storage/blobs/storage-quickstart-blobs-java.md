@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 477f13f58d9b630519faa79424f22cb1bb34918c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffd91bbcc33ef313d496e793c8263126db81b685
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351257"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863942"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Démarrage rapide : Bibliothèque de client Azure Storage Blob v12 pour Java
 
@@ -349,7 +349,7 @@ Deleting the local source and downloaded files...
 Done
 ```
 
-Avant de commencer le processus de nettoyage, vérifiez les deux fichiers dans votre dossier *MyDocuments*. Vous pouvez les ouvrir et constater qu’ils sont identiques.
+Avant de commencer le processus de nettoyage, vérifiez la présence des deux fichiers dans votre dossier *data*. Vous pouvez les ouvrir et constater qu’ils sont identiques.
 
 Une fois les fichiers vérifiés, appuyez sur **Entrée** pour supprimer les fichiers de test et terminer la démonstration.
 

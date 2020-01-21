@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 10/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 16837ff53d7a87f6d6ac86643c7c8d16721e9470
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: b95c5511b2f64414fcf165a4346dbb06b1f02435
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660373"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833854"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL
 
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 Pour suivre cette procédure de démarrage rapide, vous avez besoin des éléments suivants :
 - Accès à la préversion à accès limité de Form Recognizer. Pour accéder à la préversion, remplissez et envoyez le formulaire de [demande d’accès Form Recognizer](https://aka.ms/FormRecognizerRequestAccess).
 - [cURL](https://curl.haxx.se/windows/) installé.
-- Au minimum un ensemble de cinq formulaires du même type. Vous allez utiliser ces données pour entraîner le modèle. Vos formulaires peuvent être de différents types de fichiers, mais ils doivent être du même type de document. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide. Chargez les fichiers d’entraînement à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure.
+- Au minimum un ensemble de six formulaires du même type. Vous en utiliserez cinq pour entraîner le modèle, puis vous testerez le modèle avec le sixième formulaire. Vos formulaires peuvent être de différents types de fichiers, mais ils doivent être du même type de document. Vous pouvez utiliser un [exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451) pour ce guide de démarrage rapide. Chargez les fichiers d’entraînement à la racine d’un conteneur de stockage d’objets blob dans un compte Stockage Azure. Vous pouvez placer les fichiers de test dans un dossier distinct.
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
@@ -143,15 +143,14 @@ Le champ `"modelId"` contient l’ID du modèle que vous êtes en train d’entr
 
 1. Remplacez `<Endpoint>` par le point de terminaison que vous avez obtenu avec votre clé d’abonnement Form Recognizer. Vous la trouverez sous l’onglet **Vue d’ensemble** de la ressource Form Recognizer.
 1. Remplacez `<model ID>` par l’ID de modèle que vous avez reçu à la section précédente.
-1. Remplacez `<path to your form>` par le chemin d’accès du fichier de votre formulaire (par exemple, C:\temp\file.pdf). Il peut également s’agir d’une URL d’un fichier distant. Dans le cadre de ce guide de démarrage rapide, vous pouvez utiliser les fichiers disponibles dans le dossier **Test** de l’[exemple de jeu de données](https://go.microsoft.com/fwlink/?linkid=2090451).
-1. Remplacez `<file type>` par le type de fichier. Types pris en charge : `application/pdf`, `image/jpeg`, `image/png`, `image/tiff`.
+1. Remplacez `<SAS URL>` par une URL SAS vers votre fichier dans le stockage Azure. Suivez les étapes de la section Entraînement, mais au lieu d’obtenir une URL SAS pour tout le conteneur d’objets Blob, obtenez l’URL du fichier spécifique que vous souhaitez analyser.
 1. Remplacez `<subscription key>` par votre clé d’abonnement.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -v "https://<Endpoint>/formrecognizer/v2.0-preview/custom/models/<model ID>/analyze" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" -d "{ \"source\": \""<SAS URL>"\" } "
 ```
 
-Vous recevrez une réponse `202 (Success)` avec un en-tête **Operation-Location**. La valeur de cet en-tête est un ID que vous utilisez pour suivre les résultats de l’opération d’analyse. Enregistrez cet ID pour l’étape suivante.
+Vous recevrez une réponse `202 (Success)` avec un en-tête **Operation-Location**. La valeur de cet en-tête inclut un ID de résultats à utiliser pour suivre les résultats de l’opération d’analyse. Enregistrez cet ID de résultats pour l’étape suivante.
 
 ## <a name="get-the-analyze-results"></a>Obtenir les résultats de l’analyse
 

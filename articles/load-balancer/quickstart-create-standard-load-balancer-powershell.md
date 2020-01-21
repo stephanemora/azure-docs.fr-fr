@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un Standard Load Balancer - Azure PowerShell'
+title: 'Démarrage rapide : Créer un Standard Load Balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
 description: Ce guide de démarrage rapide explique comment créer un service Standard Load Balancer à l’aide d’Azure PowerShell.
 services: load-balancer
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 05/07/2019
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: b387df5049fff2cb17e8d0758f1cf5fd8f0d0853
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049111"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045671"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Démarrage rapide : Créer un Standard Load Balancer à l’aide d’Azure PowerShell
 
@@ -105,7 +105,7 @@ $rule = New-AzLoadBalancerRuleConfig `
 
 ### <a name="create-the-nat-rules"></a>Créer les règles NAT
 
-Créez des règles NAT avec [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). L’exemple suivant crée des règles NAT nommées *myLoadBalancerRDP1* et *myLoadBalancerRDP2* pour autoriser les connexions RDP aux serveurs back-end avec les ports 4221 et 4222 :
+Créez les règles NAT à l’aide de [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig). L’exemple suivant crée des règles NAT nommées *myLoadBalancerRDP1* et *myLoadBalancerRDP2* pour autoriser les connexions RDP aux serveurs back-end avec les ports 4221 et 4222 :
 
 ```azurepowershell
 $natrule1 = New-AzLoadBalancerInboundNatRuleConfig `
@@ -346,7 +346,7 @@ Vous pouvez alors entrer l’adresse IP publique dans un navigateur web. Le site
 
 Pour visualiser la distribution de trafic par l’équilibreur de charge sur les trois machines virtuelles exécutant votre application, vous pouvez forcer l’actualisation de votre navigateur web. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 
@@ -356,7 +356,7 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez créé un équilibreur de charge standard, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels consacrés à Azure Load Balancer.
+Dans ce démarrage rapide, vous avez créé un équilibreur de charge standard, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels qui lui sont consacrés.
 
 > [!div class="nextstepaction"]
 > [Didacticiels Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: b96586c801acfc0419b80fa725a468dcb896f79e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 689889588aba4da888a7d66f5e1d45dfde71d520
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70197130"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021154"
 ---
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
 
@@ -30,17 +30,17 @@ ms.locfileid: "70197130"
 
 3. Sélectionnez **Publier**. Si vous ne vous êtes pas encore connecté à votre compte Azure à partir de Visual Studio, sélectionnez **Connexion**. Vous pouvez également créer un compte Azure gratuit.
 
-4. Dans la boîte de dialogue **App Service : Créer nouveau**, utilisez les paramètres **Hébergement** comme indiqué dans le tableau situé sous l’image :
+4. Dans la boîte de dialogue **Azure App Service : Créer nouveau**, utilisez les paramètres **Hébergement** comme indiqué dans le tableau situé sous l’image :
 
     ![Boîte de dialogue Créer App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
     | **Nom** | Nom globalement unique | Nom qui identifie uniquement votre nouvelle application de fonction. Les caractères valides sont `a-z`, `0-9` et `-`. |
-    | **Abonnement** | Choisissez votre abonnement | Sélectionnez l’abonnement Azure à utiliser. |
-    | **[Groupe de ressources](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Nom du groupe de ressources où créer votre application de fonction. Choisissez **Nouveau** pour créer un groupe de ressources.|
+    | **Abonnement** | Choisir votre abonnement | Sélectionnez l’abonnement Azure à utiliser. |
+    | **[Groupe de ressources](../articles/azure-resource-manager/management/overview.md)** | myResourceGroup |  Nom du groupe de ressources où créer votre application de fonction. Choisissez **Nouveau** pour créer un groupe de ressources.|
     | **[Plan d’hébergement](../articles/azure-functions/functions-scale.md)** | Plan de consommation | Après avoir sélectionné **Nouveau** pour créer un plan serverless, veillez à choisir **Consommation** sous **Taille**. Choisissez également un **Emplacement** dans une [région](https://azure.microsoft.com/regions/) près de chez vous ou près d’autres services auxquels ont accès vos fonctions. Si vous exécutez un plan autre que le plan **Consommation**, vous devez gérer la [mise à l’échelle de votre application de fonction](../articles/azure-functions/functions-scale.md).  |
-    | **[Stockage Azure](../articles/storage/common/storage-quickstart-create-account.md)** | Compte de stockage à usage général | Un compte de stockage Azure est obligatoire par le runtime Functions. Sélectionnez **Nouveau** pour créer un compte de stockage universel. Vous pouvez également utiliser un compte existant qui répond aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+    | **[Stockage Azure](../articles/storage/common/storage-account-create.md)** | Compte de stockage à usage général | Un compte de stockage Azure est obligatoire par le runtime Functions. Sélectionnez **Nouveau** pour créer un compte de stockage universel. Vous pouvez également utiliser un compte existant qui répond aux [exigences relatives aux comptes de stockage](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
 
 5. Sélectionnez **Créer** pour créer une application de fonction et les ressources associées dans Azure avec ces paramètres et déployer votre code de projet de fonction. 
 

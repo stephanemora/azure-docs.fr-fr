@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532472"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982432"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Tutoriel : Créer votre premier modèle de classification avec Machine Learning automatisé
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -138,9 +138,9 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
         Validation | Choisissez un type de validation croisée et un nombre de tests.|Type de validation :<br>&nbsp;validation croisée&nbsp;k-fold <br> <br> Nombre de validations : 2
         Accès concurrentiel| Nombre maximal d’itérations parallèles exécutées et de cœurs utilisés par itération| Nombre maximal&nbsp;d’itérations&nbsp;simultanées : 5<br> Nombre maximal&nbsp;de cœurs&nbsp;par&nbsp;itération : None
         
-        Sélectionnez **OK**.
+        Sélectionnez **Enregistrer**.
 
-1. Sélectionnez **Créer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** au début de la préparation de l’expérience.
+1. Sélectionnez **Terminer** pour exécuter l’expérience. L’écran **Détails de l’exécution** s’ouvre et affiche l’**État de l’exécution** au début de la préparation de l’expérience.
 
 >[!IMPORTANT]
 > La préparation nécessaire à l’exécution de l’expérience prend **10 à 15** minutes.
@@ -155,7 +155,7 @@ Accédez à l’onglet **Modèles** pour voir les algorithmes (modèles) testés
 
 En attendant que toutes les modèles d’expérience se terminent, sélectionnez le **Nom de l’algorithme** d’un modèle terminé pour explorer ses performances en détail. 
 
-L’exemple suivant parcourt les onglets **Détails du modèle** et **Visualisations** pour afficher les propriétés, les métriques et les graphiques de performances du modèle sélectionné. 
+L’exemple suivant parcourt les onglets **Détails du modèle** et **Visualisations** pour voir les propriétés, les métriques et les graphiques de performances du modèle sélectionné. 
 
 ![Détails sur l’exécution de l’itération](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 

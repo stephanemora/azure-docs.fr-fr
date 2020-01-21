@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Déployer un environnement en préversion et un graphe spatial - Azure Digital Twins | Microsoft Docs'
+title: 'Tutoriel : Déployer un environnement en préversion et un graphe spatial - Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment déployer votre instance d’Azure Digital Twins et configurer vos ressources spatiales en suivant les étapes de ce tutoriel.
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 20174a4eafb4e72fb62eeff6df2d129b91016b9e
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: bf07a165b6ea933719eb06b6625a91033030a120
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383023"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895427"
 ---
-# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Didacticiel : Déployer la préversion d’Azure Digital Twins et configurer un graphique spatial
+# <a name="tutorial-deploy-azure-digital-twins-preview-and-configure-a-spatial-graph"></a>Tutoriel : Déployer la préversion d’Azure Digital Twins et configurer un graphique spatial
 
 Vous pouvez utiliser le service Azure Digital Twins en préversion pour rassembler des personnes, des lieux et des appareils dans un système spatial homogène. Cette série de tutoriels montre comment utiliser Azure Digital Twins pour détecter l’occupation d’une salle avec des conditions optimales de qualité d’air et de température. 
 
@@ -36,7 +36,7 @@ Dans le premier didacticiel de cette série, vous allez apprendre à effectuer l
 
 Ces didacticiels utilisent et modifient les mêmes exemples que ceux du [démarrage rapide de recherche de salles disponibles](quickstart-view-occupancy-dotnet.md), pour une couverture plus détaillée des concepts.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous ne possédez pas de compte Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -75,7 +75,7 @@ Dans l’exemple de dossier extrait, ouvrez le fichier **digital-twins-samples-c
 
 * Vous pouvez utiliser l’exemple de provisionnement **occupancy-quickstart** pour configurer et provisionner un [graphe d’intelligence spatiale](concepts-objectmodel-spatialgraph.md#digital-twins-object-models). Ce graphe constitue l’image numérisée de vos espaces physiques et des ressources qu’ils contiennent. Il utilise un [modèle objet](concepts-objectmodel-spatialgraph.md#digital-twins-object-models) qui définit les objets d’un bâtiment intelligent. Pour obtenir une liste complète des objets et API REST Digital Twins, consultez [cette documentation sur les API REST](https://docs.westcentralus.azuresmartspaces.net/management/swagger) ou l’URL de l’API de gestion qui a été créée pour [votre instance](#deploy-digital-twins).
 
-   Pour explorer l’exemple et voir comment il communique avec votre instance Digital Twins, vous pouvez commencer avec le dossier **src\actions**. Les fichiers dans ce dossier implémentent les commandes que vous allez utiliser dans ces tutoriels :
+   Pour explorer l’exemple et comprendre comment il communique avec votre instance Digital Twins, vous pouvez commencer avec le dossier **src\actions**. Les fichiers dans ce dossier implémentent les commandes que vous allez utiliser dans ces tutoriels :
     - Le fichier **provisionSample.cs** montre comment provisionner votre graphe spatial.
     - Le fichier **getSpaces.cs** récupère des informations sur les espaces provisionnés.
     - Le fichier **getAvailableAndFreshSpaces.cs** récupère les résultats d’une fonction personnalisée appelée fonction définie par l’utilisateur.
@@ -97,12 +97,12 @@ Dans l’exemple de dossier extrait, ouvrez le fichier **digital-twins-samples-c
     dotnet restore
     ```
 
-1. Dans Visual Studio Code, ouvrez le fichier [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) dans le projet **occupancy-quickstart**. Mettez à jour les valeurs suivantes :
+1. Dans Visual Studio Code, ouvrez le fichier [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) dans le projet **occupancy-quickstart**. Utilisez les valeurs suivantes :
    * **ClientId** : entrez l’ID d’application de l’inscription de votre application Azure AD. Vous avez noté cet ID à la section où vous avez [défini des autorisations d’application](#grant-permissions-to-your-app).
    * **Tenant** : entrez l’ID de répertoire de votre [locataire Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Vous avez également noté cet ID à la section où vous avez [défini des autorisations d’application](#grant-permissions-to-your-app).
    * **BaseUrl** : entrez l’URL de votre instance Digital Twins. Pour obtenir cette URL, remplacez les espaces réservés dans cette URL par les valeurs de votre instance : `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Vous pouvez également obtenir cette URL en modifiant l’URL API de gestion depuis [la section de déploiement](#deploy-digital-twins). Remplacez **swagger/** par **api/v1.0/** .
 
-1. Affichez la liste des fonctionnalités Digital Twins que vous pouvez explorer à l’aide de l’exemple. Exécutez la commande suivante :
+1. Examinez la liste des fonctionnalités Digital Twins que vous pouvez explorer à l’aide de l’exemple. Exécutez la commande suivante :
 
     ```cmd/sh
     dotnet run
@@ -129,7 +129,6 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
     return results;
 }
-
 ```
 
 Cette fonction utilise le fichier [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) dans le même dossier. Ouvrez ce fichier et notez la hiérarchie d’un bâtiment hébergeant des bureaux : *Venue (Lieu)* , *Floor (Étage)* , *Area (Zone)* et *Rooms (Salles)* . Tous ces espaces physiques peuvent contenir des *appareils* et des *capteurs*. Chaque entrée est dotée d’un élément `type` prédéfini, par exemple Floor (Étage), Room (Salle).
@@ -150,7 +149,7 @@ Le fichier **provisionSample.yaml** contient les nœuds suivants :
 
 - **devices** : les espaces peuvent contenir des éléments `devices`, qui sont des entités physiques ou virtuelles gérant un certain nombre de capteurs. Par exemple, un appareil peut être le téléphone d’un utilisateur, un pod de capteur Raspberry Pi ou une passerelle. Dans le bâtiment imaginaire de votre exemple, notez que la salle nommée **Focus Room** (Salle de réflexion) contient un appareil **Raspberry Pi 3 A1**. Chaque nœud d’appareil est identifié par un élément `hardwareId` unique, qui est codé en dur dans l’exemple. Pour configurer cet exemple pour une production réelle, remplacez ces éléments par des valeurs de votre configuration.  
 
-- **sensors** : un appareil peut contenir plusieurs `sensors`. Ils peuvent détecter et enregistrer des modifications physiques, telles que la température, les mouvements et le niveau de batterie. Chaque nœud de capteur est identifié de façon unique par un élément `hardwareId`, codé en dur ici. Pour une application réelle, remplacez ceux-ci en utilisant les identificateurs uniques des capteurs de votre configuration. Le fichier provisionSample.yaml contient deux capteurs pour enregistrer *Motion* (les mouvements) et *CarbonDioxide* (le dioxyde de carbone). Ajoutez un autre capteur pour enregistrer *Température*, en ajoutant les lignes suivantes sous les lignes du capteur CarbonDioxide. Remarquez que ces éléments sont fournis dans provisionSample.yaml en tant que lignes commentées. Vous pouvez supprimer les marques de commentaire en retirant le caractère `#` au début de chaque ligne. 
+- **sensors** : un appareil peut contenir plusieurs `sensors`. Ils peuvent détecter et enregistrer des modifications physiques, telles que la température, les mouvements et le niveau de batterie. Chaque nœud de capteur est identifié de façon unique par un élément `hardwareId`, codé en dur ici. Pour une application réelle, remplacez ceux-ci en utilisant les identificateurs uniques des capteurs de votre configuration. Le fichier provisionSample.yaml contient deux capteurs pour enregistrer *Motion* (les mouvements) et *CarbonDioxide* (le dioxyde de carbone). Ajoutez un autre capteur pour enregistrer *Température*, en ajoutant les lignes suivantes sous les lignes du capteur CarbonDioxide. Ces éléments sont fournis dans provisionSample.yaml en tant que lignes commentées. Vous pouvez supprimer les marques de commentaire en retirant le caractère `#` au début de chaque ligne. 
 
     ```yaml
             - dataType: Temperature
@@ -164,7 +163,7 @@ Enregistrez et fermez le fichier provisionSample.yaml. Dans le tutoriel suivant,
 > [!TIP]
 > Vous pouvez afficher et modifier votre graphe spatial à l’aide de la [Visionneuse de graphe Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 

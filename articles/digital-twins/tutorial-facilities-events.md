@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Capturer des événements d’appareil à partir d’un espace IoT - Azure Digital Twins | Microsoft Docs'
+title: 'Tutoriel : Capturer des événements d’appareil à partir d’un espace IoT - Azure Digital Twins | Microsoft Docs'
 description: Découvrez comment recevoir des notifications à partir de vos espaces en intégrant Azure Digital Twins à Logic Apps en suivant la procédure décrite dans ce didacticiel.
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/10/2020
+ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790350"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933678"
 ---
-# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Didacticiel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
+# <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Tutoriel : Recevoir des notifications à partir de vos espaces Azure Digital Twins avec Logic Apps
 
 Après avoir déployé votre instance Azure Digital Twins, puis provisionné vos espaces et implémenté des fonctions personnalisées pour surveiller des conditions spécifiques, vous pouvez avertir par e-mail votre administrateur des bureaux lorsque ces conditions surveillées se présentent.
 
@@ -24,13 +24,13 @@ Dans [le premier tutoriel](tutorial-facilities-setup.md), vous avez configuré l
 
 Ce didacticiel montre comment intégrer ces notifications à Azure Logic Apps pour envoyer des e-mails quand une salle de ce type est disponible. Un administrateur de bureau peut utiliser ces informations pour aider les employés à réserver la salle de réunion favorisant le plus la productivité.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Intégrer des événements avec Azure Event Grid.
 > * Notifier des événements avec Logic Apps.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce didacticiel suppose que vous avez [configuré](tutorial-facilities-setup.md) et [approvisionné](tutorial-facilities-udf.md) votre configuration Azure Digital Twins. Avant de poursuivre, assurez-vous que vous avez les éléments suivants :
 
@@ -51,7 +51,7 @@ Dans cette section, vous configurez [Event Grid](../event-grid/overview.md) pour
 
 Une [rubrique de grille d’événements](../event-grid/concepts.md#topics) offre une interface qui permet d’acheminer les événements générés par la fonction définie par l’utilisateur. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Dans le volet de gauche, sélectionnez **Créer une ressource**. 
 
@@ -65,7 +65,7 @@ Une [rubrique de grille d’événements](../event-grid/concepts.md#topics) offr
 
 1. Sélectionnez **Clés d’accès**, puis copiez **Clé 1** et **Clé 2** dans un fichier temporaire. Ces valeurs vous seront utiles pour créer le point de terminaison à la section suivante.
 
-    [![Clés Event Grid](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
+    [![Clés Event Grid](./media/tutorial-facilities-events/tutorial-event-grid-keys.png)](./media/tutorial-facilities-events/tutorial-event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Créer un point de terminaison pour la rubrique de grille d’événements
 
@@ -114,7 +114,7 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
 1. Entrez un **Nom** pour votre ressource Logic Apps et sélectionnez vos **Abonnement**, **Groupe de ressources** et **Emplacement**. Sélectionnez **Create** (Créer).
 
-    [![Créer une ressource Logic Apps](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
+    [![Créer une ressource Logic Apps](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
 1. Ouvrez votre ressource Logic Apps durant son déploiement, puis ouvrez le volet **Concepteur d’application logique**. 
 
@@ -172,7 +172,7 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
    c. Dans la deuxième zone de texte **Choisir une valeur**, entrez `UdfCustom`.
 
-   [![Conditions sélectionnées](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
+   [![Conditions sélectionnées](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
 1. Dans la fenêtre **Si true** :
 
@@ -182,9 +182,9 @@ Vous pouvez utiliser le service [Azure Logic Apps](../logic-apps/logic-apps-over
 
    c. Dans la zone **To** (À), entrez votre ID de messagerie pour recevoir des notifications. Dans **Objet**, entrez le texte **Notification Digital Twins pour la mauvaise qualité de l’air dans l’espace**. Sélectionnez ensuite **TopologyObjectId** à partir de la liste **Contenu dynamique** pour **Analyser JSON**.
 
-   d. Sous **Corps** dans la même fenêtre, entrez du texte similaire à ceci : **Qualité de l’air médiocre détectée dans une pièce. La température doit être ajustée**. N’hésitez pas à apporter des précisions en utilisant les éléments de la liste **Contenu dynamique**.
+   d. Sous **Corps** dans la même fenêtre, entrez du texte semblable au suivant : **Qualité de l’air médiocre détectée dans une pièce. La température doit être ajustée**. N’hésitez pas à apporter des précisions en utilisant les éléments de la liste **Contenu dynamique**.
 
-   [![Sélections de « Envoyer un e-mail » dans Logic Apps](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
+   [![Sélections de « Envoyer un e-mail » dans Logic Apps](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
 1. Sélectionnez le bouton **Enregistrer** en haut du volet **Concepteur Logic Apps**.
 
@@ -196,7 +196,7 @@ Dans quelques minutes, vous devriez commencer à recevoir des notifications par 
 
 Pour ne plus recevoir ces e-mails, accédez à votre ressource Logic Apps dans le portail et sélectionnez le volet **Vue d’ensemble**. Sélectionnez **Désactiver**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous pouvez supprimer les ressources créées dans ce tutoriel :
 
@@ -212,7 +212,7 @@ Si vous souhaitez arrêter votre exploration d’Azure Digital Twins ici, vous p
 Pour savoir comment visualiser vos données de capteur, analyser les tendances et détecter les anomalies, passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
+> [Tutoriel : Visualiser et analyser des événements à partir de vos espaces Azure Digital Twins à l’aide de Time Series Insights](tutorial-facilities-analyze.md)
 
 Vous pouvez également parfaire vos connaissances sur les modèles objet et les graphes d’intelligence spatiale dans Azure Digital Twins :
 

@@ -5,12 +5,12 @@ services: automation
 ms.date: 4/11/2019
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: a63202fd5f29c3c2eee4ecaaae9a940078c15edc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f61fdedcd3c910ef5d09685fea00473a83b321f1
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421874"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834277"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -59,7 +59,7 @@ Si l’espace de travail sélectionné comporte déjà la solution, cette derni�
 
 Quand un ordinateur est ajouté aux solutions Update Management ou Change Tracking et Inventory, celles-ci sont ajoutées à l’une des deux recherches enregistrées dans votre espace de travail. Ces recherches enregistrées sont des requêtes qui contiennent les ordinateurs ciblés pour ces solutions.
 
-Accédez à votre compte Automation et sélectionnez **Recherches enregistrées** sous **Ggénéral**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
+Accédez à votre espace de travail Log Analytics et sélectionnez **Recherches enregistrées** sous **Général**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
 
 |Name     |Category  |Alias  |
 |---------|---------|---------|

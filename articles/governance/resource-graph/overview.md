@@ -3,12 +3,12 @@ title: Vue d’ensemble d’Azure Resource Graph
 description: Découvrez comment le service Azure Resource Graph permet d’exécuter des requêtes complexes sur des ressources à grande échelle entre des abonnements et des locataires.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: 7a96faa8502fca6fc501985cd677ac28454f1ba1
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 301543075d587079af0f53b6200890a75bfbb768
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406701"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965969"
 ---
 # <a name="what-is-azure-resource-graph"></a>Qu’est-ce qu’Azure Resource Graph ?
 
@@ -31,7 +31,7 @@ Azure Resource Graph est un service Azure conçu pour étendre Gestion des resso
 
 Azure Resource Manager prend actuellement en charge les requêtes effectuées sur des champs de ressource de base, à savoir le nom de la ressource, l’ID, le type, le groupe de ressources, l’abonnement et l’emplacement. Resource Manager fournit également des fonctionnalités permettant d’appeler des fournisseurs de ressources individuels afin d’obtenir des propriétés détaillées sur une ressource à la fois.
 
-Avec Azure Resource Graph, vous pouvez accéder aux propriétés retournées par les fournisseurs de ressources sans appeler chaque fournisseur. Pour connaître les types de ressources pris en charge, recherchez la valeur **Oui** dans le tableau de la rubrique [Suppression de ressources Azure pour les déploiements en mode complet](../../azure-resource-manager/complete-mode-deletion.md). Des types de ressources supplémentaires sont disponibles dans les [tables Resource Graph](./concepts/query-language.md#resource-graph-tables) associées. Un autre moyen de voir les types de ressource pris en charge consiste à utiliser le [Navigateur de schémas de l’Explorateur Azure Resource Graph](./first-query-portal.md#schema-browser).
+Avec Azure Resource Graph, vous pouvez accéder aux propriétés retournées par les fournisseurs de ressources sans appeler chaque fournisseur. Pour connaître les types de ressources pris en charge, recherchez la valeur **Oui** dans le tableau de la rubrique [Suppression de ressources Azure pour les déploiements en mode complet](../../azure-resource-manager/templates/complete-mode-deletion.md). Des types de ressources supplémentaires sont disponibles dans les [tables Resource Graph](./concepts/query-language.md#resource-graph-tables) associées. Un autre moyen de voir les types de ressource pris en charge consiste à utiliser le [Navigateur de schémas de l’Explorateur Azure Resource Graph](./first-query-portal.md#schema-browser).
 
 Azure Resource Graph vous permet :
 
@@ -62,7 +62,7 @@ Pour utiliser Resource Graph, vous devez disposer des droits appropriés pour le
 > [!NOTE]
 > Resource Graph utilise les abonnements disponibles pour un principal lors de la connexion. Pour afficher les ressources d’un nouvel abonnement ajouté pendant une session active, le principal doit actualiser le contexte. Cette action se produit automatiquement quand vous vous déconnectez puis vous reconnectez.
 
-Azure CLI et Azure PowerShell utilisent des abonnements auxquels l’utilisateur a accès. Lors de l’utilisation directe de l’API REST, la liste des abonnements est fournie par l’utilisateur. Si l’utilisateur a accès à l’un des abonnements de la liste, les résultats de la requête sont retournés pour les abonnements auxquels l’utilisateur a accès. Ce comportement est le même que lors de l’appel de [Groupes de ressources - Liste](/rest/api/resources/resourcegroups/list) \- vous obtenez les groupes de ressources auxquels vous avez accès sans indication que le résultat peut être partiel.
+Azure CLI et Azure PowerShell utilisent des abonnements auxquels l’utilisateur a accès. Lors de l’utilisation directe de l’API REST, la liste des abonnements est fournie par l’utilisateur. Si l’utilisateur a accès à l’un des abonnements de la liste, les résultats de la requête sont retournés pour les abonnements auxquels l’utilisateur a accès. Ce comportement est le même que lors de l’appel de [Groupes de ressources - Liste](/rest/api/resources/resourcegroups/list) : vous obtenez les groupes de ressources auxquels vous avez accès sans indication que le résultat peut être partiel.
 S’il n’existe aucun abonnement dans la liste des abonnements pour lesquels l’utilisateur dispose des droits appropriés, la réponse est un _403_ (Interdit).
 
 ## <a name="throttling"></a>Limitation
@@ -84,11 +84,11 @@ L’Explorateur Azure Resource Graph, qui fait partie du portail Azure, permet d
 Resource Graph prend en charge Azure CLI, Azure PowerShell, le kit Azure SDK pour .NET, etc. La requête est structurée de la même manière pour chaque langage. Découvrez comment activer Resource Graph :
 
 - [Portail Azure et Explorateur Resource Graph](first-query-portal.md) 
-- [Interface de ligne de commande Azure](first-query-azurecli.md#add-the-resource-graph-extension)
+- [Azure CLI](first-query-azurecli.md#add-the-resource-graph-extension)
 - [Azure PowerShell](first-query-powershell.md#add-the-resource-graph-module)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Exécutez votre première requête en utilisant le [portail Azure](first-query-portal.md).
+- Exécuter votre première requête avec le [portail Azure](first-query-portal.md).
 - Exécuter votre première requête avec [Azure CLI](first-query-azurecli.md).
 - Exécuter votre première requête avec [Azure PowerShell](first-query-powershell.md).

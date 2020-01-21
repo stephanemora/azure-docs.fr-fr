@@ -7,18 +7,21 @@ ms.date: 09/26/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 363739bbab67b92e78e0cdb56cf98cdb8e1446eb
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 44fe68b8b04a1192c928e04c7d2a9d147f400130
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350892"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748295"
 ---
 # <a name="azure-storage-samples-using-javascript"></a>Exemples relatifs au service Stockage Azure en JavaScript
 
 Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples et des scénarios traités dans chacun d’eux. Cliquez sur les liens pour afficher l’exemple de code correspondant dans GitHub.
 
-## <a name="blob-samples"></a>Exemples d’objets blob
+> [!NOTE]
+> Ces exemples utilisent la bibliothèque JavaScript v10 de Stockage Azure. Pour obtenir le code de la version v12, consultez les [exemples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples) du dépôt GitHub.
+
+## <a name="blob-samples-v10"></a>Exemples d’objets blob (v10)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|
@@ -43,7 +46,7 @@ Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples
 | Définir les règles CORS | [Bien démarrer avec le service Blob Azure en JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/advanced.js#L152) |
 | Snapshot Blob | [Bien démarrer avec le service Blob Azure en JavaScript](https://github.com/Azure-Samples/storage-blob-node-getting-started/blob/master/basic.js#L79) |
 
-## <a name="file-samples"></a>Exemples de fichiers
+## <a name="file-samples-v10"></a>Exemples de fichiers (v10)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|
@@ -53,7 +56,7 @@ Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples
 | Liste des répertoires et des fichiers | [Bien démarrer avec le service Fichier Azure en JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L115) |
 | Partages de listes | [Bien démarrer avec le service Fichier Azure en JavaScript](https://github.com/Azure-Samples/storage-file-node-getting-started/blob/master/fileSample.js#L187) |
 
-## <a name="queue-samples"></a>Exemples de files d’attente
+## <a name="queue-samples-v10"></a>Exemples de files d’attente (v10)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|
@@ -71,7 +74,7 @@ Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples
 | Statistiques de file d’attente | [Bien démarrer avec le service File d’attente Azure en JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/advanced.js#L149) |
 | Mise à jour de message | [Bien démarrer avec le service File d’attente Azure en JavaScript](https://github.com/Azure-Samples/storage-queue-node-getting-started/blob/master/basic.js#L176) |
 
-## <a name="table-samples"></a>Exemples de tables
+## <a name="table-samples-v10"></a>Exemples de tables (v10)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|
@@ -86,7 +89,7 @@ Les tableaux suivants donnent une vue d’ensemble de notre dépôt d’exemples
 | SAS | [Signature d’accès partagé en JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L87) |
 | ACL de table | [Bien démarrer avec le service Table Azure en JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L255) |
 | Règles CORS de table | [Bien démarrer avec le service Table Azure en JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L149) |
-| Propriétés de table | [Bien démarrer avec le service Table Azure en JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188) |
+| Propriétés de la table | [Bien démarrer avec le service Table Azure en JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L188) |
 | Statistiques de table | [Bien démarrer avec le service Table Azure en JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/advanced.js#L243) |
 | Update Entity | [Bien démarrer avec le service Table Azure en JavaScript](https://github.com/Azure-Samples/storage-table-node-getting-started/blob/master/basic.js#L49) |
 

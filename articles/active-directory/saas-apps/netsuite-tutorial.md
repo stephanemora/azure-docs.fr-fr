@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à NetSuite | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à NetSuite | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et NetSuite.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 01/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d578b5d08fecde733bb7b257057e480fef83c4e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ad7065ba6378bcb383e67b4a58d7c195e88679ca
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754417"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890679"
 ---
-# <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Didacticiel : Intégrer l’authentification unique Azure Active Directory à NetSuite
+# <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à NetSuite
 
 Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azure AD) à NetSuite. Quand vous intégrez NetSuite à Azure AD, vous pouvez :
 
@@ -33,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Azure Active Directory (Azur
 
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -71,9 +70,8 @@ Configurez et testez l’authentification unique Azure AD avec NetSuite à l’
 Pour configurer et tester l’authentification unique Azure AD avec NetSuite, suivez les indications des sections ci-après :
 
 1. [Configurer l’authentification unique Azure AD](#configure-azure-ad-sso) pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-
-    a. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec l’utilisateur B.Simon.  
-    b. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à l’utilisateur B.Simon d’utiliser l’authentification unique Azure AD.
+    * [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec l’utilisateur B.Simon.  
+    * [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à l’utilisateur B.Simon d’utiliser l’authentification unique Azure AD.
 1. [Configurer l’authentification unique NetSuite](#configure-netsuite-sso) pour configurer les paramètres de l’authentification unique côté application.
     * [Créer un utilisateur de test NetSuite](#create-the-netsuite-test-user) pour avoir un équivalent de l’utilisateur B.Simon dans NetSuite qui soit lié à la représentation Azure AD de l’utilisateur.
 1. [Tester l’authentification unique (SSO)](#test-sso) pour vérifier que la configuration fonctionne.
@@ -90,52 +88,32 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
 
 1. Dans la section **Configuration SAML de base**, dans la zone de texte **URL de réponse**, tapez une URL dans l’un des formats suivants :
 
-    ```
-    https://<tenant-name>.NetSuite.com/saml2/acs
-    https://<tenant-name>.na1.NetSuite.com/saml2/acs
-    https://<tenant-name>.na2.NetSuite.com/saml2/acs
-    https://<tenant-name>.sandbox.NetSuite.com/saml2/acs
-    https://<tenant-name>.na1.sandbox.NetSuite.com/saml2/acs
-    https://<tenant-name>.na2.sandbox.NetSuite.com/saml2/acs
-    ```
+    ||
+    |-|
+    | `https://<Account ID>.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na1.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na2.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
+    | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
     > [!NOTE]
     > Les valeurs des URL précédentes ne sont pas réelles. Mettez-les à jour avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Vous pouvez aussi vous reporter aux formats présentés dans la section **Configuration SAML de base** du portail Azure.
 
-    L’application NetSuite s’attend à ce que les assertions SAML soient affichées dans un format spécifique. Vous devrez ajouter des mappages d’attributs personnalisés à la configuration d’attributs de jeton SAML. 
-    
-1. Pour ouvrir le volet **Attributs utilisateur**, sélectionnez l’icône **Modifier** (« crayon »). Le volet affiche une liste d’attributs par défaut, comme illustré dans l’image suivante : 
+1. L’application NetSuite s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
-    ![Volet Attributs utilisateur](common/edit-attribute.png)
+    ![image](common/default-attributes.png)
 
-    Outre ces attributs, l’application NetSuite s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. 
+1. En plus de ce qui précède, l’application NetSuite s’attend à ce que quelques attributs supplémentaires (présentés ci-dessous) soient repassés dans la réponse SAML. Ces attributs sont également préremplis, mais vous pouvez les examiner pour voir s’ils répondent à vos besoins.
 
-1. Dans le volet **Attributs utilisateur**, sous **Revendications des utilisateurs**, effectuez les étapes suivantes pour ajouter l’attribut de jeton SAML indiqué dans le tableau suivant :
-
-    | Nom | Attribut source | 
+    | Name | Attribut source |
     | ---------------| --------------- |
     | account  | `account id` |
 
-    a. Sélectionnez **Ajouter une nouvelle revendication** pour ouvrir le volet **Gérer les revendications des utilisateurs**.
+    > [!NOTE]
+    > La valeur de l’attribut account n’est pas réelle. Vous mettrez à jour cette valeur, comme expliqué plus loin dans ce tutoriel.
 
-    b. Dans la zone de texte **Attribut**, indiquez le nom d’attribut pour cette ligne.
-
-    c. Laissez la zone **Espace de noms** vide.
-
-    d. Dans la liste déroulante **Source**, sélectionnez **Attribut**.
-
-    e. Dans la liste **Attribut de la source**, entrez la valeur d’attribut affichée pour cette ligne.
-
-    f. Sélectionnez **OK**.
-
-    g. Sélectionnez **Enregistrer**.
-
-    >[!NOTE]
-    >La valeur de l’attribut account n’est pas réelle. Vous mettrez à jour cette valeur, comme expliqué plus loin dans ce tutoriel.
-
-1. Dans le volet **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **XML de métadonnées de fédération**.
-
-1. Sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
+1. Dans la page Configurer l’authentification unique avec SAML, dans la section Certificat de signature SAML, recherchez XML de métadonnées de fédération et sélectionnez Télécharger pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 
     ![Lien de téléchargement de certificat](common/metadataxml.png)
 
@@ -215,7 +193,7 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
     b. Sous **SAMLV2 Identity Provider Metadata** (Métadonnées du fournisseur d’identité SAMLV2), sélectionnez **Upload IDP Metadata File** (Charger le fichier de métadonnées IDP), puis **Browse** (Parcourir) pour charger le fichier de métadonnées que vous avez téléchargé à partir du portail Azure.
 
-    c. Sélectionnez **Submit** (Envoyer).
+    c. Sélectionnez **Envoyer**.
 
 9. Dans la barre de navigation supérieure de NetSuite, sélectionnez **Setup**, puis **Company** > **Company Information** (Informations sur la société).
 
@@ -243,7 +221,7 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
     ![Configurer l’authentification unique](./media/NetSuite-tutorial/ns-new-role.png)
 
-    e. Sélectionnez **Save** (Enregistrer).
+    e. Sélectionnez **Enregistrer**.
 
     f. Dans la barre de navigation supérieure, sélectionnez **Permissions** (Autorisations). Ensuite, sélectionnez **Setup**.
 
@@ -275,7 +253,7 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
 Dans cette section, un utilisateur appelé B.Simon est créé dans NetSuite. NetSuite prend en charge l’attribution d’utilisateurs juste-à-temps, option activée par défaut. Vous n’avez aucune opération à effectuer dans cette section. S’il n’existe pas encore d’utilisateur dans NetSuite, il en est créé un après l’authentification.
 
-## <a name="test-sso"></a>Tester l’authentification unique (SSO) 
+## <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -287,4 +265,3 @@ Quand vous sélectionnez la vignette NetSuite dans le volet d’accès, vous dev
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Essayer NetSuite avec Azure AD](https://aad.portal.azure.com/)
-

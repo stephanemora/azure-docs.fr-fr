@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: cbrooks
-ms.openlocfilehash: 86bbff167a2653fd8d89b566b551c4c53dd3614e
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 0e8bac8344bec06b58a22b8c9162cd8bd22ee700
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124564"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750435"
 ---
 # <a name="what-are-azure-queues"></a>Que sont les files d’attente Azure ?
 
@@ -33,7 +33,7 @@ Le service de file d’attente contient les composants suivants :
   
     `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Compte de stockage :** Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité du stockage Azure](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) .
+* **Compte de stockage :** Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
 * **File d’attente :** Une file d’attente contient un ensemble de messages. Le nom de la file d’attente **doit** être en minuscules. Pour plus d'informations sur l’affectation de noms à des files d’attente, consultez [Affectation de noms pour les files d'attente et les métadonnées](https://msdn.microsoft.com/library/azure/dd179349.aspx).
 

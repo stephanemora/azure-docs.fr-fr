@@ -5,22 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: bryanla
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a743df545450f87a01785f6f8a15fe08b8eafe
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181177"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977859"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Tutoriel : Utiliser une identité managée de machine virtuelle Windows attribuée par le système pour accéder à Azure SQL
 
@@ -34,11 +33,17 @@ Ce didacticiel vous indique comment utiliser une identité attribuée par le sys
 > * Créer un utilisateur contenu dans la base de données représentant l’identité attribuée du système de la machine virtuelle
 > * Obtenir un jeton d’accès à l’aide de l’identité de machine virtuelle, et l’utiliser pour interroger un serveur Azure SQL
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-a-database-in-an-azure-sql-server"></a>Accorder à votre machine virtuelle l’accès à une base de données sur un serveur Azure SQL
+
+## <a name="enable"></a>Activer
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+## <a name="grant-access"></a>Accorder l'accès
 
 Pour accorder à votre machine virtuelle l’accès à un serveur SQL Azure, vous pouvez utiliser un serveur SQL existant ou en créer un. Pour créer un serveur et une base de données à l’aide du portail Azure, procédez de la manière décrite dans cette [procédure de démarrage rapide d’Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Des procédures de démarrage rapide utilisant Azure CLI et Azure PowerShell sont également décrites dans la [Documentation Azure SQL Database](https://docs.microsoft.com/azure/sql-database/).
 
@@ -47,9 +52,9 @@ Pour accorder à votre machine virtuelle l’accès à une base de données, deu
 1. Activez Azure AD Authentication pour le serveur SQL.
 2. Créez un **utilisateur contenu** dans la base de données représentant l’identité attribuée du système de la machine virtuelle.
 
-## <a name="enable-azure-ad-authentication-for-the-sql-server"></a>Activer Azure AD Authentication pour le serveur SQL
+### <a name="enable-azure-ad-authentication"></a>Activer l’authentification Azure AD
 
-[Configurez l’authentification Azure AD pour le serveur SQL](/azure/sql-database/sql-database-aad-authentication-configure) en suivant les étapes suivantes :
+**Pour[ configurer l’authentification Azure AD pour le serveur SQL](/azure/sql-database/sql-database-aad-authentication-configure) :**
 
 1.  Dans le portail Azure, dans le volet de navigation gauche, sélectionnez **Serveurs SQL**.
 2.  Cliquez sur le serveur SQL à activer pour Azure AD Authentication.
@@ -58,14 +63,16 @@ Pour accorder à votre machine virtuelle l’accès à une base de données, deu
 5.  Sélectionnez un compte d’utilisateur Azure AD à désigner comme administrateur du serveur, puis cliquez sur **Sélectionner**.
 6.  Dans la barre de commandes, cliquez sur **Enregistrer**.
 
-## <a name="create-a-contained-user-in-the-database-that-represents-the-vms-system-assigned-identity"></a>Créer un utilisateur contenu dans la base de données représentant l’identité attribuée du système de la machine virtuelle
+### <a name="create-contained-user"></a>Créer un utilisateur contenu
 
-Pour cette nouvelle étape, vous avez besoin de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Avant de commencer, il peut également être utile de lire les articles suivants pour acquérir une compréhension de l’intégration d’Azure AD :
+Cette section montre comment créer un utilisateur contenu dans la base de données représentant l’identité attribuée par le système de la machine virtuelle. Pour cette étape, vous avez besoin de [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Avant de commencer, il peut également être utile de lire les articles suivants pour acquérir une compréhension de l’intégration d’Azure AD :
 
 - [Authentification universelle avec SQL Database et SQL Data Warehouse (prise en charge de SSMS pour MFA)](/azure/sql-database/sql-database-ssms-mfa-authentication)
 - [Configurer et gérer l’authentification Azure Active Directory avec SQL Database ou SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 SQL DB requiert des noms d’affichage AAD uniques. Ainsi, les comptes AAD comme utilisateurs, groupes et principaux de service (applications), et noms des machines virtuelles activées pour l’identité managée doivent être définis de façon unique dans AAD en termes de noms d'affichage. SQL DB vérifie le nom d’affichage AAD lors de la création T-SQL de tels utilisateurs, et s'il n’est pas unique, la commande ne permet pas la mise à disposition d'un nom d’affichage AAD unique pour un compte donné.
+
+**Pour créer un utilisateur contenu :**
 
 1. Exécutez SQL Server Management Studio.
 2. Dans la boîte de dialogue **Se connecter au serveur**, dans le champ **Nom du serveur**, entrez le nom de votre serveur SQL.
@@ -99,9 +106,9 @@ SQL DB requiert des noms d’affichage AAD uniques. Ainsi, les comptes AAD comme
 
 Le code qui s’exécute dans la machine virtuelle peut désormais obtenir un jeton à partir de son identité managée attribuée par le système et utiliser celui-ci pour s’authentifier auprès du serveur SQL.
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-sql"></a>Obtenir un jeton d’accès par l’identité managée attribuée par le système de machine virtuelle et l’utiliser pour appeler Azure SQL
+## <a name="access-data"></a>Accéder aux données
 
-Azure SQL prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide d’identités managées attribuées par le système pour les ressources Azure. Vous utilisez la méthode de **jeton d’accès** pour créer une connexion à SQL. Cela fait partie de l’intégration d’Azure SQL avec Azure AD, et diffère de la fourniture d’informations d’identification sur la chaîne de connexion.
+Cette section montre comment obtenir un jeton d’accès à l’aide de l’identité managée attribuée par le système de la machine virtuelle et comment l’utiliser pour appeler Azure SQL. Azure SQL prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide d’identités managées attribuées par le système pour les ressources Azure. Vous utilisez la méthode de **jeton d’accès** pour créer une connexion à SQL. Cela fait partie de l’intégration d’Azure SQL avec Azure AD, et diffère de la fourniture d’informations d’identification sur la chaîne de connexion.
 
 Voici un exemple de code .NET pour l’ouverture d’une connexion à SQL à l’aide d’un jeton d’accès. Pour permettre l’accès au point de terminaison de l’identité managée attribuée par le système de machine virtuelle, ce code doit s’exécuter sur la machine virtuelle. Pour pouvoir utiliser la méthode de jeton d’accès, **.NET framework 4.6** ou version ultérieure ou **.NET Core 2.2** ou version ultérieure est requis. Remplacez les valeurs AZURE-SQL-SERVERNAME et DATABASE en conséquence. Notez l’ID de ressource pour SQL Azure est `https://database.windows.net/`.
 
@@ -192,6 +199,12 @@ Un autre moyen rapide de tester la configuration de bout en bout sans devoir éc
     ```
 
 Examinez la valeur de `$DataSet.Tables[0]` pour voir les résultats de la requête.
+
+
+## <a name="disable"></a>Disable
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

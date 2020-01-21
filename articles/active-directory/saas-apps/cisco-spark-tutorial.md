@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Cisco Webex.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 29cf5eebfb485837ee9656909323688384a4b890
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104429"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028592"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cisco Webex
 
 Ce didacticiel explique comment intégrer Cisco Webex avec Azure Active Directory (Azure AD). Quand vous intégrez Cisco Webex à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Ce didacticiel explique comment intégrer Cisco Webex avec Azure Active Director
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -97,7 +97,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 6. En plus de ce qui précède, l’application Cisco Webex s’attend à ce que quelques attributs supplémentaires soient passés dans la réponse SAML. Dans la section **Revendications des utilisateurs** de la boîte de dialogue **Attributs utilisateur**, effectuez les étapes suivantes pour ajouter le jeton SAML comme indiqué dans le tableau ci-dessous :
     
-    | Nom |  Attribut source|
+    | Name |  Attribut source|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
@@ -115,7 +115,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
     e. Dans la liste **Attribut de la source**, tapez la valeur d’attribut indiquée pour cette ligne.
 
-    f. Cliquez sur **OK**.
+    f. Cliquez sur **OK**
 
     g. Cliquez sur **Enregistrer**.
 
@@ -158,21 +158,29 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
 ## <a name="configure-cisco-webex"></a>Configurer Cisco Webex
 
-1. Connectez-vous à [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) (Gestion de la collaboration dans le cloud Cisco) avec vos informations d’identification d’administrateur complètes.
+1. Pour automatiser la configuration dans Cisco Webex, vous devez installer l’**extension de navigateur My Apps Secure Sign-in** en cliquant sur **Installer l’extension**.
 
-2. Sélectionnez **Settings** (Paramètres), puis, dans la section **Authentication** (Authentification), cliquez sur **Modify** (Modifier).
+    ![Extension My apps](common/install-myappssecure-extension.png)
 
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+2. Après l’ajout de l’extension au navigateur, cliquez sur **Configurer Cisco Webex** pour être dirigé vers l’application Cisco Webex. À partir de là, indiquez les informations d’identification de l’administrateur pour vous connecter à Cisco Webex. Cette extension de navigateur configure automatiquement l’application et automatise les étapes 3 à 8.
+
+    ![Configuration](common/setup-sso.png)
+
+3. Si vous voulez configurer Cisco Webex manuellement, connectez-vous à [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) avec vos informations d’identification d’administrateur complètes.
+
+4. Sélectionnez **Settings** (Paramètres), puis, dans la section **Authentication** (Authentification), cliquez sur **Modify** (Modifier).
+
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
-3. Sélectionnez **intégrer un fournisseur d’identité tiers. (Avancé)** et accédez à l’écran suivant.
+5. Sélectionnez **intégrer un fournisseur d’identité tiers. (Avancé)** et accédez à l’écran suivant.
 
-4. Dans la page **Import Idp Metadata** -(Importer les métadonnées Idp), glissez-déposez le fichier de métadonnées Azure AD sur la page, ou utilisez l’option d’explorateur de fichiers pour localiser et charger le fichier de métadonnées Azure AD. Ensuite, sélectionnez **Require certificate signed by a certificate authority in Metadata (more secure)** (Exiger un certificat signé par une autorité de certification dans les métadonnées (plus sûr)), puis cliquez sur **Next** (Suivant).
+6. Dans la page **Import Idp Metadata** -(Importer les métadonnées Idp), glissez-déposez le fichier de métadonnées Azure AD sur la page, ou utilisez l’option d’explorateur de fichiers pour localiser et charger le fichier de métadonnées Azure AD. Ensuite, sélectionnez **Require certificate signed by a certificate authority in Metadata (more secure)** (Exiger un certificat signé par une autorité de certification dans les métadonnées (plus sûr)), puis cliquez sur **Next** (Suivant).
 
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
-5. Sélectionnez **Test SSO Connection** (Tester la connexion SSO), puis, quand un nouvel onglet de navigateur s’ouvre, et authentifiez-vous auprès d’Azure AD en vous connectant.
+7. Sélectionnez **Test SSO Connection** (Tester la connexion SSO), puis, quand un nouvel onglet de navigateur s’ouvre, et authentifiez-vous auprès d’Azure AD en vous connectant.
 
-6. Revenez à l’onglet du navigateur **Cisco Cloud Collaboration Management** (Gestion de la collaboration dans le cloud Cisco). Si le test a réussi, sélectionnez **Ce test a réussi. option Activer l’authentification unique** et cliquez sur **Suivant**.
+8. Revenez à l’onglet du navigateur **Cisco Cloud Collaboration Management** (Gestion de la collaboration dans le cloud Cisco). Si le test a réussi, sélectionnez **Ce test a réussi. option Activer l’authentification unique** et cliquez sur **Suivant**.
 
 ### <a name="create-cisco-webex-test-user"></a>Créer un utilisateur de test Cisco Webex
 
@@ -182,13 +190,13 @@ Dans cette section, vous allez créer un utilisateur appelé B.Simon dans Cisco 
 
 2. Cliquez sur **Utilisateurs**, puis sur **Gérer les utilisateurs**.
    
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. Dans la fenêtre **Manage User** (Gérer l’utilisateur), sélectionnez **Manually add or modify users** (Ajouter ou modifier manuellement des utilisateurs), puis cliquez sur **Next** (Suivant).
 
 4. Sélectionnez **Names and Email address** (Noms et adresse de messagerie). Ensuite, complétez la zone de texte comme suit :
 
-    ![Configurer l'authentification unique](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
     a. Dans la zone de texte **First Name** (Prénom), tapez le prénom de l’utilisateur, par exemple **B**.
 

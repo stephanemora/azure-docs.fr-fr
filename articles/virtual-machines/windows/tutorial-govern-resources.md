@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Gérer des machines virtuelles Azure avec Azure PowerShell'
+title: 'Tutoriel : Gérer des machines virtuelles avec PowerShell'
 description: Avec ce didacticiel, vous allez apprendre à utiliser Azure PowerShell afin de gérer les machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des balises
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -13,20 +13,18 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 9f806c6790c953d86cf7fe99daf40c17a43d2d35
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: fd7e7f14d076a6a9652e902c4dc0ec41665735ee
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74067944"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981756"
 ---
-# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Didacticiel : Découvrez-en plus sur la gestion des machines virtuelles Windows avec Azure PowerShell.
+# <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Tutoriel : Découvrez-en plus sur la gestion des machines virtuelles Windows avec Azure PowerShell.
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Lancement d’Azure Cloud Shell
-
- 
 
 Azure Cloud Shell est un interpréteur de commandes interactif et gratuit que vous pouvez utiliser pour exécuter les étapes de cet article. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. 
 
@@ -54,8 +52,8 @@ Pour créer et supprimer des attributions de rôles, les utilisateurs doivent di
 
 Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressource qui fournissent un accès souvent nécessaire :
 
-* [Collaborateur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
-* [Collaborateur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Contributeur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Au lieu d’assigner des rôles à des utilisateurs, il est souvent plus facile d’utiliser un groupe Azure Active Directory hébergeant les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour cet article, utilisez un groupe existant pour la gestion de la machine virtuelle, ou utilisez le portail pour [créer un groupe Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -140,7 +138,7 @@ Une fois votre déploiement terminé, vous pouvez appliquer davantage de paramè
 
 ## <a name="lock-resources"></a>Verrouiller des ressources
 
-Les [verrous de ressources](../../azure-resource-manager/resource-group-lock-resources.md) empêchent les utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources critiques. Contrairement au contrôle d’accès basé sur les rôles, les verrous de ressources permettent d’appliquer une restriction à tous les utilisateurs et rôles. Vous pouvez définir le niveau de verrouillage sur *CanNotDelete* ou *ReadOnly*.
+Les [verrous de ressources](../../azure-resource-manager/management/lock-resources.md) empêchent les utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources critiques. Contrairement au contrôle d’accès basé sur les rôles, les verrous de ressources permettent d’appliquer une restriction à tous les utilisateurs et rôles. Vous pouvez définir le niveau de verrouillage sur *CanNotDelete* ou *ReadOnly*.
 
 Pour verrouiller la machine virtuelle et le groupe de sécurité réseau, utilisez la commande [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock) :
 
@@ -170,7 +168,7 @@ Un message d’erreur s’affiche, indiquant que l’opération de suppression n
 
 ## <a name="tag-resources"></a>Baliser des ressources
 
-Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
+Vous allez appliquer des [balises](../../azure-resource-manager/management/tag-resources.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 
@@ -204,7 +202,7 @@ Get-AzResource -Tag @{ Environment="Test"} | Where-Object {$_.ResourceType -eq "
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous ne pouvez pas supprimer le groupe de sécurité réseau verrouillé tant que vous n’avez pas supprimé le verrou. Pour supprimer le verrou, utilisez la commande [Remove-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcelock) :
 
@@ -227,7 +225,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Assigner des utilisateurs à un rôle

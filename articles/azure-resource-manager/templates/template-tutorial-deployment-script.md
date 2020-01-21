@@ -1,0 +1,353 @@
+---
+title: Utiliser des scripts de déploiement de modèle | Microsoft Docs
+description: Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager.
+services: azure-resource-manager
+documentationcenter: ''
+author: mumian
+manager: carmonm
+editor: ''
+ms.service: azure-resource-manager
+ms.workload: multiple
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.date: 01/09/2020
+ms.topic: tutorial
+ms.author: jgao
+ms.openlocfilehash: e52a859c86ff451293ac6ff795c7fe427a383b9d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75843506"
+---
+# <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé (préversion)
+
+Découvrez comment utiliser des scripts de déploiement dans des modèles Azure Resource Manager. Les scripts de déploiement permettent d’effectuer des étapes personnalisées impossibles à réaliser avec des modèles Resource Manager. Créer un certificat auto-signé est un exemple.  Dans ce tutoriel, vous allez créer un modèle pour déployer un coffre de clés Azure, puis utiliser une ressource `Microsoft.Resources/deploymentScripts` dans le même modèle pour créer un certificat et enfin ajouter ce certificat au coffre de clés. Pour en savoir plus sur les scripts de déploiement, consultez [Utiliser des scripts de déploiement dans des modèles Azure Resource Manager](./deployment-script-template.md).
+
+> [!NOTE]
+> Le script de déploiement est actuellement en préversion. Pour l’utiliser, vous devez [vous inscrire à la préversion](https://aka.ms/armtemplatepreviews).
+
+> [!IMPORTANT]
+> Deux ressources de script de déploiement, un compte de stockage et une instance de conteneur sont créés dans le même groupe de ressources pour l’exécution du script et la résolution des problèmes. Ces ressources sont généralement supprimées par le service de script lorsque l’exécution du script atteint un état terminal. Vous êtes facturé pour ces ressources tant qu’elles ne sont pas supprimées. Pour plus d’informations, consultez [Nettoyer les ressources de script de déploiement](./deployment-script-template.md#clean-up-deployment-script-resources).
+
+Ce tutoriel décrit les tâches suivantes :
+
+> [!div class="checklist"]
+> * Ouvrir un modèle de démarrage rapide
+> * Modifier le modèle
+> * Déployer le modèle
+> * Déboguer le script qui a échoué
+> * Nettoyer les ressources
+
+## <a name="prerequisites"></a>Conditions préalables requises
+
+Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
+
+* **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./use-vs-code-to-create-template.md).
+
+* **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Vous avez besoin de l’ID d’identité quand vous déployez le modèle. Le format de l’identité est :
+
+  ```json
+  /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
+  ```
+
+  Utilisez le script PowerShell suivant pour obtenir l’ID en fournissant le nom du groupe de ressources et le nom de l’identité.
+
+  ```azurepowershell-interactive
+  $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
+  $idName = Read-Host -Prompt "Enter the name of the managed identity"
+
+  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  ```
+
+## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
+
+Au lieu de créer un modèle à partir de zéro, ouvrez un modèle à partir de [Modèles de démarrage rapide Azure](https://azure.microsoft.com/resources/templates/). Le référentiel Modèles de démarrage rapide Azure contient les modèles Resource Manager.
+
+Le modèle utilisé dans ce guide de démarrage rapide est appelé [Créer un coffre de clés et un secret Azure](https://azure.microsoft.com/resources/templates/101-key-vault-create/). Le modèle crée un coffre de clés, puis y ajoute un secret.
+
+1. À partir de Visual Studio Code, sélectionnez **Fichier**>**Ouvrir un fichier**.
+2. Collez l’URL suivante dans **Nom de fichier** :
+
+    ```url
+    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-key-vault-create/azuredeploy.json
+    ```
+
+3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
+4. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer le fichier sous le nom **azuredeploy.json** sur votre ordinateur local.
+
+## <a name="edit-the-template"></a>Modifier le modèle
+
+Apportez les modifications suivantes au modèle :
+
+### <a name="clean-up-the-template-optional"></a>Nettoyer le modèle (facultatif)
+
+Le modèle d’origine ajoute un secret au coffre de clés.  Pour simplifier ce tutoriel, supprimez la ressource suivante :
+
+* **Microsoft.KeyVault/vaults/secrets**
+
+Supprimez les deux définitions de paramètre suivantes :
+
+* **secretName**
+* **secretValue**
+
+Si vous choisissez de ne pas supprimer ces définitions, vous devez spécifier les valeurs de paramètre pendant le déploiement.
+
+### <a name="configure-the-key-vault-access-policies"></a>Configurer la stratégie d’accès au coffre de clés
+
+Le script de déploiement ajoute un certificat au coffre de clés. Configurez les stratégies d’accès au coffre de clés pour accorder l’autorisation à l’identité managée :
+
+1. Ajoutez un paramètre pour obtenir l’ID de l’identité managée :
+
+    ```json
+    "identityId": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the ID of the user-assigned managed identity."
+      }
+    },
+    ```
+
+    > [!NOTE]
+    > L’extension du modèle Resource Manager de Visual Studio Code n’est pas encore en mesure de mettre en forme des scripts de déploiement. N’utilisez pas les touches [Maj] + [Alt] + F pour mettre en forme les ressources deploymentScripts, comme la suivante.
+
+1. Ajoutez un paramètre pour configurer les stratégies d’accès au coffre de clés afin que l’identité managée puisse ajouter des certificats à ce coffre de clés.
+
+    ```json
+    "certificatesPermissions": {
+      "type": "array",
+      "defaultValue": [
+        "get",
+        "list",
+        "update",
+        "create"
+      ],
+      "metadata": {
+      "description": "Specifies the permissions to certificates in the vault. Valid values are: all, get, list, update, create, import, delete, recover, backup, restore, manage contacts, manage certificate authorities, get certificate authorities, list certificate authorities, set certificate authorities, delete certificate authorities."
+      }
+    }
+    ```
+
+1. Mettez à jour les stratégies d’accès au coffre de clés existantes comme suit :
+
+    ```json
+    "accessPolicies": [
+      {
+        "objectId": "[parameters('objectId')]",
+        "tenantId": "[parameters('tenantId')]",
+        "permissions": {
+          "keys": "[parameters('keysPermissions')]",
+          "secrets": "[parameters('secretsPermissions')]",
+          "certificates": "[parameters('certificatesPermissions')]"
+        }
+      },
+      {
+        "objectId": "[reference(parameters('identityId'), '2018-11-30').principalId]",
+        "tenantId": "[parameters('tenantId')]",
+        "permissions": {
+          "keys": "[parameters('keysPermissions')]",
+          "secrets": "[parameters('secretsPermissions')]",
+          "certificates": "[parameters('certificatesPermissions')]"
+        }
+      }
+    ],
+    ```
+
+    Deux stratégies sont définies : une pour l’utilisateur connecté et l’autre pour l’identité managée.  L’utilisateur connecté n’a besoin que de l’autorisation *Liste* pour vérifier le déploiement.  Pour simplifier ce tutoriel, le même certificat est affecté à l’identité managée et aux utilisateurs connectés.
+
+### <a name="add-the-deployment-script"></a>Ajouter le script de déploiement
+
+1. Ajoutez trois paramètres utilisés par le script de déploiement.
+
+    ```json
+    "certificateName": {
+      "type": "string",
+      "defaultValue": "DeploymentScripts2019"
+    },
+    "subjectName": {
+      "type": "string",
+      "defaultValue": "CN=contoso.com"
+    },
+    "utcValue": {
+      "type": "string",
+      "defaultValue": "[utcNow()]"
+    }
+
+1. Add a deploymentScripts resource:
+
+    > [!NOTE]
+    > Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be enclosed in single quotes instead. The escape character for PowerShell is **&#92;**.
+
+    ```json
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2019-10-01-preview",
+      "name": "createAddCertificate",
+      "location": "[resourceGroup().location]",
+      "dependsOn": [
+        "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
+      ],
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[parameters('identityId')]": {
+          }
+        }
+      },
+      "kind": "AzurePowerShell",
+      "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "azPowerShellVersion": "2.8",
+        "timeout": "PT30M",
+        "arguments": "[format(' -vaultName {0} -certificateName {1} -subjectName {2}', parameters('keyVaultName'), parameters('certificateName'), parameters('subjectName'))]", // can pass an arguement string, double quotes must be escaped
+        "scriptContent": "
+          param(
+            [string] [Parameter(Mandatory=$true)] $vaultName,
+            [string] [Parameter(Mandatory=$true)] $certificateName,
+            [string] [Parameter(Mandatory=$true)] $subjectName
+          )
+
+          $ErrorActionPreference = 'Stop'
+          $DeploymentScriptOutputs = @{}
+
+          $existingCert = Get-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName
+
+          if ($existingCert -and $existingCert.Certificate.Subject -eq $subjectName) {
+
+            Write-Host 'Certificate $certificateName in vault $vaultName is already present.'
+
+            $DeploymentScriptOutputs['certThumbprint'] = $existingCert.Thumbprint
+            $existingCert | Out-String
+          }
+          else {
+            $policy = New-AzKeyVaultCertificatePolicy -SubjectName $subjectName -IssuerName Self -ValidityInMonths 12 -Verbose
+
+            # private key is added as a secret that can be retrieved in the Resource Manager template
+            Add-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName -CertificatePolicy $policy -Verbose
+
+            $newCert = Get-AzKeyVaultCertificate -VaultName $vaultName -Name $certificateName
+
+            # it takes a few seconds for KeyVault to finish
+            $tries = 0
+            do {
+              Write-Host 'Waiting for certificate creation completion...'
+              Start-Sleep -Seconds 10
+              $operation = Get-AzKeyVaultCertificateOperation -VaultName $vaultName -Name $certificateName
+              $tries++
+
+              if ($operation.Status -eq 'failed')
+              {
+                throw 'Creating certificate $certificateName in vault $vaultName failed with error $($operation.ErrorMessage)'
+              }
+
+              if ($tries -gt 120)
+              {
+                throw 'Timed out waiting for creation of certificate $certificateName in vault $vaultName'
+              }
+            } while ($operation.Status -ne 'completed')
+
+            $DeploymentScriptOutputs['certThumbprint'] = $newCert.Thumbprint
+            $newCert | Out-String
+          }
+        ",
+        "cleanupPreference": "OnSuccess",
+        "retentionInterval": "P1D"
+      }
+    }
+    ```
+
+    La ressource `deploymentScripts` dépend de la ressource du coffre de clés et de la ressource d’attribution de rôle.  Ses propriétés sont les suivantes :
+
+    * **identity** : Le script de déploiement utilise une identité managée affectée par l’utilisateur pour exécuter les scripts.
+    * **kind** : Spécifiez le type de script. Actuellement, seul le script PowerShell est pris en charge.
+    * **forceUpdateTag** : Déterminez si le script de déploiement doit être exécuté même si la source du script n’a pas changé. Il peut s’agir de l’horodatage actuel ou d’un GUID. Pour plus d’informations, consultez [Exécuter un script plusieurs fois](./deployment-script-template.md#run-script-more-than-once).
+    * **azPowerShellVersion** : Spécifie la version du module Azure PowerShell à utiliser. Actuellement, le script de déploiement prend en charge la version 2.7.0, 2.8.0 et 3.0.0.
+    * **timeout** : Spécifiez la durée d’exécution de script maximale autorisée au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
+    * **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
+    * **scriptContent** : Spécifiez le contenu du script. Pour exécuter un script externe, utilisez plutôt **primaryScriptURI**. Pour plus d’informations, consultez [Utiliser un script externe](./deployment-script-template.md#use-external-scripts).
+        La déclaration de **$DeploymentScriptOutputs** est uniquement nécessaire lors du test du script sur une machine locale. La déclaration de la variable permet d’exécuter le script sur une machine locale et dans une ressource deploymentScript sans avoir à apporter de modifications. La valeur affectée à $DeploymentScriptOutputs est disponible en tant que sortie dans les déploiements. Pour plus d’informations, consultez [Utiliser des sorties issues de scripts de déploiement](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+    * **cleanupPreference** : Spécifiez votre préférence quant à la suppression des ressources de script de déploiement.  La valeur par défaut est **Toujours**, ce qui signifie que les ressources de script de déploiement sont supprimées quel que soit l’état terminal (réussite, échec, annulation). Dans ce tutoriel, **OnSuccess** est utilisé pour vous permettre de voir les résultats de l’exécution du script.
+    * **retentionInterval** : Spécifiez l’intervalle pendant lequel le service conserve les ressources de script une fois qu’il a atteint un état terminal. Les ressources sont supprimées à l’issue de cet interval. La durée s’appuie sur le modèle ISO 8601. Ce tutoriel utilise P1D, ce qui correspond à une journée.  Cette propriété est utilisée lorsque  **retentionInterval** a la valeur **OnExpiration**. Cette propriété n’est pas activée actuellement.
+
+    Le script de déploiement accepte trois paramètres : le nom du coffre de clés, le nom du certificat et le nom de l’objet.  Il crée un certificat, puis l’ajoute au coffre de clés.
+
+    **$DeploymentScriptOutputs** est utilisé pour stocker la valeur de sortie.  Pour plus d’informations, consultez [Utiliser des sorties issues de scripts de déploiement](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
+
+    Le modèle complet est disponible [ici](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json).
+
+1. Pour voir le processus de débogage, placez une erreur dans le code en ajoutant la ligne suivante au script de déploiement :
+
+    ```powershell
+    Write-Output1 $keyVaultName
+    ```
+
+    La commande correcte est **Write-Output** plutôt que **Write-Output1**.
+
+1. Sélectionnez **Fichier**>**Enregistrer** pour enregistrer le fichier.
+
+## <a name="deploy-the-template"></a>Déployer le modèle
+
+Reportez-vous à la section [Déployer le modèle](./quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell#deploy-the-template) dans le guide de démarrage rapide de Visual Studio Code pour ouvrir l’interpréteur de commandes Shell et charger le fichier du modèle dans cet interpréteur. Ensuite, exécutez le script PowerShell suivant :
+
+```azurepowershell-interactive
+$projectName = Read-Host -Prompt "Enter a project name that is used to generate resource names"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+$upn = Read-Host -Prompt "Enter your email address used to sign in to Azure"
+$identityId = Read-Host -Prompt "Enter the user-assigned managed identity ID"
+
+$adUserId = (Get-AzADUser -UserPrincipalName $upn).Id
+$resourceGroupName = "${projectName}rg"
+$keyVaultName = "${projectName}kv"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateFile "$HOME/azuredeploy.json" -identityId $identityId -keyVaultName $keyVaultName -objectId $adUserId
+
+Write-Host "Press [ENTER] to continue ..."
+```
+
+Le service de script de déploiement a besoin de créer des ressources de script de déploiement supplémentaires pour l’exécution du script. La préparation et le processus de nettoyage peuvent prendre jusqu’à une minute, en plus de la durée réelle d’exécution du script.
+
+Le déploiement a échoué en raison de la commande non valide, **Write-Output1**, utilisée dans le script. Vous devez recevoir une erreur indiquant :
+
+```error
+The term 'Write-Output1' is not recognized as the name of a cmdlet, function, script file, or operable
+program.\nCheck the spelling of the name, or if a path was included, verify that the path is correct and try again.\n
+```
+
+Le résultat de l’exécution du script de déploiement est stocké dans les ressources de script de déploiement à des fins de résolution des problèmes.
+
+## <a name="debug-the-failed-script"></a>Déboguer le script qui a échoué
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Ouvrez le groupe de ressources. Il s’agit du nom du projet auquel **rg** est ajouté. Vous devez voir deux ressources supplémentaires dans le groupe de ressources. Ces ressources sont appelées *ressources de script de déploiement*.
+
+    ![Ressources de script de déploiement du modèle Resource Manager](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)
+
+    Les deux fichiers portent le suffixe **azscripts**. L’un est un compte de stockage et l’autre est une instance de conteneur.
+
+    Sélectionnez **Afficher les types masqués** pour lister la ressource deploymentScripts.
+
+1. Sélectionnez le compte de stockage portant le suffixe **azscripts**.
+1. Sélectionnez la vignette **Partages de fichiers**. Vous devez voir un dossier **azscripts**.  Ce dossier contient les fichiers d’exécution du script de déploiement.
+1. Sélectionnez **azscripts**. Vous devez voir deux dossiers : **azscriptinput** et **azscriptoutput**.  Le dossier input contient un fichier de script PowerShell système et les fichiers de script de déploiement utilisateur. Le dossier output contient un fichier **executionresult.json** et le fichier de sortie du script. Vous pouvez voir le message d’erreur dans **executionresult.json**. Le fichier de sortie n’est pas là en raison de l’échec de l’exécution.
+
+Supprimez la ligne **Write-Output1** et redéployez le modèle.
+
+Lorsque la seconde exécution du déploiement réussit, les ressources de script de déploiement doivent être supprimées par le service de script, car la propriété **cleanupPreference** a la valeur **OnSuccess**.
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
+
+1. Dans le portail Azure, sélectionnez **Groupe de ressources** dans le menu de gauche.
+2. Entrez le nom du groupe de ressources dans le champ **Filtrer par nom**.
+3. Sélectionnez le nom du groupe de ressources.  Vous devriez voir six ressources au total dans le groupe de ressources.
+4. Sélectionnez **Supprimer le groupe de ressources** dans le menu supérieur.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Dans ce tutoriel, vous avez appris à utiliser un script de déploiement dans des modèles Azure Resource Manager. Pour savoir comment déployer des ressources Azure en fonction des conditions, consultez :
+
+> [!div class="nextstepaction"]
+> [Utiliser des conditions](./template-tutorial-use-conditions.md)

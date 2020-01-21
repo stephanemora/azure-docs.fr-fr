@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1dfd9a8d2723136ef68d983eb99bf2391fb87879
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 159f79e61b43761db5a65c101928d4e6ac5b4d29
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894899"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861776"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>Envoyer des événements à un environnement Time Series Insights à l'aide d'un hub d'événements
 
@@ -73,14 +73,14 @@ La mise à jour de Time Series Insights utilise des instances pour ajouter des d
 
     [![Copier la valeur de la chaîne de connexion de la clé primaire](media/send-events/configure-sample-code-connection-string.png)](media/send-events/configure-sample-code-connection-string.png#lightbox)
 
-1. Accédez à https://tsiclientsample.azurewebsites.net/windFarmGen.html L'URL exécute des éoliennes simulées.
+1. Atteindre https://tsiclientsample.azurewebsites.net/windFarmGen.html. L'URL exécute des éoliennes simulées.
 1. Dans la zone **Chaîne de connexion du hub d’événements** de la page web, collez la chaîne de connexion que vous avez copiée dans le [champ d’entrée des éoliennes](#push-events-to-windmills-sample).
   
     [![Coller la chaîne de connexion de la clé primaire dans la zone Chaîne de connexion Event Hub](media/send-events/configure-wind-mill-sim.png)](media/send-events/configure-wind-mill-sim.png#lightbox)
 
 1. Sélectionnez **Cliquez pour démarrer**. Le simulateur génère une instance JSON que vous pouvez utiliser directement.
 
-1. Revenez à votre hub d'événements sur le portail Azure. La page **Aperçu** affiche les nouveaux événements reçus par le hub d’événements.
+1. Revenez à votre hub d'événements sur le portail Azure. La page **Aperçu** affiche les nouveaux événements reçus par Event Hub.
 
     [![Page d’aperçu du hub d’événements affichant les métriques de celui-ci](media/send-events/review-windmill-telemetry.png)](media/send-events/review-windmill-telemetry.png#lightbox)
 
@@ -192,7 +192,7 @@ La mise à jour de Time Series Insights utilise des instances pour ajouter des d
 
     |location|manufacturer.name|manufacturer.location|events.id|events.timestamp|events.data.type|events.data.units|events.data.value|
     |---|---|---|---|---|---|---|---|
-    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pressure|psi|108.09|
+    |WestUs|manufacturer1|EastUs|device1|2016-01-08T01:08:00Z|pression|psi|108.09|
     |WestUs|manufacturer1|EastUs|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Étapes suivantes

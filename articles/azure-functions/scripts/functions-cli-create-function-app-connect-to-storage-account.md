@@ -4,12 +4,12 @@ description: Exemple de script Azure CLI - Créer une fonction Azure qui se conn
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 9c2a70066e673bfa164a58884891f29e220c7bd6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 833b9223d473c8bfc62485e9e47ba662a4f0e154
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532836"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922683"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Créer une application de fonction avec une connexion au compte de stockage nommée 
 

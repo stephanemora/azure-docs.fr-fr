@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f31be5e7ece32fb1e0f6d9a2e482688d46eeb3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083407"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770949"
 ---
 # <a name="expressroute-overview"></a>Présentation d’ExpressRoute
 ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Avec ExpressRoute, vous pouvez établir des connexions aux services de cloud computing Microsoft, comme Microsoft Azure et Office 365.
@@ -33,13 +33,13 @@ La connectivité peut provenir d'un réseau universel (IP VPN), d’un réseau E
 
 Pour plus d’informations, consultez le [Forum Aux Questions ExpressRoute](expressroute-faqs.md).
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 ### <a name="layer-3-connectivity"></a>Connectivité de couche 3
 Microsoft utilise le protocole de routage dynamique standard (BGP) pour échanger des routages entre votre réseau local, vos instances dans Azure et les adresses publiques Microsoft. Nous établissons plusieurs sessions BGP avec votre réseau pour tester différents profils de trafic. Vous trouverez plus de détails à ce sujet dans l’article [Circuit ExpressRoute et domaines de routage](expressroute-circuit-peerings.md) .
 
 ### <a name="redundancy"></a>Redondance
-Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau. Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et la périphérie de votre réseau, une pour chaque routeur MSEE. Vous pouvez choisir de ne pas déployer d’appareils redondants/de circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](https://azure.microsoft.com/support/legal/sla/) .
+Chaque circuit ExpressRoute se compose de deux connexions à deux routeurs Microsoft Enterprise Edge (MSEE) entre le fournisseur de connectivité et le périmètre de votre réseau au niveau d’un [site ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-locations#expressroute-locations). Microsoft nécessite une double connexion BGP entre le fournisseur de connectivité et la périphérie de votre réseau, une pour chaque routeur MSEE. Vous pouvez choisir de ne pas déployer d’appareils redondants/de circuits Ethernet de votre côté. Cependant, les fournisseurs de connectivité utilisent des appareils redondants pour garantir que vos connexions sont transmises à Microsoft de manière redondante. Une configuration de connectivité de couche 3 redondante est nécessaire à la validité de notre [SLA](https://azure.microsoft.com/support/legal/sla/) .
 
 ### <a name="connectivity-to-microsoft-cloud-services"></a>Connectivité aux services de cloud Microsoft
 Les connexions ExpressRoute permettent d’accéder aux services suivants :
@@ -79,7 +79,7 @@ Avec ExpressRoute Direct, les clients ont la possibilité de se connecter direct
 Les principales fonctionnalités offertes par ExpressRoute Direct sont les suivantes (sans s’y limiter) :
 
 * Ingestion de données massive dans des services comme le stockage et Cosmos DB
-* Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire (banque, secteur public et commerce de détail, par exemple)
+* Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire banque, secteur public et commerce de détail
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
 Pour plus d’informations, consultez [A propos d’ExpressRoute Direct](https://go.microsoft.com/fwlink/?linkid=2022973).
@@ -109,14 +109,14 @@ Vous pouvez choisir le modèle de facturation qui vous convient le mieux. Choisi
   * Connectivité globale des services. Un circuit ExpressRoute créé dans une région quelconque (à l'exclusion des clouds nationaux) a accès aux ressources de n'importe quelle autre région dans le monde. Par exemple, un réseau virtuel créé dans la région Europe Ouest est accessible via un circuit ExpressRoute configuré dans la Silicon Valley.
   * Augmentation de 10 à une limite supérieure du nombre de liens de réseaux virtuels par circuit ExpressRoute, selon la bande passante du circuit.
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 Pour les questions fréquemment posées sur ExpressRoute, consultez le [Forum aux questions ExpressRoute](expressroute-faqs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez des informations supplémentaires sur les [modèles de connectivité ExpressRoute](expressroute-connectivity-models.md).
 * Découvrez en détail les connexions ExpressRoute et les domaines de routage. Consultez la page [Circuits ExpressRoute et domaines de routage](expressroute-circuit-peerings.md).
 * Recherchez un fournisseur de services. Consultez [Partenaires ExpressRoute et emplacements de peering](expressroute-locations.md).
-* Vérifiez que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
+* Assurez-vous que toutes les conditions préalables sont remplies. Consultez la page [Configuration requise pour ExpressRoute](expressroute-prerequisites.md).
 * Reportez-vous aux conditions requises pour le [routage](expressroute-routing.md), la [traduction d’adresses réseau](expressroute-nat.md) et la [qualité de service](expressroute-qos.md).
 * Configurez votre connexion ExpressRoute.
   * [Création et modification d’un circuit ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md)

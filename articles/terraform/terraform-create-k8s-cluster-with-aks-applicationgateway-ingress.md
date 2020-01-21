@@ -3,14 +3,14 @@ title: 'Tutoriel : Créer un contrôleur d’entrée Application Gateway dans A
 description: Tutoriel montrant comment créer un cluster Kubernetes avec Azure Kubernetes Service et utilisant Application Gateway comme contrôleur d’entrée
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159094"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867397"
 ---
-# <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Didacticiel : Créer un contrôleur d’entrée Application Gateway dans Azure Kubernetes Service
+# <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Tutoriel : Créer un contrôleur d’entrée Application Gateway dans Azure Kubernetes Service
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé. AKS permet de déployer et de gérer rapidement et facilement des applications conteneurisées sans expertise d’orchestration de conteneurs. De même, AKS vous évite la contrainte de mettre les applications hors connexion pour les tâches opérationnelles et de maintenance. Avec AKS, ces tâches – provisionnement, mise à niveau, mise à l’échelle des ressources, etc. – peuvent être effectuées à la demande.
 
@@ -25,7 +25,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 > * Utiliser Terraform et AKS pour créer un cluster Kubernetes.
 > * Utiliser l’outil kubectl pour tester la disponibilité d’un cluster Kubernetes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -261,7 +261,7 @@ Créez un fichier de configuration Terraform qui crée toutes les ressources.
       name = var.resource_group_name
     }
 
-    # User Assigned Idntities 
+    # User Assigned Identities 
     resource "azurerm_user_assigned_identity" "testIdentity" {
       resource_group_name = data.azurerm_resource_group.rg.name
       location            = data.azurerm_resource_group.rg.location
@@ -553,7 +553,7 @@ Terraform suit l’état en local via le fichier `terraform.tfstate`. Ce modèle
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
-## <a name="create-the-kubernetes-cluster"></a>Créer un cluster Kubernetes
+## <a name="create-the-kubernetes-cluster"></a>Créer le cluster Kubernetes
 Dans cette section, vous voyez comment utiliser la commande `terraform init` pour créer les ressources définies dans les fichiers de configuration que vous avez créés dans les sections précédentes.
 
 1. Dans Cloud Shell, initialisez Terraform. Remplacez les espaces réservés par les valeurs appropriées pour votre compte de stockage Azure.
@@ -759,7 +759,7 @@ Une fois que vous avez installé la passerelle App Gateway, AKS et AGIC, vous po
     kubectl apply -f aspnetapp.yaml
     ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article.  
 

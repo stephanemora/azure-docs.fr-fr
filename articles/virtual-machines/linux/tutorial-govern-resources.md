@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Régir les machines virtuelles Azure à l’aide d’Azure CLI'
-description: Avec ce tutoriel, vous allez apprendre à utiliser Azure CLI afin de gérer les machines virtuelles Azure en appliquant le RBAC, des stratégies, des verrous et des étiquettes
+title: 'Tutoriel : Gérer des machines virtuelles avec CLI'
+description: Dans ce tutoriel, vous découvrez comment utiliser Azure CLI pour gérer les machines virtuelles Azure en appliquant le contrôle RBAC, des stratégies, des verrous et des étiquettes.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: tfitzmac
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9595c6ce464cf9e4ab0baff9ef842e76f3d18a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034544"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970138"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Didacticiel : En savoir plus sur la gouvernance des machines virtuelles Linux avec Azure CLI
+# <a name="tutorial-learn-about-linux-virtual-machine-management-with-azure-cli"></a>Tutoriel : En savoir plus sur la gestion des machines virtuelles Linux avec Azure CLI
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 
@@ -50,8 +50,8 @@ Pour créer et supprimer des attributions de rôles, les utilisateurs doivent di
 
 Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressource qui fournissent un accès souvent nécessaire :
 
-* [Collaborateur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
-* [Collaborateur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
+* [Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Contributeur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
 * [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
 Au lieu d’assigner des rôles à des utilisateurs, il est souvent plus facile d’utiliser un groupe Azure Active Directory hébergeant les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour cet article, utilisez un groupe existant pour la gestion de la machine virtuelle, ou utilisez le portail pour [créer un groupe Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -140,7 +140,7 @@ Une fois votre déploiement terminé, vous pouvez appliquer davantage de paramè
 
 ## <a name="lock-resources"></a>Verrouiller des ressources
 
-Les [verrous de ressources](../../azure-resource-manager/resource-group-lock-resources.md) empêchent les utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources critiques. Contrairement au contrôle d’accès basé sur les rôles, les verrous de ressources permettent d’appliquer une restriction à tous les utilisateurs et rôles. Vous pouvez définir le niveau de verrouillage sur *CanNotDelete* ou *ReadOnly*.
+Les [verrous de ressources](../../azure-resource-manager/management/lock-resources.md) empêchent les utilisateurs de votre organisation de supprimer ou de modifier accidentellement des ressources critiques. Contrairement au contrôle d’accès basé sur les rôles, les verrous de ressources permettent d’appliquer une restriction à tous les utilisateurs et rôles. Vous pouvez définir le niveau de verrouillage sur *CanNotDelete* ou *ReadOnly*.
 
 Pour créer ou supprimer des verrous de gestion, vous devez avoir accès aux actions `Microsoft.Authorization/locks/*`. Parmi les rôles prédéfinis, seuls les rôles **Propriétaire** et **Administrateur de l'accès utilisateur** peuvent effectuer ces actions.
 
@@ -172,7 +172,7 @@ Un message d’erreur s’affiche, indiquant que l’opération de suppression n
 
 ## <a name="tag-resources"></a>Baliser des ressources
 
-Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-using-tags.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
+Vous allez appliquer des [balises](../../azure-resource-manager/management/tag-resources.md) à vos ressources Azure pour les organiser de façon logique par catégories. Chaque balise se compose d’un nom et d’une valeur. Par exemple, vous pouvez appliquer le nom « Environnement » et la valeur « Production » à toutes les ressources en production.
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
@@ -203,7 +203,7 @@ az vm stop --ids $(az resource list --tag Environment=Test --query "[?type=='Mic
 
 [!INCLUDE [Resource Manager governance tags billing](../../../includes/resource-manager-governance-tags-billing.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous ne pouvez pas supprimer le groupe de sécurité réseau verrouillé tant que vous n’avez pas supprimé le verrou. Pour supprimer le verrou, récupérez les ID des verrous et fournissez-les à la commande [az lock delete](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest#az-resource-lock-delete) :
 
@@ -228,7 +228,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à effectuer les actions suivantes :
+Ce didacticiel vous montré comment créer une image de machine virtuelle. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Assigner des utilisateurs à un rôle

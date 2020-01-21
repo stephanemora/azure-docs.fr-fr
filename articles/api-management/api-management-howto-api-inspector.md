@@ -13,28 +13,28 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: b646c64b0ec45a11f99350ff5bd81a89418b2ecd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072519"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768523"
 ---
 # <a name="debug-your-apis-using-request-tracing"></a>Déboguer vos API à l’aide du suivi des demandes
 
 Ce didacticiel explique comment inspecter le traitement des demandes pour mieux déboguer et résoudre les problèmes liés à votre API. 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Suivre un appel
 
 ![Inspecteur d’API](media/api-management-howto-api-inspector/api-inspector001.PNG)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 + Apprenez la [terminologie relative à Gestion des API Azure](api-management-terminology.md).
-+ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
++ Suivez ce guide de démarrage rapide : [Créer une instance du service Gestion des API Azure](get-started-create-service-instance.md).
 + Effectuez également toutes les étapes du tutoriel suivant : [Importer et publier votre première API](import-and-publish.md).
 
 ## <a name="trace-a-call"></a>Suivre un appel
@@ -47,8 +47,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 4. Sélectionnez l’opération **GetSpeakers**.
 5. Veillez à inclure un en-tête HTTP nommé **Ocp-Apim-Trace** dont la valeur est définie sur **true**.
 
-    > [!NOTE]
-    > Si Ocp-Apim-Subscription-Key n’est pas rempli automatiquement, vous pouvez le récupérer en accédant au portail des développeurs et en exposant les clés sur la page de profil.
+   > [!NOTE]
+   > * Si Ocp-Apim-Subscription-Key n’est pas rempli automatiquement, vous pouvez le récupérer en accédant au portail des développeurs et en exposant les clés sur la page de profil.
+   > * Pour obtenir une trace quand l’en-tête HTTP Ocp-Apim-Trace est utilisé, le paramètre **Autoriser le suivi** de la clé d’abonnement doit être activé. Pour configurer le paramètre **Autoriser le suivi**, sous **Gestion des API** dans le menu de gauche, sélectionnez **Abonnements**.
+   >   ![Autoriser le traçage dans le volet des abonnements à Gestion des API](media/api-management-howto-api-inspector/allowtracing.png)
 
 6. Cliquez sur **Envoyer** pour effectuer un appel d’API. 
 7. Attendez la fin de l’appel. 
@@ -65,7 +67,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Suivre un appel

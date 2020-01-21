@@ -9,11 +9,11 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
-ms.openlocfilehash: 4985e8aa89c58673edd9ed468a54adb0b132887f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bfe67acf1e1bb84c7700615155ba82db1ccd114d
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475962"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75527057"
 ---
-**S’APPLIQUE À :** ![oui](media/aml-applies-to-skus/yes.png)Édition de base ![oui](media/aml-applies-to-skus/yes.png)Édition Entreprise &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;  &nbsp; ([Mise à niveau vers l’édition Entreprise](../articles/machine-learning/service/how-to-manage-workspace.md#upgrade))
+**S’APPLIQUE À :** ![oui](media/aml-applies-to-skus/yes.png)Édition de base ![oui](media/aml-applies-to-skus/yes.png)Édition Entreprise &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; ([Mise à niveau vers l’édition Entreprise](../articles/machine-learning/how-to-manage-workspace.md#upgrade))

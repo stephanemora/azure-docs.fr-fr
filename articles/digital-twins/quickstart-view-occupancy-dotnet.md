@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 11/12/2019
-ms.openlocfilehash: b150167ca6a808e0da337be4a609a21cd974598a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.date: 01/10/2020
+ms.openlocfilehash: 6c9c5df27f4a361e534bac2fe21b2c470f8d0186
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383141"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895572"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Démarrage rapide : Rechercher des salles disponibles avec Azure Digital Twins
 
@@ -23,11 +23,11 @@ Le service Azure Digital Twins vous permet de recréer une image numérique de v
 
 Ce guide de démarrage rapide utilise [deux exemples .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) pour numériser un immeuble de bureaux imaginaire. Il vous montre comment rechercher des salles disponibles dans ce bâtiment. Digital Twins vous permet d’associer de nombreux capteurs à votre environnement. Vous pouvez également vérifier si la qualité de l’air y est optimale à l’aide d’une simulation de détection du dioxyde de carbone. L’un des exemples d’applications génère des données de capteurs aléatoires pour vous aider à visualiser ce scénario.
 
-La vidéo suivante résume la configuration à l’aide du guide de démarrage rapide :
+La vidéo suivante explique la configuration du guide de démarrage rapide :
 
 >[!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Si vous ne disposez pas d’un compte Azure, [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -83,11 +83,11 @@ Le graphe spatial est provisionné à l’aide du fichier [provisionSample.yaml]
 
 1. L’étape de provisionnement peut prendre quelques minutes. Elle provisionne aussi un hub IoT dans votre instance Digital Twins. Elle s’exécute en boucle jusqu'à ce que le hub IoT indique Status=`Running`.
 
-    [![Provisionner l’exemple – Status=Running](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Provisionner l’exemple – Status=Running](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-provision-sample.png#lightbox)
 
 1. À la fin de l’exécution, copiez la `ConnectionString` de l’appareil pour l’utiliser dans l’exemple de simulateur d’appareil. Copiez uniquement la chaîne surlignée dans cette image.
 
-    [![Copier la chaîne de connexion](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
+    [![Copier la chaîne de connexion](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-connection-string.png#lightbox)
 
     >[!TIP]
     > Vous pouvez afficher et modifier votre graphe spatial à l’aide de la [Visionneuse de graphe Azure Digital Twins](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -102,9 +102,9 @@ Créez et exécutez l’application d’appareil simulateur de capteur en suivan
 1. Exécutez `cd device-connectivity`.
 1. Exécutez `dotnet restore`.
 1. Modifiez [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) pour actualiser **DeviceConnectionString** avec la `ConnectionString` précédente. Enregistrez le fichier mis à jour.
-1. Exécutez `dotnet run` pour commencer à envoyer les données de capteur. Comme vous le voyez dans l’image suivante, il les envoie à Digital Twins.
+1. Exécutez `dotnet run` pour commencer à envoyer les données de capteur. Comme vous le voyez dans l’image suivante, il les envoie à Azure Digital Twins.
 
-     [![Connectivité des appareils](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![Connectivité des appareils](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-device-connectivity.png#lightbox)
 
 1. Laissez ce simulateur fonctionner pour voir les résultats côte à côte avec ceux de la prochaine action de l’étape. Cette fenêtre vous montre les données de capteur simulé envoyées à Digital Twins. La prochaine étape interroge en temps réel pour trouver les salles disponibles avec de l’air frais.
 
@@ -123,7 +123,7 @@ L’exemple de capteur simule des valeurs de données aléatoires pour les deux 
    - `Room is available and air is fresh`
    - `Room is not available or air quality is poor`
 
-     [![Obtenir des espaces disponibles avec de l’air frais](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [![Obtenir des espaces disponibles avec de l’air frais](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png)](media/quickstart-view-occupancy-dotnet/azure-digital-twins-quickstart-get-available.png#lightbox)
 
 Pour comprendre ce qui s’est passé dans ce guide de démarrage rapide et comment les API ont été appelées, ouvrez [Visual Studio Code](https://code.visualstudio.com/Download) avec le projet du code de l’espace de travail qui se trouve dans `digital-twins-samples-csharp`. Utilisez la commande suivante :
 
@@ -137,14 +137,14 @@ Les tutoriels vont très loin dans le code. Ils vous apprennent à modifier les 
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Nom | Remplacer par |
+| Name | Remplacer par |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Nom de votre instance Digital Twins |
 | YOUR_LOCATION | Région de serveur dans laquelle votre instance est hébergée |
 
 Ou, pour des raisons pratiques, accédez à [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Les tutoriels expliquent en détail comment :
 

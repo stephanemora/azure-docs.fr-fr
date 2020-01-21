@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Node.js sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1b2101c5e7a59105b2c1da876e9a66294ce3a021
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f96806828b2169e9022b1eaf2ec1819879c729ab
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438202"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867703"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes avec Visual Studio Code et Node.js - Azure Dev Spaces
 
@@ -93,6 +93,9 @@ Quand Visual Studio Code vous invite également à configurer votre point de ter
 
 Cette commande prépare votre projet à s’exécuter dans Azure Dev Spaces en générant un chart Dockerfile et Helm. Il génère également un répertoire *.vscode* avec la configuration de débogage à la racine de votre projet.
 
+> [!TIP]
+> Le [Dockerfile et le chart Helm](how-dev-spaces-works.md#prepare-your-code) de votre projet sont utilisés par Azure Dev Spaces pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
+
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Générer et exécuter du code dans Kubernetes à partir de Visual Studio Code
 
 Cliquez sur l’icône *Déboguer* sur la gauche, puis sur *Lancer le serveur (AZDS)* en haut.
@@ -171,4 +174,4 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 > [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-nodejs.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

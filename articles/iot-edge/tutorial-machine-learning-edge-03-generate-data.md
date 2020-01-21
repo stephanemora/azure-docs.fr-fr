@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Générer des données d’appareil simulé - Machine Learning sur Azure IoT Edge'
+title: 'Tutoriel : Générer des données d’appareil simulé - Machine Learning sur Azure IoT Edge'
 description: Dans ce tutoriel, vous allez créer des appareils virtuels qui génèrent une télémétrie simulée, laquelle permet ensuite d’entraîner un modèle Machine Learning.
 author: kgremban
 manager: philmea
@@ -8,14 +8,14 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707745"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912264"
 ---
-# <a name="tutorial-generate-simulated-device-data"></a>Didacticiel : Générer des données d’appareil simulées
+# <a name="tutorial-generate-simulated-device-data"></a>Tutoriel : Générer des données d’appareil simulées
 
 > [!NOTE]
 > Cet article fait partie d’une série décrivant l’utilisation d’Azure Machine Learning sur IoT Edge. Si vous êtes arrivé directement à cet article, nous vous encourageons à commencer par le [premier article](tutorial-machine-learning-edge-01-intro.md) de la série afin d’obtenir de meilleurs résultats.
@@ -50,7 +50,7 @@ L’équivalent du travail de cette étape dans le monde réel est généralemen
 
 1. Ouvrez une session Bureau à distance sur votre machine virtuelle, comme décrit dans l’article précédent.
 
-1. Ouvrez Visual Studio Code.
+1. Ouvrez Visual Studio Code.
 
 1. Dans Visual Studio Code, sélectionnez **Fichier** > **Ouvrir le dossier...** .
 
@@ -123,7 +123,7 @@ Maintenant que nous avons la génération de projet, connectez-vous à votre hub
 
 1. Vous pouvez voir les messages envoyés au hub en cliquant avec le bouton droit sur un appareil et en sélectionnant **Démarrer la supervision du point de terminaison d’événement intégré**. Les messages s’affichent dans le volet de sortie dans Visual Studio Code.
 
-1. Arrêtez la supervision en cliquant dans le volet de sortie **Kit de ressources Azure IoT Hub** et choisissez **Arrêter la supervision du point de terminaison d’événement intégré**.
+1. Arrêtez la supervision en cliquant dans le volet de sortie **Azure IoT Hub** et choisissez **Arrêter la supervision du point de terminaison d’événement intégré**.
 
 1. Laissez l’application s’exécuter jusqu’à la fin, c’est-à-dire pendant quelques minutes.
 

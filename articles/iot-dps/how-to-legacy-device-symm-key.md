@@ -269,7 +269,7 @@ Cet exemple de code simule une séquence de démarrage d’un appareil qui envoi
     Press enter key to exit:
     ```
 
-9. Dans le portail, accédez au hub IoT auquel votre appareil simulé a été affecté, puis cliquez sur l’onglet **Appareils IoT**. En cas de réussite du provisionnement de l’appareil simulé sur le hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT***activé**. Vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure. 
+9. Dans le portail, accédez au hub IoT auquel votre appareil simulé a été affecté, puis cliquez sur l’onglet **Appareils IoT**. En cas de réussite du provisionnement de l’appareil simulé sur le hub, son ID d’appareil s’affiche sur le panneau **Appareils IoT**, avec un *ÉTAT* **activé**. Vous devrez peut-être cliquer sur le bouton **Actualiser** dans la partie supérieure. 
 
     ![L’appareil est inscrit avec le hub IoT](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 

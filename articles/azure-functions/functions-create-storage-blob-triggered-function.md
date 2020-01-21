@@ -5,12 +5,12 @@ ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
 ms.topic: quickstart
 ms.date: 10/01/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65717e4373f64ae38a324fd19624f049dba9dfb1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227164"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769300"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Créer une fonction déclenchée par un stockage Blob Azure
 
@@ -18,7 +18,7 @@ Apprenez à créer une fonction déclenchée lorsque des fichiers sont chargés 
 
 ![Affichez le message dans les journaux d’activité.](./media/functions-create-storage-blob-triggered-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 + Télécharger et installer l’[Explorateur de Stockage Microsoft Azure](https://storageexplorer.com/).
 + Un abonnement Azure. Si vous n’en avez pas, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -41,7 +41,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 1. Choisissez **Autres modèles**, puis **Terminer et afficher les modèles**.
 
-    ![Page de démarrage rapide de la fonction Choisir d’autres modèles](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
+    ![Page de démarrage rapide Functions permettant de choisir d’autres modèles](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
 1. Dans le champ Rechercher, tapez `blob`, puis choisissez le modèle **Déclencheur d’objet blob**.
 
@@ -67,19 +67,19 @@ Ensuite, vous vous connectez à votre compte Stockage Azure et créez le contene
 
 1. Dans votre fonction, cliquez sur **Intégrer**, développez **Documentation** et copiez le **Nom du compte** et la **Clé du compte**. Vous utilisez ces informations d’identification pour vous connecter au compte de stockage. Si vous avez déjà connecté votre compte de stockage, passez à l’étape 4.
 
-    ![Obtention des informations d’identification de connexion du compte de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
+    ![Obtenez les informations d’identification de connexion au compte de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-account-connection.png)
 
-1. Exécutez [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/), cliquez sur l’icône de connexion situé sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis cliquez sur **Suivant**.
+1. Exécutez [l’Explorateur de stockage Microsoft Azure](https://storageexplorer.com/), cliquez sur l’icône de connexion située sur la gauche, choisissez **Utiliser un nom et une clé de compte de stockage**, puis cliquez sur **Suivant**.
 
     ![Exécutez l’outil Explorateur de compte de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-1.png)
 
 1. Saisissez le **Nom du compte** et la **Clé du compte** récupérés à l’étape 1, puis cliquez sur **Suivant** et sur **Connexion**. 
 
-    ![Saisie des informations d’identification de stockage et connexion.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
+    ![Entrez les informations d’identification de stockage et connectez-vous.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Développez le compte de stockage attaché, cliquez avec le bouton droit sur **Conteneurs d’objets Blob**, puis sur **Créer un conteneur d’objets blob**, tapez `samples-workitems` et appuyez sur Entrée.
+1. Développez le compte de stockage attaché, cliquez avec le bouton droit sur **Conteneurs d’objets blob**, cliquez sur **Créer un conteneur d’objets blob**, tapez `samples-workitems` et appuyez sur Entrée.
 
-    ![Création d’une file d’attente de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
+    ![Créez une file d’attente de stockage.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
 Une fois que vous avez un conteneur d’objets blob, vous pouvez tester la fonction en chargeant un fichier dans le conteneur.
 
@@ -87,7 +87,7 @@ Une fois que vous avez un conteneur d’objets blob, vous pouvez tester la fonct
 
 1. Dans le portail Azure, accédez à votre fonction, développez les **Journaux d’activité** en bas de la page et vérifiez que la diffusion de journaux d’activité n’est pas suspendue.
 
-1. Dans l’explorateur Stockage, développez votre compte de stockage, **Conteneurs d’objets Blob** et **samples-workitems**. Cliquez sur **Charger**, puis sur **Charger des fichiers...** .
+1. Dans l’Explorateur Stockage, développez votre compte de stockage, **Conteneurs d’objets blob** et **samples-workitems**. Cliquez sur **Charger**, puis sur **Charger des fichiers...** .
 
     ![Chargement d’un fichier dans le conteneur d’objets blob.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
@@ -100,7 +100,7 @@ Une fois que vous avez un conteneur d’objets blob, vous pouvez tester la fonct
     >[!NOTE]
     > Lorsque votre Function App s’exécute dans le plan de consommation par défaut, il peut s’écouler un délai de plusieurs minutes entre l’ajout ou la mise à jour de l’objet blob et le déclenchement de la fonction. Si vous exigez une faible latence pour vos fonctions déclenchées par des objets Blob, exécutez plutôt votre Function App dans un plan App Service.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

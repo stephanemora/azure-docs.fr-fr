@@ -1,42 +1,48 @@
 ---
 title: Création de solutions de vente au détail avec Azure IoT Central | Microsoft Docs
-description: Apprenez à créer une logistique connectée, intégrant un centre de distribution numérique, une surveillance des conditions d’analytique en magasin, une caisse, une gestion intelligente d’inventaire et des solutions de vente au détail avec Azure IoT Central en utilisant des modèles d’application.
-author: KishorIoT
-ms.author: nandab
-ms.date: 10/22/2019
+description: Découvrez comment utiliser les modèles d’applications Azure IoT Central pour créer des solutions de logistique connectée, de centre de distribution numérique, de données analytiques en magasin, de supervision des conditions, de paiement, de gestion intelligente des stocks et de vente au détail.
+author: avneet723
+ms.author: avneets
+ms.date: 01/10/2020
 ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 7f82e2a539c968d0dde44cbc2ed411710054c290
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8b1861b96f7ed53388d49e226bf3880bfcf657cb
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890708"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895851"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Création de solutions de vente au détail avec Azure IoT Central
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Azure IoT Central est une plateforme d’application Internet des objets (IoT) pour créateurs de solutions, qui aide à relever les défis liés à la création et à la gestion d’applications évolutives. Dans cet article, nous allons mettre en évidence plusieurs modèles d’application spécifiques de la vente détail au sein d’IoT Central. Les créateurs de solutions peuvent tirer parti de modèles publiés pour créer des solutions IoT afin d’optimiser la chaîne logistique, d’améliorer l’expérience en magasin des clients et de suivre les stocks plus efficacement.
+Azure IoT Central est une plateforme d’application IoT qui réduit les charges et les coûts associés au développement, à la gestion et à la maintenance de solutions IoT de qualité professionnelle. Le fait de créer avec Azure IoT Central vous offre la possibilité de consacrer du temps, de l’argent et de l’énergie à transformer votre activité avec des données IoT, plutôt qu’à simplement gérer et mettre à jour une infrastructure IoT complexe et en constante évolution.
+
+Cet article décrit plusieurs modèles d’application IoT Central propres à la vente au détail. En tant que créateur de solutions, vous pouvez utiliser ces modèles pour créer des solutions IoT qui optimisent la chaîne logistique, améliorent l’expérience en magasin des clients et permettent de suivre les stocks plus efficacement.
 
 > [!div class="mx-imgBorder"]
 > ![Présentation d’Azure IoT Retail](./media/overview-iot-central-retail/retail-app-templates.png)
 
+Les sections suivantes décrivent les fonctionnalités de ces modèles d’applications :
 
-## <a name="what-is-connected-logistics-solution"></a>Qu’est-ce qu’une solution de logistique connectée ?
-Les coûts logistiques mondiaux devraient atteindre 10,6 billions en 2020. Il s’agit du PIB le plus élevé par secteur. Le transport de marchandises représente la majorité (70 %) des coûts logistiques totaux. Les transporteurs sont soumis à des contraintes et à une pression concurrentielle intenses. Les prestataires logistiques tiers compensent la réduction constante des délais en augmentant les coûts. La logistique est mise à rude épreuve en raison des risques liés à la géopolitique, aux événements climatiques extrêmes et à la criminalité. 
+## <a name="connected-logistics"></a>Logistique connectée
 
-Des capteurs IoT, nous permettent de collecter et de surveiller des conditions ambiantes telles que la température, l’humidité, l’inclinaison, les chocs, l’exposition à la lumière et la localisation des cargaisons par GPS résultant de transformations multimodales en lien avec l’air, l’eau et le sol. Les données collectées à partir des capteurs, des appareils, de la météo et des événements peuvent être intégrées à des systèmes d’aide à la prise de décision basés sur le cloud. Les avantages d’une solution logistique connectée sont les suivants :
-* Transfert de cargaison avec traçage et suivi en temps réel 
-* Intégrité de la cargaison avec surveillance en temps réel des conditions ambiantes et de la chaîne du froid
+Les coûts logistiques mondiaux devraient atteindre 10,6 billions de dollars en 2020. La plus grande partie de ces dépenses est imputable au transport des marchandises, et les transporteurs sont soumis à de fortes contraintes, ainsi qu’à une forte concurrence.
+
+Vous pouvez utiliser des capteurs IoT afin de collecter et de superviser des conditions ambiantes, telles que la température, l’humidité, l’inclinaison, les chocs, la lumière et l’emplacement d’une marchandise. Vous pouvez combiner les données de télémétrie collectées à partir des capteurs et des appareils IoT avec d’autres sources de données, telles que la météo et le trafic dans les systèmes décisionnels basés sur le cloud.
+
+Les avantages d’une solution de logistique connectée sont les suivants :
+
+* Supervision de la cargaison à l’aide d’un suivi et d’un traçage en temps réel 
+* Intégrité de la cargaison à l’aide d’une supervision en temps réel des conditions ambiantes
 * Sécurité de la cargaison en lien avec le vol, la perte ou les dommages
-* Délimitation géographique, optimisation des routes et gestion des flottes. Analytique de véhicule
-* Prévisions et prévisibilité des arrivées et départs 
+* Délimitation géographique, optimisation des itinéraires, gestion des flottes et analytique des véhicules
+* Prévisions concernant le départ et l’arrivée de la cargaison
 
-### <a name="out-of-box-experience"></a>Expérience prête à l’emploi
-Les partenaires peuvent tirer parti de modèles pour développer des solutions logistiques connectées de bout en bout et bénéficier des avantages décrits. Ces modèles publiés sont axés sur la connectivité des appareils, ainsi que sur leur configuration et leur gestion dans IoT Central. 
+Les captures d’écran suivantes montrent le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions :
 
 > [!div class="mx-imgBorder"]
 > ![Tableau de bord de logistique connectée](./media/overview-iot-central-retail/connected-logistics-dashboard1.png)
@@ -44,110 +50,125 @@ Les partenaires peuvent tirer parti de modèles pour développer des solutions l
 > [!div class="mx-imgBorder"]
 > ![Tableau de bord de logistique connectée](./media/overview-iot-central-retail/connected-logistics-dashboard2.png)
 
-Notez que le tableau de bord ci-dessus est un exemple d’expérience et que vous pouvez personnaliser complètement cette application pour l’adapter à votre cas d’utilisation.
+Pour plus d’informations, consultez le tutoriel [Déployer et découvrir un modèle d’application de logistique connectée](./tutorial-iot-central-connected-logistics-pnp.md).
 
-Commencez avec un [didacticiel de bout en bout](./tutorial-iot-central-connected-logistics-pnp.md) qui vous guide tout au long de la création d’une solution tirant parti de l’un des modèles de solutions logistiques connectées.
+## <a name="digital-distribution-center"></a>Centre de distribution numérique
 
+À mesure que les fabricants et détaillants établissent leur présence dans le monde entier, leurs chaînes logistiques se ramifient et deviennent de plus en plus complexes. Les consommateurs s’attendent à ce que de vastes éventails de produits soient disponibles et à ce que leurs achats leur soient livrés dans un délai d’un ou deux jours après l’achat. Les centres de distribution doivent s’adapter à ces tendances tout en éliminant des inefficacités existantes. 
 
+Aujourd’hui, le prélèvement et le conditionnement manuels représentent de 55 à 65 % des coûts des centres de distribution. Le prélèvement et le conditionnement manuels sont généralement plus lents que lorsqu’ils sont automatisés. En outre, la fluctuation rapide des besoins en personnel fait qu’il est encore plus difficile de traiter les volumes élevés des marchandises à expédier. Cette fluctuation saisonnière entraîne un taux élevé de renouvellement du personnel et augmente la probabilité d’erreurs coûteuses.
 
-## <a name="what-is-digital-distribution-center-solution"></a>Qu’est-ce que la solution de centre de distribution numérique ?
-À mesure que les fabricants et détaillants établissent leur présence dans le monde entier, leurs chaînes logistiques se ramifient et deviennent plus complexes que jamais. Les centres de distribution deviennent un défi de premier plan. Les centres de distribution et les entrepôts subissent la pression de l’e-commerce. Les consommateurs s’attendent à ce que de vastes éventails de produits soient disponibles et à ce que leurs achats leur soient livrés dans un délai d’un ou deux jours après l’achat. Les centres de distribution doivent s’adapter à ces tendances tout en éliminant des inefficacités existantes. 
+Des solutions basées sur des caméras compatibles IoT peuvent offrir des avantages en permettant la mise en place d’une boucle de rétroaction numérique. Les données du centre de distribution se transforment en insights actionnables qui, à leur tour, produisent de meilleures données.
 
-Aujourd’hui, la dépendance excessive du travail manuel implique que le prélèvement et le conditionnement représentent de 55 à 65 % des coûts des centres de distribution. Outre le fait que le travail manuel ralentit le centre de distribution, les besoins en personnel fluctuants (personnel décuplé en période de fêtes) viennent encore compliquer la gestion des volumes d’expédition. Ces fluctuations saisonnières entraînent une rotation importante du personnel et augmentent la probabilité d’erreurs ainsi que celle de reprises coûteuses.
-Des solutions basées sur des caméras compatibles IoT peuvent offrir des avantages en permettant la mise en place d’une boucle de rétroaction numérique. Ce flux de données au sein du centre de distribution aboutit à des insights actionnables qui, à leur tour, produisent de meilleures données.
+Les avantages d’un centre de distribution numérique sont les suivants :
 
-Les avantages sont les suivants : 
 * Supervision à l’aide de caméras des marchandises à mesure qu’elles arrivent et transitent par le système d’acheminement
-* Identification des produits défectueux et envoi de ceux-ci en réparation
+* Identification automatique des marchandises défectueuses
 * Suivi efficace des commandes
-* Réduction les coûts, amélioration de la productivité et optimisation de l’utilisation
+* Réduction des coûts, amélioration de la productivité et optimisation de l’utilisation
 
-### <a name="out-of-box-experience"></a>Expérience prête à l’emploi
-Les partenaires peuvent tirer parti de ce modèle d’application pour créer un centre de distribution numérique afin d’obtenir des insights actionnables ainsi que les avantages décrits ci-dessus. Le modèle publié est axé sur la configuration de la connectivité des appareils et la gestion des caméras et autres périphériques dans IoT Central. 
+La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions : 
 
 > [!div class="mx-imgBorder"]
 > ![Tableau de bord de centre de distribution numérique](./media/overview-iot-central-retail/digital-distribution-center-dashboard.png)
 
-Notez que le tableau de bord ci-dessus est un exemple d’expérience et que vous pouvez personnaliser complètement cette application pour l’adapter à votre cas d’utilisation.
+Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un modèle d’application du centre de distribution numérique](./tutorial-iot-central-digital-distribution-center-pnp.md).
 
-Commencez avec un [didacticiel de bout en bout](./tutorial-iot-central-digital-distribution-center-pnp.md) qui vous guide tout au long de la création d’une solution tirant parti de l’un des modèles de centre de distribution numérique.
+## <a name="in-store-analytics---condition-monitoring"></a>Analytique en magasin – Monitorage des conditions
 
+Pour de nombreux détaillants, les bonnes conditions ambiantes dont bénéficient leurs magasins est ce qui les distingue de leurs concurrents. Les détaillants ont intérêt à maintenir des conditions ambiantes agréables dans leurs magasins pour le bien-être de leurs clients.  
 
+En tant que créateur de solutions, vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Surveillance des conditions » d’IoT Central afin de créer une solution de bout en bout. Le modèle d’application vous permet de connecter et de superviser numériquement l’environnement d’un magasin de détail à l’aide de divers capteurs. Ces capteurs génèrent des données de télémétrie que vous pouvez convertir en insights métier afin d’aider le détaillant à réduire ses coûts d’exploitation et à fournir une expérience optimale pour ses clients.
 
-## <a name="what-is-in-store-analytics-condition-monitoring"></a>Qu’est-ce que la surveillance des conditions d’analytique en magasin
-Dans le contexte concurrentiel actuel, les détaillants recherchent de nouveaux moyens d’offrir aux clients quelque chose d’unique ou de spécial afin de générer du trafic dans leurs magasins physiques. De nombreux détaillants reconnaissent l’importance des conditions environnementales dans leurs magasins en tant que moyen de se démarquer par rapport à la concurrence. Les détaillants veulent maintenir à tout moment des conditions agréables dans leurs magasins afin d’offrir une expérience confortable à leurs clients.  
+Utilisez le modèle d’application pour :
 
-Le modèle d’application de surveillance des conditions d’analytique en magasin disponible dans IoT Central fournit au créateur de solution un canevas utilisable pour créer une solution de bout en bout. Le modèle d’application leur permet de connecter et de surveiller numériquement un environnement de magasin de détail à l’aide de divers capteurs. Ces capteurs collectent des signaux significatifs qui peuvent être convertis en informations commerciales permettant aux détaillants de réduire leurs coûts d’exploitation et d’offrir des expériences appréciées des clients.
+* Connecter une série de capteurs IoT à une instance d’application IoT Central
+* Superviser et gérer l’intégrité du réseau de capteurs, ainsi que les appareils de passerelle de l’environnement
+* Créer des règles personnalisées en lien avec les conditions ambiantes au sein d’un magasin afin de déclencher des alertes à l’intention des responsables magasin
+* Convertir les conditions ambiantes du magasin en insights que l’équipe du magasin peut utiliser pour améliorer l’expérience du client
+* Exporter les insights agrégés dans des applications métier existantes ou nouvelles afin de fournir des informations pertinentes aux vendeurs
 
-Le modèle d’application offre les possibilités suivantes :
+Le modèle d’application est fourni avec un ensemble de modèles d’appareils, et utilise un ensemble d’appareils simulés pour renseigner le tableau de bord. 
 
-*  Connecter en toute transparence une série de capteurs IoT à une instance d’application IoT Central.
-*  Surveiller et gérer l’intégrité du réseau de capteurs, ainsi que les périphériques de passerelle dans l’environnement.
-*  Créer des règles personnalisées en lien avec les conditions environnementales au sein d’un magasin afin de déclencher des alertes appropriées.
-*  Convertir les conditions environnementales du magasin en informations exploitables par l’équipe.
-* Exporter les informations agrégées dans des applications métier existantes ou nouvelles qui outillent les membres du personnel de vente.
-
-### <a name="out-of-box-experience"></a>Expérience prête à l’emploi
-Le modèle d’application est fourni avec un ensemble de modèles d’appareil et une interface d’opérateur prête à l’emploi. Il se sert d’un ensemble de périphériques simulés pour renseigner les éléments du tableau de bord. Une fois que vous avez déployé une application IoT Central à l’aide du modèle d’application de [surveillance des conditions d’analytique en magasin](https://aka.ms/conditiontemplate), vous accédez au tableau de bord par défaut de l’application, comme illustré ci-dessous. 
+La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions : 
 
 > [!div class="mx-imgBorder"]
 > ![Surveillance des conditions d’analytique en magasin](./media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png)
 
-Notez que le tableau de bord ci-dessus est un exemple d’expérience et que vous pouvez personnaliser complètement cette application pour l’adapter à votre cas d’utilisation. 
+Pour plus d’information, consultez le tutoriel [Créer une application d’analytique en magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md).
 
-Commencez avec un [didacticiel de bout en bout](./tutorial-in-store-analytics-create-app-pnp.md) qui vous guide tout au long de la création d’une solution tirant parti de l’un des modèles de surveillance des conditions d’analytique en magasin.
+## <a name="in-store-analytics---checkout"></a>Analytique en magasin – Validation de l’achat
 
+Pour certains détaillants, c’est l’expérience de paiement en magasin qui les distingue de la concurrence. Les détaillants veulent offrir une expérience simplifiée de paiement en magasin afin d’inciter les clients à revenir.  
 
+En tant que créateur de solutions, vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Paiement » d’IoT Central afin de créer une solution qui fournit aux vendeurs des insights concernant les caisses. Par exemple, les capteurs peuvent fournir des informations sur la longueur des files d’attente et les temps d’attente moyens pour chaque caisse.
 
-## <a name="what-is-in-store-analytics-checkout"></a>Qu’est-ce que la caisse d’analytique en magasin
-Dans un environnement de plus en plus concurrentiel, les détaillants modernes sont soumis à une pression croissante pour offrir une expérience en magasin qui dépasse les attentes des clients et les incite à revenir. Alors que plusieurs détaillants ont commencé à déployer de la technologie pour répondre à ce besoin, l’expérience de la caisse est un aspect souvent négligé.
+Utilisez le modèle d’application pour :
 
-Le modèle d’application de caisse d’analytique en magasin dans IoT Central permet aux concepteurs de solutions de créer des expériences permettant au personnel de vente de disposer d’informations significatives sur la zone de caisses du magasin. Il se sert d’un ensemble d’appareils simulés pour déterminer le statut d’occupation de chacune des allées de caisse dans un magasin de vente au détail. Les capteurs vous permettent de relever le nombre de personnes, ainsi que le temps d’attente moyen dans chacune des allées de caisse.
+* Connecter une série de capteurs IoT à une instance d’application IoT Central
+* Superviser et gérer l’intégrité du réseau de capteurs, ainsi que les appareils de passerelle de l’environnement
+* Créer des règles personnalisées concernant le paiement en magasin afin de déclencher des alertes à l’intention des vendeurs
+* Convertir les conditions de paiement en magasin en insights, que l’équipe du magasin peut utiliser pour améliorer l’expérience du client
+* Exporter les insights agrégés dans des applications métier existantes ou nouvelles afin de fournir des informations pertinentes aux vendeurs
 
-Le modèle aide le créateur de solutions à accélérer ses plans de commercialisation en fournissant une solution IoT de base qui lui offre les possibilités suivantes : 
+Le modèle d’application est fourni avec un ensemble de modèles d’appareils, et utilise un ensemble d’appareils simulés pour renseigner le tableau de bord avec les données concernant la longueur des files d’attente de chaque caisse. 
 
-* Connecter en toute transparence une série de capteurs IoT à une instance d’application IoT Central.
-* Surveiller et gérer l’intégrité du réseau de capteurs, ainsi que les périphériques de passerelle dans l’environnement.
-* Créez des règles personnalisées autour des conditions de caisse d’un magasin afin de déclencher des alertes appropriées.
-* Convertir les conditions de caisse du magasin en informations exploitables par l’équipe.
-* Exporter les informations agrégées dans des applications métier existantes ou nouvelles qui outillent les membres du personnel de vente.
-
-### <a name="out-of-box-experience"></a>Expérience prête à l’emploi
-Le modèle d’application est fourni avec un ensemble de modèles d’appareil et une interface d’opérateur prête à l’emploi. Il se sert d’un ensemble de périphériques simulés pour renseigner les éléments du tableau de bord. Une fois que vous avez déployé une application IoT Central à l’aide du modèle d’application de [surveillance des conditions d’analytique en magasin](https://aka.ms/checkouttemplate), vous accédez au tableau de bord par défaut de l’application, comme illustré ci-dessous. 
+La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions : 
 
 > [!div class="mx-imgBorder"]
 > ![Caisse d’analytique en magasin](./media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png)
 
-Notez que le tableau de bord ci-dessus est un exemple d’expérience et que vous pouvez personnaliser complètement cette application pour l’adapter à votre cas d’utilisation. 
+Pour plus d’information, consultez le tutoriel [Créer une application d’analytique en magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md).
 
+## <a name="smart-inventory-management"></a>Gestion intelligente des stocks
 
-Commencez avec un [didacticiel de bout en bout](./tutorial-in-store-analytics-create-app-pnp.md) qui vous guide tout au long de la création d’une solution tirant parti de l’un des modèles de caisse d’analytique en magasin.
+Le stock correspond aux marchandises que détient un détaillant. La gestion des stocks est essentielle pour s’assurer que le bon produit se trouve au bon endroit au bon moment. Un détaillant doit trouver un équilibre entre les coûts liés au stockage d’un trop grand nombre d’articles et les coûts liés au fait de ne pas avoir suffisamment d’articles en stock pour répondre à la demande.
 
+Les données IoT obtenues à partir d’étiquettes RFID, de balises et de caméras permettent d’améliorer les processus impliqués dans la gestion des stocks. Vous pouvez combiner les données de télémétrie collectées à partir des capteurs et des appareils IoT avec d’autres sources de données, telles que la météo et le trafic dans les systèmes décisionnels basés sur le cloud.
 
-## <a name="what-is-smart-inventory-management-solution"></a>Qu’est-ce que la gestion intelligente d’inventaire
-L’« inventaire » est le stock de marchandises que détient un détaillant. Tout détaillant a besoin d’un inventaire pour gérer les délais d’approvisionnement et de logistique. L’inventaire est sans doute la ressource la plus précieuse que tout détaillant doit commercialiser. Dans le monde omnicanal actuel, la gestion de l’inventaire est une condition essentielle pour s’assurer que le bon produit se trouve au bon endroit au bon moment. Un stock excessif ou insuffisant peut nuire aux affaires du détaillant. Chaque année, les détaillants perdent de 8 à 10% de recettes en raison de capacités de gestion d’inventaire insuffisantes.
+Les avantages de la gestion des stocks intelligente sont les suivants :
 
-Les données IoT recueillies grâce à l’identification par radiofréquence (RFID), aux balises et aux caméra offrent la possibilité de relever ce défi d’envergure. La connectivité et l’analytique en temps réel inhérentes aux signaux IoT sont devenues la clé du succès pour les problèmes d’inventaire des détaillants.  Les données collectées à partir des capteurs, des appareils, de la météo et des événements peuvent être intégrées à des systèmes d’aide à la prise de décision basés sur le cloud.  
-Les avantages de la gestion intelligente d’inventaire sont les suivants : 
-* Protection de l’organisation contre les ruptures de stock et garantie d’offrir le niveau de service client souhaité. 
-* Analyse approfondie et informations précises sur l’inventaire en quasi temps réel
-* Détermination de la quantité d’inventaire appropriée pour répondre aux commandes des clients
+* Réduction du risque de rupture de stock des articles et maintien du niveau de service client souhaité 
+* Analyse approfondie et insights sur la précision du stock en quasi temps réel
+* Outils permettant de déterminer le niveau de stock adapté pour répondre aux commandes des clients
 
-### <a name="out-of-box-experience"></a>Expérience prête à l’emploi
-Les partenaires peuvent tirer parti de modèles pour développer des solutions de gestion intelligente d’inventaire de bout en bout et bénéficier des avantages décrits. Ce modèle publié est axé sur la connectivité des appareils, ainsi que sur la configuration et la gestion de lecteurs d’identification par radiofréquence (RFID) et Bluetooth basse énergie (BLE, Bluetooth low energy) dans IoT Central. 
+Ce modèle d’application se concentre sur la connectivité des appareils, ainsi que sur la configuration et la gestion des lecteurs RFID et Bluetooth basse énergie.
+
+La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions :
 
 > [!div class="mx-imgBorder"]
-> ![Tableau de bord de gestion intelligente d’inventaire](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
+> ![Tableau de bord de gestion intelligente des stocks](./media/overview-iot-central-retail/smart-inventory-management-dashboard.png)
 
-Notez que le tableau de bord ci-dessus est un exemple d’expérience et que vous pouvez personnaliser complètement cette application pour l’adapter à votre cas d’utilisation. 
+Pour plus d’informations, consultez le tutoriel [Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central](./tutorial-iot-central-smart-inventory-management-pnp.md).
 
-Commencez avec un [didacticiel de bout en bout](./tutorial-iot-central-smart-inventory-management-pnp.md) qui vous guide tout au long de la création d’une solution tirant parti de l’un des modèles de gestion intelligente d’inventaire.
+## <a name="micro-fulfillment-center"></a>Centre de microtraitement
 
+En raison d’une concurrence de plus en plus accrue, les détaillants se doivent de répondre le plus rapidement possible à la demande. Une nouvelle tendance est apparue pour répondre à la demande croissante des consommateurs. Celle-ci consiste à héberger un stock proche des clients finaux et des magasins dans lesquels ils se rendent.
+
+Le modèle d’application Centre de microtraitement d’IoT Central permet aux créateurs de solutions de superviser et de gérer tous les aspects de leurs centres de traitement entièrement automatisés. Ce modèle comprend des capteurs pour la supervision des conditions ambiantes, ainsi que des robots de transport pour accélérer le processus de développement de la solution. Ces capteurs collectent des signaux significatifs qui peuvent être convertis en insights métier permettant aux détaillants de réduire leurs coûts d’exploitation et d’offrir des expériences appréciées des clients.
+
+Ce modèle d’application vous permet de : 
+
+- Connecter de façon simple une série de capteurs IoT (tels que des robots ou des capteurs de supervision des conditions ambiantes) à une instance d’application IoT Central
+- Superviser et gérer l’intégrité du réseau de capteurs, ainsi que les appareils de passerelle de l’environnement
+- Créer des règles personnalisées en lien avec les conditions ambiantes au sein d’un centre de traitement afin de déclencher les alertes nécessaires
+- Convertir les conditions ambiantes du centre de traitement en insights exploitables par l’équipe de l’entrepôt
+- Exporter des insights agrégés dans des applications métier existantes ou nouvelles à l’intention des vendeurs
+
+La capture d’écran suivante montre le tableau de bord prêt à l’emploi du modèle d’application. Le tableau de bord est entièrement personnalisable afin de mieux répondre à vos besoins en solutions :
+
+> [!div class="mx-imgBorder"]
+> ![Centre de microtraitement](./media/overview-iot-central-retail/MFC-Dashboard.png)
+
+Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-iot-central-smart-inventory-management-pnp.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour commencer à créer une solution de vente au détail :
-* Commencez avec un [didacticiel de bout en bout](./tutorial-in-store-analytics-create-app-pnp.md) qui vous guide tout au long de la création d’une solution tirant parti de l’un des modèles d’application d’analytique en magasin.
-* Découvrez comment déployer un [modèle de solution logistique connectée](./tutorial-iot-central-connected-logistics-pnp.md)
-* Découvrez comment déployer un [modèle de centre de distribution numérique](./tutorial-iot-central-digital-distribution-center-pnp.md)
-* Découvrez comment déployer un [modèle de gestion intelligente d’inventaire](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* Pour plus d’informations sur IoT Central, voir la [vue d’ensemble d’IoT Central](../preview/overview-iot-central.md)
+
+* Pour bien démarrer, consultez le tutoriel [Créer une application d’analytique en magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) qui explique comment créer une solution à l’aide de l’un des modèles d’application d’analytique en magasin.
+* [Déployer et découvrir un modèle d’application logistique connectée](./tutorial-iot-central-connected-logistics-pnp.md)
+* [Déployer et parcourir un modèle d’application du Centre de distribution numérique](./tutorial-iot-central-digital-distribution-center-pnp.md)
+* [Déployer et découvrir un modèle de gestion intelligente des stocks IoT pour Azure IoT Central](./tutorial-iot-central-smart-inventory-management-pnp.md)
+* [Déployer et parcourir un modèle d’application du Centre de microtraitement](./tutorial-iot-central-smart-inventory-management-pnp.md)
+* Pour plus d’informations sur IoT Central, consultez la [présentation d’IoT Central](../preview/overview-iot-central.md).

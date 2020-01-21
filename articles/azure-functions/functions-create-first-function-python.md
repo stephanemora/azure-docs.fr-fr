@@ -4,12 +4,12 @@ description: Découvrez comment créer votre première fonction Python dans Azur
 ms.date: 11/07/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: bd20c55fdaef5e820773b4ff4e0ddf3d36c6e371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3de8c42c59455cc326fa909bc520a94daac68706
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433191"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769334"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Démarrage rapide : Créer une fonction Python déclenchée par HTTP dans Azure
 
@@ -122,7 +122,7 @@ Avant de pouvoir déployer votre application, vous devez créer des ressources A
 
 ## <a name="create-a-function-app-in-azure"></a>Créer une application de fonction dans Azure
 
-Une application de fonction fournit un environnement pour l’exécution du code de votre fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
+Une application de fonction fournit un environnement pour l’exécution du code de votre fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement, la mise à l’échelle et le partage des ressources.
 
 Exécutez la commande suivante : Remplacez `<APP_NAME>` par un nom d’application de fonction unique. Remplacez `<STORAGE_NAME>` par un nom de compte de stockage. `<APP_NAME>` représente également le domaine DNS par défaut pour l’application de fonction. Ce nom doit être unique parmi toutes les applications dans Azure.
 

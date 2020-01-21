@@ -12,14 +12,14 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1265861a872b01d558646ea2adb6cba27fa3ebd4
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034562"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778411"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Didacticiel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : Déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Services
 
 L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, mettre en production et déployer votre code. Azure DevOps Services fournit un ensemble complet d’outils d’automatisation CI/CD pour le déploiement sur Azure. Jenkins est un outil serveur CI/CD tiers populaire qui propose également l’automatisation CI/CD. Vous pouvez utiliser Azure DevOps Services et Jenkins ensemble pour personnaliser la façon dont vous proposez votre service ou application cloud.
 
@@ -176,15 +176,17 @@ Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez automatisé le déploiement d’une application Azure en utilisant Jenkins pour la génération et Azure DevOps Services pour la mise en production. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez automatisé le déploiement d’une application Azure en utilisant Jenkins pour la génération et Azure DevOps Services pour la mise en production. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Générer votre application dans Jenkins.
 > * Configurer Jenkins pour l’intégration Azure DevOps Services.
 > * Créer un groupe de déploiement pour les machines virtuelles Azure.
-> * Créer un pipeline de mise en production qui configure les machines virtuelles et déploie l’application.
+> * Créer un pipeline Azure qui configure les machines virtuelles et déploie l’application.
 
-Pour découvrir comment déployer une pile LAMP (Linux, Apache, MySQL et PHP), passez au didacticiel suivant.
+Pour savoir comment utiliser Azure Pipelines lors des étapes de génération et de publication, consultez [cet article](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-linuxvm-deploygroups).
+
+Pour savoir comment créer un pipeline CI/CD basé sur YAML en vue du déploiement sur des machines virtuelles, passez au tutoriel suivant.
 
 > [!div class="nextstepaction"]
-> [Déploiement d’une pile LAMP dans Azure](tutorial-lamp-stack.md)
+> [CI/CD avec Azure Pipelines](tutorial-build-deploy-azure-pipelines.md)

@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720547"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939948"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Démarrage rapide : Envoyer et recevoir des événements avec Event Hubs à l’aide de Python
 
@@ -22,10 +22,14 @@ Azure Event Hubs est une plateforme de streaming Big Data et un service d’inge
 
 Ce démarrage rapide montre comment créer des applications Python pour recevoir des événements à partir d’un hub d’événements et lui en envoyer. 
 
+> [!IMPORTANT]
+> Ce guide de démarrage rapide utilise la version 1 du Kit de développement logiciel (SDK) Azure Event Hubs Python. Si vous débutez avec Azure Event Hubs, utilisez la version 5 du SDK Python. Pour un démarrage rapide qui utilise la version 5 du SDK Python, consultez [cet article](get-started-python-send-v2.md). Pour effectuer la migration du code existant de la version 1 vers la version 5, consultez le [guide de migration](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+
+
 > [!NOTE]
 > Au lieu de passer par le démarrage rapide, vous pouvez télécharger et exécuter les [exemples d’application](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) à partir de GitHub. Remplacez les chaînes `EventHubConnectionString` et `EventHubName` par vos valeurs Event Hub. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
 

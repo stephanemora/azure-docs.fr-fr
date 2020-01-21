@@ -3,14 +3,14 @@ title: Tutoriel - Sauvegarder des bases de données SAP HANA dans des machines 
 description: Dans ce tutoriel, découvrez comment sauvegarder des bases de données SAP HANA s’exécutant sur une machine virtuelle Azure dans un coffre Recovery Services de Sauvegarde Azure.
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: a622370fca3144aeb6a5d7c071c227b3c21cf135
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bb84f6b362adf7c190f3300e6e3f1bc572153151
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74287186"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753980"
 ---
-# <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Didacticiel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
+# <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutoriel : Sauvegarder des bases de données SAP HANA dans une machine virtuelle Azure
 
 Ce tutoriel vous explique comment sauvegarder des bases de données SAP HANA s’exécutant sur des machines virtuelles Azure dans un coffre Recovery Services de Sauvegarde Azure. Cet article porte sur les points suivants :
 
@@ -34,7 +34,7 @@ Exécutez la procédure d’intégration à la préversion publique ci-après :
     Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de configurer les sauvegardes, prenez soin d’effectuer les opérations suivantes :
 
@@ -55,11 +55,60 @@ sudo zypper install unixODBC
 
 ## <a name="set-up-network-connectivity"></a>Configurer la connectivité réseau
 
-Pour toutes les opérations, la machine virtuelle SAP HANA nécessite une connectivité aux adresses IP publiques Azure. En l’absence d’une connectivité, les opérations de machine virtuelle (détection de bases de données, configuration de sauvegardes, planification de sauvegardes, restauration de points de récupération, etc.) échouent. Établissez la connectivité en autorisant l’accès aux plages d’adresses IP des centres de données Azure :
+Pour toutes les opérations, la machine virtuelle SAP HANA nécessite une connectivité aux adresses IP publiques Azure. Les opérations de machine virtuelle (détection de bases de données, configuration de sauvegardes, sauvegardes planifiées, restauration des points de récupération, etc.) échouent en cas d’absence de connexion aux adresses IP publiques Azure.
 
-* Vous pouvez télécharger les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) des centres de données Azure, puis autoriser l’accès à ces adresses.
-* Si vous utilisez des Groupes de sécurité réseau (NSG), vous pouvez utiliser la [balise de service](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) AzureCloud pour autoriser toutes les adresses IP publiques Azure. Vous pouvez modifier les règles NSG à l’aide de la [cmdlet Set-AzureNetworkSecurityRule](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurenetworksecurityrule?view=azuresmps-4.0.0).
-* Le port 443 doit être ajouté à la liste verte puisque le transport s’effectue via HTTPS.
+Établissez la connectivité en utilisant l’une des options suivantes :
+
+### <a name="allow-the-azure-datacenter-ip-ranges"></a>Autoriser les plages d’adresses IP du centre de données Azure
+
+Cette option autorise les [plages d’adresses IP](https://www.microsoft.com/download/details.aspx?id=41653) dans le fichier téléchargé. Pour accéder à un groupe de sécurité réseau, utilisez l’applet de commande Set-AzureNetworkSecurityRule. Si votre liste de destinataires sûrs ne comporte que des adresses IP spécifiques à une région, vous devez également mettre à jour la liste des destinataires sûrs avec la balise du service Azure Active Directory (Azure AD) pour activer l’authentification.
+
+### <a name="allow-access-using-nsg-tags"></a>Autoriser l’accès à l’aide de balises de groupe de sécurité réseau
+
+Si vous utilisez NSG pour limiter la connectivité, vous devez utiliser la balise de service Sauvegarde Azure pour autoriser l’accès sortant à la Sauvegarde Azure. Vous devez également utiliser des [règles](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) pour Azure AD et Stockage Azure afin de permettre la connectivité pour l’authentification et le transfert de données. Cette opération peut être effectuée à partir du portail Azure ou via PowerShell.
+
+Pour créer une règle avec le portail :
+
+  1. Dans **Tous les services**, accédez à**Groupes de sécurité réseau** et sélectionnez le groupe de sécurité réseau.
+  2. Sous **PARAMÈTRES**, sélectionnez **Règles de sécurité de trafic sortant**.
+  3. Sélectionnez **Ajouter**. Entrez toutes les informations nécessaires à la création d’une nouvelle règle, comme décrit dans [paramètres de règle de sécurité](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings). Vérifiez que l'option **Destination** est définie sur **Balise de service** et **Balise de service de destination** sur **AzureBackup**.
+  4. Cliquez sur **Ajouter**  pour enregistrer la règle de sécurité de trafic sortant que vous venez de créer.
+
+Pour créer une règle à l’aide de Powershell :
+
+ 1. Ajoutez les identifiants de compte Azure et mettez à jour les clouds nationaux<br/>
+      `Add-AzureRmAccount`<br/>
+
+ 2. Sélectionnez l’abonnement au groupe de sécurité réseau<br/>
+      `Select-AzureRmSubscription "<Subscription Id>"`
+
+ 3. Sélectionnez le groupe de sécurité réseau<br/>
+    `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
+
+ 4. Ajoutez la règle de trafic sortant autorisée pour la balise du service Sauvegarde Azure<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 5. Ajoutez la règle de trafic sortant autorisée pour la balise du service Stockage<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
+
+ 6. Ajoutez la règle de trafic sortant autorisée pour la balise du service AzureActiveDirectory<br/>
+    `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
+
+ 7. Enregistrez le groupe de sécurité réseau<br/>
+    `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
+
+**Autorisez l’accès à l’aide de balises de Pare-feu Azure**. Si vous utilisez Pare-feu Azure, créez une règle d’application en utilisant la balise [FQDN](https://docs.microsoft.com/azure/firewall/fqdn-tags) d’AzureBackup. Cela autorise l’accès sortant à Sauvegarde Azure.
+
+**Déployez un serveur proxy HTTP pour le routage du trafic**. Lorsque vous sauvegardez une base de données SAP HANA sur une machine virtuelle Azure, l’extension de sauvegarde sur la machine virtuelle utilise les API HTTPS pour envoyer des commandes de gestion à Sauvegarde Azure, et des données à Stockage Azure. L’extension de sauvegarde utilise également Azure AD pour l’authentification. Acheminez le trafic de l’extension de sauvegarde pour ces trois services via le proxy HTTP. Les extensions sont le seul composant configuré pour l’accès à l’internet public.
+
+Les options de connectivité présentent les avantages et inconvénients suivants :
+
+**Option** | **Avantages** | **Inconvénients**
+--- | --- | ---
+Autoriser les plages d’adresses IP | Aucun coût supplémentaire | Difficile à gérer, car les plages d’adresses IP changent au fil du temps <br/><br/> Fournit un accès à l’ensemble d’Azure et pas seulement à Stockage Azure
+Utiliser les balises du service NSG | Plus faciles à gérer car les modifications apportées à la plage sont fusionnées automatiquement <br/><br/> Aucun coût supplémentaire <br/><br/> | Peut être utilisé uniquement avec les groupes de sécurité réseau <br/><br/> Fournit l’accès à l’ensemble du service
+Utiliser les balises FQDN du Pare-feu Azure | Plus faciles à gérer car les noms de domaine complet sont managés automatiquement | Utilisabes avec Pare-feu Azure uniquement
+Utiliser un proxy HTTP | Le contrôle granulaire dans le proxy sur les URL de stockage est autorisé <br/><br/> Un seul point d’accès Internet aux machines virtuelles <br/><br/> Non soumis aux modifications d’adresse IP Azure | Frais supplémentaires d’exécution de machine virtuelle avec le logiciel de serveur proxy
 
 ## <a name="setting-up-permissions"></a>Configurer les autorisations
 
@@ -107,7 +156,7 @@ La boîte de dialogue **Coffre Recovery Services** s’ouvre. Attribuez des vale
 
 ![Créer un coffre Recovery Services](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
-* **Nom** : Le nom est utilisé pour identifier le coffre Recovery Services et doit être propre à l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union. Pour ce tutoriel, nous avons utilisé le nom **SAPHanaVault**.
+* **Name** : Le nom est utilisé pour identifier le coffre Recovery Services et doit être propre à l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union. Pour ce tutoriel, nous avons utilisé le nom **SAPHanaVault**.
 * **Abonnement**: choisissez l’abonnement à utiliser. Si vous êtes membre d’un seul abonnement, son nom s’affiche. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure. Ici, nous avons utilisé l’abonnement de **laboratoire de solution SAP HANA**.
 * **Groupe de ressources** : Utilisez un groupe de ressources existant ou créez-en un. Ici, nous avons utilisé **SAPHANADemo**.<br>
 Pour afficher la liste des groupes de ressources disponibles dans votre abonnement, sélectionnez **Utiliser existant**, puis sélectionnez une ressource dans la zone de liste déroulante. Pour créer un groupe de ressources, sélectionnez **Créer** et entrez le nom. Pour obtenir des informations complètes sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).

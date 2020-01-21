@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: e777387437b572eb11ebb7999d87a172b54738bb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 20802cf9f9934a85e00bce41b6bbe21a6ff95579
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151256"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772293"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Démarrage rapide : Créer et chiffrer une machine virtuelle Linux à l’aide du portail Azure
 
@@ -21,7 +21,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
 
@@ -65,7 +65,7 @@ Quelques minutes sont nécessaires pour le déploiement de votre machine virtuel
 1. Laissez le champ **Clé**  vide et choisissez **Sélectionner**.
 1. En haut de l’écran de chiffrement, cliquez sur **Enregistrer**. Un message s’affiche pour vous avertir que la machine virtuelle va redémarrer. Cliquez sur **Oui**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour cela, sélectionnez le groupe de ressources de la machine virtuelle, sélectionnez Supprimer, puis confirmez le nom du groupe de ressources à supprimer.
 

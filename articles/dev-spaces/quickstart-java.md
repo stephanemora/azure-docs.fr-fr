@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Java sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Java, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 8050e7793146456894ce86ab89e1563c6282b8df
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9237137f86bf7b6b30eb908e0acbe3b8b0e624d9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438286"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867467"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes avec Visual Studio Code et Java - Azure Dev Spaces
 
@@ -98,6 +98,9 @@ Quand Visual Studio Code vous inviter aussi à configurer vos images de base, le
 
 Cette commande prépare votre projet à s’exécuter dans Azure Dev Spaces en générant un chart Dockerfile et Helm. Il génère également un répertoire *.vscode* avec la configuration de débogage à la racine de votre projet.
 
+> [!TIP]
+> Le [Dockerfile et le chart Helm](how-dev-spaces-works.md#prepare-your-code) de votre projet sont utilisés par Azure Dev Spaces pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
+
 ## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Générer et exécuter du code dans Kubernetes à partir de Visual Studio
 
 Cliquez sur l’icône *Déboguer* sur la gauche, puis sur *Lancer le programme Java (AZDS)* en haut.
@@ -170,4 +173,4 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 > [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-java.md)
 
 
-[supported-regions]: about.md#supported-regions-and-configurations
+[supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

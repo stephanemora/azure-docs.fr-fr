@@ -6,16 +6,16 @@ ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 4bf0e43132662f6f5322485a59f356f872559092
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0fe4cb6e75a74f58b4c3b312f923935053ea4756
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532502"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922606"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Créer une application de fonction pour une exécution de code sans serveur 
 
-Cet exemple de script Azure Functions crée une application de fonction, qui constitue un conteneur pour vos fonctions. L’application de fonction est créée à l’aide du [plan de consommation](../functions-scale.md#consumption-plan), ce qui est idéal pour les charges de travail sans serveur, pilotées par les événements.
+Cet exemple de script Azure Functions crée une application de fonction, qui constitue un conteneur pour vos fonctions. L’application de fonction est créée à l’aide du [plan Consommation](../functions-scale.md#consumption-plan), ce qui est idéal pour les charges de travail serverless pilotées par les événements.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -25,9 +25,9 @@ Si vous choisissez d’installer et d’utiliser l’interface de ligne de comma
 
 ## <a name="sample-script"></a>Exemple de script
 
-Ce script crée une Function App Azure à l’aide du [plan de consommation](../functions-scale.md#consumption-plan).
+Ce script crée une application de fonction Azure à l’aide du [plan Consommation](../functions-scale.md#consumption-plan).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption/create-function-app-consumption.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

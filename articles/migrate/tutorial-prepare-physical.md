@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196395"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028671"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Préparer les serveurs physiques à une évaluation et à une migration vers Azure
 
@@ -21,7 +21,7 @@ Cet article explique comment préparer les serveurs physiques locaux à une éva
 
 [Azure Migrate](migrate-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers. 
 
-Ce tutoriel est le premier d’une série qui montre comment évaluer les serveurs physiques avec Azure Migrate. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel est le premier d’une série qui montre comment évaluer les serveurs physiques avec Azure Migrate. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Préparez Azure. Configurez des autorisations pour permettre à votre compte et vos ressources Azure de fonctionner avec Azure Migrate.
@@ -95,18 +95,18 @@ Pour préparer l’évaluation des serveurs physiques, vous devez vérifier les 
 
 ### <a name="verify-physical-server-settings"></a>Vérifier les paramètres des serveurs physiques
 
-1. Vérifiez la [configuration requise des serveurs physiques](migrate-support-matrix-physical.md#assessment-physical-server-requirements) pour l’évaluation.
-2. Vérifiez que les [ports obligatoires](migrate-support-matrix-physical.md#assessment-port-requirements) sont ouverts sur les serveurs physiques.
+1. Vérifiez la [configuration requise des serveurs physiques](migrate-support-matrix-physical.md#physical-server-requirements) pour l’évaluation.
+2. Vérifiez que les [ports obligatoires](migrate-support-matrix-physical.md#port-access) sont ouverts sur les serveurs physiques.
 
 
 ### <a name="verify-appliance-settings"></a>Vérifier les paramètres de l’appliance
 
-Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation dans le tutoriel suivant, préparez le déploiement de l’appliance.
+Avant de configurer l’appliance Azure Migrate et de commencer l’évaluation dans le prochain tutoriel, préparez le déploiement de l’appliance.
 
-1. [Vérifiez](migrate-support-matrix-physical.md#assessment-appliance-requirements) la configuration requise de l’appliance.
-2. [Passez en revue](migrate-support-matrix-physical.md#assessment-appliance-url-access) les URL Azure auxquelles l’appliance devra accéder.
-3. Passez en revue les données que l’appliance va collecter pendant la découverte et l’évaluation.
-4. [Notez](migrate-support-matrix-physical.md#assessment-port-requirements) les conditions d’accès aux ports pour l’appliance.
+1. [Vérifiez](migrate-appliance.md#appliance---physical) la configuration requise de l’appliance pour les serveurs physiques.
+2. [Passez en revue](migrate-appliance.md#url-access) les URL Azure auxquelles l’appliance doit accéder.
+3. [Passez en revue](migrate-appliance.md#collected-data---vmware) les données que l’appliance recueillera pendant la détection et l’évaluation.
+4. [Notez](migrate-support-matrix-physical.md#port-access) les conditions d’accès aux ports pour l’évaluation des serveurs physiques.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Configurer un compte pour la découverte des serveurs physiques
@@ -115,6 +115,15 @@ Azure Migrate a besoin d’autorisations pour découvrir les serveurs locaux.
 
 - **Windows :** Configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la détection. Le compte d’utilisateur doit être ajouté aux groupes suivants :       - Utilisateurs de gestion à distance       - Utilisateurs de l’Analyseur de performances       - Utilisateurs du journal de performances
 - **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir.
+
+## <a name="prepare-for-physical-server-migration"></a>Préparer les serveurs physiques à une migration
+
+Passez en revue les conditions requises d’une migration des serveurs physiques.
+
+- [Passez en revue](migrate-support-matrix-physical-migration.md#physical-server-requirements) la configuration requise des serveurs physiques pour la migration.
+- Azure Migrate : Server Migration utilise un serveur de réplication pour la migration des serveurs physiques :
+    - [Passez en revue](migrate-replication-appliance.md#appliance-requirements) la configuration requise pour le déploiement de l’appliance de réplication et les [options](migrate-replication-appliance.md#mysql-installation) d’installation de MySQL sur l’appliance.
+    - Passez en revue les exigences d’accès aux [URL](migrate-replication-appliance.md#url-access) et [port] (migrate-replication-appliance.md#port-access) pour l’appliance de réplication.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -1,28 +1,28 @@
 ---
-title: Migrer à partir de Google Maps | Microsoft Docs
-description: Didacticiel sur la migration de Google Maps vers Azure Maps.
+title: 'Tutoriel : Migrer de Google Maps vers Azure Maps | Microsoft Azure Maps'
+description: Tutoriel sur la migration de Google Maps vers Microsoft Azure Maps. Vous aide à passer aux API et kits SDK Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/17/2019
-ms.topic: conceptual
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ea9afc413a7fb187042c9d832fa1c16802993eed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e841b1f386d45ddb4af8598855d8e739750307e
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475367"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910740"
 ---
-# <a name="migrate-from-google-maps"></a>Migrer à partir de Google Maps
+# <a name="migrate-from-google-maps-to-azure-maps"></a>Migrer de Google Maps vers Azure Maps
 
 Ce didacticiel fournit des insights sur la migration d’applications web, mobiles et basées sur serveur de Google Maps vers la plateforme Microsoft Azure Maps. Ce didacticiel comprend des exemples de code comparatifs, des suggestions de migration et des meilleures pratiques pour la migration vers Azure Maps.
 
 ## <a name="azure-maps-platform-overview"></a>Vue d’ensemble de la plateforme Azure Maps
 
-Azure Maps offre aux développeurs de tous les secteurs d’activité de puissantes fonctionnalités géospatiales comprenant les données cartographiques régulièrement mises à jour pour fournir un contexte géographique aux applications mobiles et web. Azure Maps est un jeu d’API REST conforme à l’API Azure One pour les cartes, la recherche, les itinéraires, le trafic, les fuseaux horaires, la géolocalisation, le geofencing, les données cartographiques et les opérations spatiales. Il est accompagné de kits SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
+Azure Maps offre aux développeurs de tous les secteurs d’activité de puissantes fonctionnalités géospatiales comprenant les données cartographiques régulièrement mises à jour pour fournir un contexte géographique aux applications mobiles et web. Azure Maps est un jeu d’API REST conforme à l’API Azure One pour les cartes, la recherche, le routage, le trafic, les fuseaux horaires, la géolocalisation, le geofencing, les données cartographiques, la météo, la mobilité et les opérations spatiales. Il est accompagné de kits SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
 
 ## <a name="high-level-platform-comparison"></a>Comparaison générale de plateformes
 

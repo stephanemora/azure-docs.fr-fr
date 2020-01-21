@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 043a21aec5753dd16f558ad29d2300ada7a35d72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 50c5067c3db2f07da225b72d9ba0a8f0bdc44368
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431774"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748141"
 ---
 # <a name="azure-storage-samples-using-net"></a>Exemples de stockage Azure avec .NET
 
@@ -21,7 +21,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 > [!NOTE]
 > Ces exemples utilisent la bibliothèque .NET v11 du Stockage Azure. Pour obtenir le code de la version v12, consultez les [exemples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples) du dépôt GitHub.
 
-## <a name="blob-samples"></a>Exemples d’objets blob
+## <a name="blob-samples-v11"></a>Exemples d’objets blob (v11)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|
@@ -42,7 +42,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 | Propriétés du service | [Prise en main des objets blob](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Snapshot Blob | [Sauvegarder des disques de machine virtuelle Azure avec des instantanés incrémentiels](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
 
-## <a name="file-samples"></a>Exemples de fichiers
+## <a name="file-samples-v11"></a>Exemples de fichiers (v11)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|
@@ -56,7 +56,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 | Partages de listes | [Exemple de stockage de fichier .NET Stockage Azure](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 | Propriétés/métadonnées/statistiques de partage | [Exemple de stockage de fichier .NET Stockage Azure](https://github.com/Azure-Samples/storage-file-dotnet-getting-started/blob/9f12304b2f5f5472a1c87c1e21be4af5661ac043/FileStorage/Advanced.cs) |
 
-## <a name="queue-samples"></a>Exemples de files d’attente
+## <a name="queue-samples-v11"></a>Exemples de files d’attente (v11)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|
@@ -69,7 +69,7 @@ Le tableau suivant fournit une vue d’ensemble de notre référentiel d’exemp
 | Propriétés du service de File d’attente | [Prise en main du service de File d’attente Azure dans .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/Advanced.cs) |
 | Mise à jour de message | [Prise en main du service de File d’attente Azure dans .NET](https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs) |
 
-## <a name="table-samples"></a>Exemples de tables
+## <a name="table-samples-v11"></a>Exemples de tables (v11)
 
 | **Scénario** | **Exemple de Code** |
 |--------------|-----------------|

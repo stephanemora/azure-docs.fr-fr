@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 09/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: d4fae87d999bd0f6b0b388613098a17c181dae0c
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 78440b8150a0992bed2e2a3e597fdac8e7a1c7b0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392738"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749715"
 ---
 # <a name="latency-in-blob-storage"></a>Latence dans le stockage d’objets blob
 
@@ -67,5 +67,5 @@ Pour évaluer la latence, commencez par établir les métriques de base pour vot
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Objectifs de performance et d’extensibilité du service Stockage Azure pour les comptes de stockage](../common/storage-scalability-targets.md)
-- [Liste de contrôle des performances et de l’extensibilité du Stockage Microsoft Azure](../common/storage-performance-checklist.md)
+- [Objectifs de performance et d’extensibilité du Stockage Blob](scalability-targets.md)
+- [Check-list des performances et de la scalabilité pour Stockage Blob](storage-performance-checklist.md)

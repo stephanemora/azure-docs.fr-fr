@@ -1,19 +1,15 @@
 ---
 title: Préparer des machines pour la migration avec Azure Migrate
 description: Découvrez comment préparer des machines locales pour la migration avec Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 12/10/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974782"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028757"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Préparer des ordinateurs locaux à une migration vers Azure
 
@@ -44,9 +40,9 @@ Dans cet article, vous découvrirez comment :
 
 ## <a name="check-whats-supported"></a>Vérifier ce qui est pris en charge
 
-- Pour les machines virtuelles VMware, la migration de serveur Azure Migrate prend en charge la [migration avec ou sans agent](server-migrate-overview.md). Vérifiez la configuration requise/la prise en charge des machines virtuelles VMware pour les migrations [sans agent](migrate-support-matrix-vmware.md#migration---limitations) et [avec agent](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements).
-- Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) des machines virtuelles Hyper-V.
-- Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-physical.md) des machines physiques locales ou d’autres serveurs virtualisés. 
+- Pour les machines virtuelles VMware, la migration de serveur Azure Migrate prend en charge la [migration avec ou sans agent](server-migrate-overview.md). Vérifiez la [configuration requise et la prise en charge de la migration](migrate-support-matrix-vmware-migration.md) pour les machines virtuelles VMware.
+- Vérifiez la [configuration requise et la prise en charge de la migration](migrate-support-matrix-hyper-v-migration.md) pour Hyper-V.
+- Vérifiez la [configuration requise et la prise en charge pour la migration](migrate-support-matrix-physical-migration.md) des machines physiques locales ou d’autres serveurs virtualisés. 
 
 
 
@@ -55,10 +51,11 @@ Dans cet article, vous découvrirez comment :
 
 Les ordinateurs peuvent avoir besoin d’un accès Internet pendant la migration.
 
-- Examinez les URL auxquelles les machines virtuelles VMware doivent accéder pendant les migrations [sans agent](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) ou [avec agent](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
-- Passez en revue les URL auxquelles les hôtes Hyper-V doivent accéder pendant la migration. Les machines virtuelles Hyper-V n’ont pas besoin d’accès Internet.
-- [Examinez les URL](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements) que les machines physiques ou autres serveurs virtualisés doivent accéder pendant la migration.
-- Pendant la migration basée sur un agent de machines virtuelles/serveurs physiques VMware, le service Mobility s’exécutant sur les machines a besoin d’accéder à des composants Azure Migrate. Pour la gestion de la réplication, le service s’exécutant sur la machine communique avec l’appliance de réplication locale Azure Migrate sur le port HTTPS 443 entrant. Les machines envoient des données de réplication au serveur de processus Azure Migrate sur le port HTTPS 9443 entrant. Ce port peut être modifié.
+- [Passez en revue les URL](migrate-appliance.md#url-access) auxquelles l’appliance Azure Migrate doit accéder pendant la migration sans agent. [Passez en revue les exigences d’accès aux ports](migrate-support-matrix-vmware-migration.md#agentless-ports).
+- Passez en revue les [URL](migrate-replication-appliance.md#url-access) et [ports] (migrate-replication-appliance.md#port-access) que l’appliance de réplication utilise pendant la migration de machines virtuelles VMware basées sur des agents. 
+- [Passez en revue](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) les URL et les ports auxquels les hôtes Hyper-V doivent accéder pendant la migration. 
+- Passez en revue les [URL](migrate-replication-appliance.md#url-access) et [ports] (migrate-replication-appliance.md#port-access) que l’appliance de réplication utilise pendant la migration des serveurs physiques.
+
 
 
 ## <a name="verify-required-changes-before-migration"></a>Vérifier les modifications nécessaires avant la migration
@@ -72,14 +69,14 @@ Certaines machines virtuelles peuvent nécessiter des modifications pour fonctio
 
 Pour les autres systèmes d’exploitation, vous devez préparer les machines manuellement avant la migration. 
 
-### <a name="prepare-windows-machines"></a>Préparer les machines Windows
+### <a name="prepare-windows-machines"></a>Préparer les ordinateurs Windows
 
 Si vous migrez une machine Windows, apportez ces modifications avant la migration. Si vous migrez la machine virtuelle avant d’effectuer les modifications, elle risque de ne pas démarrer dans Azure.
 
 1. [Activez la console d’accès série Azure](../virtual-machines/troubleshooting/serial-console-windows.md) pour la machine virtuelle Azure. Cela facilite la résolution des problèmes. Vous n’avez pas besoin de redémarrer la machine virtuelle. La machine virtuelle Azure démarre en utilisant l’image de disque. Cela équivaut à un redémarrage de la nouvelle machine virtuelle. 
 2. Si vous migrez des ordinateurs Windows Server 2003, installez les services d’intégration d’invité Hyper-V sur le système d’exploitation de la machine virtuelle. [Plus d’informations](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#install-or-update-integration-services)
 
-### <a name="prepare-linux-machines"></a>Préparer les machines Linux
+### <a name="prepare-linux-machines"></a>Préparer les ordinateurs Linux
 
 1. Installez le service d’intégration pour Hyper-V Linux. Il est inclus par défaut dans la plupart des nouvelles versions des distributions Linux.
 2. Regénérez l’image init Linux pour qu’elle contienne les pilotes Hyper-V nécessaires. Cela permet de s’assurer que la machine virtuelle démarrera dans Azure, et n’est nécessaire que sur certaines distributions.
@@ -105,7 +102,7 @@ Par exemple, si le lecteur de disque de données de votre installation utilise l
 
 ## <a name="check-azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 
-Les ordinateurs locaux que vous répliquez dans Azure doivent respecter les exigences des machines virtuelles Azure en ce qui concerne le système d’exploitation et l’architecture, les disques, les paramètres réseau et le nommage des machines virtuelles. Vérifiez les exigences concernant les [machines virtuelles/serveurs physiques VMware](migrate-support-matrix-vmware.md#azure-vm-requirements) et les [machines virtuelles Hyper-V](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) avant la migration.
+Les ordinateurs locaux que vous répliquez dans Azure doivent respecter les exigences des machines virtuelles Azure en ce qui concerne le système d’exploitation et l’architecture, les disques, les paramètres réseau et le nommage des machines virtuelles. Vérifiez les exigences concernant les [machines virtuelles/serveurs physiques VMware](migrate-support-matrix-vmware-migration.md#azure-vm-requirements) et les [machines virtuelles Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) avant la migration.
 
 
 ## <a name="prepare-to-connect-after-migration"></a>Préparer la connexion après la migration
@@ -114,7 +111,7 @@ Des machines virtuelles Azure sont créées pendant la migration vers Azure. À 
 
 ### <a name="prepare-to-connect-to-windows-azure-vms"></a>Préparer la connexion aux machines virtuelles Microsoft Azure
 
-Sur les ordinateurs Windows locaux, procédez comme suit :
+Sur les ordinateurs Windows locaux, effectuez les tâches suivantes :
 
 1. Configurez les paramètres Windows. Cela inclut la suppression des routes persistantes statiques ou du proxy WinHTTP.
 2. Vérifiez que [ces services](../virtual-machines/windows/prepare-for-upload-vhd-image.md#check-the-windows-services) sont en cours d’exécution.
@@ -126,7 +123,7 @@ Sur les ordinateurs Windows locaux, procédez comme suit :
 
 ### <a name="prepare-to-connect-with-linux-azure-vms"></a>Préparer la connexion aux machines virtuelles Azure Linux
 
-Sur les ordinateurs Linux locaux, procédez comme suit :
+Sur les ordinateurs Linux locaux, effectuez les tâches suivantes :
 
 1. Vérifiez que le service Secure Shell est configuré pour démarrer automatiquement au démarrage du système.
 2. Vérifiez que les règles de pare-feu autorisent une connexion SSH.
@@ -135,7 +132,7 @@ Sur les ordinateurs Linux locaux, procédez comme suit :
 
 Après la migration, effectuez les opérations suivantes sur les machines virtuelles Azure qui ont été créées.
 
-1. Pour vous connecter à la machine virtuelle via Internet, attribuez-lui une adresse IP publique. Vous ne pouvez pas lui attribuer l’adresse IP publique que vous avez utilisée pour votre ordinateur local. [Plus d’informations](../virtual-network/virtual-network-public-ip-address.md)
+1. Pour vous connecter à la machine virtuelle via Internet, attribuez-lui une adresse IP publique. Vous ne pouvez pas attribuer à la machine virtuelle Azure la même adresse IP publique que celle que vous avez utilisée pour votre ordinateur local. [Plus d’informations](../virtual-network/virtual-network-public-ip-address.md)
 2. Vérifiez que les règles de groupe de sécurité réseau (NSG) de la machine virtuelle autorisent les connexions entrantes sur le port RDP ou SSH.
 3. Cochez [Diagnostics de démarrage](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) pour afficher la machine virtuelle.
 

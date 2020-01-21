@@ -12,35 +12,35 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f12ec41b661ac2cb462c6bf9ef62d6d831ebac0a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224281"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888513"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Didacticiel : Utiliser une identité managée attribuée par le système de la machine virtuelle Linux pour accéder à Azure Data Lake Store
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Tutoriel : Utiliser une identité managée attribuée par le système de la machine virtuelle Linux pour accéder à Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Ce tutoriel vous indique comment utiliser une identité managée affectée par le système pour une machine virtuelle Linux afin d’accéder à Azure Data Lake Store. Vous allez apprendre à effectuer les actions suivantes : 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Accorder à votre machine virtuelle l’accès à Azure Data Lake Store
 > * Obtenez un jeton d’accès à l’aide de l’identité managée attribuée par le système de la machine virtuelle pour accéder à Azure Data Lake Store.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Accorder à votre machine virtuelle l’accès à Azure Data Lake Store
+## <a name="grant-access"></a>Accorder l'accès
 
-Maintenant, vous pouvez accorder à votre machine virtuelle l’accès à des fichiers et des dossiers dans Azure Data Lake Store. Pour cette étape, vous pouvez utiliser une instance Data Lake Store existante ou bien en créer une. Pour créer une nouvelle instance Data Lake Store via le portail Azure, suivez ce [Démarrage rapide de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Des procédures de démarrage rapide utilisant Azure CLI et Azure PowerShell sont également décrites dans la [Documentation Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
+Cette section montre comment accorder à votre machine virtuelle l’accès à des fichiers et des dossiers dans Azure Data Lake Store. Pour cette étape, vous pouvez utiliser une instance Data Lake Store existante ou bien en créer une. Pour créer une nouvelle instance Data Lake Store via le portail Azure, suivez ce [Démarrage rapide de Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Des procédures de démarrage rapide utilisant Azure CLI et Azure PowerShell sont également décrites dans la [Documentation Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
 Dans Data Lake Store, créez un dossier et autorisez l’identité managée attribuée par le système de la machine virtuelle Linux à lire, écrire et exécuter des fichiers dans ce dossier :
 
@@ -58,9 +58,9 @@ Dans Data Lake Store, créez un dossier et autorisez l’identité managée attr
 
 Les identités managées des ressources Azure peuvent désormais effectuer toutes les opérations sur les fichiers du dossier que vous avez créé. Pour plus d’informations sur la gestion de l’accès à Data Lake Store, lisez cet article sur le [Contrôle d’accès dans Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-and-call-the-data-lake-store-file-system"></a>Obtenir un jeton d’accès et appeler le système de fichiers Data Lake Store
+## <a name="get-an-access-token"></a>Obtention d’un jeton d’accès 
 
-Azure Data Lake Store prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide d’identités managées attribuées par le système pour les ressources Azure. Pour s’authentifier sur le système de fichiers de Data Lake Store, vous envoyez un jeton d’accès émis par Azure AD pour votre point de terminaison de système de fichiers de Data Lake Store. Le jeton d’accès est un en-tête d’autorisation au format « Porteur \<ACCESS_TOKEN_VALUE\> ».  Pour en savoir plus sur la prise en charge de Data Lake Store pour Azure AD Authentication, lire [Authentification auprès de Data Lake Store à l’aide de Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Cette section montre comment obtenir un jeton d’accès et appeler le système de fichiers Data Lake Store. Azure Data Lake Store prenant en charge Azure AD Authentication en mode natif, il peut accepter directement des jetons d’accès obtenus à l’aide d’identités managées attribuées par le système pour les ressources Azure. Pour s’authentifier sur le système de fichiers de Data Lake Store, vous envoyez un jeton d’accès émis par Azure AD pour votre point de terminaison de système de fichiers de Data Lake Store. Le jeton d’accès est un en-tête d’autorisation au format « Porteur \<ACCESS_TOKEN_VALUE\> ».  Pour en savoir plus sur la prise en charge de Data Lake Store pour Azure AD Authentication, lire [Authentification auprès de Data Lake Store à l’aide de Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 Dans ce didacticiel, vous vous authentifiez sur l’API REST du système de fichiers de Data Lake Store à l’aide de cURL pour effectuer des requêtes REST.
 

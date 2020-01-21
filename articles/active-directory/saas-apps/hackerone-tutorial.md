@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à HackerOne | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à HackerOne | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et HackerOne.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0158a7df96f4c83763c5b2324ccc2bfcb5a72b5d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159161"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768259"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Didacticiel : Intégration d'Azure Active Directory à HackerOne
+# <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Tutoriel : Intégration d'Azure Active Directory à HackerOne
 
 Dans ce didacticiel, vous allez apprendre à intégrer HackerOne à Azure Active Directory (Azure AD).
 L’intégration de HackerOne à Azure AD vous offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration de HackerOne à Azure AD vous offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à HackerOne, vous avez besoin des éléments suivants :
 
@@ -107,12 +107,9 @@ Pour configurer l’authentification unique Azure AD avec HackerOne, procédez 
 
     ![Informations d’authentification unique dans Domaine et URL HackerOne](common/sp-identifier.png)
 
-    a. Dans la zone de texte **URL de connexion**, saisissez une URL au format suivant : `https://hackerone.com/<company name>/authentication`
+    a. Dans la zone de texte **URL de connexion**, entrez ceci : `https://hackerone.com/users/saml/auth`
 
-    b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://hackerone.com/users/saml/metadata`
-
-    > [!NOTE]
-    > La valeur de cette URL d’authentification n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Contactez [l’équipe de support client HackerOne](mailto:support@hackerone.com) pour obtenir cette valeur. Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
+    b. Dans la zone de texte **Identificateur (ID d’entité)** , entrez ceci : `hackerone.com`
 
 5. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** en fonction des options définies par rapport à vos besoins, puis enregistrez-le sur votre ordinateur.
 
@@ -134,15 +131,15 @@ Pour configurer l’authentification unique Azure AD avec HackerOne, procédez 
 
 2. Dans le menu situé en haut, cliquez sur **Paramètres**.
 
-    ![Configurer l'authentification unique](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Accédez à **Authentication** et cliquez sur **Add SAML settings**.
 
-    ![Configurer l'authentification unique](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. Dans la boîte de dialogue **SAML Settings** (Paramètres SAML), procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/hackerone-tutorial/tutorial_hackerone_004.png)
+    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_004.png)
 
     a. Dans la zone de texte **Email Domain** , entrez un domaine enregistré.
 
@@ -154,7 +151,7 @@ Pour configurer l’authentification unique Azure AD avec HackerOne, procédez 
 
 5. Dans la boîte de dialogue Authentication Settings, procédez comme suit :
 
-    ![Configurer l'authentification unique](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Cliquez sur **Run test**.
 
@@ -179,7 +176,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -227,4 +224,4 @@ Lorsque vous cliquez sur la vignette HackerOne dans le volet d’accès, vous de
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

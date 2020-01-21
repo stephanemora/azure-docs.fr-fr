@@ -1,21 +1,21 @@
 ---
-title: Créer une fonction à l’aide de Microsoft Azure for Students Starter
+title: Créer une fonction à l’aide d’Azure for Students Starter
 description: Découvrez comment créer une fonction Azure à partir d’un abonnement Azure for Students Starter
-Customer intent: As a student, I want to be able to create a HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
+Customer intent: As a student, I want to be able to create an HTTP triggered Function App within the Student Starter plan so that I can easily add APIs to any project.
 author: alexkarcher-msft
 ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: alkarche
-ms.openlocfilehash: 5c0228feb88296e0c82efa52648ce38d70e5b921
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 189a0bc80ab2894b2888b496b3beb45249d859f6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409895"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921132"
 ---
-# <a name="create-a-function-using-azure-for-students-starter"></a>Créer une fonction à l’aide de Microsoft Azure for Students Starter
+# <a name="create-a-function-using-azure-for-students-starter"></a>Créer une fonction à l’aide d’Azure for Students Starter
 
-Dans ce tutoriel, nous allons créer une fonction HTTP hello world dans un abonnement Microsoft Azure for Students Starter. Nous allons également aborder ce qui est disponible dans Azure Functions dans ce type d’abonnement.
+Dans ce tutoriel, nous allons créer une fonction HTTP « hello world » dans un abonnement Azure for Students Starter. Nous allons également aborder ce qui est disponible dans Azure Functions dans ce type d’abonnement.
 
 Microsoft *Azure for Students Starter* vous aide gratuitement à bien démarrer avec les produits Azure dont vous avez besoin pour développer dans le cloud. [En savoir plus sur cette offre ici.](https://azure.microsoft.com/offers/ms-azr-0144p/)
 
@@ -33,9 +33,9 @@ Connectez-vous au portail Azure sur <https://portal.azure.com> avec votre compte
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
-Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une Function App vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. 
+Vous devez disposer d’une Function App pour héberger l’exécution de vos fonctions. Une application de fonctions vous permet de regrouper des fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
 
-1. Cliquez sur le bouton **Nouveau** en haut à gauche du portail Azure, puis sélectionnez **Calcul** > **Application de fonction**.
+1. Sélectionnez le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure. Sélectionnez ensuite **Calcul** > **Function App**.
 
     ![Créer une application de fonction sur le Portail Azure](./media/functions-create-student-starter/function-app-create-flow.png)
 
@@ -108,15 +108,15 @@ Vous pouvez maintenant exécuter la nouvelle fonction en envoyant une requête H
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
-## <a name="supported-features-in-azure-for-students-starter"></a>Fonctionnalités prises en charge dans Microsoft Azure for Students Starter
+## <a name="supported-features-in-azure-for-students-starter"></a>Fonctionnalités prises en charge dans Azure for Students Starter
 
-Dans Azure for Students Starter, vous avez accès à la plupart des fonctionnalités du runtime Azure Functions, avec plusieurs limitations clés répertoriées ci-dessous :
+Dans Azure for Students Starter, vous avez accès à la plupart des fonctionnalités du runtime Azure Functions, avec plusieurs limitations importantes décrites ci-dessous :
 
 * Le déclencheur HTTP est le seul type de déclencheur pris en charge.
     * Toutes les liaisons d’entrée et de sortie sont prises en charge ! [La liste complète est disponible ici.](functions-triggers-bindings.md)
 * Langues prises en charge : 
     * C# (.NET Core 2)
-    * Javascript (Node.js 8 et 10)
+    * JavaScript (Node.js 8 et 10)
     * F# (.NET Core 2)
     * [Découvrez les langues prises en charge dans les autres plans ici](supported-languages.md)
 * Windows est le seul système d’exploitation pris en charge.

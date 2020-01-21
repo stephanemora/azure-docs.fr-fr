@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Rechercher un itinéraire avec Azure Maps'
-description: 'Tutoriel : Établir un itinéraire vers un point d’intérêt avec Azure Maps'
+title: 'Tutoriel : Trouver une route vers une position | Microsoft Azure Maps'
+description: Ce tutoriel vous montre comment afficher la route vers une position (point d’intérêt) sur une carte à l’aide du service de routage Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613599"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910836"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutoriel : Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
@@ -168,7 +168,7 @@ Dans ce tutoriel, un itinéraire simple sera affiché à l’aide d’une icône
 
 3. Enregistrez le fichier **MapRoute.html** et actualisez votre navigateur. À présent, la carte est centrée sur Seattle, et vous pouvez observer l’épingle bleue marquant le point de départ et l’épingle bleue arrondie marquant le point d’arrivée.
 
-   ![Afficher la carte avec les points de départ et d’arrivée marqués](media/tutorial-route-location/map-pins.png)
+   ![Voir le point de départ et d’arrivée des routes sur la carte](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

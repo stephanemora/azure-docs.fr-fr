@@ -4,12 +4,12 @@ description: Le service Azure Container Instances offre le moyen le plus simple 
 ms.topic: overview
 ms.date: 04/25/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 040f246fa687dfe3ca56877c11c140ddb40247a4
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c871c09e29b64c4f0dcd107361154efdce306481
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552319"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888031"
 ---
 # <a name="what-is-azure-container-instances"></a>Présentation d’Azure Container Instances
 
@@ -54,7 +54,7 @@ Certaines fonctionnalités sont actuellement restreintes aux conteneurs Linux :
 * Plusieurs conteneurs par groupe de conteneurs
 * Montage de volume ([Azure Files](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [secret](container-instances-volume-secret.md))
 * [Métriques d’utilisation des ressources](container-instances-monitor.md) avec Azure Monitor
-* [Déploiement de réseau virtuel](container-instances-vnet.md) (préversion)
+* [Déploiement d’un réseau virtuel](container-instances-vnet.md)
 * [Ressources GPU](container-instances-gpu.md) (préversion)
 
 Pour les déploiements de conteneurs Windows, utilisez des images basées sur des [images de base Windows](container-instances-faq.md#what-windows-base-os-images-are-supported) communes.
@@ -66,12 +66,9 @@ Pour les déploiements de conteneurs Windows, utilisez des images basées sur de
 
 Azure Container Instances prend en charge la planification de [groupes de plusieurs conteneurs](container-instances-container-groups.md) qui partagent un même hôte, réseau local, stockage et cycle de vie. Vous pouvez ainsi combiner votre conteneur d’application principal avec d’autres conteneurs à rôle d’assistance, comme les side-cars de journalisation.
 
-## <a name="virtual-network-deployment-preview"></a>Déploiement de réseau virtuel (préversion)
+## <a name="virtual-network-deployment"></a>Déploiement d’un réseau virtuel
 
-Actuellement en préversion, cette fonctionnalité d’Azure Container Instances permet le [déploiement d’instances de conteneur dans un réseau virtuel Azure](container-instances-vnet.md). En déployant des instances de conteneur dans un sous-réseau au sein de votre réseau virtuel, elles peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel, y compris celles qui sont en local (via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ ExpressRoute](../expressroute/expressroute-introduction.md)).
-
-> [!IMPORTANT]
-> Certaines fonctionnalités d’Azure Container Instances sont en préversion et certaines [limitations s’appliquent](container-instances-vnet.md#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de ces fonctionnalités sont susceptibles d’être modifiés avant la mise à disposition générale.
+Cette fonctionnalité d’Azure Container Instances est actuellement disponible pour les charges de travail de production dans certaines régions Azure. Elle permet le [déploiement d’instances de conteneur dans un réseau virtuel Azure](container-instances-vnet.md). En déployant des instances de conteneur dans un sous-réseau au sein de votre réseau virtuel, elles peuvent communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel, y compris celles qui sont en local (via une [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,14 +9,14 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f5aac7fe63b2afc997ff69e5d976c755440c1bea
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488608"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982568"
 ---
-# <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Didacticiel : Superviser les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
+# <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>Tutoriel : Superviser les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
 Pour superviser des événements spécifiques qui se produisent dans des ressources Azure ou des ressources tierces et y répondre, vous pouvez automatiser et exécuter des tâches en tant que workflow en créant une [application logique](../logic-apps/logic-apps-overview.md) qui utilise très peu de code. Ces ressources peuvent publier des événements dans une [grille d’événements Azure](../event-grid/overview.md). À son tour, la grille d’événements envoie ces événements aux abonnés qui possèdent des files d’attente, webhooks ou [hubs d’événements](../event-hubs/event-hubs-what-is-event-hubs.md) comme points de terminaison. En tant qu’abonné, votre application logique peut attendre ces événements avant d’exécuter des flux de travail automatisés pour effectuer les tâches.
 
@@ -34,14 +34,14 @@ Ce tutoriel crée une application logique qui surveille les modifications apport
 
 ![Vue d’ensemble - surveiller une machine virtuelle avec une grille d’événements et une application logique](./media/monitor-virtual-machine-changes-event-grid-logic-app/monitor-virtual-machine-event-grid-logic-app-overview.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * créer une application logique qui surveille les événements d’une grille d’événements ;
 > * ajouter une condition qui recherche spécifiquement les modifications apportées à la machine virtuelle ;
 > * envoyer un e-mail en cas de modification de la machine virtuelle.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -63,12 +63,12 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
    ![Spécifier les détails de l’application logique](./media/monitor-virtual-machine-changes-event-grid-logic-app/create-logic-app-for-event-grid.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Nom** | OUI | <*logic-app-name*> | Fournissez un nom unique pour votre application logique. |
-   | **Abonnement** | OUI | <*Azure-subscription-name*> | Sélectionnez le même abonnement Azure pour tous les services de ce tutoriel. |
-   | **Groupe de ressources** | OUI | <*Azure-resource-group*> | Nom du groupe de ressources Azure pour votre application logique, que vous pouvez sélectionner pour tous les services de ce tutoriel. |
-   | **Lieu** | OUI | <*Azure-region*> | Sélectionnez la même région pour tous les services de ce didacticiel. |
+   | **Nom** | Oui | <*logic-app-name*> | Fournissez un nom unique pour votre application logique. |
+   | **Abonnement** | Oui | <*Azure-subscription-name*> | Sélectionnez le même abonnement Azure pour tous les services de ce tutoriel. |
+   | **Groupe de ressources** | Oui | <*Azure-resource-group*> | Nom du groupe de ressources Azure pour votre application logique, que vous pouvez sélectionner pour tous les services de ce tutoriel. |
+   | **Lieu** | Oui | <*Azure-region*> | Sélectionnez la même région pour tous les services de ce didacticiel. |
    |||
 
 1. Une fois qu’Azure a déployé votre application logique, le Concepteur d’applications logiques affiche une page contenant une vidéo de présentation et les déclencheurs couramment utilisés. Faites défiler la vidéo et les déclencheurs.
@@ -98,11 +98,11 @@ Maintenant, ajoutez le déclencheur Event Grid qui permet de superviser le group
 
    ![Spécifier les détails de l’abonnement aux événements](./media/monitor-virtual-machine-changes-event-grid-logic-app/logic-app-event-grid-trigger-details.png)
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    | -------- | -------- | ----- | ----------- |
-   | **Abonnement** | OUI | <*event-publisher-Azure-subscription-name*> | Sélectionnez le nom de l’abonnement Azure associé à l’*éditeur d’événements*. Dans le cadre de ce tutoriel, sélectionnez le nom d’abonnement Azure de votre machine virtuelle. |
-   | **Type de ressource** | OUI | <*event-publisher-Azure-resource-type*> | Sélectionnez le type de ressource Azure pour l’éditeur d’événements. Pour plus d’informations sur les types de ressources Azure, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/resource-manager-supported-services.md). Pour ce tutoriel, sélectionnez la valeur `Microsoft.Resources.ResourceGroups` pour superviser les groupes de ressources Azure. |
-   | **Nom de la ressource** |  OUI | <*event-publisher-Azure-resource-name*> | Sélectionnez le nom de la ressource Azure pour l’éditeur d’événements. Cette liste varie en fonction du type de ressource que vous avez sélectionné. Pour ce tutoriel, sélectionnez le nom du groupe de ressources Azure qui contient votre machine virtuelle. |
+   | **Abonnement** | Oui | <*event-publisher-Azure-subscription-name*> | Sélectionnez le nom de l’abonnement Azure associé à l’*éditeur d’événements*. Dans le cadre de ce tutoriel, sélectionnez le nom d’abonnement Azure de votre machine virtuelle. |
+   | **Type de ressource** | Oui | <*event-publisher-Azure-resource-type*> | Sélectionnez le type de ressource Azure pour l’éditeur d’événements. Pour plus d’informations sur les types de ressources Azure, consultez [Fournisseurs et types de ressources Azure](../azure-resource-manager/management/resource-providers-and-types.md). Pour ce tutoriel, sélectionnez la valeur `Microsoft.Resources.ResourceGroups` pour superviser les groupes de ressources Azure. |
+   | **Nom de la ressource** |  Oui | <*event-publisher-Azure-resource-name*> | Sélectionnez le nom de la ressource Azure pour l’éditeur d’événements. Cette liste varie en fonction du type de ressource que vous avez sélectionné. Pour ce tutoriel, sélectionnez le nom du groupe de ressources Azure qui contient votre machine virtuelle. |
    | **Élément de type d’événement** |  Non | <*event-types*> | Sélectionnez un ou plusieurs types d’événements spécifiques à filtrer et envoyer à votre Event Grid. Par exemple, vous pouvez ajouter ces types d’événements pour détecter le moment où des ressources sont modifiées ou supprimées : <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [Schéma d’événements Azure Event Grid pour les groupes de ressources](../event-grid/event-schema-resource-groups.md) <br>- [Comprendre le filtrage des événements](../event-grid/event-filtering.md) <br>- [Filtrer des événements pour Event Grid](../event-grid/how-to-filter-events.md) |
    | Pour ajouter des propriétés facultatives, sélectionnez **Ajouter un nouveau paramètre**, puis les propriétés souhaitées. | Non | {voir les descriptions} | * **Filtre de préfixe** : Pour ce tutoriel, laissez cette propriété vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de préfixe en tant que filtre, par exemple, un chemin d’accès et un paramètre pour une ressource spécifique. <p>* **Filtre de suffixe** : Pour ce tutoriel, laissez cette propriété vide. Le comportement par défaut s’applique à toutes les valeurs. Vous pouvez cependant spécifier une chaîne de suffixe en tant que filtre, par exemple, une extension de nom de fichier, si vous ne souhaitez utiliser que des types de fichiers spécifiques. <p>* **Nom d’abonnement** : Pour ce tutoriel, vous pouvez indiquer un nom unique pour votre abonnement aux événements. |
    |||
@@ -196,11 +196,11 @@ Ajoutez maintenant une [*action*](../logic-apps/logic-apps-overview.md#logic-app
    > [!TIP]
    > Pour sélectionner une sortie à partir des étapes précédentes de votre workflow, cliquez dans une zone d’édition afin d’ouvrir la liste de contenu dynamique ou sélectionnez **Ajouter du contenu dynamique**. Pour voir davantage de résultats, sélectionnez **Plus** pour chaque section de la liste. Pour fermer la liste de contenu dynamique, sélectionnez de nouveau **Ajouter du contenu dynamique**.
 
-   | Propriété | Obligatoire | Value | Description |
+   | Propriété | Obligatoire | Valeur | Description |
    | -------- | -------- | ----- | ----------- |
-   | **To** | OUI | <*destinataire\@domaine*> | Entrez l’adresse e-mail du destinataire. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
-   | **Subject** | OUI | `Resource updated:` **Subject** | Entrez le contenu de l’objet de l’e-mail. Dans le cadre de ce tutoriel, entrez le texte spécifié et sélectionnez le champ **Subject** de l’événement. Ici, l’objet de votre e-mail comprend le nom de la ressource mise à jour (machine virtuelle). |
-   | **Corps** | OUI | `Resource:` **Sujet** <p>`Event type:` **Type d’événement**<p>`Event ID:` **ID**<p>`Time:` **Heure de l’événement** | Entrez le contenu du corps de l’e-mail. Dans le cadre de ce tutoriel, entrez le texte spécifié et sélectionnez les champs **Topic**, **Event Type**, **ID** et **Event Time** de l’événement de façon à inclure dans votre e-mail la ressource qui a déclenché l’événement, le type d’événement, son horodatage et son ID pour la mise à jour. Pour ce tutoriel, la ressource est le groupe de ressources Azure sélectionné dans le déclencheur. <p>Pour ajouter des lignes vides à votre contenu, appuyez sur Maj + Entrée. |
+   | **To** | Oui | <*destinataire\@domaine*> | Entrez l’adresse e-mail du destinataire. À des fins de test, vous pouvez utiliser votre propre adresse e-mail. |
+   | **Subject** | Oui | `Resource updated:` **Objet** | Entrez le contenu de l’objet de l’e-mail. Dans le cadre de ce tutoriel, entrez le texte spécifié et sélectionnez le champ **Subject** de l’événement. Ici, l’objet de votre e-mail comprend le nom de la ressource mise à jour (machine virtuelle). |
+   | **Corps** | Oui | `Resource:` **Sujet** <p>`Event type:` **Type d’événement**<p>`Event ID:` **ID**<p>`Time:` **Heure de l’événement** | Entrez le contenu du corps de l’e-mail. Dans le cadre de ce tutoriel, entrez le texte spécifié et sélectionnez les champs **Topic**, **Event Type**, **ID** et **Event Time** de l’événement de façon à inclure dans votre e-mail la ressource qui a déclenché l’événement, le type d’événement, son horodatage et son ID pour la mise à jour. Pour ce tutoriel, la ressource est le groupe de ressources Azure sélectionné dans le déclencheur. <p>Pour ajouter des lignes vides à votre contenu, appuyez sur Maj + Entrée. |
    ||||
 
    > [!NOTE]
@@ -245,7 +245,7 @@ Vous pouvez surveiller les autres modifications de configuration avec des grille
 * Des disques d’une machine virtuelle ont été ajoutés ou supprimés.
 * Une adresse IP publique est affectée à la carte d’interface réseau (NIC) d’une machine virtuelle.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Ce didacticiel utilise des ressources et effectue des actions qui peuvent entraîner des frais sur votre abonnement Azure. Par conséquent, lorsque vous aurez terminé de suivre ce didacticiel et d’effectuer les tests, veillez à désactiver ou à supprimer les ressources pour lesquelles vous ne souhaitez pas être facturé.
 

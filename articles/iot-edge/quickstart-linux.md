@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2a5a5bc91e4d83975d05d63dbab4b621734a0ac5
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 8d2e0b4683261a06c39b9a5f335d7f4f22a2fd05
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75494707"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912339"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Linux
 
@@ -201,7 +201,7 @@ Consultez les messages envoyés par le module de capteur de température :
 
    ![Afficher les données dans votre module](./media/quickstart-linux/iotedge-logs.png)
 
-Vous pouvez également regarder les messages arriver sur votre IoT Hub avec l’[extension Azure IoT Hub Toolkit pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (anciennement Azure IoT Toolkit).
+Vous pouvez également regarder les messages arriver sur votre hub IoT avec l’[extension Azure IoT Hub pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7d121e9aeb897897322f1253c332e7a1baabdc9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226609"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768960"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -22,7 +22,7 @@ Ce didacticiel vous montre comment utiliser des fonctions avec Logic Apps et Cog
 
 ![Image : deux premières étapes de l’application dans le Concepteur d’applications logiques](media/functions-twitter-email/00-logic-app-overview.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créez une ressource API Cognitive Services.
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Connecter l’application logique à la fonction.
 > * Envoyer un courrier électronique en fonction de la réponse de la fonction.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 + Un compte [Twitter](https://twitter.com/) actif. 
 + Un compte [Outlook.com](https://outlook.com/) (pour l’envoi de notifications).
@@ -43,7 +43,7 @@ Si vous ne l’avez pas déjà fait, suivez ces étapes pour créer votre Functi
 
 Les API Cognitive Services sont disponibles dans Azure en tant que ressources individuelles. Utilisez l’API Analyse de texte pour détecter le sentiment des tweets en cours d’analyse.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 2. Cliquez sur **Créer une ressource** en haut à gauche du portail Azure.
 
@@ -129,7 +129,7 @@ Vous disposez maintenant d’une fonction permettant de classer les scores des s
 
 ## <a name="create-a-logic-app"></a>Créer une application logique   
 
-1. Dans le portail Azure, cliquez sur le bouton **Nouveau** dans le coin supérieur gauche du portail.
+1. Dans le portail Azure, en haut à gauche, cliquez sur le bouton **Créer une ressource**.
 
 2. Cliquez sur **Web** > **Application logique**.
  
@@ -235,7 +235,7 @@ La dernière partie du flux de travail consiste à déclencher un courrier élec
 | Paramètre      |  Valeur suggérée   | Description  |
 | ----------------- | ------------ | ------------- |
 | **To** | Saisissez votre adresse de messagerie | L’adresse de messagerie qui reçoit la notification. |
-| **Objet** | Sentiment de tweet négatif détecté  | La ligne d’objet de la notification par courrier électronique.  |
+| **Subject** | Sentiment de tweet négatif détecté  | La ligne d’objet de la notification par courrier électronique.  |
 | **Corps** | Texte du tweet, Emplacement | Cliquez sur les paramètres **Texte du tweet** et **Emplacement**. |
 
 1. Cliquez sur **Enregistrer**.
@@ -283,7 +283,7 @@ Pour désactiver l’application logique, cliquez sur **Vue d’ensemble**, puis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez une ressource API Cognitive Services.

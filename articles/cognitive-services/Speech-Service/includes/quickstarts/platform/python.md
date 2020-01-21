@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: erhopf
-ms.openlocfilehash: 37b0deba6531c8e714b8786f8c815cf323c310ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 218d0dca43d126c1318c273603a4980697c465af
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468604"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751602"
 ---
 Ce guide explique comment installer le [Kit de développement logiciel (SDK) Speech](~/articles/cognitive-services/speech-service/speech-sdk.md) pour Python.
 
@@ -47,7 +47,7 @@ Ce guide explique comment installer le [Kit de développement logiciel (SDK) Spe
         ```
 
 - Sur Windows, vous avez besoin de [Microsoft Redistributable Visual C++ pour Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) pour votre plateforme. Notez que la première installation peut nécessiter le redémarrage de Windows avant de continuer à suivre ce guide.
-- Enfin, vous aurez besoin de [Python 3.5 ou version ultérieure](https://www.python.org/downloads/). Pour vérifier votre installation, ouvrez une invite de commandes, tapez la commande `python --version` et vérifiez le résultat. Si elle est correctement installée, vous obtenez une réponse « Python 3.5.1 » ou similaire.
+- Enfin, vous aurez besoin de [Python 3.5, 3.6 ou 3.7](https://www.python.org/downloads/). Pour vérifier votre installation, ouvrez une invite de commandes, tapez la commande `python --version` et vérifiez le résultat. Si elle est correctement installée, vous obtenez une réponse « Python 3.5.1 » ou similaire.
 
 ## <a name="install-the-speech-sdk-using-visual-studio-code"></a>Installer le Kit de développement logiciel (SDK) Speech avec Visual Studio Code
 

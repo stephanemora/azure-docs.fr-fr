@@ -1,18 +1,18 @@
 ---
-title: Collecter des données à partir d’une machine virtuelle Azure avec Azure Monitor | Microsoft Docs
-description: Découvrez comment activer l’extension de machine virtuelle de l’agent Log Analytics et comment activer la collecte de données à partir de vos machines virtuelles Azure avec Log Analytics.
+title: Superviser une ressource Azure avec Azure Monitor
+description: Découvrez comment collecter et analyser les données d’une ressource Azure dans Azure Monitor.
 ms.service: azure-monitor
 ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 85c953c4acdc31cc6d79600951ba745346771b0c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3081c0f8fa8450643a992c8e82840a44db263f76
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75542225"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863976"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Démarrage rapide : Superviser une ressource Azure avec Azure Monitor
 [Azure Monitor](../overview.md) commence à collecter des données des ressources Azure dès le moment de leur création. Ce guide de démarrage rapide décrit brièvement les données qui sont collectées automatiquement pour une ressource particulière et explique comment les afficher dans le portail Azure. Ensuite, vous pouvez ajouter une configuration pour collecter des données supplémentaires. À partir du menu d’Azure Monitor, vous pouvez utiliser les mêmes outils pour accéder aux données collectées pour toutes les ressources dans votre abonnement.

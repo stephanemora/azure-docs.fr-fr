@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Créer une limite géographique à l’aide d’Azure Maps'
-description: 'Tutoriel : Configurez une limite géographique à l’aide d’Azure Maps.'
+title: 'Tutoriel : Créer une limite géographique et suivre des appareils sur une carte | Microsoft Azure Maps'
+description: Dans ce tutoriel, découvrez comment configurer une limite géographique et comment suivre des appareils en fonction de cette limite géographique à l’aide du service spatial Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407829"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910938"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutoriel : Configurer une limite géographique à l’aide d’Azure Maps
 
@@ -58,7 +58,7 @@ Ouvrez l’application Postman et suivez les étapes pour charger la limite géo
 
 3. Cliquez sur **Params**, puis entrez les paires clé/valeur suivantes à utiliser pour l’URL de la requête POST. Remplacez la valeur subscription-key par votre clé Azure Maps.
    
-    ![Paramètres clé/valeur dans Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Paramètres de chargement des données (limite géographique) dans Postman](./media/tutorial-geofence/postman-key-vals.png)
 
 4. Cliquez sur **Body** (Corps), sélectionnez le format d’entrée Raw (Brut), puis choisissez JSON comme format d’entrée dans la liste déroulante. Fournissez le code JSON suivant en tant que données à charger :
 
@@ -177,7 +177,7 @@ Pour plus d’informations, consultez tous les [gestionnaires d’événements p
 
 1. Créer une application logique dans le portail Azure
 
-   ![Créer des applications logiques](./media/tutorial-geofence/logic-app.png)
+   ![Créer Azure Logic Apps pour gérer les événements liés aux limites géographiques](./media/tutorial-geofence/logic-app.png)
 
 2. Sélectionnez un déclencheur de requête HTTP, puis sélectionnez « Envoyer un e-mail » dans le connecteur Outlook.
   
@@ -185,7 +185,7 @@ Pour plus d’informations, consultez tous les [gestionnaires d’événements p
 
 3. Enregistrez l’application logique pour générer le point de terminaison de l’URL HTTP, puis copiez l’URL.
 
-   ![Point de terminaison des applications logiques](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Générer un point de terminaison Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Créer un abonnement aux événements Azure Maps
@@ -196,15 +196,15 @@ Suivez les étapes ci-dessous pour créer un abonnement aux événements d’ent
 
 1. Accédez à votre compte Azure Maps via [ce lien menant au portail](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/), puis sélectionnez l’onglet Événements.
 
-   ![Événements Azure Maps](./media/tutorial-geofence/events-tab.png)
+   ![Accéder aux événements du compte Azure Maps](./media/tutorial-geofence/events-tab.png)
 
 2. Pour créer un abonnement aux événements, sélectionnez Abonnement aux événements dans la page des événements.
 
-   ![Abonnement aux événements Azure Maps](./media/tutorial-geofence/create-event-subscription.png)
+   ![Créer un abonnement aux événements Azure Maps](./media/tutorial-geofence/create-event-subscription.png)
 
 3. Attribuez un nom à l’abonnement aux événements, puis abonnez-vous au type d’événements d’entrée. À présent, sélectionnez Webhook comme « Type de point de terminaison », puis copiez le point de terminaison de l’URL HTTP de l’application logique dans « Point de terminaison »
 
-   ![Abonnement aux événements](./media/tutorial-geofence/events-subscription.png)
+   ![Détails de l’abonnement aux événements Azure Maps](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>Utiliser l’API Geofence
@@ -214,7 +214,7 @@ Vous pouvez utiliser l’API Geofence pour vérifier si un **appareil** (le mat�
 > [!Note]
 > Ce scénario et ce comportement sont basés sur le même **ID d’appareil** afin de montrer les cinq emplacements différents, comme dans la figure ci-dessous.
 
-![Mappage de limite géographique](./media/tutorial-geofence/geofence.png)
+![Mappage de limite géographique dans Azure Maps](./media/tutorial-geofence/geofence.png)
 
 Dans l’application Postman, ouvrez un nouvel onglet dans la collection que vous avez créée précédemment. Sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur) :
 

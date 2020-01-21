@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74829182"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75773045"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Quelle est la différence entre une passerelle de réseau virtuel Azure (passerelle VPN) et une passerelle VPN Azure Virtual WAN ?
 
@@ -22,6 +22,9 @@ WAN virtuel fournit une connectivité de site à site à grande échelle et est 
 ### <a name="how-is-virtual-wan-different-from-an-azure-virtual-network-gateway"></a>En quoi Virtual WAN est-il différent d’une passerelle de réseau virtuel Azure ?
 
 Le VPN d’une passerelle de réseau virtuel est limité à 30 tunnels. Pour les connexions, vous devez utiliser un WAN virtuel pour le VPN à grande échelle. Vous pouvez connecter jusqu’à 1 000 connexions de branche par région (hub virtuel) avec un agrégat de 20 Gbits/s par hub. Une connexion est un tunnel actif-actif entre l’appareil VPN local et le hub virtuel. Vous pouvez disposer d’un hub par région, ce qui signifie que vous pouvez connecter plus de 1000 branches parmi tous les hubs.
+
+### <a name="what-is-a-virtual-wan-gateway-scale-unit"></a>Qu’est-ce qu’une unité d’échelle de passerelle Virtual WAN ?
+Une unité d’échelle est une unité définie pour choisir un débit agrégé d’une passerelle dans le hub virtuel. 1 unité d’échelle de VPN = 500 Mbits/s 1 unité d’échelle d’ExpressRoute = 2 Gbits/s Exemple : 10 unités d’échelle de VPN représente un débit de 500 Mbits/s * 10 = 5 Gbits/s
 
 ### <a name="which-device-providers-virtual-wan-partners-are-supported"></a>Quels sont les fournisseurs d’appareils (partenaires Virtual WAN) pris en charge ?
 
@@ -111,9 +114,11 @@ La configuration simple d’un Virtual WAN avec un hub et un site VPN peut être
 
 Vous pouvez connecter un réseau virtuel dans une région différente de celle de votre réseau étendu virtuel.
 
-### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>Est-ce que les réseaux virtuels membres spoke et connectés à un hub virtuel peuvent communiquer entre eux ?
+### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other-v2v-transit"></a>Est-ce que les réseaux virtuels spoke qui sont connectés à un hub virtuel peuvent communiquer entre eux (transit V2V) ?
 
-Oui. Le service Virtual WAN standard prend en charge la connectivité transitive de réseau virtuel à réseau virtuel via le hub Virtual WAN auquel les réseaux virtuels sont connectés. Dans la terminologie des réseaux étendus virtuels, nous faisons référence à ces chemins en tant que « transit de réseau virtuel Virtual WAN local » pour les réseaux virtuels connectés à un hub Virtual WAN dans une seule région, et en tant que « transit de réseau virtuel Virtual WAN global » pour les réseaux virtuels connectés via plusieurs hubs Virtual WAN dans deux régions ou plus. Le transit de réseau virtuel prend en charge jusqu’à 3 Gbits/s de débit pendant la phase de préversion publique. Le débit est étendu lorsque le transit global est mis à la disposition générale.   
+Oui. Le service Virtual WAN standard prend en charge la connectivité transitive de réseau virtuel à réseau virtuel via le hub Virtual WAN auquel les réseaux virtuels sont connectés. Dans la terminologie des réseaux étendus virtuels, nous faisons référence à ces chemins en tant que « transit de réseau virtuel Virtual WAN local » pour les réseaux virtuels connectés à un hub Virtual WAN dans une seule région, et en tant que « transit de réseau virtuel Virtual WAN global » pour les réseaux virtuels connectés via plusieurs hubs Virtual WAN dans deux régions ou plus. Le transit de réseau virtuel prend en charge jusqu’à 3 Gbits/s de débit pendant la phase de préversion publique. Le débit est étendu lorsque le transit global est mis à la disposition générale.
+
+REMARQUE :  Actuellement, le transit V2V (en préversion) requiert le déploiement d’une passerelle VPN dans un hub virtuel pour déclencher le lancement des éléments de routage. Cette passerelle VPN n’est pas utilisée pour le chemin du transit V2V. Il s’agit d’une limitation connue qui sera corrigée dans la version de V2V en disponibilité générale. Une fois que la passerelle VPN a été lancée, vous pouvez la supprimer dans les hubs, car elle n’est pas nécessaire pour la fonctionnalité de transit V2V. 
 
 Pour certains scénarios, les réseaux virtuels spoke peuvent également être directement appairés les uns avec les autres via [VNET Peering](../articles/virtual-network/virtual-network-peering-overview.md), en plus du transit de réseau virtuel Virtual WAN local ou global. Dans ce cas, VNET Peering est prioritaire sur la connexion transitive via le hub Virtual WAN. 
 

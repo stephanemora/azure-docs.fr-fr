@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 11/05/2019
-ms.openlocfilehash: 71308b7f17d6009e8650cafbb02afd577fd73cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 42638af9f51770a9a5738cd92f91c28439af273a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437728"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750097"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Démarrage rapide : Créer une instance d’Azure Database Migration Service à l’aide du portail Azure
 
@@ -55,11 +55,11 @@ Avant de créer votre première instance Database Migration Service, vous devez 
     - Sélectionnez l’**abonnement** Azure dans lequel vous souhaitez créer l’instance.
     - Sélectionnez un **Groupe de ressources** existant ou créez-en un.
     - Choisissez **l’emplacement** le plus proche de votre serveur source ou cible.
-    - Sélectionnez un **réseau virtuel** (VNET) existant ou créez-en un.
+    - Sélectionnez un **réseau virtuel** existant ou créez-en un.
 
-        Le VNET fournit à Azure Database Migration Service un accès à la base de données source et à l’environnement cible.
+        Le réseau virtuel fournit à Azure Database Migration Service un accès à la base de données source et à l’environnement cible.
 
-        Pour plus d’informations sur la création d’un VNET dans le portail Azure, voir l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/vnet).
+        Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel au moyen du portail Azure](https://aka.ms/vnet).
 
     - Sélectionnez De base : 1 vCore pour le **Niveau tarifaire**.
 

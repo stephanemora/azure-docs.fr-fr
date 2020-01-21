@@ -5,16 +5,16 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 74b0f83500903170616034d9d18d8ad31fa7065c
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670391"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834313"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurer une application Ruby Linux pour Azure App Service
 
-Cet article explique la façon dont [Azure App Service](app-service-linux-intro.md) exécute des applications Ruby, et comment vous pouvez personnaliser le comportement d’App Service si nécessaire. Les applications Ruby doivent être déployées avec tous les modules [pip](https://pypi.org/project/pip/) nécessaires.
+Cet article explique la façon dont [Azure App Service](app-service-linux-intro.md) exécute des applications Ruby, et comment vous pouvez personnaliser le comportement d’App Service si nécessaire. Les applications Ruby doivent être déployées avec les [gemmes](https://rubygems.org/gems) nécessaires.
 
 Ce guide fournit des concepts et des instructions clés aux développeurs Ruby qui utilisent un conteneur Linux intégré dans App Service. Si vous n’avez jamais utilisé Azure App Service, vous devez d’abord suivre le [guide de démarrage rapide Ruby](quickstart-ruby.md) et le [tutoriel sur l’utilisation de Ruby avec PostgreSQL](tutorial-ruby-postgres-app.md).
 
@@ -119,7 +119,7 @@ Le serveur Rails du conteneur Ruby s’exécute en mode production par défaut, 
 
 ### <a name="run-in-non-production-mode"></a>Exécuter en mode hors production
 
-Par défaut, le serveur Rails s’exécute en mode production. Pour exécuter en mode développement, par exemple, définissez le [paramètre d’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `RAILS_ENV` sur `development`.
+Par défaut, le serveur Rails s’exécute en mode production. Pour une exécution en mode développement, par exemple, définissez le [paramètre d’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `RAILS_ENV` sur `development`.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings RAILS_ENV="development"
@@ -133,7 +133,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 ### <a name="set-secret_key_base-manually"></a> Définir manuellement secret_key_base
 
-Pour utiliser votre propre valeur `secret_key_base` au lieu de laisser App Service en générer une pour vous, définissez le [paramètre d’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` sur la valeur souhaitée. Par exemple :
+Pour utiliser votre propre valeur `secret_key_base` au lieu de laisser App Service en générer une automatiquement, définissez le [paramètre d’application](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) `SECRET_KEY_BASE` sur la valeur souhaitée. Par exemple :
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings SECRET_KEY_BASE="<key-base-value>"
@@ -150,7 +150,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Application Rails avec PostgreSQL](tutorial-ruby-postgres-app.md)
+> [Tutoriel : Application Rails avec PostgreSQL](tutorial-ruby-postgres-app.md)
 
 > [!div class="nextstepaction"]
 > [Questions fréquentes (FAQ) sur App Service sur Linux](app-service-linux-faq.md)

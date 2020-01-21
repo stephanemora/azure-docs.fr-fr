@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: quickstart
 ms.date: 03/28/2018
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 8e89c3923daab15793707ff99dbbed6deeb6a0b0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 808f0f81f937da688a8873e5f6ee959976e9d6aa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227172"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769283"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Créez une fonction dans Azure, qui est déclenchée par un minuteur
 
@@ -18,9 +18,9 @@ Apprenez à utiliser Azure Functions pour créer une fonction [serverless](https
 
 ![Créer une Function App dans le Portail Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce didacticiel :
+Pour suivre ce tutoriel :
 
 + Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -53,7 +53,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
     | **Nom** | Default | Définit le nom de votre fonction déclenchée par minuteur. |
     | **Planification** | 0 \*/1 \* \* \* \* | Un champ de six [expressions CRON](functions-bindings-timer.md#ncrontab-expressions) qui planifie l’exécution de votre fonction chaque minute. |
 
-4. Cliquez sur **Créer**. Une fonction est créée dans le langage que vous avez choisi et s’exécute chaque minute.
+4. Cliquez sur **Créer**. Une fonction est créée dans le langage que vous avez choisi et s’exécute toutes les minutes, à la minute pile.
 
 5. Vérifiez l’exécution en consultant les informations de traçage écrites dans les journaux d’activité.
 
@@ -69,9 +69,9 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ![Les fonctions mettent à jour la planification du minuteur dans le Portail Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
-Vous disposez maintenant d’une fonction qui s’exécute toutes les heures. 
+Vous disposez maintenant d’une fonction qui s’exécute toutes les heures, à l’heure pile.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-cleanup.md)]
 

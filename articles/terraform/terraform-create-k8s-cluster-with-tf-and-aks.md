@@ -3,14 +3,14 @@ title: 'Tutoriel : Créer un cluster Kubernetes avec Azure Kubernetes Service (
 description: Tutoriel illustrant comment créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 792c075cfb40eb4904a30b63e9902a59ceda9bc1
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: e04abdab2893e76a65615635ae9937797be89855
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159305"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708272"
 ---
-# <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Didacticiel : Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
+# <a name="tutorial-create-a-kubernetes-cluster-with-azure-kubernetes-service-using-terraform"></a>Tutoriel : Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé. AKS vous permet de déployer et de gérer des applications conteneurisées sans expertise d’orchestration de conteneurs. AKS vous permet également d’effectuer de nombreuses opérations de maintenance courantes sans mettre votre application hors connexion. Ces opérations incluent le provisionnement, la mise à niveau et la mise à l’échelle des ressources à la demande.
 
@@ -21,7 +21,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les opérations suivantes :
 > * Utiliser Terraform et AKS pour créer un cluster Kubernetes
 > * Utiliser l’outil kubectl pour tester la disponibilité d’un cluster Kubernetes
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - **Abonnement Azure** : Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
@@ -39,7 +39,7 @@ La première étape consiste à créer le répertoire qui contient vos fichiers 
 
     ![Invite Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Remplacez le répertoire par le répertoire `clouddrive`.
+1. Déplacez-vous dans le répertoire `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -138,12 +138,10 @@ Créez le fichier de configuration Terraform qui déclare les ressources du clus
             }
         }
 
-        agent_pool_profile {
+        default_node_pool {
             name            = "agentpool"
-            count           = var.agent_count
+            node_count      = var.agent_count
             vm_size         = "Standard_DS1_v2"
-            os_type         = "Linux"
-            os_disk_size_gb = 30
         }
 
         service_principal {
@@ -168,7 +166,7 @@ Créez le fichier de configuration Terraform qui déclare les ressources du clus
 
     L’enregistrement `linux_profile` vous permet de configurer les paramètres servant à vous connecter aux nœuds Worker en utilisant SSH.
 
-    Avec AKS, vous payez uniquement pour les nœuds worker. L’enregistrement `agent_pool_profile` configure les détails de ces nœuds Worker. L’enregistrement `agent_pool_profile record` inclut le nombre de nœuds Worker à créer et le type des nœuds Worker. Si vous devez par la suite effectuer un scale-up ou un scale-down du cluster, modifiez la valeur de `count` dans cet enregistrement.
+    Avec AKS, vous payez uniquement pour les nœuds worker. L’enregistrement `default_node_pool` configure les détails de ces nœuds Worker. L’enregistrement `default_node_pool record` inclut le nombre de nœuds Worker à créer et le type des nœuds Worker. Si vous devez par la suite effectuer un scale-up ou un scale-down du cluster, modifiez la valeur de `count` dans cet enregistrement.
 
 1. Enregistrez le fichier ( **&lt;Ctrl>S**) et quittez l’éditeur ( **&lt;Ctrl>Q**).
 
@@ -299,7 +297,7 @@ Dans cette section, vous allez apprendre à effectuer les tâches suivantes :
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
-## <a name="create-the-kubernetes-cluster"></a>Créer un cluster Kubernetes
+## <a name="create-the-kubernetes-cluster"></a>Créer le cluster Kubernetes
 
 Dans cette section, vous voyez comment utiliser la commande `terraform init` pour créer les ressources définies dans les fichiers de configuration que vous avez créés dans les sections précédentes.
 

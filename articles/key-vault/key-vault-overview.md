@@ -10,20 +10,20 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0cd6cbf21a392f68db707b9c0184320316d45ffe
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 97df5c309a3bdbf5055d67f893e33ab1a0c3232a
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851024"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832772"
 ---
-# <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
+# <a name="what-is-azure-key-vault"></a>Qu'est-ce qu'Azure Key Vault ?
 
 Azure Key Vault aide à résoudre les problèmes suivants :
 
 - **Gestion des secrets** : Azure Key Vault peut être utilisé pour stocker en toute sécurité les jetons, mots de passe, certificats, clés API et autres secrets, et pour en contrôler étroitement l’accès.
 - **Gestion des clés** : Azure Key Vault peut également servir de solution de gestion de clés. Azure Key Vault simplifie la création et le contrôle des clés de chiffrement utilisées pour chiffrer vos données. 
-- **Gestion des certificats** : Azure Key Vault est également un service qui vous permet de configurer, gérer et déployer facilement des certificats SSL/TLS publics et privés pour une utilisation avec Azure et vos ressources connectées internes. 
+- **Gestion des certificats** : Azure Key Vault est également un service qui vous permet de provisionner, gérer et déployer facilement des certificats SSL/TLS publics et privés pour une utilisation avec Azure et vos ressources connectées internes. 
 - **Stockage de secrets protégés par des modules de sécurité matériels** : les secrets et les clés peuvent être protégés soit par logiciel, soit par des modules de sécurité matériels validés FIPS 140-2 de niveau 2.
 
 ## <a name="why-use-azure-key-vault"></a>Pourquoi utiliser Azure Key Vault ?
@@ -79,5 +79,5 @@ La solution Key Vault proprement dite peut s’intégrer aux comptes de stockage
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : créer un coffre de clés Azure Key Vault à l’aide de l’interface de ligne de commande](quick-create-cli.md)
+- [Démarrage rapide : créer un coffre de clés Azure Key Vault à l’aide de l’interface de ligne de commande](quick-create-cli.md)
 - [Configurer une application web Azure pour lire un secret dans le coffre de clés](tutorial-web-application-keyvault.md)

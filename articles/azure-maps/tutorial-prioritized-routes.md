@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Itinéraires multiples avec Azure Maps'
-description: 'Tutoriel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps'
+title: 'Tutoriel : Trouver plusieurs routes en fonction du mode de transport | Microsoft Azure Maps'
+description: Dans ce tutoriel, vous allez apprendre à trouver des routes pour différents modes de transport à l’aide de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cec7027ee0eadae2284e9aa2b127c195870ee929
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613633"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910864"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutoriel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -117,7 +117,7 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
 
 2. Enregistrez le fichier **MapTruckRoute.html** et actualisez la page dans votre navigateur. Si vous interagissez avec la carte et que vous faites un zoom sur Los Angeles, vous devriez voir les rues avec les données de trafic actuelles.
 
-   ![Afficher les données de trafic](./media/tutorial-prioritized-routes/traffic-map.png)
+   ![Voir le trafic sur une carte](./media/tutorial-prioritized-routes/traffic-map.png)
 
 <a id="queryroutes"></a>
 

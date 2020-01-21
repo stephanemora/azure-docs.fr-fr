@@ -13,18 +13,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77763ac30b4ba98e4849a25690302469843b4d06
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f003daea188c6f556d0981c83c98f3328362f864
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920631"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975125"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Démarrage rapide : Connecter des utilisateurs et obtenir un jeton d’accès dans une application SPA JavaScript
 
 Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour découvrir comment une application monopage JavaScript peut connecter les utilisateurs de comptes personnels, professionnels et scolaires. Une application monopage JavaScript peut également obtenir un jeton d’accès pour appeler l’API Microsoft Graph ou une API web. (Consultez [Fonctionnement de l’exemple](#how-the-sample-works) pour une illustration.)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Node.js](https://nodejs.org/en/download/).
@@ -49,7 +49,7 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire, ou avec un compte personnel Microsoft.
 >
 > 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite, puis définissez votre session de portail sur le locataire Azure AD que vous voulez utiliser.
-> 1. Accédez à la page [Inscriptions des applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identités Microsoft pour les développeurs.
+> 1. Accédez à la page [Inscriptions d’applications](https://go.microsoft.com/fwlink/?linkid=2083908) de la plateforme d’identité Microsoft pour les développeurs.
 > 1. Sélectionnez **Nouvelle inscription**.
 > 1. Lorsque la page **Inscrire une application** s’affiche, entrez le nom de votre application.
 > 1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un annuaire organisationnel et comptes personnels Microsoft**.
@@ -60,15 +60,15 @@ Dans ce guide de démarrage rapide, vous utilisez un exemple de code pour décou
 > 1. En haut du volet, sélectionnez **Enregistrer**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
-> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter un URI de redirection comme `http://localhost:30662/` et activer **Octroi implicite**.
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
+> Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter un `redirectUri` comme `http://localhost:30662/` et activer **Octroi implicite**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter ces modifications pour moi]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-javascript/green-check.png) Votre application est configurée avec ces attributs.
 
-#### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet
+#### <a name="step-2-download-the-project"></a>Étape 2 : Téléchargez le projet
 
 Sélectionnez l’option qui convient à votre environnement de développement :
 
@@ -89,7 +89,7 @@ var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_info_here",
-        redirectURI: "http://localhost:30662/"
+        redirectUri: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -135,7 +135,7 @@ var msalConfig = {
 
 Une fois que l’application est chargée dans le navigateur, sélectionnez **Se connecter**. La première fois que vous vous connectez, vous êtes invité à autoriser l’application à accéder à votre profil et à vous connecter. Une fois que vous êtes connecté, les informations de votre profil utilisateur doivent s’afficher sur la page.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 ### <a name="how-the-sample-works"></a>Fonctionnement de l’exemple
 
@@ -167,7 +167,7 @@ var msalConfig = {
     auth: {
         clientId: "Enter_the_Application_Id_here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-        redirectURI: "http://localhost:30662/"
+        redirectUri: "http://localhost:30662/"
     },
     cache: {
         cacheLocation: "localStorage",
@@ -182,7 +182,7 @@ var myMSALObj = new Msal.UserAgentApplication(msalConfig);
 > |---------|---------|
 > |`clientId`     | ID de l’application inscrite dans le Portail Azure.|
 > |`authority`    | (Facultatif) URL de l’autorité qui prend en charge les types de comptes, comme décrit plus haut dans la section de configuration. L’autorité par défaut est `https://login.microsoftonline.com/common`. |
-> |`redirectURI`     | URI de réponse/redirection configuré de l’inscription de l’application. Dans ce cas, `http://localhost:30662/`. |
+> |`redirectUri`     | URI de réponse/redirection (reply/redirectUri) configuré de l’inscription de l’application. Dans ce cas, `http://localhost:30662/`. |
 > |`cacheLocation`  | (Facultatif) Définit le stockage du navigateur pour l’état d’authentification. La valeur par défaut est sessionStorage.   |
 > |`storeAuthStateInCookie`  | (Facultatif) Bibliothèque qui stocke l’état de la demande d’authentification nécessaire pour la validation des flux d’authentification dans les cookies de navigateur. Ce cookie est défini pour les navigateurs Internet Explorer et Edge afin de limiter l’impact de certains [problèmes connus](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues-on-IE-and-Edge-Browser#issues). |
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
 zone_pivot_groups: programming-languages-set-five
-ms.openlocfilehash: 67e404675d6a4917b6e26c0c5dd5e067a3408652
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: edd4c09bb8cf724e293f1f947eab81f0f9f7a7c8
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446210"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832206"
 ---
 # <a name="quickstart-use-the-text-analytics-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte
 
@@ -69,7 +69,7 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Analyse de texte avec Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Explorer une solution](../text-analytics-user-scenarios.md#analyze-recorded-inbound-customer-calls)
 
 
 * [Vue d’ensemble d’Analyse de texte](../overview.md)

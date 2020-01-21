@@ -1,16 +1,16 @@
 ---
-title: 'Didacticiel : Créer une définition de stratégie personnalisée'
+title: 'Tutoriel : Créer une définition de stratégie personnalisée'
 description: Dans ce tutoriel, vous créez une définition de stratégie personnalisée pour Azure Policy afin d’appliquer des règles métier personnalisées sur vos ressources Azure.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885447"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966017"
 ---
-# <a name="tutorial-create-a-custom-policy-definition"></a>Didacticiel : Créer une définition de stratégie personnalisée
+# <a name="tutorial-create-a-custom-policy-definition"></a>Tutoriel : Créer une définition de stratégie personnalisée
 
 Une définition de stratégie personnalisée permet aux clients de définir leurs propres règles d’utilisation d’Azure. Ces règles appliquent souvent :
 
@@ -31,7 +31,7 @@ Voici les étapes de création d’une stratégie personnalisée :
 > - Déterminer l’effet à utiliser
 > - Composer la définition de stratégie
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -66,7 +66,7 @@ L’[extension VS Code](../how-to/extension-for-vscode.md#search-for-and-view-r
 
 ### <a name="resource-manager-templates"></a>Modèles Resource Manager
 
-Il existe plusieurs façons d’examiner un [modèle Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) qui inclut la propriété à gérer.
+Il existe plusieurs façons d’examiner un [modèle Resource Manager](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) qui inclut la propriété à gérer.
 
 #### <a name="existing-resource-in-the-portal"></a>Ressource existante dans le portail
 
@@ -164,7 +164,7 @@ Nous avons identifié la propriété de la ressource, mais nous devons mapper ce
 Il existe de nombreuses façons de déterminer les alias d’une ressource Azure. Dans ce tutoriel, nous les examinons toutes :
 
 - Extension Azure Policy pour VS Code
-- D’Azure CLI
+- Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
 
@@ -172,7 +172,7 @@ Il existe de nombreuses façons de déterminer les alias d’une ressource Azure
 
 L’extension Azure Policy pour l’extension VS Code facilite la navigation dans vos ressources et la [découverte d’alias](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties).
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Dans Azure CLI, le groupe de commandes `az provider` est utilisé pour rechercher des alias de ressource. Nous filtrons sur l’espace de noms **Microsoft.Storage** d’après les détails que nous avons obtenus précédemment sur la ressource Azure.
 
@@ -358,7 +358,7 @@ Les trois premiers composants sont des métadonnées de stratégie. Ces composan
 "mode": "all",
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 Nous n’avons pas utilisé de paramètre pour changer l’évaluation, mais nous devons utiliser un paramètre afin de nous autoriser à changer l’**effet** pour la résolution des problèmes. Nous définissons un paramètre **effectType** et le limitons à **Refuser** et **Désactivé** uniquement. Ces deux options correspondent à nos exigences métier. Le bloc de paramètres terminé ressemble à cet exemple :
 
@@ -453,7 +453,7 @@ Voici notre définition terminée avec les trois parties de la stratégie défin
 
 La définition terminée peut être utilisée pour créer une stratégie. Le portail et chaque SDK (Azure CLI, Azure PowerShell et API REST) acceptent la définition de différentes façons, vous devez donc passer en revue les commandes de chacun d’eux pour vérifier comment les utiliser. Attribuez-la ensuite, à l’aide de l’effet paramétré, aux ressources appropriées pour gérer la sécurité de vos comptes de stockage.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez fini d’utiliser les ressources de ce tutoriel, effectuez les étapes suivantes pour supprimer les affectations ou définitions créées ci-dessus :
 

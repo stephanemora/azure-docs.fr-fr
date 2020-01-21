@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 12/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b9491a4438ff07222bb5ce5bd684964bdfc0031
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c068e33bc7844c464bc8a289387990128d96dd35
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452829"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861793"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Qu’est-ce que Azure Time Series Insights ?
 
@@ -67,7 +67,7 @@ Comme Azure Time Series Insights capture et stocke chaque nouvel événement sou
 
 ## <a name="capabilities"></a>Fonctionnalités
 
-- **Prise en main rapide** : comme Azure Time Series Insights ne requiert pas de préparation préalable des données, vous pouvez rapidement vous connecter à des millions d’événements dans votre hub IoT ou hub d’événements. Une fois connecté, vous pouvez visualiser les données de capteurs et interagir avec celles-ci pour valider rapidement vos solutions IoT. Vous pouvez interagir avec vos données sans écrire de code et vous n’êtes pas obligé d’apprendre un nouveau langage. Time Series Insights propose aux utilisateurs expérimentés une zone de recherche de texte libre granulaire ainsi qu’une expérience d’exploration « pointer et cliquer ».
+- **Prise en main rapide** : comme Azure Time Series Insights ne requiert pas de préparation préalable des données, vous pouvez rapidement vous connecter à des millions d’événements dans votre hub IoT ou hub d’événements. Une fois connecté, vous pouvez visualiser les données de capteurs et interagir avec celles-ci pour valider rapidement vos solutions IoT. Vous pouvez interagir avec vos données sans écrire de code et vous n’êtes pas obligé d’apprendre un nouveau langage. Time Series Insights propose aux utilisateurs expérimentés une zone de recherche de texte libre précise ainsi qu’une expérience d’exploration « pointer et cliquer ».
 
 - **Insights en temps quasi réel** : Time Series Insights peut recevoir des millions d’événements de capteur par jour, avec une latence d’une minute. Time Series Insights vous permet de tirer des insights de vos données de capteur. Utilisez-le pour identifier des tendances et des anomalies, effectuer des analyses de cause première et éviter des temps d’arrêt coûteux. Une corrélation croisée entre données en temps réel et données historiques vous aide à trouver les tendances cachées dans les données.
 
@@ -82,7 +82,7 @@ Pour commencer, suivez ces étapes.
 1. Provisionnez un environnement Time Series Insights dans le portail Azure.
 1. Connectez-vous à une source d’événements telle qu’un hub IoT ou un hub d’événements.
 1. Chargez des données de référence. Il ne s’agit pas d’un service supplémentaire.
-1. Consultez vos données en quelques minutes avec l’Explorateur Time Series Insights.
+1. Passez en revue et affichez vos données en quelques minutes avec l’Explorateur Time Series Insights.
 
 ## <a name="explorer"></a>Explorer
 

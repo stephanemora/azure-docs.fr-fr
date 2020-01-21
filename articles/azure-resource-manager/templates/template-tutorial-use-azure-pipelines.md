@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dfe17b99c1a9b1130695c8e5cd9c65ca7681d35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470944"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921618"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Tutoriel : Intégration continue de modèles Azure Resource Manager avec Azure Pipelines
 
@@ -194,7 +194,7 @@ Pour créer un pipeline avec une étape pour déployer un modèle :
 
     Effectuez les modifications suivantes :
 
-    * **deloymentScope** : sélectionnez l’étendue du déploiement à l’aide des options `Management Group`, `Subscription` et `Resource Group`. Dans ce tutoriel, choisissez **Groupe de ressources**. Pour en savoir plus sur les étendues, consultez [Étendues de déploiement](deploy-rest.md#deployment-scope).
+    * **deploymentScope** : sélectionnez l’étendue du déploiement à l’aide des options `Management Group`, `Subscription` et `Resource Group`. Dans ce tutoriel, choisissez **Groupe de ressources**. Pour en savoir plus sur les étendues, consultez [Étendues de déploiement](deploy-rest.md#deployment-scope).
     * **ConnectedServiceName** : spécifiez le nom de la connexion au service que vous avez créée précédemment.
     * **SubscriptionName** :  spécifiez l’ID de l’abonnement cible.
     * **action** : l’action **Create Or Update Resource Group** (Créer ou mettre à jour le groupe des ressources) effectue 2 actions : d’abord, il crée un groupe de ressources si un nouveau nom de groupe de ressources est fourni. Ensuite, il déploie le modèle spécifié.

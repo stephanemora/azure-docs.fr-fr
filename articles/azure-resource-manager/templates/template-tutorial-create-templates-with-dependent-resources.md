@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 15c707b5424e84e99e0b1942bb623e6d3845213a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73a35b9c04b8b520be4f0adeb8ddb4142499075
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471254"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834360"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutoriel : Créer des modèles Azure Resource Manager avec des ressources dépendantes
 
@@ -18,7 +18,7 @@ Découvrez comment créer un modèle Azure Resource Manager pour déployer plus
 
 Dans ce didacticiel, vous créez un compte de stockage, une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes. Certaines ressources ne peuvent pas être déployées avant qu’une autre ressource n’existe. Par exemple, vous ne pouvez pas créer la machine virtuelle avant que son compte de stockage et son interface réseau n’existent. Vous définissez cette relation en rendant une seule ressource dépendante des autres ressources. Resource Manager évalue les dépendances entre les ressources et les déploie dans leur ordre dépendant. Quand les ressources ne dépendent pas les unes des autres, Resource Manager les déploie en parallèle. Pour plus d’informations, consultez [Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager](./define-resource-dependency.md).
 
-![schéma de l’ordre de déploiement des ressources dépendant du modèle Azure Resource Manager](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
+![Schéma de l’ordre de déploiement des ressources dépendant du modèle Resource Manager](./media/template-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -161,7 +161,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez développé et déployé un modèle pour créer une machine virtuelle, un réseau virtuel et les ressources dépendantes. Pour savoir comment déployer des ressources Azure en fonction des conditions, consultez :
+Dans ce didacticiel, vous avez développé et déployé un modèle pour créer une machine virtuelle, un réseau virtuel et les ressources dépendantes. Pour découvrir comment utiliser des scripts de déploiement pour effectuer des opérations de pré/post-déploiement, consultez :
 
 > [!div class="nextstepaction"]
-> [Utiliser des conditions](./template-tutorial-use-conditions.md)
+> [Utiliser un script de déploiement](./template-tutorial-deployment-script.md)

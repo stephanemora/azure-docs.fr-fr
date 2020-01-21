@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer un environnement - Azure Time Series Insights | Microsoft Docs'
+title: 'Tutoriel : Créer un environnement – Azure Time Series Insights | Microsoft Docs'
 description: Découvrez comment créer un environnement Time Series Insights, contenant des données issues d’appareils simulés.
 services: time-series-insights
 author: deepakpalled
@@ -9,16 +9,16 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 12/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 387f3df7313c26c5cd8f7fee7c9b58ec3b5c4552
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 83462d47af49a02817dcfa05afcd8fdb5e0beab1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872407"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863704"
 ---
-# <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Didacticiel : Créer un environnement Azure Time Series Insights
+# <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Tutoriel : Créer un environnement Azure Time Series Insights
 
-Ce tutoriel vous guide tout au long du processus de création d’un environnement Azure Time Series Insights contenant des données issues d’appareils simulés. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous guide tout au long du processus de création d’un environnement Azure Time Series Insights contenant des données issues d’appareils simulés. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créez un environnement Time Series Insights.
@@ -30,7 +30,7 @@ Ce tutoriel vous guide tout au long du processus de création d’un environneme
 > [!IMPORTANT]
 > Souscrivez un [abonnement Azure gratuit](https://azure.microsoft.com/free/) si vous n’en avez pas déjà un.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Votre compte de connexion Azure doit également être membre du rôle **Propriétaire** de l’abonnement. Pour plus d’informations, consultez [Gérer l’accès à l’aide d’un contrôle d’accès en fonction du rôle et du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
@@ -40,7 +40,7 @@ Ce tutoriel vous guide tout au long du processus de création d’un environneme
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’environnement Time Series Insights désigne l’endroit où les données de l’appareil sont collectées et stockées. Une fois les données stockées, l'[Explorateur Azure Time Series Insights](time-series-quickstart.md) et l'[API de requête Time Series Insights](/rest/api/time-series-insights/ga-query-api) peuvent être utilisés pour interroger et analyser les données.
 
@@ -72,7 +72,7 @@ D’abord, créez la solution de simulation d’appareil, qui va générer les d
 
    [![Provisionner la solution de simulation d’appareil](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png)](media/tutorial-create-populate-tsi-environment/iot-solution-accelerators-configuration.png#lightbox)
 
-1. Une fois le provisionnement terminé, deux mises à jour s’affichent pour indiquer que l’état du déploiement est passé de **Provisionnement** à **Prêt**. 
+1. Une fois le provisionnement terminé, deux mises à jour s’affichent pour vous signaler que l’état du déploiement est passé de **Provisionnement** à **Prêt**. 
 
    >[!IMPORTANT]
    > N’entrez pas encore votre accélérateur de solution ! Gardez cette page web ouverte car vous aurez besoin d’y revenir plus tard.
@@ -162,7 +162,7 @@ Dans cette dernière section, vous allez vérifier que les données de télémé
 
    [![Explorateur Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
-1. L’explorateur Time Series Insights se charge et s’authentifie à l’aide de votre compte de portail Azure. Dans la vue initiale, vous pouvez voir dans la zone de graphique que l’environnement Explorateur Time Series Insights a été renseigné avec les données de télémétrie simulées. Pour filtrer sur une période plus restreinte, sélectionnez la liste déroulante en haut à gauche. Saisissez une période suffisamment longue pour couvrir la durée de la simulation d’appareil. Sélectionnez ensuite la loupe de recherche.
+1. L’explorateur Time Series Insights se charge et s’authentifie à l’aide de votre compte de portail Azure. Au départ, apparaissent la zone de graphique avec laquelle l’environnement Time Series Insights a été renseigné et ses données de télémétrie simulées. Pour filtrer sur une période plus restreinte, sélectionnez la liste déroulante en haut à gauche. Saisissez une période suffisamment longue pour couvrir la durée de la simulation d’appareil. Sélectionnez ensuite la loupe de recherche.
 
    [![Filtre d'intervalle de temps de l’explorateur Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
@@ -174,7 +174,7 @@ Dans cette dernière section, vous allez vérifier que les données de télémé
 
    [![Vue filtrée d'intervalle de temps et événements de l’explorateur Time Series Insights](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Ce tutoriel crée plusieurs services Azure en cours d’exécution, pour prendre en charge l’environnement Time Series Insights et la solution de simulation d’appareil. Pour les supprimer, revenez au portail Azure.
 
@@ -186,7 +186,7 @@ Dans le menu de gauche du portail Azure :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créez un environnement Time Series Insights.
@@ -198,4 +198,4 @@ Dans ce tutoriel, vous avez appris à :
 Maintenant que vous savez comment créer votre propre environnement Time Series Insights, apprenez à créer une application web qui utilise des données à partir d’un environnement Time Series Insights :
 
 > [!div class="nextstepaction"]
-> [Consultez les exemples hébergés de visualisations du SDK client](https://tsiclientsample.azurewebsites.net/)
+> [Lire les exemples de visualisations du SDK client hébergé](https://tsiclientsample.azurewebsites.net/)

@@ -1,6 +1,6 @@
 ---
-title: 'Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps'
-description: 'Tutoriel : Créez un localisateur de magasin à l’aide d’Azure Maps.'
+title: 'Tutoriel : Créer une application de type localisateur de magasin à l’aide d’Azure Maps | Microsoft Azure Maps'
+description: Dans ce tutoriel, vous allez apprendre à créer une application web de type localisateur de magasin à l’aide du kit SDK web Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408038"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910964"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Tutoriel : Créer un localisateur de magasin à l’aide d’Azure Maps
 
@@ -43,13 +43,13 @@ Avant de passer au code, il est judicieux de commencer par réfléchir à la con
 
 <center>
 
-![Maquette d’un localisateur de magasin pour les emplacements de cafés Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![Maquette d’une application de type localisateur de magasin pour la localisation des magasins Contoso Coffee Shop](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Pour optimiser l’utilité de ce localisateur de magasin, nous allons inclure une disposition réactive qui s’adapte à la taille de l’écran de l’utilisateur quand sa largeur est inférieure à 700 pixels. La disposition réactive facilite l’utilisation du localisateur de magasin sur un petit écran, comme celui d’un appareil mobile. Voici la maquette d’une disposition pour petit écran :  
 
 <center>
 
-![Maquette du localisateur de magasin Contoso Coffee sur un appareil mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![Maquette de l’application de localisation des magasins Contoso Coffee Shop sur un appareil mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 Les maquettes présentent une application assez simple. L’application contient une zone de recherche, une liste de magasins à proximité, une carte contenant des marqueurs (symboles) et une fenêtre indépendante qui affiche des informations supplémentaires quand l’utilisateur sélectionne un marqueur. Pour être plus précis, voici les fonctionnalités que nous créons dans le localisateur de magasin dans le cadre de ce tutoriel :
 

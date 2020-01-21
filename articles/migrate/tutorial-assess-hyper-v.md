@@ -1,49 +1,46 @@
 ---
 title: Évaluer des machines virtuelles Hyper-V pour la migration vers Azure avec Azure Migrate | Microsoft Docs
 description: Décrit comment évaluer des machines virtuelles Hyper-V locales pour la migration vers Azure avec Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/18/2019
-ms.author: raynew
+ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: d8a4a6d650684cd5c8c0f22ad683c3952e2f6d08
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158389"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029032"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles Hyper-V Azure Migrate Server Assessment
 
 Cet article vous montre comment évaluer des machines virtuelles Hyper-V locales avec l’outil Azure Migrate : Server Assessment.
 
-[Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres de fournisseurs de logiciels indépendants tiers.
+[Azure Migrate](migrate-services-overview.md) fournit un hub d’outils qui vous permettent de découvrir, d’évaluer et de migrer des applications, une infrastructure et des charges de travail vers Microsoft Azure. Le hub comprend des outils Azure Migrate et des offres d’ISV (fournisseurs de logiciels indépendants) tiers.
 
 
 
-Ce tutoriel est le deuxième d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel est le deuxième d’une série qui montre comment évaluer et migrer des machines virtuelles Hyper-V vers Azure. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer un projet Azure Migrate.
 > * Configurer et inscrire une appliance Azure Migrate.
-> * Démarrer la découverte en continu des machines virtuelles locales.
+> * Démarrer la découverte continue des machines virtuelles locales.
 > * Regrouper les machines virtuelles découvertes et évaluer le groupe.
 > * Passer en revue l’évaluation.
 
 > [!NOTE]
-> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné, pour vous permettre de configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, consultez les articles sur les procédures.
+> Les tutoriels vous montrent le chemin de déploiement le plus simple pour un scénario donné afin que vous puissiez configurer rapidement une preuve de concept. Ils utilisent des options par défaut, le cas échéant, et ne montrent pas tous les paramètres et chemins possibles. Pour obtenir des instructions détaillées, consultez les articles sur les procédures.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) avant de commencer.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Effectuez](tutorial-prepare-hyper-v.md) le premier tutoriel de cette série. Si vous ne le faites pas, les instructions de ce tutoriel ne fonctionneront pas.
 - Voici ce que vous avez dû faire dans le premier tutoriel :
     - [Configurer des autorisations Azure](tutorial-prepare-hyper-v.md#prepare-azure) pour Azure Migrate.
-    - [Préparer les clusters, les hôtes et les machines virtuelles Hyper-V](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-assessment) pour l’évaluation.
+    - [Préparer les clusters, les hôtes et les machines virtuelles Hyper-V](tutorial-prepare-hyper-v.md#prepare-hyper-v-for-assessment) pour l’évaluation.
+    - [Préparez le déploiement](tutorial-prepare-hyper-v.md#prepare-for-appliance-deployment) de l’appliance Azure Migrate utilisée pour la détection et l’évaluation des machines virtuelles Hyper-V.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Configurer un projet Azure Migrate
 
@@ -64,9 +61,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     **Zone géographique** | **Région**
     --- | ---
-    Asie  | Asie Sud-Est
+    Asia  | Asie Sud-Est
     Europe | Europe Nord ou Europe Ouest
-    Royaume-Uni |  Royaume-Uni Sud ou Royaume-Uni Ouest
+    United Kingdom |  Royaume-Uni Sud ou Royaume-Uni Ouest
     États-Unis | USA Est, USA Ouest 2 ou USA Centre-Ouest
 
     - La région du projet est utilisée seulement pour stocker les métadonnées collectées à partir des machines virtuelles locales.
@@ -90,9 +87,9 @@ Azure Migrate Server Assessment exécute une appliance de machine virtuelle Hype
 
 - Cette appliance effectue la découverte des machines virtuelles, et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate : Server Assessment.
 - Pour configurer l’appliance, vous devez :
-    - Télécharger un disque dur virtuel Hyper-V compressé à partir du portail Azure.
+    - Téléchargez un disque dur virtuel Hyper-V compressé à partir du portail Azure.
     - Créez l’appliance et vérifiez qu’elle peut se connecter à Azure Migrate Server Assessment.
-    - Configurer l’appliance pour la première fois, puis l’inscrire auprès du projet Azure Migrate.
+    - Configurez l’appliance pour la première fois, puis inscrivez-la auprès du projet Azure Migrate.
 
 ### <a name="download-the-vhd"></a>Télécharger le disque dur virtuel
 
@@ -148,7 +145,7 @@ Importez le fichier téléchargé, puis créez la machine virtuelle.
 
 ### <a name="verify-appliance-access-to-azure"></a>Vérifier l’accès de l’appliance à Azure
 
-Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL Azure](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Vérifiez que la machine virtuelle de l’appliance peut se connecter aux [URL Azure](migrate-appliance.md#url-access).
 
 ### <a name="configure-the-appliance"></a>Configurer l’appliance
 
@@ -174,7 +171,7 @@ Configurez l’appliance pour la première fois.
 2. Sous le nouvel onglet, connectez-vous avec vos informations d’identification Azure.
     - Connectez-vous avec votre nom d’utilisateur et votre mot de passe.
     - La connexion avec un code PIN n’est pas prise en charge.
-3. Une fois la connexion effectuée, revenez à l’application web.
+3. Une fois la connexion réussie, revenez à l’application web.
 4. Sélectionnez l’abonnement où le projet Azure Migrate a été créé. Sélectionnez ensuite le projet.
 5. Spécifiez un nom pour l’appliance. Le nom doit être alphanumérique et comporter 14 caractères au maximum.
 6. Cliquez sur **S'inscrire**.
@@ -184,7 +181,7 @@ Configurez l’appliance pour la première fois.
 
 Si vous utilisez des disques durs virtuels sur des SMB, vous devez activer la délégation des informations d’identification de l’appliance aux hôtes Hyper-V. Ce tutoriel requiert les éléments suivants :
 
-- Vous permettez à chaque hôte d’agir en tant que délégué pour l’appliance. Vous devez avoir effectué cette opération dans le tutoriel précédent, lorsque vous avez préparé Hyper-V pour l’évaluation et la migration. Vous devez avoir configuré CredSSP pour les ordinateurs hôtes [manuellement](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) ou en [exécutant le script de configuration des composants requis Hyper-V](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Vous permettez à chaque hôte d’agir en tant que délégué pour l’appliance. Si vous avez effectué les tutoriels dans l’ordre, vous l’avez fait dans le tutoriel précédent, quand vous avez préparé Hyper-V pour l’évaluation et la migration. Vous devez avoir configuré CredSSP pour les hôtes [manuellement](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts) ou en [exécutant un script](tutorial-prepare-hyper-v.md#prepare-with-a-script) qui le fait pour vous.
 - Activez la délégation CredSSP afin que l’appliance Azure Migrate puisse agir en tant que client, en déléguant les informations d’identification à un hôte.
 
 Activez sur l’appliance comme suit :
@@ -236,7 +233,7 @@ Il existe deux types d’évaluations que vous pouvez exécuter avec Azure Migra
 
 **Évaluation** | **Détails** | **Données**
 --- | --- | ---
-**En fonction des performances** | Évaluations basées sur les données de performances collectées | **Taille de machine virtuelle recommandée** : En fonction des données d’utilisation du processeur et de la mémoire.<br/><br/> **Type de disque recommandé (disque managé Standard ou Premium)**  : En fonction des IOPS et du débit des disques locaux.
+**Basée sur les performances** | Évaluations basées sur les données de performances collectées | **Taille de machine virtuelle recommandée** : En fonction des données d’utilisation du processeur et de la mémoire.<br/><br/> **Type de disque recommandé (disque managé Standard ou Premium)**  : En fonction des IOPS et du débit des disques locaux.
 **Localement** | Évaluations basées sur le dimensionnement local. | **Taille de machine virtuelle recommandée** : En fonction de la taille de machine virtuelle locale<br/><br> **Type de disque recommandé** : En fonction du paramètre de type de stockage que vous sélectionnez pour l’évaluation.
 
 
@@ -245,23 +242,23 @@ Il existe deux types d’évaluations que vous pouvez exécuter avec Azure Migra
 
 Exécutez une évaluation comme suit :
 
-1. Passez en revue les [bonnes pratiques](best-practices-assessment.md) pour la création des évaluations.
+1. Passez en revue les [meilleures pratiques](best-practices-assessment.md) liées à la création d’évaluations.
 2. Dans **Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur **Évaluer**.
 
-    ![Évaluation](./media/tutorial-assess-hyper-v/assess.png)
+    ![Évaluer](./media/tutorial-assess-hyper-v/assess.png)
 
 3. Dans **Évaluer les serveurs**, spécifiez un nom pour l’évaluation.
 4. Cliquez sur **Tout afficher** pour passer en revue les propriétés de l’évaluation.
 
     ![Propriétés de l’évaluation](./media/tutorial-assess-hyper-v/assessment-properties.png)
 
-3. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer** et spécifiez un nom de groupe. Un groupe rassemble une ou plusieurs machines virtuelles pour l’évaluation.
+3. Dans **Sélectionner ou créer un groupe**, sélectionnez **Créer** et spécifiez un nom de groupe. Un groupe rassemble une ou plusieurs machines virtuelles à évaluer.
 4. Dans **Ajouter des machines au groupe**, sélectionnez les machines virtuelles à ajouter au groupe.
 5. Cliquez sur **Créer une évaluation** pour créer le groupe, puis exécutez l’évaluation.
 
     ![Créer une évaluation](./media/tutorial-assess-hyper-v/assessment-create.png)
 
-6. Une fois l’évaluation créée, consultez-la dans **Serveurs** > **Azure Migrate : Server Assessment**.
+6. Une fois l’évaluation créée, vous pouvez la voir dans **Serveurs** > **Azure Migrate : Server Assessment**.
 7. Cliquez sur **Exporter l’évaluation** pour la télécharger sous la forme d’un fichier Excel.
 
 
@@ -274,7 +271,7 @@ Une évaluation décrit les éléments suivants :
 - **Estimation des coûts de stockage mensuels** : Coûts estimés pour le stockage sur disque après la migration.
 
 
-### <a name="view-an-assessment"></a>Visualiser une évaluation
+### <a name="view-an-assessment"></a>Voir une évaluation
 
 1. Dans **Objectifs de migration** >  **Serveurs** > **Azure Migrate : Server Assessment**, cliquez sur **Évaluations**.
 2. Dans **Évaluations**, cliquez sur une évaluation pour l’ouvrir.
@@ -339,7 +336,7 @@ Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Configurer une appliance Azure Migrate
-> * Créé et examiné une évaluation
+> * Créer et passer en revue une évaluation
 
 Passez au troisième tutoriel de la série pour découvrir comment migrer des machines virtuelles Hyper-V vers Azure avec Azure Migrate Server Migration.
 

@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: f8bd768dc7c01310874cd484f59869fbafcf3fe7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074190"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940942"
 ---
 # <a name="api-management-policy-samples"></a>Exemples de stratégie dans la Gestion des API
 
@@ -33,8 +33,9 @@ Les [stratégies](api-management-howto-policies.md) sont une fonctionnalité pui
 | [Autoriser l’accès basé sur les revendications JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | Montre comment autoriser l’accès à des méthodes HTTP spécifiques sur une API basée sur les revendications JWT.                                                                                                                                       |
 | [Autoriser les demandes à l’aide d’agent d’autorisation externe](./policies/authorize-request-using-external-authorizer.md)                                                   | Montre comment utiliser l’agent d’autorisation externe pour la sécurisation de l’accès à l’API.                                                                                                                                                               |
 | [Autoriser l’accès à l’aide du jeton Google OAuth](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | Montre comment autoriser l’accès à vos points de terminaison en utilisant Google comme fournisseur de jeton OAuth.                                                                                                                                    |
+| [Filtrer les adresses IP durant l’utilisation d’une passerelle Application Gateway](./policies/filter-ip-addresses-when-using-appgw.md) | Montre comment filtrer les adresses IP dans les stratégies quand l’instance de Gestion des API est accessible via une passerelle Application Gateway
 | [Générer une signature d’accès partagé et transférer la demande vers le stockage Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | Montre comment générer une [signature d’accès partagé](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) à l’aide d’expressions et transférer la demande vers le stockage Azure avec une stratégie rewrite-uri. |
-| [Obtenir un jeton d’accès OAuth2 d’AAD et le transférer au backend](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | Fournit un exemple d’utilisation d’OAuth2 pour l’autorisation entre la passerelle et un backend. Il montre comment obtenir un jeton d’accès OAuth2 d’AAD et le transférer au backend.                                                    |
+| [Obtenir un jeton d’accès OAuth2 d’AAD et le transférer au backend](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | Fournit un exemple d’utilisation d’OAuth2 pour l’autorisation entre la passerelle et un backend. Il montre comment obtenir un jeton d’accès d’AAD et le transférer au serveur principal.                                                    |
 | [Obtenir un jeton X-CSRF de la passerelle SAP à l’aide d’une stratégie send-request](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | Montre comment implémenter un modèle X-CSRF utilisé par de nombreuses API. Cet exemple est spécifique de la passerelle SAP.                                                                                                                           |
 | [Router la demande en fonction de la taille de son corps](./policies/route-requests-based-on-size.md?toc=api-management/toc.json)                                            | Montre comment router les demandes en fonction de la taille de leurs corps.                                                                                                                                                       |
 | [Envoyer des informations de contexte de demande au backend](./policies/send-request-context-info-to-backend-service.md?toc=api-management/toc.json)                    | Montre comment envoyer des informations de contexte au backend à des fins de journalisation ou de traitement.                                                                                                                                |

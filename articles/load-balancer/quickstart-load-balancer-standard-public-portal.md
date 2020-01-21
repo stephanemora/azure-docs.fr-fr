@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/11/2019
+ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: d15223dfe6d9ce710f2a3d402a49203ef169132e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225209"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771459"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge standard pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
@@ -34,7 +34,7 @@ Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.az
 
 ## <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
 
-Dans cette section, vous allez créer un équilibreur de charge standard qui équilibre la charge de machines virtuelles. L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez un équilibreur de charge standard, vous devez également créer une nouvelle adresse IP publique standard configurée en tant que frontale (nommée *LoadBalancerFrontend* par défaut) pour cet équilibreur de charge standard. 
+Dans cette section, vous allez créer un équilibreur de charge standard qui équilibre la charge de machines virtuelles. Vous pouvez créer une instance publique ou interne de Standard Load Balancer. Standard Load Balancer prend en charge uniquement les adresses IP publiques standard. Les adresses IP publiques de base ne sont pas prises en charge. Lorsque vous créez une instance publique de Standard Load Balancer, vous devez également créer une nouvelle adresse IP publique standard configurée comme le front-end (nommée *LoadBalancerFrontend* par défaut) pour Standard Load Balancer. 
 
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Load Balancer**.
 2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
@@ -43,7 +43,7 @@ Dans cette section, vous allez créer un équilibreur de charge standard qui éq
     | ---                     | ---                                                |
     | Subscription               | Sélectionnez votre abonnement.    |    
     | Resource group         | Sélectionnez **Créer**, puis entrez *myResourceGroupSLB* dans la zone de texte.|
-    | Nom                   | *myLoadBalancer*                                   |
+    | Name                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
     | SKU           | Sélectionnez **Standard**.                          |
@@ -60,11 +60,11 @@ Dans cette section, vous allez configurer des paramètres d’équilibreur de ch
 
 ### <a name="create-a-backend-address-pool"></a>Créer un pool d’adresses principal
 
-Pour distribuer le trafic aux machines virtuelles, un pool d’adresses principal contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Créez le pool d’adresses backend *myBackendPool* pour inclure des machines virtuelles pour l’équilibrage de charge du trafic Internet.
+Pour distribuer le trafic aux machines virtuelles, un pool d’adresses principal contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Créez le pool d’adresses principal *myBackendPool* afin d’inclure des machines virtuelles pour l’équilibrage de charge du trafic Internet.
 
 1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
 2. Sous **Paramètres**, sélectionnez **Pools principaux**, puis **Ajouter**.
-3. Sur la page **Ajouter un pool de backends**, saisissez *myBackendPool* comme nom de votre pool principal, puis sélectionnez **Ajouter**.
+3. Dans la page **Ajouter un pool de backends**, entrez *myBackendPool* comme nom de votre pool principal, puis sélectionnez **Ajouter**.
 
 ### <a name="create-a-health-probe"></a>Créer une sonde d’intégrité
 
@@ -75,7 +75,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *MyHealthProbe*. |
+    | Name | Entrez *MyHealthProbe*. |
     | Protocol | Sélectionnez **HTTP**. |
     | Port | Entrez *80*.|
     | Intervalle | Entrez *15* pour **l’intervalle** en secondes entre les tentatives de la sonde. |
@@ -84,7 +84,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
 4. Sélectionnez **OK**.
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
-Une règle d’équilibreur de charge sert à définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP frontale pour le trafic entrant et le pool d’adresses IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle Load Balancer *myLoadBalancerRuleWeb* pour écouter le port 80 dans le *FrontendLoadBalancer* frontal et envoyer le trafic réseau équilibré en charge vers le pool d’adresses backend *myBackEndPool* qui utilise également le port 80. 
+Une règle d’équilibreur de charge sert à définir la distribution du trafic vers les machines virtuelles. Vous définissez la configuration IP frontale pour le trafic entrant et le pool d’adresses IP principal pour recevoir le trafic, ainsi que le port source et le port de destination requis. Créez une règle d’équilibreur de charge *myLoadBalancerRuleWeb* pour écouter le port 80 dans le *FrontendLoadBalancer* frontal et envoyer le trafic réseau équilibré en charge au pool d’adresses principal *myBackEndPool* qui utilise également le port 80. 
 
 1. Sélectionnez **Tous les services** dans le menu de gauche, **Toutes les ressources**, puis **myLoadBalancer** dans la liste des ressources.
 2. Sous **Paramètres**, sélectionnez **Règles d’équilibrage de charge**, puis **Ajouter**.
@@ -92,7 +92,7 @@ Une règle d’équilibreur de charge sert à définir la distribution du trafic
     
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *MyHTTPRule*. |
+    | Name | Entrez *MyHTTPRule*. |
     | Protocol | Sélectionnez **TCP**. |
     | Port | Entrez *80*.|
     | Port principal | Entrez *80*. |
@@ -112,14 +112,14 @@ Dans cette section, vous allez créer un réseau virtuel ainsi que trois machine
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | Nom | Entrez *myVNet*. |
+    | Name | Entrez *myVNet*. |
     | Espace d’adressage | Entrez *10.1.0.0/16*. |
     | Subscription | Sélectionnez votre abonnement.|
     | Resource group | Sélectionner une ressource existante – *myResourceGroupSLB*. |
     | Location | Sélectionnez **Europe Ouest**.|
     | Sous-réseau - Nom | Entrez *myBackendSubnet*. |
     | Plage d’adresses du sous-réseau | Entrez *10.1.0.0/24*. |
-1. Laissez les autres valeurs par défaut et sélectionnez **Créer**.
+1. Conservez les autres valeurs par défaut et sélectionnez **Créer**.
 
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
 Le service Standard Load Balancer ne prend en charge que des machines virtuelles auxquelles sont associées des adresses IP standard dans le pool principal. Dans cette section, vous allez créer trois machines virtuelles (*myVM1*, *myVM2* et *myVM3*) avec une adresse IP publique standard dans trois zones différentes (*Zone 1*, *Zone 2* et *Zone 3*) qui sont ajoutées ultérieurement au pool principal de Standard Load Balancer créé précédemment.
@@ -154,7 +154,7 @@ Le service Standard Load Balancer ne prend en charge que des machines virtuelles
 
     | Paramètre | Machine virtuelle 2| Machine virtuelle 3|
     | ------- | ----- |---|
-    | Nom |  *myVM2* |*myVM3*|
+    | Name |  *myVM2* |*myVM3*|
     | Zone de disponibilité | 2 |3|
     |Adresse IP publique| Référence **Standard**|Référence **Standard**|
     | Adresse IP publique - zone de disponibilité| **Redondant dans une zone** |**Redondant dans une zone**|
@@ -162,7 +162,7 @@ Le service Standard Load Balancer ne prend en charge que des machines virtuelles
 
  ### <a name="create-nsg-rule"></a>Création de la règle de groupe de sécurité réseau
 
-Dans cette section, vous créez une règle de groupe de sécurité réseau pour autoriser les connexions entrantes à l’aide de HTTP.
+Dans cette section, vous créez une règle de groupe de sécurité réseau pour autoriser les connexions entrantes utilisant le protocole HTTP.
 
 1. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources**, puis dans la liste de ressources, sélectionnez **myNetworkSecurityGroup** qui se trouve dans le groupe de ressources **myResourceGroupSLB**.
 2. Sous **Paramètres**, sélectionnez **Règles de sécurité de trafic entrant**, puis sélectionnez **Ajouter**.
@@ -208,7 +208,7 @@ Dans cette section, vous créez une règle de groupe de sécurité réseau pour 
 
 Pour voir l’équilibreur de charge répartir le trafic entre les trois machines virtuelles, vous pouvez personnaliser la page par défaut du serveur Web IIS de chaque machine virtuelle, puis forcer votre navigateur à s’actualiser à partir de l’ordinateur client.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge Load Balancer et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources (*myResourceGroupSLB*) qui contient l’équilibreur de charge Load Balancer, puis cliquez sur **Supprimer**.
 

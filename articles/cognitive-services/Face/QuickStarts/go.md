@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ed5df90ba4e88e2b6bd20ce2e559c89a552bbe0a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3ebcd7dfb7b1138f52663d7c919d4ce4d8bd088a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977826"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75890536"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-go"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Go
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Go pour détecter des visages humains dans une image.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
 - Un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/download).
@@ -114,7 +114,7 @@ Vous devez mettre à jour la valeur `subscriptionKey` avec votre clé d’abonne
 
 Vous pouvez également changer le champ `imageUrl` pour qu’il pointe vers votre propre image d’entrée. Vous souhaiterez peut-être aussi changer le champ `returnFaceAttributes` qui spécifie les attributs de visage à récupérer.
 
-## <a name="run-the-script"></a>Exécutez le script
+## <a name="run-the-script"></a>Exécuter le script
 
 Ouvrez une invite de commandes et générez le programme avec la commande suivante :
 
@@ -311,7 +311,7 @@ Une chaîne JSON des données de visage détectées doit apparaître dans la con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez écrit un script Ruby qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
+Dans ce guide de démarrage rapide, vous avez écrit une application console Go qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs caractéristiques. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

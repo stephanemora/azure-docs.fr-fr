@@ -1,5 +1,5 @@
 ---
-title: Empaquetage dynamique dans Media Services
+title: Empaquetage dynamique dans Azure Media Services v3
 titleSuffix: Azure Media Services
 description: Cet article donne une vue d’ensemble de l’empaquetage dynamique dans Azure Media Services.
 author: Juliako
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: c12ebe307eb370e07b785b4379f82a4274964492
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977758"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779601"
 ---
-# <a name="dynamic-packaging-in-media-services"></a>Empaquetage dynamique dans Media Services
+# <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetage dynamique dans Media Services v3
 
 Microsoft Azure Media Services peut être utilisé pour encoder de nombreux formats de fichier multimédia source. Il les remet via différents protocoles de diffusion en continu, avec ou sans protection de contenu, pour atteindre tous les appareils principaux (comme les appareils iOS et Android). Ces clients comprennent différents protocoles. Par exemple, iOS demande que les flux soient remis au format HTTP Live Streaming (HLS) et que les appareils Android prennent en charge TLS et MPEG DASH.
 
@@ -31,7 +31,7 @@ Dans Media Services, un [point de terminaison de streaming](streaming-endpoint-c
 
 Pour tirer parti de l’empaquetage dynamique, vous devez [encoder](encoding-concept.md) votre fichier mezzanine (source) en un ensemble de fichiers MP4 à vitesse de transmission multiple (format ISO de base pour les fichiers médias 14496-12). Vous devez avoir un [actif multimédia](assets-concept.md) avec les fichiers MP4 encodés et les fichiers de configuration de streaming requis par l’empaquetage dynamique Media Services. À partir de cet ensemble de fichiers MP4, vous pouvez utiliser l’empaquetage dynamique pour diffuser de la vidéo avec les protocoles de streaming multimédia suivants :
 
-|Protocol|Exemples|
+|Protocol|Exemple|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
@@ -258,7 +258,7 @@ Pour le manifeste DASH, les deux éléments suivants sont ajoutés pour signaler
 
 Pour HLS v7 et ultérieur `(format=m3u8-cmaf)`, sa sélection transmet `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` quand la piste de description audio est signalée.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Pour plus d’informations, consultez [Guide pratique pour signaler des pistes audio descriptives](signal-descriptive-audio-howto.md).
 
@@ -273,7 +273,7 @@ Le *chiffrement dynamique* permet de chiffrer dynamiquement votre contenu en dir
 > [!NOTE]
 > Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 Consultez [Communauté Azure Media Services](media-services-community.md) pour découvrir les différentes façons dont vous pouvez poser des questions, faire des commentaires et obtenir des mises à jour sur Media Services.
 

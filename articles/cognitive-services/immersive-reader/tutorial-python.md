@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Lancer le lecteur immersif à l’aide de Python'
+title: 'Tutoriel : Lancer le lecteur immersif à l’aide de Python'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application Python qui lance le lecteur immersif.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326434"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945223"
 ---
-# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Didacticiel : Lancer le lecteur immersif à l’aide de l’exemple de projet Python
+# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutoriel : Lancer le lecteur immersif à l’aide de l’exemple de projet Python
 
-Dans la [présentation](./overview.md), vous avez appris ce qu’est le Lecteur immersif et comment il implémente des techniques éprouvées pour améliorer la compréhension de la lecture pour les apprenants en langue, les lecteurs émergents et les étudiants présentant des difficultés d’apprentissage. Ce tutoriel explique comment créer une application web Python qui lance le lecteur immersif. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans la [présentation](./overview.md), vous avez appris ce qu’est le Lecteur immersif et comment il implémente des techniques éprouvées pour améliorer la compréhension de la lecture pour les apprenants en langue, les lecteurs émergents et les étudiants présentant des difficultés d’apprentissage. Ce tutoriel explique comment créer une application web Python qui lance le lecteur immersif. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une application web Python avec Pip, Flask, Jinja et virtualenv à l’aide d’un exemple de projet
@@ -28,9 +28,9 @@ Dans la [présentation](./overview.md), vous avez appris ce qu’est le Lecteur 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Ressource Lecteur immersif configurée pour l’authentification Azure Active Directory (Azure AD). Suivez [ces instructions](./azure-active-directory-authentication.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’environnement. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.
+* Une ressource de lecteur immersif configurée pour l’authentification Azure Active Directory. Suivez [ces instructions](./how-to-create-immersive-reader.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’environnement. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.
 * [Git](https://git-scm.com/)
 * [Kit SDK Lecteur immersif](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) et [pip](https://docs.python.org/3/installing/index.html). À compter de Python 3.4, pip est inclus par défaut avec les programmes d’installation binaires Python.
@@ -40,20 +40,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 * [Module requests](https://pypi.org/project/requests/2.7.0/)
 * Un IDE tel que [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Acquérir un jeton d’authentification Azure AD
+## <a name="configure-authentication-credentials"></a>Configurer les informations d’identification d’authentification
 
-Écrivez une API back-end pour récupérer un jeton d’authentification Azure AD.
-
-Vous avez besoin de certaines valeurs de l’étape prérequise de configuration de l’authentification Azure AD ci-dessus pour cette partie. Reportez-vous au fichier texte que vous avez enregistré pour cette session.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-Une fois que vous avez ces valeurs, créez un fichier nommé _.env_, puis collez-y le code suivant, en fournissant les valeurs de vos propriétés personnalisées ci-dessus. Remplacez le fichier _.env._ dans l’exemple d’application par le fichier nouvellement créé.
+Créez un fichier appelé _.env_, puis collez-y le code suivant, en indiquant les valeurs fournies au moment de la création de votre ressource de lecteur immersif.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}

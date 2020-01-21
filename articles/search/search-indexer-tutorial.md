@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Indexer les données en C# de bases de données Azure SQL'
+title: 'Tutoriel : Indexer les données en C# de bases de données Azure SQL'
 titleSuffix: Azure Cognitive Search
 description: Dans ce tutoriel C#, vous vous connectez à une base de données Azure SQL, extrayez des données interrogeables et les chargez dans un index de Recherche cognitive Azure.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 36215403f99cc86ab4fb111ce95a6b3190063d7b
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 1b03f5569386212905cdeb362cfe0a88774eb887
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406709"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754342"
 ---
-# <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Didacticiel : Importer une base de données Azure SQL en C# à l’aide d’indexeurs de Recherche cognitive Azure
+# <a name="tutorial-import-azure-sql-database-in-c-using-azure-cognitive-search-indexers"></a>Tutoriel : Importer une base de données Azure SQL en C# à l’aide d’indexeurs de Recherche cognitive Azure
 
 Découvrez comment configurer un indexeur pour extraire des données pouvant faire l’objet d’une recherche à partir d’un exemple de base de données Azure SQL. [Les indexeurs](search-indexer-overview.md) sont un composant de Recherche cognitive Azure qui analyse les sources de données externes tout en alimentant un [index de recherche](search-what-is-an-index.md) avec le contenu. De tous les indexeurs, l’indexeur correspondant à Azure SQL Database est le plus couramment utilisé. 
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez effectuer les tâches suivantes en utilisant les [b
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici les services, outils et données utilisés dans ce guide de démarrage rapide. 
 
@@ -56,7 +56,7 @@ Les appels REST requièrent l’URL du service et une clé d’accès et ce, sur
 
 1. Dans **Paramètres** > **Clés**, obtenez une clé d’administration pour avoir des droits d’accès complets sur le service. Il existe deux clés d’administration interchangeables, fournies pour assurer la continuité de l’activité au cas où vous deviez en remplacer une. Vous pouvez utiliser la clé primaire ou secondaire sur les demandes d’ajout, de modification et de suppression d’objets.
 
-![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir une clé d’accès et un point de terminaison HTTP")
+![Obtenir un point de terminaison et une clé d’accès HTTP](media/search-get-started-postman/get-url-key.png "Obtenir un point de terminaison et une clé d’accès HTTP")
 
 Toutes les demandes nécessitent une clé API sur chaque demande envoyée à votre service. L’utilisation d’une clé valide permet d’établir, en fonction de chaque demande, une relation de confiance entre l’application qui envoie la demande et le service qui en assure le traitement.
 
@@ -159,7 +159,7 @@ Dans ce didacticiel, l’indexeur extrait les données d’une source de donnée
 
 Le programme principal inclut une logique pour la création d’un client, d’un index, d’une source de données et d’un indexeur. Le code recherche et supprime les ressources existantes du même nom, en supposant que vous pouvez exécuter ce programme plusieurs fois.
 
-L’objet de source de données est configuré avec des paramètres spécifiques aux ressources de base de données SQL Azure, notamment [l’indexation incrémentielle](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows), pour tirer parti des [fonctionnalités de détection des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) d’Azure SQL. La base de données des hôtels de démonstration dans Azure SQL a une colonne « suppression réversible » nommée **IsDeleted**. Quand cette colonne est définie sur true dans la base de données, l’indexeur supprime le document correspondant dans l’index de Recherche cognitive Azure.
+L’objet de source de données est configuré avec des paramètres propres aux ressources de base de données Azure SQL, notamment l’[indexation partielle ou incrémentielle](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows), pour tirer parti des [fonctionnalités de détection des modifications](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) d’Azure SQL. La base de données des hôtels de démonstration dans Azure SQL a une colonne « suppression réversible » nommée **IsDeleted**. Quand cette colonne est définie sur true dans la base de données, l’indexeur supprime le document correspondant dans l’index de Recherche cognitive Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -259,7 +259,7 @@ Tous les indexeurs, y compris celui que vous venez de créer par programme, sont
 
    ![Vignettes d’indexeur et de source de données](./media/search-indexer-tutorial/tiles-portal.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Le moyen le plus rapide de procéder à un nettoyage à la fin d’un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche cognitive Azure. Vous pouvez maintenant supprimer le groupe de ressources pour supprimer définitivement tout ce qu’il contient. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble du service Recherche cognitive Azure.
 

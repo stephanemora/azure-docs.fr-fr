@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Recherche interactive sur une carte avec Azure Maps'
-description: 'Démarrage rapide Azure : Créer une démonstration de recherche interactive sur une carte avec Azure Maps'
+title: 'Démarrage rapide : Recherche interactive sur une carte avec Azure Maps | Microsoft Azure Maps'
+description: Découvrez comment créer une application web de démonstration pour la recherche interactive sur une carte à l’aide du SDK web Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408410"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910692"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Démarrage rapide : Créer une carte de recherche interactive avec Azure Maps
 
@@ -57,7 +57,7 @@ Une fois le compte Maps créé, récupérez la clé qui vous permet d’interrog
 2. Dans la section des paramètres, sélectionnez **Authentification**.
 3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
 
-![Obtenir la clé primaire dans le portail](./media/quick-demo-map-app/get-key.png)
+![Obtenir la clé primaire Azure Maps dans le portail Azure](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Télécharger l’application
 
@@ -73,7 +73,7 @@ Une fois le compte Maps créé, récupérez la clé qui vous permet d’interrog
 4. Testez l’expérience de recherche interactive. Dans la zone de recherche en haut à gauche de l’application web de démonstration, recherchez **restaurants**.
 5. Déplacez votre souris sur la liste des adresses et emplacements qui s’affichent sous la zone de recherche. Le repère correspondant sur la carte affiche des informations à propos de cet emplacement. Pour des raisons de confidentialité des entreprises privées, des adresses et des noms fictifs sont présentés.
 
-    ![Application web de recherche interactive](./media/quick-demo-map-app/interactive-search.png)
+    ![Application web de recherche interactive sur une carte](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 

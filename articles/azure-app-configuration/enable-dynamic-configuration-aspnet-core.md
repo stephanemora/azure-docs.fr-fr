@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 608368daa17246f2512d243b2656dd7702d84f50
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c08b42d8217bf16dfcd8af17fa3c4627b95ffc3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433705"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028225"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Tutoriel : Utiliser la configuration dynamique dans une application ASP.NET Core
 
@@ -53,10 +53,12 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
 1. Ajoutez une référence au package NuGet `Microsoft.Azure.AppConfiguration.AspNetCore` en exécutant la commande suivante :
 
     ```CLI
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
     ```
 
 1. Ouvrez *Program.cs*, puis mettez à jour la méthode `CreateWebHostBuilder` pour ajouter la méthode `config.AddAzureAppConfiguration()`.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -79,6 +81,30 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
             .UseStartup<Startup>();
     ```
 
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+                webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    config.AddAzureAppConfiguration(options =>
+                    {   
+                        options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureRefresh(refresh =>
+                                {
+                                    refresh.Register("TestApp:Settings:BackgroundColor")
+                                            .Register("TestApp:Settings:FontColor")
+                                            .Register("TestApp:Settings:Message");
+                                });
+                    });
+                })
+            .UseStartup<Startup>());
+    ```
+    ---
+
     La méthode `ConfigureRefresh` permet de spécifier les paramètres utilisés pour mettre à jour les données de configuration à l’aide du magasin App Configuration quand une opération d’actualisation est déclenchée. Pour déclencher une opération d’actualisation, un intergiciel d’actualisation doit être configuré pour que l’application actualise les données de configuration en cas de modification.
 
 2. Ajoutez un fichier *Settings.cs* qui définit et implémente une nouvelle classe `Settings`.
@@ -96,12 +122,38 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
     }
     ```
 
-3. Ouvrez *Startup.cs*, puis mettez à jour la méthode `ConfigureServices` pour lier des données de configuration à la classe `Settings`.
+3. Ouvrez *Startup.cs*, puis utilisez `IServiceCollection.Configure<T>` dans la méthode `ConfigureServices` pour lier les données de configuration à la classe `Settings`.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
         services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+    }
+    ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.Configure<Settings>(Configuration.GetSection("TestApp:Settings"));
+        services.AddControllersWithViews();
+    }
+    ```
+    ---
+
+4. Mettez à jour la méthode `Configure`, en ajoutant l’intergiciel (middleware) `UseAzureAppConfiguration` afin de permettre la mise à jour des paramètres de configuration inscrits pour être actualisés pendant que l’application web ASP.NET Core continue de recevoir des requêtes.
+
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        app.UseAzureAppConfiguration();
 
         services.Configure<CookiePolicyOptions>(options =>
         {
@@ -109,19 +161,46 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
             options.MinimumSameSitePolicy = SameSiteMode.None;
         });
 
-        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
-    }
-    ```
-
-4. Mettez à jour la méthode `Configure` en y ajoutant un middleware pour permettre la mise à jour des paramètres de configuration inscrits à l’actualisation, pendant que l’application web ASP.NET continue de recevoir des demandes.
-
-    ```csharp
-    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-    {
-        app.UseAzureAppConfiguration();
         app.UseMvc();
     }
     ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
+
+            // Add the following line:
+            app.UseAzureAppConfiguration();
+
+            app.UseHttpsRedirection();
+            
+            app.UseStaticFiles();
+
+            app.UseRouting();
+
+            app.UseAuthorization();
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+    }
+    ```
+    ---
     
     L’intergiciel utilise la configuration d’actualisation spécifiée dans la méthode `AddAzureAppConfiguration` de `Program.cs` afin de déclencher une actualisation pour chaque demande reçue par l’application web ASP.NET Core. Pour chaque demande, une opération d’actualisation est déclenchée et la bibliothèque de client vérifie si la valeur mise en cache pour les paramètres de configuration inscrits a expiré. Pour les valeurs mises en cache ayant expiré, les valeurs des paramètres sont mises à jour avec celles du magasin App Configuration. Quant aux valeurs restantes, elles ne changent pas.
     
@@ -137,6 +216,8 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
     ```
 
 2. Mettez à jour la classe `HomeController` pour recevoir `Settings` par le biais de l’injection de dépendance, puis utilisez ses valeurs.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public class HomeController : Controller
@@ -158,6 +239,37 @@ Avant de continuer, terminez d’abord l’étape [Créer une application ASP.NE
         }
     }
     ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+    public class HomeController : Controller
+    {
+        private readonly Settings _settings;
+        private readonly ILogger<HomeController> _logger;
+
+        public HomeController(ILogger<HomeController> logger, IOptionsSnapshot<Settings> settings)
+        {
+            _logger = logger;
+            _settings = settings.Value;
+        }
+
+        public IActionResult Index()
+        {
+            ViewData["BackgroundColor"] = _settings.BackgroundColor;
+            ViewData["FontSize"] = _settings.FontSize;
+            ViewData["FontColor"] = _settings.FontColor;
+            ViewData["Message"] = _settings.Message;
+
+            return View();
+        }
+
+        // ...
+    }
+    ```
+    ---
+
+
 
 3. Ouvrez *Index.cshtml* dans le répertoire Views > Home, puis remplacez son contenu par le script suivant :
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2ef7f273d6838b1bc051c70539ef7d9da59d7148
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791032"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754582"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Présentation de l’intelligence artificielle dans la Recherche cognitive Azure
 
@@ -32,7 +32,7 @@ Le traitement en langage naturel et le traitement des images sont appliqués dur
 > [!NOTE]
 > Si vous élargissez le champ en augmentant la fréquence des traitements, en ajoutant des documents supplémentaires ou en ajoutant plusieurs algorithmes d’IA, vous devez [attacher une ressource Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Des frais s’appliquent durant l’appel des API dans Cognitive Services ainsi que pour l’extraction d’images dans le cadre de la phase de craquage de document de la Recherche cognitive Azure. L’extraction de texte à partir des documents est gratuite.
 >
-> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont décrits dans la [page de tarification de la Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
+> L'exécution des compétences intégrées est facturée au prix actuel du [paiement à l'utilisation de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Les prix appliqués pour l’extraction d’images sont présentés sur la [page de tarification du service Recherche cognitive Azure](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 ## <a name="when-to-use-cognitive-skills"></a>Quand utiliser les compétences cognitives
 
@@ -65,7 +65,7 @@ Les compétences personnalisées peuvent prendre en charge des scénarios plus c
 
 Un pipeline d’enrichissement est basé sur des [*indexeurs*](search-indexer-overview.md) qui analysent les sources de données et fournissent un traitement d’index de bout en bout. Les compétences sont désormais jointes aux indexeurs, ce qui permet d’intercepter et d’enrichir les documents en fonction de l’ensemble de compétences que vous définissez. Une fois l’indexation effectuée, vous pouvez accéder au contenu via des requêtes de recherche ainsi qu’à l’aide de tous les [types de requête pris en charge par la Recherche cognitive Azure](search-query-overview.md).  Si vous ne connaissez pas les indexeurs, cette section vous guide tout au long des étapes.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>Étape 1 : Phase de connexion et de décodage du document
+### <a name="step-1-connection-and-document-cracking-phase"></a>Étape 1 : Phase de connexion et de décodage du document
 
 Au début du pipeline, vous avez du texte non structuré ou du contenu non textuel (comme des images et des fichiers JPEG de documents numérisés). Les données doivent se trouver dans un service de stockage de données Azure accessible par un indexeur. Les indexeurs peuvent décoder les documents sources pour extraire le texte à partir des données sources.
 
@@ -73,7 +73,7 @@ Au début du pipeline, vous avez du texte non structuré ou du contenu non textu
 
  Les sources prises en charge comprennent le stockage Blob Azure, le stockage Table Azure, Azure SQL Database et Azure Cosmos DB. Le contenu textuel peut être extrait des types de fichier suivants : PDF, Word, PowerPoint et CSV. Pour obtenir la liste complète, consultez [Formats de document pris en charge](search-howto-indexing-azure-blob-storage.md#supported-document-formats).
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Étape 2 : Phase d’enrichissement et compétences cognitives
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>Étape 2 : Phase d’enrichissement et compétences cognitives
 
 L’enrichissement se fait via les *compétences cognitives* effectuant des opérations atomiques. Par exemple, une fois que vous avez du contenu textuel issu d’un fichier PDF, vous pouvez appliquer la détection du langage de reconnaissance d’entité ou l’extraction de phrases clés pour créer des champs (qui ne sont pas disponibles en natif dans la source) dans votre index. La collection de compétences utilisée dans votre pipeline est appelée *ensemble de compétences*.  
 
@@ -113,11 +113,11 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 | Décodage du document | Le processus d’extraction ou de création du contenu textuel à partir de sources non textuelles lors de l’indexation. La reconnaissance optique des caractères (OCR) est un exemple, mais il désigne généralement les fonctionnalités principales de l’indexeur, car l’indexeur extrait le contenu des fichiers d’application. La source de données qui fournit l’emplacement du fichier source et la définition d’indexeur qui fournit des mappages de champs, sont les deux facteurs clés du décodage de document. | Consulter [Vue d’ensemble des indexeurs](search-indexer-overview.md) |
 | Modélisation | Fusionner des fragments de texte dans une structure plus importante, ou à l’inverse, diviser des blocs de texte plus volumineux afin d’obtenir une taille plus facile à gérer pour davantage de traitements en aval. | Consulter [Compétence de modélisation](cognitive-search-skill-shaper.md), [Compétence de fusion de texte](cognitive-search-skill-textmerger.md), [Compétence de découpage de texte](cognitive-search-skill-textsplit.md) |
 | Documents enrichis | Structure interne transitoire, générée lors du traitement, avec reflet de la sortie finale dans un index de recherche. Un ensemble de compétences détermine les enrichissements effectués. Les mappages de champs déterminent quels éléments de données sont ajoutés à l’index. Si vous le souhaitez, vous pouvez créer un magasin de connaissances pour conserver et explorer les documents enrichis en utilisant des outils tels que l’Explorateur Stockage, Power BI ou tout autre outil qui se connecte à Stockage Blob Azure. | Consulter [Base de connaissances (préversion)](knowledge-store-concept-intro.md) |
-| Indexeur |  Un analyseur qui extrait les données et métadonnées pouvant faire l’objet d’une recherche d’une source de données externe et renseigne un index en fonction des mappages champ à champ entre l’index et votre source de données pour le décodage du document. Pour les enrichissements par IA, l’indexeur appelle un ensemble de compétences. Il contient les mappages de champs associant la sortie de l’enrichissement aux champs cibles de l’index. La définition de l’indexeur contient toutes les instructions et références pour les opérations du pipeline, et le pipeline est appelé lors de l’exécution de l’indexeur. Avec une configuration supplémentaire, vous pouvez réutiliser le traitement existant et exécuter seulement les étapes et compétences qui sont modifiées. | Consultez [Indexeurs](search-indexer-overview.md) et [Indexation incrémentielle (préversion)](cognitive-search-incremental-indexing-conceptual.md). |
+| Indexeur |  Un analyseur qui extrait les données et métadonnées pouvant faire l’objet d’une recherche d’une source de données externe et renseigne un index en fonction des mappages champ à champ entre l’index et votre source de données pour le décodage du document. Pour les enrichissements par IA, l’indexeur appelle un ensemble de compétences. Il contient les mappages de champs associant la sortie de l’enrichissement aux champs cibles de l’index. La définition de l’indexeur contient toutes les instructions et références pour les opérations du pipeline, et le pipeline est appelé lors de l’exécution de l’indexeur. Avec une configuration supplémentaire, vous pouvez réutiliser le contenu traité existant et exécuter seulement les étapes et compétences qui sont modifiées. | Consultez [Indexeurs](search-indexer-overview.md) et [Enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md). |
 | source de données  | Un objet utilisé par un indexeur pour se connecter à une source de données externes des types pris en charge sur Azure. | Consulter [Vue d’ensemble des indexeurs](search-indexer-overview.md) |
 | Index | Index de recherche persistant de la Recherche cognitive Azure, créé à partir d’un schéma d’index qui définit la structure et l’utilisation des champs. | Consulter [Créer un index de base](search-what-is-an-index.md) | 
 | Magasin de connaissances | Compte de stockage dans lequel les documents enrichis peuvent être mis en forme et projetés en plus de l’index de recherche | Consultez [Présentation de la base de connaissances](knowledge-store-concept-intro.md). | 
-| Cache d’indexeur | Les sorties de compétence d’un compte de stockage sont mises en cache par l’indexeur. Le cache permet à l’indexeur de réduire au maximum le coût du retraitement d’un grand nombre de documents lorsqu’un ensemble de compétences est modifié. | Consultez [Indexation incrémentielle](cognitive-search-incremental-indexing-conceptual.md). | 
+| Cache | Compte de stockage contenant la sortie mise en cache créée par un pipeline d’enrichissement. L’activation du cache préserve la sortie existante qui n’est pas affectée par les modifications apportées à un ensemble de compétences ou à d’autres composants du pipeline d’enrichissement. | Consultez [Enrichissement incrémentiel](cognitive-search-incremental-indexing-conceptual.md). | 
 
 <a name="where-do-i-start"></a>
 
@@ -125,7 +125,7 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 **Étape 1 : [Créer une ressource Recherche cognitive Azure](search-create-service-portal.md)** 
 
-**Étape 2 : Essayez quelques départs rapides et des exemples pour avoir une expérience pratique**
+**Étape 2 : Essayez quelques départs rapides et des exemples pour avoir une expérience pratique**
 
 + [Démarrage rapide (portail)](cognitive-search-quickstart-blob.md)
 + [Didacticiel (requêtes HTTP)](cognitive-search-tutorial-blob.md)
@@ -133,7 +133,7 @@ Les index sont générés à partir d’un schéma d’index qui définit les ch
 
 Pour l’apprentissage, nous vous recommandons le service gratuit. Notez toutefois que le nombre de transactions gratuites est limité à 20 documents par jour. Pour suivre à la fois le guide de démarrage rapide et le tutoriel dans la même journée, utilisez un ensemble de fichiers plus petit (10 documents) afin de pouvoir effectuer les deux exercices. Sinon, supprimez l’indexeur que vous avez utilisé dans le guide de démarrage rapide ou le tutoriel pour remettre le compteur à zéro.
 
-**Étape 3 : Examiner l’API**
+**Étape 3 : Examiner l’API**
 
 Vous pouvez utiliser les `api-version=2019-05-06` REST sur les demandes ou le kit de développement logiciel (SDK) .NET. Si vous découvrez la base de connaissances, utilisez plutôt l’API REST en préversion (`api-version=2019-05-06-Preview`).
 
@@ -171,7 +171,7 @@ Pour plus d’informations sur des problèmes ou des questions spécifiques, con
 ## <a name="next-steps"></a>Étapes suivantes
 
 + [Liens vers la documentation sur l’enrichissement par IA](cognitive-search-resources-documentation.md)
-+ [Démarrage rapide : Procédure pas à pas d’enrichissement par IA à partir du portail](cognitive-search-quickstart-blob.md)
-+ [Tutoriel : En savoir plus sur les API d’enrichissement par IA](cognitive-search-tutorial-blob.md)
++ [Démarrage rapide : Procédure pas à pas d’enrichissement par IA à partir du portail](cognitive-search-quickstart-blob.md)
++ [Tutoriel : En savoir plus sur les API d’enrichissement par IA](cognitive-search-tutorial-blob.md)
 + [Base de connaissances (préversion)](knowledge-store-concept-intro.md)
-+ [Base de connaissances : procédure pas à pas](knowledge-store-howto.md)
++ [Créer une base de connaissances avec REST](knowledge-store-create-rest.md)

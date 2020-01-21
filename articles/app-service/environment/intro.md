@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ca172e16fc13d2b8e10d0797f5b57b5b48136349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0fc5c32570e5a5920d1616a522120ea5d5b251d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430447"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768325"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Présentation des environnements App Service #
  
@@ -41,6 +41,7 @@ Les environnements ASE sont isolés de façon à exécuter les applications d’
 * Vous pouvez utiliser plusieurs environnements App Service pour une mise à l’échelle horizontale. Pour plus d’informations, consultez [Mise à l’échelle géolocalisée avec les environnements App Service](app-service-app-service-environment-geo-distributed-scale.md).
 * Vous pouvez utiliser des environnements App Service pour configurer l’architecture de sécurité, comme indiqué dans l’Immersion AzureCon. Pour découvrir comment a été configurée l’architecture de sécurité illustrée dans l’Immersion AzureCon, consultez l’[article sur l’implémentation d’une architecture de sécurité en couches](app-service-app-service-environment-layered-security.md) avec les environnements App Service.
 * L’accès aux applications qui s’exécutent sur des environnements App Service peut être contrôlé par des appareils en amont tels que les pare-feu d’applications web (WAF). Pour plus d’informations, consultez l’article [Pare-feu d’applications web (WAF)][AppGW].
+* Les environnements ASE (App Service Environment) peuvent être déployés dans des zones de disponibilité (AZ) à l’aide de l’épinglage de zone.  Pour plus d’informations, consultez [Prise en charge d’App Service Environment pour les zones de disponibilité][ASEAZ].
 
 ## <a name="dedicated-environment"></a>Environnement dédié ##
 
@@ -102,3 +103,4 @@ Les versions ASEv1 et ASEv2 utilisent un modèle tarifaire différent. Dans ASE
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/waf-overview.md
+[ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

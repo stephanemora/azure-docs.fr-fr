@@ -5,12 +5,12 @@ ms.topic: quickstart
 ms.date: 03/28/2019
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 2570e3753dd93173166c6b563e9add69bed3f862
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670476"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922276"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configurer une application Python Linux pour Azure App Service
 
@@ -50,7 +50,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="container-characteristics"></a>Caractéristiques du conteneur
 
-Les applications Python déployées sur App Service sur Linux s’exécutent dans un conteneur Docker défini dans le dépôt GitHub [Python 3.6](https://github.com/Azure-App-Service/python/tree/master/3.6.6) ou [Python 3.7](https://github.com/Azure-App-Service/python/tree/master/3.7.0).
+Les applications Python déployées sur App Service pour Linux s’exécutent dans un conteneur Docker qui est défini dans le [dépôt GitHub Python d’App Service](https://github.com/Azure-App-Service/python). Les configurations d’images se trouvent dans les répertoires spécifiques des versions.
 
 Ce conteneur présente les caractéristiques suivantes :
 
@@ -159,7 +159,7 @@ Les frameworks web populaires vous permettent d’accéder aux informations `X-F
 
 [!INCLUDE [Open SSH session in browser](../../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 - **Vous voyez l’application par défaut après le déploiement du code de votre propre application.** L’application par défaut s’affiche, soit parce que vous n’avez pas déployé le code de votre application sur App Service, soit parce qu’App Service n’a pas trouvé le code de votre application et a exécuté l’application par défaut à la place.
 - Redémarrez App Service, patientez 15 à 20 secondes et vérifiez de nouveau l’application.
@@ -174,10 +174,10 @@ Les frameworks web populaires vous permettent d’accéder aux informations `X-F
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Application Python avec PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutoriel : Application Python avec PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-docker-image.md)
+> [Tutoriel : Déployer à partir du référentiel de conteneurs privé](tutorial-custom-docker-image.md)
 
 > [!div class="nextstepaction"]
-> [FAQ App Service sur Linux](app-service-linux-faq.md)
+> [Questions fréquentes (FAQ) sur App Service sur Linux](app-service-linux-faq.md)

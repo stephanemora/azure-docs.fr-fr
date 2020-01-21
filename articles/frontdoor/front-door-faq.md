@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dd315277e6e8f29a103760d605a7da4603190c20
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639852"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908873"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Questions fréquentes (FAQ) sur Azure Front Door Service
 
@@ -99,7 +99,7 @@ Pour verrouiller votre application afin de n’accepter que le trafic en provena
     > L’espace IP back-end de Front Door pourra changer ultérieurement, mais avant cela nous ferons en sorte d’avoir procédé à l’intégration avec les [balises de service et les plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519). Nous vous recommandons de vous abonner aux [balises de service et aux plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=56519) pour vous tenir informé des modifications ou mises à jour.
 
 -   Filtrez sur les valeurs acceptables pour l’en-tête entrant « **X-Forwarded-Host** » envoyé par Front Door. Les seules valeurs autorisées pour l’en-tête doivent être tous les hôtes front-end tels que définis dans la configuration de votre porte d’entrée. Plus précisément, il s’agit uniquement des noms des hôtes en provenance desquels vous souhaitez accepter le trafic sur votre back-end spécifique.
-    - Supposons, par exemple, que la configuration de votre porte d’entrée a les hôtes front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _ (C) et _`notifications.contoso.com`_ (D). Supposons que vous disposez de deux back-ends : X et Y. 
+    - Supposons, par exemple, que la configuration de votre porte d’entrée a les hôtes front-end _`contoso.azurefd.net`_ (A), _`www.contoso.com`_ (B), _`api.contoso.com`_ (C) et _`notifications.contoso.com`_ (D). Supposons que vous disposez de deux back-ends : X et Y. 
     - Le back-end X ne doit accepter que le trafic en provenance des noms d’hôte A et B, tandis que le back-end Y peut accepter le trafic en provenance de A, C et D.
     - Ainsi, sur le back-end X, vous ne devez accepter que le trafic dont l’en-tête « **X-Forwarded-Host** » est défini sur _`contoso.azurefd.net`_ ou _`www.contoso.com`_ . Dans tous les autres cas, le back-end X doit refuser le trafic.
     - De même, sur le back-end Y, vous ne devez accepter que le trafic dont l’en-tête « **X-Forwarded-Host** » est défini sur _`contoso.azurefd.net`_ , _`api.contoso.com`_ ou _`notifications.contoso.com`_ . Dans tous les autres cas, le back-end Y doit refuser le trafic.
