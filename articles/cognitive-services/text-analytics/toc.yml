@@ -1,6 +1,6 @@
 - name: Documentation sur les API Analyse de texte
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: "Qu’est-ce que l’API Analyse de texte\_?"
@@ -14,8 +14,10 @@
   items:
     - name: Bibliothèque cliente
       items:
-        - name: Analyser du texte avec la bibliothèque cliente
+        - name: Analyser le texte avec v3.0-preview
           href: quickstarts/text-analytics-sdk.md
+        - name: Analyser le texte avec v2
+          href: quickstarts/text-analytics-sdk-v2.md
     - name: API REST
       items:
         - name: Utilisation de Java
@@ -92,7 +94,7 @@
       href: 'https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure'
     - name: Contenu externe et contenu de la communauté
       href: text-analytics-resource-external-community.md
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: text-analytics-resource-faq.md
     - name: Prise en charge de la région et de la langue
       href: language-support.md
