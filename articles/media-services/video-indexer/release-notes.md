@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 12/19/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: a8f4174fca1a8703bb112c19e785d4d9686a82f5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453301"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832308"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -29,6 +29,42 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
+
+## <a name="december-2019"></a>Décembre 2019
+
+### <a name="update-transcript-with-the-new-api"></a>Mettre à jour la transcription avec la nouvelle API
+
+Mettez à jour une section spécifique dans la transcription à l’aide de l’API [Update-Video-index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?&pattern=update).
+
+### <a name="fix-account-configuration-from-the-video-indexer-portal"></a>Corriger la configuration du compte à partir du portail Video Indexer
+
+Vous pouvez maintenant mettre à jour la configuration de la connexion à Media Services pour favoriser la résolution autonome des problèmes tels que : 
+
+* ressource Azure Media Services incorrecte
+* modifications de mot de passe
+* les ressources Media Services ont été déplacées dans un autre abonnement  
+
+Pour corriger la configuration du compte, rendez-vous sur le portail Video Indexer et accédez à Paramètres > onglet Compte (en tant que propriétaire).
+
+### <a name="configure-the-custom-vision-account"></a>Configurer le compte Custom Vision
+
+Configurez le compte Custom Vision sur les comptes payants à l’aide du portail Video Indexer (auparavant pris en charge uniquement par l’API). Pour cela, connectez-vous au portail Video Indexer, choisissez Personnalisation du modèle > Personnages animés > Configurer. 
+
+### <a name="scenes-shots-and-keyframes--now-in-one-insight-pane"></a>Scènes, plans et images clés, maintenant dans un seul volet d’informations
+
+Les scènes, les plans et les images clés sont désormais fusionnés en un seul aperçu pour une consommation et une navigation plus faciles. Lorsque vous sélectionnez la scène souhaitée, vous pouvez voir les plans et les images clés qui la composent. 
+
+### <a name="notification-about-a-long-video-name"></a>Notification concernant un nom de vidéo long
+
+Lorsqu’un nom de vidéo contient plus de 80 caractères, Video Indexer affiche une erreur descriptive lors du chargement.
+
+### <a name="streaming-endpoint-is-disabled-notification"></a>Notification de désactivation du point de terminaison de streaming
+
+Lorsque le point de terminaison de streaming est désactivé, Video Indexer affiche une erreur descriptive sur la page du lecteur.
+
+### <a name="error-handling-improvement"></a>Amélioration de la gestion des erreurs
+
+Le code d’état 409 est désormais renvoyé à partir des API [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video? https://api-portal.videoindexer.ai/docs/services/Operations/operations/Re-Index-Video?) (Réindexer une vidéo) et [Update Video Index](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Index?) (Mettre à jour l’index d’une vidéo) en cas d’indexation active d’une vidéo, pour éviter de remplacer les modifications de réindexation en cours par accident.
 
 ## <a name="november-2019"></a>Novembre 2019
  
@@ -65,7 +101,7 @@ Plusieurs améliorations ont été annoncées au salon IBC 2019 :
     Étiquetage des plans avec des types éditoriaux tels que gros plan, plan moyen, deux plans, intérieur, extérieur, etc. Pour plus d’informations, consultez [Détection du type de plan éditorial](scenes-shots-keyframes.md#editorial-shot-type-detection).
 * Amélioration de l’inférence de rubrique, avec à présent couverture du niveau 2
     
-    Le modèle d’inférence de rubrique prend maintenant en charge la précision plus profonde de la taxonomie IPTC. Pour plus d’informations, consultez [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
+    Le modèle d’inférence de rubrique prend maintenant en charge la précision plus profonde de la taxonomie IPTC. Pour plus d’informations, consultez [Azure Media Services new AI-powered innovation](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## <a name="august-2019"></a>Août 2019
  

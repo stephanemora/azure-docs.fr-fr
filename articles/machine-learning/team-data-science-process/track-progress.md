@@ -2,24 +2,24 @@
 title: Suivre la progression des projets TDSP
 description: Méthode de suivi de la progression d’un projet de science des données pour les responsables de groupe, chefs d’équipe et coordinateurs de projet spécialisés dans la science des données.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8cf1e5a4d97b882e7a8d0c81041bbcde709760d1
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244051"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864194"
 ---
 # <a name="track-the-progress-of-data-science-projects"></a>Suivre la progression de projets de science des données
 
-Les responsables de groupe, chefs d’équipe et coordinateurs de projet spécialisés dans la science des données peuvent suivre la progression de leurs projets, notamment le travail qui a été fait et par qui ainsi que le travail restant. 
+Les responsables de groupe, chefs d’équipe et coordinateurs de projet de science des données peuvent suivre la progression de leurs projets.  Les responsables veulent savoir quel travail a été effectué, qui l’a fait et le travail restant.   La gestion des attentes est un facteur de succès important.
 
 ## <a name="azure-devops-dashboards"></a>Tableaux de bord DevOps Azure
 
@@ -50,4 +50,4 @@ Voici un exemple simple de tableau de bord qui effectue le suivi des activités 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Guides d’application du processus TDSP (Team Data Science Process)](walkthroughs.md) liste les procédures pas à pas illustrant les étapes du processus pour des scénarios spécifiques avec des liens et des descriptions sous forme de miniatures. Les scénarios liés montrent également comment combiner des outils et des services cloud et locaux dans des workflows ou des pipelines pour créer des applications intelligentes. 
+[Guides d’application du processus TDSP (Team Data Science Process)](walkthroughs.md) répertorie les procédures pas à pas qui décrivent toutes les étapes de processus. Les scénarios liés expliquent comment gérer les ressources cloud et locales dans des applications intelligentes. 

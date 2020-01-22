@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 97fcd3241be6dac81adfa8e17999d92d84abaa19
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0eea6700b8b248a87666071ee02572d356110cd0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647286"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830171"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Questions fréquentes (FAQ) sur Azure Network Watcher
 Le service [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre une suite d’outils permettant de superviser, diagnostiquer, consulter des métriques, ainsi qu’activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure. Cet article répond aux questions courantes sur le service.
@@ -71,47 +71,17 @@ Seule la capture de paquets, la résolution des problèmes de connexion et du mo
 ### <a name="what-does-nsg-flow-logs-do"></a>Que font les journaux de flux NSG ?
 Les ressources réseau Azure peuvent être combinées et gérées via les [groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview). Les journaux de flux NSG vous permettent de consigner les informations de flux à 5 tuples concernant tout le trafic via vos groupes de sécurité réseau. Les journaux de flux bruts sont écrits dans un compte de stockage Azure à partir duquel ils peuvent être traités, analysés, interrogés ou exportés en fonction des besoins.
 
-### <a name="are-there-any-caveats-to-using-nsg-flow-logs"></a>Existe-t-il des mises en garde liées à l’utilisation des journaux de flux NSG ?
-Il n’existe pas de prérequis à l’utilisation des journaux de flux NSG. Toutefois, deux limitations s’appliquent
-- **Aucun point de terminaison de service ne doit être présent sur votre réseau virtuel** : Les journaux de flux NSG sont émis à partir d’agents sur vos machines virtuelles vers des comptes de stockage. Toutefois, aujourd’hui, vous pouvez émettre des journaux directement seulement vers des comptes de stockage et vous ne pouvez pas utiliser un point de terminaison de service ajouté à votre réseau virtuel.
+### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall-or-through-a-service-endpoints"></a>Comment utiliser des journaux de flux NSG sur un compte de stockage avec un pare-feu ou via des points de terminaison de service ?
 
-- **Le compte de stockage ne doit pas être protégé par un pare-feu** : En raison de limitations internes, les comptes de stockage doivent être accessibles via l’Internet public pour que les journaux de flux NSG puissent les utiliser. Le trafic sera toujours routé via Azure en interne et vous ne serez pas confronté à des frais de sortie supplémentaires.
-
-Consultez les deux questions suivantes pour obtenir des instructions sur la façon de contourner ces problèmes. Ces deux limitations sont supposées être traitées d’ici à janvier 2020.
-
-### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints"></a>Comment utiliser les Journaux de flux NSG avec des point de terminaison de service ?
-
-*Option n°1 : Reconfigurer les journaux de flux NSG pour émettre vers le compte de stockage Azure sans point de terminaison de réseau virtuel*
-
-* Rechercher des sous-réseaux avec des points de terminaison :
-
-    - Dans le portail Azure, recherchez **Groupes de ressources** dans la recherche globale en haut
-    - Accédez au groupe de ressources contenant le NSG que vous utilisez
-    - Utilisez la deuxième liste déroulante pour filtrer par type et sélectionnez **Réseaux virtuels**
-    - Cliquez sur le réseau virtuel contenant les points de terminaison de service
-    - Dans le volet gauche, sous **Paramètres**, sélectionnez **Points de terminaison de service**
-    - Prenez note des sous-réseaux dans lesquels **Microsoft.Storage** est activé
-
-* Désactivez les points de terminaison de service :
-
-    - Dans le droit fil de la procédure ci-dessus, dans le volet gauche, sous **Paramètres**, sélectionnez **Sous-réseaux**
-    * Cliquez sur le sous-réseau contenant les points de terminaison de service
-    - Dans la section **Points de terminaison de service**, sous **Services**, désactivez **Microsoft.Storage**
-
-Vous pouvez consulter les journaux de stockage au bout de quelques minutes. Vous devriez y voir qu’un horodateur a été mis à jour ou qu’un fichier JSON a été créé.
-
-*Option n°2 : Désactiver les journaux de flux NSG*
-
-Si les points de terminaison de service Microsoft.Storage sont indispensables, vous devez désactiver les Journaux de flux NSG.
-
-### <a name="how-do-i-disable-the--firewall-on-my-storage-account"></a>Comment désactiver le pare-feu sur mon compte de stockage ?
-
-Ce problème est résolu en autorisant « Tous les réseaux » à accéder au compte de stockage :
+Pour utiliser un compte de stockage avec un pare-feu ou via des points de terminaison de service, vous devez autoriser les services Microsoft approuvés à accéder à votre compte de stockage :
 
 * Recherchez le nom du compte de stockage en localisant le groupe de sécurité réseau dans la [page de vue d’ensemble des Journaux de flux NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs)
 * Accédez au compte de stockage en tapant le nom du compte de stockage dans la recherche globale sur le portail.
 * Dans la section **PARAMÈTRES**, sélectionnez **Pare-feu et réseaux virtuels**.
-* Sélectionnez **Tous les réseaux**, puis enregistrez. Si cette option est déjà sélectionnée, aucune modification n’est nécessaire.  
+* Dans « Autoriser l’accès depuis », sélectionnez **Réseaux sélectionnés**. Ensuite, sous **Exceptions**, cochez la case en regard de **« Autoriser les services Microsoft approuvés à accéder à ce compte de stockage »** 
+* Si cette option est déjà sélectionnée, aucune modification n’est nécessaire.  
+
+Vous pouvez consulter les journaux de stockage au bout de quelques minutes. Vous devriez y voir qu’un horodateur a été mis à jour ou qu’un fichier JSON a été créé.
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Quelle est la différence entre les versions 1 et 2 des journaux de flux ?
 La version 2 des journaux de flux introduit le concept d’*état de flux* et stocke des informations sur les octets et les paquets transmis. [En savoir plus](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview#log-file).

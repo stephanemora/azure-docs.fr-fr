@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 49e7fd49e000a3d4475c60a0c58cf6a2c7455fa5
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 243bbd431b7332d06a4e14581aa5c02bae2b7cba
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531409"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896292"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>Déployer un système Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur SUSE Linux Enterprise Server 
 
@@ -86,7 +86,7 @@ Avant de commencer, reportez-vous aux notes et documents SAP suivants :
 * [SAP HANA sur les systèmes NetApp avec NFS (Network File System)](https://www.netapp.com/us/media/tr-4435.pdf) : guide de configuration qui contient des informations sur la configuration de SAP HANA à l’aide d’Azure NFS by NetApp
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’une des méthodes permettant d’obtenir une haute disponibilité HANA consiste à configurer le basculement automatique de l’hôte. Pour configurer le basculement automatique de l’hôte, vous devez ajouter une ou plusieurs machines virtuelles au système HANA et les configurer en tant que nœuds de secours. En cas de défaillance d’un nœud actif, un nœud de secours prend automatiquement le relais. Dans la configuration présentée avec les machines virtuelles Azure, vous obtenez un basculement automatique à l’aide de [NFS sur Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/).  
 
@@ -132,7 +132,7 @@ Les instructions suivantes supposent que vous avez déjà déployé votre [rése
 
 3. Configurez un pool de capacité Azure NetApp Files en suivant les instructions de la page [Configuration d’un pool de capacité Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-set-up-capacity-pool).  
 
-   L’architecture HANA présentée dans cet article utilise un seul pool de capacité Azure NetApp Files au niveau de *service Ultra*. Pour les charges de travail HANA sur Azure, nous vous recommandons d’utiliser un [niveau de service](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels) *Ultra* ou *Premium* d’Azure NetApp Files .  
+   L’architecture HANA présentée dans cet article utilise un seul pool de capacité Azure NetApp Files au niveau de *service Ultra*. Pour les charges de travail HANA sur Azure, nous vous recommandons d’utiliser un [niveau de service](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-service-levels)*Ultra* ou *Premium* d’Azure NetApp Files.  
 
 4. Déléguez un sous-réseau à Azure NetApp Files, comme décrit dans les instructions de la page [Déléguer un sous-réseau à Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet).  
 
@@ -429,7 +429,9 @@ Configurez et préparez votre système d’exploitation en procédant comme suit
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
 
 5. **[A]** Créez manuellement le groupe et l’utilisateur SAP HANA. Les ID pour le groupe sapsys et l’utilisateur **hn1**adm doivent être définis sur les mêmes ID que ceux fournis lors de l’intégration. (Dans cet exemple, les ID sont définis sur **1001**.) Si les ID ne sont pas définis correctement, vous ne pourrez pas accéder aux volumes. Les ID pour le groupe sapsys et les comptes d’utilisateurs **hn1**adm et sapadm doivent être identiques sur toutes les machines virtuelles.  
 
@@ -514,7 +516,7 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
 
 ### <a name="prepare-for-hana-installation"></a>Préparer l’installation de HANA
 
-1. **[A]** Avant l’installation de HANA, définissez le mot de passe racine. Vous pouvez désactiver le mot de passe racine une fois l’installation terminée. Exécutez en tant que commande `root` `passwd`.  
+1. **[A]** Avant l’installation de HANA, définissez le mot de passe racine. Vous pouvez désactiver le mot de passe racine une fois l’installation terminée. Exécutez en tant que commande `root``passwd`.  
 
 2. **[1]** Vérifiez que vous pouvez vous connecter via SSH sur **hanadb2** et **hanadb3** sans être invité à entrer un mot de passe.  
 
@@ -631,8 +633,8 @@ Dans cet exemple, pour le déploiement de SAP HANA dans une configuration Scale-
 6. Afin d’optimiser SAP HANA pour le stockage Azure NetApp Files sous-jacent, définissez les paramètres SAP HANA suivants :
 
    - `max_parallel_io_requests` **128**
-   - `async_read_submit` **on**
-   - `async_write_submit_active` **on**
+   - `async_read_submit`**on**
+   - `async_write_submit_active`**on**
    - `async_write_submit_blocks` **all**
 
    Pour plus d’informations, consultez le [Guide de configuration SAP HANA sur les systèmes NetApp AFF avec NFS](https://www.netapp.com/us/media/tr-4435.pdf). 

@@ -4,12 +4,12 @@ description: Découvrez comment créer un modèle Azure Resource Manager qui dé
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 10efe5d09771f4c5f3a2564ef99ff9cae8cf06c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433141"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978802"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -90,7 +90,7 @@ Application Insights est recommandé pour la surveillance de vos applications de
             },
             "properties": {
                 "Application_Type": "web",
-                "ApplicationId": "[variables('functionAppName')]"
+                "ApplicationId": "[variables('appInsightsName')]"
             }
         },
 ```
@@ -372,7 +372,7 @@ Une application de fonction sur un plan Premium doit avoir la propriété `serve
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## <a name="deploy-on-app-service-plan"></a>Déployer sur un plan App Service
 
@@ -419,7 +419,7 @@ Pour exécuter votre application sous Linux, vous devez également définir la p
 }
 ```
 
-### <a name="create-a-function-app"></a>Créer une application de fonction 
+### <a name="create-a-function-app"></a>Créer une application de fonction
 
 Une application de fonction sur un plan App Service doit avoir la propriété `serverFarmId` définie sur l’ID de ressource du plan créé précédemment.
 
@@ -637,10 +637,10 @@ Une application de fonction dispose de nombreuses ressources enfant que vous pou
 
 Vous pouvez utiliser une des méthodes suivantes pour déployer votre modèle :
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure portal](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Bouton Déployer dans Azure
 

@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
-ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815404"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972625"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
@@ -40,6 +40,7 @@ Une fois votre vidéo chargée, Video Indexer peut éventuellement l’encoder (
 - L’URL fournie dans le paramètre `videoURL` doit être encodée.
 - L’indexation des actifs multimédias Media Services a la même restriction que l’indexation à partir d’une URL.
 - Video Indexer a une limite de temps maximale de 4 heures par fichier.
+- Vous pouvez charger jusqu’à 60 films par minute.
 
 > [!Tip]
 > Il est recommandé d’utiliser la version 4.6.2 du .NET Framework. ou une version ultérieure, car les anciens .NET Framework ne sont pas définis par défaut sur TLS 1.2.
@@ -61,15 +62,15 @@ URL qui est utilisée pour notifier le client (à l’aide d’une requête POST
 - Changement de l’état d’indexation : 
     - Propriétés :    
     
-        |Nom|Description|
+        |Name|Description|
         |---|---|
         |id|L’ID de la vidéo|
         |state|État de la vidéo|  
     - Exemple : https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Personne identifiée dans la vidéo :
-  - properties
+  - Propriétés
     
-      |Nom|Description|
+      |Name|Description|
       |---|---|
       |id| L’ID de la vidéo|
       |faceId|ID de visage qui apparaît dans l’index de la vidéo|
@@ -129,7 +130,7 @@ Après avoir copié ce code dans votre plateforme de développement, vous devez 
     Pour obtenir votre clé API, effectuez les étapes suivantes :
 
     * Accédez à https://api-portal.videoindexer.ai/.
-    * Connectez-vous.
+    * Connexion
     * Accédez à **Products** -> **Authorization** -> **Authorization subscription**.
     * Copiez la **clé primaire**.
 * URL de la vidéo : URL du fichier audio/vidéo à indexer. L’URL doit pointer vers un fichier multimédia (les pages HTML ne sont pas prises en charge). Le fichier peut être protégé par un jeton d’accès fourni dans le cadre de l’URI et le point de terminaison qui traite le fichier doit être sécurisé avec TLS 1.2 ou version ultérieure. L’URL doit être encodée.
@@ -313,7 +314,7 @@ Les codes d’état répertoriés dans le tableau suivant peuvent être renvoyé
 
 |Code d’état|ErrorType (dans le corps de la réponse)|Description|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|La même vidéo est déjà en cours de traitement dans le compte en question.|
+|409|VIDEO_INDEXING_IN_PROGRESS|La même vidéo est déjà en cours de traitement dans le compte en question.|
 |400|VIDEO_ALREADY_FAILED|La même vidéo n’a pas pu être traitée dans le compte en question moins de 2 heures auparavant. Les clients API doivent attendre au moins 2 heures avant de recharger une vidéo.|
 
 ## <a name="next-steps"></a>Étapes suivantes

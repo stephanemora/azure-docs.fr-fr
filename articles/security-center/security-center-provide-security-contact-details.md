@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/09/2019
 ms.author: memildin
-ms.openlocfilehash: fabccb7a3f49442a009fd69ee6d3b831760751d2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a66ea200082f60a3a763c6a4e2bdea62ec473d8
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201025"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921000"
 ---
 # <a name="provide-security-contact-details-in-azure-security-center"></a>Fournir les détails du contact de sécurité dans Azure Security Center
 Azure Security Center vous recommande de fournir les détails du contact de sécurité pour votre abonnement Azure, si vous ne l’avez pas déjà fait. Ces informations seront être utilisées par Microsoft pour vous contacter si Microsoft Security Response Center (MSRC) découvre que vos données client ont été utilisées par un tiers illégal ou non autorisé. MSRC procède à une surveillance de la sécurité sur l'infrastructure et le réseau Azure et reçoit des plaintes concernant l’intelligence des menaces et des mauvaises utilisations de tiers.
 
-Une notification par courrier électronique est envoyée à la première occurrence quotidienne d’une alerte et uniquement pour les alertes de gravité élevée. Les préférences de courrier électronique peuvent uniquement être configurées pour les stratégies d’abonnement. Les groupes de ressources d’un abonnement hériteront de ces paramètres. 
+Une notification par courrier électronique est envoyée à la première occurrence quotidienne d’une alerte et uniquement pour les alertes de gravité élevée. Les préférences de courrier électronique peuvent uniquement être configurées pour les stratégies d’abonnement. Les groupes de ressources d’un abonnement hériteront de ces paramètres. Les alertes sont disponibles uniquement dans le niveau Standard d’Azure Security Center.
 
 Des notifications d’alertes par courrier électronique sont envoyées :
 - Uniquement pour les alertes de gravité élevée
@@ -50,7 +50,7 @@ Par exemple, si un message a été déjà envoyé pour vous alerter d’une atta
    * Entrez l’adresse e-mail du contact de sécurité. S’il y a plusieurs adresses, séparez-les par des virgules. Vous pouvez entrer le nombre d’adresses e-mail que vous voulez.
    * Entrez le numéro de téléphone international du contact de sécurité.
    * Pour recevoir des courriers électroniques concernant les alertes de gravité élevée, activez l’option **Send me emails about alerts**(M’envoyer des messages électroniques concernant les alertes).
-   * À l’avenir, vous aurez la possibilité d’envoyer des notifications par courrier électronique aux propriétaires de l’abonnement. Cette option est actuellement grisée.
+   * Vous avez la possibilité d’envoyer des notifications par courrier électronique aux propriétaires d’abonnements (administrateur de service classique et coadministrateurs, ainsi qu’au rôle de propriétaire RBAC à l’étendue de l’abonnement).
    * Sélectionnez **Enregistrer** pour appliquer les informations du contact de sécurité à votre abonnement.
 
 ## <a name="see-also"></a>Voir aussi
@@ -60,7 +60,7 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
-* [Surveillance des solutions partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
+* [Surveillance des solutions de partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaires.
 * [FAQ sur Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
 * [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
 

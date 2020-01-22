@@ -10,12 +10,12 @@ ms.author: mnark
 author: MrudulaN
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 0c80604bba78289c7612e3ca54a359de1a5e992d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: bfb2d5a5a8918cbfc446c35b39f3e8e9954b7761
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535217"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75763519"
 ---
 # <a name="deploy-a-model-to-azure-machine-learning-compute-instances"></a>Déployer un modèle sur des instances de calcul Azure Machine Learning
 
@@ -31,7 +31,7 @@ Découvrez comment utiliser Azure Machine Learning pour déployer un modèle en 
 - Vous testez un modèle en cours de développement.
 
 > [!TIP]
-> Le déploiement d’un modèle à partir d’un Jupyter Notebook sur une instance de calcul vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est l’instance de calcul. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Le déploiement d’un modèle à partir d’un Jupyter Notebook sur une instance de calcul vers un service web sur la même machine virtuelle est un _déploiement local_. Dans ce cas, l’ordinateur « local » est l’instance de calcul. Pour plus d’informations sur les déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -63,16 +63,33 @@ Un exemple de notebook illustrant les déploiements locaux est inclus sur votre 
 
 Pour soumettre des exemples de données au service en cours d’exécution, utilisez le code suivant. Remplacez la valeur de `service_url` par l’URL de l’étape précédente :
 
+> [!NOTE]
+> Lors de l’authentification auprès d’un déploiement sur l’instance de calcul, l’authentification est effectuée à l’aide d’Azure Active Directory. L’appel à `interactive_auth.get_authentication_header()` dans l’exemple de code vous authentifie à l’aide d’AAD et retourne un en-tête qui peut ensuite être utilisé pour s’authentifier auprès du service sur l’instance de calcul. Pour plus d’informations, consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md#interactive-authentication).
+>
+> Lors de l’authentification auprès d’un déploiement sur Azure Kubernetes Service ou Azure Container Instances, une autre méthode d’authentification est utilisée. Pour plus d’informations à ce sujet, consultez [Configurer l’authentification pour des ressources et workflows Azure Machine Learning](how-to-setup-authentication.md#web-service-authentication).
+
 ```python
 import requests
 import json
+from azureml.core.authentication import InteractiveLoginAuthentication
+
+# Get a token to authenticate to the compute instance from remote
+interactive_auth = InteractiveLoginAuthentication()
+auth_header = interactive_auth.get_authentication_header()
+
+# Create and submit a request using the auth header
+headers = auth_header
+# Add content type header
+headers.update({'Content-Type':'application/json'})
+
+# Sample data to send to the service
 test_sample = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10],
     [10,9,8,7,6,5,4,3,2,1]
 ]})
 test_sample = bytes(test_sample,encoding = 'utf8')
-access_token = "your bearer token"
-headers = {'Content-Type':'application/json', 'Authorization': 'Bearer ' + access_token}
+
+# Replace with the URL for your compute instance, as determined from the previous section
 service_url = "https://vm-name-6789.northcentralus.notebooks.azureml.net/score"
 # for a compute instance, the url would be https://vm-name-6789.northcentralus.instances.azureml.net/score
 resp = requests.post(service_url, test_sample, headers=headers)
@@ -81,7 +98,7 @@ print("prediction:", resp.text)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](service/how-to-deploy-custom-docker-image.md)
+* [Guide pratique pour déployer un modèle à l’aide d’une image Docker personnalisée](how-to-deploy-custom-docker-image.md)
 * [Résolution des problèmes liés au déploiement](how-to-troubleshoot-deployment.md)
 * [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)

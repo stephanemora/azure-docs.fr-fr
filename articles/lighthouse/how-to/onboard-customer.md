@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client dans la gestion des ressources déléguées Azure
 description: Découvrez comment intégrer un client à la gestion des ressources déléguées Azure, permettant ainsi que ses ressources soient accessibles et gérables via votre propre locataire.
-ms.date: 12/17/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 16d1b4d9d51c377c4aa09b5e35b02790d8a1b8dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09e42a65891494370250fbab9b22cdf37a6fd318
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453556"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834127"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -32,9 +32,12 @@ Pour qu’il soit possible d’intégrer le locataire d’un client, celui-ci do
 
 - L’ID de locataire du locataire du fournisseur de services (où vous allez gérer les ressources du client)
 - L’ID de locataire du locataire du client (dont les ressources seront gérées par le fournisseur de services)
-- Les ID d’abonnement de chaque abonnement dans le locataire du client qui sera géré par le fournisseur de services (ou qui contient les groupes de ressources qui seront gérés par le fournisseur de services)
+- Les ID d’abonnement de chaque abonnement dans le locataire du client qui sera géré par le fournisseur de services (ou qui contient les groupes de ressources qui seront gérés par le fournisseur de services).
 
-Si vous ne disposez pas de ces informations, vous pouvez les récupérer de l’une des manières suivantes. Veillez à utiliser ces valeurs exactes dans votre déploiement.
+> [!NOTE]
+> Même si vous souhaitez uniquement intégrer un ou plusieurs groupes de ressources au sein d’un abonnement, le déploiement doit être effectué au niveau de l’abonnement. Vous aurez donc besoin de l’ID d’abonnement.
+
+Si vous ne disposez pas de ces valeurs d’ID, vous pouvez les récupérer de l’une des manières suivantes. Veillez à utiliser ces valeurs exactes dans votre déploiement.
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -113,9 +116,9 @@ Pour intégrer votre client, vous devez créer un modèle [Azure Resource Manage
 |Champ  |Définition  |
 |---------|---------|
 |**mspOfferName**     |Nom décrivant cette définition. Cette valeur est présentée au client comme titre de l’offre.         |
-|**mspOfferDescription**     |Brève description de votre offre (par exemple, « Offre de gestion des machines virtuelles Contoso »),      |
+|**mspOfferDescription**     |Brève description de votre offre (par exemple, « Offre de gestion des machines virtuelles Contoso »).      |
 |**managedByTenantId**     |Votre ID de client.          |
-|**authorizations**     |Les valeurs **principalId** pour les utilisateurs/groupes/noms de principal de service de votre locataire, chacune avec un **principalIdDisplayName** pour aider votre client à comprendre l’objectif de l’autorisation, et mappée à une valeur **roleDefinitionId** intégrée pour spécifier le niveau d’accès,         |
+|**authorizations**     |Valeurs **principalId** pour les utilisateurs/groupes/noms de principal du service de votre locataire, chacune avec un **principalIdDisplayName** pour aider votre client à comprendre l’objectif de l’autorisation, et mappées à une valeur **roleDefinitionId** intégrée pour spécifier le niveau d’accès.      |
 
 > [!TIP]
 > Assurez-vous que les entrées **managedByTenantID**, **principalIdDisplayName**, et **roleDefinitionId** sont identiques aux valeurs utilisées par Azure. N’utilisez pas de majuscules dans ces valeurs.
@@ -132,7 +135,7 @@ Les modèles que vous choisissez dépendront de votre choix d’intégrer un abo
 |Abonnement (lors de l’utilisation d’une offre publiée sur la Place de marché Azure)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
 > [!IMPORTANT]
-> Le processus décrit ici nécessite un déploiement distinct pour chaque abonnement intégré, même s’ils se trouvent dans le même locataire du client. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements dans le même locataire du client. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement.
+> Le processus décrit ici nécessite un déploiement au niveau de l’abonnement distinct pour chaque abonnement intégré, même si vous intégrez des abonnements dans le même locataire du client. Des déploiements distincts sont également requis si vous intégrez plusieurs groupes de ressources dans différents abonnements dans le même locataire du client. Toutefois, l’intégration de plusieurs groupes de ressources au sein d’un même abonnement peut être effectuée dans un seul déploiement au niveau de l’abonnement.
 >
 > De plus, vous devez déployer séparément chacune des offres qui sont appliquées à un même abonnement (ou aux groupes de ressources d’un abonnement). Chaque offre appliquée doit utiliser un **mspOfferName** différent.
 
@@ -198,7 +201,7 @@ Une fois que vous avez mis à jour votre fichier de paramètres, un utilisateur 
 Comme il s’agit d’un déploiement au niveau de l’abonnement, il ne peut pas être lancé dans le Portail Azure. Le déploiement peut être effectué à l’aide de PowerShell ou d’Azure CLI, comme indiqué ci-dessous.
 
 > [!IMPORTANT]
-> Ce déploiement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le Portail Azure, ouvrir **Contrôle d’accès (IAM)** , [Répertorier tous les rôles](../../role-based-access-control/role-definitions-list.md#list-all-roles), puis sélectionnez **Propriétaire** pour voir tous les utilisateurs avec ce rôle.
+> Ce déploiement au niveau de l’abonnement doit être effectué par un compte non invité dans le locataire du client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 ### <a name="powershell"></a>PowerShell
 

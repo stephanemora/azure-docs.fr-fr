@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 08458777d8a8c5c74ac20a63245135ffaf0a5c04
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563943"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934293"
 ---
 # <a name="security-control-secure-configuration"></a>Contrôle de sécurité : Configuration sécurisée
 
@@ -27,7 +27,9 @@ ms.locfileid: "75563943"
 
 Utilisez Azure Policy ou Azure Security Center pour gérer les configurations de sécurité pour toutes les ressources Azure.
 
-Configurer et gérer Azure Policy : https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Configurer et gérer Azure Policy :
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## <a name="72-establish-secure-operating-system-configurations"></a>7.2 : Établir des configurations sécurisées du système d’exploitation
 
@@ -57,7 +59,7 @@ Configurer et gérer Azure Policy :
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Compréhension des effets d’Azure Policy :
+Comprendre les effets d’Azure Policy :
 
 https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -159,7 +161,7 @@ https://docs.microsoft.com/azure/security-center/security-center-remediate-recom
 
 Utilisez Azure Security Center pour effectuer des analyses de base pour les paramètres de système d’exploitation et d’ancrage des conteneurs.
 
-Comprendre les recommandations relatives au conteneur Azure Security Center :
+Comprendre les recommandations concernant les conteneurs dans Azure Security Center :
 
 https://docs.microsoft.com/azure/security-center/security-center-container-recommendations
 
@@ -171,11 +173,17 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 Utilisez Managed Service Identity conjointement avec Azure Key Vault pour simplifier et sécuriser la gestion des secrets pour vos applications Cloud.
 
-Intégration aux identités managées Azure : https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Intégration aux identités managées Azure :
 
-Pour créer un coffre de clés : https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Fournir une authentification Key Vault avec une identité managée : https://docs.microsoft.com/azure/key-vault/managed-identity
+Pour créer un coffre de clés :
+
+https://docs.microsoft.com/azure/key-vault/quick-create-portal
+
+Fournir une authentification Key Vault avec une identité managée :
+
+https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7.12 : Gérer les identités de façon sécurisée et automatique
 
@@ -185,7 +193,9 @@ Fournir une authentification Key Vault avec une identité managée : https://do
 
 Utilisez des identités managées pour fournir aux services Azure une identité gérée automatiquement dans Azure AD. Les identités managées vous permettent de vous authentifier auprès d’un service qui prend en charge l’authentification Azure AD, y compris Key Vault, sans informations d’identification dans votre code.
 
-Configurer des identités managées : https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Configuration d’identités managées :
+
+https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## <a name="713-eliminate-unintended-credential-exposure"></a>7.13 : Éliminer l’exposition involontaire des informations d’identification
 
@@ -195,7 +205,9 @@ Configurer des identités managées : https://docs.microsoft.com/azure/active-di
 
 Exécuter le moteur d’analyse des informations d’identification pour identifier les informations d’identification dans le code. Le moteur d’analyse des informations d’identification encourage également le déplacement des informations d’identification découvertes vers des emplacements plus sécurisés, tels qu’Azure Key Vault. 
 
-Configuration de Credential Scanner : https://secdevtools.azurewebsites.net/helpcredscan.html
+Configuration de Credential Scanner :
+
+https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>Étapes suivantes
 

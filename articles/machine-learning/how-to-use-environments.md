@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: af6848e85db5d2a557835b063a499e3439557eb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 93a70bf0d9189368135b8007e95627fc64064c51
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690432"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932183"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Réutilisez des environnements pour l’entraînement et le déploiement avec Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -344,6 +344,34 @@ service = Model.deploy(
 ## <a name="example-notebooks"></a>Exemples de notebooks
 
 Cet [exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) approfondit les concepts et méthodes présentés dans cet article.
+
+## <a name="create-and-manage-environments-with-the-cli"></a>Créer et gérer des environnements avec la CLI
+
+La [CLI Azure Machine Learning](reference-azure-machine-learning-cli.md) reflète la majorité des fonctionnalités du Kit de développement logiciel (SDK) Python et peut être utilisée pour la création et la gestion d’environnement. Les commandes suivantes illustrent les fonctionnalités de base.
+
+La commande suivante génère la structure des fichiers pour une définition d’environnement par défaut dans le répertoire spécifié. Ces fichiers sont des fichiers JSON de fonction similaire à celle de la classe correspondante dans le Kit de développement logiciel (SDK), et peuvent être utilisés pour créer de nouveaux environnements avec des paramètres personnalisés. 
+
+```azurecli-interactive
+az ml environment scaffold -n myenv -d myenvdir
+```
+
+Exécutez la commande suivante pour inscrire un environnement à partir d’un répertoire spécifié.
+
+```azurecli-interactive
+az ml environment register -d myenvdir
+```
+
+L’exécution de la commande suivante répertorie tous les environnements inscrits.
+
+```azurecli-interactive
+az ml environment list
+```
+
+Téléchargez un environnement inscrit avec la commande suivante.
+
+```azurecli-interactive
+az ml environment download -n myenv -d downloaddir
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

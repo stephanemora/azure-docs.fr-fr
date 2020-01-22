@@ -1,5 +1,5 @@
 ---
-title: Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services
+title: Création de filtres avec le Kit de développement logiciel (SDK) .NET Azure Media Services v3
 description: Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective.
 services: media-services
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/03/2019
 ms.author: juliako
-ms.openlocfilehash: 2bcb8762b94347f4409507fb89a18cb6c9d0dacd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494310"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779244"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Créer des filtres à l’aide du kit SDK .NET Media Services
 
-Quand vous transmettez votre contenu à un client (événements de streaming en direct ou vidéo à la demande), le fichier manifeste de l’actif multimédia par défaut ne permet peut-être pas au client d’interagir avec le contenu comme il le voudrait. Avec Azure Media Services, vous pouvez définir des filtres de compte et d’élément multimédia à appliquer à votre contenu. 
+Quand vous transmettez votre contenu à un client (événements de streaming en direct ou vidéo à la demande), le fichier manifeste de l’élément multimédia par défaut ne permet pas toujours au client d’interagir avec le contenu comme il le voudrait. Avec Azure Media Services, vous pouvez définir des filtres de compte et d’élément multimédia à appliquer à votre contenu. 
 
 Pour obtenir une description détaillée de cette fonctionnalité et des scénarios dans lesquels elle est utilisée, consultez [Manifestes dynamiques](filters-dynamic-manifest-overview.md) et [Filtres](filters-concept.md).
 
@@ -31,7 +31,7 @@ Cette rubrique explique comment utiliser le SDK .NET Media Services pour défini
 > [!NOTE]
 > Veillez à consulter [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 - Lire [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
 - [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
@@ -73,7 +73,7 @@ AccountFilter accountFilterParams = new AccountFilter(tracks: includedTracks);
 client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "accountFilterName1", accountFilter);
 ```
 
-## <a name="create-asset-filters"></a>Créer des filtres d’actif multimédia
+## <a name="create-asset-filters"></a>Créer des filtres d’élément multimédia
 
 Le code suivant montre comment utiliser .NET pour créer un filtre d’actif multimédia qui inclut toutes les sélections de pistes [définies ci-dessus](#define-a-filter). 
 
@@ -110,7 +110,7 @@ Lorsque vous définissez des filtres, vos clients peuvent les utiliser dans l'UR
 
 Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
-|Protocole|Exemples|
+|Protocol|Exemple|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

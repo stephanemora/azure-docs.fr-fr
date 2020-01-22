@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: b54034dc8828fb8a96f488197e517ef07ed55ab5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460426"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863476"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -87,7 +87,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
    1. Utilisez l'**ID de l'application** et la **clé secrète client** (clé de l'application) à partir de la section d'inscription de l'application Azure Active Directory afin d'obtenir le jeton pour le compte de l’application.
 
-   1. Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet, voir [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
+   1. Dans C#, le code suivant permet d'obtenir le jeton pour le compte de l’application. Pour obtenir un exemple complet, lisez [Interroger des données à l’aide de C#](time-series-insights-query-data-csharp.md).
 
         [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs?range=170-199)]
 
@@ -107,7 +107,7 @@ Cette section décrit les en-têtes de requête HTTP et les paramètres qui son
 Pour exécuter des requêtes authentifiées sur les [API REST Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/), un jeton de porteur OAuth 2.0 valide doit être passé dans l’[en-tête d’autorisation](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) à l’aide du client REST de votre choix (Postman, JavaScript, C#). 
 
 > [!TIP]
-> Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [SDK JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), consultez l’[exemple de visualisation hébergé du SDK client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.
+> Pour savoir comment s’authentifier par programmation auprès des API Time Series Insights à l’aide du [Kit de développement logiciel (SDK) JavaScript Client](https://github.com/microsoft/tsiclient/blob/master/docs/API.md), lisez l’[exemple de visualisation hébergé du Kit de développement logiciel (SDK) client](https://tsiclientsample.azurewebsites.net/) Azure Time Series Insights ainsi que des graphes et autres graphiques.
 
 ### <a name="http-headers"></a>En-têtes HTTP
 
@@ -161,10 +161,10 @@ Les paramètres de chaîne de requête d’URL facultatifs incluent la définiti
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour un exemple de code qui appelle l’API Time Series Insights mise à la disposition générale, consultez [Interroger des données à l’aide de C#](./time-series-insights-query-data-csharp.md).
+- Pour un exemple de code qui appelle l’API Time Series Insights mise à la disposition générale, lisez [Interroger des données à l’aide de C#](./time-series-insights-query-data-csharp.md).
 
-- Pour des exemples de code de l'API Time Series Insights en préversion, consultez [Interroger des données en préversion à l’aide de données C# ](./time-series-insights-update-query-data-csharp.md).
+- Pour des exemples de code de l’API Time Series Insights en préversion, lisez [Interroger des données en préversion à l’aide de C#](./time-series-insights-update-query-data-csharp.md).
 
-- Pour obtenir des informations de référence sur l’API, consultez la documentation de [référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
+- Pour obtenir des informations de référence sur l’API, lisez la documentation de [référence sur l’API de requête](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Découvrez comment [créer un principal de service](../active-directory/develop/howto-create-service-principal-portal.md).

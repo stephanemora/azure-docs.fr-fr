@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 654787c34c6ceae51f1e1ce500193f73189f8935
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ecc2a8236b51013895bfe831d6785ff3e6925906
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427075"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979677"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -61,7 +61,7 @@ Ajout de la prise en charge des nouveaux encodeurs partenaires recommandés ci-d
 - [Restream.io](https://restream.io/)
 
 ### <a name="file-encoding-enhancements"></a>Améliorations de l’encodage des fichiers
-
+- Un nouvel encodage prédéfini sensible au contenu est maintenant disponible. Il produit un ensemble de fichiers MP4 alignés sur le groupe d’images à l’aide de l’encodage sensible au contenu. Lorsque du contenu est entré, le service effectue une analyse initiale légère du contenu d’entrée. Il utilise ces résultats pour déterminer le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la remise par diffusion en continu adaptative. Ce préréglage est particulièrement efficace pour les vidéos de faible complexité et de complexité moyenne, où les fichiers de sortie sont à des vitesses de transmission inférieures, mais à une qualité qui offre toujours une bonne expérience aux utilisateurs. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées. Pour plus d’informations, consultez les [spécifications d’API ouverte](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
 - Amélioration des performances et du multithreading pour le redimensionnement dans Media Encoder Standard. Dans des conditions spécifiques, le client doit voir une augmentation des performances du codage VOD de 5 à 40 %. Le contenu à faible complexité encodé en plusieurs vitesses de transmission dispose des meilleures améliorations de performances. 
 - L’encodage standard gère maintenant une cadence GOP régulière pour les contenus à fréquence d’images variable (VFR) lors d’un encodage VOD en cas d’utilisation du paramètre GOP basé sur le temps.  Cela signifie qu’un client soumettant un contenu de fréquence d’images mixte variant entre 15 et 30 images par seconde par exemple doit maintenant voir les distances GOP normales calculées sur la sortie vers des fichiers MP4 de streaming à débit adaptatif. Cela permet d’améliorer la possibilité de basculer entre les pistes en cas de diffusion sur TLS ou DASH. 
 -  Amélioration de la synchronisation AV pour un contenu source avec une fréquence d’images variable (VFR)
@@ -158,7 +158,7 @@ Ajout de mises à jour incluant l’amélioration des performances Media Service
 ### <a name="new-presets"></a>Nouvelles présélections
 
 * [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) a été ajouté aux présélections d’analyseur intégrées.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) a été ajouté aux présélections d’encodeur intégrées. Pour plus d’informations, consultez [Encodage sensible au contenu](cae-experimental.md). 
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) a été ajouté aux présélections d’encodeur intégrées. Pour plus d’informations, consultez [Encodage sensible au contenu](content-aware-encoding.md). 
 
 ## <a name="march-2019"></a>Mars 2019
 

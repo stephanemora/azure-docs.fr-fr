@@ -1,5 +1,5 @@
 ---
-title: Configurez votre compte pour une diffusion en continu hors connexion du contenu protégé de PlayReady - Azure
+title: Diffusion en continu PlayReady hors connexion avec Media Services v3 - Azure
 description: Cet article vous montre comment configurer votre compte Azure Media Services pour la diffusion en continu hors connexion de PlayReady pour Windows 10.
 services: media-services
 keywords: DASH, DRM, Widevine hors connexion, ExoPlayer, Android
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 0798cffdca8d5876373c35f3f5fd657551586d43
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 15a3e2f7fee6d130b1913ec4f74069a09d5aec53
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974051"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779785"
 ---
-# <a name="offline-playready-streaming-for-windows-10"></a>Diffusion en continu de PlayReady en mode hors connexion pour Windows 10
+# <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Diffusion en continu PlayReady hors connexion pour Windows 10 avec Media Services v3
 
 Azure Media Services prend en charge le téléchargement/la lecture hors connexion avec la protection DRM. Cet article décrit la prise en charge hors connexion d’Azure Media Services pour les clients Windows 10/PlayReady. Pour en savoir plus sur la prise en charge du mode hors connexion pour les appareils iOS/FairPlay et Android/Widevine, consultez les articles suivants :
 
@@ -31,7 +31,7 @@ Azure Media Services prend en charge le téléchargement/la lecture hors connexi
 > [!NOTE]
 > DRM hors connexion est uniquement facturé pour une requête unique de licence lorsque vous téléchargez le contenu. Les erreurs ne sont pas facturées.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette section donne des précisions sur la lecture en mode hors connexion, notamment sur les points suivants :
 

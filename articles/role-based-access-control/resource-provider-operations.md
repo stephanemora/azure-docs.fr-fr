@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e8a3397cd8229a84103fdcbb116bf61648a6ba22
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e2655a03fe315feb58668fcda0d19578a5df1a78
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895560"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981087"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
-Cet article répertorie les opérations disponibles pour chaque fournisseur de ressources Azure Resource Manager. Ces opérations peuvent être utilisées dans des [rôles personnalisés](custom-roles.md) pour fournir un [contrôle d’accès en fonction du rôle (RBAC)](overview.md) granulaire aux ressources dans Azure. Les chaînes d’opération suivent ce format : `{Company}.{ProviderName}/{resourceType}/{action}`. Pour obtenir la liste des correspondances entre les espaces de noms de fournisseur de ressources et les services Azure, consultez [Fournisseur de ressources correspondant au service](../azure-resource-manager/azure-services-resource-providers.md).
+Cet article répertorie les opérations disponibles pour chaque fournisseur de ressources Azure Resource Manager. Ces opérations peuvent être utilisées dans des [rôles personnalisés](custom-roles.md) pour fournir un [contrôle d’accès en fonction du rôle (RBAC)](overview.md) granulaire aux ressources dans Azure. Les chaînes d’opération suivent ce format : `{Company}.{ProviderName}/{resourceType}/{action}`. Pour obtenir la liste des correspondances entre les espaces de noms de fournisseur de ressources et les services Azure, consultez [Fournisseur de ressources correspondant au service](../azure-resource-manager/management/azure-services-resource-providers.md).
 
 Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir les dernières opérations, utilisez [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) ou [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -712,7 +712,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.BingMaps/mapApis/listSingleSignOnToken/action | Lire le jeton d’autorisation d’authentification unique pour la ressource |
 > | Action | Microsoft.BingMaps/mapApis/Read | Opération de lecture |
 > | Action | Microsoft.BingMaps/mapApis/regenerateKey/action | Régénère la clé |
-> | Action | Microsoft.BingMaps/mapApis/Write | Opération d’écriture |
+> | Action | Microsoft.BingMaps/mapApis/Write | Écrire une opération |
 > | Action | Microsoft.BingMaps/Operations/read | Description de l’opération. |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
@@ -2370,7 +2370,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.Devices/Account/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Devices/Account/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Devices/Account/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Devices/Account/logDefinitions/read | Obtient les définitions de journal disponibles pour le service IotHub |
 > | Action | Microsoft.Devices/Account/metricDefinitions/read | Obtenir les mesures disponibles pour le service IotHub |
@@ -2383,7 +2383,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Devices/digitalTwins/Read | Obtient la liste des comptes Digital Twins associés à un abonnement |
 > | Action | Microsoft.Devices/digitalTwins/skus/Read | Obtient la liste des références SKU valides pour les comptes Digital Twins |
 > | Action | Microsoft.Devices/digitalTwins/Write | Crée un compte Digital Twins |
-> | Action | Microsoft.Devices/ElasticPools/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Devices/ElasticPools/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Devices/ElasticPools/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Devices/elasticPools/eventGridFilters/Delete | Supprime le filtre Event Grid de Pool élastique |
 > | Action | Microsoft.Devices/elasticPools/eventGridFilters/Read | Obtient le filtre Event Grid de Pool élastique |
@@ -2394,7 +2394,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Devices/elasticPools/iotHubTenants/certificates/verify/Action | Vérifie la ressource de certificat |
 > | Action | Microsoft.Devices/elasticPools/iotHubTenants/certificates/Write | Crée ou met à jour un certificat |
 > | Action | Microsoft.Devices/elasticPools/iotHubTenants/Delete | Supprime la ressource du locataire IotHub |
-> | Action | Microsoft.Devices/ElasticPools/IotHubTenants/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Devices/ElasticPools/IotHubTenants/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Devices/ElasticPools/IotHubTenants/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Delete | Supprimer le groupe de consommateurs EventHub |
 > | Action | Microsoft.Devices/elasticPools/iotHubTenants/eventHubEndpoints/consumerGroups/Read | Afficher les groupes de consommateurs EventHub |
@@ -2423,7 +2423,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Devices/iotHubs/certificates/verify/Action | Vérifie la ressource de certificat |
 > | Action | Microsoft.Devices/iotHubs/certificates/Write | Crée ou met à jour un certificat |
 > | Action | Microsoft.Devices/iotHubs/Delete | Supprimer une ressource IotHub |
-> | Action | Microsoft.Devices/IotHubs/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Devices/IotHubs/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Devices/IotHubs/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Devices/iotHubs/eventGridFilters/Delete | Supprime le filtre Event Grid |
 > | Action | Microsoft.Devices/iotHubs/eventGridFilters/Read | Obtient le filtre Event Grid |
@@ -2459,7 +2459,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Devices/provisioningServices/certificates/verify/Action | Vérifie la ressource de certificat |
 > | Action | Microsoft.Devices/provisioningServices/certificates/Write | Crée ou met à jour un certificat |
 > | Action | Microsoft.Devices/provisioningServices/Delete | Supprime la ressource IotDps |
-> | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Devices/provisioningServices/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Devices/provisioningServices/keys/listkeys/Action | Obtient les clés IotDps pour le nom de clé |
 > | Action | Microsoft.Devices/provisioningServices/listkeys/Action | Obtient toutes les clés IotDps |
@@ -2792,8 +2792,8 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.EventHub/availableClusterRegions/read | Opération de lecture pour afficher la liste des clusters préconfigurés disponibles par région Azure. |
-> | Action | Microsoft.EventHub/checkNameAvailability/action | Vérifier la disponibilité d’un espace de noms sous un abonnement donné |
-> | Action | Microsoft.EventHub/checkNamespaceAvailability/action | Vérifier la disponibilité d’un espace de noms sous un abonnement donné Cette API étant dépréciée, utilisez CheckNameAvailability à la place. |
+> | Action | Microsoft.EventHub/checkNameAvailability/action | Vérifie la disponibilité d’un espace de noms sous un abonnement donné. |
+> | Action | Microsoft.EventHub/checkNamespaceAvailability/action | Vérifie la disponibilité d’un espace de noms sous un abonnement donné. Cette API étant dépréciée, utilisez CheckNameAvailability à la place. |
 > | Action | Microsoft.EventHub/clusters/delete | Supprime une ressource de cluster existante. |
 > | Action | Microsoft.EventHub/clusters/namespaces/read | Répertorie les ID Azure Resource Manager d’espace de noms pour les espaces de noms au sein d’un cluster. |
 > | Action | Microsoft.EventHub/clusters/operationresults/read | Obtient l’état d’une opération de cluster asynchrone. |
@@ -2803,7 +2803,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.EventHub/locations/deleteVirtualNetworkOrSubnets/action | Supprime les règles de réseau virtuel dans le fournisseur de ressources EventHub pour le réseau virtuel spécifié |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/action | Met à jour une règle d’autorisation d’espace de noms. Cette API est déconseillée. Utilisez un appel PUT à la place pour mettre à jour la règle d’autorisation d’espace de noms... Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/delete | Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée.  |
-> | Action | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace |
+> | Action | Microsoft.EventHub/namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace. |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/read | Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces. |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/regenerateKeys/action | Régénère la clé primaire ou secondaire pour la ressource. |
 > | Action | Microsoft.EventHub/namespaces/authorizationRules/write | Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour. |
@@ -2845,7 +2845,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux d’activité Namespace |
-> | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions des mesures de ressource Namespace. |
+> | Action | Microsoft.EventHub/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions de mesures des ressources Namespace |
 > | Action | Microsoft.EventHub/namespaces/read | Obtenir la liste des descriptions des ressources Namespace. |
 > | Action | Microsoft.EventHub/namespaces/removeAcsNamepsace/action | Supprime l’espace de noms ACS |
 > | Action | Microsoft.EventHub/namespaces/virtualNetworkRules/delete | Supprimer la ressource de règle de réseau virtuel |
@@ -4352,7 +4352,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.NotificationHubs/CheckNamespaceAvailability/action | Vérifie si un nom de ressource Namespace donné est disponible dans le service NotificationHub. |
 > | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/action | Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces. |
 > | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/delete | Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée.  |
-> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace |
+> | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace. |
 > | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/read | Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces. |
 > | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/regenerateKeys/action | Règle d’autorisation de ressource Namespace pour régénérer les clés primaires et secondaires ; spécifier la clé qui doit être régénérée. |
 > | Action | Microsoft.NotificationHubs/Namespaces/authorizationRules/write | Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour. |
@@ -4366,7 +4366,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules/write | Créer des règles d’autorisation de concentrateur de notification et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour. |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/debugSend/action | Envoyer une notification Push de test. |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/Delete | Supprimer une ressource de concentrateur de notification. |
-> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/metricDefinitions/read | Obtenir la liste des descriptions des mesures de ressource Namespace. |
+> | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/metricDefinitions/read | Obtenir la liste des descriptions de mesures des ressources Namespace |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/pnsCredentials/action | Obtenir toutes les informations d’identification PNS du concentrateur de notification. Cela inclut les informations d’identification WNS, MPNS, APNS, GCM et BAIDU. |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/read | Obtenir la liste des descriptions des ressources de concentrateur de notification. |
 > | Action | Microsoft.NotificationHubs/Namespaces/NotificationHubs/write | Créer un concentrateur de notification et mettre à jour ses propriétés. Ses propriétés incluent principalement des informations d’identification PNS. Durée de vie et règles d’autorisation |
@@ -4715,7 +4715,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | microsoft.operationalinsights/workspaces/rules/read | Obtient toutes les règles d’alerte. |
 > | Action | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Supprime une requête de recherche enregistrée. |
 > | Action | Microsoft.OperationalInsights/workspaces/savedSearches/read | Obtient une requête de recherche enregistrée. |
-> | Action | microsoft.operationalinsights/workspaces/savedsearches/results/read | Obtient les résultats des recherches enregistrées. Déconseillé |
+> | Action | microsoft.operationalinsights/workspaces/savedsearches/results/read | Obtient les résultats des recherches enregistrées. Déprécié |
 > | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/delete | Supprimer les actions de recherches planifiées. |
 > | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/read | Obtenir des actions de recherches planifiées. |
 > | Action | microsoft.operationalinsights/workspaces/savedsearches/schedules/actions/write | Créer ou mettre à jour des actions de recherches planifiées. |
@@ -4877,7 +4877,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Met à jour la configuration de stockage pour le coffre Recovery Services. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Renvoie des résumés pour les éléments protégés et les serveurs protégés d’un coffre Recovery Services. |
 > | Action | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Valider l’opération sur l’élément protégé. |
-> | Action | Microsoft.RecoveryServices/Vaults/certificates/write | L’opération de mise à jour de certificat de ressource met à jour le certificat d’informations d’identification du coffre/de la ressource. |
+> | Action | Microsoft.RecoveryServices/Vaults/certificates/write | L’opération de mise à jour de certificat de ressource met à jour le certificat d’identification du coffre/de la ressource. |
 > | Action | Microsoft.RecoveryServices/Vaults/delete | L’opération de suppression de coffre supprime la ressource Azure de type « coffre » spécifiée. |
 > | Action | Microsoft.RecoveryServices/Vaults/extendedInformation/delete | L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ». |
 > | Action | Microsoft.RecoveryServices/Vaults/extendedInformation/read | L’opération d’obtention d’informations étendues obtient les informations étendues d’un objet représentant la ressource Azure de type « coffre ». |
@@ -5011,11 +5011,11 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.Relay/checkNameAvailability/action | Vérifier la disponibilité d’un espace de noms sous un abonnement donné |
-> | Action | Microsoft.Relay/checkNamespaceAvailability/action | Vérifier la disponibilité d’un espace de noms sous un abonnement donné Cette API étant dépréciée, utilisez CheckNameAvailability à la place. |
+> | Action | Microsoft.Relay/checkNameAvailability/action | Vérifie la disponibilité d’un espace de noms sous un abonnement donné. |
+> | Action | Microsoft.Relay/checkNamespaceAvailability/action | Vérifie la disponibilité d’un espace de noms sous un abonnement donné. Cette API étant dépréciée, utilisez CheckNameAvailability à la place. |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/action | Met à jour une règle d’autorisation d’espace de noms. Cette API est déconseillée. Utilisez un appel PUT à la place pour mettre à jour la règle d’autorisation d’espace de noms... Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/delete | Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée.  |
-> | Action | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace |
+> | Action | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace. |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/read | Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces. |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/regenerateKeys/action | Régénère la clé primaire ou secondaire pour la ressource. |
 > | Action | Microsoft.Relay/namespaces/authorizationRules/write | Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour. |
@@ -5043,7 +5043,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux d’activité Namespace |
-> | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions des mesures de ressource Namespace. |
+> | Action | Microsoft.Relay/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions de mesures des ressources Namespace |
 > | Action | Microsoft.Relay/namespaces/read | Obtenir la liste des descriptions des ressources Namespace. |
 > | Action | Microsoft.Relay/namespaces/removeAcsNamepsace/action | Supprime l’espace de noms ACS |
 > | Action | Microsoft.Relay/namespaces/WcfRelays/authorizationRules/action | Met à jour WcfRelay. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation. |
@@ -5280,12 +5280,12 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > [!div class="mx-tdCol2BreakAll"]
 > | Type d’action | Opération | Description |
 > | --- | --- | --- |
-> | Action | Microsoft.ServiceBus/checkNameAvailability/action | Vérifier la disponibilité d’un espace de noms sous un abonnement donné |
-> | Action | Microsoft.ServiceBus/checkNamespaceAvailability/action | Vérifier la disponibilité d’un espace de noms sous un abonnement donné Cette API étant dépréciée, utilisez CheckNameAvailability à la place. |
+> | Action | Microsoft.ServiceBus/checkNameAvailability/action | Vérifie la disponibilité d’un espace de noms sous un abonnement donné. |
+> | Action | Microsoft.ServiceBus/checkNamespaceAvailability/action | Vérifie la disponibilité d’un espace de noms sous un abonnement donné. Cette API étant dépréciée, utilisez CheckNameAvailability à la place. |
 > | Action | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Supprime les règles de réseau virtuel dans le fournisseur de ressources ServiceBus pour le réseau virtuel spécifié |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/action | Met à jour une règle d’autorisation d’espace de noms. Cette API est déconseillée. Utilisez un appel PUT à la place pour mettre à jour la règle d’autorisation d’espace de noms... Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Supprimer une règle d’autorisation de ressource Namespace. La règle d’autorisation de ressource Namespace par défaut ne peut pas être supprimée.  |
-> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace |
+> | Action | Microsoft.ServiceBus/namespaces/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la ressource Namespace. |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/read | Obtenir la liste des descriptions des règles d’autorisation des ressources Namespaces. |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/regenerateKeys/action | Régénère la clé primaire ou secondaire pour la ressource. |
 > | Action | Microsoft.ServiceBus/namespaces/authorizationRules/write | Créer des règles d’autorisation au niveau d’une ressource Namespace et mettre à jour leurs propriétés. Les droits d’accès aux règles d’autorisation et les clés primaires et secondaires peuvent être mis à jour. |
@@ -5325,7 +5325,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/read | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/diagnosticSettings/write | Obtenir la liste des descriptions des ressources des paramètres de diagnostics Namespace. |
 > | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/logDefinitions/read | Obtenir la liste des descriptions des ressources des journaux d’activité Namespace |
-> | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions des mesures de ressource Namespace. |
+> | Action | Microsoft.ServiceBus/namespaces/providers/Microsoft.Insights/metricDefinitions/read | Obtenir la liste des descriptions de mesures des ressources Namespace |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/action | Met à jour la file d’attente. Cette opération n’est pas prise en charge sur la version d’API 2017-04-01. Règles d’autorisation. Utilisez un appel PUT pour mettre à jour la règle d’autorisation. |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/delete | Opération de suppression des règles d’autorisation de file d’attente. |
 > | Action | Microsoft.ServiceBus/namespaces/queues/authorizationRules/listkeys/action | Obtenir la chaîne de connexion à la file d’attente. |
@@ -5527,7 +5527,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/read | Affiche les étiquettes de sensibilité d’une base de données spécifiée |
 > | Action | Microsoft.Sql/managedInstances/databases/currentSensitivityLabels/write | Met à jour les étiquettes de sensibilité par lot |
 > | Action | Microsoft.Sql/managedInstances/databases/delete | Supprime une base de données managée existante |
-> | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux disponibles pour les bases de données d’une instance managée |
 > | Action | Microsoft.Sql/managedInstances/databases/read | Obtient une base de données managée existante |
@@ -5570,7 +5570,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/managedInstances/metrics/read | Obtient les métriques de l’instance gérée |
 > | Action | Microsoft.Sql/managedInstances/operations/cancel/action | Annule une opération asynchrone d’instance gérée Azure SQL qui n’est pas encore terminée. |
 > | Action | Microsoft.Sql/managedInstances/operations/read | Obtient les opérations de l’instance gérée |
-> | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les instances gérées |
 > | Action | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/metricDefinitions/read | Retourne les types de métriques disponibles pour les instances gérées |
@@ -5660,7 +5660,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/servers/databases/operations/cancel/action | Annule une opération asynchrone de base de données Azure SQL qui n’est pas encore terminée. |
 > | Action | Microsoft.Sql/servers/databases/operations/read | Retourne la liste des opérations effectuées sur la base de données |
 > | Action | Microsoft.Sql/servers/databases/pause/action | Suspend la base de données de l’entrepôt de données Azure SQL |
-> | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/logDefinitions/read | Obtient les journaux d’activité disponibles pour les bases de données |
 > | Action | Microsoft.Sql/servers/databases/providers/Microsoft.Insights/metricDefinitions/read | Renvoie les types de mesures disponibles pour les bases de données |
@@ -5760,7 +5760,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/servers/elasticPools/metrics/read | Retourne des métriques pour des pools de bases de données élastiques |
 > | Action | Microsoft.Sql/servers/elasticPools/operations/cancel/action | Annule une opération asynchrone de pool élastique SQL qui n’est pas encore terminée. |
 > | Action | Microsoft.Sql/servers/elasticPools/operations/read | Retourne la liste des opérations effectuées sur le pool élastique |
-> | Action | Microsoft.Sql/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/read | Obtient le paramètre de diagnostic pour la ressource |
+> | Action | Microsoft.Sql/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/read | Récupère le paramètre de diagnostic pour la ressource. |
 > | Action | Microsoft.Sql/servers/elasticPools/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour le paramètre de diagnostic pour la ressource |
 > | Action | Microsoft.Sql/servers/elasticPools/providers/Microsoft.Insights/metricDefinitions/read | Retourne les types de mesure disponibles pour les pools de bases de données élastiques. |
 > | Action | Microsoft.Sql/servers/elasticPools/read | Récupère les détails d’un pool élastique sur un serveur spécifié |
@@ -5779,7 +5779,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Sql/servers/firewallRules/delete | Supprime une règle de pare-feu de serveur existante. |
 > | Action | Microsoft.Sql/servers/firewallRules/read | Retourne la liste des règles de pare-feu de serveur ou obtient les propriétés pour la règle de pare-feu du serveur spécifié. |
 > | Action | Microsoft.Sql/servers/firewallRules/write | Crée une règle de pare-feu de serveur avec les paramètres spécifiés, met à jour les propriétés de la règle spécifiée, ou remplace toutes les règles existantes par des règles de pare-feu de serveur plus récentes. |
-> | Action | Microsoft.Sql/servers/import/action | Créer une nouvelle base de données sur le serveur et de déployer le schéma et les données à partir d’un package DacPac |
+> | Action | Microsoft.Sql/servers/import/action | Crée une base de données sur le serveur et déploie le schéma et les données à partir d’un package DacPac. |
 > | Action | Microsoft.Sql/servers/importExportOperationResults/read | Obtient les opérations d’importation/exportation en cours |
 > | Action | Microsoft.Sql/servers/inaccessibleDatabases/read | Retourne une liste des bases de données inaccessibles dans un serveur logique. |
 > | Action | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | Supprime le profil de point de terminaison d’interface spécifié |
@@ -5870,7 +5870,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Retourner le résultat de la suppression d’un objet blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteBlobVersion/action | Retourne le résultat de la suppression d’une version blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action | Retourne la liste d’objets blob sous un compte avec le filtre de balises correspondantes |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourner un objet blob ou une liste d’objets blob |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Retourne un objet blob ou une liste d'objets blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Retourne le résultat de la commande blob. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read | Retourne le résultat de la lecture des balises d’objet blob |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write | Retourne le résultat de l’écriture des balises d’objet blob |
@@ -5931,7 +5931,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/add/action | Retourner le résultat de l’ajout d’un message |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/delete | Retourner le résultat de la suppression d’un message |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/process/action | Retourner le résultat du traitement d’un message |
-> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Retourner un message |
+> | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/read | Retourne un message |
 > | DataAction | Microsoft.Storage/storageAccounts/queueServices/queues/messages/write | Retourner le résultat de l’écriture d’un message |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/read | Retourne une file d’attente ou une liste de files d’attente. |
 > | Action | Microsoft.Storage/storageAccounts/queueServices/queues/write | Retourne le résultat de l’écriture d’une file d’attente |
@@ -6004,7 +6004,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.StorSimple/managers/bandwidthSettings/read | Répertorie les paramètres de bande passante (série 8000 uniquement). |
 > | Action | Microsoft.StorSimple/managers/bandwidthSettings/write | Crée ou met à jour les paramètres de bande passante (série 8000 uniquement). |
 > | Action | Microsoft.StorSimple/managers/certificates/write | Créer ou mettre à jour les certificats |
-> | Action | Microsoft.StorSimple/Managers/certificates/write | L’opération de mise à jour de certificat de ressource met à jour le certificat d’informations d’identification du coffre/de la ressource. |
+> | Action | Microsoft.StorSimple/Managers/certificates/write | L’opération de mise à jour de certificat de ressource met à jour le certificat d’identification du coffre/de la ressource. |
 > | Action | Microsoft.StorSimple/managers/clearAlerts/action | Efface toutes les alertes associées au gestionnaire d’appareils. |
 > | Action | Microsoft.StorSimple/managers/cloudApplianceConfigurations/read | Répertorie les configurations prises en charge d’appliance cloud. |
 > | Action | Microsoft.StorSimple/managers/configureDevice/action | Configure un appareil. |
@@ -6143,7 +6143,7 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.StorSimple/managers/listPublicEncryptionKey/action | Répertorie les clés de chiffrement publiques d’un gestionnaire StorSimple Device Manager. |
 > | Action | Microsoft.StorSimple/managers/metrics/read | Répertorie ou récupère les mesures. |
 > | Action | Microsoft.StorSimple/managers/metricsDefinitions/read | Répertorie ou récupère les définitions de mesures. |
-> | Action | Microsoft.StorSimple/managers/migrateClassicToResourceManager/action | Migrer de Classic vers Gestionnaire des ressources |
+> | Action | Microsoft.StorSimple/managers/migrateClassicToResourceManager/action | Migrer depuis des déploiements classiques vers des déploiements Resource Manager |
 > | Action | Microsoft.StorSimple/managers/migrationSourceConfigurations/read | Répertorier les configurations de source de migration (série 8000 uniquement) |
 > | Action | Microsoft.StorSimple/managers/operationResults/read | Répertorier ou obtenir les résultats de l’opération |
 > | Action | Microsoft.StorSimple/managers/provisionCloudAppliance/action | Crée une appliance cloud. |
@@ -6708,6 +6708,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Fournisseur de ressources correspondant au service](../azure-resource-manager/azure-services-resource-providers.md)
-- [Rôles personnalisés pour les ressources Azure](custom-roles.md)
+- [Fournisseur de ressources correspondant au service](../azure-resource-manager/management/azure-services-resource-providers.md)
+- [Rôles intégrés pour les ressources Azure](custom-roles.md)
 - [Rôles intégrés pour les ressources Azure](built-in-roles.md)

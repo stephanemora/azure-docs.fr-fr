@@ -1,5 +1,5 @@
 ---
-title: Protéger le contenu HLS Apple FairPlay - Azure hors connexion | Microsoft Docs
+title: FairPlay Streaming hors connexion pour iOS avec Azure Media Services v3
 description: Cette rubrique fournit une vue d’ensemble et montre comment utiliser Azure Media Services pour chiffrer dynamiquement votre contenu HTTP Live Streaming (HLS) avec Apple FairPlay en mode hors connexion.
 services: media-services
 keywords: HLS, DRM, FairPlay Streaming (FPS), hors connexion, iOS 10
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 83fa8c9c6d98728d48ff4ed8993963cdbd522724
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c0d87de25cae44f17789dfaf7b1ec805138c351c
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974119"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779924"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming hors connexion pour iOS 
 
@@ -46,7 +46,7 @@ Cet article couvre la prise en charge du mode hors connexion FairPlay Streaming 
 > [!NOTE]
 > DRM hors connexion est uniquement facturé pour une requête unique de licence lorsque vous téléchargez le contenu. Les erreurs ne sont pas facturées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de mettre en œuvre DRM hors connexion pour FairPlay sur un appareil iOS 10+, vous devez :
 
@@ -201,7 +201,7 @@ Trois exemples de tests dans Media Services couvrent les trois scénarios suivan
 Vous trouverez ces exemples sur ce [site de démo](https://aka.ms/poc#22), avec le certificat d’application correspondant hébergé dans une application Web Azure.
 Avec la version 3 ou la version 4 de l’exemple du Kit SDK du serveur FPS, si une liste de lectures principale contient une autre audio, en mode hors connexion, elle ne lit que l’audio. Vous devez donc supprimer l’autre audio. En d’autres termes, les deuxième et troisième exemples mentionnés précédemment fonctionnent en mode en ligne et hors connexion. Le premier exemple ne lit l’audio qu’en mode hors connexion tandis que la diffusion en continu en ligne fonctionne correctement.
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 Les questions fréquemment posées suivantes vous aideront à résoudre vos problèmes :
 

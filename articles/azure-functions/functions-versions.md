@@ -3,12 +3,12 @@ title: Vue d’ensemble des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez les différences entre elles et comment choisir celle qui vous convient.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 977d0cb445369cbc51ce3b90712d58ce8b6ebdc3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433079"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921867"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
@@ -70,7 +70,7 @@ Les modifications suivantes ont été apportées à la version 2.x :
 
 * Le délai d’expiration par défaut pour les fonctions dans un plan App Service est de 30 minutes. Vous pouvez modifier ce délai d’expiration manuellement et l’indiquer à nouveau comme étant illimité en utilisant le paramètre [functionTimeout](functions-host-json.md#functiontimeout) dans host.json.
 
-* Les limitations d’accès concurrentiel HTTP sont implémentées par défaut pour les fonctions de plan de consommation, avec une valeur par défaut de 100 demandes simultanées par instance. Vous pouvez configurer ces limitations dans le paramètre [`maxConcurrentRequests`](functions-host-json.md#http) du fichier host.json.
+* Les limitations d’accès concurrentiel HTTP sont implémentées par défaut pour les fonctions de plan Consommation, avec une valeur par défaut de 100 requêtes simultanées par instance. Vous pouvez configurer ces limitations dans le paramètre [`maxConcurrentRequests`](functions-host-json.md#http) du fichier host.json.
 
 * En raison des [limitations de .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), la prise en charge des fonctions de script F# (.fsx) a été supprimée. Les fonctions F# compilées (.fs) restent prises en charge.
 
@@ -119,7 +119,7 @@ Vous pouvez effectuer les mises à jour suivantes sur les applications de foncti
 
 #### <a name="visual-studio-runtime-versions"></a>Versions du runtime Visual Studio
 
-Dans Visual Studio, vous sélectionnez la version du runtime au moment de créer un projet. Azure Functions Tools pour Visual Studio prend en charge les deux versions majeures du runtime. La version appropriée est utilisée au moment du débogage et de la publication, en fonction des paramètres de projet. Les paramètres de version sont définis dans le fichier `.csproj`, dans les propriétés suivantes :
+Dans Visual Studio, vous sélectionnez la version du runtime au moment de créer un projet. Azure Functions Tools pour Visual Studio prend en charge les trois versions majeures du runtime. La version appropriée est utilisée au moment du débogage et de la publication, en fonction des paramètres de projet. Les paramètres de version sont définis dans le fichier `.csproj`, dans les propriétés suivantes :
 
 ##### <a name="version-1x"></a>Version 1.x
 
@@ -150,7 +150,7 @@ Dans Visual Studio, vous sélectionnez la version du runtime au moment de créer
 Vous pouvez ouvrir une fonction existante ciblant 2.x et passer à 3.x en modifiant le fichier `.csproj` et en mettant à jour les valeurs ci-dessus.  Visual Studio gère automatiquement pour vous les versions du runtime en fonction des métadonnées du projet.  C’est néanmoins possible si vous n’ayez jamais créé d’application 3.x avant que Visual Studio ne dispose des modèles et du runtime pour 3.x sur votre machine.  Ceci peut se présenter soi-même avec une erreur comme « Aucun runtime Functions disponible ne correspond à la version spécifiée dans le projet ».  Pour récupérer les modèles et le runtime les plus récents, effectuez l’expérience de création d’un projet de fonction.  Quand vous accédez à l’écran de sélection de la version et du modèle, attendez que Visual Studio termine la récupération des modèles les plus récents.  Une fois les derniers modèles .NET Core 3 disponibles et affichés, vous devez être en mesure d’exécuter et de déboguer les projets configurés pour la version 3.x.
 
 > [!IMPORTANT]
-> Les fonctions en version 3.x peuvent être développées dans Visual Studio seulement si vous utilisez la version 16.4 ou ultérieure.
+> Les fonctions en version 3.x peuvent être développées dans Visual Studio seulement si vous utilisez Visual Studio version 16.4 ou ultérieure.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code et Azure Functions Core Tools
 

@@ -1,108 +1,55 @@
 ---
-title: Prise en charge pour l’évaluation ou la migration de serveurs physiques à l’aide d’Azure Migrate
-description: Résume la prise en charge pour l’évaluation ou la migration de serveurs physiques à l’aide d’Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Prise en charge pour l’évaluation de serveurs physiques à l’aide d’Azure Migrate
+description: Découvrez la prise en charge pour l’évaluation de serveurs physiques à l’aide d’Azure Migrate.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: 9e749297d831aeae7d785a9a9a29bea1f8c6d5e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 32080605217cde78bd648ca6192f73d1025dea4c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454616"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028765"
 ---
-# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>Matrice de prise en charge pour l’évaluation et la migration de serveurs physiques
+# <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
 
 Vous pouvez utiliser le [service Azure Migrate](migrate-overview.md) pour évaluer et migrer des machines vers le cloud Microsoft Azure. Cet article récapitule les paramètres et les limites de la prise en charge de l’évaluation et la migration de serveurs physiques locaux.
 
 
+## <a name="overview"></a>Vue d’ensemble
 
-## <a name="physical-server-scenarios"></a>Scénarios avec serveurs physiques
+Pour évaluer des machines locales pour une migration vers Azure avec cet article, vous ajoutez l’outil Azure Migrate : Server Assessment à un projet Azure Migrate. Vous déployez l’[appliance Azure Migrate](migrate-appliance.md). L’appliance découvre en permanence les machines locales et envoie les données de configuration et de performances à Azure. Après la découverte des machines, vous rassemblez les machines découvertes dans des groupes et effectuez l’évaluation d’un groupe
 
-Le tableau récapitule les scénarios pris en charge pour les serveurs physiques.
-
-**Déploiement** | **Détails***
---- | ---
-**Évaluer les serveurs physiques locaux** | [Configurez](tutorial-prepare-physical.md) votre première évaluation.<br/><br/> [Exécutez](tutorial-assess-physical.md) une évaluation.
-**Migrate physical servers to Azure (Migrer des serveurs physiques vers Azure)** | [Testez](tutorial-migrate-physical-virtual-machines.md) une migration vers Azure.
-
-
-## <a name="azure-migrate-projects"></a>Projets Azure Migrate
+## <a name="limitations"></a>Limites
 
 **Support** | **Détails**
 --- | ---
-**Autorisations Azure** | Vous avez besoin d’autorisations Contributeur ou Propriétaire dans l’abonnement pour créer un projet Azure Migrate.
-**Serveurs physiques** | Évaluez jusqu’à 35 000 serveurs physiques dans un même projet. Vous pouvez avoir plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des serveurs physiques et des machines virtuelles VMware et Hyper-V, jusqu’aux limites d’évaluation.
-**Zone géographique** | Vous pouvez créer un projet Azure Migrate dans un certain nombre de zones géographiques. Même si vous pouvez créer des projets dans des zones géographiques spécifiques, vous pouvez néanmoins évaluer ou migrer des machines pour d’autres emplacements cibles. La zone géographique du projet est uniquement utilisée pour stocker les métadonnées détectées.
+**Limites d’évaluation**| Découvrez et évaluez jusqu’à 35 000 serveurs physiques dans un même [projet](migrate-support-matrix.md#azure-migrate-projects).
+**Limites de projet** | Vous pouvez créer plusieurs projets dans un abonnement Azure. Un projet peut inclure à la fois des machines virtuelles VMware et Hyper-V, et des serveurs physiques, jusqu’aux limites d’évaluation.
+**Découverte** | L’appliance Azure Migrate peut découvrir jusqu’à 250 serveurs physiques.
+**Évaluation** | Vous pouvez ajouter jusqu’à 35 000 machines dans un groupe unique.<br/><br/> Vous pouvez évaluer jusqu’à 35 000 machines par évaluation.
 
-  **Zone géographique** | **Emplacement de stockage des métadonnées**
-  --- | ---
-  Azure Government | Gouvernement américain - Virginie
-  Asie-Pacifique | Asie Est ou Asie Sud-Est
-  Australie | Australie Est ou Australie Sud-Est
-  Brésil | Brésil Sud
-  Canada | Canada Centre ou Canada Est
-  Europe | Europe Nord ou Europe Ouest
-  France | France Centre
-  Inde | Inde Centre ou Inde Sud
-  Japon |  Japon Est ou Japon Ouest
-  Corée du Sud | Corée Centre ou Corée Sud
-  United Kingdom | Royaume-Uni Sud ou Royaume-Uni Ouest
-  États-Unis | USA Centre ou USA Ouest 2
+[Apprenez-en davantage](concepts-assessment-calculation.md) sur les évaluations.
 
 
- > [!NOTE]
- > La prise en charge d’Azure Government est actuellement disponible pour l’[ancienne version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) d’Azure Migrate uniquement.
 
 
-## <a name="assessment-physical-server-requirements"></a>Exigences en matière d'évaluation des serveurs physiques
+## <a name="physical-server-requirements"></a>Conditions requises des serveurs physiques
 
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
 | **Déploiement de serveur physique**       | Le serveur physique peut être autonome ou déployé dans un cluster. |
-| **autorisations**           | **Windows :** Configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la découverte. Le compte d’utilisateur doit être ajouté à ces utilisateurs du Bureau à distance, utilisateurs de l’Analyseur de performances et utilisateurs du journal de performances. <br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. |
+| **autorisations**           | **Windows :** Configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la découverte. Le compte d’utilisateur doit être ajouté à ces groupes : utilisateurs du Bureau à distance, utilisateurs de l’Analyseur de performances et utilisateurs du journal des performances. <br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. |
 | **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) sont pris en charge, à l’exception des suivants :<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
-## <a name="assessment-appliance-requirements"></a>Évaluation - Exigences relatives à l’appliance
+## <a name="azure-migrate-appliance-requirements"></a>Conditions requises de l’appliance Azure Migrate
 
-Pour l’évaluation, Azure Migrate exécute une appliance légère pour découvrir les serveurs physiques et envoyer les métadonnées et les données de performances du serveur à Azure Migrate. L’appliance peut s’exécuter sur un serveur physique ou une machine virtuelle que vous configurez à l’aide d’un script PowerShell téléchargé sur le portail Azure. Le tableau suivant récapitule les exigences de l’appliance.
+Azure Migrate utilise l’[appliance Azure Migrate](migrate-appliance.md) pour la découverte et l’évaluation. L’appliance pour les serveurs physiques peut s’exécuter sur une machine virtuelle ou sur une machine physique. Vous la configurez à l’aide d’un script PowerShell que vous téléchargez à partir du portail Azure.
 
-| **Support**                | **Détails**               
-| :-------------------       | :------------------- |
-| **Étapes de déploiement d’appliance**   |  Le script du programme d'installation de l'appliance peut être téléchargé depuis le portail (dans un dossier compressé). <br/> Vous pouvez décompresser le dossier et lancer le script PowerShell (AzureMigrateInstaller.ps1) soit sur un serveur physique dédié soit sur une machine virtuelle pour configurer l'appliance.<br/>  La machine choisie pour installer l'appliance doit exécuter Windows Server 2016.<br/> La machine a besoin de suffisamment d’espace pour allouer 16 Go de RAM, 8 processeurs virtuels, environ 80 Go d’espace de stockage et un commutateur externe à la machine virtuelle de l’appliance.<br/> L'appliance nécessite une adresse IP statique ou dynamique et un accès Internet.
-| **Projet Azure Migrate**  |  Une appliance peut être associée à un seul projet.<br/> Un nombre quelconque d’appliances peut être associé à un même projet.<br/> Vous pouvez évaluer jusqu’à 35 000 machines par projet.
-| **Découverte**              | Une seule appliance peut découvrir jusqu’à 250 serveurs.
-| **Groupe d’évaluation**       | Vous pouvez ajouter jusqu’à 35 000 machines dans un groupe unique.
-| **Évaluation**             | Vous pouvez évaluer jusqu’à 35 000 machines par évaluation.
+- En savoir plus sur les [conditions requises de l’appliance](migrate-appliance.md#appliance---physical) pour les serveurs physiques.
+- En savoir plus sur les [URL](migrate-appliance.md#url-access) auxquelles l’appliance doit accéder.
 
-
-## <a name="assessment-appliance-url-access"></a>Évaluation - accès à l’URL de l’appliance
-
-Pour évaluer des machines virtuelles, l'appliance Azure Migrate a besoin d'une connectivité Internet.
-
-- Quand vous déployez l’appliance, Azure Migrate effectue un contrôle de connectivité aux URL récapitulées dans le tableau ci-dessous.
-- Si vous utilisez un proxy basé sur URL, autorisez l'accès aux URL du tableau, en vérifiant que le proxy résout tous les enregistrements CNAME reçus lors de la recherche des URL.
-- Si vous disposez d'un proxy d'interception, vous devrez peut-être importer le certificat de serveur depuis le serveur proxy vers l'appliance.
-
-
-**URL** | **Détails**  
---- | ---
-*. portal.azure.com | Accès au portail Azure
-\* .windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Connectez-vous à votre abonnement Azure :
-*.microsoftonline.com <br/> *.microsoftonline-p.com | Création d'applications Azure Active Directory pour les communications de l’appliance au service.
-management.azure.com | Création d'applications Azure Active Directory pour les communications de l’appliance au service.
-dc.services.visualstudio.com | Enregistrement et surveillance
-*.vault.azure.net | Gérez les secrets dans Azure Key Vault lorsque vous communiquez entre l'appliance et le service.
-aka.ms/* | Autorisez l’accès à des liens aka.
-https://download.microsoft.com/download/* | Autorise les téléchargements à partir du site de téléchargement Microsoft.
-
-
-
-## <a name="assessment-port-requirements"></a>Évaluation - Exigences relatives aux ports
+## <a name="port-access"></a>Accès au port
 
 Le tableau suivant résume les exigences du port pour l’évaluation.
 
@@ -114,4 +61,4 @@ Le tableau suivant résume les exigences du port pour l’évaluation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Préparer les serveurs physiques en vue de leur évaluation](tutorial-prepare-physical.md) pour l’évaluation et la migration des serveurs physiques.
+[Préparer l’évaluation des serveurs physiques](tutorial-prepare-physical.md).

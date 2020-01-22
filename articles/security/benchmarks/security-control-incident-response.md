@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: b027a668403f47e9ffb824179ae54b89cded7a0c
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: fb3560aa2d3fbf48ab63c4da4d3a8d69cb677209
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563979"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934415"
 ---
 # <a name="security-control-incident-response"></a>Contrôle de sécurité : Réponse aux incidents
 
@@ -65,7 +65,7 @@ Reportez-vous à la publication du NIST : Guide de test, de formation et program
 
 https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
 
-## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-nbspfor-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte &nbsp;pour les incidents de sécurité
+## <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4 : Fournir des informations de contact pour les incidents de sécurité et configurer des notifications d’alerte pour les incidents de sécurité
 
 | Identifiant Azure | Identifiants CIS | Responsabilité |
 |--|--|--|

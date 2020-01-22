@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/07/2019
-ms.openlocfilehash: db875ea099b0093bf1d43bd64b1ae4c07db05b45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 9a313ea798519273ce57961544ec5b37c4d9c5ca
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437712"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749255"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Topologies de réseau pour des migrations d’instances gérées de bases de données SQL Azure à l’aide de Azure Database Migration Service
 
@@ -31,7 +31,7 @@ Utilisez cette topologie si votre instance Azure SQL Database Managed Instance e
 
 **Configuration requise**
 
-- Dans ce scénario, l’instance gérée Azure SQL Database et l’instance Azure Database Migration Service sont créées sur le même réseau virtuel Azure, mais ils utilisent des sous-réseaux différents.  
+- Dans ce scénario, l’instance gérée Azure SQL Database et l’instance Azure Database Migration Service sont créées sur le même réseau virtuel Microsoft Azure, mais ils utilisent des sous-réseaux différents.  
 - Le réseau virtuel utilisé dans ce scénario est également connecté au réseau local à l’aide d’[ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou de [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
 ## <a name="azure-sql-database-managed-instance-isolated-from-the-on-premises-network"></a>Azure SQL Database Managed Instance isolé du réseau local
@@ -40,7 +40,7 @@ Utilisez cette topologie de réseau si votre environnement requiert un ou plusie
 
 - L’instance gérée Azure SQL Database est isolée de la connectivité locale, mais votre instance Azure Database Migration Service est connectée au réseau local.
 - Si les stratégies RBAC (Role Based Access Control) sont en place et que vous devez limiter l’accès utilisateur au même abonnement que celui qui héberge l’instance gérée Azure SQL Database.
-- Les réseaux virtuels utilisés pour Azure SQL Database Managed Instance et Azure Database Migration Service Instance se trouvent dans des abonnements différents.
+- Les réseaux virtuels utilisés pour Azure SQL Database Managed Instance et Azure Database Migration Service se trouvent dans des abonnements différents.
 
 ![Topologie de réseau pour l’instance gérée isolée du réseau local](media/resource-network-topologies/mi-isolated-workload.png)
 
@@ -49,7 +49,7 @@ Utilisez cette topologie de réseau si votre environnement requiert un ou plusie
 - Le réseau virtuel utilisé par Azure Database Migration Service pour ce scénario doit également être connecté au réseau local à l’aide de https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou de [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Configurez [VNET Peering réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) entre le réseau virtuel utilisé pour l’instance gérée Azure SQL Database et Azure Database Migration Service.
 
-## <a name="cloud-to-cloud-migrations-shared-vnet"></a>Migrations de cloud à cloud : réseau virtuel partagé
+## <a name="cloud-to-cloud-migrations-shared-virtual-network"></a>Migrations de cloud à cloud : Réseau virtuel partagé
 
 Utilisez cette topologie si le serveur source SQL Server est hébergé dans une machine virtuelle Azure et partage le même réseau virtuel avec l’instance gérée Azure SQL Database et Azure Database Migration Service.
 
@@ -59,13 +59,13 @@ Utilisez cette topologie si le serveur source SQL Server est hébergé dans une 
 
 - Aucune exigence supplémentaire.
 
-## <a name="cloud-to-cloud-migrations-isolated-vnet"></a>Migrations de cloud à cloud : réseau virtuel isolé
+## <a name="cloud-to-cloud-migrations-isolated-virtual-network"></a>Migrations de cloud à cloud : Réseau virtuel isolé
 
 Utilisez cette topologie de réseau si votre environnement requiert un ou plusieurs des scénarios suivants :
 
 - L’instance gérée Azure SQL Database est configurée dans un réseau virtuel isolé.
 - Si les stratégies RBAC (Role Based Access Control) sont en place et que vous devez limiter l’accès utilisateur au même abonnement que celui qui héberge l’instance gérée Azure SQL Database.
-- Les réseaux virtuels utilisés pour Azure SQL Database Managed Instance et Azure Database Migration Service Instance se trouvent dans des abonnements différents.
+- Les réseaux virtuels utilisés pour Azure SQL Database Managed Instance et Azure Database Migration Service se trouvent dans des abonnements différents.
 
 ![Topologie de réseau pour les migrations de cloud à cloud avec un réseau virtuel isolé](media/resource-network-topologies/cloud-to-cloud-isolated.png)
 

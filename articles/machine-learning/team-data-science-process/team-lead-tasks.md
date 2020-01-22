@@ -2,26 +2,26 @@
 title: Tâches pour responsable d’équipe dans Team Data Science Process
 description: Présentation détaillée des tâches d’un responsable d’équipe TDSP (Team Data Science Process)
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327250"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864279"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tâches du responsable d’équipe TDSP (Team Data Science Process)
 
-Cet article décrit les tâches qu’effectue un *responsable d’équipe* pour son équipe de science des données. L’objectif du responsable d’équipe est d’établir un environnement d’équipe collaboratif standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Ce processus a été conçu pour améliorer la collaboration et la formation au sein de l’équipe. 
+Cet article décrit les tâches qu’effectue un *responsable d’équipe* pour son équipe de science des données. L’objectif du responsable d’équipe est d’établir un environnement d’équipe collaboratif standard conforme au processus [TDSP](overview.md) (Team Data Science Process). Ce dernier est conçu pour améliorer la collaboration et l’apprentissage en équipe. 
 
-Le processus TDSP est une méthodologie de science des données agile et itérative destinée à proposer de manière efficace des solutions d’analytique prédictive et des applications intelligentes. Ce processus est un condensé des meilleures pratiques et structures de Microsoft et de l’ensemble du secteur, qui sont nécessaires pour implémenter avec succès les initiatives en science des données destinées à aider les entreprises à tirer pleinement parti de leurs programmes d’analytique. Pour obtenir une description des rôles et des tâches associées qui incombent aux membres d’une équipe de science des données engagée dans le processus TDSP, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Le processus TDSP est une méthodologie de science des données agile et itérative destinée à proposer de manière efficace des solutions d’analytique prédictive et des applications intelligentes. Le processus présente les meilleures pratiques et les structures de Microsoft et du secteur.  L’objectif est de réussir l’implémentation d’initiatives de science des données et de tirer pleinement profit des avantages de leurs programmes d’analyse. Pour obtenir une description des rôles et des tâches associées qui incombent aux membres d’une équipe de science des données engagée dans le processus TDSP, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
 Un responsable d’équipe gère une équipe composée de plusieurs scientifiques des données dans la division Science des données d’une grande entreprise. Selon la taille et la structure de la division Science des données, le [responsable de groupe](group-manager-tasks.md) et le responsable d’équipe peuvent être la même personne, ou ils peuvent déléguer leurs tâches à des agents. Cela dit, les tâches confiées restent les mêmes. 
 
@@ -44,16 +44,16 @@ Le schéma suivant présente le workflow des tâches qu’effectue le responsabl
    - Créer un **stockage de fichiers Azure** pour y stocker les ressources de données qui peuvent profiter à toute l’équipe. 
    - Monter le stockage de fichiers Azure sur la machine virtuelle **DSVM** (Data Science Virtual Machine) du responsable d’équipe et y ajouter des ressources de données.
 
-Le tutoriel suivant parcourt en détail les différentes étapes.
+Le tutoriel suivant présente en détail les différentes étapes.
 
 > [!NOTE] 
 > Cet article s’appuie sur Azure DevOps et sur une machine virtuelle DSVM pour mettre en place un environnement d’équipe TDSP, car c’est ainsi que Microsoft implémente le processus TDSP. Si votre équipe utilise d’autres plateformes d’hébergement de code ou de développement, les tâches du responsable d’équipe sont les mêmes, mais la façon de les accomplir peut être différente.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce tutoriel part du principe que les ressources et les autorisations suivantes ont été créées par votre [responsable de groupe](group-manager-tasks.md) :
 
-- L’**organisation** Azure DevOps pour votre unité de données
+- **Organisation** Azure DevOps pour votre unité de données
 - Les dépôts **GroupProjectTemplate** et **GroupUtilities** remplis avec le contenu des dépôts **ProjectTemplate** et **Utilities** de l’équipe Microsoft TDSP
 - Les autorisations sur le compte de votre organisation pour vous permettre de créer des projets et des dépôts pour votre équipe
 
@@ -164,7 +164,7 @@ Pour modifier, charger ou créer des fichiers ou dossiers directement dans Azure
 
 1. Dans la structure de répertoires du dépôt, accédez au dossier ou fichier à modifier. 
    
-   - Pour créer des dossiers ou fichiers, sélectionnez la flèche en regarde de **Nouveau**. 
+   - Pour créer des dossiers ou des fichiers, sélectionnez la flèche en regard de **Nouveau**. 
      
      ![Créer un fichier](./media/team-lead-tasks/new-file.png)
      
@@ -197,7 +197,7 @@ Pour cloner les dépôts :
    - Pour Windows : **C:\GitRepos\MyTeam**
    - Pour Linux, **$home/GitRepos/MyTeam** 
    
-1. Spécifiez le répertoire que vous avez créé.
+1. Passez au répertoire que vous avez créé.
    
 1. Dans Git Bash, exécutez la commande `git clone <clone URL>`, où \<clone URL> est l’URL que vous avez copiée à partir de la boîte de dialogue **Cloner**.
    
@@ -250,7 +250,7 @@ Pour ajouter des membres à l’équipe :
    
 1. Dans la boîte de dialogue **Ajouter des utilisateurs et des groupes**, recherchez les membres à ajouter au groupe, sélectionnez-les, puis sélectionnez **Enregistrer les modifications**. 
    
-   ![Ajouter des utilisateurs et des groupes](./media/team-lead-tasks/add-users.png)
+   ![Ajoutez des utilisateurs et des groupes](./media/team-lead-tasks/add-users.png)
    
 
 Pour configurer des autorisations pour les membres de l’équipe :

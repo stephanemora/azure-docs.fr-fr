@@ -3,20 +3,20 @@ title: Analytique sur SQL Server avec R, Python et T-SQL – Team Data Science P
 description: Exemples qui montrent comment utiliser R, Python et T-SQL dans SQL Server pour effectuer des analyses prédictives.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 342db6cc7c6c9f50345d7e72b7d68d5f116c87f9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 880ee0a4a1eb396312ea9692b7586d724d6fd410
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589100"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864092"
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Guides de la science des données SQL Server avec R, Python et T-SQL
 
@@ -27,12 +27,12 @@ D’autres guides de la science des données qui appliquent le processus TDSP so
 
 ## <a name="predict-taxi-tips-using-python-and-sql-queries-with-sql-server"></a>Prédire les pourboires laissés aux taxis avec Python, des requêtes SQL et SQL Server 
 
-Le guide [Utiliser SQL Server](sql-walkthrough.md) explique comment générer et déployer des modèles Machine Learning de classification et de régression avec SQL Server et un jeu de données public de courses et de tarifs des taxi new-yorkais.
+Le guide [Utiliser SQL Server](sql-walkthrough.md) explique comment générer et déployer des modèles Machine Learning de classification et de régression.  Les données sont un jeu de données des courses et tarifs de taxi à New York disponible publiquement.
 
 
 ## <a name="predict-taxi-tips-using-microsoft-r-with-sql-server"></a>Prédire les pourboires laissés aux taxis avec Microsoft R et SQL Server 
 
-La procédure pas à pas [Utiliser SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) fournit aux chercheurs de données une combinaison de codes R, de données SQL Server et de fonctions SQL personnalisées pour générer et déployer un modèle R sur SQL Server. Le guide est conçu pour présenter R Services aux développeurs R (dans la base de données).
+Le guide [Utiliser SQL Server R Services](https://msdn.microsoft.com/library/mt612857.aspx) explique comment générer et déployer un modèle R sur SQL Server. Le guide est conçu pour présenter R Services aux développeurs R (dans la base de données).
 
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Prédire les pourboires laissés aux taxis avec R à partir de T-SQL ou de procédures stockées avec SQL Server

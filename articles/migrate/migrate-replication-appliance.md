@@ -1,28 +1,24 @@
 ---
-title: Architecture de l’appliance de réplication Azure Migrate
-description: Fournit une vue d’ensemble de l’appliance de réplication Azure Migrate pour une migration basée sur un agent.
-author: rayne-wiselman
-ms.service: azure-migrate
+title: Appliance de réplication Azure Migrate
+description: Apprenez-en davantage sur l’appliance de réplication Azure Migrate pour une migration VMWare basée sur un agent.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.author: raynew
-ms.openlocfilehash: ba14767bde5d6cdca3a82dbe4e8a115ec25cc911
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 01/08/2020
+ms.openlocfilehash: 574877c6a0a5ade068cff08041b29d2465430ed1
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186556"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029042"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 
-Cet article décrit l’appliance de réplication utilisée par Azure Migrate : Évaluation du serveur lors de la migration de machines virtuelles VMware, de machines physiques et de machines virtuelles de cloud privé/public vers Azure à l’aide d’une migration basée sur un agent. 
-
-L’outil est disponible dans le hub [Azure Migrate](migrate-overview.md). Le hub fournit des outils natifs pour l’évaluation et la migration, ainsi que des outils d’autres services Azure et des éditeurs de logiciels indépendants (ISV) tiers.
+Cet article décrit l’appliance de réplication utilisée par l’outil [Azure Migrate : migration de serveur](migrate-services-overview.md#azure-migrate-server-migration-tool) lors de la migration de machines virtuelles VMware, de machines physiques et de machines virtuelles de cloud privé/public vers Azure, à l’aide d’une migration basée sur un agent. 
 
 
-## <a name="appliance-overview"></a>Vue d’ensemble de l’appliance
+## <a name="overview"></a>Vue d’ensemble
 
-L’appliance de réplication est déployée en tant qu’ordinateur local unique, comme machine virtuelle VMware ou comme serveur physique. Il exécute :
+L’appliance de réplication est déployée lorsque vous configurez la migration par agent des machines virtuelles VMware ou des serveurs physiques. Elle est déployée en tant qu’ordinateur local unique, comme machine virtuelle VMware ou comme serveur physique. Il exécute :
+
 - **Appliance de réplication** : L’appliance de réplication coordonne les communications et gère la réplication des données pour les machines virtuelles VMware locales et les serveurs physiques répliqués sur Azure.
 - **Serveur de traitement**: Le serveur de processus, qui est installé par défaut sur l’appliance de réplication, effectue les opérations suivantes :
     - **Passerelle de réplication** : Fait office de passerelle de réplication. Il reçoit les données de réplication des machines activées pour la réplication. Optimise les données de réplication grâce à la mise en cache, la compression et le chiffrement et les envoie vers Azure.
@@ -30,25 +26,83 @@ L’appliance de réplication est déployée en tant qu’ordinateur local uniqu
 
 ## <a name="appliance-deployment"></a>Étapes de déploiement d’appliance
 
-**Déployer en tant que** | **Utilisé pour** | **Détails**
---- | --- |  ---
-Machine virtuelle VMware | Généralement utilisé lors de la migration de machines virtuelles VMware à l’aide de l’outil de migration Azure Migrate avec la migration basée sur l’agent. | Vous téléchargez le modèle OVA à partir du hub Azure Migrate, puis vous importez sur vCenter Server pour créer la machine virtuelle de l’appliance.
-Une machine physique | Utilisé lors de la migration de serveurs physiques locaux si vous n’avez pas d’infrastructure VMware ou si vous ne pouvez pas créer une machine virtuelle VMware à l’aide d’un modèle OVA. | Vous téléchargez un programme d’installation de logiciel à partir du hub Azure Migrate et vous l’exécutez pour configurer la machine de l’appliance.
+**Utilisé pour** | **Détails**
+--- |  ---
+Migration de machines virtuelles VMware basées sur des agents | Vous téléchargez le modèle OVA à partir du hub Azure Migrate, puis vous importez sur vCenter Server pour créer la machine virtuelle de l’appliance.
+Migration de machine physique basée sur un agent | Si vous ne disposez pas d’une infrastructure VMware ou si vous ne pouvez pas créer une machine virtuelle VMware à l’aide d’un modèle OVA, téléchargez un programme d’installation de logiciel à partir du Hub Azure Migrate et exécutez-le pour configurer l’ordinateur de l’appliance.
 
-## <a name="appliance-deployment-requirements"></a>Exigences en matière de déploiement de l’appliance
+## <a name="appliance-requirements"></a>Configuration requise de l’appliance
 
-[Revoyez](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements) les exigences relatives au déploiement.
+Quand vous configurez l’appliance de réplication en utilisant le modèle OVA fourni dans le hub Azure Migrate, l’appliance exécute Windows Server 2016 et est conforme aux exigences de la prise en charge. Si vous configurez manuellement l’appliance de réplication sur un serveur physique, vérifiez qu’elle est conforme aux exigences.
 
+**Composant** | **Prérequis**
+--- | ---
+ | **Appliance de machine virtuelle VMware**
+PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) doit être installé si l’appliance de réplication s’exécute sur une machine virtuelle VMware.
+Type de carte réseau | VMXNET3 (si l’appliance est une machine virtuelle VMware)
+ | **Paramètres matériels**
+Cœurs d’unité centrale | 8
+RAM | 16 Go
+Nombre de disques | Trois : Le disque du système d’exploitation, le disque de cache du serveur de processus et le lecteur de conservation.
+Espace disque disponible (cache) | 600 Go
+Espace disque disponible (disque de rétention) | 600 Go
+**Paramètres logiciels** |
+Système d’exploitation | Windows Server 2016 ou Windows Server 2012 R2
+Licence | L’appliance est fournie avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours.<br/><br/> Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
+Paramètres régionaux du système d’exploitation | Anglais (en-us)
+TLS | TLS 1.2 doit être activé.
+.NET Framework | .NET Framework 4.6 ou ultérieur doit être installé sur la machine (avec un chiffrement fort activé).
+MySQL | MySQL doit être installé sur l’appliance.<br/> MySQL doit être installé. Vous pouvez l’installer manuellement ou laisser Site Recovery le faire lors du déploiement de l’appliance.
+Autres applications | N’exécutez pas d’autres applications sur l’appliance de réplication.
+Rôles Windows Server | N’activez pas ces rôles : <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
+Stratégies de groupe | N’activez pas ces stratégies de groupe : <br> - Empêcher l’accès à l’invite de commandes <br> - Empêcher l’accès aux outils de modification du Registre <br> - Logique de confiance pour les pièces jointes <br> - Activer l’exécution des scripts <br> [En savoir plus](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+IIS | - Aucun site web par défaut préexistant <br> - Aucune application/aucun site web préexistants ne doivent écouter le port 443 <br>- Activer [l’authentification anonyme](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> - Activer le paramètre [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx)
+**Paramètres réseau** |
+Type d’adresse IP | statique
+Ports | 443 (Orchestration du canal de contrôle)<br>9443 (Transport de données)
+Type de carte réseau | VMXNET3
 
+## <a name="mysql-installation"></a>Installation de MySQL 
 
-## <a name="appliance-license"></a>Licence de l’appliance
-L’appliance est fournie avec une licence d’évaluation Windows Server 2016 qui est valide pendant 180 jours. Si la période d’évaluation est proche de l’expiration, nous vous recommandons de télécharger et de déployer une nouvelle appliance, ou d’activer la licence du système d’exploitation de la machine virtuelle de l’appliance.
+MySQL doit être installé sur l’ordinateur de l’appliance de réplication. Il peut être installé à l’aide de l’une de ces méthodes.
+
+**Méthode** | **Détails**
+--- | ---
+Télécharger et installer manuellement | Téléchargez l’application MySQL et placez-la dans le dossier C:\Temp\ASRSetup, puis installez-la manuellement.<br/> Quand vous configurez l’appliance, le MySQL apparaît comme déjà installé.
+Sans téléchargement en ligne | Placez votre application d’installation de MySQL dans le dossier C:\Temp\ASRSetup. Quand vous installez l’appliance, et que vous cliquez pour télécharger et installer MySQL, le programme d’installation utilise le programme d’installation que vous avez ajouté.
+Télécharger et installer dans Azure Migrate | Lorsque vous installez l’appliance et que vous êtes invité à installer MySQL, sélectionnez **Télécharger et installer**.
+
+## <a name="url-access"></a>accès URL
+
+L’appliance de réplication doit accéder à ces URL.
+
+**URL** | **Détails**
+--- | ---
+\*.backup.windowsazure.com | Élément utilisé pour la coordination et le transfert des données répliquées
+\*.store.core.windows.net | Élément utilisé pour la coordination et le transfert des données répliquées
+\*.blob.core.windows.net | Utilisé pour l’accès au compte de stockage qui stocke les données répliquées
+\*.hypervrecoverymanager.windowsazure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
+https:\//management.azure.com | Élément utilisé pour la coordination et l’administration des opérations de gestion de la réplication
+*.services.visualstudio.com | Utilisé dans le cadre de la télémétrie (facultatif)
+time.nist.gov | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
+time.windows.com | Éléments utilisés pour vérifier la synchronisation horaire entre l’horloge système et l’heure globale.
+https:\//login.microsoftonline.com <br/> https:\//secure.aadcdn.microsoftonline-p.com <br/> https:\//login.live.com <br/> https:\//graph.windows.net <br/> https:\//login.windows.net <br/> https:\//www.live.com <br/> https:\//www.microsoft.com  | L’installation OVF nécessite l’accès à ces URL. Azure Active Directory utilise ces adresses pour le contrôle d’accès et la gestion des identités
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | Pour terminer le téléchargement de MySQL
+
+## <a name="port-access"></a>Accès au port
+
+**Appareil** | **Connection**
+--- | ---
+Machines virtuelles | Le service Mobility en cours d’exécution sur des machines virtuelles communique avec l'appliance de réplication locale (serveur de configuration) via le port HTTPS 443 entrant, pour la gestion de la réplication.<br/><br/> Les machines virtuelles envoient des données de réplication au serveur de traitement (s’exécutant sur l’ordinateur du serveur de configuration) sur le port HTTPS 9443 entrant. Ce port peut être modifié.
+Appliance de réplication | L’appliance de réplication orchestre la réplication avec Azure sur le port HTTPS 443 sortant.
+Serveur de traitement | Le serveur de traitement reçoit les données de réplication, les optimise et les chiffre, puis les envoie au stockage Azure via le port 443 sortant.<br/> Le serveur de processus s’exécute par défaut sur l’appliance de réplication.
+
 
 ## <a name="replication-process"></a>Processus de réplication
 
 1. Lorsque vous activez la réplication pour une machine virtuelle, la réplication initiale vers Stockage Azure commence, conformément à la stratégie de réplication spécifiée. 
 2. Le trafic est répliqué sur des points de terminaison publics de stockage Azure via Internet. La réplication du trafic à partir d’un site local vers Azure via un réseau VPN de site à site n’est pas prise en charge.
-3. Au terme de la réplication initiale, la réplication delta commence. Les modifications suivies pour une machine sont journalisées.
+3. Au terme de la réplication initiale, la réplication différentielle commence. Les modifications suivies pour une machine sont journalisées.
 4. La communication s’effectue comme suit :
     - Les machines virtuelles communiquent avec l’appliance de réplication sur le port HTTPS 443 entrant, pour la gestion de la réplication.
     - L’appliance de réplication orchestre la réplication avec Azure sur le port HTTPS 443 sortant.
@@ -68,6 +122,5 @@ L’appliance est mise à niveau manuellement à partir du hub Azure Migrate. No
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Découvrez comment](tutorial-assess-vmware.md#set-up-the-appliance-vm) configurer l’appliance pour VMware.
-[Découvrez comment](tutorial-assess-hyper-v.md#set-up-the-appliance-vm) configurer l’appliance pour Hyper-V.
-
+- [Découvrez comment](tutorial-migrate-vmware-agent.md#set-up-the-replication-appliance) configurer l’appliance de réplication pour la migration de machines virtuelles VMware basées sur des agents.
+- [Découvrez comment](tutorial-migrate-physical-virtual-machines.md#set-up-the-replication-appliance) configurer l’appliance de réplication pour les serveurs physiques.

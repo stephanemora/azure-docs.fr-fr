@@ -1,6 +1,6 @@
 ---
-title: Détection des menaces pour les produits de sécurité Azure dans Azure Security Center
-description: Cette rubrique présente les produits de sécurité Azure pour lesquels Azure Security Center peut fournir la détection des menaces.
+title: Alertes de détection des menaces de produits de sécurité Azure dans Azure Security Center
+description: Cette rubrique présente les produits de sécurité Azure à partir desquels Azure Security Center peut afficher des alertes de menaces
 services: security-center
 documentationcenter: na
 author: memildin
@@ -8,18 +8,18 @@ manager: rkarlin
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 01/05/2020
+ms.date: 01/12/2020
 ms.author: memildin
-ms.openlocfilehash: 1ea207f0ba09e0637a08632d5c56591fd1335b22
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 16cae819b1714c2b410cfa311a3602e0f4ed968a
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665715"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913039"
 ---
-# <a name="threat-detection-for-azure-waf-and-azure-ddos-protection"></a>Détection des menaces pour Azure WAF et Azure DDoS Protection
+# <a name="threat-detection-alerts-from-azure-waf-and-azure-ddos-protection"></a>Alertes de détection des menaces d’Azure WAF et Azure DDoS Protection
 
-Azure Security Center peut vous fournir une détection des menaces pour les produits de sécurité Azure suivants (une licence distincte est requise pour chaque produit) :
+Azure Security Center peut afficher et collecter des alertes de détection des menaces générées par les produits de sécurité Azure suivants (une licence distincte est requise pour chaque produit) :
 
 * [Pare-feu d’applications web Azure](#azure-waf)
 * [Azure DDoS Protection](#azure-ddos)

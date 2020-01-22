@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7d588e11525e5087f8667da4602797e5299c76f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374703"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861385"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Modèle de série chronologique dans Azure Time Series Insights en préversion
 
@@ -129,7 +129,7 @@ Les instances ont la représentation JSON suivante :
 ```
 
 > [!TIP]
-> Pour un support relatif à l’API d’instance Time Series Insights et à la création, la lecture, la mise à jour et la suppression (CRUD), consultez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API d’instance](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Pour un support relatif à l’API d’instance Time Series Insights et à la création, la lecture, la mise à jour et la suppression (CRUD), lisez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API d’instance](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Hiérarchies de modèle de série de temps
 
@@ -186,7 +186,7 @@ Dans l’exemple JSON précédent :
 * `ManufactureDate` définit une hiérarchie avec une `year` parent et un `month` enfant. Chaque `ManufactureDate` peut avoir plusieurs `years`, lesquelles peuvent avoir à leur tour plusieurs `months`.
 
 > [!TIP]
-> Pour un support relatif à l’API d’instance Time Series Insights et à la CRUD, consultez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de hiérarchie](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Pour un support relatif à l’API d’instance Time Series Insights et à la CRUD, lisez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de hiérarchie](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Exemple de hiérarchie
 
@@ -231,7 +231,7 @@ La [démonstration du parc éolien Contoso](https://insights.timeseries.azure.co
 [![Exemple de type de modèle de série chronologique](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Pour un support relatif à l’API d’instance Time Series Insights et à la CRUD, consultez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de type](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Pour un support relatif à l’API d’instance Time Series Insights et à la CRUD, lisez l’article [Interrogation des données](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) et la [documentation REST de l’API de type](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
 
 ### <a name="type-properties"></a>Propriétés type
 
@@ -391,7 +391,7 @@ Les variables sont stockées dans la définition de type d’un modèle de séri
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Voir [Azure Time Series Insights (préversion) - Stockage et entrée](./time-series-insights-update-storage-ingress.md).
+- Lire [Azure Time Series Insights (préversion) – Stockage et entrée](./time-series-insights-update-storage-ingress.md).
 
 - En savoir plus sur les opérations courantes du modèle de série chronologique dans [Modélisation des données dans Azure Time Series Insights (préversion)](./time-series-insights-update-how-to-tsm.md).
 

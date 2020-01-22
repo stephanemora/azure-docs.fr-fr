@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/03/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9615abe3a3373c0fd943fdb5c392eb095bc26a1a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b27a97d95f224513dd03293b9bd0082c5ed6d1b
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430423"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772259"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Élever l’accès pour gérer tous les abonnements et groupes d’administration Azure
 
@@ -37,7 +37,7 @@ Si vous êtes administrateur général, il peut vous arriver de vouloir effectue
 - Voir tous les abonnements ou groupes d’administration Azure au sein d’une organisation
 - Autoriser une application d’automation (telle qu’une application de facturation ou d’audit) à accéder à tous les abonnements ou groupes d’administration Azure
 
-## <a name="how-does-elevate-access-work"></a>Comment fonctionne l’élévation de l’accès ?
+## <a name="how-does-elevated-access-work"></a>Comment fonctionne l’accès avec élévation de privilèges ?
 
 Les ressources Azure AD et Azure sont sécurisées de façon indépendante les unes des autres. Ainsi, les attributions de rôles Azure AD n’accordent pas d’accès aux ressources Azure et inversement, les attributions de rôles Azure n’accordent pas d’accès à Azure AD. En revanche, si vous êtes [administrateur général](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator-permissions) dans Azure AD, vous pouvez vous attribuer à vous-même un accès à tous les abonnements et groupes d’administration Azure de votre annuaire. Utilisez cette fonctionnalité si vous n’avez pas accès aux ressources de l’abonnement Azure, comme les machines virtuelles ou les comptes de stockage, et que vous voulez utiliser vos privilèges d’administrateur général pour accéder à ces ressources.
 

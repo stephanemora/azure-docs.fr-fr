@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 7532db883b6267c402e380d865c917d16a7052da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6305a6e68f435c009fdfdea371e88f4a73c3d92
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440630"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830392"
 ---
 # <a name="copy-data-from-an-http-endpoint-by-using-azure-data-factory"></a>Copier des données d’un point de terminaison HTTP à l’aide d’Azure Data Factory
 
@@ -222,7 +222,7 @@ Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres 
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La propriété type sous `storeSettings` doit être définie sur **HttpReadSetting**. | Oui      |
+| type                     | La propriété type sous `storeSettings` doit être définie sur **HttpReadSettings**. | Oui      |
 | requestMethod            | Méthode HTTP. <br>Les valeurs autorisées sont **Get** (par défaut) et **Post**. | Non       |
 | addtionalHeaders         | En-têtes de requête HTTP supplémentaires.                             | Non       |
 | requestBody              | Corps de la requête HTTP.                               | Non       |
@@ -252,11 +252,11 @@ Les propriétés suivantes sont prises en charge pour HTTP sous les paramètres 
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "HttpReadSetting",
+                    "type": "HttpReadSettings",
                     "requestMethod": "Post",
                     "additionalHeaders": "<header key: header value>\n<header key: header value>\n",
                     "requestBody": "<body for POST HTTP request>"
@@ -277,7 +277,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-f
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
+>Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau Modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau Modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 

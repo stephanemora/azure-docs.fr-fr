@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: a1bd9b8cbcbc785425c2d1870dc555ff91f695f7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 02dc9e1ad9ee46b1a400e44b6ef737e70571a17a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484798"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972582"
 ---
 # <a name="security-in-azure-database-for-postgresql---single-server"></a>Sécurité dans Azure Database pour PostgreSQL – Serveur unique
 
@@ -37,8 +37,11 @@ Les règles de pare-feu IP octroient l’accès aux serveurs en fonction de l’
 ### <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
 Les points de terminaison de service de réseau virtuel étendent votre connectivité de réseau virtuel via le réseau principal Azure. En utilisant des règles de réseau virtuel, vous pouvez faire en sorte que votre serveur Azure Database pour PostgreSQL autorise les connexions à partir de certains sous-réseaux d’un réseau virtuel. Pour plus d’informations, consultez la [vue d’ensemble des points de terminaison de service de réseau virtuel](concepts-data-access-and-security-vnet.md).
 
+### <a name="private-ip"></a>IP privée
+Private Link vous permet de vous connecter à votre serveur unique Azure Database pour PostgreSQL via un point de terminaison privé. Azure Private Link intègre essentiellement les services Azure à votre Réseau virtuel privé. Vous pouvez accéder aux ressources PaaS à l’aide de l’adresse IP privée, comme toute autre ressource dans le réseau virtuel. Pour plus d’informations, consultez la [présentation de Private Link](concepts-data-access-and-security-private-link.md)
 
-## <a name="access-management"></a>gestion de l’accès
+
+## <a name="access-management"></a>Gestion de l’accès
 
 Quand vous créez un serveur Azure Database pour PostgreSQL, vous fournissez les informations d’identification d’un rôle Administrateur. Ce rôle Administrateur permet de créer d’autres [rôles PostgreSQL](https://www.postgresql.org/docs/current/user-manag.html).
 

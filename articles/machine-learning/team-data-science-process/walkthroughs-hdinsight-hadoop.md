@@ -3,20 +3,20 @@ title: Analytique sur Azure HDInsight Hadoop avec Hive – Team Data Science Pro
 description: Exemples du processus TDSP (Team Data Science Process) qui montrent comment utiliser Hive sur Azure HDInsight Hadoop pour effectuer des analyses prédictives.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d3c3278a058162632a6ba7ea9731e5f233190700
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f72ea6ed5f0eec076d181ef56c99c4f1308a7741
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60804658"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864160"
 ---
 # <a name="hdinsight-hadoop-data-science-walkthroughs-using-hive-on-azure"></a>Guides de la science des données HDInsight Hadoop avec Hive sur Azure 
 
@@ -36,7 +36,7 @@ Le scénario est implémenté avec Hive et un [cluster Azure HDInsight Hadoop](h
 
 ## <a name="predict-advertisement-clicks-using-hive-with-hdinsight-hadoop"></a>Prédire les clics publicitaires avec Hive et HDInsight Hadoop
 
-Le guide [Utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To](hive-criteo-walkthrough.md) utilise un jeu de données de clics [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) public pour prédire si un pourboire sera laissé, ainsi que la distribution attendue des montants. Le scénario est implémenté avec Hive et un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) pour stocker, explorer et sous-échantillonner des données, ainsi qu’effectuer du feature engineering. Il utilise Azure Machine Learning pour générer, entraîner et évaluer un modèle de classification binaire qui prédit si un utilisateur cliquera sur une publicité. Le guide se conclut en expliquant comment publier un de ces modèles en tant que service web.
+Le guide [Utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To](hive-criteo-walkthrough.md) utilise un jeu de données de clics [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) public pour prédire si un pourboire sera laissé, ainsi que les montants attendus. Le scénario est implémenté avec Hive et un [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) pour stocker, explorer et sous-échantillonner des données, ainsi qu’effectuer du feature engineering. Il utilise Azure Machine Learning pour générer, entraîner et évaluer un modèle de classification binaire qui prédit si un utilisateur cliquera sur une publicité. Le guide se conclut en expliquant comment publier un de ces modèles en tant que service web.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303905"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982009"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
@@ -71,7 +71,7 @@ Déterminer le type de prédictions que vous souhaitez baser sur l’analyse de 
 
 Vous pouvez configurer un environnement Azure pour une analyse avancée qui utilise un cluster HDInsight en trois étapes :
 
-1. [Créer un compte de stockage](../../storage/common/storage-quickstart-create-account.md) : Ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight résident également ici.
+1. [Créer un compte de stockage](../../storage/common/storage-account-create.md) : Ce compte de stockage est utilisé pour stocker des données dans un stockage Blob Azure. Les données utilisées dans les clusters HDInsight résident également ici.
 2. [Personnaliser des clusters Hadoop Azure HDInsight pour le processus et la technologie d'analyse avancée](customize-hadoop-cluster.md). Cette étape crée un cluster Hadoop HDInsight avec Anaconda Python 2.7 64 bits installé sur tous les nœuds. Il existe deux étapes importantes à retenir lors de la personnalisation de votre cluster HDInsight.
    
    * Rappelez-vous de lier le compte de stockage créé à l’étape 1 à votre cluster HDInsight, lorsque vous le créez. Ce compte de stockage accède aux données qui peuvent être traitées au sein du cluster.
@@ -719,7 +719,7 @@ Nous avons maintenant une table interne **nyctaxidb.nyctaxi_downsampled_dataset*
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Utiliser le module Importer des données dans Machine Learning pour accéder aux données à échantillon réduit
 Pour générer des requêtes Hive dans le module [Importer des données][import-data] de Machine Learning, vous devez accéder à un espace de travail Machine Learning. Vous avez également besoin d’accéder aux informations d’identification du cluster et à son compte de stockage associé.
 
-Voici certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
+Voici certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
 **URI du serveur HCatalog** : Si le nom du cluster est **abc123**, il s’agit simplement de : https://abc123.azurehdinsight.net.
 
@@ -746,7 +746,7 @@ Si la table est une table interne et qu’elle est remplie, son contenu doit s�
 
 Pour déterminer si une table est une table interne, il est également possible d’utiliser l’Explorateur Stockage Azure. Utilisez-le pour accéder au nom de conteneur par défaut du cluster, puis filtrez par nom de table. Si la table et son contenu s'affichent, cela confirme qu'il s’agit d’une table interne.
 
-Voici une capture d’écran de la requête Hive et du module [Importer des données][import-data] :
+Voici une capture d’écran de la requête Hive et du module [Importer des données][import-data] :
 
 ![Capture d’écran de requête Hive pour le module Importer des données](./media/hive-walkthrough/1eTYf52.png)
 
@@ -821,7 +821,7 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 ## <a name="license-information"></a>Informations de licence
 Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la licence MIT. Pour plus d’informations, consultez le fichier **LICENSE.txt** figurant dans le répertoire de l’exemple de code sur GitHub.
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 •    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](https://www.andresmh.com/nyctaxitrips/)  
 •    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

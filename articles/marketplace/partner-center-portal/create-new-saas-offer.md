@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 0c2441aaf0cffd357f917a8c600f7399b339bfb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/13/2020
+ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689094"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045567"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -167,7 +167,7 @@ Sélectionnez **Enregistrer** après avoir renseigné ces champs.
 
 ### <a name="category"></a>Category
 
-Sélectionnez un minimum d’une (1) catégorie et un maximum de trois (3) catégories utilisées pour grouper votre offre dans les zones de recherche appropriées sur la Place de marché. Dans la description de l’offre, expliquez comment votre offre prend en charge ces catégories.
+Sélectionnez un minimum d’une (1) catégorie et un maximum de trois (3) catégories utilisées pour grouper votre offre dans les zones de recherche appropriées sur la Place de marché. Expliquez comment votre offre prend en charge ces catégories dans la description de l’offre.
 
 ### <a name="industry"></a>Secteur d’activité
 
@@ -175,7 +175,7 @@ Sélectionnez un minimum d’une (1) catégorie et un maximum de trois (3) caté
 
 ### <a name="app-version"></a>Version de l’application
 
-Il s’agit d’un champ facultatif utilisé dans la Place de marché AppSource pour identifier le numéro de version de votre offre.
+Ce champ est facultatif et est utilisé dans la place de marché AppSource pour identifier le numéro de version de votre offre.
 
 ### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrat standard pour la place de marché commerciale de Microsoft
 
@@ -204,7 +204,7 @@ Deux types de modifications sont proposées aux éditeurs de la place de marché
 >[!NOTE]
 > Ces deux types de modifications s’ajoutent l’un à l’autre. Les clients ciblés par les modifications personnalisées reçoivent aussi la modification universelle apportée au contrat Standard lors de l’achat.
 
-**Termes d’amendement universel au contrat Standard pour la place de marché commerciale Microsoft** : Entrez les conditions de l’amendement universel dans cette zone. Vous pouvez fournir un seul amendement universel par offre. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Ceux-ci sont affichés pour les clients dans AppSource, la place de marché Azure et/ou le Portail Azure pendant le processus de découverte et d’achat.
+**Termes d’amendement universel au contrat Standard pour la place de marché commerciale Microsoft** : Entrez les conditions de l’amendement universel dans cette zone. Vous pouvez fournir un seul amendement universel par offre. Vous pouvez entrer un nombre illimité de caractères dans cette zone. Ces termes sont affichés pour les clients dans AppSource, la Place de marché Azure et/ou le portail Azure pendant le processus de découverte et d’achat.
 
 **Termes d'amendements personnalisées du contrat Standard pour la place de marché commerciale de Microsoft**: Commencez par sélectionner **Ajouter des conditions d’amendement personnalisées**. Vous pouvez fournir jusqu’à 10 termes d’amendement personnalisés par offre.
 
@@ -231,7 +231,7 @@ L’onglet Annonce de l’offre affiche les langues (et les marchés) disponible
 
 Renseignez les informations à afficher dans la place de marché, dont les descriptions des composants marketing et de votre offre.
 
-- **Name** [obligatoire] : Le nom défini ici s’affiche comme titre de l’annonce de votre offre sur le(s) place(s) de marché choisie(s). Le nom est prérempli selon votre précédente entrée **Nouvelle offre**.  Ce nom peut être une marque.  Il ne doit pas contenir d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères.
+- **Name** [obligatoire] : Le nom défini ici s’affiche comme titre de l’annonce de votre offre sur le(s) place(s) de marché choisie(s). Le nom est prérempli selon votre précédente entrée **Nouvelle offre**. Le nom peut être une marque. Il ne peut pas contenir d’emojis (sauf s’il s’agit du symbole de marque ou de copyright) et ne doit pas dépasser 50 caractères.
 - **Summary** (obligatoire) : Renseignez une courte description de votre offre à utiliser dans les résultats de la recherche d’annonces dans une place de marché. Jusqu’à 100 caractères peuvent être entrés dans ce champ.
 - **Description** (obligatoire) : Renseignez une description de votre offre à afficher dans la présentation des annonces sur une place de marché. Vous pouvez inclure une proposition de valeur, des avantages principaux, des associations de catégorie ou de secteur, des opportunités d’achats dans une application, des publications requises et un lien pour en savoir plus.
 Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. Pour obtenir plus d’astuces, consultez l’article [Rédiger une bonne description d’application](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -240,7 +240,7 @@ Jusqu’à 3 000 caractères peuvent être entrés dans ce champ. Pour obtenir p
 
 #### <a name="description"></a>**Description**
 
-Ce champ est obligatoire. Éléments à inclure dans la description :
+Ce champ est obligatoire. Éléments à inclure dans **Description** :
 
 * Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description.  
 * Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.  
@@ -253,76 +253,28 @@ Votre proposition de valeur doit comprendre les composants suivants :
 * Type d’utilisateur qui tire parti du produit.
 * Les clients ont des besoins ou des problèmes auxquels le produit répond.
 
-Pour que la description de votre offre soit plus attrayante, vous pouvez utiliser des balises HTML pour mettre en forme la description.
+Pour que la **Description** de votre offre soit plus attrayante, utilisez l’éditeur de texte enrichi pour mettre en forme votre description.
 
-1. Si vous souhaitez créer des paragraphes, ajoutez `<p>` au début du texte et ajoutez `</p>` à la fin.
+![Utilisation de l’éditeur de texte enrichi](./media/text-editor2.png)
 
-    **Exemple** :
+Suivez les instructions suivantes pour utiliser l’éditeur de texte enrichi :
 
-    `<p>` Il s’agit de mon premier paragraphe. `</p>` <br>
-    `<p>` Il s’agit de mon deuxième paragraphe. `</p>` <br>
+- Pour changer la mise en forme de votre contenu, mettez en surbrillance le texte que vous souhaitez mettre en forme, puis sélectionnez un style de texte, comme indiqué ci-dessous :
 
-    La section ci-dessus ressemblerait à ceci :
+     ![Utilisation de l’éditeur de texte enrichi pour changer la mise en forme du texte](./media/text-editor3.png)
 
-    <p> Il s’agit de mon premier paragraphe. </p>
-    <p> Il s’agit de mon deuxième paragraphe. </p>
+- Pour ajouter une liste à puces ou une liste numérotée au texte, utilisez les options ci-dessous :
 
-1. Si vous souhaitez ajouter une **liste à puces**, placez votre texte entre les balises `<li>` ci-dessous. Vous pouvez copier et coller plus d’éléments à puces (éléments entre les balises `<li>` et `</li>`) à l’intérieur des balises `<ul>` et `</ul>`. .Assurez-vous d’ajouter le`<ul></ul>`.
+     ![Utilisation de l’éditeur de texte enrichi pour ajouter des listes](./media/text-editor4.png)
 
-    **Exemple** :
+- Pour ajouter ou supprimer une mise en retrait du texte, utilisez les options ci-dessous :
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    La section ci-dessus ressemblerait à ceci :
-    <ul> 
-        <li>ajoutez du texte ici</li>
-        <li> ajoutez du texte ici </li>
-        <li> ajoutez du texte ici </li>
-    </ul> 
-
-1. Pour **mettre en gras** le contenu, ajoutez `<b>` au début du texte que vous souhaitez mettre en gras et ajoutez `</b>` à la fin du texte que vous souhaitez mettre en gras.
-
-    **Exemple** : `<b>`VERSION D’ÉVALUATION GRATUITE`</b>`
-    
-    Avec le texte ci-dessus, les mots VERSION D’ÉVALUATION GRATUITE seront mis en gras dans la description de l’offre dans la vitrine.
-
-    **VERSION D’ÉVALUATION GRATUITE**
-
-1. Pour ajouter des **sauts de ligne** entre votre contenu, ajoutez `<br>` avant le contenu que vous souhaitez démarrer sur une nouvelle ligne. Si vous souhaitez conserver un espace et vous assurer que le contenu commence sur une nouvelle ligne, ajoutez `<br><br>` avant le contenu.
-
-    **Exemple** :
-
-    Il s’agit d’une ligne de texte. `<br>` Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. `<br><br>` Il s’agit d’une ligne qui démarre deux lignes au-dessous.
-
-    La section ci-dessus ressemblerait à ceci :
-
-    Il s’agit d’une ligne de texte. <br> Il s’agit d’une ligne de texte qui commence sur une nouvelle ligne. <br><br> Il s’agit d’une ligne qui démarre deux lignes au-dessous.
-
-1. Si vous souhaitez **augmenter la taille du texte**, commencez par choisir la taille du texte. Utilisez les exemples ci-dessous. Après avoir sélectionné la taille du texte, ajoutez les balises `<H*></H*>` correspondantes au début et à la fin du texte.
-
-    **Exemple** :
-
-    `<h1>`Il s’agit du titre 1`</h1>` <br>
-    `<h2>`Il s’agit du titre 2`</h2>` <br>
-    `<h3>`Il s’agit du titre 3`</h3>` <br>
-    `<h4>`Il s’agit du titre 4`</h4>` <br>
-    `<h5>`Il s’agit du titre 5`</h5>` <br>
-    `<h6>`Il s’agit du titre 6`</h6>` 
-
-    La section ci-dessus ressemblerait à ceci :
-
-    ![Exemples d’en-têtes](./media/heading.png)
+     ![Utilisation de l’éditeur de texte enrichi pour mettre en retrait](./media/text-editor5.png)
 
 #### <a name="links"></a>Liens
 
 - **Politique de confidentialité** (obligatoire) : Lien vers la politique de confidentialité de votre organisation. Vous devez veiller à ce que votre application respecte les lois et réglementations en matière de confidentialité et à renseigner une politique de confidentialité conforme.
-- **Ressources Marketing du programme CSP** (facultatif) : Vous devez fournir un lien vers les ressources marketing si vous choisissez d’étendre votre offre au programme [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers). Le programme CSP étend votre offre à un spectre plus large de clients qualifiés en permettant aux partenaires CSP de grouper votre offre, de la mettre sur le marché et de la revendre. Ces revendeurs doivent accéder à des ressources marketing de votre offre. Pour plus d’informations, consultez [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+- **Ressources Marketing du programme CSP** (facultatif) : Fournissez un lien vers les ressources marketing si vous choisissez d’étendre votre offre au programme [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers). Le programme CSP étend votre offre à un spectre plus large de clients qualifiés en permettant aux partenaires CSP de grouper votre offre, de la mettre sur le marché et de la revendre. Ces revendeurs doivent accéder à des ressources marketing de votre offre. Pour plus d’informations, consultez [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 - **Liens utiles** (facultatif) : Documents en ligne supplémentaires et facultatifs concernant votre application ou services connexes répertoriés en fournissant un **titre** et une **URL**. Ajoutez des liens utiles supplémentaires en cliquant sur **+ Ajouter une URL**.
 
 #### <a name="contact-information"></a>Informations de contact
@@ -353,7 +305,7 @@ N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 L’onglet **Préversion** vous permet de définir un **Public de préversion** limité avant de publier votre offre à un public plus important.
 
 > [!IMPORTANT]
-> Vous devez sélectionner **Publier** avant pour que votre offre soit publiée publiquement sur la place de marché après l’avoir vérifiée en Préversion.
+> Après avoir vérifié votre offre en Préversion, sélectionnez **Publier** pour que votre offre puisse être publiée publiquement sur la place de marché.
 
 - **Définir un public pour la Préversion : Ajoutez une seule adresse e-mail de compte AAD/MSA par ligne, avec une description facultative.**
 
@@ -374,7 +326,8 @@ L’onglet **Configuration technique** définit les informations techniques (che
 
 - **ID de l’application Azure AD** (obligatoire) : Vous avez également besoin de l’[ID de votre application](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) et d’une clé d’authentification. Pour obtenir ces valeurs, rendez-vous dans Azure Active Directory et sélectionnez **Inscriptions d’applications**, puis cherchez le numéro de l’**ID de l’application** (par exemple, 50c464d3-4930-494c-963c-1e951d15360e). Pour trouver la clé d’authentification, accédez à **Paramètres** et sélectionnez **Clés**. Vous devez fournir une description et une durée, et vous obtiendrez ensuite une valeur numérique.
 
- Remarque : l’ID de l’application Azure est associé à votre ID d’éditeur. Veillez donc à utiliser le même ID d’application dans toutes les offres.
+>[!Note]
+>L’ID de l’application Azure est associé à votre ID d’éditeur. Veillez donc à utiliser le même ID d’application dans toutes les offres.
 
 ## <a name="plan-overview"></a>Vue d’ensemble du plan
 
@@ -389,8 +342,8 @@ Les **Actions** disponibles dans **Vue d’ensemble du plan** varient selon l’
 
 **Créer un plan** (au moins un plan pour ceux qui choisissent de vendre via Microsoft)
 
-- **ID du plan :** Créez un ID de plan unique pour chaque plan dans cette offre. Cet ID sera visible par les clients dans l’adresse URL du produit et des modèles Resource Manager (si applicable). Utilisez uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. 50 caractères maximum autorisés pour cet ID de plan. Remarque : l’ID ne peut être modifié après avoir sélectionné Créer.
-- **Nom du plan :** Les clients verront ce nom lorsqu’ils décideront du plan à sélectionner dans votre offre. Créez un ID d’offre unique pour chaque plan dans cette offre. Le nom du plan sert à différencier les plans logiciels pouvant faire partie de la même offre (par exemple, Nom de l’offre : Windows Server ; plans : Windows Server 2016, Windows Server 2019).
+- **ID du plan :** Créez un ID de plan unique pour chaque plan dans cette offre. Cet ID sera visible par les clients dans l’adresse URL du produit et des modèles Resource Manager (si applicable). Utilisez uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. 50 caractères maximum autorisés pour cet ID de plan. L’ID ne peut pas être modifié après avoir sélectionné Créer.
+- **Nom du plan :** Les clients verront ce nom lorsqu’ils décideront du plan à sélectionner dans votre offre. Créez un ID d’offre unique pour chaque plan dans cette offre. Le nom du plan sert à différencier les plans logiciels pouvant faire partie de la même offre (par exemple, nom de l’offre : Windows Server ; plans : Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Liste des plans
 

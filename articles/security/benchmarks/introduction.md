@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2d0cceca841a2aff2538dcf8763d245ca8cfd13d
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564019"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945336"
 ---
-# <a name="azure-security-benchmarks-introduction"></a>Introduction au benchmark de sécurité Azure
+# <a name="azure-security-benchmark-introduction"></a>Introduction aux benchmarks de sécurité Azure
 
-Vous avez peut-être plusieurs années, voire plusieurs dizaines d’années d’expérience dans l’informatique locale. Vous savez comment sécuriser ces déploiements. Mais le cloud est différent. Comment savoir si vos déploiements cloud sont sécurisés ? Quelles sont les différences entre les pratiques de sécurité pour les systèmes locaux et pour les déploiements cloud ?
+Vous avez peut-être plusieurs années, voire plusieurs dizaines d’années d’expérience dans l’informatique locale. Vous savez comment sécuriser ces déploiements, mais le cloud est différent. Comment savoir si vos déploiements cloud sont sécurisés ? Quelles sont les différences entre les pratiques de sécurité pour les systèmes locaux et les déploiements cloud ?
 
 Il existe une vaste collection de livres blancs, de meilleures pratiques, d’architectures de référence, d’aide sur le web, d’outils open source, de solutions commerciales, de flux de renseignements, etc. qui peuvent aider à sécuriser le cloud. Quelle option faut-il utiliser ? Que peut-on faire pour bénéficier d’un niveau de sécurité acceptable dans le cloud ? 
 
@@ -27,8 +27,8 @@ Le benchmark de sécurité Azure comprend un ensemble de recommandations de séc
 
 La documentation du benchmark de sécurité Azure indique les contrôles de sécurité et les recommandations de service.
 
-- **Contrôles de sécurité** : les recommandations du benchmark de sécurité Azure sont classées par contrôle de sécurité. Les contrôles de sécurité représentent des exigences de sécurité de haut niveau indépendantes du fournisseur, comme la sécurité réseau et la protection des données. Chacun comporte un ensemble de recommandations de sécurité et d’instructions qui aident à les appliquer. 
-- **Recommandations de service** : lorsqu’elles sont disponibles, les recommandations du benchmark pour les services Azure comprennent les recommandations du benchmark de sécurité Azure ajustées au service, ainsi que des recommandations supplémentaires propres au service. 
+- **Contrôles de sécurité** : les recommandations du benchmark de sécurité Azure sont classées par contrôle de sécurité. Les contrôles de sécurité représentent des exigences de sécurité de haut niveau indépendantes du fournisseur, comme la sécurité réseau et la protection des données. Chacun comporte un ensemble de recommandations de sécurité et d’instructions qui aident à les implémenter. 
+- **Recommandations de service** : lorsqu’elles sont disponibles, les recommandations du benchmark pour les services Azure comprennent les recommandations du benchmark de sécurité Azure ajustées spécialement à ce service. 
 
 Les termes « contrôle », « benchmark » et « base de référence » sont souvent utilisés dans la documentation du benchmark de sécurité Azure ; il est important de comprendre comment Azure les utilise. 
 

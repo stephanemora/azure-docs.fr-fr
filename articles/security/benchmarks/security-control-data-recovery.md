@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1cd3e39fd504b5095a83192a4a6314c71d3ca980
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c585ebd903d4070f6247456e06efffbc6ec45270
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563999"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934505"
 ---
 # <a name="security-control-data-recovery"></a>Contrôle de sécurité : Récupération des données
 
@@ -27,7 +27,9 @@ Assurez-vous que toutes les données, configurations et secrets du système sont
 
 Activez la Sauvegarde Azure et configurez la source de sauvegarde (machines virtuelles Azure, SQL Server ou partages de fichiers), ainsi que la fréquence souhaitée et la période de rétention.
 
-Comment activer Sauvegarde Azure : https://docs.microsoft.com/azure/backup/
+Comment activer Sauvegarde Azure :
+
+https://docs.microsoft.com/azure/backup/
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2 : effectuer des sauvegardes complètes du système et sauvegarder les clés gérées par le client
 
@@ -37,9 +39,13 @@ Comment activer Sauvegarde Azure : https://docs.microsoft.com/azure/backup/
 
 Activez la Sauvegarde Azure et la ou les machines virtuelles cibles, ainsi que la fréquence souhaitée et les périodes de rétention. Clés de sauvegarde gérées par le client dans Azure Key Vault.
 
-Comment activer Sauvegarde Azure : https://docs.microsoft.com/azure/backup/
+Comment activer Sauvegarde Azure :
 
-Comment sauvegarder des clés de coffre de clés dans Azure : https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/azure/backup/
+
+Comment sauvegarder des clés de coffre de clés dans Azure :
+
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3 : valider toutes les sauvegardes, y compris les clés gérées par le client
 

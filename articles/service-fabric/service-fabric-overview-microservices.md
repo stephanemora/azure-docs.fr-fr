@@ -2,15 +2,16 @@
 title: Introduction aux microservices sur Azure
 description: Pourquoi créer des applications cloud avec une approche de microservices est important pour le développement d’applications modernes et comment Azure Service Fabric fournit une plateforme pour y parvenir.
 ms.topic: conceptual
-ms.date: 06/18/2019
-ms.openlocfilehash: e23c571d2000b5565da018d6ddf70a6388cb9226
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.custom: sfrev
+ms.openlocfilehash: af18a6cb45808c0af5ec2782a3fd2100e3b7bf99
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466323"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750614"
 ---
-# <a name="why-use-a-microservices-approach-to-building-applications"></a>Pourquoi utiliser une approche de microservices pour la conception d’applications ?
+# <a name="why-use-a-microservices-approach-to-building-applications"></a>Pourquoi utiliser une approche de microservices pour la conception d’applications ?
 
 Pour les développeurs de logiciels, il n’y a rien de nouveau dans la conception de l’affacturage d’une application en composants. En règle générale, une approche hiérarchisée est utilisée avec un magasin principal, une logique métier de couche intermédiaire et une interface utilisateur frontale. Ce qui *a* changé au cours des dernières années, c’est que les développeurs créent des applications distribuées pour le cloud.
 
@@ -128,7 +129,8 @@ Cela peut paraître évident, et c’est souvent négligé, mais un microservice
 
 L’intégrité diffère des diagnostics. L’intégrité fait référence aux rapports du microservice sur son état actuel de sorte que des actions appropriées puissent être prises. Un bon exemple de cela est l’utilisation de mécanismes de mise à niveau et de déploiement pour garantir la disponibilité. Même si un service peut être défectueux en raison d’un blocage de processus ou d’un redémarrage de machine, il peut demeurer opérationnel. Dans ce genre de situation, il ne faut surtout pas effectuer de mise à niveau : cela empirerait les choses. La meilleure solution est de commencer par mener une enquête ou de laisser le temps au microservice de récupérer. Les événements d’intégrité d’un microservice nous aident à prendre des décisions avisées et nous aident effectivement à créer des services de réparation spontanée.
 
-## <a name="guidance-for-designing-microservices-on-azure"></a>Conseils pour la conception de microservices sur Azure 
+## <a name="guidance-for-designing-microservices-on-azure"></a>Conseils pour la conception de microservices sur Azure
+
 Pour consulter notre guide sur la conception et le développement de microservices sur Azure, veuillez vous rendre sur notre [centre des architectures Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 
 ## <a name="service-fabric-as-a-microservices-platform"></a>Service Fabric en tant que plateforme de microservices
@@ -185,7 +187,6 @@ Votre application est entièrement composée de (ou divisée en) microservices. 
 Peut-être. Chez Microsoft, tandis que de plus en plus d’équipes développent en gardant le cloud à l’esprit pour des raisons métier, nombre d’entre elles ont pris conscience des avantages d’une approche de microservices. Bing, par exemple, utilise des microservices depuis des années. Pour les autres équipes, l’approche des microservices était une nouveauté. Les équipes trouvaient qu’il existait des problèmes difficiles à résoudre en dehors de leurs principaux domaines d’expertise. C’est pourquoi Service Fabric est très populaire en tant que technologie pour créer des services.
 
 L’objectif de Service Fabric consiste à réduire la complexité de la création d’applications de microservices afin de vous éviter des refontes coûteuses. Commencez petit, mettez à l’échelle lorsque c’est nécessaire, déconseillez les services inutiles, ajoutez-en de nouveaux, évoluez avec l’utilisation des clients. Nous savons également qu’il existe de nombreux autres problèmes à résoudre pour que les microservices soient plus abordables pour la plupart des développeurs. Les conteneurs et le modèle de programmation Actor sont des exemples de quelques étapes dans cette direction. Nous sommes convaincus que plusieurs innovations vont apparaître pour faciliter une approche de microservices.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

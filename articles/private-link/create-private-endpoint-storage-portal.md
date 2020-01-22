@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357564"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028875"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Connexion privée à un compte de stockage à l’aide d’Azure Private Endpoint
 Azure Private Endpoint est le composant fondamental de Private Link dans Azure. Il permet à des ressources Azure, comme des machines virtuelles, de communiquer en privé avec des ressources Private Link.
@@ -127,11 +127,11 @@ Dans cette section, vous allez créer un compte de stockage privé à l’aide d
     | Subscription | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **myResourceGroup**. Vous avez créé cela dans la section précédente.|
     |Location|Sélectionnez **WestCentralUS**.|
-    |Name|Entrez *myPrivateEndpoint*.  |
+    |Name|Entrez *myPrivateEndpoint*.  |
     |Sous-ressource de stockage|Conservez l’objet **Blob** par défaut. |
     | **MISE EN RÉSEAU** |  |
-    | Réseau virtuel  | Sélectionnez  *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |
-    | Subnet | Sélectionnez *mySubnet*. |
+    | Réseau virtuel  | Sélectionnez *MyVirtualNetwork* dans le groupe de ressources *myResourceGroup*. |
+    | Subnet | Sélectionnez *mySubnet*. |
     | **INTÉGRATION À DNS PRIVÉ**|  |
     | Intégrer à une zone DNS privée  | Conservez la valeur par défaut **Oui**. |
     | Zone DNS privée  | Conservez la valeur par défaut **(New) privatelink.blob.core.windows.net**. |
@@ -172,8 +172,8 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 
 Dans cette section, vous allez vous connecter en privé au compte de stockage à l’aide de Private Endpoint.
 
-1. Dans le Bureau à distance de  *myVM*, ouvrez PowerShell.
-2. Entrez `nslookup mystorageaccount.blob.core.windows.net` Vous recevez un message similaire à celui-ci :
+1. Dans le Bureau à distance de *myVM*, ouvrez PowerShell.
+2. Entrez `nslookup mystorageaccount.blob.core.windows.net`, vous recevrez un message similaire à celui-ci :
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -192,7 +192,7 @@ Dans cette section, vous allez vous connecter en privé au compte de stockage à
 10. Sélectionnez **Connecter**.
 11. Parcourir les conteneurs d’objets blob à partir de mystorageaccount 
 12. (Facultatif) Créez des dossiers et/ou téléchargez des fichiers vers *mystorageaccount* . 
-13. Fermez la connexion Bureau à distance avec  *myVM*. 
+13. Fermez la connexion Bureau à distance à *myVM*. 
 
 Options supplémentaires pour accéder au compte de stockage :
 - L’Explorateur Stockage Microsoft Azure est une application gratuite autonome de Microsoft qui vous permet d’exploiter visuellement les données de stockage Azure sur Windows, macOS et Linux. Vous pouvez installer l’application pour parcourir en privé le contenu du compte de stockage. 
@@ -202,9 +202,9 @@ Options supplémentaires pour accéder au compte de stockage :
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources 
 Lorsque vous avez fini d’utiliser le point de terminaison privé, le compte de stockage et la machine virtuelle, supprimez le groupe de ressources et toutes les ressources qu’il contient : 
-1. Entrez *myResourceGroup* dans la zone **Rechercher** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche. 
+1. Entrez *myResourceGroup* dans la zone **Recherche** en haut du portail, puis sélectionnez *myResourceGroup* dans les résultats de la recherche. 
 2. Sélectionnez **Supprimer le groupe de ressources**. 
-3. Entrez *myResourceGroup* pour **TAPEZ LE NOM DU GROUPE DE RESSOURCES**, puis sélectionnez **Supprimer**. 
+3. Entrez *myResourceGroup* dans **TAPER LE NOM DU GROUPE DE RESSOURCES** puis sélectionnez **Supprimer**. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle sur un réseau virtuel, ainsi qu’un compte de stockage et un point de terminaison privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le compte de stockage via une liaison privée. Pour en savoir plus sur le point de terminaison privé, consultez [Qu’est-ce qu’Azure Private Endpoint ?](private-endpoint-overview.md).
+Dans ce guide de démarrage rapide, vous avez créé une machine virtuelle sur un réseau virtuel, ainsi qu’un compte de stockage et un point de terminaison privé. Vous vous êtes connecté à une machine virtuelle à partir d’Internet et avez communiqué de façon sécurisée avec le compte de stockage via une liaison privée. Pour plus d’informations sur les points de terminaison privés, consultez [Qu’est-ce qu’Azure Private Endpoint ?](private-endpoint-overview.md).

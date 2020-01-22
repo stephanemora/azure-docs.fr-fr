@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 533c91bdc02425cabf5eeae93f37811144b32149
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669396"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976325"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -46,7 +46,7 @@ La clé unique permettant de joindre trip\_data et trip\_fare se compose des cha
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip\_amount* (montant du pourboire), à savoir :
 
-1. Classification binaire : Prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
+1. Classification binaire : Prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
 2. Classification multiclasse : Prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
         Class 0 : tip_amount = $0
@@ -66,7 +66,7 @@ Dans ce didacticiel, nous allons décrire les procédures d’importations de do
 
 Pour configurer votre environnement de science des données Azure :
 
-1. [Créez un compte de stockage](../../storage/common/storage-quickstart-create-account.md)
+1. [Créez un compte de stockage](../../storage/common/storage-account-create.md)
 2. [Création d’un espace de travail Microsoft Azure Machine Learning](../studio/create-workspace.md)
 3. [Approvisionnez une machine virtuelle de science des données](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), qui fournit un serveur SQL Server et un serveur Notebook IPython.
    
@@ -142,7 +142,7 @@ Dans cette section, nous allons effectuer des tâches d’exploration des donné
 Dans cet exercice, nous allons :
 
 * Nous connecter à **SQL Server Management Studio** à l’aide de l’authentification Windows ou SQL et des nom et mot de passe de connexion SQL.
-* Explorer les distributions de données de quelques champs portant sur différentes périodes.
+* explorer les distributions de données de quelques champs portant sur différentes périodes ;
 * examiner la qualité des données des champs de longitude et de latitude ;
 * Générer des étiquettes de classification binaire et multiclasse reposant sur la valeur **tip\_amount**.
 * Générer des fonctionnalités et calculer/comparer les distances des trajets.
@@ -163,7 +163,7 @@ Pour vérifier rapidement le nombre de lignes et de colonnes des tables précéd
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
-#### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : Distribution des courses par médaillon
+#### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : Distribution des courses par médaillon
 Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses au cours d’une période donnée. Cette requête tire avantage de l’accès aux tables partitionnées, car elle est conditionnée par le schéma de partition de **pickup\_datetime**. L’exécution d’une requête portant sur le jeu de données complet tire également profit de l’analyse d’index et/ou de table partitionnée.
 
     SELECT medallion, COUNT(*)
@@ -172,7 +172,7 @@ Cet exemple identifie le médaillon (numéro de taxi) sur plus de 100 courses a
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
+#### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
@@ -191,7 +191,7 @@ Cet exemple vérifie si l’un des champs de longitude et/ou de latitude contien
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploration : Pourboire payé et avec et sans pourboire
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Exploration : Pourboire payé et avec et sans pourboire
 Cet exemple recherche le nombre de courses avec et sans pourboire sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Cette distribution reflète la distribution des étiquettes binaires à utiliser par la suite pour la modélisation de classification binaire.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -200,7 +200,7 @@ Cet exemple recherche le nombre de courses avec et sans pourboire sur une pério
       WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tipped
 
-#### <a name="exploration-tip-classrange-distribution"></a>Exploration : Distribution des classes/fourchettes de pourboires
+#### <a name="exploration-tip-classrange-distribution"></a>Exploration : Distribution des classes/fourchettes de pourboires
 Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Il s’agit de la distribution des classes d’étiquette à utiliser par la suite pour la modélisation de classification multiclasse.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
@@ -215,7 +215,7 @@ Cet exemple calcule la distribution des fourchettes de pourboires sur une pério
     WHERE pickup_datetime BETWEEN '20130101' AND '20131231') tc
     GROUP BY tip_class
 
-#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploration : Calculer et comparer les distances des courses
+#### <a name="exploration-compute-and-compare-trip-distance"></a>Exploration : Calculer et comparer les distances des courses
 Cet exemple convertit la longitude et la latitude des points d’embarquement et de débarquement en points géographiques SQL, calcule la distance des trajets en se basant sur la différence entre ces points géographiques et renvoie un échantillon aléatoire des résultats pour comparaison. Cet exemple limite les résultats aux coordonnées valides en utilisant la requête d’évaluation de la qualité des données précédemment décrite.
 
     SELECT
@@ -233,7 +233,7 @@ Cet exemple convertit la longitude et la latitude des points d’embarquement et
 Vous pouvez également utiliser les requêtes de génération d’étiquettes et de conversion de données géographiques pour générer des étiquettes/fonctionnalités en supprimant la partie décompte. D’autres exemples SQL de conception de fonctionnalités sont fournis à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb) . L’exécution des requêtes de génération de fonctionnalités se révèle plus efficace sur la totalité du jeu de données ou sur un large sous-échantillon de ce jeu par le biais de requêtes SQL qui s’exécutent directement sur l’instance de base de données SQL Server. Les requêtes sont exécutables dans **SQL Server Management Studio**, dans Notebook IPython ou dans tout autre outil/environnement de développement pouvant accéder à la base de données localement ou à distance.
 
 #### <a name="preparing-data-for-model-building"></a>Préparation des données pour la création de modèles
-La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre la réception directe de données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
+La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre l’ingestion directe des données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -328,14 +328,14 @@ Nous sommes désormais prêts à explorer les données échantillonnées. Nous s
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualisation : Exemple de diagramme à surfaces
+#### <a name="visualization-box-plot-example"></a>Visualisation : Exemple de diagramme à surfaces
 Nous examinons ensuite le diagramme à surfaces concernant la distance des trajets afin de visualiser les quantiles.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Diagramme #1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualisation : Exemple de diagramme de distribution
+#### <a name="visualization-distribution-plot-example"></a>Visualisation : Exemple de diagramme de distribution
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Nous examinons ensuite le diagramme à surfaces concernant la distance des traje
 
 ![Diagramme #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualisation : Diagrammes en bâtons et linéaires
+#### <a name="visualization-bar-and-line-plots"></a>Visualisation : Diagrammes en bâtons et linéaires
 Dans cet exemple, nous compartimentons la distance des trajets en cinq zones et nous visualisons les résultats de cette opération.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -362,7 +362,7 @@ Nous pouvons représenter la distribution des compartiments ci-dessus dans un di
 
 ![Diagramme #4][4]
 
-#### <a name="visualization-scatterplot-example"></a>Visualisation : Exemple de diagramme de dispersion
+#### <a name="visualization-scatterplot-example"></a>Visualisation : Exemple de diagramme de dispersion
 Nous représentons le diagramme de dispersion entre **trip\_time\_in\_secs** et **trip\_distance** pour déterminer s’il existe une corrélation.
 
     plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -407,7 +407,7 @@ Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctax
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploration des données à l’aide de requêtes SQL dans Notebook IPython
 Dans cette section, nous allons explorer les distributions de données à l’aide de l’échantillon de 1 % des données que nous avons stocké dans la table créée ci-dessus. Notez que vous pouvez effectuer des explorations similaires à l’aide des tables d’origine, le cas échéant en utilisant **TABLESAMPLE** pour limiter l’échantillon d’exploration ou en restreignant les résultats à une période spécifique au moyen des partitions **pickup\_datetime**, comme décrit à la section [Exploration des données et ingénierie de caractéristiques dans SQL Server](#dbexplore).
 
-#### <a name="exploration-daily-distribution-of-trips"></a>Exploration : Distribution quotidienne des courses
+#### <a name="exploration-daily-distribution-of-trips"></a>Exploration : Distribution quotidienne des courses
     query = '''
         SELECT CONVERT(date, dropoff_datetime) AS date, COUNT(*) AS c
         FROM nyctaxi_one_percent
@@ -546,7 +546,7 @@ Cet exemple décompose la représentation décimale d’un champ de latitude ou 
 
 Nous pouvons à présent passer aux phases de création et de déploiement de modèles dans [Azure Machine Learning](https://studio.azureml.net). Les données sont prêtes pour tous les problèmes de prédiction identifiés précédemment, à savoir :
 
-1. Classification binaire : Prédire si un pourboire a ou non été versé pour une course.
+1. Classification binaire : Prédire si un pourboire a ou non été versé pour une course.
 2. Classification multiclasse : Prédire la fourchette du pourboire versé en fonction des classes précédemment définies.
 3. Tâche de régression : Prédire le montant du pourboire versé pour une course.  
 
@@ -621,7 +621,7 @@ Pour résumer, ce didacticiel pas à pas vous a décrit comment créer un enviro
 ### <a name="license-information"></a>Informations de licence
 Cet exemple de procédure pas à pas et les scripts et notebooks IPython qui lui sont associés sont partagés par Microsoft sous licence MIT. Pour plus d’informations, consultez le fichier LICENSE.txt figurant dans le répertoire de l’exemple de code sur GitHub.
 
-### <a name="references"></a>Références
+### <a name="references"></a>References
 •    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](https://www.andresmh.com/nyctaxitrips/)  
 •    [Page de partage des données relatives aux courses en taxi new-yorkais par Chris Whong (en anglais)](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [Page de recherche et de statistiques de la Commission des services de taxis et de limousines de la ville de New York (en anglais)](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)

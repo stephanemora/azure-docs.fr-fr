@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b936c3a320a99d0853cb331fcd0bc44718527b9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c5b9c1d294cd984ca3cf062d3b657239995e5908
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466448"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75752450"
 ---
 Les instantanés incrémentiels (préversion) sont des sauvegardes des disques managés exécutées à un moment donné et contenant uniquement les modifications apportées depuis la dernière capture instantanée. Lorsque vous essayez de télécharger ou d'utiliser un instantané incrémentiel, tout le disque dur virtuel est utilisé. Cette nouvelle fonctionnalité de capture instantanée des disques managés peut améliorer leur rentabilité car il n'est plus nécessaire de stocker l'intégralité du disque avec chaque instantané, sauf si vous y tenez. Comme pour les instantanés classiques, les instantanés incrémentiels peuvent être utilisés pour créer un disque managé complet ou pour créer un instantané classique.
 
@@ -23,7 +23,7 @@ Les instantanés incrémentiels offrent également une capacité différentielle
 
 ## <a name="restrictions"></a>Restrictions
 
-- Les instantanés incrémentiels ne sont à l’heure actuelle disponibles que dans les régions USA Est, USA Centre, Canada Centre, USA Centre-Ouest et Europe Nord.
+- Les instantanés incrémentiels ne sont à l’heure actuelle disponibles que dans les régions USA Est, USA Est 2, USA Centre, USA Centre-Ouest, Canada Est, Canada Centre et Europe Nord.
 - Il est actuellement impossible de créer des instantanés incrémentiels après avoir modifié la taille d'un disque.
 - Les instantanés incrémentiels ne peuvent actuellement pas être transférés d'un abonnement à un autre.
 - À un moment donné, vous ne pouvez actuellement générer que des URI SAS comprenant jusqu'à cinq instantanés d'une famille d'instantanés particulière.

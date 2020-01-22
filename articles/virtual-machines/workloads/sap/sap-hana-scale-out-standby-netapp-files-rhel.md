@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 059937cc390a15c986724b3107a7f64fb789fc92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 975f4940590bfbdab559122c68488c51c65d868e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475075"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896297"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Déployer un système Scale-out SAP HANA avec le nœud de secours sur des machines virtuelles Azure à l’aide d’Azure NetApp Files sur Red Hat Enterprise Linux 
 
@@ -435,7 +435,11 @@ Configurez et préparez votre système d’exploitation en procédant comme suit
     mount 10.9.0.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   Pour plus d’informations sur la modification du paramètre `nfs4_disable_idmapping`, consultez https://access.redhat.com/solutions/1749883.
 
 6. **[A]** Montez les volumes Azure NetApp Files partagés.  
 

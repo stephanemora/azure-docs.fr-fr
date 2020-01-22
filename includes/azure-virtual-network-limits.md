@@ -5,28 +5,29 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 12/09/2019
+ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: d6cc6c787e38cc72a0a3d4340d55c0248918dba6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392344"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020982"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Limites de mise en réseau - Azure Resource Manager 
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais **d’Azure Resource Manager** par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. Si aucune colonne de limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables. Si ces limites ont été augmentées par le support dans le passé et si vous ne voyez pas les limites mises à jour dans les tables suivantes, vous pouvez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Récemment, nous avons augmenté toutes les limites par défaut à leur niveau maximal. Si aucune colonne de limite maximale n’est présente, la ressource spécifiée ne possède pas de limites ajustables. Si ces limites ont été augmentées par le support dans le passé et si vous ne voyez pas les limites mises à jour dans les tables suivantes, vous pouvez [ouvrir une demande de support clientèle en ligne sans frais](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
 | Ressource | Limite par défaut/maximale | 
 | --- | --- |
 | Réseaux virtuels |1 000 |
 | Nombre de sous-réseaux par réseau virtuel |3 000 |
 | Peerings VNet par réseau virtuel |500 |
-| [Passerelles de réseau virtuel (passerelles VPN) par réseau virtuel](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [Passerelles de réseau virtuel (passerelles VPN) par réseau virtuel](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Passerelles de réseau virtuel (passerelles ExpressRoute) par réseau virtuel](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | Serveurs DNS par réseau virtuel |20 |
 | Adresses IP privées par réseau virtuel |65 536 |
 | Adresses IP privées par interface réseau |256 |
@@ -59,20 +60,29 @@ Les limites suivantes s’appliquent uniquement aux ressources de réseau géré
 #### <a name="load-balancer"></a>Limites de l’équilibreur de charge
 Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais d’Azure Resource Manager par région et par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 
-| Ressource | Limite par défaut/maximale |
-| --- | --- |
-| Équilibreurs de charge | 1 000 | 
-| Règles par ressource, De base | 250 |
-| Règles par ressource, Standard | 1 500 | 
-| Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300 |
-| Configuration d’adresses IP frontales, De base | 200 |
-| Configurations d’adresses IP frontales, Standard | 600 |
-| Pool principal, De base | 100, un seul groupe à haute disponibilité |
-| Pool principal, Standard | 1 000, un seul réseau virtuel |
-| Ressources principales par équilibreur de charge, Standard<sup>1</sup> | 150 |
-| Ports de haute disponibilité, Standard | 1 par serveur frontal interne |
+**Standard Load Balancer**
 
-<sup>1</sup>La limite est fixée à 150 ressources, toute combinaison de ressources de machines virtuelles autonomes, ressources de groupes à haute disponibilité et ressources de groupes de machines virtuelles identiques.
+| Ressource                                | Limite par défaut/maximale         |
+|-----------------------------------------|-------------------------------|
+| Équilibreurs de charge                          | 1 000                         |
+| Règles par ressource                      | 1 500                         |
+| Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                           |
+| Configurations d’adresses IP frontales              | 600                           |
+| Taille de pool de serveur principal                       | 1 000 configurations d’adresses IP, réseau virtuel unique |
+| Ports de haute disponibilité                 | 1 par serveur frontal interne       |
+| Règles de trafic sortant par Load Balancer         | 20                            |
+
+
+**Load Balancer de base**
+
+| Ressource                                | Limite par défaut/maximale        |
+|-----------------------------------------|------------------------------|
+| Équilibreurs de charge                          | 1 000                        |
+| Règles par ressource                      | 250                          |
+| Règles par groupe de sécurité réseau (sur l’ensemble des adresses IP sur une carte réseau) | 300                          |
+| Configurations d’adresses IP frontales              | 200                          |
+| Taille de pool de serveur principal                       | 300 configurations d’adresses IP, groupe à haute disponibilité |
+| Groupes à haute disponibilité par Load Balancer     | 150                          |
 
 #### <a name="virtual-networking-limits-classic"></a>Les limites suivantes s’appliquent uniquement aux ressources de réseau gérées par le biais du modèle de déploiement **classique** par abonnement. Découvrez comment [afficher l’utilisation actuelle de vos ressources par rapport aux limites de votre abonnement](../articles/networking/check-usage-against-limits.md).
 

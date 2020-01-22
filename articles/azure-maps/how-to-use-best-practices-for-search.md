@@ -1,6 +1,6 @@
 ---
-title: Recherche efficace à l’aide du service Recherche Azure Maps | Microsoft Docs
-description: Découvrez les meilleures pratiques en matière de recherche à l’aide du service Recherche Azure Maps
+title: Rechercher efficacement à l’aide du service Recherche Azure Maps | Microsoft Azure Maps
+description: Découvrez les meilleures pratiques en matière de recherche à l’aide du service Recherche Microsoft Azure Maps
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6a51d764b8e42419bc331e3d4731ef5c5f511f91
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: aa3c7b58b3a391de40940636a67a4a224c44fe10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408714"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911364"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Meilleures pratiques en matière d’utilisation du service Recherche Azure Maps
 
@@ -33,7 +33,7 @@ Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une 
 > Pour interroger le service de recherche, vous pouvez utiliser [l’application Postman](https://www.getpostman.com/apps) afin de générer des appels REST, ou vous avez la possibilité de recourir à l’environnement de développement d’API que vous préférez.
 
 
-## <a name="best-practices-for-geocoding"></a>Meilleures pratiques en matière de géocodage
+## <a name="best-practices-for-geocoding-address-search"></a>Meilleures pratiques en matière de géocodage (recherche d’adresse)
 
 Lorsque vous recherchez une adresse complète ou partielle à l’aide du service Recherche Azure Maps, ce dernier considère votre terme de recherche, puis renvoie les coordonnées de longitude et de latitude de l’adresse. Ce processus est désigné sous le terme de « géocodage ». La possibilité de géocoder dans un pays dépend de la couverture de données de route et de la précision du service de géocodage.
 
@@ -58,10 +58,12 @@ Pour plus d’informations sur les fonctionnalités de géocodage Azure Maps par
 
 
    **Paramètres de recherche approximative**
+   
+   L’[API de recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) Azure Maps est le service recommandé à utiliser lorsque vous ne connaissez pas les entrées utilisateur pour une requête de recherche. L’API combine la recherche de points d’intérêt (POI) et le géocodage dans une *recherche canonique à ligne unique*. 
 
    1. Les paramètres `minFuzzyLevel` et `maxFuzzyLevel` favorisent le renvoi de correspondances pertinentes, même lorsque les paramètres de requête ne correspondent pas exactement aux informations souhaitées. La plupart des requêtes de recherche utilisent par défaut les valeurs `minFuzzyLevel=1` et `maxFuzzyLevel=2` pour optimiser les performances et réduire les résultats inhabituels. Considérons l’exemple du terme de recherche « restrant ». Il est mis en correspondance avec le terme « restaurant » lorsque le paramètre `maxFuzzyLevel` est défini sur 2. Vous pouvez écraser les niveaux d’approximation par défaut en fonction de vos besoins de requête. 
 
-   2. Vous pouvez également spécifier le jeu exact des types de résultats à renvoyer à l’aide du paramètre `idxSet`. Pour cela, vous pouvez soumettre une liste d’index séparés par une virgule, dont l’ordre importe peu. Les index pris en charge sont les suivants :
+   2. Vous pouvez également classer par ordre de priorité le jeu exact des types de résultats à renvoyer à l’aide du paramètre `idxSet`. Pour cela, vous pouvez soumettre une liste d’index séparés par une virgule, dont l’ordre importe peu. Les index suivants sont pris en charge :
 
        * `Addr` - **Plages d’adresses** : dans le cas de certaines rues, des points d’adresse sont interpolés entre le début et la fin de la rue ; ces points sont représentés sous la forme de plages d’adresses.
        * `Geo` - **Zones géographiques** : zones d’une carte qui représentent une division administrative d’un territoire, telle qu’un pays, une région ou une ville.
@@ -317,7 +319,10 @@ La recherche de points d’intérêt vous permet de demander les résultats de p
 
 Pour améliorer la pertinence des résultats et les informations figurant dans la réponse, la réponse d’une recherche de points d’intérêt inclut les informations de marque qui permettent par la suite d’analyser la réponse.
 
+Vous pouvez également envoyer une liste de noms de marques séparée par une virgule dans la requête. Vous pouvez utiliser la liste pour limiter les résultats à des marques spécifiques à l’aide du paramètre `brandSet`. L’ordre des éléments importe peu. Lorsque plusieurs marques sont fournies, seuls les résultats qui appartiennent à (au moins) une des listes fournies sont retournés.
+
 Exécutons une requête de [recherche de catégorie de point d’intérêt](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) portant sur les stations-service proches du campus de Microsoft (Redmond, Washington). Lorsque vous examinez la réponse, vous pouvez constater que les informations de marque sont renvoyées pour chaque point d’intérêt.
+
 
 **Exemple de requête :**
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: fb0a71a650a8c36d4da962adaf3f1f314c30d4c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764965"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980001"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Security dans Azure Database pour MySQL
 
@@ -23,7 +23,7 @@ Il existe plusieurs couches de sécurité qui permettent de protéger les donné
 Azure Database pour MySQL sécurise vos données en chiffrant les données en transit à l’aide du protocole TLS (Transport Layer Security). Le chiffrement (SSL/TLS) est appliqué par défaut.
 
 ### <a name="at-rest"></a>Au repos
-Le service Azure Database pour MySQL utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. À l’exception des fichiers temporaires créés durant l’exécution des requêtes, toutes les données, y compris les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
+Le service Azure Database pour MySQL utilise le module de chiffrement conforme à la norme FIPS 140-2 pour chiffrer le stockage des données au repos. À l’exception des fichiers temporaires créés durant l’exécution des requêtes, toutes les données, notamment les sauvegardes, sont chiffrées sur le disque. Le service utilise le chiffrement AES 256 bits inclus dans le chiffrement de stockage Azure, et les clés sont gérées par le système. Le chiffrement de stockage est toujours activé et ne peut pas être désactivé.
 
 
 ## <a name="network-security"></a>Sécurité du réseau
@@ -35,10 +35,12 @@ Tout serveur Azure Database pour MySQL est créé avec un pare-feu qui bloque to
 Les règles de pare-feu IP octroient l’accès aux serveurs en fonction de l’adresse IP d’origine de chaque requête. Pour plus d’informations, consultez la [vue d’ensemble des règles de pare-feu](concepts-firewall-rules.md).
 
 ### <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
-Les points de terminaison de service de réseau virtuel étendent votre connectivité de réseau virtuel sur le réseau principal Azure. À l’aide de règles de réseau virtuel, vous pouvez configurer votre serveur Azure Database pour MySQL pour autoriser les connexions à partir de sous-réseaux sélectionnés dans un réseau virtuel. Pour plus d’informations, consultez la [vue d’ensemble des points de terminaison de service de réseau virtuel](concepts-data-access-and-security-vnet.md).
+Les points de terminaison de service de réseau virtuel étendent votre connectivité de réseau virtuel via le réseau principal Azure. À l’aide de règles de réseau virtuel, vous pouvez configurer votre serveur Azure Database pour MySQL pour autoriser les connexions à partir de sous-réseaux sélectionnés dans un réseau virtuel. Pour plus d’informations, consultez la [vue d’ensemble des points de terminaison de service de réseau virtuel](concepts-data-access-and-security-vnet.md).
 
+### <a name="private-ip"></a>IP privée
+Private Link vous permet de vous connecter à votre serveur unique Azure Database pour MySQL via un point de terminaison privé. Azure Private Link intègre essentiellement les services Azure à votre Réseau virtuel privé. Vous pouvez accéder aux ressources PaaS à l’aide de l’adresse IP privée, comme toute autre ressource dans le réseau virtuel. Pour plus d’informations, consultez la [présentation de Private Link](concepts-data-access-security-private-link.md)
 
-## <a name="access-management"></a>gestion de l’accès
+## <a name="access-management"></a>Gestion de l’accès
 
 Quand vous créez un serveur Azure Database pour MySQL, vous fournissez les informations d’identification d’un utilisateur administrateur. Cet administrateur peut ensuite créer d’autres utilisateurs MySQL.
 
@@ -51,4 +53,4 @@ La fonctionnalité d’[enregistrement d’audit](concepts-audit-logs.md) vous p
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Activer les règles de pare-feu pour les [adresses IP](concepts-firewall-rules.md) ou les [réseaux virtuels](concepts-data-access-and-security-vnet.md)
+- Activer des règles de pare-feu pour les [adresses IP](concepts-firewall-rules.md) ou les [réseaux virtuels](concepts-data-access-and-security-vnet.md)

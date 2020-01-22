@@ -1,6 +1,6 @@
 ---
-title: Comment afficher des données personnalisées sur une carte raster dans Azure Maps | Microsoft Docs
-description: Dans cet article, vous allez apprendre à restituer des données personnalisées sur une carte raster à l’aide du service d’image statique Azure Maps.
+title: Afficher des données personnalisées sur une carte raster | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à afficher des données personnalisées sur une carte raster à l’aide du service d’image statique Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b77cb73f08852768d10de8c76cde5e299f0776c2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408897"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911469"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 

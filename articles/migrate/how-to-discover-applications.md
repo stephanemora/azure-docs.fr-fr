@@ -1,17 +1,14 @@
 ---
-title: Découvrir les applications, fonctionnalités et rôles installés sur des serveurs locaux à l’aide de l’évaluation de serveur Azure Migrate
-description: Décrit comment découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide de l’évaluation de serveur Azure Migrate.
-author: snehaamicrosoft
-ms.service: azure-migrate
+title: Découvrir les applications, rôles et fonctionnalités sur des serveurs locaux avec Azure Migrate
+description: Apprenez à découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide d’Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 11/20/2019
-ms.author: snehaa
-ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278473"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029075"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine
 
@@ -30,14 +27,14 @@ La découverte d’applications à l’aide de l’évaluation de serveur d’Az
 1. Passez en revue les [limitations de prise en charge](migrate-support-matrix-vmware.md#application-discovery) pour la découverte au niveau de l’application.
 2. Assurez-vous que vous avez [créé](how-to-add-tool-first-time.md) un projet Azure Migrate.
 3. Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
-4. Vérifiez la [configuration requise pour VMware](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) pour découvrir et évaluer les machines virtuelles VMware avec l’appliance Azure Migrate.
-4. Vérifiez la [configuration requise](migrate-support-matrix-vmware.md#assessment-appliance-requirements) pour le déploiement de l’appliance Azure Migrate.
+4. Vérifiez la [configuration requise pour VMware](migrate-support-matrix-vmware.md#vmware-requirements) pour découvrir et évaluer les machines virtuelles VMware avec l’appliance Azure Migrate.
+4. Vérifiez la [configuration requise](migrate-appliance.md) pour le déploiement de l’appliance Azure Migrate.
 
 ## <a name="prepare-for-app-discovery"></a>Préparer la détection d’applications
 
-1. [Préparez le déploiement de l’appliance](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware). La préparation comprend la vérification des paramètres de l’appliance et la configuration d’un compte qui sera utilisé par l’appliance pour accéder à vCenter Server.
+1. [Préparez le déploiement de l’appliance](tutorial-prepare-vmware.md). La préparation comprend la vérification des paramètres de l’appliance et la configuration d’un compte qui sera utilisé par l’appliance pour accéder à vCenter Server.
 2. Vérifiez que vous disposez d’un compte d’utilisateur (un pour chacun des serveurs Windows et Linux) avec les autorisations d’administrateur pour les machines sur lesquelles vous souhaitez découvrir des applications, des rôles et des fonctionnalités.
-3. [Déployez l’appliance VMware](how-to-set-up-appliance-vmware.md) pour démarrer la découverte. Pour déployer l’appliance, vous téléchargez et importez un modèle OVA dans VMware pour créer l’appliance en tant que machine virtuelle VMware. Vous configurez l’appliance, puis l’inscrivez auprès d’Azure Migrate.
+3. [Déployez l’appliance Azure Migrate](how-to-set-up-appliance-vmware.md) pour démarrer la découverte. Pour déployer l’appliance, vous téléchargez et importez un modèle OVA dans VMware pour créer l’appliance en tant que machine virtuelle VMware. Vous configurez l’appliance, puis l’inscrivez auprès d’Azure Migrate.
 2. Lorsque vous déployez l’appliance, pour démarrer la découverte continue, vous spécifiez les éléments suivants :
     - Le nom du vCenter Server auquel vous souhaitez vous connecter.
     - Les informations d’identification que vous avez créées pour que l’appliance se connecte à vCenter Server.

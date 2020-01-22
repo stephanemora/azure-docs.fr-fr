@@ -1,5 +1,5 @@
 ---
-title: Configurer Postman pour les appels d’API REST Azure Media Services
+title: Configurer Postman pour les appels d’API REST Azure Media Services v3
 description: Cet article vous montre comment configurer Postman afin de l’utiliser pour appeler l’API REST Azure Media Services (AMS).
 services: media-services
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 872dad95fc5b536c51e251612f40439da020a059
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888102"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779635"
 ---
-# <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services
+# <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurer Postman pour les appels d’API REST Media Services v3
 
 Ce tutoriel vous montre comment configurer **Postman** afin de l’utiliser pour appeler l’API REST Azure Media Services (AMS). Le tutoriel montre comment importer des fichiers d’environnement et de collection dans **Postman**. La collection contient des définitions groupées de requêtes HTTP qui appellent les API REST de Azure Media Services (AMS). Le fichier d’environnement contient des variables qui sont utilisées par la collection.
 
 Avant de commencer à développer, voir [Développement avec les API Media Services v3](media-services-apis-overview.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Créer un compte Media Services](create-account-cli-how-to.md). Veillez à mémoriser le nom du groupe de ressources et le nom du compte Media Services. 
 - Obtenir les informations nécessaires pour [accéder aux API](access-api-cli-how-to.md)
@@ -92,7 +92,7 @@ Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et dé
 
     ![Obtenir le jeton AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
-## <a name="troubleshooting"></a>Résolution de problèmes 
+## <a name="troubleshooting"></a>Dépannage 
 
 * Si votre application échoue avec « HTTP 504 : Délai d’expiration de la passerelle », vérifiez que la variable d’emplacement n’a pas été définie explicitement sur une valeur autre que l’emplacement attendu du compte Media Services. 
 * Si vous recevez une erreur « compte introuvable », vérifiez également que la propriété emplacement dans le message JSON du corps est définie sur l’emplacement dans lequel se trouve le compte Media Services. 
@@ -106,4 +106,4 @@ Avant de commencer à manipuler des ressources AMS v3, vous devez obtenir et dé
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Diffuser des fichiers en continu avec REST](stream-files-tutorial-with-rest.md).  
-- [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - REST](stream-files-tutorial-with-rest.md)
+- [Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - REST](stream-files-tutorial-with-rest.md)

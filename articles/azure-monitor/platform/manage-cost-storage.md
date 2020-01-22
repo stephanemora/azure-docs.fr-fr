@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658017"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045171"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gérer l’utilisation et les coûts avec les journaux Azure Monitor
 
@@ -43,6 +43,8 @@ Les tarifs par défaut de Log Analytics suivent un modèle de **paiement à l’
   
 En plus du modèle Paiement à l’utilisation, Log Analytics possède des niveaux de **réservation de capacité** qui vous permettent d’économiser jusqu’à 25 % par rapport au tarif de Paiement à l’utilisation. Les tarifs de la réservation de capacité vous permettent d’acheter une réservation à partir de 100 Go/jour. Toute utilisation au-dessus du niveau de réservation sera facturée au tarif de paiement à l’utilisation. Les niveaux de réservation de capacité ont une période d’engagement de 31 jours. Pendant la période d’engagement, vous pouvez passer à un niveau supérieur de réservation de capacité (ce qui relancera la période d’engagement de 31 jours), mais vous ne pouvez pas revenir à un Paiement à l’utilisation ou à un niveau inférieur de réservation de capacité avant que la période d’engagement ne soit terminée. 
 [En savoir plus](https://azure.microsoft.com/pricing/details/monitor/) sur les tarifs de la réservation de capacité et de paiement à l’utilisation de Log Analytics. 
+
+Dans tous les niveaux tarifaires, le volume de données est calculé à partir d’une représentation sous forme de chaîne des données à mesure qu’elles sont prêtes à être stockées. Plusieurs [propriétés communes à tous les types de données](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) ne sont pas incluses dans le calcul de la taille de l’événement, notamment `_ResourceId`, `_ItemId`, `_IsBillable` et `_BilledSize`.
 
 Notez également que certaines solutions, telles que [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/) et [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), ont leur propre modèle tarifaire. 
 
@@ -164,6 +166,9 @@ Lorsque cette limite quotidienne est atteinte, la collecte des types de données
 
 > [!NOTE]
 > La limite quotidienne n’arrête pas la collecte de données à partir d’Azure Security Center, à l’exception des espaces de travail dans lesquels Azure Security Center a été installé avant le 19 juin 2017. 
+
+> [!NOTE]
+> La latence inhérente à l’application de la limite quotidienne peut signifier que la limite n’est pas appliquée précisément au niveau de limite quotidienne spécifié. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifier la limite de données quotidienne à définir
 

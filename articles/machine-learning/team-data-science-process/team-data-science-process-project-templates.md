@@ -2,21 +2,21 @@
 title: Planification des projets Team Data Science Process
 description: Modèles Microsoft Project et Excel qui vous permettent de planifier et de gérer des projets de science des données.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbedaa554e9c97a24e26c7927c1bf9c94d5cd507
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253054"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864228"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planification des projets Team Data Science Process
 
@@ -58,7 +58,7 @@ Utilisez ce [référentiel de modèles de projet](https://github.com/Azure/Azure
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Développement agile de projets de science des données](agile-development.md) Ce document explique comment réaliser, au sein d’une équipe, un projet de science des données d’une manière systématique, collaborative et avec gestion de versions, à l’aide de Team Data Science Process.
+[Développement agile de projets de science des données](agile-development.md) Ce document décrit un projet de science des données d’une manière systématique, collaborative et avec gestion de versions à l’aide de Team Data Science Process.
 
 Des procédures pas à pas illustrant toutes les étapes de **scénarios spécifiques** sont également fournies. L’article [Exemples de procédures pas à pas](walkthroughs.md) les liste et les décrit brièvement, en les accompagnant de liens. Ces procédures illustrent comment combiner des outils et services locaux ou cloud dans un flux de travail ou un pipeline pour créer une application intelligente. 
 

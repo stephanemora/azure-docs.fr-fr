@@ -1,6 +1,6 @@
 ---
-title: Niveaux de zoom et grille mosaïque dans Azure Maps | Microsoft Docs
-description: En savoir plus sur les niveaux de zoom et la grille mosaïque dans Azure Maps
+title: Niveaux de zoom et grille mosaïque | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir les niveaux de zoom et la grille mosaïque dans Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407582"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910776"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
 
@@ -26,7 +26,7 @@ Pour optimiser les performances de récupération et d’affichage de la carte, 
 
 <center>
 
-![Mosaïque du monde](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![Mosaïque de la carte du monde](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 Le niveau de zoom 1 utilise quatre mosaïques pour afficher le monde : un carré de 2 x 2
 

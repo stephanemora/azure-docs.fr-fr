@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 16daf4a79252134703715ccd88f0b10dda7f4fa6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792171"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863119"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurer une connexion entre un indexeur Recherche cognitive Azure et SQL Managed Instance
 
@@ -33,6 +33,13 @@ Vous pouvez également activer un point de terminaison public sur une instance S
 Vérifiez que le groupe de sécurité réseau contient des **règles de sécurité de trafic entrant** appropriées qui autorisent les connexions à partir des services Azure.
 
    ![Règle de sécurité de trafic entrant de NSG](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "Règle de sécurité de trafic entrant de NSG")
+
+> [!NOTE]
+> Vous pouvez choisir d’être plus restrictif dans l’accès entrant à votre instance SQL managée en remplaçant la règle actuelle (`public_endpoint_inbound`) par 2 règles :
+>
+> * Autorisation de l’accès entrant à partir de la [balise de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) `AzureCognitiveSearch` ("SOURCE" = `AzureCognitiveSearch`)
+>
+> * Autorisation de l’accès entrant à partir de l’adresse IP du service de recherche, qui peut être obtenue en exécutant une commande ping sur son nom de domaine complet (par exemple, `<your-search-service-name>.search.windows.net`). ("SOURCE" = `IP address`)
 
 ## <a name="get-public-endpoint-connection-string"></a>Obtenir la chaîne de connexion du point de terminaison public
 Veillez à utiliser la chaîne de connexion pour le **point de terminaison public** (le port 3342, et non le port 1433).

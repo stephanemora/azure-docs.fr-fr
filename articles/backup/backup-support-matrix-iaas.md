@@ -3,12 +3,12 @@ title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azur
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: fd4319feaec1134fe0cf073fa2db2d36a7f40c4e
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680492"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75829542"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -163,7 +163,7 @@ Disques avec l’accélérateur d’écriture activé | Non pris en charge.<br/>
 Sauvegarder et restaurer des machines virtuelles/disques dédupliqués | Sauvegarde Azure ne prend pas en charge la déduplication. Pour plus d’informations, consultez cet [article](https://docs.microsoft.com/azure/backup/backup-support-matrix#disk-deduplication-support) <br/> <br/>  - Sauvegarde Azure n’effectue pas de déduplication entre les machines virtuelles du coffre Recovery Services <br/> <br/>  - S’il existe des machines virtuelles en état de déduplication pendant la restauration, les fichiers ne peuvent pas être restaurés, car le coffre ne comprend pas le format. Toutefois, vous pourrez effectuer la restauration complète de la machine virtuelle.
 Ajouter un disque à une machine virtuelle protégée | Pris en charge.
 Redimensionner un disque sur une machine virtuelle protégée | Pris en charge.
-Stockage partagé| La Sauvegarde des machines virtuelles à l’aide d’un Volume partagé de Cluster (CSV) ou d’un Serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
+Stockage partagé| La sauvegarde des machines virtuelles à l’aide d’un volume partagé de cluster (CSV) ou d’un serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, il existe un risque d’échec pour les enregistreurs de volumes partagés de cluster lors de la sauvegarde. Lors de la restauration, les disques contenant des volumes partagés de cluster risquent de ne pas apparaître.
 
 ## <a name="vm-network-support"></a>Prise en charge des réseaux de machines virtuelles
 

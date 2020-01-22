@@ -3,12 +3,12 @@ title: Informations de référence pour Azure Functions à destination des déve
 description: Développer des fonctions avec Python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 55eb1fe53aa4256f1b7eee44547703328816cd32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409087"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921796"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide des développeurs Python sur Azure Functions
 
@@ -100,8 +100,8 @@ Le dossier principal du projet (\_\_app\_\_) peut contenir les fichiers suivants
 * *local.settings.json* : Utilisé pour stocker les paramètres d’application et les chaînes de connexion lors d’une exécution locale. Ce fichier n’est pas publié sur Azure. Pour en savoir plus, consultez la section [local.settings.file](functions-run-local.md#local-settings-file).
 * *requirements.txt* : Contient la liste des packages que le système installe lors de la publication sur Azure.
 * *host.json* : Contient les options de configuration globale qui affectent toutes les fonctions d’une application de fonction. Ce fichier est publié sur Azure. Toutes les options ne sont pas prises en charge lors de l’exécution locale. Pour en savoir plus, consultez la section [host.json](functions-host-json.md).
-* *funcignore* : (facultatif) déclare des fichiers qui ne devraient pas être publiés dans Azure.
-* *gitignore* : (facultatif) déclare des fichiers qui sont exclus d’un référentiel git, tel que local.settings.json.
+* *.funcignore* : (facultatif) déclare des fichiers qui ne devraient pas être publiés dans Azure.
+* *.gitignore* : (facultatif) déclare des fichiers qui sont exclus d’un référentiel git, tel que local.settings.json.
 
 Chaque fonction a son propre fichier de code et son propre fichier de configuration de liaison (function.json). 
 
@@ -171,7 +171,7 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-Quand la fonction est appelée, la requête HTTP est passée à la fonction dans `req`. Une entrée est récupérée du Stockage Blob Azure sur la base de l’_ID_ présent dans l’URL de la route, puis elle est mise à disposition comme `obj` dans le corps de la fonction.  Ici, le compte de stockage spécifié est la chaîne de connexion trouvée, qui est le même compte de stockage utilisé par l’application de fonction.
+Quand la fonction est appelée, la requête HTTP est passée à la fonction dans `req`. Une entrée est récupérée du Stockage Blob Azure sur la base de l’_ID_ présent dans l’URL de la route, puis elle est mise à disposition comme `obj` dans le corps de la fonction.  Ici, le compte de stockage spécifié est la chaîne de connexion trouvée dans le paramètre d’application AzureWebJobsStorage, qui est le même compte de stockage utilisé par l’application de fonction.
 
 
 ## <a name="outputs"></a>Outputs
@@ -382,7 +382,7 @@ Pour le développement local, les paramètres d’application sont [conservés d
 
 ## <a name="python-version"></a>Version Python 
 
-Actuellement, Azure Functions prend en charge Python 3.6.x et 3.7.x (distributions officielles de CPython). Lors d’une exécution locale, le runtime utilise la version de Python disponible. Pour demander une version de Python particulière lorsque vous créez votre application de fonction dans Azure, utilisez l’option `--runtime-version` de la commande [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create).  
+Actuellement, Azure Functions prend en charge Python 3.6.x et 3.7.x (distributions officielles de CPython). Lors d’une exécution locale, le runtime utilise la version de Python disponible. Pour demander une version de Python particulière lorsque vous créez votre application de fonction dans Azure, utilisez l’option `--runtime-version` de la commande [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create). La modification de version est autorisée uniquement lors de la création d’une Function App.  
 
 ## <a name="package-management"></a>Gestion des packages
 
@@ -641,7 +641,7 @@ Veillez également à mettre à jour votre fichier function.json pour prendre en
     ...
 ```
 
-Le navigateur Chrome utilise cette méthode pour négocier la liste des origines autorisées. 
+Les navigateurs web utilisent cette méthode HTTP pour négocier la liste des origines autorisées. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

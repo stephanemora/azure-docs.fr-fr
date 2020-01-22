@@ -1,5 +1,5 @@
 ---
-title: Configurez votre compte pour une diffusion en continu hors connexion du contenu protégé de Widevine - Azure
+title: Diffusion en continu Widevine hors connexion pour Android avec Azure Media Services v3
 description: Cette rubrique montre comment configurer votre compte Azure Media Services pour la diffusion en continu hors connexion du contenu protégé de Widevine.
 services: media-services
 keywords: DASH, DRM, Widevine hors connexion, ExoPlayer, Android
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 1c1142f995376a8a640f33402294e20c925bbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 17416fce887f5f5b952232e284873e539fd68337
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974153"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779907"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android
 
@@ -42,7 +42,7 @@ L’article répond également à certaines questions fréquentes sur la diffusi
 > [!NOTE]
 > DRM hors connexion est uniquement facturé pour une requête unique de licence lorsque vous téléchargez le contenu. Les erreurs ne sont pas facturées.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 Avant de mettre en œuvre la DRM hors connexion pour Widevine sur des appareils Android, vous devez, tout d’abord :
 
@@ -153,7 +153,7 @@ L’application PWA open source ci-dessus a été créée dans Node.js. Si vous 
     - Le certificat doit avoir une certification approuvée et un certificat auto-signé de développement ne fonctionne pas
     - Le certificat doit avoir un CN correspondant au nom DNS de la passerelle ou du serveur web
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="question"></a>Question
 

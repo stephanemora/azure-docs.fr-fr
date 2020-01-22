@@ -8,28 +8,32 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 39dea152545d210c48e21853c3c03c63843a4d81
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818664"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779100"
 ---
 # <a name="offer-listing-best-practices"></a>Bonnes pratiques pour le référencement des offres
 
 Les tableaux dans cette section fournissent des suggestions pour créer et proposer des offres sur les places de marché. Ppour écrire et configurer vos supports marketing, accédez au [Portail Cloud Partner](https://cloudpartner.azure.com/#insights). 
 
 ## <a name="storefront-offer-details"></a>Détails des offres de la vitrine
+
 | Organisation de la vitrine | Bonne pratique |
 |:--- |:--- |  
 | Nom de l’offre | Spécifiez un titre fort :<br> <ul> <li> Le nom de votre application doit indiquer son atout principal à vos clients. </li> <li> Incluez des mots clés de recherche dans le titre de votre application pour bénéficier d’un meilleur classement dans les résultats des moteurs de recherche. </li> </ul> Suivez un ensemble de formats de titre pour consulter les listes de service :<br>[Nom de l’offre] : [Durée] [Type d’offre] (par exemple, *Contoso : implémentation de 2 semaines*) <br><br> Respectez les directives des marques :<br>Lorsque vous faites référence aux marques Microsoft ainsi qu’aux noms des logiciels, produits et services Microsoft, suivez les [Directives relatives aux marques et aux marques déposées Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx), ainsi que d’autres directives pertinentes et propres aux produits. |
 | Description de l’offre | Rédigez une description claire pour votre offre :<br> <ul> <li> Décrivez clairement la proposition de valeur de votre offre dès les premières phrases de votre description. </li> <li> Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche. </li> <li> Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients. </li> <li> Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.</li> <li> De plus, les annonces de service de conseil doivent clairement indiquer le service professionnel que vous fournissez. </li></ul> Votre proposition de valeur doit comprendre les composants suivants :<ul><li>Description du produit.</li><li>Type d’utilisateur qui tire parti du produit.</li><li>Besoin ou problèmes du client auxquels le produit répond.</li></ul> |
 
+Les tableaux dans cette section fournissent des suggestions pour créer et proposer des offres sur les places de marché. Ppour écrire et configurer vos supports marketing, accédez au [Portail Cloud Partner](https://cloudpartner.azure.com/#insights). 
+
 ## <a name="storefront-listing-details"></a>Détails de l’annonce en vitrine
+
 | Organisation de la vitrine | Bonne pratique |
 |:--- |:--- |  
-| Secteurs d’activité : services de conseil et applications AppSource uniquement | Sélectionnez des secteurs si votre offre répond à des besoins spécifiques à certains secteurs d’activité : <ul><li> Veillez à citer ces réponses aux besoins de secteurs spécifiques dans la description de votre offre.</li> </ul> **Remarque**: Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
-| Catégories | Sélectionnez les catégories qui correspondent le mieux à votre offre :<br> <ul> <li> Choisissez soigneusement ces catégories, car les utilisateurs s’en servent pour rechercher les applications les plus adaptées à leurs besoins. </li> <li> Assurez-vous d’expliquer dans la description comment votre offre peut répondre aux besoins propres au secteur en question. </li> </ul> **Remarque**: Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Secteurs d’activité : services de conseil et applications AppSource uniquement | Sélectionnez des secteurs si votre offre répond à des besoins spécifiques à certains secteurs d’activité : <ul><li> Veillez à citer ces réponses aux besoins de secteurs spécifiques dans la description de votre offre.</li> </ul> **Remarque** : Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
+| Catégories | Sélectionnez les catégories qui correspondent le mieux à votre offre :<br> <ul> <li> Choisissez soigneusement ces catégories, car les utilisateurs s’en servent pour rechercher les applications les plus adaptées à leurs besoins. </li> <li> Assurez-vous d’expliquer dans la description comment votre offre peut répondre aux besoins propres au secteur en question. </li> </ul> **Remarque** : Le nombre maximal d’options varie selon le type d’offre qui est indiqué dans le [portail Cloud Partner](https://cloudpartner.azure.com/#insights). |
 | Produits avec lesquels votre application fonctionne (3 max.) : Applications AppSource uniquement | Citez des produits supplémentaires et les technologies que votre solution utilise ou prolonge. Par exemple, Azure IoT Hub ou Azure Machine Learning. |
 | Mots clés de recherche (3 max.) | Les mots clés de recherche peuvent aider les utilisateurs professionnels à trouver votre offre quand ils effectuent une recherche : <ul> <li> Dans la Place de marché Microsoft Azure </li> <li> Sur AppSource </li> <li> À l’aide de moteurs de recherche </li> </ul> Pour que votre annonce apparaisse dans ces recherches, vous devez : <ul> <li> Identifier les trois principaux mots clés de recherche pour votre offre </li> <li> Incorporer les mots clés de recherche au résumé et à la description de l’offre </li> <li> Lister les mots clés de recherche ici </li> </ul> |
 
@@ -49,13 +53,25 @@ Vous pouvez sélectionner jusqu’à deux catégories et deux sous-catégories p
 | Gouvernement américain    | *Défense et renseignement (précédemment Sécurité nationale et publique) <br> *Sécurité publique et justice <br> *Gouvernement civil |
 | Soins de santé (précédemment Santé)   | *Organisme de sécurité sociale <br> *Professionnel de santé <br> *Produits pharmaceutiques |
 | Fabrication et ressources (précédemment Fabrication)   | *Produits chimiques et agrochimiques <br> *Fabrication discrète <br> *Énergie |
-| Vente au détail et biens de consommation (précédemment Vente au détail)  | *Produits de consommation courante <br> *Détaillants |
+| Distribution et biens de consommation (précédemment Vente au détail)  | *Produits de consommation courante <br> *Détaillants |
 | *Médias et communications (précédemment Multimédia et divertissement)  | *Multimédia et divertissement <br> *Télécommunications |
 | Services professionnels  | *Juridique <br> *Services professionnels partenaires |
 | *Construction et architecture (précédemment Ingénierie d’architecture)  | *Autre - Non segmenté |
 | *Hôtellerie et voyage  | *Hôtels et loisirs <br> *Transport et voyages <br> *Restaurants et services alimentaires |
 | *Autres secteurs publics  | *Foresterie et pêche <br> *Organisations à but non lucratif |
 | *Immobilier  | *Autre - Non segmenté |
+
+### <a name="industries"></a>Secteurs d’activité
+
+Le choix de secteur s’applique uniquement aux offres publiées sur AppSource et aux services de Conseil publiés dans la Place de marché Azure. Sélectionnez les secteurs et/ou secteurs verticaux si votre offre répond à des besoins spécifiques du secteur, en appelant des fonctionnalités spécifiques du secteur dans la description de votre offre. Vous pouvez sélectionner jusqu’à deux (2) secteurs et deux (2) secteurs verticaux par secteur d’activité sélectionné.
+
+### <a name="applicable-products"></a>Produits applicables
+
+Sélectionnez les produits applicables utilisés par votre application pour que l’offre s’affiche sous les produits sélectionnés dans AppSource.
+
+### <a name="search-keywords"></a>Mots clés de recherche
+
+Les mots clés peuvent aider les clients à trouver votre offre lorsqu’ils effectuent une recherche. Identifiez les principaux mots clés de recherche pour votre offre, intégrez-les dans le résumé et la description de votre offre, ainsi que dans la section mot clé de la section de détails de la liste d’offres.
 
 ## <a name="storefront-marketing-details"></a>Détails marketing de la vitrine
 | Organisation de la vitrine | Bonne pratique |

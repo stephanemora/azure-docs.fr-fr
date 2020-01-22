@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: b3d66cab8cf43d862bbf17d5783f0469e3e1a5f8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/13/2020
+ms.openlocfilehash: 22a5b86c8b3df4da5fe338a8ba1230d0247a5826
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825647"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046009"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Créer une offre Dynamics 365 Business Central
 
@@ -48,7 +48,7 @@ Sélectionnez l’option que vous souhaitez utiliser pour cette offre.
 
 #### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
 
-Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/my-app`
+Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/my-app`
 
 #### <a name="free-trial-listing"></a>Essai gratuit (annonce)
 
@@ -92,7 +92,7 @@ Pour plus d’informations, consultez [Vue d’ensemble de la gestion des prospe
 
 N’oubliez pas d’**Enregistrer** avant de passer à la section suivante.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriétés
 
 La page **Propriétés** est l’emplacement où vous définissez les catégories et secteurs utilisés pour grouper votre offre selon les places de marché, la version de votre application et les contrats légaux associés. Sélectionnez **Enregistrer** après avoir renseigné cette page.
 
@@ -131,11 +131,11 @@ Vous devez définir les informations de la Place de marché (nom de l’offre, d
 > [!NOTE]
 > Il n’est pas nécessaire que le contenu du référencement de l’offre (par exemple, la description, les documents, les captures d’écran, les conditions d’utilisation, etc.) soit en anglais, tant que sa description commence par l’expression : « This application is available only in [langue autre que l’anglais]. » Il est également possible de fournir une *URL de lien utile* pour offrir du contenu dans une langue autre que celle utilisée dans le contenu de la liste des offres.
 
-### <a name="name"></a>Nom
+### <a name="name"></a>Name
 
 Le nom que vous entrez ici s’affichera auprès des clients comme titre de votre référencement d’offre. Ce champ est prérempli avec le texte que vous avez entré pour **Alias d’offre** lorsque vous avez créé l’offre, mais vous pouvez modifier cette valeur. Ce nom peut être une marque déposée (et vous pouvez inclure des symboles de marque ou de copyright). Le nom ne peut pas comporter plus de 50 caractères et ne peut pas contenir d’emoji.
 
-### <a name="short-description"></a>Brève description
+### <a name="short-description"></a>Description courte
 
 Renseignez une courte description de votre offre (100 caractères maximum) à utiliser dans les résultats de recherche dans une place de marché.
 
@@ -151,8 +151,26 @@ Quelques conseils pour rédiger votre description :
   - Les clients ont des besoins ou des problèmes auxquels le produit répond
 - Gardez à l’esprit que les premières phrases peuvent être affichées dans les résultats de recherche.  
 - Ne comptez pas sur les fonctionnalités de votre produit pour convaincre. Concentrez-vous plutôt sur ce que votre application peut apporter aux clients.  
-- Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés. 
+- Autant que possible, utilisez le vocabulaire propre au secteur visé, ainsi que des termes décrivant les avantages proposés.
 - Envisagez d’utiliser des balises HTML pour mettre en forme votre description et la rendre plus attrayante.
+
+Pour que la description de votre offre soit plus attrayante, utilisez l’éditeur de texte enrichi pour mettre en forme votre description.
+
+![Utilisation de l’éditeur de texte enrichi](./media/text-editor2.png)
+
+Suivez les instructions suivantes pour utiliser l’éditeur de texte enrichi :
+
+- Pour changer la mise en forme de votre contenu, mettez en surbrillance le texte que vous souhaitez mettre en forme, puis sélectionnez un style de texte, comme indiqué ci-dessous :
+
+     ![Utilisation de l’éditeur de texte enrichi pour changer la mise en forme du texte](./media/text-editor3.png)
+
+- Pour ajouter une liste à puces ou une liste numérotée au texte, utilisez les options ci-dessous :
+
+     ![Utilisation de l’éditeur de texte enrichi pour ajouter des listes](./media/text-editor4.png)
+
+- Pour ajouter ou supprimer une mise en retrait du texte, utilisez les options ci-dessous :
+
+     ![Utilisation de l’éditeur de texte enrichi pour mettre en retrait](./media/text-editor5.png)
 
 ### <a name="search-keywords"></a>Mots clés de recherche
 
@@ -370,7 +388,7 @@ Si votre offre nécessite l’édition Premium de Microsoft Dynamics 365 Busine
 
 ### <a name="key-usage-scenario"></a>Principaux scénarios d’utilisation
 
-Vous devez charger un fichier `.pdf` qui liste les scénarios d’utilisation principaux de votre offre dans un document (au format .pdf). Tous les scénarios répertoriés ici peuvent être vérifiés par notre équipe de validation avant que nous approuvions votre offre pour la place de marché.
+Vous devez charger un fichier `.pdf` qui répertorie les scénarios d’utilisation principaux de votre offre dans un document (au format .pdf). Tous les scénarios répertoriés ici peuvent être vérifiés par notre équipe de validation avant que nous approuvions votre offre pour la place de marché.
 
 ### <a name="app-tests-automation"></a>Automatisation des tests d’application
 

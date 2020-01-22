@@ -1,10 +1,10 @@
 ---
-title: Développer une application web Azure AD sécurisée | Microsoft Docs
+title: Développer une application web Azure AD sécurisée | Microsoft Docs
 description: Cet exemple d’application simple met en œuvre les meilleures pratiques de sécurité qui améliorent votre application, de même que le niveau de sécurité de votre organisation lorsque vous développez sur Azure.
 keywords: na
 services: security
 documentationcenter: na
-author: fehase
+author: TerryLanfear
 manager: alclabo
 editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
-ms.author: v-fehase
-ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.author: terrylan
+ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159835"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771272"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Développer une application sécurisée pour une application Azure AD
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet exemple est une application web Azure Active Directory simple contenant des liens vers des ressources de sécurité pour développer des applications sur Azure. L’application met en œuvre les meilleures pratiques en matière de sécurité pour vous aider à améliorer votre application et le niveau de sécurité de votre organisation lorsque vous développez des applications sur Azure.
 
@@ -71,7 +71,7 @@ Certains exemples de menaces et de vulnérabilités potentielles générés par 
 
 ![Sortie du modèle de menace](./media/secure-aad-app/threat-model-output.png)
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Pour permettre le bon fonctionnement de l'application, vous devez installer les outils suivants :
 
 - Un éditeur de code pour modifier et voir le code de l’application.[Visual Studio Code](https://code.visualstudio.com/) est une option open source.
@@ -443,7 +443,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 1.  Revenez au portail Azure. Dans le volet de navigation de gauche, sélectionnez le service Azure Active Directory, puis Inscriptions d’applications.
 2.  Dans l’écran qui s’affiche, sélectionnez l’application WebApp-OpenIDConnect-DotNet-code-v2.
 3.  Sous l’onglet Authentification o   Dans la section URI de redirection, sélectionnez Web dans la zone de liste déroulante, puis ajoutez les URI de redirection suivants.
-    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o   Dans la section Paramètres avancés, définissez URL de déconnexion sur https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
+    https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o   Dans la section Paramètres avancés, définissez URL de déconnexion sur https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
 4.  Sous l’onglet Personnalisation o   Mettez à jour l’URL de la page d’accueil avec l’adresse de votre service d’application ; par exemple, https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net.
         o   Enregistrez la configuration.
 5.  Si votre application appelle une API web, veillez à appliquer les changements nécessaires sur le projet appsettings.json, afin qu’il appelle l’URL d’API publiée au lieu de localhost.

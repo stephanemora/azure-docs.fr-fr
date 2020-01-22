@@ -3,24 +3,24 @@ title: Guides d’application du processus TDSP (Team Data Science Process) sur 
 description: Comment combiner les outils et services cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 98595ea0ef5b6d9d4cef0f239390b364fb1e4e75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60589058"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864075"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Guides d’application du processus TDSP (Team Data Science Process)
 
-Ces **guides** décrivent les étapes du processus TDSP (Team Data Science Process) pour certains scénarios. Elles illustrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une **application intelligente**. Les guides sont regroupés en fonction de la **plateforme** qu’ils utilisent.
+Ces **guides complets** décrivent les étapes du processus TDSP (Team Data Science Process) pour certains scénarios. Ils décrivent comment combiner des outils et services locaux ou cloud dans un flux de travail pour une **application intelligente**. Les guides sont regroupés en fonction de la **plateforme** qu’ils utilisent.
 
 
 ## <a name="walkthrough-descriptions"></a>Description des guides
@@ -40,7 +40,7 @@ Voici une brève description de ce qu’apportent ces exemples de guides sur leu
 
 Pour en savoir plus sur les composants clés qui constituent le processus TDSP (Team Data Science Process), consultez la page [Vue d’ensemble du processus TDSP (Team Data Science Process)](overview.md).
 
-Pour en savoir plus sur le cycle de vie du processus TDSP (Team Data Science Process), qui permet de structurer les projets de science des données, consultez la page [Cycle de vie du processus TDSP (Team Data Science Process)](lifecycle.md). Le cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement quand ils sont exécutés. 
+Pour en savoir plus sur le cycle de vie du processus TDSP (Team Data Science Process), consultez [Cycle de vie du processus TDSP (Team Data Science Process)](lifecycle.md). Ce cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement lorsqu’ils sont exécutés. 
 
-Pour une vue d’ensemble des rubriques qui vous guident à travers les tâches qui constituent le processus de science des données dans Azure, consultez [Processus de sciences des données](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Pour obtenir une vue d’ensemble, consultez [Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
 

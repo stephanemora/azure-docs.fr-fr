@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: d052226470042d374544de0b7e1ced4ca0f48a14
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563955"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934331"
 ---
 # <a name="security-control-network-security"></a>Contrôle de sécurité : Sécurité réseau
 
@@ -27,9 +27,11 @@ Les recommandations en matière de sécurité réseau se concentrent sur la spé
 
 Assurez-vous qu'un groupe de sécurité réseau a été appliqué à tous les déploiements de sous-réseaux du réseau virtuel avec des contrôles d'accès réseau spécifiques aux ports et sources approuvés de votre application. Utilisez les Services Azure en veillant à activer la Liaison privée, déployez le service dans votre réseau virtuel ou connectez-vous en mode privé à l'aide de points de terminaison privés. Pour les exigences spécifiques au service, reportez-vous à la recommandation de sécurité relative à ce service.
 
-Pour les cas d'usage spécifiques, vous pouvez également satisfaire les exigences en implémentant le Pare-feu Azure.
+Pour les cas d’usage spécifiques, vous pouvez également satisfaire les exigences en implémentant le Pare-feu Azure.
 
-Informations générales sur la Liaison privée : https://docs.microsoft.com/azure/private-link/private-link-overview
+Informations générales sur Private Link :
+
+https://docs.microsoft.com/azure/private-link/private-link-overview
 
 Créer un réseau virtuel :
 
@@ -55,7 +57,7 @@ Activer les journaux de flux NSG :
 
 https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Comprendre la sécurité réseau fournie par Azure Security Center :
+Comprendre la sécurité réseau fournie par Azure Security Center :
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
@@ -97,11 +99,11 @@ Comprendre la fonctionnalité de renseignement sur les menaces intégrée à Azu
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Comprendre la fonctionnalité de renforcement du réseau adaptatif d'Azure Security Center :
+Comprendre la fonctionnalité de renforcement du réseau adaptatif d’Azure Security Center :
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Comprendre la fonctionnalité de contrôle d'accès réseau juste-à-temps d'Azure Security Center :
+Comprendre la fonctionnalité de contrôle d’accès réseau juste-à-temps d’Azure Security Center :
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -113,9 +115,13 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 Consignez les journaux de flux des groupes de sécurité réseau (NSG) dans un compte de stockage pour générer des enregistrements de flux. Si cela s'avère nécessaire pour analyser une activité anormale, activez la capture de paquets Network Watcher.
 
-Activer les journaux de flux NSG : https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Activer les journaux de flux NSG :
 
-Activer Network Watcher : https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+
+Activer Network Watcher :
+
+https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6 : Déployer des systèmes de détection et de prévention des intrusions basés sur le réseau (IDS/IPS)
 
@@ -137,11 +143,17 @@ Configurer des alertes avec le Pare-feu Azure : https://docs.microsoft.com/azur
 
 Déployez Azure Application Gateway pour les applications web en activant le protocole HTTPS/SSL pour les certificats approuvés.
 
-Déployer Application Gateway : https://docs.microsoft.com/azure/application-gateway/quick-create-portal
+Déployer Application Gateway :
 
-Configurer Application Gateway pour utiliser le protocole HTTPS : https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
-Comprendre l'équilibrage de charge de niveau 7 avec les passerelles d'applications web Azure : https://docs.microsoft.com/azure/application-gateway/overview
+Configurer Application Gateway pour utiliser le protocole HTTPS :
+
+https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+
+Comprendre l’équilibrage de charge de niveau 7 avec les passerelles d’applications web Azure :
+
+https://docs.microsoft.com/azure/application-gateway/overview
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8 : Réduire la complexité et les frais administratifs liés aux règles de sécurité réseau
 
@@ -149,9 +161,11 @@ Comprendre l'équilibrage de charge de niveau 7 avec les passerelles d'applicat
 |--|--|--|
 | 1.8 | 1.5 | Customer |
 
-Utilisez des balises de service de Réseau virtuel &nbsp;pour définir des contrôles d'accès réseau sur les groupes de sécurité réseau ou le Pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
+Utilisez des balises de service de réseau virtuel pour définir des contrôles d’accès réseau sur les groupes de sécurité réseau ou le Pare-feu Azure. Vous pouvez utiliser des balises de service à la place des adresses IP spécifiques lors de la création de règles de sécurité. En spécifiant le nom de la balise de service (par exemple, ApiManagement) dans le champ Source ou Destination approprié d'une règle, vous pouvez autoriser ou refuser le trafic pour le service correspondant. Microsoft gère les préfixes d’adresse englobés par la balise de service et met à jour automatiquement la balise de service quand les adresses changent.
 
-Comprendre et utiliser les balises de service : https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Comprendre et utiliser les balises de service :
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9 : Gérer les configurations de sécurité standard pour les périphériques réseau
 
@@ -161,7 +175,7 @@ Comprendre et utiliser les balises de service : https://docs.microsoft.com/azur
 
 Définissez et implémentez des configurations de sécurité standard pour les ressources réseau à l'aide d'Azure Policy.
 
-Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles Azure Resource Manager, les contrôles RBAC et les stratégies, au sein d'une seule définition de blueprint. Vous pouvez appliquer le blueprint aux nouveaux abonnements et environnements, et affiner le contrôle et la gestion via le contrôle de version.
+Vous pouvez également utiliser Azure Blueprints pour simplifier les déploiements Azure à grande échelle en regroupant les artefacts d'environnement clés, tels que les modèles Azure Resource Manager, les contrôles RBAC et les stratégies, au sein d'une seule définition de blueprint. Vous pouvez appliquer le blueprint aux nouveaux abonnements et affiner le contrôle et la gestion via le contrôle de version.
 
 Configurer et gérer Azure Policy :
 

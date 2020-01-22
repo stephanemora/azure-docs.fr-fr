@@ -1,19 +1,19 @@
 ---
 title: API de service de mesure de la Place de marché | Place de marché Azure
 description: Événement d’utilisation pour les offres SaaS dans la place de marché Azure.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825475"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933586"
 ---
 # <a name="marketplace-metering-service-apis"></a>API de service de mesure de la Place de marché
 
@@ -121,7 +121,7 @@ L’API d’événement d’utilisation par lot vous permet d’émettre des év
 >[!Note]
 >Vous pouvez inscrire plusieurs offres SaaS dans la Place de marché commerciale de Microsoft. Chaque offre SaaS inscrite a une application Azure AD unique qui est inscrite pour authentification et autorisation. Les événements émis par lot doivent appartenir à des offres avec la même application Azure AD qu’au moment de l’inscription de l’offre.
 
-**POST:** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
+**POST :** `https://marketplaceapi.microsoft.com/api/batchUsageEvent?api-version=<ApiVersion>`
 
 *Paramètres de requête :*
 
