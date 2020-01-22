@@ -88,6 +88,8 @@
       href: templates-cloud-consistency.md
     - name: Modes de déploiement
       href: deployment-modes.md
+    - name: Effectuer la suppression du mode
+      href: complete-mode-deletion.md
     - name: Gestionnaire de déploiement
       items:
         - name: Vue d’ensemble
@@ -237,12 +239,6 @@
           href: template-functions-resource.md
         - name: Fonctions de chaînes
           href: template-functions-string.md
-    - name: Fonctionnalités de ressource
-      items:
-        - name: Effectuer la suppression du mode
-          href: complete-mode-deletion.md
-        - name: Types de ressources d’extension
-          href: extension-resource-types.md
     - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell

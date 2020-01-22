@@ -63,7 +63,7 @@
     - name: Ports à haute disponibilité
       href: load-balancer-ha-ports-overview.md
     - name: Prise en charge d’IPv6
-      href: load-balancer-ipv6-overview.md
+      href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-overview'
     - name: Plusieurs serveurs frontaux
       href: load-balancer-multivip-overview.md
     - name: Connexions sortantes
@@ -107,11 +107,11 @@
     - name: Créer un équilibreur de charge public avec IPv6
       items:
         - name: Azure CLI
-          href: load-balancer-ipv6-internet-cli.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
-          href: load-balancer-ipv6-internet-ps.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
         - name: Modèle
-          href: load-balancer-ipv6-internet-template.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
     - name: Configuration de l’équilibreur de charge interne
       items:
         - name: Azure CLI
