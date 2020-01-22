@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Documentation Azure Media Services v3
+title: Découvrir la plateforme cloud Azure Media Services v3
 summary: Découvrez comment encoder et empaqueter du contenu, diffuser des vidéos en streaming à la demande, diffuser en direct et analyser vos vidéos avec Media Services v3. Des didacticiels, références d’API et autres documents vous montrent comment diffuser en toute sécurité du contenu vidéo ou audio à la demande et en direct pour des millions d’utilisateurs.
 metadata:
   title: Documentation Azure Media Services v3
@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 10/07/2019
-  ms.openlocfilehash: b55677aba5f99d4960d51d3a717175d47db026e2
-  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.openlocfilehash: 70eab66c3bd2d8536e415c9ac7c62161f3710c0c
+  ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72244225"
+  ms.lasthandoff: 01/22/2020
+  ms.locfileid: "76314672"
 landingContent:
 - title: À propos de Media Services
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
       url: use-azure-media-player.md
     - text: Développement avec le guide des API v3
       url: media-services-apis-overview.md
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -59,7 +59,7 @@ landingContent:
       url: https://github.com/Azure-Samples/media-services-v3-rest-postman
   - linkListType: reference
     links:
-    - text: D’Azure CLI
+    - text: Azure CLI
       url: https://aka.ms/ams-v3-cli-ref
     - text: REST
       url: https://aka.ms/ams-v3-rest-ref
@@ -67,15 +67,15 @@ landingContent:
       url: https://aka.ms/ams-v3-dotnet-ref
     - text: Java
       url: https://aka.ms/ams-v3-java-ref
-- title: Diffuser en streaming en direct
+- title: Diffuser en direct
   linkLists:
   - linkListType: concept
     links:
-    - text: Streaming en direct
+    - text: Vidéo en flux continu
       url: live-streaming-overview.md
   - linkListType: tutorial
     links:
-    - text: Diffuser en streaming en direct
+    - text: Diffuser en direct
       url: stream-live-tutorial-with-api.md
 - title: Diffuser en streaming à la demande
   linkLists:

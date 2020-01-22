@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120121"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778343"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -94,8 +94,9 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
    g. **REGEX MATCH**. La clause renvoie « true » si l’attribut évalué correspond à un modèle d’expression régulière. Exemple : ([1-9][0-9]) comprend tout nombre compris entre 10 et 99.
 
    h. **NOT REGEX MATCH**. La clause renvoie « true » si l’attribut évalué ne correspond pas à un modèle d’expression régulière.
-
-8. Sélectionnez **Ajouter une nouvelle clause d’étendue**.
+ 
+>[!IMPORTANT] 
+> Les filtres Includes et IsMemberOf ne sont pas pris en charge. Ils seront bientôt supprimés de l’interface utilisateur.
 
 9. Si vous le souhaitez, répétez les étapes 7 et 8 pour ajouter d’autres clauses d’étendues.
 
@@ -112,7 +113,7 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
 
 
 ## <a name="common-scoping-filters"></a>Filtres d’étendue communs
-| Attribut cible| Operator | Valeur | Description|
+| Attribut cible| Opérateur | Valeur | Description|
 |----|----|----|----|
 |userPrincipalName|REGEX MATCH|.\*@domain.com |Tous les utilisateurs dont userPrincipal a le domaine @domain.com sont concernés par l’approvisionnement|
 |userPrincipalName|NOT REGEX MATCH|.\*@domain.com|Tous les utilisateurs dont userPrincipal a le domaine @domain.com ne sont pas concernés par l’approvisionnement|

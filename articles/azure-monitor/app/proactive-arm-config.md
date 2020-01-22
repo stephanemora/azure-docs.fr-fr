@@ -8,12 +8,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aadf3a18d41d8dfe878439893c9d1ed25172fa2b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc66a286bee193b377731a549129446bba431cb3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406499"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749045"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gérer les règles de détection intelligente d’Application Insights à l’aide de modèles Azure Resource Manager
 
@@ -133,9 +133,12 @@ Assurez-vous de remplacer le nom de la ressource Application Insights et de spé
 
 ```
 
-### <a name="failure-anomalies-v2-non-classic-alert-rule"></a>Règle d’alerte pour les défaillances v2 (non classique)
+### <a name="failure-anomalies-alert-rule"></a>Règle d’alerte Anomalies des échecs
 
-Ce modèle Azure Resource Manager montre comment configurer une règle d’alerte pour les défaillances v2 avec un niveau de gravité de 2. Cette nouvelle version de la règle d’alerte pour les défaillances fait partie de la nouvelle plateforme d’alertes d’Azure et remplace la version classique qui a été supprimée dans le cadre du [processus de suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+Ce modèle Azure Resource Manager montre comment configurer une règle d’alerte pour les défaillances avec un niveau de gravité de 2. Cette nouvelle version de la règle d’alerte pour les défaillances fait partie de la nouvelle plateforme d’alertes d’Azure et remplace la version classique qui a été supprimée dans le cadre du [processus de suppression des alertes classiques](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/).
+
+> [!NOTE]
+> Les Anomalies des échecs sont un service global. par conséquent, l’emplacement de la règle est créé sur l’emplacement global.
 
 ```json
 {
@@ -166,7 +169,7 @@ Ce modèle Azure Resource Manager montre comment configurer une règle d’alert
 ```
 
 > [!NOTE]
-> Ce modèle Azure Resource Manager est spécifique à la règle d’alerte pour les défaillances v2 et il est différent des autres règles de détection intelligente classiques décrites dans cet article.   
+> Ce modèle Azure Resource Manager est spécifique à la règle d’alerte Anomalies des échecs et il est différent des autres règles de détection intelligente classiques décrites dans cet article.
 
 ## <a name="smart-detection-rule-names"></a>Règles de détection intelligente
 

@@ -1,6 +1,6 @@
 ---
-title: Ajouter des formes aux cartes Android dans Azure Maps | Microsoft Docs
-description: Comment ajouter des formes à une carte à l'aide d'Android SDK Azure Maps ?
+title: Ajouter des formes aux cartes Android | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à afficher différentes formes sur une carte à l’aide de l’Android SDK Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c8e3f16b939d05a4c055fba3a9f1ab5e47e54070
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 8135d11624fa57547528b023b6d2dc5c3caecb39
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976595"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911599"
 ---
 # <a name="add-a-shape-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une forme à une carte à l’aide d'Android SDK Azure Maps
 
 Cet article vous explique comment afficher des formes sur une carte à l'aide d'Android SDK Azure Maps.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) afin de charger une carte.
 
@@ -76,9 +76,9 @@ Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**.
 
     ```
     
-    L’extrait de code ci-dessus obtient d’abord une instance de contrôle de carte Azure Maps à l'aide de la méthode de rappel **onReady()** . Il crée alors un objet de source de données à l’aide de la classe **DataSource**, puis l'ajoute à la carte. Ensuite, il crée une liste d'objets **Point**. Une **chaîne de lignes** est créée à partir de la liste des points et ajoutée à la source de données. Une **couche de lignes** restitue les objets ligne encapsulés dans une source de données sur la carte. Une couche de lignes est ensuite créée et la source de données lui est ajoutée.
+    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet source de données à l’aide de la classe **DataSource**, puis l’ajoute à la carte. Ensuite, il crée une liste d'objets **Point**. Une **chaîne de lignes** est créée à partir de la liste des points et ajoutée à la source de données. Une **couche de lignes** restitue les objets ligne encapsulés dans une source de données sur la carte. Une couche de lignes est ensuite créée et la source de données lui est ajoutée.
 
-    Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` doit se présenter comme suit :
+    Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` devrait ressembler à celui ci-dessous :
     
     ```Java
     package com.example.myapplication;
@@ -178,7 +178,7 @@ Vous pouvez ajouter une ligne à la carte en utilisant une **couche de lignes**.
 
 <center>
 
-![Ligne de carte Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
+![Une ligne affichée sur une carte Android](./media/how-to-add-shapes-to-android-map/android-map-line.png)</center>
 
 
 ## <a name="add-a-polygon-to-the-map"></a>Ajouter un polygone à la carte
@@ -238,9 +238,9 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
     });
     ```
 
-    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée alors un objet de source de données à l’aide de la classe **DataSource**, puis l'ajoute à la carte. Un objet **Polygone** est ensuite créé à partir d’une liste d'objets **Point** et ajouté à la source de données. Une **couche de polygones** affiche les données encapsulées dans la source de données sur la carte. Ensuite, il crée une couche de polygones pour afficher la zone de polygone et y ajoute la source de données. Une **couche de lignes** affiche les objets ligne encapsulés dans une source de données. La dernière partie de l’extrait de code crée une couche de lignes permettant d'afficher le contour du polygone et d'y ajouter la source de données.
+    L’extrait de code ci-dessus commence par obtenir une instance de contrôle de carte Azure Maps en utilisant la méthode de rappel **onReady()** . Il crée ensuite un objet source de données à l’aide de la classe **DataSource**, puis l’ajoute à la carte. Un objet **Polygone** est ensuite créé à partir d’une liste d'objets **Point** et ajouté à la source de données. Une **couche de polygones** affiche les données encapsulées dans la source de données sur la carte. Ensuite, il crée une couche de polygones pour afficher la zone de polygone et y ajoute la source de données. Une **couche de lignes** affiche les objets ligne encapsulés dans une source de données. La dernière partie de l’extrait de code crée une couche de lignes permettant d'afficher le contour du polygone et d'y ajouter la source de données.
 
-    Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` doit se présenter comme suit :
+    Après avoir ajouté l’extrait de code ci-dessus, votre `MainActivity.java` devrait ressembler à celui ci-dessous :
 
     ```Java
     package com.example.myapplication;
@@ -350,7 +350,7 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
 
 <center>
 
-![Polygone de carte Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
+![Un polygone affiché sur une carte Android](./media/how-to-add-shapes-to-android-map/android-map-polygon.png)</center>
 
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -358,10 +358,10 @@ Le **couche de polygones** vous permet d'afficher la surface du polygone sur la 
 Pour ajouter des données à votre carte :
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de symboles](how-to-add-symbol-to-android-map.md)
+> [Ajouter une couche de symboles](how-to-add-symbol-to-android-map.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de mosaïques](how-to-add-tile-layer-android-map.md)
+> [Ajouter une couche de mosaïques](how-to-add-tile-layer-android-map.md)
 
 > [!div class="nextstepaction"]
 > [Afficher des informations sur les caractéristiques](display-feature-information-android.md)
