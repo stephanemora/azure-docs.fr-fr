@@ -1,18 +1,18 @@
 ---
-title: 'Créer et installer les fichiers de configuration du client VPN pour les connexions P2S RADIUS : PowerShell : Azure | Microsoft Docs'
+title: 'Passerelle VPN Azure : Créer et installer les fichiers de configuration du client VPN - Connexions P2S RADIUS'
 description: Créer des fichiers de configuration du client VPN Windows, Mac OS X et Linux pour les connexions utilisant l’authentification RADIUS.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 34d8eb976a2a1e173f234be214799832dae7e9ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 16689982156743f5dc4e2ed09a0f9bc097a51b9b
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115383"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903030"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-p2s-radius-authentication"></a>Créer et installer les fichiers de configuration du client VPN pour une authentification P2S RADIUS
 

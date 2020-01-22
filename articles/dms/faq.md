@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 07/10/2019
-ms.openlocfilehash: 11aec9c62c388155f8d90b7a89171937f22dd9d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438012"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745405"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Questions fréquentes (FAQ) sur l’utilisation d’Azure Database Migration Service
 
@@ -37,7 +37,7 @@ Le service prend actuellement en charge différentes paires sources/cibles, ou d
 D’autres scénarios de migration sont disponibles en préversion et nécessitent l’envoi d’une demande via le site DMS Preview. Pour obtenir la liste complète des scénarios en préversion et vous inscrire pour participer à une de ces offres, consultez le [site DMS Preview](https://aka.ms/dms-preview/).
 
 **Q. Quelles sont les versions de SQL Server prises en charge comme sources par Azure Database Migration Service ?**
-En ce qui concerne la migration à partir de SQL Server, les sources prises en charge par Azure Database Migration Service vont de SQL Server 2005 à SQL Server 2017.
+En ce qui concerne la migration à partir de SQL Server, les sources prises en charge par Azure Database Migration Service vont de SQL Server 2005 à SQL Server 2019.
 
 **Q : Lors de l’utilisation d’Azure Database Migration Service, quelle est la différence entre une migration en ligne et une migration hors connexion ?**
 Vous pouvez utiliser Azure Database Migration Service pour effectuer des migrations en ligne et des migrations hors connexion. Dans le cas d’une migration *hors connexion*, le temps d’arrêt de l’application commence quand la migration commence. Dans le cas d’une migration *en ligne*, le temps d’arrêt est limité à la durée du basculement à la fin de la migration. Nous vous suggérons de tester une migration hors connexion pour déterminer si le temps d’arrêt est acceptable ; dans le cas contraire, privilégiez une migration en ligne.
@@ -58,14 +58,14 @@ Il existe plusieurs prérequis pour garantir qu’Azure Database Migration Servi
 
 Les conditions préalables associées à Azure Database Migration Service communes à tous les scénarios de migration pris en charge incluent le besoin de :
 
-* Créez un réseau virtuel pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux à l’aide de la fonction [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-* Assurez-vous que les règles de groupe de sécurité Réseau virtuel Microsoft Azure ne bloquent pas les ports de communication suivants : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Créez un Réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Assurez-vous que les règles de groupe de sécurité de votre réseau virtuel ne bloquent pas les ports de communication suivants : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Lorsque vous utilisez une appliance de pare-feu devant vos bases de données sources, vous devrez peut-être ajouter des règles de pare-feu pour permettre à Azure Database Migration Service d’accéder aux bases de données sources pour la migration.
 
 Pour obtenir la liste de tous les prérequis permettant des scénarios de migration spécifiques à l’aide d’Azure Database Migration Service, consultez les tutoriels associés dans la [documentation](https://docs.microsoft.com/azure/dms/dms-overview) d’Azure Database Migration Service sur docs.microsoft.com.
 
 **Q. Comment trouver l’adresse IP d’Azure Database Migration Service afin de créer une liste d’autorisations pour les règles de pare-feu utilisées pour accéder à ma base de données source pour la migration ?**
-Vous devrez peut-être ajouter des règles de pare-feu autorisant Azure Database Migration Service à accéder à votre base de données source pour la migration. L’adresse IP du service est dynamique, mais si vous utilisez Express Route, cette adresse est attribuée en privé par votre réseau d’entreprise. Le moyen le plus simple d’identifier l’adresse IP appropriée est de regarder dans le même groupe de ressources que votre ressource Azure Database Migration Service provisionnée et y rechercher l’interface réseau associée. Généralement, le nom de la ressource d’interface réseau commence par le préfixe de la carte réseau, et est suivi d’une séquence de caractères et de chiffres unique (par exemple, NIC-jj6tnztnmarpsskr82rbndyp). En sélectionnant cette ressource d’interface réseau, vous pouvez voir l’adresse IP devant être incluse dans la liste d’autorisations sur la page du portail Azure de présentation des ressources.
+Vous devrez peut-être ajouter des règles de pare-feu autorisant Azure Database Migration Service à accéder à votre base de données source pour la migration. L’adresse IP du service est dynamique, mais si vous utilisez ExpressRoute, cette adresse est attribuée en privé par votre réseau d’entreprise. Le moyen le plus simple d’identifier l’adresse IP appropriée est de regarder dans le même groupe de ressources que votre ressource Azure Database Migration Service provisionnée et y rechercher l’interface réseau associée. Généralement, le nom de la ressource d’interface réseau commence par le préfixe de la carte réseau, et est suivi d’une séquence de caractères et de chiffres unique (par exemple, NIC-jj6tnztnmarpsskr82rbndyp). En sélectionnant cette ressource d’interface réseau, vous pouvez voir l’adresse IP devant être incluse dans la liste d’autorisations sur la page du portail Azure de présentation des ressources.
 
 Par ailleurs, vous devez peut-être inclure la source du port que SQL Server écoute sur la liste d’autorisations. Par défaut, il s’agit du port 1433, mais le SQL Server source peut être configuré pour écouter d’autres ports également. Dans ce cas, vous devez aussi inclure ces ports sur la liste d’autorisations. Vous pouvez déterminer le port écouté par SQL Server à l’aide de la requête de vue de gestion dynamique :
 
@@ -85,8 +85,8 @@ Vous pouvez également déterminer le port écouté par SQL Server en interrogea
     GO
 ```
 
-**Q. Comment configurer un réseau virtuel Azure ?**
-Même si plusieurs didacticiels Microsoft peuvent vous présenter le processus de configuration d’un réseau virtuel Microsoft Azure, la documentation officielle est disponible dans l’article [Réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+**Q. Comment configurer un Réseau virtuel Microsoft Azure ?**
+Même si plusieurs didacticiels Microsoft peuvent vous présenter le processus de configuration d’un réseau virtuel, la documentation officielle est disponible dans l’article [Réseau virtuel Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 ## <a name="usage"></a>Usage
 

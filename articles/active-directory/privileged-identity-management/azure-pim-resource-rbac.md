@@ -13,19 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2585457d22b773407c41bb6ea82c30a25fbfb88e
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847139"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932374"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Privileged Identity Management
 
 Avec Azure Active Directory (Azure AD) Privileged Identity Management (PIM), vous pouvez voir l’activité, les activations et l’historique d’audit des rôles de ressources Azure au sein de votre organisation. Cela inclut les abonnements, les groupes de ressources et même les machines virtuelles. Toutes les ressources du portail Azure qui utilisent la fonctionnalité de contrôle d’accès en fonction du rôle (RBAC) d’Azure peuvent tirer parti des possibilités de gestion de la sécurité et des cycles de vie proposées par Privileged Identity Management.
+
+> [!NOTE]
+> Si votre organisation possède des fonctions de gestion externalisées pour un fournisseur de services qui utilise la [gestion des ressources déléguées Azure](../../lighthouse/concepts/azure-delegated-resource-management.md), les attributions de rôles autorisées par ce fournisseur de services ne seront pas affichées ici.
 
 ## <a name="view-activity-and-activations"></a>Afficher l’activité et les activations
 
@@ -112,5 +115,5 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Attribuer des rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-assign-roles.md)
-- [Approuver ou rejeter des requêtes de rôles de ressources Azure AD dans Privileged Identity Management](pim-resource-roles-approval-workflow.md)
+- [Approuver ou rejeter des demandes de rôles de ressources Azure dans Privileged Identity Management](pim-resource-roles-approval-workflow.md)
 - [Afficher l’activité et l’historique d’audit des rôles Azure AD dans Privileged Identity Management](pim-how-to-use-audit-log.md)

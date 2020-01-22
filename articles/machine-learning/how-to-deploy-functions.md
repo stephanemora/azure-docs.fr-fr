@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 2f5658d6df2b20e5bce0fab2ca1787ede5ab7883
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 00a62e970e27d689eb639a62938376f73410c270
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535229"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024911"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Déployer des modèles Machine Learning sur Azure Functions (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Avec Azure Machine Learning, vous pouvez créer des images Docker à partir de m
     > * `model` - Modèle inscrit qui sera déployé.
     > * `inference_config` - Configuration d’inférence pour le modèle.
     >
-    > Pour plus d’informations sur la définition de ces variables, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+    > Pour plus d’informations sur la définition de ces variables, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Préparer le déploiement
 
@@ -53,7 +53,7 @@ Avant le déploiement, vous devez définir ce qui est nécessaire pour exécuter
     >
     > Si le format des données de la requête n'est pas utilisable par votre modèle, le script peut les convertir à un format acceptable. Il peut également transformer la réponse avant de la renvoyer au client.
     >
-    > Par défaut, lors de l’empaquetage des fonctions, l’entrée est traitée comme du texte. Si vous souhaitez consommer les octets bruts de l’entrée (par exemple pour les déclencheurs de blob), vous devez utiliser [AMLRequest pour accepter les données brutes](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#binary-data).
+    > Par défaut, lors de l’empaquetage des fonctions, l’entrée est traitée comme du texte. Si vous souhaitez consommer les octets bruts de l’entrée (par exemple pour les déclencheurs de blob), vous devez utiliser [AMLRequest pour accepter les données brutes](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
 
 * **Dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle
@@ -79,7 +79,7 @@ Ces entités sont encapsulées dans une __configuration d'inférence__. La confi
 
 Pour plus d’informations sur les environnements , consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md).
 
-Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+Pour plus d’informations sur la configuration de l’inférence, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > Lors du déploiement sur Azure Functions, il n’est pas nécessaire de créer une __configuration de déploiement__.
@@ -97,7 +97,7 @@ pip install azureml-contrib-functions
 Pour créer l’image Docker qui est déployée sur Azure Functions, utilisez [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) ou la fonction de package spécifique pour le déclencheur que vous souhaitez utiliser. L’extrait de code suivant montre comment créer un nouveau package avec un déclencheur de blob à partir de la configuration du modèle et de l’inférence :
 
 > [!NOTE]
-> L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+> L’extrait de code suppose que `model` contient un modèle inscrit et que `inference_config` contient la configuration de l’environnement d’inférence. Pour plus d’informations, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.contrib.functions import package
@@ -156,27 +156,35 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     > [!IMPORTANT]
     > Les images créées par Azure Machine Learning utilisent Linux. Vous devez donc utiliser le paramètre `--is-linux`.
 
-1. Pour créer une application de fonction, utilisez la commande suivante. Remplacez `<app-name>` par le nom que vous souhaitez utiliser. Remplacez `<acrinstance>` et `<imagename>` par les valeurs du `package.location` retourné précédemment :
-
-    ```azurecli-interactive
-    az storage account create --name 
-    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
-    ```
-
-    > [!IMPORTANT]
-    > À ce stade, l’application de fonction a été créée. Toutefois, étant donné que vous n’avez pas de chaîne de connexion pour le déclencheur de blob et que vous n’avez pas fourni les informations d’identification à l’instance Azure Container Registry qui contient l’image, l’application de fonction n’est pas active. Dans l’étape qui suit, vous allez fournir la chaîne de connexion et les informations d’authentification pour le registre de conteneurs. 
-
-1. Créez le compte de stockage à utiliser comme déclencheur et récupérez sa chaîne de connexion.
+1. Créez le compte de stockage à utiliser pour le stockage de tâches web et récupérez sa chaîne de connexion. Remplacez `<webjobStorage>` par le nom que vous souhaitez utiliser.
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
-    az storage account show-connection-string --resource-group myresourcegroup --name triggerStorage --query connectionString --output tsv
+    az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
+    ```
+
+1. Pour créer une application de fonction, utilisez la commande suivante. Remplacez `<app-name>` par le nom que vous souhaitez utiliser. Remplacez `<acrinstance>` et `<imagename>` par les valeurs du `package.location` retourné précédemment. Remplacez `<webjobStorage>` par le nom du compte de stockage de l’étape précédente :
+
+    ```azurecli-interactive
+    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
+    ```
+
+    > [!IMPORTANT]
+    > À ce stade, l’application de fonction a été créée. Toutefois, étant donné que vous n’avez pas de chaîne de connexion pour le déclencheur de blob et que vous n’avez pas fourni les informations d’identification à l’instance Azure Container Registry qui contient l’image, l’application de fonction n’est pas active. Dans l’étape qui suit, vous allez fournir la chaîne de connexion et les informations d’authentification pour le registre de conteneurs. 
+
+1. Créez le compte de stockage à utiliser pour le stockage de déclencheurs blob et récupérez sa chaîne de connexion. Remplacez `<triggerStorage>` par le nom que vous souhaitez utiliser.
+
+    ```azurecli-interactive
+    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    ```
+    ```azurecli-interactive
+    az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Enregistrez cette chaîne de connexion à fournir à l’application de fonction. Nous l’utiliserons plus tard quand nous vous demanderons `<triggerConnectionString>`
 
-1. Créez les conteneurs pour l’entrée et la sortie dans le compte de stockage. 
+1. Créez les conteneurs pour l’entrée et la sortie dans le compte de stockage. Remplacez `<triggerConnectionString>` par la chaîne de connexion retournée précédemment :
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -185,12 +193,17 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. Vous devez récupérer la balise associée au conteneur créé à l’aide de la commande suivante :
+1. Pour associer la chaîne de connexion du déclencheur à l’application de fonction, utilisez la commande suivante. Remplacez `<app-name>` par le nom de la fonction. Remplacez `<triggerConnectionString>` par la chaîne de connexion retournée précédemment :
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
+    ```
+1. Vous devez récupérer la balise associée au conteneur créé à l’aide de la commande suivante. Remplacez `<username>` par le nom d’utilisateur retourné précédemment à partir du registre de conteneurs :
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    La balise la plus récente indiquée est `imagetag` ci-dessous.
+    Enregistrez la valeur retournée, elle sera utilisée en tant que `imagetag` à l’étape suivante.
 
 1. Pour fournir à l’application de fonction les informations d’identification nécessaires pour accéder au registre de conteneurs, utilisez la commande suivante. Remplacez `<app-name>` par le nom que vous souhaitez utiliser. Remplacez `<acrinstance>` et `<imagetag>` par les valeurs de l’appel de l’interface de commande AZ CLI à l’étape précédente. Remplacez `<username>` et `<password>` par les informations de connexion ACR récupérées précédemment :
 
@@ -238,6 +251,6 @@ Si la condition est `show_output=True`, la sortie du processus de génération D
 
 * Découvrez comment configurer votre application de fonction dans la documentation sur [Functions](/azure/azure-functions/functions-create-function-linux-custom-image).
 * Pour en savoir plus sur les déclencheurs de Stockage Blob, consultez [Liaisons Stockage Blob Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
-* [Déployez votre modèle sur Azure App Service](service/how-to-deploy-app-service.md).
+* [Déployez votre modèle sur Azure App Service](how-to-deploy-app-service.md).
 * [Utiliser un modèle ML déployé en tant que service web](how-to-consume-web-service.md)
 * [Référence sur l’API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)

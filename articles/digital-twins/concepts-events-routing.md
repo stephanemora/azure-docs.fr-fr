@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 094a3a838269921339dcd6c2c3b551720f394251
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 65b760eaf28d907fab3654ed92f960be7556b0d6
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660322"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862354"
 ---
 # <a name="routing-iot-events-and-messages"></a>Routage des événements et des messages IoT
 
@@ -53,7 +53,7 @@ Azure Digital Twins prend en charge les types d’événement (**EventTypes**) s
 
 > [!IMPORTANT]  
 > Les types de point de terminaison (**EndpointTypes**) ne prennent pas tous en charge tous les types d’événement (**EventTypes**).
-> Reportez-vous au tableau suivant pour connaître les types d’événement (**EventTypes**) autorisés pour chaque type de point de terminaison (**EndpointType**).
+> Consultez le tableau suivant pour connaître les **EventTypes** autorisés pour chaque **EndpointType**.
 
 |             | DeviceMessages | TopologyOperation | SpaceChange | SensorChange | UdfCustom |
 | ----------- | -------------- | ----------------- | ----------- | ------------ | --------- |
@@ -66,6 +66,6 @@ Azure Digital Twins prend en charge les types d’événement (**EventTypes**) s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour en savoir plus sur les limites de la préversion publique d’Azure Digital Twins, consultez [Limites de service de la préversion publique](concepts-service-limits.md).
+- Pour en savoir plus sur les limites de la préversion d’Azure Digital Twins, consultez [Limites de service de la préversion publique](concepts-service-limits.md).
 
-- Pour tester un exemple Azure Digital Twins, consultez [Démarrage rapide : Rechercher des salles disponibles](quickstart-view-occupancy-dotnet.md).
+- Pour tester un exemple Azure Digital Twins, consultez le [guide de démarrage rapide pour rechercher des salles disponibles](quickstart-view-occupancy-dotnet.md).

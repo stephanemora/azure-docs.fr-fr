@@ -6,19 +6,19 @@ ms.topic: article
 ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: f341f5bbf7221664301ca53eea1edd6af7544950
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e2a76e40206e1562d565571dbe22e5d9d0e930e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422054"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834165"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Guide pratique pour utiliser des identités managées pour App Service et Azure Functions
 
 > [!Important] 
 > Si vous migrez votre application entre différents abonnements/locataires, les identités managées pour App Service et Azure Functions présentent un comportement anormal. L’application devra obtenir une nouvelle identité, ce qui peut être effectué par la désactivation et la réactivation de la fonctionnalité. Consultez [Suppression d’une identité](#remove) ci-dessous. Les ressources en aval devront également disposer de stratégies d’accès mises à jour pour utiliser la nouvelle identité.
 
-Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité managée issue d’Azure Active Directory permet à votre application d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans AAD, consultez [Identités gérées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Cette rubrique vous montre comment créer une identité managée pour les applications App Service et Azure Functions et comment l’utiliser pour accéder à d’autres ressources. Une identité managée issue d’Azure Active Directory (AAD) permet à votre application d’accéder facilement aux autres ressources protégées par AAD telles qu’Azure Key Vault. Managée par la plateforme Azure, l’identité ne nécessite pas que vous approvisionniez ou permutiez de secrets. Pour plus d’informations sur les identités managées dans AAD, consultez [Identités gérées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 Deux types d’identité peuvent être accordés à votre application : 
 - Une **identité attribuée par le système** est liée à votre application et est supprimée si votre application est supprimée. Une application ne peut avoir qu’une seule identité attribuée par le système.
@@ -77,7 +77,7 @@ Les étapes suivantes vous guident dans la création d’une application web à 
 
 Les étapes suivantes vous guident dans la création d’une application web à laquelle vous attribuez une identité en utilisant Azure PowerShell :
 
-1. Si nécessaire, installez Azure PowerShell à l’aide des instructions figurant dans le [Guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzAccount` pour créer une connexion avec Azure.
+1. Le cas échéant, installez Azure PowerShell à l’aide des instructions figurant dans le [guide Azure PowerShell](/powershell/azure/overview), puis exécutez `Login-AzAccount` pour créer une connexion avec Azure.
 
 2. Créez une application web avec Azure PowerShell. Pour plus d’exemples sur l’utilisation d’Azure PowerShell avec App Service, consultez [Exemples App Service PowerShell](../app-service/samples-powershell.md) :
 
@@ -235,12 +235,12 @@ Où `<PRINCIPALID>` et `<CLIENTID>` sont remplacés par des GUID. principalId es
 
 ## <a name="obtaining-tokens-for-azure-resources"></a>Obtention de jetons pour les ressources Azure
 
-Une application peut utiliser son identité pour obtenir des jetons pour d’autres ressources protégées par AAD, telles qu’Azure Key Vault. Ces jetons représentent l’application qui accède à la ressource, pas un utilisateur spécifique de l’application. 
+Une application peut utiliser son identité managée pour obtenir des jetons pour accéder à d’autres ressources protégées par AAD, telles qu’Azure Key Vault. Ces jetons représentent l’application qui accède à la ressource, pas un utilisateur spécifique de l’application. 
 
 > [!IMPORTANT]
-> Vous pouvez être amené à configurer la ressource cible pour autoriser l’accès à partir de votre application. Par exemple, si vous demandez un jeton de coffre de clés, vous devez vérifier que vous avez ajouté une stratégie d’accès qui inclut l’identité de votre application. Si tel n’est pas le cas, vos appels au coffre de clés sont rejetés, même s’ils incluent le jeton. Pour en savoir plus sur les ressources qui prennent en charge les jetons Azure Active Directory, consultez [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+> Vous pouvez être amené à configurer la ressource cible pour autoriser l’accès à partir de votre application. Par exemple, si vous demandez un jeton pour accéder à Key Vault, vous devez vérifier que vous avez ajouté une stratégie d’accès qui inclut l’identité de votre application. Si tel n’est pas le cas, vos appels au coffre de clés sont rejetés, même s’ils incluent le jeton. Pour en savoir plus sur les ressources qui prennent en charge les jetons Azure Active Directory, consultez [Services Azure prenant en charge l’authentification Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
-Il existe un protocole REST simple pour obtenir un jeton dans App Service et Azure Functions. Cela peut être utilisé pour toutes les applications et tous les langages. Pour certains éléments .NET et Java, le Kit de développement logiciel (SDK) Azure fournit une abstraction sur ce protocole et permet une expérience de développement locale.
+Il existe un protocole REST simple pour obtenir un jeton dans App Service et Azure Functions. Cela peut être utilisé pour toutes les applications et tous les langages. Pour .NET et Java, le Kit de développement logiciel (SDK) Azure fournit une abstraction par rapport à ce protocole et facilite l’expérience de développement locale.
 
 ### <a name="using-the-rest-protocol"></a>Utilisation du protocole REST
 

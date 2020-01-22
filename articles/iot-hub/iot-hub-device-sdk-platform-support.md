@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889425"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045122"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Prise en charge des plateformes par les kits Azure IoT device SDK
 
@@ -44,31 +44,32 @@ Pour chacun des kits SDK listés, Microsoft :
 
 Le kit [Azure IoT Hub device SDK en C](https://github.com/Azure/azure-iot-sdk-c) a été testé avec les configurations suivantes et les prend donc en charge.
 
-| OS                  | Bibliothèque TLS                  | Conditions supplémentaires                                                                     |
+| Système d''exploitation                  | Bibliothèque TLS                  | Autres conditions requises                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL ou BearSSL | Sockets Berkeley</br></br>POSIX (Portable Operating System Interface)                       |
-| iOS 12.2            | OpenSSL ou OSX natif        | XCode émulé dans OSX 10.13.4                                                               |
+| iOS 12.2            | OpenSSL                      | XCode émulé dans OSX 10.13.4                                                               |
 | Famille Windows 10   | SChannel                     |                                                                                             |
 | Mbed OS 5.4         | Mbed TLS 2                   | [DevKit IoT MXChip](https://microsoft.github.io/azure-iot-developer-kit/)                  |
 | Système d’exploitation Azure Sphere     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
+| Arduino             | BearSSL                      | [ESP32 ou ESP8266](https://github.com/Azure/azure-iot-arduino#simple-sample-instructions) 
 
 ### <a name="python-sdk"></a>Kit de développement logiciel (SDK) Python
 
 Le kit [Azure IoT Hub device SDK en Python](https://github.com/Azure/azure-iot-sdk-python) a été testé avec les configurations suivantes et les prend donc en charge.
 
-| OS                  | Compilateur                          |
+| Système d''exploitation                  | Compilateur                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
-| MacOS High Sierra   | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
-| Famille Windows 10   | Python 2.7 *, 3.4*, 3.5*, 3.6, 3.7 |
+| Linux               | Python 2.7.*, 3.5 ou version ultérieure |
+| MacOS High Sierra   | Python 2.7.*, 3.5 ou version ultérieure |
+| Famille Windows 10   | Python 2.7.*, 3.5 ou version ultérieure |
 
-\* Seule Python version 3.5.3 ou ultérieure prend en charge les API asynchrones, nous vous recommandons d’utiliser 3.7 ou une version ultérieure.
+Seul Python version 3.5.3 ou ultérieure prend en charge les API asynchrones, nous vous recommandons d’utiliser la version 3.7 ou une version ultérieure.
 
 ### <a name="net-sdk"></a>Kit de développement logiciel (SDK) .NET
 
 Le kit [Azure IoT Hub device SDK en .NET (C#)](https://github.com/Azure/azure-iot-sdk-csharp) a été testé avec les configurations suivantes et les prend donc en charge.
 
-| OS                                   | standard                                                   |
+| Système d''exploitation                                   | standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Références SKU Windows 10 Desktop et Server   | .NET Core 2.1, .NET Framework 4.5.1 ou .NET Framework 4.7 |
@@ -79,7 +80,7 @@ Le kit de développement logiciel (SDK) .NET peut également être utilisé avec
 
 Le kit [Azure IoT Hub device SDK en Node.js](https://github.com/Azure/azure-iot-sdk-node) a été testé avec les configurations suivantes et les prend donc en charge.
 
-| OS                  | Version de nœud    |
+| Système d''exploitation                  | Version de nœud    |
 |---------------------|-----------------|
 | Linux               | LTS et actuel |
 | Famille Windows 10   | LTS et actuel |
@@ -88,7 +89,7 @@ Le kit [Azure IoT Hub device SDK en Node.js](https://github.com/Azure/azure-iot-
 
 Le kit [Azure IoT Hub device SDK en Java](https://github.com/Azure/azure-iot-sdk-java) a été testé avec les configurations suivantes et les prend donc en charge.
 
-| OS                     | Version de Java |
+| Système d''exploitation                     | Version de Java |
 |------------------------|--------------|
 | API Android 28         | Java 8       |
 | Linux x64             | Java 8       |
@@ -115,7 +116,7 @@ Microsoft collabore avec différents partenaires en vue d’étendre le nombre d
 
 * Pour découvrir les appareils Azure Certified pour IoT, consultez le [Catalogue d’appareils Azure Certified pour IoT](https://catalog.azureiotsolutions.com/).
 
-* Pour en savoir plus sur les partenaires de confiance Microsoft ou pour savoir comment devenir partenaire de confiance Microsoft, consultez [Microsoft Azure Certified - Partenaires de confiance de l’Internet des objets](https://azure.microsoft.com/marketplace/certified-iot-partners/).
+* Pour en savoir plus sur l’écosystème Azure Certified pour IoT, consultez [Rejoindre l’écosystème Certified pour IoT](https://catalog.azureiotsolutions.com/register).
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Connexion à IoT Hub sans SDK
 

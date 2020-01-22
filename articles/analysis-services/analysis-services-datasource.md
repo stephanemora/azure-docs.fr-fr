@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442762"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922282"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Sources de données prises en charge dans Azure Analysis Services
 
@@ -120,7 +120,9 @@ Pour les sources de données cloud :
 
 ## <a name="oauth-credentials"></a>Informations d’identification OAuth
 
-Pour les modèles tabulaires au niveau de compatibilité 1 400 ou plus, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d’identification à l’aide de SSMS.
+Pour les modèles tabulaires au niveau de compatibilité 1400 ou plus utilisant le mode en mémoire, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 et la liste SharePoint prennent en charge les informations d’identification OAuth. Azure Analysis Services gère l’actualisation des jetons pour les sources de données OAuth afin d’éviter un dépassement des délais d’expiration pour les opérations d’actualisation de longue durée. Pour générer des jetons valides, définissez les informations d’identification à l’aide de SSMS.
+
+Le mode de requête directe n’est pas compatible avec les informations d’identification OAuth.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Passerelle locale](analysis-services-gateway.md)   

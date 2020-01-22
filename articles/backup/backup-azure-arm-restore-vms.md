@@ -4,12 +4,12 @@ description: Restaurer une machine virtuelle Azure à partir d’un point de ré
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 0caad9488e4ab84c85ef27b559c34453ad6cad32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 98101639d82ede2a6c625ea9da413bcf93f6a185
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450176"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753933"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Comment restaurer des données de machine virtuelle Azure dans le Portail Azure
 
@@ -23,7 +23,8 @@ Sauvegarde Azure permet de restaurer une machine virtuelle de plusieurs façons.
 --- | ---
 **Créer une machine virtuelle** | Permet d’avoir rapidement une machine virtuelle de base opérationnelle à partir d’un point de restauration.<br/><br/> Vous pouvez nommer la machine virtuelle, sélectionner le groupe de ressources et le réseau virtuel (VNet) où elle sera placée et spécifier un type de stockage pour la machine virtuelle restaurée. La nouvelle machine virtuelle doit être créée dans la même région que la machine virtuelle source.
 **Restaurer un disque** | Restaure un disque de machine virtuelle que vous pouvez ensuite utiliser pour créer une machine virtuelle.<br/><br/> Sauvegarde Azure fournit un modèle pour vous aider à personnaliser et à créer une machine virtuelle. <br/><br> Le travail de restauration génère un modèle que vous pouvez télécharger et utiliser pour spécifier des paramètres de machine virtuelle personnalisés et créer une machine virtuelle.<br/><br/> Les disques sont copiés dans le groupe de ressources spécifié.<br/><br/> Vous pouvez également attacher le disque à une machine virtuelle existante ou créer une machine virtuelle à l’aide de PowerShell.<br/><br/> Cette option est utile si vous souhaitez personnaliser la machine virtuelle, ajouter des paramètres de configuration qui n’existaient pas au moment de la sauvegarde ou encore ajouter des paramètres qui doivent être configurés à l’aide du modèle ou de PowerShell.
-**Remplacer l’existant** | Vous pouvez restaurer un disque et l’utiliser pour remplacer un disque sur la machine virtuelle existante.<br/><br/> La machine virtuelle actuelle doit exister. Si elle a été supprimée, vous ne pouvez pas utiliser cette option.<br/><br/> La Sauvegarde Azure prend un instantané de la machine virtuelle existante avant de remplacer le disque et le stocke à l’emplacement intermédiaire spécifié. Les disques existants connectés à la machine virtuelle sont remplacés par le point de restauration sélectionné.<br/><br/> L’instantané est copié dans le coffre et conservé conformément à la stratégie de conservation. <br/><br/> Après l’opération de remplacement du disque, le disque d’origine est conservé dans le groupe de ressources. Vous pouvez choisir de supprimer manuellement les disques d’origine si vous n’en avez pas besoin. <br/><br/>L’option Remplacer l’existant est prise en charge pour les machines virtuelles managées non chiffrées. Elle ne l’est pas pour les disques non managés, les [machines virtuelles généralisées](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) ou les machines virtuelles [créées à l’aide d’images personnalisées](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Si le point de restauration a plus ou moins de disques que la machine virtuelle actuelle, le nombre de disques du point de restauration reflète alors uniquement la configuration de la machine virtuelle.<br/><br/>
+**Remplacer l’existant** | Vous pouvez restaurer un disque et l’utiliser pour remplacer un disque sur la machine virtuelle existante.<br/><br/> La machine virtuelle actuelle doit exister. Si elle a été supprimée, vous ne pouvez pas utiliser cette option.<br/><br/> La Sauvegarde Azure prend un instantané de la machine virtuelle existante avant de remplacer le disque et le stocke à l’emplacement intermédiaire spécifié. Les disques existants connectés à la machine virtuelle sont remplacés par le point de restauration sélectionné.<br/><br/> L’instantané est copié dans le coffre et conservé conformément à la stratégie de conservation. <br/><br/> Après l’opération de remplacement du disque, le disque d’origine est conservé dans le groupe de ressources. Vous pouvez choisir de supprimer manuellement les disques d’origine si vous n’en avez pas besoin. <br/><br/>L’option Remplacer l’existant est prise en charge pour les machines virtuelles managées non chiffrées. Elle ne l’est pas pour les disques non managés, les [machines virtuelles généralisées](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) ou les machines virtuelles [créées à l’aide d’images personnalisées](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/).<br/><br/> Si le point de restauration a plus ou moins de disques que la machine virtuelle actuelle, le nombre de disques du point de restauration reflète alors uniquement la configuration de la machine virtuelle.
+**Interrégion (région secondaire)** | La restauration interrégion peut être utilisée pour restaurer des machines virtuelles Azure dans la région secondaire, qui est une [région jumelée à Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions).<br><br> Vous pouvez restaurer toutes les machines virtuelles Azure pour le point de récupération sélectionné si la sauvegarde est effectuée dans la région secondaire.<br><br> Cette fonctionnalité est disponible pour les options ci-dessous :<br> * [Créer une machine virtuelle](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) <br> * [Restaurer des disques](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> Nous ne prenons actuellement pas en charge l’option [Remplacer des disques existants](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks).<br><br> Autorisations<br> L’opération de restauration sur la région secondaire peut être effectuée par les administrateurs de sauvegarde et les administrateurs d’applications.
 
 > [!NOTE]
 > Vous pouvez également récupérer des fichiers et des dossiers spécifiques sur une machine virtuelle Azure. [Plus d’informations](backup-azure-restore-files-from-vm.md)
@@ -132,6 +133,47 @@ Cette [option de restauration](#restore-options) vous permet de remplacer un dis
 3. Dans **Emplacement intermédiaire**, spécifiez l’emplacement où les instantanés des disques managés actuels doivent être enregistrés pendant le processus de restauration. [Plus d’informations](#storage-accounts)
 
    ![Assistant Configuration de restauration avec l’option Replace existing (Remplacer l’existant)](./media/backup-azure-arm-restore-vms/restore-configuration-replace-existing.png)
+
+## <a name="cross-region-restore"></a>Restauration interrégion
+
+Parmi les [options de restauration](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options), la restauration interrégion (CRR) vous permet de restaurer des machines virtuelles Azure dans une région secondaire, qui est une région jumelée Azure.
+
+Pour intégrer la fonctionnalité à la préversion, veuillez lire la [section Avant de commencer](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-cross-region-restore).
+
+Pour voir si la CRR est activée, suivez les instructions indiquées dans [Configurer la restauration interrégion](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Afficher les éléments de sauvegarde dans la région secondaire
+
+Si la CRR est activée, vous pouvez afficher les éléments de sauvegarde dans la région secondaire.
+
+1. À partir du portail, accédez à **Coffre Recovery Services** > **Éléments de sauvegarde**.
+2. Cliquez sur **Région secondaire** pour afficher les éléments de la région secondaire.
+
+![Machines virtuelles dans la région secondaire](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Sélectionner une région secondaire](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+
+### <a name="restore-in-secondary-region"></a>Restaurer dans la région secondaire
+
+L’expérience utilisateur de restauration de la région secondaire est similaire à celle de la région primaire. Quand vous configurez votre restauration dans le panneau Configuration de la restauration, vous êtes invité à fournir uniquement les paramètres de région secondaire.
+
+![Choisir la machine virtuelle à restaurer](./media/backup-azure-arm-restore-vms/sec-restore.png)
+
+![Sélectionner le point de restauration](./media/backup-azure-arm-restore-vms/sec-rp.png)
+
+![Configuration de la restauration](./media/backup-azure-arm-restore-vms/rest-config.png)
+
+![Déclencher la notification de restauration en cours](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+- Pour restaurer et créer une machine virtuelle, reportez-vous à [Créer une machine virtuelle](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm).
+- Pour restaurer en tant que disque, reportez-vous à [Restaurer des disques](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks).
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Surveillance des travaux de restauration de la région secondaire
+
+1. À partir du portail, accédez à **Coffre Recovery Services** > **Travaux de sauvegarde**.
+2. Cliquez sur **Région secondaire** pour afficher les éléments de la région secondaire.
+
+![Travaux de sauvegarde filtrés](./media/backup-azure-arm-restore-vms/secbackupjobs.png)
 
 ## <a name="restore-vms-with-special-configurations"></a>Restaurer des machines virtuelles avec des configurations spéciales
 

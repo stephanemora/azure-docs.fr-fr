@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: 04f4a71e6b54100e5a133958845cf732c2286b32
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d22231541a7fe29d4517985742d4bf88dc4c3fa7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301061"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980451"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Sécuriser l’accès à un coffre de clés
 
@@ -26,7 +26,7 @@ Azure Key Vault est un service cloud qui protège les clés et secrets de chiffr
 
 L’accès à un coffre de clés est contrôlé par le biais de deux interfaces : le **plan de gestion** et le **plan de données**. Le plan de gestion vous permet de gérer le coffre de clés. Dans ce plan, vous pouvez notamment créer et supprimer des coffres de clés, récupérer des propriétés Key Vault et mettre à jour des stratégies d’accès. Le plan de données vous permet d’utiliser les données stockées dans un coffre de clés. Vous pouvez ajouter, supprimer et modifier des clés, des secrets et des certificats.
 
-Pour accéder à un coffre de clés dans l’un ou l’autre de ces plans, tout appelant (utilisateur ou application) doit être authentifié et autorisé. L’authentification établit l’identité de l’appelant. L’autorisation détermine les opérations que l’appelant peut exécuter. 
+Pour accéder à un coffre de clés dans l’un ou l’autre de ces plans, tout appelant (utilisateur ou application) doit être authentifié et autorisé. L’authentification établit l’identité de l’appelant. L’autorisation détermine les opérations que l’appelant peut exécuter.
 
 Les deux plans utilisent Azure Active Directory (Azure AD) pour l’authentification. Pour l’autorisation, le plan de gestion utilise le contrôle d’accès en fonction du rôle (RBAC), tandis que le plan de données s’appuie sur une stratégie d’accès Key Vault.
 
@@ -72,7 +72,7 @@ Il existe plusieurs rôles prédéfinis. Si un rôle prédéfini ne répond pas 
 > Si un utilisateur dispose d’autorisations `Contributor` sur un plan de gestion de coffre de clés, il peut s’accorder lui-même l’accès au plan de données en définissant une stratégie d’accès Key Vault. Vous devez contrôler étroitement qui dispose d’un accès accordé par le rôle `Contributor` à vos coffres de clés. Vérifiez que seules les personnes autorisées peuvent accéder à et gérer vos coffres de clés, vos clés, vos secrets et vos certificats.
 >
 
-<a id="data-plane-access-control"></a> 
+<a id="data-plane-access-control"></a>
 ## <a name="data-plane-and-access-policies"></a>Plan de données et stratégies d’accès
 
 Vous accordez l’accès au plan de données en définissant des stratégies d’accès Key Vault pour un coffre de clés. Pour définir ces stratégies d’accès, un utilisateur, un groupe ou une application doit disposer d’autorisations `Contributor` pour le plan de gestion de ce coffre de clés.
@@ -87,20 +87,20 @@ Vous accordez l’accès à un utilisateur, un groupe ou une application afin d�
 
 Vous pouvez limiter l’accès au plan de données en utilisant des [points de terminaison de service de réseau virtuel pour Azure Key Vault](key-vault-overview-vnet-service-endpoints.md). Vous pouvez configurer [des pare-feu et des règles de réseau virtuel](key-vault-network-security.md) pour mettre en place une couche de sécurité supplémentaire.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
-Dans cet exemple, nous développons une application qui utilise un certificat pour SSL, Stockage Azure pour stocker les données et une clé RSA 2 048 bits pour les opérations de signature. Notre application s’exécute dans une machine virtuelle Azure (ou un groupe de machines virtuelles identiques). Nous pouvons utiliser un coffre de clés pour stocker les secrets de l’application. Nous pouvons stocker le certificat de démarrage utilisé par l’application pour s’authentifier auprès d’Azure AD.
+Dans cet exemple, nous développons une application qui utilise un certificat pour TLS/SSL, Stockage Azure pour stocker les données et une clé RSA 2 048 bits pour les opérations de signature. Notre application s’exécute dans une machine virtuelle Azure (ou un groupe de machines virtuelles identiques). Nous pouvons utiliser un coffre de clés pour stocker les secrets de l’application. Nous pouvons stocker le certificat de démarrage utilisé par l’application pour s’authentifier auprès d’Azure AD.
 
 Nous avons besoin d’accéder aux clés et aux secrets stockés suivants :
-- **Certificat SSL** : Utilisé pour SSL.
+- **Certificat TLS/SSL** : Utilisé pour TLS/SSL.
 - **Clé de stockage** : utilisée pour accéder au compte de stockage.
 - **Clé RSA 2 048 bits** : utilisée pour les opérations de signature.
 - **Certificat Bootstrap** : utilisé pour s’authentifier auprès d’Azure AD. Une fois l’accès accordé, vous pouvez récupérer la clé de stockage et utiliser la clé RSA pour la signature.
 
 Nous devons définir les rôles suivants pour spécifier qui peut gérer, déployer et auditer notre application :
-- **Équipe de sécurité** : personnel informatique du bureau du chef de la sécurité ou contributeurs équivalents. L’équipe de sécurité est chargée de protéger les secrets. Les secrets peuvent inclure des certificats SSL, des clés RSA pour la signature, des chaînes de connexion et des clés de compte de stockage.
-- **Développeurs et opérateurs** : équipe qui développe l’application et la déploie dans Azure. Les membres de cette équipe ne font pas partie de l’équipe de sécurité. Ils ne doivent pas avoir accès aux données sensibles, notamment les certificats SSL et les clés RSA. Seule l’application qu’ils déploient doit avoir accès à ces données sensibles.
-- **Auditeurs** : ce rôle s’applique aux contributeurs qui ne sont pas membres de l’équipe de développement ou du personnel informatique général. Ils passent en revue l’utilisation et la maintenance des certificats, clés et secrets pour assurer la conformité aux normes de sécurité. 
+- **Équipe de sécurité** : personnel informatique du bureau du chef de la sécurité ou contributeurs équivalents. L’équipe de sécurité est chargée de protéger les secrets. Les secrets peuvent inclure des certificats TLS/SSL, des clés RSA pour la signature, des chaînes de connexion et des clés de compte de stockage.
+- **Développeurs et opérateurs** : équipe qui développe l’application et la déploie dans Azure. Les membres de cette équipe ne font pas partie de l’équipe de sécurité. Ils ne doivent pas avoir accès aux données sensibles, notamment les certificats TLS/SSL et les clés RSA. Seule l’application qu’ils déploient doit avoir accès à ces données sensibles.
+- **Auditeurs** : ce rôle s’applique aux contributeurs qui ne sont pas membres de l’équipe de développement ou du personnel informatique général. Ils passent en revue l’utilisation et la maintenance des certificats, clés et secrets pour assurer la conformité aux normes de sécurité.
 
 Il existe un autre rôle qui dépasse le cadre de notre application : l’administrateur d’abonnement (ou groupe de ressources). L’administrateur d’abonnement configure les autorisations d’accès initiales pour l’équipe de sécurité. Il accorde l’accès à l’équipe de sécurité à l’aide d’un groupe de ressources comprenant les ressources requises par l’application.
 
@@ -115,20 +115,20 @@ Nous devons autoriser les opérations suivantes pour nos rôles :
 - Regénérer périodiquement les clés et les secrets
 
 **Développeurs et opérateurs**
-- Obtenir auprès de l’équipe de sécurité des références aux certificats Bootstrap et SSL (empreintes numériques), à la clé de stockage (URI de secret) et à la clé RSA (URI de clé) pour la signature
+- Obtenir auprès de l’équipe de sécurité des références aux certificats TLS/SSL et de démarrage (empreintes numériques), à la clé de stockage (URI de secret) et à la clé RSA (URI de clé) pour la signature.
 - Développer et déployer l’application pour accéder par programmation aux clés et aux secrets
 
 **Auditeurs**
 - Examiner les journaux d’activité Key Vault pour confirmer l’utilisation correcte des clés et des secrets et la conformité aux normes en matière de sécurité des données
 
-Le tableau suivant récapitule les autorisations d’accès pour nos rôles et notre application. 
+Le tableau suivant récapitule les autorisations d’accès pour nos rôles et notre application.
 
 | Role | Autorisations de plan de gestion | Autorisations de plan de données |
 | --- | --- | --- |
 | Équipe de sécurité | Contributeur Key Vault | Clés : sauvegarde, création, suppression, obtention, importation, énumération, restauration<br>Secrets : toutes les opérations |
-| Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque**: Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | Aucun |
-| Auditeurs | Aucun | Clés : énumération<br>Secrets : énumération<br><br> **Remarque**: Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. |
-| Application | Aucun | Clés : énumération<br>Secrets : obtention |
+| Développeurs et&nbsp;opérateurs | Autorisation de déploiement Key Vault<br><br> **Remarque** : Cette autorisation permet aux machines virtuelles déployées de récupérer les secrets d’un coffre de clés. | None |
+| Auditeurs | None | Clés : énumération<br>Secrets : énumération<br><br> **Remarque** : Cette autorisation permet aux auditeurs d’inspecter les attributs (étiquettes, dates d’activation, dates d’expiration) pour les clés et secrets non émis dans les journaux d’activité. |
+| Application | None | Clés : énumération<br>Secrets : obtention |
 
 Une fois les autorisations Key Vault définies, vous devez accorder aux trois rôles d’équipe l’accès à d’autres ressources. Pour déployer des machines virtuelles (ou la fonctionnalité Web Apps d’Azure App Service), les développeurs et opérateurs ont besoin d’un accès `Contributor` à ces types de ressources. Les auditeurs ont besoin d’un accès en lecture au compte de stockage où les journaux d’activité Key Vault sont stockés.
 
@@ -141,7 +141,7 @@ Vous pouvez accorder la plupart des autorisations d’accès à l’aide du port
 Les extraits PowerShell présentés dans cette section sont générés avec les hypothèses suivantes :
 - L’administrateur Azure AD a créé des groupes de sécurité pour représenter les trois rôles : Contoso Security Team, Contoso App DevOps et Contoso App Auditors. L’administrateur a ajouté des utilisateurs à leurs groupes respectifs.
 - Toutes les ressources se trouvent dans le groupe de ressources **ContosoAppRG**.
-- Les journaux d’activité Key Vault sont stockés dans le compte de stockage **contosologstorage**. 
+- Les journaux d’activité Key Vault sont stockés dans le compte de stockage **contosologstorage**.
 - Le coffre de clés **ContosoKeyVault** et le compte de stockage **contosologstorage** sont dans le même emplacement Azure.
 
 L’administrateur d’abonnement attribue les rôles `key vault Contributor` et `User Access Administrator` à l’équipe de sécurité. Ces rôles permettent à l’équipe de sécurité de gérer l’accès à d’autres ressources et coffres de clés dans le groupe de ressources **ContosoAppRG**.
@@ -183,9 +183,9 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 
 Nos rôles personnalisés définis peuvent uniquement être attribués à l’abonnement où le groupe de ressources **ContosoAppRG** est créé. Pour utiliser un rôle personnalisé pour d’autres projets dans d’autres abonnements, ajoutez les autres abonnements à l’étendue du rôle.
 
-Pour notre équipe DevOps, l’attribution de rôles personnalisés pour l’autorisation `deploy/action` de coffre de clés est limitée au groupe de ressources. Seules les machines virtuelles créées dans le groupe de ressources **ContosoAppRG** sont autorisées à accéder aux secrets (certificats SSL et de démarrage). Les machines virtuelles créées dans d’autres groupes de ressources par un membre DevOps ne peuvent pas accéder à ces secrets, même si la machine virtuelle a les URI des secrets.
+Pour notre équipe DevOps, l’attribution de rôles personnalisés pour l’autorisation `deploy/action` de coffre de clés est limitée au groupe de ressources. Seules les machines virtuelles créées dans le groupe de ressources **ContosoAppRG** sont autorisées à accéder aux secrets (certificats TLS/SSL et de démarrage). Les machines virtuelles créées dans d’autres groupes de ressources par un membre DevOps ne peuvent pas accéder à ces secrets, même si la machine virtuelle a les URI des secrets.
 
-Notre exemple décrit un scénario simple. Les scénarios réels peuvent être plus complexes. Vous pouvez ajuster les autorisations à votre coffre de clés selon vos besoins. Nous partons du principe que l’équipe de sécurité fournit les références aux clés et aux secrets (URI et empreintes) dont se sert l’équipe DevOps dans ses applications. Les développeurs et les opérateurs n’ont besoin d’aucun accès au plan de données. Nous avons vu comment sécuriser votre coffre de clés. Une considération similaire doit être accordée pour sécuriser [vos machines virtuelles](https://azure.microsoft.com/services/virtual-machines/security/), vos [comptes de stockage](../storage/common/storage-security-guide.md) et d’autres ressources Azure.
+Notre exemple décrit un scénario simple. Les scénarios réels peuvent être plus complexes. Vous pouvez ajuster les autorisations à votre coffre de clés selon vos besoins. Nous partons du principe que l’équipe de sécurité fournit les références aux clés et aux secrets (URI et empreintes) dont se sert l’équipe DevOps dans ses applications. Les développeurs et les opérateurs n’ont besoin d’aucun accès au plan de données. Nous avons vu comment sécuriser votre coffre de clés. Une considération similaire doit être accordée pour sécuriser [vos machines virtuelles](https://azure.microsoft.com/services/virtual-machines/security/), vos [comptes de stockage](../storage/blobs/security-recommendations.md) et d’autres ressources Azure.
 
 > [!NOTE]
 > Cet exemple montre comment l’accès au coffre de clés est verrouillé en production. Les développeurs doivent avoir leur propre abonnement ou groupe de ressources avec des autorisations complètes pour gérer leurs coffres de clés, les machines virtuelles et le compte de stockage où ils développent l’application.
@@ -198,9 +198,9 @@ Nous vous recommandons vivement de renforcer la sécurité de l’accès à votr
 
 * [Contrôle d’accès en fonction du rôle (RBAC) : Rôles intégrés](../role-based-access-control/built-in-roles.md)
 
-* [Comprendre les déploiements Resource Manager et classiques](../azure-resource-manager/resource-manager-deployment-model.md) 
+* [Comprendre les déploiements Resource Manager et classiques](../azure-resource-manager/management/deployment-models.md)
 
-* [Gérer RBAC avec Azure PowerShell](../role-based-access-control/role-assignments-powershell.md) 
+* [Gérer RBAC avec Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 
 * [Gérer RBAC avec l’API REST](../role-based-access-control/role-assignments-rest.md)
 
@@ -217,11 +217,11 @@ Nous vous recommandons vivement de renforcer la sécurité de l’accès à votr
 * [API REST de Key Vault](https://msdn.microsoft.com/library/azure/dn903609.aspx)
 
 * [Contrôle d’accès aux clés](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_KeyAccessControl)
-  
+
 * [Contrôle d’accès aux secrets](https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_SecretAccessControl)
-  
+
 * [Définir](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) et [supprimer](/powershell/module/az.keyvault/Remove-azKeyVaultAccessPolicy) la stratégie d’accès Key Vault avec PowerShell
-  
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Configurez [des pare-feu et des réseaux virtuels Azure Key Vault](key-vault-network-security.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 1811796de96e87343544f63fcee7acdd9907693c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530984"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830137"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 
@@ -103,7 +103,7 @@ Le tableau suivant indique le nombre approximatif d’agents pouvant communiquer
 
 ## <a name="download-the-log-analytics-gateway"></a>Téléchargement de la passerelle Log Analytics
 
-La dernière version du fichier de programme d’installation de la passerelle Log Analytics est disponible sur le site du [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=54443) ou sur le portail Azure.
+La dernière version du fichier de configuration de la passerelle Log Analytics est disponible dans le Centre de téléchargement Microsoft ([Lien de téléchargement](https://go.microsoft.com/fwlink/?linkid=837444)) ou sur le Portail Azure.
 
 Pour obtenir la passerelle Log Analytics sur le portail Microsoft Azure, procédez comme suit :
 

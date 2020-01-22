@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a3e2034792fdc0a4a8fed7885c7d5ad78ea24d9
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 17c9ea33f4706053ccde5e99686887aab7a823b6
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67501232"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942768"
 ---
 La famille de machines virtuelles de série B vous permet de choisir la taille de machine virtuelle vous offrant les performances de base nécessaires à votre charge de travail, avec la possibilité d’étendre jusqu’à 100 % les performances d’un processeur virtuel Intel® Broadwell E5-2673 v4 2.3 GHz ou Intel® Haswell 2.4 GHz E5-2673 v3.
 
@@ -21,16 +21,16 @@ Les machines virtuelles de la série B sont idéales pour les charges de travail
 
 La série B est disponible dans les tailles de machines virtuelles suivantes :
 
-| Size             | Processeurs virtuels  | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits initiaux | Crédits cumulés/heure | Crédits cumulés max. | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau |          
+| Size             | Processeurs virtuels  | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Perf. du processeur de base de machine virtuelle | Perf. du processeur max. de machine virtuelle | Crédits initiaux | Crédits gagnés / heure | Nombre maximal de crédits gagnés | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau |          
 |---------------|-------------|----------------|----------------------------|-----------------------|--------------------|--------------------|--------------------|----------------|----------------------------------------|-------------------------------------------|-------------------------------------------|----------|
 | Standard_B1ls<sup>1</sup>  | 1           | 0.5              | 4                          | 5 %                   | 100 %                   | 30                   | 3                  | 72            | 2                                      | 200 / 10                                  | 160 / 10                                  | 2  |
-| Standard_B1s  | 1           | 1              | 4                          | 10%                   | 100 %                   | 30                   | 6\.                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
+| Standard_B1s  | 1           | 1              | 4                          | 10 %                   | 100 %                   | 30                   | 6                  | 144            | 2                        | 400 / 10                                  | 320 / 10                                  | 2  |
 | Standard_B1ms | 1           | 2              | 4                          | 20%                   | 100 %                   | 30                   | 12                 | 288           | 2                         | 800 / 10                                  | 640 / 10                                  | 2  |
 | Standard_B2s  | 2           | 4              | 8                          | 40%                   | 200%                   | 60                   | 24                 | 576            | 4                                      | 1600 / 15                                 | 1280 / 15                                 | 3  |
-| Standard_B2ms | 2           | 8              | 16                         | 60 %                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
+| Standard_B2ms | 2           | 8              | 16                         | 60%                   | 200%                   | 60                   | 36                 | 864            | 4                                      | 2400 / 22.5                               | 1920 / 22.5                               | 3  |
 | Standard_B4ms | 4           | 16             | 32                         | 90%                   | 400%                   | 120                   | 54                 | 1296           | 8                                      | 3600 / 35                                 | 2880 / 35                                 | 4  |
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 800%                   | 240                   | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
-| Standard_B12ms | 12           | 48             | 96                         | 202 %                  | 1200 %                   | 360                   | 121                 | 2909           | 16                                     | 6480 / 75                                 | 4320 / 50                                  | 6\.  |
+| Standard_B12ms | 12           | 48             | 96                         | 202 %                  | 1200 %                   | 360                   | 121                 | 2909           | 16                                     | 6480 / 75                                 | 4320 / 50                                  | 6  |
 | Standard_B16ms | 16           | 64             | 128                         | 270 %                  | 1600 %                   | 480                   | 162                 | 3888           | 32                                     | 8640 / 100                                 | 4320 / 50                                 | 8  |
 | Standard_B20ms | 20           | 80             | 160                         | 337 %                  | 2000 %                   | 600                   | 203                 | 4860           | 32                                     | 10800 / 125                                 | 4320 / 50                                 | 8  |
 
@@ -96,7 +96,7 @@ Pour en savoir plus sur l’accès aux données de mesure pour Azure, consultez 
 ### <a name="q-how-are-credits-accumulated"></a>Q : Comment les crédits sont-ils cumulés ?
 **R** : Les taux de cumul et d’utilisation de la machine virtuelle sont définis pour qu’une machine virtuelle s’exécutant exactement à son niveau de performances de base ne génère aucun cumul net ou n’utilise aucun crédit.  Une machine virtuelle connaît une augmentation nette de ses crédits chaque fois qu’elle s’exécute sous son niveau de performances de base, et une diminution nette de ses crédits chaque fois qu’elle utilise le processeur à un niveau plus élevé de performances.
 
-**Exemple**:  Je déploie une machine virtuelle à l’aide de la taille B1ms pour ma petite application de base de données de pointage des présences. Cette taille permet à mon application d’utiliser jusqu’à 20 % d’un processeur virtuel qui est considéré comme étant ma base, soit 0,2 crédit par minute utilisable ou cumulable. 
+**Exemple** :  Je déploie une machine virtuelle à l’aide de la taille B1ms pour ma petite application de base de données de pointage des présences. Cette taille permet à mon application d’utiliser jusqu’à 20 % d’un processeur virtuel qui est considéré comme étant ma base, soit 0,2 crédit par minute utilisable ou cumulable. 
 
 Mon application est occupée en début et fin de journée de travail de mes employés, soit entre 7 h 00 et 9 h 00 et 16 h 00 et 18 h 00. Pendant les 20 heures restantes de la journée, mon application est en général en veille et n’utilise que 10 % du processeur virtuel. Pendant les heures creuses, je cumule 0,2 crédit par minute et utilise uniquement 0,1 crédit par minute. Ainsi, ma machine virtuelle cumule 0,1 x 60, soit 6 crédits par heure.  Pendant les 20 heures creuses, je cumule 120 crédits.  
 
@@ -119,3 +119,6 @@ Par exemple, dans l’exemple ci-dessus, vos performances de base sont de 20 %. 
     
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>Q : Que se passe-t-il si je déploie une image de système d’exploitation non prise en charge sur B1ls ?
 **R** : B1ls prend uniquement en charge les images Linux. Si vous déployez une autre image de système d’exploitation, vous ne bénéficierez peut-être pas de la meilleure expérience utilisateur.
+
+### <a name="q-what-happens-if-i-run-out-of-credits"></a>Q : Que se passe-t-il si je manque de crédits ?
+**R** : Si la machine virtuelle passe tous les crédits disponibles, elle est autorisée à utiliser uniquement l’UC de référence et ne pourra pas fonctionner en rafale au-dessus de cette ligne de base. 

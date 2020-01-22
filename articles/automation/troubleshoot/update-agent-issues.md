@@ -1,6 +1,6 @@
 ---
-title: Comprendre l’intégrité du Runbook Worker hybride Windows dans Azure Update Management
-description: Découvrez comment résoudre les problèmes liés au Runbook Worker hybride sur Windows qui prend en charge Update Management.
+title: Diagnostiquer le Runbook Worker hybride Windows – Azure Update Management
+description: Découvrez comment détecter et résoudre les problèmes liés au Runbook Worker hybride Azure Automation sur Windows qui prend en charge Update Management.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 284376759e9e2da1f42bd04eea6e564c9690d4a9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfc2c4a660afa4341a676fc79ab447c8cb86d5e1
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850123"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769810"
 ---
-# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>Comprendre l’intégrité de Windows Runbook Worker hybride dans Update Management
+# <a name="understand-and-resolve-windows-hybrid-runbook-worker-health-in-update-management"></a>Comprendre et résoudre l’intégrité du Runbook Worker hybride Windows dans Update Management
 
 De nombreuses raisons peuvent expliquer pourquoi votre machine n’est pas à l’état **Prêt** dans Update Management. Dans Update Management, vous pouvez vérifier l’intégrité d’un agent Runbook Worker hybride pour déterminer le problème sous-jacent. Cet article explique comment exécuter l’utilitaire de résolution des problèmes pour les machines Azure à partir du portail Azure et les machines non-Azure dans le [scénario hors connexion](#troubleshoot-offline).
 

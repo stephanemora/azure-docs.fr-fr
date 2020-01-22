@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 9389466b6291542563c068706479bf981c5880da
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692633"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933481"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Présélection expérimentale pour l’encodage sensible au contenu
 
@@ -29,7 +29,9 @@ L’intérêt d’aller au-delà d’une approche dans laquelle une présélecti
 
 Début 2017, Microsoft a publié la présélection [Adaptive Streaming](autogen-bitrate-ladder.md) (diffusion en continu adaptative) pour résoudre le problème de variabilité de la qualité et de résolution des vidéos source. Nos clients bénéficiaient d’une grande variété de contenus, certains en 1080p, d’autres en 720p, et quelques-uns en SD voire à des résolutions inférieures. En outre, tout le contenu source n’affichait pas les mezzanines haute qualité proposées par les studios de cinéma ou de télévision. La présélection Adaptive Streaming résout ces problèmes en s'assurant que l'échelle de débit ne dépasse jamais la résolution ou le débit moyen de la mezzanine en entrée.
 
-La présélection expérimentale d’encodage sensible au contenu étend ce mécanisme, en incorporant une logique personnalisée permettant à l’encodeur de rechercher la valeur de débit optimale pour une résolution donnée, mais sans nécessiter une analyse informatique complète. Le résultat net est que cette nouvelle présélection produit une sortie avec un débit inférieur à la présélection Adaptive Streaming, mais avec une qualité plus élevée. Consultez les exemples de graphiques suivants qui comparent le résultat obtenu avec des mesures de qualité comme [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) et [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). La source avait été créée en concaténant de petits clips très complexes extraits de films et de séries TV, destinés à soumettre l’encodeur à un test de contrainte. Par définition, cette présélection produit des résultats qui varient selon le contenu : cela signifie également que pour certains contenus, la réduction du débit ou l’amélioration de la qualité reste minime.
+La nouvelle présélection d’encodage sensible au contenu étend ce mécanisme, en incorporant une logique personnalisée permettant à l’encodeur de rechercher la valeur optimale de vitesse de transmission pour une résolution donnée, mais sans nécessiter une analyse informatique complète. Cette présélection produit un ensemble de fichiers MP4 alignés sur le groupe d’images. Étant donné un contenu d’entrée, le service effectue une analyse initiale légère du contenu d’entrée et utilise les résultats pour déterminer le nombre optimal de couches, le débit approprié et les paramètres de résolution pour la livraison par diffusion en continu adaptative. Cette présélection est particulièrement efficace pour les vidéos de complexité faible et moyenne, où les fichiers de sortie sont à des vitesses de transmission inférieures à la présélection Diffusion en continu adaptative, mais à une qualité qui offre toujours une bonne expérience aux viewers. La sortie contiendra des fichiers MP4 avec vidéo et audio entrelacées.
+
+Consultez les exemples de graphiques suivants qui comparent le résultat obtenu avec des mesures de qualité comme [PSNR](https://en.wikipedia.org/wiki/Peak_signal-to-noise_ratio) et [VMAF](https://en.wikipedia.org/wiki/Video_Multimethod_Assessment_Fusion). La source avait été créée en concaténant de petits clips très complexes extraits de films et de séries TV, destinés à soumettre l’encodeur à un test de contrainte. Par définition, cette présélection produit des résultats qui varient selon le contenu : cela signifie également que pour certains contenus, la réduction du débit ou l’amélioration de la qualité reste minime.
 
 ![Courbe de distorsion du débit (RD) avec PSNR](media/cae-experimental/msrv1.png)
 
@@ -39,7 +41,7 @@ La présélection expérimentale d’encodage sensible au contenu étend ce méc
 
 **Figure 2 : Courbe de distorsion du débit (RD) avec la métrique VMAF pour une source très complexe**
 
-La présélection est actuellement réglée pour des vidéos source de haute complexité et de haute qualité (films, émissions TV). Des travaux sont en cours pour s'adapter à des contenus peu complexes (par exemple, des présentations PowerPoint), ainsi qu'à des vidéos de moindre qualité. Cette présélection utilise également le même ensemble de résolutions que la présélection Adaptive Streaming. Microsoft développe actuellement des méthodes pour sélectionner l'ensemble minimal de résolutions en fonction du contenu. Voici les résultats pour une autre catégorie de contenu source, où l'encodeur a pu déterminer que l'entrée était de mauvaise qualité (de nombreux artefacts de compression en raison d’un faible débit). Notez qu'avec la présélection expérimentale, l’encodeur a décidé de ne produire qu'une seule couche de sortie - à un débit suffisamment faible pour que la plupart des clients puissent lire le flux sans saccade.
+Voici les résultats pour une autre catégorie de contenu source, où l’encodeur a pu déterminer que l’entrée était de mauvaise qualité (de nombreux artefacts de compression en raison d’une faible vitesse de transmission). Notez qu’avec la présélection sensible au contenu, l’encodeur a décidé de ne produire qu’une seule couche de sortie, à une vitesse de transmission suffisamment faible pour que la plupart des clients puissent lire le flux sans saccade.
 
 ![Courbe de distorsion du débit (RD) avec PSNR](media/cae-experimental/msrv3.png)
 
@@ -62,16 +64,16 @@ TransformOutput[] output = new TransformOutput[]
       // You can customize the encoding settings by changing this to use "StandardEncoderPreset" class.
       Preset = new BuiltInStandardEncoderPreset()
       {
-         // This sample uses the new experimental preset for content-aware encoding
-         PresetName = EncoderNamedPreset.ContentAwareEncodingExperimental
+         // This sample uses the new preset for content-aware encoding
+         PresetName = EncoderNamedPreset.ContentAwareEncoding
       }
    }
 };
 ```
 
 > [!NOTE]
-> Le préfixe « expérimental » est utilisé ici pour indiquer que les algorithmes sous-jacents sont encore en évolution. Au fil du temps, des modifications pourront être (et seront) appliquées à la logique utilisée pour générer des échelles de débit, dans le but de converger vers un algorithme robuste et adapté à une grande variété de conditions d'entrée. Les travaux d'encodage qui utilisent cette présélection seront toujours facturés en fonction du nombre de minutes de sortie, et la ressource de sortie peut être diffusée à partir de nos points de terminaison de streaming dans des protocoles comme DASH et HLS.
+> Les algorithmes sous-jacents sont sujets à des améliorations supplémentaires. Au fil du temps, des modifications pourront être (et seront) appliquées à la logique utilisée pour générer des échelles de vitesse de transmission, dans le but de fournir un algorithme robuste et adapté à une grande variété de conditions d’entrée. Les travaux d'encodage qui utilisent cette présélection seront toujours facturés en fonction du nombre de minutes de sortie, et la ressource de sortie peut être diffusée à partir de nos points de terminaison de streaming dans des protocoles comme DASH et HLS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous connaissez cette nouvelle option d'optimisation de vos vidéos, nous vous invitons à l'essayer. Vous pouvez nous envoyer vos commentaires en utilisant les liens à la fin de cet article, ou nous contacter directement à l’adresse <amsved@microsoft.com>.
+Maintenant que vous connaissez cette nouvelle option d'optimisation de vos vidéos, nous vous invitons à l'essayer. Vous pouvez nous envoyer vos commentaires en utilisant les liens à la fin de cet article.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7705ea3b60d8c8e2b189ad555d1b53fa395aa1fb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459164"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912503"
 ---
 Le Calcul Azure propose des tailles de machines virtuelles qui sont isolées pour un type de matériel spécifique et dédiées à un seul et même client.  Ces tailles de machines virtuelles conviennent mieux aux charges de travail qui nécessitent un niveau élevé d’isolation par rapport aux autres clients pour les charges de travail qui impliquent des éléments tels que les exigences réglementaires et de conformité.  Les clients peuvent également choisir de subdiviser les ressources de ces machines virtuelles isolées à l’aide de la [prise en charge d’Azure pour les machines virtuelles imbriquées](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -30,7 +30,7 @@ L’utilisation d’une taille isolée garantit que votre machine virtuelle sera
 Pour plus d’informations sur chaque taille isolée disponible, [cliquez ici](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>Retrait de l’isolation D15_v2/DS15_v2 le 15 février 2020
-L’hôte dédié Azure est désormais GA, ce qui vous permet d’exécuter les machines virtuelles Linux et Windows de votre organisation sur des serveurs physiques à locataire unique. Nous prévoyons de remplacer entièrement les machines virtuelles Azure isolées par Azure Dedicated Host. Après le **15 février 2020**, les machines virtuelles Azure D15_v2/DS15_v2 peuvent ne plus être isolées du matériel.
+L’hôte dédié Azure est désormais GA, ce qui vous permet d’exécuter les machines virtuelles Linux et Windows de votre organisation sur des serveurs physiques à locataire unique. Nous prévoyons de remplacer entièrement les machines virtuelles Azure isolées par Azure Dedicated Host. Après le **15 février 2020**, les machines virtuelles Azure D15_v2/DS15_v2 pourront ne plus être isolées du matériel.
 
 ## <a name="how-does-this-affect-me"></a>Dans quelle mesure cela m’affecte-t-il ?
 Après le 15 février 2020, nous ne fournirons plus de garantie d’isolation pour vos machines virtuelles Azure D15_v2/DS15_v2. 

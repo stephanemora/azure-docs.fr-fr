@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: d337d026e89d2383e25498288ba11a9c60f77b39
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228995"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044715"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planifier un réseau virtuel pour Azure HDInsight
 
@@ -251,7 +251,13 @@ Pour plus d’informations sur les règles de pare-feu pour les appliances virtu
 
 ## <a name="load-balancing"></a>Équilibrage de la charge
 
-Lorsque vous créez un cluster HDInsight, un équilibreur de charge est également créé. Le type de cet équilibreur de charge se trouve au [niveau de la référence SKU de base](../load-balancer/load-balancer-overview.md#skus) qui a certaines contraintes. L’une de ces contraintes est que si vous avez deux réseaux virtuels dans des régions différentes, vous ne pouvez pas vous connecter aux équilibreurs de charge de base. Pour plus d’informations, consultez [FAQ sur les réseaux virtuels : contraintes sur le peering de réseaux virtuels globaux](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+Lorsque vous créez un cluster HDInsight, un équilibreur de charge est également créé. Le type de cet équilibreur de charge se trouve au [niveau de la référence SKU de base](../load-balancer/concepts-limitations.md#skus) qui a certaines contraintes. L’une de ces contraintes est que si vous avez deux réseaux virtuels dans des régions différentes, vous ne pouvez pas vous connecter aux équilibreurs de charge de base. Pour plus d’informations, consultez [FAQ sur les réseaux virtuels : contraintes sur le peering de réseaux virtuels globaux](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+
+## <a name="transport-layer-security"></a>Protocole Transport Layer Security (TLS)
+
+Les connexions au cluster via le point de terminaison de cluster public `https://<clustername>.azurehdinsight.net` sont transmises par proxy via des nœuds de passerelle de cluster. Ces connexions sont sécurisées à l’aide d’un protocole appelé TLS. L’application de versions ultérieures du protocole TLS sur les passerelles améliore la sécurité de ces connexions. Pour plus d’informations sur les raisons pour lesquelles vous devez utiliser des versions plus récentes du protocole TLS, consultez [Résolution du problème TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+
+Vous pouvez contrôler la ou les versions minimales du protocole TLS prises en charge sur les nœuds de passerelle pour votre cluster HDInsight à l’aide de la propriété *minSupportedTlsVersion* dans un modèle Resource Manager au moment du déploiement. Pour obtenir un exemple de modèle, consultez [Modèle de démarrage rapide TLS 1.2 minimum pour HDInsight](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Cette propriété prend en charge trois valeurs : « 1.0 », « 1.1 » et « 1.2 », qui correspondent respectivement à TLS 1.0+, TLS 1.1+ et TLS 1.2+. Par défaut, si vous ne spécifiez pas cette propriété, les clusters Azure HDInsight acceptent les connexions TLS 1.2 sur les points de terminaison HTTPS publics, ainsi que les versions plus anciennes pour la compatibilité descendante. Finalement, HDInsight applique le protocole TLS 1.2 ou une version ultérieure sur toutes les connexions de nœud de passerelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

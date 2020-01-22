@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 320611f05190d755c85a94a8e8eb9a1c04b3310e
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 76eb3a135f7a32a30cfa62546a644bc77cf39998
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508827"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934587"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migration vers les outils de développement Azure Resource Manager pour les clusters HDInsight
 
@@ -225,8 +225,7 @@ Cette section fournit des liens vers des rubriques qui expliquent comment effect
 
 | Comment... avec le SDK HDInsight Resource Manager | Liens |
 | --- | --- |
-| Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET |Consultez [Créer des clusters basés sur Linux dans HDInsight à l’aide du Kit de développement logiciel (SDK) .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
-| Personnaliser un cluster à l’aide d’une action de script avec le Kit de développement logiciel (SDK) .NET |Consultez [Personnaliser des clusters HDInsight sous Linux à l’aide d’une action de script](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
+| SDK Azure HDInsight pour .NET|Consultez [Kit de développement logiciel (SDK) Azure HDInsight pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet) |
 | Authentifier des applications de manière interactive à l’aide d’Azure Active Directory avec le Kit de développement logiciel (SDK) .NET |Consultez [Exécuter des requêtes Apache Hive avec le Kit de développement logiciel (SDK) .NET HDInsight](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). Dans cet article, l’extrait de code utilise l’approche de l’authentification interactive. |
 | Authentifier des applications de manière non interactive à l’aide d’Azure Active Directory avec le Kit de développement logiciel (SDK) .NET |Consultez [Créer des applications HDInsight d’authentification non interactives](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
 | Envoyer une tâche Apache Hive avec le SDK .NET |Consultez [Envoyer des tâches Apache Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). |

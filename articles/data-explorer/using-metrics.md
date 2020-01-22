@@ -6,19 +6,19 @@ ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.openlocfilehash: f5b47a5ae9d13711233d0e4852ec487af7344622
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.date: 01/14/2020
+ms.openlocfilehash: 7ff504a466224594c0098bc9d80557d45e4197a6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173791"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027893"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Superviser les performances, l’intégrité et l’utilisation d’Azure Data Explorer avec des métriques
 
 Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une base de données pour pouvoir exécuter des requêtes dessus. Les métriques Azure Data Explorer fournissent des indicateurs clés concernant l’intégrité et les performances des ressources de cluster. Utilisez les métriques détaillées dans cet article pour superviser l’intégrité et les performances du cluster Azure Data Explorer dans votre scénario spécifique en tant que métriques autonomes. Vous pouvez également utiliser des métriques comme base pour les [tableaux de bord Azure](/azure/azure-portal/azure-portal-dashboards) et les [alertes Azure](/azure/azure-monitor/platform/alerts-metric-overview) operationnels.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/)
 
@@ -26,7 +26,7 @@ Azure Data Explorer est un service d’analytique données rapide et complèteme
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="using-metrics"></a>Utilisation de métriques
 
@@ -42,18 +42,22 @@ Dans le volet Métriques :
 
     **Mesure** | **Unité** | **Agrégation** | **Description de la métrique**
     |---|---|---|---|
-    | Utilisation du cache | Pourcentage | Moy, Max, Min | Pourcentage des ressources de cache allouées en cours d’utilisation par le cluster. Le cache fait référence à la taille du disque SSD allouée pour l’activité des utilisateurs conformément à la stratégie de cache définie. Une utilisation moyenne du cache de 80 % ou moins est un état acceptable pour un cluster. Si l’utilisation moyenne du cache est supérieure à 80 %, vous devez effectuer un [scale-up](manage-cluster-vertical-scaling.md) du cluster vers un niveau tarifaire à stockage optimisé, ou un [scale-out](manage-cluster-horizontal-scaling.md) afin d’ajouter des instances. Vous pouvez également adapter la stratégie de cache (moins de jours dans le cache). Si l’utilisation du cache est supérieure à 100 %, la taille des données à mettre en cache, conformément à la stratégie de mise en cache, est supérieure à la taille totale du cache sur le cluster. |
+    | Utilisation du cache | Pourcentage | Moy, Max, Min | Pourcentage des ressources de cache allouées en cours d’utilisation par le cluster. Le cache désigne la taille du disque SSD allouée pour l’activité des utilisateurs conformément à la stratégie de cache définie. Une utilisation moyenne du cache de 80 % ou moins est un état acceptable pour un cluster. Si l’utilisation moyenne du cache est supérieure à 80 %, vous devez effectuer un [scale-up](manage-cluster-vertical-scaling.md) du cluster vers un niveau tarifaire à stockage optimisé, ou un [scale-out](manage-cluster-horizontal-scaling.md) afin d’ajouter des instances. Vous pouvez également adapter la stratégie de cache (moins de jours dans le cache). Si l’utilisation du cache est supérieure à 100 %, la taille des données à mettre en cache, conformément à la stratégie de mise en cache, est supérieure à la taille totale du cache sur le cluster. |
     | UC | Pourcentage | Moy, Max, Min | Pourcentage des ressources de calcul allouées en cours d’utilisation par les ordinateurs du cluster. Une utilisation moyenne de l’UC de 80 % ou moins est acceptable pour un cluster. La valeur maximale d’utilisation de l’UC est de 100 %, ce qui signifie qu’il n’existe aucune ressource de calcul supplémentaire pour traiter les données. Quand les performances d’un cluster ne sont pas satisfaisantes, vérifiez la valeur maximale d’utilisation de l’UC afin de déterminer si des UC spécifiques sont bloquées. |
     | Événements traités (pour Event Hubs) | Count | Max, Min, Somme | Nombre total d’événements lus à partir de hubs d’événements et traités par le cluster. Les événements sont divisés en événements rejetés et en événements acceptés par le moteur de cluster. |
     | Latence d’ingestion | Secondes | Moy, Max, Min | Latence des données ingérées, depuis la réception des données dans le cluster jusqu’à ce qu’elles soient prêtes à être interrogées. La période de latence d’ingestion varie en fonction du scénario d’ingestion. |
     | Résultat de l’ingestion | Count | Count | Nombre total d’opérations d’ingestion ayant échoué et réussi. Utilisez **Appliquer la division** pour créer des compartiments de résultats de réussite et d’échec, et analyser les dimensions (**Valeur** > **État**).|
     | Utilisation de l’ingestion | Pourcentage | Moy, Max, Min | Pourcentage des ressources réelles utilisées pour ingérer des données par rapport aux ressources totales allouées, dans la stratégie de capacité, pour effectuer l’ingestion. La stratégie de capacité par défaut est la suivante : pas plus de 512 opérations d’ingestion simultanées ou 75 % des ressources de cluster investies dans l’ingestion. Une utilisation moyenne de l’ingestion de 80 % ou moins est un état acceptable pour un cluster. La valeur maximale de l’utilisation d’ingestion est 100 %, ce qui signifie que toute la capacité d’ingestion de cluster est utilisée et qu’une file d’attente d’ingestion risque d’être créée. |
     | Volume d’ingestion (en Mo) | Count | Max, Min, Somme | Taille totale des données ingérées dans le cluster (en Mo) avant la compression. |
-    | Keep alive | Count | Moy | Effectue le suivi de la réactivité du cluster. Un cluster entièrement réactif retourne la valeur 1, et un cluster bloqué ou déconnecté retourne 0. |
+    | Keep alive | Count | Avg | Effectue le suivi de la réactivité du cluster. Un cluster entièrement réactif retourne la valeur 1, et un cluster bloqué ou déconnecté retourne 0. |
     | Durée de la requête | Secondes | Nombre, Moy, Min, Max, Somme | Durée totale jusqu’à réception des résultats de requête (n’inclut pas la latence du réseau). |
-    | | | |
+    | Nombre total de demandes simultanées | Count | Moy, Max, Min, Somme | Nombre de requêtes exécutées en parallèle dans le cluster. Cette métrique est un bon moyen d’estimer la charge sur le cluster. |
+    | Nombre total de demandes limitées | Count | Moy, Max, Min, Somme | Nombre de requêtes limitées (rejetées) dans le cluster. Le nombre maximal de requêtes simultanées (parallèles) autorisées est défini dans la stratégie de requête simultanée. |
+    | Nombre total de commandes limitées | Count | Moy, Max, Min, Somme | Nombre de commandes limitées (rejetées) dans le cluster, étant donné que le nombre maximal autorisé de commandes simultanées (parallèles) a été atteint. |
+    | Nombre total d’étendues | Count | Moy, Max, Min, Somme | Nombre total d’étendues de données dans le cluster. Les modifications de cette métrique peuvent impliquer des modifications massives de structures de données et une charge importante sur le cluster, car la fusion d’étendues de données est une activité gourmande en ressources d’UC. |
+    | | | | |
 
-    Informations supplémentaires concernant les [métriques Azure Data Explorer prises en charge](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
+    Informations supplémentaires concernant les [métriques de cluster Azure Data Explorer prises en charge](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
 
 2. Sélectionnez le bouton **Ajouter une métrique** pour afficher le tracé de plusieurs métriques sur le même graphique.
 3. Sélectionnez le bouton **+ Nouveau graphique** pour afficher plusieurs graphiques dans une même vue.
@@ -67,6 +71,6 @@ Informations supplémentaires sur l’utilisation de [Metrics Explorer](/azure/a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Ingérer et interroger des données de supervision dans Azure Data Explorer](/azure/data-explorer/ingest-data-no-code)
+* [Tutoriel : Ingérer et interroger des données de supervision dans Azure Data Explorer](/azure/data-explorer/ingest-data-no-code)
 * [Superviser les opérations d’ingestion d’Azure Data Explorer à l’aide des journaux de diagnostic](/azure/data-explorer/using-diagnostic-logs)
-* [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)
+* [Démarrage rapide : Interroger des données dans Azure Data Explorer](web-query-data.md)

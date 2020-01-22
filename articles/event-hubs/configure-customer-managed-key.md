@@ -8,20 +8,17 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 3af951d120282767bd71bc569d8c0bfe39dafffe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705462"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903284"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure (Préversion)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos via le portail Azure
 Azure Event Hubs fournit une fonctionnalité de chiffrement des données au repos avec Azure Storage Service Encryption (Azure SSE). Event Hubs utilise le service Stockage Azure pour stocker les données. Par défaut, toutes les données stockées avec ce service sont chiffrées à l'aide de clés gérées par Microsoft. 
 
->[!NOTE]
-> Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire. Nous vous déconseillons de l’utiliser dans un environnement de production.
-
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Event Hubs prend désormais en charge le chiffrement des données au repos à l'aide de clés gérées par Microsoft ou de clés gérées par le client (Bring Your Own Key - BYOK). Cette fonctionnalité vous permet de créer, de faire pivoter, de désactiver et de révoquer l'accès aux clés gérées par le client qui sont utilisées pour chiffrer les données Azure Event Hubs au repos.
 
 L'activation de la fonctionnalité BYOK sur votre espace de noms ne s'effectue qu'une seule fois.
@@ -41,7 +38,7 @@ Pour activer des clés gérées par le client dans le portail Azure, procédez c
 
 1. Accédez à votre cluster Event Hubs Dedicated.
 1. Sélectionnez l'espace de noms sur lequel vous souhaitez activer la fonctionnalité BYOK.
-1. Sur la page **Paramètres** de votre espace de noms Event Hubs, sélectionnez **Chiffrement (préversion)** . 
+1. Sur la page **Paramètres** de votre espace de noms Event Hubs, sélectionnez **Chiffrement**. 
 1. Sélectionnez **Clé gérée par le client**, comme indiqué sur l'illustration suivante. 
 
     ![Activer une clé gérée par le client](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -72,8 +69,6 @@ Après avoir activé une clé gérée par le client, vous devez l'associer à vo
         ![Sélectionner une clé dans le coffre de clés](./media/configure-customer-managed-key/select-key-from-key-vault.png)
     1. Renseignez les détails de la clé, puis cliquez sur **Sélectionner**. Cela permettra de chiffrer les données au repos à l'aide d'une clé gérée par le client sur l'espace de noms. 
 
-        > [!NOTE]
-        > Dans la préversion, vous ne pouvez sélectionner qu'une seule clé. 
 
 ## <a name="rotate-your-encryption-keys"></a>Faire pivoter vos clés de chiffrement
 Vous pouvez faire pivoter votre clé dans le coffre de clés à l'aide du mécanisme de rotation d'Azure Key Vault. Pour plus d'informations, consultez [Configurer l'audit et la rotation des clés](../key-vault/key-vault-key-rotation-log-monitoring.md). Des dates d'activation et d'expiration peuvent également être définies pour automatiser la rotation des clés. Le service Event Hubs détectera les nouvelles versions des clés et commencera à les utiliser automatiquement.
@@ -83,11 +78,8 @@ La révocation de l'accès aux clés de chiffrement ne videra pas les données d
 
 Une fois la clé de chiffrement révoquée, le service Event Hubs devient inutilisable sur l'espace de noms chiffré. Si l'accès à la clé est activé ou si la clé de suppression est restaurée, le service Event Hubs choisira la clé afin de vous permettre d'accéder aux données à partir de l'espace de noms Event Hubs chiffré.
 
-> [!NOTE]
-> Si vous supprimez une clé de chiffrement existante de votre coffre de clés et que vous la remplacez par une nouvelle clé sur l'espace de noms Event Hubs, dans la mesure où la clé supprimée est toujours valide (car mise en cache) pendant une heure maximum, vos anciennes données (qui ont été chiffrées avec l'ancienne clé) peuvent rester accessibles avec les nouvelles données, qui ne sont désormais accessibles qu'à l'aide de la nouvelle clé. Il s'agit du comportement par défaut dans la préversion de la fonctionnalité. 
-
 ## <a name="set-up-diagnostic-logs"></a>Configurer les journaux de diagnostic 
-En configurant les journaux de diagnostic pour les espaces de noms BYOK, vous disposez des informations requises sur les opérations lorsqu'un espace de noms est chiffré à l'aide de clés gérées par le client. Ces journaux peuvent être activés et ultérieurement transmis en continu à un hub d'événements, analysés via l'analytique des journaux d'activité ou transmis en continu au stockage pour effectuer des analyses personnalisées. Pour en savoir plus sur les journaux de diagnostic, consultez [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/resource-logs-overview.md).
+En configurant les journaux de diagnostic pour les espaces de noms BYOK, vous disposez des informations requises sur les opérations lorsqu'un espace de noms est chiffré à l'aide de clés gérées par le client. Ces journaux peuvent être activés et ultérieurement transmis en continu à un hub d'événements, analysés via l'analytique des journaux d'activité ou transmis en continu au stockage pour effectuer des analyses personnalisées. Pour en savoir plus sur les journaux de diagnostic, consultez [Présentation des journaux de diagnostic Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Activer les journaux utilisateur
 Pour activer les journaux relatifs aux clés gérées par le client, procédez comme suit.
@@ -107,17 +99,17 @@ Pour activer les journaux relatifs aux clés gérées par le client, procédez c
 ## <a name="log-schema"></a>Schéma du journal 
 Tous les journaux d’activité sont stockés au format JSON (JavaScript Object Notation). Chaque entrée comporte des champs de type chaîne au format décrit dans le tableau suivant. 
 
-| Nom | Description |
+| Name | Description |
 | ---- | ----------- | 
 | TaskName | Description de la tâche en échec. |
 | ActivityId | ID interne utilisé à des fins de suivi. |
-| category | Définit la classification de la tâche. Par exemple, si la clé de votre coffre de clés est désactivée, il s'agit d'une catégorie d'informations ou, s'il est impossible d'annuler l'inclusion d'une clé dans un wrapper, il peut s'agir d'une erreur. |
+| catégorie | Définit la classification de la tâche. Par exemple, si la clé de votre coffre de clés est désactivée, il s'agit d'une catégorie d'informations ou, s'il est impossible d'annuler l'inclusion d'une clé dans un wrapper, il peut s'agir d'une erreur. |
 | resourceId | ID de ressource Azure Resource Manager |
 | keyVault | Nom complet du coffre de clés. |
 | key | Nom de clé utilisé pour chiffrer l'espace de noms Event Hubs. |
 | version | Version de la clé utilisée. |
-| operation | Opération exécutée sur la clé dans votre coffre de clés. Par exemple, activation/désactivation de la clé ou inclusion/annulation de l'inclusion dans un wrapper. |
-| code | Code associé à l'opération. Exemple : Code d'erreur ; 404 signifie que la clé est introuvable. |
+| opération | Opération exécutée sur la clé dans votre coffre de clés. Par exemple, activation/désactivation de la clé ou inclusion/annulation de l'inclusion dans un wrapper. |
+| code | Code associé à l'opération. Exemple : Code d'erreur ; 404 signifie que la clé est introuvable. |
 | message | Tout message d'erreur associé à l'opération. |
 
 Voici un exemple de journal pour une clé gérée par le client :
@@ -152,7 +144,7 @@ Voici un exemple de journal pour une clé gérée par le client :
 }
 ```
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 Il est recommandé de toujours activer les journaux, comme indiqué dans la section précédente. Cela permet de suivre les activités lorsque le chiffrement BYOK est activé. Cela permet également d'identifier les problèmes.
 
 Vous trouverez ci-dessous les codes d'erreur courants à rechercher lorsque le chiffrement BYOK est activé.
@@ -172,12 +164,8 @@ Vous trouverez ci-dessous les codes d'erreur courants à rechercher lorsque le c
 > [!IMPORTANT]
 > Pour activer la géorécupération d'urgence sur un espace de noms utilisant le chiffrement BYOK, l'espace de noms secondaire destiné à l'appariement doit se trouver dans un cluster dédié, et une identité managée affectée par le système doit y être activée. Pour en savoir plus, consultez [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-> [!NOTE]
-> Si des points de terminaison de service de réseau virtuel sont configurés sur Azure Key Vault pour votre espace de noms Event Hubs, la fonctionnalité BYOK ne sera pas prise en charge. 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 - [Vue d’ensemble d’Event Hubs](event-hubs-about.md)
 - [Vue d'ensemble de Key Vault](../key-vault/key-vault-overview.md)
 

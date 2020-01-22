@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989633"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896352"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption pour les machines virtuelles Linux 
 
@@ -25,6 +25,7 @@ Si vous utilisez [Azure Security Center](../../security-center/index.yml), vous 
 > [!WARNING]
 > - Si vous avez déjà utilisé Azure Disk Encryption avec Azure AD pour chiffrer une machine virtuelle, vous devez continuer à utiliser cette option pour chiffrer votre machine virtuelle. Pour plus d’informations, consultez [Azure Disk Encryption avec Azure AD (version précédente)](disk-encryption-overview-aad.md). 
 > - Certaines recommandations peuvent entraîner une augmentation de l’utilisation des données, des réseaux ou des ressources de calcul débouchant sur des coûts de licence ou d’abonnement supplémentaires. Vous devez disposer d’un abonnement Azure actif valide pour créer des ressources dans Azure dans les régions prises en charge.
+> - Actuellement, les machines virtuelles de 2e génération ne prennent pas en charge Azure Disk Encryption. Pour plus d’informations, consultez [Prise en charge des machines virtuelles de 2e génération dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2).
 
 Vous pouvez découvrir les notions de base d’Azure Disk Encryption pour Linux en quelques minutes avec les guides de démarrage rapide [Créer et chiffrer une machine virtuelle Linux avec Azure CLI](disk-encryption-cli-quickstart.md) et [Créer et chiffrer une machine virtuelle Linux avec Azure PowerShell](disk-encryption-powershell-quickstart.md).
 
@@ -62,7 +63,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | RHEL | 7.5 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.4 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 7.3 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
-| RHEL | 7,2 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
+| RHEL | 7.2 | Disque de système d’exploitation et de données (voir la remarque ci-dessous) |
 | RHEL | 6.8 | Disque de données (voir la remarque ci-dessous) |
 | RHEL | 6.7 | Disque de données (voir la remarque ci-dessous) |
 | CentOS | 7,7 | Disque de système d’exploitation et de données |
@@ -72,7 +73,7 @@ Les distributions de serveur Linux qui ne sont pas approuvées par Azure ne pren
 | CentOS | 7.3 | Disque de système d’exploitation et de données |
 | CentOS | 7.2n | Disque de système d’exploitation et de données |
 | CentOS | 6.8 | Disque de données |
-| openSUSE | 42.3 | Disque de données |
+| OpenSUSE | 42.3 | Disque de données |
 | SLES | 12-SP4 | Disque de données |
 | SLES | 12-SP3 | Disque de données |
 
@@ -101,7 +102,7 @@ Pour l’activation de la fonctionnalité Azure Disk Encryption, les machines vi
   - La machine virtuelle Linux doit être capable de se connecter au point de terminaison de stockage Azure qui héberge le référentiel d’extensions Azure et à un compte de stockage Azure qui héberge les fichiers de disque dur virtuel.
   -  Si votre stratégie de sécurité limite l’accès à Internet à partir des machines virtuelles Azure, vous pouvez résoudre l’URI ci-dessus et configurer une règle spécifique pour autoriser les connexions sortantes vers les adresses IP. Pour plus d’informations, consultez l’article [Azure Key Vault derrière un pare-feu](../../key-vault/key-vault-access-behind-firewall.md).  
 
-## <a name="encryption-key-storage-requirements"></a>Conditions requises pour le stockage des clés de chiffrement  
+## <a name="encryption-key-storage-requirements"></a>Exigences liées au stockage des clés de chiffrement  
 
 Azure Disk Encryption exige Azure Key Vault pour contrôler et gérer les clés et les secrets de chiffrement de disque. Votre coffre de clés et vos machines virtuelles doivent se trouver dans la même région et le même abonnement Azure.
 
@@ -113,7 +114,7 @@ Le tableau suivant définit certains termes courants utilisés dans la documenta
 | Terminologie | Définition |
 | --- | --- |
 | Azure Key Vault | Key Vault est un service de gestion de clés de chiffrement basé sur des modules de sécurité matériels validés FIPS (Federal Information Processing Standard). Ces normes permettent de protéger vos clés de chiffrement et vos secrets sensibles. Pour plus d’informations, consultez la documentation [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) et [Création et configuration d’un coffre de clés pour Azure Disk Encryption](disk-encryption-key-vault.md). |
-| D’Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) est optimisé pour gérer et administrer des ressources Azure en ligne de commande.|
+| Azure CLI | [Azure CLI](/cli/azure/install-azure-cli) est optimisé pour gérer et administrer des ressources Azure en ligne de commande.|
 | DM-Crypt |[DM-Crypt](https://gitlab.com/cryptsetup/cryptsetup/wikis/DMCrypt) est le sous-système de chiffrement de disque transparent Linux utilisé pour activer le chiffrement de disque sur les machines virtuelles Linux. |
 | Clé de chiffrement principale (KEK) | Clé asymétrique (RSA 2048) que vous pouvez utiliser pour protéger ou encapsuler le secret. Vous pouvez fournir une clé protégée par un module de sécurité matériel ou une clé protégée par logiciel. Pour plus d’informations, consultez la documentation [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) et [Création et configuration d’un coffre de clés pour Azure Disk Encryption](disk-encryption-key-vault.md). |
 | Applets de commande PowerShell | Pour plus d’informations, voir [Cmdlets Azure PowerShell](/powershell/azure/overview). |

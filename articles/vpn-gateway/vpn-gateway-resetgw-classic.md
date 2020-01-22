@@ -1,18 +1,18 @@
 ---
-title: Réinitialiser une passerelle VPN Azure pour rétablir les tunnels IPsec | Microsoft Docs
+title: Réinitialiser une passerelle VPN Azure pour rétablir le tunnel IPsec
 description: Cet article vous guide dans la réinitialisation de votre passerelle VPN Azure pour rétablir les tunnels IPsec. Cet article s’applique aux passerelles VPN dans le modèle de déploiement classique et le modèle de déploiement Resource Manager.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 07/05/2019
+ms.date: 01/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 92978815af22e3ce1a549b9ca3e335befca8c918
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: e3a5807a0ccfa39cc80acacedaa5fb4d3afaaed3
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563046"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862762"
 ---
 # <a name="reset-a-vpn-gateway"></a>Réinitialiser une passerelle VPN
 

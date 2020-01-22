@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1023583b5527e4d565580e8f094dc2f68d38f4ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78f148f435edee16805cc8b0ae78652a17826727
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424804"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768146"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Référence des paramètres d’accès conditionnel Azure Active Directory
 
@@ -29,8 +29,6 @@ Cet article fournit des informations de prise en charge sur les options de confi
 - Condition des applications clientes
 - Exigence d’une application cliente approuvée
 
-Si ce n’est pas les informations que vous recherchez, laissez un commentaire à la fin de cet article.
-
 ## <a name="cloud-apps-assignments"></a>Affectations des applications cloud
 
 Les stratégies d’accès conditionnel vous permettent de contrôler la façon dont les utilisateurs accèdent à vos [applications cloud](conditions.md#cloud-apps-and-actions). Lorsque vous configurez une stratégie d’accès conditionnel, vous devez sélectionner au moins une application cloud. 
@@ -41,6 +39,7 @@ Les stratégies d’accès conditionnel vous permettent de contrôler la façon 
 
 Vous pouvez affecter une stratégie d’accès conditionnel aux applications cloud Microsoft suivantes :
 
+- Office 365 (préversion)
 - Azure Analysis Services
 - Azure DevOps
 - Azure SQL Database et Data Warehouse - [En savoir plus](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
@@ -73,6 +72,22 @@ Vous pouvez affecter une stratégie d’accès conditionnel aux applications clo
 - Skype Entreprise Online
 - Réseau privé virtuel (VPN)
 - Windows Defender ATP
+
+### <a name="office-365-preview"></a>Office 365 (préversion)
+
+Office 365 fournit des services de collaboration et de productivité informatiques comme Exchange, SharePoint et Microsoft Teams. Les services cloud Office 365 sont profondément intégrés pour garantir des expériences fluides et collaboratives. L’application Office 365 (préversion) permet de cibler ces services en même temps. Nous vous recommandons d’utiliser la nouvelle application Office 365 (préversion) plutôt que de cibler des applications cloud individuelles comme Office 365 Exchange Online et Office 365 SharePoint Online afin d’éviter les problèmes susceptibles de survenir en raison de stratégies incohérentes et de dépendances de service.
+
+Applications clés incluses dans l’application cliente Office 365 (préversion) :
+
+- Office 365 Exchange Online
+- Office 365 SharePoint Online
+- Microsoft Teams
+- Office 365 Yammer
+- Portail Office
+- Microsoft Forms
+- Microsoft Power Automate
+- Planificateur Microsoft
+- Microsoft PowerApps
 
 ### <a name="other-applications"></a>Autres applications
 
@@ -171,7 +186,7 @@ Ce paramètre a un impact sur les tentatives d’accès provenant des applicatio
 | Application Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS et Android |
 | Application de messagerie/calendrier/contacts, Outlook 2016, Outlook 2013 (avec l’authentification moderne)| Office 365 Exchange Online | Windows 10 |
 | Stratégie MFA et d’emplacement pour les applications. Les stratégies basées sur les appareils ne sont pas prises en charge.| Tout service d’application Mes applications| Android et iOS |
-| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
+| Services Microsoft Teams, soit tous les services qui prennent en charge Microsoft Teams et toutes ses applications clientes : Bureau Windows, iOS, Android, WP et client web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android et macOS |
 | Applications Office 2016, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
 | Applications Office 2016, applications Universal Office, Office 2013 (avec authentification moderne), client de synchronisation OneDrive (voir [notes](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), prise en charge à venir des groupes Office et de l’application SharePoint | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (Word, Excel, PowerPoint, OneNote uniquement). Prise en charge de OneDrive Entreprise prévue| Office 365 SharePoint Online| macOS|

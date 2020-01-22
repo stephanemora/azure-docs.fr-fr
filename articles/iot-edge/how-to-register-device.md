@@ -4,17 +4,17 @@ description: Utiliser l’extension IoT pour Azure CLI afin d’inscrire un nouv
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/12/2019
+ms.date: 01/08/2020
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5ab9c778adef29a8e531158e062e9d35d4e80ae4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32121681b14989f23e29c3701826b4494988c263
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434124"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772429"
 ---
 # <a name="register-an-azure-iot-edge-device"></a>Inscrire un appareil Azure IoT Edge
 
@@ -22,9 +22,9 @@ Avant d’utiliser vos appareils IoT avec Azure IoT Edge, vous devez les inscrir
 
 Vous avez le choix d’inscrire à l’aide de l’un des outils suivants :
 
-* Le [portail Azure](https://portal.azure.com) fournit une interface utilisateur graphique pour créer, afficher et gérer des ressources Azure.
-* [Visual Studio Code](https://code.visualstudio.com/) est un éditeur de code source. Les extensions IoT Azure facilitent la gestion des ressources IoT à partir du même outil que celui dans lequel vous développez des solutions IoT.
-* [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) est un outil en ligne de commande pour la gestion des ressources Azure. Ses commandes réutilisables sont utiles pour l’automatisation des tâches.
+* [Inscrivez un appareil dans le Portail Azure](#register-in-the-azure-portal) si vous préférez une interface utilisateur graphique pour créer, afficher et gérer des ressources Azure.
+* [Inscrivez un appareil auprès de Visual Studio Code](#register-with-visual-studio-code) si vous préférez gérer les ressources IoT Azure dans le même emplacement que celui dans lequel vous développez vos solutions IoT.
+* [Inscrivez un appareil auprès d’Azure CLI](#register-with-the-azure-cli) si vous préférez des outils de ligne de commande pour la gestion des ressources Azure ou si vous souhaitez automatiser des tâches.
 
 ## <a name="register-in-the-azure-portal"></a>S’inscrire dans le portail Azure
 

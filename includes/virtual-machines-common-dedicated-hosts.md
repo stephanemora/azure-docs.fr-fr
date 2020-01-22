@@ -8,13 +8,18 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390544"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833899"
 ---
+## <a name="limitations"></a>Limites
+
+- Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
+- Les séries de machines virtuelles suivantes sont prises en charge : DSv3 et ESv3. 
+
 ## <a name="benefits"></a>Avantages 
 
 La réservation de l’intégralité de l’hôte offre les avantages suivants:
@@ -22,7 +27,6 @@ La réservation de l’intégralité de l’hôte offre les avantages suivants:
 -   Isolation matérielle au niveau du serveur physique. Aucune autre machine virtuelle ne sera placée sur vos hôtes. Les hôtes dédiés sont déployés dans les mêmes centres de données et partagent le même réseau et la même infrastructure de stockage sous-jacente que les autres hôtes non isolés.
 -   Contrôle des événements de maintenance initiés par la plateforme Azure. Alors que la majorité des événements de maintenance n’ont que peu d’impact sur vos machines virtuelles, il existe des charges de travail sensibles où chaque seconde de pause peut avoir un impact. Avec les hôtes dédiés, vous pouvez vous abonner à une fenêtre de maintenance pour réduire l’impact sur votre service.
 -   Avec l’offre Azure Hybrid Benefit, vous pouvez apporter vos propres licences pour Windows et SQL à Azure. L’utilisation des avantages Hybrid Benefit vous offre des avantages supplémentaires. Pour plus d’informations, consultez [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
 
 
 ## <a name="groups-hosts-and-vms"></a>Groupes, hôtes et machines virtuelles  
@@ -103,7 +107,7 @@ Des `types` différents entre les mêmes séries de machines virtuelles provienn
 
 Pour en savoir plus, consultez la [page de tarification de l’hôte](https://aka.ms/ADHPricing).
 
-Pendant la préversion, nous allons prendre en charge les types / références SKU d’hôte suivants :  DSv3_Type1 et ESv3_Type1
+Les hôtes dédiés prennent en charge les SKU\types d’hôtes suivants :  DSv3_Type1 et ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Cycle de vie de l’hôte

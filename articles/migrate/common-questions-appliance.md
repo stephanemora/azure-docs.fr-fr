@@ -3,12 +3,12 @@ title: Questions courantes sur l’appliance Azure Migrate
 description: Retrouvez les réponses à des questions courantes sur l’appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d82655b89d501bfa7ac4b5a7d008b26a2308f885
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563931"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029126"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -22,7 +22,7 @@ Cet article répond à des questions courantes sur l’appliance Azure Migrate. 
 
 L’appliance Azure Migrate est une appliance légère utilisée par l’outil Azure Migrate Server Assessment pour détecter et évaluer les serveurs locaux, et par l’outil Azure Migrate Server Migration pour la migration sans agent de machines virtuelles VMware locales. 
 
-L’appliance est déployée localement en tant que machine virtuelle ou physique. Elle détecte les machines locales et envoie en continu des métadonnées et des données de performances sur les machines à Azure Migrate. La découverte de l’appliance se fait sans agent. Rien ne doit explicitement être installé sur les machines découvertes. [En savoir plus](migrate-appliance.md) sur l’appliance.
+L’appliance est déployée localement en tant que machine virtuelle ou physique. Elle détecte les machines locales et envoie en continu des métadonnées et des données de performances sur les machines à Azure Migrate. La découverte de l’appliance se fait sans agent. Rien n’est installé sur les machines découvertes. [En savoir plus](migrate-appliance.md) sur l’appliance.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>Comment l’appliance se connecte-t-elle à Azure ?
 
@@ -40,9 +40,9 @@ Lorsque vous créez la machine virtuelle de l’appliance suivant le modèle té
 ## <a name="what-network-connectivity-is-needed"></a>Quelle est la connectivité réseau requise ?
 
 Consultez les pages suivantes :
-- Évaluation VMware de l’appliance : conditions d’accès [URL](migrate-support-matrix-vmware.md#assessment-url-access-requirements) et [port](migrate-support-matrix-vmware.md#assessment-port-requirements).
-- Migration VMware sans agent de l’appliance : conditions d’accès [URL](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) et [port](migrate-support-matrix-vmware.md#agentless-migration-port-requirements).
-- Évaluation Hyper-V de l’appliance : conditions d’accès [URL](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) et [port](migrate-support-matrix-hyper-v.md#assessment-port-requirements).
+- Évaluation VMware à l’aide de l’appliance Azure Migrate : conditions d’accès [URL](migrate-appliance.md#url-access) et [port](migrate-support-matrix-vmware.md#port-access).
+- Migration sans agent VMware à l’aide de l’appliance Azure Migrate : conditions d’accès [URL](migrate-appliance.md#url-access) et [port](migrate-support-matrix-vmware-migration.md#agentless-ports).
+- Évaluation Hyper-V à l’aide de l’appliance Azure Migrate : conditions d’accès [URL](migrate-appliance.md#url-access) et [port](migrate-support-matrix-hyper-v.md#port-access).
 
 
 ## <a name="what-data-does-the-appliance-collect"></a>Quelles données l’appliance collecte-t-elle ?
@@ -87,13 +87,31 @@ Non. Il existe un mappage un-à-un entre une appliance et le serveur vCenter Ser
 
 Il est possible de détecter jusqu’à 10 000 machines virtuelles VMware et 5 000 machines virtuelles Hyper-V avec une seule appliance. Si vous avez plus de machines dans votre environnement local, découvrez comment adapter l’évaluation des machines [Hyper-V](scale-hyper-v-assessment.md) et [VMware](scale-vmware-assessment.md).
 
-### <a name="can-i-delete-an-appliance"></a>Peut-on supprimer une appliance ?
+## <a name="can-i-delete-an-appliance"></a>Peut-on supprimer une appliance ?
 
 La suppression de l’appliance du projet n’est actuellement pas prise en charge.
 
 - La seule façon de supprimer l’appliance consiste à supprimer le groupe de ressources qui contient le projet Azure Migrate associé à l’appliance.
 - Toutefois, la suppression du groupe de ressources a pour effet de supprimer également les autres appliances inscrites, l’inventaire détecté, les évaluations et tous les autres composants Azure associés au projet dans le groupe de ressources.
 
+
+## <a name="can-i-use-the-appliance-with-a-different-subscriptionproject"></a>Puis-je utiliser l’appliance avec un autre abonnement/projet ?
+
+Après avoir utilisé l’appliance pour lancer la détection, vous ne pouvez pas la reconfigurer avec un autre abonnement Azure ou dans un projet Azure Migrate différent. Vous ne pouvez pas non plus détecter des machines virtuelles sur un autre serveur VMware vCenter. Configurez une nouvelle appliance pour ces tâches.
+
+## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>Puis-je configurer l’appliance sur une machine virtuelle Azure ?
+Non pris en charge actuellement. 
+
+## <a name="can-i-discover-on-an-esxi-host"></a>Puis-je lancer une détection sur un hôte ESXi ?
+Non, vous avez besoin d’un serveur VMware vCenter pour détecter des machines virtuelles VMware.
+
+## <a name="how-do-i-update-the-appliance"></a>Comment mettre à jour l’appliance ?
+
+Par défaut, l’appliance et ses agents installés sont mis à jour automatiquement. L’appliance vérifie les mises à jour une fois toutes les 24 heures. En cas de défaillance pendant le processus de mise à jour, un processus de nouvelle tentative est mis en place. Les mises à jour automatiques mettent à jour uniquement l’appliance et les agents de l’appliance. Le système d’exploitation n’est pas mis à jour. Utilisez Microsoft Updates pour maintenir le système d’exploitation à jour.
+
+## <a name="can-i-check-agent-health"></a>Puis-je vérifier l’intégrité de l’agent ?
+
+Sur le portail, accédez à la page **Intégrité de l’agent** dans l’outil d’évaluation de serveur ou de migration de serveur. Vous pouvez y vérifier l’état de la connexion entre Azure et les agents de détection et d’évaluation sur l’appliance.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez la [vue d’ensemble d’Azure Migrate](migrate-services-overview.md).

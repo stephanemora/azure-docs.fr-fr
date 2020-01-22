@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce506f88802dee75898a3da4fa795a64ccbbd02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424953"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043374"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accès conditionnel : Exiger MFA pour les administrateurs
 
@@ -75,6 +75,6 @@ Les étapes suivantes vous aideront à créer une stratégie d’accès conditio
 
 [Stratégies d’accès conditionnel courantes](concept-conditional-access-policy-common.md)
 
-[Déterminer l’impact à l’aide du mode de rapport d’accès conditionnel uniquement](howto-conditional-access-report-only.md)
+[Déterminer l'impact à l'aide du mode Rapport seul de l'Accès conditionnel](howto-conditional-access-report-only.md)
 
 [Simuler le comportement de connexion à l’aide de l’outil What If pour l’accès conditionnel](troubleshoot-conditional-access-what-if.md)

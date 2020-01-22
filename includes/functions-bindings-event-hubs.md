@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 27333f272ca5000fd3b09b305712875c065f6bc7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2ab07e55606533390f6f3d2da3caf3ceee981e14
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924431"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75840632"
 ---
 ## <a name="trigger"></a>Déclencheur
 
@@ -305,7 +305,7 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-### <a name="trigger---python-example"></a>Déclencheur - Exemple Python
+### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction Python](../articles/azure-functions/functions-reference-python.md) qui utilise la liaison. La fonction lit les [métadonnées d’événement](#trigger---event-metadata) et enregistre le message.
 
@@ -361,7 +361,7 @@ public void eventHubProcessor(
  }
 ```
 
- Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `EventHubTrigger` sur les paramètres dont la valeur proviendrait d’Event Hub. Les paramètres ayant ces annotations entraînent l’exécution de la fonction quand un événement se produit.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null avec Optional\<T>.
+ Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `EventHubTrigger` sur les paramètres dont la valeur proviendrait d’Event Hub. Les paramètres ayant ces annotations entraînent l’exécution de la fonction quand un événement se produit.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional\<T>.
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
@@ -389,11 +389,10 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**direction** | n/a | Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
 |**name** | n/a | Nom de la variable qui représente l’élément d’événement dans le code de la fonction. |
 |**path** |**EventHubName** | Functions 1.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
-|**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
+|**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. Peut être référencé via les paramètres d’application %eventHubName% |
 |**consumerGroup** |**ConsumerGroup** | Propriété facultative qui définit le [groupe de consommateurs](../articles/event-hubs/event-hubs-features.md#event-consumers) utilisé pour l’abonnement à des événements dans le hub. En cas d’omission, le groupe de consommateurs `$Default` est utilisé. |
 |**cardinalité** | n/a | Pour Javascript. Définissez sur `many` afin d’activer le traitement par lot.  Si omis ou défini sur `one`, un message unique est transmis à la fonction. |
-|**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.|
-|**path**|**EventHubName**|Nom du hub d’événements. Peut être référencé via les paramètres d’application `%eventHubName%`|
+|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour [l’espace de noms](../articles/event-hubs/event-hubs-create.md#create-an-event-hubs-namespace), et non pour le hub d’événements lui-même. Cette chaîne de connexion doit avoir au moins des droits de lecture pour activer le déclencheur.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -403,7 +402,7 @@ Le déclencheur Event Hubs fournit plusieurs [propriétés de métadonnées](../
 
 |Propriété|Type|Description|
 |--------|----|-----------|
-|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|L’instance `PartitionContext`.|
+|`PartitionContext`|[PartitionContext](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|Instance `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|Le temps de file d’attente en UTC.|
 |`Offset`|`string`|Le décalage des données par rapport au flux de données de la partition Event Hub. Le décalage est une marque ou un identificateur pour un événement au sein du flux Event Hubs. L’identificateur est unique au sein d’une partition du flux Event Hubs.|
 |`PartitionKey`|`string`|La partition vers laquelle les données d’événement doivent être envoyées.|
@@ -646,7 +645,7 @@ L’exemple suivant illustre une fonction Java qui écrit un message contenant l
 @FunctionName("sendTime")
 @EventHubOutput(name = "event", eventHubName = "samples-workitems", connection = "AzureEventHubConnection")
 public String sendTime(
-   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 *&#47;5 * * * *") String timerInfo)  {
+   @TimerTrigger(name = "sendTimeTrigger", schedule = "0 */5 * * * *") String timerInfo)  {
      return LocalDateTime.now().toString();
  }
 ```
@@ -681,7 +680,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**name** | n/a | Nom de variable utilisé dans le code de la fonction qui représente l’événement. |
 |**path** |**EventHubName** | Functions 1.x uniquement. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
 |**eventHubName** |**EventHubName** | Functions 2.x et versions ultérieures. Nom du hub d’événements. Lorsque le nom d’Event Hub est également présent dans la chaîne de connexion, sa valeur remplace cette propriété lors de l’exécution. |
-|**Connexion** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements.|
+|**connection** |**Connection** | Le nom d’un paramètre d’application qui contient la chaîne de connexion à l’espace de noms du hub d’événements. Copiez cette chaîne de connexion en cliquant sur le bouton **Informations de connexion** pour *l’espace de noms*, et non pour le hub d’événements lui-même. Cette chaîne de connexion doit disposer d’autorisations d’envoi pour envoyer le message au flux d’événements.|
 
 [!INCLUDE [app settings to local.settings.json](../articles/azure-functions/../../includes/functions-app-settings-local.md)]
 
@@ -704,7 +703,7 @@ Dans JavaScript, accédez à l’événement de sortie à l’aide de `context.b
 Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison dans les versions 2.x et ultérieures. L’exemple de fichier host.json ci-dessous contient seulement les paramètres des versions 2.x et ultérieures pour cette liaison. Pour plus d’informations sur les paramètres de configuration globaux dans les versions 2.x et ultérieures, consultez [Informations de référence sur le fichier host.json pour Azure Functions](../articles/azure-functions/functions-host-json.md).
 
 > [!NOTE]
-> Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
+> Pour obtenir une référence de host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](../articles/azure-functions/functions-host-json-v1.md).
 
 ```json
 {

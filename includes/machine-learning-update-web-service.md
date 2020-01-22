@@ -2,19 +2,21 @@
 author: Blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 01/10/2019
 ms.author: larryfr
-ms.openlocfilehash: 04e8f1f212eb4fa7cf4d8e19132107f2ddb53729
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 469d87a828df19ca30260cada9dcea43859be9e0
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926975"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901697"
 ---
 Pour mettre à jour un service web, utilisez la méthode `update`. Vous pouvez mettre à jour le service web pour utiliser un nouveau modèle, un nouveau script d’entrée ou de nouvelles dépendances qui peuvent être spécifiées dans une configuration d’inférence. Pour plus d’informations, consultez la documentation sur [Webservice.update](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-).
 
 > [!IMPORTANT]
 > Lorsque vous créez une nouvelle version d’un modèle, vous devez mettre à jour manuellement chacun des services pour lesquels vous souhaitez l’utiliser.
+>
+> Vous ne pouvez pas utiliser le kit de développement logiciel (SDK) pour mettre à jour un service web publié à partir du concepteur Azure Machine Learning.
 
 **Avec le kit SDK**
 

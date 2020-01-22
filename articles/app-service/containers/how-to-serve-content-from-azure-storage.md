@@ -1,67 +1,63 @@
 ---
-title: Attacher un conteneur Stockage Azure personnalisé sur Linux
+title: Distribuer du contenu issu du Stockage Azure à des conteneurs Linux
 description: Découvrez comment attacher un partage réseau personnalisé à votre conteneur Linux dans Azure App Service. Partagez des fichiers entre plusieurs applications, gérez le contenu statique à distance, accédez localement, etc.
 author: msangapu-msft
 ms.topic: article
-ms.date: 2/04/2019
+ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671785"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930010"
 ---
-# <a name="attach-azure-storage-containers-to-linux-containers"></a>Attacher des conteneurs Stockage Azure à des conteneurs Linux
-
-Ce guide vous montre comment attacher des partages réseau à App Service sur Linux en utilisant [Stockage Azure](/azure/storage/common/storage-introduction). Les avantages sont multiples : sécurisation et portabilité du contenu, stockage persistant, accès à plusieurs applications et méthodes de transfert multiples.
-
-## <a name="prerequisites"></a>Prérequis
-
-- une application web existante (App Service sur Linux ou Web App pour conteneurs) ;
-- [Azure CLI](/cli/azure/install-azure-cli) 2.0.46 (ou version ultérieure).
-
-## <a name="create-azure-storage"></a>Créer un compte de Stockage Azure
+# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Distribuer du contenu issu du Stockage Azure dans App Service sur Linux
 
 > [!NOTE]
-> Le Stockage Azure, facturé séparément et non fourni avec l’application web, n’est pas le stockage par défaut.
->
-> La fonctionnalité Bring Your Own Storage ne prend pas en charge l’utilisation de la configuration du pare-feu de stockage en raison de restrictions liées à l’infrastructure.
+> Cet article s’applique aux conteneurs Linux. Pour effectuer un déploiement sur des conteneurs Windows personnalisés, consultez [Configurer Azure Files dans un conteneur Windows sur App Service](../configure-connect-to-azure-storage.md). Stockage Azure dans App Service sous Linux est une fonctionnalité en **préversion**. Cette fonctionnalité **n’est pas prise en charge pour les scénarios de production**.
 >
 
-Créez un [compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
+Ce guide montre comment joindre Stockage Azure à App Service sur Linux. Les avantages sont multiples : sécurisation et portabilité du contenu, stockage persistant, accès à plusieurs applications et méthodes de transfert multiples.
 
-```azurecli
-#Create Storage Account
-az storage account create --name <storage_account_name> --resource-group myResourceGroup
+## <a name="prerequisites"></a>Conditions préalables requises
 
-#Create Storage Container
-az storage container create --name <storage_container_name> --account-name <storage_account_name>
-```
+- [Azure CLI](/cli/azure/install-azure-cli) 2.0.46 (ou version ultérieure).
+- Une [application Azure App Service sur Linux](https://docs.microsoft.com/azure/app-service/containers/).
+- [Compte Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli)
+- Un [partage et répertoire de fichiers Azure](https://docs.microsoft.com/azure/storage/common/storage-azure-cli#create-and-manage-file-shares).
 
-## <a name="upload-files-to-azure-storage"></a>Charger des fichiers dans le Stockage Azure
 
-Pour charger un répertoire local dans le compte de stockage, utilisez la commande [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch), comme dans l’exemple suivant :
+## <a name="limitations-of-azure-storage-with-app-service"></a>Limitations de Stockage Azure avec App Service
 
-```azurecli
-az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
-```
+- Stockage Azure avec App Service est en **préversion** pour App Service sur Linux et Web App pour conteneurs. Elle **n’est pas prise en charge** pour les **scénarios de production**.
+- Stockage Azure avec App Service prend en charge le montage de **conteneurs Azure Files** (lecture/écriture) et de **conteneurs d’objets blob Azure** (lecture seule)
+- Stockage Azure avec App Service **ne prend pas en charge** l’utilisation de la configuration **Storage Firewall** en raison des restrictions liées à l’infrastructure.
+- Stockage Azure avec App Service vous permet de spécifier **jusqu’à cinq** points de montage par application.
+- Stockage Azure **n’est pas inclus** avec votre application web et est facturé séparément. Apprenez-en davantage sur la [tarification Stockage Azure](https://azure.microsoft.com/pricing/details/storage).
 
-## <a name="link-storage-to-your-web-app-preview"></a>Lier le stockage à une application web (préversion)
+> [!WARNING]
+> Les configurations App Service utilisant Stockage Blob Azure passeront en lecture seule en février 2020. [En savoir plus](https://github.com/Azure/app-service-linux-docs/blob/master/BringYourOwnStorage/mounting_azure_blob.md)
+>
+
+## <a name="configure-your-app-with-azure-storage"></a>Configurer votre application avec Stockage Azure
+
+Une fois que vous avez créé [votre compte Stockage Azure, le partage de fichiers et l’annuaire](#prerequisites), vous pouvez configurer votre application avec Stockage Azure.
+
+Pour monter un compte de stockage dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Le type de stockage peut être AzureBlob ou AzureFiles. AzureFiles est utilisé dans cet exemple.
+
 
 > [!CAUTION]
-> Le fait de lier un répertoire existant d’une application web à un compte de stockage a pour effet de supprimer le contenu du répertoire. Si vous migrez des fichiers pour une application existante, faites une sauvegarde de votre application et de son contenu avant de commencer.
+> Le répertoire spécifié comme chemin de montage dans votre application web doit être vide. Tout contenu stocké dans ce répertoire sera supprimé lors de l’ajout d’un montage externe. Si vous migrez des fichiers pour une application existante, faites une sauvegarde de votre application et de son contenu avant de commencer.
 >
 
-Pour monter un compte de stockage dans un répertoire de votre application App Service, utilisez la commande [`az webapp config storage-account add`](https://docs.microsoft.com/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-add). Le type de stockage peut être AzureBlob ou AzureFiles. Pour ce conteneur, on utilisera AzureBlob.
-
 ```azurecli
-az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureBlob --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
+az webapp config storage-account add --resource-group <group_name> --name <app_name> --custom-id <custom_id> --storage-type AzureFiles --share-name <share_name> --account-name <storage_account_name> --access-key "<access_key>" --mount-path <mount_path_directory>
 ```
 
 Répétez cette opération pour tous les autres annuaires que vous souhaitez lier à un compte de stockage.
 
-## <a name="verify"></a>Vérifier
+## <a name="verify-azure-storage-link-to-the-web-app"></a>Vérifier le lien Stockage Azure vers l’application web
 
 Vous pouvez vérifier qu’un conteneur de stockage est lié à une application web en exécutant la commande suivante :
 
@@ -69,7 +65,7 @@ Vous pouvez vérifier qu’un conteneur de stockage est lié à une application 
 az webapp config storage-account list --resource-group <resource_group> --name <app_name>
 ```
 
-## <a name="use-custom-storage-in-docker-compose"></a>Utiliser le stockage personnalisé dans Docker Compose
+## <a name="use-azure-storage-in-docker-compose"></a>Utiliser Stockage Azure dans Docker Compose
 
 Stockage Azure peut être monté avec des applications à plusieurs conteneurs à l’aide de l’id personnalisé. Pour afficher le nom de l’id personnalisé, exécutez [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list).
 
@@ -85,3 +81,4 @@ wordpress:
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Configurer des applications web dans Azure App Service](../configure-common.md)
+

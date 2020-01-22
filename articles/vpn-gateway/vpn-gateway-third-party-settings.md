@@ -1,26 +1,19 @@
 ---
-title: Paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure | Microsoft Docs
+title: Paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure
 description: Découvrez les paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure.
 services: vpn-gateway
-documentationcenter: ''
 author: chadmath
 manager: dcscontentpm
-editor: ''
-tags: azure-vpn-gateway
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: aa4650897abcd38fec4d45f57969d4bf30b9d773
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: b87340fbb3f94eee106fc5d0d72117d30e331035
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058859"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862711"
 ---
 # <a name="community-suggested-third-party-vpn-or-firewall-device-settings-for-azure-vpn-gateway"></a>Paramètres de pare-feu ou VPN tiers suggérés par la communauté pour la passerelle VPN Azure
 
@@ -29,7 +22,7 @@ Cet article fournit plusieurs suggestions de solution pour les pare-feu ou VPN t
 > [!Note]
 > Le support technique dédié aux pare-feu ou VPN tiers est fourni par le fabricant de l’appareil. 
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 Le tableau suivant répertorie plusieurs périphériques courants et l’aide associée :
 

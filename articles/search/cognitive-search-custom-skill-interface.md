@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466774"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045044"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Comment ajouter une compétence personnalisée à un pipeline d’enrichissement Recherche cognitive Azure
 
@@ -122,7 +122,7 @@ Comme le montre l’exemple précédent, vous pouvez renvoyer des messages d’e
 
 ## <a name="consuming-custom-skills-from-skillset"></a>Utilisation des compétences personnalisées du jeu de compétences
 
-Lorsque vous créez un enrichisseur d’API web, vous pouvez décrire des en-têtes HTTP et des paramètres dans le cadre de la demande. L’extrait de code ci-dessous montre comment des paramètres de requête et des en-têtes HTTP peuvent être décrits dans le cadre de la définition d’un jeu de compétences.
+Lorsque vous créez un enrichisseur d’API web, vous pouvez décrire des en-têtes HTTP et des paramètres dans le cadre de la demande. L’extrait de code ci-dessous montre comment des paramètres de requête et des en-têtes HTTP *facultatifs* peuvent être décrits dans le cadre de la définition d’un jeu de compétences. Les en-têtes HTTP ne sont pas obligatoires, mais vous permettent d’ajouter des fonctionnalités de configuration supplémentaires à vos compétences et de les définir à partir de la définition de compétences.
 
 ```json
 {

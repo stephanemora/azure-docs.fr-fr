@@ -1,18 +1,19 @@
 ---
-title: 'Se connecter à un réseau virtuel Azure à partir d’un ordinateur à l’aide d’une connexion VPN point à site et de l’authentification par certificat Azure native : PowerShell | Microsoft Docs'
+title: 'Se connecter à un réseau virtuel depuis un ordinateur – Réseau virtuel P2S et authentification native par certificat Azure : PowerShell'
 description: Connectez des clients Windows et Mac OS X en toute sécurité à un réseau virtuel Azure à l’aide d’une connexion P2S et de certificats auto-signés ou délivrés par une autorité de certification. Cet article se base sur PowerShell.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17d07b508c7ecd8b5750bf5f4108cb789a419c42
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 49fbdf4a4090350cc0a6a5a1b938621b3cb08632
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843555"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045090"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurez une connexion point à site à un réseau virtuel à l’aide de l’authentification par certificat Azure native : PowerShell
 
@@ -31,13 +32,15 @@ Les connexions d’authentification avec certificat Azure natif de point à site
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà d’un abonnement Azure, vous pouvez activer vos [avantages abonnés MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial).
+
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-La plupart des étapes de cet article peuvent utiliser Cloud Shell. Cela étant, pour télécharger la clé publique du certificat racine, vous devez utiliser PowerShell localement ou le portail Azure.
+>[!NOTE]
+> La plupart des étapes de cet article peuvent utiliser Azure Cloud Shell. Cela étant, pour télécharger la clé publique du certificat racine, vous devez utiliser PowerShell localement ou le portail Azure.
+>
 
 ### <a name="example"></a>Exemples de valeurs
 
@@ -169,7 +172,9 @@ Si vous utilisez des certificats auto-signés, ceux-ci doivent être créés à 
 
 Vérifiez que votre passerelle VPN a terminé la création. Une fois terminée, vous pouvez charger le fichier .cer (qui contient les informations de clé publique) pour un certificat racine approuvé dans Azure. Une fois qu’un fichier .cer est chargé, Azure peut l’utiliser pour authentifier les clients qui ont installé un certificat client généré à partir du certificat racine approuvé. Vous pouvez charger ultérieurement d’autres fichiers de certificat racine approuvé, jusqu’à un total de 20, si nécessaire.
 
-Vous ne pouvez pas charger ces informations à l’aide d’Azure Cloud Shell. Vous pouvez utiliser PowerShell localement sur votre ordinateur ou les [étapes dans le portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+>[!NOTE]
+> Vous ne pouvez pas charger le fichier .cer à l’aide d’Azure Cloud Shell. Vous pouvez soit utiliser PowerShell localement sur votre ordinateur, soit utiliser les [étapes du Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+>
 
 1. Déclarez la variable pour le nom de votre certificat, en remplaçant la valeur par la vôtre.
 
@@ -184,7 +189,7 @@ Vous ne pouvez pas charger ces informations à l’aide d’Azure Cloud Shell. V
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. Chargez les informations de clé publique vers Azure. Une fois les informations de certificat chargées, Azure considère qu’il s’agit d’un certificat racine approuvé.
+3. Chargez les informations de clé publique vers Azure. Une fois les informations de certificat chargées, Azure considère qu’il s’agit d’un certificat racine approuvé. Lors du chargement, assurez-vous d’exécuter PowerShell localement sur votre ordinateur, ou à la place, vous pouvez utiliser les [étapes du Portail Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Vous ne pouvez pas effectuer le chargement à l’aide d’Azure Cloud Shell.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64

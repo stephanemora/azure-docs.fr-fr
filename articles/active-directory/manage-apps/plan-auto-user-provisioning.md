@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786416"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732448"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -43,7 +43,7 @@ Les principaux avantages de l’activation de l’attribution automatique d’ut
 
 * **Réduction des coûts**. L’attribution automatique d’utilisateurs réduit les coûts tout en évitant l’inefficacité et les erreurs humaines qui sont inhérents à l’attribution manuelle. Elle diminue la nécessité de recourir à des journaux d’audit, des scripts et des solutions d’attribution d’utilisateurs personnalisées.
 
-### <a name="licensing"></a>Gestion des licences
+### <a name="licensing"></a>Licence
 
 Azure AD assure une intégration en libre-service de n’importe quelle application utilisant des modèles fournis dans le menu de la galerie d’applications. Pour obtenir la liste complète des conditions de licence, consultez la page [Gestion des licences Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -74,7 +74,7 @@ Cet article utilise les termes suivants :
 | Cours en ligne| Développez vos compétences en ligne :  [Gestion des identités](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Apprenez à intégrer Azure AD à de nombreuses applications SaaS et à sécuriser l’accès utilisateur à ces applications. |
 | Livres| [Modern Authentication with Azure Active Directory for Web Applications (Developer Reference) 1st Edition](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Il s’agit d’un guide détaillé faisant autorité en matière d’élaboration de solutions d’authentification Active Directory pour ces nouveaux environnements. |
 | Tutoriels| Consultez la [Liste de tutoriels sur l’intégration d’applications SaaS à Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
-| Forum Aux Questions| [Questions fréquentes (FAQ)](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur l’attribution automatique d’utilisateurs |
+| Questions fréquentes (FAQ)| [Questions fréquentes (FAQ)](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur l’attribution automatique d’utilisateurs |
 
 ### <a name="solution-architectures"></a>Architectures de solution
 
@@ -138,7 +138,7 @@ La communication est essentielle à la réussite de tout nouveau service. Commun
 
 ### <a name="plan-a-pilot"></a>Prévoir un pilote
 
-Nous recommandons de procéder à la configuration initiale de l’attribution automatique d’utilisateurs dans un environnement de test avec une petite partie des utilisateurs avant de l’appliquer à tous les utilisateurs en production.
+Nous recommandons de procéder à la configuration initiale de l’attribution automatique d’utilisateurs dans un environnement de test avec une petite partie des utilisateurs avant de l’appliquer à tous les utilisateurs en production. Consultez les [meilleures pratiques](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) pour l’exécution d’un pilote.
 
 #### <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote  
 
@@ -289,11 +289,11 @@ Pour comprendre la durée des cycles d’approvisionnement et surveiller la prog
 
 Azure AD peut fournir des [insights supplémentaires](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) sur l’exploitation de l’attribution d’utilisateurs et son intégrité opérationnelle au sein de votre organisation, par le biais des journaux d’audit et des rapports.
 
-Les administrateurs doivent consulter le rapport de synthèse du provisionnement pour superviser l’intégrité opérationnelle de la tâche de provisionnement. Toutes les activités effectuées par le service de provisionnement sont enregistrées dans les journaux d’audit Azure AD. Consultez le [tutoriel : Création de rapports sur le provisionnement automatique de comptes d’utilisateur](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
+Les administrateurs doivent consulter le rapport de synthèse du provisionnement pour superviser l’intégrité opérationnelle de la tâche de provisionnement. Toutes les activités effectuées par le service de provisionnement sont enregistrées dans les journaux d’audit Azure AD. Voir le [tutoriel : Création de rapports sur le provisionnement automatique de comptes d’utilisateur](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
 
 Nous vous recommandons de vous attribuer la propriété de ces rapports et de les consommer à une cadence qui satisfait aux exigences de votre organisation. Azure AD conserve la plupart des données d’audit pendant 30 jours.
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de survenir au cours du provisionnement :
 

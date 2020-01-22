@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: ba49fc72fe07378d702b8c12fcdf77d5cebee9bb
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013112"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037972"
 ---
 Ce document décrit les différences entre les disques managés et les disques non managés lorsque vous utilisez des modèles Azure Resource Manager pour configurer des machines virtuelles. Ces exemples vous permettent de mettre à jour les modèles existants qui utilisent des disques non managés en les remplaçant par des disques managés. Pour référence, nous utilisons le modèle [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) comme guide. Vous pouvez consulter le modèle utilisant des [disques managés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) et une version antérieure utilisant des [disques non managés](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) si vous voulez les comparer directement.
 
@@ -94,7 +94,16 @@ Avec Azure Disques managés, le disque devient une ressource de niveau supérieu
 
 ### <a name="default-managed-disk-settings"></a>Paramètres de disque géré par défaut
 
-Pour créer une machine virtuelle avec des disques managés, vous n’avez plus besoin créer la ressource de compte de stockage et vous pouvez mettre à jour votre ressource de machine virtuelle comme suit. Notez en particulier que `apiVersion` reflète `2017-03-30`, et que `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel. Lors d’un déploiement sans spécification de propriétés supplémentaires, le disque utilise un type de stockage qui dépend de la taille de la machine virtuelle. Par exemple, si vous utilisez une taille de machine virtuelle compatible Premium (tailles avec « s » dans leur nom, comme Standard_D2s_v3), le système utilise le stockage Premium_LRS. Pour spécifier un type de stockage, utilisez le paramètre de référence (SKU) du disque. Si aucun nom n’est spécifié, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque de système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données. Par défaut, le chiffrement de disque Azure est désactivé ; la mise en cache est Lecture/Écriture pour le disque de système d’exploitation et Aucune pour les disques de données. Vous avez pu remarquer dans l’exemple ci-dessous qu’il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et n’est pas nécessaire pour le stockage de disques.
+Pour créer une machine virtuelle avec des disques managés, vous n’avez plus besoin créer la ressource de compte de stockage. En référençant l’exemple de modèle ci-dessous, il faut noter quelques différences par rapport aux exemples de disques non managés précédents :
+
+- `apiVersion` est une version qui prend en charge les disques managés.
+- `osDisk` et `dataDisks` ne font plus référence à un URI spécifique pour le disque dur virtuel.
+- Lors d’un déploiement sans spécification de propriétés supplémentaires, le disque utilise un type de stockage qui dépend de la taille de la machine virtuelle. Par exemple, si vous utilisez une taille de machine virtuelle qui prend en charge le stockage Premium (tailles avec « s » dans leur nom, par exemple Standard_D2s_v3), les disques Premium sont configurés par défaut. Vous pouvez modifier cela à l’aide du paramètre SKU du disque pour spécifier un type de stockage.
+- Si aucun nom n’est spécifié pour le disque, il prend le format `<VMName>_OsDisk_1_<randomstring>` pour le disque du système d’exploitation et `<VMName>_disk<#>_<randomstring>` pour chaque disque de données.
+  - Si une machine virtuelle est créée à partir d’une image personnalisée, les paramètres par défaut pour le type de compte de stockage et le nom de disque sont récupérés dans les propriétés de disque définies dans la ressource d’image personnalisée. Elles peuvent être remplacées en spécifiant des valeurs pour celles-ci dans le modèle.
+- Par défaut, le chiffrement de disque Azure est désactivé.
+- Par défaut, la mise en cache du disque est Lecture/Écriture pour le disque du système d’exploitation et Aucune pour les disques de données.
+- Dans l’exemple ci-dessous, il existe toujours une dépendance de compte de stockage, bien que cela concerne uniquement le stockage de diagnostics et ne soit pas nécessaire pour le stockage sur disque.
 
 ```json
 {

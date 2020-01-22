@@ -4,16 +4,19 @@ description: Comment déployer et configurer le modèle de solution réseau cons
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: caleteet
-ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 3e7dcd3cdcfa636c0b23ac6643bd7732e7f8ada0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325131"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029166"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Réseau consortium de Fabric Hyperledger
 
 Vous pouvez utiliser le modèle de solution consortium de Fabric Hyperledger pour déployer et configurer un réseau consortium de Fabric Hyperledger sur Azure.
+
+> [!IMPORTANT]
+> Le modèle [Hyperledger Fabric sur Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabric) sera déconseillé. Préférez [Hyperledger Fabric sur Azure Kubernetes Service](hyperledger-fabric-consortium-azure-kubernetes-service.md).  
 
 À la fin de cet article, vous serez capable :
 
@@ -94,7 +97,7 @@ Dans **Paramètres réseau**, spécifiez les entrées pour créer ou rejoindre u
 **Configuration réseau** |Vous pouvez choisir de créer un nouveau réseau ou de rejoindre un réseau existant. Si vous choisissez *Rejoindre existant*, vous devez fournir des valeurs supplémentaires. |Nouveau réseau <br/> Rejoindre existant |
 **Mot de passe d’autorité de certification HLF** |Mot de passe utilisé pour les certificats générés par les autorités de certification qui sont créés dans le cadre du déploiement. Le mot de passe doit contenir trois des types de caractères suivants : une majuscule, une minuscule, un chiffre et un caractère spécial.<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 1 et 25 caractères |
 **Paramètres de l’organisation** |Vous pouvez personnaliser le nom et le certificat de votre organisation ou utiliser des valeurs par défaut.|Default <br/> Avancé |
-**Paramètres de réseau VPN** | Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | OUI <br/> Non |
+**Paramètres de réseau VPN** | Configurer une passerelle de tunnel VPN pour accéder aux machines virtuelles | Oui <br/> Non |
 
 Sélectionnez **OK**.
 

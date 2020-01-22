@@ -1,6 +1,6 @@
 ---
-title: Ajouter une barre d’outils de dessin à Azure Maps | Microsoft Docs
-description: Comment ajouter une barre d’outils de dessin à une carte à l’aide du kit de développement logiciel (SDK) web Azure Maps
+title: Ajouter une barre d’outils de dessin à une carte | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à ajouter une barre d’outils de dessin à une carte à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 63848ecf92daecf28f6e0046e87da15355aa35c1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: fd235f3f39d67f86c8387add79ca0dbf17dc5906
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561828"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911679"
 ---
 # <a name="drawing-tool-events"></a>Événements des outils de dessin
 

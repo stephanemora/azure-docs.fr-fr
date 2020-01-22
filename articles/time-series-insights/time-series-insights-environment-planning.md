@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 13bff4abcb308e4d5ea55f360d979e3e67d313c4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452861"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046190"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planifier votre environnement Azure Time Series Insights en disponibilité générale
 
@@ -24,7 +24,7 @@ Cet article explique comment planifier votre environnement Azure Time Series Ins
 
 ## <a name="video"></a>Vidéo
 
-**Regardez cette vidéo pour en savoir plus sur la conservation des données dans Azure Time Series Insights et comment la planifier** :<br /><br />
+**Regardez cette vidéo pour en savoir plus sur la conservation des données dans Azure Time Series Insights et comment la planifier** :<br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -53,7 +53,7 @@ Vous pouvez modifier le paramètre de **durée de conservation des données** da
 Azure Time Series Insights a deux modes :
 
 * Un mode optimise les données les plus récentes. Il applique une stratégie pour **vider les anciennes données** laissant les données récentes disponibles avec l’instance. Ce mode est activé par défaut. 
-* L’autre optimise les données pour qu’elles restent sous les limites de rétention configurées. L’option **Suspendre l’entrée**  empêche l’entrée des nouvelles données lorsqu’elles sont sélectionnées comme **Comportement de limite de stockage dépassée**. 
+* L’autre optimise les données pour qu’elles restent sous les limites de rétention configurées. L’option **Suspendre l’entrée**  empêche l’entrée des nouvelles données lorsqu’elles sont sélectionnées comme **Comportement de limite de stockage dépassée**.
 
 Vous pouvez ajuster la rétention et basculer entre les deux modes dans la page de configuration de l’environnement dans le portail Azure.
 
@@ -71,7 +71,7 @@ Vous pouvez ajuster la rétention et basculer entre les deux modes dans la page 
    [![Configurer la rétention](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
-> Pour en savoir plus sur l’implémentation d’une stratégie de rétention des données appropriée, consultez [Comment configurer la rétention](./time-series-insights-how-to-configure-retention.md).
+> Pour en savoir plus sur l’implémentation d’une stratégie de rétention des données appropriée, lisez [Comment configurer la rétention](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Capacité d’entrée
 
@@ -103,7 +103,7 @@ Pour calculer vos besoins d’entrée :
 
 ### <a name="mitigate-throttling-and-latency"></a>Résoudre la limitation et la latence
 
-Pour plus d’informations sur la manière d’éviter la limitation et la latence, consultez [Résoudre la latence et la limitation](time-series-insights-environment-mitigate-latency.md).
+Pour plus d’informations sur la manière d’éviter la limitation et la latence, lisez [Résoudre la latence et la limitation](time-series-insights-environment-mitigate-latency.md).
 
 ## <a name="shape-your-events"></a>Mettre en forme vos événements
 
@@ -119,7 +119,7 @@ Un *jeu de données de référence* est une collection d’éléments qui augmen
 > [!NOTE]
 > Les données de référence ne sont pas jointes rétroactivement. Seules les données d’entrée actuelles et futures sont mises en correspondance et jointes au jeu de données de référence lorsqu’il a été configuré et chargé. Si vous envisagez d’envoyer une grande quantité de données historiques à Time Series Insights et de ne pas charger ou de créer tout d’abord des données de référence dans Time Series Insights, vous devrez peut-être restaurer votre travail (conseil : pas très fun).  
 
-Pour plus d’informations sur la création, le chargement et la gestion des données de référence dans Time Series Insights, accédez à notre [documentation sur les jeux de données de référence](time-series-insights-add-reference-data-set.md).
+Pour plus d’informations sur la création, le chargement et la gestion des données de référence dans Time Series Insights, lisez notre [documentation sur les jeux de données de référence](time-series-insights-add-reference-data-set.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

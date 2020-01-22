@@ -2,17 +2,17 @@
 title: Collecter et analyser les journaux de ressources
 description: Enregistrez et analysez les événements des journaux des ressources pour Azure Container Registry tels que l’authentification, l’envoi (push) d’images et le tirage (pull) d’images.
 ms.topic: article
-ms.date: 10/30/2019
-ms.openlocfilehash: ada8502724c1779b9bdab2e8ac7e8ea61c256e44
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/03/2020
+ms.openlocfilehash: 72d03149cd24636ba2086dfaaff0dbba16d30f1e
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456403"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748002"
 ---
 # <a name="azure-container-registry-logs-for-diagnostic-evaluation-and-auditing"></a>Journaux d’Azure Container Registry pour l’évaluation et l’audit de diagnostics
 
-Cet article explique comment collecter des données de journal pour un registre de conteneurs Azure à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte les [journaux de ressources](../azure-monitor/platform/resource-logs-overview.md) (anciennement appelés *journaux de diagnostic*) pour les événements pilotés par l’utilisateur dans votre registre. Collectez et utilisez ces données pour répondre à des besoins tels que :
+Cet article explique comment collecter des données de journal pour un registre de conteneurs Azure à l’aide des fonctionnalités d’[Azure Monitor](../azure-monitor/overview.md). Azure Monitor collecte les [journaux de ressources](../azure-monitor/platform/platform-logs-overview.md) (anciennement appelés *journaux de diagnostic*) pour les événements pilotés par l’utilisateur dans votre registre. Collectez et utilisez ces données pour répondre à des besoins tels que :
 
 * Auditer les événements d’authentification du registre pour garantir la sécurité et la conformité 
 
@@ -26,9 +26,14 @@ La collecte de données de journal de ressources à l’aide d’Azure Monitor p
 
 ## <a name="preview-limitations"></a>Limitations de la version préliminaire
 
-La journalisation des événements au niveau du référentiel n’inclut pas actuellement les événements de suppression ou de suppression des balises. Seuls les événements de référentiel suivants sont enregistrés :
-* **Événements d’envoi (push)** pour les images et autres artefacts
-* **Événements de tirage (pull)** pour les images et autres artefacts
+Les événements suivants au niveau du référentiel pour les images et autres artefacts sont actuellement journalisés :
+
+* **Événements d’envoi (push)**
+* **Événements de tirage (pull)**
+* **Événements de suppression d’étiquette**
+* **Événements de suppression** (y compris les événements de suppression de référentiel)
+
+Événements au niveau du référentiel qui ne sont pas journalisés actuellement : Événements de suppression définitive.
 
 ## <a name="registry-resource-logs"></a>Journaux de ressources de registre
 
@@ -42,7 +47,7 @@ Pour les opérations, les données de journal incluent :
   * L’état de réussite ou d’échec
   * Les horodatages de début et de fin
 
-Outre les journaux de ressources, Azure fournit un [journal d’activité](../azure-monitor/platform/activity-logs-overview.md), un enregistrement unique d’événements de gestion Azure au niveau de l’abonnement, tels que la création ou la suppression d’un registre de conteneurs.
+Outre les journaux de ressources, Azure fournit un [journal d’activité](../azure-monitor/platform/platform-logs-overview.md), un enregistrement unique d’événements de gestion Azure au niveau de l’abonnement, tels que la création ou la suppression d’un registre de conteneurs.
 
 ## <a name="enable-collection-of-resource-logs"></a>Permet la collecte des journaux de ressources
 

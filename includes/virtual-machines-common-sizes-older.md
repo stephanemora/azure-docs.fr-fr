@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: a4746a945f1a89c34308a3bd968f6341e0e25ac5
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 1867164954a3f9dff7a8a8c04e249a13edccb84a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541464"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020940"
 ---
 Cette section fournit des informations sur les tailles de machines virtuelles des anciennes générations. Ces tailles sont toujours prises en charge mais ne peuvent pas recevoir de capacité supplémentaire. Il existe des tailles plus récentes ou alternatives qui sont généralement disponibles. Reportez-vous aux sections [Tailles des machines virtuelles Windows dans Azure](../articles/virtual-machines/windows/sizes.md) ou [Tailles des machines virtuelles Linux dans Azure](../articles/virtual-machines/linux/sizes.md) pour choisir les tailles de machine virtuelle qui seront les plus adaptées à vos besoins.  
 
@@ -33,7 +33,7 @@ Les tailles du niveau De base sont principalement destinées aux charges de trav
 
 |Taille - Taille\Nom | Processeurs virtuels |Mémoire|Cartes réseau (max)|Taille max. du disque temporaire |Bande passante disques de données (1 023 Go chacun)|Bande passante Nombre maximal d’opérations d’E/S par seconde (300 par disque)|
 |---|---|---|---|---|---|---|
-|0A0\Basic_A0|1|768 Mo|2| 20 Go|1|1 x 300|
+|0A0\Basic_A0|1|768 Mo|2| 20 Go|1|1 x 300|
 |A1\Basic_A1|1|1,75 Go|2| 40 Go |2|2 x 300|
 |A2\Basic_A2|2|3,5 Go|2| 60 Go|4|4 x 300|
 |A3\Basic_A3|4|7 Go|2| 120 Go |8|8 x 300|
@@ -95,7 +95,7 @@ Les tailles A8 à A11 et celles de la série H sont également appelées *inst
 | Standard_A10 |8 |56 |382 |32 |32 x 500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64 x 500 |4 |
 
-<sup>1</sup>Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand FDR, qui garantit une très faible latence et une large bande passante.  
+<sup>1</sup>Pour les applications MPI, un réseau principal RDMA dédié est activé par un réseau InfiniBand QDR, qui garantit une très faible latence et une large bande passante.  
 
 <br>
 
@@ -147,9 +147,9 @@ Mise en cache du Stockage Premium :  Non pris en charge
 
 ACU : 160-250 <sup>1</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -168,9 +168,9 @@ Mise en cache du Stockage Premium :  Pris en charge
 
 ACU : 160-250 <sup>1,2</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -179,7 +179,7 @@ Mise en cache du Stockage Premium :  Pris en charge
 | Standard_DS13 |8 |56 |112 |32 |32 000 / 256 (288) |25 600 / 256 |8 / 4 000 |
 | Standard_DS14 |16 |112 |224 |64 |64 000 / 512 (576) |51 200 / 512 |8 / 8000 |
 
-<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d’informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).   
+<sup>1</sup> Le débit de disque maximal possible (E/S par seconde ou Mbits/s) avec une machine virtuelle de la série DS peut être limité par le nombre, la taille et la répartition des disques attachés.  Pour plus d'informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).   
 <sup>2</sup> La famille de machines virtuelles peut s’exécuter sur l’un des processeurs suivants : Intel Xeon® E5-2660 v2 de 2,2 GHz, Intel Xeon® E5-2673 v3 de 2,4 GHz (Haswell) ou Intel XEON® E5-2673 v4 de 2,3 GHz (Broadwell)  
 
 <br>
@@ -192,18 +192,18 @@ La série Ls ne prend pas en charge la création d’un cache local pour augment
 
 ACU : 180-240
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
 Mise en cache du Stockage Premium :  Non pris en charge
  
 | Size          | Processeurs virtuels | Mémoire (Gio) | Stockage temporaire (Gio) | Disques de données max. | Débit de stockage temporaire maximal (IOPS / Mbits/s) | Débit de disque maximal sans mise en cache (IOPS / Mbits/s) | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
-| Standard_L4s   | 4  | 32  | 678   | 16 | 20000 / 200 | 5000 / 125  | 2 / 4 000  | 
-| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000 / 400 | 10000 / 250 | 4 / 8 000  | 
-| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000 / 800 | 20000 / 500 | 8 / 16 000 | 
+| Standard_L4s   | 4  | 32  | 678   | 16 | 20 000/200 | 5000 / 125  | 2 / 4 000  | 
+| Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000 / 250 | 4 / 8 000  | 
+| Standard_L16s  | 16 | 128 | 2807 | 64 | 80000/800 | 20000 / 500 | 8 / 16 000 | 
 | Standard_L32s&nbsp;<sup>1</sup> | 32   | 256  | 5630 | 64   | 160000 / 1600   | 40000 / 1000     | 8 / 20 000 | 
 
-Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d’informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).
+Le débit de disque maximal possible avec des machines virtuelles de la série Ls peut être limité par le nombre, la taille et la répartition des disques attachés. Pour plus d'informations, consultez [Conception pour de hautes performances](../articles/virtual-machines/windows/premium-storage-performance.md).
 
 <sup>1</sup> L’instance est isolée sur un matériel dédié à un client unique.
 
@@ -211,9 +211,9 @@ Le débit de disque maximal possible avec des machines virtuelles de la série L
 
 ACU : 180 - 240 <sup>1</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et mis en cache max. : IOPS / MBps (taille du cache en Gio) | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |---|---|---|---|---|---|---|---|

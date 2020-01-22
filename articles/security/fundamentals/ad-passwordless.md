@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007278"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945583"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Un monde sans mot de passe avec Azure Active Directory
 
@@ -291,7 +291,7 @@ Voici quelques facteurs à prendre en compte au moment de choisir une technologi
 
 Utilisez le tableau suivant pour choisir la méthode répondant à vos besoins et à ceux de vos utilisateurs.
 
-|Profil|Scénario|Environnement|Technologie sans mot de passe|
+|Utilisateur|Scénario|Environnement|Technologie sans mot de passe|
 |:-|:-|:-|:-|
 |**Administrateur**|Sécuriser l’accès à un appareil pour les tâches de gestion|Appareil Windows 10 attribué|Windows Hello Entreprise et/ou clé de sécurité FIDO2|
 |**Administrateur**|Tâches de gestion sur des appareils non Windows| Appareil mobile ou non Windows|Connexion sans mot de passe avec l'application Microsoft Authenticator|
@@ -311,7 +311,7 @@ L'authentification sans mot de passe est l'avenir et ouvre la voie à un environ
 
 * Déployer l'application Microsoft Authenticator à des fins de mobilité.
 
-* Déployer Windows Hello Entreprise (1903 : pour être à jour).
+* Déployer Windows Hello Entreprise (1909 : pour être à jour).
 
 * Déployer des périphériques FIDO2 pour les utilisateurs qui ne peuvent pas utiliser de téléphones.
 

@@ -1,6 +1,6 @@
 ---
-title: Ajouter une fenêtre contextuelle avec Azure Maps | Microsoft Docs
-description: Découvrez comment ajouter une fenêtre contextuelle au kit SDK web Azure Maps.
+title: Ajouter une fenêtre contextuelle à un point sur une carte | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à ajouter une fenêtre contextuelle à un point à l’aide du Kit de développement logiciel (SDK) Web Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: cde6c745034d0963bd372e36e6e5a046113c202b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 79bafb331cb7ad38ea7cad9e510b22886b647764
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976547"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911147"
 ---
 # <a name="add-a-popup-to-the-map"></a>Ajouter une fenêtre contextuelle à la carte
 
@@ -125,13 +125,13 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour voir des exemples de codes complets, consultez les articles suivants qui sont très intéressants :
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de symboles](./map-add-pin.md)
+> [Ajouter une couche de symboles](./map-add-pin.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter un marqueur HTML](./map-add-custom-html.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de lignes](map-add-line-layer.md)
+> [Ajouter une couche de lignes](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de polygones](map-add-shape.md)
+> [Ajouter une couche de polygones](map-add-shape.md)

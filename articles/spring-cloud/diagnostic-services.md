@@ -4,22 +4,35 @@ description: Découvrez comment analyser les données de diagnostic dans Azure S
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/06/2019
+ms.date: 01/06/2020
 ms.author: jeconnoc
-ms.openlocfilehash: ebe438bd2dc5b4921ce733001f3c9df19bc592fe
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 347867bc59206a24d32ca01f15bbff35fb73e1d0
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607857"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730040"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analyser les journaux et les métriques avec les paramètres de diagnostic
 
 La fonctionnalité de diagnostic d’Azure Spring Cloud vous permet d’analyser les journaux et les métriques à l’aide d’un des services suivants :
 
-* Utilisez Azure Log Analytics, où les données sont écrites immédiatement sans avoir à être écrites au préalable dans le stockage.
-* Enregistrez-les dans un compte de stockage pour les auditer ou les inspecter manuellement. Spécifiez la durée de conservation (en jours).
-* Envoyez-les par streaming à votre hub d’événements pour ingestion par un service tiers ou une solution d’analyse personnalisée.
+* Utilisez Azure Log Analytics, où les données sont écrites dans Stockage Azure. Il existe un délai lors de l’exportation des journaux vers Log Analytics.
+* Enregistrez les journaux dans un compte de stockage pour les auditer ou les inspecter manuellement. Spécifiez la durée de conservation (en jours).
+* Envoyez les journaux par flux de données à votre Event Hub pour ingestion par un service tiers ou une solution d’analyse personnalisée.
+
+Choisissez la catégorie de journal et de métrique que vous souhaitez analyser.
+
+## <a name="logs"></a>Journaux d’activité
+
+|Journal | Description |
+|----|----|
+| **ApplicationConsole** | Journal de la console de toutes les applications clientes. | 
+| **SystemLogs** | Actuellement, seul [Spring Cloud Config Server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) enregistre dans cette catégorie. |
+
+## <a name="metrics"></a>Mesures
+
+Pour obtenir la liste complète des métriques, consultez [Mesures Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
 
 Pour commencer, activez l’un de ces services pour recevoir les données. Pour en savoir plus sur la configuration de Log Analytics, consultez [Prise en main de Log Analytics dans Azure Monitor](../azure-monitor/log-query/get-started-portal.md). 
 
@@ -38,17 +51,44 @@ Pour commencer, activez l’un de ces services pour recevoir les données. Pour 
 > [!NOTE]
 > Il peut s’écouler jusqu’à 15 minutes entre le moment où les journaux ou les métriques sont émis et le moment où ils apparaissent dans votre compte de stockage, votre hub d’événements ou Log Analytics.
 
-## <a name="view-the-logs"></a>Afficher les journaux
+## <a name="view-the-logs-and-metrics"></a>Afficher les journaux et les métriques
+Il existe plusieurs méthodes pour afficher les journaux et les métriques, comme décrit dans les titres suivants.
+
+### <a name="use-logs-blade"></a>Utiliser le panneau Journaux
+
+1. Dans le Portail Azure, accédez à votre instance Azure Spring Cloud.
+1. Pour ouvrir le volet **Recherche dans les journaux**, sélectionnez **Journaux**.
+1. Dans la zone de recherche **Journal**
+   * Pour afficher les journaux, saisissez une requête simple telle que :
+
+    ```sql
+    AppPlatformLogsforSpring
+    | limit 50
+    ```
+   * Pour afficher les métriques, saisissez une requête simple telle que :
+
+    ```sql
+    AzureMetrics
+    | limit 50
+    ```
+1. Pour afficher le résultat de la recherche, sélectionnez **Exécuter**.
 
 ### <a name="use-log-analytics"></a>Utiliser Log Analytics
 
 1. Dans le Portail Azure, dans le volet de gauche, sélectionnez **Log Analytics**.
 1. Sélectionnez l’espace de travail Log Analytics que vous avez choisi quand vous avez ajouté vos paramètres de diagnostic.
 1. Pour ouvrir le volet **Recherche dans les journaux**, sélectionnez **Journaux**.
-1. Dans la zone de recherche **Journal**, entrez une requête simple telle que :
+1. Dans la zone de recherche **Journal**,
+   * pour afficher les journaux, saisissez une requête simple telle que :
 
     ```sql
     AppPlatformLogsforSpring
+    | limit 50
+    ```
+    * pour afficher les métriques, saisissez une requête simple telle que :
+
+    ```sql
+    AzureMetrics
     | limit 50
     ```
 
@@ -60,6 +100,8 @@ Pour commencer, activez l’un de ces services pour recevoir les données. Pour 
     | where ServiceName == "YourServiceName" and AppName == "YourAppName" and InstanceName == "YourInstanceName"
     | limit 50
     ```
+> [!NOTE]  
+> `==` respecte la casse, mais pas `=~`.
 
 Pour en savoir plus sur le langage de requête qui est utilisé dans Log Analytics, consultez [Requêtes de journal Azure Monitor](../azure-monitor/log-query/query-language.md).
 
@@ -87,9 +129,9 @@ Pour en savoir plus sur l’envoi d’informations de diagnostic à un hub d’�
 
 ## <a name="analyze-the-logs"></a>Analyser les journaux
 
-Azure Log Analytics fournit Kusto afin que vous puissiez interroger vos journaux à des fins d’analyse. Pour obtenir une présentation rapide de l’interrogation des journaux à l’aide de Kusto, passez en revue le [tutoriel sur Log Analytics](../azure-monitor/log-query/get-started-portal.md).
+Azure Log Analytics s’exécute avec un moteur Kusto afin que vous puissiez interroger vos journaux à des fins d’analyse. Pour obtenir une présentation rapide de l’interrogation des journaux à l’aide de Kusto, passez en revue le [tutoriel sur Log Analytics](../azure-monitor/log-query/get-started-portal.md).
 
-Les journaux d’application fournissent des informations critiques sur l’intégrité de votre application, ses performances, et bien plus encore. Les sections suivantes présentent quelques requêtes simples pour vous aider à comprendre les états actuels et passés de votre application.
+Les journaux d’application fournissent des informations critiques et des journaux d’activité détaillés sur l’intégrité de votre application, ses performances, et bien plus encore. Les sections suivantes présentent quelques requêtes simples pour vous aider à comprendre les états actuels et passés de votre application.
 
 ### <a name="show-application-logs-from-azure-spring-cloud"></a>Afficher les journaux d’application à partir d’Azure Spring Cloud
 

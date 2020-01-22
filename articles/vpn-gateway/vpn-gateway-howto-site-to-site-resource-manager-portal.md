@@ -1,25 +1,26 @@
 ---
-title: 'Connectez votre réseau local à un réseau virtuel Azure : VPN de site à site : Portail | Microsoft Docs'
+title: 'Connecter un réseau local à un réseau virtuel Azure : VPN de site à site : Portail'
 description: Étapes de création d’une connexion IPsec entre votre réseau local et un réseau virtuel Azure via l’Internet public. Ces étapes vous aideront à créer une connexion de passerelle VPN de site à site à l’aide du portail.
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 96a8b8d33f713faf96e7a96b32e9e41ca669e6cb
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 2e6aeda0e84b11221af110bda738d6d93f258978
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970806"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894987"
 ---
 # <a name="create-a-site-to-site-connection-in-the-azure-portal"></a>Création d’une connexion de site à site dans le portail Azure
 
 Cet article vous explique comment utiliser le portail Azure pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)

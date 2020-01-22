@@ -1,18 +1,16 @@
 ---
 title: Configurer la récupération d’urgence de SAP NetWeaver à l’aide d’Azure Site Recovery
-description: Cet article décrit comment configurer la reprise d’activité pour les déploiements d’applications SAP NetWeaver avec Azure Site Recovery.
-author: asgang
+description: Découvrez comment configurer la récupération d’urgence de SAP NetWeaver à l’aide d’Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0cef6332a169b71d7812efdc41247443fbc194f2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533850"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982363"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 
@@ -26,7 +24,7 @@ Avec Site Recovery, vous pouvez effectuer les actions décrites ici.
 
 Cet article explique comment protéger les déploiements d’applications SAP NetWeaver à l’aide d’[Azure Site Recovery](site-recovery-overview.md). L’article traite des bonnes pratiques permettant de protéger un déploiement SAP NetWeaver à trois niveaux sur Azure en répliquant vers un autre centre de données Azure à l’aide de Site Recovery. Il décrit les configurations et scénarios pris en charge ainsi que la façon de réaliser des tests de basculement (tests de récupération d’urgence) et des basculements réels.
 
-## <a name="prerequisites"></a>configuration requise
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer, assurez-vous que vous savez accomplir les tâches suivantes :
 
 * [Répliquer une machine virtuelle vers Azure](azure-to-azure-walkthrough-enable-replication.md)
@@ -62,38 +60,38 @@ Cette architecture de référence présente une application SAP NetWeaver en cou
 Pour la récupération d’urgence, vous devez être en mesure de basculer vers une région secondaire. Chaque couche utilise une stratégie différente pour assurer une protection par récupération d’urgence.
 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Machines virtuelles exécutant un pool SAP Web Dispatcher 
-Le composant Web Dispatcher sert d’équilibreur de charge pour le trafic SAP entre les serveurs d’applications SAP. Pour assurer la haute disponibilité du composant Web Dispatcher, Azure Load Balancer est utilisé pour implémenter l’installation Web Dispatcher parallèle dans une configuration de tourniquet pour la distribution du trafic HTTP(S) parmi les Web Dispatchers disponibles dans le pool des équilibreurs. Il sera répliqué à l’aide d’Azure Site Recovery (ASR), et des scripts d’automatisation serviront à configurer l’équilibrage de charge dans la région de récupération d’urgence. 
+Le composant Web Dispatcher sert d’équilibreur de charge pour le trafic SAP entre les serveurs d’applications SAP. Pour assurer la haute disponibilité du composant Web Dispatcher, Azure Load Balancer est utilisé pour implémenter l’installation Web Dispatcher parallèle dans une configuration de tourniquet pour la distribution du trafic HTTP(S) parmi les Web Dispatchers disponibles dans le pool des équilibreurs. Il sera répliqué à l’aide de Site Recovery, et des scripts d’automatisation serviront à configurer l’équilibrage de charge dans la région de récupération d’urgence. 
 
 #### <a name="vms-running-application-servers-pool"></a>Machines virtuelles exécutant un pool de serveurs d’applications
-Pour gérer les groupes de connexion des serveurs d’applications ABAP, la transaction SMLG est utilisée. Elle s’appuie sur la fonction d’équilibrage de charge au sein du serveur de messages des services centraux pour répartir la charge de travail entre le pool de serveurs d’applications pour le trafic des clients SAP GUI et RFC. Elle sera répliquée à l’aide d’Azure Site Recovery 
+Pour gérer les groupes de connexion des serveurs d’applications ABAP, la transaction SMLG est utilisée. Elle s’appuie sur la fonction d’équilibrage de charge au sein du serveur de messages des services centraux pour répartir la charge de travail entre le pool de serveurs d’applications pour le trafic des clients SAP GUI et RFC. Elle sera répliquée à l’aide de Site Recovery.
 
 #### <a name="vms-running-sap-central-services-cluster"></a>Machines virtuelles exécutant un cluster des services centraux SAP
 Cette architecture de référence exécute les services centraux sur les machines virtuelles de la couche application. Les services centraux représentent un point de défaillance unique (SPOF) potentiel lors du déploiement sur une seule machine virtuelle — un déploiement classique quand la haute disponibilité ne constitue pas une exigence.<br>
 
-Pour implémenter une solution à haute disponibilité, il est possible d’utiliser soit un cluster de disque partagé, soit un cluster de partage de fichiers. Afin de configurer des machines virtuelles pour un cluster de disque partagé, utilisez Cluster de basculement Windows Server. Le témoin de cloud est recommandé en tant que témoin de quorum. 
+Pour implémenter une solution à haute disponibilité, il est possible d’utiliser soit un cluster de disque partagé, soit un cluster de partage de fichiers. Afin de configurer des machines virtuelles pour un cluster de disque partagé, utilisez Cluster de basculement Windows Server. Le témoin de cloud est recommandé en tant que témoin de quorum.
  > [!NOTE]
- > Azure Site Recovery ne réplique pas le témoin cloud. Par conséquent, il est recommandé de déployer le témoin cloud dans la région de récupération d’urgence.
+ > Site Recovery ne réplique pas le témoin cloud. Par conséquent, il est recommandé de déployer le témoin cloud dans la région de récupération d’urgence.
 
-Pour prendre en charge l’environnement de cluster de basculement, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) exécute la fonction de volume partagé de cluster en répliquant des disques indépendants détenus par les nœuds de cluster. Azure ne prend pas en charge les disques partagés de manière native et nécessite donc les solutions fournies par SIOS. 
+Pour prendre en charge l’environnement de cluster de basculement, [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) exécute la fonction de volume partagé de cluster en répliquant des disques indépendants détenus par les nœuds de cluster. Azure ne prend pas en charge les disques partagés de manière native et nécessite donc les solutions fournies par SIOS.
 
-Une autre solution pour gérer le clustering consiste à implémenter un cluster de partage de fichiers. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) a récemment modifié le modèle de déploiement des services centraux pour accéder aux répertoires globaux /sapmnt via un chemin d’accès UNC. Il est toutefois recommandé de s’assurer que le partage UNC /sapmnt est hautement disponible. Cela peut être effectué sur l’instance des services centraux en utilisant le cluster de basculement Windows Server avec le serveur de fichiers Scale Out (SOFS) et la fonctionnalité d’espaces de stockage direct (S2D) de Windows Server 2016. 
+Une autre solution pour gérer le clustering consiste à implémenter un cluster de partage de fichiers. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) a récemment modifié le modèle de déploiement des services centraux pour accéder aux répertoires globaux /sapmnt via un chemin d’accès UNC. Il est toutefois recommandé de s’assurer que le partage UNC /sapmnt est hautement disponible. Cela peut être effectué sur l’instance des services centraux en utilisant le cluster de basculement Windows Server avec le serveur de fichiers Scale Out (SOFS) et la fonctionnalité d’espaces de stockage direct (S2D) de Windows Server 2016.
  > [!NOTE]
- > Actuellement, Azure Site Recovery prend uniquement en charge la réplication de points cohérents en cas d’incident de machines virtuelles à l’aide d’espaces de stockage direct et du nœud passif de SIOS Datakeeper
+ > Actuellement, Site Recovery prend uniquement en charge la réplication de points cohérents en cas d’incident de machines virtuelles à l’aide d’espaces de stockage direct et du nœud passif de SIOS Datakeeper
 
 
 ## <a name="disaster-recovery-considerations"></a>Considérations relatives à la récupération d’urgence
 
-Vous pouvez utiliser Azure Site Recovery pour orchestrer le basculement d’un déploiement SAP complet entre des régions Azure.
+Vous pouvez utiliser Site Recovery pour orchestrer le basculement d’un déploiement SAP complet entre des régions Azure.
 Vous trouverez ci-dessous les étapes de configuration de la récupération d’urgence 
 
-1. Répliquer des machines virtuelles 
+1. Répliquer des machines virtuelles
 2. Constituer un réseau de récupération
 3.  Répliquer un contrôleur de domaine
-4.  Répliquer le niveau de base de données 
-5.  Exécuter un test de basculement 
-6.  Effectuer un basculement 
+4.  Répliquer le niveau de base de données
+5.  Exécuter un test de basculement
+6.  Effectuer un basculement
 
-Voici la recommandation pour la récupération d’urgence de chaque niveau utilisé dans cet exemple. 
+Voici la recommandation pour la récupération d’urgence de chaque niveau utilisé dans cet exemple.
 
  **Niveaux SAP** | **Recommandation**
  --- | ---
@@ -133,7 +131,7 @@ Lors d’un basculement, un plan de récupération prend en charge le séquencem
 Afin de vous assurer du bon fonctionnement de vos applications, vous pouvez être amené à effectuer certaines opérations sur les machines virtuelles Azure après le basculement ou pendant un test de basculement. Vous pouvez automatiser certaines opérations après le basculement. Par exemple, mettre à jour l’entrée DNS et modifier les liaisons et les connexions en ajoutant au plan de récupération les scripts correspondants.
 
 
-Vous pouvez déployer les scripts Azure Site Recovery les plus couramment utilisés dans votre compte Automation en cliquant sur le bouton « Déployer dans Azure » ci-dessous. Lorsque vous utilisez n’importe quel script publié, assurez-vous de suivre les instructions dans le script.
+Vous pouvez déployer les scripts Site Recovery les plus couramment utilisés dans votre compte Automation en cliquant sur le bouton « Déployer dans Azure » ci-dessous. Lorsque vous utilisez n’importe quel script publié, assurez-vous de suivre les instructions dans le script.
 
 [![Déployer sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
@@ -164,5 +162,5 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver: Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr_sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
+* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver: Création d’une solution de reprise d’activité après sinistre avec Site Recovery](https://aka.ms/asr_sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

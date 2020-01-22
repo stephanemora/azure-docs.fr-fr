@@ -12,39 +12,23 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae7c6f2d5f05b3d4ed3744be57112a62606cf622
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033369"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833835"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Aperçu : Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure PowerShell
+# <a name="deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>Déployez des machines virtuelles sur des hôtes dédiés à l’aide d’Azure PowerShell
 
 Cet article vous guide dans la création d’un [hôte dédié](dedicated-hosts.md) Azure pour héberger vos machines virtuelles. 
 
-Assurez-vous que vous avez installé Azure PowerShell version 2.4.2 ou ultérieure, et que vous êtes connecté à un compte Azure avec `Connect-AzAccount`. Pour installer la version 2.4.2, ouvrez une invite de commandes PowerShell et tapez :
+Assurez-vous d’avoir installé Azure PowerShell version 2.8.0 ou ultérieure et d’être connecté à un compte Azure avec `Connect-AzAccount`. 
 
-```powershell
-Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
-```
+## <a name="limitations"></a>Limites
 
-Vous aurez besoin de la version 1.6.0 du module PowerShellGet au minimum pour activer la fonctionnalité d’aperçu du module dans PowerShell. Cette fonctionnalité est automatiquement intégrée dans les versions les plus récentes de PowerShell Core, mais pour les anciennes versions de PowerShell, vous pouvez exécuter la commande suivante pour mettre l’outil à jour vers la dernière version :
-
-```powershell
-Install-Module -Name PowerShellGet -Repository PSGallery -Force
-```
-
-
-> [!IMPORTANT]
-> Les hôtes dédiés Azure sont actuellement en préversion publique.
-> Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
-> **Limitations connues de la préversion**
-> - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-> - La préversion initiale prend en charge les séries de machines virtuelles suivantes : DSv3 et ESv3. 
-
-
+- Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
+- Les séries de machines virtuelles suivantes sont prises en charge : DSv3 et ESv3. 
 
 ## <a name="create-a-host-group"></a>Créer un groupe hôte
 
@@ -217,6 +201,6 @@ Remove-AzResourceGroup -Name $rgName
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Un exemple de modèle, trouvé [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
+- Un exemple de modèle, disponible [ici](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md), utilise les zones et les domaines d’erreur pour offrir une résilience maximale dans une région.
 
 - Le [Portail Microsoft Azure](dedicated-hosts-portal.md) permet également de déployer des hôtes dédiés.

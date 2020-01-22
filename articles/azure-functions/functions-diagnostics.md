@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: yunjchoi
 ms.custom: na
-ms.openlocfilehash: 29f90508bf0bdd77f02d78cbcba8fdfe7009f0d2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 41acc5703f6b6e5cdeedf2afd0dc61b23bc579c6
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562049"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834046"
 ---
 # <a name="azure-functions-diagnostics-overview"></a>Vue d’ensemble des diagnostics Azure Functions
 
@@ -42,9 +42,9 @@ Après avoir sélectionné une vignette, vous pouvez voir une liste des rubrique
 
 Une fois que vous avez choisi une rubrique, vous pouvez afficher un rapport de diagnostic spécifique à votre application de fonction. Les rapports de diagnostic utilisent des icônes d’état pour indiquer la présence de problèmes spécifiques dans votre application. Vous y trouverez une description détaillée du problème, des actions recommandées, des mesures associées et des documents utiles. Les rapports de diagnostic personnalisés sont générés à partir d’une série de vérifications exécutées sur votre application de fonction. Les rapports de diagnostic peuvent être un outil utile pour identifier les problèmes dans votre application de fonction et vous guider vers la résolution du problème.
 
-## <a name="find-the-problem-code"></a>Trouver le code problématique 
+## <a name="find-the-problem-code"></a>Trouver le code problématique
 
-Pour les fonctions basées sur des scripts, vous pouvez utiliser **Exécution de la fonction** et **Erreurs** sous **Function App cesse de fonctionner ou signale des erreurs** pour circonscrire la ligne de code provoquant des exceptions ou des erreurs. Cette fonctionnalité peut être utile pour déterminer la cause racine et résoudre les problèmes à partir d’une ligne de code spécifique. Cette option n’est pas disponible pour les fonctions précompilées C# et Java.
+Pour les fonctions basées sur des scripts, vous pouvez utiliser **Exécution de la fonction et Erreurs** sous **Function App cesse de fonctionner ou signale des erreurs** pour circonscrire la ligne de code provoquant des exceptions ou des erreurs. Cette fonctionnalité peut être utile pour déterminer la cause racine et résoudre les problèmes à partir d’une ligne de code spécifique. Cette option n’est pas disponible pour les fonctions précompilées C# et Java.
 
 ![Rapport de diagnostic sur les erreurs d’exécution de fonction](./media/functions-diagnostics/diagnostic-report-on-function-execution-errors.png)
 

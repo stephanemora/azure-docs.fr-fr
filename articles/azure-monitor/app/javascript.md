@@ -1,18 +1,18 @@
 ---
-title: Azure Application Insights pour les applications web JavaScript | Microsoft Docs
-description: Obtention des décomptes de sessions et d’affichages de pages, des données de client web et suivi des modèles d’utilisation. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript.
+title: Azure Application Insights pour les applications web JavaScript
+description: Obtenir les nombres de sessions et d’affichage de page, les données de client web, les applications monopages (SPA) et les modèles d’utilisation de suivi. Détection des problèmes de performances et des exceptions dans les pages Web JavaScript.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 6bb61f419f4c6d277a9b1c666db92595642cb0e6
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706596"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045837"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -60,7 +60,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Envoi de données de télémétrie au portail Azure
 
-Par défaut, le kit SDK JavaScript Application Insights recueille un certain nombre d’éléments de télémétrie qui sont utiles pour déterminer l’intégrité de votre application et l’expérience utilisateur sous-jacente. Il s’agit des actions suivantes :
+Par défaut, le kit SDK JavaScript Application Insights recueille un certain nombre d’éléments de télémétrie qui sont utiles pour déterminer l’intégrité de votre application et l’expérience utilisateur sous-jacente. notamment :
 
 - **Exceptions non interceptées** dans votre application, y compris des informations sur
     - Arborescence des appels de procédure
@@ -97,7 +97,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>Configuration
 La plupart des champs de configuration sont nommés de façon à pouvoir avoir la valeur false par défaut. Tous les champs sont facultatifs à l’exception de `instrumentationKey`.
 
-| Nom | Default | Description |
+| Name | Default | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **Obligatoire**<br>Clé d’instrumentation que vous avez obtenue à partir du portail Azure. |
 | accountId | null | ID de compte facultatif, si votre application regroupe les utilisateurs dans des comptes. Aucun espace, virgule, point-virgule, signe d’égalité ni barre verticale |
@@ -108,8 +108,8 @@ La plupart des champs de configuration sont nommés de façon à pouvoir avoir l
 | disableExceptionTracking | false | Si la valeur est true, les exceptions ne sont pas collectées automatiquement. La valeur par défaut est false. |
 | disableTelemetry | false | Si la valeur est true, les données de télémétrie ne sont pas collectées ni envoyées. La valeur par défaut est false. |
 | enableDebug | false | Si la valeur est true, les données de débogage **internes** sont levées en tant qu’exception **au lieu** d’être consignées, quels que soient les paramètres de journalisation du kit SDK. La valeur par défaut est false. <br>***Remarque :*** L’activation de ce paramètre entraîne la suppression de données de télémétrie chaque fois qu’une erreur interne se produit. Cela peut être utile pour identifier rapidement les problèmes liés à votre configuration ou utilisation du kit SDK. Pour ne pas perdre de données de télémétrie pendant le débogage, utilisez `consoleLoggingLevel` ou `telemetryLoggingLevel` à la place de `enableDebug`. |
-| loggingLevelConsole | 0 | Consigne les erreurs **internes** d’Application Insights dans la console. <br>0 : désactivé, <br>1: Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) |
-| loggingLevelTelemetry | 1 | Envoie les erreurs **internes** d’Application Insights en tant que données de télémétrie. <br>0 : désactivé, <br>1: Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) |
+| loggingLevelConsole | 0 | Consigne les erreurs **internes** d’Application Insights dans la console. <br>0 : désactivé, <br>1 : Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) |
+| loggingLevelTelemetry | 1 | Envoie les erreurs **internes** d’Application Insights en tant que données de télémétrie. <br>0 : désactivé, <br>1 : Erreurs critiques uniquement, <br>2 : Tout (erreurs et avertissements) |
 | diagnosticLogInterval | 10000 | (interne) Intervalle d’interrogation (en ms) pour la file d’attente de journalisation interne |
 | samplingPercentage | 100 | Pourcentage d’événements qui seront envoyés. La valeur par défaut est 100, ce qui signifie que tous les événements sont envoyés. Définissez cette option si vous souhaitez conserver votre plafond de données pour les applications à grande échelle. |
 | autoTrackPageVisitTime | false | Si la valeur est true, sur une consultation de page, la durée d’affichage de la page instrumentée précédente fait l’objet d’un suivi et est envoyée en tant que données de télémétrie, et un nouveau minuteur est démarré pour la consultation de page en cours. La valeur par défaut est false. |
@@ -257,7 +257,7 @@ Chrome version la plus récente ✔ |  Firefox version la plus récente ✔ | IE
 
 Le kit SDK JavaScript Application Insights est proposé en open source. Pour afficher le code source ou contribuer au projet, visitez le [dépôt GitHub officiel](https://github.com/Microsoft/ApplicationInsights-JS).
 
-## <a name="next"></a> Étapes suivantes
+## <a name="next"></a>Étapes suivantes
 * [Suivi de l'utilisation](usage-overview.md)
 * [Mesures et événements personnalisés](api-custom-events-metrics.md)
 * [Développer-mesurer-apprendre](usage-overview.md)

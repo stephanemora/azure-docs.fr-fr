@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe7e617ae2263f1388feef3754f6cd16130ed436
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 684b212ca771af6c336cf6239e18ea367f2da5ce
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059654"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045098"
 ---
 Cet article utilise des cmdlets PowerShell. Pour exécuter les applets de commande, vous pouvez utiliser Azure Cloud Shell, un environnement d’interpréteur de commandes interactif hébergé dans Azure et utilisé via votre navigateur. Azure Cloud Shell est fourni avec les applets de commande PowerShell Azure préinstallées.
 
@@ -29,4 +29,6 @@ Vous pouvez lancer Azure Cloud Shell avec :
 
 **Exécution de PowerShell en local**
 
-Vous pouvez également installer et exécuter des cmdlets Azure PowerShell en local sur votre ordinateur. Les cmdlets PowerShell sont fréquemment mises à jour. Si vous n’exécutez pas leur dernière version, les valeurs spécifiées dans les instructions peuvent échouer. Pour rechercher les versions d’Azure PowerShell installées sur votre ordinateur, utilisez la cmdlet `Get-Module -ListAvailable Az`. Pour installer ou mettre à jour les cmdlets, voir [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+Vous pouvez également installer et exécuter des cmdlets Azure PowerShell en local sur votre ordinateur. Les cmdlets PowerShell sont fréquemment mises à jour. Si vous n’exécutez pas leur dernière version, les valeurs spécifiées dans les instructions peuvent échouer. Pour rechercher les versions d’Azure PowerShell installées sur votre ordinateur, utilisez la cmdlet `Get-Module -ListAvailable Az`. Pour installer ou mettre à jour les cmdlets, consultez [Installer le module Azure PowerShell](/powershell/azure/install-az-ps).
+
+Si vous utilisez PowerShell localement, assurez-vous de lancer « Connect-AzAccount » pour créer votre connexion à Azure.

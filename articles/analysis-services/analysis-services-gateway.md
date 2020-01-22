@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146851"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768552"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connexion aux sources de données locales avec la passerelle de données locale
 
-La passerelle de données locale assure un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Microsoft Flow. Vous pouvez associer plusieurs services dans le même abonnement et la même région avec une passerelle unique. Bien que la passerelle que vous installez est la même pour tous ces services, Azure Analysis Services et Logic Apps présentent des étapes supplémentaires.
+La passerelle de données locale assure un transfert de données sécurisé entre des sources de données locales et vos serveurs Azure Analysis Services dans le cloud. Pouvant être utilisée avec plusieurs serveurs Azure Analysis Services dans la même région, la dernière version de la passerelle fonctionne également avec Azure Logic Apps, Power BI, Power Apps et Power Automate. Vous pouvez associer plusieurs services dans le même abonnement et la même région avec une passerelle unique. Bien que la passerelle que vous installez est la même pour tous ces services, Azure Analysis Services et Logic Apps présentent des étapes supplémentaires.
 
 Pour Azure Analysis Services, la première configuration de la passerelle se déroule en quatre étapes :
 
@@ -28,7 +28,7 @@ Pour Azure Analysis Services, la première configuration de la passerelle se dé
 
 - **Connecter vos serveurs à vos ressources de passerelle** - Une fois que vous avez une ressource de passerelle dans votre abonnement, vous pouvez commencer à y connecter vos serveurs. Vous pouvez y connecter plusieurs serveurs et d’autres ressources, pourvu qu’ils soient dans le même abonnement et la même région.
 
-## <a name="how-it-works"></a>Fonctionnement
+## <a name="how-it-works"> </a>Fonctionnement
 La passerelle que vous installez sur un ordinateur de votre organisation s’exécute comme un service Windows, **Passerelle de données locale**. Ce service local est inscrit auprès du service cloud de passerelle via Azure Service Bus. Vous créez ensuite une ressource de passerelle de données locale pour votre abonnement Azure. Vos serveurs Azure Analysis Services sont alors connectés à vos ressources de passerelle Azure. Lorsque des modèles sur votre serveur doivent se connecter à vos sources de données locales pour des requêtes ou un traitement, un flux de données et de requête parcourt la ressource de passerelle, Azure Service Bus, le service de passerelle de données locale et vos sources de données. 
 
 ![Fonctionnement](./media/analysis-services-gateway/aas-gateway-how-it-works.png)

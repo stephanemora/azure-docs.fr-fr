@@ -1,5 +1,5 @@
 ---
-title: Concevoir des tables de stockage Azure pour la modification de données | Microsoft Docs
+title: Concevoir un stockage Table Azure pour la modification de données | Microsoft Docs
 description: Concevoir des tables pour la modifications de données dans le stockage Table Azure.
 services: storage
 author: MarkMcGeeAtAquent
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: e993d169025f9b76c5e813bae31ca6cb2a39ba71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c95be7afae5c0a84c06b691c8225f32f2aa68260
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60325882"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771544"
 ---
 # <a name="design-for-data-modification"></a>Conception pour la modification de données
 Cet article décrit les conceptions qui permettent d’optimiser les insertions, les mises à jour et les suppressions. Dans certains cas, vous devez évaluer le compromis entre les conceptions optimisées pour l'interrogation et celles optimisées pour la modification des données, comme vous le feriez dans les conceptions de bases de données relationnelles (bien que les techniques permettant de gérer les compromis de conception sont différentes dans une base de données relationnelle). La section Modèles de conception de table décrit plusieurs modèles de conception détaillés pour le service de Table et apporte des informations sur certains de ces compromis. En pratique, vous constaterez que les nombreuses conceptions optimisées pour l'interrogation des entités fonctionnent aussi bien pour la modification des entités.  

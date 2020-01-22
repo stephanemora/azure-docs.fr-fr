@@ -7,16 +7,18 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6b0f025948803a23c5b3c8bb6415c0e111b946b2
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 9809a138a5e28eb069d545d39cfda815c915bd78
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349046"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75728886"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
  Retourne une expression de chaîne après la conversion des caractères minuscules en caractères majuscules.  
-  
+
+La fonction système UPPER n’utilise pas l’index. Si vous envisagez d’effectuer des comparaisons non sensibles à la casse fréquentes, la fonction système UPPER peut consommer une quantité significative de RU. Si c’est le cas, au lieu d’utiliser la fonction système UPPER pour normaliser les données à chaque fois pour les comparaisons, vous pouvez normaliser la casse lors de l’insertion. Ensuite, une requête telle que SELECT * FROM c WHERE UPPER(c.name) = 'BOB' devient simplement SELECT * FROM c WHERE c.name = 'BOB'.
+
 ## <a name="syntax"></a>Syntaxe
   
 ```sql

@@ -2,13 +2,13 @@
 title: Supervision de Kubernetes avec Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article décrit comment voir et analyser les performances d’un cluster Kubernetes avec Azure Monitor pour conteneurs.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 3fc8d8d1f8c214c3bebe7af2cf670732b20529d3
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/07/2020
+ms.openlocfilehash: f57f8982b2aa045156e6f48316610137260d6597
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690039"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75731014"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Superviser les performances de votre cluster Kubernetes avec Azure Monitor pour conteneurs
 
@@ -20,14 +20,7 @@ Pour plus d’informations sur la procédure d’activation d’Azure Monitor po
 
 Azure Monitor fournit une vue multi-cluster qui affiche l’état d’intégrité de tous les clusters Kubernetes surveillés exécutant Linux et Windows Server 2019, déployés dans les groupes de ressources de vos abonnements. Il montre les clusters découverts sur tous les environnements et qui ne sont pas surveillés par la solution. Vous pouvez immédiatement comprendre l’intégrité du cluster et, à partir de là, vous pouvez explorer le nœud et la page de performances du contrôleur, ou naviguer pour voir les graphiques de performances du cluster. Pour les clusters AKS qui ont été détectés et identifiés comme non surveillés, vous pouvez activer leur surveillance à tout moment. 
 
-Les principales différences entre la surveillance d’un cluster Windows Server avec Azure Monitor pour conteneurs et celle d’un cluster Linux sont les suivantes :
-
-- La métrique Mémoire RSS n’est pas disponible pour le nœud et les conteneurs Windows.
-- Les informations de capacité de stockage des disques ne sont pas disponibles pour les nœuds Windows.
-- Les journaux de conteneur ne sont pas disponibles pour les conteneurs s’exécutant dans les nœuds Windows.
-- La prise en charge des journaux d’activité dynamiques est disponible à l’exception des fichiers journaux de conteneurs Windows.
-- Seuls les environnements de pod sont surveillés, pas les environnements Docker.
-- Avec la préversion, un maximum de 30 conteneurs Windows Server sont pris en charge. Cette limitation ne s’applique pas aux conteneurs Linux. 
+Les principales différences entre la surveillance d’un cluster Windows Server doté d’Azure Monitor pour conteneurs et celle d’un cluster Linux sont décrites [ici](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) dans l’article de présentation.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 

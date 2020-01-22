@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 34cf1e91b1fe5aae516c77bf2c280dfe70000611
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561299"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894751"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Comprendre la procédure de conservation des données dans Azure Time Series Insights
 
@@ -44,8 +44,8 @@ Les deux stratégies de rétention des données sont décrites plus en détail c
 ## <a name="purge-old-data"></a>Vidage des données anciennes
 
 - **Vidage des anciennes données** est le paramètre par défaut pour les environnements Azure Time Series Insights.  
-- Le **Vidage des données anciennes** Ce comportement est préférable lorsque les utilisateurs souhaitent voir systématiquement leurs *données les plus récentes* dans leur environnement Time Series Insights.
-- Le paramètre **Vidage des données anciennes** *purge* les données une fois que les limites de l’environnement (durée de conservation, taille ou nombre, selon ce qui se présente en premier) sont atteintes. Par défaut, la conservation est définie sur 30 jours.
+- **Supprimer définitivement des données anciennes** est préférable lorsque les utilisateurs souhaitent avoir systématiquement leurs *données les plus récentes* dans leur environnement Time Series Insights.
+- Le paramètre **Vidage des données anciennes***purge* les données une fois que les limites de l’environnement (durée de conservation, taille ou nombre, selon ce qui se présente en premier) sont atteintes. Par défaut, la conservation est définie sur 30 jours.
 - Les données ingérées les plus anciennes sont vidées en premier (approche « premier arrivé, premier sorti »).
 
 ### <a name="example-one"></a>Premier exemple

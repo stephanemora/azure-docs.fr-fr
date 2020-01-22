@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec32990513d9199c4aaccf1bcfcbf76f348f877b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891950"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867504"
 ---
 # <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Utiliser le Portail Azure afin d’attribuer un rôle RBAC pour l’accès aux données de blob et de file d’attente
 
@@ -45,7 +45,7 @@ Les sections suivantes décrivent chacune de ces étapes plus en détail.
 
 > [!NOTE]
 > En tant que propriétaire de votre compte de stockage Azure, aucune autorisation d’accès aux données ne vous est automatiquement attribuée. Vous devez vous attribuer explicitement un rôle RBAC pour le Stockage Azure. Vous pouvez l’attribuer au niveau de votre abonnement, votre groupe de ressources ou votre compte de stockage, ou au niveau d’un conteneur ou d’une file d’attente.
-> 
+>
 > Vous ne pouvez pas attribuer de rôle dans l’étendue d’un conteneur ou d’une file d’attente d’attente si votre compte de stockage a un espace de noms hiérarchique activé.
 
 ### <a name="assign-a-built-in-rbac-role"></a>Attribuer un rôle RBAC intégré
@@ -75,7 +75,6 @@ Vous pouvez suivre des étapes similaires pour attribuer un rôle dans l’éten
 ### <a name="assign-the-reader-role-for-portal-access"></a>Attribuer le rôle Lecteur pour accéder au portail
 
 Lorsque vous attribuez un rôle intégré ou personnalisé pour Stockage Azure à un principal de sécurité, vous accordez des autorisations à ce principal de sécurité pour effectuer des opérations sur les données dans votre compte de stockage. Les rôles **Lecteur de données** intégrés fournissent des autorisations de lecture pour les données dans un conteneur ou une file d’attente, tandis que les rôles **Contributeur aux données** intégrés permettent de lire, d’écrire et de supprimer des autorisations dans un conteneur ou une file d’attente. L’étendue des autorisations se limite à la ressource spécifiée.  
-
 Par exemple, si vous attribuez le rôle **Contributeur aux données Blob du stockage** à l’utilisatrice Mary au niveau d’un conteneur nommé **exemple-container**, puis Mary se voit attribuer un accès en lecture, écriture et suppression à tous les objets blob dans ce conteneur.
 
 Toutefois, si Mary souhaite afficher un objet blob dans le portail Azure, le rôle **Contributeur aux données Blob du stockage** ne fournit pas les autorisations suffisantes pour naviguer dans le portail et atteindre l’objet blob dans le but de le consulter. D’autres autorisations Azure AD sont requises pour naviguer dans le portail et afficher les autres ressources qui y sont visibles.
@@ -91,8 +90,10 @@ Suivez ces étapes pour attribuer le rôle **Lecteur** afin qu’un utilisateur 
 1. Recherchez le principal de sécurité auquel vous souhaitez attribuer le rôle.
 1. Enregistrez l’attribution de rôle.
 
-> [!NOTE]
-> L’attribution du rôle Lecteur est uniquement nécessaire pour les utilisateurs qui doivent accéder aux objets blob ou files d’attente à l’aide du portail Azure. 
+L’attribution du rôle **Lecteur** est uniquement nécessaire pour les utilisateurs qui doivent accéder aux blobs ou files d’attente à l’aide du Portail Azure.
+
+> [!IMPORTANT]
+> La préversion d’Explorateur Stockage dans le Portail Azure ne prend pas en charge l’utilisation d’informations d’identification Azure AD pour afficher et modifier des données blob ou de file d’attente. Explorateur Stockage dans le Portail Azure utilise toujours les clés de compte pour accéder aux données. Pour utiliser Explorateur Stockage dans le Portail Azure, vous devez être affecté à un rôle qui comprend **Microsoft.Storage/storageAccounts/listkeys/action**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

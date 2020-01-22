@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 12/27/2019
-ms.openlocfilehash: 05cf7f1c69c6118d39efb72185443e1fad072209
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/10/2020
+ms.openlocfilehash: e9a24daeeab906419416a3a10fda901c91d9fb33
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531460"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863221"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : Effectuer la migration en ligne de SQL Server vers une instance managée d’Azure SQL Database à l’aide de DMS
 
@@ -44,7 +44,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > Pour une expérience de migration optimale, Microsoft recommande de créer une instance d’Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
 
 > [!IMPORTANT]
-> Il est important de réduire autant que possible la durée du processus de migration en ligne afin de réduire le risque d’interruption due à la reconfiguration d’une instance ou à une maintenance planifiée. Dans le cas d’un tel événement, le processus de migration reprend dès le début. En cas de maintenance planifiée, il existe une période de grâce de 36 heures avant le redémarrage du processus de migration.
+> Réduisez autant que possible la durée du processus de migration en ligne afin de minimiser le risque d’interruption due à la reconfiguration d’une instance ou à une maintenance planifiée. Dans le cas d’un tel événement, le processus de migration reprend dès le début. En cas de maintenance planifiée, il existe une période de grâce de 36 heures avant le redémarrage du processus de migration.
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
@@ -54,10 +54,10 @@ Cet article décrit une migration en ligne de SQL Server vers une instance manag
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
-* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Découvrez les topologies réseau relatives à la migration d'instances gérées d'Azure SQL Database à l'aide d'Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
+* Créez un Réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité de site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Découvrez les topologies réseau relatives à la migration d'instances gérées d'Azure SQL Database à l'aide d'Azure Database Migration Service](https://aka.ms/dmsnetworkformi). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
-    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de service au sous-réseau où doit être provisionné le service :
+    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
     >
     > * Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
     > * Point de terminaison de stockage
@@ -70,9 +70,9 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     > [!IMPORTANT]
     > En ce qui concerne le compte de stockage utilisé dans le cadre de la migration, vous devez :
     > * Choisir d’autoriser tout le réseau à accéder au compte de stockage.
-    > * Configurer des listes de contrôle d’accès pour le réseau virtuel. Pour plus d’informations, consultez l’article [Configurer des pare-feu et des réseaux virtuels dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+    > * Activez [Délégation de sous-réseau](https://docs.microsoft.com/azure/virtual-network/manage-subnet-delegation) sur le sous-réseau MI et mettez à jour les règles de pare-feu du compte de stockage pour autoriser ce sous-réseau.
 
-* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurez [l’accès au moteur de base de données source dans votre Pare-feu Windows](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Ouvrez votre pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur SQL Server source via le port TCP 1433 (par défaut).
 * Si vous exécutez plusieurs instances nommées de SQL Server avec des ports dynamiques, vous pouvez activer le service SQL Browser et autoriser l’accès au port UDP 1434 à travers vos pare-feu, de sorte qu’Azure Database Migration Service puisse se connecter à une instance nommée sur votre serveur source.
@@ -121,7 +121,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
     Le réseau virtuel fournit à Azure Database Migration Service un accès au serveur SQL Server source et à l’instance managée SQL Database cible.
 
-    Pour plus d’informations sur la création d’un réseau virtuel dans le portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du portail Azure](https://aka.ms/DMSVnet).
+    Pour plus d’informations sur la création d’un réseau virtuel dans le Portail Azure, consultez l’article [Créer un réseau virtuel à l’aide du Portail Azure](https://aka.ms/DMSVnet).
 
     Pour plus d'informations, consultez l'article [Topologies réseau pour la migration d'instances gérées d'Azure SQL Database à l'aide d'Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
 
@@ -208,18 +208,19 @@ Une fois qu’une instance du service a été créée, recherchez-la dans le Por
 
     | | |
     |--------|---------|
-    |**SMB Network location share** (Partage d’emplacement réseau SMB) | Partage réseau SMB local ou partage de fichiers Azure contenant les fichiers de sauvegarde complète de base de données et les fichiers de sauvegarde du journal des transactions qu’Azure Database Migration Service peut utiliser pour la migration. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges de lecture et d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ».|
-    |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service emprunte l'identité de l'utilisateur afin de charger les fichiers de sauvegarde sur le conteneur de stockage Azure pour l'opération de restauration. Si vous choisissez le partage de fichiers Azure, utilisez le nom de compte de stockage commençant par AZURE\ en tant que nom d’utilisateur. |
+    |**SMB Network location share** (Partage d’emplacement réseau SMB) | Partage réseau SMB local ou partage de fichiers Azure contenant les fichiers de sauvegarde complète de base de données et les fichiers de sauvegarde du journal des transactions qu’Azure Database Migration Service peut utiliser pour la migration. Le compte de service qui exécute l’instance source de SQL Server doit avoir des privilèges de lecture et d’écriture pour ce partage réseau. Fournissez un nom de domaine complet ou les adresses IP du serveur dans le partage réseau, par exemple, « \\\nomserveur.nomdomaine.com\dossiersauvegarde » ou « \\\adresse IP\dossiersauvegarde ». Pour améliorer les performances, il est recommandé d’utiliser un dossier distinct pour chaque base de données à migrer. Vous pouvez fournir le chemin d’accès du partage de fichiers au niveau de la base de données à l’aide de l’option **Paramètres avancés**. |
+    |**Nom d'utilisateur** | Assurez-vous que l’utilisateur Windows dispose d’un contrôle total sur le partage réseau que vous avez fourni précédemment. Azure Database Migration Service utilise les informations d’identification de l’utilisateur afin de charger les fichiers de sauvegarde dans le conteneur de stockage Azure pour l'opération de restauration. Si vous choisissez le partage de fichiers Azure, utilisez le nom de compte de stockage commençant par AZURE\ en tant que nom d’utilisateur. |
     |**Mot de passe** | Mot de passe pour l’utilisateur. Si vous choisissez le partage de fichiers Azure, utilisez une clé de compte de stockage en tant que mot de passe. |
     |**Subscription of the Azure Storage Account** (Abonnement du compte Stockage Azure) | Sélectionnez l’abonnement qui contient le compte Stockage Azure. |
     |**Compte Stockage Azure** | Sélectionnez le compte Stockage Azure sur lequel Azure Database Migration Service peut charger les fichiers de sauvegarde à partir du partage réseau SMB et qu’il peut utiliser pour la migration de base de données.  Nous vous recommandons de sélectionner le compte de stockage se trouvant dans la même région qu’Azure Database Migration Service pour bénéficier de performances de chargement de fichiers optimales. |
 
     ![Configurer les paramètres de migration](media/tutorial-sql-server-to-managed-instance-online/dms-configure-migration-settings4.png)
 
+    > [!NOTE]
+    > Si Azure Database Migration Service indique l’erreur « Erreur système 53 » ou « Erreur système 57 », cela peut signifier qu’Azure Database Migration Service ne peut pas accéder au partage de fichiers Azure. Si vous êtes confronté à l’une de ces erreurs, accordez l’accès au compte de stockage depuis le réseau virtuel en utilisant les instructions [ici](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
 
-> [!NOTE]
-  > Si Azure Database Migration Service indique l’erreur « Erreur système 53 » ou « Erreur système 57 », cela peut signifier qu’Azure Database Migration Service ne peut pas accéder au partage de fichiers Azure. Si vous êtes confronté à l’une de ces erreurs, accordez l’accès au compte de stockage depuis le réseau virtuel en utilisant les instructions [ici](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network).
-
+    > [!IMPORTANT]
+    > Si la fonctionnalité du contrôle de bouclage est activée et que le SQL Server source et le partage de fichiers se trouvent sur le même ordinateur, la source ne peut pas accéder au partage de fichiers à l’aide du FQDN. Pour résoudre ce problème, désactivez la fonctionnalité du contrôle de bouclage à l’aide des instructions indiquées [ici](https://support.microsoft.com/help/926642/error-message-when-you-try-to-access-a-server-locally-by-using-its-fqd).
 
 2. Sélectionnez **Enregistrer**.
 

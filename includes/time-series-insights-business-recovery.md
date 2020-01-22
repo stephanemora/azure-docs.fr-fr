@@ -5,12 +5,12 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 12/06/2019
-ms.openlocfilehash: 8d0c1edd2766d5fa46603d241c4f769fe5777cd1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dec7f022a73c5eb47c99b2d2d38e1a3258bcf14e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74981561"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861458"
 ---
 ## <a name="business-disaster-recovery"></a>Récupération d'urgence
 
@@ -55,7 +55,7 @@ En règle générale, la meilleure façon de dupliquer un environnement Time Ser
 
 Pour créer un environnement dupliqué :
 
-1. Créez un environnement dans la deuxième région. Pour plus d’informations, consultez [Créer un nouvel environnement de Time Series Insights dans le portail Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Créez un environnement dans la deuxième région. Pour plus d’informations, consultez [Créer un nouvel environnement de Time Series Insights dans le Portail Azure](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Créez un deuxième groupe de consommateurs dédié pour votre source d’événements.
 1. Connectez cette source d’événements au nouvel environnement. Faites attention à bien désigner le deuxième groupe de consommateurs dédié.
 1. Passez en revue la documentation [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) et [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) de Time Series Insights.

@@ -1,5 +1,5 @@
 ---
-title: Charger des fichiers dans un compte Azure Media Services à l’aide de REST | Microsoft Docs
+title: Charger des fichiers dans un compte Azure Media Services v3 à l’aide de REST | Microsoft Docs
 description: Apprenez à obtenir du contenu multimédia dans Media Services en créant et en chargeant des ressources.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 78c07330558241c889f284bcaf7302ce1327b5b8
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389799"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779159"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Charger des fichiers dans un compte Media Services à l’aide de REST
 
@@ -26,7 +26,7 @@ Dans Media Services, vous chargez vos fichiers numériques dans un conteneur d'o
 
 Cet article explique comment charger un fichier local à l'aide de REST.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 
@@ -63,4 +63,4 @@ Utilisez les SDK ou les API Stockage Azure (par exemple l’[API REST de stockag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - REST](stream-files-tutorial-with-rest.md)
+[Tutoriel : Encoder un fichier distant basé sur une URL et diffuser la vidéo en continu - REST](stream-files-tutorial-with-rest.md)

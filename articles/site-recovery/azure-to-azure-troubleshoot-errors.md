@@ -1,18 +1,18 @@
 ---
 title: Détecter un problème de réplication de machine virtuelle Azure dans Azure Site Recovery
 description: Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure pour une reprise d’activité après sinistre.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgang
-ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rochakm
+ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084920"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902552"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Résoudre les erreurs rencontrées lors de la réplication de machines virtuelles Azure vers Azure
 
@@ -34,7 +34,7 @@ S’il n’existe pas de taille qui prend en charge la configuration de la machi
 
 ### <a name="fix-the-problem"></a>Résoudre le problème
 
-Contactez le [support de facturation Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) pour activer votre abonnement et créer des machines virtuelles des tailles nécessaires dans l’emplacement cible. Retentez alors l’opération ayant échouée.
+Contactez le [support de facturation Azure](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) pour activer votre abonnement et créer des machines virtuelles des tailles nécessaires dans l’emplacement cible. Retentez alors l’opération ayant échouée.
 
 Si l’emplacement cible a une contrainte de capacité, désactivez la réplication sur celui-ci. Activez ensuite la réplication sur un autre emplacement où votre abonnement dispose d’un quota suffisant pour créer des machines virtuelles des tailles nécessaires.
 
@@ -233,7 +233,7 @@ Dans ProxyInfo.conf, fournissez les paramètres de proxy au format de fichier d�
 > [!NOTE]
 > L’agent Mobility Service de Site Recovery prend uniquement en charge les *proxys non authentifiés*.
 
-### <a name="more-information"></a>Plus d’informations
+### <a name="more-information"></a>Informations complémentaires
 
 Pour spécifier les [URL nécessaires](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) ou les [plages d’adresses IP nécessaires](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), suivez les instructions mentionnées dans [Mise en réseau dans la réplication Azure vers Azure](site-recovery-azure-to-azure-networking-guidance.md).
 
@@ -241,7 +241,7 @@ Pour spécifier les [URL nécessaires](azure-to-azure-about-networking.md#outbou
 
 Un nouveau disque attaché à la machine virtuelle doit être initialisé. Si le disque est introuvable, le message suivant s’affiche :
 
-> « Le disque de données Azure *Nom_disque* *URI_disque* avec le numéro d’unité logique *LUN* *Valeur_LUN* n’a pas été mappé au disque correspondant signalé à partir de la machine virtuelle ayant la même valeur LUN.
+> Le disque de données Azure *nom_disque* *URI_disque* portant le numéro d’unité logique *LUN* *valeur_LUN* n’a pas été mappé au disque correspondant signalé à partir de la machine virtuelle ayant la même valeur LUN.
 
 ### <a name="possible-causes"></a>Causes possibles
 
@@ -466,7 +466,7 @@ Les exemples suivants sont des lignes de fichiers GRUB où les noms d’appareil
 
 Remplacez chaque nom de l’appareil par l’UUID correspondant :
 
-1. Recherchez l’UUID de l’appareil en exécutant la commande **blkid** ***nom_appareil***. Par exemple :
+1. Recherchez l’UUID de l’appareil en exécutant la commande **blkid** ***nom d’appareil***. Par exemple :
 
     ```
     blkid /dev/sda1

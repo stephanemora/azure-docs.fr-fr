@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 86a3fd7c67dc2e544a1510dc910951452c32245d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b560cee23855d1c0e8a7b3c2cb9d82c184a1ebf6
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811347"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732397"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Haute disponibilité et Azure SQL Database
 
-L’objectif de l’architecture de haute disponibilité dans Azure SQL Database est de garantir que votre base de données est opérationnelle 99,99 % du temps, sans que vous vous préoccupiez de l’impact des opérations de maintenance et des pannes. Azure gère automatiquement les tâches de maintenance vitales, telles les mises à jour correctives, sauvegardes, mises à niveau Windows et SQL, ainsi que les événements non planifiés, comme les défaillances de matériel, logiciel ou réseau subordonnées.  Quand l’instance SQL fondamentale est corrigée ou qu’elle bascule, le temps d’arrêt n’est pas perceptible si vous [utilisez une logique de nouvelle tentative](sql-database-develop-overview.md#resiliency) dans votre application. Pour assurer la disponibilité de vos données, Azure SQL Database bénéficie de fonctionnalités de récupération rapide, même dans les situations les plus critiques.
+L’objectif de l’architecture Haute disponibilité dans Azure SQL Database est de garantir que votre base de données est opérationnelle au minimum 99,99 % du temps (pour plus d’informations sur le contrat de niveau de service [SLA] spécifique pour les différents niveaux de service, consultez [SLA pour Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/)), sans que vous vous préoccupiez de l’impact des opérations de maintenance et des pannes. Azure gère automatiquement les tâches de maintenance vitales, telles les mises à jour correctives, sauvegardes, mises à niveau Windows et SQL, ainsi que les événements non planifiés, comme les défaillances de matériel, logiciel ou réseau subordonnées.  Quand l’instance SQL fondamentale est corrigée ou qu’elle bascule, le temps d’arrêt n’est pas perceptible si vous [utilisez une logique de nouvelle tentative](sql-database-develop-overview.md#resiliency) dans votre application. Pour assurer la disponibilité de vos données, Azure SQL Database bénéficie de fonctionnalités de récupération rapide, même dans les situations les plus critiques.
 
 La solution de haute disponibilité est conçue pour garantir que les données validées ne sont jamais perdues pour cause d’échecs, que les opérations de maintenance n’affectent pas votre charge de travail, et que la base de données n’est pas un point de défaillance unique dans votre architecture logicielle. Rien, pas même une fenêtre de maintenance ou un temps d’arrêt, ne doit vous obliger à arrêter la charge de travail pendant la mise à niveau ou la maintenance de la base de données. 
 

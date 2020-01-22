@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 79d7454722900eb1d9d6280e35313ef2f4a5cd54
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74556078"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903468"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Définir et gérer des stratégies d’immuabilité pour le stockage Blob
 
@@ -23,7 +23,7 @@ Cet article explique comment définir et gérer des stratégies d’immuabilité
 
 ## <a name="set-retention-policies-and-legal-holds"></a>Définir des stratégies de conservation et des archivages juridiques
 
-### <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+### <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 1. Créez un nouveau conteneur ou sélectionnez un conteneur existant pour stocker des objets Blob qui doivent demeurer dans l’état immuable. Le conteneur doit se trouver dans un compte de stockage Blob ou v2 universel.
 
@@ -57,9 +57,9 @@ Cet article explique comment définir et gérer des stratégies d’immuabilité
 
     ![Zone « Nom de balise » sous le type de stratégie](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. Pour supprimer une conservation légale, supprimez simplement la balise de conservation légale associée.
+9. Pour effacer une conservation légale, supprimez la balise d’identificateur de conservation légale associée.
 
-### <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 La fonctionnalité est incluse dans les groupes de commandes suivants : `az storage container immutability-policy` et `az storage container legal-hold`. Exécutez `-h` sur ces groupes pour afficher les commandes.
 
@@ -73,7 +73,7 @@ Le module Az.Storage prend en charge le stockage immuable.  Pour activer cette f
 2. Supprimez les installations précédentes d’Azure PowerShell.
 3. Installez Azure PowerShell : `Install-Module Az –Repository PSGallery –AllowClobber`.
 
-L’exemple de script PowerShell suivant est fourni à titre de référence. Il crée un compte de stockage et un conteneur. Ensuite, il montre comment définir et lever des stratégies d’archivage juridique, créer et verrouiller une stratégie de conservation limitée dans le temps (ou stratégie d’immuabilité) et étendre la période de conservation.
+L’exemple de script PowerShell suivant est fourni à titre de référence. Il crée un compte de stockage et un conteneur. Ensuite, il montre comment définir et effacer des stratégies d’archivage juridique, créer et verrouiller une stratégie de conservation limitée dans le temps (ou stratégie d’immuabilité) et étendre la période de conservation.
 
 Créez d’abord un compte de stockage Azure :
 
@@ -165,6 +165,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## <a name="enabling-allow-protected-append-blobs-writes"></a>Activation du paramètre Autoriser les écritures protégées de blobs d’ajout
+
+À ce stade, vous pouvez uniquement accéder au paramètre `allowProtectedAppendWrites` pour les stratégies de conservation limitée dans le temps à l’aide de ce [lien de portail](https://aka.ms/immutableappendblobs) spécifique. 
+
+> [!IMPORTANT] 
+>  Le paramètre Autoriser les écritures protégées de blobs d’ajout dont la conservation est limitée dans le temps est actuellement disponible et visible uniquement dans les régions suivantes :
+> - USA Est
+> - États-Unis - partie centrale méridionale
+> - USA Ouest 2
+>
+> Pour plus d’informations, consultez [Autoriser les écritures protégées de blobs d’ajout](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+![Autoriser les écritures d’ajout supplémentaires](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

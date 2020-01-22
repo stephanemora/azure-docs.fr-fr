@@ -3,12 +3,12 @@ title: Déploiement Push de fichier Zip pour Azure Functions
 description: Utilisez les fonctionnalités de déploiement de fichier Zip du service de déploiement Kudu pour publier vos Azure Functions.
 ms.topic: conceptual
 ms.date: 08/12/2018
-ms.openlocfilehash: 88455e85607c608757067cea9d54b60e30cacb50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bda0859ca4741fe74f572b204e40130c56c46fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233061"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769663"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>Déploiement zip pour Azure Functions
 
@@ -16,7 +16,7 @@ Cet article décrit comment déployer vos fichiers projet d’application de fon
 
 Azure Functions offre la gamme complète d’options d’intégration et de déploiement continu fournies par Azure App Service. Pour plus d’informations, consultez [Déploiement continu pour Azure Functions](functions-continuous-deployment.md).
 
-Pour accélérer le développement, vous pouvez déployer vos fichiers projet d’application fonction directement à partir d’un fichier zip. L’API de déploiement zip prend le contenu d’un fichier zip et extrait son contenu dans le dossier `wwwroot` de votre application de fonction. Ce déploiement de fichier .zip utilise le même service Kudu que celui qui pilote les déploiements continus basés sur l’intégration, notamment :
+Pour accélérer le développement, vous pouvez déployer les fichiers projet de vos applications de fonction directement à partir d’un fichier zip. L’API de déploiement zip prend le contenu d’un fichier zip et extrait son contenu dans le dossier `wwwroot` de votre application de fonction. Ce déploiement de fichier .zip utilise le même service Kudu que celui qui pilote les déploiements continus basés sur l’intégration, notamment :
 
 + Suppression des fichiers conservés suite aux déploiements antérieurs
 + Personnalisation du déploiement, notamment exécution de scripts de déploiement
@@ -66,10 +66,10 @@ Vous pouvez également télécharger un fichier .zip à partir d’un dépôt Gi
 
 Vous pouvez utiliser Azure CLI pour déclencher un déploiement Push. Effectuez le déploiement Push d’un fichier .zip sur votre application de fonction à l’aide de la commande [az functionapp deployment source config-zip](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Pour exécuter cette commande, vous devez utiliser Azure CLI version 2.0.21 ou ultérieure. Pour vérifier votre version d’Azure CLI, utilisez la commande `az --version`.
 
-Dans la commande suivante, remplacez l’espace réservé `<zip_file_path>` par le chemin vers l’emplacement de votre fichier .zip. Remplacez également `<app_name>` par le nom unique de votre application de fonction. 
+Dans la commande suivante, remplacez l’espace réservé `<zip_file_path>` par le chemin vers l’emplacement de votre fichier .zip. Remplacez également `<app_name>` par le nom unique de votre application de fonction, et `<resource_group>` par le nom de votre groupe de ressources.
 
 ```azurecli-interactive
-az functionapp deployment source config-zip  -g myResourceGroup -n \
+az functionapp deployment source config-zip -g <resource_group> -n \
 <app_name> --src <zip_file_path>
 ```
 

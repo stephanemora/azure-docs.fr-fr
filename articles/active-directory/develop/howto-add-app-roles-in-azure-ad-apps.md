@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 805f984ebdb5e95a9f3a46fab010cecf5c811547
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c042cf22334a0163cd5b89e556210db0cd5c15f4
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424494"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888771"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procédure : Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -37,9 +37,9 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 ### <a name="declare-app-roles-using-azure-portal"></a>Déclarer des rôles d’application à l’aide du portail Azure
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Dans la barre supérieure, sélectionnez votre compte, puis **Changer de répertoire**.
-1. Une fois que le volet **Répertoire + abonnement** est ouvert, choisissez le locataire Active Directory dans lequel vous souhaitez inscrire votre application, à partir de la liste **Favoris** ou **Tous les répertoires**.
-1. Sélectionnez sur **Tous les services** dans le volet de navigation de gauche, puis choisissez **Azure Active Directory**.
+1. Sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils du portail.
+1. Dans la liste **Favoris** ou **Tous les répertoires**, choisissez le locataire Active Directory dans lequel vous souhaitez inscrire votre application.
+1. Dans le Portail Azure, recherchez et sélectionnez **Azure Active Directory**.
 1. Dans le volet **Azure Active Directory**, sélectionnez **Inscriptions d'applications** pour afficher une liste de toutes vos applications.
 1. Sélectionnez l’application pour laquelle vous souhaitez définir des rôles d’application. Sélectionnez alors **Manifeste**.
 1. Modifiez le manifeste d’application en recherchant le paramètre `appRoles` et en ajoutant tous vos rôles d'application.

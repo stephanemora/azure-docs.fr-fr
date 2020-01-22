@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/10/2019
+ms.date: 01/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 893ef88647824398ec106a964cbacf118bb14308
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e138e954501df3cf3c3c8819d0198ad9a9288f0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440331"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754463"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
@@ -252,6 +252,25 @@ Dans certains scénarios, lorsque vous exécutez une activité de copie dans Dat
 Dans cet exemple, lors de l’exécution d’une copie, Data Factory effectue le suivi d’une utilisation DTU élevée dans le récepteur Azure SQL Database. Cette condition ralentit les opérations d’écriture. La suggestion consiste à augmenter les DTU sur le niveau d’Azure SQL Database :
 
 ![Surveillance de la copie avec conseils d'optimisation des performances](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+## <a name="resume-from-last-failed-run"></a>Reprendre à partir de la dernière exécution ayant échoué
+
+L’activité de copie prend en charge la reprise après l’échec de la dernière exécution lorsque vous copiez une grande taille de fichiers tels quels avec un format binaire entre les magasins basés sur des fichiers et que vous choisissez de conserver la hiérarchie des dossiers/fichiers de la source au récepteur, par exemple pour migrer des données d’Amazon S3 vers Azure Data Lake Storage Gen2. Elle s’applique aux connecteurs basés sur les fichiers suivants : [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Système de fichiers](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md) et [SFTP](connector-sftp.md).
+
+Vous pouvez tirer parti de la reprise de l’activité de copie des deux manières suivantes :
+
+- **Nouvelle tentative de niveau d’activité :** Vous pouvez définir le nombre de nouvelles tentatives sur l’activité de copie. Pendant l’exécution du pipeline, en cas d’échec de l’exécution de l’activité de copie, la nouvelle tentative automatique suivante démarre à partir du point d’échec de la dernière évaluation.
+- **Réexécuter à partir d’une activité ayant échoué :** Une fois l’exécution du pipeline terminée, vous pouvez également déclencher une réexécution à partir de l’activité ayant échoué dans la vue d’analyse de l’interface utilisateur ADF ou par programmation. Si l’activité qui a échoué est une activité de copie, le pipeline n’est pas exécuté à nouveau à partir de cette activité, mais reprend également à partir du point d’échec de l’exécution précédente.
+
+    ![Reprendre la copie](media/copy-activity-overview/resume-copy.png)
+
+Quelques points à noter :
+
+- La reprise se produit au niveau du fichier. Si l’activité de copie échoue lors de la copie d’un fichier, lors de la prochaine exécution, ce fichier spécifique sera recopié.
+- Pour que la reprise fonctionne correctement, ne modifiez pas les paramètres de l’activité de copie entre les nouvelles exécutions.
+- Lorsque vous copiez des données à partir d’Amazon S3, d’un objet Blob Azure, d’Azure Data Lake Storage Gen2 et de Google Cloud Storage, l’activité de copie peut reprendre à partir d’un nombre arbitraire de fichiers copiés. Alors que pour le reste des connecteurs basés sur des fichiers en tant que source, l’activité de copie prend en charge la reprise à partir d’un nombre limité de fichiers, généralement une plage de dizaines de milliers de fichier, et varie en fonction de la longueur des chemins d’accès aux fichiers. les fichiers au-delà de ce nombre seront copiés à nouveau lors de la réexécution.
+
+Pour les autres scénarios que la copie de fichiers binaires, la réexécution de l’activité de copie commence dès le début.
 
 ## <a name="preserve-metadata-along-with-data"></a>Conserver les métadonnées avec les données
 

@@ -3,7 +3,7 @@ title: Extension de machine virtuelle Azure Monitor pour Windows
 description: Déployez l’agent Log Analytics sur une machine virtuelle Windows avec une extension de machine virtuelle.
 services: virtual-machines-windows
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073679"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969961"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extension de machine virtuelle Azure Monitor pour Windows
 
@@ -27,7 +27,7 @@ Les journaux Azure Monitor fournissent des fonctionnalités permettant de superv
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -36,14 +36,14 @@ Pour plus d’informations sur les systèmes d’exploitation Windows pris en ch
 ### <a name="agent-and-vm-extension-version"></a>Version de l’agent et de l’extension de machine virtuelle
 Le tableau ci-après établit une correspondance entre chaque version de l’extension de machine virtuelle Azure Monitor pour Windows et chaque version du bundle de l’agent Log Analytics. 
 
-| Version du bundle de l’agent Log Analytics pour Windows | Version de l’extension de machine virtuelle Azure Monitor pour Windows | Date de lancement | Notes de publication |
+| Version du bundle de l’agent Log Analytics pour Windows | Version de l’extension de machine virtuelle Azure Monitor pour Windows | Date de sortie | Notes de publication |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18011 | 1.0.18011 | Juillet 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li><li> Augmentation de MaxExpressionDepth à 10 000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Juin 2019 | <ul><li> Correctifs de bogues mineurs et meilleure stabilité </li><li> Ajout de la possibilité de désactiver les informations d’identification par défaut lors d’une connexion proxy (prise en charge de WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) </li></ul>|
 | 10.19.13515 | 1.0.13515 | Mars 2019 | <ul><li>Correctifs mineurs relatifs à la stabilité </li></ul> |
 | 10.19.10006 | n/a | Décembre 2018 | <ul><li> Correctifs mineurs relatifs à la stabilité </li></ul> | 
 | 8.0.11136 | n/a | Septembre 2018 |  <ul><li> Ajout de la détection des changements d’ID de ressources lors du déplacement d’une machine virtuelle </li><li> Ajout du signalement des ID de ressources lors d’une installation autre que celle d’une extension </li></ul>| 
-| 8.0.11103 | n/a |  Avril 2018 | |
+| 8.0.11103 | n/a |  Avril 2018 | |
 | 8.0.11081 | 1.0.11081 | Novembre 2017 | | 
 | 8.0.11072 | 1.0.11072 | Septembre 2017 | |
 | 8.0.11049 | 1.0.11049 | Février 2017 | |
@@ -84,16 +84,18 @@ Le JSON suivant illustre le schéma de l’extension d’agent Log Analytics. L�
 ```
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Nom | Valeur/Exemple |
+| Name | Valeur/Exemple |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
-| Type | MicrosoftMonitoringAgent |
+| type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
 | workspaceId (par exemple)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (par exemple) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 \* La propriété workspaceId est appelée consumerId dans l’API Log Analytics.
+
+> [REMARQUE !] Pour obtenir des propriétés supplémentaires, consultez [Connecter des ordinateurs Windows à Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
 
 ## <a name="template-deployment"></a>Déploiement de modèle
 
@@ -102,7 +104,7 @@ Les extensions de machines virtuelles Azure peuvent être déployées avec des m
 >[!NOTE]
 >Si vous souhaitez configurer l’agent de sorte qu’il communique avec plusieurs espaces de travail, notez que le modèle ne permet pas de spécifier plusieurs ID d’espace de travail et plusieurs clés d’espace de travail. Pour configurer l’agent de sorte qu’il communique avec plusieurs espaces de travail, consultez [Ajout ou suppression d’un espace de travail](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/child-resource-name-type.md). 
+Le code JSON pour une extension de machine virtuelle peut être imbriqué à l’intérieur de la ressource de machine virtuelle ou placé à la racine ou au niveau supérieur d’un modèle de Resource Manager JSON. Le positionnement du JSON affecte la valeur du nom de la ressource et son type. Pour plus d’informations, consultez [Définition du nom et du type des ressources enfants](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 L’exemple suivant suppose que l’extension Azure Monitor est imbriquée dans la ressource de machine virtuelle. Lors de l’imbrication de la ressource d’extension, le JSON est placé dans l’objet `"resources": []` de la machine virtuelle.
 
@@ -178,7 +180,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide du module Azure PowerShell. Pour afficher l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante à l’aide du module PowerShell.
 

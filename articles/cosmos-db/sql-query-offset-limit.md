@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 68515c51862ada0b1aa794c09b3a6730504a57ee
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873248"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732584"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Clause OFFSET LIMIT dans Azure Cosmos DB
 
@@ -33,11 +33,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 - `<limit_amount>`
   
-   Spécifie le nombre entier d’éléments que doivent inclure les résultats de la requête.
+   Spécifie le nombre entier d’éléments que doivent inclure les résultats de la requête
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
   
-  Le nombre OFFSET et le nombre LIMIT sont obligatoires dans la clause OFFSET LIMIT. Si une clause `ORDER BY` facultative est utilisée, la requête génère le jeu de résultats en classant d’abord les valeurs avant d’en ignorer et conserver les nombres indiqués. Sinon, la requête retourne un ordre fixe de valeurs. Cette clause est uniquement prise en charge pour les requêtes au sein d’une seule partition ; les requêtes entre partitions ne la prennent pas encore en charge.
+  Le nombre OFFSET et le nombre LIMIT sont obligatoires dans la clause OFFSET LIMIT. Si une clause `ORDER BY` facultative est utilisée, la requête génère le jeu de résultats en classant d’abord les valeurs avant d’en ignorer et conserver les nombres indiqués. Sinon, la requête retourne un ordre fixe de valeurs. Cette clause est désormais prise en charge pour les requêtes au sein d’une partition unique, ainsi que pour les requêtes entre partitions.
 
 ## <a name="examples"></a>Exemples
 
@@ -82,6 +82,6 @@ Les résultats sont :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main](sql-query-getting-started.md)
+- [Bien démarrer](sql-query-getting-started.md)
 - [Clause SELECT](sql-query-select.md)
 - [Clause ORDER BY](sql-query-order-by.md)

@@ -4,16 +4,16 @@ description: Découvrez comment surveiller un compte de stockage dans Azure en u
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/31/2018
+ms.date: 01/09/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 143574ff02960fcd0fd33ccaed5a80a9bb4f3147
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: e9ef700e45acc55f476d72883107b0c5c958fa7f
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211857"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862830"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Surveillance d'un compte de stockage dans le portail Azure
 
@@ -53,7 +53,7 @@ Un ensemble de métriques par défaut s’affiche dans des graphiques sur le pan
 Vous pouvez désactiver la collecte de métriques et la journalisation en définissant **l’état** sur **Off**.
 
 > [!NOTE]
-> Le stockage Azure utilise un [stockage Table](storage-introduction.md#table-storage) pour stocker les métriques pour votre compte de stockage, et stocke les métriques dans des tables de votre compte. Pour plus d’informations, consultez. [Stockage des métriques](storage-analytics-metrics.md#how-metrics-are-stored).
+> Le stockage Azure utilise un [stockage Table](storage-introduction.md#table-storage) pour stocker les métriques pour votre compte de stockage, et stocke les métriques dans des tables de votre compte. Pour plus d'informations, consultez [Stockage des métriques](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personnaliser les graphiques de métrique
@@ -129,7 +129,7 @@ Vous pouvez demander au Stockage Azure d’enregistrer les journaux de diagnosti
 >
 
 1. Dans le [portail Azure](https://portal.azure.com), sélectionnez **Comptes de stockage**, puis le nom du compte de stockage pour ouvrir le panneau du compte de stockage.
-1. Sélectionnez **Diagnostics** dans la section **SURVEILLANCE** du panneau du menu.
+1. Sélectionnez **Paramètres de diagnostic (classique)** dans la section **Surveillance (classique)** du panneau du menu.
 
     ![Élément de menu Diagnostics sous SURVEILLANCE dans le portail Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
 

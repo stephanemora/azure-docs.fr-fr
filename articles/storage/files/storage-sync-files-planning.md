@@ -4,15 +4,15 @@ description: Découvrez les éléments à prendre en compte lors de la planifica
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665261"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046085"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -347,13 +347,13 @@ Dans le tableau suivant, nous avons fourni la taille de l’espace de noms, ains
 | Taille de l’espace de noms - fichiers et répertoires (millions)  | Capacité type (Tio)  | Cœurs de processeur  | Mémoire recommandée (Gio) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (synchronisation initiale)/2 (évolution classique)      |
-| 5        | 2.3     | 2        | 16 (synchronisation initiale)/4 (évolution classique)    |
-| 10       | 4,7     | 4        | 32 (synchronisation initiale)/8 (évolution classique)   |
-| 30       | 14,0    | 8        | 48 (synchronisation initiale)/16 (évolution classique)   |
-| 50       | 23,3    | 16       | 64 (synchronisation initiale)/32 (évolution classique)  |
-| 100*     | 46,6    | 32       | 128 (synchronisation initiale)/32 (évolution classique)  |
+| 5        | 2.4     | 2        | 16 (synchronisation initiale)/4 (évolution classique)    |
+| 10       | 4.8     | 4        | 32 (synchronisation initiale)/8 (évolution classique)   |
+| 30       | 14.3    | 8        | 48 (synchronisation initiale)/16 (évolution classique)   |
+| 50       | 23.8    | 16       | 64 (synchronisation initiale)/32 (évolution classique)  |
+| 100*     | 47.7   | 32       | 128 (synchronisation initiale)/32 (évolution classique)  |
 
-\*Actuellement, la limite de prise en charge est de 100 millions de fichiers et répertoires. Il s’agit d’une limite non stricte.
+\*Plus de 100 millions de fichiers et de répertoires n’ont pas été testés. Il s’agit d’une limite non stricte.
 
 > [!TIP]
 > La synchronisation initiale d’un espace de noms est une opération intensive et nous vous recommandons d’allouer davantage de mémoire jusqu’à ce que la synchronisation initiale soit terminée. Cela n’est pas obligatoire, mais peut accélérer la synchronisation initiale. 

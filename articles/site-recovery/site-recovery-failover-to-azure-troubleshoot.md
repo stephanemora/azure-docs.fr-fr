@@ -7,14 +7,14 @@ ms.service: site-recovery
 services: site-recovery
 ms.topic: article
 ms.workload: storage-backup-recovery
-ms.date: 03/04/2019
+ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6de37daa0b9e0ebc711a5dacbdce352e3675a3db
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61280624"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754422"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Résoudre les erreurs se produisant lors du basculement d’une machine virtuelle VMware ou d'une machine physique vers Azure
 
@@ -106,6 +106,18 @@ Si le bouton **Se connecter** de la machine virtuelle basculée dans Azure est d
 >[!Note]
 >Tout paramètre autre que les diagnostics de démarrage nécessite l’installation de l’agent de machine virtuelle Azure sur la machine virtuelle avant le basculement.
 
+## <a name="unable-to-open-serial-console-after-failover-of-a-uefi-based-machine-into-azure"></a>Impossible d’ouvrir la Serial console après le basculement d’une machine UEFI dans Azure
+
+Si vous êtes en mesure de vous connecter à la machine à l’aide du protocole RDP, mais que vous ne pouvez pas ouvrir la Serial console, procédez comme suit :
+
+* Si le système d’exploitation de le la machine est Red Hat ou Oracle Linux 7.*/8.0, exécutez la commande suivante sur la machine virtuelle Azure de basculement avec les autorisations racine. Redémarrez la machine virtuelle après avoir exécuté la commande.
+
+        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+
+* Si le système d’exploitation de le la machine est CentOS 7*, exécutez la commande suivante sur la machine virtuelle Azure de basculement avec les autorisations racine. Redémarrez la machine virtuelle après avoir exécuté la commande.
+
+        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>Message d’arrêt inattendu (ID d’événement 6008)
 
 Lors du démarrage d’un machine virtuelle Windows après le basculement, si un message d’arrêt inattendu s’affiche sur la machine virtuelle récupérée, cela indique qu’un état d’arrêt de la machine virtuelle n’a pas été capturé dans le point de récupération utilisé pour le basculement. Cela se produit lorsque vous récupérez à un point où la machine virtuelle n'avait pas été complètement arrêtée.
@@ -153,7 +165,7 @@ Pour résoudre le problème :
    - Pour vérifier que le serveur cible maître peut communiquer avec le serveur de configuration :
   
      - Modifiez les paramètres du proxy dans Internet Explorer pour contourner l’adresse IP du serveur cible maître par le biais du proxy.   
-     Ou
+     ou
      - Désactivez le proxy sur le serveur cible maître. 
 
 

@@ -1,48 +1,51 @@
 ---
-title: Chiffrement des données au repos à l’aide de clés gérées par le client (préversion)
+title: Chiffrement des données au repos à l’aide de clés gérées par le client
 titleSuffix: Azure Cognitive Search
-description: Complétez le chiffrement côté serveur des index et mappages de synonymes dans Recherche cognitive Azure grâce à des clés que vous créez et gérez dans Azure Key Vault. Cette fonctionnalité est actuellement disponible en préversion publique.
+description: Complétez le chiffrement côté serveur des index et mappages de synonymes dans Recherche cognitive Azure à l’aide de clés que vous créez et gérez dans Azure Key Vault.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 4f78b4b7b38c6e67aa8aebf04e3a8ef0fdbd000f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 01/08/2020
+ms.openlocfilehash: 6c7be7d92cae992e54ca6e9f50dda6342c57856b
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112924"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945718"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du contenu au repos dans Recherche cognitive Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
-> [!IMPORTANT] 
-> La prise en charge du chiffrement au repos est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) et le [SDK .NET version 8.0-preview](search-dotnet-sdk-migration-version-9.md) fournissent cette fonctionnalité. Il n’y a actuellement pas de prise en charge du portail.
-
-Par défaut, Recherche cognitive Azure chiffre au repos le contenu de l’utilisateur avec des [clés gérées par le service](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes.
+Par défaut, Recherche cognitive Azure chiffre au repos le contenu indexé avec des [clés gérées par le service](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Vous pouvez compléter le chiffrement par défaut avec une couche de chiffrement supplémentaire à l’aide de clés que vous créez et gérez dans Azure Key Vault. Cet article vous guide tout au long des étapes.
 
 Le chiffrement côté serveur est pris en charge via l'intégration à [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Vous pouvez créer vos propres clés de chiffrement et les stocker dans un coffre de clés, ou utiliser les API d’Azure Key Vault pour générer des clés de chiffrement. Avec Azure Key Vault, vous pouvez également auditer l’utilisation des clés. 
 
 Le chiffrement avec des clés gérées par le client est configuré au niveau de l'index ou du mappage de synonymes lorsque ces objets sont créés, et non au niveau du service de recherche. Vous ne pouvez pas chiffrer un contenu existant. 
 
-Vous pouvez utiliser différentes clés provenant de différents coffres de clé. Cela signifie qu'un même service de recherche peut héberger plusieurs index/mappages de synonymes chiffrés, chaque élément pouvant être chiffré à l'aide d'une clé différente gérée par le client, ainsi que des index/ mappages de synonymes non chiffrés à l'aide de clés gérées par le client. 
+Toutes les clés ne doivent pas nécessairement se trouver dans le même Key Vault. Un service de recherche unique peut héberger plusieurs index chiffrés ou cartes de synonymes chiffrés avec leurs propres clés de chiffrement gérées par le client et stockées dans différents Key Vaults.  Vous pouvez également avoir des index et des cartes de synonymes dans le même service qui ne sont pas chiffrés à l’aide de clés gérées par le client. 
 
-## <a name="prerequisites"></a>Prérequis
+> [!IMPORTANT] 
+> Cette caractéristique est disponible dans l’[API REST version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) et le [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). Il n’existe actuellement aucune prise en charge pour configurer des clés de chiffrement gérées par le client dans le Portail Azure.
+
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les services suivants sont utilisés dans cet exemple. 
 
-+ [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Vous pouvez utiliser un service gratuit pour ce tutoriel.
++ [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Le service Recherche doit être créé après janvier 2019 et ne peut pas être un service gratuit (partagé).
 
 + [Créez une ressource Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou recherchez un coffre existant dans votre abonnement.
 
 + [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) est utilisé pour les tâches de configuration.
 
-+ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) et le [kit de développement logiciel (SDK) Recherche cognitive Azure](https://aka.ms/search-sdk-preview) permettent d’appeler la préversion de l’API REST. Il n’existe pour l’instant aucun portail ou prise en charge du SDK .NET pour le chiffrement géré par le client.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) et le [kit de développement logiciel (SDK) Recherche cognitive Azure](https://aka.ms/search-sdk-preview) permettent d’appeler l’API REST. Il n’existe pour l’instant aucun portail pour le chiffrement géré par le client.
+
+>[!Note]
+> En raison de la nature du chiffrement avec des clés gérées par le client, Recherche cognitive Azure ne pourra pas récupérer vos données si votre clé de coffre Azure est supprimée. Pour éviter la perte de données provoquée par des suppressions accidentelles de clés de Key Vault, vous **devez** activer la suppression réversible et la protection de purge dans Key Vault avant de pouvoir l’utiliser. Pour plus d'informations, consultez [Suppression réversible d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="1---enable-key-recovery"></a>1 - Activer la récupération de clé
 
-Cette étape est facultative mais fortement recommandée. Après avoir créé la ressource Azure Key Vault, activez la **suppression réversible** et la **protection contre le vidage** dans le coffre de clés sélectionné en exécutant les commandes PowerShell ou Azure CLI suivantes :   
+Après avoir créé la ressource Azure Key Vault, activez la **suppression réversible** et la **protection contre le vidage** dans le coffre de clés sélectionné en exécutant les commandes PowerShell ou Azure CLI suivantes :   
 
 ```powershell
 $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
@@ -57,9 +60,6 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 ```azurecli-interactive
 az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
 ```
-
->[!Note]
-> En raison de la nature même du chiffrement avec des clés gérées par le client, Recherche cognitive Azure ne pourra pas récupérer vos données si votre clé de coffre Azure est supprimée. Pour éviter toute perte de données causée par des suppressions accidentelles de clés du coffre, il est fortement recommandé d'activer la suppression réversible et la protection contre le vidage dans le coffre de clés sélectionné. Pour plus d'informations, consultez [Suppression réversible d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
 
 ## <a name="2---create-a-new-key"></a>2 - Créer une clé
 
@@ -161,7 +161,7 @@ Si vous utilisez une application AAD pour l’authentification Key Vault au lieu
 }
 ```
 
-## <a name="example-index-encryption"></a>Exemple : Chiffrement d’index
+## <a name="example-index-encryption"></a>Exemple : Chiffrement d’index
 Les détails de la création d'un nouvel index via l'API REST se trouvent dans la section [Créer un index (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-index), où la seule différence ici consiste à spécifier les détails de la clé de chiffrement dans la définition de l'index : 
 
 ```json
@@ -188,7 +188,7 @@ Les détails de la création d'un nouvel index via l'API REST se trouvent dans l
 ```
 Vous pouvez maintenant envoyer la demande de création d'un index, puis commencer à utiliser l'index normalement.
 
-## <a name="example-synonym-map-encryption"></a>Exemple : Chiffrement de mappage de synonymes
+## <a name="example-synonym-map-encryption"></a>Exemple : Chiffrement de mappage de synonymes
 
 Les détails de la création d'un nouveau mappage de synonymes via l'API REST se trouvent dans la section [Créer un mappage de synonymes (API REST du service Recherche cognitive Azure)](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map), où la seule différence ici consiste à spécifier les détails de la clé de chiffrement dans la définition du mappage de synonymes : 
 

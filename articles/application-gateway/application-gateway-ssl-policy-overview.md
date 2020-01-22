@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 6b3d52f1f6bd0390ab6ccafa80b2979cb0e498fd
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: fe70bd5994d835bdc2651a64d35c988ea38b8511
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130409"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770031"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Vue d’ensemble de la stratégie SSL Application Gateway
 
@@ -28,7 +28,7 @@ Application Gateway comporte trois stratégies de sécurité prédéfinies. Vous
 
 |Propriété  |Valeur  |
 |---|---|
-|Nom     | AppGwSslPolicy20150501        |
+|Name     | AppGwSslPolicy20150501        |
 |MinProtocolVersion     | TLSv1_0        |
 |Default| True (si aucune stratégie prédéfinie n’est spécifiée) |
 |CipherSuites     |TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_DHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_DHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA256<br>TLS_DHE_DSS_WITH_AES_256_CBC_SHA<br>TLS_DHE_DSS_WITH_AES_128_CBC_SHA<br>TLS_RSA_WITH_3DES_EDE_CBC_SHA<br>TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA |
@@ -37,7 +37,7 @@ Application Gateway comporte trois stratégies de sécurité prédéfinies. Vous
   
 |Propriété  |Valeur  |
 |   ---      |  ---       |
-|Nom     | AppGwSslPolicy20170401        |
+|Name     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
 |Default| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
@@ -46,7 +46,7 @@ Application Gateway comporte trois stratégies de sécurité prédéfinies. Vous
 
 |Propriété  |Valeur  |
 |---|---|
-|Nom     | AppGwSslPolicy20170401S        |
+|Name     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
 |Default| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
@@ -97,6 +97,17 @@ Application Gateway prend en charge les suites de chiffrement suivantes à parti
 
 > [!NOTE]
 > Les suites de chiffrement SSL utilisées pour la connexion sont également basées sur le type de certificat utilisé. Dans les connexions client-passerelle Application Gateway, les suites de chiffrement utilisées sont basées sur le type de certificats de serveur sur l’écouteur Application Gateway. Dans Application Gateway aux connexions du pool principal, les suites de chiffrement utilisées sont basées sur le type de certificats de serveur sur les serveurs du pool principal.
+
+## <a name="known-issue"></a>Problème connu
+Application Gateway v2 ne prend pas actuellement en charge les chiffrements suivants :
+- DHE-RSA-AES128-GCM-SHA256
+- DHE-RSA-AES128-SHA
+- DHE-RSA-AES256-GCM-SHA384
+- DHE-RSA-AES256-SHA
+- DHE-DSS-AES128-SHA256
+- DHE-DSS-AES128-SHA
+- DHE-DSS-AES256-SHA256
+- DHE-DSS-AES256-SHA
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,20 +1,18 @@
 ---
-title: Résoudre les problèmes rencontrés avec les agents Azure Site Recovery | Microsoft Docs
-description: Cet article fournit des informations sur les symptômes, les causes et la résolution des problèmes rencontrés avec les agents Azure Site Recovery.
-author: asgang
+title: Détecter des problèmes d’extension de machine virtuelle Azure dans la récupération d’urgence de machines virtuelles VMware avec Azure Site Recovery
+description: Détecter des problèmes d’extension de machine virtuelle Azure dans la récupération d’urgence de machines virtuelles VMware avec Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5ea701682c03370cea46f9126ecf78427a776371
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9d28a12f5f1fa32d2bc3bcf590134930503f2ac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61280669"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970395"
 ---
-# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Résoudre les problèmes rencontrés avec les agents Azure Site Recovery
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Résoudre les problèmes d’extension de machine virtuelle Azure
 
 Cet article indique les étapes à suivre pour résoudre les erreurs d’Azure Site Recovery liées à l’agent et à l’extension de machine virtuelle.
 
@@ -26,16 +24,16 @@ Code d’erreur : « 151076 »
 
  Azure Site Recovery installe une extension sur la machine virtuelle dans le cadre du travail d’activation de la protection. Il est possible que l’une des conditions suivantes empêche le déclenchement de la protection et entraîne l’échec du travail. Suivez les étapes de dépannage ci-dessous, puis réessayez l’opération :
 
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [Impossible de mettre à jour ou de charger l’extension Site Recovery](#the-site-recovery-extension-fails-to-update-or-load)**  
+**Cause 3 : [Impossible de mettre à jour ou de charger l’extension Site Recovery](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 Message d’erreur : « L’opération d’extension Site Recovery précédente prend plus de temps que prévu. »<br>
 Code d’erreur : « 150066 »<br>
 
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3 : [L’état de l’extension Site Recovery est incorrect](#the-site-recovery-extension-fails-to-update-or-load)**  
+**Cause 3 : [L’état de l’extension Site Recovery est incorrect](#the-site-recovery-extension-fails-to-update-or-load)**  
 
 ## <a name="protection-fails-because-the-vm-agent-is-unresponsive"></a>La protection échoue, car l’agent de machine virtuelle ne répond pas.
 
@@ -45,7 +43,7 @@ Code d’erreur : « 151099 »<br>
 Cette erreur peut se produire si l’agent invité Azure dans la machine virtuelle n’est pas dans l’état prêt.
 Vous pouvez vérifier l’état de l’agent invité Azure dans le [portail Azure](https://portal.azure.com/). Accédez à la machine virtuelle que vous essayez de protéger, puis vérifiez l’état dans « Machine virtuelle > Paramètres > Propriétés > État de l’agent ». La plupart du temps, l’état de l’agent devient prêt après le redémarrage de la machine virtuelle. Toutefois, si le redémarrage n’est pas une option possible ou si vous rencontrez toujours le problème, effectuez les étapes de dépannage suivantes.
 
-**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
+**Cause 1 : [L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     
 **Cause 2 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 
 
@@ -53,7 +51,7 @@ Message d’erreur : « L’exécution de la tâche a expiré pendant le suivi
 Code d’erreur : « 151095 »<br>
 
 Cette erreur se produit quand la version de l’agent sur la machine Linux est ancienne. Effectuez l’étape de dépannage suivante.<br>
-  **Cause 1 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
+  **Cause 1 : [L’agent installé dans la machine virtuelle est obsolète (machines virtuelles Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 ## <a name="causes-and-solutions"></a>Causes et solutions
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>L’agent est installé dans la machine virtuelle, mais ne répond pas (machines virtuelles Windows)
@@ -105,10 +103,8 @@ Pour désinstaller l’extension :
 2. Sélectionnez **Paramètres**.
 3. Sélectionnez **Extensions**.
 4. Sélectionnez **Extension Site Recovery**.
-5. Sélectionnez **Désinstaller**.
+5. Sélectionner **Désinstaller**.
 
-Pour les machines virtuelles Linux, si l’extension VMSnapshot ne figure pas dans le portail Azure, [mettez à jour l’agent Linux Azure](../virtual-machines/linux/update-agent.md), puis exécutez la protection. 
+Pour les machines virtuelles Linux, si l’extension VMSnapshot ne figure pas dans le portail Azure, [mettez à jour l’agent Linux Azure](../virtual-machines/linux/update-agent.md), puis exécutez la protection.
 
 Cette procédure réinstalle l’extension au cours de la protection.
-
-

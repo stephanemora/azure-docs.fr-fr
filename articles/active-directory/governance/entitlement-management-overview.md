@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422573"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932474"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Présentation de la gestion des droits d’utilisation Azure AD
 
@@ -134,17 +134,32 @@ Pour mieux comprendre la gestion des droits d’utilisation et sa documentation,
 
 Les clouds spécialisés, tels que Azure Government, Azure Allemagne et Azure China 21Vianet, ne sont pas disponibles actuellement pour cette utilisation.
 
-### <a name="which-users-must-have-licenses"></a>Quels utilisateurs doivent avoir des licences ?
+### <a name="how-many-licenses-must-you-have"></a>De combien de licences avez-vous besoin ?
 
-Votre locataire doit posséder au moins autant de licences Azure AD Premium P2 que vous avez d’utilisateurs membres actifs dans la gestion des droits d’utilisation. En termes de gestion des droits d'utilisation, les utilisateurs membres actifs sont les suivants :
+Assurez-vous que votre répertoire comporte au moins autant de licences Azure AD Premium P2 que d’employés effectuant les tâches suivantes :
 
-- Utilisateur qui initie ou approuve une requête de package d’accès.
-- Utilisateur auquel un package d’accès a été attribué.
-- Utilisateur qui gère les packages d’accès.
+- Utilisateurs membres qui **peuvent** demander un package d’accès.
+- Utilisateurs membres et invités qui demandent un package d’accès.
+- Utilisateurs membres et invités qui approuvent les demandes de package d’accès.
 
-Dans le cadre des licences des utilisateurs membres, vous pouvez également autoriser un certain nombre d’utilisateurs invités à interagir avec la gestion des droits d'utilisation. Pour plus d’informations sur la façon de calculer le nombre d’utilisateurs invités que vous pouvez inclure, consultez [Guide d’attribution de licences pour Azure Active Directory B2B Collaboration](../b2b/licensing-guidance.md).
+Les licences Azure AD Premium P2 ne sont **pas** requises pour les tâches suivantes :
 
-Pour plus d’informations sur l’attribution de licences aux utilisateurs, consultez [Attribuer ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md). Notez que la gestion des droits d’utilisation n’applique pas actuellement l’attribution de licence pour les utilisateurs.
+- Aucune licence n’est requise pour les utilisateurs ayant le rôle d’administrateur général qui configurent les catalogues initiaux, les packages d’accès et les stratégies et délèguent des tâches d’administration à d’autres utilisateurs.
+- Aucune licence n’est requise pour les utilisateurs auxquels ont été délégués des tâches administratives, telles que le créateur du catalogue, le propriétaire du catalogue et le gestionnaire de package d’accès.
+- Aucune licence n’est requise pour les invités qui **peuvent** demander des packages d’accès, mais ne demandent **pas** de package d’accès.
+
+Pour chaque licence Azure AD Premium P2 payante que vous achetez pour vos utilisateurs membres (employés), vous pouvez utiliser Azure AD B2B pour inviter jusqu’à 5 utilisateurs invités. Ces utilisateurs invités peuvent également utiliser les fonctionnalités d’Azure AD Premium P2. Pour plus d’informations, consultez les conseils sur l’[affectation de licences Azure AD B2B Collaboration](../b2b/licensing-guidance.md).
+
+Pour plus d’informations sur les licences, consultez [Assigner ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Exemples de scénarios de licence
+
+Voici quelques exemples de scénarios de licence pour vous aider à déterminer le nombre de licences dont vous devez disposer.
+
+| Scénario | Calcul | Nombre de licences |
+| --- | --- | --- |
+| Un administrateur général de Woodgrove Bank crée des catalogues initiaux et délègue des tâches administratives à 6 autres utilisateurs. L’une des stratégies spécifie que **tous les employés** (2 000 employés) peuvent demander un ensemble spécifique de packages d’accès. 150 employés demandent les packages d’accès. | 2 000 employés qui **peuvent** demander les packages d’accès | 2 000 |
+| Un administrateur général de Woodgrove Bank crée des catalogues initiaux et délègue des tâches administratives à 6 autres utilisateurs. L’une des stratégies spécifie que **tous les employés** (2 000 employés) peuvent demander un ensemble spécifique de packages d’accès. Une autre stratégie spécifie que certains utilisateurs des **Utilisateurs du partenaire Contoso** (invités) peuvent demander les mêmes packages d’accès soumis à approbation. Contoso a 30 000 utilisateurs. 150 employés demandent les packages d’accès et 10 500 utilisateurs de Contoso demandent un accès. | 2 000 employés + 500 utilisateurs invités de Contoso qui dépassent le ratio 1:5 (10 500-(2 000*5)) | 2 500 |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,5 +1,5 @@
 ---
-title: Création de filtres avec l’API REST Azure Media Services | Microsoft Docs
+title: Création de filtres avec l’API REST Media Services Azure v3
 description: Cette rubrique décrit comment créer des filtres pour que votre client puisse les utiliser pour diffuser des sections spécifiques d'un flux. Media Services crée des manifestes dynamiques pour obtenir cette diffusion sélective.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 76e6e1595cb8bf49dbbc82c3cae5de80ea718aeb
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786450"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780332"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Créer des filtres avec l’API REST Media Services
 
@@ -31,14 +31,14 @@ Cette rubrique explique comment définir un filtre pour un élément multimédia
 > [!NOTE]
 > Veillez à consulter [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 Pour suivre les étapes décrites dans cette rubrique, vous devez :
 
 - Lire [Filtres et manifestes dynamiques](filters-dynamic-manifest-overview.md).
 - [Configurer Postman pour les appels d’API REST Azure Media Services](media-rest-apis-with-postman.md).
 
-    Veillez à suivre la dernière étape de la rubrique [Obtenir un jeton Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
+    Suivez la dernière étape de la rubrique [Obtenir un jeton Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-filter"></a>Définir un filtre  
 
@@ -123,13 +123,13 @@ Vous pouvez spécifier une liste de filtres de comptes ou de ressources qui s’
 
 Pour créer des filtres et les associer à un localisateur de streaming à l’aide de REST, utilisez l’API [Créer un localisateur de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create) et spécifiez `properties.filters` dans le [corps de la demande](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
                                 
-## <a name="stream-using-filters"></a>Diffuser en continu à l’aide de filtres
+## <a name="stream-using-filters"></a>Effectuer un streaming à l’aide de filtres
 
 Lorsque vous définissez des filtres, vos clients peuvent les utiliser dans l'URL de diffusion en continu. Il serait possible d’appliquer des filtres à des protocoles de streaming à débit adaptatif : HLS (HTTP Live Streaming) Apple, MPEG-DASH et Smooth Streaming.
 
 Le tableau suivant présente des exemples d’URL utilisant des filtres :
 
-|Protocole|Exemples|
+|Protocol|Exemple|
 |---|---|
 |HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
 |MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|

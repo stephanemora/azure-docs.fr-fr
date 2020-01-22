@@ -1,19 +1,16 @@
 ---
-title: Configurer la réplication pour les machines virtuelles Azure dans Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment configurer la réplication pour les machines virtuelles Azure, d’une région Azure à l’autre à l’aide de Site Recovery.
-services: site-recovery
-author: asgang
+title: Configurer la réplication pour les machines virtuelles Azure dans Azure Site Recovery
+description: Découvrez comment configurer la réplication de machines virtuelles Azure dans une autre région à l’aide de Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2018
-ms.author: asgang
-ms.openlocfilehash: 7559bfd3d97f7b430b92578473501b519eb0a07f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934554"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973687"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Répliquer des machines virtuelles Azure dans une autre région Azure
 
@@ -33,11 +30,11 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
 
 1. Dans le coffre, cliquez sur **+ Répliquer**.
 2. Notez les champs suivants :
-   - **Source** : point d’origine des machines virtuelles, qui dans ce cas est **Azure**.
+   - **Source** : point d’origine des machines virtuelles, qui dans ce cas est **Azure**.
    - **Emplacement source** : région Azure où vous souhaitez protéger vos machines virtuelles. Dans notre exemple, l’emplacement source est « Asie Est »
    - **Modèle de déploiement** : modèle de déploiement Azure des machines sources.
    - **Abonnement source** : abonnement auquel appartiennent vos machines virtuelles sources. Il peut s’agir de n’importe quel abonnement au sein du même locataire Azure Active Directory où se trouve votre coffre Recovery services.
-   - **Groupe de ressources** : groupe de ressources auquel appartiennent vos machines virtuelles sources. Toutes les machines virtuelles du groupe de ressources sélectionné sont répertoriées pour la protection à l’étape suivante.
+   - **Groupe de ressources** : groupe de ressources auquel appartiennent vos machines virtuelles sources. Toutes les machines virtuelles du groupe de ressources sélectionné sont répertoriées pour la protection à l’étape suivante.
 
      ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
@@ -65,7 +62,7 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
      >[!NOTE]
      >Vous ne pouvez plus modifier le type de disponibilité (instance unique, groupe à haute disponibilité ou zone de disponibilité) une fois que vous avez activé la réplication. Vous devez désactiver puis réactiver la réplication pour modifier le type de disponibilité.
      >
-    
+
    - **Stratégie de réplication** : définit les paramètres de l’historique de conservation des points de récupération et la fréquence des captures instantanées de cohérence des applications. Par défaut, Azure Site Recovery crée une stratégie de réplication avec les paramètres par défaut de « 24 heures » pour la rétention des points de récupération, et de « 4 heures » pour la fréquence des captures instantanées de cohérence des applications.
 
      ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -75,23 +72,23 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
 Si vous ajoutez des disques à une machine virtuelle Azure pour laquelle la réplication est activée, voici ce qui se produit :
 -   L’intégrité de la réplication pour la machine virtuelle affiche un avertissement et une note vous informe qu’un ou plusieurs disques sont disponibles pour la protection.
 -   Si vous activez la protection pour les disques ajoutés, l’avertissement disparaît après la réplication initiale du disque.
--   Si vous choisissez de ne pas activer la réplication pour le disque, vous pouvez choisir d’ignorer l’avertissement.
+-   Si vous choisissez de ne pas activer la réplication du disque, vous pouvez masquer l'avertissement.
 
-    
+
     ![Nouveau disque ajouté](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
-Pour activer la réplication pour un disque ajouté, effectuez les étapes suivantes :
+Pour activer la réplication d'un disque ajouté, procédez comme suit :
 
 1.  Dans le coffre > **Éléments répliqués**, cliquez sur la machine virtuelle à laquelle vous avez ajouté le disque.
 2.  Cliquez sur **Disques**, puis sélectionnez le disque de données pour lequel vous voulez activer la réplication (ces disques présentent un état **Non protégé**).
 3.  Dans **Détails du disque**, cliquez sur **Activer la réplication**.
 
-    ![Activer la réplication pour un disque ajouté](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
+    ![Activer la réplication d'un disque ajouté](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)
 
 Une fois que le travail d’activation de la réplication s’exécute et que la réplication initiale est terminée, le problème d’avertissement sur l’intégrité de la réplication pour le disque a disparu.
 
 
-  
+
 ## <a name="customize-target-resources"></a>Personnaliser les ressources cibles
 
 Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Recovery.
@@ -115,7 +112,7 @@ Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Rec
     - Vérifiez qu’aucun dispositif de pare-feu ne bloque la communication interne entre les machines virtuelles sur le port 20004.
     - Si vous voulez que les machines virtuelles Linux fassent partie d’un groupe de réplication, vérifiez que le trafic sortant sur le port 20004 est ouvert manuellement conformément aux instructions de la version Linux spécifique.
 ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. Cliquez sur **Créer une ressource cible** > **Activer la réplication**.
 6. Une fois que les machines virtuelles sont activées pour la réplication, vous pouvez vérifier leur état d’intégrité sous **Éléments répliqués**
 

@@ -1,22 +1,171 @@
 ---
 title: Effectuer des recherches dans les journaux Azure Update Management
-description: Cet article explique comment effectuer des recherches dans les journaux Update Management
+description: Cet article explique comment interroger les journaux pour Update Management dans votre espace de travail Log Analytics.
 services: automation
 ms.subservice: update-management
-ms.date: 09/26/2019
+ms.date: 01/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 85b09aa32c8ddee6406469a2adc44e067c58e186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5a1979b0e714f35694999c04e1f890b710d54ac9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420327"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867065"
 ---
-# <a name="query-update-records-for-update-management-in-log-analytics"></a>Effectuer des recherches dans les journaux d’enregistrements des mises à jour Update Management dans Log Analytics
+# <a name="query-update-records-for-update-management-in-azure-monitor-logs"></a>Interroger des enregistrements de mises à jour pour Update Management dans les journaux d’activité Azure Monitor
 
-En plus des détails fournis dans le portail Azure, vous pouvez effectuer des recherches dans les journaux d’activité. Dans les pages de solutions, sélectionnez **Log Analytics**. Le volet **Recherche dans les journaux** s’ouvre.
+Outre les détails fournis dans la solution Update Management, vous pouvez effectuer des recherches dans les journaux stockés dans votre espace de travail Log Analytics. À partir de la page de la solution, dans le volet gauche, sélectionnez **Journaux**. La page **Recherche dans les journaux** s’ouvre.
 
 Vous pouvez également apprendre à personnaliser les requêtes ou les utiliser à partir de différents clients et plus en consultant :  [Documentation de l’API de recherche Log Analytics](https://dev.loganalytics.io/).
+
+## <a name="update-records"></a>Enregistrements de mises à jour
+
+Enregistrements collectés par Update Management pour les machines virtuelles Windows et Linux et types de données qui apparaissent dans les résultats de la recherche dans les journaux. Les sections suivantes décrivent ces enregistrements.
+
+### <a name="required-updates"></a>Mises à jour requises
+
+Un enregistrement du type `RequiredUpdate` est créé, qui représente les mises à jour requises par un ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+
+| Propriété | Description | 
+|----------|-------------|
+| Computer | Nom de domaine complet de la machine qui rend compte. |
+| KBID | ID d’article de la base de connaissances pour la mise à jour Windows. |
+| ManagementGroupName | Nom du groupe d’administration Operations Manager ou de l’espace de travail Log Analytics. | 
+| Produit | Produits pour lesquels la mise à jour est applicable. | 
+| PublishDate | Date à laquelle la mise à jour est prête à être téléchargée et installée à partir de Windows Update. |
+| Serveur | | 
+| SourceHealthServiceId | Identificateur unique représentant l’ID de l’agent Windows Log Analytics. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Identificateur unique représentant l’instance Azure Active Directory de votre organisation. | 
+| TimeGenerated | Date et heure de création de l’enregistrement. | 
+| Type | *Mettre à jour* | 
+| UpdateClassification | Type des mises à jour pouvant être appliquées. Pour Windows :<br> *Mises à jour critiques*<br> *Mises à jour de sécurité*<br> *Correctifs cumulatifs*<br> *Packs de fonctionnalités*<br> *Service Packs*<br> *Mises à jour de définitions*<br> *outils*<br> *Mises à jour*. Pour Linux :<br> *Mises à jour critiques et de sécurité*<br> *Autres* |
+| UpdateSeverity | Degré de gravité de la vulnérabilité. Les valeurs sont les suivantes :<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |
+| UpdateTitle | Titre de la mise à jour.|
+
+### <a name="update"></a>Update
+
+Un enregistrement du type `Update` est créé, qui représente les mises à jour disponibles et leur état d’installation pour un ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+
+| Propriété | Description | 
+|----------|-------------|
+| ApprovalSource | S’applique au système d’exploitation Windows uniquement. La valeur est *Microsoft Update*. |
+| Approved | *True* ou *False* |
+| classification ; | *Mises à jour* |
+| Computer | Nom de domaine complet de la machine qui rend compte. |
+| ComputerEnvironment | *Azure* ou *Non-Azure*. |
+| MSRCBulletinID | Numéro d’identification du bulletin de sécurité | 
+| MSRCSeverity | Degré de gravité de la vulnérabilité. Les valeurs sont les suivantes :<br> *Critical*<br> *Important*<br> *Moderate*<br> *Low* |  
+| KBID | ID d’article de la base de connaissances pour la mise à jour Windows. |
+| ManagementGroupName | Nom du groupe d’administration Operations Manager ou de l’espace de travail Log Analytics. |
+| UpdateID | Identificateur unique de la mise à jour de logiciel. |
+| RevisionNumber | Numéro de révision d’une révision spécifique d’une mise à jour. |
+| Facultatif | *True* ou *False* | 
+| RebootBehavior | Comportement de redémarrage après l’installation ou la désinstallation d’une mise à jour. |
+| _ResourceId | Identificateur unique de la ressource à laquelle l’enregistrement est associé. |
+| Type | *Mettre à jour* |
+| VMUUID | Identificateur unique de la machine virtuelle. |
+| MG | Identificateur unique du groupe d’administration ou de l’espace de travail Log Analytics. | 
+| TenantId | Identificateur unique représentant l’instance Azure Active Directory de votre organisation. | 
+| SourceSystem | *OperationsManager* | 
+| TimeGenerated | Date et heure de création de l’enregistrement. | 
+| SourceComputerId | Identificateur unique représentant l’ordinateur source. | 
+| Intitulé | Titre de la mise à jour. |
+| PublishedDate (UTC) | Date à laquelle la mise à jour est prête à être téléchargée et installée à partir de Windows Update.  |
+| UpdateState | État actuel de la mise à jour. | 
+| Produit | Produits pour lesquels la mise à jour est applicable. |
+| SubscriptionId | Identificateur unique de l’abonnement Azure. | 
+| ResourceGroup | Nom du groupe de ressources dont la ressource est membre. | 
+| ResourceProvider | Spécifie le fournisseur de ressources. | 
+| Ressource | Nom de la ressource. | 
+| ResourceType | Nom du type de ressource. | 
+
+### <a name="update-agent"></a>Agent de mise à jour
+
+Un enregistrement du type `UpdateAgent` est créé, qui fournit des détails sur l’agent de mise à jour sur l’ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+
+| Propriété | Description | 
+|----------|-------------|
+| AgeofOldestMissingRequiredUpdate | | 
+| AutomaticUpdateEnabled | | 
+| Computer | Nom de domaine complet de la machine qui rend compte. |
+| DaySinceLastUpdateBucket | | 
+| ManagementGroupName | Nom du groupe d’administration Operations Manager ou de l’espace de travail Log Analytics. |
+| OSVersion: | Version du système d’exploitation. |
+| Serveur | |
+| SourceHealthServiceId | Identificateur unique représentant l’ID de l’agent Windows Log Analytics. |
+| SourceSystem | *OperationsManager* | 
+| TenantId | Identificateur unique représentant l’instance Azure Active Directory de votre organisation. |
+| TimeGenerated | Date et heure de création de l’enregistrement. |
+| Type | *Mettre à jour* | 
+| WindowsUpdateAgentVersion | Version de l’agent Windows Update. |
+| WSUSServer | Affiche les erreurs si l’agent Windows Update a un problème pour aider à la résolution des problèmes. |
+
+### <a name="update-deployment-status"></a>État du déploiement des mises à jour 
+
+Un enregistrement du type `UpdateRunProgress` est créé, qui fournit l’état du déploiement des mises à jour d’un déploiement planifié par ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+
+| Propriété | Description | 
+|----------|-------------|
+| Computer | Nom de domaine complet de la machine qui rend compte. |
+| ComputerEnvironment | *Azure* ou *Non-Azure*. | 
+| CorrelationId | Identificateur unique de la tâche runbook à exécuter pour la mise à jour. |
+| EndTime | Heure de fin du processus de synchronisation. | 
+| ErrorResult | Code d’erreur Windows Update généré en cas d’échec de l’installation d’une mise à jour. | 
+| InstallationStatus | Les états d’installation possibles d’une mise à jour sur l’ordinateur client sont *In progress* (En cours), *Succeeded* (Réussie) et *Partially failed* (Échec partiel). |
+| KBID | ID d’article de la base de connaissances pour la mise à jour Windows. | 
+| ManagementGroupName | Nom du groupe d’administration Operations Manager ou de l’espace de travail Log Analytics. |
+| Système d’exploitation | Spécifie le type de système d’exploitation, *Windows* ou *Linux*. | 
+| Produit | Produits pour lesquels la mise à jour est applicable. |
+| Ressource | Nom de la ressource. | 
+| ResourceId | Identificateur unique de la ressource à laquelle l’enregistrement est associé. |
+| ResourceProvider | Spécifie le fournisseur de ressources. | 
+| ResourceType | Nom du type de ressource. | 
+| SourceComputerId | Identificateur unique représentant l’ordinateur source. | 
+| SourceSystem | *OperationsManager* |
+| StartTime | Heure à laquelle l’installation de la mise à jour est planifiée. |
+| SubscriptionId | Identificateur unique de l’abonnement Azure. | 
+| SucceededOnRetry | Indique à quel moment l’exécution de la mise à jour a échoué lors de la première tentative et que l’opération en cours est une nouvelle tentative. |
+| TimeGenerated | Date et heure de création de l’enregistrement. |
+| Intitulé | Titre de la mise à jour. |
+| Type | *UpdateRunProgress* |
+| UpdateId | Identificateur unique de la mise à jour de logiciel. |
+| VMUUID | Identificateur unique de la machine virtuelle. |
+| _ResourceId | Identificateur unique de la ressource à laquelle l’enregistrement est associé. |
+
+### <a name="update-summary"></a>Résumé de la mise à jour 
+
+Un enregistrement du type `UpdateSummary` est créé, qui fournit un résumé des mises à jour par ordinateur. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
+
+| Propriété | Description | 
+|----------|-------------|
+| Computer | Nom de domaine complet de la machine qui rend compte. |
+| ComputerEnvironment | *Azure* ou *Non-Azure*. | 
+| CriticalUpdatesMissing | Nombre de mises à jour critiques manquantes qui sont applicables. | 
+| ManagementGroupName | Nom du groupe d’administration Operations Manager ou de l’espace de travail Log Analytics. |
+| NETRuntimeVersion | Version de .NET Framework installée sur l’ordinateur Windows. |
+| OldestMissingSecurityUpdateBucket | | 
+| OldestMissingSecurityUpdateInDays | |
+| OsVersion | Version du système d’exploitation. |
+| OtherUpdatesMissing | Nombre de mises à jour détectées manquantes. |
+| Ressource |  Nom de la ressource. | 
+| ResourceGroup | Nom du groupe de ressources dont la ressource est membre. |
+| ResourceId | Identificateur unique de la ressource à laquelle l’enregistrement est associé. |
+| ResourceProvider | Spécifie le fournisseur de ressources. |
+| ResourceType | Nom du type de ressource. |
+| RestartPending | *True* ou *False*. |
+| SecurityUpdatesMissing | Nombre de correctifs de sécurité manquants applicables.| 
+| SourceComputerId | Identificateur unique de la machine virtuelle. |
+| SourceSystem | *OpsManager* | 
+| SubscriptionId | Identificateur unique de l’abonnement Azure. |
+| TimeGenerated | Date et heure de création de l’enregistrement. |
+| TotalUpdatesMissing | Nombre total de mises à jour manquantes applicables. | 
+| Type | *UpdateSummary* |
+| VMUUID | Identificateur unique de la machine virtuelle. |
+| WindowsUpdateAgentVersion | Version de l’agent Windows Update. |
+| WindowsUpdateSetting | Affiche l’état de l’agent Windows Update. Les valeurs possibles sont les suivantes :<br> *Scheduled installation* (Installation planifiée)<br> *Notify before installation* (Notifier avant l’installation)<br> Erreur renvoyée par l’agent WUA non sain. | 
+| WSUSServer | Affiche les erreurs si l’agent Windows Update a un problème pour aider à la résolution des problèmes. |
+| _ResourceId | Identificateur unique de la ressource à laquelle l’enregistrement est associé. |
 
 ## <a name="sample-queries"></a>Exemples de requêtes
 

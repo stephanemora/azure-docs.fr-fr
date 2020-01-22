@@ -1,6 +1,6 @@
 ---
 title: Résolution des problèmes avec le suivi des modifications Azure
-description: Cet article fournit des informations sur la résolution des problèmes rencontrés avec le suivi des modifications
+description: Découvrez comment détecter et résoudre les problèmes liés à Azure Automation Change Tracking et à la fonctionnalité d’inventaire.
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 51a9dbf8be6538534c05a4b8b6fcd913ef8c6ae3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849392"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769929"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>Résolution des problèmes avec la fonction Suivi des modifications et inventaire
 
@@ -35,7 +35,7 @@ Cette erreur peut être due aux raisons suivantes :
 3. Les packs d’administration pour le suivi des modifications n’ont pas été téléchargés.
 4. La machine virtuelle embarquée peut provenir d’une machine clonée qui n’a pas été synchronisée avec la version de Microsoft Monitoring Agent installée.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 1. Vérifiez si **Microsoft Monitoring Agent** (HealthService.exe) est en cours d’exécution sur l’ordinateur.
 1. Dans l’**observateur d'événements** sur la machine, recherchez les événements comportant le mot `changetracking`.

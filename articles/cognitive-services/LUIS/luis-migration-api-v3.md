@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8756d8e60e7612c1610e07b0567465e3a0ea8884
+ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961938"
+ms.lasthandoff: 12/28/2019
+ms.locfileid: "75531494"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>Modifications de point de terminaison de prédiction pour V3
 
@@ -88,7 +88,7 @@ Si vous souhaitez interroger par version, vous devez d’abord [publier via l’
 |V3|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict?query=<b>{QUERY}</b>|
 |V3|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/slots/<b>{SLOT-NAME}</b>/predict|
 |V2|GET|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict?query=<b>{QUERY}</b>|
-|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b><b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
+|V2|POST|https://<b>{REGION}</b>.api.cognitive.microsoft.com/luis/<b>prediction</b>/<b>v3.0</b>/apps/<b>{APP-ID}</b>/versions/<b>{VERSION-ID}</b>/predict|
 
 |Valeurs valides pour `SLOT-NAME`|
 |--|
@@ -127,11 +127,11 @@ L’API V3 possède de différents paramètres de chaîne de requête.
 
 |Propriété|Type|Version|Default|Objectif|
 |--|--|--|--|--|
-|`dynamicLists`|array|V3 uniquement|Non requis.|Les [listes dynamiques](#dynamic-lists-passed-in-at-prediction-time) vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.|
-|`externalEntities`|array|V3 uniquement|Non requis.|Les [entités externes](#external-entities-passed-in-at-prediction-time) permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. |
+|`dynamicLists`|tableau|V3 uniquement|Non requis.|Les [listes dynamiques](#dynamic-lists-passed-in-at-prediction-time) vous permettent d’étendre une entité de liste entraînée et publiée existante, déjà présente dans l’application LUIS.|
+|`externalEntities`|tableau|V3 uniquement|Non requis.|Les [entités externes](#external-entities-passed-in-at-prediction-time) permettent à votre application LUIS d’identifier et d’étiqueter les entités pendant l’exécution, qui peuvent servir de fonctionnalités aux entités existantes. |
 |`options.datetimeReference`|string|V3 uniquement|Pas de valeur par défaut|Utilisé pour déterminer le [décalage de datetimeV2](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity). Le format du datetimeReference est [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).|
 |`options.preferExternalEntities`|boolean|V3 uniquement|false|Indique si l’[entité externe (dont le nom est identique à celui de l’entité existante)](#override-existing-model-predictions) de l’utilisateur est utilisée ou si l’entité existante du modèle est utilisée pour la prédiction. |
-|`query`|string|V3 uniquement|Requis.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
+|`query`|string|V3 uniquement|Obligatoire.|**Dans V2**, l’énoncé à prédire se trouve dans le paramètre `q`. <br><br>**Dans V3**, la fonctionnalité est transmise dans le paramètre `query`.|
 
 
 
@@ -408,7 +408,7 @@ Si `preferExternalEntities` a la valeur `true`, LUIS retourne une réponse compr
 
 
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 La propriété _facultative_ `resolution` est retournée dans la réponse de prédiction, ce qui vous permet de transmettre les métadonnées associées à l’entité externe, puis de la recevoir en retour dans la réponse. 
 

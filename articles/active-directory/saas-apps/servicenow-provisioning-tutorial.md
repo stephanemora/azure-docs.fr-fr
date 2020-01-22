@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: da733eef4dcfc15db10bb5bf303086ae601189ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 04fb34ff9c0ba9822e9760bcd3989bd0b5675506
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443233"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044735"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutoriel : Configurer ServiceNow pour l'approvisionnement automatique d'utilisateurs
 
@@ -142,6 +142,7 @@ Une fois que vous avez configuré l’approvisionnement, utilisez les ressources
 * **EntryJoiningPropertyValueIsMissing :** Passez en revue vos [mappages d’attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) pour identifier l’attribut correspondant. Cette valeur doit être présente sur l’utilisateur ou le groupe que vous tentez d’approvisionner. 
 * Passez en revue l’[API SOAP de ServiceNow](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) pour comprendre les exigences ou les limitations (par exemple, le format pour spécifier l’indicatif du pays pour un utilisateur).
 * Certains déploiements ServiceNow nécessitent l’autorisation des plages d’adresses IP pour le service d’approvisionnement Azure AD. Les plages d’adresses IP réservées pour le service d’approvisionnement Azure AD se trouvent [ici](https://www.microsoft.com/download/details.aspx?id=56519) sous « AzureActiveDirectoryDomainServices ».
+* L’approvisionnement des utilisateurs vers le cloud du secteur public ServiceNow n’est pas pris en charge actuellement.
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

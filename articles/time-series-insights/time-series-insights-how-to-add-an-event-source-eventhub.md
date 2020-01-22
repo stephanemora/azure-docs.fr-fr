@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd57231901c157ffc0d5a3d4219d827629b401f3
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: c8f123871f1e87a18dadfa82ad6bb27d1c145dc4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764159"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863340"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Ajouter une source d’événement Event Hub à votre environnement Time Series Insights
 
@@ -25,12 +25,12 @@ Cet article explique comment utiliser le Portail Azure pour ajouter une source d
 > [!NOTE]
 > Les étapes décrites dans cet article s’appliquent à la fois aux environnements Time Series Insights - GA et Time Series Insights - Préversion.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Créez un environnement Time Series Insights comme décrit dans [Créer un environnement Azure Time Series Insights](./time-series-insights-update-create-environment.md).
-- Créez un hub d’événements. Consultez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le portail Azure](../event-hubs/event-hubs-create.md).
+- Créez un hub d’événements. Lisez [Créer un espace de noms Event Hubs et un concentrateur d’événements avec le Portail Azure](../event-hubs/event-hubs-create.md).
 - L’Event Hub doit avoir reçu des événements de message actifs. Découvrez comment [Envoyer des événements vers Azure Event Hubs à l’aide de .NET Framework](../event-hubs/event-hubs-dotnet-framework-getstarted-send.md).
-- Créez un groupe de consommateurs dédié dans l’Event Hub que l’environnement Time Series Insights peut utiliser. Chaque source d’événement Time Series Insights doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec un autre consommateur. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles d’obtenir des erreurs. Il existe également une limite de 20 groupes de consommateurs par Event Hub. Pour plus d’informations, consultez le [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
+- Créez un groupe de consommateurs dédié dans l’Event Hub que l’environnement Time Series Insights peut utiliser. Chaque source d’événement Time Series Insights doit avoir son propre groupe de consommateurs dédié, qui n’est pas partagé avec un autre consommateur. Si plusieurs lecteurs consomment des événements du même groupe de consommateurs, tous les lecteurs sont susceptibles de présenter des défaillances. Il existe également une limite de 20 groupes de consommateurs par Event Hub. Pour plus d’informations, consultez le [guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md).
 
 ### <a name="add-a-consumer-group-to-your-event-hub"></a>Ajouter un groupe de consommateurs à votre Event Hub
 
@@ -54,7 +54,7 @@ Pour ajouter un groupe de consommateurs dans votre Event Hub :
 
 ## <a name="add-a-new-event-source"></a>Ajouter une nouvelle source d’événement
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Recherchez votre environnement Time Series Insights existant. Dans le menu de gauche, sélectionnez **Toutes les ressources**, puis sélectionnez votre environnement Time Series Insights.
 

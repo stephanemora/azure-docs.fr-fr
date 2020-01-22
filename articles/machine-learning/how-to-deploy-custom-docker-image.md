@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 365692cccb3f1ed2646272521c84bdc4ef2b2147
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 5d828ab59f790bab1003f0ad73fc7be1b77410bb
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534577"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044892"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Déployer un modèle à l’aide d’une image de base Docker personnalisée
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -234,13 +234,12 @@ myenv.inferencing_stack_version = "latest"  # This will install the inference sp
 # Define the packages needed by the model and scripts
 from azureml.core.conda_dependencies import CondaDependencies
 conda_dep = CondaDependencies()
-# Unless you are using your own custom inference stack,
 # you must list azureml-defaults as a pip dependency
 conda_dep.add_pip_package("azureml-defaults")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-À moins d’utiliser également votre propre pile d’inférence personnalisée, vous devez ajouter azureml-defaults avec version >= 1.0.45 en tant que dépendance PIP. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web.
+Vous devez ajouter azureml-defaults avec la version >= 1.0.45 en tant que dépendance PIP. Ce package contient les fonctionnalités nécessaires pour héberger le modèle en tant que service web. Vous devez également définir la valeur « latest » pour la propriété de l’environnement inferencing_stack_version, ce qui installera les packages APT spécifiques requis par le service web. 
 
 Après avoir défini l’environnement, utilisez-le avec un objet [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) pour définir l’environnement d’inférence dans lequel le modèle et le service web s’exécuteront.
 
@@ -262,7 +261,9 @@ service.wait_for_deployment(show_output = True)
 print(service.state)
 ```
 
-Pour plus d’informations sur le déploiement, consultez [Déployer des modèles avec Azure Machine Learning](service/how-to-deploy-and-where.md).
+Pour plus d’informations sur le déploiement, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md).
+
+Pour plus d’informations sur la personnalisation de votre environnement Python, consultez [Créer et gérer des environnements pour la formation et le déploiement](how-to-use-environments.md). 
 
 ### <a name="use-an-image-with-the-machine-learning-cli"></a>Utiliser une image avec l’interface CLI Machine Learning
 
@@ -294,5 +295,5 @@ Pour plus d’informations sur le déploiement d’un modèle à l’aide de l�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrez plus en détail [comment et où déployer des modèles](service/how-to-deploy-and-where.md).
+* Découvrez plus en détail [comment et où déployer des modèles](how-to-deploy-and-where.md).
 * Découvrez comment [entraîner et déployer des modèles Machine Learning à l’aide d’Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops).

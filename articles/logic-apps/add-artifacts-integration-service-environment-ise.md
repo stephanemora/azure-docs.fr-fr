@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 7221619c8d9388a9f6d46ec1dfbb11e467db861a
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: c597bc4430e4390f0e29e4fe8ae4014521e1ae74
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793309"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732223"
 ---
 # <a name="add-artifacts-to-your-integration-service-environment-ise-in-azure-logic-apps"></a>Ajoutez des artefacts à votre environnement de service d’intégration dans Azure Logic Apps
 
-Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment), ajoutez des artefacts tels que des applications logiques, des comptes d’intégration et des connecteurs pour qu’ils puissent accéder aux ressources de votre réseau virtuel Azure.
+Après avoir créé un [environnement de service d’intégration](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) (ISE, Integration Service Environment), ajoutez des artefacts tels que des applications logiques, des comptes d’intégration et des connecteurs pour qu’ils puissent accéder aux ressources de votre réseau virtuel Azure. Par exemple, les connecteurs ISE managés qui deviennent disponibles une fois que vous avez créé votre ISE n’apparaissent pas automatiquement dans le concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement [ajouter et déployer ces connecteurs dans votre ISE](#add-ise-connectors-environment) afin qu’ils apparaissent dans le concepteur d’applications logiques.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -84,17 +84,17 @@ Pour créer un compte d’intégration qui utilise un environnement ISE, effectu
 
 ## <a name="add-ise-connectors"></a>Ajouter des connecteurs ISE
 
-Vous pouvez ajouter des connecteurs managés par Microsoft qui peuvent être utilisés dans votre environnement ISE mais ne sont pas déployés dans votre environnement ISE.
+Les connecteurs gérés par Microsoft qui deviennent disponibles une fois que vous avez créé votre ISE n’apparaissent pas automatiquement dans le sélecteur de connecteur du concepteur d’applications logiques. Avant de pouvoir utiliser ces connecteurs ISE, vous devez manuellement ajouter et déployer ces connecteurs dans votre ISE afin qu’ils apparaissent dans le concepteur d’applications logiques.
 
 1. Dans le menu de votre environnement ISE, sous **Paramètres**, sélectionnez **Connecteurs managés**. Dans la barre d’outils, sélectionnez **Ajouter**.
 
-   ![Afficher les connecteurs managés](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
+   ![Voir les connecteurs managés](./media/add-artifacts-integration-service-environment-ise/ise-view-managed-connectors.png)
 
-1. Dans le volet **Ajouter un nouveau connecteur managé**, ouvrez la liste **Rechercher un connecteur**. Si le connecteur que vous souhaitez est disponible, sélectionnez-le, puis sélectionnez **Créer**.
+1. Dans le volet **Ajouter un nouveau connecteur managé**, ouvrez la liste **Rechercher un connecteur**. Sélectionnez le connecteur ISE que vous souhaitez utiliser, mais qui n’est pas encore déployé dans votre ISE. Sélectionnez **Create** (Créer).
 
-   La liste affiche uniquement les connecteurs qui sont éligibles, mais qui ne sont pas déployés dans votre environnement ISE. Les connecteurs déjà déployés dans votre environnement ISE apparaissent comme étant indisponibles pour la sélection.
+   ![Sélectionnez le connecteur ISE que vous souhaitez déployer dans votre ISE.](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
 
-   ![Sélectionner un connecteur éligible](./media/add-artifacts-integration-service-environment-ise/add-managed-connector.png)
+   Seuls les connecteurs ISE qui sont admissibles, mais qui n’ont pas encore été déployés dans votre ISE apparaissent comme disponibles. Les connecteurs déjà déployés dans votre environnement ISE apparaissent comme étant indisponibles pour la sélection.
 
 <a name="create-custom-connectors-environment"></a>
 

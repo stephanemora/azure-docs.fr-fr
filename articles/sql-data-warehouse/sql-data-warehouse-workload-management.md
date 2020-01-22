@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/30/2019
+ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2563ea4ab498c11c846cfe79f0e668f7d491c2e7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692361"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940580"
 ---
 # <a name="what-is-workload-management"></a>Qu’est-ce que la gestion des charges de travail ?
 
@@ -54,3 +54,4 @@ L’isolation de la charge de travail réserve des ressources pour un groupe de 
 - Pour plus d’informations sur la classification des charges de travail, consultez [Classification des charges de travail](sql-data-warehouse-workload-classification.md).  
 - Pour plus d’informations sur l’isolation de la charge de travail, consultez [Isolation de la charge de travail](sql-data-warehouse-workload-isolation.md).  
 - Pour plus d’informations sur l’importance de la charge de travail, consultez [Importance de la charge de travail](sql-data-warehouse-workload-importance.md).  
+- Pour plus d’informations sur la surveillance de la gestion de la charge de travail, consultez [Supervision du portail de gestion des charges de travail](sql-data-warehouse-workload-management-portal-monitor.md).  

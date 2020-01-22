@@ -9,17 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 304d0615a12871fb4a9610058bc1be0ad6dff806
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929544"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941763"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copier des données de DB2 à l’aide d’Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-onprem-db2-connector.md)
 > * [Version actuelle](connector-db2.md)
 
@@ -46,12 +46,7 @@ En particulier, ce connecteur DB2 prend en charge les plateformes et versions IB
 * IBM DB2 pour LUW 10.5
 * IBM DB2 pour LUW 10.1
 
-> [!TIP]
-> Si vous recevez le message d’erreur « Le package correspondant à une requête d’exécution d’instruction SQL est introuvable. SQLSTATE = 51002 SQLCODE =-805 », la raison en est qu’un package nécessaire n’est pas créé pour un utilisateur normal sur un tel système d’exploitation. Suivez les instructions appropriées pour votre type de serveur DB2 :
-> - DB2 pour i (AS400) : demandez à un utilisateur chevronné de créer une collection pour l’utilisateur de connexion avant d’utiliser une activité de copie. Commande : `create collection <username>`
-> - DB2 pour z/OS ou LUW : utilisez un compte doté de privilèges élevés (utilisateur chevronné ou administrateur disposant d’autorités de package et d’autorisations BIND, BINDADD, GRANT EXECUTE TO PUBLIC) pour exécuter une fois l’activité de copie. Le package nécessaire est ensuite créé automatiquement au cours de la copie. Ensuite, vous pouvez revenir au mode utilisateur normal pour vos séries de copie suivantes.
-
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -69,15 +64,18 @@ Les propriétés prises en charge pour le service lié DB2 sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **Db2** | OUI |
-| server |Nom du serveur DB2. Vous pouvez spécifier le numéro de port à la suite du nom du serveur en le séparant par un signe deux-points, par exemple, `server:port`. |OUI |
-| database |Nom de la base de données DB2. |OUI |
-| authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |OUI |
-| username |Spécifiez le nom d’utilisateur pour la connexion à la base de données DB2. |OUI |
-| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |OUI |
+| type | La propriété type doit être définie sur : **Db2** | Oui |
+| server |Nom du serveur DB2. Vous pouvez spécifier le numéro de port à la suite du nom du serveur en le séparant par un signe deux-points, par exemple, `server:port`. |Oui |
+| database |Nom de la base de données DB2. |Oui |
+| authenticationType |Type d'authentification utilisé pour se connecter à la base de données DB2.<br/>Valeur autorisée : **De base**. |Oui |
+| username |Spécifiez le nom d’utilisateur pour la connexion à la base de données DB2. |Oui |
+| password |Spécifiez le mot de passe du compte d’utilisateur que vous avez spécifié pour le nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). |Oui |
 | packageCollection | Spécifiez sous quel emplacement les packages nécessaires sont créés automatiquement par ADF lors de l’interrogation de la base de données. | Non |
 | certificateCommonName | Lorsque vous utilisez le chiffrement SSL (Secure Sockets Layer) ou TLS (Transport Layer Security), vous devez entrer une valeur pour le nom commun du certificat. | Non |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Pour plus d’informations, consultez la section [Conditions préalables](#prerequisites). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non |
+
+> [!TIP]
+> Si vous recevez un message d’erreur indiquant `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`, la raison est qu’un package nécessaire n’est pas créé pour l’utilisateur. Par défaut, ADF tente de créer le package sous le regroupement nommé en tant qu’utilisateur que vous avez utilisé pour vous connecter à DB2. Spécifiez la propriété du regroupement des packages pour indiquer à quel endroit vous souhaitez qu’ADF crée les packages nécessaires lors de l’interrogation de la base de données.
 
 **Exemple :**
 
@@ -112,8 +110,8 @@ Pour copier des données à partir de DB2, les propriétés suivantes sont prise
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type du jeu de données doit être définie sur : **Db2Table** | OUI |
-| schema | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
+| type | La propriété type du jeu de données doit être définie sur : **Db2Table** | Oui |
+| schéma | Nom du schéma. |Non (si « query » dans la source de l’activité est spécifié)  |
 | table | Nom de la table. |Non (si « query » dans la source de l’activité est spécifié)  |
 | tableName | Nom de la table avec le schéma. Cette propriété est prise en charge pour la compatibilité descendante. Utilisez `schema` et `table` pour une nouvelle charge de travail. | Non (si « query » dans la source de l’activité est spécifié) |
 
@@ -147,7 +145,7 @@ Pour copier des données de DB2, les propriétés prises en charge dans la secti
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type de la source d’activité de copie doit être définie sur : **Db2Source** | OUI |
+| type | La propriété type de la source d’activité de copie doit être définie sur : **Db2Source** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Non (si « tableName » est spécifié dans dataset) |
 
 **Exemple :**
@@ -192,29 +190,29 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 |:--- |:--- |
 | BigInt |Int64 |
 | Binary |Byte[] |
-| Blob |Byte[] |
-| Char |Chaîne |
-| Clob |Chaîne |
+| Objet blob |Byte[] |
+| Char |String |
+| Clob |String |
 | Date |Datetime |
-| DB2DynArray |Chaîne |
-| DbClob |Chaîne |
+| DB2DynArray |String |
+| DbClob |String |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
 | Double |Double |
 | Float |Double |
-| Graphic |Chaîne |
+| Graphic |String |
 | Integer |Int32 |
 | LongVarBinary |Byte[] |
-| LongVarChar |Chaîne |
-| LongVarGraphic |Chaîne |
-| Chiffre |Decimal |
+| LongVarChar |String |
+| LongVarGraphic |String |
+| Numérique |Decimal |
 | Real |Unique |
 | SmallInt |Int16 |
 | Temps |TimeSpan |
 | Timestamp |DateTime |
 | VarBinary |Byte[] |
-| VarChar |Chaîne |
-| VarGraphic |Chaîne |
+| VarChar |String |
+| VarGraphic |String |
 | Xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
@@ -222,4 +220,4 @@ Lors de la copie de données de DB2, les mappages suivants sont utilisés entre 
 Pour en savoir plus sur les propriétés, consultez [Activité Lookup](control-flow-lookup-activity.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

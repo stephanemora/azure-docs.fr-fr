@@ -13,45 +13,50 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 01/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6e336ec40ba2b9f6d3018e6a4f5b2ac721077aa
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895111"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932316"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Licences requises pour utiliser Privileged Identity Management
 
 Pour utiliser Azure Active Directory (Azure AD) Privileged Identity Management (PIM), votre annuaire doit avoir une licence valide. De plus, les licences doivent être affectées aux administrateurs et aux utilisateurs concernés. Cet article décrit les licences requises pour utiliser Privileged Identity Management.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="valid-licenses"></a>Licences valides
 
-Pour utiliser Privileged Identity Management, votre annuaire doit avoir l’une des licences payantes ou d’essai gratuit suivantes :
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+## <a name="how-many-licenses-must-you-have"></a>De combien de licences avez-vous besoin ?
 
-Pour plus d’informations, consultez [Qu’est-ce qu’Azure Active Directory ?](../fundamentals/active-directory-whatis.md).
+Assurez-vous que votre répertoire comporte au moins autant de licences Azure AD Premium P2 que d’employés effectuant les tâches suivantes :
 
-## <a name="which-users-must-have-licenses"></a>Quels utilisateurs doivent avoir des licences ?
-
-Chaque administrateur ou utilisateur qui interagit avec Privileged Identity Management ou en reçoit un avantage doit disposer d’une licence. Voici quelques exemples :
-
-- Administrateurs ayant des rôles Azure AD gérés dans PIM
-- Administrateurs ayant des rôles de ressources Azure gérés dans PIM
-- Administrateurs affectés au rôle Administrateur de rôle privilégié
 - Utilisateurs désignés comme étant éligibles pour les rôles Azure Active Directory gérés à l’aide de PIM
-- Utilisateurs en mesure d’approuver et de refuser des requêtes dans PIM
+- Utilisateurs en mesure d’approuver ou de refuser des demandes d’activation dans PIM
 - Utilisateurs affectés à un rôle de ressource Azure avec des attributions juste-à-temps ou directes (à durée définie)  
 - Utilisateurs affectés à une révision d’accès
 - Utilisateurs qui effectuent des révisions d’accès
 
-Pour plus d’informations sur l’attribution de licences aux utilisateurs, consultez [Assigner ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
+Les licences Azure AD Premium P2 ne sont **pas** requises pour les tâches suivantes :
+
+- Aucune licence n’est requise pour les utilisateurs disposant des rôles d’administrateur général ou d’administrateur de rôle privilégié qui configurent PIM, des stratégies et les révisions d’accès et reçoivent des alertes.
+
+Pour plus d’informations sur les licences, consultez [Assigner ou supprimer des licences à l’aide du portail Azure Active Directory](../fundamentals/license-users-groups.md).
+
+## <a name="example-license-scenarios"></a>Exemples de scénarios de licence
+
+Voici quelques exemples de scénarios de licence pour vous aider à déterminer le nombre de licences dont vous devez disposer.
+
+| Scénario | Calcul | Nombre de licences |
+| --- | --- | --- |
+| Woodgrove Bank a 10 administrateurs dans différents services et 2 administrateurs généraux qui configurent et gèrent PIM. Cinq administrateurs sont admissibles. | Cinq licences pour les administrateurs admissibles | 5 |
+| Graphic Design Institute a 25 administrateurs dont 14 sont gérés via PIM. L’activation de rôle nécessite une approbation et trois utilisateurs différents dans l’organisation peuvent approuver les activations. | 14 licences pour les rôles admissibles + 3 approbateurs | 17 |
+| Contoso a 50 administrateurs dont 42 sont gérés via PIM. L’activation de rôle nécessite une approbation et cinq utilisateurs différents dans l’organisation peuvent approuver les activations. Contoso effectue également des révisions mensuelles des utilisateurs affectés aux rôles Administrateur et les réviseurs sont les gestionnaires des utilisateurs dont six ne sont pas des rôles Administrateur gérés par PIM. | 42 licences pour les rôles admissibles + 5 approbateurs + 6 réviseurs | 53 |
 
 ## <a name="what-happens-when-a-license-expires"></a>Que se passe-t-il quand une licence expire ?
 

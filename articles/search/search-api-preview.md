@@ -1,19 +1,19 @@
 ---
 title: Version API REST 2019-05-06-préversion
 titleSuffix: Azure Cognitive Search
-description: La version API REST du service Recherche cognitive 2019-05-06-préversion, comprend des fonctionnalités expérimentales, par exemple, la base de connaissances et les clés de chiffrement gérées par le client.
+description: La version API REST du service Recherche cognitive 2019-05-06-préversion, comprend des fonctionnalités expérimentales, par exemple, la base de connaissances et la mise en cache de l’indexeur pour l’enrichissement incrémentiel.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 24e16942410c72640628bd4120d05a85e68de993
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/04/2020
+ms.openlocfilehash: eb73d614ca94bc1fa007a14f3705e50c74ab9e4f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720027"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922473"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Version API REST du service Recherche Azure 2019-05-06-préversion
 
@@ -25,19 +25,17 @@ Cet article décrit la version `api-version=2019-05-06-Preview` de l’API REST 
 
 ## <a name="new-in-2019-05-06-preview"></a>Nouveauté de 2019-05-06-Preview
 
-+ L’[indexation incrémentielle](cognitive-search-incremental-indexing-conceptual.md) est un nouveau mode d’indexation qui ajoute l’état et la mise en cache à un ensemble de compétences, ce qui vous permet de réutiliser la sortie existante quand les définitions des données sources, des indexeurs et des ensembles de compétences sont inchangées. Cette fonctionnalité s’applique uniquement aux enrichissements définis pour un ensemble de compétences cognitives.
++ L’[enrichissement incrémentiel (préversion)](cognitive-search-incremental-indexing-conceptual.md) ajoute la mise en cache à un pipeline d’enrichissement, ce qui vous permet de réutiliser la sortie existante si une modification ciblée, telle qu’une mise à jour d’un ensemble de compétences ou d’un autre objet, ne modifie pas le contenu. La mise en cache s’applique uniquement aux documents enrichis générés par un ensemble de compétences.
 
-+ L’[indexeur Cosmos DB](search-howto-index-cosmosdb.md) prend en charge l’API MongoDB, l’API Gremlin et l’API Cassandra.
++ L’[indexeur Cosmos DB](search-howto-index-cosmosdb.md) prend en charge l’API MongoDB (préversion), l’API Gremlin (préversion) et l’API Cassandra (préversion).
 
-+ L’[indexeur Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) peut indexer du contenu et des métadonnées à partir de Data Lake Storage Gen2.
++ L’[indexeur Azure Data Lake Storage Gen2 (préversion)](search-howto-index-azure-data-lake-storage.md) peut indexer du contenu et des métadonnées à partir de Data Lake Storage Gen2.
 
 + L’[Extraction de document (préversion)](cognitive-search-skill-document-extraction.md) est une compétence cognitive utilisée lors de l’indexation, qui vous permet d’extraire le contenu d’un fichier à partir d’un ensemble de compétences. Auparavant, le craquage de document avait exclusivement lieu avant l’exécution de l’ensemble de compétences. Avec l’ajout de cette compétence, vous pouvez également effectuer cette opération dans le cadre de l’exécution de l’ensemble de compétences.
 
 + La [Traduction de texte (préversion)](cognitive-search-skill-text-translation.md) est une compétence cognitive utilisée lors de l’indexation, qui évalue le texte et qui, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée.
 
 + La [Base de connaissances](knowledge-store-concept-intro.md) est une nouvelle destination d’un pipeline d’enrichissement par IA. La structure des données physique existe dans Stockage Blob Azure et dans Stockage Table Azure, et elle est créée et remplie quand vous exécutez un indexeur auquel un ensemble de compétences cognitives est attaché. La définition d’une base de connaissances elle-même est spécifiée dans une définition d’ensemble de compétences. Dans la définition de la base de connaissances, vous contrôlez les structures physiques de vos données via des éléments de *projection* qui déterminent la façon dont les données sont mises en forme, si les données sont stockées dans Stockage Table ou dans Stockage Blob, et s’il existe plusieurs vues.
-
-+ Les [clés de chiffrement gérées par le client](search-security-manage-encryption-keys.md) pour le chiffrement au repos côté service constituent également une nouvelle fonctionnalité en préversion. Outre le chiffrement au repos intégré géré par Microsoft, vous pouvez appliquer une couche supplémentaire de chiffrement lorsque vous êtes l’unique propriétaire des clés.
 
 ## <a name="earlier-preview-features"></a>Fonctionnalités antérieures en préversion
 

@@ -1,26 +1,26 @@
 ---
-title: Utilisation de projections dans une base de connaissances (préversion)
+title: Projections dans une base de connaissances (préversion)
 titleSuffix: Azure Cognitive Search
-description: Enregistrez et mettez en forme vos données enrichies provenant du pipeline d’indexation d’enrichissement par IA dans une base de connaissances pour les utiliser dans des scénarios autres que ceux de recherche en texte intégral. La base de connaissances est actuellement en préversion publique.
+description: Enregistrez et mettez en forme vos données enrichies provenant du pipeline d’indexation d’enrichissement par IA dans une base de connaissances pour les utiliser dans des scénarios autres que ceux de recherche en texte intégral. La base de connaissances est actuellement disponible en préversion publique.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 47c63118888bc0eaf7a025cd95e2a4c43d6a6cfb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/08/2020
+ms.openlocfilehash: d8302b69f1e868536eb954a650a62f41e4006b82
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790009"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754527"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Utilisation de projections dans une base de connaissances dans Recherche cognitive Azure
+# <a name="projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Projections dans une base de connaissances dans Recherche cognitive Azure
 
 > [!IMPORTANT] 
-> La base de connaissances est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée et il n’existe pas de prise en charge du SDK .NET.
+> La base de connaissances est actuellement disponible en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. La prise en charge du portail est actuellement limitée, et il n’existe pas de prise en charge du kit SDK .NET.
 
-Recherche cognitive Azure permet l’enrichissement de contenu via des compétences cognitives intégrées et personnalisées dans le cadre de l’indexation. Les enrichissements renforcent la structure de vos documents et rendent la recherche plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour des scénarios autres que de recherche, pour l’exploration de connaissances par exemple.
+Recherche cognitive Azure permet l’enrichissement de contenu via des compétences cognitives intégrées et personnalisées dans le cadre de l’indexation. Les enrichissements créent de nouvelles informations là où aucune n’existait précédemment : extraction d’informations à partir d’images, détection de sentiments, d’expressions clés et d’entités à partir de texte, pour n’en nommer que quelques-uns. Les enrichissements ajoutent également une structure à du texte non différencié. Tous ces processus produisent des documents qui rendent la recherche en texte intégral plus efficace. Dans de nombreux cas, les documents enrichis sont utiles pour des scénarios autres que la recherche, pour l’exploration de connaissances par exemple.
 
 Les projections, un composant de la [base de connaissances](knowledge-store-concept-intro.md), sont des vues de documents enrichis qui peuvent être enregistrés dans un stockage physique à des fins d’exploration de connaissances. Une projection vous permet de « projeter » vos données dans une forme qui répond à vos besoins, en conservant les relations afin que les outils tels que Power BI puissent lire les données sans effort supplémentaire.
 
@@ -28,13 +28,13 @@ Les projections peuvent être tabulaires, avec des données stockées dans des l
 
 La base de connaissances prend en charge trois types de projections :
 
-+ **Tables** : Pour les données qui sont mieux représentées sous forme de lignes et de colonnes, les projections de table vous permettent de définir une forme schématisée ou une projection dans le stockage Table. Seuls les objets JSON valides peuvent être projetés sous forme de tables, le document enrichi peut contenir des nœuds qui ne sont pas des objets JSON nommés. Par ailleurs, lors de la projection de ces objets, il peut créer un objet JSON valide avec une compétence de modélisateur ou une mise en forme incluse.
++ **Tables** : Pour les données qui sont mieux représentées sous forme de lignes et de colonnes, les projections de table vous permettent de définir une forme schématisée ou une projection dans le stockage Table. Seuls les objets JSON valides peuvent être projetés sous forme de tables, le document enrichi peut contenir des nœuds qui ne sont pas des objets JSON nommés. Par ailleurs, lors de la projection de ces objets, il peut créer un objet JSON valide avec une compétence de modélisateur ou une mise en forme incluse.
 
 + **Objets** : Lorsque vous avez besoin d’une représentation JSON de vos données et enrichissements, les projections d’objet sont enregistrées comme des objets Blob. Seuls les objets JSON valides peuvent être projetés sous forme d’objets, le document enrichi peut contenir des nœuds qui ne sont pas des objets JSON nommés. Par ailleurs, lors de la projection de ces objets, il peut créer un objet JSON valide avec une compétence de modélisateur ou une mise en forme incluse.
 
 + **Fichiers** : Quand vous devez enregistrer les images extraites des documents, les projections de fichiers vous permettent d’enregistrer les images normalisées dans un stockage d’objets blob.
 
-Pour voir des projections définies dans le contexte, consultez [Prise en main de la base de connaissances](knowledge-store-howto.md).
+Pour voir des projections définies en contexte, consultez [Créer une base de connaissances avec REST](knowledge-store-create-rest.md).
 
 ## <a name="projection-groups"></a>Groupes de projections
 
@@ -114,12 +114,6 @@ Voici un exemple des projections de table.
 
 Comme illustré dans cet exemple, les expressions et entités clés sont modélisées dans différentes tables et contiennent une référence au parent (MainTable) pour chaque ligne.
 
-<!---
-The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
-
-![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
---->
-
 ## <a name="object-projections"></a>Projections d’objet
 
 Les projections d’objet sont des représentations JSON de l’arborescence d’enrichissement pouvant provenir de n’importe quel nœud. Dans de nombreux cas, la même compétence de **modélisateur** que celle qui crée une projection de table peut être utilisée pour générer une projection d’objet. 
@@ -143,10 +137,8 @@ Les projections d’objet sont des représentations JSON de l’arborescence d�
         {
           "objects": [
             {
-              "storageContainer": "Reviews", 
-              "format": "json", 
-              "source": "/document/Review", 
-              "key": "/document/Review/Id" 
+              "storageContainer": "hotelreviews", 
+              "source": "/document/hotel"
             }
           ]
         },
@@ -160,9 +152,8 @@ Les projections d’objet sont des représentations JSON de l’arborescence d�
 
 La génération d’une projection d’objet nécessite quelques attributs spécifiques à un objet :
 
-+ storageContainer : Conteneur dans lequel les objets seront enregistrés
++ storageContainer : Conteneur de blobs dans lequel les objets seront enregistrés
 + source : Chemin d’accès au nœud de l’arborescence d’enrichissement qui est la racine de la projection
-+ key : Chemin d’accès qui représente une clé unique pour l’objet à stocker. Il sera utilisé pour créer le nom de l’objet blob dans le conteneur.
 
 ## <a name="file-projection"></a>Projection de fichier
 
@@ -219,4 +210,4 @@ Enfin, si vous devez exporter vos données de la base de connaissances, Azure Da
 À l’étape suivante, créez votre première base de connaissances à l’aide d’exemples de données et d’instructions.
 
 > [!div class="nextstepaction"]
-> [Comment créer une base de connaissances](knowledge-store-howto.md).
+> [Créer une base de connaissances avec REST](knowledge-store-create-rest.md).

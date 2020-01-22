@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: d57f1e87c503a86a522fdb3004b021fbcb5c6ff1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351394"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045206"
 ---
 # <a name="vcore-model-overview"></a>Vue d’ensemble du modèle vCore
 
@@ -32,8 +32,8 @@ Les options de niveau de service du modèle vCore sont les suivantes : usage gé
 ||**Usage général**|**Critique pour l’entreprise**|**Hyperscale**|
 |---|---|---|---|
 |Idéal pour|La plupart des charges de travail d’entreprise. Propose des options de calcul et de stockage équilibrées, évolutives et économiques. |Offre aux applications métier la résilience la plus élevée aux défaillances en utilisant plusieurs réplicas isolés et assure les meilleures performances d’E/S par réplica de base de données.|La plupart des charges de travail métier avec des exigences de stockage et d’échelle lecture à haute scalabilité.  Offre une meilleure résilience aux défaillances en autorisant la configuration de plusieurs réplicas de base de données isolés. |
-|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance managée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour une base de données et un pool élastique** :<br/>5 Go - 4 To<br/>**Instance managée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
-|Débit d’E/S (approximatif)|**Base de données et pool élastique** : 500 IOPS par vCore avec un maximum de 40 000 IOPS.<br/>**Instance managée** : Dépend de la [taille de fichier](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5 000 IOPS par vCore avec un maximum de 320 000 IOPS|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’efficacité des IOPS dépend de la charge de travail.|
+|Stockage|Utilise le stockage à distance.<br/>**Calcul provisionné pour des bases de données uniques et des pools élastiques** :<br/>5 Go - 4 To<br/>**Calcul serverless** :<br/>5 Go - 3 To<br/>**Instance gérée** : 32 Go - 8 To |Utilise le stockage SSD local.<br/>**Calcul provisionné pour des bases de données uniques et des pools élastiques** :<br/>5 Go - 4 To<br/>**Instance gérée** :<br/>32 Go - 4 To |Croissance automatique et flexible du stockage en fonction des besoins. Prend en charge jusqu’à 100 To de stockage. Utilise le stockage SSD local pour le cache du pool de mémoires tampons local et le stockage de données local. Utilise le stockage distant Azure comme banque de données finale à long terme. |
+|IOPS et débit (approximatif)|**Bases de données uniques et pools élastiques** : Consultez les limites de ressources pour les [bases de données uniques](../sql-database/sql-database-vcore-resource-limits-single-databases.md) et les [pools élastiques](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).<br/>**Instance gérée** : Consultez [Vue d’ensemble des limites de ressources des instances gérées Azure SQL Database](../sql-database/sql-database-managed-instance-resource-limits.md#service-tier-characteristics).|Consultez les limites de ressources pour les [bases de données uniques](../sql-database/sql-database-vcore-resource-limits-single-databases.md) et les [pools élastiques](../sql-database/sql-database-vcore-resource-limits-elastic-pools.md).|L’architecture hyperscale est une architecture à plusieurs niveaux avec une mise en cache sur plusieurs niveaux. L’IOPS et le débit réels dépendront de la charge de travail.|
 |Disponibilité|1 réplica, réplicas sans échelle lecture|3 réplicas, 1 [réplica avec échelle lecture](sql-database-read-scale-out.md),<br/>haute disponibilité (HA) redondante interzone|1 réplica en lecture-écriture, plus 0 à 4 [réplicas avec échelle lecture](sql-database-read-scale-out.md)|
 |Sauvegardes|[Stockage géo-redondant avec accès en lecture (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 à 35 jours (7 jours par défaut)|Sauvegardes basées sur des instantanés dans le stockage distant Azure. Les restaurations utilisent ces instantanés pour une récupération rapide. Les sauvegardes sont instantanées et n’ont aucun impact sur les performances d’E/S de calcul. Les restaurations sont rapides et ne sont pas des opérations à l’échelle des données (elles durent quelques minutes plutôt que quelques heures ou jours).|
 |En mémoire|Non pris en charge|Prise en charge|Non pris en charge|
@@ -142,6 +142,16 @@ Sous l'onglet **Informations de base**, sélectionnez le lien **Configurer la ba
   
 **Pour modifier la génération du matériel d'une instance gérée existante**
 
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
+
+Dans la page des instances gérées, sélectionnez le lien **Niveau tarifaire** situé sous la section Paramètres.
+
+![modifier le matériel de l’instance gérée](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+Sur la page **Niveau tarifaire**, vous pouvez modifier la génération du matériel comme décrit dans les étapes précédentes.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Utilisez le script PowerShell suivant :
 
 ```powershell-interactive
@@ -176,7 +186,9 @@ $properties = New-Object System.Object
 Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType "Microsoft.SQL/managedInstances" -Sku $sku -ResourceGroupName $resourceGroup -Force -ApiVersion "2015-05-01-preview"
 ```
 
-Entrez votre ID d'abonnement, votre nom et le groupe de ressources de l'instance gérée.
+Entrez votre ID d’abonnement, votre nom et le groupe de ressources de l’instance gérée.
+
+---
 
 ### <a name="hardware-availability"></a>Disponibilité matérielle
 
@@ -213,9 +225,9 @@ Sur la page **Informations de base**, indiquez les informations suivantes :
 
 Sur la page **Détails**, indiquez les informations suivantes :
 
-5. Dans la section **DÉTAILS DU PROBLÈME**, sélectionnez le lien **Indiquer des détails**. 
-6. Dans **Type de quota SQL Database**, sélectionnez **Série M**.
-7. Dans **Région**, sélectionnez la région pour laquelle vous voulez activer la série M.
+1. Dans la section **DÉTAILS DU PROBLÈME**, sélectionnez le lien **Indiquer des détails**. 
+2. Dans **Type de quota SQL Database**, sélectionnez **Série M**.
+3. Dans **Région**, sélectionnez la région pour laquelle vous voulez activer la série M.
     Pour connaître les régions dans lesquelles la série M est disponible, voir [Disponibilité de la série M](#m-series).
 
 Les demandes de support approuvées sont généralement approvisionnées sous cinq jours ouvrables.

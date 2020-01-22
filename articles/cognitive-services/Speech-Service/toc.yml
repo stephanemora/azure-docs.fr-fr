@@ -201,7 +201,7 @@
           href: quickstarts/translate-speech-to-speech.md
     - name: Tutoriels
       items:
-        - name: 'Créer une application Flask pour traduire et synthétiser du texte, REST'
+        - name: Créer une application Flask pour traduire et synthétiser du texte avec des API REST
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
     - name: Informations de référence
       items:
@@ -317,7 +317,7 @@
           href: quickstart-voice-assistant-java-android.md
         - name: Créer une commande personnalisée (préversion)
           href: quickstart-custom-speech-commands-create-new.md
-        - name: Créer une commande personnalisée avec paramètres (préversion)
+        - name: Créer une commande personnalisée avec des paramètres (préversion)
           href: quickstart-custom-speech-commands-create-parameters.md
         - name: Utiliser des commandes personnalisées avec Custom Voice (préversion)
           href: quickstart-custom-speech-commands-select-custom-voice.md
@@ -327,7 +327,7 @@
       items:
         - name: Réaliser des commandes personnalisées avec le SDK Speech
           href: how-to-custom-speech-commands-fulfill-sdk.md
-        - name: Ajouter la validation des paramètres à des commandes personnalisées
+        - name: Ajouter une validation des paramètres à une commande personnalisée
           href: how-to-custom-speech-commands-validations.md
         - name: Ajouter une confirmation à une commande personnalisée
           href: how-to-custom-speech-commands-confirmations.md
@@ -360,7 +360,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Déployer un modèle personnalisé
               href: how-to-custom-speech-deploy-model.md
-            - name: Guide de création de transcriptions étiquetées par l’homme
+            - name: Créer des transcriptions étiquetées par l’homme
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Modèles de locataire
           items:
@@ -395,13 +395,13 @@
               href: record-custom-voice-samples.md
         - name: Création de contenu audio
           items:
-            - name: "Procédure\_: Création de contenu audio"
+            - name: Création de contenu audio
               href: how-to-audio-content-creation.md
     - name: Instructions de nommage des mots clés personnalisés
       href: speech-devices-sdk-kws-guidelines.md
     - name: Détection de mots-clés personnalisés
       href: speech-devices-sdk-create-kws.md
-- name: Speech Service
+- name: Service Speech
   expanded: false
   items:
     - name: Scénarios
@@ -468,11 +468,11 @@
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
     - name: Guides pratiques
       items:
-        - name: Guide pratique pour activer la journalisation
+        - name: Activation de la journalisation
           href: how-to-use-logging.md
-        - name: Guide pratique pour suivre l’utilisation de la mémoire
+        - name: Suivre l’utilisation de la mémoire
           href: how-to-track-speech-sdk-memory-usage.md
-        - name: Guide pratique pour configurer OpenSSL pour Linux
+        - name: Configurer OpenSSL pour Linux
           href: how-to-configure-openssl-linux.md
           displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
     - name: Exemples

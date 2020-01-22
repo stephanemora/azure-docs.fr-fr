@@ -10,17 +10,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8239b25f5ebf94d7368190f3169d0637d9943df1
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842728"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720284"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -35,7 +34,7 @@ L’objectif de ce didacticiel est de présenter les étapes à effectuer dans G
 - Les noms d’attributs cibles G Suite mis à jour correspondent à ce qui est défini [ici](https://developers.google.com/admin-sdk/directory).
 - Mappages d’attributs par défaut mis à jour.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à G Suite, vous avez besoin des éléments suivants :
 
@@ -65,18 +64,18 @@ Avant de configurer G Suite pour l’approvisionnement automatique d’utilisate
 
     ![Sélectionnez Sécurité.][10]
 
-2. Dans la page **Sécurité**, sélectionnez **Informations de référence sur l’API**.
+1. Dans la page **Sécurité**, sélectionnez **Informations de référence sur l’API**.
 
     ![Sélectionnez Informations de référence sur l’API.][15]
 
-3. Sélectionnez **Activer l'accès à l'API**.
+1. Sélectionnez **Activer l'accès à l'API**.
 
     ![Sélectionnez Informations de référence sur l’API.][16]
 
    > [!IMPORTANT]
    > Le nom d’utilisateur dans Azure AD de chaque utilisateur que vous souhaitez approvisionner dans G Suite **doit** être associé à un domaine personnalisé. Par exemple, les noms d’utilisateur qui ressemblent à bob@contoso.onmicrosoft.com ne sont pas acceptés par G Suite. En revanche, bob@contoso.com est accepté. Vous pouvez modifier le domaine d’un utilisateur existant en suivant les instructions [ici](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain).
 
-4.  Une fois que vous avez ajouté et vérifié les domaines personnalisés souhaités avec Azure AD, vous devez les vérifier à nouveau avec G Suite. Pour vérifier les domaines dans G Suite, reportez-vous aux étapes suivantes :
+1. Une fois que vous avez ajouté et vérifié les domaines personnalisés souhaités avec Azure AD, vous devez les vérifier à nouveau avec G Suite. Pour vérifier les domaines dans G Suite, reportez-vous aux étapes suivantes :
 
     a. Dans la [Console d’administration de G Suite](https://admin.google.com/), sélectionnez **Domaines**.
 
@@ -94,11 +93,11 @@ Avant de configurer G Suite pour l’approvisionnement automatique d’utilisate
 
     e. Répétez la procédure précédente pour tous les domaines supplémentaires que vous souhaitez ajouter à G Suite.
 
-5. Déterminez ensuite le compte d’administrateur à utiliser pour gérer l’approvisionnement des utilisateurs dans G Suite. Accédez à **Rôles d’administrateur** .
+1. Déterminez ensuite le compte d’administrateur à utiliser pour gérer l’approvisionnement des utilisateurs dans G Suite. Accédez à **Rôles d’administrateur** .
 
     ![Sélectionner Google Apps][26]
-    
-6. Pour le **Rôle d’administrateur** de ce compte, modifiez les **Privilèges** pour ce rôle. Veillez à activer tous les **Privilèges d’administrateur d’API** pour que ce compte puisse être utilisé pour l’approvisionnement.
+
+1. Pour le **Rôle d’administrateur** de ce compte, modifiez les **Privilèges** pour ce rôle. Veillez à activer tous les **Privilèges d’administrateur d’API** pour que ce compte puisse être utilisé pour l’approvisionnement.
 
     ![Sélectionner Google Apps][27]
 
@@ -110,15 +109,15 @@ Pour configurer G Suite pour l’approvisionnement automatique d’utilisateurs 
 
     ![Bouton Azure Active Directory](common/select-azuread.png)
 
-2. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-3. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut du volet.
+1. Pour ajouter une nouvelle application, cliquez sur le bouton **Nouvelle application** en haut du volet.
 
     ![Bouton Nouvelle application](common/add-new-app.png)
 
-4. Dans la zone de recherche, entrez **G Suite**, sélectionnez **G Suite** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
+1. Dans la zone de recherche, entrez **G Suite**, sélectionnez **G Suite** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
     ![G Suite dans la liste des résultats](common/search-new-app.png)
 
@@ -134,69 +133,72 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour G Suite dans Azure AD :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
-2. Dans la liste des applications, sélectionnez **G Suite**.
+1. Dans la liste des applications, sélectionnez **G Suite**.
 
     ![Lien G Suite dans la liste des applications](common/all-applications.png)
 
-3. Sélectionnez l’onglet **Approvisionnement**.
+1. Sélectionnez l’onglet **Approvisionnement**.
 
     ![Onglet Approvisionnement](common/provisioning.png)
 
-4. Définissez le **Mode d’approvisionnement** sur **Automatique**.
+1. Définissez le **Mode d’approvisionnement** sur **Automatique**.
 
     ![Onglet Approvisionnement](common/provisioning-automatic.png)
 
-5. Sous la section **Informations d’identification de l’administrateur**, sélectionnez **Autoriser**. Une boîte de dialogue d’autorisation Google s’ouvre dans une nouvelle fenêtre de navigateur.
+1. Sous la section **Informations d’identification de l’administrateur**, sélectionnez **Autoriser**. Une boîte de dialogue d’autorisation Google s’ouvre dans une nouvelle fenêtre de navigateur.
 
     ![Autorisation G Suite](media/google-apps-provisioning-tutorial/authorize.png)
 
-6. Confirmez que vous souhaitez autoriser Azure AD à apporter des modifications à votre abonné G Suite. Sélectionnez **Accepter**.
+1. Confirmez que vous souhaitez autoriser Azure AD à apporter des modifications à votre abonné G Suite. Sélectionnez **Accepter**.
 
     ![Confirmez les autorisations.][28]
 
-7. Sur le Portail Azure, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD parvient à se connecter à votre application. Si la connexion échoue, vérifiez que votre compte G Suite dispose des autorisations Administrateur d’équipe. Ensuite, réessayez d’effectuer l’étape **Autoriser**.
+1. Sur le Portail Azure, sélectionnez **Tester la connexion** pour vérifier qu’Azure AD parvient à se connecter à votre application. Si la connexion échoue, vérifiez que votre compte G Suite dispose des autorisations Administrateur d’équipe. Ensuite, réessayez d’effectuer l’étape **Autoriser**.
 
-8. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
+1. Dans le champ **E-mail de notification**, entrez l’adresse e-mail d’une personne ou d’un groupe qui doit recevoir les notifications d’erreur d’approvisionnement, puis cochez la case **Envoyer une notification par e-mail en cas de défaillance**.
 
     ![E-mail de notification](common/provisioning-notification-email.png)
 
-8. Cliquez sur **Enregistrer**.
+1. Cliquez sur **Enregistrer**.
 
-9. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec G Suite**.
+1. Dans la section **Mappages**, sélectionnez **Synchroniser les utilisateurs Azure Active Directory avec G Suite**.
 
     ![Mappages d'utilisateurs G Suite](media/google-apps-provisioning-tutorial/usermappings.png)
 
-10. Dans la section **Mappage des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et G Suite. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans G Suite pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
+1. Dans la section **Mappage des attributs**, passez en revue les attributs utilisateur qui sont synchronisés entre Azure AD et G Suite. Les attributs sélectionnés en tant que propriétés de **Correspondance** sont utilisés pour faire correspondre les comptes utilisateur dans G Suite pour les opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications.
 
     ![Attributs utilisateur G Suite](media/google-apps-provisioning-tutorial/userattributes.png)
 
-11. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec G Suite**.
+1. Dans la section **Mappages**, sélectionnez **Synchroniser les groupes Azure Active Directory avec G Suite**.
 
     ![Mappages de groupe G Suite](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. Dans la section **Mappage des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et G Suite. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans G Suite dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications. L’interface utilisateur affiche l’ensemble par défaut de mappages d’attributs entre Azure AD et G suite. Vous pouvez choisir d’ajouter des attributs supplémentaires tels que Org Unit en cliquant sur Ajouter un nouveau mappage. 
+1. Dans la section **Mappage des attributs**, passez en revue les attributs de groupe qui sont synchronisés entre Azure AD et G Suite. Les attributs sélectionnés comme propriétés de **Correspondance** sont utilisés pour la mise en correspondre des groupes dans G Suite dans le cadre des opérations de mise à jour. Cliquez sur le bouton **Enregistrer** pour valider les modifications. L’interface utilisateur affiche l’ensemble par défaut de mappages d’attributs entre Azure AD et G suite. Vous pouvez choisir d’ajouter des attributs supplémentaires tels que Org Unit en cliquant sur Ajouter un nouveau mappage.
 
     ![Attributs du groupe G Suite](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-13. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Pour configurer des filtres d’étendue, reportez-vous aux instructions suivantes fournies dans [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-14. Pour activer le service d’approvisionnement Azure AD pour G Suite, passez l’**État de l’approvisionnement** sur **Activé** dans la section **Paramètres**.
+1. Pour activer le service d’approvisionnement Azure AD pour G Suite, passez l’**État de l’approvisionnement** sur **Activé** dans la section **Paramètres**.
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-15. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur G Suite en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
+1. Définissez les utilisateurs et/ou les groupes que vous souhaitez approvisionner sur G Suite en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 
-16. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
+1. Lorsque vous êtes prêt à effectuer l’approvisionnement, cliquez sur **Enregistrer**.
 
     ![Enregistrement de la configuration de l’approvisionnement](common/provisioning-configuration-save.png)
 
 Cette opération démarre la synchronisation initiale de tous les utilisateurs et/ou groupes définis dans **Étendue** dans la section **Paramètres**. La synchronisation initiale prend plus de temps que les synchronisations suivantes, qui se produisent toutes les 40 minutes environ tant que le service de provisionnement Azure AD est en cours d’exécution. Vous pouvez utiliser la section **Détails de synchronisation** pour surveiller la progression et les liens vers les rapports d’activité d’approvisionnement, qui décrivent toutes les actions effectuées par le service d’approvisionnement Azure AD sur G Suite.
+
+> [!NOTE]
+> Si les utilisateurs disposent déjà d’un compte personnel/consommateur existant à l’aide de l’adresse e-mail de l’utilisateur Azure AD, cela peut entraîner un problème qui peut être résolu à l’aide de l’outil Google Transfer avant d’effectuer la synchronisation d’annuaires.
 
 Pour plus d’informations sur la lecture des journaux d’activité d’approvisionnement Azure AD, consultez [Création de rapports sur l’approvisionnement automatique de comptes d’utilisateur](../manage-apps/check-status-user-account-provisioning.md).
 
@@ -211,7 +213,6 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Découvrez comment consulter les journaux d’activité et obtenir des rapports sur l’activité d’approvisionnement](../manage-apps/check-status-user-account-provisioning.md)
-
 
 <!--Image references-->
 

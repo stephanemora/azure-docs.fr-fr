@@ -3,28 +3,28 @@ title: Ingérer des données Event Hub dans Azure Data Explorer
 description: Dans cet article, vous allez apprendre à ingérer (charger) des données dans Azure Data Explorer depuis Event Hub.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/17/2019
-ms.openlocfilehash: 13c0bf8d0829debaa4ae41c724aafdaf5891ce4d
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.date: 01/08/2020
+ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667437"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779947"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Ingérer des données Event Hub dans Azure Data Explorer
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-hub.md)
+> * [Portail](ingest-data-event-hub.md)
 > * [C#](data-connection-event-hub-csharp.md)
 > * [Python](data-connection-event-hub-python.md)
 > * [Modèle Azure Resource Manager](data-connection-event-hub-resource-manager.md)
 
 L’Explorateur de données Azure est un service d’exploration de données rapide et hautement évolutive pour les données des journaux et les données de télémétrie. L’Explorateur de données Azure offre une ingestion (chargement de données) à partir d’Event Hubs, plateforme de streaming de big data et service d’ingestion d’événements. [Event Hubs](/azure/event-hubs/event-hubs-about) peut traiter des millions d’événements par seconde en quasi-temps réel. Dans cet article, vous créez un Event Hub, vous vous y connectez à partir d’Azure Data Explorer et vous voyez le flux de données via le système.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * [Un cluster et une base de données de test](create-cluster-database-portal.md).
@@ -33,7 +33,7 @@ L’Explorateur de données Azure est un service d’exploration de données rap
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Créer un hub d’événements
 
@@ -109,7 +109,7 @@ Vous vous connectez maintenant au hub d’événements depuis l’Explorateur de
 
     ![Connexion du hub d’événements](media/ingest-data-event-hub/event-hub-connection.png)
 
-    Source de données :
+    **Source de données :**
 
     **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
@@ -120,14 +120,14 @@ Vous vous connectez maintenant au hub d’événements depuis l’Explorateur de
     | Propriétés du système d’événements | Sélectionner les propriétés pertinentes | [Propriétés système du hub d’événements](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). S’il existe plusieurs enregistrements par message d’événement, les propriétés système sont ajoutées au premier. Lors de l’ajout des propriétés système, [créez](/azure/kusto/management/tables#create-table) ou [mettez à jour](/azure/kusto/management/tables#alter-table-and-alter-merge-table) le schéma de table et le [mappage](/azure/kusto/management/mappings) pour inclure les propriétés sélectionnées. |
     | | |
 
-    Table cible :
+    **Table cible :**
 
     Deux options sont disponibles pour le routage des données ingérées : *statique* et *dynamique*. 
     Dans le cadre de cet article, vous utilisez le routage statique, où vous spécifiez le nom de table, le format des données et le mappage. Par conséquent, ne sélectionnez pas **My data includes routing info** (Mes données incluent des informations de routage).
 
      **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
-    | Table | *TestTable* | Table que vous avez créée dans **TestDatabase**. |
+    | Table de charge de travail | *TestTable* | Table que vous avez créée dans **TestDatabase**. |
     | Format de données | *JSON* | Les formats pris en charge sont Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE et TXT. Options de compression prises en charge : GZip |
     | Mappage de colonnes | *TestMapping* | [Mappage](/azure/kusto/management/mappings) que vous avez créé dans **TestDatabase**, qui mappe les données JSON entrantes aux noms de colonne et aux types de données de **TestTable**. Obligatoire pour les formats JSON, MULTILINE JSON ou AVRO, et facultatif pour les autres formats.|
     | | |
@@ -137,6 +137,8 @@ Vous vous connectez maintenant au hub d’événements depuis l’Explorateur de
     > * Seuls les événements mis en file d’attente après que vous avez créé la connexion de données sont ingérés.
     > * Activez la compression GZip pour le routage statique en ouvrant une [demande de support dans le portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Activez la compression GZip pour le routage dynamique, comme indiqué dans l’[exemple d’application](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
     > * Le format Avro et les propriétés système d’événement ne sont pas pris en charge sur la charge utile de compression.
+
+[!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 
 ## <a name="copy-the-connection-string"></a>Copier la chaîne de connexion
 
@@ -198,7 +200,7 @@ Avec l’application générant des données, vous pouvez maintenant voir le flu
     > * L’ingestion de Event Hub comprend le temps de réponse de Event Hub de 10 secondes ou 1 Mo. 
     > * Configurez votre tableau pour prendre en charge la diffusion en continu et supprimez le décalage dans le temps de réponse. Consultez la [stratégie de diffusion en continu](/azure/kusto/concepts/streamingingestionpolicy). 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne prévoyez pas de réutiliser votre hub d’événements, nettoyez **test-hub-rg** pour éviter des frais.
 

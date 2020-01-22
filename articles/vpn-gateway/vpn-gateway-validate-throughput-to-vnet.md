@@ -1,20 +1,20 @@
 ---
-title: Valider le débit VPN vers un réseau virtuel Microsoft Azure | Microsoft Docs
+title: Valider le débit VPN vers un Réseau virtuel Microsoft Azure
 description: L’objectif de ce document est d’aider les utilisateurs à valider le débit du réseau de leurs ressources locales vers une machine virtuelle.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
-manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
 ms.date: 05/29/2019
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 9c2f50c49037305663330a3c455e40291b9e6242
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a88e339e82484c2ec1cd2276f6218fa718b990f9
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058795"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860484"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Comment valider un débit VPN sur un réseau virtuel
 
@@ -25,7 +25,7 @@ Cet article montre comment valider le débit du réseau des ressources locales v
 > [!NOTE]
 > Cet article a pour objet de vous aider à diagnostiquer et résoudre les problèmes courants. Si vous ne parvenez pas à résoudre le problème en utilisant les informations suivantes, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La connexion à la passerelle VPN implique les composants suivants :
 

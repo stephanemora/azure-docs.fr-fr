@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: 2adf4ed18069a9504e3eaf7713724e1bf99c5e8e
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1c5b2879659305e55bb01e4cfab27c7a1b343155
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534029"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894855"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Supervision d’Azure Machine Learning
 
@@ -25,7 +25,7 @@ Cet article décrit les données de supervision générées par Azure Machine Le
 >
 > * [Démarrer, superviser et annuler des exécutions d’entraînement](how-to-manage-runs.md)
 > * [Journaliser des métriques pour les exécutions d’entraînement](how-to-track-experiments.md)
-> * [Suivre des expériences avec MLflow](service/how-to-use-mlflow.md)
+> * [Suivre des expériences avec MLflow](how-to-use-mlflow.md)
 > * [Visualiser les exécutions avec TensorBoard](how-to-monitor-tensorboard.md)
 
 ## <a name="azure-monitor"></a>Azure Monitor

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: jingwang
-ms.openlocfilehash: 2a6c534f7e1024a9982c57af346dba4631c697b1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0279c7301c18b87c653743f30efc4e955daba54
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440680"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75892768"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copier des données depuis/vers un système de fichiers à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
@@ -147,7 +147,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 
 | Propriété                 | Description                                                  | Obligatoire                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerReadSetting**. | Oui                                           |
+| type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerReadSettings**. | Oui                                           |
 | recursive                | Indique si les données sont lues de manière récursive à partir des sous-dossiers ou uniquement du dossier spécifié. Notez que lorsque l’option « recursive » est définie sur true et que le récepteur est un magasin basé sur un fichier, un dossier vide ou un sous-dossier n’est pas copié ou créé sur le récepteur. Les valeurs autorisées sont **true** (par défaut) et **false**. | Non                                            |
 | wildcardFolderPath       | Chemin d’accès du dossier avec des caractères génériques pour filtrer les dossiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique. <br>Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). | Non                                            |
 | wildcardFileName         | Nom du fichier avec des caractères génériques situé dans le chemin d’accès folderPath/wildcardFolderPath donné pour filtrer les fichiers sources. <br>Les caractères génériques autorisés sont : `*` (correspond à zéro ou plusieurs caractères) et `?` (correspond à zéro ou un caractère) ; utilisez `^` en guise d’échappement si votre nom de dossier contient effectivement ce caractère d’échappement ou générique.  Consultez d’autres exemples dans les [exemples de filtre de dossier et de fichier](#folder-and-file-filter-examples). (Notez que ceci remplace le paramètre fileName.) | Oui, si `fileName` n’est pas spécifié dans le jeu de données |
@@ -178,11 +178,11 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
             "source": {
                 "type": "DelimitedTextSource",
                 "formatSettings":{
-                    "type": "DelimitedTextReadSetting",
+                    "type": "DelimitedTextReadSettings",
                     "skipLineCount": 10
                 },
                 "storeSettings":{
-                    "type": "FileServerReadSetting",
+                    "type": "FileServerReadSettings",
                     "recursive": true,
                     "wildcardFolderPath": "myfolder*A",
                     "wildcardFileName": "*.csv"
@@ -204,7 +204,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
 
 | Propriété                 | Description                                                  | Obligatoire |
 | ------------------------ | ------------------------------------------------------------ | -------- |
-| type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerWriteSetting**. | Oui      |
+| type                     | La propriété type sous `storeSettings` doit être définie sur **FileServerWriteSettings**. | Oui      |
 | copyBehavior             | Définit le comportement de copie lorsque la source est constituée de fichiers d’une banque de données basée sur un fichier.<br/><br/>Les valeurs autorisées sont les suivantes :<br/><b>- PreserveHierarchy (par défaut)</b> : conserve la hiérarchie des fichiers dans le dossier cible. Le chemin d’accès relatif du fichier source vers le dossier source est identique au chemin d’accès relatif du fichier cible vers le dossier cible.<br/><b>- FlattenHierarchy</b> : tous les fichiers du dossier source figurent dans le premier niveau du dossier cible. Les noms des fichiers cibles sont générés automatiquement. <br/><b>- MergeFiles</b> : fusionne tous les fichiers du dossier source dans un seul fichier. Si le nom de fichier est spécifié, le nom de fichier fusionné est le nom spécifié. Dans le cas contraire, il s’agit d’un nom de fichier généré automatiquement. | Non       |
 | maxConcurrentConnections | Nombre de connexions simultanées au magasin de données. Spécifiez-le uniquement lorsque vous souhaitez limiter les connexions simultanées au magasin de données. | Non       |
 
@@ -234,7 +234,7 @@ Les propriétés suivantes sont prises en charge pour le système de fichiers so
             "sink": {
                 "type": "ParquetSink",
                 "storeSettings":{
-                    "type": "FileServerWriteSetting",
+                    "type": "FileServerWriteSettings",
                     "copyBehavior": "PreserveHierarchy"
                 }
             }
@@ -372,7 +372,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ]
 ```
 
-### <a name="legacy-copy-activity-sink-model"></a>Modèle de récepteur d’activité de copie héritée
+### <a name="legacy-copy-activity-sink-model"></a>Modèle hérité du récepteur d’activité de copie
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
@@ -413,4 +413,4 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md##supported-data-stores-and-formats).
+Pour obtenir la liste des banques de données prises en charge en tant que sources et récepteurs par l’activité de copie dans Azure Data Factory, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).

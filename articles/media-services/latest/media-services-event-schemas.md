@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 02/13/2019
+ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 2d1e648a9ea33beb1347a4a635388ee04e46215b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b1c094689c7669f03d5355be7a77b1836c90974c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449752"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750856"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schémas Azure Event Grid pour les événements Media Services
 
@@ -28,7 +28,7 @@ Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [Me
 
 Media Services émet les types d’événements associés au **travail** décrits ci-dessous. Il existe deux catégories d’événements associés au **travail** : « Supervision des changements d’état du travail » et « Supervision des changements d’état de la sortie du travail ». 
 
-Vous pouvez vous inscrire à tous les événements en vous abonnant à l’événement JobStateChange. Vous pouvez aussi choisir de vous abonner uniquement à des événements spécifiques (par exemple, aux états finaux que sont JobErrored, JobFinished et JobCanceled). 
+Vous pouvez vous inscrire à tous les événements en vous abonnant à l’événement JobStateChange. Vous pouvez aussi choisir de vous abonner uniquement à des événements spécifiques (par exemple, aux états finaux que sont JobErrored, JobFinished et JobCanceled).   
 
 ### <a name="monitoring-job-state-changes"></a>Supervision des changements d’état du travail
 
@@ -45,6 +45,12 @@ Vous pouvez vous inscrire à tous les événements en vous abonnant à l’évé
 Consultez les [exemples de schémas](#event-schema-examples) qui suivent.
 
 ### <a name="monitoring-job-output-state-changes"></a>Supervision des changements d’état de sortie du travail
+
+Un travail peut contenir plusieurs sorties de travail (si vous avez configuré la transformation pour avoir plusieurs sorties de travail). Si vous souhaitez suivre les détails de la sortie individuelle d’un travail, écoutez l’événement de modification de la sortie d’un travail.
+
+Chaque **travail** sera à un niveau supérieur à **JobOutput**, ce qui entraîne le déclenchement des événements de sortie de travail dans un travail correspondant. 
+
+Les messages d’erreur dans `JobFinished`, `JobCanceled`, `JobError` sortent les résultats agrégés pour chaque sortie de travail, lorsque toutes sont terminées. En revanche, les événements de sortie du travail se déclenchent à mesure que chaque tâche se termine. Par exemple, si vous avez une sortie d’encodage, suivie d’une sortie Video Analytics, vous obtiendriez deux événements déclenchant des événements de sortie de travail avant que l’événement JobFinished final ne se déclenche avec les données agrégées.
 
 | Type d'événement | Description |
 | ---------- | ----------- |
@@ -456,7 +462,7 @@ L’objet de données comporte les propriétés suivantes :
 | -------- | ---- | ----------- |
 | trackType | string | Type de la piste (Audio/Vidéo). |
 | trackName | string | Nom de la piste. |
-| bitrate | integer | Débit binaire de la piste. |
+| bitrate | entier | Débit binaire de la piste. |
 | timestamp | string | Timestamp du bloc de données supprimé. |
 | timescale | string | Échelle de temps du timestamp. |
 | resultCode | string | Motif de suppression du bloc de données. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
@@ -496,7 +502,7 @@ L’objet de données comporte les propriétés suivantes :
 | -------- | ---- | ----------- |
 | trackType | string | Type de la piste (Audio/Vidéo). |
 | trackName | string | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
-| bitrate | integer | Débit binaire de la piste. |
+| bitrate | entier | Débit binaire de la piste. |
 | ingestUrl | string | URL d’ingestion fournie par l’événement en direct. |
 | encoderIp | string  | Adresse IP de l’encodeur. |
 | encoderPort | string | Port de l’encodeur dont provient ce flux. |
@@ -613,13 +619,13 @@ L’objet de données comporte les propriétés suivantes :
 | -------- | ---- | ----------- |
 | trackType | string | Type de la piste (Audio/Vidéo). |
 | trackName | string | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
-| bitrate | integer | Débit binaire de la piste. |
-| incomingBitrate | integer | Débit binaire calculé et basé sur des blocs de données provenant de l’encodeur. |
+| bitrate | entier | Débit binaire de la piste. |
+| incomingBitrate | entier | Débit binaire calculé et basé sur des blocs de données provenant de l’encodeur. |
 | lastTimestamp | string | Timestamp le plus récent reçu pour une piste dans les 20 dernières secondes. |
 | timescale | string | Échelle de temps dans laquelle les timestamps sont exprimés. |
-| overlapCount | integer | Nombre de blocs de données avec des timestamps qui se chevauchent au cours des 20 dernières secondes. |
-| discontinuityCount | integer | Nombre de discontinuités observées dans les dernières 20 secondes. |
-| nonIncreasingCount | integer | Nombre de blocs de données présentant des timestamps passés dans les dernières 20 secondes. |
+| overlapCount | entier | Nombre de blocs de données avec des timestamps qui se chevauchent au cours des 20 dernières secondes. |
+| discontinuityCount | entier | Nombre de discontinuités observées dans les dernières 20 secondes. |
+| nonIncreasingCount | entier | Nombre de blocs de données présentant des timestamps passés dans les dernières 20 secondes. |
 | unexpectedBitrate | bool | Indique si les débits binaires attendus et réels diffèrent de plus de la valeur maximale autorisée au cours des 20 dernières secondes. La valeur est true si et seulement si incomingBitrate >= 2* bitrate OR incomingBitrate <= bitrate/2 OR IncomingBitrate = 0. |
 | state | string | État de l’événement en direct. |
 | healthy | bool | Indique si l’ingestion est intègre en fonction des nombres et des indicateurs. Healthy a la valeur true si overlapCount = 0 && discontinuityCount = 0 && nonIncreasingCount = 0 && unexpectedBitrate = false. |
@@ -657,7 +663,7 @@ L’objet de données comporte les propriétés suivantes :
 | -------- | ---- | ----------- |
 | trackType | string | Type de la piste (Audio/Vidéo). |
 | trackName | string | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
-| bitrate | integer | Débit binaire de la piste. |
+| bitrate | entier | Débit binaire de la piste. |
 | previousTimestamp | string | Timestamp du fragment précédent. |
 | newTimestamp | string | Timestamp du fragment actuel. |
 | discontinuityGap | string | Écart entre les deux timestamps ci-dessus. |
@@ -674,7 +680,7 @@ Un événement contient les données générales suivantes :
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. Par exemple, « Microsoft.Media.JobStateChange ». |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
 | id | string | Identificateur unique de l’événement. |
-| données | objet | Données d’événement Media Services. |
+| data | object | Données d’événement Media Services. |
 | dataVersion | string | Version du schéma de l’objet de données. Le serveur de publication définit la version du schéma. |
 | metadataVersion | string | Version du schéma des métadonnées d’événement. Event Grid définit le schéma des propriétés de niveau supérieur. Event Grid fournit cette valeur. |
 

@@ -1,6 +1,6 @@
 ---
-title: Couverture de routage dans Azure Maps | Microsoft Docs
-description: Découvrez la couverture de routage dans Azure Maps
+title: Couverture du routage | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir les régions dotées de la couverture du routage pour Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 04/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4ca837d871dc439cadd1ca5b69bf9c7a5d12fddc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408367"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910627"
 ---
 # <a name="azure-maps-routing-coverage"></a>Couverture de routage Azure Maps
 

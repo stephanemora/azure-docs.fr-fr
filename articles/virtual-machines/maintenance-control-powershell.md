@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e7a5f9ba865ab555bde3125f40ee8675709bef40
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ca98723511cc7297b462747d4e1e12ca9bd38c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932254"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979016"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>Aperçu : Contrôler les mises à jour avec le contrôle de maintenance et Azure PowerShell
 
@@ -36,7 +36,7 @@ Avec le contrôle de maintenance, vous pouvez :
 ## <a name="limitations"></a>Limites
 
 - Les machines virtuelles doivent se trouver sur un [hôte dédié](./linux/dedicated-hosts.md) ou être créées à l’aide d’une [taille de machine virtuelle isolée](./linux/isolation.md).
-- Après 35 jours, une mise à jour est appliquée automatiquement et les contraintes de disponibilité ne sont pas respectées.
+- Après 35 jours, une mise à jour est automatiquement appliquée.
 - L’utilisateur doit disposer d’un accès de **propriétaire de ressource**.
 
 
@@ -109,7 +109,7 @@ New-AzConfigurationAssignment `
    -MaintenanceConfigurationId $config.Id
 ```
 
-### <a name="dedicate-host"></a>Hôte dédié
+### <a name="dedicated-host"></a>Hôte dédié
 
 Pour appliquer une configuration à un hôte dédié, vous devez aussi inclure `-ResourceType hosts`, `-ResourceParentName` avec le nom du groupe hôte et `-ResourceParentType hostGroups`. 
 
@@ -129,7 +129,9 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>Rechercher les mises à jour en attente
 
-Utilisez [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) pour voir s’il existe des mises à jour en attente. Utilisez `-subscription` pour spécifier l’abonnement Azure de la machine virtuelle s’il est différent de celui auquel vous êtes connecté. 
+Utilisez [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) pour voir s’il existe des mises à jour en attente. Utilisez `-subscription` pour spécifier l’abonnement Azure de la machine virtuelle s’il est différent de celui auquel vous êtes connecté.
+
+S’il n’y a aucune mise à jour, la commande retourne un message d’erreur : `Resource not found...StatusCode: 404`.
 
 ### <a name="isolated-vm"></a>Machine virtuelle isolée
 
@@ -185,6 +187,39 @@ New-AzApplyUpdate `
    -ResourceParentName myHostGroup `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute
+```
+
+## <a name="check-update-status"></a>Vérifier l’état de la mise à jour
+Utilisez [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) pour vérifier l’état d’une mise à jour. Les commandes indiquées ci-dessous indiquent l’état de la dernière mise à jour à l’aide de `default` pour le paramètre `-ApplyUpdateName`. Vous pouvez remplacer le nom de la mise à jour (retourné par la commande [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate)) pour obtenir l’état d’une mise à jour spécifique.
+
+S’il n’y a aucune mise à jour à afficher, la commande retourne un message d’erreur : `Resource not found...StatusCode: 404`.
+
+### <a name="isolated-vm"></a>Machine virtuelle isolée
+
+Recherchez les mises à jour d’une machine virtuelle spécifique.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myVM `
+   -ResourceType VirtualMachines `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
+```
+
+### <a name="dedicated-host"></a>Hôte dédié
+
+Recherchez les mises à jour d’un hôte dédié.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myHost `
+   -ResourceType hosts `
+   -ResourceParentName myHostGroup `
+   -ResourceParentType hostGroups `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
 ```
 
 ## <a name="remove-a-maintenance-configuration"></a>Supprimer une configuration de maintenance

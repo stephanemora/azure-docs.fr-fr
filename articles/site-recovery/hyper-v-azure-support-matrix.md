@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 1/10/2020
 ms.author: raynew
-ms.openlocfilehash: db334b873358fdab6671877dd66e7f49c334ac44
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133030"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863891"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -58,16 +58,16 @@ Ajouter un disque sur la machine virtuelle Hyper-V répliquée | Non pris en cha
 
 **Composant** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Réseau hôte : Association de cartes réseau | OUI | OUI
-Réseau hôte : VLAN | OUI | OUI
-Réseau hôte : IPv4 | OUI | OUI
+Réseau hôte : Association de cartes réseau | Oui | Oui
+Réseau hôte : VLAN | Oui | Oui
+Réseau hôte : IPv4 | Oui | Oui
 Réseau hôte : IPv6 | Non | Non
 Réseau machines virtuelles invitées : Association de cartes réseau | Non | Non
-Réseau machines virtuelles invitées : IPv4 | OUI | OUI
-Réseau machines virtuelles invitées : IPv6 | Non | OUI
-Réseau machines virtuelles invitées : Adresse IP statique (Windows) | OUI | OUI
+Réseau machines virtuelles invitées : IPv4 | Oui | Oui
+Réseau machines virtuelles invitées : IPv6 | Non | Oui
+Réseau machines virtuelles invitées : Adresse IP statique (Windows) | Oui | Oui
 Réseau machines virtuelles invitées : Adresse IP statique (Linux) | Non | Non
-Réseau machines virtuelles invitées : Plusieurs cartes réseau | OUI | OUI
+Réseau machines virtuelles invitées : Plusieurs cartes réseau | Oui | Oui
 
 
 
@@ -75,15 +75,15 @@ Réseau machines virtuelles invitées : Plusieurs cartes réseau | OUI | OUI
 
 **Composant** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | OUI | OUI
-ILB | OUI | OUI
-ELB | OUI | OUI
-Azure Traffic Manager | OUI | OUI
-Plusieurs cartes réseau | OUI | OUI
-Adresse IP réservée | OUI | OUI
-IPv4 | OUI | OUI
-Conserver l’adresse IP source | OUI | OUI
-Points de terminaison de service de réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI | OUI
+Azure ExpressRoute | Oui | Oui
+ILB | Oui | Oui
+ELB | Oui | Oui
+Azure Traffic Manager | Oui | Oui
+Plusieurs cartes réseau | Oui | Oui
+Adresse IP réservée | Oui | Oui
+IPv4 | Oui | Oui
+Conserver l’adresse IP source | Oui | Oui
+Points de terminaison de service de réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | Oui | Oui
 Mise en réseau accélérée | Non | Non
 
 
@@ -92,18 +92,18 @@ Mise en réseau accélérée | Non | Non
 **Stockage** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | --- 
 NFS | N/D | N/D
-SMB 3.0 | OUI | OUI
-SAN (ISCSI) | OUI | OUI
-Chemins d’accès multiples (MPIO). Testé avec :<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | OUI | OUI
+SMB 3.0 | Oui | Oui
+SAN (ISCSI) | Oui | Oui
+Chemins d’accès multiples (MPIO). Testé avec :<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM pour CLARiiON | Oui | Oui
 
 ## <a name="hyper-v-vm-guest-storage"></a>Stockage invité de machines virtuelles Hyper-V
 
 **Stockage** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
 VMDK | N/D | N/D
-VHD/VHDX | OUI | OUI
-Machine virtuelle de 2e génération | OUI | OUI
-EFI/UEFI<br></br>La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.| OUI | OUI
+VHD/VHDX | Oui | Oui
+Machine virtuelle de 2e génération | Oui | Oui
+EFI/UEFI<br></br>La machine virtuelle migrée dans Azure est automatiquement convertie en machine virtuelle de démarrage du BIOS. La machine virtuelle doit exécuter Windows Server 2012 ou une version ultérieure uniquement. Le disque du système d’exploitation ne doit pas comporter plus de cinq partitions et la taille du disque du système d’exploitation doit être inférieure à 300 Go.| Oui | Oui
 Disque de cluster partagé | Non | Non
 Disque chiffré | Non | Non
 NFS | N/D | N/D
@@ -111,27 +111,27 @@ SMB 3.0 | Non | Non
 RDM | N/D | N/D
 Disque > 1 To | Oui, jusqu’à 4,095 Go | Oui, jusqu’à 4,095 Go
 Disque : secteur logique et physique de 4 K | Non pris en charge : Gen 1/Gen 2 | Non pris en charge : Gen 1/Gen 2
-Disque : secteur logique de 4 K et physique de 512 octets | OUI |  OUI
-Gestion des volumes logiques (LVM). LVM est pris en charge uniquement sur des disques de données. Azure ne fournit qu’un seul disque de système d’exploitation. | OUI | OUI
-Volume avec disque à bandes > 1 To | OUI | OUI
+Disque : secteur logique de 4 K et physique de 512 octets | Oui |  Oui
+Gestion des volumes logiques (LVM). LVM est pris en charge uniquement sur des disques de données. Azure ne fournit qu’un seul disque de système d’exploitation. | Oui | Oui
+Volume avec disque à bandes > 1 To | Oui | Oui
 Espaces de stockage | Non | Non
 Ajout/suppression de disque à chaud | Non | Non
-Exclure le disque | OUI | OUI
-Chemins d’accès multiples (MPIO) | OUI | OUI
+Exclure le disque | Oui | Oui
+Chemins d’accès multiples (MPIO) | Oui | Oui
 
 ## <a name="azure-storage"></a>Stockage Azure
 
 **Composant** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Stockage localement redondant | OUI | OUI
-Stockage géo-redondant | OUI | OUI
-Stockage géo-redondant avec accès en lecture | OUI | OUI
+Stockage localement redondant | Oui | Oui
+Stockage géo-redondant | Oui | Oui
+Stockage géo-redondant avec accès en lecture | Oui | Oui
 Stockage froid | Non | Non
 Stockage chaud| Non | Non
 Objets blob de blocs | Non | Non
-Chiffrement au repos (SSE)| OUI | OUI
-Chiffrement au repos (CMK)| Non | Non
-Stockage Premium | OUI | OUI
+Chiffrement au repos (SSE)| Oui | Oui
+Chiffrement au repos (CMK) <br></br> (Uniquement pour le basculement vers des disques managés)| Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
+Stockage Premium | Oui | Oui
 Service Import/Export | Non | Non
 Comptes de stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.
 Modifier le compte de stockage | Non. Le compte de stockage Azure cible ne peut pas être modifié une fois la réplication activée. Pour le modifier, désactivez puis réactivez la reprise d’activité après sinistre. | Non
@@ -141,8 +141,8 @@ Modifier le compte de stockage | Non. Le compte de stockage Azure cible ne peut 
 
 **Fonctionnalité** | **Hyper-V avec Virtual Machine Manager** | **Hyper-V sans Virtual Machine Manager**
 --- | --- | ---
-Groupes à haute disponibilité | OUI | OUI
-HUB | OUI | OUI  
+Groupes à haute disponibilité | Oui | Oui
+HUB | Oui | Oui  
 Disques managés | Oui, pour le basculement.<br/><br/> La restauration automatique des disques managés n’est pas prise en charge. | Oui, pour le basculement.<br/><br/> La restauration automatique des disques managés n’est pas prise en charge.
 
 ## <a name="azure-vm-requirements"></a>Exigences des machines virtuelles Azure
@@ -180,7 +180,7 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 Pour vous assurer que votre déploiement est compatible avec les paramètres de cet article, vérifiez que vous utilisez le fournisseur et les versions d’agent les plus récents.
 
-**Name** | **Description** | **Détails**
+**Nom** | **Description** | **Détails**
 --- | --- | --- 
 Fournisseur Azure Site Recovery | Coordonne les communications entre les serveurs locaux et Azure <br/><br/> Hyper-V avec Virtual Machine Manager : Installé sur les serveurs Virtual Machine Manager<br/><br/> Hyper-V sans Virtual Machine Manager : Installé sur les hôtes Hyper-V| Version la plus récente : 5.1.2700.1 (disponible dans le portail Azure)<br/><br/> [Fonctionnalités et correctifs récents](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agent Microsoft Azure Recovery Services | Coordonne la réplication entre les machines virtuelles Hyper-V et Azure<br/><br/> Installé sur des serveurs Hyper-V locaux (avec ou sans serveur Virtual Machine Manager) | Dernier agent disponible sur le portail

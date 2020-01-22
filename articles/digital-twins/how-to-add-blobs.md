@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ab9d0ae07978e69bebb0fc24c8965cce971cfd5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c85db05e6feeea43023c2391998f837348caed4e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082333"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929618"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Ajouter des objets blob à des objets dans Azure Digital Twins
 
@@ -36,7 +36,7 @@ En plus de **Content-Type** et **Content-Disposition**, les demandes en plusieur
 
 Les quatre principaux schémas JSON sont :
 
-[![Schémas JSON](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
+[![Schémas JSON](media/how-to-add-blobs/blob-models-swagger-img.png)](media/how-to-add-blobs/blob-models-swagger-img.png#lightbox)
 
 Les métadonnées d’objets blob JSON sont conformes au modèle suivant :
 
@@ -62,7 +62,7 @@ Les métadonnées d’objets blob JSON sont conformes au modèle suivant :
 | **description** | String | Description personnalisée de l’objet blob |
 | **sharing** | String | Indique si l’objet blob peut être partagé - enum [`None`, `Tree`, `Global`] |
 
-Les métadonnées d’objets blob sont toujours fournies en tant que premier segment avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
+Les métadonnées de blobs sont toujours fournies en tant que premier bloc avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
 
 La documentation Swagger décrit en détail ces schémas de modèle.
 
@@ -121,7 +121,7 @@ Les objets blob retournés individuellement sont conformes au schéma JSON suiva
 | **fullName** | String | Nom complet de l’objet blob |
 | **spacePaths** | String | Chemin de l’espace |
 
-Les métadonnées d’objets blob sont toujours fournies en tant que premier segment avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
+Les métadonnées de blobs sont toujours fournies en tant que premier bloc avec **Content-Type** `application/json` ou en tant que fichier `.json`. Les données de fichiers sont fournies dans le deuxième segment et peuvent être de n’importe quel type MIME pris en charge.
 
 ### <a name="blob-multipart-request-examples"></a>Exemples de requête multipart d’objet blob
 
@@ -196,7 +196,7 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | ID de l’espace avec lequel associer l’objet blob |
 | PATH_TO_FILE | Chemin de votre fichier texte |
 
-[![Exemple cURL](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[![Exemple cURL](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
 
 Une requête POST ayant réussi retourne l’ID du nouvel objet blob.
 
@@ -208,7 +208,7 @@ Les sections suivantes décrivent les points de terminaison d’API principaux l
 
 Vous pouvez attacher des objets blob à des appareils. L’illustration suivante montre la documentation de référence Swagger pour vos API de gestion. Elle spécifie les points de terminaison d’API associés à l’appareil pour la consommation d’objets blob et tous les paramètres de chemin obligatoires à leur passer.
 
-[![Objets blob d’appareil](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[![Objets blob d’appareil](media/how-to-add-blobs/blobs-device-api-swagger-img.png)](media/how-to-add-blobs/blobs-device-api-swagger-img.png#lightbox)
 
 Par exemple, pour mettre à jour ou créer un blob, et l’attacher à un appareil, envoyez une requête HTTP PATCH authentifiée à :
 
@@ -226,7 +226,7 @@ Les requêtes ayant réussi retournent un objet JSON comme [décrit précédemme
 
 Vous pouvez également attacher des objets blob à des espaces. L’image suivante liste tous les points de terminaison d’API d’espace responsables du traitement des objets blob. Elle liste également tous les paramètres de chemin à passer à ces points de terminaison.
 
-[![Objets blob d’espace](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[![Objets blob d’espace](media/how-to-add-blobs/blobs-space-api-swagger-img.png)](media/how-to-add-blobs/blobs-space-api-swagger-img.png#lightbox)
 
 Par exemple, pour retourner un blob attaché à un espace, envoyez une requête HTTP GET authentifiée à :
 
@@ -246,7 +246,7 @@ Une requête PATCH au même point de terminaison met à jour la description des 
 
 Vous pouvez attacher des objets blob aux modèles utilisateur (par exemple, pour associer une image de profil). L’image suivante montre les points de terminaison pertinents de l’API utilisateur et les paramètres de chemin nécessaires, comme `id` :
 
-[![Objets blob d’utilisateur](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![Objets blob d’utilisateur](media/how-to-add-blobs/blobs-users-api-swagger-img.png)](media/how-to-add-blobs/blobs-users-api-swagger-img.png#lightbox)
 
 Par exemple, pour extraire un blob attaché à un utilisateur, envoyez une requête HTTP GET authentifiée avec les données de formulaire nécessaires à :
 
@@ -262,23 +262,41 @@ Les requêtes ayant réussi retournent un objet JSON comme [décrit précédemme
 
 ## <a name="common-errors"></a>Erreurs courantes
 
-Une erreur courante consiste à ne pas fournir les informations d’en-tête correctes :
+* Une erreur courante consiste à ne pas fournir les informations d’en-tête correctes :
 
-```JSON
-{
-    "error": {
-        "code": "400.600.000.000",
-        "message": "Invalid media type in first section."
-    }
-}
-```
+  ```JSON
+  {
+      "error": {
+          "code": "400.600.000.000",
+          "message": "Invalid media type in first section."
+      }
+  }
+  ```
 
-Pour résoudre cette erreur, vérifiez que la requête entière a un en-tête **Content-Type** approprié :
+  Pour résoudre cette erreur, vérifiez que la requête entière a un en-tête **Content-Type** approprié :
 
-* `multipart/mixed`
-* `multipart/form-data`
+     * `multipart/mixed`
+     * `multipart/form-data`
 
-Vérifiez également que chaque segment multipart a un **Content-Type** correspondant en fonction des besoins.
+  Vérifiez également que chaque *bloc en plusieurs parties* a un **Content-Type** correspondant approprié.
+
+* Une deuxième erreur courante survient lorsque plusieurs blobs sont assignés à la même ressource dans votre [graphique d’intelligence spatiale](concepts-objectmodel-spatialgraph.md) :
+
+  ```JSON
+  {
+      "error": {
+          "code": "400.600.000.000",
+          "message": "SpaceBlobMetadata already exists."
+      }
+  }
+  ```
+
+  > [!NOTE]
+  > L’attribut **message** varie en fonction de la ressource. 
+
+  Un seul blob (de chaque type) peut être attaché à chaque ressource dans votre graphique spatial. 
+
+  Pour résoudre cette erreur, mettez à jour le blob existant à l’aide de l’opération API HTTP PATCH appropriée. Cela remplacera les données blob existantes par les données souhaitées.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

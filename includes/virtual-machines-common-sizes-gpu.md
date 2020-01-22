@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 82e62b6d0925aa53fc8456addb4732b16e69080b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b9637265d263a75949d5a70c3e4f0ce06044d93c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74935859"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902049"
 ---
 Les tailles de machine virtuelle au GPU optimisé sont des machines virtuelles spécialisées disponibles avec des GPU NVIDIA uniques ou multiples. Ces tailles sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs. Cet article donne des informations sur le nombre et le type de GPU, de processeurs virtuels, de disques de données et de cartes réseau. Le débit de stockage et la bande passante réseau sont également inclus pour chacune des tailles de ce regroupement.
 
@@ -38,8 +38,8 @@ Les machines virtuelles de la série NC sont pilotées par la carte [Tesla K80 d
 | --- | --- | --- | --- | --- | --- | --- | ---- |
 | Standard_NC6 |6 |56 | 340 | 1 | 12 | 24 | 1 |
 | Standard_NC12 |12 |112 | 680 | 2 | 24 | 48 | 2 |
-| Standard_NC24 |24 |224 | 1 440 | 4 | 48 | 64 | 4 |
-| Standard_NC24r* |24 |224 | 1 440 | 4 | 48 | 64 | 4 |
+| Standard_NC24 |24 |224 | 1440 | 4 | 48 | 64 | 4 |
+| Standard_NC24r* |24 |224 | 1440 | 4 | 48 | 64 | 4 |
 
 1 GPU = une moitié de carte K80.
 
@@ -47,16 +47,16 @@ Les machines virtuelles de la série NC sont pilotées par la carte [Tesla K80 d
 
 ## <a name="ncv2-series"></a>Série NCv2
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 Les machines virtuelles de série NCv2 sont optimisées par les GPU [NVIDIA Tesla P100](https://www.nvidia.com/en-us/data-center/tesla-p100/). Ces GPU peuvent fournir des performances de calcul deux fois supérieures à celles de la série NC. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. Outre les GPU, les machines virtuelles de la série NCv2 sont également dotées de processeurs Intel Xeon E5-2690 v4 (Broadwell).
 
 La configuration NC24rs v2 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées.
 
 > [!IMPORTANT]
-> Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) dans votre abonnement est défini au départ sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).
+> Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) dans votre abonnement est défini au départ sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).
 >
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau |
@@ -72,14 +72,14 @@ La configuration NC24rs v2 fournit une interface réseau à haut débit et à fa
 
 ## <a name="ncv3-series"></a>Série NCv3
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 Les machines virtuelles de série NCv3 sont optimisées par les GPU [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/). Ces GPU peuvent fournir des performances de calcul une fois et demie supérieures à celles de la série NCv2. Les clients peuvent tirer parti de ces GPU mis à jour pour les charges de travail HPC traditionnelles telles que la modélisation de gisements, le séquençage de l’ADN, l’analyse des protéines, les simulations de Monte-Carlo, etc. La configuration NC24rs v3 fournit une interface réseau à haut débit et à faible latence optimisée pour les charges de travail d’informatique parallèle fortement couplées. Outre les GPU, les machines virtuelles de la série NCv3 sont également pilotées par des processeurs Intel Xeon E5-2690 v4 (Broadwell).
 
 > [!IMPORTANT]
-> Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) dans votre abonnement est défini au départ sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).
+> Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) dans votre abonnement est défini au départ sur 0 dans chaque région. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).
 >
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau |
@@ -93,33 +93,45 @@ Les machines virtuelles de série NCv3 sont optimisées par les GPU [NVIDIA Tesl
 
 *Prenant en charge RDMA
 
-## <a name="ndv2-series-preview"></a>NDv2-series (préversion)
+## <a name="updated-ndv2-series-preview"></a>Série NDv2 mise à jour (préversion)
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
-InfiniBand : Non pris en charge
+Infiniband Prise en charge
 
-Les machines virtuelles de la série NDv2 rejoignent la famille de processeurs graphiques (GPU) pour répondre aux besoins des charges de travail d’intelligence artificielle, HPC et Machine Learning. Elles sont dotées de 8 GPU interconnectés Tesla V100 NVLINK de NVIDIA, de 40 cœurs Intel Xeon Platinum 8168 (Skylake) et de 672 Gio de mémoire système. L’instance NDv2 offre d’excellentes performances FP32 et FP64 pour les charges de travail HPC et d’intelligence artificielle utilisant les frameworks Cuda, TensorFlow, Pytorch, Caffe et autres.
+Les machines virtuelles de la série NDv2 rejoignent la famille des processeurs graphiques (GPU) pour répondre aux besoins de l’IA accélérée par GPU, de l’apprentissage automatique, de la simulation et des charges de travail HPC les plus exigeantes. 
 
-[Inscrivez-vous et accédez à ces machines lors de la préversion](https://aka.ms/ndv2signup).
+NDv2 est alimenté par 8 GPU NVIDIA Tesla V100 NVLINK, doté chacun de 32 Go de mémoire. Chaque machine virtuelle NDv2 possède également 40 cœurs Intel Xeon Platinum 8168 (Skylake) non hyperthread et 672 Gio de mémoire système. 
+
+Les instances NDv2 offrent d’excellentes performances pour les charges de travail HPC et IA à l’aide de noyaux de calcul optimisés pour le GPU CUDA, ainsi que de nombreux outils d’intelligence artificielle et d’analyse prenant en charge l’accélération GPU prêts à l’emploi, tels que TensorFlow, Pytorch, Caffe, Digital et autres infrastructures. 
+
+Il est essentiel que le NDv2 soit conçu pour répondre à la fois à des charges de travail élevées en terme de calcul (8 GPU par machine virtuelle) et à des charges de travail réduites (plusieurs machines virtuelles travaillant ensemble). La série NDv2 prend désormais en charge le réseau dorsal EDR InfiniBand 100 Gigabits, similaire à celui disponible dans la série HB de HPC VM, afin de permettre une mise en cluster haute performance pour les scénarios parallèles, notamment la formation distribuée pour l'IA et le ML. Ce réseau principal prend en charge tous les principaux protocoles InfiniBand, y compris ceux utilisés par les bibliothèques NCCL2 de NVIDIA, ce qui permet une mise en grappe transparente des GPU.
+
+> Lors de l’[activation d’InfiniBand](https://docs.microsoft.com/azure/virtual-machines/workloads/hpc/enable-infiniband) sur la machine virtuelle ND40rs_v2, utilisez le pilote OFED 4.7-1.0.0.1.
+
+> En raison de l’augmentation de la mémoire GPU, la nouvelle machine virtuelle ND40rs_v2 nécessite l’utilisation de [deux machines virtuelles Generation](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2) et d’images marketplace. 
+
+> [Inscrivez-vous pour demander un accès anticipé à la préversion de l’ordinateur virtuel NDv2.](https://aka.ms/AzureNDrv2Preview)
+
+> Notez ce qui suit : Le modèle ND40s_v2 doté de 16 Go de mémoire par GPU n’est plus disponible en préversion et a été remplacé par le modèle ND40rs_v2 mis à jour.
 <br>
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) : Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS / MBps | Bande passante réseau maximale | Nombre max de cartes réseau |
 |---|---|---|---|---|---|---|---|---|---|
-| Standard_ND40s_v2 | 40 | 672 | 2948 | 8 V100 (NVLink) | 16 | 32 | 80000/800 | 24 000 Mbits/s | 8 |
+| Standard_ND40rs_v2 | 40 | 672 | 2948 | 8 V100 32 Go (NVLink) | 16 | 32 | 80000/800 | 24 000 Mbits/s | 8 |
 
 ## <a name="nd-series"></a>Série ND
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 Les machines virtuelles de la série ND sont nouvelles dans la famille de GPU et sont conçues pour les charges de travail d’intelligence artificielle et d’apprentissage profond. Elles offrent d’excellentes performances pour l’apprentissage et l’inférence. Les instances ND sont pilotées par des GPU [Tesla P40 de NVIDIA](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) et des processeurs Intel Xeon E5-2690 v4 (Broadwell). Ces instances offrent d’excellentes performances pour les opérations à virgule flottante simple précision, et pour les charges de travail d’intelligence artificielle utilisant Microsoft Cognitive Toolkit, TensorFlow, Caffe et d’autres infrastructures. La série ND offre également une taille de mémoire GPU beaucoup plus importante (24 Go), ce qui permet d’adapter des modèles de réseaux neuronaux beaucoup plus volumineux. À l’instar de la série NC, la série ND offre une configuration avec un réseau à faible latence secondaire et à haut débit grâce à l’accès direct à la mémoire à distance (RDMA), ainsi que la connectivité InfiniBand, de sorte que vous pouvez exécuter des travaux de formation à grande échelle s’étendant sur de nombreux GPU.
 
 > [!IMPORTANT]
-> Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) par région dans votre abonnement est défini au départ sur 0. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).
+> Pour cette famille de tailles, le quota de processeurs virtuels (cœurs) par région dans votre abonnement est défini au départ sur 0. [Demandez une augmentation du quota de processeurs virtuels](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) pour cette famille dans une [région disponible](https://azure.microsoft.com/regions/services/).
 >
 
 | Size | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | GPU | Mémoire GPU : Gio | Disques de données max. | Débit du disque non mis en cache max. : IOPS / MBps | Nombre max de cartes réseau |
@@ -147,15 +159,15 @@ Chaque GPU dans les instances NV est fourni avec une licence GRID. Cette licence
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_NV6 |6 |56 |340 | 1 | 8 | 24 | 1 | 1 | 25 |
 | Standard_NV12 |12 |112 |680 | 2 | 16 | 48 | 2 | 2 | 50 |
-| Standard_NV24 |24 |224 |1 440 | 4 | 32 | 64 | 4 | 4 | 100 |
+| Standard_NV24 |24 |224 |1440 | 4 | 32 | 64 | 4 | 4 | 100 |
 
 1 GPU = une moitié de carte M60.
 
 ## <a name="nvv3-series--sup1sup"></a>Série NVv3  <sup>1</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 Les machines virtuelles de la série NVv3 sont pilotées par des GPU [Tesla M60 de NVIDIA](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) et la technologie NVIDIA GRID avec des processeurs Intel E5-2690 v4 (Broadwell). Ces machines virtuelles sont destinées aux bureaux virtuels et aux applications graphiques avec accélération par GPU sur lesquels les clients souhaitent visualiser leurs données, simuler des résultats à afficher, travailler en CAO ou effectuer la restitution ou la diffusion du contenu. Par ailleurs, ces machines virtuelles peuvent exécuter des charges de travail de précision unique, telles que le codage et le rendu. Les machines virtuelles NVv3 prennent en charge Stockage Premium et offrent deux fois la mémoire RAM de la série NV.  
 
@@ -173,9 +185,9 @@ Chaque GPU dans les instances NVv3 est fourni avec une licence GRID. Cette licen
 
 ## <a name="nvv4-series-preview--sup1sup"></a>Série NVv4 (préversion) <sup>1</sup>
 
-Premium Storage :  Pris en charge
+Premium Storage :  Prise en charge
 
-Mise en cache du Stockage Premium :  Pris en charge
+Mise en cache du Stockage Premium :  Prise en charge
 
 Les machines virtuelles de la série NVv4 sont alimentées par des GPU [AMD Radeon Instinct MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) et des processeurs AMD EPYC 7V12(Rome). Avec la série NVv4, Azure introduit des machines virtuelles avec des GPU partiels. Choisissez la machine virtuelle à la bonne taille pour les applications graphiques accélérées GPU et les bureaux virtuels depuis 1/8ème d’un GPU avec une mémoire tampon de trame de 2 Gio jusqu’à un GPU complet avec une mémoire tampon de trame de 16 Gio. Les machines virtuelles NVv4 prennent actuellement en charge uniquement le système d’exploitation invité Windows.
 

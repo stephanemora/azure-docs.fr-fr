@@ -3,12 +3,12 @@ title: Créer des stratégies Guest Configuration
 description: Découvrez comment créer une stratégie Guest Configuration Azure Policy pour des machines virtuelles Windows ou Linux à l’aide d’Azure PowerShell.
 ms.date: 12/16/2019
 ms.topic: how-to
-ms.openlocfilehash: f2e611998e42510eccde64ff6f945f58133fc4e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: dbdb4288812b8d1016c3ccc879582f76222d17cd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608522"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867340"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>Créer des stratégies Guest Configuration
 
@@ -65,7 +65,7 @@ Quand Guest Configuration audite une machine, il exécute d’abord `Test-Target
 
 #### <a name="configuration-requirements"></a>Exigences de configuration
 
-La seule exigence pour que la configuration d’invité utilise une configuration personnalisée est que le nom de la configuration soit cohérent partout où il est utilisé.  Cela inclut le nom du fichier .zip pour le package de contenu, le nom de la configuration dans le fichier MOF stocké à l’intérieur du package de contenu, et le nom de configuration utilisé dans ARM comme nom d’affectation d’invité.
+La seule exigence pour que la configuration d’invité utilise une configuration personnalisée est que le nom de la configuration soit cohérent partout où il est utilisé. Cette exigence relative au nom inclut le nom du fichier .zip pour le package de contenu, le nom de la configuration dans le fichier MOF stocké à l’intérieur du package de contenu et le nom de configuration utilisé dans un modèle Resource Manager comme nom d’affectation d’invité.
 
 #### <a name="get-targetresource-requirements"></a>Exigences Get-TargetResource
 
@@ -181,7 +181,7 @@ Vous pouvez également implémenter le [point de terminaison de service](../../.
 
 Dans la configuration Guest Configuration d’Azure Policy, le meilleur moyen de gérer les secrets utilisés lors de l’exécution est de les stocker dans Azure Key Vault. Cette conception est implémentée au sein des ressources DSC personnalisées.
 
-1. Créez d’abord une identité managée affectée par l’utilisateur dans Azure.
+1. Créez une identité managée attribuée par l’utilisateur dans Azure.
 
    L’identité est utilisée par les machines pour accéder aux secrets stockés dans Key Vault. Pour plus d’informations, consultez [Créer, répertorier ou supprimer une identité managée affectée par l’utilisateur en utilisant Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -193,9 +193,9 @@ Dans la configuration Guest Configuration d’Azure Policy, le meilleur moyen de
 1. Attribuez l’identité affectée par l’utilisateur à votre machine.
 
    Pour plus d’informations, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   À l’échelle, attribuez cette identité à l’aide d’Azure Resource Manager via Azure Policy. Pour plus d’informations, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+   Attribuez cette identité à l’aide d’Azure Resource Manager via Azure Policy à grande échelle. Pour plus d’informations, consultez [Configurer des identités managées pour ressources Azure sur une machine virtuelle Azure en utilisant un modèle](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
 
-1. Enfin, dans votre ressource personnalisée, utilisez l’ID client généré ci-dessus pour accéder à Key Vault à l’aide du jeton disponible à partir de l’ordinateur.
+1. Utilisez l’ID client généré ci-dessus dans votre ressource personnalisée pour accéder à Key Vault à l’aide du jeton disponible à partir de l’ordinateur.
 
    Le `client_id` et l’URL de l’instance Key Vault peuvent être passés à la ressource en tant que [propriétés](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) pour que la ressource n’ait pas à être mise à jour pour plusieurs environnement, ou si les valeurs doivent être modifiées.
 
@@ -305,7 +305,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Pour les stratégies Linux, ajoutez la propriété **AttributesYmlContent** à votre configuration et remplacez les valeurs en conséquence. L’agent Guest Configuration crée automatiquement le fichier YaML utilisé par InSpec pour stocker les attributs. Reportez-vous à l’exemple ci-dessous.
+Pour les stratégies Linux, ajoutez la propriété **AttributesYmlContent** à votre configuration et remplacez les valeurs le cas échéant. L’agent Guest Configuration crée automatiquement le fichier YAML utilisé par InSpec pour stocker les attributs. Reportez-vous à l’exemple ci-dessous.
 
 ```powershell
 Configuration FirewalldEnabled {

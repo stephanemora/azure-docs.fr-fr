@@ -1,6 +1,6 @@
 ---
-title: Ajouter des contrôles à Azure Maps | Microsoft Docs
-description: Comment ajouter un contrôle de zoom, un contrôle de tonalité, un contrôle de rotation et un sélecteur de styles à une carte dans Azure Maps.
+title: Ajouter des contrôles à une carte | Microsoft Azure Maps
+description: Comment ajouter un contrôle de zoom, un contrôle de tonalité, un contrôle de rotation et un sélecteur de styles à une carte dans Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 07/29/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 7267f77ed3d296ac586dcfd0f525b94d5e6eb7a0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976225"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911272"
 ---
 # <a name="add-controls-to-a-map"></a>Ajouter des commandes à une carte
 
@@ -30,7 +30,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 });
 ```
 
-Vous trouverez ci-dessous l’exemple de code d’exécution complet des fonctionnalités ci-dessus.
+Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonctionnalité ci-dessus.
 
 <br/>
 
@@ -48,7 +48,7 @@ map.controls.add(new atlas.control.PitchControl(), {
 });
 ```
 
-Vous trouverez ci-dessous l’exemple de code d’exécution complet des fonctionnalités ci-dessus.
+Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonctionnalité ci-dessus.
 
 <br/>
 
@@ -66,7 +66,7 @@ map.controls.add(new atlas.control.Compass(), {
 });
 ```
 
-Vous trouverez ci-dessous l’exemple de code d’exécution complet des fonctionnalités ci-dessus.
+Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonctionnalité ci-dessus.
 
 <br/>
 

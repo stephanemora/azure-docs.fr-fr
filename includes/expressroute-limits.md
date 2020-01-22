@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/25/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 45d34297bf37a6e46bc57e95ff49def49051e32e
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1fc63dc53d61a8b2e26f97cc09a359b3f2c7665c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67622096"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901877"
 ---
 | Ressource | Limite par défaut/maximale |
 | --- | --- |
@@ -43,3 +43,6 @@ ms.locfileid: "67622096"
 | 100 Gbits/s* |10 |100 |
 
 **ExpressRoute Direct 100 Gbits/s uniquement*
+
+> [!NOTE]
+> Les connexions Global Reach sont décomptées par rapport à la limite de connexions de réseau virtuel par circuit ExpressRoute. Par exemple, un circuit Premium de 10 Gbits/s autorise 5 connexions Global Reach et 95 connexions aux passerelles ExpressRoute ou 95 connexions Global Reach et 5 connexions aux passerelles ExpressRoute, ou toute autre combinaison jusqu’à la limite de 100 connexions pour le circuit.

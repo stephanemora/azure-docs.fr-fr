@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 596f8334b647daf6fe3a15521f7caeecb0c0e303
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462591"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835108"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Utilisez Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2 (préversion)
 
@@ -201,6 +201,9 @@ az storage blob delete -c my-file-system -b my-file.txt --account-name mystorage
 ## <a name="manage-permissions"></a>Gérer les autorisations
 
 Vous pouvez obtenir, définir et mettre à jour les autorisations d’accès des répertoires et des fichiers.
+
+> [!NOTE]
+> Si vous utilisez Azure Active Directory (Azure AD) pour autoriser des commandes, assurez-vous que le [rôle Propriétaire des données blob du stockage](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) est attribué à votre principal de sécurité. Pour en savoir plus sur l’application des autorisations ACL et les conséquences de leur modification, consultez [Contrôle d’accès dans Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control).
 
 ### <a name="get-directory-and-file-permissions"></a>Obtenir les autorisations d’un répertoire ou d’un fichier
 

@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 01/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2e70a7b900ad918cda05ce34204e2de1e6e67ef
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931256"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830188"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Format de texte délimité dans Azure Data Factory
 
@@ -28,11 +28,11 @@ Pour obtenir la liste complète des sections et propriétés disponibles pour la
 
 | Propriété         | Description                                                  | Obligatoire |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| Type             | La propriété de type du jeu de données doit être définie sur **DelimitedText**. | OUI      |
-| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`.  | OUI      |
+| type             | La propriété de type du jeu de données doit être définie sur **DelimitedText**. | Oui      |
+| location         | Paramètres d’emplacement du ou des fichiers. Chaque connecteur basé sur un fichier possède ses propres type d’emplacement et propriétés prises en charge sous `location`.  | Oui      |
 | columnDelimiter  | Caractère(s) utilisé(s) pour séparer les colonnes dans un fichier. Actuellement, le délimiteur multi-char est uniquement pris en charge pour le flux de données de mappage, mais pas l’activité de copie. <br>La valeur par défaut est **virgules  `,`** , lorsque le délimiteur de colonne est défini comme une chaîne vide, ce qui signifie aucun délimiteur, la ligne entière est considérée comme une seule colonne. | Non       |
 | rowDelimiter     | Caractère unique ou « \r\n » utilisé pour séparer les lignes dans un fichier.<br>La valeur par défaut est l’une des valeurs suivantes **lors de la lecture : [« \r\n », « \r », « \n »]** et **« \n » ou « \r\n » en écriture** respectivement par le flux de données de mappage et l’activité de copie. <br>Lorsque `rowDelimiter` est défini sur aucun délimiteur (chaîne vide), `columnDelimiter` doit être également défini comme aucun délimiteur (chaîne vide), ce qui signifie le fait de traiter l’intégralité du contenu comme une valeur unique. | Non       |
-| quoteChar        | Le caractère unique pour mettre entre guillemets les valeurs de colonne si elle contient un délimiteur de colonne. <br>La valeur par défaut est **guillemets doubles** `"`. <br>Pour le flux de données de mappage, `quoteChar` ne peut pas être une chaîne vide. <br>Pour l’activité de copie, quand `quoteChar` est défini comme une chaîne vide, cela signifie qu’il n’existe aucun caractère de citation et la valeur de la colonne n’est pas mise entre guillemets, et `escapeChar` est utilisé pour soustraire le délimiteur de colonne et lui-même. | Non       |
+| quoteChar        | Le caractère unique pour mettre entre guillemets les valeurs de colonne si elle contient un délimiteur de colonne. <br>La valeur par défaut est **guillemets anglais doubles** `"`. <br>Pour le flux de données de mappage, `quoteChar` ne peut pas être une chaîne vide. <br>Pour l’activité de copie, quand `quoteChar` est défini comme une chaîne vide, cela signifie qu’il n’existe aucun caractère de citation et la valeur de la colonne n’est pas mise entre guillemets, et `escapeChar` est utilisé pour soustraire le délimiteur de colonne et lui-même. | Non       |
 | escapeChar       | Le caractère unique pour placer les guillemets dans une séquence d’échappement à l’intérieur d’une valeur entre guillemets.<br>La valeur par défaut est **Barre oblique inverse`\`** . <br>Pour le flux de données de mappage, `escapeChar` ne peut pas être une chaîne vide. <br/>Pour l’activité de copie, quand `escapeChar` est défini comme une chaîne vide, `quoteChar` doit également être défini comme une chaîne vide, auquel cas vous devez vous assurer que toutes les valeurs de colonne ne contiennent pas de délimiteurs. | Non       |
 | firstRowAsHeader | Spécifie s’il faut considérer/faire de la première ligne une ligne d’en-tête avec les noms des colonnes.<br>Les valeurs autorisées sont **True** et **False** (par défaut). | Non       |
 | nullValue        | Spécifie la représentation sous forme de chaîne de la valeur null. <br>La valeur par défaut est une **chaîne vide**. | Non       |
@@ -77,7 +77,7 @@ Les propriétés prises en charge dans la section ***\*source\**** de l’activi
 
 | Propriété       | Description                                                  | Obligatoire |
 | -------------- | ------------------------------------------------------------ | -------- |
-| Type           | La propriété type de la source d’activité de copie doit être définie sur **DelimitedTextSource**. | OUI      |
+| type           | La propriété type de la source d’activité de copie doit être définie sur **DelimitedTextSource**. | Oui      |
 | formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres de lecture du texte délimité** ci-dessous. | Non       |
 | storeSettings  | Un groupe de propriétés sur la façon de lire les données d’un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres de lecture pris en charge sous `storeSettings`. | Non       |
 
@@ -85,8 +85,8 @@ Prise en charge des **paramètres de lecture du texte délimité** sous `formatS
 
 | Propriété      | Description                                                  | Obligatoire |
 | ------------- | ------------------------------------------------------------ | -------- |
-| Type          | Le type de formatSettings doit être défini sur **DelimitedTextReadSetting**. | OUI      |
-| skipLineCount | Indique le nombre de lignes **non vides** à ignorer lors de la lecture des données à partir des fichiers d’entrée. <br>Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-tête sont lues à partir du fichier d’entrée. | Non       |
+| type          | Le type de formatSettings doit être défini sur **DelimitedTextReadSettings**. | Oui      |
+| skipLineCount | Indique le nombre de lignes **non vides** à ignorer lors de la lecture des données à partir des fichiers d’entrée. <br>Si skipLineCount et firstRowAsHeader sont spécifiés, les lignes sont d’abord ignorées, puis les informations d’en-têtes sont lues à partir du fichier d’entrée. | Non       |
 
 ### <a name="delimited-text-as-sink"></a>Texte délimité en tant que récepteur
 
@@ -94,7 +94,7 @@ Les propriétés prises en charge dans la section ***\*récepteur\**** de l’ac
 
 | Propriété       | Description                                                  | Obligatoire |
 | -------------- | ------------------------------------------------------------ | -------- |
-| Type           | La propriété type de la source d’activité de copie doit être définie sur **DelimitedTextSink**. | OUI      |
+| type           | La propriété type de la source d’activité de copie doit être définie sur **DelimitedTextSink**. | Oui      |
 | formatSettings | Un groupe de propriétés. Reportez-vous au tableau **Paramètres d’écriture du texte délimité** ci-dessous. |          |
 | storeSettings  | Groupe de propriétés sur la méthode d’écriture de données dans un magasin de données. Chaque connecteur basé sur un fichier possède ses propres paramètres d’écriture pris en charge sous `storeSettings`.  | Non       |
 
@@ -102,8 +102,8 @@ Prise en charge des **paramètres d’écriture du texte délimité** sous `form
 
 | Propriété      | Description                                                  | Obligatoire                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| Type          | Le type de formatSettings doit être défini sur **DelimitedTextWriteSetting**. | OUI                                                   |
-| fileExtension | L’extension de fichier utilisée pour nommer les fichiers de sortie, par exemple, `.csv`, `.txt`. Elle doit être spécifiée lorsque `fileName` n’est pas spécifié dans le jeu de données de sortie DelimitedText. | Oui lorsque le nom de fichier n’est pas spécifié dans le jeu de données de sortie |
+| type          | Le type de formatSettings doit être défini sur **DelimitedTextWriteSettings**. | Oui                                                   |
+| fileExtension | L’extension de fichier utilisée pour nommer les fichiers de sortie, par exemple, `.csv`, `.txt`. Elle doit être spécifiée lorsque `fileName` n’est pas spécifié dans le jeu de données de sortie DelimitedText. Quand le nom de fichier est configuré dans le jeu de données de sortie, il est utilisé comme nom de fichier du récepteur et le paramètre d’extension de fichier est ignoré.  | Oui lorsque le nom de fichier n’est pas spécifié dans le jeu de données de sortie |
 
 ## <a name="mapping-data-flow-properties"></a>Propriétés du mappage de flux de données
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 6a0e24ce7fa11c6373fbaada40cd9f1b1e7f55a2
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 78498f06a1ec921813d886b426d62452f850f5e5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325470"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922742"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Utiliser le schéma CloudEvents v1.0 avec Event Grid
 
@@ -60,7 +60,7 @@ Voici un exemple d’événement Stockage Blob Azure dans le format CloudEvents 
 }
 ```
 
-Une description détaillée des champs disponibles, de leurs types et définitions dans CloudEvents v 0.1 est [disponible ici](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
+Une description détaillée des champs disponibles, de leurs types et définitions dans CloudEvents v1.0 est [disponible ici](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 Les valeurs des en-têtes pour les événements remis dans le schéma CloudEvents et le schéma Event Grid sont identiques, à l’exception de `content-type`. Pour le schéma CloudEvents, cette valeur d’en-tête est `"content-type":"application/cloudevents+json; charset=utf-8"`. Pour le schéma Event Grid, cette valeur d’en-tête est `"content-type":"application/json; charset=utf-8"`.
 

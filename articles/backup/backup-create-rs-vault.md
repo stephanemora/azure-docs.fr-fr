@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer des coffres Recovery Se
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273390"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708511"
 ---
 # <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -37,7 +37,7 @@ Pour créer un archivage de Recovery Services :
 
     ![Configurer le coffre Recovery Services](./media/backup-create-rs-vault/create-new-vault-dialog.png)
 
-   - **Nom** : entrez un nom convivial pour identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union.
+   - **Name** : entrez un nom convivial pour identifier le coffre. Le nom doit être unique pour l’abonnement Azure. Spécifiez un nom composé d’au moins deux caractères, mais sans dépasser 50 caractères. Il doit commencer par une lettre et ne peut être constitué que de lettres, chiffres et traits d’union.
    - **Abonnement**: choisissez l’abonnement à utiliser. Si vous êtes membre d’un seul abonnement, son nom s’affiche. Si vous ne savez pas quel abonnement utiliser, utilisez l’abonnement par défaut (suggéré). Vous ne disposez de plusieurs choix que si votre compte professionnel ou scolaire est associé à plusieurs abonnements Azure.
    - **Groupe de ressources** : Utilisez un groupe de ressources existant ou créez-en un. Pour afficher la liste des groupes de ressources disponibles dans votre abonnement, sélectionnez **Utiliser existant**, puis sélectionnez une ressource dans la zone de liste déroulante. Pour créer un groupe de ressources, sélectionnez **Créer** et entrez le nom. Pour obtenir des informations complètes sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
    - **Emplacement** : sélectionnez la région géographique du coffre. Pour créer un coffre en vue de protéger des machines virtuelles, le coffre **doit** se trouver dans la même région que les machines virtuelles.
@@ -73,12 +73,54 @@ La Sauvegarde Azure gère automatiquement le stockage du coffre. Vous devez spé
 > [!NOTE]
 > Vous devez remplacer la valeur du paramètre **Type de réplication du stockage** (Localement redondant/Géoredondant) par un coffre Recovery Services avant de configurer les sauvegardes dans le coffre. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée et vous ne pouvez pas modifier le paramètre **Type de réplication de stockage**.
 
+## <a name="set-cross-region-restore"></a>Définir la restauration interrégion
+
+Parmi les options de restauration, la fonction de restauration interrégion (CRR) vous permet de restaurer des machines virtuelles Azure dans une région secondaire, qui est une [région jumelée Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Cette option vous permet d’effectuer les opérations suivantes :
+
+- effectuer des recherches dans le cadre d’un audit ou d’une condition de conformité
+- restaurer la machine virtuelle ou son disque en cas de sinistre dans la région primaire.
+
+Pour choisir cette fonctionnalité, sélectionnez **Activer la restauration interrégion** dans le panneau **Configuration de la sauvegarde**.
+
+Dans le cadre de ce processus, les implications tarifaires sont liées au niveau de stockage.
+
+>[!NOTE]
+>Avant de commencer :
+>
+>- Examinez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore) pour obtenir la liste des types et des régions managés pris en charge.
+>- La fonctionnalité de restauration interrégion (CRR) est actuellement disponible uniquement dans la région WCUS.
+>- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
+>- Utilisez *"featureName": "CrossRegionRestore"* pour intégrer votre abonnement à cette fonctionnalité.
+>- Si vous êtes intégré à cette fonctionnalité pendant la préversion publique limitée, l’e-mail d’approbation de la validation inclut les détails de la stratégie de tarification.
+>- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
+>- Actuellement, la CRR est prise en charge uniquement pour Type de gestion des sauvegardes : Machine virtuelle Azure ARM (les machines virtuelles Azure classiques ne sont pas prises en charge).  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.
+
+### <a name="configure-cross-region-restore"></a>Configurer la restauration interrégion
+
+Un coffre créé avec la redondance GRS comprend l’option permettant de configurer la fonctionnalité de restauration interrégion. Chaque coffre GRS aura une bannière, laquelle fera le lien avec la documentation. Pour configurer la CRR pour le coffre, accédez au panneau Configuration de la sauvegarde, qui contient l’option permettant d’activer cette fonctionnalité.
+
+ ![Bannière Configuration de la sauvegarde](./media/backup-azure-arm-restore-vms/banner.png)
+
+1. À partir du portail, accédez à Coffre Recovery Services > Paramètres > Propriétés.
+2. Cliquez sur **Activer la restauration interrégion dans ce coffre** pour activer la fonctionnalité.
+
+   ![Avant de cliquer sur Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+
+   ![Après avoir cliqué sur Activer la restauration interrégion dans ce coffre](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+
+Découvrez comment [afficher les éléments de sauvegarde dans la région secondaire](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
+
+Découvrez comment [restaurer dans la région secondaire](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
+
+Découvrez comment [surveiller les travaux de restauration de la région secondaire](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+
 ## <a name="modifying-default-settings"></a>Modification des paramètres par défaut
 
-Nous vous recommandons vivement de consulter les paramètres par défaut pour **type de réplication de stockage** et **Paramètres de sécurité** avant de configurer les sauvegardes dans le coffre. 
-* **Le type de réplication de stockage** par défaut est défini sur **Géo-redondant**. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) pour évaluer et modifier les paramètres. 
-* **La suppression réversible** par défaut est **activée** sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) pour évaluer et modifier les paramètres.
+Nous vous recommandons vivement de consulter les paramètres par défaut pour **type de réplication de stockage** et **Paramètres de sécurité** avant de configurer les sauvegardes dans le coffre.
 
+- **Le type de réplication de stockage** par défaut est défini sur **Géo-redondant**. Une fois que vous avez configuré la sauvegarde, l’option de modification est désactivée. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) pour évaluer et modifier les paramètres.
+
+- **La suppression réversible** par défaut est **activée** sur les coffres nouvellement créés pour protéger les données de sauvegarde des suppressions accidentelles ou malveillantes. Procédez [comme suit](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) pour évaluer et modifier les paramètres.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

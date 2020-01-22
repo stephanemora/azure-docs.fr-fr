@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: f0484fc9fc2af5514ba0f5b61277146a51757057
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: fa4b6499260219b0eb8ea4df4b4ccfd5263b57bb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855030"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770201"
 ---
 # <a name="project-acoustics-frequently-asked-questions"></a>Forum aux questions (FAQ) sur Project Acoustics
 
@@ -75,6 +75,10 @@ Project Acoustics fournit des paramètres acoustique précis et fiables même po
 ## <a name="what-exactly-happens-during-baking"></a>Que se passe-t-il exactement pendant le « baking » ?
 
 Un bake se compose de simulations d’ondes acoustiques de régions de simulation cuboïdes centrées sur chaque sonde d’écouteur.
+
+## <a name="is-my-source-content-secure"></a>Mon contenu source est-il sécurisé ?
+
+Project Acoustics ne charge pas la géométrie de scène source dans le cloud. Au lieu de cela, la simulation opère sur un voxélisation de votre scène, qui est combiné avec les données d’emplacement du probe et stocké dans un format propriétaire.     
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Essayez [l’exemple de contenu de Project Acoustics pour Unity](unity-quickstart.md) ou [l’exemple de contenu pour Unreal](unreal-quickstart.md)

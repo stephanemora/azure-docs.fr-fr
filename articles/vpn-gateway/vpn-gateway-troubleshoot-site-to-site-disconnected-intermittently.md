@@ -1,25 +1,19 @@
 ---
-title: Résoudre les problèmes de déconnexion intermittente du VPN de site à site Azure | Microsoft Docs
+title: Détecter un problème de déconnexion intermittente du VPN site à site Azure
 description: Découvrez comment résoudre les problèmes de déconnexion régulière du VPN de site à site.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 394062257f09bb0b8cfa6875795b88d35404f87c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 82054099a5a496e99c49135ab98ee1163af19784
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058836"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862558"
 ---
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Résolution des problèmes : déconnexion intermittente du VPN site à site Azure
 
@@ -63,7 +57,7 @@ La passerelle de réseau virtuel basée sur une stratégie est limitée à 200 
 ### <a name="step-6-check-on-premises-vpn-device-external-interface-address"></a>Étape 6 : Vérifier l’adresse d’interface externe de l’appareil VPN local
 
 - Si l’adresse IP accessible sur Internet de l’appareil VPN est incluse dans la définition de la **passerelle de réseau local** dans Azure, il se peut que vous subissiez des déconnexions occasionnelles.
-- L’interface externe de l’appareil doit être directement sur Internet. Il ne doit y avoir aucune traduction d’adresses réseau (NAT) ni aucun pare-feu entre Internet et l’appareil.
+- L’interface externe de l’appareil doit être directement liée à Internet. Il ne doit y avoir aucune traduction d’adresses réseau (NAT) ni aucun pare-feu entre Internet et l’appareil.
 -  Si vous configurez le clustering de pare-feu dans le but d’obtenir une adresse IP virtuelle, vous devez détruire le cluster et exposer l’appliance VPN directement à une interface publique qui peut s’interfacer avec la passerelle.
 
 ### <a name="step-7-check-whether-the-on-premises-vpn-device-has-perfect-forward-secrecy-enabled"></a>Étape 7 : Vérifier l’activation de la fonctionnalité PFS (Perfect Forward Secrecy) sur l’appareil VPN local

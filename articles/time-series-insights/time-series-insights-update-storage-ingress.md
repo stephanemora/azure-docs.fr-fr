@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: dada1a8ed8b1725905ee2ad159e385d1bee62fc6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1deca696ba576849701eb8719de7fbaa7895a26a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615093"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861402"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Entrée et stockage des données dans Azure Time Series Insights - Préversion
 
@@ -116,9 +116,9 @@ Vous souhaiterez peut-être accéder aux données affichées dans l’explorateu
 
 Vous pouvez accéder à vos données au moyen de trois méthodes générales :
 
-* À partir de l’explorateur Time Series Insights - Préversion. Vous pouvez exporter des données en tant que fichier CSV à partir de l’explorateur. Pour plus d’informations, consultez [Time Series Insights Preview explorer](./time-series-insights-update-explorer.md) (Explorateur Time Series Insights - Préversion).
+* À partir de l’explorateur Time Series Insights - Préversion. Vous pouvez exporter des données en tant que fichier CSV à partir de l’explorateur. Pour plus d’informations, consultez [Explorateur Time Series Insights (préversion)](./time-series-insights-update-explorer.md).
 * À partir de l’API Time Series Insights (préversion). Vous pouvez atteindre le point de terminaison de l’API à `/getRecorded`. Pour en savoir plus sur cette API, consultez [Requête de série chronologique](./time-series-insights-update-tsq.md).
-* Directement à partir d’un compte de Stockage Azure. Vous avez besoin d’un accès en lecture pour tous les comptes que vous utilisez afin d’accéder à vos données Time Series Insights (préversion). Pour en savoir plus, consultez [Gestion de l’accès en lecture anonyme aux conteneurs et aux objets blob](../storage/blobs/storage-manage-access-to-resources.md).
+* Directement à partir d’un compte de Stockage Azure. Vous avez besoin d’un accès en lecture pour tous les comptes que vous utilisez afin d’accéder à vos données Time Series Insights (préversion). Pour en savoir plus, consultez [Gérer l’accès aux ressources de votre compte de stockage](../storage/blobs/storage-manage-access-to-resources.md).
 
 ### <a name="data-deletion"></a>Suppression des données
 

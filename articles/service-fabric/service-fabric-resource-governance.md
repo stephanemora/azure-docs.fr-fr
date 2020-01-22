@@ -3,12 +3,12 @@ title: La gestion des ressources pour les conteneurs et les services
 description: Azure Service Fabric vous permet de spécifier des limites de ressources pour les services en cours d’exécution à l’intérieur ou à l’extérieur de conteneurs.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 0a4cdc7dd7c2e81447201ca85843c9ba4c7e2af4
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 85520876d7f0c89450b572d28dee6cb66ed2231d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609450"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772378"
 ---
 # <a name="resource-governance"></a>Gouvernance des ressources
 
@@ -65,7 +65,7 @@ Voici un exemple qui montre comment ordonner à Service Fabric d’utiliser 50 
 </Section>
 ```
 
-Si vous avez besoin de procéder à une configuration entièrement manuelle de la capacité des nœuds, vous pouvez utiliser le mécanisme standard de description des nœuds du cluster. Voici un exemple de configuration du nœud avec quatre cœurs et 2 Go de mémoire :
+Pour la plupart des clients et des scénarios, la détection automatique des capacités de nœud pour l’UC et la mémoire est la configuration recommandée (la détection automatique est activée par défaut). Toutefois, si vous avez besoin de procéder à une configuration entièrement manuelle des capacités des nœuds, vous pouvez les configurer par type de nœud à l’aide du mécanisme permettant de décrire les nœuds du cluster. Voici un exemple de configuration du type de nœud avec 4 cœurs et 2 Go de mémoire :
 
 ```xml
     <NodeType Name="MyNodeType">

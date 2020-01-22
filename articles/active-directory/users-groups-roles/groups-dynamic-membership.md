@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a92dbeec706ff8c4f892632243353549295dd26b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538787"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940988"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -48,9 +48,9 @@ Voici quelques exemples de règles avancées ou de syntaxe pour lesquelles nous 
 > [!NOTE]
 > Le générateur de règles peut ne pas être en mesure d’afficher certaines règles construites dans la zone de texte. Un message peut s’afficher lorsque le générateur de règles n’est pas en mesure d’afficher la règle. Le générateur de règles ne modifie en aucune façon la syntaxe, la validation ou le traitement des règles de groupe dynamique pris en charge.
 
-Pour obtenir des instructions pas à pas, consultez [Mettre à jour un groupe dynamique](groups-update-rule.md).
+Pour obtenir des instructions pas à pas, consultez [Créer ou mettre à jour un groupe dynamique](groups-create-rule.md).
 
-![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-dynamic-membership/update-dynamic-group-rule.png)
 
 ### <a name="rule-syntax-for-a-single-expression"></a>Syntaxe de règle pour une expression unique
 
@@ -69,7 +69,7 @@ Les parenthèses sont facultatives pour une expression unique. La longueur total
 Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateurs ou d’appareils est une expression binaire qui génère un résultat vrai ou faux. Les trois parties d’une règle simple sont les suivantes :
 
 - Propriété
-- Operator
+- Opérateur
 - Valeur
 
 L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
@@ -79,28 +79,28 @@ L’ordre des parties au sein d’une expression est importants pour éviter les
 Il existe trois types de propriétés utilisables pour construire une règle d’appartenance.
 
 - Boolean
-- Chaîne
+- String
 - Collection de chaînes
 
 Les propriétés utilisateur que vous pouvez utiliser pour créer une expression unique sont les suivantes.
 
 ### <a name="properties-of-type-boolean"></a>Propriétés de type booléen
 
-| properties | Valeurs autorisées | Usage |
+| Propriétés | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Propriétés de type chaîne
 
-| properties | Valeurs autorisées | Usage |
+| Propriétés | Valeurs autorisées | Usage |
 | --- | --- | --- |
 | city |Toute valeur de chaîne ou *null* |(user.city -eq "value") |
 | country |Toute valeur de chaîne ou *null* |(user.country -eq "value") |
 | companyName | Toute valeur de chaîne ou *null* | (user.companyName -eq "value") |
 | department |Toute valeur de chaîne ou *null* |(user.department -eq "value") |
-| displayName |Toute valeur de chaîne. |(user.displayName -eq "value") |
-| employeeId |Toute valeur de chaîne. |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
+| displayName |Valeur de chaîne quelconque |(user.displayName -eq "value") |
+| employeeId |Valeur de chaîne quelconque |(user.employeeId -eq "value")<br>(user.employeeId -ne *null*) |
 | facsimileTelephoneNumber |Toute valeur de chaîne ou *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Toute valeur de chaîne ou *null* |(user.givenName -eq "value") |
 | jobTitle |Toute valeur de chaîne ou *null* |(user.jobTitle -eq "value") |
@@ -119,14 +119,14 @@ Les propriétés utilisateur que vous pouvez utiliser pour créer une expression
 | surname |Toute valeur de chaîne ou *null* |(user.surname -eq "value") |
 | telephoneNumber |Toute valeur de chaîne ou *null* |(user.telephoneNumber -eq "value") |
 | usageLocation |Paramètre régional à deux lettres |(user.usageLocation -eq "US") |
-| userPrincipalName |Toute valeur de chaîne. |(user.userPrincipalName -eq "alias@domain") |
+| userPrincipalName |Valeur de chaîne quelconque |(user.userPrincipalName -eq "alias@domain") |
 | userType |member guest *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Propriétés de type collection de chaînes
 
-| properties | Valeurs autorisées | Usage |
+| Propriétés | Valeurs autorisées | Usage |
 | --- | --- | --- |
-| otherMails |Toute valeur de chaîne. |(user.otherMails -contains "alias@domain") |
+| otherMails |Valeur de chaîne quelconque |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
 
 Concernant les propriétés utilisées pour les règles d’appareils, voir [Règles pour les appareils](#rules-for-devices).
@@ -135,14 +135,14 @@ Concernant les propriétés utilisées pour les règles d’appareils, voir [Rè
 
 Le tableau suivant répertorie tous les opérateurs pris en charge et leur syntaxe pour une expression unique. Les opérateurs peuvent être utilisés avec ou sans le préfixe de trait d’union (-).
 
-| Operator | Syntaxe |
+| Opérateur | Syntaxe |
 | --- | --- |
 | Non égal à |-ne |
 | Égal à |-eq |
 | Ne commence pas par |-notStartsWith |
-| Commence par |-startsWith |
+| Starts With |-startsWith |
 | Ne contient pas |-notContains |
-| Contains |-contains |
+| Contient |-contains |
 | Ne correspond pas |-notMatch |
 | Correspond |-match |
 | Dans | -in |
@@ -160,7 +160,7 @@ Si vous souhaitez comparer la valeur d’un attribut utilisateur par rapport à 
 
 
 ### <a name="using-the--match-operator"></a>Utilisation de l’opérateur -match 
-L’opérateur **-match** est utilisé pour la correspondance de n’importe quelle expression régulière. Exemples :
+L’opérateur **-match** est utilisé pour la correspondance de n’importe quelle expression régulière. Exemples :
 
 ```
 user.displayName -match "Da.*"   
@@ -249,7 +249,7 @@ Une règle d’appartenance peut être constituée d’expressions complexes où
 
 Les propriétés à valeurs multiples sont des collections d’objets du même type. Vous pouvez vous en servir pour créer des règles d’appartenance utilisant les opérateurs -any et -all.
 
-| properties | Valeurs | Usage |
+| Propriétés | Valeurs | Usage |
 | --- | --- | --- |
 | assignedPlans | Chaque objet de la collection affiche les propriétés de chaînes suivantes : capabilityStatus, service, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -et assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -321,7 +321,12 @@ Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l�
 La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+Si vous souhaitez que votre groupe exclue les utilisateurs invités et inclue uniquement les membres de votre locataire, vous pouvez utiliser la syntaxe suivante :
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Créer une règle « Tous les appareils »
@@ -331,7 +336,7 @@ Vous pouvez créer un groupe contenant tous les appareils d’un client à l’a
 La règle « Tous les appareils » est construite à l’aide d’une expression unique utilisant l’opérateur -ne et la valeur null :
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
@@ -369,7 +374,7 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
 
 Les attributs d’appareil suivants peuvent être utilisés.
 
- Attribut d’appareil  | Valeurs | Exemples
+ Attribut d’appareil  | Valeurs | Exemple
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | Toute valeur de chaîne. |(device.displayName -eq "Rob iPhone")
