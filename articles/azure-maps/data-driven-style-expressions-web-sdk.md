@@ -1,6 +1,6 @@
 ---
-title: Expressions de style basé sur les données dans le SDK web Azure Maps | Microsoft Docs
-description: Guide pratique pour utiliser des expressions de style basé sur les données dans le SDK web Azure Maps.
+title: Expressions de style basées sur les données dans le SDK web Azure Maps | Microsoft Azure Maps
+description: Dans cet article, vous découvrirez comment utiliser des expressions de style basées sur les données dans le SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480651"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911775"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expressions de style basé sur les données (SDK web)
 
@@ -90,7 +90,7 @@ Les expressions de données permettent d’accéder aux données de propriété 
 | `['has', string]` | boolean | Détermine si les propriétés d’une fonctionnalité ont la propriété spécifiée. |
 | `['has', string, object]` | boolean | Détermine si les propriétés de l’objet ont la propriété spécifiée. |
 | `['id']` | value | Obtient l’ID de la fonctionnalité, le cas échéant. |
-| `['length', string | array]` | number | Obtient la longueur d’une chaîne ou d’un tableau. |
+| `['length', string | array]` | nombre | Obtient la longueur d’une chaîne ou d’un tableau. |
 
 **Exemples**
 
@@ -141,32 +141,32 @@ Les expressions mathématiques fournissent des opérateurs mathématiques pour e
 
 | Expression | Type de retour | Description |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | number | Calcule la somme des nombres spécifiés. |
-| `['-', number]` | number | Retranche 0 du nombre spécifié. |
-| `['-', number, number]` | number | Retranche les premiers nombres du deuxième nombre. |
-| `['*', number, number, …]` | number | Multiplie les nombres spécifiés entre eux. |
-| `['/', number, number]` | number | Divise le premier nombre par le deuxième nombre. |
-| `['%', number, number]` | number | Calcule le reste de la division du premier nombre par le deuxième. |
-| `['^', number, number]` | number | Calcule la valeur du premier nombre élevé à la puissance du deuxième nombre. |
-| `['abs', number]` | number | Calcule la valeur absolue du nombre spécifié. |
-| `['acos', number]` | number | Calcule l’arc cosinus du nombre spécifié. |
-| `['asin', number]` | number | Calcule l’arc sinus du nombre spécifié. |
-| `['atan', number]` | number | Calcule l’arc tangente du nombre spécifié. |
-| `['ceil', number]` | number | Arrondit le nombre à l’entier supérieur suivant. |
-| `['cos', number]` | number | Calcule le cosinus du nombre spécifié. |
-| `['e']` | number | Retourne la constante mathématique `e`. |
-| `['floor', number]` | number | Arrondit le nombre à l’entier inférieur précédent. |
-| `['ln', number]` | number | Calcule le logarithme naturel du nombre spécifié. |
-| `['ln2']` | number | Retourne la constante mathématique `ln(2)`. |
-| `['log10', number]` | number | Calcule le logarithme en base dix du nombre spécifié. |
-| `['log2', number]` | number | Calcule le logarithme en base deux du nombre spécifié. |
-| `['max', number, number, …]` | number | Calcule le nombre maximal dans l’ensemble spécifié de nombres. |
-| `['min', number, number, …]` | number | Calcule le nombre minimal dans l’ensemble spécifié de nombres. |
-| `['pi']` | number | Retourne la constante mathématique `PI`. |
-| `['round', number]` | number | Arrondit le nombre à l’entier le plus proche. Les valeurs médianes sont arrondies à la valeur la plus éloignée de zéro. Par exemple, `['round', -1.5]` a pour résultat -2. |
-| `['sin', number]` | number | Calcule le sinus du nombre spécifié. |
-| `['sqrt', number]` | number | Calcule la racine carrée du nombre spécifié. |
-| `['tan', number]` | number | Calcule la tangente du nombre spécifié. |
+| `['+', number, number, …]` | nombre | Calcule la somme des nombres spécifiés. |
+| `['-', number]` | nombre | Retranche 0 du nombre spécifié. |
+| `['-', number, number]` | nombre | Retranche les premiers nombres du deuxième nombre. |
+| `['*', number, number, …]` | nombre | Multiplie les nombres spécifiés entre eux. |
+| `['/', number, number]` | nombre | Divise le premier nombre par le deuxième nombre. |
+| `['%', number, number]` | nombre | Calcule le reste de la division du premier nombre par le deuxième. |
+| `['^', number, number]` | nombre | Calcule la valeur du premier nombre élevé à la puissance du deuxième nombre. |
+| `['abs', number]` | nombre | Calcule la valeur absolue du nombre spécifié. |
+| `['acos', number]` | nombre | Calcule l’arc cosinus du nombre spécifié. |
+| `['asin', number]` | nombre | Calcule l’arc sinus du nombre spécifié. |
+| `['atan', number]` | nombre | Calcule l’arc tangente du nombre spécifié. |
+| `['ceil', number]` | nombre | Arrondit le nombre à l’entier supérieur suivant. |
+| `['cos', number]` | nombre | Calcule le cosinus du nombre spécifié. |
+| `['e']` | nombre | Retourne la constante mathématique `e`. |
+| `['floor', number]` | nombre | Arrondit le nombre à l’entier inférieur précédent. |
+| `['ln', number]` | nombre | Calcule le logarithme naturel du nombre spécifié. |
+| `['ln2']` | nombre | Retourne la constante mathématique `ln(2)`. |
+| `['log10', number]` | nombre | Calcule le logarithme en base dix du nombre spécifié. |
+| `['log2', number]` | nombre | Calcule le logarithme en base deux du nombre spécifié. |
+| `['max', number, number, …]` | nombre | Calcule le nombre maximal dans l’ensemble spécifié de nombres. |
+| `['min', number, number, …]` | nombre | Calcule le nombre minimal dans l’ensemble spécifié de nombres. |
+| `['pi']` | nombre | Retourne la constante mathématique `PI`. |
+| `['round', number]` | nombre | Arrondit le nombre à l’entier le plus proche. Les valeurs médianes sont arrondies à la valeur la plus éloignée de zéro. Par exemple, `['round', -1.5]` a pour résultat -2. |
+| `['sin', number]` | nombre | Calcule le sinus du nombre spécifié. |
+| `['sqrt', number]` | nombre | Calcule la racine carrée du nombre spécifié. |
+| `['tan', number]` | nombre | Calcule la tangente du nombre spécifié. |
 
 ## <a name="aggregate-expression"></a>Expression d'agrégation
 
@@ -403,7 +403,7 @@ Les expressions du type fournissent des outils permettant de tester et de conver
 | `['image', string]` | string | Vérifie si un ID d’image spécifié est chargé dans le sprite d’image de mappages. Si c’est le cas, l’ID est retourné ; sinon, la valeur null est retournée. |
 | `['to-boolean', value]` | boolean | Convertit la valeur d’entrée en une valeur booléenne. Le résultat est `false` quand l’entrée est une chaîne vide, `0`, `false`, `null` ou `NaN` ; sinon, il prend la valeur `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Convertit la valeur d’entrée en une couleur. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | number | Convertit la valeur d’entrée en un nombre, si cela est possible. Si l’entrée est `null` ou `false`, le résultat est 0. Si l’entrée est `true`, le résultat est 1. Si l’entrée est une chaîne, elle est convertie en un nombre à l’aide de la fonction de chaîne [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la spécification de langage ECMAScript. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | nombre | Convertit la valeur d’entrée en un nombre, si cela est possible. Si l’entrée est `null` ou `false`, le résultat est 0. Si l’entrée est `true`, le résultat est 1. Si l’entrée est une chaîne, elle est convertie en un nombre à l’aide de la fonction de chaîne [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) de la spécification de langage ECMAScript. Si plusieurs valeurs sont fournies, chacune est évaluée dans l’ordre jusqu’à ce que la première conversion réussie soit obtenue. Si aucune des entrées ne peut être convertie, l’expression est une erreur. |
 | `['to-string', value]` | string | Convertit la valeur d’entrée en une chaîne. Si l’entrée est `null`, le résultat est `""`. Si l’entrée est une valeur booléenne, le résultat est `"true"` ou `"false"`. Si l’entrée est un nombre, elle est convertie en une chaîne à l’aide de la fonction de nombre [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) de la spécification de langage ECMAScript. Si l’entrée est une couleur, elle est convertie en une chaîne de couleur RVBA CSS `"rgba(r,g,b,a)"`. Sinon, l’entrée est convertie en une chaîne à l’aide de la fonction [JSON.stringify](https://tc39.github.io/ecma262/#sec-json.stringify) de la spécification de langage ECMAScript. |
 | `['typeof', value]` | string | Retourne une chaîne décrivant le type de la valeur donnée. |
 
@@ -488,7 +488,7 @@ L’expression ci-dessus affiche une épingle sur la carte avec le texte « 64�
 
 <center>
 
-![Exemple d’expression d’opérateur de chaîne](media/how-to-expressions/string-operator-expression.png) </center>
+![Exemple d’expression d’opérateur de chaîne](media/how-to-expressions/string-operator-expression.png)</center>
 
 ## <a name="interpolate-and-step-expressions"></a>Expressions interpolate et step
 
@@ -797,7 +797,7 @@ Une expression `zoom`, qui est définie sous la forme `['zoom']`, est utilisée 
 
 **Exemple**
 
-Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Alors que la carte fait l’objet d’un zoom, les données sont agrégées et la couche de carte thermique change d’aspect. Une expression `zoom` peut être utilisée pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Cette opération fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent. La mise à l’échelle du rayon de sorte qu’il soit multiplié par deux avec chaque niveau de zoom crée une carte thermique qui paraît cohérente sur tous les niveaux de zoom. Vous pouvez effectuer cette opération à l’aide de l’expression `zoom` avec une expression `base 2 exponential interpolation`, comme indiqué ci-dessous. 
+Par défaut, les rayons des points de données restitués dans la couche de carte thermique ont un rayon de pixels fixe pour tous les niveaux de zoom. Alors que la carte fait l’objet d’un zoom, les données sont agrégées, et la couche de carte thermique change d’aspect. Une expression `zoom` peut être utilisée pour mettre à l’échelle le rayon de chaque niveau de zoom de sorte que chaque point de données couvre la même zone physique de la carte. Cette opération fait paraître la couche de carte thermique plus statique et plus cohérente. Chaque niveau de zoom de la carte a deux fois plus de pixels verticalement et horizontalement que le niveau de zoom précédent. La mise à l’échelle du rayon de sorte qu’il soit multiplié par deux avec chaque niveau de zoom crée une carte thermique qui paraît cohérente sur tous les niveaux de zoom. Vous pouvez effectuer cette opération à l’aide de l’expression `zoom` avec une expression `base 2 exponential interpolation`, comme indiqué ci-dessous. 
 
 ```javascript 
 var layer = new atlas.layer.HeatMapLayer(datasource, null, {
@@ -824,7 +824,7 @@ Les expressions de liaison de variable stockent les résultats d’un calcul dan
 | Expression | Type de retour | Description |
 |--------------|---------------|--------------|
 | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'let',<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: string,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Stocke une ou plusieurs valeurs sous forme de variables pour une utilisation par l’expression `var` dans l’expression enfant qui retourne le résultat. |
-| `['var', name: string]` | any | Fait référence à une variable qui a été créée à l’aide de l’expression `let`. |
+| `['var', name: string]` | n'importe laquelle | Fait référence à une variable qui a été créée à l’aide de l’expression `let`. |
 
 **Exemple**
 
@@ -865,7 +865,7 @@ Pour obtenir plus d’exemples de code qui implémentent des expressions, consul
 > [Ajouter une couche de bulles](map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de lignes](map-add-line-layer.md)
+> [Ajouter une couche de lignes](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une couche de polygones](map-add-shape.md)

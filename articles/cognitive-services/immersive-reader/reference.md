@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903106"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945278"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guide de référence du SDK du Lecteur immersif
 
@@ -39,12 +39,12 @@ Lance le lecteur immersif au sein d'un `iframe` de votre application web.
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
-| Nom | type | Description |
+| Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | Le jeton d’authentification Azure AD. Consultez le [guide pratique sur l’authentification Azure AD](./azure-active-directory-authentication.md). |
-| `subdomain` | string | Sous-domaine personnalisé de votre ressource Lecteur immersif dans Azure. Consultez le [guide pratique sur l’authentification Azure AD](./azure-active-directory-authentication.md). |
+| `token` | string | Le jeton d’authentification Azure AD. |
+| `subdomain` | string | Sous-domaine personnalisé de votre ressource Lecteur immersif dans Azure. |
 | `content` | [Contenu](#content) | Objet dans lequel figure le contenu à afficher dans le lecteur immersif. |
 | `options` | [Options](#options) | Options de configuration de certains comportements du lecteur immersif. facultatif. |
 
@@ -78,9 +78,9 @@ Pour plus d’options de rendu, consultez [Attributs optionnels](#optional-attri
 renderButtons(options?: RenderButtonsOptions): void;
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
-| Nom | type | Description |
+| Name | Type | Description |
 | ---- | ---- |------------ |
 | `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Options de configuration de certains comportements de la fonction renderButtons. facultatif. |
 
@@ -109,13 +109,21 @@ Bloc de données unique qui est passé dans le contenu du Lecteur immersif.
 }
 ```
 
+### <a name="cookiepolicy-enum"></a>Énumération CookiePolicy
+
+Une énumération utilisée pour définir la stratégie pour l’utilisation des cookies du lecteur immersif. Voir les [options](#options).
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### <a name="supported-mime-types"></a>Types MIME pris en charge
 
 | Type MIME | Description |
 | --------- | ----------- |
 | texte/brut | Texte brut. |
 | texte/html | Contenu HTML. [En savoir plus](#html-support)|
-| application/mathml+xml | Langage de balisage mathématique (MathML). [Plus d’informations](https://developer.mozilla.org/en-US/docs/Web/MathML)
+| application/mathml+xml | Langage de balisage mathématique (MathML). [Plus d’informations](./how-to/display-math.md)
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Document au format .docx Microsoft Word.
 
 ### <a name="html-support"></a>Prise en charge du langage HTML
@@ -142,6 +150,7 @@ Contient les propriétés qui configurent certains comportements du lecteur imme
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
@@ -206,4 +215,4 @@ Pour une meilleure expérience avec le lecteur immersif, utilisez les versions l
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Explorer le [kit de développement logiciel (SDK) du lecteur immersif sur GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Démarrage rapide : Créer une application web qui lance le lecteur immersif (C#)](./quickstart.md)
+* [Démarrage rapide : Créer une application web qui lance le lecteur immersif (C#)](./quickstart.md)

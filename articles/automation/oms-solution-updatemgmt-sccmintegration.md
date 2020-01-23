@@ -1,28 +1,28 @@
 ---
-title: Cibler des mises à jour en utilisant des collections SCCM dans Azure Automation - Update Management
-description: Cet article vise à vous aider à configurer System Center Configuration Manager avec cette solution pour gérer les mises à jour des ordinateurs gérés SCCM.
+title: Utiliser Azure Update Management avec les clients Configuration Manager
+description: Cet article a pour but de vous aider à configurer Microsoft Endpoint Configuration Manager avec cette solution pour déployer des mises à jour logicielles sur des clients ConfigMgr.
 services: automation
 ms.subservice: update-management
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: b52db95b6a6ce21a5e5b68342ac123526d11ca62
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9df401ec9c6d11bfef5d1d60833c855029f8ca01
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75417618"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769946"
 ---
-# <a name="integrate-system-center-configuration-manager-with-update-management"></a>Intégrer System Center Configuration Manager à Update Management
+# <a name="deploy-updates-to-microsoft-endpoint-configuration-manager-clients-with-update-management"></a>Déployer des mises à jour sur des clients Microsoft Endpoint Configuration Manager avec Update Management
 
-Les clients qui ont investi dans System Center Configuration Manager pour gérer des PC, serveurs et autres appareils mobiles s’appuient aussi sur sa puissance et sa maturité pour gérer les mises à jour logicielles dans le cadre de leur cycle de gestion des mises à jour logicielles.
+Les clients ayant investi dans Microsoft Endpoint Configuration Manager pour gérer des PC, des serveurs et d’autres appareils mobiles s’appuient aussi sur sa puissance et sa maturité pour gérer les mises à jour logicielles dans le cadre de leur cycle de gestion des mises à jour logicielles (SUM).
 
 Vous pouvez signaler et mettre à jour des serveurs Windows gérés en créant et prédéfinissant des déploiements de mises à jour logicielles dans Configuration Manager et obtenir un état détaillé des déploiements de mises à jour terminés à l’aide de la [solution Update Management](automation-update-management.md). Si vous utilisez Configuration Manager pour générer des rapports de conformité de mises à jour, mais pas pour gérer les déploiements de mises à jour avec vos serveurs Windows, vous pouvez continuer d’adresser des rapports à Configuration Manager tout en gérant les mises à jour de sécurité avec la solution Update Management.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 * Vous devez avoir ajouté la [solution Update Management](automation-update-management.md) à votre compte Automation.
-* Les serveurs Windows actuellement gérés par votre environnement System Center Configuration Manager doivent aussi adresser des rapports à l’espace de travail Log Analytics dans lequel la solution Update Management est aussi activée.
-* Cette fonctionnalité est activée dans la branche actuelle de System Center Configuration Manager, version 1606 et supérieure. Pour intégrer votre site d'administration centrale Configuration Manager ou un site principal autonome aux journaux Azure Monitor et importer des collections, consultez [Connecter Configuration Manager aux journaux Azure Monitor](../azure-monitor/platform/collect-sccm.md).  
+* Les serveurs Windows actuellement gérés par votre environnement Configuration Manager doivent aussi adresser des rapports à l’espace de travail Log Analytics dans lequel la solution Update Management est aussi activée.
+* Cette fonctionnalité est activée dans la branche actuelle de Configuration Manager, version 1606 et supérieure. Pour intégrer votre site d'administration centrale Configuration Manager ou un site principal autonome aux journaux Azure Monitor et importer des collections, consultez [Connecter Configuration Manager aux journaux Azure Monitor](../azure-monitor/platform/collect-sccm.md).  
 * Les agents Windows doivent être configurés pour communiquer avec un serveur WSUS (Windows Server Update Services) ou avoir accès à Microsoft Update s’ils ne reçoivent pas de mises à jour de sécurité de Configuration Manager.   
 
 La façon dont vous gérez les clients hébergés dans Azure IaaS avec votre environnement Configuration Manager existant dépend essentiellement de la connexion dont vous disposez entre les centres de données Azure et votre infrastructure. Cette connexion a une incidence sur les changements de conception que vous pouvez être amené à apporter à votre infrastructure Configuration Manager et sur les coûts liés à la prise en charge de ces changements. Pour comprendre les considérations de planification que vous devez évaluer avant de poursuivre, consultez [Configuration Manager sur Azure - Questions fréquentes (FAQ)](/sccm/core/understand/configuration-manager-on-azure#networking).

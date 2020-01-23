@@ -7,22 +7,20 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: c6f7e921886a6acdaa31d0f69f57119c339c0b8b
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 0f935999b68a7283c032d43c42d688b273d5c450
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172590"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75720342"
 ---
-# <a name="secure-your-cluster-in-azure-data-explorer"></a>Sécuriser votre cluster dans Azure Data Explorer
+# <a name="secure-your-cluster-in-azure-data-explorer---azure-portal"></a>Sécuriser votre cluster dans Azure Data Explorer – Portail Azure
 
-[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Il fournit un chiffrement de volume pour le système d’exploitation et les disques de données de vos machines virtuelles de cluster. Il est également intégré à [Azure Key Vault](/azure/key-vault/), ce qui vous permet de contrôler et de gérer les secrets et les clés de chiffrement de disque, et de garantir que toutes les données figurant sur les disques des machines virtuelles sont chiffrées au repos pendant qu’elles résident dans le stockage Azure. 
-
-Les paramètres de sécurité de votre cluster vous permettent d’activer le chiffrement de disque sur votre cluster.
+[Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) vous aide à protéger et à préserver vos données de façon à répondre aux engagements de votre entreprise en matière de sécurité et de conformité. Il fournit un chiffrement de volume pour le système d’exploitation et les disques de données de vos machines virtuelles de cluster. Il est également intégré à [Azure Key Vault](/azure/key-vault/), ce qui vous permet de contrôler et de gérer les secrets et les clés de chiffrement de disque et de garantir que toutes les données figurant sur les disques des machines virtuelles sont chiffrées. 
   
-## <a name="enable-encryption-at-rest"></a>Activer le chiffrement des données au repos
+## <a name="enable-encryption-at-rest-in-the-azure-portal"></a>Activez le chiffrement au repos dans le portail Azure
   
-Activer le [chiffrement des données au repos](/azure/security/fundamentals/encryption-atrest) sur votre cluster offre une protection des données pour les données stockées (au repos). 
+Les paramètres de sécurité de votre cluster vous permettent d’activer le chiffrement de disque sur votre cluster. Activer le [chiffrement des données au repos](/azure/security/fundamentals/encryption-atrest) sur votre cluster offre une protection des données pour les données stockées (au repos). 
 
 1. Dans le portail Azure, accédez à votre ressource de cluster Azure Data Explorer. Sous l’en-tête **Paramètres**, sélectionnez **Sécurité**. 
 

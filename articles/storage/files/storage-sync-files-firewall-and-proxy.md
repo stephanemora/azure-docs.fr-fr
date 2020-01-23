@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4f37c54699329f43a5bbdd5c4543ae3a7b2166f5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: dcf6160c3650975431bf50fcf5bcba67f833a717
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048827"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750454"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Paramètres de proxy et de pare-feu d’Azure File Sync
 Azure File Sync connecte vos serveurs locaux à Azure Files, activant des fonctionnalités de synchronisation multisite et de hiérarchisation cloud. Pour cela, un serveur local doit donc être connecté à Internet. Un administrateur informatique doit déterminer la meilleure voie d’accès aux services cloud Azure pour le serveur.
 
 Cet article fournit des informations sur les exigences spécifiques et les options disponibles pour connecter un serveur en toute sécurité à Azure File Sync.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure File Sync fait office de service d’orchestration entre votre serveur Windows Server, votre partage de fichiers Azure et plusieurs autres services Azure pour synchroniser les données définies dans votre groupe de synchronisation. Pour qu’Azure File Sync fonctionne correctement, vous devez configurer vos serveurs de manière qu’ils puissent communiquer avec les services Azure suivants :
 
 - Stockage Azure
@@ -144,6 +144,15 @@ Pour des raisons de récupération d’urgence et de continuité d’activité (
 > - https:\//kailani.one.microsoft.com (point de terminaison principal : USA Ouest)
 > - https:\//kailani1.one.microsoft.com (région jumelée de basculement : USA Est)
 > - https:\//tm-kailani.one.microsoft.com (URL de découverte de la région principale)
+
+## <a name="test-network-connectivity-to-service-endpoints"></a>Tester la connectivité réseau aux points de terminaison de service
+Une fois qu’un serveur est inscrit auprès du service Azure File Sync, vous pouvez utiliser les applets de commande Test-StorageSyncNetworkConnectivity et ServerRegistration.exe pour tester les communications avec tous les points de terminaison (URL) spécifiques à ce serveur. Cette applet de commande peut aider à résoudre les problèmes qui se produisent quand une communication incomplète empêche le serveur de collaborer pleinement avec Azure File Sync et peut être utilisée pour affiner les configurations de proxy et de pare-feu.
+
+Pour exécuter le test de connectivité réseau, installez la version 9.1 (ou ultérieure) d’Azure File Sync et exécutez les commandes PowerShell suivantes :
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Test-StorageSyncNetworkConnectivity
+```
 
 ## <a name="summary-and-risk-limitation"></a>Résumé et limitation des risques
 La liste fournie plus haut contient les URL avec lesquelles Azure File Sync communique actuellement. Les pare-feux doivent être en mesure d’autoriser le trafic sortant vers ces domaines. Microsoft s’efforce de maintenir cette liste à jour.

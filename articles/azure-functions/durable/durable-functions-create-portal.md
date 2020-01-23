@@ -4,12 +4,12 @@ description: Découvrez comment installer l’extension Durable Functions pour A
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: azfuncdf
-ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0060088acb100036c094406e01d0d736a4af88eb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231482"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769640"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Créer des fonctions Durable Functions à l’aide du portail Azure
 
@@ -22,7 +22,7 @@ L’extension [Fonctions durables](durable-functions-overview.md) d’Azure Func
 
 ## <a name="create-a-function-app"></a>Créer une application de fonction
 
-Vous devez disposer d’une application de fonction pour héberger l’exécution d’une fonction. Une application de fonction vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement et le partage des ressources. Vous pouvez créer une application .NET ou JavaScript.
+Vous devez disposer d’une application de fonction pour héberger l’exécution d’une fonction. Une application de fonctions vous permet de regrouper vos fonctions en une unité logique pour faciliter la gestion, le déploiement, la mise à l'échelle et le partage des ressources. Vous pouvez créer une application .NET ou JavaScript.
 
 [!INCLUDE [Create function app Azure portal](../../../includes/functions-create-function-app-portal.md)]
 
@@ -68,7 +68,7 @@ Si vous créez des fonctions Durable Functions JavaScript, vous devez installer 
 
 1. Dans le champ de recherche, tapez `durable`, puis choisissez le modèle **Starter HTTP Durable Functions**.
 
-1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Azure DurableTask et toutes les dépendances dans l’application de fonction. Il vous suffit d’installer l’extension une seule fois pour une application de fonction donnée. Une fois l’installation réussie, sélectionnez **Continuer**.
+1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Azure DurableTask et toutes les dépendances dans l’application de fonction. Il vous suffit d’installer l’extension une seule fois pour une application de fonction donnée. Une fois l’installation réussie, sélectionnez **Continuer**.
 
     ![Installer des extensions de liaison](./media/durable-functions-create-portal/install-durabletask-extension.png)
 

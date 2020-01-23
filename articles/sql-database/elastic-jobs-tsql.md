@@ -11,18 +11,18 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: deefc1cc1d8fe82eab9ec0085b3a11ccd2fe7840
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6b70eb1a6e51c98311ae51648b1a9618f9c3349d
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820601"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861334"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Utiliser Transact-SQL (T-SQL) pour créer et gérer des travaux de base de données élastique
 
 Cet article fournit de nombreux exemples de scénarios pour commencer à utiliser les travaux élastiques à l’aide de T-SQL.
 
-Les exemples utilisent les [procédures stockées](#job-stored-procedures) et les [affichages](#job-views) disponibles dans la [ *base de données du travail*](sql-database-job-automation-overview.md#job-database).
+Les exemples utilisent les [procédures stockées](#job-stored-procedures) et les [affichages](#job-views) disponibles dans la [*base de données du travail*](sql-database-job-automation-overview.md#job-database).
 
 Transact-SQL (T-SQL) est utilisé pour créer, configurer, exécuter et gérer des travaux. Comme la création de l’agent de travail élastique n'est pas prise en charge dans T-SQL, vous devez d’abord créer un *agent de travail élastique* à l’aide du portail ou de [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -419,7 +419,7 @@ Les procédures stockées suivantes se trouvent dans la [base de données des tr
 |[sp_delete_target_group](#sp_delete_target_group)     |    Supprime un groupe cible.     |
 |[sp_add_target_group_member](#sp_add_target_group_member)     |    Ajoute une base de données ou un groupe de bases de données à un groupe cible.     |
 |[sp_delete_target_group_member](#sp_delete_target_group_member)     |     Supprime un membre du groupe cible d’un groupe cible.    |
-|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Supprime les enregistrements d’historique d’un travail.     |
+|[sp_purge_jobhistory](#sp_purge_jobhistory)    |    Supprime les enregistrements d'historique d'un travail.     |
 
 
 
@@ -468,19 +468,19 @@ La valeur indique quand le travail doit être exécuté. schedule_interval_type 
 Nombre de périodes schedule_interval_count entre chaque exécution du travail. schedule_interval_count est de type int, avec 1 comme valeur par défaut. La valeur doit être supérieure ou égale à 1.
 
 [ **\@schedule_start_time =** ] schedule_start_time  
-Date à laquelle l’exécution du travail peut commencer. schedule_start_time est DATETIME2, avec 0001-01-01 00:00:00.0000000 comme valeur par défaut.
+Date à laquelle l'exécution du travail peut commencer. schedule_start_time est DATETIME2, avec 0001-01-01 00:00:00.0000000 comme valeur par défaut.
 
 [ **\@schedule_end_time =** ] schedule_end_time  
-Date à laquelle l’exécution du travail peut s’arrêter. schedule_end_time is DATETIME2, avec 9999-12-31 11:59:59.0000000 comme valeur par défaut. 
+Date à laquelle l'exécution du travail peut s'arrêter. schedule_end_time is DATETIME2, avec 9999-12-31 11:59:59.0000000 comme valeur par défaut. 
 
 [ **\@job_id =** ] job_id OUTPUT  
-Numéro d’identification affecté au travail s’il a été créé avec succès. job_id est une variable de sortie de type uniqueidentifier.
+Numéro d'identification du travail affecté si le travail est correctement créé. job_id est une variable de sortie de type uniqueidentifier.
 
 #### <a name="return-code-values"></a>Codet de retour
 
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 sp_add_job doit être exécuté à partir de la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail.
 Une fois que sp_add_job a été exécutée pour ajouter un travail, sp_add_jobstep peut servir à ajouter des étapes qui effectuent les activités pour le travail. Le numéro de version initiale du travail est 0 et passera à 1 lors de l’ajout de la première étape.
 
@@ -535,15 +535,15 @@ La valeur indique quand le travail doit être exécuté. schedule_interval_type 
 Nombre de périodes schedule_interval_count entre chaque exécution du travail. schedule_interval_count est de type int, avec 1 comme valeur par défaut. La valeur doit être supérieure ou égale à 1.
 
 [ **\@schedule_start_time=** ] schedule_start_time  
-Date à laquelle l’exécution du travail peut commencer. schedule_start_time est DATETIME2, avec 0001-01-01 00:00:00.0000000 comme valeur par défaut.
+Date à laquelle l'exécution du travail peut commencer. schedule_start_time est DATETIME2, avec 0001-01-01 00:00:00.0000000 comme valeur par défaut.
 
 [ **\@schedule_end_time=** ] schedule_end_time  
-Date à laquelle l’exécution du travail peut s’arrêter. schedule_end_time is DATETIME2, avec 9999-12-31 11:59:59.0000000 comme valeur par défaut. 
+Date à laquelle l'exécution du travail peut s'arrêter. schedule_end_time is DATETIME2, avec 9999-12-31 11:59:59.0000000 comme valeur par défaut. 
 
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 Une fois que sp_add_job a été exécutée pour ajouter un travail, sp_add_jobstep peut servir à ajouter des étapes qui effectuent les activités pour le travail. Le numéro de version initiale du travail est 0 et passera à 1 lors de l’ajout de la première étape.
 
 #### <a name="permissions"></a>Autorisations
@@ -575,7 +575,7 @@ Spécifie s’il faut supprimer si le travail est en cours d’exécution et sup
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 L’historique du travail est automatiquement supprimé lorsqu’un travail est supprimé.
 
 #### <a name="permissions"></a>Autorisations
@@ -622,10 +622,10 @@ Ajoute une étape à un travail.
 #### <a name="arguments"></a>Arguments
 
 [ **\@job_name =** ] 'job_name'  
-Nom du travail auquel ajouter l’étape. job_name est nvarchar (128).
+Nom du travail auquel ajouter l'étape. job_name est nvarchar (128).
 
 [ **\@step_id =** ] step_id  
-Le numéro d’identification de séquence pour l’étape de travail. Les numéros d’identification d’étape commencent à 1 et augmentent sans intervalle. Si une étape existante a déjà cet id, alors cette étape et toutes les étapes suivantes verront leur id incrémenté afin que cette nouvelle étape puisse être insérée dans la séquence. Si rien n’est spécifié, +step_id sera automatiquement attribué à la dernière des séquences d’étapes. step_id est de type int.
+Numéro d'identification de la séquence de l'étape de travail. Les numéros d’identification d’étape commencent à 1 et augmentent sans intervalle. Si une étape existante a déjà cet id, alors cette étape et toutes les étapes suivantes verront leur id incrémenté afin que cette nouvelle étape puisse être insérée dans la séquence. Si rien n’est spécifié, +step_id sera automatiquement attribué à la dernière des séquences d’étapes. step_id est de type int.
 
 [ **\@step_name =** ] step_name  
 Nom de l'étape. Doit être spécifié, à l’exception de la première étape d’un travail, qui a un nom 'JobStep' par défaut (pour plus de commodité). step_name est nvarchar(128).
@@ -700,7 +700,7 @@ Le niveau maximal de parallélisme par pool élastique. S’il est défini, l’
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 Lorsque sp_add_jobstep réussit, le numéro de version actuel du travail est incrémenté. La prochaine fois que le travail sera exécuté, la nouvelle version sera utilisée. Si le travail est en cours d’exécution, cette exécution ne contiendra pas la nouvelle étape.
 
 #### <a name="permissions"></a>Autorisations
@@ -746,10 +746,10 @@ Met à jour une étape de travail.
 
 #### <a name="arguments"></a>Arguments
 [ **\@job_name =** ] 'job_name'  
-Nom du travail auquel appartient l’étape. job_name est nvarchar (128).
+Nom du travail auquel l'étape appartient. job_name est nvarchar (128).
 
 [ **\@step_id =** ] step_id  
-Le numéro d’identification pour l’étape de travail à modifier. step_id ou step_name doit être spécifié. step_id est de type int.
+Numéro d'identification de l'étape d'un travail à modifier. step_id ou step_name doit être spécifié. step_id est de type int.
 
 [ **\@step_name =** ] 'step_name'  
 Nom de l’étape à modifier. step_id ou step_name doit être spécifié. step_name est nvarchar(128).
@@ -824,7 +824,7 @@ Le niveau maximal de parallélisme par pool élastique. S’il est défini, l’
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 Les exécutions en cours du travail ne seront pas affectées. Lorsque sp_update_jobstep réussit, le numéro de version du travail est incrémenté. La prochaine fois que le travail sera exécuté, la nouvelle version sera utilisée.
 
 #### <a name="permissions"></a>Autorisations
@@ -839,7 +839,7 @@ Pour plus d’informations sur les autorisations de ces rôles, consultez la sec
 
 ### <a name="sp_delete_jobstep"></a>sp_delete_jobstep
 
-Supprime une étape de travail d’un travail.
+Supprime une étape d'un travail.
 
 #### <a name="syntax"></a>Syntaxe
 
@@ -853,7 +853,7 @@ Supprime une étape de travail d’un travail.
 
 #### <a name="arguments"></a>Arguments
 [ **\@job_name =** ] 'job_name'  
-Nom du travail à partir duquel l’étape sera supprimée. job_name est nvarchar (128), sans valeur par défaut.
+Nom du travail duquel il faut supprimer l'étape. job_name est nvarchar (128), sans valeur par défaut.
 
 [ **\@step_id =** ] step_id  
 Le numéro d’identification pour l’étape de travail à supprimer. step_id ou step_name doit être spécifié. step_id est de type int.
@@ -867,7 +867,7 @@ Paramètre de sortie auquel sera assigné le nouveau numéro de version de trava
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 Les exécutions en cours du travail ne seront pas affectées. Lorsque sp_update_jobstep réussit, le numéro de version du travail est incrémenté. La prochaine fois que le travail sera exécuté, la nouvelle version sera utilisée.
 
 Les autres étapes de travail seront automatiquement renumérotées pour combler le vide laissé par l’étape de travail supprimée.
@@ -897,7 +897,7 @@ Démarre l’exécution d’un travail.
 
 #### <a name="arguments"></a>Arguments
 [ **\@job_name =** ] 'job_name'  
-Nom du travail à partir duquel l’étape sera supprimée. job_name est nvarchar (128), sans valeur par défaut.
+Nom du travail duquel il faut supprimer l'étape. job_name est nvarchar (128), sans valeur par défaut.
 
 [ **\@job_execution_id =** ] job_execution_id OUTPUT  
 Le paramètre de sortie auquel l’identifiant job_version de l’exécution du travail sera assigné est de type uniqueidentifier.
@@ -905,8 +905,8 @@ Le paramètre de sortie auquel l’identifiant job_version de l’exécution du 
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
-Aucune.
+#### <a name="remarks"></a>Notes
+Aucun.
  
 #### <a name="permissions"></a>Autorisations
 Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
@@ -933,8 +933,8 @@ Numéro d’identification de l’exécution du travail à arrêter. job_executi
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
-Aucune.
+#### <a name="remarks"></a>Notes
+Aucun.
  
 #### <a name="permissions"></a>Autorisations
 Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
@@ -965,7 +965,7 @@ Nom du groupe cible à créer. target_group_name est nvarchar(128), sans valeur 
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 Les groupes cibles permettent de cibler facilement un travail dans une collection de bases de données.
 
 #### <a name="permissions"></a>Autorisations
@@ -993,8 +993,8 @@ Nom du groupe cible à supprimer. target_group_name est nvarchar(128), sans vale
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
-Aucune.
+#### <a name="remarks"></a>Notes
+Aucun.
 
 #### <a name="permissions"></a>Autorisations
 Par défaut, les membres du rôle serveur fixe sysadmin peuvent exécuter cette procédure stockée. L’utilisateur peut uniquement superviser les travaux. Vous pouvez l’autoriser à faire partie du rôle de base de données suivant dans la base de données de l’agent de travail spécifiée lors de la création de l’agent de travail :
@@ -1049,7 +1049,7 @@ Nom de l’outil de mappage de partition qui doit être ajouté au groupe cible 
 Numéro d’identification cible affecté au membre du groupe cible s’il a été créé et ajouté au groupe cible. target_id est une variable de sortie de type uniqueidentifier, avec NULL comme valeur par défaut.
 Codet de retour 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 Un travail s’exécute sur toutes les bases de données uniques au sein d’un serveur SQL Database ou d’un pool élastique au moment de l’exécution, quand un serveur SQL Database ou un pool élastique est inclus dans le groupe cible.
 
 #### <a name="permissions"></a>Autorisations
@@ -1114,7 +1114,7 @@ Nom du groupe cible à partir duquel supprimer le membre du groupe cible. target
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec)
 
-#### <a name="remarks"></a>Remarques
+#### <a name="remarks"></a>Notes
 Les groupes cibles permettent de cibler facilement un travail dans une collection de bases de données.
 
 #### <a name="permissions"></a>Autorisations
@@ -1144,7 +1144,7 @@ GO
 
 ### <a name="sp_purge_jobhistory"></a>sp_purge_jobhistory
 
-Supprime les enregistrements d’historique d’un travail.
+Supprime les enregistrements d'historique d'un travail.
 
 #### <a name="syntax"></a>Syntaxe
 
@@ -1157,13 +1157,13 @@ Supprime les enregistrements d’historique d’un travail.
 
 #### <a name="arguments"></a>Arguments
 [ **\@job_name =** ] 'job_name'  
-Le nom du travail pour lequel les enregistrements d’historique doivent être supprimés. job_name est nvarchar(128), avec NULL comme valeur par défaut. Job_id ou job_name doit être spécifié, mais ne peut pas l’être.
+Nom du travail dont il faut supprimer les enregistrements d'historique. job_name est nvarchar(128), avec NULL comme valeur par défaut. Job_id ou job_name doit être spécifié, mais ne peut pas l’être.
 
 [ **\@job_id =** ] job_id  
- Numéro d’identification du travail pour les enregistrements à supprimer. job_id est de type uniqueidentifier, avec NULL comme valeur par défaut. Job_id ou job_name doit être spécifié, mais ne peut pas l’être.
+ Numéro d'identification du travail dont les enregistrements doivent être supprimés. job_id est de type uniqueidentifier, avec NULL comme valeur par défaut. Job_id ou job_name doit être spécifié, mais ne peut pas l’être.
 
 [ **\@oldest_date =** ] oldest_date  
- Enregistrement le plus ancien à conserver dans l’historique. oldest_date est DATETIME2, avec NULL comme valeur par défaut. Lorsque l’argument oldest_date est spécifié, sp_purge_jobhistory supprime uniquement les enregistrements qui sont antérieurs à la valeur spécifiée.
+ Enregistrement le plus ancien à conserver dans l'historique. oldest_date est DATETIME2, avec NULL comme valeur par défaut. Lorsque l’argument oldest_date est spécifié, sp_purge_jobhistory supprime uniquement les enregistrements qui sont antérieurs à la valeur spécifiée.
 
 #### <a name="return-code-values"></a>Codet de retour
 0 (réussite) ou 1 (échec) Les groupes cibles de remarques permettent de cibler facilement un travail dans une collection de bases de données.
@@ -1200,7 +1200,7 @@ Les vues suivantes sont disponibles dans la [base de données des travaux](sql-d
 |[jobsteps](#jobsteps-view)     |     Affiche toutes les étapes dans la version actuelle de chaque travail.    |
 |[jobstep_versions](#jobstep_versions-view)     |     Affiche toutes les étapes dans toutes les versions de chaque travail.    |
 |[target_groups](#target_groups-view)     |      Affiche tous les groupes cibles.   |
-|[target_group_members](#target_groups_members-view)     |   Affiche tous les membres de tous les groupes cibles.      |
+|[target_group_members](#target_group_members-view)     |   Affiche tous les membres de tous les groupes cibles.      |
 
 
 ### <a name="job_executions-view"></a>job_executions view
@@ -1212,11 +1212,11 @@ Afficher l'historique d'exécution des travaux.
 
 |Nom de la colonne|   Type de données   |Description|
 |---------|---------|---------|
-|**job_execution_id**   |uniqueidentifier|  ID unique d’une instance de l’exécution d’un travail.
+|**job_execution_id**   |UNIQUEIDENTIFIER|  ID unique d’une instance de l’exécution d’un travail.
 |**job_name**   |nvarchar(128)  |Nom du travail.
-|**job_id** |uniqueidentifier|  ID unique du travail.
-|**job_version**    |int    |Version du travail (automatiquement mise à jour chaque fois que le travail est modifié).
-|**step_id**    |int|   Identificateur unique (pour ce travail) de l’étape. NULL indique qu’il s’agit de l’exécution du travail parent.
+|**job_id** |UNIQUEIDENTIFIER|  ID unique du travail.
+|**job_version**    |int    |Version du travail (mise à jour automatique à chaque modification).
+|**step_id**    |int|   Identificateur unique de cette étape (pour ce travail). NULL indique qu’il s’agit de l’exécution du travail parent.
 |**is_active**| bit |Indique si les informations sont actives ou inactives. 1 indique les travaux actifs, et 0 indique qu’ils sont inactifs.
 |**lifecycle**| nvarchar(50)|Valeur indiquant l’état du travail :‘Created’, ‘In Progress’, ‘Failed’, ‘Succeeded’, ‘Skipped’, ‘SucceededWithSkipped’|
 |**create_time**|   datetime2(7)|   Date et heure de la création du travail.
@@ -1224,9 +1224,9 @@ Afficher l'historique d'exécution des travaux.
 |**heure-fin**|  datetime2(7)    |Date et heure de fin de l’exécution du travail. NULL si le travail n’a pas encore été exécuté, ou si son exécution n’est pas terminée.
 |**current_attempts**   |int    |Nombre de tentatives pour l’étape. Travail parent sera égal à 0, les exécutions de travail enfant seront égales ou supérieures à 1 selon la stratégie d’exécution.
 |**current_attempt_start_time** |datetime2(7)|  Date et heure de début de l’exécution du travail. NULL indique qu’il s’agit de l’exécution du travail parent.
-|**last_message**   |nvarchar(max)| Message d’historique d’étape ou de travail. 
+|**last_message**   |nvarchar(max)| Message d'historique d'étape ou de travail. 
 |**target_type**|   nvarchar(128)   |Type de base de données cible ou de collection de bases de données incluant toutes les bases de données dans un serveur, toutes les bases de données dans un pool élastique, ou une base de données individuelle. Les valeurs valides pour target_type sont 'SqlServer', 'SqlElasticPool' ou 'SqlDatabase'. NULL indique qu’il s’agit de l’exécution du travail parent.
-|**target_id**  |uniqueidentifier|  ID unique du membre du groupe cible.  NULL indique qu’il s’agit de l’exécution du travail parent.
+|**target_id**  |UNIQUEIDENTIFIER|  ID unique du membre du groupe cible.  NULL indique qu’il s’agit de l’exécution du travail parent.
 |**target_group_name**  |nvarchar(128)  |Nom du groupe cible. NULL indique qu’il s’agit de l’exécution du travail parent.
 |**target_server_name**|    nvarchar(256)|  Nom du serveur SQL Database contenu dans le groupe cible. Spécifié uniquement si target_type est 'SqlServer'. NULL indique qu’il s’agit de l’exécution du travail parent.
 |**target_database_name**   |nvarchar(128)| Nom de la base de données contenue dans le groupe cible. Spécifié uniquement lorsque target_type est ‘SqlDatabase’. NULL indique qu’il s’agit de l’exécution du travail parent.
@@ -1241,8 +1241,8 @@ Afficher tous les travaux.
 |Nom de la colonne|   Type de données|  Description|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nom du travail.|
-|**job_id**|    uniqueidentifier    |ID unique du travail.|
-|**job_version**    |int    |Version du travail (automatiquement mise à jour chaque fois que le travail est modifié).|
+|**job_id**|    UNIQUEIDENTIFIER    |ID unique du travail.|
+|**job_version**    |int    |Version du travail (mise à jour automatique à chaque modification).|
 |**description**    |nvarchar(512)| Description du travail. bit activé    Indique si le travail est activé ou non. 1 indique les travaux sont activés, et 0 indique les travaux sont désactivés.|
 |**schedule_interval_type** |nvarchar(50)   |Valeur indiquant à quel moment le travail doit être exécuté : « Une fois », « Minutes », « Heures », 'Jours', « Semaines », « Mois »
 |**schedule_interval_count**|   int|    Nombre de périodes schedule_interval_type entre chaque exécution du travail.|
@@ -1259,8 +1259,8 @@ Affiche toutes les versions du travail.
 |Nom de la colonne|   Type de données|  Description|
 |------|------|-------|
 |**job_name**|  nvarchar(128)   |Nom du travail.|
-|**job_id**|    uniqueidentifier    |ID unique du travail.|
-|**job_version**    |int    |Version du travail (automatiquement mise à jour chaque fois que le travail est modifié).|
+|**job_id**|    UNIQUEIDENTIFIER    |ID unique du travail.|
+|**job_version**    |int    |Version du travail (mise à jour automatique à chaque modification).|
 
 
 ### <a name="jobsteps-view"></a>affichage des étapes de travail
@@ -1272,24 +1272,24 @@ Affiche toutes les étapes dans la version actuelle de chaque travail.
 |Nom de la colonne    |Type de données| Description|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| Nom du travail.|
-|**job_id** |uniqueidentifier   |ID unique du travail.|
-|**job_version**|   int|    Version du travail (automatiquement mise à jour chaque fois que le travail est modifié).|
-|**step_id**    |int    |Identificateur unique (pour ce travail) de l’étape.|
+|**job_id** |UNIQUEIDENTIFIER   |ID unique du travail.|
+|**job_version**|   int|    Version du travail (mise à jour automatique à chaque modification).|
+|**step_id**    |int    |Identificateur unique de cette étape (pour ce travail).|
 |**step_name**  |nvarchar(128)  |Nom unique (pour ce travail) de l’étape.|
 |**command_type**   |nvarchar(50)   |Type de commande à exécuter dans l’étape de travail. Pour v1, la valeur doit être égale à et la valeur par défaut doit être ‘TSql’.|
 |**command_source** |nvarchar(50)|  Emplacement de la commande. Pour v1, 'Inline' est la valeur par défaut et la seule acceptée.|
 |**command**|   nvarchar(max)|  Les commandes à exécuter par les travaux élastiques via command_type.|
 |**credential_name**|   nvarchar(128)   |Nom des informations d'identification incluses dans l'étendue de la base de données utilisée pour l’exécution du travail.|
 |**target_group_name**| nvarchar(128)   |Nom du groupe cible.|
-|**target_group_id**|   uniqueidentifier|   ID unique du groupe cible.|
+|**target_group_id**|   UNIQUEIDENTIFIER|   ID unique du groupe cible.|
 |**initial_retry_interval_seconds**|    int |Le délai avant la première nouvelle tentative. La valeur par défaut est 1.|
 |**maximum_retry_interval_seconds** |int|   Délai maximal entre les nouvelles tentatives. Si le délai entre deux tentatives dépasse cette valeur, il est limité à cette valeur à la place. La valeur par défaut est 120.|
 |**retry_interval_backoff_multiplier**  |real|  Le multiplicateur à appliquer au délai de nouvelle tentative si plusieurs tentatives d’exécution d’une étape de travail échouent. La valeur par défaut est 2,0.|
-|**retry_attempts** |int|   Le nombre de nouvelles tentatives à utiliser si cette étape échoue. Valeur par défaut de 10, qui indique l’absence de nouvelles tentatives.|
-|**step_timeout_seconds**   |int|   La durée en minutes entre chaque nouvelle tentative. La valeur par défaut est 0 et indique un intervalle de 0 minute.|
+|**retry_attempts** |int|   Nombre de tentatives à effectuer si l'étape échoue. Valeur par défaut de 10, qui indique l’absence de nouvelles tentatives.|
+|**step_timeout_seconds**   |int|   Nombre de minutes s'écoulant entre chaque tentative de reprise. La valeur par défaut est 0 et indique un intervalle de 0 minute.|
 |**output_type**    |nvarchar(11)|  Emplacement de la commande. Dans la préversion actuelle, 'Inline' est la valeur par défaut et la seule acceptée.|
 |**output_credential_name**|    nvarchar(128)   |Nom des informations d'identification à utiliser pour se connecter au serveur de destination afin de stocker le jeu de résultats.|
-|**output_subscription_id**|    uniqueidentifier|   ID unique de l’abonnement du serveur\de la base de données de destination pour le jeu de résultats de l’exécution de la requête.|
+|**output_subscription_id**|    UNIQUEIDENTIFIER|   ID unique de l’abonnement du serveur\de la base de données de destination pour le jeu de résultats de l’exécution de la requête.|
 |**output_resource_group_name** |nvarchar(128)| Nom du groupe de ressources où réside le serveur de destination.|
 |**output_server_name**|    nvarchar(256)   |Nom du serveur de destination pour le jeu de résultats.|
 |**output_database_name**   |nvarchar(128)| Nom de la base de données de destination pour le jeu de résultats.|
@@ -1313,23 +1313,23 @@ Répertorie tous les groupes cibles.
 |Nom de la colonne|Type de données| Description|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |Le nom du groupe cible, une collection de bases de données. 
-|**target_group_id**    |uniqueidentifier   |ID unique du groupe cible.
+|**target_group_id**    |UNIQUEIDENTIFIER   |ID unique du groupe cible.
 
-### <a name="target_groups_members-view"></a>affichage de target_groups_members
+### <a name="target_group_members-view"></a>target_group_members view
 
-[jobs].[target_groups_members]
+[jobs].[target_group_members]
 
 Affiche tous les membres de tous les groupes cibles.
 
 |Nom de la colonne|Type de données| Description|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128|Le nom du groupe cible, une collection de bases de données. |
-|**target_group_id**    |uniqueidentifier   |ID unique du groupe cible.|
+|**target_group_id**    |UNIQUEIDENTIFIER   |ID unique du groupe cible.|
 |**membership_type**    |int|   Spécifie si le membre du groupe cible est inclus ou exclu dans le groupe cible. Les valeurs valides pour target_group_name sont 'Include' ou 'Exclude'.|
 |**target_type**    |nvarchar(128)| Type de base de données cible ou de collection de bases de données incluant toutes les bases de données dans un serveur, toutes les bases de données dans un pool élastique, ou une base de données individuelle. Les valeurs valides pour target_type sont 'SqlServer', 'SqlElasticPool', 'SqlDatabase' ou 'SqlShardMap'.|
-|**target_id**  |uniqueidentifier|  ID unique du membre du groupe cible.|
+|**target_id**  |UNIQUEIDENTIFIER|  ID unique du membre du groupe cible.|
 |**refresh_credential_name**    |nvarchar(128)  |Nom des informations d'identification incluses dans l'étendue de la base de données utilisées pour se connecter au membre du groupe cible.|
-|**subscription_id**    |uniqueidentifier|  ID unique de l’abonnement.|
+|**subscription_id**    |UNIQUEIDENTIFIER|  ID unique de l’abonnement.|
 |**resource_group_name**    |nvarchar(128)| Nom du groupe de ressources dans lequel réside le membre du groupe cible.|
 |**server_name**    |nvarchar(128)  |Nom du serveur SQL Database contenu dans le groupe cible. Spécifié uniquement si target_type est 'SqlServer'. |
 |**database_name**  |nvarchar(128)  |Nom de la base de données contenue dans le groupe cible. Spécifié uniquement lorsque target_type est ‘SqlDatabase’.|
@@ -1339,7 +1339,7 @@ Affiche tous les membres de tous les groupes cibles.
 
 ## <a name="resources"></a>Ressources
 
- - ![Icône du lien de rubrique](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icône du lien de rubrique") [Conventions de syntaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![Icône du lien de rubrique](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "Icône du lien de rubrique") [Conventions de la syntaxe Transact-SQL](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Étapes suivantes

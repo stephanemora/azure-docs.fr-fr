@@ -3,12 +3,12 @@ title: Préparer le serveur DPM pour sauvegarder des charges de travail
 description: Cet article explique comment préparer les sauvegardes de System Center Data Protection Manager (DPM) sur Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 2119d46ca6102286ca879777058a49938b501ad6
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173147"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75753946"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Préparer la sauvegarde des charges de travail dans Azure avec System Center DPM
 
@@ -42,7 +42,7 @@ DPM sur une machine virtuelle Azure | System Center 2012 R2 avec correctif cumu
 DPM sur un serveur physique | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2.
 DPM sur une machine virtuelle Hyper-V | System Center 2012 SP1 ou version ultérieure, System Center 2012 R2.
 DPM sur une machine virtuelle VMware | System Center 2012 R2 avec correctif cumulatif 5 ou version ultérieure.
-Composants | Windows PowerShell et .NET Framework 4.5 doivent être installés sur le serveur DPM.
+Components | Windows PowerShell et .NET Framework 4.5 doivent être installés sur le serveur DPM.
 Applications prises en charge | [En savoir plus](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) sur ce que DPM peut sauvegarder.
 Types de fichiers pris en charge | Ces types de fichiers peuvent être sauvegardés avec le service Sauvegarde Azure : chiffré (sauvegardes complètes uniquement), compressé (sauvegardes incrémentielles prises en charge), partiellement alloué (sauvegardes incrémentielles prises en charge), compressé et partiellement alloué (traité comme partiellement alloué).
 Types de fichiers non pris en charge | Serveurs sur des systèmes de fichiers respectant la casse, liens physiques (ignorés), points d’analyse (ignorés), chiffrés et compressés (ignorés), chiffrés et partiellement alloués (ignorés), flux compressés, flux partiellement alloués.
@@ -97,7 +97,7 @@ Pour obtenir les informations d’identification, téléchargez le fichier d’i
 
 Pour télécharger les informations d’identification de coffre sur un ordinateur local, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Ouvrez le coffre dans lequel vous voulez inscrire le serveur DPM.
 3. Dans **paramètres**, cliquez sur **Propriétés**.
 
@@ -165,7 +165,7 @@ Toutes les machines sauvegardées par Sauvegarde Azure doivent disposer de l’a
 
 7. Cliquez sur **Inscrire** pour inscrire le serveur DPM dans le coffre.
 
-Une fois le serveur correctement inscrit dans l’archivage, vous êtes prêt à démarrer la sauvegarde dans Microsoft Azure.
+Une fois le serveur correctement inscrit dans l’archivage, vous êtes prêt à démarrer la sauvegarde dans Microsoft Azure. Vous devez configurer le groupe de protection dans la console DPM pour sauvegarder les charges de travail dans Azure. [Découvrez comment](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) déployer des groupes de protection.
 
 ## <a name="troubleshoot-vault-credentials"></a>Résoudre les problèmes d’informations d’identification de coffre
 

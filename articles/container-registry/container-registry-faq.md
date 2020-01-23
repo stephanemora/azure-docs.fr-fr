@@ -1,16 +1,16 @@
 ---
-title: Questions fréquentes (FAQ)
+title: Forum aux questions
 description: Réponses aux questions fréquemment posées sur le service Azure Container Registry
 author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 1f2c79b47df4cf44b6fa3981bac4a5a3bf61c4df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456390"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708306"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Forum aux questions sur Azure Container Registry
 
@@ -32,7 +32,7 @@ Oui. Voici [un modèle](https://github.com/Azure/azure-quickstart-templates/tree
 
 ### <a name="is-there-security-vulnerability-scanning-for-images-in-acr"></a>Existe-t-il une analyse de sécurité des vulnérabilités pour les images dans ACR ?
 
-Oui. Consultez la documentation de [Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) et [Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
+Oui. Consultez la documentation [d’Azure Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration), [de Twistlock](https://www.twistlock.com/2016/11/07/twistlock-supports-azure-container-registry/) et [d’Aqua](https://blog.aquasec.com/image-vulnerability-scanning-in-azure-container-registry).
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Comment configurer Kubernetes avec Azure Container Registry ?
 
@@ -101,7 +101,7 @@ La propagation des modifications apportées aux règles de pare-feu prend un cer
 - [Pourquoi l’utilisation du quota du registre ne diminue-t-elle pas après la suppression d’images ?](#why-does-the-registry-quota-usage-not-reduce-after-deleting-images)
 - [Comment valider les modifications de quotas de stockage ?](#how-do-i-validate-storage-quota-changes)
 - [Comment m’authentifier auprès de mon registre lors de l’exécution de l’interface CLI dans un conteneur ?](#how-do-i-authenticate-with-my-registry-when-running-the-cli-in-a-container)
-- [Azure Container Registry offre-t-il une configuration limitée à TLS v1.2 et comment activer TLS v1.2 ?](#does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12)
+- [Comment activer TLS 1.2 ?](#how-to-enable-tls-12)
 - [Azure Container Registry prend-il en charge l’approbation de contenu ?](#does-azure-container-registry-support-content-trust)
 - [Comment octroyer l’accès au tirage (pull) ou à l’envoi (push) d’images sans autorisation de gérer la ressource du registre ?](#how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource)
 - [Comment activer le contrôle automatique des images pour un registre ?](#how-do-i-enable-automatic-image-quarantine-for-a-registry)
@@ -181,9 +181,12 @@ Ensuite, authentifiez-vous auprès du registre :
 az acr login -n MyRegistry
 ```
 
-### <a name="does-azure-container-registry-offer-tls-v12-only-configuration-and-how-to-enable-tls-v12"></a>Azure Container Registry offre-t-il une configuration limitée à TLS v1.2 et comment activer TLS v1.2 ?
+### <a name="how-to-enable-tls-12"></a>Comment activer TLS 1.2 ?
 
-Oui. Activez TLS à l’aide de n’importe quel client docker récent (version 18.03.0 et ultérieures). 
+Activez TLS 1.2 à l’aide de n’importe quel client docker récent (versions 18.03.0 et ultérieures). 
+
+> [!IMPORTANT]
+> À partir du 13 janvier 2020, Azure Container Registry exigera l’utilisation de TLS 1.2 pour toutes les connexions sécurisées établies à partir des serveurs et des applications. TLS 1.0 et 1.1 ne seront plus pris en charge.
 
 ### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry prend-il en charge l’approbation de contenu ?
 
@@ -204,7 +207,7 @@ Il est recommandé de vérifier ces clés publiques et certificats une fois que 
 ACR prend en charge les [rôles personnalisés](container-registry-roles.md) qui fournissent différents niveaux d’autorisations. Plus précisément, les rôles `AcrPull` et `AcrPush` permettent aux utilisateurs de tirer (pull) et/ou d’envoyer (push) des images sans l’autorisation de gérer la ressource du registre dans Azure.
 
 * Portail Azure : Votre registre -> Contrôle d’accès (IAM) -> Ajouter (sélectionnez `AcrPull` ou `AcrPush` pour le rôle).
-* Interface de ligne de commande Azure : Recherchez l’ID de ressource du registre en exécutant la commande suivante :
+* Azure CLI : Recherchez l’ID de ressource du registre en exécutant la commande suivante :
 
   ```azurecli
   az acr show -n myRegistry
@@ -434,7 +437,7 @@ Voici quelques scénarios dans lesquels les opérations peuvent ne pas être aut
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Comment collecter les traces http sur Windows ?
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables requises
 
 - Activez le déchiffrement de https dans Fiddler : <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Autorisez Docker à utiliser un proxy via l’interface utilisateur Docker : <https://docs.docker.com/docker-for-windows/#proxies>
@@ -488,10 +491,10 @@ Nous ne prenons actuellement pas en charge GitLab pour les déclencheurs source.
 
 | Service Git | Contexte source | Build manuelle | Génération automatique via un déclencheur de validation |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | OUI | OUI |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | OUI | OUI |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | OUI | Non |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | OUI | Non |
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | Oui | Oui |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | Oui | Oui |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | Oui | Non |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | Oui | Non |
 
 ## <a name="run-error-message-troubleshooting"></a>Exécuter la résolution des problèmes liés aux messages d’erreur
 

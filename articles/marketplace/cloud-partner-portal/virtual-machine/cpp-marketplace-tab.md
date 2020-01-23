@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: 9bc3c375c5111c144b6b137ca547875225aba58f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 283274986c753fc8ad05b9b7b0dd87aea956bcce
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824458"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762890"
 ---
 # <a name="virtual-machine-marketplace-tab"></a>Onglet Place de marché de machine virtuelle
 
@@ -33,11 +33,11 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 | **Résumé\***               | Brève description de la finalité ou de la fonction de la solution.  Longueur maximale de 100 caractères. |
 | **Long Summary (Résumé long)\***          | Description de la finalité ou de la fonction de la solution.  Longueur maximale de 256 caractères. |
 | **Description\***           | Description de la solution.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple. |
-| **Réseau de revendeurs fournisseurs de solution cloud (CSP) Microsoft\*** | L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Veuillez consulter [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft. |
+| **Réseau de revendeurs fournisseurs de solution cloud (CSP) Microsoft\*** | L’abonnement à un réseau de partenaires fournisseurs de solution cloud est maintenant disponible.  Consultez [Fournisseurs de solutions cloud](../../cloud-solution-providers.md) pour plus d’informations sur le marketing de votre offre via les réseaux de partenaires fournisseurs de solutions cloud Microsoft. |
 | **Marketing Identifier\*** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple : <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp`  |
 | **ID d’abonnement à la préversion\*** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
 | **Liens utiles**          | Ajoutez des URL vers des pages de documentation, des notes de version, des FAQ, etc. |
-| **Catégories suggérées (5 maximum)\*** | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Cinq catégories maximales autorisées.  |
+| **Catégories suggérées\*** | Sélectionnez jusqu’à deux (2) catégories, y compris une catégorie principale et une catégorie secondaire (facultatif). Sélectionnez jusqu’à deux (2) sous-catégories pour chaque catégorie principale et/ou secondaire. Si aucune sous-catégorie n’est sélectionnée, votre offre sera tout de même découvrable sur la catégorie sélectionnée uniquement. |
 |  |  |
 
 

@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: ec463efb1282c311757bb90fd614e1247459c80f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457327"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772412"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installer le runtime Azure IoT Edge sur des systèmes Linux Debian
 
@@ -108,11 +108,11 @@ Installez le démon de sécurité. Le package est installé sous `/etc/iotedge/`
    sudo apt-get install iotedge
    ```
 
-Une fois l’installation de IoT Edge réussie, la sortie vous invite à mettre à jour le fichier de configuration. Suivez les étapes de la section [Configurer le démon de sécurité Azure IoT Edge](#configure-the-security-daemon) pour terminer le provisionnement de votre périphérique. 
+Une fois l’installation de IoT Edge réussie, la sortie vous invite à mettre à jour le fichier de configuration. Suivez les étapes de la section [Configurer le démon de sécurité](#configure-the-security-daemon) pour terminer l’approvisionnement de votre appareil. 
 
 ## <a name="install-a-specific-runtime-version"></a>Installer une version du runtime spécifique
 
-Si vous voulez installer une version spécifique du runtime Azure IoT Edge, vous pouvez cibler les fichiers de composants directement depuis le dépôt GitHub IoT Edge. Suivez les étapes suivantes pour obtenir tous les composants IoT Edge sur votre appareil : le moteur Moby et CLI, le libiothsm, et enfin le démon de sécurité IoT Edge.
+Si vous voulez installer une version spécifique de Moby et du runtime Azure IoT Edge au lieu d’utiliser les versions les plus récentes, vous pouvez cibler les fichiers de composants directement depuis le référentiel GitHub IoT Edge. Suivez les étapes suivantes pour obtenir tous les composants IoT Edge sur votre appareil : le moteur Moby et CLI, le libiothsm, et enfin le démon de sécurité IoT Edge. Passez à la section suivante, [Configurer le démon de sécurité](#configure-the-security-daemon), si vous ne souhaitez pas passer à une version spécifique du runtime.
 
 1. Accédez aux [versions d’Azure IoT Edge](https://github.com/Azure/azure-iotedge/releases)et recherchez celle que vous souhaitez cibler. 
 
@@ -164,7 +164,7 @@ Le démon peut être configuré à l’aide du fichier de configuration situé �
 
 Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d’une chaîne de connexion d’appareil fournie par IoT Hub. Vous pouvez également utiliser le service Device Provisioning pour approvisionner automatiquement des appareils. Ce service s’avère particulièrement utile lorsque vous devez approvisionner de nombreux appareils. Choisissez le script d’installation approprié selon votre choix en matière d’approvisionnement.
 
-### <a name="option-1-manual-provisioning"></a>Option 1 : Provisionnement manuel
+### <a name="option-1-manual-provisioning"></a>Option 1 : Provisionnement manuel
 
 Pour provisionner manuellement un appareil, vous devez lui fournir une [chaîne de connexion d’appareil](how-to-register-device.md#register-in-the-azure-portal) que vous pouvez créer en inscrivant un nouvel appareil dans votre hub IoT.
 
@@ -203,7 +203,7 @@ Après avoir entré les informations de provisionnement dans le fichier de confi
 sudo systemctl restart iotedge
 ```
 
-### <a name="option-2-automatic-provisioning"></a>Option 2 : Provisionnement automatique
+### <a name="option-2-automatic-provisioning"></a>Option n°2 : Provisionnement automatique
 
 Pour provisionner automatiquement un appareil, [configurez le Service Device Provisioning et récupérez votre ID d’inscription d’appareil](how-to-auto-provision-simulated-device-linux.md). Un certain nombre de mécanismes d’attestation sont pris en charge par les IoT Edge lors de l’utilisation du provisionnement automatique, mais votre configuration matérielle requise affecte également vos choix. Par exemple, les appareils Raspberry Pi ne sont pas fournis avec une puce de Module de plateforme sécurisée (TPM) par défaut.
 
@@ -265,7 +265,9 @@ Exécutez une vérification automatisée des erreurs de configuration et de mise
 sudo iotedge check
 ```
 
-De plus, listez les modules en cours d’exécution :
+Tant que vous n’avez pas déployé votre premier module sur IoT Edge sur votre appareil, le module système **$edgeHub** n’est pas déployé sur l’appareil. Par conséquent, la vérification automatisée renverra une erreur pour la vérification de la connectivité `Edge Hub can bind to ports on host`. Cette erreur peut être ignorée, sauf si elle se produit après le déploiement d’un module sur l’appareil.
+
+Enfin, listez les modules en cours d’exécution :
 
 ```bash
 sudo iotedge list

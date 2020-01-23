@@ -1,6 +1,6 @@
 ---
-title: Ajouter une couche de carte thermique dans Azure Maps | Microsoft Docs
-description: Comment ajouter une couche de carte thermique à un kit de développement logiciel (SDK) web Azure Maps.
+title: Ajouter une couche de carte thermique à une carte | Microsoft Azure Maps
+description: Dans cet article, vous découvrirez comment ajouter une couche de carte thermique à une carte à l’aide du SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b0d07f18682bf39558180753de38a9c5ff106ee3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ead30a80a6568e72f922f355916d31121b49a93b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408537"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911220"
 ---
 # <a name="add-a-heat-map-layer"></a>Ajouter un calque de carte thermique
 

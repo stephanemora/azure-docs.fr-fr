@@ -1,6 +1,6 @@
 ---
-title: Utiliser PowerShell pour redimensionner une machine virtuelle Windows dans Azure
-description: Redimensionnez une machine virtuelle Windows créée avec le modèle de déploiement Resource Manager à l’aide d’Azure PowerShell.
+title: Redimensionner une machine virtuelle Windows dans Azure
+description: Modifier la taille de la machine virtuelle utilisée pour une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -12,26 +12,34 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4b30f2fd8e095b00898e083e33c23c7c9a915b99
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6718804d4635edb2628b53017ab9d377928afad8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073364"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941719"
 ---
 # <a name="resize-a-windows-vm"></a>Redimensionner une machine virtuelle Windows
 
-Cet article vous explique comment changer la [taille d’une machine virtuelle](sizes.md) à l’aide d’Azure Powershell.
+Cet article vous explique comment modifier la [taille d’une machine virtuelle](sizes.md).
 
 Une fois que vous avez créé une machine virtuelle, vous pouvez la mettre à l’échelle en modifiant sa taille. Dans certains cas, vous devez commencer par libérer la machine virtuelle. Cela peut se produire si la nouvelle taille n’est pas disponible sur le cluster matériel qui héberge actuellement la machine virtuelle.
 
 Si votre machine virtuelle utilise le stockage Premium, assurez-vous de choisir une version **s** de la taille pour obtenir un support de stockage Premium. Par exemple, choisissez Standard_E4**s**_v3 au lieu de Standard_E4_v3.
 
- 
+## <a name="use-the-portal"></a>Utiliser le portail
 
-## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Redimensionner une machine virtuelle Windows qui ne se trouve pas dans un groupe à haute disponibilité
+1. Ouvrez le [portail Azure](https://portal.azure.com).
+1. Ouvrez la page de la machine virtuelle.
+1. Dans le menu de gauche, sélectionnez **Taille**.
+1. Choisissez une nouvelle taille dans la liste des tailles disponibles, puis sélectionnez **Redimensionner**.
+
+
+Si la machine virtuelle est en cours d’exécution et que vous modifiez sa taille, elle redémarre. L’arrêt de la machine virtuelle peut révéler des tailles supplémentaires.
+
+## <a name="use-powershell-to-resize-a-vm-not-in-an-availability-set"></a>Utilisez PowerShell pour redimensionner une machine virtuelle qui ne se trouve pas dans un groupe à haute disponibilité
 
 Définissez des variables. Remplacez les valeurs par vos propres informations.
 
@@ -69,7 +77,7 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 > 
 > 
 
-## <a name="resize-a-windows-vm-in-an-availability-set"></a>Redimensionner une machine virtuelle Windows qui se trouve dans un groupe à haute disponibilité
+## <a name="use-powershell-to-resize-a-vm-in-an-availability-set"></a>Utilisez PowerShell pour redimensionner une machine virtuelle qui se trouve dans un groupe à haute disponibilité
 
 Si la nouvelle taille d’une machine virtuelle se trouvant dans un groupe à haute disponibilité n’est pas disponible sur le cluster matériel qui l’héberge actuellement, toutes les machines virtuelles du groupe à haute disponibilité doivent être libérées pour redimensionner la machine virtuelle. Vous devrez peut-être mettre à jour la taille des autres machines virtuelles du groupe à haute disponibilité après le redimensionnement d’une des machines virtuelles. Pour redimensionner une machine virtuelle dans un groupe à haute disponibilité, procédez comme suit.
 

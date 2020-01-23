@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 45804bd3e81e7363010979b7a6e028356b3a5080
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666033"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780060"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Mettre à l’échelle automatiquement les clusters Azure HDInsight
 
@@ -28,10 +28,12 @@ Le tableau suivant décrit les types de cluster et les versions qui sont compati
 
 | Version | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 sans ESP | Oui 2.3 uniquement| OUI | Non | Non | Non | Non | Non |
-| HDInsight 4.0 sans ESP | OUI | OUI | Non | Non | Non | Non | Non |
-| HDInsight 3.6 avec ESP | Oui 2.3 uniquement | OUI | Non | Non | Non | Non | Non |
-| HDInsight 4.0 avec ESP | OUI | OUI | Non | Non | Non | Non | Non |
+| HDInsight 3.6 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+| HDInsight 4.0 sans ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+| HDInsight 3.6 avec ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+| HDInsight 4.0 avec ESP | Oui | Oui | Oui | Oui* | Non | Non | Non |
+
+\* Les clusters HBase peuvent uniquement être configurés pour une mise à l’échelle basée sur la planification, et non basée sur la charge.
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -70,7 +72,7 @@ Lorsque les conditions suivantes sont détectées, la fonction de mise à l’é
 
 En fonction du nombre de conteneurs AM par nœud ainsi que des besoins actuels en UC et en mémoire, la fonction de mise à l’échelle automatique émet une requête de suppression d’un certain nombre de nœuds. Le service détecte également les nœuds à supprimer en fonction de l’exécution des travaux en cours. L’opération de descente en puissance désactive tout d’abord les nœuds, puis les supprime du cluster.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Créer un cluster avec une mise à l’échelle automatique basée sur la charge
 
@@ -208,7 +210,7 @@ Utilisez les paramètres appropriés dans la charge utile de la requête. La cha
 
 Consultez la section précédente sur l’[activation de la mise à l’échelle automatique basée sur la charge](#load-based-autoscaling) pour obtenir une description complète de tous les paramètres de charge utile.
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 ### <a name="choosing-load-based-or-schedule-based-scaling"></a>Choix de la mise à l’échelle basée sur la planification ou la charge
 
@@ -245,7 +247,7 @@ La liste ci-dessous présente les messages d’état de cluster susceptibles de 
 
 | État du cluster | Explication |
 |---|---|
-| Exécution | Le cluster fonctionne normalement. Toutes les activités de mise à l’échelle automatique précédentes sont réussies. |
+| Exécution en cours | Le cluster fonctionne normalement. Toutes les activités de mise à l’échelle automatique précédentes sont réussies. |
 | Mise à jour  | La configuration de la mise à l’échelle automatique du cluster est en cours de mise à jour.  |
 | Configuration de HDInsight  | Une opération de montée ou de descente en puissance de cluster est en cours.  |
 | Erreur de mise à jour  | HDInsight a rencontré des problèmes pendant la mise à jour de la configuration de la mise à l’échelle automatique. Les clients peuvent choisir de réessayer la mise à jour ou de désactiver la mise à l’échelle automatique.  |

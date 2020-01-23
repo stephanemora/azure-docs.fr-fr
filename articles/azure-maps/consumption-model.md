@@ -1,6 +1,6 @@
 ---
-title: Modèle de consommation dans Azure Maps | Microsoft Docs
-description: En savoir plus sur le modèle de consommation dans Azure Maps
+title: Modèles de consommation du véhicule pour le routage | Microsoft Azure Maps
+description: Dans cet article, vous découvrirez les modèles de consommation du véhicule pour le routage dans Microsoft Azure Maps.
 author: subbarayudukamma
 ms.author: skamma
 ms.date: 05/08/2018
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5f75f656312c11a4668ca9ef9fe7b2a61a7d13e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a8a0778ce279846b0d7a66b1729b6898e80a4b5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60797905"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911713"
 ---
 # <a name="consumption-model"></a>Modèle de consommation
 
 Les itinéraires en ligne fournissent un ensemble de paramètres pour une description détaillée du modèle de consommation spécifique du véhicule.
 Selon la valeur de **vehicleEngineType**, deux grands modèles de consommation sont pris en charge : _Combustion_ et _Electric_. Il n’est pas possible de spécifier les paramètres appartenant à des modèles différents dans la même requête.
-Le modèle de consommation ne peut pas être utilisé avec les valeurs **travelMode** _bicycle_ et _pedestrian_.
+Le modèle de consommation ne peut pas être utilisé avec les valeurs **travelMode**_bicycle_ et _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Contraintes des paramètres pour le modèle de consommation
 

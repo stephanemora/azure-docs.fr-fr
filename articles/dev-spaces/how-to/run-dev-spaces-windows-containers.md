@@ -5,12 +5,12 @@ ms.date: 07/25/2019
 ms.topic: conceptual
 description: Découvrez comment exécuter Azure Dev Spaces sur un cluster existant avec des conteneurs Windows
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, conteneurs Windows
-ms.openlocfilehash: 7410c0e38b84979f0977973b2d6ccf588e2b1230
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484002"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867304"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagir avec des conteneurs Windows à l’aide d’Azure Dev Spaces
 
@@ -146,7 +146,12 @@ azds prep --public
 azds up
 ```
 
-La commande `azds prep --public` génère le graphique Helm et les fichiers Dockerfile pour votre application. La commande `azds up` exécute votre service dans l’espace de noms.
+La commande `azds prep --public` génère le graphique Helm et les fichiers Dockerfile pour votre application.
+
+> [!TIP]
+> Le [Dockerfile et le chart Helm](../how-dev-spaces-works.md#prepare-your-code) de votre projet sont utilisés par Azure Dev Spaces pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
+
+La commande `azds up` exécute votre service dans l’espace de noms.
 
 ```console
 $ azds up

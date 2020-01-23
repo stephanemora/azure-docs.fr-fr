@@ -1,5 +1,5 @@
 ---
-title: Résolution des erreurs d’intégration des solutions Update Management, Change Tracking et Inventory
+title: Détecter un problème d’intégration des solutions de gestion Azure Automation
 description: Découvrez comment résoudre les erreurs d’intégration des solutions Update Management, Change Tracking et Inventory.
 services: automation
 author: mgoedtel
@@ -8,14 +8,14 @@ ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c949556949e0c187d7c23c4dd32436e245bfbb95
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849307"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75889330"
 ---
-# <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
+# <a name="troubleshoot-errors-when-onboarding-update-management-change-tracking-and-inventory"></a>Résolution des erreurs d’intégration des solutions Update Management, Change Tracking et Inventory
 
 Vous pouvez rencontrer des erreurs lors de l’intégration d’une solution telle que Update Management, Change Tracking ou Inventory. Cet article décrit les erreurs qui peuvent se produire et explique comment les résoudre.
 
@@ -31,7 +31,7 @@ Un nœud est inscrit sur Azure Automation, puis le nom d’ordinateur du systèm
 
 La modification du nom d’un nœud inscrit n’a pas pour effet de modifier son nom dans Azure Automation.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Annulez l’inscription du nœud dans le service State Configuration d’Azure Automation, puis réinscrivez-le.  Les rapports publiés sur le service avant ce délai ne seront plus disponibles.
 
@@ -46,7 +46,7 @@ Des clients ont signalé que, quand ils se connectent via une solution proxy qui
 
 Azure Automation ne prend pas en charge la nouvelle signature de certificats utilisés pour chiffrer le trafic.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Il n’existe aucune solution de contournement pour ce problème.
 
@@ -70,7 +70,7 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 Cette erreur est due à des autorisations incorrectes ou manquantes sur la machine virtuelle, l’espace de travail ou pour l’utilisateur.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Vérifiez que vous disposez des autorisations appropriées pour intégrer la machine virtuelle. Passez en revue les [autorisations nécessaires pour intégrer des machines](../automation-role-based-access-control.md#onboarding), puis essayez à nouveau d'intégrer la solution. Si vous rencontrez l’erreur `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assurez-vous de disposer de l’autorisation `Microsoft.OperationalInsights/workspaces/read` pour pouvoir déterminer si la machine virtuelle est intégrée à un espace de travail.
 
@@ -88,7 +88,7 @@ Failed to configure automation account for diagnostic logging
 
 Cette erreur peut survenir si le niveau tarifaire ne correspond pas au modèle de facturation de l’abonnement. Pour plus d’informations, consultez [Surveiller l’utilisation et l’estimation des coûts dans Azure Monitor](https://aka.ms/PricingTierWarning).
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Créez votre espace de travail Log Analytics manuellement et répétez la procédure d’intégration pour sélectionner l’espace de travail créé.
 
@@ -102,7 +102,7 @@ Ce code d’erreur signifie que la requête de recherche de groupe d’ordinateu
 
 Il est possible que vous ayez modifié la requête, ou elle peut avoir été modifiée par le système.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Vous pouvez supprimer la requête pour cette solution et réintégrer la solution, ce qui recrée la requête. La requête se trouve dans votre espace de travail, sous **Recherches enregistrées**. Le nom de la requête est **MicrosoftDefaultComputerGroup**, et la catégorie de la requête est le nom de la solution associée à cette requête. Si plusieurs solutions sont activées, **MicrosoftDefaultComputerGroup** s’affiche plusieurs fois sous **Recherches enregistrées**.
 
@@ -116,7 +116,7 @@ Ce code d’erreur signifie que le déploiement a échoué en raison d’une vio
 
 Une stratégie actuellement en place empêche l’opération de se terminer.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Pour déployer correctement la solution, vous devez envisager de modifier la stratégie indiquée. Étant donné qu’il existe plusieurs types de stratégies différents qui peuvent être définis, les modifications spécifiques requises dépendent de la stratégie violée. Par exemple, si une stratégie a été définie sur un groupe de ressources qui interdisait la modification du contenu de certains types de ressources au sein de ce groupe de ressources, vous pourriez, par exemple, effectuer les opérations suivantes :
 
@@ -142,7 +142,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 Cette erreur se produit lorsque des solutions de votre espace de travail Log Analytics qui dépendent de votre compte Automation et de votre espace de travail Log Analytics associé sont toujours actives.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour résoudre ce problème, vous devrez supprimer les solutions suivantes de votre espace de travail si vous les utilisez :
 
@@ -156,7 +156,7 @@ Une fois les solutions supprimées, vous pouvez dissocier votre espace de travai
   * Supprimer les déploiements de mises à jour (planifications) de votre compte Automation
 * Démarrer/arrêter des machines virtuelles pendant les heures creuses
   * Supprimer tous les verrous sur les composants de solution dans votre compte Automation sous **Paramètres** > **Verrous**.
-  * Pour obtenir des instructions supplémentaires concernant la suppression de la solution Démarrer/arrêter des machines virtuelles pendant les heures creuses, consultez la page [Supprimer la solution de démarrage/arrêt des machines virtuelles pendant les heures creuses](../automation-solution-vm-management.md##remove-the-solution).
+  * Pour obtenir des instructions supplémentaires concernant la suppression de la solution Démarrer/arrêter des machines virtuelles pendant les heures creuses, consultez la page [Supprimer la solution de démarrage/arrêt des machines virtuelles pendant les heures creuses](../automation-solution-vm-management.md#remove-the-solution).
 
 ## <a name="mma-extension-failures"></a>Échecs d’extension MMA
 
@@ -192,7 +192,7 @@ Voici les causes possibles de cette erreur :
 
 * Un paramètre du pare-feu a bloqué l’accès aux adresses et aux ports nécessaires.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Vérifiez que les bons ports et adresses sont ouverts à la communication. Pour obtenir la liste des ports et adresses, consultez [Planification de votre réseau](../automation-hybrid-runbook-worker.md#network-planning).
 
@@ -223,7 +223,7 @@ Voici les causes possibles de cette erreur :
 * Une autre installation est en cours d’exécution.
 * Le redémarrage du système est déclenché pendant le déploiement du modèle.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Cette erreur est de nature temporaire. Recommencez le déploiement pour installer l’extension.
 
@@ -243,7 +243,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 Cette erreur se produit car la machine virtuelle était surchargée pendant l’installation.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Essayez d’installer l’extension MMA lorsque la machine virtuelle sera moins surchargée.
 

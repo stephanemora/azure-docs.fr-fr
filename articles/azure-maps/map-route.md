@@ -1,6 +1,6 @@
 ---
-title: Affichage de directions avec Azure Maps | Microsoft Docs
-description: Découvrez comment afficher les directions entre deux emplacements sur une carte à l’aide du kit SDK web Azure Maps.
+title: Afficher les itinéraires sur une carte | Microsoft Azure Maps
+description: Dans cet article, vous apprendrez à afficher des directions entre deux emplacements sur une carte à l’aide du SDK web Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: cf997d4ae120f3e9309892b112f9954bde97bc76
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 53e207e33c56455642edc9dcfcf328f5ca87945f
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976493"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910981"
 ---
 # <a name="show-directions-from-a-to-b"></a>Afficher des directions de A à B
 

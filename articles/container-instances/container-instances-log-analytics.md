@@ -1,28 +1,28 @@
 ---
-title: Journaux des ressources pour les groupes de conteneurs
+title: Collecter et analyser les journaux de ressources
 description: Découvrez comment envoyer des journaux de ressources et des données d’événement à partir de groupes de conteneurs dans Azure Container Instances vers les journaux d'activité Azure Monitor
 ms.topic: article
-ms.date: 09/02/2019
+ms.date: 01/08/2020
 ms.author: danlep
-ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 304e98fff386911b878877d2f03d489d0eef5dd7
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533733"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770541"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Groupe de conteneurs et journalisation des instances de conteneur avec les journaux d’activité Azure Monitor
 
-Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également à partir de ressources locales et d’autres clouds. Azure Container Instances inclut une prise en charge intégrée de l’envoi des journaux et des données d’événements aux journaux Azure Monitor.
+Les espaces de travail Log Analytics fournissent un emplacement centralisé pour le stockage et l’interrogation des données de journaux, non seulement à partir de ressources Azure, mais également à partir de ressources locales et d’autres clouds. Azure Container Instances inclut une prise en charge intégrée de l’envoi des journaux et des données d’événements aux journaux Azure Monitor.
 
-Pour envoyer des données de journal et des données d’événements d’un groupe de conteneurs aux journaux Azure Monitor, vous devez spécifier une clé d’espace de travail et un ID d’espace de travail Log Analytics au moment de la création du groupe de conteneurs. Les sections suivantes décrivent la création d’un groupe de conteneurs dans lequel la journalisation et l’interrogation des journaux d’activité sont activées.
+Pour envoyer des données de journal et des données d’événements d’un groupe de conteneurs aux journaux Azure Monitor, indiquez une clé et un ID d’espace de travail Log Analytics lors de la création du groupe de conteneurs. Les sections suivantes décrivent comment créer un groupe de conteneurs dans lequel la journalisation est activée et comment interroger des journaux.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 > [!NOTE]
 > Pour le moment, vous pouvez uniquement envoyer des données d’événements d’instances de conteneur Linux à Log Analytics.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour activer la journalisation dans vos instances de conteneur, vous avez besoin des éléments suivants :
 
@@ -46,7 +46,7 @@ Pour obtenir l’ID et la clé primaire de l’espace de travail Log Analytics 
 
 Maintenant que vous disposez de l’ID et de la clé primaire de l’espace de travail Log Analytics, vous êtes prêt à créer un groupe de conteneurs dans lequel la journalisation est activée.
 
-Les exemples suivants montrent deux façons de créer un groupe de conteneurs avec un seul conteneur [fluentd][fluentd] : Azure CLI et Azure CLI avec un modèle YAML. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux d’activité.
+Les exemples suivants montrent deux façons de créer un groupe de conteneurs qui consiste en un seul conteneur [Fluentd][fluentd] : Azure CLI et Azure CLI avec un modèle YAML. Le conteneur Fluentd produit plusieurs lignes de sortie dans sa configuration par défaut. Cette sortie étant envoyée à votre espace de travail Log Analytics, elle convient parfaitement à l’affichage et à l’interrogation des journaux d’activité.
 
 ### <a name="deploy-with-azure-cli"></a>Déploiement avec l’interface de ligne de commande Azure
 
@@ -111,7 +111,7 @@ Vous devez voir plusieurs résultats affichés par la requête. Si vous ne voyez
 
 ![Résultats de recherche dans les journaux dans le portail Azure][log-search-01]
 
-## <a name="view-events"></a>Visualiser les événements
+## <a name="view-events"></a>Afficher les événements
 
 Vous pouvez également voir les événements des instances de conteneur dans le portail Azure. Les événements incluent le moment où l’instance est créée et où elle démarre. Pour voir les données d’événements dans la table `ContainerEvent_CL` :
 

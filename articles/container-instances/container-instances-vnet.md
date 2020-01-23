@@ -2,14 +2,14 @@
 title: Déployer un groupe de conteneurs sur un réseau virtuel Azure
 description: Découvrez comment déployer des groupes de conteneurs dans un réseau virtuel Azure.
 ms.topic: article
-ms.date: 12/17/2019
+ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 9c9f1d114ea3883a947fb454d5958c1479bd4a4e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442245"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887954"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -24,7 +24,7 @@ Les groupes de conteneurs déployés dans un réseau virtuel Azure autorisent le
 * Communication de conteneurs avec les ressources locales via un [passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) ou [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 > [!IMPORTANT]
-> Cette fonctionnalité est actuellement en préversion et certaines [limitations s’appliquent](#preview-limitations). Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. Certains aspects de cette fonctionnalité sont susceptibles d’être modifiés avant la mise à disposition générale.
+> Les déploiements de groupe de conteneurs sur un réseau virtuel sont généralement disponibles pour les charges de travail de production dans les régions suivantes uniquement : **USA Est, USA Centre Sud, USA Ouest 2**. Dans les autres régions où cette fonctionnalité peut être utilisée, les déploiements de réseaux virtuels sont actuellement en préversion ; leur disponibilité générale étant prévue dans un avenir proche. Les préversions sont à votre disposition, à condition que vous acceptiez les [conditions d’utilisation supplémentaires][terms-of-use]. 
 
 
 ## <a name="virtual-network-deployment-limitations"></a>Limitations concernant le déploiement de réseau virtuel
@@ -33,11 +33,7 @@ Certaines limitations s’appliquent lorsque vous déployez des groupes de conte
 
 * Pour déployer des groupes de conteneurs dans un sous-réseau, le sous-réseau ne peut pas contenir d’autres types de ressources. Supprimez toutes les ressources d’un sous-réseau avant de déployer des groupes de conteneurs dans celui-ci, ou créez un sous-réseau.
 * Vous ne pouvez pas utiliser une [identité managée](container-instances-managed-identity.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
-* En raison des ressources réseau supplémentaires impliquées, le déploiement d’un groupe de conteneurs dans un réseau virtuel est généralement un peu plus lent que celui d’une instance de conteneur standard.
-
-## <a name="preview-limitations"></a>Limitations de la version préliminaire
-
-Cette fonctionnalité est en préversion, mais les limitations suivantes s’appliquent lors du déploiement de groupes de conteneurs dans un réseau virtuel. 
+* En raison des ressources réseau supplémentaires impliquées, le déploiement d’un groupe de conteneurs sur un réseau virtuel est généralement plus lent que celui d’une instance de conteneur standard.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
@@ -46,8 +42,10 @@ Les limites des ressources de conteneur peuvent différer des limites des instan
 ### <a name="unsupported-networking-scenarios"></a>Scénarios de mise en réseau non pris en charge 
 
 * **Azure Load Balancer** - Le placement d’un équilibreur de charge Azure devant des instances de conteneurs dans un groupe de conteneurs en réseau n’est pas pris en charge.
-* **Appairage de réseaux virtuels** : l’appairage de réseaux virtuels ne fonctionne pas pour ACI si le réseau auquel le réseau virtuel ACI est homologué utilise un espace IP public. Le réseau appairé a besoin d’un espace d’adresse IP privée RFC1918 pour que le Peering fonctionne. En outre, vous ne pouvez actuellement appairer votre réseau virtuel qu’à un autre réseau virtuel.
-* **Routage du trafic de réseau virtuel** : les itinéraires des clients ne peuvent pas être configurés sur des adresses IP publiques. Les itinéraires peuvent être configurés dans l’espace IP privé du sous-réseau délégué dans lequel les ressources ACI sont déployées. 
+* **Peering de réseau virtuel**
+  * Le peering de réseaux virtuels ne fonctionne pas pour ACI si le réseau auquel le réseau virtuel ACI est appairé utilise un espace IP public. Le réseau appairé a besoin d’un espace IP privée RFC 1918 pour que le peering de réseaux virtuels fonctionne. 
+  * Vous ne pouvez appairer votre réseau virtuel qu’à un autre réseau virtuel
+* **Routage du trafic de réseau virtuel** : les itinéraires personnalisés peuvent pas être configurés sur des adresses IP publiques. Les itinéraires peuvent être configurés dans l’espace IP privé du sous-réseau délégué dans lequel les ressources ACI sont déployées. 
 * **Groupes de sécurité réseau** - Les règles de sécurité de trafic sortant dans les groupes de sécurité réseau appliquées à un sous-réseau délégué à Azure Container Instances ne sont pas appliquées actuellement. 
 * **Étiquette DNS ou adresse IP publique** - Les groupes de conteneurs déployés sur un réseau virtuel ne prennent actuellement pas en charge l’exposition de conteneurs directement sur Internet avec une adresse IP publique ou un nom de domaine complet.
 * **Résolution de noms interne** - La résolution de noms pour les ressources Azure dans le réseau virtuel par le biais du système DNS Azure interne n’est pas prise en charge.
@@ -99,7 +97,7 @@ Une fois que vous avez déployé votre premier groupe de conteneurs avec cette m
 
 Pour déployer un groupe de conteneurs dans un réseau virtuel existant :
 
-1. Créez un sous-réseau dans votre réseau virtuel existant, ou videz un sous-réseau existant de *toutes* les autres ressources
+1. Créez un sous-réseau au sein de votre réseau virtuel existant, utilisez un sous-réseau existant dans lequel un groupe de conteneurs est déjà déployé, ou utilisez un sous-réseau existant vide de *toute* autre ressource.
 1. Déployez un groupe de conteneurs avec [az container create][az-container-create] et spécifiez un des éléments suivants :
    * Nom du réseau virtuel et nom du sous-réseau
    * ID de ressource de réseau virtuel et ID de ressource de sous-réseau, ce qui permet d’utiliser un réseau virtuel d’un groupe de ressources différent
@@ -115,7 +113,7 @@ Les sections suivantes décrivent comment déployer des groupes de conteneurs da
 
 Tout d’abord, déployez un groupe de conteneurs et spécifiez les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Lorsque vous spécifiez ces paramètres, Azure crée le réseau virtuel et le sous-réseau, délègue le sous-réseau à Azure Container instances et crée un profil réseau. Une fois ces ressources créées, votre groupe de conteneurs est déployé dans le sous-réseau.
 
-Exécutez la commande [az container create][az-container-create] qui spécifie les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Vous devez fournir le nom d’un groupe de ressources qui a été créé dans une région qui [prend en charge](#preview-limitations) des groupes de conteneurs dans un réseau virtuel. Cette commande déploie le conteneur Microsoft [aci-helloworld][aci-helloworld] public qui exécute un petit serveur web Node.js qui gère une page web statique. Dans la section suivante, vous allez déployer un deuxième groupe de conteneurs dans le même sous-réseau et tester la communication entre les deux instances de conteneur.
+Exécutez la commande [az container create][az-container-create] qui spécifie les paramètres d’un nouveau réseau virtuel et d’un nouveau sous-réseau. Vous devez fournir le nom d’un groupe de ressources ayant été créé dans une région où il est [possible](#virtual-network-deployment-limitations) de déployer un groupe de conteneurs sur un réseau virtuel. Cette commande déploie le conteneur Microsoft [aci-helloworld][aci-helloworld] public qui exécute un petit serveur web Node.js qui gère une page web statique. Dans la section suivante, vous allez déployer un deuxième groupe de conteneurs dans le même sous-réseau et tester la communication entre les deux instances de conteneur.
 
 ```azurecli
 az container create \
@@ -180,7 +178,7 @@ La sortie du journal doit montrer que `wget` a réussie à se connecter le fichi
 
 ### <a name="deploy-to-existing-virtual-network---yaml"></a>Déployer dans un réseau virtuel existant - YAML
 
-Vous pouvez également déployer un groupe de conteneurs dans un réseau virtuel existant, en utilisant un fichier YAML. Pour déployer dans un sous-réseau d’un réseau virtuel, spécifiez plusieurs propriétés supplémentaires dans le fichier YAML :
+Vous pouvez également déployer un groupe de conteneurs sur un réseau virtuel existant à l’aide d’un fichier YAML, d’un modèle Resource Manager ou d’une autre méthode de programmation, comme le kit de développement logiciel (SDK) Python. Pour déployer dans un sous-réseau d’un réseau virtuel, spécifiez plusieurs propriétés supplémentaires dans le fichier YAML :
 
 * `ipAddress`: paramètres d’adresse IP du groupe de conteneurs.
   * `ports`: ports à ouvrir, le cas échéant.
@@ -225,7 +223,7 @@ properties:
     - protocol: tcp
       port: '80'
   networkProfile:
-    id: /subscriptions/<Subscription ID>/resourceGroups/container/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
+    id: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkProfiles/aci-network-profile-aci-vnet-subnet
   osType: Linux
   restartPolicy: Always
 tags: null
@@ -263,9 +261,9 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Si vous recevez une erreur lors de la tentative de suppression du profil réseau, comptez 2-3 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si vous avez toujours des problèmes à supprimer le profil réseau, [ouvrez une demande de support.](https://azure.microsoft.com/support/create-ticket/)
+> Si une erreur survient lorsque vous tentez de supprimer le profil réseau, comptez 2 ou 3 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si le problème persiste, [ouvrez une demande de support](https://azure.microsoft.com/support/create-ticket/).
 
-La préversion initiale de cette fonctionnalité nécessite plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau.
+Cette fonctionnalité nécessite pour le moment plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées précédemment. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau.
 
 Avant d’exécuter le script, attribuez à la variable `RES_GROUP` le nom du groupe de ressources contenant le réseau virtuel et le sous-réseau à supprimer. Mettez à jour le nom du réseau virtuel si vous n’avez pas utilisé le nom `aci-vnet` suggéré précédemment. Le script est mis en forme pour l’interpréteur de commandes Bash. Si vous préférez un autre interpréteur de commandes, PowerShell ou l’invite de commande, vous devrez ajuster les variables et les accesseurs en conséquence.
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.date: 01/13/2020
+ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901321"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921007"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -29,13 +29,25 @@ Les versions d’API, les packages NuGet, les espaces de noms et les points de t
 
 ## <a name="feature-announcements"></a>Annonces de fonctionnalités
 
+### <a name="january-2020"></a>Janvier 2020
+
++ [Les clés de chiffrement gérées par le client](search-security-manage-encryption-keys.md) sont désormais mises à la disposition générale. Si vous utilisez REST, vous pouvez accéder à la fonctionnalité à l’aide de `api-version=2019-05-06`. Pour le code managé, le bon package est toujours la [version préliminaire 8.0 SDK .NET](search-dotnet-sdk-migration-version-9.md) même si la fonctionnalité n’est plus en préversion. 
+
++ L’accès privé à un service Search est disponible par le biais de deux mécanismes :
+
+  + Vous pouvez restreindre l’accès à des adresses IP spécifiques à l’aide de l’API REST de gestion `api-version=2019-10-01-Preview` pour créer le service. L’API en préversion comprend de nouvelles propriétés **IpRule** et **NetworkRuleSet** dans [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Cette fonctionnalité d’évaluation est disponible dans les régions sélectionnées. Pour plus d’informations, consultez la section [Utilisation de l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+
+  + Actuellement disponible par le biais d’une version préliminaire à accès limité, vous pouvez configurer un service Search Azure qui prend en charge le point de terminaison privé Azure pour les connexions des clients sur le même réseau virtuel. Pour plus d’informations, consultez la section [Créer un point de terminaison privé pour une connexion sécurisée](service-create-private-endpoint.md).
+
 ### <a name="december-2019"></a>Décembre 2019
 
 + Dans le portail, [Créer une application (préversion)](search-create-app-portal.md) est un nouvel Assistant qui génère un fichier HTML téléchargeable. Le fichier est fourni avec un script incorporé qui restitue une application web opérationnelle de type « localhost », qui est liée à un index de votre service de recherche. Les pages sont configurables dans l’Assistant et peuvent contenir une barre de recherche, une zone de résultats, une navigation dans la barre latérale et la prise en charge des requêtes TypeAhead. Vous pouvez modifier le code HTML hors connexion pour étendre ou personnaliser le workflow ou l’apparence.
 
++ La section [Créer un point de terminaison privé pour les connexions sécurisées (version préliminaire)](service-create-private-endpoint.md) explique comment configurer une liaison privée pour sécuriser les connexions de votre service Search. Cette fonctionnalité d’évaluation est disponible à la demande et utilise [Azure Private Link](../private-link/private-link-overview.md) et le [Réseau virtuel Azure](../virtual-network/virtual-networks-overview.md) dans le cadre de la solution.
+
 ### <a name="november-2019---ignite-conference"></a>Novembre 2019 - Conférence Ignite
 
-+ L’[indexation incrémentielle (en préversion)](cognitive-search-incremental-indexing-conceptual.md) vous permet de choisir les étapes à retraiter quand vous apportez des modifications à un pipeline d’enrichissement. L’indexation incrémentielle s’avère utile si vous avez du contenu d’image que vous avez analysé précédemment. La sortie de l’analyse coûteuse est stockée, puis utilisée comme base pour une indexation ou un enrichissement supplémentaires.
++ [L’enrichissement incrémentiel (version préliminaire)](cognitive-search-incremental-indexing-conceptual.md) ajoute la mise en cache et l’état à un pipeline d’enrichissement afin que vous puissiez travailler sur des étapes ou des phases spécifiques sans perdre le contenu déjà traité. Auparavant, toute modification apportée à un pipeline d’enrichissement nécessitait une regénération complète. Grâce à l’enrichissement incrémentiel, la sortie de l’analyse coûteuse, en particulier l’analyse des images, est préservée.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->

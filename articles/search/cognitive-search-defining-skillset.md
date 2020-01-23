@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9fd4602d661dd4223c8caa2ec02eaf56284735a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 43251783cbcd6501562913b7b9cafb4f9f7cb3f1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114539"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754568"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Comment créer un ensemble de compétences dans un pipeline d’enrichissement de l’IA dans la Recherche cognitive Azure 
 
@@ -235,7 +235,7 @@ La sortie, dans ce cas une description de société, est générée pour chaque 
 
 ## <a name="add-structure"></a>Ajouter une structure
 
-Le jeu de compétences génère des informations structurées à partir de données non structurées. Considérez l'exemple suivant :
+Le jeu de compétences génère des informations structurées à partir de données non structurées. Prenons l’exemple suivant :
 
 *« In its fourth quarter, Microsoft logged $1.1 billion in revenue from LinkedIn, the social networking company it bought last year. The acquisition enables Microsoft to combine LinkedIn capabilities with its CRM and Office capabilities. Stockholders are excited with the progress so far. »*
 
@@ -249,7 +249,7 @@ Jusqu’à présent, cette structure est interne uniquement, en mémoire seuleme
 
 La [base de connaissances](knowledge-store-concept-intro.md) est une fonctionnalité d’évaluation de Recherche cognitive Azure destinée à l’enregistrement de vos documents enrichis. La base de connaissances que vous créez à l’aide d’un compte de stockage Azure est le référentiel dans lequel vos données enrichies résident. 
 
-Une définition de la base de connaissances est ajoutée à un ensemble de compétences. Pour obtenir une procédure pas à pas de l’ensemble du processus, consultez [Prise en main de la base de connaissances](knowledge-store-howto.md).
+Une définition de la base de connaissances est ajoutée à un ensemble de compétences. Pour obtenir une procédure pas à pas de l’ensemble du processus, consultez la section [Créer une base de connaissances dans REST](knowledge-store-create-rest.md).
 
 ```json
 "knowledgeStore": {

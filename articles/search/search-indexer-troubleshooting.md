@@ -8,40 +8,64 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c5a16d957f1e0414f92d0cc03442d88d438e4c92
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5f646b4cef782b569910bdf881208c9984194589
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793623"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931117"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Résoudre les problèmes courants des indexeurs dans la Recherche cognitive Azure
 
 Les indexeurs peuvent rencontrer un certain nombre de problèmes lors de l’indexation des données dans la Recherche cognitive Azure. Voici les principales catégories de défaillances :
 
-* [Connexion à une source de données](#data-source-connection-errors)
+* [Connexion à une source de données ou à d’autres ressources](#connection-errors)
 * [Traitement de documents](#document-processing-errors)
 * [Ingestion des documents dans un index](#index-errors)
 
-## <a name="data-source-connection-errors"></a>Erreurs de connexion à la source de données
+## <a name="connection-errors"></a>Erreurs de connexion
 
-### <a name="blob-storage"></a>Stockage Blob
+> [!NOTE]
+> Les indexeurs ont une prise en charge limitée pour accéder aux sources de données et à d’autres ressources sécurisées par les mécanismes de sécurité réseau Azure. Actuellement, les indexeurs peuvent accéder uniquement aux sources de données par le biais de mécanismes de restriction de plage d’adresses IP ou de règles NSG correspondantes, le cas échéant. Vous trouverez ci-dessous des détails sur l’accès à chaque source de données prise en charge.
+>
+> Vous trouverez l’adresse IP de votre service Search en effectuant un test ping de son nom de domaine complet (p. ex., `<your-search-service-name>.search.windows.net`).
+>
+> Vous pouvez trouver la plage d’adresses IP de `AzureCognitiveSearch` [l’étiquette de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) en utilisant des [fichiers JSON téléchargeables](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) ou via [l’API de détection d’étiquettes de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). La plage d’adresses IP est mise à jour chaque semaine.
 
-#### <a name="storage-account-firewall"></a>Pare-feu du compte de stockage
+### <a name="configure-firewall-rules"></a>Configurer les règles de pare-feu
 
-Le Stockage Azure fournit un pare-feu configurable. Par défaut, le pare-feu est désactivé pour que la Recherche cognitive Azure puisse se connecter à votre compte de stockage.
+Stockage Azure, CosmosDB et Azure SQL fournissent un pare-feu configurable. Il n’y a pas de message d’erreur spécifique lorsqu’il est activé. En règle générale, les erreurs de pare-feu sont génériques et se présentent comme `The remote server returned an error: (403) Forbidden` ou `Credentials provided in the connection string are invalid or have expired`.
 
-Il n’y a pas de message d’erreur spécifique lorsqu’il est activé. En règle générale, les erreurs de pare-feu sont de ce type : `The remote server returned an error: (403) Forbidden`.
+Vous pouvez utiliser deux options pour autoriser les indexeurs à accéder à ces ressources dans une telle instance :
 
-Vous pouvez vérifier que le pare-feu est activé sur le [portal](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal). La seule solution de contournement prise en charge consiste à désactiver le pare-feu en choisissant d’autoriser l’accès depuis [« Tous les réseaux »](https://docs.microsoft.com/azure/storage/common/storage-network-security#azure-portal).
+* Désactiver le pare-feu en choisissant d’autoriser l’accès de **Tous les réseaux** (si possible).
+* Vous pouvez également autoriser l’accès à l’adresse IP de votre service Search et à la plage d’adresses IP de `AzureCognitiveSearch` [l’étiquette de service](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) dans les règles de pare-feu de votre ressource (restriction de plage d’adresses IP).
 
-Si aucun ensemble de compétences n’est joint à votre indexeur, vous _pouvez_ tenter d’[ajouter une exception](https://docs.microsoft.com/azure/storage/common/storage-network-security#managing-ip-network-rules) pour les adresses IP de votre service de recherche. Toutefois, ce scénario n’est pas pris en charge et n’est pas garanti de fonctionner.
+Pour plus d’informations sur la configuration des restrictions de plage d’adresses IP pour chaque type de source de données, consultez les liens suivants :
 
-Vous trouverez l’adresse IP de votre service de recherche en effectuant un test ping de son nom de domaine complet (`<your-search-service-name>.search.windows.net`).
+* [Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-### <a name="cosmos-db"></a>Cosmos DB
+* [Cosmos DB](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-an-internet-ip-range)
 
-#### <a name="indexing-isnt-enabled"></a>L’indexation n’est pas activée
+* [Azure SQL](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)
+
+**Limitation** : Comme indiqué dans la documentation ci-dessus pour le stockage Azure, les restrictions de plage d’adresses IP ne fonctionnent que si votre service Search et votre compte de stockage se trouvent dans des régions différentes.
+
+Azure Functions (qui peut être utilisé comme une [compétence API web personnalisée](cognitive-search-custom-skill-web-api.md)) prend également en charge les [restrictions d’adresse IP](https://docs.microsoft.com/azure/azure-functions/ip-addresses#ip-address-restrictions). La liste d’adresses IP à configurer correspond à l’adresse IP de votre service Search et à la plage d’adresses IP de `AzureCognitiveSearch` l’étiquette de service.
+
+Pour plus d’informations sur l’accès aux données dans SQL Server sur une machine virtuelle Azure, cliquez [ici](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+
+### <a name="configure-network-security-group-nsg-rules"></a>Configurer les règles du groupe de sécurité réseau (NSG)
+
+Lors de l’accès aux données d’une instance gérée SQL, ou lorsqu’une machine virtuelle Azure est utilisée comme URI de service we pour une [compétence API web personnalisée](cognitive-search-custom-skill-web-api.md), les clients n’ont pas à se préoccuper des adresses IP spécifiques.
+
+Dans ce cas, la machine virtuelle Azure ou l’instance gérée SQL peut être configurée pour résider dans un réseau virtuel. Ensuite, le groupe de sécurité réseau peut être configuré pour filtrer le type de trafic réseau pouvant circuler vers et depuis les interfaces réseau et les sous-réseaux de réseau virtuel.
+
+`AzureCognitiveSearch` L’étiquette de service peut être utilisée directement dans les [règles de groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#work-with-security-rules) entrantes sans avoir besoin de rechercher sa plage d’adresses IP.
+
+Pour plus d’informations sur l’accès aux données dans une instance managée SQL, cliquez [ici](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+
+### <a name="cosmosdb-indexing-isnt-enabled"></a>« L’indexation » CosmosDB n’est pas activée
 
 La Recherche cognitive Azure comporte une dépendance implicite vis-à-vis de l’indexation Cosmos DB. Si l’indexation automatique est désactivée dans Cosmos DB, la Recherche cognitive Azure renvoie un état réussi, mais ne parvient pas à indexer le contenu du conteneur. Pour savoir comment vérifier les paramètres et activer l’indexation, voir [Gérer l’indexation dans Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-azure-portal).
 

@@ -16,14 +16,17 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b4a50657442422786f49c931aa6c2610d49846b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: edbc6f9ce4c1434fa27989f053c108914a151320
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939872"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75745778"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Afficher la latence relative aux régions Azure à partir d’emplacements spécifiques
+
+> [!WARNING]
+> Cette fonctionnalité est actuellement en version préliminaire et fait encore l'objet de tests de stabilité.
 
 Dans ce didacticiel, vous apprenez à utiliser le service Azure [Network Watcher](network-watcher-monitoring-overview.md) pour vous aider à déterminer dans quelle région Azure déployer votre application ou votre service, en fonction des données démographiques de vos utilisateurs. En outre, vous pouvez l’utiliser pour évaluer les connexions des fournisseurs de services à Azure.  
         

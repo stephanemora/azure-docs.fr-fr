@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: b79ca1d93baf1941d5de8db0c314f9cd21e51056
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 1c8f14bb1bca082a9d887e5d6d88aec213448c3e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328261"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894806"
 ---
 # <a name="grant-data-access-to-an-environment"></a>Accorder l’accès aux données dans un environnement
 
@@ -27,7 +27,7 @@ Cet article décrit les deux types de stratégies d’accès d’Azure Time Seri
 
 ## <a name="sign-in-to-time-series-insights"></a>Se connecter à Time Series Insights
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Recherchez votre environnement Time Series Insights. Entrez `Time Series` dans la zone **Recherche**. Sélectionnez **Environnement Time Series** dans les résultats de recherche.
 1. Sélectionnez votre environnement Time Series Insights dans la liste.
 
@@ -113,7 +113,7 @@ Suivez ces étapes pour que l’accès invité à un environnement Time Series I
 
 1. L’invité peut maintenant accéder à l’environnement partagé à l’aide de l’URL d’environnement fournie par l’administrateur. Pour un accès immédiat, il peut entrer cette URL dans son navigateur web.
 
-1. L’utilisateur invité verra le locataire de l’administrateur en sélectionnant son icône de profil dans l’angle supérieur droit de l’Explorateur Time Series.
+1. L’utilisateur invité verra le locataire de l’administrateur en sélectionnant son icône de profil en haut à droite de l’écran dans l’Explorateur Time Series.
 
     [![Sélection d’un avatar sur insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 

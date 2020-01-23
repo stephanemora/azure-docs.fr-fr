@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 277a745d26961ed509258d5423fc3c0da9b79a24
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: ae357d25a37e188ed043aaa0ca750bb0e52d58da
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219397"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903544"
 ---
 # <a name="security-controls-for-azure-event-hubs"></a>Contrôles de sécurité pour Azure Event Hubs
 
@@ -24,41 +24,41 @@ Cet article décrit les contrôles de sécurité intégrés dans Azure Event Hub
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation |
 |---|---|--|--|
-| Prise en charge du point de terminaison de service| OUI |  |  |
+| Prise en charge du point de terminaison de service| Oui |  |  |
 | Prise en charge de l’injection de réseau virtuel| Non | |  |
-| Prise en charge de l’isolement réseau et de l’installation de pare-feu| OUI |  |  |
+| Prise en charge de l’isolement réseau et de l’installation de pare-feu| Oui |  |  |
 | Prise en charge du tunneling forcé| Non |  |  |
 
 ## <a name="monitoring--logging"></a>Supervision et journalisation
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | |  |
-| Journalisation et audit du plan de gestion et de contrôle| OUI |  |  |
-| Journalisation et audit du plan de données| OUI |   |  |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | |  |
+| Journalisation et audit du plan de gestion et de contrôle| Oui |  |  |
+| Journalisation et audit du plan de données| Oui |   |  |
 
 ## <a name="identity"></a>Identité
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Authentication| OUI | | [Autoriser l’accès à Azure Event Hubs](authorize-access-event-hubs.md), [Autoriser l’accès aux ressources Event Hubs à l’aide d’Azure Active Directory](authorize-access-azure-active-directory.md), [Autoriser l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé](authorize-access-shared-access-signature.md) |
-| Authorization|  OUI | | [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md), [Authentifier une application avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-application.md), [Authentifier l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé (SAP)](authenticate-shared-access-signature.md) |
+| Authentication| Oui | | [Autoriser l’accès à Azure Event Hubs](authorize-access-event-hubs.md), [Autoriser l’accès aux ressources Event Hubs à l’aide d’Azure Active Directory](authorize-access-azure-active-directory.md), [Autoriser l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé](authorize-access-shared-access-signature.md) |
+| Autorisation|  Oui | | [Authentifier une identité managée avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-managed-identity.md), [Authentifier une application avec Azure Active Directory pour accéder aux ressources Event Hubs](authenticate-application.md), [Authentifier l’accès aux ressources Event Hubs à l’aide de signatures d’accès partagé (SAP)](authenticate-shared-access-signature.md) |
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation |
 |---|---|--|--|
-| Chiffrement côté serveur au repos : Clés managées par Microsoft |  OUI | |  |
-| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Non |  |  |
+| Chiffrement côté serveur au repos : Clés managées par Microsoft |  Oui | |  |
+| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui. Disponible pour les clusters dédiés. | Une clé gérée par le client dans Azure Key Vault peut être utilisée pour chiffrer les données sur un Event Hub au repos. | [Configurer des clés gérées par le client pour chiffrer les données Azure Event Hubs au repos à l’aide du portail Azure](configure-customer-managed-key.md) |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |  |
-| Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | |  |
-| Appels d’API chiffrés| OUI |  |  |
+| Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| Oui | |  |
+| Appels d’API chiffrés| Oui |  |  |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| OUI | |  |
+| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| Oui | |  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
