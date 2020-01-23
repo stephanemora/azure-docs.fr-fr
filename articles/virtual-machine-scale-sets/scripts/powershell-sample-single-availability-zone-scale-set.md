@@ -1,27 +1,19 @@
 ---
 title: Exemples Azure PowerShell - Groupe identique dans une zone unique
 description: Ce script permet de créer un groupe de machines virtuelles identiques exécutant Windows Server 2016 dans une zone de disponibilité unique.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.devlang: na
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9ef39306b18a03e194b94ae24860151462a870f6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9b3547844d0b2dcca58a95d04c9cb81d32fa52c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350786"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276431"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques dans une zone unique à l’aide de PowerShell
 Ce script permet de créer un groupe de machines virtuelles identiques exécutant Windows Server 2016 dans une zone de disponibilité unique. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via RDP.

@@ -3,23 +3,23 @@ title: Tutoriel - Configurer votre instance de serveur de configuration dans Azu
 description: Dans ce tutoriel, vous apprenez à configurer une instance de serveur de configuration Spring Cloud pour votre service Azure Spring Cloud dans le portail Azure
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.author: jeconnoc
-author: jpconnock
+ms.author: brendm
+author: bmitchell287
 ms.date: 10/18/2019
-ms.openlocfilehash: 186ba771d2df3b08244a05e349beea8dad2af93b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e0b5633a153583117cfe0d90ec5c0e7c5f2a147
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708802"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277528"
 ---
-# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Didacticiel : Configurer une instance de serveur de configuration Spring Cloud pour votre service
+# <a name="tutorial-set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Tutoriel : Configurer une instance de serveur de configuration Spring Cloud pour votre service
 
 Ce tutoriel vous montre comment connecter une instance de serveur de configuration Spring Cloud à votre service Azure Spring Cloud.
 
 La configuration Spring Cloud offre la prise en charge côté serveur et côté client d’une configuration externalisée dans un système distribué. L’instance de serveur de configuration vous fournit un emplacement centralisé pour gérer les propriétés externes des applications dans tous les environnements. Pour plus d’informations, consultez [Informations de référence sur le serveur de configuration Spring Cloud](https://spring.io/projects/spring-cloud-config).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 * Un service Azure Spring Cloud déjà provisionné et en cours d’exécution. Pour configurer et lancer un service Azure Spring Cloud, consultez [Démarrage rapide : Lancer une application Java Spring en utilisant Azure CLI](spring-cloud-quickstart-launch-app-cli.md).
 
@@ -55,7 +55,7 @@ Toutes les propriétés configurables servant à configurer le dépôt Git publi
 
 | Propriété        | Obligatoire | Fonctionnalité                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | OUI    | URI du dépôt Git utilisé comme back-end du serveur de configuration, commence par *http://* , *https://* , *git@* ou *ssh://* . |
+| `uri`           | Oui    | URI du dépôt Git utilisé comme back-end du serveur de configuration, commence par *http://* , *https://* , *git@* ou *ssh://* . |
 | `default-label` | Non     | Étiquette par défaut du dépôt Git, doit être le *nom de branche*, le *nom d’étiquette* ou le *commit-id* du dépôt. |
 | `search-paths`  | Non     | Tableau de chaînes utilisé pour effectuer une recherche dans les sous-répertoires du dépôt Git. |
 
@@ -70,7 +70,7 @@ Toutes les propriétés configurables servant à configurer un dépôt Git priv�
 
 | Propriété                   | Obligatoire | Fonctionnalité                                                      |
 | :------------------------- | -------- | ------------------------------------------------------------ |
-| `uri`                      | OUI    | URI du dépôt Git utilisé comme back-end du serveur de configuration, doit commencer par *http://* , *https://* , *git@* ou *ssh://* . |
+| `uri`                      | Oui    | URI du dépôt Git utilisé comme back-end du serveur de configuration, doit commencer par *http://* , *https://* , *git@* ou *ssh://* . |
 | `default-label`            | Non     | Étiquette par défaut du dépôt Git, doit être le *nom de branche*, le *nom d’étiquette* ou le *commit-id* du dépôt. |
 | `search-paths`             | Non     | Tableau de chaînes utilisé pour effectuer une recherche dans les sous-répertoires du dépôt Git. |
 | `private-key`              | Non     | Clé privée SSH pour accéder au dépôt Git, _obligatoire_ quand l’URI commence par *git@* ou *ssh://* . |
@@ -89,7 +89,7 @@ Toutes les propriétés configurables servant à configurer un dépôt Git priv�
 
 | Propriété        | Obligatoire | Fonctionnalité                                                      |
 | :-------------- | -------- | ------------------------------------------------------------ |
-| `uri`           | OUI    | URI du dépôt Git utilisé comme back-end du serveur de configuration, doit commencer par *http://* , *https://* , *git@* ou *ssh://* . |
+| `uri`           | Oui    | URI du dépôt Git utilisé comme back-end du serveur de configuration, doit commencer par *http://* , *https://* , *git@* ou *ssh://* . |
 | `default-label` | Non     | Étiquette par défaut du dépôt Git, doit être le *nom de branche*, le *nom d’étiquette* ou le *commit-id* du dépôt. |
 | `search-paths`  | Non     | Tableau de chaînes utilisé pour effectuer une recherche dans les sous-répertoires du dépôt Git. |
 | `username`      | Non     | Nom d’utilisateur utilisé pour accéder au serveur du dépôt Git, _obligatoire_ quand le serveur du dépôt Git prend en charge `Http Basic Authentication`. |
@@ -124,7 +124,7 @@ Toutes les propriétés configurables servant à configurer les dépôts Git ave
 
 Maintenant que vous avez enregistré vos fichiers de configuration dans un dépôt, vous devez le connecter à Azure Spring Cloud.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. Accédez à la page **Vue d’ensemble** de votre instance Azure Spring Cloud.
 
@@ -192,4 +192,4 @@ Une fois que vous avez enregistré un fichier de configuration, le bouton **Supp
 Dans ce tutoriel, vous avez appris à activer et configurer votre instance de serveur de configuration Spring Cloud. Pour en savoir plus sur la gestion de votre application, passez au tutoriel sur la mise à l’échelle manuelle d’une application.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Mettre à l’échelle une application dans Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)
+> [Tutoriel : Mettre à l’échelle une application dans Azure Spring Cloud](spring-cloud-tutorial-scale-manual.md)

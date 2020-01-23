@@ -1,26 +1,24 @@
 ---
 title: (DÉPRÉCIÉ) Équilibrer la charge des conteneurs dans un cluster DC/OS Azure
 description: Équilibrer la charge de plusieurs conteneurs dans un cluster DC/OS Azure Container Service.
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148886"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277830"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(DÉPRÉCIÉ) Équilibrer la charge des conteneurs dans un cluster DC/OS Azure Container Service
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Dans cet article, nous étudions comment créer un équilibreur de charge interne dans un cluster Azure Container Service géré par DC/OS à l’aide de Marathon-LB. Cette configuration vous permet de mettre à l’échelle vos applications horizontalement. Elle vous permet également de tirer parti des clusters d’agents publics et privés en plaçant vos équilibreurs de charge sur le cluster public et vos conteneurs d’applications sur le cluster privé. Dans ce didacticiel, vous avez appris à effectuer les opérations suivantes :
+Dans cet article, nous étudions comment créer un équilibreur de charge interne dans un cluster Azure Container Service géré par DC/OS à l’aide de Marathon-LB. Cette configuration vous permet de mettre à l’échelle vos applications horizontalement. Elle vous permet également de tirer parti des clusters d’agents publics et privés en plaçant vos équilibreurs de charge sur le cluster public et vos conteneurs d’applications sur le cluster privé. Dans ce tutoriel, vous allez :
 
 > [!div class="checklist"]
 > * Configurer un équilibreur de charge Marathon

@@ -1,27 +1,21 @@
 ---
-title: Exemple de script Azure CLI - Mettre à l’échelle un cluster ACS | Microsoft Docs
+title: Exemple de script Azure CLI - Mettre à l’échelle un cluster ACS
 description: Exemple de script Azure CLI - Mettre à l’échelle un cluster ACS
-services: container-service
-documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
-editor: ''
 tags: acs, azure-container-service
 keywords: Docker, conteneurs, microservices, Kubernetes, DC/OS, Azure
 ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 199a2f09df57878d6523cfed6873001f190e14f5
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 7e1136c179c5729f5ed0de189a90bbbb31412ab7
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992235"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270656"
 ---
 # <a name="deprecated-scale-an-azure-container-service-cluster"></a>(DÉPRÉCIÉ) Mise à l’échelle d’un cluster Azure Container Service
 
@@ -53,7 +47,7 @@ Ce script a recours aux commandes suivantes pour créer le déploiement. Chaque 
 
 | Commande | Notes |
 |---|---|
-| [az acs scale](/cli/azure/acs#az-acs-scale) | Met à l’échelle un cluster ACS. |
+| [az acs scale](/cli/azure/acs#az-acs-scale) | Mettez à l’échelle un cluster ACS. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

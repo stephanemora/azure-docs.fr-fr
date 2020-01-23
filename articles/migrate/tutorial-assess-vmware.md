@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028727"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289439"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Évaluer des machines virtuelles VMware à l’aide d’Azure Migrate Server Assessment
 
@@ -176,7 +176,7 @@ L’appliance doit se connecter à vCenter Server pour découvrir les données d
 1. Sélectionnez **Valider la connexion** pour vérifier que l’appliance peut se connecter à vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Spécifier des informations d’identification de machine virtuelle
-Pour la découverte des applications, des rôles et des fonctionnalités, et pour la visualisation des dépendances des machines virtuelles, vous pouvez fournir des informations d’identification de machine virtuelle qui permettent d’accéder aux machines virtuelles VMware. Vous pouvez ajouter des informations d’identification pour les machines virtuelles Windows et d’autres pour les machines virtuelles Linux. [Découvrez-en plus](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) sur les autorisations d’accès nécessaires.
+Pour la découverte des applications, des rôles et des fonctionnalités, et pour la visualisation des dépendances des machines virtuelles, vous pouvez fournir des informations d’identification de machine virtuelle qui permettent d’accéder aux machines virtuelles VMware. Vous pouvez ajouter des informations d’identification pour les machines virtuelles Windows et d’autres pour les machines virtuelles Linux. [Découvrez-en plus](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) sur les autorisations d’accès nécessaires.
 
 > [!NOTE]
 > Cette entrée est facultative. Mais vous en avez besoin si vous voulez activer la découverte des applications et visualiser les dépendances sans agent.
@@ -210,7 +210,7 @@ Cette procédure est obligatoire pour la migration de serveur sans agent.
 1.  Sélectionnez votre instance vCenter Server dans le menu déroulant.
 1.  Sélectionnez **Create role**.
 1.  Entrez un nom pour le nouveau rôle (par exemple, <em>Azure_Migrate</em>).
-1.  Attribuez des [autorisations](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) au rôle qui vient d’être défini.
+1.  Attribuez des [autorisations](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) au rôle qui vient d’être défini.
 1.  Sélectionnez **OK**.
 
 #### <a name="3-assign-permissions-on-vcenter-objects"></a>3. Affecter des autorisations sur les objets vCenter
@@ -219,7 +219,7 @@ Il existe deux approches pour affecter des autorisations sur des objets d’inve
 
 Pour l’évaluation de serveur, vous devez appliquer le rôle en **lecture seule** au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à découvrir sont hébergées. Tous les objets parents sont inclus : hôte, dossier des hôtes, cluster, dossier des clusters dans la hiérarchie jusqu’au centre de données. Ces autorisations sont propagées aux objets enfants dans la hiérarchie.
 
-De même que pour la migration du serveur, vous devez appliquer un rôle défini par l’utilisateur avec des [autorisations](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) d’accès au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à migrer sont hébergées. Ce rôle peut être nommé <em>Azure_Migrate</em>.
+De même que pour la migration du serveur, vous devez appliquer un rôle défini par l’utilisateur avec des [autorisations](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) d’accès au compte d’utilisateur vCenter pour tous les objets parents sur lesquels les machines virtuelles à migrer sont hébergées. Ce rôle peut être nommé <em>Azure_Migrate</em>.
 
 ![Affecter des autorisations](./media/tutorial-assess-vmware/assign-perms.png)
 

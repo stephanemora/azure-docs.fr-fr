@@ -3,12 +3,12 @@ title: Tutoriel - Sauvegarder des partages de fichiers Azure Files
 description: Dans ce didacticiel, vous allez apprendre à utiliser le Portail Azure pour configurer un coffre Recovery Services et sauvegarder des partages de fichiers Azure.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ec9074a39f2ece7878c0c3ef828dc21748d0ab89
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921644"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293927"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Sauvegarder des partages de fichiers Azure dans le portail Azure
 
@@ -43,29 +43,29 @@ Ce didacticiel suppose que vous ayez déjà établi un partage de fichiers Azure
 
 1. Créez un coffre Recovery Services dans la même région que votre partage de fichiers. Si vous disposez déjà d’un coffre, ouvrez la page de vue d’ensemble de votre coffre et cliquez sur **Sauvegarde**.
 
-    ![Cliquez sur la sauvegarde dans la page de vue d’ensemble de votre coffre](./media/backup-file-shares/overview-backup-page.png)
+    ![Cliquez sur la sauvegarde dans la page de vue d’ensemble de votre coffre](./media/tutorial-backup-azure-files/overview-backup-page.png)
 
 2. Dans le menu de l’**objectif de sauvegarde**, à partir de **Que voulez-vous sauvegarder ?** , choisissez le partage de fichiers Azure.
 
-    ![Choisir le partage de fichiers Azure comme objectif de sauvegarde](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
+    ![Choisir le partage de fichiers Azure comme objectif de sauvegarde](./media/tutorial-backup-azure-files/choose-azure-fileshare-from-backup-goal.png)
 
 3. Cliquez sur **Sauvegarde** pour configurer le partage de fichiers Azure pour votre coffre Recovery Services.
 
-   ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/backup-file-shares/set-backup-goal.png)
+   ![Cliquez sur Sauvegarde pour associer le partage de fichiers Azure au coffre](./media/tutorial-backup-azure-files/set-backup-goal.png)
 
     Une fois le coffre associé au partage de fichiers Azure, le menu de sauvegarde s’ouvre et vous demande de sélectionner un compte de stockage. Le menu affiche tous les comptes de stockage pris en charge dans la région où se trouve votre coffre, et qui ne sont pas déjà associés à un coffre Recovery Services.
 
-   ![Sélectionner votre compte de stockage](./media/backup-file-shares/list-of-storage-accounts.png)
+   ![Sélectionner votre compte de stockage](./media/tutorial-backup-azure-files/list-of-storage-accounts.png)
 
 4. Dans la liste Comptes de stockage, sélectionnez un compte et cliquez sur **OK**. Azure recherche le compte de stockage pour les partages de fichiers qui peuvent être sauvegardés. Si vous avez récemment ajouté vos partages de fichiers et que vous ne les voyez pas dans la liste, laissez un peu de temps pour qu’ils s’affichent.
 
-   ![Les partages de fichiers sont découverts](./media/backup-file-shares/discover-file-shares.png)
+   ![Les partages de fichiers sont découverts](./media/tutorial-backup-azure-files/discover-file-shares.png)
 
 5. À partir de la liste **Partages de fichiers**, sélectionnez un ou plusieurs des partages de fichiers que vous souhaitez sauvegarder, puis cliquez sur **OK**.
 
 6. Après avoir choisi vos partages de fichiers, le menu de sauvegarde bascule vers la **stratégie de sauvegarde**. Dans ce menu, sélectionnez une stratégie de sauvegarde existante, ou bien créez-en une, puis cliquez sur **Activer la sauvegarde**.
 
-   ![Sélectionnez une stratégie de sauvegarde ou créez-en une nouvelle](./media/backup-file-shares/apply-backup-policy.png)
+   ![Sélectionnez une stratégie de sauvegarde ou créez-en une nouvelle](./media/tutorial-backup-azure-files/apply-backup-policy.png)
 
     Une fois la stratégie de sauvegarde établie, un instantané des partages de fichiers sera effectué à l’heure planifiée, et le point de récupération est conservé pour la période définie.
 
@@ -77,19 +77,19 @@ Après avoir configuré la stratégie de sauvegarde, vous souhaiterez créer une
 
 1. Ouvrez le coffre Recovery Services contenant les points de récupération du partage de fichiers, puis cliquez sur **Éléments de sauvegarde**. La liste des types d’éléments de sauvegarde s’affiche.
 
-   ![Liste des éléments de sauvegarde](./media/backup-file-shares/list-of-backup-items.png)
+   ![Liste des éléments de sauvegarde](./media/tutorial-backup-azure-files/list-of-backup-items.png)
 
 2. Dans la liste, sélectionnez **Stockage Azure (fichiers Azure)** . La liste des partages de fichiers Azure s’affiche.
 
-   ![Répertorier les partages de fichiers Azure](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+   ![Répertorier les partages de fichiers Azure](./media/tutorial-backup-azure-files/list-of-azure-files-backup-items.png)
 
 3. Dans la liste des partages de fichiers Azure, sélectionnez le partage de fichiers désiré. Le menu de l’élément de sauvegarde pour le partage de fichiers sélectionné s’ouvre.
 
-   ![Menu de l’élément de sauvegarde pour le partage de fichiers sélectionné](./media/backup-file-shares/backup-item-menu.png)
+   ![Menu de l’élément de sauvegarde pour le partage de fichiers sélectionné](./media/tutorial-backup-azure-files/backup-item-menu.png)
 
 4. Dans le menu de l’élément de sauvegarde, cliquez sur **Sauvegarder maintenant**. Comme il s’agit d’un travail de sauvegarde à la demande, il n’existe aucune stratégie de rétention associée au point de récupération. La boîte de dialogue **Sauvegarder maintenant** s’ouvre. Spécifiez le dernier jour que vous souhaitez conserver dans le point de récupération.
 
-   ![Choisir une date pour la rétention des points de récupération](./media/backup-file-shares/backup-now-menu.png)
+   ![Choisir une date pour la rétention des points de récupération](./media/tutorial-backup-azure-files/backup-now-menu.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -103,4 +103,4 @@ Dans ce didacticiel, vous avez utilisé le portail Azure pour effectuer les opé
 Passez à l’article suivant pour restaurer à partir d’une sauvegarde d’un partage de fichiers Azure.
 
 > [!div class="nextstepaction"]
-> [Restauration à partir d’une sauvegarde de partage de fichiers Azure](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
+> [Restauration à partir d’une sauvegarde de partage de fichiers Azure](restore-afs.md)
