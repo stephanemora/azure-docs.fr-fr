@@ -3,21 +3,21 @@ title: Déployer une image conteneur depuis Azure Container Registry
 description: Découvrez comment déployer des conteneurs dans Azure Container Instances à l’aide d’images conteneur stockées dans un registre de conteneurs Azure.
 services: container-instances
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 12/30/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0d39c83646357cf9426239d28e445c4791ddceb0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533291"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981688"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Déployer sur Azure Container Instances à partir d’Azure Container Registry
 
 [Azure Container Registry](../container-registry/container-registry-intro.md) est un service de registre de conteneurs managé basé sur Azure, utilisé pour stocker des images de conteneurs Docker privés. Cet article explique comment déployer des images conteneur stockées dans un registre de conteneurs Azure sur Azure Container Instances.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 **Azure Container Registry** : Vous avez besoin d’un registre de conteneurs Azure et au moins d’une image conteneur dans le registre pour effectuer les étapes décrites dans cet article. Si vous avez besoin d’un registre, consultez [Créer un registre de conteneurs à l’aide de Azure CLI](../container-registry/container-registry-get-started-azure-cli.md).
 
@@ -25,7 +25,9 @@ ms.locfileid: "74533291"
 
 ## <a name="configure-registry-authentication"></a>Configurer l’authentification du registre
 
-Dans les scénarios de production, l’accès à un registre de conteneur Azure doit être fourni à l’aide de [principaux de service](../container-registry/container-registry-auth-service-principal.md). Les principaux du service vous permettent de fournir un [contrôle d’accès en fonction du rôle](../container-registry/container-registry-roles.md) à vos images de conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
+Dans un scénario de production où vous fournissez l’accès à des services et applications « sans affichage », il est recommandé de configurer l’accès au registre avec un [principal de service](../container-registry/container-registry-auth-service-principal.md). Un principal de service vous permet de fournir un [contrôle d’accès en fonction du rôle](../container-registry/container-registry-roles.md) à vos images conteneur. Par exemple, vous pouvez configurer un principal de service avec uniquement un accès d’extraction à un registre.
+
+Azure Container Registry offre des [options d’authentification](../container-registry/container-registry-authentication.md) supplémentaires.
 
 Dans la section suivante, vous créez un coffre de clés Azure et un principal de service et vous stockez des informations d’identification du principal de service dans le coffre. 
 
@@ -33,7 +35,9 @@ Dans la section suivante, vous créez un coffre de clés Azure et un principal d
 
 Si vous n’avez pas encore un coffre dans [Azure Key Vault](../key-vault/key-vault-overview.md), créez-en un avec Azure CLI à l’aide des commandes suivantes.
 
-Mettez à jour la variable `RES_GROUP` avec le nom d’un groupe de ressources existant où créer le coffre de clés, et `ACR_NAME` avec le nom de votre registre de conteneurs. Spécifiez un nom pour votre nouveau coffre de clés dans `AKV_NAME`. Le nom du coffre doit être unique au sein de Azure et doit être composé de 3 à 24 caractères alphanumériques, en commençant par une lettre, se terminant par une lettre ou un chiffre, et sans contenir de traits d’union consécutifs.
+Mettez à jour la variable `RES_GROUP` avec le nom d’un groupe de ressources existant où créer le coffre de clés, et `ACR_NAME` avec le nom de votre registre de conteneurs. Par souci de concision, les commandes de cet article supposent que registre, coffre de clé et instances de conteneur sont tous créés dans le même groupe de ressources.
+
+ Spécifiez un nom pour votre nouveau coffre de clés dans `AKV_NAME`. Le nom du coffre doit être unique au sein de Azure et doit être composé de 3 à 24 caractères alphanumériques, en commençant par une lettre, se terminant par une lettre ou un chiffre, et sans contenir de traits d’union consécutifs.
 
 ```azurecli
 RES_GROUP=myresourcegroup # Resource Group name
@@ -45,12 +49,12 @@ az keyvault create -g $RES_GROUP -n $AKV_NAME
 
 ### <a name="create-service-principal-and-store-credentials"></a>Créer un principal de service et stocker les informations d’identification
 
-Vous devez maintenant créer un principal de service et stocker ses informations d’identification dans votre coffre de clés.
+À présent, créez un principal de service et stockez ses informations d’identification dans votre coffre de clés.
 
 La commande suivante utilise [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] pour créer le principal du service, et [az keyvault secret set][az-keyvault-secret-set] pour stocker le **mot de passe** du principal de service dans le coffre.
 
 ```azurecli
-# Create service principal, store its password in AKV (the registry *password*)
+# Create service principal, store its password in vault (the registry *password*)
 az keyvault secret set \
   --vault-name $AKV_NAME \
   --name $ACR_NAME-pull-pwd \
@@ -67,14 +71,14 @@ L’argument `--role` dans la commande précédente configure le principal de se
 Ensuite, stockez le *appId* du principal de service dans le coffre, qui est le **nom d’utilisateur** que vous passez à Azure Container Registry pour l’authentification.
 
 ```azurecli
-# Store service principal ID in AKV (the registry *username*)
+# Store service principal ID in vault (the registry *username*)
 az keyvault secret set \
     --vault-name $AKV_NAME \
     --name $ACR_NAME-pull-usr \
     --value $(az ad sp show --id http://$ACR_NAME-pull --query appId --output tsv)
 ```
 
-Vous avez créé un coffre de clés Azure et il contient deux secrets :
+Vous avez créé un coffre de clés Azure et il contient deux secrets :
 
 * `$ACR_NAME-pull-usr`: ID de principal du service, pour une utilisation comme **nom d’utilisateur** du registre de conteneurs.
 * `$ACR_NAME-pull-pwd`: mot de passe du principal du service, pour une utilisation comme **mot de passe** du registre de conteneurs.
@@ -116,9 +120,10 @@ Une fois le conteneur démarré avec succès, vous pouvez naviguer vers son FQDN
 
 ## <a name="deploy-with-azure-resource-manager-template"></a>Déploiement avec un modèle Azure Resource Manager
 
-Vous pouvez spécifier les propriétés de votre registre Azure Container Registry dans un modèle Azure Resource Manager en incluant la `imageRegistryCredentials` propriété dans la définition du groupe de conteneurs :
+Vous pouvez spécifier les propriétés de votre registre de conteneurs Azure dans un modèle Azure Resource Manager en incluant la propriété `imageRegistryCredentials` dans la définition du groupe de conteneurs. Par exemple, vous pouvez spécifier les informations d’identification du registre directement :
 
 ```JSON
+[...]
 "imageRegistryCredentials": [
   {
     "server": "imageRegistryLoginServer",
@@ -126,9 +131,12 @@ Vous pouvez spécifier les propriétés de votre registre Azure Container Regist
     "password": "imageRegistryPassword"
   }
 ]
+[...]
 ```
 
-Pour plus d’informations sur le référencement des secrets de Azure Key Vault dans un modèle Resource Manager, consultez [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+Pour obtenir la configuration complète des paramètres du groupe de conteneurs, consultez [Informations de référence sur les modèles Resource Manager](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups).    
+
+Pour plus d’informations sur le référencement des secrets de Azure Key Vault dans un modèle Resource Manager, consultez [Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement](../azure-resource-manager/templates/key-vault-parameter.md).
 
 ## <a name="deploy-with-azure-portal"></a>Déploiement avec le Portail Azure
 

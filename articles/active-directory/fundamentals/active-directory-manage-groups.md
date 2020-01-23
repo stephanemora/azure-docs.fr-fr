@@ -8,30 +8,37 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 01/08/2020
 ms.author: ajburnle
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a90d54932561ed564a23d4d2785170aa85b5c9c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 961444e15ae1c45db1fc7423a6ac3cc96cc7b3fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422970"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768008"
 ---
 # <a name="manage-app-and-resource-access-using-azure-active-directory-groups"></a>Gérer l’accès aux applications et aux ressources à l’aide de groupes Azure Active Directory
-Azure Active Directory (Azure AD) vous permet de gérer vos ressources, applications locales et applications informatiques à l’aide de groupes de votre organisation. Vos ressources peuvent faire partie du répertoire, telles que les autorisations de gestion des objets via des rôles dans le répertoire, ou être externes au répertoire, comme les applications Software as a Service (SaaS), les services Azure, les sites SharePoint et les ressources locales.
+Azure Active Directory (Azure AD) vous permet d’utiliser des groupes pour gérer l’accès à vos applications basées sur le cloud, applications locales et ressources. Vos ressources peuvent faire partie de l’organisation Azure AD, comme les autorisations de gestion des objets par le biais de rôles dans Azure AD, ou être externes à l’organisation, comme les applications Logiciel en tant que service (SaaS), les services Azure, les sites SharePoint et les ressources locales.
 
 >[!NOTE]
 >Pour utiliser Azure Active Directory, vous avez besoin d'un compte Azure. Si vous ne possédez pas encore un compte Azure, vous pouvez [vous inscrire pour en obtenir un gratuitement](https://azure.microsoft.com/free/).
+>
+> Dans le portail Azure, vous pouvez voir des groupes dont vous ne pouvez pas gérer l’appartenance et les détails dans le portail :
+>
+> - Les groupes synchronisés à partir d’Active Directory local ne peuvent être gérés que dans Active Directory local.
+> - D’autres types de groupes, comme les listes de distribution et les groupes de sécurité à extension messagerie, sont gérés uniquement dans le Centre d’administration Exchange ou le Centre d’administration Microsoft 365. Vous devez vous connecter au Centre d’administration Exchange ou au Centre d’administration Microsoft 365 pour gérer ces groupes.
 
-## <a name="how-does-access-management-in-azure-ad-work"></a>Comment fonctionne la gestion des accès dans Azure AD ?
+## <a name="how-access-management-in-azure-ad-works"></a>Fonctionnement de la gestion de l’accès dans Azure AD
+
 Azure AD vous permet d’accorder des accès aux ressources de votre organisation en fournissant des droits d’accès à un utilisateur individuel ou à tout un groupe Azure AD. L’utilisation de groupes permet au propriétaire de ressources (ou propriétaire de répertoires Azure AD) d’assigner un ensemble d’autorisations d’accès à tous les membres du groupe, plutôt que d’avoir à fournir les droits un par un. Le propriétaire de ressources ou de répertoires peut également accorder des droits de gestion pour la liste des membres à quelqu’un d’autre, comme un responsable de service ou un administrateur du support technique, pour permettre à cette personne d’ajouter et de supprimer des personnes comme nécessaire. Pour plus d’informations sur la gestion des propriétaires de groupes, consultez [Gestion des propriétaires d’un groupe](active-directory-accessmanagement-managing-group-owners.md)
 
 ![Diagramme de gestion des accès Azure Active Directory](./media/active-directory-manage-groups/active-directory-access-management-works.png)
 
 ## <a name="ways-to-assign-access-rights"></a>Méthodes d’assignation des droits d’accès
+
 Quatre méthodes vous permettent d’assigner des droits d’accès aux ressources à vos utilisateurs :
 
 - **Assignation directe.** Le propriétaire de la ressource assigne directement l’utilisateur à la ressource.

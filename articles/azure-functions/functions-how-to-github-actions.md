@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: f30211b2b5863294976420d3f903a36abe76deba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433158"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769147"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>Livraison continue à l’aide de GitHub Actions
 
@@ -54,11 +54,14 @@ Copiez le contenu du fichier.
 
 ## <a name="configure-the-github-secret"></a>Configurer le secret GitHub
 
-1. Dans [GitHub](https://github.com), parcourez votre dépôt, sélectionnez **Paramètres** > **Secrets** > **Ajouter un nouveau secret**.
+1. Dans [GitHub](https://github.com), accédez à votre dépôt, sélectionnez **Paramètres** > **Secrets** > **Ajouter un nouveau secret**.
 
    ![Ajouter un secret](media/functions-how-to-github-actions/add-secret.png)
 
-1. Utilisez `AZURE_CREDENTIALS` pour le champ **Nom** et la sortie de la commande copiée pour le champ **Valeur**, si vous sélectionnez ensuite **Ajouter un secret**. Si vous utilisez un profil de publication, utilisez `SCM_CREDENTIALS` pour le champ **Nom** et le contenu du fichier pour le champ **Valeur**.
+1. Ajoutez un nouveau secret.
+
+   * Si vous utilisez le principal de service que vous avez créé à l’aide de l’interface de ligne de commande Azure, utilisez `AZURE_CREDENTIALS` pour **Nom**. Collez ensuite la sortie de l’objet JSON copié pour **Valeur**, puis sélectionnez **Ajouter un secret**.
+   * Si vous utilisez un profil de publication, utilisez `SCM_CREDENTIALS` pour **Nom**. Utilisez ensuite le contenu du fichier du profil de publication pour **Valeur**, puis sélectionnez **Ajouter un secret**.
 
 GitHub peut à présent s’authentifier auprès de votre application de fonction dans Azure.
 

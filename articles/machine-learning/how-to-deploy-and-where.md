@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/17/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 51d5afc365c33fe6d4cb719263bad19341170415
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689304"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754001"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -164,6 +164,13 @@ Pour plus d’informations sur l’utilisation de modèles formés en dehors d�
 Vous pouvez utiliser les cibles de calcul suivantes, ou ressources de calcul, pour héberger le déploiement de votre service web :
 
 [!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+## <a name="single-versus-multi-model-endpoints"></a>Points de terminaison à un seul modèle ou à plusieurs modèles
+Azure ML prend en charge le déploiement d’un ou de plusieurs modèles derrière un point de terminaison unique.
+
+Les points de terminaison à plusieurs modèles utilisent un conteneur partagé pour héberger plusieurs modèles. Les coûts de traitement s’en retrouvent réduits, l’utilisation est améliorée et vous pouvez chaîner des modules dans des ensembles. Les modèles que vous spécifiez dans votre script de déploiement sont montés et mis à disposition sur le disque du conteneur de service. Vous pouvez les charger dans la mémoire à la demande et noter en fonction du modèle spécifique demandé au moment de la notation.
+
+Pour obtenir un exemple E2E qui montre comment utiliser plusieurs modèles derrière un seul point de terminaison conteneurisé, consultez [cet exemple](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model).
 
 ## <a name="prepare-to-deploy"></a>Préparer au déploiement
 
@@ -618,6 +625,9 @@ Consultez [Procéder à un déploiement sur Azure Container Instances](how-to-de
 ### <a id="aks"></a>Azure Kubernetes Service (dev/test et production)
 
 Consultez [Procéder à un déploiement sur Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
+
+### <a name="ab-testing-controlled-rollout"></a>Test A/B (lancement contrôlé)
+Pour plus d’informations, consultez [Lancement contrôlé des modèles ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
 
 ## <a name="consume-web-services"></a>Utiliser des services web
 

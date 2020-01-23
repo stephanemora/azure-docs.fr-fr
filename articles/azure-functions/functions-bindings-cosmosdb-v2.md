@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 0ad569977194441b026c2c987ecad544ce40cfa1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227356"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921112"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Liaisons Azure Cosmos DB pour Azure Functions 2.x
 
-> [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
+> [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
@@ -51,7 +51,7 @@ Consultez l’exemple propre à un langage particulier :
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
-Ignorer les exemples de déclencheur
+[Ignorer les exemples de déclencheur](#trigger---c-attributes)
 
 ### <a name="trigger---c-example"></a>Déclencheur - exemple C#
 
@@ -87,11 +87,11 @@ namespace CosmosDBSamplesV2
 }
 ```
 
-Ignorer les exemples de déclencheur
+[Ignorer les exemples de déclencheur](#trigger---c-attributes)
 
 ### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
 
-L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont modifiés.
+L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont ajoutés ou modifiés.
 
 Voici les données de liaison dans le fichier *function.json* :
 
@@ -125,11 +125,11 @@ Voici le code Script C# :
     }
 ```
 
-Ignorer les exemples de déclencheur
+[Ignorer les exemples de déclencheur](#trigger---c-attributes)
 
 ### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
 
-L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont modifiés.
+L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont ajoutés ou modifiés.
 
 Voici les données de liaison dans le fichier *function.json* :
 
@@ -156,9 +156,11 @@ Voici le code JavaScript :
     }
 ```
 
+[Ignorer les exemples de déclencheur](#trigger---c-attributes)
+
 ### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
-L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui utilise la liaison. La fonction est impliquée lorsqu’il y a des insertions ou des mises à jour dans la base de données et la collection spécifiées.
+L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction Java](functions-reference-java.md) qui utilise la liaison. La fonction est appelée lorsqu’il y a des insertions ou des mises à jour dans la base de données et la collection spécifiées.
 
 ```json
 {
@@ -190,14 +192,15 @@ Voici le code Java :
 ```
 
 
-Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@CosmosDBTrigger` sur les paramètres dont la valeur proviendrait de Cosmos DB.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null avec Optional\<T>.
+Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@CosmosDBTrigger` sur les paramètres dont la valeur proviendrait de Cosmos DB.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional\<T>.
 
 
-Ignorer les exemples de déclencheur
+[Ignorer les exemples de déclencheur](#trigger---c-attributes)
+
 
 ### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
 
-L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont modifiés.
+L’exemple suivant montre une liaison de déclencheur Cosmos DB dans un fichier *function.json* et une [fonction Python](functions-reference-python.md) qui utilise la liaison. La fonction écrit des messages de journal quand des enregistrements Cosmos DB sont ajoutés ou modifiés.
 
 Voici les données de liaison dans le fichier *function.json* :
 
@@ -214,7 +217,7 @@ Voici les données de liaison dans le fichier *function.json* :
 }
 ```
 
-Voici le code Python :
+Voici le code Python :
 
 ```python
     import logging
@@ -258,7 +261,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |**connectionStringSetting**|**ConnectionStringSetting** | Nom d’un paramètre d’application contenant la chaîne de connexion utilisée pour se connecter au compte Azure Cosmos DB surveillé. |
 |**databaseName**|**DatabaseName**  | Nom de la base de données Azure Cosmos DB contenant la collection surveillée. |
 |**collectionName** |**CollectionName** | Nom de la collection surveillée. |
-|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Facultatif) Nom d’un paramètre d’application contenant la chaîne de connexion au service stockant la collection de baux. S’il n’est pas défini, la valeur `connectionStringSetting` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. La chaîne de connexion de la collection de baux doit avoir des autorisations en écriture.|
+|**leaseConnectionStringSetting** | **LeaseConnectionStringSetting** | (Facultatif) Nom d’un paramètre d’application contenant la chaîne de connexion au compte Azure Cosmos DB qui stocke la collection de baux. S’il n’est pas défini, la valeur `connectionStringSetting` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. La chaîne de connexion de la collection de baux doit avoir des autorisations en écriture.|
 |**leaseDatabaseName** |**LeaseDatabaseName** | (Facultatif) Nom de la base de données contenant la collection utilisée pour stocker des baux. S’il n’est pas défini, la valeur du paramètre `databaseName` est utilisée. Ce paramètre est automatiquement défini lorsque la liaison est créée dans le portail. |
 |**leaseCollectionName** | **LeaseCollectionName** | (Facultatif) Nom de la collection utilisée pour stocker des baux. S’il n’est pas défini, la valeur `leases` est utilisée. |
 |**createLeaseCollectionIfNotExists** | **CreateLeaseCollectionIfNotExists** | (Facultatif) Lorsque la valeur est définie sur `true`, la collection de baux est créée automatiquement si elle n’existe pas. La valeur par défaut est `false`. |
@@ -333,7 +336,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>Déclencheur de file d’attente, rechercher l’ID à partir de JSON (C#)
 
-L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui récupère un document unique. La fonction est déclenchée par un message de file d’attente qui contient un objet JSON. Le déclencheur de file d’attente analyse le JSON dans un objet nommé `ToDoItemLookup` qui contient l’ID et la valeur de clé de partition à rechercher. Cet ID et cette valeur de clé de partition permettent de récupérer un document `ToDoItem` à partir de la base de données et de la collection spécifiées.
+L’exemple suivant illustre une [fonction C#](functions-dotnet-class-library.md) qui récupère un document unique. La fonction est déclenchée par un message de file d’attente qui contient un objet JSON. Le déclencheur de file d’attente analyse le JSON dans un objet de type `ToDoItemLookup` qui contient l’ID et la valeur de clé de partition à rechercher. Cet ID et cette valeur de clé de partition permettent de récupérer un document `ToDoItem` à partir de la base de données et de la collection spécifiées.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -1115,7 +1118,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>Déclencheur HTTP, rechercher l’ID à partir des données de routage (JavaScript)
 
-L’exemple suivant illustre une [fonction JavaScript](functions-reference-node.md) qui récupère un document unique. La fonction est déclenchée par une requête HTTP qui utilise une chaîne de requête pour spécifier l’ID et la valeur de clé de partition à rechercher. Cet ID et cette valeur de clé de partition permettent de récupérer un document `ToDoItem` à partir de la base de données et de la collection spécifiées.
+L’exemple suivant illustre une [fonction JavaScript](functions-reference-node.md) qui récupère un document unique. La fonction est déclenchée par une requête HTTP qui utilise des données de routage pour spécifier l’ID et la valeur de clé de partition à rechercher. Cet ID et cette valeur de clé de partition permettent de récupérer un document `ToDoItem` à partir de la base de données et de la collection spécifiées.
 
 Voici le fichier *function.json* :
 
@@ -1252,7 +1255,7 @@ Voici les données de liaison dans le fichier *function.json* :
 
 La section [configuration](#input---configuration) décrit ces propriétés.
 
-Voici le code Python :
+Voici le code Python :
 
 ```python
 import azure.functions as func
@@ -1307,7 +1310,7 @@ Voici le fichier *function.json* :
 }
 ```
 
-Voici le code Python :
+Voici le code Python :
 
 ```python
 import logging
@@ -1328,7 +1331,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>Déclencheur HTTP, rechercher l’ID dans les données de routage (Python)
 
-L’exemple suivant illustre une [fonction Python](functions-reference-python.md) qui récupère un document. La fonction est déclenchée par une requête HTTP qui utilise une chaîne de requête pour spécifier l’ID et la valeur de clé de partition à rechercher. Cet ID et cette valeur de clé de partition permettent de récupérer un document `ToDoItem` à partir de la base de données et de la collection spécifiées.
+L’exemple suivant illustre une [fonction Python](functions-reference-python.md) qui récupère un document. La fonction est déclenchée par une requête HTTP qui utilise des données de routage pour spécifier l’ID et la valeur de clé de partition à rechercher. Cet ID et cette valeur de clé de partition permettent de récupérer un document `ToDoItem` à partir de la base de données et de la collection spécifiées.
 
 Voici le fichier *function.json* :
 
@@ -1367,7 +1370,7 @@ Voici le fichier *function.json* :
 }
 ```
 
-Voici le code Python :
+Voici le code Python :
 
 ```python
 import logging
@@ -1407,7 +1410,7 @@ Voici les données de liaison dans le fichier *function.json* :
 
 La section [configuration](#input---configuration) décrit ces propriétés.
 
-Voici le code Python :
+Voici le code Python :
 
 ```python
 import azure.functions as func
@@ -1545,7 +1548,7 @@ public class DocByIdFromQueryString {
 }
  ```
 
-Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@CosmosDBInput` sur les paramètres de fonction dont la valeur proviendrait de Cosmos DB.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null avec Optional\<T>.
+Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@CosmosDBInput` sur les paramètres de fonction dont la valeur proviendrait de Cosmos DB.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional\<T>.
 
 #### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>Déclencheur HTTP, rechercher l’ID dans la chaîne de requête - paramètre POJO (Java)
 
@@ -1682,7 +1685,7 @@ public class DocByIdFromRouteSqlQuery {
 
 #### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>Déclencheur HTTP, obtenir plusieurs documents à partir des données de routage, utilisation de SqlQuery (Java)
 
-L’exemple suivant illustre une fonction Java qui obtient plusieurs documents. La fonction est déclenchée par une requête HTTP qui utilise un paramètre de routage ```desc``` afin de spécifier la chaîne à rechercher dans le champ ```description```. Le terme recherché est utilisé pour récupérer une collection de documents à partir de la base de données et de la collection spécifiées, en convertissant le jeu de résultats en ```ToDoItem[]``` et en le passant en tant qu’argument à la fonction.
+L’exemple suivant illustre une fonction Java qui récupère plusieurs documents. La fonction est déclenchée par une requête HTTP qui utilise un paramètre de routage ```desc``` afin de spécifier la chaîne à rechercher dans le champ ```description```. Le terme recherché est utilisé pour récupérer une collection de documents à partir de la base de données et de la collection spécifiées, en convertissant le jeu de résultats en ```ToDoItem[]``` et en le passant en tant qu’argument à la fonction.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -2100,14 +2103,6 @@ Voici le code F# :
     open FSharp.Interop.Dynamic
     open Newtonsoft.Json
     open Microsoft.Extensions.Logging
-
-    type Employee = {
-      id: string
-      name: string
-      employeeId: string
-      address: string
-    }
-
     let Run(myQueueItem: string, employeeDocument: byref<obj>, log: ILogger) =
       log.LogInformation(sprintf "F# Queue trigger function processed: %s" myQueueItem)
       let employee = JObject.Parse(myQueueItem)

@@ -11,19 +11,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6aa853d0499008f3ed9073995a958c74f6f23561
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611847"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045796"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Dans ce guide, découvrez comment définir différents paramètres de configuration de votre expérience d’apprentissage automatique avec le [kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). Le machine learning automatisé choisit pour vous un algorithme et des hyperparamètres, et génère un modèle prêt pour le déploiement. Vous disposez de plusieurs options pour configurer les expériences de machine learning automatisé.
 
-Pour voir des exemples d’expérience de machine learning automatisé, consultez [Tutoriel : Entraîner un modèle de classification avec le machine learning automatisé](tutorial-auto-train-models.md) ou [Entraîner des modèles avec le machine learning automatisé dans le cloud](service/how-to-auto-train-remote.md).
+Pour voir des exemples d’expérience de machine learning automatisé, consultez [Tutoriel : Entraîner un modèle de classification avec le machine learning automatisé](tutorial-auto-train-models.md) ou [Entraîner des modèles avec le machine learning automatisé dans le cloud](how-to-auto-train-remote.md).
 
 Options de configuration disponibles dans le machine learning automatisé :
 
@@ -39,7 +39,7 @@ Si vous préférez une expérience sans code, vous pouvez également [créer vos
 
 ## <a name="select-your-experiment-type"></a>Sélectionner le type de votre expérience
 
-Avant de commencer votre expérience, vous devez déterminer le type de problème de machine learning que vous résolvez. Le machine learning automatisé prend en charge les types de tâches de classification, de régression et de prévision. Découvrez plus d’informations sur les [types de tâches](how-to-define-task-type.md).
+Avant de commencer votre expérience, vous devez déterminer le type de problème de machine learning que vous résolvez. Le Machine Learning automatisé prend en charge les types de tâches de classification, de régression et de prévision. Découvrez plus d’informations sur les [types de tâches](how-to-define-task-type.md).
 
 Le machine learning automatisé prend en charge les algorithmes suivants lors du processus d’automatisation et d’optimisation. En tant qu’utilisateur, vous n’avez pas besoin de spécifier l’algorithme.
 
@@ -84,10 +84,11 @@ Les exemples de code suivants montrent comment stocker les données dans ces for
 * TabularDataset
   ```python
   from azureml.core.dataset import Dataset
+  from azureml.opendatasets import Diabetes
   
-  tabular_dataset = Dataset.Tabular.from_delimited_files("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv")
-  train_dataset, test_dataset = tabular_dataset.random_split(percentage = 0.1, seed = 42)
-  label = "Label"
+  tabular_dataset = Diabetes.get_tabular_dataset()
+  train_dataset, test_dataset = tabular_dataset.random_split(percentage=0.1, seed=42)
+  label = "Y"
   ```
 
 * Tramedonnées Pandas
@@ -96,9 +97,9 @@ Les exemples de code suivants montrent comment stocker les données dans ces for
     import pandas as pd
     from sklearn.model_selection import train_test_split
 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
-    train_data, test_data = train_test_split(df, test_size = 0.1, random_state = 42)
-    label = "Label"
+    df = pd.read_csv("your-local-file.csv")
+    train_data, test_data = train_test_split(df, test_size=0.1, random_state=42)
+    label = "label-col-name"
     ```
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>Récupérer des données pour exécuter une expérience sur une capacité de calcul distante
@@ -134,17 +135,17 @@ Ensuite, l’endroit où le modèle doit être entraîné est déterminé. Une e
 *   Votre machine locale, comme un poste de travail local ou un ordinateur portable : en général, quand vous avez un petit jeu de données et que vous êtes toujours dans la phase d’exploration.
 *   Une machine distante dans le cloud : la [capacité de calcul managée Azure Machine Learning](concept-compute-target.md#amlcompute) est un service managé qui permet d’entraîner des modèles de machine learning sur des clusters de machines virtuelles Azure.
 
-Consultez le [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des exemples de notebooks avec des cibles de calcul locales et distantes.
+    Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des exemples de notebooks avec des cibles de calcul locales et distantes.
 
 *   Un cluster Azure Databricks dans votre abonnement Azure. Vous trouverez plus de détails ici : [Configurer le cluster Azure Databricks pour ML automatisé](how-to-configure-environment.md#azure-databricks)
 
-Consultez le [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) pour voir des exemples de notebooks avec Azure Databricks.
+    Consultez ce [site GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) pour voir des exemples de notebooks avec Azure Databricks.
 
 <a name='configure-experiment'></a>
 
 ## <a name="configure-your-experiment-settings"></a>Configurer les paramètres de votre expérience
 
-Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
+Vous disposez de plusieurs options pour configurer votre expérience de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`. Pour obtenir la liste complète des paramètres, reportez-vous à la [Classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
 Voici quelques exemples :
 
@@ -160,7 +161,7 @@ Voici quelques exemples :
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  Voici un exemple d’une expérience de régression définie pour se terminer au bout de 60 minutes, avec 5 plis de validation croisée.
+2.  Voici un exemple d’une expérience de régression définie pour se terminer au bout de 60 minutes, avec cinq plis de validation croisée.
 
     ```python
     automl_regressor = AutoMLConfig(
@@ -186,7 +187,7 @@ La métrique principale détermine la métrique à utiliser pendant l’entraîn
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
 |precision_score_weighted |
 
-Pour découvrir les définitions spécifiques de celles-ci, voir [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
+Pour découvrir les définitions spécifiques de ces métriques, consultez [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 
 ### <a name="data-preprocessing--featurization"></a>Prétraitement et personnalisation des données
 
@@ -202,7 +203,7 @@ La tâche `forecasting` de prévision de séries chronologiques nécessite des p
 
 1. `time_column_name`: paramètre obligatoire qui définit le nom de la colonne dans vos données d’entraînement contenant une série chronologique valide.
 1. `max_horizon`: définit la durée pendant laquelle vous souhaitez prédire sur la base de la périodicité des données d’entraînement. Par exemple si vous avez des données de formation avec des fragments de temps quotidiens, vous définissez jusqu’à quand vous souhaitez que le modèle soit formé.
-1. `grain_column_names`: définit le nom des colonnes qui contiennent des données de séries chronologiques individuelles dans vos données d’entraînement. Par exemple, si vous prévoyez des ventes pour une marque particulière par magasin, vous définirez les colonnes des magasins et des marques comme fragments de colonnes. Des séries chronologiques et des prévisions distinctes sont créées pour chaque grain/regroupement. 
+1. `grain_column_names`: Définit le nom des colonnes qui contiennent des données de séries chronologiques individuelles dans vos données d’entraînement. Par exemple, si vous prévoyez des ventes pour une marque particulière par magasin, vous définirez les colonnes des magasins et des marques comme fragments de colonnes. Des séries chronologiques et des prévisions distinctes sont créées pour chaque grain/regroupement. 
 
 Pour obtenir des exemples des paramètres utilisés ci-dessous, consultez l’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
@@ -341,7 +342,7 @@ best_run, fitted_model = automl_run.get_output()
 Consultez la liste de prétraitement et d’[ingénierie des caractéristiques automatisées](concept-automated-ml.md#preprocess) qui se produit quand la caractérisation est définie sur auto.
 
 Examinez cet exemple :
-+ Il y a 4 fonctionnalités d’entrée : A (numérique), B (numérique), C (numérique), D (DateTime)
++ Il existe quatre fonctionnalités d’entrée : A (numérique), B (numérique), C (numérique), D (DateTime)
 + La fonctionnalité numérique C est supprimée, car il s’agit d’une colonne d’ID avec toutes les valeurs uniques
 + Il manque des valeurs dans les caractéristiques numériques A et B : une moyenne leur est donc affectée
 + La fonctionnalité DateTime D a 11 fonctionnalités d’ingénierie différentes
@@ -465,7 +466,7 @@ def print_model(model, prefix=""):
 print_model(fitted_model)
 ```
 
-Ce qui suit est un exemple de sortie pour un pipeline utilisant un algorithme spécifique (dans ce cas, LogisticRegression avec RobustScalar).
+L’exemple de sortie suivant concerne un pipeline utilisant un algorithme spécifique (dans ce cas, LogisticRegression avec RobustScalar).
 
 ```
 RobustScaler
@@ -518,4 +519,4 @@ Pour obtenir des informations générales sur la façon dont les explications de
 
 Découvrez plus d’informations sur [comment et où déployer un modèle](how-to-deploy-and-where.md).
 
-Découvrez plus d’informations sur [comment entraîner un modèle de régression avec le machine learning automatisé](tutorial-auto-train-models.md) ou [comment entraîner avec le machine learning automatisé sur une ressource distante](service/how-to-auto-train-remote.md).
+Découvrez plus d’informations sur [comment entraîner un modèle de régression avec le machine learning automatisé](tutorial-auto-train-models.md) ou [comment entraîner avec le machine learning automatisé sur une ressource distante](how-to-auto-train-remote.md).

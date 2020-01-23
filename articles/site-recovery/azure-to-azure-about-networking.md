@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/22/2019
+ms.date: 1/8/2020
 ms.author: sutalasi
-ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9fe3b4c0b7acc9c1e980d5885043d30503c211c4
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954207"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754500"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -55,18 +55,19 @@ login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentific
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
-Si vous utilisez des règles de groupe de sécurité réseau, de proxy ou de pare-feu basées sur une adresse IP pour contrôler la connectivité sortante, ces plages d’adresses IP doivent être autorisées.
+Si vous utilisez un proxy de pare-feu basé sur une adresse IP ou un groupe de sécurité réseau pour contrôler la connectivité sortante, ces plages d’adresses IP doivent être autorisées.
 
 - Toutes les plages d’adresses IP qui correspondent aux comptes de stockage dans la région source
     - Créez une règle de groupe de sécurité réseau basée sur une [balise de service de stockage](../virtual-network/security-overview.md#service-tags) pour la région source.
     - Autorisez ces adresses pour que les données puissent être écrites dans le compte de stockage de cache, à partir de la machine virtuelle.
 - Créer une règle de groupe de sécurité réseau basée sur une [balise de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à AAD
     - Si de nouvelles adresses sont ajoutées ultérieurement à Azure Active Directory (AAD), vous devez créer de nouvelles règles de groupe de sécurité réseau.
-- Adresses IP des points de terminaison du service Site Recovery, [disponibles dans un fichier XML](https://aka.ms/site-recovery-public-ips), qui dépendent de votre emplacement cible. 
+- Créez une règle de groupe de sécurité réseau basée sur une balise du service EventsHub pour la région cible, en autorisant l’accès à la supervision de Site Recovery.
+- Créez une règle de groupe de sécurité réseau basée sur une balise du service AzureSiteRecovery pour autoriser l’accès au service Site Recovery dans n’importe quelle région.
 - Nous vous recommandons de créer les règles de groupe de sécurité réseau requises sur un groupe de sécurité réseau de test, et de vérifier qu’il n’y a aucun problème avant de créer les règles sur un groupe de sécurité réseau de production.
 
 
-Les plages d’adresses IP Site Recovery sont les suivantes :
+Si vous préférez utiliser des plages d’adresses IP Site Recovery (non recommandé), reportez-vous au tableau ci-dessous :
 
    **Cible** | **IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
    --- | --- | ---
@@ -137,11 +138,9 @@ Cet exemple montre comment configurer des règles de groupes de sécurité rése
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Créez des règles HTTPS sortantes (443) pour les adresses IP Site Recovery qui correspondent à l’emplacement cible :
+3. Comme pour les règles de sécurité ci-dessus, créez une règle de sécurité HTTPS sortante (443) pour « EventHub.CentralUS » sur le groupe de sécurité réseau qui correspond à la position cible. Celle-ci permet d’accéder à la supervision de Site Recovery.
 
-   **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
-    --- | --- | ---
-   USA Centre | 40.69.144.231 | 52.165.34.144
+4. Créez une règle de sécurité HTTPS sortante (443) pour « AzureSiteRecovery » sur le groupe de sécurité réseau. Celle-ci permet d’accéder au service Site Recovery dans n’importe quelle région.
 
 ### <a name="nsg-rules---central-us"></a>Règles de groupe de sécurité réseau - USA Centre
 
@@ -151,12 +150,9 @@ Ces règles sont nécessaires pour que la réplication puisse être activée de 
 
 2. Créez une règle de sécurité HTTPS sortante (443) pour « AzureActiveDirectory » sur le groupe de sécurité réseau.
 
-3. Créez des règles HTTPS sortantes (443) pour les adresses IP Site Recovery qui correspondent à l’emplacement source :
+3. Comme pour les règles de sécurité ci-dessus, créez une règle de sécurité HTTPS sortante (443) pour « EventHub.Eastus » sur le groupe de sécurité réseau qui correspond à la position source. Celle-ci permet d’accéder à la supervision de Site Recovery.
 
-   **Lieu** | **Adresse IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
-    --- | --- | ---
-   USA Est | 13.82.88.226 | 104.45.147.24
-
+4. Créez une règle de sécurité HTTPS sortante (443) pour « AzureSiteRecovery » sur le groupe de sécurité réseau. Celle-ci permet d’accéder au service Site Recovery dans n’importe quelle région.
 
 ## <a name="network-virtual-appliance-configuration"></a>Configuration des appliances virtuelles réseau
 

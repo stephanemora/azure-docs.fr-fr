@@ -1,23 +1,22 @@
 ---
-title: Paramètres de flux de données de mappage d’Azure Data Factory
+title: Paramétrage de flux de données de mappage
 description: Découvrez comment paramétrer un flux de données de mappage à partir de pipelines Data Factory
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 01/07/2020
+ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "72387535"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75746149"
 ---
-# <a name="mapping-data-flow-parameters"></a>Paramètres de flux de données de mappage
+# <a name="parameterizing-mapping-data-flows"></a>Paramétrage de flux de données de mappage
 
-
-
-La mappage des flux de données dans Azure Data Factory prend en charge l’utilisation des paramètres. Vous pouvez définir des paramètres à l’intérieur de votre définition de flux de données, utilisable ensuite dans toutes vos expressions. Les valeurs de paramètre peuvent être définies par le pipeline d’appel par le biais de l’activité Exécuter une activité de flux de données. Vous disposez de trois options pour définir les valeurs dans les expressions d’activité de flux de données :
+Les flux de données de mappage dans Azure Data Factory prennent en charge l’utilisation de paramètres. Vous pouvez définir des paramètres à l’intérieur de votre définition de flux de données, utilisable ensuite dans toutes vos expressions. Les valeurs de paramètre peuvent être définies par le pipeline d’appel par le biais de l’activité Exécuter une activité de flux de données. Vous disposez de trois options pour définir les valeurs dans les expressions d’activité de flux de données :
 
 * Utiliser le langage d’expression de flux de contrôle de pipeline pour définir une valeur dynamique
 * Utiliser le langage d’expression de flux de données pour définir une valeur dynamique
@@ -28,25 +27,33 @@ Utilisez cette fonctionnalité pour rendre vos flux de données polyvalents, fle
 > [!NOTE]
 > Pour utiliser des expressions de flux de contrôle de pipeline, votre paramètre de flux de données doit être de type chaîne.
 
-## <a name="create-parameters-in-mapping-data-flow"></a>Créer des paramètres dans un flux de données de mappage
+## <a name="create-parameters-in-a-mapping-data-flow"></a>Créer des paramètres dans un flux de données de mappage
 
-Pour ajouter des paramètres à votre flux de données, cliquez sur la partie vide du canevas de celui-ci afin d’accéder aux propriétés générales. Le volet des paramètres doit contenir un onglet dénommé « Paramètres ». Cliquez sur le bouton « Nouveau » pour générer un nouveau paramètre. Pour chaque paramètre, vous devez attribuer un nom, sélectionner un type et éventuellement définir une valeur par défaut.
+Pour ajouter des paramètres à votre flux de données, cliquez sur la partie vide du canevas de celui-ci afin d’accéder aux propriétés générales. Dans le volet des paramètres, vous voyez un onglet nommé **Paramètre**. Sélectionnez **Nouveau** pour générer un nouveau paramètre. Pour chaque paramètre, vous devez attribuer un nom, sélectionner un type et éventuellement définir une valeur par défaut.
 
 ![Créer des paramètres de flux de données](media/data-flow/create-params.png "Créer des paramètres de flux de données")
 
-Les paramètres peuvent être utilisés dans n’importe quelle expression de flux de données. Les paramètres commencent par $ et sont immuables. Vous trouverez la liste des paramètres disponibles dans le Générateur d’expressions sous l’onglet « Paramètres ».
+## <a name="use-parameters-in-a-mapping-data-flow"></a>Utiliser des paramètres dans un flux de données de mappage 
+
+Des paramètres peuvent être référencés dans toute expression de flux de données. Les paramètres commencent par $ et sont immuables. Vous trouverez la liste des paramètres disponibles dans le Générateur d’expressions, sous l’onglet **Paramètres**.
 
 ![Expression de paramètre de flux de données](media/data-flow/parameter-expression.png "Expression de paramètre de flux de données")
 
-## <a name="use-parameters-in-your-data-flow"></a>Utiliser des paramètres dans votre flux de données
+Vous pouvez ajouter rapidement des paramètres supplémentaires en sélectionnant **Nouveau paramètre** et en spécifiant le nom et le type.
 
-* Vous pouvez utiliser les valeurs de paramètre dans vos expressions de transformation. Vous trouverez la liste des paramètres sous l’onglet Paramètres dans le Générateur d’expressions. ![Utiliser des paramètres de flux de données](media/data-flow/params9.png "UUtiliser des paramètres de flux de données")
+![Expression de paramètre de flux de données](media/data-flow/new-parameter-expression.png "Expression de paramètre de flux de données")
 
-* Les paramètres sont également utilisés pour configurer les valeurs dynamiques de vos paramètres de transformation Source et Sink. Lorsque vous cliquez à l’intérieur des champs configurables, le lien « Ajouter du contenu dynamique » apparaît. En cliquant dessus, vous accédez à un Générateur d’expressions dans lequel vous pouvez définir des paramètres pour utiliser des valeurs dynamiques. ![Contenu dynamique de flux de données](media/data-flow/params6.png "DContenu dynamique de flux de données")
+### <a name="passing-in-a-column-name-as-a-parameter"></a>Transmission d’un nom de colonne en tant que paramètre
 
-## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Définir les paramètres de flux de données de mappage à partir d’un pipeline
+Un modèle courant consiste à passer un nom de colonne en tant que valeur de paramètre. Pour référencer la colonne associée au paramètre, utilisez la fonction `byName()`. Veillez à effectuer un cast de la colonne vers son type approprié à l’aide d’une fonction de conversion telle que `toString()`.
 
-Une fois que vous avez créé votre flux de données avec des paramètres, vous pouvez l’exécuter à partir d’un pipeline avec l’activité Exécuter un flux de données. Après avoir ajouté l’activité à votre canevas de pipeline, les paramètres de flux de données disponibles vous sont présentés dans l’onglet « Paramètres » de l’activité.
+Par exemple, si vous souhaitez mapper une colonne de chaîne basée sur un paramètre `columnName`, vous pouvez ajouter une transformation de colonne dérivée égale à `toString(byName($columnName))`.
+
+![Transmission d’un nom de colonne en tant que paramètre](media/data-flow/parameterize-column-name.png "Transmission d’un nom de colonne en tant que paramètre")
+
+## <a name="assign-parameter-values-from-a-pipeline"></a>Assigner des valeurs de paramètre à partir d’un pipeline
+
+Une fois que vous avez créé votre flux de données avec des paramètres, vous pouvez l’exécuter à partir d’un pipeline avec l’activité Exécuter un flux de données. Après avoir ajouté l’activité à votre canevas de pipeline, les paramètres de flux de données disponibles vous sont présentés dans l’onglet **Paramètres** de l’activité.
 
 ![Définition d’un paramètre de flux de données](media/data-flow/parameter-assign.png "Définition d’un paramètre de flux de données")
 

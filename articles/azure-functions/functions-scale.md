@@ -5,24 +5,24 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b8f5708aa14b4cc7cffa62da055f92f8d99dee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409104"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921909"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
-Lorsque vous créez une Function App dans Azure, vous devez choisir un plan d’hébergement pour votre application. Trois plans d’hébergement pour Azure Functions sont disponibles : le [plan Consommation](#consumption-plan), le [plan Premium](#premium-plan) et le [plan App Service](#app-service-plan).
+Lorsque vous créez une Function App dans Azure, vous devez choisir un plan d’hébergement pour votre application. Trois plans d’hébergement pour Azure Functions sont disponibles : [plan Consommation](#consumption-plan), [plan Premium](#premium-plan) et [plan dédié (App Service)](#app-service-plan).
 
 Le plan d’hébergement que vous choisissez détermine les comportements suivants :
 
 * La mise à l’échelle de votre Function App.
 * Les ressources disponibles pour chaque instance de Function App.
-* La prise en charge des fonctionnalités avancées, notamment la connectivité du réseau virtuel.
+* La prise en charge des fonctionnalités avancées, notamment la connectivité du réseau virtuel Azure.
 
-Les plans Consommation et Premium ajoutent automatiquement de la puissance de calcul lors de l’exécution de votre code. Le cas échéant, votre application bénéficie d’un scale-out afin de gérer la charge et d’un scale-down lorsque le code n’est plus en cours d’exécution. En outre, avec le plan Consommation, vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance.  
+Les plans Consommation et Premium ajoutent automatiquement de la puissance de calcul lors de l’exécution de votre code. Le cas échéant, votre application bénéficie d’un scale-out afin de gérer la charge et d’un scale-in lorsque le code n’est plus en cours d’exécution. En outre, avec le plan Consommation, vous n’avez pas à payer pour des machines virtuelles inactives ni à réserver de la capacité à l’avance.  
 
 Le plan Premium fournit des fonctionnalités supplémentaires, telles que des instances de calcul premium, la possibilité de conserver les instances chaudes indéfiniment et la connectivité de réseau virtuel.
 
@@ -33,7 +33,7 @@ Le plan App Service vous permet d’exploiter l’infrastructure dédiée que vo
 La prise en charge des fonctionnalités se divise en deux catégories :
 
 * _Disponibilité générale (GA)_ : entièrement pris en charge et approuvé pour la production.
-* _Préversion_ : pas encore entièrement pris en charge et approuvé pour la production.
+* _Préversion_ : pas encore entièrement pris en charge ni approuvé pour la production.
 
 Le tableau suivant indique le niveau actuel de prise en charge pour les trois plans d’hébergement en cas d’exécution sous Windows ou Linux :
 
@@ -53,7 +53,7 @@ Le plan d’hébergement par défaut (le plan Consommation) présente les avanta
 * Paiement uniquement à l’exécution de vos fonctions
 * Augmentation automatique de la taille des instances même pendant les périodes de charge élevée
 
-Les Function App d’une même région peuvent être affectées au même plan Consommation. Avoir plusieurs applications qui s’exécutent dans le même plan Consommation n’entraîne aucun inconvénient ou impact. Attribuer plusieurs applications au même plan Consommation n’affecte pas la résilience, l’extensibilité ou la fiabilité de chaque application.
+Les Function App d’une même région peuvent être affectées au même plan Consommation. Avoir plusieurs applications qui s’exécutent dans le même plan Consommation n’entraîne aucun inconvénient ou impact. L’attribution de plusieurs applications au même plan Consommation n’affecte pas la résilience, la scalabilité ni la fiabilité de chaque application.
 
 Pour en savoir plus sur la façon d’estimer les coûts pour une exécution dans le cadre d’un plan Consommation, consultez [Compréhension des coûts d’un plan Consommation](functions-consumption-costs.md).
 
@@ -72,13 +72,13 @@ Vous trouverez plus d’informations sur la configuration de ces options dans la
 
 Au lieu d’une facturation en fonction des exécutions et de la mémoire consommée, la facturation du plan Premium se base sur le nombre de cœurs-seconde et la mémoire utilisée sur les instances nécessaires et préparées. Au moins une instance doit être chaude en permanence par plan. Cela signifie qu’il existe un coût mensuel minimum par plan actif, quel que soit le nombre d’exécutions. Gardez à l’esprit que toutes les applications de fonction d’un plan Premium partagent des instances actives et préparées.
 
-Envisagez le plan Premium d’Azure Functions dans les situations suivantes :
+Envisagez le plan Premium d’Azure Functions dans les situations suivantes :
 
 * Vos applications de fonction s’exécutent en continu ou presque.
-* Vous disposez d’un grand nombre d’exécutions de petite taille et avez une facture d’exécution élevée, mais également une facture de Go par seconde dans le plan Consommation.
+* Vous disposez d’un grand nombre d’exécutions de petite taille et avez une facture d’exécution élevée, mais également une facture de Go par seconde faible dans le plan Consommation.
 * Vous avez besoin de plus d’options de mémoire ou de processeur que celles qui sont proposées dans le plan Consommation.
 * Votre code exige une [durée d’exécution supérieure à celle qui est autorisée](#timeout) dans le plan Consommation.
-* Vous avez besoin des fonctionnalités qui sont uniquement disponibles dans le plan Premium, notamment la connectivité des réseaux virtuels/VPN.
+* Vous avez besoin de fonctionnalités qui sont uniquement disponibles dans un plan Premium, notamment la connectivité de réseau virtuel.
 
 Lorsque vous exécutez des fonctions JavaScript dans un plan Premium, vous devez choisir une instance qui comporte moins de processeurs virtuels. Pour plus d’informations, consultez [Choisir des plans Premium à cœur unique](functions-reference-node.md#considerations-for-javascript-functions).  
 
@@ -136,7 +136,7 @@ Pour en savoir plus sur les types de compte de stockage, consultez [Présentatio
 
 ## <a name="how-the-consumption-and-premium-plans-work"></a>Fonctionnement des plans Consommation et Premium
 
-Dans les plans Consommation et Premium, l’infrastructure d’Azure Functions met à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions selon le nombre d’événements sur lesquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions dans le plan Consommation est limitée à 1,5 Go de mémoire et un seul UC.  Une instance de l’hôte constitue l’intégralité de la Function App, ce qui signifie que toutes les fonctions dans une Function App partagent des ressources au sein d’une instance et sont mises à l’échelle simultanément. Les Function App qui partagent le même plan Consommation sont mises à l’échelle indépendamment.  Dans le plan Premium, la taille de votre plan détermine la mémoire et les processeurs disponibles pour toutes les applications de ce plan, sur cette instance.  
+Dans les plans Consommation et Premium, l’infrastructure d’Azure Functions met à l’échelle les ressources processeur et mémoire en ajoutant des instances de l’hôte Functions selon le nombre d’événements sur lesquels ses fonctions sont déclenchées. Chaque instance de l’hôte Functions dans le plan Consommation est limitée à 1,5 Go de mémoire et un seul processeur.  Une instance de l’hôte constitue l’intégralité de la Function App, ce qui signifie que toutes les fonctions dans une Function App partagent des ressources au sein d’une instance et sont mises à l’échelle simultanément. Les applications de fonction qui partagent le même plan Consommation sont mises à l’échelle indépendamment.  Dans le plan Premium, la taille de votre plan détermine la mémoire et le processeur disponibles pour toutes les applications de ce plan, sur cette instance.  
 
 Les fichiers de code de fonction sont stockés dans des partages Azure Files du compte de stockage principal de la fonction. Lorsque vous supprimez le compte de stockage principal de l’application de fonction, les fichiers de code de fonction sont supprimés et ne peuvent pas être récupérés.
 

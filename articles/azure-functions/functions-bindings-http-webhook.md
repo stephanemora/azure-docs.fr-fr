@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e97a6e1adff02001e36a43d9fb4a917b7e133257
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972368"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922437"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -825,20 +825,20 @@ La clé peut être incluse dans une variable de chaîne de requête nommée `cod
 Vous pouvez autoriser les requêtes anonymes, qui ne nécessitent pas de clés. Vous pouvez également exiger que la clé principale soit utilisée. Pour modifier le niveau d’autorisation par défaut, utilisez la propriété `authLevel` dans le JSON de liaison. Pour plus d’informations, consultez [Déclencheur - configuration](#trigger---configuration).
 
 > [!NOTE]
-> Lors de l’exécution de fonctions localement, l’autorisation est désactivée, quel que soit le paramètre de niveau d’authentification spécifié. Après la publication sur Azure, le paramètre `authLevel` de votre déclencheur est appliqué. Les clés sont quand même exigées lors d’une exécution [locale dans un conteneur](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> Lors de l’exécution de fonctions localement, l’autorisation est désactivée, quel que soit le paramètre de niveau d’autorisation spécifié. Après la publication sur Azure, le paramètre `authLevel` de votre déclencheur est appliqué. Les clés sont quand même exigées lors d’une exécution [locale dans un conteneur](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Sécuriser un point de terminaison HTTP en production
 
 Pour sécuriser complètement vos points de terminaison de fonction en production, vous devez envisager d’implémenter une des options suivantes de sécurité au niveau de l’application de fonction :
 
-* Activer l’authentification / autorisation App Service pour votre application de fonction. La plateforme App Service vous permet d’utiliser Azure Active Directory (AAD) et plusieurs fournisseurs d’identité tiers pour authentifier les clients. Vous pouvez utiliser ceci pour implémenter des règles d’autorisation personnalisées pour vos fonctions, et vous pouvez utiliser les informations utilisateur dans le code de votre fonction. Pour plus d’informations, consultez [Authentification et autorisation dans Azure App Service](../app-service/overview-authentication-authorization.md) et [Utilisation des identités de clients](#working-with-client-identities).
+* Activer l’authentification / autorisation App Service pour votre application de fonction. La plateforme App Service vous permet d’utiliser AAD (Azure Active Directory) et plusieurs fournisseurs d’identité tiers pour authentifier les clients. Vous pouvez utiliser ceci pour implémenter des règles d’autorisation personnalisées pour vos fonctions, et vous pouvez utiliser les informations utilisateur dans le code de votre fonction. Pour plus d’informations, consultez [Authentification et autorisation dans Azure App Service](../app-service/overview-authentication-authorization.md) et [Utilisation des identités de clients](#working-with-client-identities).
 
 * Utilisez Gestion des API Azure pour authentifier les requêtes. Gestion des API Azure offre une variété d’options de sécurité des API pour les requêtes entrantes. Pour plus d’informations, consultez [Stratégies d’authentification dans Gestion des API](../api-management/api-management-authentication-policies.md). Avec Gestion des API Azure en place, vous pouvez configurer votre application de fonction pour qu’elle accepte seulement les requêtes provenant de l’adresse IP de votre instance Gestion des API Azure. Pour plus d’informations, consultez [Restriction des adresses IP](ip-addresses.md#ip-address-restrictions).
 
 * Déployez votre application de fonction sur un environnement Azure App Service. L’environnement App Service fournit un environnement d’hébergement dédié où exécuter vos fonctions. L’environnement App Service vous permet de configurer une passerelle frontend unique que vous pouvez utiliser pour authentifier toutes les requêtes entrantes. Pour plus d’informations, consultez [Configuration d’un pare-feu d’applications Web (WAF) pour un environnement App Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
 
-Quand vous utilisez une de ces méthodes de sécurité au niveau de l’application de fonction, vous devez définir le niveau d’authentification de la fonction déclenchée par HTTP sur `anonymous`.
+Quand vous utilisez l’une de ces méthodes de sécurité au niveau de l’application de fonction, vous devez définir le niveau d’autorisation de la fonction déclenchée par HTTP sur `anonymous`.
 
 ### <a name="webhooks"></a>webhooks
 
@@ -868,7 +868,7 @@ Une autorisation de webhook est gérée par le composant récepteur de webhook, 
 
 La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) du runtime.
 
-Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’environ 2,5 minutes, la passerelle arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
+Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout de 230 secondes, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#timeout) (Mise à l’échelle et hébergement – Plan de consommation).
 
 ## <a name="output"></a>Output
 
@@ -895,7 +895,7 @@ Par obtenir des exemples de réponse, consultez [l’exemple de déclencheur](#t
 Cette section décrit les paramètres de configuration globaux disponibles pour cette liaison dans les versions 2.x et ultérieures. L’exemple de fichier host.json ci-dessous contient seulement les paramètres des versions 2.x et ultérieures pour cette liaison. Pour plus d’informations sur les paramètres de configuration globaux dans les versions 2.x et ultérieures, consultez [Informations de référence sur le fichier host.json pour Azure Functions](functions-host-json.md).
 
 > [!NOTE]
-> Pour obtenir des informations de référence sur le fichier host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md#http).
+> Pour obtenir une référence de host.json dans Functions 1.x, consultez [Informations de référence sur le fichier host.json pour Azure Functions 1.x](functions-host-json-v1.md#http).
 
 ```json
 {
@@ -920,10 +920,10 @@ Cette section décrit les paramètres de configuration globaux disponibles pour 
 |Propriété  |Default | Description |
 |---------|---------|---------| 
 | customHeaders|Aucun|Vous permet de définir des en-têtes personnalisés dans la réponse HTTP. L’exemple précédent ajoute l’en-tête `X-Content-Type-Options` à la réponse pour éviter la détection du type de contenu. |
-|dynamicThrottlesEnabled|true<sup>\*</sup>|Lorsqu’il est activé, ce paramètre provoque la vérification périodique des compteurs de performance système, comme les connexions/les threads/les processus/la mémoire/le processeur, etc., par le pipeline de traitement des requêtes. Si l’un de ces compteurs dépasse un seuil supérieur intégré (80 %), les requêtes sont rejetées avec une réponse 429 (trop de demandes) jusqu’à ce qu’un niveau normal soit retrouvé.<br/><sup>\*</sup>La valeur par défaut d’un plan de consommation est `true`. La valeur par défaut dans un plan dédié est `false`.|
+|dynamicThrottlesEnabled|true<sup>\*</sup>|Lorsqu’il est activé, ce paramètre provoque la vérification périodique des compteurs de performance système, comme les connexions/les threads/les processus/la mémoire/le processeur, etc., par le pipeline de traitement des requêtes. Si l’un de ces compteurs dépasse un seuil supérieur intégré (80 %), les requêtes sont rejetées avec une réponse 429 (trop de demandes) jusqu’à ce qu’un niveau normal soit retrouvé.<br/><sup>\*</sup>La valeur par défaut d’un plan Consommation est `true`. La valeur par défaut dans un plan dédié est `false`.|
 |hsts|non activé|Lorsque `isEnabled` est défini sur `true`, le [comportement HTTP Strict Transport Security (HSTS) de .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) est appliqué, comme défini dans la [classe `HstsOptions`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). L’exemple ci-dessus définit également la propriété [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) sur 10 jours. Les propriétés prises en charge de `hsts` sont : <table><tr><th>Propriété</th><th>Description</th></tr><tr><td>excludedHosts</td><td>Tableau de chaînes des noms d’hôtes pour lesquels l’en-tête HSTS n’est pas ajouté.</td></tr><tr><td>includeSubDomains</td><td>Valeur booléenne qui indique si le paramètre includeSubDomain de l’en-tête Strict-Transport-Security est activé.</td></tr><tr><td>maxAge</td><td>Chaîne qui définit le paramètre max-age de l’en-tête Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Valeur booléenne qui indique si le paramètre preload de l’en-tête Strict-Transport-Security est activé.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|Nombre maximal de fonctions HTTP exécutées en parallèle. Ce paramètre vous permet de contrôler la concurrence, et ainsi facilite la gestion de l’utilisation des ressources. Par exemple, vous pouvez disposer d’une fonction HTTP qui utilise de nombreuses ressources système (mémoire/processeur/sockets) et qui provoque par conséquent des situations où la concurrence est trop élevée. Vous pouvez également avoir une fonction qui effectue des requête vers un service tiers, et qui émet à ce titre des appels dont le débit doit être limité. Dans ces cas, il peut être pertinent d’appliquer une limitation. <br/><sup>*</sup>La valeur par défaut pour un plan de consommation est 100. La valeur par défaut pour un plan dédié est illimitée (`-1`).|
-|maxOutstandingRequests|200<sup>\*</sup>|Nombre maximal de requêtes en attente qui ont lieu à un moment donné. La limite inclut les requêtes qui sont en file d’attente, mais dont l’exécution n’a pas démarré, ainsi que les exécutions en cours. Toutes les requêtes entrantes au-delà de cette limite sont rejetées avec une réponse 429 « Trop occupé ». Ainsi, les appelants peuvent appliquer des stratégies temporelles de nouvelle tentative et vous êtes en mesure de contrôler les latences maximales de requêtes. Ce paramètre contrôle uniquement la mise en file d’attente qui se produit dans le chemin d’accès d’exécution de l’hôte de script. Les autres files d’attente, telles que la file d’attente des requêtes ASP.NET, sont toujours actives et ne sont pas concernées par ce paramètre. <br/><sup>\*</sup>\La valeur par défaut pour un plan de consommation est 200. La valeur par défaut pour un plan dédié est illimitée (`-1`).|
+|maxConcurrentRequests|100<sup>\*</sup>|Nombre maximal de fonctions HTTP exécutées en parallèle. Ce paramètre vous permet de contrôler la concurrence, et ainsi facilite la gestion de l’utilisation des ressources. Par exemple, vous pouvez disposer d’une fonction HTTP qui utilise de nombreuses ressources système (mémoire/processeur/sockets) et qui provoque par conséquent des situations où la concurrence est trop élevée. Vous pouvez également avoir une fonction qui effectue des requête vers un service tiers, et qui émet à ce titre des appels dont le débit doit être limité. Dans ces cas, il peut être pertinent d’appliquer une limitation. <br/><sup>*</sup>La valeur par défaut d’un plan Consommation est 100. La valeur par défaut d’un plan dédié est illimitée (`-1`).|
+|maxOutstandingRequests|200<sup>\*</sup>|Nombre maximal de requêtes en attente qui ont lieu à un moment donné. La limite inclut les requêtes qui sont en file d’attente, mais dont l’exécution n’a pas démarré, ainsi que les exécutions en cours. Toutes les requêtes entrantes au-delà de cette limite sont rejetées avec une réponse 429 « Trop occupé ». Ainsi, les appelants peuvent appliquer des stratégies temporelles de nouvelle tentative et vous êtes en mesure de contrôler les latences maximales de requêtes. Ce paramètre contrôle uniquement la mise en file d’attente qui se produit dans le chemin d’accès d’exécution de l’hôte de script. Les autres files d’attente, telles que la file d’attente des requêtes ASP.NET, sont toujours actives et ne sont pas concernées par ce paramètre. <br/><sup>\*</sup>La valeur par défaut d’un plan Consommation est 200. La valeur par défaut d’un plan dédié est illimitée (`-1`).|
 |routePrefix|api|Préfixe d’itinéraire qui s’applique à tous les itinéraires. Utilisez une chaîne vide pour supprimer le préfixe par défaut. |
 
 

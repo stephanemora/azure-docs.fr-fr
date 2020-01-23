@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 12/17/2019
+ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 925894aea267e4f100f7bcdb817424b5cdfe6c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12b5b6ce84ad36d14a393b54745e530779d4ca95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459447"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965742"
 ---
 # <a name="tenant-and-host-pool-creation"></a>Création d’un pool de locataires et d’hôtes
 
@@ -125,7 +125,7 @@ Suivez les instructions ci-après pour détecter les problèmes d’échecs de d
 Exemple d’erreur brute :
 
 ```Error
- {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. 
+ {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details.
  Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Conflict","message":"{\r\n \"status\": \"Failed\",\r\n \"error\":
  {\r\n \"code\": \"ResourceDeploymentFailure\",\r\n \"message\": \"The resource operation completed with terminal provisioning state 'Failed'.
  \",\r\n \"details\": [\r\n {\r\n \"code\": \"VMExtensionProvisioningError\",\r\n \"message\": \"VM has reported a failure when processing
@@ -138,8 +138,16 @@ Exemple d’erreur brute :
 
 **Cause 2 :** Le nom de domaine est impossible à résoudre.
 
-**Correctif 2 :** Consultez la section « Error: Domain name doesn't resolve » (Erreur : Impossible de résoudre le nom de domaine) concernant les machines virtuelles qui ne sont pas jointes au domaine dans l’article [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
+**Correctif 2 :** Consultez [Erreur : Le nom de domaine ne se résout pas](troubleshoot-vm-configuration.md#error-domain-name-doesnt-resolve) dans [Configuration d’une machine virtuelle hôte de session](troubleshoot-vm-configuration.md).
 
+**Cause 3 :** La configuration DNS de votre réseau virtuel (VNET) est définie sur **Par défaut**.
+
+Pour corriger cela, effectuez les actions suivantes :
+
+1. Ouvrez le portail Azure et accédez au panneau **Réseaux virtuels**.
+2. Recherchez votre réseau virtuel, puis sélectionnez **Serveurs DNS**.
+3. Le menu Serveurs DNS doit apparaître sur le côté droit de l’écran. Dans ce menu, sélectionnez **Personnalisé**.
+4. Vérifiez que les serveurs DNS listés sous Personnalisé correspondent à votre contrôleur de domaine ou à votre domaine Active Directory. Si vous ne voyez pas votre serveur DNS, vous pouvez l’ajouter en entrant sa valeur dans le champ **Ajouter un serveur DNS**.
 
 ### <a name="error-your-deployment-failedunauthorized"></a>Erreur : Votre déploiement a échoué...\Non autorisé
 
@@ -159,7 +167,7 @@ Exemple d’erreur brute :
 
 **Cause 2 :** Erreur temporaire au niveau de la connexion.
 
-**Correctif :** Vérifiez que l’environnement Windows Virtual Desktop est sain en vous connectant à l’aide de PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
+**Correctif :** Vérifiez que l’environnement Windows Virtual Desktop est sain en vous connectant à l’aide de PowerShell. Terminez l’inscription de la machine virtuelle manuellement à l’aide de l’article [Créer un pool d’hôtes avec PowerShell](create-host-pools-powershell.md).
 
 ### <a name="error-the-admin-username-specified-isnt-allowed"></a>Erreur : Le nom d’utilisateur spécifié pour l’administrateur n’est pas autorisé
 
@@ -193,11 +201,11 @@ Exemple d’erreur brute :
  "duration": "PT7M56.8150879S", "trackingId": "43c4f71f-557c-4abd-80c3-01f545375455", "statusCode": "Conflict",
  "statusMessage": { "status": "Failed", "error": { "code": "ResourceDeploymentFailure", "message":
  "The resource operation completed with terminal provisioning state 'Failed'.", "details": [ { "code":
- "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'. 
- Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few: 
- PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message: 
- One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource": 
- { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft. 
+ "VMExtensionProvisioningError", "message": "VM has reported a failure when processing extension 'dscextension'.
+ Error message: \"DSC Configuration 'SessionHost' completed with error(s). Following are the first few:
+ PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource functionality with error message:
+ One or more errors occurred. The SendConfigurationApply function did not succeed.\"." } ] } }, "targetResource":
+ { "id": "/subscriptions/EXAMPLE/resourceGroups/demoHostD/providers/Microsoft.
  Compute/virtualMachines/desktop-1/extensions/dscextension",
  "resourceType": "Microsoft.Compute/virtualMachines/extensions", "resourceName": "desktop-1/dscextension" } }}
 ```
@@ -215,7 +223,7 @@ Exemple d’erreur brute :
 ```Error
 {
     "code": "DeploymentFailed",
-   "message": "At least one resource deployment operation failed. Please list 
+   "message": "At least one resource deployment operation failed. Please list
  deployment operations for details. 4 Please see https://aka.ms/arm-debug for usage details.",
  "details": [
          { "code": "Conflict",  
@@ -316,13 +324,13 @@ the VM.\\\"
 Exemple d’erreur brute :
 
 ```Error
-"response": { "content": { "startTime": "2019-04-01T17:45:33.3454563+00:00", "endTime": "2019-04-01T17:48:52.4392099+00:00", 
-"status": "Failed", "error": { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing 
-extension 'dscextension'. Error message: \"DSC Configuration 'FirstSessionHost' completed with error(s). 
+"response": { "content": { "startTime": "2019-04-01T17:45:33.3454563+00:00", "endTime": "2019-04-01T17:48:52.4392099+00:00",
+"status": "Failed", "error": { "code": "VMExtensionProvisioningError", "message": "VM has reported a failure when processing
+extension 'dscextension'. Error message: \"DSC Configuration 'FirstSessionHost' completed with error(s).
 Following are the first few: PowerShell DSC resource MSFT_ScriptResource failed to execute Set-TargetResource
  functionality with error message: User is not authorized to query the management service.
 \nActivityId: 1b4f2b37-59e9-411e-9d95-4f7ccd481233\nPowershell commands to diagnose the failure:
-\nGet-RdsDiagnosticActivities -ActivityId 1b4f2b37-59e9-411e-9d95-4f7ccd481233\n 
+\nGet-RdsDiagnosticActivities -ActivityId 1b4f2b37-59e9-411e-9d95-4f7ccd481233\n
 The SendConfigurationApply function did not succeed.\"." }, "name": "2c3272ec-d25b-47e5-8d70-a7493e9dc473" } } }}
 ```
 
@@ -347,7 +355,7 @@ Exemple d’erreur brute :
 
 **Cause :** L’administrateur du locataire Windows Virtual Desktop spécifié doit se connecter à l’aide de l’authentification multifacteur Azure.
 
-**Correctif :** Créez un principal de service et attribuez-lui un rôle pour votre locataire Windows Virtual Desktop en suivant la procédure décrite dans l’article [Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell). Après avoir vérifié que vous pouvez vous connecter à Windows Virtual Desktop avec le principal du service, réexécutez l’offre de la Place de marché Azure ou le modèle Azure Resource Manager GitHub, selon la méthode que vous utilisez. Suivez les instructions ci-après pour saisir les paramètres adaptés à votre méthode.
+**Correctif :** Créez un principal de service et attribuez-lui un rôle pour votre locataire Windows Virtual Desktop en suivant la procédure décrite dans l’article [Didacticiel : Créer des principaux de service et des attributions de rôles avec PowerShell](create-service-principal-role-powershell.md). Après avoir vérifié que vous pouvez vous connecter à Windows Virtual Desktop avec le principal du service, réexécutez l’offre de la Place de marché Azure ou le modèle Azure Resource Manager GitHub, selon la méthode que vous utilisez. Suivez les instructions ci-après pour saisir les paramètres adaptés à votre méthode.
 
 Si vous exécutez l’offre de la Place de marché Azure, renseignez les paramètres ci-après pour vous authentifier correctement auprès de Windows Virtual Desktop :
 
@@ -371,6 +379,6 @@ Si vous exécutez le modèle Resource Manager GitHub, renseignez les paramètres
 - Pour résoudre les problèmes liés aux clients Bureau à distance, consultez [Résoudre des problèmes du client Bureau à distance](troubleshoot-client.md).
 - Pour résoudre les problèmes d’utilisation de PowerShell avec Windows Virtual Desktop, consultez [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Pour plus d’informations sur le service, consultez [Environnement Windows Virtual Desktop](environment-setup.md).
-- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
-- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/resource-group-audit.md).
-- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/resource-manager-deployment-operations.md).
+- Suivez le [Didacticiel : Résoudre les problèmes liés aux déploiements de modèles Resource Manager](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Pour en savoir plus sur les actions d’audit, consultez [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Pour en savoir plus sur les actions visant à déterminer les erreurs au cours du déploiement, consultez [Voir les opérations de déploiement](../azure-resource-manager/templates/deployment-history.md).

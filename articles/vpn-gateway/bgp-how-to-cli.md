@@ -1,19 +1,18 @@
 ---
-title: 'Configurer le protocole BGP pour une passerelle VPN Azure : Azure Resource Manager et CLI | Microsoft Docs'
+title: 'Configurer le protocole BGP sur des passerelles VPN Azure : Interface CLI'
 description: Cet article vous guide dans la configuration de BGP avec une passerelle VPN Azure à l’aide d’Azure Resource Manager et de CLI.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 51402196c8429797b644357822a1e3c08982b384
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 42a07ac00fd8a26918164f6547bf57c2b021d14c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65209501"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863612"
 ---
 # <a name="how-to-configure-bgp-on-an-azure-vpn-gateway-by-using-cli"></a>Configurer BGP sur une passerelle VPN Azure à l’aide de CLI
 
@@ -50,7 +49,7 @@ Cette partie est obligatoire avant d’effectuer des étapes des autres sections
 
 Installez la dernière version des commandes CLI (version 2.0 ou ultérieure). Pour plus d’informations sur l’installation des commandes CLI, consultez [Installer l’interface de ligne de commande Microsoft Azure](/cli/azure/install-azure-cli) et [Prise en main d’Azure CLI](/cli/azure/get-started-with-azure-cli).
 
-### <a name="step-1-create-and-configure-testvnet1"></a>Étape 1 : Créer et configurer TestVNet1
+### <a name="step-1-create-and-configure-testvnet1"></a>Étape 1 : Créer et configurer TestVNet1
 
 #### <a name="Login"></a>1. Connexion à votre abonnement
 
@@ -80,7 +79,7 @@ az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestBGPRG1 --a
 az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestBGPRG1 --address-prefix 10.12.255.0/27 
 ```
 
-### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Étape 2 : créer la passerelle VPN de TestVNet1 avec les paramètres BGP
+### <a name="step-2-create-the-vpn-gateway-for-testvnet1-with-bgp-parameters"></a>Étape 2 : créer la passerelle VPN de TestVNet1 avec les paramètres BGP
 
 #### <a name="1-create-the-public-ip-address"></a>1. Créer une adresse IP publique
 
@@ -126,7 +125,7 @@ Pour établir une connexion intersite, vous devez créer une passerelle de rése
 ![BGP pour une connexion intersite](./media/vpn-gateway-bgp-resource-manager-ps/bgp-crossprem.png)
 
 
-### <a name="step-1-create-and-configure-the-local-network-gateway"></a>Étape 1 : créer et configurer la passerelle de réseau local
+### <a name="step-1-create-and-configure-the-local-network-gateway"></a>Étape 1 : créer et configurer la passerelle de réseau local
 
 Cet exercice continue à générer la configuration représentée dans le diagramme. Veillez à remplacer les valeurs par celles que vous souhaitez utiliser pour votre configuration. Lorsque vous travaillez avec des passerelles de réseau local, gardez à l’esprit ce qui suit :
 
@@ -142,7 +141,7 @@ az group create -n TestBGPRG5 -l eastus2 
 az network local-gateway create --gateway-ip-address 23.99.221.164 -n Site5 -g TestBGPRG5 --local-address-prefixes 10.51.255.254/32 --asn 65050 --bgp-peering-address 10.51.255.254
 ```
 
-### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>Étape 2 : connecter la passerelle de réseau virtuel et la passerelle de réseau local
+### <a name="step-2-connect-the-vnet-gateway-and-local-network-gateway"></a>Étape 2 : connecter la passerelle de réseau virtuel et la passerelle de réseau local
 
 Dans cette étape, vous allez créer la connexion entre TestVNet1 et Site5. Vous devez spécifier le paramètre `--enable-bgp` pour activer BGP sur cette connexion. 
 
@@ -219,7 +218,7 @@ Cette section ajoute une connexion de réseau virtuel à réseau virtuel avec le
 
 Les instructions suivantes sont la suite des étapes des précédentes sections. Pour créer et configurer TestVNet1 et la passerelle VPN avec le protocole BGP, vous devez terminer la section [Activer BGP pour la passerelle VPN](#enablebgp).
 
-### <a name="step-1-create-testvnet2-and-the-vpn-gateway"></a>Étape 1 : créer TestVNet2 et la passerelle VPN
+### <a name="step-1-create-testvnet2-and-the-vpn-gateway"></a>Étape 1 : créer TestVNet2 et la passerelle VPN
 
 Il est important de s’assurer que l’espace d’adressage IP du nouveau réseau virtuel, TestVNet2, n’empiète sur aucune de vos plages de réseau virtuel.
 
@@ -261,7 +260,7 @@ Créez la passerelle de réseau virtuel pour TestVNet2. Vous devez substituer la
 az network vnet-gateway create -n VNet2GW -l westus --public-ip-address GWPubIP2 -g TestBGPRG2 --vnet TestVNet2 --gateway-type Vpn --sku Standard --vpn-type RouteBased --asn 65020 --no-wait
 ```
 
-### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Étape 2 : connecter les passerelles TestVNet1 et TestVNet2
+### <a name="step-2-connect-the-testvnet1-and-testvnet2-gateways"></a>Étape 2 : connecter les passerelles TestVNet1 et TestVNet2
 
 Dans cette étape, vous allez créer la connexion entre TestVNet1 et Site5. Pour activer BGP sur cette connexion, vous devez spécifier le paramètre `--enable-bgp`.
 

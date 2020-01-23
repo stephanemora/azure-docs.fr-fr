@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a315b012cf103840eae6b141fe5177dfa709896d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463947"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771613"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -24,7 +24,7 @@ ms.locfileid: "75463947"
 
 ![Structure de fichiers](./media/storage-files-introduction/files-concepts.png)
 
-* **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez la page [Objectifs de performance et évolutivité](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* **Compte de stockage** : Tous les accès à Azure Storage passent par un compte de stockage. Pour plus d’informations sur la capacité du compte de stockage, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 * **Partage** : un partage Stockage Fichier est un partage de fichiers SMB dans Azure. Tous les répertoires et fichiers doivent être créés dans un partage parent. Un compte peut contenir un nombre illimité de partages, et un partage peut stocker un nombre illimité de fichiers, dans la limite de la capacité totale du partage de fichiers. La capacité totale pour les partages de fichiers Premium et Standard est de 100 Tio.
 
@@ -205,29 +205,40 @@ Le partage de fichiers Standard est disponible dans toutes les régions, jusqu�
 
 |Région |Redondance prise en charge |
 |-------|---------|
+|Centre de l’Australie    |LRS     |
+|Centre de l’Australie 2    |LRS     |
 |Australie Est |LRS     |
 |Sud-Australie Est|LRS |
+|Brésil Sud    |LRS     |
 |Centre du Canada  |LRS     |
 |Est du Canada     |LRS     |
 |Inde centrale  |LRS     |
-|USA Centre*   |LRS     |
+|USA Centre*   |LRS, ZRS    |
 |Asie Est      |LRS     |
 |USA Est*        |LRS, ZRS|
-|USA Est 2*      |LRS     |
+|USA Est 2*      |LRS, ZRS     |
 |France Centre |LRS, ZRS|
 |France Sud   |LRS     |
 |Japon Est     |LRS     |
+|OuJapon Est     |LRS     |
+|Centre de la Corée  |LRS     |
+|Corée du Sud    |LRS     |
 |Centre-Nord des États-Unis |LRS   |
 |Europe Nord   |LRS     |
 |Inde Sud    |LRS     |
 |États-Unis - partie centrale méridionale |LRS     |
 |Asie Sud-Est |LRS, ZRS|
+|Suisse Nord    |LRS     |
+|Suisse Ouest    |LRS     |
 |Émirats arabes unis Centre    |LRS     |
-|Sud du Royaume-Uni   |LRS     |
+|Émirats arabes unis Nord    |LRS     |
+|Nord du Royaume-Uni   |LRS, ZRS    |
+|Sud du Royaume-Uni    |LRS     |
 |Ouest du Royaume-Uni    |LRS     |
 |Centre-USA Ouest|LRS     |
 |Europe Ouest*    |LRS, ZRS|
-|USA Ouest*        |LRS     |
+|Inde Ouest   |LRS     |
+|USA Ouest        |LRS     |
 |USA Ouest 2      |LRS, ZRS|
 
 \* Pris en charge pour les nouveaux comptes ; les comptes existants n’ont pas tous terminé le processus de mise à niveau. Vous pouvez vérifier si vos comptes de stockage existants ont terminé le processus de mise à niveau en tentant d’[activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
@@ -248,7 +259,7 @@ Vous pouvez synchroniser plusieurs partages de fichiers Azure sur un même serve
 
 Il existe de nombreuses options pour facilement transférer en bloc les données d’un partage de fichiers existant, par exemple, un partage de fichiers local, dans Azure Files. En voici quelques-unes connues (liste non exhaustive) :
 
-* **Azure File Sync** : lors de la première synchronisation entre un partage de fichiers Azure (un « point de terminaison cloud ») et un espace de noms de répertoire Windows (un « point de terminaison de serveur »), Azure File Sync réplique toutes les données du partage de fichiers existant sur Azure Files.
+* **[Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning)**  : lors de la première synchronisation entre un partage de fichiers Azure (un « point de terminaison cloud ») et un espace de noms de répertoire Windows (un « point de terminaison de serveur »), Azure File Sync réplique toutes les données du partage de fichiers existant sur Azure Files.
 * **[Azure Import Export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Le service Azure Import/Export permet de transférer en toute sécurité des volumes importants de données dans un partage de fichiers Azure en expédiant des disques durs vers un centre de données Azure. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server. Robocopy peut servir à transférer des données dans Azure Files en montant le partage de fichiers localement, puis en utilisant l’emplacement monté comme destination de la commande Robocopy.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales.

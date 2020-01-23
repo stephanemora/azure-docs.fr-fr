@@ -5,12 +5,12 @@ author: ahmedelnably
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: aelnably
-ms.openlocfilehash: 4ebf6ecea0b08f416bd1bd11382116dda2107ecf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4af646569edc8a9274af752e7e4f2a36585ae4d
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409655"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769096"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorage d’Azure Functions avec Azure Monitor Logs
 
@@ -25,11 +25,11 @@ Azure Monitor utilise une version du [langage de requête Kusto](/azure/kusto/qu
 
 ## <a name="setting-up"></a>Configuration
 
-Dans la section Monitorage, sélectionnez **Paramètres de diagnostic**, puis cliquez sur **Ajouter**.
+Dans la section **Supervision**, sélectionnez **Paramètres de diagnostic**, puis cliquez sur **Ajouter un paramètre de diagnostic**.
 
 ![Ajouter un paramètre de diagnostic](media/functions-monitor-log-analytics/diagnostic-settings-add.png)
 
-Sur la page des paramètres, choisissez **Envoyer à Log Analytics** et, sous **JOURNAL**, choisissez **FunctionAppLogs** : cette table contient les journaux souhaités.
+Dans la page **Paramètres de diagnostic**, choisissez **Envoyer à Log Analytics**, puis sélectionnez votre espace de travail Log Analytics. Sous **journal**, choisissez **FunctionAppLogs** ; cette table contient les journaux souhaités.
 
 ![Ajouter un paramètre de diagnostic](media/functions-monitor-log-analytics/choose-table.png)
 
@@ -72,7 +72,7 @@ logging.info('My app logs here.')
 
 ## <a name="querying-the-logs"></a>Interroger les journaux
 
-Pour interroger les journaux générés, accédez à l’espace de travail Log Analytics et cliquez sur **Journaux**.
+Pour interroger les journaux générés, accédez à l’espace de travail Log Analytics que vous avez configuré pour envoyer les journaux de fonction, puis cliquez sur **Journaux**.
 
 ![Fenêtre Requête dans l’espace de travail LA](media/functions-monitor-log-analytics/querying.png)
 

@@ -3,28 +3,23 @@ title: Création et téléchargement d'un disque dur virtuel Linux Ubuntu dans
 description: Apprenez à créer et à charger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux Ubuntu.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager,azure-service-management
-ms.assetid: 3e097959-84fc-4f6a-8cc8-35e087fd1542
+author: MicahMcKittrick-MSFT
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: szark
-ms.openlocfilehash: cdf2c6c0d5621223655fc4571affcdde4563ac97
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.author: mimckitt
+ms.openlocfilehash: adea86420c974d7e342dc5803d9d814d5792fe78
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258264"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934042"
 ---
 # <a name="prepare-an-ubuntu-virtual-machine-for-azure"></a>Préparation d'une machine virtuelle Linux Ubuntu pour Azure
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="official-ubuntu-cloud-images"></a>Images cloud Ubuntu officielles
+
 Ubuntu publie désormais des disques durs virtuels Azure officiels téléchargeables depuis l’adresse [https://cloud-images.ubuntu.com/](https://cloud-images.ubuntu.com/). Si vous avez besoin de créer votre propre image Ubuntu spécialisée pour Azure, plutôt que d’utiliser la procédure manuelle ci-après, nous vous recommandons de démarrer avec ces disques durs virtuels opérationnels connus et de les personnaliser selon vos besoins. Les dernières versions de l’image se trouvent toujours aux emplacements suivants :
 
 * Ubuntu 12.04/Precise : [ubuntu-12.04-server-cloudimg-amd64-disk1.vhd.zip](https://cloud-images.ubuntu.com/precise/current/precise-server-cloudimg-amd64-disk1.vhd.zip)
@@ -33,14 +28,14 @@ Ubuntu publie désormais des disques durs virtuels Azure officiels téléchargea
 * Ubuntu 18.04/Bionic : [bionic-server-cloudimg-amd64.vhd.zip](https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.vhd.zip)
 * Ubuntu 18.10/Cosmic : [cosmic-server-cloudimg-amd64.vhd.zip](http://cloud-images.ubuntu.com/releases/cosmic/release/ubuntu-18.10-server-cloudimg-amd64.vhd.zip)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose que vous avez déjà installé un système d'exploitation Linux Ubuntu dans un disque dur virtuel. Il existe de multiples outils dédiés à la création de fichiers .vhd, comme la solution de virtualisation Hyper-V. Pour obtenir des instructions, consultez la page [Installation du rôle Hyper-V et configuration d'une machine virtuelle](https://technet.microsoft.com/library/hh846766.aspx).
 
 **Notes d'installation Ubuntu**
 
 * Consultez également les [Notes générales d’installation sous Linux](create-upload-generic.md#general-linux-installation-notes) pour obtenir d’autres conseils sur la préparation de Linux pour Azure.
 * Azure ne prend pas en charge le format VHDX, seulement le **VHD fixe**.  Vous pouvez convertir le disque au format VHD à l'aide de Hyper-V Manager ou de l’applet de commande convert-vhd.
-* Lors de l'installation du système Linux, il est recommandé d'utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données, le cas échéant.
+* Lors de l’installation du système Linux, il est recommandé d’utiliser les partitions standard plutôt que LVM (qui est souvent le choix par défaut pour de nombreuses installations). Ceci permettra d'éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d'exploitation doit être relié à une autre machine virtuelle pour la dépanner. La technique [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données, le cas échéant.
 * Ne configurez pas une partition d'échange sur le disque du système d'exploitation. L'agent Linux est configurable pour créer un fichier d'échange sur le disque de ressources temporaire.  Les étapes ci-dessous fournissent plus d’informations à ce sujet.
 * Tous les VDH sur Azure doivent avoir une taille virtuelle alignée à 1 Mo. Lors de la conversion d’un disque brut vers VDH, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo avant la conversion. Pour plus d’informations, consultez [Notes d’installation sur Linux](create-upload-generic.md#general-linux-installation-notes).
 
@@ -54,7 +49,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 2. Cliquez sur **Connect** pour ouvrir la fenêtre de la machine virtuelle.
 
-3. Remplacez les référentiels actuels dans l'image par les référentiels Azure Ubuntu. Les étapes varient légèrement selon la version d'Ubuntu.
+3. Remplacez les référentiels actuels dans l’image par le référentiel Azure d’Ubuntu. Les étapes varient légèrement selon la version d'Ubuntu.
    
     Avant de modifier `/etc/apt/sources.list`, il est recommandé d’effectuer une sauvegarde :
    
@@ -102,7 +97,16 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
         (recommended) sudo apt-get dist-upgrade
 
         # sudo reboot
+    
+    Ubuntu 18.04.04 :
+    
+        # sudo apt-get update
+        # sudo apt-get install --install-recommends linux-generic-hwe-18.04 xserver-xorg-hwe-18.04
+        # sudo apt-get install --install-recommends linux-cloud-tools-generic-hwe-18.04
+        (recommended) sudo apt-get dist-upgrade
 
+        # sudo reboot
+    
     **Voir aussi :**
     - [https://wiki.ubuntu.com/Kernel/LTSEnablementStack](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
     - [https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack](https://wiki.ubuntu.com/Kernel/RollingLTSEnablementStack)
@@ -133,7 +137,7 @@ Cet article suppose que vous avez déjà installé un système d'exploitation L
 
 1. Cliquez sur **Action -> Arrêter** dans le Gestionnaire Hyper-V. Votre disque dur virtuel Linux est alors prêt pour le téléchargement dans Azure.
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 [Noyau HWE (HardWare Enablement) Ubuntu](https://wiki.ubuntu.com/Kernel/LTSEnablementStack)
 
 ## <a name="next-steps"></a>Étapes suivantes

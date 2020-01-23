@@ -1,6 +1,6 @@
 ---
-title: Ajouter une couche de symboles à des cartes Android dans Azure Maps | Microsoft Docs
-description: Comment ajouter des symboles à une carte à l’aide de l’Android SDK Azure Maps
+title: Ajouter une couche de symboles à des cartes Android | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à afficher des données de point sur une carte en y ajoutant une couche de symboles avec le kit Android SDK Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0292c8a441589a01241fbef6923246b4bcafb5c8
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 877147bc0fd680278f999d2007040a92b0cbff38
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976255"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911534"
 ---
-# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une couche de symboles à une carte à l’aide de l’Android SDK Azure Maps
+# <a name="add-a-symbol-layer-to-a-map-using-azure-maps-android-sdk"></a>Ajouter une couche de symboles à une carte avec le kit Android SDK Azure Maps
 
-Cet article montre comment restituer des données de points à partir d’une source de données sous la forme d’une couche de symboles sur une carte à l’aide de l’Android SDK Azure Maps.
+Cet article montre comment restituer des données de points à partir d’une source de données sous la forme d’une couche de symboles sur une carte avec le kit Android SDK Azure Maps.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre les étapes décrites dans cet article, vous devez installer l’[Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) afin de charger une carte.
 
@@ -181,4 +181,4 @@ Pour ajouter des éléments à votre carte, voir :
 > [Ajouter des formes à une carte Android](https://docs.microsoft.com/azure/azure-maps/how-to-add-shapes-to-android-map)
 
 > [!div class="nextstepaction"]
-> [Afficher des informations sur les fonctionnalités](display-feature-information-android.md)
+> [Afficher des informations sur les caractéristiques](display-feature-information-android.md)

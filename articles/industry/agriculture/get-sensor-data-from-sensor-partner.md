@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 455652795a13fe9755c1ed57681bedaf7a70a5d5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435174"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777782"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
@@ -41,28 +41,36 @@ Les informations précédentes sont fournies par votre intégrateur système. Po
 
 Vous pouvez également générer les informations d’identification en exécutant ce script à partir d’Azure Cloud Shell. Effectuez les opérations suivantes.
 
-1. Téléchargez le [fichier zip](https://aka.ms/farmbeatspartnerscript) et extrayez-le sur votre lecteur local. Le fichier zip contient deux fichiers.
-2. Connectez-vous à https://portal.azure.com/ et ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
+1. Téléchargez le [fichier zip](https://aka.ms/farmbeatspartnerscriptv2) et extrayez-le sur votre lecteur local. Il y aura un fichier dans le fichier zip.
+2. Connectez-vous à https://portal.azure.com/ et accédez à Azure Active Directory -> Inscriptions d’applications.
+
+3. Cliquez sur l’inscription de l’application qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre DataHub FarmBeats.
+
+4. Cliquez sur « Exposer une API » -> cliquez sur « Ajouter une application cliente », puis entrez **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** et cochez la case « Autoriser l’étendue ». Cela permet d’accéder à l’interface de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous.
+
+5. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
 
     ![Barre d’outils du portail Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-3. Veillez à ce que **PowerShell** soit défini comme environnement. Bash est sélectionné par défaut.
+6. Veillez à ce que **PowerShell** soit défini comme environnement. Bash est sélectionné par défaut.
 
     ![Paramètre de la barre d’outils PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-4. Chargez les deux fichiers obtenus à l’étape 1 dans votre instance Cloud Shell.
+7. Chargez le fichier obtenu à l’étape 1 dans votre instance Cloud Shell.
 
     ![Bouton de chargement dans la barre d’outils](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
 
-5. Accédez au répertoire où les fichiers ont été chargés. Par défaut, ils sont chargés dans le répertoire de base sous le nom d’utilisateur.
-6. Exécutez le script suivant :
+8. Accédez au répertoire où le fichier a été chargé. Par défaut, les fichiers sont chargés dans le répertoire de base sous le nom d’utilisateur.
+
+9. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui peut être obtenu à partir de la page Azure Active Directory > Vue d’ensemble.
 
     ```azurepowershell-interactive 
 
-    ./generateCredentials.ps1   
+    ./generatePartnerCredentials.ps1   
 
     ```
-7. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements). La chaîne de connexion EventHub est disponible dans la réponse d’API dans Swagger.
+
+10. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Intégrer des données d’appareil avec des informations d’identification générées
 

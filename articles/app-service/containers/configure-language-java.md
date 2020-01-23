@@ -10,12 +10,12 @@ ms.date: 11/22/2019
 ms.author: brendm
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5ee07e5b0ac9c73a686a0f8c7d489ecc7ee96425
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c95772c8f10d7170a06d1d6793545a60fc8dd7c
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422192"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750738"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Configurer une application Java Linux pour Azure App Service
 
@@ -238,11 +238,9 @@ Pour injecter ces secrets dans votre fichier de configuration Spring ou Tomcat, 
 
 ### <a name="using-the-java-key-store"></a>Utilisation du Java Key Store
 
-Par défaut, tous les certificats publics ou privés [chargés sur App Service Linux](../configure-ssl-certificate.md) seront chargés dans le Java Key Store au démarrage du conteneur. Cela signifie que vos certificats chargés seront disponibles dans le contexte de connexion lors de l'établissement de connexions TLS sortantes. Après avoir chargé votre certificat, vous devrez redémarrer votre App Service afin de le charger dans le Java Key Store.
+Par défaut, tous les certificats publics ou privés [chargés sur App Service Linux](../configure-ssl-certificate.md) seront chargés dans les magasins de clés Java respectifs au démarrage du conteneur. Après avoir chargé votre certificat, vous devrez redémarrer votre App Service afin de le charger dans le Java Key Store. Les certificats publics sont chargés dans le magasin de clés sur `$JAVA_HOME/jre/lib/security/cacerts`, et les certificats privés sont stockés dans `$JAVA_HOME/lib/security/client.jks`.
 
-Vous pouvez interagir ou déboguer l'outil Java Key Tool en [ouvrant une connexion SSH](app-service-linux-ssh-support.md) sur votre App Service et en exécutant la commande `keytool`. Consultez la [documentation de Key Tool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) pour obtenir une liste des commandes. Les certificats sont stockés dans l'emplacement par défaut du magasin de clés Java, `$JAVA_HOME/jre/lib/security/cacerts`.
-
-Une configuration supplémentaire peut être nécessaire pour chiffrer votre connexion JDBC. Reportez-vous à la documentation du pilote JDBC que vous avez choisi.
+Une configuration supplémentaire peut être nécessaire pour chiffrer votre connexion JDBC avec des certificats dans le magasin de clés Java. Reportez-vous à la documentation du pilote JDBC que vous avez choisi.
 
 - [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
@@ -250,11 +248,27 @@ Une configuration supplémentaire peut être nécessaire pour chiffrer votre con
 - [MongoDB](https://mongodb.github.io/mongo-java-driver/3.4/driver/tutorials/ssl/)
 - [Cassandra](https://docs.datastax.com/en/developer/java-driver/4.3/)
 
-#### <a name="manually-initialize-and-load-the-key-store"></a>Initialiser et charger manuellement le magasin de clés
+#### <a name="initializing-the-java-key-store"></a>Initialisation du magasin de clés Java
 
-Vous pouvez manuellement initialiser le magasin de clés et ajouter des certificats. Créez un paramètre d'application, `SKIP_JAVA_KEYSTORE_LOAD`, avec une valeur de `1` pour désactiver le chargement automatique des certificats dans le magasin de clés. Tous les certificats publics chargés sur App Service via le portail Azure sont stockés sous `/var/ssl/certs/`. Les certificats privés sont stockés sous `/var/ssl/private/`.
+Pour initialiser l’objet `import java.security.KeyStore`, chargez le fichier de magasin de clés avec le mot de passe. Le mot de passe par défaut pour les deux magasins de clés est « changeit ».
 
-Pour plus d'informations sur l'API KeyStore, reportez-vous à la [documentation officielle](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
+```java
+KeyStore keyStore = KeyStore.getInstance("jks");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/cacets"),
+    "changeit".toCharArray());
+
+KeyStore keyStore = KeyStore.getInstance("pkcs12");
+keyStore.load(
+    new FileInputStream(System.getenv("JAVA_HOME")+"/lib/security/client.jks"),
+    "changeit".toCharArray());
+```
+
+#### <a name="manually-load-the-key-store"></a>Charger manuellement le magasin de clés
+
+Vous pouvez charger les certificats manuellement dans le magasin de clés. Créez un paramètre d'application, `SKIP_JAVA_KEYSTORE_LOAD`, avec une valeur de `1` pour désactiver le chargement automatique des certificats dans le magasin de clés. Tous les certificats publics chargés sur App Service via le portail Azure sont stockés sous `/var/ssl/certs/`. Les certificats privés sont stockés sous `/var/ssl/private/`.
+
+Vous pouvez interagir ou déboguer l'outil Java Key Tool en [ouvrant une connexion SSH](app-service-linux-ssh-support.md) sur votre App Service et en exécutant la commande `keytool`. Consultez la [documentation de Key Tool](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) pour obtenir une liste des commandes. Pour plus d'informations sur l'API KeyStore, reportez-vous à la [documentation officielle](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html).
 
 ## <a name="configure-apm-platforms"></a>Configurer des plateformes d’APM
 
@@ -372,7 +386,7 @@ Votre script de démarrage crée une [transformation xsl](https://www.w3schools.
 apk add --update libxslt
 
 # Usage: xsltproc --output output.xml style.xsl input.xml
-xsltproc --output /usr/local/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /home/tomcat/conf/server.xml
+xsltproc --output /home/tomcat/conf/server.xml /home/tomcat/conf/transform.xsl /usr/local/tomcat/conf/server.xml
 ```
 
 Un exemple de fichier xsl est fourni ci-dessous. L’exemple de fichier xsl ajoute un nouveau nœud de connecteur au fichier server.xml Tomcat.

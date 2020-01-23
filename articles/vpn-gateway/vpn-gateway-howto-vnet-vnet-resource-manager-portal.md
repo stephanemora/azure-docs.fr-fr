@@ -1,18 +1,18 @@
 ---
-title: Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure | Microsoft Docs
+title: Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel Portail Azure
 description: Créer une connexion de passerelle VPN entre des réseaux virtuels à l’aide de Resource Manager et du portail Azure.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7ad83327d5b85784f523a5931f277cd00009e0ed
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b98fb4044028ec9b335dc314732da04d18a3e2f9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266461"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894958"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide du portail Azure
 
@@ -23,9 +23,9 @@ Cet article vous explique comment connecter des réseaux virtuels avec une conne
 Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Azure Resource Manager et font appel au portail Azure. Vous pouvez créer cette configuration avec un outil ou un modèle de déploiement différent en utilisant les options décrites dans les articles suivants :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -74,51 +74,51 @@ Cet article explique comment connecter des réseaux virtuels avec une connexion 
 **Valeurs pour TestVNet1 :**
 
 - **Paramètres de réseau virtuel**
-    - **Nom** : Entrez *TestVNet1*.
+    - **Name** : Entrez *TestVNet1*.
     - **Espace d’adressage** : Entrez *10.11.0.0/16*.
     - **Abonnement**: Sélectionnez l’abonnement que vous souhaitez utiliser.
     - **Groupe de ressources** : Entrez *TestRG1*.
-    - **Emplacement** : Sélectionnez **USA Est**.
+    - **Emplacement** : Sélectionnez **USA Est**.
     - **Sous-réseau**
-        - **Nom** : Entrez *FrontEnd*.
+        - **Name** : Entrez *FrontEnd*.
         - **Plage d’adresses** : Entrez *10.11.0.0/24*.
     - **Sous-réseau de passerelle** :
-        - **Nom** : *Sous-réseau de passerelle* est automatiquement renseigné.
+        - **Name** : *Sous-réseau de passerelle* est automatiquement renseigné.
         - **Plage d’adresses** : Entrez *10.11.255.0/27*.
 
 - **Paramètres de passerelle de réseau virtuel** 
-    - **Nom** : Entrez *TestVNet1GW*.
-    - **Type de passerelle** : Sélectionnez **VPN**.
+    - **Name** : Entrez *TestVNet1GW*.
+    - **Type de passerelle** : Sélectionnez **VPN**.
     - **Type de VPN** : Sélectionnez **Route-based**.
-    - **Référence SKU** : Sélectionnez la référence de la passerelle que vous souhaitez utiliser.
+    - **SKU** : Sélectionnez la référence de la passerelle que vous souhaitez utiliser.
     - **Nom de l’adresse IP publique** : Entrez *TestVNet1GWIP*.
     - **Connection** 
-       - **Nom** : Entrez *TestVNet1toTestVNet4*.
+       - **Name** : Entrez *TestVNet1toTestVNet4*.
        - **Clé partagée** : Entrez *abc123*. Vous pouvez créer la clé partagée vous-même. Lorsque vous créez la connexion entre les réseaux virtuels, les valeurs doivent correspondre.
 
 **Valeurs pour TestVNet4 :**
 
 - **Paramètres de réseau virtuel**
-   - **Nom** : Entrez *TestVNet4*.
+   - **Name** : Entrez *TestVNet4*.
    - **Espace d’adressage** : Entrez *10.41.0.0/16*.
    - **Abonnement**: Sélectionnez l’abonnement que vous souhaitez utiliser.
    - **Groupe de ressources** : Entrez *TestRG4*.
-   - **Emplacement** : Sélectionnez **USA Ouest**.
+   - **Emplacement** : Sélectionnez **USA Ouest**.
    - **Sous-réseau** 
-      - **Nom** : Entrez *FrontEnd*.
+      - **Name** : Entrez *FrontEnd*.
       - **Plage d’adresses** : Entrez *10.41.0.0/24*.
    - **GatewaySubnet** 
-      - **Nom** : *Sous-réseau de passerelle* est automatiquement renseigné.
+      - **Name** : *Sous-réseau de passerelle* est automatiquement renseigné.
       - **Plage d’adresses** : Entrez *10.41.255.0/27*.
 
 - **Paramètres de passerelle de réseau virtuel** 
-    - **Nom** : Entrez *TestVNet4GW*.
-    - **Type de passerelle** : Sélectionnez **VPN**.
+    - **Name** : Entrez *TestVNet4GW*.
+    - **Type de passerelle** : Sélectionnez **VPN**.
     - **Type de VPN** : Sélectionnez **Route-based**.
-    - **Référence SKU** : Sélectionnez la référence de la passerelle que vous souhaitez utiliser.
+    - **SKU** : Sélectionnez la référence de la passerelle que vous souhaitez utiliser.
     - **Nom de l’adresse IP publique** : Entrez *TestVNet4GWIP*.
     - **Connection** 
-       - **Nom** : Entrez *TestVNet4toTestVNet1*.
+       - **Name** : Entrez *TestVNet4toTestVNet1*.
        - **Clé partagée** : Entrez *abc123*. Vous pouvez créer la clé partagée vous-même. Lorsque vous créez la connexion entre les réseaux virtuels, les valeurs doivent correspondre.
 
 ## <a name="create-and-configure-testvnet1"></a>Créer et configurer TestVNet1
@@ -156,7 +156,7 @@ Lorsque les passerelles de réseau virtuel pour TestVNet1 et TestVNet4 sont term
    ![Ajouter une connexion](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/add.png "Ajouter une connexion")
 3. Sur la page **Ajouter une connexion**, renseignez les valeurs correspondant à votre connexion :
 
-   - **Nom** : Entrez un nom pour votre connexion. Par exemple, *TestVNet1toTestVNet4*.
+   - **Name** : Entrez un nom pour votre connexion. Par exemple, *TestVNet1toTestVNet4*.
 
    - **Type de connexion** : Sélectionnez **Réseau virtuel à réseau virtuel** dans la liste déroulante.
 
@@ -179,11 +179,11 @@ Créez ensuite une connexion de TestVNet4 à TestVNet1. Dans le portail, recherc
 
 Recherchez la passerelle de réseau virtuel dans le portail Azure. Sur la page **Passerelle de réseau virtuel**, sélectionnez **Connexion** pour afficher la page **Connexion** de la passerelle de réseau virtuel. Une fois la connexion établie, l’**état** passe à **Opération réussie**, puis à **Connecté**. Sélectionnez une connexion pour ouvrir la page **Éléments principaux**, qui contient des informations supplémentaires.
 
-![Réussite](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Réussite")
+![Réussi](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connected.png "Opération réussie")
 
 Lorsque les données commencent à circuler, des valeurs apparaissent pour **Données entrantes** et **Données sortantes**.
 
-![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Bases](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
 
 ## <a name="add-additional-connections"></a>Ajouter des connexions supplémentaires
 

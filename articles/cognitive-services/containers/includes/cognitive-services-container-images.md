@@ -6,22 +6,25 @@ manager: nitinme
 description: Deux tableaux représentant les registres de conteneurs, les dépôts et les noms d’images pour toutes les offres Cognitive Services.
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 11/15/2019
+ms.date: 01/10/2020
 ms.author: dapine
-ms.openlocfilehash: 2058dd6e52ddb417e24368b27384df9a222c378e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7c229ea306d89f85fb37a68fc84e3e4f6770e5ad
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74142194"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866938"
 ---
 ### <a name="container-repositories-and-images"></a>Images et référentiels de conteneurs
 
-Les tableaux ci-dessous répertorient les images conteneurs offertes par Azure Cognitive Services. Pour obtenir la liste complète de tous les noms d’image conteneur disponibles et leurs étiquettes utilisables, consultez [Étiquettes des images conteneurs Cognitive Services](../container-image-tags.md).
+Les tableaux ci-dessous répertorient les images conteneurs offertes par Azure Cognitive Services. Pour obtenir la liste complète de tous les noms d’image conteneur disponibles et leurs étiquettes utilisables, consultez [Étiquettes des images conteneurs Cognitive Services](../container-image-tags.md). Actuellement, il n’existe pas de conteneurs Cognitive Services en disponibilité générale. Pour le moment, jusqu’à ce que d’autres annonces soient faites, les conteneurs sont disponibles de façon *publique non contrôlée* ou en *préversion publique contrôlée*.
+
+ - *Publique non contrôlée* : les conteneurs sont disponibles publiquement sans mécanisme de contrôle.
+ - *Préversion publique contrôlée* : les conteneurs sont disponibles publiquement, mais exigent d’abord une demande formelle pour l’accès au registre des conteneurs.
 
 #### <a name="public-ungated-container-registry-mcrmicrosoftcom"></a>Public « non contrôlé » (registre de conteneurs : `mcr.microsoft.com`)
 
-Le registre de conteneurs Microsoft (MCR) regroupe tous les conteneurs « non contrôlés » disponibles publiquement pour Cognitive Services. Ils sont également accessibles directement à partir du [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
+Le registre de conteneurs Microsoft (MCR) regroupe tous les conteneurs « non contrôlés » disponibles publiquement pour Cognitive Services. Les conteneurs sont également accessibles directement à partir du [Docker Hub](https://hub.docker.com/_/microsoft-azure-cognitive-services).
 
 | Service | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|
@@ -32,7 +35,7 @@ Le registre de conteneurs Microsoft (MCR) regroupe tous les conteneurs « non 
 
 #### <a name="public-gated-preview-container-registry-containerpreviewazurecrio"></a>Préversion « contrôlée » publique (registre de conteneurs : `containerpreview.azurecr.io`)
 
-Le registre des conteneurs en préversion héberge tous les conteneurs « contrôlés » disponibles publiquement pour Cognitive Services. Ces conteneurs doivent faire l’objet d’une demande formelle d’accès pour pouvoir être utilisés.
+Le registre des conteneurs en préversion héberge tous les conteneurs « contrôlés » disponibles publiquement pour Cognitive Services. L’accès à ces conteneurs nécessite qu’une demande formelle leur soit adressée via leur registre de conteneurs.
 
 | Service | Conteneur | Nom de registre de conteneurs / référentiel / image |
 |--|--|--|

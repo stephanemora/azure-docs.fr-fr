@@ -1,25 +1,26 @@
 ---
-title: 'Connectez votre réseau local à un réseau virtuel Azure : VPN de site à site : PowerShell | Microsoft Docs'
+title: 'Connectez votre réseau local à un réseau virtuel Azure : VPN de site à site : PowerShell'
 description: Étapes de création d’une connexion IPsec entre votre réseau local et un réseau virtuel Azure via l’Internet public. Ces étapes vous aideront à créer une connexion de passerelle VPN de site à site à l’aide de PowerShell.
+titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 69cdf248e299ce4fdf08540836d44958438a2665
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d1693a6165aa31b221b6901e2e1c8b2955a3dfb3
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699896"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045707"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Créer un réseau virtuel avec une connexion VPN de site à site à l’aide de PowerShell
 
 Cet article vous explique comment utiliser PowerShell pour créer une connexion de passerelle VPN de site à site à partir de votre réseau local vers le réseau virtuel. Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-create-site-to-site-rm-powershell.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-site-to-site-classic-portal.md)
@@ -32,23 +33,15 @@ Une connexion de passerelle VPN de site à site permet de connecter votre résea
 
 ## <a name="before"></a>Avant de commencer
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Vérifiez que vous disposez des éléments ci-dessous avant de commencer votre configuration :
 
 * Veillez à disposer d’un périphérique VPN compatible et à être entouré d’une personne en mesure de le configurer. Pour plus d’informations sur les périphériques VPN compatibles et la configuration de votre périphérique, consultez l’article [À propos des périphériques VPN](vpn-gateway-about-vpn-devices.md).
 * Vérifiez que vous disposez d’une adresse IPv4 publique exposée en externe pour votre périphérique VPN.
 * Si vous ne maîtrisez pas les plages d’adresses IP situées dans votre configuration de réseau local, vous devez contacter une personne en mesure de vous aider. Lorsque vous créez cette configuration, vous devez spécifier les préfixes des plages d’adresses IP qu’Azure acheminera vers votre emplacement local. Aucun des sous-réseaux de votre réseau local ne peut chevaucher les sous-réseaux du réseau virtuel auquel vous souhaitez vous connecter.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
 
-### <a name="running-powershell-locally"></a>Exécution de PowerShell localement
-
-Si vous choisissez d’installer et d’utiliser PowerShell en local, installez la dernière version des cmdlets PowerShell Azure Resource Manager. Les applets de commande PowerShell sont fréquemment mises à jour, et vous devez généralement mettre à jour les vôtres pour obtenir les toutes dernières fonctionnalités. Si vous ne mettez pas à jour vos cmdlets PowerShell, les valeurs spécifiées peuvent échouer. 
-
-Pour trouver la version que vous utilisez, exécutez « Get-Module -ListAvailable Az ». Si vous devez effectuer une mise à niveau, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/install-az-ps). Pour plus d’informations, consultez [Installer et configurer Azure PowerShell](/powershell/azure/overview).
-Si vous exécutez PowerShell en local, vous devez également exécuter « Connect-AzAccount » pour créer une connexion à Azure.
-
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Exemples de valeurs
 
@@ -256,6 +249,15 @@ Si les préfixes d’adresse IP que vous souhaitez acheminer vers votre emplace
 ## <a name="modifygwipaddress"></a>Pour modifier l’adresse IP d’une passerelle de réseau local
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+
+## <a name="deleteconnection"></a>Pour supprimer une connexion de passerelle
+
+Si vous ne connaissez pas le nom de votre connexion, vous pouvez le trouver en utilisant l’applet de commande « Get-AzVirtualNetworkGatewayConnection ».
+
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+-ResourceGroupName TestRG1
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

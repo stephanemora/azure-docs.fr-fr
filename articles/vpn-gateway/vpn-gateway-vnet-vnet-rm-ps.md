@@ -1,5 +1,5 @@
 ---
-title: 'Connecter un réseau virtuel Azure à un autre réseau virtuel à l’aide d’une connexion de réseau virtuel à réseau virtuel : PowerShell | Microsoft Docs'
+title: 'Connecter un réseau virtuel à un autre réseau virtuel en utilisant une connexion de réseau virtuel à réseau virtuel de passerelle VPN Azure : PowerShell'
 description: Connectez des réseaux virtuels avec une connexion de réseau virtuel à réseau virtuel et PowerShell.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: dbf59740af64bf8d403b6596a17646304c0f1eb0
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: eebe66ca038b31f23ca864b107816b8cf761b29c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385775"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860518"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurer une connexion de passerelle VPN de réseau virtuel à réseau virtuel à l’aide de PowerShell
 
@@ -21,9 +21,9 @@ Cet article vous explique comment connecter des réseaux virtuels avec une conne
 Les étapes mentionnées dans cet article s’appliquent au modèle de déploiement Resource Manager et utilisent PowerShell. Vous pouvez également créer cette configuration à l’aide d’un autre outil ou modèle de déploiement en sélectionnant une option différente dans la liste suivante :
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Interface de ligne de commande Azure](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portail Azure (classique)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
 > * [Connexions entre différents modèles de déploiement - Portail Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connexions entre différents modèles de déploiement - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
@@ -302,7 +302,7 @@ En raison de la modification du contexte d’abonnement dans cet exercice, il pe
 
 ### <a name="step-5---create-and-configure-testvnet1"></a>Étape 5 : créez et configurez TestVNet1
 
-Vous devez terminer les étapes [1](#Step1) et [2](#Step2) de la section précédente pour créer et configurer TestVNet1 et la passerelle VPN pour TestVNet1. Pour cette configuration, vous n’êtes pas obligé de créer TestVNet4 de la section précédente. Même si vous le créez, ce dernier n’entrera pas en conflit avec ces étapes. Une fois les étapes 1 et 2 effectuées, passez à l’étape 6 pour créer TestVNet5.
+Vous devez terminer les étapes [1](#Step1) et [2](#Step2) de la section précédente pour créer et configurer TestVNet1 et la passerelle VPN pour TestVNet1. Pour cette configuration, il n’est pas nécessaire de créer TestVNet4 à partir de la section précédente. Néanmoins, si vous la créez, elle n’entrera pas en conflit avec ces étapes. Une fois les étapes 1 et 2 effectuées, passez à l’étape 6 pour créer TestVNet5.
 
 ### <a name="step-6---verify-the-ip-address-ranges"></a>Étape 6 : vérifiez les plages d’adresses IP
 

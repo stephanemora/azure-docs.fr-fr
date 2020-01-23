@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e4ec63ffe715b17f55fde2a53c15d96d391cdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3aa6caa6266d2cd42e4783e8e39d5cc92c220
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452502"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861572"
 ---
 # <a name="diagnose-and-troubleshoot-a-preview-environment"></a>Diagnostiquer et dépanner un environnement d’évaluation
 
@@ -29,7 +29,7 @@ Ce problème peut se produire si vous n’êtes pas autorisé à accéder à l�
 
 ## <a name="problem-no-data-is-seen-in-the-preview-explorer"></a>Problème : aucune donnée n’apparaît dans l’explorateur en préversion
 
-Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données dans [l’explorateur Azure Time Series Insights en préversion](https://insights.timeseries.azure.com/preview).
+Il existe plusieurs raisons pour lesquelles vos données pourraient ne pas apparaître dans l’[Explorateur Azure Time Series Insights Preview](https://insights.timeseries.azure.com/preview).
 
 - Votre source d’événement ne reçoit peut-être pas de données.
 
@@ -39,7 +39,7 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
 - Vos données sources d’événements ne sont pas au format JSON.
 
-    Time Series Insights ne prend en charge que les données JSON. Pour obtenir des exemples de données JSON, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
+    Time Series Insights ne prend en charge que les données JSON. Pour obtenir des exemples JSON, consultez [Formes JSON prises en charge](./how-to-shape-query-json.md).
 
 - Il manque une autorisation requise pour votre clé de source d’événements.
 
@@ -61,13 +61,13 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
 - Votre propriété ID Time Series spécifiée au moment de l’approvisionnement est incorrecte, manquante ou nulle.
 
-    Ce problème peut survenir si la propriété Time Series ID (ID de série chronologique) est mal configurée au moment de l’approvisionnement de l’environnement. Pour plus d’informations, consultez [Meilleures pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md). Pour le moment, vous ne pouvez pas mettre à jour un environnement Time Series Insights existant pour utiliser un ID de série chronologique différent.
+    Ce problème peut survenir si la propriété Time Series ID (ID de série chronologique) est mal configurée au moment de l’approvisionnement de l’environnement. Pour plus d’informations, consultez [Bonnes pratiques pour le choix d’un ID Time Series](./time-series-insights-update-how-to-id.md). Pour le moment, vous ne pouvez pas mettre à jour un environnement Time Series Insights existant pour utiliser un ID de série chronologique différent.
 
 ## <a name="problem-some-data-shows-but-some-is-missing"></a>Problème : Certaines données s’affichent, mais d’autres manquent
 
 Il se peut que vous envoyiez des données sans l’ID de série chronologique.
 
-- Ce problème peut survenir lorsque vous envoyez des événements sans le champ ID de série chronologique dans la charge utile. Pour plus d’informations, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
+- Ce problème peut survenir lorsque vous envoyez des événements sans le champ ID de série chronologique dans la charge utile. Pour plus d’informations, consultez [Formes JSON prises en charge](./how-to-shape-query-json.md).
 - Ce problème peut survenir parce que votre environnement est limité.
 
     > [!NOTE]
@@ -97,7 +97,7 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 
 - Vous accédez peut-être à un environnement Time Series Insights S1 ou S2.
 
-   Les modèles de séries chronologiques ne sont pris en charge que dans les environnements de paiement à l’utilisation. Pour plus d’informations sur la façon d’accéder à votre environnement S1 ou S2 à partir de l’explorateur Time Series Insights en préversion, consultez [Visualiser les données dans l’Explorateur](./time-series-insights-update-explorer.md).
+   Les modèles de séries chronologiques ne sont pris en charge que dans les environnements de paiement à l’utilisation. Pour plus d’informations sur la façon d’accéder à votre environnement S1 ou S2 à partir de l’Explorateur Time Series Insights Preview, consultez [Visualiser les données dans l’Explorateur](./time-series-insights-update-explorer.md).
 
    [![Aucun événement dans l’environnement.](media/preview-troubleshoot/troubleshoot-no-events.png)](media/preview-troubleshoot/troubleshoot-no-events.png#lightbox)
 
@@ -107,7 +107,7 @@ Si la propriété Timestamp n’est pas explicitement spécifiée, l’horodatag
 
 ## <a name="problem-all-my-instances-in-the-preview-explorer-lack-a-parent"></a>Problème : toutes mes instances dans l’Explorateur en préversion n’ont pas de parent
 
-Ce problème peut se produire si votre environnement n’a pas de hiérarchie Time Series Model définie. Pour plus d’informations, consultez [Utiliser des modèles de série chronologique](./time-series-insights-update-how-to-tsm.md).
+Ce problème peut se produire si votre environnement n’a pas de hiérarchie Time Series Model définie. Pour plus d’informations, consultez [Utiliser des modèles Time Series](./time-series-insights-update-how-to-tsm.md).
 
   [![Les instances non apparentées affichent un avertissement.](media/preview-troubleshoot/unparented-instances.png)](media/preview-troubleshoot/unparented-instances.png#lightbox)
 

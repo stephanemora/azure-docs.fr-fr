@@ -4,23 +4,23 @@ description: Utilisez Visual Studio Code avec Azure IoT Tools pour envoyer un mo
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/09/2019
+ms.date: 01/8/2019
 ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d1c5897240f627d52af056767943b59d85dd2d0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d8c90c2a13d111d01a1e7a1bd9b63da180621ded
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434286"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772089"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Déployer des modules Azure IoT Edge à partir de Visual Studio Code
 
 Une fois que vous avez créé des modules IoT Edge avec votre logique métier, vous pouvez les déployer sur vos appareils afin qu’ils opèrent à la périphérie. Si plusieurs modules fonctionnent ensemble pour collecter et traiter les données, vous pouvez les déployer tous à la fois et déclarer les règles de routage qui les connectent.
 
-Cet article explique comment créer un manifeste de déploiement JSON, puis utiliser ce fichier pour étendre le déploiement à un appareil IoT Edge. Pour plus d’informations sur la création d’un déploiement ciblant plusieurs appareils en fonction de leurs balises partagées, consultez [Déployer et surveiller des modules IoT Edge à grande échelle](how-to-deploy-monitor.md).
+Cet article explique comment créer un manifeste de déploiement JSON, puis utiliser ce fichier pour étendre le déploiement à un appareil IoT Edge. Pour plus d’informations sur la création d’un déploiement ciblant plusieurs appareils en fonction de leurs balises partagées, consultez [Déployer des modules IoT Edge à l’échelle à l’aide de Visual Studio Code](how-to-deploy-monitor-vscode.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -87,7 +87,7 @@ Par exemple, voici un manifeste de déploiement de base comportant un seul modul
          "properties.desired": {
            "schemaVersion": "1.0",
            "routes": {
-               "route": "FROM /* INTO $upstream"
+               "route": "FROM /messages/* INTO $upstream"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200
@@ -107,11 +107,11 @@ Vous pouvez utiliser les extensions Azure IoT pour Visual Studio Code afin d’e
 
 1. Dans Visual Studio Code, ouvrez la vue **Explorateur**.
 
-1. En bas de l’Explorateur, développez la section **Appareils Azure IoT Hub**.
+1. Au bas de l’Explorateur, développez la section **Azure IoT Hub**.
 
-   ![Développer la section Appareils Azure IoT Hub](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
+   ![Développer la section Azure IoT Hub](./media/how-to-deploy-modules-vscode/azure-iot-hub-devices.png)
 
-1. Cliquez sur **...** dans l’en-tête de section **Appareils Azure IoT Hub**. Si vous ne voyez pas les points de suspension, pointez sur l’en-tête.
+1. Cliquez sur **...** dans l’en-tête de section **Azure IoT Hub**. Si vous ne voyez pas les points de suspension, pointez sur l’en-tête.
 
 1. Choisissez **Sélectionner un hub IoT**.
 
@@ -125,7 +125,7 @@ Vous pouvez utiliser les extensions Azure IoT pour Visual Studio Code afin d’e
 
 Vous déployez les modules sur votre appareil en appliquant le manifeste de déploiement que vous avez configuré avec les informations des modules.
 
-1. Dans la vue de l’Explorateur Visual Studio Code, développez la section **Azure IoT Hub Devices** (Appareils Azure IoT Hub).
+1. Dans la vue Explorateur de Visual Studio Code, développez la section **Azure IoT Hub**, puis développez le nœud **Appareils**.
 
 1. Cliquez avec le bouton droit sur l’appareil IoT Edge que vous souhaitez configurer avec le manifeste de déploiement.
 
@@ -142,7 +142,7 @@ Les résultats de votre déploiement apparaissent dans la sortie de VS Code. Les
 
 ## <a name="view-modules-on-your-device"></a>Afficher les modules sur votre appareil
 
-Une fois les modules déployés sur votre appareil, vous pouvez les voir tous dans la section **Azure IoT Hub Devices** (Appareils Azure IoT Hub). Sélectionnez la flèche en regard de votre appareil IoT Edge pour le développer. Tous les modules en cours d’exécution sont affichés.
+Une fois les modules déployés sur votre appareil, vous pouvez les voir tous dans la section **Azure IoT Hub**. Sélectionnez la flèche en regard de votre appareil IoT Edge pour le développer. Tous les modules en cours d’exécution sont affichés.
 
 Si vous avez récemment déployé de nouveaux modules sur un appareil, placez le curseur sur l’en-tête de section **Azure IoT Hub Devices** (Appareils Azure IoT Hub), puis sélectionnez l’icône d’actualisation pour mettre à jour la vue.
 
@@ -150,4 +150,4 @@ Cliquez avec le bouton droit sur le nom d’un module pour afficher et modifier 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment [déployer et surveiller des modules IoT Edge à grande échelle](how-to-deploy-monitor.md).
+Découvrez comment [Déployer et superviser des modules IoT Edge à grande échelle à l’aide de Visual Studio Code](how-to-deploy-monitor.md).

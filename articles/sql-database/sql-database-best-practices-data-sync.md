@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 75fe07dc9847ae32248688bc20fac01e74c7b26a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ee929fa227cb105b73bc929c13a768aabef37ce3
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821850"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771681"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Bonnes pratiques pour SQL Data Sync 
 
@@ -50,7 +50,7 @@ Azure SQL Database ne prend en charge qu'un seul ensemble d'informations d'ident
 -   Changez les informations d’identification pour différentes phases (par exemple, *credentials1* pour la configuration et *credentials2* pour les opérations continues).  
 -   Modifiez l’autorisation des informations d’identification (autrement dit, modifiez l’autorisation après avoir configuré la synchronisation).
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 ### <a name="database-considerations-and-constraints"></a> Considérations et contraintes relatives aux bases de données
 
@@ -217,6 +217,14 @@ N’essayez pas de supprimer une base de données d’un groupe de synchronisati
 Supprimez d'abord une base de données d’un groupe de synchronisation. Ensuite, déployez la modification et attendez que l’annulation du provisionnement soit terminée. Une fois l'annulation du provisionnement terminée, vous pouvez modifier le groupe de synchronisation et déployer les modifications.
 
 Si vous tentez de supprimer une base de données et de modifier un groupe de synchronisation sans avoir déployé au préalable l’une des modifications, l’une ou l’autre opération échoue. L’interface du portail peut basculer dans un état incohérent. Dans ce cas, actualisez la page pour restaurer l’état correct.
+
+### <a name="avoid-schema-refresh-timeout"></a>Éviter le délai d’expiration de l’actualisation du schéma
+
+Si vous avez un schéma complexe à synchroniser, vous risquez de rencontrer une erreur du type « l’opération a expiré » pendant l’actualisation du schéma si la base de données de métadonnées de synchronisation a une référence SKU inférieure (exemple : De base). 
+
+#### <a name="solution"></a>Solution
+
+Pour atténuer ce problème, procédez au scale-up de votre base de données de métadonnées de synchronisation de façon à obtenir une référence SKU supérieure, par exemple S3. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur SQL Data Sync, consultez :

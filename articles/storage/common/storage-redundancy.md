@@ -9,12 +9,12 @@ ms.date: 09/17/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: cdddf284028c6fc9749082e1991e5b9dee4acf99
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 7517c4d9b3f9b58d9cf745f5001078837e1fbfea
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75560366"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748182"
 ---
 # <a name="azure-storage-redundancy"></a>Redondance de Stockage Azure
 
@@ -76,7 +76,7 @@ Si vous migrez votre compte de stockage géographiquement redondant avec accès 
 - [Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles](storage-redundancy-zrs.md)
 - [Stockage géo-redondant (GRS) : réplication interrégion pour Stockage Azure](storage-redundancy-grs.md)
 - [Stockage géo-redondant dans une zone pour la haute disponibilité et la durabilité maximale (préversion)](storage-redundancy-gzrs.md)
-- [Objectifs de performance et d’extensibilité du Stockage Azure](storage-scalability-targets.md)
+- [Objectifs de scalabilité et de performances pour les comptes de stockage standard](scalability-targets-standard-account.md)
 - [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
 - [Options de redondance et stockage géo-redondant avec accès en lecture de Stockage Microsoft Azure](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
 - [Document SOSP - Stockage Azure : service de stockage cloud hautement disponible à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

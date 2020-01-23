@@ -3,7 +3,7 @@ title: Création et téléchargement d'un disque dur virtuel Linux dans Azure
 description: Apprenez à créer et à télécharger un disque dur virtuel (VHD) Azure contenant un système d'exploitation Linux.
 services: virtual-machines-linux
 documentationcenter: ''
-author: szarkos
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -13,16 +13,15 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
-ms.author: szark
-ms.openlocfilehash: eb6ef87edd2ff16750573c6b8c719fa4b81d3a4c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: mimckitt
+ms.openlocfilehash: d98efd46e3c2fbc11be2cde6a0c4f2b37acc8d7c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083603"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934012"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 Le contrat SLA de la plateforme Azure s’applique aux machines virtuelles exécutant le système d’exploitation Linux uniquement lorsqu’une des [distributions approuvées](endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) est utilisée. Pour ces distributions approuvées, des images Linux préconfigurées sont fournies dans la Place de marché Microsoft Azure.
 
@@ -53,7 +52,7 @@ Cet article fournit des conseils généraux pour exécuter votre distribution Li
 * Tous les VHD sur Azure doivent avoir une taille virtuelle alignée sur 1 Mo. Avant de convertir un disque brut en disque VHD, vous devez vous assurer que la taille du disque brut est un multiple de 1 Mo, comme décrit dans les étapes suivantes.
 
 ### <a name="installing-kernel-modules-without-hyper-v"></a>Installation de modules de noyau sans Hyper-V
-Azure s’exécute sur l’hyperviseur Hyper-V. Linux nécessite donc l’exécution de certains modules de noyau dans Azure. Si vous disposez d’une machine virtuelle qui a été créée en dehors d’Hyper-V, les programmes d’installation de Linux risquent de ne pas inclure les pilotes pour Hyper-V dans le ramdisk initial (initrd ou initramfs) sauf si la machine virtuelle détecte qu’elle s’exécute dans un environnement Hyper-V. Quand vous utilisez un système de virtualisation différent (Virtualbox, KVM, etc.) pour préparer votre image Linux, vous devrez peut-être régénérer le ramdisk initrd afin que les modules noyau hv_vmbus et hv_storvsc soient au moins disponibles dans le ramdisk initial.  Ce problème connu concerne les systèmes basés sur la distribution Red Hat en amont, et peut-être d’autres systèmes.
+Azure s’exécute sur l’hyperviseur Hyper-V. Linux nécessite donc l’exécution de certains modules de noyau dans Azure. Si vous disposez d’une machine virtuelle qui a été créée en dehors d’Hyper-V, les programmes d’installation de Linux risquent de ne pas inclure les pilotes pour Hyper-V dans le ramdisk initial (initrd ou initramfs) sauf si la machine virtuelle détecte qu’elle s’exécute dans un environnement Hyper-V. Quand vous utilisez un système de virtualisation différent (VirtualBox, KVM, etc.) pour préparer votre image Linux, vous devrez peut-être regénérer l’initrd afin que les modules du noyau hv_vmbus et hv_storvsc soient au moins disponibles sur le ramdisk initial.  Ce problème connu concerne les systèmes basés sur la distribution Red Hat en amont, et peut-être d’autres systèmes.
 
 Le mécanisme de reconstruction d'image initrd ou initramfs varie en fonction de la distribution. Consultez la documentation ou le support de votre distribution pour trouver la procédure appropriée.  L’exemple suivant permet de régénérer le ramdisk initrd à l’aide de l’utilitaire `mkinitrd` :
 
@@ -97,7 +96,7 @@ Le cas échéant, redimensionnez la machine virtuelle à l’aide de la console 
     size=$(qemu-img info -f raw --output json "$rawdisk" | \
     gawk 'match($0, /"virtual-size": ([0-9]+),/, val) {print val[1]}')
 
-    rounded_size=$((($size/$MB + 1)*$MB))
+    rounded_size=$(((($size+$MB-1)/$MB)*$MB))
     
     echo "Rounded Size = $rounded_size"
     ```
@@ -151,12 +150,12 @@ Les correctifs suivants doivent être inclus dans le noyau. Cette liste ne peut 
 * [scsi_sysfs : se protéger contre une double exécution de __scsi_remove_device](https://git.kernel.org/cgit/linux/kernel/git/next/linux-next.git/commit/drivers/scsi/scsi_sysfs.c?id=be821fd8e62765de43cc4f0e2db363d0e30a7e9b)
 
 ## <a name="the-azure-linux-agent"></a>agent Linux Azure
-[L’agent Linux Azure](../extensions/agent-linux.md) `waagent` approvisionne une machine virtuelle Linux dans Azure. La dernière version, les problèmes des fichiers ou l’envoi de demandes de tirage (pull requests) sont disponibles dans le [référentiel de l’agent Linux sur GitHub](https://github.com/Azure/WALinuxAgent).
+L’[agent Linux Azure](../extensions/agent-linux.md) `waagent` provisionne une machine virtuelle Linux dans Azure. La dernière version, les problèmes des fichiers ou l’envoi de demandes de tirage (pull requests) sont disponibles dans le [référentiel de l’agent Linux sur GitHub](https://github.com/Azure/WALinuxAgent).
 
-* L'agent Linux est publié avec la licence Apache 2.0. De nombreuses distributions fournissent déjà des packages RPM ou Deb pour l’agent, et ces packages peuvent être installés et mis à jour facilement.
+* L'agent Linux est publié avec la licence Apache 2.0. De nombreuses distributions fournissent déjà des packages RPM ou .deb pour l’agent, et ces packages peuvent être installés et mis à jour facilement.
 * L'agent Linux Azure nécessite Python v2.6+.
 * L'agent nécessite également le module python-pyasn1. La plupart des distributions fournissent ce module sous la forme d’un package distinct à installer.
-* Dans certains cas, l’agent Linux Azure n’est pas compatible avec NetworkManager. Nombre des packages RPM/Deb fournis par les distributions configurent NetworkManager en conflit avec le package waagent. Dans ce cas, NetworkManager est désinstallé lorsque vous installez le package de l’agent Linux.
+* Dans certains cas, l’agent Linux Azure n’est pas compatible avec NetworkManager. De nombreux packages RPM/deb fournis par les distributions configurent NetworkManager en conflit avec le package waagent. Dans ce cas, NetworkManager est désinstallé lorsque vous installez le package de l’agent Linux.
 * La version de l’agent Linux Azure doit être supérieure ou égale à la [version minimale prise en charge](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).
 
 ## <a name="general-linux-system-requirements"></a>Configuration générale requise Linux
@@ -173,7 +172,7 @@ Les correctifs suivants doivent être inclus dans le noyau. Cette liste ne peut 
 
 1. Installez l'agent Linux Azure.
   
-    L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure.  De nombreuses distributions fournissent cet agent sous forme de package RPM ou Deb (ce package est généralement nommé WALinuxAgent ou walinuxagent).  Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](../extensions/agent-linux.md).
+    L'agent Linux Azure est requis pour approvisionner une image Linux sur Azure.  De nombreuses distributions fournissent cet agent sous forme de package RPM ou .deb (ce package est généralement nommé WALinuxAgent ou walinuxagent).  Il est également possible d'installer manuellement cet agent en suivant les instructions du [Guide de l'agent Linux](../extensions/agent-linux.md).
 
 1. Vérifiez que le serveur SSH est installé et configuré pour démarrer au moment prévu.  Cette configuration est généralement définie par défaut.
 

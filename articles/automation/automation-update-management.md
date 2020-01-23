@@ -3,14 +3,14 @@ title: Solution Update Management dans Azure
 description: Cet article décrit comment utiliser la solution Azure Update Management pour gérer les mises à jour de vos ordinateurs Windows et Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420352"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945122"
 ---
 # <a name="update-management-solution-in-azure"></a>Solution Update Management dans Azure
 
@@ -237,7 +237,9 @@ Pour Linux, Update Management peut faire la différence entre les mises à jour 
 sudo yum -q --security check-update
 ```
 
-Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour le moment, seule la meilleure prise en charge possible est proposée aux clients qui l’ont éventuellement activée eux-mêmes.
+Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour le moment, seule la meilleure prise en charge possible est proposée aux clients qui l’ont éventuellement activée eux-mêmes. 
+
+Pour classifier les mises à jour sur Red Hat Enterprise version 6, vous devez installer le plug-in yum-security. Sur Red Hat Enterprise Linux 7, le plug-in faisant déjà partie de yum lui-même, il est inutile d’installer quoi que ce soit. Pour plus d’informations, consultez l’[article de base de connaissances](https://access.redhat.com/solutions/10021) Red Hat suivant.
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Intégrer avec System Center Configuration Manager
 
@@ -251,7 +253,7 @@ Update Management s’appuie sur le référentiel de mise à jour configuré loc
 
 ## <a name="patch-linux-machines"></a>Appliquer une mise à jour corrective aux ordinateurs Linux
 
-Les sections suivantes décrivent les problèmes potentiels liés à la mise à jour corrective Linux.
+Les sections suivantes décrivent les problèmes potentiels liés à la mise à jour corrective des distributions Linux.
 
 ### <a name="unexpected-os-level-upgrades"></a>Mises à niveau inattendues au niveau du système d’exploitation
 

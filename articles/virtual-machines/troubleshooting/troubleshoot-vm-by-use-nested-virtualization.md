@@ -13,28 +13,22 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 4ef8bc029c63aaf297462a7b53f6daba1a7c850b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185522"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028428"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure à l’aide de la virtualisation imbriquée dans Azure
 
 Cet article explique comment créer un environnement de virtualisation imbriquée dans Microsoft Azure pour pouvoir ensuite monter le disque de la machine virtuelle à dépanner sur l’hôte Hyper-V (machine virtuelle de secours).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour monter la machine virtuelle posant problème, la machine virtuelle de secours doit remplir les prérequis suivants :
+Pour monter la machine virtuelle posant problème, la machine virtuelle de secours doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle posant problème.
 
--   La machine virtuelle de secours doit se trouver au même emplacement que la machine virtuelle posant problème.
-
--   La machine virtuelle de secours doit se trouver dans le même groupe de ressources que la machine virtuelle posant problème.
-
--   La machine virtuelle de secours doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle posant problème.
-
-## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Étape 1 : Créer une machine virtuelle de secours et installer le rôle Hyper-V
+## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Étape 1 : Créer une machine virtuelle de secours et installer le rôle Hyper-V
 
 1.  Créez une machine virtuelle de secours :
 
@@ -70,7 +64,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 13. Autorisez le serveur à installer le rôle Hyper-V. Cette opération prend quelques minutes. Le serveur redémarre ensuite automatiquement.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Étape 2 : créer la machine virtuelle posant problème sur le serveur Hyper-V de la machine virtuelle de secours
+## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Étape 2 : créer la machine virtuelle posant problème sur le serveur Hyper-V de la machine virtuelle de secours
 
 1.  [Créez un disque d’instantané](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) pour le disque du système d’exploitation de la machine virtuelle qui rencontre un problème, puis joignez le disque d’instantané à la machine virtuelle de secours.
 

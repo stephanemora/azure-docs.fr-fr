@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814857"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934124"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
 Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les [autres options de support](support.md).
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 **Q : Quelle est la différence entre un modèle de reconnaissance vocale de référence et un modèle personnalisé ?**
 
@@ -33,7 +33,7 @@ Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les 
 
 **Q : Dois-je toujours générer un modèle vocal personnalisé ?**
 
-**R** :  Non. Si votre application utilise un langage générique, quotidien, vous n’avez pas besoin de personnaliser un modèle. Si elle est utilisée dans un environnement dénué ou presque de bruit de fond, ce n’est pas davantage nécessaire.
+**R** : Non. Si votre application utilise un langage générique, quotidien, vous n’avez pas besoin de personnaliser un modèle. Si elle est utilisée dans un environnement dénué ou presque de bruit de fond, ce n’est pas davantage nécessaire.
 
 Vous pouvez déployer des modèles de référence et personnalisés dans le portail, puis exécuter des tests de précision sur ceux-ci. Vous pouvez utiliser cette fonctionnalité pour mesurer la précision d’un modèle de référence par rapport à celle d’un modèle personnalisé.
 
@@ -79,7 +79,7 @@ Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiemen
 
 **Q : Comment suis-je facturé pour l’audio à deux canaux ?**
 
-**R** : Si vous soumettez chaque canal séparément (chaque canal dans son propre fichier), vous serez facturé en fonction de la durée du fichier. Si vous soumettez un seul fichier avec chaque canal multiplexé, vous serez facturé pour la durée du fichier unique.
+**R** : Si vous soumettez chaque canal séparément (chaque canal dans son propre fichier), vous serez facturé pour la durée de chaque fichier. Si vous soumettez un seul fichier avec chaque canal multiplexé, vous serez facturé pour la durée du fichier unique. Pour plus d’informations sur les prix, reportez-vous à la [page des prix Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
@@ -127,7 +127,7 @@ or
 
 **Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?**
 
-**R** :  Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
+**R** : Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
 
 **Q : Le rapport relatif aux données indique que des énoncés ont échoué. Quel est le problème ?**
 

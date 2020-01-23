@@ -1,91 +1,93 @@
 ---
 title: Se connecter à Office 365 Outlook
-description: Gérer la messagerie, les contacts et les calendriers avec les API REST Office 365 et Azure Logic Apps
+description: Automatiser les tâches et les workflows qui gèrent la messagerie, les contacts et les calendriers dans Office 365 avec Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/08/2020
 tags: connectors
-ms.openlocfilehash: 858366947fe21a20d6f112fc51899d1533a36472
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b0f2b8b9c369fdb42c7e0e7f77fc090424ae3729
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789620"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732677"
 ---
-# <a name="get-started-with-the-office-365-outlook-connector"></a>Prise en main du connecteur Office 365 Outlook
-Le connecteur Office 365 Outlook permet d’interagir avec Outlook dans Office 365. Utilisez ce connecteur pour créer, modifier et mettre à jour des contacts et des éléments de calendrier, ainsi que pour recevoir et envoyer des e-mails et pour y répondre.
+# <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gérer la messagerie, les contacts et les calendriers dans Office 365 Outlook avec Azure Logic Apps
 
-Avec Office 365 Outlook, vous pouvez effectuer les opérations suivantes :
+Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le [connecteur Office 365 Outlook](/connectors/office365connector/), vous pouvez créer des tâches et des workflows automatisés qui gèrent votre compte Office 365 en générant des applications logiques. Par exemple, vous automatisez les tâches suivantes :
 
-* Créer votre workflow à l’aide des fonctionnalités de messagerie et de calendrier dans Office 365. 
-* Utiliser des déclencheurs pour démarrer votre workflow lorsqu’un nouvel e-mail apparaît, lorsqu’un élément de calendrier est mis à jour, et bien davantage.
-* Utiliser des actions pour envoyer un e-mail, créer un événement de calendrier, etc. Par exemple, lorsqu’un nouvel objet existe dans Salesforce (déclencheur), un e-mail doit être envoyé à votre application Office 365 Outlook (action). 
+* Recevoir, envoyer et répondre à des e-mails 
+* Planifier des réunions sur votre calendrier
+* Ajouter et modifier des contacts 
 
-Cet article décrit comment utiliser le connecteur Office 365 Outlook dans une application logique et répertorie les déclencheurs et les actions.
+Vous pouvez utiliser n’importe quel déclencheur pour démarrer votre workflow, par exemple, à l’arrivée d’un nouvel e-mail, lorsqu’un élément de calendrier est mis à jour ou quand un événement se produit dans un autre service, comme Salesforce. Vous pouvez utiliser des actions qui répondent à l’événement déclencheur, par exemple, envoyer un e-mail ou créer un événement de calendrier. 
 
 > [!NOTE]
-> Cette version de l’article s’applique à la disponibilité générale des applications logiques.
-> 
-> 
+> Pour automatiser les tâches d’un compte @outlook.com ou @hotmail.com, utilisez le [connecteur Outlook.com](../connectors/connectors-create-api-outlook.md).
 
-Pour plus d’informations sur Logic Apps, voir [Qu’est-ce qu’une application logique ?](../logic-apps/logic-apps-overview.md) et [Créer une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+## <a name="prerequisites"></a>Conditions préalables requises
 
-## <a name="connect-to-office-365"></a>Connexion à Office 365
-Pour que votre application logique puisse accéder à un service, vous devez d’abord créer une *connexion* à celui-ci. Une connexion permet d’assurer la connectivité entre une application logique et un autre service. Par exemple, pour vous connecter à Office 365 Outlook, vous devez préalablement disposer d’une *connexion* Office 365. Pour créer une connexion, entrez les informations d’identification que vous utilisez généralement pour accéder au service auquel vous souhaitez vous connecter. Ensuite, dans Office 365 Outlook, entrez les informations d’identification de votre compte Office 365 pour créer la connexion.
+* Un [compte Office 365](https://www.office.com/).
 
-## <a name="create-the-connection"></a>Créer la connexion
-> [!INCLUDE [Steps to create a connection to Office 365](../../includes/connectors-create-api-office365-outlook.md)]
-> 
-> 
+* Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). 
 
-## <a name="use-a-trigger"></a>Utilisation d’un déclencheur
-Un déclencheur est un événement qui peut être utilisé pour lancer le flux de travail défini dans une application logique. Les déclencheurs « interrogent » le service à l’intervalle et à la fréquence de votre choix. [En savoir plus sur les déclencheurs](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* L’application logique à partir de laquelle vous souhaitez accéder à votre compte Office 365 Outlook. Pour démarrer votre workflow avec un déclencheur Office 365 Outlook, vous devez disposer d’une [application logique vide](../logic-apps/quickstart-create-first-logic-app-workflow.md). Pour ajouter une action Office 365 Outlook à votre workflow, votre application logique doit déjà disposer d’un déclencheur.
 
-1. Dans l’application logique, tapez « office 365 » pour obtenir la liste des déclencheurs :  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-trigger.png)
-2. Sélectionnez **Office 365 Outlook - When an upcoming event is starting soon** (Office 365 Outlook - Quand un événement à venir est imminent). Si une connexion existe déjà, sélectionnez un calendrier dans la liste déroulante.
-   
-    ![](./media/connectors-create-api-office365-outlook/sample-calendar.png)
-   
-    Si vous êtes invité à vous connecter, entrez les informations de connexion pour créer la connexion. La section [Créer la connexion](connectors-create-api-office365-outlook.md#create-the-connection) dans cette rubrique répertorie les étapes. 
-   
-   > [!NOTE]
-   > Dans cet exemple, l’application logique s’exécute lorsqu’un événement de calendrier est mis à jour. Pour visualiser les résultats de ce déclencheur, ajoutez une autre action qui vous envoie un SMS. Par exemple, ajoutez l’action Twilio *Send message* (Envoyer un message) qui vous envoie un SMS lorsque l’événement de calendrier doit démarrer dans 15 minutes. 
-   > 
-   > 
-3. Sélectionnez le bouton **Modifier**, puis renseignez les valeurs **Fréquence** et **Intervalle**. Par exemple, si vous souhaitez que le déclencheur interroge le service toutes les 15 minutes, définissez le champ **Fréquence** sur **Minute**, et le champ **Intervalle** sur **15**. 
-   
-    ![](./media/connectors-create-api-office365-outlook/calendar-settings.png)
-4. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+## <a name="add-a-trigger"></a>Ajouter un déclencheur
 
-## <a name="use-an-action"></a>Utilisation d’une action
-Une action est une opération effectuée par le flux de travail défini dans une application logique. [En savoir plus sur les actions](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+Un [déclencheur](../logic-apps/logic-apps-overview.md#logic-app-concepts) désigne un événement qui démarre le workflow dans votre application logique. Cet exemple d’application logique utilise un déclencheur « d’interrogation » qui recherche tous les événements de calendrier mis à jour dans votre compte e-mail, en fonction de l’intervalle et de la fréquence spécifiés.
 
-1. Sélectionnez le signe plus. Vous disposez de plusieurs options : **Ajouter une action**, **Ajouter une condition** ou l’une des options **Plus**.
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique vide dans le Concepteur d’application logique.
+
+1. Dans la zone de recherche, entrez `office 365 outlook` en guise de filtre. Cet exemple sélectionne **Lorsqu’un événement à venir démarre bientôt**.
    
-    ![](./media/connectors-create-api-office365-outlook/add-action.png)
-2. Choisissez **Ajouter une action**.
-3. Dans la zone de texte, tapez « office 365 » pour obtenir la liste de toutes les actions disponibles.
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-actions.png) 
-4. Dans notre exemple, choisissez **Office 365 Outlook - Créer un contact**. Si une connexion existe déjà, choisissez **ID du dossier**, **Prénom** et d’autres propriétés :  
-   
-    ![](./media/connectors-create-api-office365-outlook/office365-sampleaction.png)
-   
-    Si vous êtes invité à saisir les informations de connexion, entrez les informations requises pour créer la connexion. La section [Créer la connexion](connectors-create-api-office365-outlook.md#create-the-connection) dans cette rubrique décrit ces propriétés. 
-   
-   > [!NOTE]
-   > Dans cet exemple, nous créons un contact dans Office 365 Outlook. Vous pouvez utiliser la sortie d’un autre déclencheur pour créer le contact. Par exemple, ajoutez le déclencheur SalesForce *Quand un objet est créé*. Ensuite, ajoutez l’action Office 365 Outlook *Créer un contact* qui utilise les champs SalesForce pour créer le contact dans Office 365. 
-   > 
-   > 
-5. **Enregistrez** vos modifications (dans le coin supérieur gauche de la barre d’outils). Votre application logique est enregistrée et peut être activée automatiquement.
+   ![Sélectionner un déclencheur pour démarrer votre application logique](./media/connectors-create-api-office365-outlook/office365-trigger.png)
+
+1. Si vous êtes invité à vous connecter, indiquez vos informations d’identification Office 365, afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés du déclencheur.
+
+   Cet exemple sélectionne le calendrier que le déclencheur vérifie, par exemple :
+
+   ![Configurer les propriétés du déclencheur](./media/connectors-create-api-office365-outlook/select-calendar.png)
+
+1. Dans le déclencheur, définissez les valeurs de **Fréquence** et **Intervalle**. Pour ajouter d’autres propriétés de déclencheur disponibles, telles que **Fuseau horaire**, sélectionnez ces propriétés dans la liste **Ajouter un nouveau paramètre**.
+
+   Par exemple, si vous souhaitez que le déclencheur vérifie le calendrier toutes les 15 minutes, définissez **Fréquence** sur **Minute**, et **Intervalle** sur `15`. 
+
+   ![Définir la fréquence et l’intervalle pour le déclencheur](./media/connectors-create-api-office365-outlook/calendar-settings.png)
+
+1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
+
+À présent, ajoutez une action qui s’exécute après l’activation du déclencheur. Par exemple, vous pouvez ajouter l’action Twilio **Envoyer un message**, qui envoie un texte lorsqu’un événement de calendrier démarre dans 15 minutes.
+
+## <a name="add-an-action"></a>Ajouter une action
+
+Une [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) est une opération qui est définie par le workflow dans votre application logique. Cet exemple d’application logique crée un contact dans Office 365 Outlook. Vous pouvez utiliser la sortie d’un autre déclencheur ou d’une autre action pour créer le contact. Par exemple, supposez que votre application logique utilise le déclencheur Dynamics 365, **Lorsqu’un enregistrement est créé**. Vous pouvez ajouter l’action Office 365 Outlook **Créer un contact** et utiliser les sorties du déclencheur SalesForce pour créer le contact.
+
+1. Dans le [portail Azure](https://portal.azure.com), ouvrez votre application logique dans le Concepteur d’applications logiques.
+
+1. Pour ajouter une action comme dernière étape à votre workflow, sélectionnez **Nouvelle étape**. 
+
+   Pour ajouter une action entre des étapes, placez votre pointeur au-dessus de la flèche qui les sépare. Cliquez sur le signe ( **+** ) qui s’affiche, puis sélectionnez **Ajouter une action**.
+
+1. Dans la zone de recherche, entrez `office 365 outlook` en guise de filtre. Cet exemple sélectionne **Créer un contact**.
+
+   ![Sélectionner l’action à exécuter dans votre application logique](./media/connectors-create-api-office365-outlook/office365-actions.png) 
+
+1. Si vous êtes invité à vous connecter, indiquez vos informations d’identification Office 365, afin que votre application logique puisse se connecter à votre compte. Ou bien, si votre connexion existe déjà, fournissez les informations pour les propriétés de l’action.
+
+   Cet exemple sélectionne le dossier de contacts dans lequel l’action crée le contact, par exemple :
+
+   ![Configurer les propriétés de l’action](./media/connectors-create-api-office365-outlook/select-contacts-folder.png)
+
+   Pour ajouter d’autres propriétés d’action disponibles, sélectionnez ces propriétés dans la liste **Ajouter un nouveau paramètre**.
+
+1. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 ## <a name="connector-specific-details"></a>Détails spécifiques du connecteur
 
-Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ainsi que les éventuelles limites dans les [détails des connecteurs](/connectors/office365connector/). 
+Pour plus d’informations techniques concernant les déclencheurs, les actions et les limites, telles qu’elles sont décrites dans le fichier Swagger du connecteur, consultez la [page de référence du connecteur](/connectors/office365connector/). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

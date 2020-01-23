@@ -1,23 +1,23 @@
 ---
-title: Couverture de géocodage dans Azure Maps | Microsoft Docs
-description: Découvrez la couverture de géocodage dans Azure Maps
+title: Couverture du géocodage | Microsoft Azure Maps
+description: Le processus de conversion de l’adresse de l’emplacement en coordonnées de latitude et longitude est appelé géocodage. Dans cet article, vous allez découvrir les régions bénéficiant de la couverture du géocodage dans Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/22/2019
+ms.date: 12/31/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 999e545d49b11eef84d1a03401eb28cde36e82af
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 38d25b7494f8b2f3e1abdac959edde8969d7d4c7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991368"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911628"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Couverture de géocodage Azure Maps
 
-Lorsque vous recherchez un emplacement avec Azure Maps, le service de recherche accepte les termes de recherche et retourne les coordonnées de latitude et longitude. Ce processus est appelé « géocodage ». Toutefois, Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions. Utilisez cet article pour déterminer quels types d’emplacements vous pouvez rechercher de manière fiable dans chaque région. 
+Lorsque vous recherchez un emplacement avec Azure Maps, le service de recherche, par exemple [Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) (Obtenir l’adresse de recherche), utilise vos termes de recherche et retourne les coordonnées de latitude et longitude. Ce processus est désigné sous le terme de « géocodage ». Toutefois, Azure Maps n’a pas le même niveau d’information et de précision pour tous les pays et régions. Utilisez cet article pour déterminer quels types d’emplacements vous pouvez rechercher de manière fiable dans chaque région. 
 
 La possibilité de géocoder dans un pays/une région dépend de la couverture de données de route et de la précision du service de géocodage. Les catégorisations suivantes permettent de spécifier le niveau de prise en charge du géocodage dans chaque pays/région.
 * **Points d’adresse** : Les données d’adresses peuvent être résolues en coordonnées latitude/longitude dans la parcelle de l’adresse (limite de propriété). Ils sont parfois désignés comme ayant une précision « rooftop » (maximale). Il s’agit du niveau de précision le plus haut disponible pour les adresses. 
@@ -84,7 +84,7 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Uruguay                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Venezuela                                           |                 |                |       ✓      |      ✓     |          ✓         |
 | Îles Vierges britanniques                              |                 |                |              |      ✓     |          ✓         |
-| Données Îles Vierges                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| États-Unis Îles Vierges                                 |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 
 ## <a name="asia-pacific"></a>Asie-Pacifique
 
@@ -210,7 +210,7 @@ La possibilité de géocoder dans un pays/une région dépend de la couverture d
 | Turquie                                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Turkménistan                                        |                 |                |              |      ✓     |          ✓         |
 | Ukraine                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Royaume-Uni                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| United Kingdom                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Ouzbékistan                                          |                 |                |              |      ✓     |          ✓         |
 | État de la Cité du Vatican                                        |                 |                |       ✓      |      ✓     |          ✓         |
 

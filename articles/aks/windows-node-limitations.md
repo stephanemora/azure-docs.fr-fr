@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 3a57fbb010f8a04352d09d4b6d57cf465e3e6988
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279154"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768569"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Limitations actuelles pour les pools de nœuds Windows Server et les charges de travail d’application dans Azure Kubernetes Service (AKS)
 
@@ -65,6 +65,10 @@ Les nœuds Windows Server dans AKS doivent être *mis à niveau* pour obtenir le
 > [!NOTE]
 > L’image Windows Server mise à jour n’est utilisée que si une mise à niveau de cluster (mise à niveau de plan de contrôle) a été effectuée avant la mise à niveau du pool de nœuds.
 >
+
+## <a name="how-do-i-rotate-the-service-principal-for-my-windows-node-pool"></a>Comment faire pivoter le principal du service pour mon pool de nœuds Windows ?
+
+Pendant la préversion, les pools de nœuds Windows ne prennent pas en charge la rotation du principal de service comme limite de la préversion. Pour mettre à jour le principal du service, créez un pool de nœuds Windows, puis migrez vos pods de l’ancien pool vers le nouveau. Une fois cette opération terminée, supprimez l’ancien pool de nœuds.
 
 ## <a name="how-many-node-pools-can-i-create"></a>Combien de pools de nœuds puis-je créer ?
 

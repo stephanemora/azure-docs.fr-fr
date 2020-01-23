@@ -1,6 +1,6 @@
 ---
 title: Inscrire une API web appelant des API web – Plateforme d’identités Microsoft | Azure
-description: Apprenez à créer une API web qui appelle des API web en aval (inscription d’application)
+description: Découvrez comment créer une API web qui appelle des API web en aval (inscription d’application).
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,26 +15,26 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb5f4763e13935b99564bfcb6d8b6e7f463ed59e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 011007b0a871052c89e8271f2b75168e314a3c72
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919798"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044199"
 ---
-# <a name="web-api-that-calls-web-apis---app-registration"></a>API web qui appelle des API web - inscription d’application
+# <a name="a-web-api-that-calls-web-apis-app-registration"></a>Une API web qui appelle des API web : Inscription d'application
 
-Une API web qui appelle des API web en aval a la même inscription qu’une API web protégée. Par conséquent, vous devez suivre les instructions fournies à la page [API web protégée - inscription d’application](scenario-protected-web-api-app-registration.md).
+Une API web qui appelle des API web en aval a la même inscription qu’une API web protégée. Par conséquent, vous devez suivre les instructions fournies à [API web protégée : Inscription d’application](scenario-protected-web-api-app-registration.md).
 
-Cependant, puisque l’application web appelle maintenant des API web, elle devient une application cliente confidentielle. C’est pourquoi des informations d’inscription supplémentaires sont requises : l’application a besoin de partager des secrets (informations d’identification du client) avec la plateforme d’identités Microsoft.
+Comme l’application web appelle maintenant des API web, elle devient une application cliente confidentielle. C’est pourquoi des informations d’inscription supplémentaires sont nécessaires : l’application a besoin de partager des secrets (informations d’identification du client) avec la plateforme d’identités Microsoft.
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>Autorisations des API
 
-Les applications web appellent des API pour le compte de l’utilisateur pour lequel le jeton du porteur a été reçu. Elles doivent demander des autorisations déléguées. Pour plus d’informations, consultez [Ajouter des autorisations pour accéder aux API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+Les applications web appellent des API pour le compte d’utilisateurs pour lesquels le jeton du porteur a été reçu. Elles doivent demander des autorisations déléguées. Pour plus d’informations, consultez [Ajouter des autorisations pour accéder aux API web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configuration de code de l’application](scenario-web-api-call-api-app-configuration.md)
+> [Une API web qui appelle des API web : Configuration de code](scenario-web-api-call-api-app-configuration.md)

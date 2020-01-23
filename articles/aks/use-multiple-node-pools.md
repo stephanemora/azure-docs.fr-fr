@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: f507619a1c8e80623a756b91f3fd6187283212f0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996729"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768586"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Créer et gérer plusieurs pools de nœuds pour un cluster dans Azure Kubernetes Service (AKS)
 
@@ -25,7 +25,7 @@ Cet article vous montre comment créer et gérer plusieurs pools de nœuds dans 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Azure CLI version 2.0.76 ou ultérieure doit être installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
+La version 2.0.76 d’Azure CLI (ou ultérieure) doit être installée et configurée. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="limitations"></a>Limites
 
@@ -35,18 +35,18 @@ Les limitations suivantes s’appliquent lorsque vous créez et gérez les clust
 * Le module complémentaire de routage d’application HTTP ne peut pas être utilisé.
 * Le cluster AKS doit utiliser l’équilibreur de charge de la référence SKU Standard pour utiliser plusieurs pools de nœuds, la fonctionnalité n’est pas prise en charge avec les équilibreurs de charge de la référence SKU De base.
 * Le cluster AKS doit utiliser des groupes de machines virtuelles identiques pour les nœuds.
-* Vous ne pouvez pas ajouter ni supprimer des pools de nœuds en utilisant un modèle Resource Manager existant comme avec la plupart des opérations. Au lieu de cela, [utilisez un modèle Resource Manager distinct](#manage-node-pools-using-a-resource-manager-template) pour apporter des modifications aux pools de nœuds dans un cluster AKS.
 * Le nom d’un pool de nœuds ne peut contenir que des caractères alphanumériques minuscules et doit commencer par une lettre minuscule. Pour les pools de nœuds Linux, la longueur doit être comprise entre 1 et 12 caractères. Pour les pools de nœuds Windows, elle doit être comprise entre 1 et 6 caractères.
 * Le cluster AKS peut avoir un maximum de huit pools de nœuds.
 * Le cluster AKS peut avoir un maximum de 800 nœuds dans ces 8 pools de nœuds.
-* Tous les pools de nœuds doivent résider dans le même sous-réseau.
+* Tous les pools de nœuds doivent résider dans le même réseau virtuel et sous-réseau.
+* Lors de la création de plusieurs pools de nœuds au moment de la création du cluster, toutes les versions de Kubernetes utilisées par les pools de nœuds doivent correspondre à la version définie pour le plan de contrôle. Cela peut être mis à jour une fois que le cluster a été provisionné, en utilisant des opérations par pool de nœuds.
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Pour commencer, créez un cluster AKS avec un pool de nœuds unique. L’exemple suivant utilise la commande [az group create][az-group-create] pour créer un groupe de ressources nommé *myResourceGroup* dans la région *eastus*. Un cluster AKS nommé *myAKSCluster* est alors créé à l’aide de la commande [az aks create][az-aks-create]. Un paramètre *--kubernetes-version* de valeur *1.13.10* est utilisé pour montrer comment mettre à jour un pool de nœuds dans une étape suivante. Vous pouvez spécifier une [version Kubernetes prise en charge][supported-versions].
 
 > [!NOTE]
-> La référence SKU d’équilibreur de charge *De base* **n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d’équilibreur de charge *Standard* dans Azure CLI et le portail Azure.
+> La référence SKU d’équilibreur de charge *De base***n’est pas prise en charge** en cas d’utilisation de plusieurs pools de nœuds. Par défaut, les clusters AKS sont créés avec la référence SKU d’équilibreur de charge *Standard* dans Azure CLI et le portail Azure.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -556,7 +556,7 @@ az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerSe
 
 Après l’inscription, déployez un modèle Azure Resource Manager selon les mêmes instructions décrites [ci-dessus](#manage-node-pools-using-a-resource-manager-template) et ajoutez la propriété de valeur booléenne `enableNodePublicIP` à agentPoolProfiles. Définissez la valeur sur `true` car, par défaut, elle est définie sur `false`. Il s’agit d’une propriété de création uniquement qui requiert une version d’API minimale de 2019-06-01. Ceci peut être appliqué aux pools de nœuds Linux et Windows.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dans cet article, vous avez créé un cluster AKS qui inclut des nœuds basés sur GPU. Pour réduire les coûts inutiles, vous voudrez peut-être supprimer le pool *gpunodepool* ou le cluster AKS tout entier.
 

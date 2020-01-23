@@ -1,5 +1,5 @@
 ---
-title: 'Créez une passerelle VPN Azure basée sur une route : CLI | Microsoft Docs'
+title: 'Créez une passerelle VPN Azure basée sur des routes : Interface de ligne de commande'
 description: Apprenez rapidement à créer une passerelle VPN à l’aide de l’interface de ligne de commande (CLI).
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/04/2018
 ms.author: cherylmc
-ms.openlocfilehash: f5f62a6bfa1baa205e0496dd901f1f1eef660079
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1f0cc1d63f8560399d1d71c8d010c37bd2c5e387
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60391240"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778751"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-cli"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide de l’interface CLI
 
@@ -170,7 +170,7 @@ Exemple de réponse :
     "etag": null,
     "id": "/subscriptions/<subscription ID>/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW/ipConfigurations/vnetGatewayConfig0",
 ```
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées, utilisez la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources. Ce faisant, vous supprimez le groupe de ressources et l’ensemble des ressources qu’il contient.
 

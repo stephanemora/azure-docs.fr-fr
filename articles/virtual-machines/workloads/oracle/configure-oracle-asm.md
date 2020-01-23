@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 91150251140379c15d4ab3711ded571c9ad2c024
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ace19f17f5d7a5e920808b76258459c0eba62890
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101654"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750532"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Configurer Oracle ASM sur une machine virtuelle Linux Azure  
 
@@ -33,9 +33,7 @@ Les machines virtuelles fournissent un environnement informatique entièrement c
 > * Créer une base de données Oracle gérée par ASM
 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
-
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce didacticiel. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel exige que vous exécutiez Azure CLI version 2.0.4 ou une version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="prepare-the-environment"></a>Préparer l’environnement
 
@@ -211,7 +209,7 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
    fdisk /dev/sdc
    ```
    
-   À l’aide des réponses fournies ci-dessus, la sortie de la commande fdisk doit se présenter comme suit :
+   Avec les réponses fournies ci-dessus, la sortie de la commande `fdisk` doit se présenter comme suit :
 
    ```bash
    Device contains not a valid DOS partition table, or Sun, SGI or OSF disklabel
@@ -247,7 +245,7 @@ Pour ce didacticiel, l’utilisateur par défaut est *grid* et le groupe par dé
    Syncing disks.
    ```
 
-4. Répétez la commande fdisk précédente pour `/dev/sdd`, `/dev/sde` et `/dev/sdf`.
+4. Répétez la commande `fdisk` précédente pour `/dev/sdd`, `/dev/sde` et `/dev/sdf`.
 
 5. Vérifiez la configuration du disque :
 
@@ -582,8 +580,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Tutoriel : Configurer Oracle DataGuard](configure-oracle-dataguard.md)
+[Tutoriel : Configurer Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Tutoriel : Configurer Oracle GoldenGate](Configure-oracle-golden-gate.md)
+[Tutoriel : Configurer Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Revoir [Créer l’architecture d’une base de données Oracle](oracle-design.md)

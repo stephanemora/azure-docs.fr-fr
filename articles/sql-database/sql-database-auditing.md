@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: f36906bfa6bbef43c0e3133bfa1e8a163810086f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928694"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028535"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -73,7 +73,7 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
 1. Accédez au [portail Azure](https://portal.azure.com).
 2. Accédez à **Audit** sous l’en-tête Sécurité dans votre volet de serveur/base de données SQL.
 
-    <a id="auditing-screenshot"></a>![Volet de navigation][1]
+    <a id="auditing-screenshot"></a> ![Volet de navigation][1]
 
 3. Si vous préférez définir une stratégie d’audit de serveur, vous pouvez sélectionner le lien **Afficher les paramètres du serveur** dans la page d’audit de la base de données. Vous pouvez alors afficher ou modifier les paramètres d’audit du serveur. Les stratégies d’audit de serveur s’appliquent aux bases de données existantes et à celles qui sont nouvellement créées sur le serveur.
 
@@ -86,8 +86,11 @@ La section suivante décrit la configuration de l’audit à l’aide du portail
     ![Volet de navigation][3]
 
 5. **Nouveau** : Vous disposez désormais de plusieurs options pour configurer l’emplacement d’écriture des journaux d’audit. Vous pouvez écrire des journaux d’activité dans un compte de stockage Azure ou dans un espace de travail Log Analytics pour qu’ils soient consommés par des journaux Azure Monitor, ou dans un hub d’événements pour qu’ils soient consommés par ce hub. Vous pouvez associer ces options comme vous le souhaitez. Les journaux d’audit seront écrits dans chacun des emplacements choisis.
-
-   > [!WARNING]
+  
+  > [!NOTE]
+   >Un client souhaitant configurer un magasin de journaux immuable pour ses événements d’audit au niveau du serveur ou de la base de données doit suivre les [instructions fournies dans le Stockage Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes).
+  
+  > [!WARNING]
    > L’activation de l’audit sur Log Analytics implique des frais selon les taux d’ingestion. Notez le coût associé à l’utilisation de cette [option](https://azure.microsoft.com/pricing/details/monitor/), ou envisagez de stocker les journaux d’audit dans un compte de stockage Azure.
 
     ![Options de stockage](./media/sql-database-auditing-get-started/auditing-select-destination.png)
@@ -242,8 +245,18 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 - Quand vous utilisez l’authentification AAD, les échecs de connexion ne sont *pas* enregistrés dans le journal d’audit SQL. Pour voir les enregistrements d’audit des échecs de connexion, accédez au [portail Azure Active Directory]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), qui affiche les détails de ces événements.
 
+- L’audit Azure SQL Database est optimisé pour la disponibilité et les performances. En cas de très forte activité, Azure SQL Database permet aux opérations de se poursuivre et peut ne pas enregistrer certains événements audités.
 
-## <a id="subheading-7"></a>Gérer l’audit de base de données SQL avec Azure PowerShell
+- Pour configurer l’audit immuable sur le compte de stockage, consultez [Autoriser les écritures protégées d’objets blob d’ajout](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Notez que le nom du conteneur pour l’audit est **sqldbauditlogs**.
+
+> [!IMPORTANT] 
+>  Le paramètre Autoriser les écritures protégées d’objets blob d’ajout dont la conservation est limitée dans le temps est actuellement disponible et visible uniquement dans les régions suivantes :
+> - USA Est
+> - États-Unis - partie centrale méridionale
+> - USA Ouest 2
+
+
+## <a id="subheading-7"></a>Gérer Azure SQL Server et l’audit de base de données avec Azure PowerShell
 
 **Applets de commande PowerShell (y compris prise en charge de la clause WHERE pour un filtrage supplémentaire)**  :
 
@@ -256,7 +269,7 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 Pour obtenir un exemple de script, consultez [Configurer l’audit et la détection des menaces avec PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
-## <a id="subheading-9"></a>Gérer l’audit de base de données SQL à l’aide de l’API REST
+## <a id="subheading-8"></a>Gérer Azure SQL Server et l’audit de base de données avec l’API REST
 
 **API REST** :
 
@@ -272,7 +285,7 @@ Prise en charge de la stratégie étendue avec la clause WHERE pour un filtrage 
 - [Obtenir la stratégie d’audit *étendue* de base de données](https://docs.microsoft.com/rest/api/sql/database%20extended%20auditing%20settings/get)
 - [Obtenir la stratégie d’audit *étendue* de serveur](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
-## <a id="subheading-10"></a>Gérer l’audit des bases de données SQL à l’aide des modèles Azure Resource Manager
+## <a id="subheading-9"></a>Gérer Azure SQL Server et l’audit de base de données avec les modèles Azure Resource Manager
 
 Vous pouvez gérer l’audit de bases de données Azure SQL à l’aide de modèles [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), comme indiqué dans ces exemples :
 
@@ -289,10 +302,9 @@ Vous pouvez gérer l’audit de bases de données Azure SQL à l’aide de modè
 [Analyze audit logs and reports]: #subheading-3
 [Practices for usage in production]: #subheading-5
 [Storage Key Regeneration]: #subheading-6
-[Manage SQL database auditing using Azure PowerShell]: #subheading-7
-[Blob/Table differences in Server auditing policy inheritance]: (#subheading-8)
-[Manage SQL database auditing using REST API]: #subheading-9
-[Manage SQL database auditing using ARM templates]: #subheading-10
+[Manage Azure SQL Server and Database auditing using Azure PowerShell]: #subheading-7
+[Manage SQL database auditing using REST API]: #subheading-8
+[Manage Azure SQL Server and Database auditing using ARM templates]: #subheading-9
 
 <!--Image references-->
 [1]: ./media/sql-database-auditing-get-started/1_auditing_get_started_settings.png

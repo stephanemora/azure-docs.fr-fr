@@ -4,18 +4,30 @@ description: Comment modifier les cibles de stockage Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/4/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5635bfc6ea5faea41b125037c76c0b8635e0f528
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168520"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866999"
 ---
 # <a name="edit-storage-targets"></a>Modifier les cibles de stockage
 
-Vous pouvez modifier les cibles de stockage, afin de changer la valeur de certaines de leurs propriétés. Différentes propriétés peuvent être modifiées, en fonction du type de stockage :
+Vous pouvez supprimer ou modifier une cible de stockage à partir de la page **Cibles de stockage** du cache.
+
+## <a name="remove-a-storage-target"></a>Supprimer une cible de stockage
+
+Pour supprimer une cible de stockage, sélectionnez-la dans la liste et cliquez sur le bouton **Supprimer**.
+
+Cette action supprime l’association de la cible de stockage avec ce système Azure HPC Cache, mais elle ne modifie pas le système de stockage back-end. Par exemple, si vous avez utilisé un conteneur Stockage Blob Azure, le conteneur et son contenu existent toujours une fois que vous l’avez supprimé du cache. Vous pouvez ajouter le conteneur à un autre Azure HPC Cache, le rajouter à ce cache ou le supprimer avec le portail Azure.
+
+Toutes les modifications de fichiers stockées dans le cache sont écrites dans le système de stockage back-end avant la suppression de la cible de stockage. Ce processus peut prendre une heure ou plus si un grand nombre de données modifiées se trouvent dans le cache.
+
+## <a name="update-storage-targets"></a>Mettre à jour des cibles de stockage
+
+Vous pouvez modifier les cibles de stockage, afin de changer la valeur de certaines de leurs propriétés. Différentes propriétés peuvent être modifiées, en fonction du type de stockage :
 
 * Pour les cibles de stockage d’objets blob, vous pouvez modifier le chemin d’accès à l’espace de noms.
 
@@ -23,7 +35,7 @@ Vous pouvez modifier les cibles de stockage, afin de changer la valeur de certai
 
   * Chemin de l’espace de noms
   * Modèle d’utilisation
-  * Exportation
+  * Exporter
   * Exporter un sous-répertoire
 
 Vous ne pouvez pas modifier le nom, le type ou le système de stockage back-end d’une cible de stockage (conteneur d’objets blob ou nom d’hôte/adresse IP NFS). Si vous avez besoin de modifier ces propriétés, supprimez la cible de stockage et créez-en une autre, avec la nouvelle valeur.

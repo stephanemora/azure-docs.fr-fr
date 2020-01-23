@@ -1,31 +1,28 @@
 ---
-title: Transformation de nouvelle branche de flux de données de mappage
-description: Transformation de nouvelle branche de mappage de flux de données pour Azure Data Factory
+title: Plusieurs branches dans le flux de données de mappage
+description: Réplication de flux de données dans le flux de données de mappage avec plusieurs branches
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
-ms.date: 02/12/2019
-ms.openlocfilehash: b4617689fe1ab14856bde9a4e8134b12aa6d815b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/08/2020
+ms.openlocfilehash: 71fb9f1ba9952be0e6b3910dd1079aa6d3c0482d
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930312"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834498"
 ---
-# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Transformation de nouvelle branche de mappage de flux de données pour Azure Data Factory
+# <a name="creating-a-new-branch-in-mapping-data-flow"></a>Création d’une nouvelle branche dans le flux de données de mappage
 
-![Options de branche](media/data-flow/menu.png "menu")
+Ajoutez une nouvelle branche pour effectuer plusieurs ensembles d’opérations et de transformations sur le même flux de données. L’ajout d’une nouvelle branche est utile lorsque vous souhaitez utiliser la même source pour plusieurs récepteurs ou pour effectuer la jointure réflexive des données.
 
-La création de branches prend votre flux de données actuel et le réplique dans un autre flux. Utilisez une nouvelle branche pour effectuer plusieurs ensembles d’opérations et de transformations sur le même flux de données.
+Une nouvelle branche peut être ajoutée à partir de la liste des transformations de la même façon que d’autres transformations. L’action **Nouvelle branche** est disponible uniquement lorsqu’une transformation existante suit la transformation pour laquelle vous tentez de créer une branche.
 
-Exemple : Votre flux de données a une transformation source avec un ensemble sélectionné de colonnes et de conversions de types de données. Vous placez alors une colonne dérivée qui suit immédiatement cette source. Dans la colonne dérivée, vous créez un nouveau champ qui combine un prénom et un nom pour faire un nouveau champ « nom complet ».
+![Ajout d’une nouvelle branche](media/data-flow/new-branch2.png "Ajout d’une nouvelle branche")
 
-Vous pouvez traiter ce nouveau flux avec un ensemble de transformations et un récepteur sur une ligne et utiliser la nouvelle branche pour créer une copie de ce flux où vous pouvez transformer ces mêmes données avec un autre ensemble de transformations. En transformant ces données copiées dans une branche distincte, vous pouvez par la suite les réceptionner à un autre emplacement.
+Dans l’exemple ci-dessous, le flux de données lit des données de trajet en taxi. La sortie agrégée par jour et par fournisseur est requise. Au lieu de créer deux flux de données distincts qui lisent à partir de la même source, il est possible d’ajouter une nouvelle branche. De cette façon, les deux agrégations peuvent être exécutées dans le cadre du même flux de données. 
 
-> [!NOTE]
-> « Nouvelle branche » s’affiche uniquement en tant qu’action sur le menu Transformation + en cas de transformation en aval de l’emplacement actuel où vous tentez de créer une branche. Vous ne verrez donc pas d’option « Nouvelle branche » à la fin si vous n’ajoutez pas de transformation après la sélection.
-
-![Branche](media/data-flow/branch2.png "Branche 2")
+![Ajout d’une nouvelle branche](media/data-flow/new-branch.png "Ajout d’une nouvelle branche")

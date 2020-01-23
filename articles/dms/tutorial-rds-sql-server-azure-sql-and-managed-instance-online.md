@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 2c10bde323f3611047fe5c5a0c06a1f2786f642a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.openlocfilehash: 52a6ee282e12f0ece5f16c1fa67c38f07f9d86e7
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437574"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75751291"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutoriel : Migrer en ligne RDS SQL Server vers une instance d’Azure SQL Database ou Azure SQL Database Managed Instance à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour effectuer la migration des bases de données d’une instance RDS SQL Server vers une instance [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) ou [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) avec un temps d’arrêt minimal. Dans ce tutoriel, vous allez effectuer la migration de la base de données **Adventureworks2012**, qui a été restaurée sur une instance RDS SQL Server de SQL Server 2012 (ou version ultérieure), vers une instance Azure SQL Database ou Azure SQL Database Managed Instance à l’aide d’Azure Database Migration Service.
@@ -52,10 +52,10 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     > Si vous effectuez la migration vers Azure SQL Database Managed Instance, suivez les indications détaillées dans l’article [Créer une instance managée d’Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started), puis créez une base de données vide nommée **AdventureWorks2012**. 
  
 * Téléchargez et installez [l’Assistant Migration de données](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) v3.3 ou version ultérieure.
-* Créez un réseau virtuel Azure (VNet) pour le service Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager. Si vous effectuez la migration vers une instance managée Azure SQL Database, veillez à créer l’instance DMS sur le même réseau virtuel que celui utilisé pour l’instance managée Azure SQL Database, mais sur un autre sous-réseau.  Si vous utilisez un autre réseau virtuel pour DMS, vous devez également créer un peering VNet entre les deux réseaux virtuels. Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
+* Créer un réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager. Si vous effectuez la migration vers une instance managée d’Azure SQL Database, veillez à créer l’instance DMS sur le même réseau virtuel que celui utilisé pour l’instance managée d’Azure SQL Database, mais sur un autre sous-réseau.  Si vous utilisez un autre réseau virtuel pour DMS, vous devrez créer un peering entre les deux réseaux virtuels. Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
 
     > [!NOTE]
-    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de service au sous-réseau où doit être provisionné le service :
+    > Pendant la configuration du réseau virtuel, si vous utilisez ExpressRoute avec le peering réseau à Microsoft, ajoutez ces [points de terminaison](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) au sous-réseau où doit être provisionné le service :
     >
     > * Point de terminaison de base de données cible (un point de terminaison SQL ou Cosmos DB, par exemple)
     > * Point de terminaison de stockage
@@ -63,7 +63,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
     >
     > Cette configuration est nécessaire, car Azure Database Migration Service ne dispose pas d’une connectivité Internet. 
 
-* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports de communication entrants suivants d’Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel Azure, consultez l’article [Filtrer le trafic réseau avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+* Vérifiez que les règles du groupe de sécurité réseau de votre réseau virtuel ne bloquent pas les ports suivants pour les communications entrantes vers Azure Database Migration Service : 443, 53, 9354, 445, 12000. Pour plus d’informations sur le filtrage du trafic de groupe de sécurité réseau de réseau virtuel, consultez l’article [Filtrer le trafic avec les groupes de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurez votre [pare-feu Windows pour accéder au moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Ouvrez votre Pare-feu Windows pour permettre à Azure Database Migration Service d’accéder au serveur SQL Server source, par défaut le port TCP 1433.
 * Créez une [règle de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) de niveau serveur pour le serveur Azure SQL Database afin de permettre à Azure Database Migration Service d’accéder aux bases de données cibles. Fournissez la plage de sous-réseau du réseau virtuel utilisé pour Azure Database Migration Service.

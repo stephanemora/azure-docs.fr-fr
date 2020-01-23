@@ -9,12 +9,12 @@ ms.date: 06/27/2017
 ms.author: rogarana
 ms.reviewer: yuemlu
 ms.subservice: common
-ms.openlocfilehash: b8b3679676cf019a48c55211d81bee0523764db5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7cb5a335af7093bc217578d57340b03b8b9c08b3
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351236"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748347"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migration vers le stockage Azure Premium (disques non managés)
 
@@ -64,7 +64,8 @@ Il existe cinq types de disque qui peuvent être utilisés avec votre machine vi
 En fonction de votre charge de travail, déterminez si les disques de données supplémentaires sont nécessaires pour votre machine virtuelle. Vous pouvez joindre plusieurs disques de données persistantes à votre machine virtuelle. Si nécessaire, vous pouvez répartir les données sur les disques pour augmenter la capacité et les performances du volume. (Découvrez ce qu’est l’entrelacement de disques [ici](../../virtual-machines/windows/premium-storage-performance.md#disk-striping).) Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage][4], vous devez les configurer avec une colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d'une distribution inégale du trafic sur les disques. Pour les machines virtuelles Linux, vous pouvez utiliser l’utilitaire *mdadm* pour obtenir le même résultat. Consultez l’article [Configuration d’un RAID logiciel sur Linux](../../virtual-machines/linux/configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) pour plus d’informations.
 
 #### <a name="storage-account-scalability-targets"></a>Objectifs d’évolutivité de compte de stockage
-Les comptes de stockage Premium ont les objectifs d’évolutivité suivants en plus des [Objectifs d’évolutivité et de performances de stockage Azure](storage-scalability-targets.md). Si les besoins de votre application dépassent les objectifs d’évolutivité d’un compte de stockage unique, générez votre application pour qu’elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes.
+
+Les cibles de scalabilité des comptes de stockage Premium sont les suivants. Si les besoins de votre application dépassent les objectifs d’évolutivité d’un compte de stockage unique, générez votre application pour qu’elle utilise plusieurs comptes de stockage et partitionnez vos données sur ces comptes.
 
 | Capacité totale des comptes | Bande passante totale pour un compte de stockage localement redondant |
 |:--- |:--- |
@@ -162,7 +163,8 @@ Pour les disques de données, vous pouvez choisir d’en conserver certains dans
 Vous devez rechercher le chemin d’accès de votre conteneur et la clé du compte de stockage pour traiter une de ces deux options. Vous trouverez le chemin d’accès au conteneur et le compte de stockage dans le **Portail Azure** > **Stockage**. L’URL du conteneur sera du type « https:\//myaccount.blob.core.windows.net/mycontainer/ ».
 
 ##### <a name="option-1-copy-a-vhd-with-azcopy-asynchronous-copy"></a>Option 1 : Copier un disque dur virtuel avec AzCopy (copie asynchrone)
-À l’aide d’AzCopy, vous pouvez facilement télécharger le disque dur virtuel sur Internet. Selon la taille des disques durs virtuels, cela peut prendre du temps. N’oubliez pas de vérifier les limites d’entrées/sorties de compte de stockage lors de l’utilisation de cette option. Pour plus d’informations, consultez [Objectifs de performance et d’évolutivité d’Azure Storage](storage-scalability-targets.md) .
+
+À l’aide d’AzCopy, vous pouvez facilement télécharger le disque dur virtuel sur Internet. Selon la taille des disques durs virtuels, cela peut prendre du temps. N’oubliez pas de vérifier les limites d’entrées/sorties de compte de stockage lors de l’utilisation de cette option. Consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](scalability-targets-standard-account.md).
 
 1. Téléchargez et installez AzCopy à partir d’ici : [Dernière version d’AzCopy](https://aka.ms/downloadazcopy)
 2. Ouvrez Azure PowerShell et accédez au dossier où AzCopy est installé.
@@ -259,7 +261,8 @@ Add-AzureVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo>
 Un exemple d’\<Uri> peut être **_« https://storagesample.blob.core.windows.net/mycontainer/blob1.vhd  »_** . Un exemple de \<FileInfo> peut être **_« C:\path\to\upload.vhd »_** .
 
 ##### <a name="option-2-using-azcopy-to-upload-the-vhd-file"></a>Option n°2 : Utilisation d’AzCopy pour charger le fichier .vhd
-À l’aide d’AzCopy, vous pouvez facilement télécharger le disque dur virtuel sur Internet. Selon la taille des disques durs virtuels, cela peut prendre du temps. N’oubliez pas de vérifier les limites d’entrées/sorties de compte de stockage lors de l’utilisation de cette option. Pour plus d’informations, consultez [Objectifs de performance et d’évolutivité d’Azure Storage](storage-scalability-targets.md) .
+
+À l’aide d’AzCopy, vous pouvez facilement télécharger le disque dur virtuel sur Internet. Selon la taille des disques durs virtuels, cela peut prendre du temps. N’oubliez pas de vérifier les limites d’entrées/sorties de compte de stockage lors de l’utilisation de cette option. Consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](scalability-targets-standard-account.md).
 
 1. Téléchargez et installez AzCopy à partir d’ici : [Dernière version d’AzCopy](https://aka.ms/downloadazcopy)
 2. Ouvrez Azure PowerShell et accédez au dossier où AzCopy est installé.

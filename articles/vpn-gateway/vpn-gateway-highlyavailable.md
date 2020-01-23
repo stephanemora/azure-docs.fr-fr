@@ -1,26 +1,18 @@
 ---
-title: Vue d’ensemble des configurations haute disponibilité avec les passerelles VPN Azure | Microsoft Docs
+title: 'Passerelle VPN Azure : Vue d’ensemble - Configurations de passerelle à haute disponibilité'
 description: Cet article fournit une vue d’ensemble des options de configuration haute disponibilité à l’aide de passerelles VPN Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/24/2016
 ms.author: yushwang
-ms.openlocfilehash: 623ed10e155012780f039bf7b9148be34143454d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 91fb0896238881130bd02916f8fd579eee9bd16b
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60760279"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779618"
 ---
 # <a name="highly-available-cross-premises-and-vnet-to-vnet-connectivity"></a>Configuration haute disponibilité pour la connectivité entre les réseaux locaux et la connectivité entre deux réseaux virtuels
 Cet article fournit une vue d’ensemble des options de configuration haute disponibilité dont vous pouvez tirer parti pour la connectivité entre vos réseaux locaux et la connectivité entre deux réseaux virtuels en utilisant des passerelles VPN Azure.

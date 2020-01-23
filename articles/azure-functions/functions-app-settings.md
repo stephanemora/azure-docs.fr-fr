@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 1c7f5f9f8f6f198c5fe74baa613306732fa9b55b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 87852d940204f574350321e2690b70c9835093d9
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977265"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921089"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -109,6 +109,19 @@ Version du runtime Azure Functions à utiliser dans cette application de fonctio
 |---|------------|
 |FUNCTIONS\_EXTENSION\_VERSION|~2|
 
+## <a name="functions_v2_compatibility_mode"></a>FUNCTIONS\_V2\_COMPATIBILITY\_MODE
+
+Ce paramètre permet à votre application de fonction de s’exécuter dans un mode compatible avec la version 2.x sur le runtime version 3.x. Utilisez ce paramètre uniquement si vous rencontrez des problèmes lors de la [mise à niveau de votre application de fonction de la version 2.x à la version 3.x du runtime](functions-versions.md#migrating-from-2x-to-3x). 
+
+>[!IMPORTANT]
+> Ce paramètre doit être considéré uniquement comme une solution de contournement à court terme pendant que vous mettez à jour votre application pour qu’elle s’exécute correctement sur la version 3.x. Ce paramètre est pris en charge tant que le [runtime 2.x est pris en charge](functions-versions.md). Si vous rencontrez des problèmes qui empêchent votre application de s’exécuter sur la version 3.x sans utiliser ce paramètre, veuillez [signaler votre problème](https://github.com/Azure/azure-functions-host/issues/new?template=Bug_report.md).
+
+Nécessite que [FUNCTIONS\_EXTENSION\_VERSION](functions-app-settings.md#functions_extension_version) ait la valeur `~3`.
+
+|Clé|Exemple de valeur|
+|---|------------|
+|FUNCTIONS\_V2\_COMPATIBILITY\_MODE|true|
+
 ## <a name="functions_worker_process_count"></a>FUNCTIONS\_WORKER\_PROCESS\_COUNT
 
 Spécifie le nombre maximal de processus de traitement de langue, avec la valeur `1` par défaut. La valeur maximale autorisée est `10`. Les appels de fonction sont répartis uniformément entre les processus de travail de langage. Les processus de travail de langage sont générés toutes les 10 secondes jusqu’à ce que le nombre défini par \_WORKER\_PROCESS\_COUNT soit atteint. L’utilisation de plusieurs processus de traitement de langue n’a pas le même effet qu’une [mise à l’échelle](functions-scale.md). Envisagez d’utiliser ce paramètre lorsque votre charge de travail a une combinaison d’appels liés à l’UC et aux E/S. Ce paramètre s’applique à toutes les langues non-.NET.
@@ -128,7 +141,7 @@ Runtime du rôle de travail de langage à charger dans l’application de foncti
 
 ## <a name="website_contentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
-Pour les plans de consommation et Premium uniquement. Chaîne de connexion du compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#create-a-function-app).
+Pour les plans Consommation et Premium uniquement. Chaîne de connexion du compte de stockage dans lequel la configuration et le code de l’application de fonction sont stockés. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -136,7 +149,7 @@ Pour les plans de consommation et Premium uniquement. Chaîne de connexion du co
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
-Pour les plans de consommation et Premium uniquement. Chemin d’accès au fichier contenant la configuration et le code de l’application de fonction. Utilisé avec WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. La valeur par défaut est une chaîne unique qui commence par le nom de l’application de fonction. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#create-a-function-app).
+Pour les plans Consommation et Premium uniquement. Chemin d’accès au fichier contenant la configuration et le code de l’application de fonction. Utilisé avec WEBSITE_CONTENTAZUREFILECONNECTIONSTRING. La valeur par défaut est une chaîne unique qui commence par le nom de l’application de fonction. Consultez la section [Créer une application de fonction](functions-infrastructure-as-code.md#create-a-function-app).
 
 |Clé|Exemple de valeur|
 |---|------------|
@@ -151,7 +164,7 @@ Nombre maximal d’instances possibles de l’application de fonction. Par défa
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5\.|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5|
 
 ## <a name="website_node_default_version"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
@@ -178,8 +191,8 @@ Par défaut, les proxies Functions utilisent un raccourci pour envoyer des appel
 
 |Clé|Valeur|Description|
 |-|-|-|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Les appels dont l’URL back-end pointe vers une fonction dans l’application de fonction locale ne sont plus envoyés directement vers la fonction. Au lieu de cela, ils sont redirigés vers le front-end HTTP pour l’application de fonction|
-|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Il s’agit de la valeur par défaut. Les appels dont l’URL principale pointe vers une fonction de Function App en local sont transférés directement vers Function|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|true|Les appels dont l’URL de back-end pointe vers une fonction de l’application de fonction locale ne sont plus envoyés directement vers la fonction. Au lieu de cela, ils sont redirigés vers le front-end HTTP pour l’application de fonction|
+|AZURE_FUNCTION_PROXY_DISABLE_LOCAL_CALL|false|Il s’agit de la valeur par défaut. Les appels dont l’URL de back-end pointe vers une fonction de l’application de fonction locale sont transférés directement vers cette fonction|
 
 
 ## <a name="azure_function_proxy_backend_url_decode_slashes"></a>AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES
@@ -189,9 +202,9 @@ Ce paramètre vérifie si %2F est décodé en tant que barres obliques dans les 
 |Clé|Valeur|Description|
 |-|-|-|
 |AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|true|Les paramètres d’itinéraire avec des barres obliques encodées les décodent. `example.com/api%2ftest` devient `example.com/api/test`|
-|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Il s’agit du comportement par défaut. Tous les paramètres d’itinéraire restent inchangés lors de leur transmission|
+|AZURE_FUNCTION_PROXY_BACKEND_URL_DECODE_SLASHES|false|Il s'agit du comportement par défaut. Tous les paramètres d’itinéraire restent inchangés lors de leur transmission|
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Voici un fichier exemple proxies.json dans une application de fonction sur l’URL myfunction.com
 

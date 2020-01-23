@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/19/2019
+ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 89816e3640c0afad6290e77faa3904c691df4318
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 602be49ef0c60274f1cd016c4f8e870cf033ec7b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892395"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75866891"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Utiliser le Portail Microsoft Azure pour accéder aux données d’objet blob et de file d’attente
 
@@ -53,12 +53,14 @@ Les rôles intégrés qui prennent en charge les accès à vos données d’obje
 - [Contributeur aux données Blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) : Autorisations en lecture/écriture/suppression pour les objets blob.
 - [Lecteur des données blob du stockage](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader) : Autorisations en lecture seule pour les objets blob.
 - [Contributeur aux données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) : Autorisations en lecture/écriture/suppression pour les file d’attente.
-- [Lecteur des données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader) : Autorisations en lecture seule pour les files d’attente.
+- [Lecteur des données en file d’attente du stockage](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader) : Autorisations en lecture seule pour les files d’attente.
     
 Les rôles personnalisés peuvent prendre en charge différentes combinaisons des mêmes autorisations fournies par les rôles intégrés. Pour plus d’informations sur la création des rôles RBAC personnalisés, consultez [Rôles personnalisés pour les ressources Azure](../../role-based-access-control/custom-roles.md) et [Comprendre les définitions de rôles pour les ressources Azure](../../role-based-access-control/role-definitions.md).
 
-> [!NOTE]
-> Le référencement des files d’attente avec un rôle d’administrateur d’abonnement classique n’est pas pris en charge. Pour répertorier les files d’attente, un utilisateur doit leur avoir attribué le rôle **Lecteur** Azure Resource Manager, le rôle **Lecteur de données de file d’attente de stockage** ou le rôle **Contributeur aux données en file d’attente de stockage**.
+Le référencement des files d’attente avec un rôle d’administrateur d’abonnement classique n’est pas pris en charge. Pour répertorier les files d’attente, un utilisateur doit leur avoir attribué le rôle **Lecteur** Azure Resource Manager, le rôle **Lecteur de données de file d’attente de stockage** ou le rôle **Contributeur aux données en file d’attente de stockage**.
+
+> [!IMPORTANT]
+> La préversion d’Explorateur Stockage dans le portail Azure ne prend pas en charge l’utilisation d’informations d’identification Azure AD pour visualiser et modifier des données blob ou de file d’attente. Explorateur Stockage dans le portail Azure utilise toujours les clés de compte pour accéder aux données. Pour utiliser Explorateur Stockage dans le portail Azure, un rôle qui comprend **Microsoft.Storage/storageAccounts/listkeys/action** doit vous être attribué.
 
 ## <a name="navigate-to-blobs-or-queues-in-the-portal"></a>Accéder aux objets blob ou aux files d’attente sur le portail
 
@@ -100,5 +102,5 @@ Notez qu’aucun objet blob n’apparaît dans la liste si vous n’avez pas acc
 
 - [Authentifier l’accès aux objets blob et aux files d’attente Azure à l’aide d’Azure Active Directory](storage-auth-aad.md)
 - [Octroyer l’accès aux conteneurs et files d’attente Azure avec RBAC dans le portail Azure](storage-auth-aad-rbac-portal.md)
-- [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide d’Azure CLI](storage-auth-aad-rbac-cli.md)
+- [Octroyer l’accès aux données d’objet blob et de file d’attente Azure avec RBAC à l’aide d’Azure CLI](storage-auth-aad-rbac-cli.md)
 - [Octroyer l’accès aux données blob et de file d’attente Azure avec RBAC à l’aide de PowerShell](storage-auth-aad-rbac-powershell.md)

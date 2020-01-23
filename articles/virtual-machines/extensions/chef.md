@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: a21b8f2fea7433e9f65fd790321a28ea47a38c79
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073200"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544716"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Extension de machine virtuelle Chef pour Linux et Windows
 
 Chef Software fournit une plateforme d’automatisation DevOps pour Linux et Windows qui permet la gestion de configurations de serveurs virtuels et physiques. L’extension de machine virtuelle Chef est une extension qui active Chef sur des machines virtuelles.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="operating-system"></a>Système d’exploitation
 
@@ -50,7 +50,7 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
   "properties": {
     "publisher": "Chef.Bootstrap.WindowsAzure",
     "type": "[parameters('chef_vm_extension_type')]",
-    "typeHandlerVersion": "1210.12",
+    "typeHandlerVersion": "1210.13",
     "settings": {
       "bootstrap_options": {
         "chef_server_url": "[parameters('chef_server_url')]",
@@ -67,16 +67,16 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 ### <a name="core-property-values"></a>Valeurs de propriétés principales
 
-| Nom | Valeur/Exemple | Type de données
+| Name | Valeur/Exemple | Type de données
 | ---- | ---- | ----
 | apiVersion | `2017-12-01` | string (date) |
 | publisher | `Chef.Bootstrap.WindowsAzure` | string |
 | type | `LinuxChefClient` (Linux), `ChefClient` (Windows) | string |
-| typeHandlerVersion | `1210.12` | string (double) |
+| typeHandlerVersion | `1210.13` | string (double) |
 
 ### <a name="settings"></a>Paramètres
 
-| Nom | Valeur/Exemple | Type de données | Requis ?
+| Name | Valeur/Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ----
 | settings/bootstrap_options/chef_server_url | `https://api.chef.io/organizations/myorg` | string (url) | O |
 | settings/bootstrap_options/validation_client_name | `myorg-validator` | string | O |
@@ -84,7 +84,7 @@ Le JSON suivant illustre le schéma de l’extension de machine virtuelle Chef. 
 
 ### <a name="protected-settings"></a>Paramètres protégés
 
-| Nom | Exemples | Type de données | Requis ?
+| Name | Exemple | Type de données | Requis ?
 | ---- | ---- | ---- | ---- |
 | protectedSettings/validation_key | `-----BEGIN RSA PRIVATE KEY-----\nKEYDATA\n-----END RSA PRIVATE KEY-----` | string | O |
 
@@ -118,7 +118,7 @@ az vm extension set \
   --vm-name myExistingVM \
   --name LinuxChefClient \
   --publisher Chef.Bootstrap.WindowsAzure \
-  --version 1210.12 --protected-settings '{"validation_key": "<validation_key>"}' \
+  --version 1210.13 --protected-settings '{"validation_key": "<validation_key>"}' \
   --settings '{ "bootstrap_options": { "chef_server_url": "<chef_server_url>", "validation_client_name": "<validation_client_name>" }, "runlist": "<run_list>" }'
 ```
 
@@ -151,6 +151,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | Cette extension n’est pas prise en charge sur le système d’exploitation de la machine virtuelle | |
 
 Des informations de dépannage supplémentaires sont disponibles dans le fichier [Readme de l’extension de machine virtuelle Chef](https://github.com/chef-partners/azure-chef-extension).
+
+> [!NOTE]
+> Pour toute autre question se rapportant à Chef, contactez le [Support Chef](https://www.chef.io/support/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

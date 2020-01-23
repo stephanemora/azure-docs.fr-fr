@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 37846aacd9e2c5c63cdf5d29bccb42df8e02fce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452612"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861657"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Mettre en forme avec Azure Time Series Insights (préversion)
 
@@ -31,7 +31,7 @@ Réfléchissez à la façon dont vous envoyez les événements à Time Series In
 Pour optimiser le niveau de performance des requêtes, procédez comme suit :
 
 * N’envoyez pas de propriétés inutiles. Time Series Insights (préversion) vous est facturé en fonction de votre utilisation. Il est préférable de stocker et traiter les données sur lesquelles vous allez effectuer une requête.
-* Utilisez des champs d’instance pour les données statiques. Cette pratique vous évite d’envoyer des données statiques sur le réseau. Les champs d’instance, qui font partie du modèle de série chronologique, fonctionnent comme des données de référence dans le service Time Series Insights qui est généralement disponible. Pour en savoir plus sur les champs d’instance, consultez [Modèle de série chronologique](./time-series-insights-update-tsm.md).
+* Utilisez des champs d’instance pour les données statiques. Cette pratique vous évite d’envoyer des données statiques sur le réseau. Les champs d’instance, qui font partie du modèle de série chronologique, fonctionnent comme des données de référence dans le service Time Series Insights qui est généralement disponible. Pour plus d’informations sur les champs d’instance, consultez [Modèle Time Series](./time-series-insights-update-tsm.md).
 * Partagez des propriétés de dimension entre deux ou plusieurs événements. Cette pratique vous permet d’envoyer plus efficacement des données sur le réseau.
 * N’utilisez pas d’imbrication de tableau approfondie. Time Series Insights (préversion) prend en charge jusqu’à deux niveaux de tableaux imbriqués contenant des objets. Time Series Insights (préversion) aplatit les tableaux dans les messages, en plusieurs événements avec des paires de valeurs de propriétés.
 * Si seules quelques mesures existent pour tous ou la plupart des événements, il est préférable d’envoyer ces mesures en tant que propriétés distinctes dans le même objet. Le fait de les envoyer séparément réduit le nombre d’événements et peut accroître les performances des requêtes car moins d’événements doivent être traités.
@@ -156,5 +156,5 @@ Dans l’exemple ci-dessus, la propriété `data_flow` aplatie présenterait une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour mettre ces instructions en pratique, consultez [Interroger des données à partir de l’environnement Azure Time Series Insights en utilisant C#](./time-series-insights-query-data-csharp.md). Vous en apprendrez davantage sur la syntaxe de requête pour l’API REST Time Series Insights (préversion) pour l’accès aux données.
+- Pour mettre ces instructions en pratique, consultez [Syntaxe des requêtes Azure Time Series Insights Preview](./time-series-insights-query-data-csharp.md). Vous en apprendrez davantage sur la syntaxe de requête pour l’API REST Time Series Insights (préversion) pour l’accès aux données.
 - Pour en savoir plus sur les structures JSON prises en charge, consultez [Structures JSON prises en charge](./time-series-insights-send-events.md#supported-json-shapes).

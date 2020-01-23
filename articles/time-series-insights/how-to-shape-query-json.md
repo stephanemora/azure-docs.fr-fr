@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3b8c25c09b87dc8e9874870881173944fea1ee73
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894909"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864347"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Mise en forme de JSON afin d’optimiser les performances des requêtes 
 
@@ -26,7 +26,7 @@ Cet article fournit des conseils pour la procédure de mise en forme de JSON, en
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 Réfléchissez à la façon dont vous envoyez les événements à Time Series Insights. À savoir, vous pouvez toujours :
 
@@ -165,7 +165,7 @@ Exemple de charge utile JSON :
 
 * Données de la table de référence ayant les propriétés de clé **deviceId** et **series.tagId** :
 
-   | deviceId | series.tagId | messageId | deviceLocation | Type | unité |
+   | deviceId | series.tagId | messageId | deviceLocation | type | unité |
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Débit | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Pression d’huile moteur | psi |
@@ -174,7 +174,7 @@ Exemple de charge utile JSON :
 
 * Table d’événements Time Series Insights, après l’aplanissement :
 
-   | deviceId | series.tagId | messageId | deviceLocation | Type | unité | timestamp | series.value |
+   | deviceId | series.tagId | messageId | deviceLocation | type | unité | timestamp | series.value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | Débit | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Pression d’huile moteur | psi | 2018-01-17T01:17:00Z | 34.7 |

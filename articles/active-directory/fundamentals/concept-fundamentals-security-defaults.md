@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422839"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978905"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -28,7 +28,10 @@ Microsoft met les paramètres de sécurité par défaut à la disposition de tou
 
 ![Capture d’écran du Portail Azure avec le bouton bascule pour activer les paramètres de sécurité par défaut](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-Les configurations de sécurité suivantes seront activées dans votre locataire. 
+> [!TIP]
+> Si votre locataire a été créé le ou après le 22 octobre 2019, il se peut que vous fassiez l’expérience du nouveau comportement sécurisé par défaut et que des paramètres de sécurité par défaut soient déjà activés dans votre locataire. Dans le but de protéger tous nos utilisateurs, les paramètres de sécurité par défaut sont déployés sur tous les nouveaux locataires créés.
+
+Vous trouverez plus d’informations sur les raisons pour lesquelles les paramètres de sécurité par défaut sont rendus disponibles dans le billet de blog d’Alex Weinert, [Introducing security defaults](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Inscription Multi-Factor Authentication unifiée
 

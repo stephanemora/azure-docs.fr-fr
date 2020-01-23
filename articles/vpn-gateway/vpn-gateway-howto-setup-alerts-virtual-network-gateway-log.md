@@ -1,5 +1,5 @@
 ---
-title: Configurer des alertes sur les événements des journaux de diagnostic à partir de la passerelle VPN Azure
+title: 'Passerelle VPN Azure : Configurer des alertes pour les événements du journal de diagnostic'
 description: Étapes de configuration des alertes sur les événements des journaux de diagnostic de la passerelle VPN
 services: vpn-gateway
 author: anzaman
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: d914c020553bace7ea5ab8898ac4093fea30e6c9
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: eb8f0204771b204af740c4ddc8e359499520a012
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307004"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045935"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Configurer des alertes sur les événements des journaux de diagnostic à partir de la passerelle VPN
 
@@ -39,36 +39,39 @@ Les étapes de l’exemple suivant crée une alerte pour un événement de déco
 
 2. Sélectionnez **Créer** dans la page **Log Analytics**.
 
-   ![Page Log Analytics avec le bouton Créer](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Sélectionner")
+   ![Page Log Analytics avec le bouton Créer](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert1.png  "Sélectionnez")
 
 3. Sélectionnez **Créer** et renseignez les détails.
 
-   ![Détails permettant la création d’un espace de travail Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Sélectionner")
+   ![Détails permettant la création d’un espace de travail Log Analytics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert2.png  "Sélectionnez")
 
 4. Recherchez votre passerelle VPN dans le panneau **Monitor** > **Paramètres de diagnostic**.
 
-   ![Sélections permettant de rechercher la passerelle VPN dans Paramètres de diagnostic](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Sélectionner")
+   ![Sélections permettant de rechercher la passerelle VPN dans Paramètres de diagnostic](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert3.png  "Sélectionnez")
 
 5. Pour activer les diagnostics, double-cliquez sur la passerelle, puis sélectionnez **Activer les diagnostics**.
 
-   ![Sélections permettant l’activation des diagnostics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Sélectionner")
+   ![Sélections permettant l’activation des diagnostics](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert4.png  "Sélectionnez")
 
 6. Renseignez les détails, puis vérifiez que les options **Envoyer à Log Analytics** et **TunnelDiagnosticLog** sont sélectionnées. Choisissez l’espace de travail Log Analytics que vous avez créé à l’étape 3.
 
-   ![Cases à cocher sélectionnées](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Sélectionner")
+   ![Cases à cocher sélectionnées](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Sélectionnez")
+
+   > [!NOTE]
+   > L’affichage initial des données peut prendre quelques heures.
 
 7. Accédez à la vue d’ensemble de la ressource de passerelle réseau virtuel et sélectionnez **Alertes** à partir de l’onglet **Supervision**. Ensuite, créez une règle d’alerte ou modifiez une règle d’alerte existante.
 
-   ![Sélections permettant la création d’une règle d’alerte](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Sélectionner")
+   ![Sélections permettant la création d’une règle d’alerte](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Sélectionnez")
 
-   ![Point à site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Sélectionner")
+   ![point à site](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert6.png  "Sélectionnez")
 8. Sélectionnez l’espace de travail Log Analytics et la ressource.
 
-   ![Sélections pour l’espace de travail et la ressource](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Sélectionner")
+   ![Sélections pour l’espace de travail et la ressource](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert7.png  "Sélectionnez")
 
 9. Sélectionnez **Recherche personnalisée dans les journaux** comme logique de signal sous **Ajouter une condition**.
 
-   ![Sélections permettant une recherche personnalisée dans les journaux](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Sélectionner")
+   ![Sélections permettant une recherche personnalisée dans les journaux](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert8.png  "Sélectionnez")
 
 10. Entrez la requête suivante dans la zone de texte **Requête de recherche**. Remplacez les valeurs dans <> et TimeGenerated par les valeurs appropriées.
 
@@ -85,15 +88,15 @@ Les étapes de l’exemple suivant crée une alerte pour un événement de déco
 
     Définissez la valeur de seuil sur 0 et sélectionnez **Terminé**.
 
-    ![Entrée d’une requête et sélection d’un seuil](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Sélectionner")
+    ![Entrée d’une requête et sélection d’un seuil](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert9.png  "Sélectionnez")
 
 11. Dans la page **Créer une règle**, sélectionnez **Créer** sous la section **GROUPES D’ACTIONS**. Renseignez les détails, puis sélectionnez **OK**.
 
-    ![Détails d’un nouveau groupe d’actions](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Sélectionner")
+    ![Détails d’un nouveau groupe d’actions](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert10.png  "Sélectionnez")
 
 12. Dans la page **Créer une règle**, renseignez les détails pour **Personnaliser les actions** et assurez-vous que le nom correct apparaît dans la section **NOM DU GROUPE D’ACTIONS**. Sélectionnez **Créer une règle d’alerte** pour créer la règle.
 
-    ![Sélections permettant la création d’une règle](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Sélectionner")
+    ![Sélections pour la création d’une règle](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert11.png  "Sélectionnez")
 
 ## <a name="next-steps"></a>Étapes suivantes
 

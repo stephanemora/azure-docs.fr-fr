@@ -1,33 +1,26 @@
 ---
-title: 'Connecter un réseau virtuel à plusieurs sites à l’aide d’une passerelle VPN et de PowerShell : Classic | Microsoft Docs'
+title: 'Connecter un réseau virtuel à plusieurs sites en utilisant une passerelle VPN : Classique'
 description: Connectez plusieurs sites locaux à un réseau virtuel classique à l’aide d’une passerelle VPN.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: yushwang
-manager: rossort
-editor: ''
-tags: azure-service-management
-ms.assetid: b043df6e-f1e8-4a4d-8467-c06079e2c093
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/14/2018
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 77f8b7094c96e507eef1d360a26240627bc0e350
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5bedf5bd6d061d74201dbac3f1f99ed0d4c381aa
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60836080"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902436"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante (Classic)
 
 [!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classique)](vpn-gateway-multi-site.md)
 >
 >
@@ -48,7 +41,7 @@ Vous pouvez connecter plusieurs sites locaux à un même réseau virtuel. Cela e
 
 Si une passerelle statique est déjà connectée à votre réseau virtuel, vous pouvez changer le type de passerelle en dynamique sans avoir à régénérer le réseau virtuel pour prendre en charge plusieurs sites. Dans ce cas, assurez-vous que votre passerelle VPN locale prend en charge les configurations VPN basées sur un itinéraire.
 
-![diagramme multi-sites](./media/vpn-gateway-multi-site/multisite.png "multi-sites")
+![Diagramme multisite](./media/vpn-gateway-multi-site/multisite.png "multisite")
 
 ## <a name="points-to-consider"></a>Éléments à prendre en considération
 

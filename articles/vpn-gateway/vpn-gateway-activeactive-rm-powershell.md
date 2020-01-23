@@ -1,5 +1,5 @@
 ---
-title: 'Configurer des connexions VPN S2S en mode actif/actif pour des passerelles VPN : Azure Resource Manager : PowerShell | Microsoft Docs'
+title: Configurer des connexions de passerelle VPN Azure S2S en mode actif/actif
 description: Cet article vous guide dans la configuration de connexions en mode actif/actif avec des passerelles VPN Azure à l’aide d’Azure Resource Manager et de PowerShell.
 services: vpn-gateway
 author: yushwang
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: yushwang
 ms.reviewer: cherylmc
-ms.openlocfilehash: 6d973d81e0de407893beb5c5808962562f091d4c
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: dce05c558423400d095c83800cdcaf85e174e081
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871840"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860408"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Configurer des connexions VPN S2S en mode actif/actif avec des passerelles VPN Azure
 

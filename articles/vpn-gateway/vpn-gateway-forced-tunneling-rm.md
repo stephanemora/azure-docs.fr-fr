@@ -1,26 +1,19 @@
 ---
-title: 'Configurer le tunneling forcé pour les connexions de site à site Azure : Azure Resource Manager | Microsoft Docs'
+title: Configurer le tunneling forcé pour les connexions de site à site
 description: Comment rediriger ou « forcer » tout le trafic Internet vers votre emplacement local.
 services: vpn-gateway
-documentationcenter: na
+titleSuffix: Azure VPN Gateway
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-ms.assetid: cbe58db8-b598-4c9f-ac88-62c865eb8721
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: b4d9a469e46d964055d9459901ebdb9c6d04cf24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0b32bfba61f1c6f3f00c5189f611d84069dd9da
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66157480"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779669"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement Azure Resource Manager
 

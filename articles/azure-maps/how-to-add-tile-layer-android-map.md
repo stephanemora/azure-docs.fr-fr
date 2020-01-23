@@ -1,6 +1,6 @@
 ---
-title: Ajouter un calque de mosaïques à des cartes Android dans Azure Maps | Microsoft Docs
-description: Découvrez comment ajouter un calque de mosaïques à une carte à l’aide de l’Android SDK Azure Maps.
+title: Ajouter un calque de mosaïques à des cartes Android | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à afficher un calque de mosaïques sur une carte à l’aide de l’Android SDK Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5d5f50a38db95f6e62bdd8c51aefd5957041e682
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886452"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911525"
 ---
-# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Ajouter un calque de mosaïques à une carte à l’aide de l’Android SDK Azure Maps
+# <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Ajouter un calque de mosaïques à une carte avec le kit Android SDK Azure Maps
 
-Cet article explique comment afficher un calque de mosaïques sur une carte à l’aide de l’Android SDK Azure Maps. Les calques de mosaïques vous permettent de superposer des images à des mosaïques de carte de base Azure Maps. Vous trouverez plus d’informations sur le système de mosaïques Azure Maps dans la documentation [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
+Cet article explique comment afficher un calque de mosaïques sur une carte avec le kit Android SDK Azure Maps. Les couches de mosaïques vous permettent de superposer des images à des mosaïques de carte de base Azure Maps. Vous trouverez plus d’informations sur le système de mosaïques Azure Maps dans la documentation [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
-Un calque de mosaïques charge des mosaïques à partir d’un serveur. Ces images peuvent être préaffichées et stockées comme toute autre image sur un serveur, à l’aide d’une convention de nommage que le calque de mosaïques comprend, ou à l’aide d’un service dynamique qui génère les images à la volée. Trois conventions de nommage de service de mosaïques sont prises en charge par la classe TileLayer d’Azure Maps : 
+Un calque de mosaïques charge des mosaïques à partir d’un serveur. Ces images peuvent être préaffichées et stockées comme toute autre image sur un serveur, à l’aide d’une convention de nommage que la couche de mosaïques comprend, ou à l’aide d’un service dynamique qui génère les images à la volée. Trois conventions de nommage de service de mosaïques sont prises en charge par la classe TileLayer d’Azure Maps : 
 
 * Notation de zoom X, Y : selon le niveau de zoom, x correspond à la position de colonne et y à la position de ligne de la mosaïque dans la grille mosaïque.
 * Notation Quadkey : combinaison d’informations de zoom x, y au sein d’une valeur de chaîne qui correspond à l’identificateur unique de la mosaïque.
@@ -37,14 +37,14 @@ L’URL de la mosaïque passée à une couche de mosaïques doit être l’URL H
 * `{bbox-epsg-3857}` - chaîne de rectangle englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
 * `{subdomain}` - espace réservé où les valeurs de sous-domaine sont ajoutées, si spécifiées.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre la procédure décrite dans cet article, vous devez installer [Android SDK Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) afin de charger une carte.
 
 
 ## <a name="add-a-tile-layer-to-the-map"></a>Ajouter un calque de mosaïques à une carte
 
- Cet exemple montre comment créer un calque de mosaïques qui pointe vers un ensemble de mosaïques qui utilisent le système de zoom de mosaïques x, y. La source de ce calque de mosaïques est un calque de radar météo issu de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
+ Cet exemple montre comment créer une couche de mosaïques qui pointe vers un ensemble de mosaïques qui utilisent le système de zoom de mosaïques x, y. La source de cette couche de mosaïques est un calque de radar météo issu de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 Vous pouvez ajouter un calque de mosaïques à la carte en suivant les étapes ci-dessous.
 
@@ -179,4 +179,4 @@ Vous pouvez ajouter un calque de mosaïques à la carte en suivant les étapes c
 Pour plus d’informations sur les différentes manières de définir des styles de carte, consultez l'article
 
 > [!div class="nextstepaction"]
-> [Modifier les styles de carte sur les cartes Android](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles) (Modifier les styles de carte dans les cartes Android)

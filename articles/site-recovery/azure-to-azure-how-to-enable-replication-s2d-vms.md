@@ -1,19 +1,16 @@
 ---
 title: Répliquer des machines virtuelles Azure exécutant des espaces de stockage direct avec Azure Site Recovery
-description: Cet article décrit comment répliquer des machines virtuelles Azure exécutant des espaces de stockage direct avec Azure Site Recovery.
-services: site-recovery
-author: asgang
+description: Découvrez comment répliquer des machines virtuelles Azure exécutant des espaces de stockage direct avec Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.author: asgang
-ms.openlocfilehash: 25ac7fa577aa33eda036c0f8544cc5ab03b12cd7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954467"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973662"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Répliquer des machines virtuelles Azure exécutant des espaces de stockage direct dans une autre région
 
@@ -23,17 +20,17 @@ Cet article décrit comment activer la récupération d’urgence pour des machi
 >Seuls des points de récupération offrant une cohérence en cas d’incident sont pris en charge pour les clusters d’espaces de stockage direct.
 >
 
-## <a name="introduction"></a>Introduction 
-Les [espaces de stockage direct (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) constituent un stockage à définition logicielle qui offre un moyen de créer des [clusters invités](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) sur Azure.  Un cluster invité dans Microsoft Azure est un cluster de basculement constitué de machines virtuelles IaaS. Il permet à des charges de travail de machine virtuelle hébergées de basculer vers les clusters invités et d’ainsi atteindre une disponibilité en terme de niveau de service pour les applications supérieure à celle qu’une machine virtuelle Azure unique peut fournir. Il est utile dans les cas où la machine virtuelle héberge une application critique telle que SQL ou un serveur de fichiers avec montée en puissance parallèle.
+Les [espaces de stockage direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) constituent un stockage à définition logicielle qui offre un moyen de créer des [clusters invités](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) sur Azure.  Un cluster invité dans Microsoft Azure est un cluster de basculement constitué de machines virtuelles IaaS. Il permet à des charges de travail de machine virtuelle hébergées de basculer vers les clusters invités et ainsi d’atteindre une disponibilité en termes de niveau de service pour les applications supérieure à celle qu’une machine virtuelle Azure unique peut fournir. Il s’avère utile dans les scénarios où une machine virtuelle héberge une application critique telle que SQL ou un serveur de fichiers de scale-out.
 
-## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Récupération d’urgence de machines virtuelles Azure à l’aide d’espaces de stockage direct
+## <a name="disaster-recovery-with-storage-spaces-direct"></a>Reprise d’activité avec des espaces de stockage direct
+
 Dans un scénario classique, vous pouvez avoir cluster invité de machines virtuelles sur Azure pour accroître la résilience de votre application, tel qu’un serveur de fichiers avec montée en puissance parallèle. Si cela peut fournir à votre application une disponibilité supérieure, vous aimeriez protéger ces applications à l’aide de Site Recovery en cas de défaillance au niveau de la région. Site Recovery réplique les données d’une région Azure vers une autre et active le cluster dans la région de récupération d’urgence en cas de basculement.
 
-Le diagramme ci-dessous illustre deux clusters de basculement de machines virtuelles Azure utilisant des espaces de stockage direct.
+Le diagramme ci-dessous montre un cluster de basculement de machine virtuelle Azure à deux nœuds qui utilise des espaces de stockage direct.
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - Deux machines virtuelles Azure dans un cluster de basculement Windows, chacune disposant d’au moins deux disques de données.
 - La technologie S2D synchronise les données sur le disque de données et présente le stockage synchronisé en tant que pool de stockage.
 - Le pool de stockage se présente comme un volume partagé de cluster au cluster de basculement.
@@ -42,7 +39,7 @@ Le diagramme ci-dessous illustre deux clusters de basculement de machines virtue
 **Considérations relatives à la récupération d’urgence**
 
 1. Quand vous configurez un [témoin cloud](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) pour le cluster, conservez le témoin dans la région de récupération d’urgence.
-2. Si vous comptez basculer les machines virtuelles vers le sous-réseau sur une région de récupération d’urgence différente de la région source, l’adresse IP du cluster doit être modifiée après basculement.  Pour modifier l’adresse IP du cluster, vous devez utiliser un [script de plan de récupération](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) pour la récupération automatique du système.</br>
+2. Si vous comptez basculer les machines virtuelles vers le sous-réseau sur une région de récupération d’urgence différente de la région source, l’adresse IP du cluster doit être modifiée après basculement.  Pour modifier l’adresse IP du cluster, vous devez utiliser le [script de plan de récupération](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation) de Site Recovery.</br>
 [Exemple de script](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) pour exécuter une commande à l’intérieur d’une machine virtuelle à l’aide d’un extension de script personnalisé 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Activation de Site Recovery pour un cluster S2D :
@@ -54,7 +51,7 @@ Le diagramme ci-dessous illustre deux clusters de basculement de machines virtue
 
    ![Protection storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. Accédez aux éléments répliqués pour voir l’état des deux machines virtuelles. 
+2. Accédez aux éléments répliqués pour voir l’état des deux machines virtuelles.
 3. Les deux machines virtuelles sont protégées et font partie d’un groupe de cohérence multimachine virtuelle.
 
    ![Protection storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)
@@ -73,7 +70,7 @@ Afin de vous assurer du bon fonctionnement de vos applications, vous pouvez êtr
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Basculement des machines virtuelles 
-Les deux nœuds des machines virtuelles doivent être basculés à l’aide du [plan de récupération pour la récupération automatique du système](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) 
+Les deux nœuds des machines virtuelles doivent basculer à l’aide du [plan de récupération](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) de Site Recovery. 
 
 ![Protection storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 

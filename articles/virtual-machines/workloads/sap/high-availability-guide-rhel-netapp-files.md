@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/07/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: ba8dc3080f3b584ae3a60576e4cc670dc60c28a0
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 8acb4819c6ef7a1969a85a056dfdde1fd021a5e6
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151813"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894653"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>Haute disponibilité des machines virtuelles Azure pour SAP NetWeaver sur Red Hat Enterprise Linux avec Azure NetApp Files pour les applications SAP
 
@@ -86,7 +86,7 @@ Commencez par lire les notes et publications SAP suivantes :
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
 * [Applications SAP NetApp su Microsoft Azure avec Azure NetApp Files][anf-sap-applications-azure]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La haute disponibilité pour les services centraux SAP Netweaver nécessite un stockage partagé.
 Pour y parvenir sur Red Hat Linux, il était jusqu'à présent nécessaire de générer un cluster GlusterFS hautement disponible distinct. 
@@ -172,6 +172,7 @@ Lorsque vous envisagez d’utiliser Azure NetApp Files pour SAP Netweaver sur un
 - Le réseau virtuel sélectionné doit avoir un sous-réseau délégué à Azure NetApp Files.
 - Azure NetApp Files propose une [stratégie d’exportation](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-configure-export-policy) : vous pouvez contrôler les clients autorisés, le type d’accès (lecture et écriture, lecture seule, etc.). 
 - La fonctionnalité Azure NetApp Files ne tient pas encore compte des zones. Actuellement, la fonctionnalité Azure NetApp Files n’est pas déployée dans toutes les zones de disponibilité d’une région Azure. Méfiez-vous de l’impact potentiel sur les temps de latence dans certaines régions Azure. 
+- Les volumes Azure NetApp Files peuvent être déployés en tant que volumes NFSv3 ou NFSv4.1. Les deux protocoles sont pris en charge pour la couche application SAP (ASCS/ERS, serveurs d’applications SAP). 
 
 ## <a name="setting-up-ascs"></a>Configuration de (A)SCS
 
@@ -211,7 +212,7 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Déployez les machin
          1. Ouvrir l’équilibreur de charge, sélectionner les règles d’équilibrage de charge et cliquer sur Ajouter
          1. Entrer le nom de la nouvelle règle d’équilibreur de charge (par exemple, **lb.QAS.ASCS**)
          1. Sélectionner l’adresse IP du serveur frontal pour l’instance ASCS, le pool principal et la sonde d’intégrité créés précédemment (par exemple, **frontend.QAS.ASCS**, **backend.QAS** et **health.QAS.ASCS**)
-         1. Sélectionner **Ports haute disponibilité**
+         1. Sélectionnez **Ports haute disponibilité**
          1. Augmenter le délai d’inactivité à 30 minutes
          1. **Veiller à activer IP flottante**
          1. Cliquez sur OK
@@ -255,11 +256,46 @@ Vous devez d’abord créer les volumes Azure NetApp Files. Déployez les machin
       1. Ports supplémentaires pour les instances ASCS ERS
          * Répéter les étapes du point « d » pour les ports 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 et TCP pour les instances ASCS ERS
 
-> [!Note]
-> Lorsque des machines virtuelles sans adresses IP publiques sont placées dans le pool principal de l’équilibreur de charge Azure standard interne (aucune adresse IP publique), il n’y aura pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+      > [!Note]
+      > Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-> [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
+      > [!IMPORTANT]
+      > N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
+
+## <a name="disable-id-mapping-if-using-nfsv41"></a>Désactiver le mappage d’ID (en cas d’utilisation de NFSv4.1)
+
+Les instructions de cette section s’appliquent seulement si vous utilisez des volumes Azure NetApp Files avec le protocole NFSv4.1. Effectuez la configuration sur toutes les machines virtuelles où des volumes Azure NetApp Files NFSv4.1 seront montés.  
+
+1. Vérifiez le paramètre de domaine NFS. Assurez-vous que le domaine est configuré en tant que domaine par défaut Azure NetApp Files, par exemple **`defaultv4iddomain.com`** et que le mappage est défini sur **nobody**.  
+
+    > [!IMPORTANT]
+    > Veillez à définir le domaine NFS dans `/etc/idmapd.conf` sur la machine virtuelle pour qu’elle corresponde à la configuration de domaine par défaut sur Azure NetApp Files : **`defaultv4iddomain.com`** . En cas d’incompatibilité entre la configuration de domaine sur le client NFS (c’est-à-dire la machine virtuelle) et le serveur NFS, par exemple la configuration Azure NetApp, les autorisations pour les fichiers sur les volumes Azure NetApp montés sur les machines virtuelles s’affichent en tant que `nobody`.  
+
+    <pre><code>
+    sudo cat /etc/idmapd.conf
+    # Example
+    [General]
+    Domain = <b>defaultv4iddomain.com</b>
+    [Mapping]
+    Nobody-User = <b>nobody</b>
+    Nobody-Group = <b>nobody</b>
+    </code></pre>
+
+4. **[A]** Vérifiez `nfs4_disable_idmapping`. Cette option doit avoir la valeur **Y**. Pour créer la structure de répertoire où se trouve `nfs4_disable_idmapping`, exécutez la commande de montage. Vous ne serez pas en mesure de créer manuellement le répertoire sous /sys/modules, car l’accès est réservé pour le noyau/les pilotes.  
+
+    <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
+    mkdir /mnt/tmp
+    mount 192.168.24.5:/sap<b>QAS</b>
+    umount  /mnt/tmp
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   Pour plus d’informations sur la modification du paramètre `nfs4_disable_idmapping`, consultez https://access.redhat.com/solutions/1749883.
 
 ### <a name="create-pacemaker-cluster"></a>Créer le cluster Pacemaker
 
@@ -295,9 +331,12 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    Montez temporairement le volume Azure NetApp Files sur l’une des machines virtuelles et créez les répertoires SAP (chemins d’accès de fichier).  
 
     ```
-     #mount temporarily the volume
+     # mount temporarily the volume
      sudo mkdir -p /saptmp
+     # If using NFSv3
      sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=3,tcp 192.168.24.5:/sapQAS /saptmp
+     # If using NFSv4.1
+     sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys,tcp 192.168.24.5:/sapQAS /saptmp
      # create the SAP directories
      sudo cd /saptmp
      sudo mkdir -p sapmntQAS
@@ -361,6 +400,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
 1. **[A]** Ajouter des entrées de montage
 
+   Si vous utilisez NFSv3 :
    ```
    sudo vi /etc/fstab
    
@@ -370,8 +410,18 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
     192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
    ```
 
+   Si vous utilisez NFSv4.1 :
+   ```
+   sudo vi /etc/fstab
+   
+   # Add the following lines to fstab, save and exit
+    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+    192.168.24.5:/sapQAS/usrsapQASsys /usr/sap/QAS/SYS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   ```
+
    > [!NOTE]
-   > Veillez à ce que les volumes Azure NetApp Files correspondent à la version du protocole NFS lors du montage des volumes. Dans cet exemple, les volumes Azure NetApp Files ont été créés en tant que volumes NFSv3.  
+   > Veillez à ce que les volumes Azure NetApp Files correspondent à la version du protocole NFS lors du montage des volumes. Si les volumes Azure NetApp Files sont créés en tant que volumes NFSv3, utilisez la configuration NFSv3 correspondante. Si les volumes de Azure NetApp Files sont créés en tant que volumes NFSv4.1, suivez les instructions pour désactiver le mappage d’ID et veillez à utiliser la configuration NFSv4.1 correspondante. Dans cet exemple, les volumes Azure NetApp Files ont été créés en tant que volumes NFSv3.  
 
    Monter les nouveaux partages
 
@@ -410,9 +460,14 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
 
    ```
    sudo pcs node standby anftstsapcl2
-   
+   # If using NFSv3
    sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
      directory='/usr/sap/QAS/ASCS00' fstype='nfs' \
+     --group g-QAS_ASCS
+   
+   # If using NFSv4.1
+   sudo pcs resource create fs_QAS_ASCS Filesystem device='192.168.24.5:/sapQAS/usrsapQASascs' \
+     directory='/usr/sap/QAS/ASCS00' fstype='nfs' options='sec=sys,vers=4.1' \
      --group g-QAS_ASCS
    
    sudo pcs resource create vip_QAS_ASCS IPaddr2 \
@@ -466,10 +521,16 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo pcs node unstandby anftstsapcl2
    sudo pcs node standby anftstsapcl1
    
+   # If using NFSv3
    sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
      directory='/usr/sap/QAS/ERS01' fstype='nfs' \
     --group g-QAS_AERS
-
+   
+   # If using NFSv4.1
+   sudo pcs resource create fs_QAS_AERS Filesystem device='192.168.24.5:/sapQAS/usrsapQASers' \
+     directory='/usr/sap/QAS/ERS01' fstype='nfs' options='sec=sys,vers=4.1' \
+    --group g-QAS_AERS
+   
    sudo pcs resource create vip_QAS_AERS IPaddr2 \
      ip=192.168.14.10 cidr_netmask=24 \
     --group g-QAS_AERS
@@ -721,13 +782,22 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    ```
 
 1. **[A]** Ajouter des entrées de montage  
-
+   Si vous utilisez NFSv3 :
    ```
    sudo vi /etc/fstab
    
    # Add the following lines to fstab, save and exit
    192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=3
    192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=3
+   ```
+
+   Si vous utilisez NFSv4.1 :
+   ```
+   sudo vi /etc/fstab
+   
+   # Add the following lines to fstab, save and exit
+   192.168.24.5:/sapQAS/sapmntQAS /sapmnt/QAS nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   192.168.24.4:/transSAP /usr/sap/trans nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
    ```
 
    Monter les nouveaux partages
@@ -737,7 +807,7 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    ```
 
 1. **[P]** Créer et monter le répertoire PAS  
-
+   Si vous utilisez NFSv3 :
    ```
    sudo mkdir -p /usr/sap/QAS/D02
    sudo chattr +i /usr/sap/QAS/D02
@@ -750,8 +820,21 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo mount -a
    ```
 
-1. **[S]** Créer et monter le répertoire AAS  
+   Si vous utilisez NFSv4.1 :
+   ```
+   sudo mkdir -p /usr/sap/QAS/D02
+   sudo chattr +i /usr/sap/QAS/D02
+   
+   sudo vi /etc/fstab
+   # Add the following line to fstab
+   92.168.24.5:/sapQAS/usrsapQASpas /usr/sap/QAS/D02 nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   
+   # Mount
+   sudo mount -a
+   ```
 
+1. **[S]** Créer et monter le répertoire AAS  
+   Si vous utilisez NFSv3 :
    ```
    sudo mkdir -p /usr/sap/QAS/D03
    sudo chattr +i /usr/sap/QAS/D03
@@ -764,6 +847,18 @@ Les éléments suivants sont précédés de **[A]** (applicable à tous les nœu
    sudo mount -a
    ```
 
+   Si vous utilisez NFSv4.1 :
+   ```
+   sudo mkdir -p /usr/sap/QAS/D03
+   sudo chattr +i /usr/sap/QAS/D03
+   
+   sudo vi /etc/fstab
+   # Add the following line to fstab
+   92.168.24.5:/sapQAS/usrsapQASaas /usr/sap/QAS/D03 nfs rw,hard,rsize=65536,wsize=65536,vers=4.1,sec=sys
+   
+   # Mount
+   sudo mount -a
+   ```
 
 1. **[A]** Configurer le fichier SWAP
  

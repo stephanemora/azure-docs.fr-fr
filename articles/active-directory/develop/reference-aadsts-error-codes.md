@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8979481452b0c4e8bf862c306a7916ddcabf1307
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1de85e2c075d343a72fcc9fd29c0358d0054350
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423970"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548133"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codes d’erreur d’authentification et d’autorisation Azure AD
 
@@ -222,6 +222,7 @@ Effectuez une recherche sur la partie numérique du code d’erreur retourné.  
 | AADSTS90092 | GraphNonRetryableError |
 | AADSTS90093 | GraphUserUnauthorized : graphique retourné avec un code d’erreur interdit pour la demande. |
 | AADSTS90094 | AdminConsentRequired : le consentement de l’administrateur est requis. |
+| AADSTS900382 | Le client confidentiel n’est pas pris en charge dans une requête intercloud. |
 | AADSTS90100 | InvalidRequestParameter : le paramètre est vide ou non valide. |
 | AADSTS901002 | AADSTS901002 : Le paramètre de requête « resource » n’est pas pris en charge. |
 | AADSTS90101 | InvalidEmailAddress : les données fournies ne correspondent pas à une adresse e-mail valide. L’adresse e-mail doit être au format `someone@example.com`. |

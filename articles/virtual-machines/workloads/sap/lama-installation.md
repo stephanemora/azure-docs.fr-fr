@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430094"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978072"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connecteur SAP LaMa pour Azure
 
@@ -69,18 +69,25 @@ Consultez également le [portail d’aide SAP pour SAP LaMa](https://help.sap.co
 * Si vous vous connectez sur des ordinateurs hôtes gérés, veillez à ne pas bloquer le démontage des systèmes de fichiers.  
   Si vous ouvrez une session sur une machine virtuelle Linux et que vous remplacez le répertoire de travail par un répertoire dans un point de montage, par exemple /usr/sap/AH1/ASCS00/exe, le volume ne peut pas être démonté, et un déplacement ou une annulation de préparation échouent.
 
+* Veillez à désactiver CLOUD_NETCONFIG_MANAGE sur les machines virtuelles SUSE SLES Linux. Pour plus d’informations, consultez [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+
 ## <a name="set-up-azure-connector-for-sap-lama"></a>Configurer le connecteur Azure pour SAP LaMa
 
-Le connecteur Azure est fourni à partir de la version SAP LaMa 3.0 SP05. Nous vous recommandons d’installer systématiquement le dernier package de support et le dernier correctif pour SAP LaMa 3.0. Le connecteur Azure utilise un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service pour SAP Landscape Management (LaMa), procédez comme suit.
+Le connecteur Azure est fourni à partir de la version SAP LaMa 3.0 SP05. Nous vous recommandons d’installer systématiquement le dernier package de support et le dernier correctif pour SAP LaMa 3.0.
+
+Le connecteur Azure utilise l’API Azure Resource Manager pour gérer vos ressources Azure. SAP LaMa peut utiliser un principal de service ou une identité managée pour s’authentifier auprès de cette API. Si votre SAP LaMa s’exécute sur une machine virtuelle Azure, nous vous recommandons d’utiliser une identité managée comme décrit dans le chapitre [Utiliser une identité managée pour accéder à l’API Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). Si vous voulez utiliser un principal de service, suivez les étapes décrites dans le chapitre [Utiliser un principal de service pour accéder à l’API Azure](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
+
+### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Utiliser un principal de service pour accéder à l’API Azure
+
+Le connecteur Azure peut utiliser un principal de service pour l’autorisation sur Microsoft Azure. Pour créer un principal de service pour SAP Landscape Management (LaMa), procédez comme suit.
 
 1. Accédez à https://portal.azure.com
 1. Ouvrez le panneau Azure Active Directory
 1. Cliquez sur Inscriptions des applications.
-1. Cliquez sur Ajouter.
-1. Entrez un nom, sélectionnez le type d’application « Application web/API », entrez une URL de connexion (par exemple http:\//localhost), puis cliquez sur Créer.
-1. L’URL de connexion n’est pas utilisée et peut être une URL valide
-1. Sélectionnez la nouvelle application, puis cliquez sur Clés dans l’onglet Paramètres.
-1. Entrez une description pour la nouvelle clé, sélectionnez « N’expire jamais », puis cliquez sur Enregistrer.
+1. Cliquez sur Nouvelle inscription
+1. Entrez un nom, puis cliquez sur Ajouter
+1. Sélectionnez la nouvelle application, puis cliquez sur Certificats et secrets dans l’onglet Paramètres.
+1. Créez un secret de client, entrez une description pour une nouvelle clé, sélectionnez le moment auquel le secret doit expirer, puis cliquez sur Enregistrer.
 1. Notez la valeur. Cette valeur est utilisée comme mot de passe pour le principal de service.
 1. Notez l’ID de l’application. Cette valeur est utilisée comme nom d’utilisateur du principal de service.
 
@@ -96,17 +103,40 @@ Par défaut, le principal de service ne possède pas les autorisations d’accé
 1. Cliquez sur Enregistrer.
 1. Répétez les étapes 3 à 8 pour tous les groupes de ressources que vous souhaitez utiliser dans SAP LaMa.
 
+### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Utiliser une identité managée pour accéder à l’API Azure
+
+Pour pouvoir utiliser une identité managée, votre instance SAP LaMa doit s’exécuter sur une machine virtuelle Azure disposant qui a une identité affectée par le système ou par l’utilisateur. Pour plus d’informations sur les identités managées, consultez [Qu’est-ce que les identités managées pour les ressources Azure ?](../../../active-directory/managed-identities-azure-resources/overview.md) et [Configurer des identités managées pour ressources Azure sur une machine virtuelle en utilisant le portail Azure](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
+
+Par défaut, le principal de service n’a pas les autorisations nécessaires pour accéder à vos ressources Azure. Vous devez lui accorder des autorisations pour y accéder.
+
+1. Accédez à https://portal.azure.com
+1. Ouvrez le panneau Groupes de ressources.
+1. Sélectionnez le groupe de ressources à utiliser.
+1. Cliquez sur Contrôle d’accès (IAM)
+1. Cliquez sur Ajouter -> Ajouter une attribution de rôle.
+1. Sélectionnez le rôle Contributeur.
+1. Sélectionnez « Machine virtuelle » pour « Attribuer l’accès à »
+1. Sélectionnez la machine virtuelle où l’instance SAP LaMa s’exécute
+1. Cliquez sur Enregistrer.
+1. Répétez les étapes pour tous les groupes de ressources que vous voulez utiliser dans SAP LaMa.
+
+Dans la configuration de votre connecteur Azure SAP LaMa, sélectionnez « Utiliser une identité managée » pour activer l’utilisation de l’identité managée. Si vous voulez utiliser une identité affectée par le système, veillez à laisser vide le champ Nom d’utilisateur. Si vous voulez utiliser une identité affectée par l’utilisateur, entrez l’ID d’identité affecté par l’utilisateur dans le champ Nom d’utilisateur.
+
+### <a name="create-a-new-connector-in-sap-lama"></a>Créer un connecteur dans SAP LaMa
+
 Ouvrez le site web SAP LaMa et accédez à Infrastructure (Infrastructure). Accédez à l’onglet Cloud Managers (Gestionnaires de cloud) et cliquez sur Add (Ajouter). Sélectionnez l’adaptateur cloud Microsoft Azure, puis cliquez sur Next (Suivant). Entrez les informations suivantes :
 
 * Étiquette : choisissez un nom pour l’instance de connecteur.
-* Nom d’utilisateur : ID d'application du principal de service
-* Mot de passe : clé/mot de passe du principal de service.
+* Nom d’utilisateur : ID d’application du principal de service ou ID de l’identité affectée par l’utilisateur de la machine virtuelle. Pour plus d’informations, consultez [Utilisation d’une identité affectée par le système ou par l’utilisateur]
+* Mot de passe : Clé/mot de passe du principal de service. Vous pouvez laisser ce champ vide si vous utilisez une identité affectée par le système ou par l’utilisateur.
 * URL : conservez l’URL par défaut https://management.azure.com/.
 * Intervalle de supervision (secondes) : doit être au moins égal à 300.
+* Utiliser l’identité managée : SAP LaMa peut utiliser l’identité affectée par le système ou par l’utilisateur pour s’authentifier auprès de l’API Azure. Consultez le chapitre [Utiliser une identité managée pour accéder à l’API Azure](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) dans ce guide.
 * ID d’abonnement : ID d’abonnement Azure
 * ID de locataire Azure Active Directory : ID du locataire Azure Active Directory.
 * Hôte proxy : nom d’hôte du proxy si SAP LaMa a besoin d’un proxy pour se connecter à Internet.
 * Port du proxy : port TCP du proxy.
+* Changez le type de stockage pour réduire les coûts : Activez ce paramètre si l’adaptateur Azure doit changer le type de stockage des disques managés pour réduire les coûts quand les disques ne sont pas utilisés. Pour les disques de données référencés dans une configuration d’instance SAP, l’adaptateur change le type de disque en Stockage standard lors de l’annulation de la préparation d’une instance et le rétablit à son type de stockage d’origine lors de la préparation d’une instance. Si vous arrêtez une machine virtuelle dans SAP LaMa, l’adaptateur change le type de stockage de tous les disques attachés, y compris le disque du système d’exploitation, en Stockage standard. Si vous démarrez une machine virtuelle dans SAP LaMa, l’adaptateur rétablit le type de stockage d’origine.
 
 Cliquez sur Test Configuration (Tester la configuration) pour valider vos entrées. Vous devriez voir s’afficher le message suivant :
 
@@ -393,7 +423,7 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
 
 Veillez à sauvegarder la base de données SYSTEMDB et toutes les bases de données de locataire avant d’essayer de copier un locataire, de déplacer un locataire ou de créer une réplication de système.
 
-### <a name="microsoft-sql-server"></a>Microsoft SQL Server
+### <a name="microsoft-sql-server"></a>Microsoft SQL Server
 
 Dans les exemples ci-après, nous supposons que vous installez le système SAP NetWeaver présentant l’ID système AS1. Les noms d’hôtes virtuels sont as1-db pour l’instance SQL Server utilisée par le système SAP NetWeaver, as1-ascs pour SAP NetWeaver ASCS et as1-di-0 pour le premier serveur d’applications SAP NetWeaver.
 
@@ -432,7 +462,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Dans la boîte de dialogue *Primary Application Server Instance* (Instance du serveur d'applications principal), utilisez *as1-di-0* pour la valeur du champ *PAS Instance Host Name* (Nom d'hôte d'instance PAS).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="errors-and-warnings-during-discover"></a>Erreurs et avertissements pendant la découverte
 
@@ -503,12 +533,12 @@ Dans la boîte de dialogue *Primary Application Server Instance* (Instance du se
 ### <a name="errors-and-warnings-during-application-server-installation"></a>Erreurs et avertissements lors de l’installation du serveur d’applications
 
 * Erreur lors de l’exécution de l’étape SAPinst : getProfileDir
-  * ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. Start SAPinst in interactive mode to solve this problem) »
+  * ERREUR : (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_readProfileDir|ind|ind|ind|ind|readProfile|0|getProfileDir' reported an error: Node \\\as1-ascs\sapmnt\AS1\SYS\profile does not exist. Start SAPinst in interactive mode to solve this problem) »
   * Solution  
     Assurez-vous que SWPM s’exécute avec un utilisateur ayant accès au profil. Cet utilisateur peut être configuré dans l’Assistant d’installation du serveur d’applications.
 
 * Erreur lors de l’exécution de l’étape SAPinst : askUnicode
-  * ERROR: (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: Start SAPinst in interactive mode to solve this problem) »
+  * ERREUR : (Last error reported by the step: Caught ESAPinstException in module call: Validator of step '|NW_DI|ind|ind|ind|ind|0|0|NW_GetSidFromProfiles|ind|ind|ind|ind|getSid|0|NW_getUnicode|ind|ind|ind|ind|unicode|0|askUnicode' reported an error: Start SAPinst in interactive mode to solve this problem) »
   * Solution  
     Si vous utilisez un noyau SAP récent, SWPM ne peut pas déterminer si le système est un système unicode à l’aide du serveur de messages d’ASCS. Pour plus d’informations, consultez la note SAP [2445033].  
     Ce problème sera résolu dans un nouveau package de support/correctif de SAP LaMa.  

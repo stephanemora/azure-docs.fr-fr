@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444794"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929580"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clause ORDER BY dans Azure Cosmos DB
 
@@ -52,7 +52,7 @@ ORDER BY <sort_specification>
    La clause ORDER BY nécessite que la stratégie d’indexation comprenne un index pour les champs de tri. Le runtime de requête Azure Cosmos DB prend en charge le tri par rapport à un nom de propriété et non par rapport à des propriétés calculées. Azure Cosmos DB prend en charge plusieurs propriétés ORDER BY. Pour exécuter une requête avec plusieurs propriétés ORDER BY, vous devez définir un [index composite](index-policy.md#composite-indexes) sur les champs de tri.
    
 > [!Note] 
-> Si vous utilisez le kit SDK .NET 3.4.0 ou ultérieur, si les propriétés en cours de tri peuvent ne pas être définies pour certains documents, vous devez créer explicitement un index sur ces propriétés. La stratégie d’indexation par défaut n’autorise pas la récupération des documents où la propriété de tri n’est pas définie.
+> Si les propriétés en cours de tri peuvent ne pas être définies pour certains documents et que vous voulez les récupérer dans une requête ORDER BY, vous devez créer explicitement un index sur ces propriétés. La stratégie d’indexation par défaut n’autorise pas la récupération des documents où la propriété de tri n’est pas définie.
 
 ## <a name="examples"></a>Exemples
 

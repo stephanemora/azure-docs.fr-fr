@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 30c7137de42a141f5f10e3348d93d6db9ebe75ff
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 78654dfd5a11219d39d53b4042157333656f9aa3
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535437"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834752"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -51,7 +51,7 @@ Les modèles Deep Learning ont trois capacités intrinsèques :
 1. Ils prennent en charge plusieurs entrées et sorties.
 1. Ils peuvent extraire automatiquement des modèles dans les données d’entrée qui s’étendent sur des séquences longues.
 
-En raison de données plus volumineuses, les modèles de Deep Learning, tels que ForecastTCN de Microsoft, peuvent améliorer les scores du modèle qui en résulte. 
+Avec des données plus volumineuses, les modèles de Deep Learning tels que ForecastTCN de Microsoft peuvent améliorer les scores du modèle qui en résulte. 
 
 Les apprenants natifs de série chronologique sont également fournis dans le cadre du ML automatisé. Prophet fonctionne mieux avec les séries chronologiques ayant des effets saisonniers forts et plusieurs saisons de données historiques. Prophet est précis et rapide et robuste aux valeurs hors norme, aux données manquantes et aux modifications spectaculaires dans votre série chronologique. 
 
@@ -105,34 +105,34 @@ test_labels = test_data.pop(label).values
 
 Pour les tâches de prévision, le Machine Learning automatisé utilise des étapes de prétraitement et d’estimation qui sont spécifiques aux données de séries chronologiques. Les étapes de prétraitement suivantes seront exécutées :
 
-* Détecter un exemple de fréquence de série chronologique (par exemple, horaire, quotidien, hebdomadaire) et créer de nouveaux enregistrements pour les points temporels absents pour faire une série continue.
+* Détecter un exemple de fréquence de série chronologique (par exemple horaire, quotidien, hebdomadaire) et créer de nouveaux enregistrements pour les points temporels absents pour rendre la série continue.
 * Imputer les valeurs manquantes dans la cible (via un préremplissage) et les colonnes de fonctionnalités (via les valeurs de colonne médiane)
 * Créer des fonctionnalités granulaires pour permettre des effets fixes sur différentes séries
 * Créer des caractéristiques temporelles pour faciliter l’apprentissage de modèles saisonniers
 * Encoder des variables catégorielles avec des quantités numériques
 
-L’objet `AutoMLConfig` définit les paramètres et les données nécessaires pour une tâche de Machine Learning automatisé. Comme pour un problème de régression, vous définissez les paramètres d’entraînement standard comme type de tâche, le nombre d’itérations, les données d’apprentissage et le nombre de validations croisées. Pour les tâches de prévision, il existe des paramètres supplémentaires qui doivent être définis et qui affectent l’expérience. Le tableau suivant décrit chaque paramètre et son utilisation.
+L’objet [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) définit les paramètres et les données nécessaires pour une tâche de Machine Learning automatisé. Comme pour un problème de régression, vous définissez les paramètres d’entraînement standard comme type de tâche, le nombre d’itérations, les données d’apprentissage et le nombre de validations croisées. Pour les tâches de prévision, il existe des paramètres supplémentaires qui doivent être définis et qui affectent l’expérience. Le tableau suivant décrit chaque paramètre et son utilisation.
 
 | Paramètre | Description | Obligatoire |
 |-------|-------|-------|
 |`time_column_name`|Permet de spécifier la colonne DateHeure dans les données d’entrée utilisées pour la génération de la série chronologique et la déduction de sa fréquence.|✓|
 |`grain_column_names`|Nom(s) définissant des groupes de séries individuelles dans les données d’entrée. Si le grain n’est pas défini, le jeu de données est considéré être une série chronologique.||
-|`max_horizon`|Définit l’horizon maximal de prévision souhaité en unités de fréquence de série chronologique. Les unités sont basées sur l’intervalle de temps de vos données d’apprentissage (par exemple, mensuelles, hebdomadaires) que l’analyste doit prévoir.|✓|
-|`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Ce paramètre est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. Par exemple, quand vous essayez de prévoir la demande d’un produit, la demande mensuelle peut dépendre du prix de certaines matières premières trois mois auparavant. Dans ce cas, vous pouvez appliquer un décalage négatif de trois mois à la cible (la demande) afin que le modèle soit entraîné sur la relation appropriée.||
+|`max_horizon`|Définit l’horizon maximal de prévision souhaité en unités de fréquence de série chronologique. Les unités sont basées sur l’intervalle de temps de vos données d’apprentissage (par exemple mensuelles ou hebdomadaires) que l’analyste doit prévoir.|✓|
+|`target_lags`|Nombre de lignes selon lequel décaler les valeurs cibles en fonction de la fréquence des données. Le décalage est représenté sous la forme d’une liste ou d’un entier unique. Un décalage est nécessaire en l’absence de correspondance ou de corrélation par défaut des relations entre les variables indépendantes et la variable dépendante. Par exemple, quand vous essayez de prévoir la demande d’un produit, la demande mensuelle peut dépendre du prix de certaines matières premières trois mois auparavant. Dans ce cas, vous pouvez appliquer un décalage négatif de trois mois à la cible (la demande) afin que le modèle soit entraîné sur la relation appropriée.||
 |`target_rolling_window_size`|*n* périodes historiques à utiliser pour générer des valeurs prédites, < = taille du jeu d’apprentissage. En cas d’omission, *n* est la taille du jeu d’apprentissage complet. Spécifiez ce paramètre si vous souhaitez prendre en compte seulement une partie des données historiques pour l’entraînement du modèle.||
 |`enable_dnn`|Activez Prévision des DNN.||
 
 Pour plus d’informations, consultez la [documentation de référence](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-Créez les paramètres de série chronologique en tant qu’objet de dictionnaire. Définissez l’élément `time_column_name` sur le champ `day_datetime` dans le jeu de données. Définissez le paramètre `grain_column_names` pour vous assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; un pour le magasin A et B. Enfin, définissez l’élément `max_horizon` sur 50 afin de prédire le jeu de test complet. Définissez une fenêtre de prévision sur 10 périodes avec `target_rolling_window_size`, et spécifiez un décalage unique sur les valeurs cibles pour 2 périodes futures avec le paramètre `target_lags`.
+Créez les paramètres de série chronologique en tant qu’objet de dictionnaire. Définissez l’élément `time_column_name` sur le champ `day_datetime` dans le jeu de données. Définissez le paramètre `grain_column_names` pour vous assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; un pour le magasin A et B. Enfin, définissez l’élément `max_horizon` sur 50 afin de prédire le jeu de test complet. Définissez une fenêtre de prévision sur 10 périodes avec `target_rolling_window_size`, et spécifiez un décalage unique sur les valeurs cibles pour deux périodes futures avec le paramètre `target_lags`. Nous vous recommandons d’affecter la valeur « auto » à `max_horizon`, `target_rolling_window_size` et `target_lags` ; ces valeurs seront détectées automatiquement pour vous. Dans l’exemple ci-dessous, les paramètres « auto » ont été utilisés pour ces paramètres. 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50,
-    "target_lags": 2,
-    "target_rolling_window_size": 10,
+    "max_horizon": "auto",
+    "target_lags": "auto",
+    "target_rolling_window_size": "auto",
     "preprocess": True,
 }
 ```
@@ -167,12 +167,13 @@ local_run = experiment.submit(automl_config, show_output=True)
 best_run, fitted_model = local_run.get_output()
 ```
 
-Consultez le [notebook sur la demande d’énergie](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb) pour obtenir des exemples de code détaillés de la configuration de prévision avancée, à savoir :
+Consultez les [exemples de notebooks de prévision](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) pour obtenir des exemples de code détaillés de la configuration de prévision avancée, notamment :
 
-* détection et personnalisation de congé
-* validation croisée d’origine
-* décalages configurables
-* caractéristiques des agrégations des fenêtres dynamiques
+* [Détection et personnalisation de congé](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [Validation croisée d’origine](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [Décalages configurables](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/auto-ml-forecasting-bike-share.ipynb)
+* [Caractéristiques des agrégations des périodes mobiles](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)
+* [DNN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)
 
 ### <a name="configure-a-dnn-enable-forecasting-experiment"></a>Configurer une expérience de prévision d’activation des DNN
 
@@ -229,7 +230,7 @@ rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
 rmse
 ```
 
-Maintenant que la précision du modèle global a été déterminée, l’étape suivante la plus réaliste consiste à utiliser le modèle pour prévoir des valeurs futures inconnues. Il suffit de fournir un jeu de données dans le même format que le jeu de test `test_data`, mais avec des dates/heures futures et le leu de prédiction résultant correspond aux valeurs prédites pour chaque étape de la série chronologique. Supposons que les derniers enregistrements de la série chronologique dans le jeu de données aient été datés du 31/12/2018. Pour prévoir la demande pour le jour suivant (ou d’autant de périodes pour lesquelles vous avez besoin d’effectuer des prévisions, < = `max_horizon`), créez un seul enregistrement de série chronologique pour chaque magasin pour le 01/01/2019.
+Maintenant que la précision du modèle global a été déterminée, l’étape suivante la plus réaliste consiste à utiliser le modèle pour prévoir des valeurs futures inconnues. Fournissez un jeu de données au même format que le jeu de test `test_data`, mais avec des dates/heures futures, et le leu de prédiction résultant correspond aux valeurs prédites pour chaque étape de la série chronologique. Supposons que les derniers enregistrements de la série chronologique dans le jeu de données aient été datés du 31/12/2018. Pour prévoir la demande pour le jour suivant (ou d’autant de périodes pour lesquelles vous avez besoin d’effectuer des prévisions, < = `max_horizon`), créez un seul enregistrement de série chronologique pour chaque magasin pour le 01/01/2019.
 
     day_datetime,store,week_of_year
     01/01/2019,A,1

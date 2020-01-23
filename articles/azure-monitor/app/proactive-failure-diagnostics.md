@@ -7,75 +7,52 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/18/2018
-ms.reviewer: yossiy
-ms.openlocfilehash: f8b8318a16b36593d2fbaf08bcbc19156dc96006
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.reviewer: yalavi
+ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820592"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912851"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si une augmentation anormale du taux des requêtes en échec est détectée dans votre application web. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les demandes ayant échoué sont généralement celles dont le code de réponse est supérieur ou égal à 400. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) vous alerte automatiquement en quasi temps réel si votre application web enregistre une hausse anormale du taux de requêtes ayant échoué. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les requêtes ayant échoué ont généralement un code de réponse supérieur ou égal à 400. Pour vous aider à trier et diagnostiquer les causes du problème, les détails de l’alerte s’accompagnent d’une analyse des caractéristiques des échecs et des données d’application associées. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
 
-Cette fonctionnalité fonctionne pour n’importe quelle application web hébergée sur le cloud ou sur vos propres serveurs qui génère de la télémétrie de demande ou de dépendance : par exemple, si vous avez un rôle de travail qui appelle [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Cette fonctionnalité peut être utilisée pour toutes les applications web, hébergées dans le cloud ou sur vos propres serveurs, qui génèrent des données sur les requêtes ou les dépendances de l’application. C’est le cas, par exemple, si vous avez un rôle de worker qui appelle [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) ou [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 
-Après que vous avez configuré [Application Insights pour votre projet](../../azure-monitor/app/app-insights-overview.md), et sous réserve que votre application génère une certaine quantité minimale de données de télémétrie, 24 heures sont nécessaires à la détection intelligente des anomalies de type échec pour découvrir le comportement normal de votre application avant d’être activée et de pouvoir envoyer des alertes.
+Après que vous avez configuré [Application Insights pour votre projet](../../azure-monitor/app/app-insights-overview.md), si votre application génère une certaine quantité minimale de données, un délai de 24 heures est nécessaire à la détection intelligente des anomalies de type échec pour apprendre le comportement normal de votre application, être activée et pouvoir envoyer des alertes.
 
-Voici un exemple d’alerte.
+Voici un exemple d’alerte :
 
-![Exemple d’alerte de détection intelligente affichant l’analyse du cluster au moment de l’échec](./media/proactive-failure-diagnostics/013.png)
+[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
 
-> [!NOTE]
-> Par défaut, vous obtenez un format de message plus court que dans cet exemple. Toutefois, vous pouvez [basculer vers ce format détaillé](#configure-alerts).
->
->
-
-Notez qu’il vous indique :
+Les détails de l’alerte indiquent :
 
 * le taux d’échec par rapport au comportement normal de l’application ;
 * combien d’utilisateurs sont affectés : afin de savoir dans quelle mesure vous devez vous inquiéter ;
-* un modèle caractéristique associé aux échecs. Cet exemple contient un code de réponse, un nom de demande (opération) et une version d’application spécifiques. Ces informations vous indiquent immédiatement où commencer la recherche dans votre code. Les autres possibilités peuvent être un type de navigateur ou un système d’exploitation client spécifique ;
+* un modèle caractéristique associé aux échecs. Cet exemple contient un code de réponse, un nom de requête (opération) et une version d’application spécifiques. Ces informations vous indiquent immédiatement où commencer la recherche dans votre code. Les autres possibilités peuvent être un type de navigateur ou un système d’exploitation client spécifique ;
 * l’exception, le suivi des journaux et l’échec de dépendance (bases de données ou autres composants externes) qui semblent associés à des défaillances identifiées ;
-* les liens directs aux recherches pertinentes sur la télémétrie dans Application Insights.
-
-## <a name="failure-anomalies-v2"></a>Défaillances v2
-Une nouvelle version de la règle d’alerte Défaillances est maintenant disponible. Cette version est en cours d’exécution sur la nouvelle plateforme d’alertes Azure et propose de nombreuses améliorations par rapport à la version existante.
-
-### <a name="whats-new-in-this-version"></a>Nouveautés de cette version
-- Détection plus rapide des problèmes
-- Un ensemble plus riche d’actions : la règle d’alerte est créée avec un [groupe d’actions](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associé nommé « Détection intelligente Application Insights » qui contient des actions de webhook et de messagerie, et peut être étendue pour déclencher des actions supplémentaires lorsque l’alerte se déclenche.
-- Des notifications plus ciblées : les notifications par e-mail envoyées à partir de cette règle d’alerte sont désormais envoyées par défaut aux utilisateurs associés aux rôles Lecteur d’analyse et Contributeur de surveillance de l’abonnement. Davantage d’informations à ce sujet sont disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-- Configuration facilitée via des modèles ARM : voir l’exemple [ici](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config).
-- Prise en charge des schémas d’alerte courants : les notifications envoyées à partir de cette règle d’alerte suivent le [schéma d’alerte courant](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
-- Modèle d’e-mail unifié : les notifications par e-mail envoyées à partir de cette règle d’alerte ont une apparence et un comportement cohérents avec les autres types d’alerte. Avec cette modification, l’option pour recevoir des alertes de défaillances avec des informations de diagnostic détaillées n’est plus disponible.
-
-### <a name="how-do-i-get-the-new-version"></a>Comment obtenir la nouvelle version ?
-- Les ressources Application Insights nouvellement créées sont désormais configurées avec la nouvelle version de la règle d’alerte Défaillances.
-- Les ressources Application Insights existantes avec la version classique de la règle d’alerte Défaillances recevront la nouvelle version une fois leur abonnement d’hébergement migré vers la nouvelle plateforme d’alertes dans le cadre du [processus de suppression des alertes classiques](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement).
-
-> [!NOTE]
-> La nouvelle version de la règle d’alerte Défaillances restera gratuite. En outre, les actions de webhook et de messagerie déclenchées par le groupe d’actions « Détection intelligente Application Insights » sont également gratuites.
-> 
-> 
+* les liens directs aux recherches pertinentes sur les données dans Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Avantages de la détection intelligente
-Les [alertes de mesure](../../azure-monitor/app/alerts.md) ordinaires vous indiquent un problème potentiel. Mais la détection intelligente démarre le travail de diagnostic à votre place, effectue la majeure partie de l’analyse que vous auriez à effectuer vous-même. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
+Les [alertes de mesure](../../azure-monitor/app/alerts.md) ordinaires vous indiquent un problème potentiel. Mais la détection intelligente démarre le travail de diagnostic automatiquement et effectue la majeure partie de l’analyse à votre place. Vous obtenez les résultats clairement empaquetés, ce qui vous permet d’accéder rapidement à l’origine du problème.
 
 ## <a name="how-it-works"></a>Fonctionnement
-La détection intelligente analyse les données de télémétrie reçues de votre application, en particulier le taux d’échecs. Cette règle compte le nombre de demandes dont la propriété `Successful request` a la valeur false, et le nombre d’appels de dépendance dont la propriété `Successful call` a la valeur false. Pour les demandes, `Successful request == (resultCode < 400)` par défaut (sauf si vous avez ajouté du code personnalisé pour [filtrer](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou générer vos propres appels [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)). 
+La détection intelligente analyse les données reçues de votre application, en particulier le taux d’échecs. Cette règle compte le nombre de demandes dont la propriété `Successful request` a la valeur false, et le nombre d’appels de dépendance dont la propriété `Successful call` a la valeur false. Pour les demandes, `Successful request == (resultCode < 400)` par défaut (sauf si vous avez ajouté du code personnalisé pour [filtrer](../../azure-monitor/app/api-filtering-sampling.md#filtering) ou générer vos propres appels [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)). 
 
 Les performances de votre application présentent un modèle de comportement typique. Certaines demandes ou certains appels de dépendance sont davantage sujets aux erreurs que d’autres ; et le taux d’échec global peut augmenter en même temps que la charge. La détection intelligente utilise Machine Learning pour rechercher ces anomalies.
 
-Comme les données de télémétrie arrivent dans Application Insights à partir de votre application web, la détection intelligente compare le comportement actuel avec les modèles observés au cours des derniers jours. Si une augmentation anormale du taux d’échec est observée par rapport aux performances précédentes, une analyse est déclenchée.
+À mesure qu’Application Insights reçoit les données de votre application web, la détection intelligente compare le comportement actuel avec les modèles observés au cours des derniers jours. Si une augmentation anormale du taux d’échec est observée par rapport aux performances précédentes, une analyse est déclenchée.
 
-Quand une analyse est déclenchée, le service effectue une analyse des clusters pour chaque demande ayant échoué, dans le but d’identifier un modèle de valeurs caractérisant les échecs. Dans l’exemple ci-dessus, l’analyse a découvert que la plupart des échecs sont liés à un code de résultat, un nom de demande, un hôte de l’URL serveur et une instance de rôle spécifiques. En revanche, l’analyse a découvert que la propriété du système d’exploitation client est distribuée sur plusieurs valeurs et qu’elle n’est donc pas répertoriée.
+Quand une analyse est déclenchée, le service effectue une analyse des clusters pour chaque demande ayant échoué, dans le but d’identifier un modèle de valeurs caractérisant les échecs. 
 
-Quand votre service est instrumenté avec cette télémétrie, l’analyseur recherche une exception et un échec de dépendance en lien avec les demandes dans le cluster qu’il a identifié, ainsi qu’un exemple de journaux d’activité de suivi associés à ces demandes.
+Dans l’exemple ci-dessus, l’analyse a découvert que la plupart des échecs sont liés à un code de résultat, un nom de demande, un hôte de l’URL serveur et une instance de rôle spécifiques. 
+
+Quand votre service est instrumenté avec ces appels, l’analyseur recherche une exception et un échec de dépendance en lien avec les requêtes dans le cluster qu’il a identifié, ainsi qu’un exemple de journaux de suivi associés à ces requêtes.
 
 L’analyse obtenue vous est envoyée sous forme d’alerte, sauf si vous n’avez pas configuré cette option.
 
-Comme les [alertes que vous définissez manuellement](../../azure-monitor/app/alerts.md), vous pouvez examiner l’état de l’alerte et la configurer dans le panneau Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer la détection intelligente. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
+Comme pour les [alertes définies manuellement](../../azure-monitor/app/alerts.md), vous pouvez inspecter l’état de l’alerte déclenchée, qui peut être résolue si le problème est corrigé. Configurez les règles d’alerte dans la page Alertes de votre ressource Application Insights. Cependant, contrairement aux autres alertes, vous n’avez pas besoin d’installer ni de configurer la détection intelligente. Si vous le souhaitez, vous pouvez la désactiver ou changer l’adresse de messagerie électronique cible.
 
 ### <a name="alert-logic-details"></a>Détails de la logique d’alerte
 
@@ -84,73 +61,286 @@ Les alertes sont déclenchées par notre algorithme d’apprentissage automatiqu
 * Analyse du pourcentage d’échec des demandes/dépendances dans une fenêtre de temps évolutive de 20 minutes.
 * Comparaison du pourcentage d’échec dans les 20 dernières minutes avec le taux dans les 40 dernières minutes et au cours des sept derniers jours, et recherche des écarts significatifs qui dépassent X fois cet écart type.
 * Utilisation d’une limite adaptative pour le pourcentage d’échec minimum, qui varie selon le volume des demandes/dépendances de l’application.
+* Il existe une logique capable de résoudre automatiquement la condition d’analyse de l’alerte déclenchée si le problème n’est plus détecté pendant 8-24 heures.
 
 ## <a name="configure-alerts"></a>Configurer des alertes
-Vous pouvez désactiver la détection intelligente, modifier les destinataires de courrier électronique, créer un webhook ou opter pour des messages d’alerte plus détaillés.
 
-Ouvrez la page Alertes. La fonctionnalité Anomalies des échecs est incluse dans les alertes que vous avez définies manuellement, et vous pouvez savoir si elle se trouve actuellement à l’état d’alerte.
+Vous pouvez désactiver la règle d’alerte de détection intelligente à partir du portail ou à l’aide d’Azure Resource Manager ([voir l’exemple de modèle](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
 
-![Dans la page Vue d’ensemble, cliquez sur la mosaïque Alertes, ou sur n’importe quelle page de mesures, cliquez sur le bouton Alertes.](./media/proactive-failure-diagnostics/021.png)
+Cette règle d’alerte est créée avec un [groupe d’actions](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) associé nommé « Détection intelligente Application Insights » qui contient des actions de webhook et de messagerie, et peut être étendue pour déclencher des actions supplémentaires lorsque l’alerte se déclenche.
+
+> [!NOTE]
+> Les notifications par e-mail envoyées de cette règle d’alerte sont désormais envoyées par défaut aux utilisateurs associés aux rôles Lecteur d’analyse et Contributeur d’analyse de l’abonnement. Davantage d’informations à ce sujet sont disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
+> Les notifications envoyées de cette règle d’alerte suivent le [schéma d’alerte courant](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+>
+
+Ouvrez la page Alertes. Les règles d’alerte Anomalies des échecs sont affichées avec les alertes que vous avez définies manuellement, et vous pouvez savoir si elle se trouve actuellement à l’état d’alerte.
+
+[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
 
 Cliquez sur l’alerte pour la configurer.
 
-![Configuration](./media/proactive-failure-diagnostics/032.png)
+[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-Notez que vous pouvez désactiver la détection intelligente, mais pas la supprimer (ni en créer une autre).
+Notez que vous pouvez désactiver ou supprimer une règle Anomalies des échecs, mais que vous ne pouvez pas en créer une autre sur la même ressource Application Insights.
 
-#### <a name="detailed-alerts"></a>Alertes détaillées
-Si vous sélectionnez « Get more detailed diagnostics (Obtenir des diagnostics plus détaillés) », l’e-mail contient plus d’informations de diagnostic. Les données figurant dans l’e-mail peuvent parfois suffire pour vous permettre de diagnostiquer le problème.
+## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>Exemple de charge utile webhook des alertes Anomalies des échecs
 
-Il se peut que l’alerte détaillée contienne des informations sensibles, car elle comprend des messages d’exception de traçage. Toutefois, cela se produit uniquement si votre code autorise que ces informations sensibles soient incluses dans ces messages.
+```json
+{
+    "properties": {
+        "essentials": {
+            "severity": "Sev3",
+            "signalType": "Log",
+            "alertState": "New",
+            "monitorCondition": "Resolved",
+            "monitorService": "Smart Detector",
+            "targetResource": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.insights/components/test-rule",
+            "targetResourceName": "test-rule",
+            "targetResourceGroup": "test-group",
+            "targetResourceType": "microsoft.insights/components",
+            "sourceCreatedId": "1a0a5b6436a9b2a13377f5c89a3477855276f8208982e0f167697a2b45fcbb3e",
+            "alertRule": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.alertsmanagement/smartdetectoralertrules/failure anomalies - test-rule",
+            "startDateTime": "2019-10-30T17:52:32.5802978Z",
+            "lastModifiedDateTime": "2019-10-30T18:25:23.1072443Z",
+            "monitorConditionResolvedDateTime": "2019-10-30T18:25:26.4440603Z",
+            "lastModifiedUserName": "System",
+            "actionStatus": {
+                "isSuppressed": false
+            },
+            "description": "Failure Anomalies notifies you of an unusual rise in the rate of failed HTTP requests or dependency calls."
+        },
+        "context": {
+            "DetectionSummary": "An abnormal rise in failed request rate",
+            "FormattedOccurenceTime": "2019-10-30T17:50:00Z",
+            "DetectedFailureRate": "50.0% (200/400 requests)",
+            "NormalFailureRate": "0.0% (over the last 30 minutes)",
+            "FailureRateChart": [["2019-10-30T05:20:00Z",
+            0],
+            ["2019-10-30T05:40:00Z",
+            100],
+            ["2019-10-30T06:00:00Z",
+            0],
+            ["2019-10-30T06:20:00Z",
+            0],
+            ["2019-10-30T06:40:00Z",
+            100],
+            ["2019-10-30T07:00:00Z",
+            0],
+            ["2019-10-30T07:20:00Z",
+            0],
+            ["2019-10-30T07:40:00Z",
+            100],
+            ["2019-10-30T08:00:00Z",
+            0],
+            ["2019-10-30T08:20:00Z",
+            0],
+            ["2019-10-30T08:40:00Z",
+            100],
+            ["2019-10-30T17:00:00Z",
+            0],
+            ["2019-10-30T17:20:00Z",
+            0],
+            ["2019-10-30T09:00:00Z",
+            0],
+            ["2019-10-30T09:20:00Z",
+            0],
+            ["2019-10-30T09:40:00Z",
+            100],
+            ["2019-10-30T10:00:00Z",
+            0],
+            ["2019-10-30T10:20:00Z",
+            0],
+            ["2019-10-30T10:40:00Z",
+            100],
+            ["2019-10-30T11:00:00Z",
+            0],
+            ["2019-10-30T11:20:00Z",
+            0],
+            ["2019-10-30T11:40:00Z",
+            100],
+            ["2019-10-30T12:00:00Z",
+            0],
+            ["2019-10-30T12:20:00Z",
+            0],
+            ["2019-10-30T12:40:00Z",
+            100],
+            ["2019-10-30T13:00:00Z",
+            0],
+            ["2019-10-30T13:20:00Z",
+            0],
+            ["2019-10-30T13:40:00Z",
+            100],
+            ["2019-10-30T14:00:00Z",
+            0],
+            ["2019-10-30T14:20:00Z",
+            0],
+            ["2019-10-30T14:40:00Z",
+            100],
+            ["2019-10-30T15:00:00Z",
+            0],
+            ["2019-10-30T15:20:00Z",
+            0],
+            ["2019-10-30T15:40:00Z",
+            100],
+            ["2019-10-30T16:00:00Z",
+            0],
+            ["2019-10-30T16:20:00Z",
+            0],
+            ["2019-10-30T16:40:00Z",
+            100],
+            ["2019-10-30T17:30:00Z",
+            50]],
+            "ArmSystemEventsRequest": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourceGroups/test-group/providers/microsoft.insights/components/test-rule/query?query=%0d%0a++++++++++++++++systemEvents%0d%0a++++++++++++++++%7c+where+timestamp+%3e%3d+datetime(%272019-10-30T17%3a20%3a00.0000000Z%27)+%0d%0a++++++++++++++++%7c+where+itemType+%3d%3d+%27systemEvent%27+and+name+%3d%3d+%27ProactiveDetectionInsight%27+%0d%0a++++++++++++++++%7c+where+dimensions.InsightType+in+(%275%27%2c+%277%27)+%0d%0a++++++++++++++++%7c+where+dimensions.InsightDocumentId+%3d%3d+%27718fb0c3-425b-4185-be33-4311dfb4deeb%27+%0d%0a++++++++++++++++%7c+project+dimensions.InsightOneClassTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightExceptionCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightDependencyCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightRequestCorrelationTable%2c+%0d%0a++++++++++++++++++++++++++dimensions.InsightTraceCorrelationTable%0d%0a++++++++++++&api-version=2018-04-20",
+            "LinksTable": [{
+                "Link": "<a href=\"https://portal.azure.com/#blade/AppInsightsExtension/ProactiveDetectionFeedBlade/ComponentId/{\"SubscriptionId\":\"4f9b81be-fa32-4f96-aeb3-fc5c3f678df9\",\"ResourceGroup\":\"test-group\",\"Name\":\"test-rule\"}/SelectedItemGroup/718fb0c3-425b-4185-be33-4311dfb4deeb/SelectedItemTime/2019-10-30T17:50:00Z/InsightType/5\" target=\"_blank\">View full details in Application Insights</a>"
+            }],
+            "SmartDetectorId": "FailureAnomaliesDetector",
+            "SmartDetectorName": "Failure Anomalies",
+            "AnalysisTimestamp": "2019-10-30T17:52:32.5802978Z"
+        },
+        "egressConfig": {
+            "displayConfig": [{
+                "rootJsonNode": null,
+                "sectionName": null,
+                "displayControls": [{
+                    "property": "DetectionSummary",
+                    "displayName": "What was detected?",
+                    "type": "Text",
+                    "isOptional": false,
+                    "isPropertySerialized": false
+                },
+                {
+                    "property": "FormattedOccurenceTime",
+                    "displayName": "When did this occur?",
+                    "type": "Text",
+                    "isOptional": false,
+                    "isPropertySerialized": false
+                },
+                {
+                    "property": "DetectedFailureRate",
+                    "displayName": "Detected failure rate",
+                    "type": "Text",
+                    "isOptional": false,
+                    "isPropertySerialized": false
+                },
+                {
+                    "property": "NormalFailureRate",
+                    "displayName": "Normal failure rate",
+                    "type": "Text",
+                    "isOptional": false,
+                    "isPropertySerialized": false
+                },
+                {
+                    "chartType": "Line",
+                    "xAxisType": "Date",
+                    "yAxisType": "Percentage",
+                    "xAxisName": "",
+                    "yAxisName": "",
+                    "property": "FailureRateChart",
+                    "displayName": "Failure rate over last 12 hours",
+                    "type": "Chart",
+                    "isOptional": false,
+                    "isPropertySerialized": false
+                },
+                {
+                    "defaultLoad": true,
+                    "displayConfig": [{
+                        "rootJsonNode": null,
+                        "sectionName": null,
+                        "displayControls": [{
+                            "showHeader": false,
+                            "columns": [{
+                                "property": "Name",
+                                "displayName": "Name"
+                            },
+                            {
+                                "property": "Value",
+                                "displayName": "Value"
+                            }],
+                            "property": "tables[0].rows[0][0]",
+                            "displayName": "All of the failed requests had these characteristics:",
+                            "type": "Table",
+                            "isOptional": false,
+                            "isPropertySerialized": true
+                        }]
+                    }],
+                    "property": "ArmSystemEventsRequest",
+                    "displayName": "",
+                    "type": "ARMRequest",
+                    "isOptional": false,
+                    "isPropertySerialized": false
+                },
+                {
+                    "showHeader": false,
+                    "columns": [{
+                        "property": "Link",
+                        "displayName": "Link"
+                    }],
+                    "property": "LinksTable",
+                    "displayName": "Links",
+                    "type": "Table",
+                    "isOptional": false,
+                    "isPropertySerialized": false
+                }]
+            }]
+        }
+    },
+    "id": "/subscriptions/4f9b81be-fa32-4f96-aeb3-fc5c3f678df9/resourcegroups/test-group/providers/microsoft.insights/components/test-rule/providers/Microsoft.AlertsManagement/alerts/7daf8739-ca8a-4562-b69a-ff28db4ba0a5",
+    "type": "Microsoft.AlertsManagement/alerts",
+    "name": "Failure Anomalies - test-rule"
+}
+```
 
-## <a name="triaging-and-diagnosing-an-alert"></a>Triage et diagnostic d’une alerte
+## <a name="triage-and-diagnose-an-alert"></a>Triage et diagnostic d’une alerte
+
 Une alerte indique qu’une augmentation anormale du taux de demandes ayant échoué a été détectée. Il est probable que votre application ou son environnement rencontre un problème.
 
-D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 22.5 % est comparé à un taux normal d’1 %, ce qui indique un problème. En revanche, seuls 11 utilisateurs ont été affectés. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
+Pour approfondir vos recherches, cliquez sur les liens « Afficher les détails complets dans Application Insights » dans cette page pour accéder directement à une [page de recherche](../../azure-monitor/app/diagnostic-search.md) filtrée sur les requêtes, l’exception, la dépendance ou les journaux de suivi pertinents. 
 
-Dans de nombreux cas, vous serez en mesure de diagnostiquer le problème rapidement à partir du nom de la demande, de l’exception, de l’échec de dépendance et du journal de suivi fournis.
+Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), accéder à la ressource Application Insights pour votre application et ouvrir la page Échecs.
 
-Il existe certains autres indices. Par exemple, le taux d’échec de dépendance dans cet exemple est identique au taux d’exception (89,3 %). Cela signifie que l’exception émane directement de l’échec de dépendance, ce qui vous donne une idée précise de l’emplacement dans votre code où commencer la recherche.
+Vous pouvez cliquer sur « Diagnostiquer les échecs » pour obtenir plus de détails et résoudre le problème plus aisément.
 
-Pour approfondir vos recherches, les liens de chaque section vous dirigent directement vers une [page de recherche](../../azure-monitor/app/diagnostic-search.md) comportant uniquement les demandes, l’exception, la dépendance ou les journaux de suivi pertinents. Vous pouvez également ouvrir le [portail Azure](https://portal.azure.com), accéder à la ressource Application Insights pour votre application et ouvrir le panneau Échecs.
+[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
 
-Dans cet exemple, cliquez sur le lien « View dependency failures details (Afficher les détails sur les échecs de dépendance) » pour ouvrir le panneau de recherche d’Application Insights. Il affiche l’instruction SQL qui contient un exemple de cause racine : des valeurs NULL fournies dans les champs obligatoires ont bloqué la validation pendant l’opération d’enregistrement.
+D’après le pourcentage de requêtes et le nombre d’utilisateurs touchés, vous pouvez évaluer l’urgence du problème. Dans l’exemple ci-dessus, le taux d’échec de 78,5 % est comparé à un taux normal de 2,2 %, ce qui indique un problème. En revanche, seuls 46 utilisateurs ont été impactés. S’il s’agissait de votre application, vous pourriez évaluer le niveau de gravité.
 
-![Recherche de diagnostic](./media/proactive-failure-diagnostics/051.png)
+Dans de nombreux cas, vous serez en mesure de diagnostiquer le problème rapidement à partir du nom de la requête, de l’exception, de l’échec de dépendance et du journal de suivi fournis.
+
+Dans cet exemple, une exception est survenue dans la base de données SQL à cause du dépassement de la limite de requêtes.
+
+[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
 
 ## <a name="review-recent-alerts"></a>Consulter les alertes récentes
 
-Cliquez sur **Détection intelligente** pour accéder à l’alerte la plus récente :
+Cliquez sur **Alertes** dans la page de ressources Application Insights pour accéder aux alertes déclenchées les plus récentes :
 
-![Résumé des alertes](./media/proactive-failure-diagnostics/070.png)
-
+[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
 
 ## <a name="whats-the-difference-"></a>Quelle est la différence ?
 La détection intelligente des anomalies de type échec vient compléter d’autres fonctionnalités d’Application Insights similaires, mais distinctes.
 
-* [Metric Alerts](../../azure-monitor/app/alerts.md) , qui peuvent surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de demandes, les temps de chargement de page, etc. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, la détection intelligente des anomalies de type échec ne couvre qu’une petite gamme de mesures critiques (pour l’instant, le taux de requêtes en échec uniquement), conçues pour vous avertir en temps quasi réel si le taux de requêtes en échec de votre application web augmente de manière significative par rapport à la normale.
+* [Metric Alerts](../../azure-monitor/app/alerts.md) , qui peuvent surveiller un large éventail de mesures telles que l’occupation du processeur, les taux de demandes, les temps de chargement de page, etc. Vous pouvez les utiliser pour savoir si vous devez ajouter des ressources, par exemple. En revanche, la détection intelligente des anomalies de type échec ne couvre qu’une petite gamme de métriques critiques (pour l’instant, le taux de requêtes en échec uniquement), conçues pour vous avertir en quasi temps réel si le taux de requêtes en échec de votre application web augmente par rapport à la normale. Contrairement aux alertes métriques, la détection intelligente définit et met à jour automatiquement les seuils en réponse aux changements dans le comportement. La détection intelligente démarre également le travail de diagnostic à votre place, ce qui vous aide à résoudre plus vite les problèmes.
 
-    La détection intelligente ajuste automatiquement son seuil en réponse aux conditions en vigueur.
-
-    Elle démarre le travail de diagnostic à votre place.
-* La [détection intelligente des anomalies de performance](proactive-performance-diagnostics.md) utilise également l’intelligence artificielle pour découvrir des modèles inhabituels dans vos mesures, sans qu’aucune configuration ne soit nécessaire. Toutefois, contrairement à la détection intelligente des anomalies de type échec, l’objectif de la détection intelligente des anomalies de performance est de repérer les segments de votre collecteur d’utilisation qui peuvent être mal pris en charge (par certaines pages sur un certain type de navigateur, par exemple). L’analyse est effectuée tous les jours, et si elle renvoie un résultat, il est souvent bien moins urgent qu’une alerte. En revanche, l’analyse des anomalies de type échec est exécutée en continu sur les données de télémétrie entrantes. Si le taux d’échec du serveur est plus élevé que prévu, vous en êtes averti en quelques minutes.
+* La [détection intelligente des anomalies de performance](proactive-performance-diagnostics.md) utilise également l’intelligence artificielle pour découvrir des modèles inhabituels dans vos mesures, sans qu’aucune configuration ne soit nécessaire. Toutefois, contrairement à la détection intelligente des anomalies de type échec, l’objectif de la détection intelligente des anomalies de performance est de repérer les segments de votre collecteur d’utilisation qui peuvent être mal pris en charge (par certaines pages sur un certain type de navigateur, par exemple). L’analyse est effectuée tous les jours, et si elle renvoie un résultat, il est souvent bien moins urgent qu’une alerte. En revanche, l’analyse des anomalies de type échec est exécutée en continu sur les données d’application entrantes. Si le taux d’échec du serveur est plus élevé que prévu, vous en êtes averti en quelques minutes.
 
 ## <a name="if-you-receive-a-smart-detection-alert"></a>Si vous recevez une alerte de la détection intelligente
 *Pourquoi ai-je reçu cette alerte ?*
 
-* Nous avons détecté une augmentation anormale du taux de demandes ayant échoué par rapport au taux de référence de la période précédente. Après l’analyse des défaillances et de la télémétrie associée, nous pensons qu’il existe un problème que vous devez examiner.
+* Nous avons détecté une augmentation anormale du taux de demandes ayant échoué par rapport au taux de référence de la période précédente. Après analyse des échecs et des données d’application associées, nous pensons qu’il existe un problème que vous devez examiner.
 
 *La notification signifie-t-elle obligatoirement que mon application rencontre un problème ?*
 
 * Nous essayons de vous alerter sur l’interruption ou la dégradation de l’application, mais vous êtes la seule personne habilitée à comprendre pleinement la sémantique et l’impact sur l’application ou les utilisateurs.
 
-*Mais alors, vous examinez mes données ?*
+*Donc, vous examinez les données de mon application ?*
 
 * Non. Le service est entièrement automatique. Vous seul obtenez ces notifications. Vos données sont [privées](../../azure-monitor/app/data-retention-privacy.md).
 
 *Dois-je m’abonner à cette alerte ?*
 
-* Non. Chaque application qui envoie des données de télémétrie de requête possède la règle d’alerte de la détection intelligente.
+* Non. Chaque application qui envoie des données de requête inclut la règle d’alerte de la détection intelligente.
 
 *Puis-je me désabonner ou obtenir des notifications envoyées à mes collègues ?*
 
@@ -162,16 +352,16 @@ La détection intelligente des anomalies de type échec vient compléter d’aut
 
 *Certaines des alertes concernent des problèmes connus, et je ne souhaite pas les recevoir.*
 
-* Notre backlog comporte la suppression de l’alerte.
+* Vous pouvez utiliser la fonctionnalité de suppression des [règles d’action pour les alertes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ces outils de diagnostic vous aident à inspecter les données de télémétrie à partir de votre application :
+Ces outils de diagnostic vous aident à inspecter les données reçues de votre application :
 
 * [Metrics Explorer](../../azure-monitor/app/metrics-explorer.md)
 * [Navigateur de recherche](../../azure-monitor/app/diagnostic-search.md)
 * [Analytics : un puissant langage de requête](../../azure-monitor/log-query/get-started-portal.md)
 
-Les détections intelligentes sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
+Les détections intelligentes sont automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 
 * [Alertes de mesures configurées manuellement](../../azure-monitor/app/alerts.md)
 * [Tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md)

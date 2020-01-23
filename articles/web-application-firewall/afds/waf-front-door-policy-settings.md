@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f763ad9afd2238ebe63bf878882011eb3745df5c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73511598"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932614"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Paramètres de stratégie pour le pare-feu d’applications web sur Azure Front Door
 
@@ -26,11 +26,11 @@ Une stratégie WAF pour la porte d’entrée peut être dans l’un des deux ét
 
 ## <a name="waf-mode"></a>Mode WAF
 
-Une stratégie AWAF peut être configurée pour s’exécuter dans les deux modes suivants :
+Une stratégie WAF peut être configurée pour s’exécuter dans les deux modes suivants :
 
 - **Mode de détection** :lors d’une exécution en mode de détection, le pare-feu d’applications web n’entreprend aucune autre action à part la surveillance et l’enregistrement de la demande et la mise en correspondance de la règle WAF dans les journaux WAF. Activez les diagnostics de journalisation pour la porte d’entrée (en utilisant le portail, cela peut être obtenu en accédant à la section **Diagnostics** dans le portail Azure).
 
-- **Mode de prévention** : une fois configuré pour s’exécuter en mode de prévention, le pare-feu d’applications web entreprend l’action spécifiée si une demande correspond à une règle. Toutes les demandes mises en correspondance sont également enregistrées dans les journaux WAF.
+- **Mode de prévention** : une fois configuré pour s’exécuter en mode de prévention, le pare-feu d’applications web entreprend l’action spécifiée si une demande correspond à une règle. Toutes les requêtes mises en correspondance sont également enregistrées dans les journaux WAF.
 
 ## <a name="waf-response-for-blocked-requests"></a>Réponse de WAF pour les demandes bloquées
 
@@ -48,7 +48,7 @@ Le code d’état de réponse et le message de réponse personnalisés constitue
 
 ## <a name="uri-for-redirect-action"></a>URI pour une action de redirection
 
-Vous êtes invité à définir un URI vers lequel rediriger les demandes si l’action **REDIRECT** est sélectionnée pour n’importe laquelle des règles contenues dans une stratégie de pare-feu d’applications Web. Cet URI de redirection doit être un site HTTP(S) valide et une fois configuré, toutes les demandes correspondant à des règles avec une action « REDIRECT » seront redirigées vers le site spécifié.
+Vous devez définir un URI vers lequel rediriger les demandes si l’action **REDIRECT** est sélectionnée pour une des règles contenues dans une stratégie WAF. Cet URI de redirection doit être un site HTTP(S) valide et une fois configuré, toutes les demandes correspondant à des règles avec une action « REDIRECT » seront redirigées vers le site spécifié.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

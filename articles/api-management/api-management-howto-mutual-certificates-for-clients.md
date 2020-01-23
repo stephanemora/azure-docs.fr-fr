@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 05/30/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 85eeaaa052604c3198ca2ab8988f9e7a77e2a63d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3680473209b3d65d616879dfbb9080dfbb9c80f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430646"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967395"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
@@ -27,7 +27,12 @@ La Gestion des API permet de sécuriser l'accès aux API (par ex. client à gest
 Pour savoir comment sécuriser l’accès au service back-end d’une API à l’aide de certificats clients (par exemple, de la Gestion des API vers le back-end), consultez [Comment sécuriser les services principaux à l’aide d’une authentification par certificat client dans la Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-mutual-certificates).
 
 > [!IMPORTANT]
-> Pour recevoir et vérifier des certificats clients dans le niveau Consommation, vous devez d’abord activer le paramètre « Demande de certificat client » dans le panneau « Domaines personnalisés », comme indiqué ci-dessous.
+> Pour recevoir et vérifier des certificats clients via HTTP/2 dans les niveaux Developer, Basic, Standard ou Premium, vous devez activer le paramètre « Négocier le certificat client » dans le panneau « Domaines personnalisés », comme indiqué ci-dessous.
+
+![Négocier le certificat client](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
+
+> [!IMPORTANT]
+> Pour recevoir et vérifier des certificats clients dans le niveau Consommation, vous devez activer le paramètre « Demander un certificat client » dans le panneau « Domaines personnalisés », comme indiqué ci-dessous.
 
 ![Demander un certificat client](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 

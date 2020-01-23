@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: a59b62e19ac1e470dcdaaf0281dde9904a70b583
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0e8c93ea6d5c2b525ccbea2af900f100afcc3d93
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230669"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769215"
 ---
 # <a name="azure-functions-deployment-slots"></a>Emplacements de déploiement Azure Functions
 
@@ -106,8 +106,8 @@ Vous pouvez permuter des emplacements via l’[interface de ligne de commande](h
 
 1. Accédez à l’application de fonction.
 1. Cliquez sur le nom de l’emplacement source que vous souhaitez permuter.
-1. Sous l’onglet *Vue d’ensemble*, cliquez sur le bouton **Permuter** ![Permuter un emplacement de déploiement Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png).
-1. Vérifiez les paramètres de configuration de votre permutation, puis cliquez sur **Permuter** ![Permuter un emplacement de déploiement Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png).
+1. Sous l’onglet *Vue d’ensemble*, cliquez sur le bouton **Permuter**![Permuter un emplacement de déploiement Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png).
+1. Vérifiez les paramètres de configuration de votre permutation, puis cliquez sur **Permuter** ![Permuter un emplacement de déploiement Azure Functions](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 L’exécution de l’opération peut prendre un certain temps.
 
@@ -135,9 +135,9 @@ Vous pouvez supprimer un emplacement via l’[interface de ligne de commande](ht
 - [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [auto-swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
-## <a name="change-app-service-plan"></a>Modifier un plan App Service
+## <a name="change-app-service-plan"></a>Changer le plan App Service
 
-Une application de fonction qui s’exécute sous un plan App Service vous permet de modifier le plan App service sous-jacent pour un emplacement.
+Une application de fonction qui s’exécute dans le cadre d’un plan App Service vous permet de modifier le plan App service sous-jacent pour un emplacement.
 
 > [!NOTE]
 > Vous ne pouvez pas modifier le plan App Service d’un emplacement dans le cadre du plan Consommation.

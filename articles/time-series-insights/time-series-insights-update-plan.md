@@ -8,21 +8,21 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: c305da097a4474e6a4aa91ec0e784e627533ee43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b16d78c9670d05fcec8126c5544d1dd97f6a03bd
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452438"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045723"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Planifier votre environnement Azure Time Series Insights (préversion)
 
 Cet article décrit les bonnes pratiques pour planifier et commencer à utiliser Azure Time Series Insights (préversion).
 
 > [!NOTE]
-> Pour obtenir des recommandations sur la planification d’une instance Time Series Insights avec disponibilité générale, consultez l’article que la [planification de votre environnement de disponibilité générale Azure Time Series Insights](time-series-insights-environment-planning.md).
+> Pour obtenir des bonnes pratiques sur la planification d’une instance Time Series Insights en disponibilité générale, consultez [Planifier votre environnement Azure Time Series Insights en disponibilité générale](time-series-insights-environment-planning.md).
 
 ## <a name="best-practices-for-planning-and-preparation"></a>Meilleures pratiques de planification et de préparation
 
@@ -34,7 +34,7 @@ Les bonnes pratiques pour la planification et la préparation de votre environne
 * Comment [envoyer des événements de manière efficace dans JSON](#shape-your-events).
 * [Options de récupération d’urgence](#business-disaster-recovery) de Time Series Insights.
 
-Azure Time Series Insights utilise un modèle de paiement à l’utilisation. Pour plus d’informations sur les frais et sur la capacité, consultez [Tarification de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
+Azure Time Series Insights utilise un modèle de paiement à l’utilisation. Pour plus d’informations sur les coûts et la capacité, consultez [Tarification de Time Series Insights](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 ## <a name="the-preview-environment"></a>Environnement de préversion
 
@@ -48,7 +48,7 @@ Dans le cadre du processus de provisionnement, vous spécifiez si vous souhaitez
 Les requêtes sur le stockage chaud sont gratuites, contrairement aux requêtes sur le stockage froid qui sont facturées. Il est important de bien comprendre vos modèles de requête et de planifier la configuration de votre stockage chaud en conséquence. Nous vous recommandons de placer l’analytique interactive sur les données les plus récentes dans votre stockage chaud, et de placer l’analyse des modèles et les tendances à long terme dans le stockage froid.
 
 > [!NOTE]
-> Pour en savoir plus sur l’interrogation de vos données chaudes, [consultez cet article](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
+> Pour plus d’informations sur l’interrogation de vos données chaudes, consultez les [Informations de référence sur l’API](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters).
 
 Pour commencer, vous avez besoin de trois autres éléments :
 
@@ -93,7 +93,7 @@ Une règle de base :
 * stockez les métadonnées dans votre modèle Time Series.
 * Assurez-vous que Time Series Mode, les champs d’instance et les événements ne comprennent que les informations nécessaires, comme un ID de série chronologique ou une propriété Timestamp.
 
-Pour plus d’informations, consultez [Événements Shape](./time-series-insights-send-events.md#supported-json-shapes).
+Pour plus d’informations, consultez [Mettre en forme les événements](./time-series-insights-send-events.md#supported-json-shapes).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

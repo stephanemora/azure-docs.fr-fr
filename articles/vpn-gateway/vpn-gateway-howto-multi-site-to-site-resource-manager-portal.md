@@ -1,24 +1,25 @@
 ---
-title: 'Ajouter plusieurs connexions site à site de passerelle VPN à un réseau virtuel : Portail Azure : Resource Manager| Microsoft Docs'
+title: 'Ajouter plusieurs connexions site à site de passerelle VPN à un réseau virtuel : Portail Azure'
 description: Ajouter des connexions S2S multisites à une passerelle VPN qui dispose déjà d’une connexion
 services: vpn-gateway
+titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: d2c32fd35bbc6de1f010013c40a06af69052d3f5
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 7b438f2b966dc43d41b91a138b39193d230d5546
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244617"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779686"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Ajouter une connexion de site à site à un réseau virtuel avec une connexion de passerelle VPN existante
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
+> * [Azure portal](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md)
 > * [PowerShell (classique)](vpn-gateway-multi-site.md)
 >
 > 

@@ -8,19 +8,19 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 6c6e092f16111f3f54ed17e19d28775e35eedc96
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4fe543010df9514cb2b22c56482a4b592574e917
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227800"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941781"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Utilisation du stockage de files d'attente à partir de C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce guide décrit le déroulement de scénarios courants dans le cadre de l'utilisation du service de stockage des files d'attente Azure. Les exemples ont été écrits en C++ et utilisent la [bibliothèque cliente Azure Storage pour C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md). Les scénarios traités incluent **l’insertion**, la **lecture furtive**, la **récupération** et la **suppression** des messages de file d’attente, ainsi que la **création et suppression des files d’attente**.
 
 > [!NOTE]
@@ -46,7 +46,7 @@ Pour installer la bibliothèque cliente Azure Storage pour C++, vous pouvez proc
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-Vous trouverez un guide sur la façon de générer le code source et de l’exporter vers Nuget dans le fichier Lisez-moi [README](https://github.com/Azure/azure-storage-cpp#download--install).
+Vous trouverez un guide sur la façon de générer le code source et de l’exporter vers NuGet dans le fichier [LISEZ-MOI](https://github.com/Azure/azure-storage-cpp#download--install).
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Configuration de votre application pour accéder au stockage de files d'attente
 Ajoutez les instructions import suivantes au début du fichier Java dans lequel vous voulez utiliser des API de stockage Azure pour accéder aux files d'attente :  
@@ -83,7 +83,7 @@ Vous pouvez utiliser la classe **cloud_storage_account** pour représenter les i
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>Activation Créer une file d’attente
+## <a name="how-to-create-a-queue"></a>Procédure : Créer une file d’attente
 Un objet **cloud_queue_client** vous permet d’obtenir les objets de référence pour les files d’attente. Le code suivant crée un objet **cloud_queue_client**.
 
 ```cpp
@@ -104,7 +104,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Activation Insertion d'un message dans une file d'attente
+## <a name="how-to-insert-a-message-into-a-queue"></a>Procédure : Insertion d'un message dans une file d'attente
 Pour insérer un message dans une file d’attente existante, commencez par créer un **cloud_queue_message**. Appelez ensuite la méthode **add_message**. Un **cloud_queue_message** peut être créé à partir d’une chaîne ou d’un tableau **d’octets**. Voici le code qui crée une file d'attente (si elle n'existe pas) et insère le message « Hello, World » :
 
 ```cpp
@@ -125,7 +125,7 @@ azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Activation Lecture furtive du message suivant
+## <a name="how-to-peek-at-the-next-message"></a>Procédure : Lecture furtive du message suivant
 Vous pouvez lire furtivement le message au début de la file d’attente sans le supprimer de la file d’attente en appelant la méthode **peek_message**.
 
 ```cpp
@@ -145,7 +145,7 @@ azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Activation Modification du contenu d'un message en file d'attente
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Procédure : Modification du contenu d'un message en file d'attente
 Vous pouvez modifier le contenu d'un message placé dans la file d'attente. Si le message représente une tâche, vous pouvez utiliser cette fonctionnalité pour mettre à jour l'état de la tâche. Le code suivant met à jour le message de la file d'attente avec un nouveau contenu et ajoute 60 secondes au délai d'expiration de la visibilité. Cette opération enregistre l'état de la tâche associée au message et accorde une minute supplémentaire au client pour traiter le message. Vous pouvez utiliser cette technique pour suivre des flux de travail à plusieurs étapes sur les messages de file d'attente, sans devoir reprendre du début si une étape du traitement échoue à cause d'une défaillance matérielle ou logicielle. Normalement, vous conservez aussi un nombre de nouvelles tentatives et si le message est retenté plus de n fois, vous le supprimez. Cela protège du déclenchement d'une erreur d'application par un message chaque fois qu'il est traité.
 
 ```cpp
@@ -171,7 +171,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>Activation Enlèvement du message suivant de la file d'attente
+## <a name="how-to-de-queue-the-next-message"></a>Procédure : Enlèvement du message suivant de la file d'attente
 Votre code enlève un message d'une file d'attente en deux étapes. Lorsque vous appelez **get_message**, vous obtenez le message suivant dans une file d’attente. Un message renvoyé par **get_message** devient invisible de tout autre code lisant les messages de cette file d’attente. Pour finaliser la suppression du message de la file d’attente, vous devez aussi appeler **delete_message**. Ce processus de suppression d'un message en deux étapes garantit que, si votre code ne parvient pas à traiter un message à cause d'une défaillance matérielle ou logicielle, une autre instance de votre code peut obtenir le même message et réessayer. Votre code appelle **delete_message** juste après le traitement du message.
 
 ```cpp
@@ -192,7 +192,7 @@ std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() <<
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Activation Utilisation d’options supplémentaires pour l’enlèvement des messages
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Procédure : Utilisation d’options supplémentaires pour l’enlèvement des messages
 Il existe deux façons de personnaliser la récupération des messages à partir d'une file d'attente. Premièrement, vous pouvez obtenir un lot de messages (jusqu'à 32). Deuxièmement, vous pouvez définir un délai d'expiration de l'invisibilité plus long ou plus court afin d'accorder à votre code plus ou moins de temps pour traiter complètement chaque message. L’exemple de code suivant utilise la méthode **get_messages** pour obtenir 20 messages en un appel. Ensuite, il traite chaque message à l'aide d'une boucle **for** . Il définit également le délai d'expiration de l'invisibilité sur cinq minutes pour chaque message. Notez que le délai de 5 minutes démarre en même temps pour tous les messages, donc une fois les 5 minutes écoulées après l’appel de **get_messages**, tous les messages n’ayant pas été supprimés redeviennent visibles.
 
 ```cpp
@@ -220,7 +220,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Activation Obtention de la longueur de la file d'attente
+## <a name="how-to-get-the-queue-length"></a>Procédure : Obtention de la longueur de la file d'attente
 Vous pouvez obtenir une estimation du nombre de messages dans une file d'attente. La méthode **download_attributes** demande au service de files d’attente d’extraire les attributs de la file d’attente, y compris le nombre de messages. La méthode **approximate_message_count** obtient le nombre approximatif de messages dans la file d’attente.
 
 ```cpp
@@ -243,7 +243,7 @@ int cachedMessageCount = queue.approximate_message_count();
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a>Activation Suppression d'une file d'attente
+## <a name="how-to-delete-a-queue"></a>Procédure : Suppression d'une file d'attente
 Pour supprimer une file d’attente et tous les messages qu’elle contient, appelez la méthode **delete_queue_if_exists** sur l’objet file d’attente.
 
 ```cpp
@@ -267,4 +267,4 @@ Maintenant que vous connaissez les bases du stockage de files d'attente, consult
 * [Utilisation du stockage de tables à partir de C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Listage des ressources Azure Storage en C++](../common/storage-c-plus-plus-enumeration.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 * [Référence de la bibliothèque cliente de stockage pour C++](https://azure.github.io/azure-storage-cpp)
-* [Documentation d'Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
+* [Documentation d’Azure Storage](https://azure.microsoft.com/documentation/services/storage/)

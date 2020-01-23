@@ -1,6 +1,6 @@
 ---
-title: Création d’un groupe dynamique et vérification d’état – Azure AD | Microsoft Docs
-description: Comment créer une règle d’appartenance à un groupe dans le portail Azure et comment vérifier l’état.
+title: Créer ou modifier un groupe dynamique et obtenir l’état - Azure AD | Microsoft Docs
+description: Guide pratique pour créer ou mettre à jour une règle d’appartenance à un groupe dans le portail Azure, et vérifier l’état de son traitement.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2019
+ms.date: 01/07/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: d2ed7f27e2145f666f38eec5ddc6c985a4d32138
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900930"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768761"
 ---
-# <a name="create-a-dynamic-group-and-check-status"></a>Créer un groupe dynamique et vérifier l’état
+# <a name="create-or-update-a-dynamic-group-in-azure-active-directory"></a>Créer ou mettre à jour un groupe dynamique dans Azure Active Directory
 
 Dans Azure Active Directory (Azure AD), vous pouvez utiliser des règles pour déterminer l’appartenance aux groupes à partir des propriétés de l’utilisateur ou de l’appareil. Cet article explique comment configurer une règle pour un groupe dynamique dans le portail Azure.
 L’appartenance dynamique est prise en charge pour les groupes de sécurité ou les groupes Office 365. Lorsqu’une règle d’appartenance de groupe est appliquée, les correspondances avec la règle d’appartenance des attributs utilisateur et appareil sont évaluées. Lorsqu’un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour tenir compte de toutes les modifications d’appartenance. Les utilisateurs et les appareils sont ajoutés ou supprimés s’ils remplissent les conditions pour un groupe. Les groupes de sécurité peuvent être utilisés pour des appareils ou des utilisateurs, mais les groupes Office 365 ne peuvent être utilisés que par des groupes d’utilisateurs.
@@ -40,7 +40,7 @@ Voici quelques exemples de règles avancées ou de syntaxe pour lesquelles nous 
 > [!NOTE]
 > Le générateur de règles peut ne pas être en mesure d’afficher certaines règles construites dans la zone de texte. Un message peut s’afficher lorsque le générateur de règles n’est pas en mesure d’afficher la règle. Le générateur de règles ne modifie en aucune façon la syntaxe, la validation ou le traitement des règles de groupe dynamique pris en charge.
 
-![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 Pour obtenir des exemples de syntaxe des règles, des propriétés prises en charge, des opérateurs et des valeurs pris en charge pour une règle d’appartenance, consultez [Règles d’appartenance dynamique pour les groupes dans Azure Active Directory](groups-dynamic-membership.md).
 
@@ -64,6 +64,20 @@ Pour obtenir des exemples de syntaxe des règles, des propriétés prises en cha
 
 Si la règle que vous avez entrée n’est pas valide, une explication de la raison pour laquelle la règle n’a pas pu être traitée s’affiche dans une notification Azure du portail. Lisez-la avec attention pour savoir comment corriger la règle.
 
+## <a name="to-update-an-existing-rule"></a>Pour mettre à jour une règle existante
+
+1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte du rôle Administrateur général, Administrateur Intune ou administrateur d’utilisateurs dans l’abonné.
+1. Sélectionnez **Groupes** > **Tous les groupes**.
+1. Sélectionnez un groupe pour ouvrir son profil.
+1. Sur la page de profil du groupe, sélectionnez **Règles d'appartenance dynamique**. Le générateur de règles prend en charge jusqu'à cinq expressions. Pour ajouter plus de cinq expressions, vous devez utiliser la zone de texte.
+
+   ![Ajouter une règle d’appartenance au groupe dynamique](./media/groups-create-rule/update-dynamic-group-rule.png)
+
+1. Pour afficher les propriétés d'extension personnalisées disponibles pour votre règle d'appartenance :
+   1. Sélectionnez **Obtenir les propriétés d’extension personnalisée**
+   1. Entrez l’ID de l’application, puis sélectionnez **Actualiser les propriétés**.
+1. Une fois la règle mise à jour, sélectionnez **Enregistrer**.
+
 ## <a name="turn-on-or-off-welcome-email"></a>Activer ou désactiver l’e-mail de bienvenue
 
 Lorsqu’un groupe Office 365 est créé, une notification de bienvenue est envoyée par e-mail aux utilisateurs qui sont ajoutés au groupe. Plus tard, si un attribut d’utilisateur ou d’appareil change, toutes les règles de groupe dynamique au sein de l’organisation sont traitées pour les modifications d’appartenance. Les utilisateurs qui sont alors ajoutés reçoivent également la notification de bienvenue. Vous pouvez désactiver ce comportement dans [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
@@ -77,7 +91,7 @@ Vous pouvez voir l’état du traitement de l’appartenance et la date de la de
 Les messages d’état suivants peuvent être affichés pour l’état **Traitement de l’appartenance** :
 
 - **Évaluation** :  le changement de groupe a été reçu et les mises à jour sont en cours d’évaluation.
-- **Traitement** : les mises à jour sont en cours de traitement.
+- **En cours de traitement** : les mises à jour sont en cours de traitement.
 - **Mise à jour terminée** : le traitement est terminé et toutes les mises à jour applicables ont été effectuées.
 - **Erreur de traitement** :  Impossible de terminer le traitement en raison d’une erreur d’évaluation de la règle d’appartenance.
 - **Mise à jour suspendue** : les mises à jour de la règle d’appartenance dynamique ont été suspendues par l’administrateur. Le paramètre MembershipRuleProcessingState est défini sur « Suspendu ».

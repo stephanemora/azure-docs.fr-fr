@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 861d62f40dc9d8ca2c80e295495df8538ea7cd8d
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659540"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027787"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -122,6 +122,9 @@ Cette erreur se produit si le chemin du point de terminaison de serveur se trouv
 <a id="-2147024894"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2147024894 ou 0x80070002)**  
 Cette erreur se produit si le chemin d’accès au point de terminaison du serveur spécifié n’est pas valide. Vérifiez que le chemin d’accès au point de terminaison du serveur spécifié est un volume NTFS attaché localement. Notez que Azure File Sync ne prend pas en charge les lecteurs mappés comme un chemin de point de terminaison de serveur.
 
+<a id="-2134375640"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d’erreur : -2134375640 ou 0x80c80328)**  
+Cette erreur se produit si le chemin du point de terminaison du serveur spécifié n’est pas un volume NTFS. Vérifiez que le chemin d’accès au point de terminaison du serveur spécifié est un volume NTFS attaché localement. Notez que Azure File Sync ne prend pas en charge les lecteurs mappés comme un chemin de point de terminaison de serveur.
+
 <a id="-2134347507"></a>**La création du point de terminaison de serveur échoue, avec cette erreur : « MgmtServerJobFailed » (Code d'erreur : -2134347507 ou 0x80c8710d)**  
 Cette erreur se produit parce que Azure File Sync ne prend pas en charge les points de terminaison de serveur sur les volumes qui comportent un dossier System Volume Information compressé. Pour résoudre ce problème, décompressez le dossier System Volume Information. Si le dossier System Volume Information est le seul dossier compressé sur le volume, procédez comme suit :
 
@@ -172,14 +175,13 @@ Sur le serveur qui porte la mention « Apparaît hors connexion » dans le por
 - Si l’événement **GetNextJob s’est terminé avec l’état : -2134347756** est enregistré, le serveur ne peut pas communiquer avec le service Azure File Sync à cause d’un pare-feu ou d’un proxy. 
     - Si le serveur se trouve derrière un pare-feu, vérifiez que le port 443 sortant est autorisé. Si le pare-feu restreint le trafic à des domaines spécifiques, vérifiez que les domaines répertoriés dans la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) du pare-feu sont accessibles.
     - Si le serveur se trouve derrière un proxy, configurez les paramètres de proxy au niveau de l’ordinateur ou de l’application en suivant la procédure de la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) du proxy.
+    - Utilisez l’applet de commande Test-StorageSyncNetworkConnectivity pour vérifier la connectivité réseau aux points de terminaison de service. Pour plus d’informations, consultez [Tester la connectivité réseau aux points de terminaison de service](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#test-network-connectivity-to-service-endpoints).
 
 - Si l’événement **GetNextJob s’est terminé avec l’état : -2134347764** est enregistré, le serveur ne peut pas communiquer avec le service Azure File Sync à cause de l’expiration ou de la suppression d’un certificat.  
     - Exécutez la commande PowerShell suivante sur le serveur pour réinitialiser le certificat utilisé pour l’authentification :
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » et l’état du serveur dans le panneau des serveurs inscrits indique « En ligne »**  
 
 Si un point de terminaison de serveur a l’état d’intégrité « Aucune activité », cela signifie qu’il n’a journalisé aucune activité de synchronisation au cours des deux dernières heures.
@@ -389,6 +391,22 @@ Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder
 3. [Vérifiez qu’Azure File Sync a accès au compte de stockage.](#troubleshoot-rbac)
 4. [Vérifiez que les paramètres de pare-feu et de réseau virtuel sur le compte de stockage sont configurés correctement (si activés)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134351804"></a>**La synchronisation a échoué, car la demande n’est pas autorisée à effectuer cette opération.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (décimal)** | -2134351804 |
+| **Chaîne d’erreur** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **Correction requise** | Oui |
+
+Cette erreur se produit car l’agent Azure File Sync n’est pas autorisé à accéder au partage de fichiers Azure. Vous pouvez résoudre cette erreur en parcourant les étapes suivantes :
+
+1. [Vérifiez l’existence du compte de stockage.](#troubleshoot-storage-account)
+2. [Assurez-vous de l’existence du partage de fichiers Azure.](#troubleshoot-azure-file-share)
+3. [Vérifiez que les paramètres de pare-feu et de réseau virtuel sur le compte de stockage sont configurés correctement (si activés)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Vérifiez qu’Azure File Sync a accès au compte de stockage.](#troubleshoot-rbac)
+
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**Le nom du compte de stockage utilisé n’a pas pu être résolu.**  
 
 | | |
@@ -491,7 +509,7 @@ Si le partage de fichiers Azure a été supprimé, vous devez créer un nouveau 
 | **Chaîne d’erreur** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **Correction requise** | Oui |
 
-Cette erreur se produit lorsque l’abonnement Azure est suspendu. La synchronisation est réactivée lors de la restauration de l’abonnement Azure. Consultez [Pourquoi mon abonnement Azure est-il désactivé et comment puis-je le réactiver ?](../../billing/billing-subscription-become-disable.md) pour plus d’informations.
+Cette erreur se produit lorsque l’abonnement Azure est suspendu. La synchronisation est réactivée lors de la restauration de l’abonnement Azure. Consultez [Pourquoi mon abonnement Azure est-il désactivé et comment puis-je le réactiver ?](../../cost-management-billing/manage/subscription-disabled.md) pour plus d’informations.
 
 <a id="-2134364052"></a>**Le compte de stockage comporte un pare-feu ou des réseaux virtuels configurés.**  
 

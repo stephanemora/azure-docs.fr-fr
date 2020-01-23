@@ -3,7 +3,7 @@ title: Mettre à jour l’agent Linux Azure à partir de GitHub
 description: Découvrez comment mettre à jour l’agent Linux Azure pour votre machine virtuelle Linux dans Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: akjosh
-ms.openlocfilehash: 02180af0b388a8f10e0689bc4ea176ee60974666
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 86ddda8537a4b61c5432072077c183ded2556624
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359006"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973149"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Guide pratique pour mettre à jour l’agent Linux Azure sur une machine virtuelle
 
@@ -88,77 +88,6 @@ initctl restart walinuxagent
 
 ```bash
 systemctl restart walinuxagent.service
-```
-
-## <a name="debian"></a>Debian
-
-### <a name="debian-7-wheezy"></a>Debian 7 « Wheezy »
-
-#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
-
-```bash
-dpkg -l | grep waagent
-```
-
-#### <a name="update-package-cache"></a>Mettre à jour le cache du package
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
-
-```bash
-sudo apt-get install waagent
-```
-
-#### <a name="enable-agent-auto-update"></a>Activer la mise à jour automatique de l’agent
-Cette version de Debian n’a pas de version supérieure ou égale à 2.0.16. Par conséquent, AutoUpdate n’est pas disponible pour elle. La sortie de la commande ci-dessus indique si le package est à jour.
-
-### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 « Jessie » / Debian 9 « Stretch »
-
-#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
-
-```bash
-apt list --installed | grep waagent
-```
-
-#### <a name="update-package-cache"></a>Mettre à jour le cache du package
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
-
-```bash
-sudo apt-get install waagent
-```
-#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée 
-
-Tout d’abord, vérifiez si elle est activée :
-
-```bash
-cat /etc/waagent.conf
-```
-
-Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
-
-```bash
-# AutoUpdate.Enabled=y
-AutoUpdate.Enabled=y
-```
-
-Pour l’activer, exécutez :
-
-```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
-```
-
-### <a name="restart-the-waagent-service"></a>Redémarrer le service waagent
-
-```
-sudo systemctl restart walinuxagent.service
 ```
 
 ## <a name="red-hat--centos"></a>Red Hat / CentOS
@@ -347,6 +276,75 @@ sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 
 ```bash
 sudo systemctl restart waagent.service
+```
+
+## <a name="debian"></a>Debian
+
+### <a name="debian-7-jesse-debian-7-stretch"></a>Debian 7 « Jesse »/ Debian 7 « Stretch »
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+dpkg -l | grep waagent
+```
+
+#### <a name="update-package-cache"></a>Mettre à jour le cache du package
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo apt-get install waagent
+```
+
+#### <a name="enable-agent-auto-update"></a>Activer la mise à jour automatique de l’agent
+Cette version de Debian n’a pas de version supérieure ou égale à 2.0.16. Par conséquent, AutoUpdate n’est pas disponible pour elle. La sortie de la commande ci-dessus indique si le package est à jour.
+
+
+
+### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 « Jessie » / Debian 9 « Stretch »
+
+#### <a name="check-your-current-package-version"></a>Vérifier votre version actuelle du package
+
+```bash
+apt list --installed | grep waagent
+```
+
+#### <a name="update-package-cache"></a>Mettre à jour le cache du package
+
+```bash
+sudo apt-get -qq update
+```
+
+#### <a name="install-the-latest-package-version"></a>Installer la dernière version du package
+
+```bash
+sudo apt-get install waagent
+```
+
+#### <a name="ensure-auto-update-is-enabled"></a>Vérifier que la mise à jour automatique est activée
+Tout d’abord, vérifiez si elle est activée :
+
+```bash
+cat /etc/waagent.conf
+```
+
+Recherchez « AutoUpdate.Enabled ». Si vous voyez cette sortie, cela signifie qu’elle est activée :
+
+```bash
+AutoUpdate.Enabled=y
+AutoUpdate.Enabled=y
+```
+
+Pour l’activer, exécutez :
+
+```bash
+sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
+Restart the waagent service
+sudo systemctl restart walinuxagent.service
 ```
 
 ## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 et Oracle Linux 7

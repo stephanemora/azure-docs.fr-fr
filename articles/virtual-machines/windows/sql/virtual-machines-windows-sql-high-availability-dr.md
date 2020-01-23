@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357981"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933954"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines
 
@@ -77,7 +77,7 @@ Vous pouvez disposer d’une solution de récupération d’urgence pour vos bas
 
 ## <a name="free-dr-replica-in-azure"></a>Réplica de récupération d’urgence gratuit dans Azure
 
-Si vous avez [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), vous pouvez implémenter des plans de récupération d’urgence hybride avec SQL Server à l’aide de groupes de disponibilité Always On ou d’instances de cluster de basculement sans entraîner des coûts de licence supplémentaires pour l’instance de récupération d’urgence passive.
+Si vous avez [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3), vous pouvez implémenter des plans de reprise d’activité hybride avec SQL Server sans entraîner des coûts de licence supplémentaires pour l’instance de reprise d’activité passive.
 
 Dans l’image ci-dessous, la configuration utilise SQL Server s’exécutant sur une machine virtuelle Azure utilisant 12 cœurs comme réplica de récupération d’urgence pour un déploiement SQL Server local avec 12 cœurs. Avant, vous deviez attribuer une licence à 12 cœurs SQL Server pour le déploiement local et le déploiement de machines virtuelles Azure. La nouvelle option offre des avantages de réplica passif s’exécutant sur une machine virtuelle Azure. À présent, il vous suffit simplement d’attribuer une licence à 12 cœurs SQL Server s’exécutant localement tant que les critères de récupération d’urgence pour le réplica passif sur la machine virtuelle Azure sont satisfaits.
 

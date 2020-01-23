@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 581b6b4143f5924c27bac726bbea823761574c1b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535381"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894020"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -150,11 +150,12 @@ Variance| Mesure jusqu’où les données de cette colonne sont déployées par 
 Asymétrie| Mesure de la différence entre les données de cette colonne et une distribution normale.
 Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à une distribution normale.
 
+
 <a name="preprocess"></a>
 
 ## <a name="advanced-preprocessing-options"></a>Options de prétraitement avancé
 
-Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avancé `Preprocess`. Ainsi, les étapes de prétraitement et de personnalisation des données sont effectuées automatiquement.
+Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avancé `Preprocess`. Ainsi, dans le cadre du prétraitement, les étapes suivantes de garde-fous et de personnalisation des données sont effectuées automatiquement.
 
 |Étapes de &nbsp;prétraitement| Description |
 | ------------- | ------------- |
@@ -167,6 +168,20 @@ Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avan
 |Encodage de texte cible|Pour l'entrée de texte, un modèle linéaire empilé avec « bag-of-words » est utilisé afin de générer la probabilité de chaque classe.|
 |WoE (Weight of Evidence)|Calcule la valeur WoE en tant que mesure de corrélation des colonnes catégorielles vers la colonne cible. Elle est calculée en tant qu'enregistrement du ratio de probabilités à l'intérieur et à l'extérieur de la classe. Cette étape génère une colonne de fonctionnalités numériques par classe et évite d'avoir à imputer les valeurs manquantes et le traitement de valeur hors norme.|
 |Distance de cluster|Effectue l’apprentissage d’un modèle de clustering k-moyennes sur toutes les colonnes numériques.  Génère de nouvelles fonctionnalités k, une nouvelle fonctionnalité numérique par cluster, contenant la distance de chaque échantillon par rapport au centroïde de chaque cluster.|
+
+### <a name="data-guardrails"></a>Garde-fous des données
+
+Le Machine Learning automatisé offre des garde-fous des données pour vous aider à identifier les problèmes potentiels liés à vos données (par exemple les valeurs manquantes ou le déséquilibre des classes) et à prendre des mesures correctives afin d’améliorer les résultats. Il existe de nombreuses bonnes pratiques que vous pouvez appliquer pour obtenir des résultats fiables. 
+
+Le tableau suivant décrit les garde-fous des données actuellement pris en charge, ainsi que les états associés que les utilisateurs peuvent rencontrer lors de l’envoi de leur expérience.
+
+Garde-fou|État|Condition&nbsp;pour&nbsp;le déclencheur
+---|---|---
+Imputation&nbsp;de valeurs&nbsp;manquantes |**Passed** <br> <br> **Fixed**|    Aucune valeur manquante dans les colonnes&nbsp;d’entrée <br> <br> Certaines colonnes ont des valeurs manquantes
+Validation croisée|**Done**|Si aucun jeu de validation explicite n’est fourni
+Détection de la&nbsp;fonctionnalité de&nbsp;cardinalité&nbsp;élevée|  **Passed** <br> <br>**Done**|   Aucune fonctionnalité de cardinalité élevée n’a été détectée <br><br> Des colonnes d’entrée à cardinalité élevée ont été détectées
+Détection de l’équilibre des classes |**Passed** <br><br><br>**Alerted** |Les classes sont équilibrées dans les données d’entraînement ; un jeu de données est considéré comme équilibré si chaque classe a une bonne représentation dans le jeu de données, telle que mesurée par le nombre et le ratio des échantillons <br> <br> Les classes dans les données d’entraînement sont déséquilibrées
+Cohérence des données de séries chronologiques|**Passed** <br><br><br><br> **Fixed** |<br> Aucun problème potentiel d’insuffisance de mémoire n’a été détecté après analyse des valeurs {horizon, décalage, fenêtre dynamique} sélectionnées. <br> <br>Les valeurs {horizon, décalage, fenêtre dynamique} sélectionnées ont été analysées et peuvent entraîner une insuffisance de mémoire dans votre expérience. La fenêtre dynamique ou de décalage a été désactivée.
 
 ## <a name="run-experiment-and-view-results"></a>Exécuter une expérience et afficher les résultats
 
@@ -226,4 +241,4 @@ Vous disposez maintenant d’un service web opérationnel pour générer des pr�
 * Essayez le [tutoriel de bout en bout pour créer votre première expérience ML automatisé avec Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 * [En savoir plus sur Machine Learning automatisé](concept-automated-ml.md) et Azure Machine Learning.
 * [Comprendre les résultats du Machine Learning](how-to-understand-automated-ml.md).
-* [En savoir plus sur l'utilisation d'un service web](https://docs.microsoft.com/azure/machine-learning/service/how-to-consume-web-service).
+* [En savoir plus sur l'utilisation d'un service web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

@@ -1,31 +1,25 @@
 ---
-title: Résoudre les problèmes concernant la connexion de point à site Azure | Microsoft Docs
+title: Résoudre les problèmes de connexion de point à site Azure
+titleSuffix: Azure VPN Gateway
 description: Découvrez comment résoudre les problèmes de connexion de point à site.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 2c5e8b344cad6928ee586dc5a5b69095f0b14552
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695538"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863646"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Résolution des problèmes : problèmes de connexion point à site Azure
 
 Cet article répertorie les problèmes de connexion de point à site courants que vous pouvez rencontrer. Il décrit également les causes probables de ces problèmes, ainsi que les solutions possibles.
 
-## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Erreur client VPN : impossible de trouver un certificat
+## <a name="vpn-client-error-a-certificate-could-not-be-found"></a>Erreur du client VPN : impossible de trouver un certificat
 
 ### <a name="symptom"></a>Symptôme
 
@@ -304,7 +298,7 @@ Ce problème peut se produire si le client VPN n’obtient pas les itinéraires 
 
 Pour résoudre ce problème, [réinitialisez la passerelle VPN Azure](vpn-gateway-resetgw-classic.md). Pour s’assurer que les nouvelles routes sont utilisées, les clients VPN point à site doivent être retéléchargés une fois que le peering de réseaux virtuels a été configuré avec succès.
 
-## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Error: « La fonction de révocation n’a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
+## <a name="error-the-revocation-function-was-unable-to-check-revocation-because-the-revocation-server-was-offlineerror-0x80092013"></a>Erreur : « La fonction de révocation n’a pas pu vérifier la révocation, car le serveur de révocation était hors connexion (Erreur 0x80092013) ».
 
 ### <a name="causes"></a>Causes
 Ce message d’erreur se produit si le client ne peut pas accéder à http://crl3.digicert.com/ssca-sha2-g1.crl et à http://crl4.digicert.com/ssca-sha2-g1.crl.  La vérification de révocation requiert l’accès à ces deux sites.  Ce problème se produit en général sur le client sur lequel un serveur proxy est configuré. Dans certains environnements, si les requêtes ne passent pas par le serveur proxy, celles-ci seront refusées au niveau du pare-feu Edge.
@@ -345,7 +339,7 @@ Mettre à jour le pilote de carte d’interface réseau :
 4. Si Windows ne trouve pas de nouveau pilote, recherchez-en un sur le site Web du fabricant de l’appareil et suivez ses instructions.
 5. Redémarrez l’ordinateur et réessayez de vous connecter.
 
-## <a name="error-file-download-error-target-uri-is-not-specified"></a>Error: « Erreur de téléchargement du fichier. L’URI cible n’est pas spécifiée »
+## <a name="error-file-download-error-target-uri-is-not-specified"></a>Erreur : « Erreur de téléchargement du fichier. L’URI cible n’est pas spécifiée »
 
 ### <a name="cause"></a>Cause :
 

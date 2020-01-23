@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 30a5058dc47bb9ef22ee3fddb9cc4c2b90271bc2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474731"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043533"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -177,7 +178,7 @@ Maintenant que votre locataire peut émettre des assertions SAML, vous devez cr�
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Ajoutez l’extrait de code XML suivant juste avant l’élément `<RelyingParty>`. Ce code XML remplace l’étape d’orchestration numéro 7 du parcours utilisateur _SignUpOrSignIn_. Si vous avez personnalisé votre parcours utilisateur en ajoutant ou en supprimant des étapes d’orchestration, assurez-vous que le nombre (dans l’élément `order`) est aligné avec celui spécifié dans le parcours utilisateur pour l’étape émetteur de jeton.
+1. Ajoutez l’extrait de code XML suivant juste avant l’élément `<RelyingParty>`. Ce code XML remplace l’étape d’orchestration numéro 7 du parcours utilisateur _SignUpOrSignIn_. Si vous avez démarré à partir d’un autre dossier du pack de démarrage, ou si vous avez personnalisé votre parcours utilisateur en ajoutant ou en supprimant des étapes d’orchestration, vérifiez que le nombre (dans l’élément `order`) est aligné avec celui spécifié dans le parcours utilisateur pour l’étape émetteur du jeton (par exemple, dans les autres dossiers du pack de démarrage, il s’agit du numéro d’étape 4 pour `LocalAccounts`, 6 pour `SocialAccounts` et 9 pour `SocialAndLocalAccountsWithMfa`).
 
     ```XML
     <UserJourneys>
@@ -273,7 +274,7 @@ Votre stratégie personnalisée et votre locataire Azure AD B2C sont maintenant 
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications (préversion)** , puis **Nouvelle inscription**.
 1. Entrez un **Nom** pour l’application. Par exemple, *SAMLApp1*.
-1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans un répertoire organisationnel ou un fournisseur d'identité.**
+1. Sous **Types de comptes pris en charge**, sélectionnez **Comptes dans cet annuaire d’organisation uniquement**.
 1. Sous **URI de redirection**, sélectionnez **Web**, puis entrez `https://localhost`. Vous modifiez cette valeur plus tard dans le manifeste de l’inscription de l’application.
 1. Sélectionnez **Accorder le consentement administrateur aux autorisations openid et offline_access**.
 1. Sélectionnez **Inscription**.
@@ -285,11 +286,11 @@ Pour les applications SAML, vous devez configurer plusieurs propriétés dans le
 1. Dans le [Portail Azure](https://portal.azure.com), accédez à l’inscription de l’application que vous avez créée dans la section précédente.
 1. Sous **Gérer**, sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste. Vous pouvez modifier plusieurs propriétés dans les sections suivantes.
 
-#### <a name="identifieruri"></a>IdentifierUri
+#### <a name="identifieruris"></a>identifierUris
 
-Le `IdentifierUri` est une collection de chaînes contenant un ou plusieurs URI définis par l’utilisateur qui identifient de façon unique une application web au sein de son locataire Azure AD B2C. L'URI de l'identificateur doit provenir d'un domaine vérifié au sein du répertoire de votre organisation. Par exemple : `https://contoso.onmicrosoft.com/app-name`. Votre fournisseur de services doit définir cette valeur dans l’élément `Issuer` d’une demande SAML.
+Le `identifierUris` est une collection de chaînes contenant un ou plusieurs URI définis par l’utilisateur qui identifient de façon unique une application web au sein de son locataire Azure AD B2C. Votre fournisseur de services doit définir cette valeur dans l’élément `Issuer` d’une demande SAML.
 
-#### <a name="samlmetadataurl"></a>SamlMetadataUrl
+#### <a name="samlmetadataurl"></a>samlMetadataUrl
 
 Cette propriété représente l’URL des métadonnées disponibles publiquement du fournisseur de services. L’URL de métadonnées peut pointer vers un fichier de métadonnées chargé sur n’importe quel point de terminaison accessible de manière anonyme, par exemple le stockage d’objets BLOB.
 
@@ -303,7 +304,7 @@ Pour ce didacticiel qui utilise l’application de test SAML, utilisez la valeur
 "samlMetadataUrl":"https://samltestapp2.azurewebsites.net/Metadata",
 ```
 
-#### <a name="replyurlwithtype-optional"></a>ReplyUrlWithType (facultatif)
+#### <a name="replyurlswithtype-optional"></a>replyUrlsWithType (facultatif)
 
 Si vous ne fournissez pas d’URI de métadonnées, vous pouvez spécifier explicitement l’URL de réponse. Cette propriété facultative représente le `AssertionConsumerServiceUrl` (URL`SingleSignOnService` dans les métadonnées du fournisseur de services) et le `BindingType` est supposé être `HTTP POST`.
 
@@ -320,7 +321,7 @@ Pour ce didacticiel, dans lequel vous utilisez l’application SAML test, défin
 ],
 ```
 
-#### <a name="logouturl-optional"></a>LogoutURL (facultatif)
+#### <a name="logouturl-optional"></a>logoutUrl (facultatif)
 
 Cette propriété facultative représente l’URL `Logout` (URL`SingleLogoutService` dans les métadonnées de la partie de confiance), et le `BindingType` correspondant est supposé être `Http-Redirect`.
 

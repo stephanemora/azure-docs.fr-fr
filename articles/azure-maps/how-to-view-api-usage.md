@@ -1,6 +1,6 @@
 ---
-title: Comment afficher l’utilisation de l’API Azure Maps | Microsoft Docs
-description: Découvrez comment afficher les métriques de vos appels de l’API Azure Maps dans le portail.
+title: Afficher les métriques d’utilisation de l’API Azure Maps | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à afficher les métriques pour vos appels de l’API Microsoft Azure Maps dans le portail Azure.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/06/2018
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 716f9fbc02905a8981771c2fd9dd2be0baeb8196
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 7ba50f63fb015a8696904df3decd13c811625459
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460188"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911331"
 ---
-# <a name="view-azure-maps-api-usage"></a>Afficher l’utilisation de l’API Azure Maps
+# <a name="view-azure-maps-api-usage-metrics"></a>Afficher les métriques d’utilisation de l’API Azure Maps
 
 Cet article vous montre comment afficher les métriques d’utilisation de l’API pour votre compte Azure Maps dans le [portal](https://portal.azure.com). Les métriques sont affichées dans un format graphique pratique le long d’une chronologie personnalisable.
 
@@ -23,7 +23,7 @@ Cet article vous montre comment afficher les métriques d’utilisation de l’A
 
 Vous pouvez voir certaines métriques courantes sur la page **Vue d’ensemble** de votre compte Azure Maps. Elle affiche actuellement le *nombre total de demandes*, le *nombre total d’erreurs* et la *disponibilité* sur une période de temps sélectionnable.
 
-![Vue d’ensemble des métriques d’Azure Maps](media/how-to-view-api-usage/portal-overview.png)
+![Vue d’ensemble des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/portal-overview.png)
 
 Si vous avez besoin de personnaliser ces graphiques pour votre analyse, passez à la section suivante.
 
@@ -40,7 +40,7 @@ Si vous avez besoin de personnaliser ces graphiques pour votre analyse, passez �
    1. **Disponibilité**, qui affiche la *Moyenne* de disponibilité de l’API sur une période de temps.
    2. **Utilisation**, qui affiche le *nombre* d’utilisations de votre compte.
 
-      ![Volet Métriques d’Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
+      ![Volet des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/portal-metrics.png)
 
 5. Ensuite, vous pouvez sélectionner l’*Intervalle de temps* en cliquant sur **Dernières 24 heures (automatique)** . Par défaut, l’intervalle de temps est défini sur 24 heures. Après avoir cliqué, vous voyez tous les intervalles de temps sélectionnables. Vous pouvez sélectionner la *Granularité temporelle*, ainsi que choisir d’afficher l’heure *locale* ou *GMT* dans la même liste déroulante. Cliquez sur **Appliquer**.
 
@@ -48,11 +48,11 @@ Si vous avez besoin de personnaliser ces graphiques pour votre analyse, passez �
 
 6. Après avoir ajouté votre métrique, vous pouvez **Ajouter un filtre** à partir des propriétés pertinentes pour cette métrique, puis sélectionner la valeur de la propriété dont vous souhaitez voir le graphique.
 
-    ![Filtre des métriques d’Azure Maps](media/how-to-view-api-usage/filter.png)
+    ![Filtre des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/filter.png)
 
 7. Vous pouvez également **Appliquer un fractionnement** à votre métrique en fonction de la propriété de la métrique sélectionnée. Cela a pour effet de fractionner le graphique en plusieurs graphiques, un pour chaque valeur de cette propriété. Dans l’image suivante, la couleur de chaque graphique correspond à la valeur de propriété affichée au bas du graphique.
 
-    ![Fractionnement des métriques d’Azure Maps](media/how-to-view-api-usage/splitting.png)
+    ![Fractionnement des métriques d’utilisation d’Azure Maps](media/how-to-view-api-usage/splitting.png)
 
 8. Vous pouvez également observer plusieurs métriques sur le même graphique, en cliquant simplement sur le bouton **Ajouter une métrique** en haut.
 

@@ -10,21 +10,24 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442544"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967343"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configuration d’un nom de domaine personnalisé
 
-Lorsque vous créez une instance de service APIM Azure, Azure l’attribue à un sous-domaine d’azure-api.net (par exemple, `apim-service-name.azure-api.net`). Toutefois, vous pouvez exposer vos points de terminaison APIM via votre propre nom de domaine personnalisé, par exemple, **contoso.com**. Ce didacticiel explique comment mapper un nom DNS personnalisé existant à des points de terminaison exposés par une instance APIM.
+Lorsque vous créez une instance du service Gestion des API Azure, Azure lui attribue un sous-domaine d’`azure-api.net` (par exemple, `apim-service-name.azure-api.net`). Toutefois, vous pouvez exposer vos points de terminaison APIM via votre propre nom de domaine personnalisé, par exemple, **contoso.com**. Ce didacticiel explique comment mapper un nom DNS personnalisé existant à des points de terminaison exposés par une instance APIM.
+
+> [!IMPORTANT]
+> Le service Gestion des API accepte uniquement les demandes avec des valeurs d’[en-tête d’hôte](https://tools.ietf.org/html/rfc2616#section-14.23) correspondant au nom de domaine par défaut ou à l’un des noms de domaine personnalisés configurés.
 
 > [!WARNING]
-> Les clients qui souhaitent utiliser un épinglage de certificat pour améliorer la sécurité de leurs applications doivent utiliser un nom de domaine personnalisé > et le certificat qu’ils gèrent, pas le certificat par défaut. Les clients qui épinglent le certificat par défaut à la place > prendront une dépendance dure sur les propriétés du certificat qu’ils ne contrôlent pas, ce qui n’est pas une pratique recommandée.
+> Les clients qui souhaitent utiliser un épinglage de certificat pour améliorer la sécurité de leurs applications doivent utiliser un nom de domaine personnalisé > et le certificat qu’ils gèrent, pas le certificat par défaut. Les clients qui épinglent le certificat par défaut à la place auront une dépendance forte vis-à-vis des propriétés du certificat qu’ils ne contrôlent pas, ce qui n’est pas une pratique recommandée.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

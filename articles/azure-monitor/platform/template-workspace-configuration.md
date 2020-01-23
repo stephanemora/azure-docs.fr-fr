@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
-ms.openlocfilehash: 4ec542609d8984d1d03c326854590c834840b33f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/09/2020
+ms.openlocfilehash: 9ba4fe318db86760e0dbc326730d03ad09203a88
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363368"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834221"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Gérer un espace de travail Log Analytics à l’aide de modèles Azure Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "75363368"
 
 Vous pouvez utiliser des [modèles Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) pour créer et configurer des espaces de travail Log Analytics dans Azure Monitor. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
 
-* Créer un espace de travail, y compris la définition d’un niveau tarifaire 
+* Créer un espace de travail, y compris la définition d’un niveau tarifaire et d’une réservation de capacité
 * Ajouter une solution
 * Créer des recherches enregistrées
 * Créer un groupe d’ordinateurs
@@ -47,7 +47,19 @@ La table suivante répertorie la version d’API pour les ressources utilisées 
 
 ## <a name="create-a-log-analytics-workspace"></a>Créer un espace de travail Log Analytics
 
-L’exemple suivant crée un espace de travail avec un modèle à partir de votre ordinateur local. Le modèle JSON est configuré pour exiger uniquement le nom et l’emplacement du nouvel espace de travail (à l’aide des valeurs par défaut des autres paramètres de l’espace de travail, tels que le niveau tarifaire et la rétention).  
+L’exemple suivant crée un espace de travail avec un modèle à partir de votre ordinateur local. Le modèle JSON est configuré pour exiger uniquement le nom et la localisation du nouvel espace de travail. Il utilise les valeurs spécifiées pour les autres paramètres d’espace de travail, tels que le [mode de contrôle d’accès](design-logs-deployment.md#access-control-mode), le niveau tarifaire, la conservation et le niveau de réservation de capacité.
+
+Pour définir la réservation de capacité, destinée à l’ingestion de données, vous spécifiez la référence SKU `CapacityReservation` et une valeur en Go pour la propriété `capacityReservationLevel`. La liste suivante détaille les valeurs prises en charge et le comportement lors de sa configuration.
+
+- Une fois que vous avez défini la limite de réservation, vous ne pouvez pas passer à une autre référence SKU dans les 31 jours.
+
+- Une fois que vous avez défini la valeur de réservation, vous pouvez uniquement l’augmenter dans les 31 jours.
+
+- Vous pouvez uniquement définir la valeur de `capacityReservationLevel` en multiples de 100, avec une valeur maximale de 50000.
+
+- Si vous augmentez le niveau de réservation, la minuterie est réinitialisée et vous ne pouvez pas la changer pendant une autre période de 31 jours à partir de cette mise à jour.  
+
+- Si vous modifiez une autre propriété de l’espace de travail tout en conservant la limite de réservation au même niveau, la minuterie n’est pas réinitialisée. 
 
 ### <a name="create-and-deploy-template"></a>Créer et déployer un modèle
 
@@ -64,6 +76,21 @@ L’exemple suivant crée un espace de travail avec un modèle à partir de votr
               "description": "Specifies the name of the workspace."
             }
         },
+      "pricingTier": {
+      "type": "string",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "defaultValue": "pergb2018",
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+           }
+       },
         "location": {
             "type": "String",
             "allowedValues": [
@@ -101,11 +128,18 @@ L’exemple suivant crée un espace de travail avec un modèle à partir de votr
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2015-11-01-preview",
+            "apiVersion": "2017-03-15-preview",
             "location": "[parameters('location')]",
             "properties": {
+                "sku": { 
+                    "name": "CapacityReservation",
+                    "capacityReservationLevel": 100
+                },
+                "retentionInDays": 120,
                 "features": {
-                    "searchVersion": 1
+                    "searchVersion": 1,
+                    "legacy": 0,
+                    "enableLogAccessUsingOnlyResourcePermissions": true
                 }
             }
           }
@@ -168,9 +202,9 @@ L’exemple de modèle suivant illustre comment :
         "Standard",
         "Premium"
       ],
-      "defaultValue": "PerGB2018",
+      "defaultValue": "pergb2018",
       "metadata": {
-        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+        "description": "Pricing tier: pergb2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
       }
     },
     "dataRetention": {
@@ -257,7 +291,7 @@ L’exemple de modèle suivant illustre comment :
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -267,7 +301,9 @@ L’exemple de modèle suivant illustre comment :
           "immediatePurgeDataOn30Days": "[parameters('immediatePurgeDataOn30Days')]"
         },
         "sku": {
-          "name": "[parameters('pricingTier')]"
+          "name": "[parameters('pricingTier')]",
+          "name": "CapacityReservation",
+          "capacityReservationLevel": 100
         }
       },
       "resources": [

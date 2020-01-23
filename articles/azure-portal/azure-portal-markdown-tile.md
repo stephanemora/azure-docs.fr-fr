@@ -3,18 +3,18 @@ title: Utiliser une vignette Markdown personnalisée sur les tableaux de bord Az
 description: Découvrez comment ajouter une vignette Markdown à un tableau de bord Azure pour afficher un contenu statique
 services: azure-portal
 keywords: ''
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 17d86b7c89ea5fb24c2adea22c5047c3e1ac3b6f
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 74102423461a56bb6fc19c2eb9874f96a76e34e0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832672"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310711"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Utiliser une vignette Markdown sur les tableaux de bord Azure pour afficher un contenu personnalisé
 

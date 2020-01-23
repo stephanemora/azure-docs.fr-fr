@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039b514fe70da0e300e74bbc98a3a0f4e9ea342c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848593"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979458"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -43,9 +43,9 @@ Les utilisateurs de la réinitialisation de mot de passe en libre-service dispos
 
 L’e-mail de contact est envoyé aux destinataires suivants dans cet ordre :
 
-1. Si le rôle **Administrateur de mot de passe** est affecté, les administrateurs détenteurs de ce rôle sont avertis.
-2. Si aucun administrateur de mot de passe n’est affecté, les administrateurs disposant du rôle **Administrateur d’utilisateurs** sont avertis.
-3. Si aucun des rôles précédents n’a été affecté, les **Administrateurs globaux** sont avertis.
+1. Si les rôles **Administrateur du support technique** ou **Administrateur de mot de passe** est affecté, les administrateurs disposant de ces rôles sont avertis.
+1. Si aucun administrateur du support technique ou administrateur de mot de passe n’est affecté, les administrateurs disposant du rôle **Administrateur d’utilisateurs** sont avertis.
+1. Si aucun des rôles précédents n’a été affecté, les **administrateurs globaux** sont avertis.
 
 Dans tous les cas, un maximum de 100 destinataires sont informés.
 

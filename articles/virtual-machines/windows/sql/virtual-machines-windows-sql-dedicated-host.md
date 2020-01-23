@@ -14,25 +14,26 @@ ms.workload: iaas-sql-server
 ms.date: 08/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8b29bbce1511b022def522d46c74b99967a76ea3
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: edb2d3fa670475d9b08fe05494035949181a9240
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204480"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834346"
 ---
 # <a name="sql-server-vm-on-an-azure-dedicated-host"></a>Machine virtuelle SQL Server sur un hôte dédié Azure 
 
 Cet article détaille les spécificités de l’utilisation d’une machine virtuelle SQL Server avec un [hôte dédié Azure](/azure/virtual-machines/windows/dedicated-hosts). Des informations complémentaires sur l’hôte dédié azure sont disponibles dans le billet de blog [Présentation des hôtes dédiés Azure](https://azure.microsoft.com/blog/introducing-azure-dedicated-host/). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un [hôte dédié Azure](/azure/virtual-machines/windows/dedicated-hosts) est un service qui fournit des serveurs physiques (capables d’héberger une ou plusieurs machines virtuelles) dédiés à un abonnement Azure. Les hôtes dédiés sont les mêmes serveurs physiques que ceux utilisés dans les centres de données de Microsoft, fournis en tant que ressources. Vous pouvez approvisionner des hôtes dédiés au sein d’une région, d’une zone de disponibilité et d’un domaine d’erreur. Ensuite, vous pouvez placer des machines virtuelles directement dans vos hôtes approvisionnés, dans la configuration qui répond le mieux à vos besoins.
 
+## <a name="limitations"></a>Limites
 
-[!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-common-dedicated-hosts-preview.md)]
+- Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
+- Les séries de machines virtuelles suivantes sont prises en charge : DSv3 et ESv3. 
 
-
-## <a name="licensing"></a>Gestion des licences
+## <a name="licensing"></a>Licence
 
 Vous avez le choix entre deux options différentes de gestion des licences quand vous ajoutez votre machine virtuelle SQL Server à un hôte dédié Azure. 
 
@@ -64,11 +65,11 @@ La virtualisation illimitée est l’un des avantages d’un hôte dédié. Par 
 
 Dans la mesure où il s’agit de votre hôte, vous pouvez configurer la virtualisation avec un ratio de 1:2. 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Q : Comment Azure Hybrid Benefit fonctionne-t-il avec les licences Windows Server/SQL Server sur l’hôte dédié Azure ?**
 
-R : Les clients peuvent utiliser leurs licences Windows Server et SQL Server existantes avec le programme Software Assurance, ou des licences d’abonnement éligibles, pour bénéficier d’un tarif réduit sur l’hôte dédié Azure via Azure Hybrid Benefit. Les clients Windows Server Datacenter et SQL Server Édition Entreprise bénéficient d’une virtualisation illimitée (ils peuvent déployer autant de machines virtuelles Windows Server que possible sur l’hôte, en fonction de la capacité physique du serveur sous-jacent) quand ils affectent une licence à l’ensemble de l’hôte et qu’il utilisent Azure Hybrid Benefit.  Toutes les charges de travail Windows Server et SQL Server de l’hôte dédié Azure sont également éligibles aux mises à jour de sécurité étendues pour Windows Server et SQL Server 2008/R2, sans frais supplémentaires. 
+A : Les clients peuvent utiliser leurs licences Windows Server et SQL Server existantes avec le programme Software Assurance, ou des licences d’abonnement éligibles, pour bénéficier d’un tarif réduit sur l’hôte dédié Azure via Azure Hybrid Benefit. Les clients Windows Server Datacenter et SQL Server Édition Entreprise bénéficient d’une virtualisation illimitée (ils peuvent déployer autant de machines virtuelles Windows Server que possible sur l’hôte, en fonction de la capacité physique du serveur sous-jacent) quand ils affectent une licence à l’ensemble de l’hôte et qu’il utilisent Azure Hybrid Benefit.  Toutes les charges de travail Windows Server et SQL Server de l’hôte dédié Azure sont également éligibles aux mises à jour de sécurité étendues pour Windows Server et SQL Server 2008/R2, sans frais supplémentaires. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
