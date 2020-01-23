@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: b409824c2adb544560dfa17b4871ba23760d35c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81f776428303ad5e6486ba52c1acdf70d051563e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443853"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75835013"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Forum aux questions sur les instances gérées SQL Database
 
@@ -105,7 +105,7 @@ Si les deux générations de matériel ne sont pas prises en charge dans la mêm
 
 ## <a name="tune-performance"></a>Régler les performances
 
-**Comment régler les performances de mon instance managée ? **
+**Comment régler les performances de mon instance gérée ?**
 
 L’instance gérée à usage général utilise le stockage à distance en raison de la taille des données et des fichiers journaux importants pour le niveau de performance. Pour plus d’informations, consultez [Impact of log file size on General Purpose Managed Instance performance](https://medium.com/azure-sqldb-managed-instance/impact-of-log-file-size-on-general-purpose-managed-instance-performance-21ad170c823e).
 
@@ -180,8 +180,8 @@ Pour mieux comprendre les avantages, les coûts et les risques associés au dép
 
 ## <a name="dns-refresh"></a>Actualiser DNS 
 
-**Puis-je actualiser DNS ? **
-  
+**Puis-je actualiser DNS ?**
+
 Actuellement, nous ne fournissons pas une fonctionnalité pour actualiser la configuration du serveur DNS pour l’instance gérée.
 
 La configuration DNS est actualisée par la suite :

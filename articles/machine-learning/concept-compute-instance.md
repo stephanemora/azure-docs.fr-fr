@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 02655a3697139ae3a9c4c36b423b874b6e5d34f9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535733"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974106"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -54,7 +54,7 @@ Ces outils et environnements sont installés sur l’instance de calcul :
 |Bibliothèque Intel MPI||
 |Azure CLI ||
 |Exemples Azure Machine Learning ||
-|Moteur EDAT Azure Machine Learning ||            
+|Moteur EDAT Azure Machine Learning ||
 |Docker||
 |Nginx||
 |NCCL 2.0 ||
@@ -76,11 +76,26 @@ Ces outils et environnements sont installés sur l’instance de calcul :
 |Autres packages PyPI|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Packages Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Packages Deep learning|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
-|Packages ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|Packages ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Exemples de SDK Azure Machine Learning pour Python et R||
+
+Les packages Python sont tous installés dans l’environnement **Python 3.6 – AzureML**.  
 
 Les instances de calcul sont généralement utilisées comme environnements de développement.  Elles peuvent également être utilisées comme cible de calcul pour la formation et l’inférence à des fins de développement et de test.  Pour les tâches volumineuses, un [cluster de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) avec des fonctionnalités de mise à l’échelle à plusieurs nœuds est un meilleur choix de cible de calcul.
 
+### <a name="installing-packages"></a>Installation des packages
+
+Vous pouvez installer des packages directement dans un bloc-notes Jupyter ou RStudio :
+
+* RStudio utilise l’onglet **Packages** en bas à droite, ou l’onglet **Console** en haut à gauche.  
+* Python : Ajoutez le code d’installation et l’exécutez dans une cellule de bloc-notes Jupyter.
+
+Ou vous pouvez accéder à une fenêtre de terminal de l’une des manières suivantes :
+
+* RStudio : Sélectionnez l’onglet **Terminal** en haut à gauche.
+* Lab Jupyter :  Sélectionnez la vignette **Terminal** sous le titre **Autre** de l’onglet Lanceur.
+* Jupyter :  Sélectionnez **Nouveau > Terminal** en haut à droite dans l’onglet Fichiers.
+* SSH sur la machine.  Installez ensuite les packages Python dans l’environnement **Python 3.6 – AzureML**.  Installez les packages R dans l’environnement **R**.
 
 ## <a name="accessing-files"></a>Accès aux fichiers
 

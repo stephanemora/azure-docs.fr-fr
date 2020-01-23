@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: a6b696e16d2c946572cc213115fb440775fce3fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442977"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967557"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -95,24 +95,24 @@ Pour conserver les fonctionnalités et les performances des nœuds, les ressourc
 |---|---|---|---|---|---|---|---|
 |Réservés par Kube (millicores)|60|100|140|180|260|420|740|
 
-- **Mémoire** : la mémoire réservée comprend la somme de deux valeurs
+- **Mémoire** – la mémoire utilisée par AKS comprend la somme de deux valeurs.
 
-1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : memory.available<750Mi, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger.
+1. Le démon kubelet est installé sur tous les nœuds de l’agent Kubernetes pour gérer la création et l’arrêt du conteneur. Par défaut sur AKS, ce démon a la règle d’éviction suivante : *memory.available<750Mi*, ce qui signifie qu’un nœud doit toujours avoir au moins 750 Mi allouable à tout moment.  Lorsqu’un hôte se trouve au-dessous de ce seuil de mémoire disponible, kubelet met fin à l’un des pods en cours d’exécution pour libérer de la mémoire sur l’ordinateur hôte et le protéger. Il s’agit d’une action réactive lorsque la mémoire disponible diminue au-delà du seuil 750Mi.
 
-2. La deuxième valeur est une vitesse progressive de la mémoire réservée pour que le démon kubelet fonctionne correctement (kube-reserved).
+2. La deuxième valeur est une vitesse progressive des réservations de la mémoire pour que le démon kubelet fonctionne correctement (kube-reserved).
     - 25 % des 4 premiers Go de mémoire
     - 20 % des 4 Go suivants de mémoire (jusqu’à 8 Go)
     - 10 % des 8 Go suivants de mémoire (jusqu’à 16 Go)
     - 6 % des 112 Go suivants de mémoire (jusqu’à 128 Go)
     - 2 % de la mémoire au-dessus de 128 Go
 
-À la suite de ces deux règles définies imposées pour maintenir l’intégrité des nœuds de Kubernetes et de l’agent, la quantité d’UC et de mémoire allouée est inférieure à celle que le nœud lui-même peut offrir. Les réservations de ressources définies ci-dessus ne peuvent pas être modifiées.
+Les règles ci-dessus relatives à l’allocation de mémoire et d’UC sont utilisées pour assurer l’intégrité des nœuds de l’agent, certains pods de système d’hébergement critiques pour l’intégrité du cluster. Ces règles d’allocation font également en sorte que le nœud signale moins de mémoire allouée et d’UC qu’il ne le ferait s’il faisait partie d’un cluster Kubernetes. Vous ne pouvez pas changer les réservations de ressources ci-dessus.
 
-Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable :
+Par exemple, si un nœud offre 7 Go, il signalera 34 % de la mémoire non allouable en plus du seuil d’éviction dur de 750Mi.
 
-`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+`(0.25*4) + (0.20*3) = + 1 GB + 0.6GB = 1.6GB / 7GB = 22.86% reserved`
 
-En plus des réservations pour Kubernetes, le système d’exploitation du nœud sous-jacent réserve également une quantité de ressources de processeur et de mémoire pour gérer les fonctions du système d’exploitation.
+En plus des réservations pour Kubernetes lui-même, le système d’exploitation du nœud sous-jacent réserve également une quantité de ressources de processeur et de mémoire pour gérer les fonctions du système d’exploitation.
 
 Pour connaître les meilleures pratiques associées, consultez la section [Meilleures pratiques relatives aux fonctionnalités de base du planificateur dans AKS][operator-best-practices-scheduler].
 
@@ -292,4 +292,4 @@ Cet article décrit certains des principaux composants Kubernetes et leur applic
 [operator-best-practices-scheduler]: operator-best-practices-scheduler.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
-[reservation-discounts]: ../billing/billing-save-compute-costs-reservations.md
+[reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md

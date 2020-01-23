@@ -5,18 +5,18 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 358f26af8d990d29f226978387fdf8093d2b8644
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612970"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834233"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
 
 
 ## <a name="error-text"></a>Texte d’erreur
-Ce document est destiné à résoudre les problèmes liés à l’affichage de l’erreur suivante dans le portail Functions.
+Cet article est destiné à résoudre les problèmes liés à l’affichage de l’erreur suivante dans le portail Functions.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
@@ -40,7 +40,7 @@ Chaque application de fonction nécessite un compte de stockage afin de fonction
 
 ### <a name="how-to-find-your-storage-account"></a>Comment trouver votre compte de stockage
 
-Démarrez en recherchant le nom de votre compte de stockage dans les paramètres d’application. `AzureWebJobsStorage` ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contiendra le nom de votre compte de stockage encapsulé dans une chaîne de connexion. Lire des informations plus précises aux [références de paramètres d’application ici](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+Démarrez en recherchant le nom de votre compte de stockage dans les paramètres d’application. `AzureWebJobsStorage` ou `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contiendra le nom de votre compte de stockage encapsulé dans une chaîne de connexion. En savoir plus sur les informations plus précises aux [références de paramètres d’application ici](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
 
 Recherchez votre compte de stockage dans le portail Azure pour voir s’il existe toujours. S’il a été supprimé, vous devez recréer un compte de stockage et remplacer vos chaînes de connexion de stockage. Votre code de fonction est perdu et vous devrez à nouveau le redéployer.
 
@@ -56,7 +56,7 @@ Dans l’étape précédente, si vous ne disposiez pas d’une chaîne de connex
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
     * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-[En savoir plus sur ces paramètres d’application ici](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+[En savoir plus sur ces paramètres d’application ici](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
 
 ### <a name="guidance"></a>Assistance
 
@@ -66,7 +66,7 @@ Dans l’étape précédente, si vous ne disposiez pas d’une chaîne de connex
 
 ## <a name="storage-account-credentials-invalid"></a>Informations d’identification du compte de stockage invalides
 
-Les chaînes de connexion de compte de stockage ci-dessus doivent être mises à jour si vous régénérez les clés de stockage. [En savoir plus sur la gestion des clés de stockage ici](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)
+Les chaînes de connexion de compte de stockage ci-dessus doivent être mises à jour si vous régénérez les clés de stockage. [En savoir plus sur la gestion des clés de stockage ici](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
 
 ## <a name="storage-account-inaccessible"></a>Compte de stockage inaccessible
 
@@ -79,7 +79,7 @@ Votre Function App doit être en mesure d’accéder au compte de stockage. Les 
 
 Si vous avez configuré un quota d’exécution quotidien, votre Function App sera temporairement désactivée et la plupart des contrôles du portail seront indisponibles. 
 
-* Pour vérifier, accédez à Ouvrir les fonctionnalités de la plateforme > Paramètres de Function App dans le portail. Le message suivant s’affiche si vous avez dépassé votre quota
+* Pour vérifier, ouvrez Fonctionnalités de la plateforme > Paramètres Function App dans le portail. Le message suivant s’affiche si vous avez dépassé votre quota :
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Supprimer le quota et redémarrez votre application pour résoudre le problème.
 

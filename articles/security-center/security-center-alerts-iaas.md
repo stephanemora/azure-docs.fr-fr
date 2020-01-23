@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: b101fd30ddbdbf0f8fdf6e02394cb10b9af5f4b0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a5ed91cef6e49fcb71c35f2262479be45a018651
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666361"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754312"
 ---
 # <a name="threat-detection-for-vms-and-servers-in-azure-security-center"></a>Détection des menaces pour les machines virtuelles et les serveurs dans Azure Security Center
 
@@ -41,7 +41,7 @@ Azure Security Center s’intègre aux services Azure pour superviser et protég
 
     Toutefois, il est possible de détecter ce type d’attaque à l’aide de l’analyse de la mémoire. En analysant la mémoire dans le vidage sur incident, Security Center peut détecter les techniques utilisées par l’attaque. Par exemple, l’attaque peut tenter d’exploiter des vulnérabilités présentes dans le logiciel, d’accéder à des données confidentielles et de persister subrepticement sur une machine compromise. Security Center détecte toutes ces techniques avec un impact minime sur les performances des ordinateurs hôtes.
 
-    Pour obtenir la liste des alertes d’analyse de vidage sur incident, consultez la [table de référence des alertes](alerts-reference.md#alerts-crashdump).
+    Pour obtenir des détails sur les alertes d’analyse de vidage sur incident, consultez la [table de référence des alertes](alerts-reference.md#alerts-windows).
 
 * **Détection des attaques sans fichier** <a name="windows-fileless"></a> - Les attaques sans fichier ciblant des points de terminaison sont courantes. Pour éviter d’être détectées, les attaques sans fichier injectent des charges utiles malveillantes en mémoire. Les charges utiles des attaquants sont conservées dans la mémoire des processus compromis et effectuent un large éventail d’activités malveillantes.
 
@@ -49,7 +49,7 @@ Azure Security Center s’intègre aux services Azure pour superviser et protég
 
     Elle trouve des preuves de l’exploitation, de l’injection de code et de l’exécution de charges utiles malveillantes. La détection des attaques sans fichier génère des alertes de sécurité détaillées qui accélèrent le tri des alertes, la corrélation et le temps de réponse en aval. Cette approche complète les solutions EDR basées sur les événements, en offrant une couverture de détection plus large.
 
-    Pour obtenir la liste des alertes de détection des attaques sans fichier, consultez la [table de référence des alertes](alerts-reference.md#alerts-filelessattackdetect).
+    Pour obtenir des détails sur les alertes de détection des attaques sans fichier, consultez la [table de référence des alertes](alerts-reference.md#alerts-windows).
 
 > [!NOTE]
 > Vous pouvez simuler des alertes Windows en téléchargeant le document [Azure Security Center Playbook: Alertes de sécurité](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046).

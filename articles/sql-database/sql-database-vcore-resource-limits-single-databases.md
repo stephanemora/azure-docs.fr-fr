@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: ''
-ms.date: 12/11/2019
-ms.openlocfilehash: 4455181ddf69613ba07bcaeedb26273a4bb5a74d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.reviewer: carlrab
+ms.date: 01/22/2020
+ms.openlocfilehash: 267779afc749fccba41935741630a759576d6e77
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647847"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515018"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Limites de ressources pour des bases de données uniques suivant le modèle d’achat vCore
 
@@ -181,7 +181,7 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement di
 |Type de stockage| [Remarque 1](#notes) |[Remarque 1](#notes)|[Remarque 1](#notes)|[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |[Remarque 1](#notes) |
 |Nombre maximal d’IOPS de données *|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|[Remarque 2](#notes)|
 |Latence d’E/S (approximative)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|[Remarque 3](#notes)|
-|Nombre maximal d’ouvriers simultanés (demandes)|200|400|800|1 600|2 400|3200|8000|
+|Nombre maximal d’ouvriers simultanés (demandes)|1 600|1800|2000|2 400|3200|4000|8000|
 |Nombre maximal de sessions simultanées|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
 |Réplicas secondaires|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Plusieurs zones de disponibilités|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -322,9 +322,10 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement di
 |Taille maximale des données TempDB (Go)|333|
 |Type de stockage|SSD distant|
 |Latence d’E/S (approximative)|5-7 ms (écriture)<br>5-10 ms (lecture)|
-|Nombre maximal d’IOPS de données *|23,040|
+|Nombre maximal d’IOPS de données *|12 800|
 |Taux de journalisation maximal (Mbits/s)|30|
 |Nombre maximal d’ouvriers simultanés (demandes)|3600|
+|Nombre maximal de connexions simultanées|3600|
 |Nombre maximal de sessions simultanées|30,000|
 |Nombre de réplicas|1|
 |Plusieurs zones de disponibilités|N/A|
@@ -448,21 +449,22 @@ Le [niveau de calcul serverless](sql-database-serverless.md) est actuellement di
 
 ### <a name="m-series-compute-generation-preview"></a>Génération de calcul de série M (préversion)
 
-|Taille de calcul|GP_M_128|
+|Taille de calcul|BC_M_128|
 |:--- | --: |
 |Génération de calcul|Série M|
 |vCores|128|
-|Mémoire (Go)|3767|
+|Mémoire (Go)|3767.1|
 |Prise en charge de ColumnStore|Oui|
-|Stockage In-Memory OLTP (Go)|481|
+|Stockage In-Memory OLTP (Go)|1768|
 |Taille maximale des données (Go)|4096|
 |Taille maximale du journal (Go)|2 048|
 |Taille maximale des données TempDB (Go)|4096|
 |Type de stockage|SSD local|
 |Latence d’E/S (approximative)|1-2 ms (écriture)<br>1-2 ms (lecture)|
-|Nombre maximal d’IOPS de données *|204 800|
-|Taux de journalisation maximal (Mbits/s)|192|
-|Nombre maximal d’ouvriers simultanés (demandes)|12800|
+|Nombre maximal d’IOPS de données *|160 000|
+|Taux de journalisation maximal (Mbits/s)|264|
+|Nombre maximal d’ouvriers simultanés (demandes)|12 800|
+|Nombre maximal de connexions simultanées|12 800|
 |Nombre maximal de sessions simultanées|30000|
 |Nombre de réplicas|4|
 |Plusieurs zones de disponibilités|Oui|

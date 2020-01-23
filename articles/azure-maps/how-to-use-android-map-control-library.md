@@ -1,6 +1,6 @@
 ---
-title: Bien démarrer avec le contrôle de carte Android dans Azure Maps | Microsoft Docs
-description: Le contrôle de carte Android dans Azure Maps.
+title: Bien démarrer avec le contrôle de carte Android | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir comment prendre en main le contrôle de carte Android à l’aide de Android SDK Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cb79b24a37758307657c1245622fa980123cc5c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432934"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911394"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Bien démarrer avec Android SDK Azure Maps
 
@@ -43,7 +43,7 @@ Commencez par créer un projet avec une activité vide. Suivez ces étapes pour 
 
 Pour obtenir de l’aide supplémentaire sur l’installation d’Android Studio et la création d’un projet, consultez la [documentation Android Studio](https://developer.android.com/studio/intro/).
 
-![Création d’un projet](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Créer un projet dans Android Studio ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>Configurer un appareil virtuel
 
@@ -217,7 +217,7 @@ La création de l’application par Android Studio prend quelques secondes. Une 
 
 <center>
 
-![Carte Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
+![Azure Maps dans une application Android](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## <a name="localizing-the-map"></a>Localisation de la carte
 
@@ -263,7 +263,7 @@ Voici un exemple Azure Maps dans lequel la langue est définie sur « fr-FR »
 
 <center>
 
-![Représentation d'une carte avec des étiquettes en français](./media/how-to-use-android-map-control-library/android-localization.png)
+![Azure Maps, image de carte affichant des étiquettes en français](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
 La liste complète des langues et des affichages régionaux pris en charge est disponible [ici](supported-languages.md).

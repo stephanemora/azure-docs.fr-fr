@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/20/2019
-ms.openlocfilehash: 0fd299ea6ceb9631ff473ec2ac9f37be2f6be215
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 3ec50acc693452fe73d929effcea98b12fc5ff8b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495738"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933932"
 ---
 # <a name="work-in-the-apache-hadoop-ecosystem-on-hdinsight-from-a-windows-pc"></a>Travailler dans l’écosystème Apache Hadoop sur HDInsight à partir d’un PC Windows
 
@@ -58,7 +58,7 @@ Voici des exemples de tâches que vous pouvez effectuer avec Visual Studio et Da
 Vous pouvez utiliser Visual Studio avec le SDK .NET pour gérer des clusters et développer des applications Big Data. Vous pouvez utiliser d’autres environnements de développement intégrés pour les tâches suivantes, mais les exemples sont présentés dans Visual Studio.
 
 Voici des exemples de tâches que vous pouvez effectuer avec le SDK .NET dans Visual Studio :
-* [Créer des clusters et travailler dans HDInsight à partir d’une application .NET Framework](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md)
+* [SDK Azure HDInsight pour .NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
 * [Exécuter des requêtes Apache Hive avec le SDK .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md)
 * [Utiliser des fonctions C# définies par l’utilisateur avec le streaming Apache Hive et Apache Pig sur Apache Hadoop](hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md)
 

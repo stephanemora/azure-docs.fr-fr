@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 02/21/2018
 ms.author: nzthiago
 ms.custom: include file
-ms.openlocfilehash: fded43bb655cefda508b82eca94522730ab6da00
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 3501ff3f92ae045019df2766bbcf7fc2c3fec5b0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74941697"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768914"
 ---
 ## <a name="timeout"></a>Durée du délai d’expiration du conteneur de fonctions 
 
-La durée d’expiration d’un conteneur de fonctions est définie par la propriété functionTimeout dans le fichier projet [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout). Le tableau suivant présente les valeurs par défaut et les valeurs maximales en minutes pour les deux plans et dans les deux versions du runtime :
+La durée d’expiration d’une application de fonction est définie par la propriété `functionTimeout` dans le fichier projet [host.json](../articles/azure-functions/functions-host-json.md#functiontimeout). Le tableau suivant présente les valeurs par défaut et les valeurs maximales en minutes pour les deux plans et dans les différentes versions du runtime :
 
-| Planification | Version du runtime | Default | Maximale |
+| Plan | Version du runtime | Default | Maximale |
 |------|---------|---------|---------|
-| Consommation | 1.x | 5\. | 10 |
-| Consommation | 2.x | 5\. | 10 |
-| Consommation | 3.x | 5\. | 10 |
+| Consommation | 1.x | 5 | 10 |
+| Consommation | 2.x | 5 | 10 |
+| Consommation | 3.x | 5 | 10 |
 | App Service | 1.x | Illimité | Illimité |
 | App Service | 2.x | 30 | Illimité |
 | App Service | 3.x | 30 | Illimité |

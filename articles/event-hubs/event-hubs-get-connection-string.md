@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 02/19/2019
 ms.author: spelluru
-ms.openlocfilehash: edd197fb6d578df064c67a422767e3e70a0c8142
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 744151a1ce8cde630e26c17ccf06569ebd0efb61
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66158902"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771000"
 ---
 # <a name="get-an-event-hubs-connection-string"></a>Obtenir une chaîne de connexion Event Hubs
 
@@ -68,6 +68,12 @@ Vous pouvez utiliser ce qui suit pour obtenir la chaîne de connexion de l’esp
 az eventhubs namespace authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --name RootManageSharedAccessKey
 ```
 
+Ou vous pouvez utiliser ce qui suit pour obtenir la chaîne de connexion de l’entité EventHub :
+
+```azurecli-interactive
+az eventhubs eventhub authorization-rule keys list --resource-group dummyresourcegroup --namespace-name dummynamespace --eventhub-name dummyeventhub --name RootManageSharedAccessKey
+```
+
 Pour plus d’informations sur les commandes Azure CLI pour Event Hubs, consultez [Azure CLI pour Event Hubs](/cli/azure/eventhubs).
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -75,4 +81,4 @@ Pour plus d’informations sur les commandes Azure CLI pour Event Hubs, consulte
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
 * [Vue d’ensemble d’Event Hubs](event-hubs-what-is-event-hubs.md)
-* [Créer un concentrateur d’événements](event-hubs-create.md)
+* [Créer un hub d’événements](event-hubs-create.md)

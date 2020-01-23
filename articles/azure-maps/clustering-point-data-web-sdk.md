@@ -1,6 +1,6 @@
 ---
-title: Clustering de données de point dans Azure Maps | Microsoft Docs
-description: Comment mettre en cluster des données de point dans le kit de développement logiciel (SDK) web
+title: Clustering de données de point sur une carte | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à ajouter au cluster des données de points et à les afficher sur une carte à l’aide du SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: 56d9a9a629e64430c97cf392ee4381e1ad7ca906
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 846abb61511ae1d5aedf77059ed2f1e9f4e5dbfb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433029"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911737"
 ---
 # <a name="clustering-point-data"></a>Clustering de données de point
 

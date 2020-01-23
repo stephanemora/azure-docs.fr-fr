@@ -1,6 +1,6 @@
 ---
-title: Création d’une application accessible avec Azure Maps | Microsoft Docs
-description: Comment créer une application accessible à l’aide d’Azure Maps
+title: Créer une applicationde carte accessible avec Azure Maps | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à créer une application avec des fonctionnalités d’accessibilité à l’aide de Microsoft Azure Maps.
 services: azure-maps
 author: rbrundritt
 ms.author: richbrun
@@ -8,12 +8,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 4d997bcb5bbbb66a06bea998577f8163910afce8
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 739322feb8e844a197f2943f4ff050cacc0f2274
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561301"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911293"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564692"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942802"
 ---
 ## <a name="application-performance-indicators"></a>Indicateurs de performances d’une application
 
@@ -126,7 +126,7 @@ Pour plus d’informations sur les tailles de machine virtuelle et sur les E/S p
 | **Taille d’E/S** |Une plus petite taille d’E/S génère un nombre d’E/S par seconde plus élevé. |Une plus grande taille d’E/S génère un débit plus élevé. | &nbsp;|
 | **Taille de la machine virtuelle** |Utilisez une taille de machine virtuelle qui offre un nombre d’E/S par seconde supérieur aux besoins de votre application. |Utilisez une taille de machine virtuelle qui offre une limite de débit supérieure aux besoins de votre application. |Utilisez une taille de machine virtuelle qui offre une limite de mise à l’échelle supérieure aux besoins de votre application. |
 | **Taille du disque** |Utilisez une taille de disque qui offre un nombre d’E/S par seconde supérieur aux besoins de votre application. |Utilisez une taille de disque qui offre une limite de débit supérieure aux besoins de votre application. |Utilisez une taille de disque qui offre une limite de mise à l’échelle supérieure aux besoins de votre application. |
-| **Limites de mises à l’échelle des machines virtuelles et des disques** |La limite d’E/S par seconde de la taille de machine virtuelle choisie doit être supérieure au nombre total d’E/S par seconde générées par les disques de stockage premium qui lui sont associés. |La limite de débit par seconde de la taille de machine virtuelle choisie doit être supérieure au débit total généré par les disques de stockage premium qui lui sont associés. |Les limites de mise à l’échelle de la taille de machine virtuelle choisie doivent être supérieures aux limites totales de mise à l’échelle des disques de stockage premium qui lui sont associés. |
+| **Limites de mises à l’échelle des machines virtuelles et des disques** |La limite d’E/S par seconde de la taille de machine virtuelle choisie doit être supérieure au nombre total d’E/S par seconde générées par les disques de stockage qui lui sont associés. |La limite de débit par seconde de la taille de machine virtuelle choisie doit être supérieure au débit total généré par les disques de stockage premium qui lui sont associés. |Les limites de mise à l’échelle de la taille de machine virtuelle choisie doivent être supérieures aux limites totales de mise à l’échelle des disques de stockage premium qui lui sont associés. |
 | **Mise en cache du disque** |Activez le cache en lecture seule sur les disques de stockage premium avec des opérations de lecture intensives pour obtenir un taux d’E/S en lecture par seconde plus élevé. | &nbsp; |Activez le cache en lecture seule sur les disques de stockage premium avec des opérations de lecture intensives pour obtenir de très faibles latences en lecture. |
 | **Entrelacement de disques** |Utilisez plusieurs disques et entrelacez-les pour augmenter la limite combinée de débit et d’E/S par seconde. La limite combinée par machine virtuelle doit être supérieure aux limites combinées des disques premium associés. | &nbsp; | &nbsp; |
 | **Taille de l’entrelacement** |Taille d’entrelacement plus petite pour les petits schémas d’E/S aléatoires associés aux applications OLTP. Utilisez par exemple une taille d’entrelacement de 64 Ko pour les applications OLTP sous SQL Server. |Plus grande taille d’entrelacement pour les grands schémas d’E/S séquentiels associés aux applications d’entrepôt de données. Utilisez par exemple une taille d’entrelacement de 256 Ko pour les applications d’entrepôt de données sous SQL Server. | &nbsp; |

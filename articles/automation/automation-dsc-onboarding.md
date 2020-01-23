@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: 9ebe38b54c042a0c945200bc3d88076b16c2e6f9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c5876dd293a97414ff4f48dbb8645e64226a6ba8
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366377"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834104"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Intégration des machines pour la gestion avec Azure Automation State Configuration
 
@@ -31,8 +31,7 @@ Azure Automation State Configuration peut servir à gérer une grande diversité
 
 - Machines virtuelles Azure
 - Machines virtuelles Azure (classiques)
-- Instances EC2 d’Amazon Web Services (AWS)
-- Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS
+- Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS (y compris les instances AWS EC2)
 - Machines physiques/virtuelles Linux sur site, dans Azure, ou dans un cloud autre qu’Azure
 
 En outre, si vous n’êtes pas prêt à gérer la configuration de la machine dans le cloud, Azure Automation State Configuration peut également servir de point de terminaison dédié uniquement à la génération de rapports.
@@ -82,11 +81,7 @@ La meilleure façon d’enregistrer des machines virtuelles à partir d’autres
 Vous trouverez des exemples dans la section relative à [l’extension de Desired State Configuration avec des modèles Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-template).
 Pour trouver la clé d’inscription et l’URL d’inscription à utiliser comme paramètres dans ce modèle, consultez la section [**Inscription sécurisée**](#secure-registration), ci-après.
 
-## <a name="amazon-web-services-aws-virtual-machines"></a>Machines virtuelles Amazon Web Services (AWS)
-
-Vous pouvez facilement intégrer des machines virtuelles Amazon Web Services pour la gestion de configuration par Azure Automation State Configuration à l’aide de la boîte à outils AWS DSC. Pour obtenir plus d’informations sur cette boîte à outils, cliquez [ici](https://blogs.msdn.microsoft.com/powershell/2016/04/20/aws-dsc-toolkit/).
-
-## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws"></a>Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS
+## <a name="physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances"></a>Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS (y compris les instances AWS EC2)
 
 Les serveurs Windows en cours d’exécution en local ou dans d’autres environnements de cloud peuvent également être intégrés dans Azure Automation State Configuration, tant qu’ils ont [un accès sortant à Azure](automation-dsc-overview.md#network-planning) :
 

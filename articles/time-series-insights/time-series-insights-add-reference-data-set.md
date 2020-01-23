@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: a810076c8836acccf83733df02fbd0a29a8eba9b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460301"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863493"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
 
@@ -72,7 +72,7 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
    [![Passer en revue les données de référence](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
-1. Passez en revue chaque colonne pour voir le type de données pris par défaut et le modifier si nécessaire.  Sélectionnez le symbole de type de données dans l’en-tête de colonne : **#** pour double (données numériques), **T|F** pour booléen ou **Abc** pour une chaîne.
+1. Passez en revue chaque colonne pour comprendre le type de données pris par défaut et le modifier si nécessaire.  Sélectionnez le symbole de type de données dans l’en-tête de colonne : **#** pour double (données numériques), **T|F** pour booléen ou **Abc** pour une chaîne.
 
    [![Choisissez les types de données dans les en-têtes de colonne.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
@@ -116,4 +116,4 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
 * [Gérez les données de référence](time-series-insights-manage-reference-data-csharp.md) par programme.
 
-* Pour obtenir des informations de référence d’API complètes, consultez le document [API de données de référence](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+* Pour obtenir des informations de référence d’API complètes, lisez le document [API de données de référence](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
