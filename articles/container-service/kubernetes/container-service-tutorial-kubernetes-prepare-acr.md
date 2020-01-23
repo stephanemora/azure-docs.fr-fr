@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Tutoriel Azure Container Service - Préparer l'ACR
 description: Didacticiel Azure Container Service - Préparer l’ACR
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: fbd718b62246e820bfa01353080815b62912bd00
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55657397"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274127"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(DÉCONSEILLÉ) Déployer et utiliser Azure Container Registry
 
@@ -155,7 +153,7 @@ Result
 v1
 ```
 
-Au terme de ce didacticiel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, cette image est déployée à partir d’ACR vers un cluster Kubernetes.
+Au terme de ce tutoriel, l’image conteneur est stockée dans une instance privée Azure Container Registry. Dans les didacticiels suivants, cette image est déployée à partir d’ACR vers un cluster Kubernetes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
