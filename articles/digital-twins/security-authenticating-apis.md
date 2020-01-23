@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 6c2b0ec5165652e77c92426bb62a30468eef04c2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0aed84dc4d78f8e83f568ff3e73d1300aaedbcaa
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456895"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860960"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Se connecter et s'authentifier à l'aide d'API
 
@@ -49,7 +49,7 @@ Lorsque les développeurs créent l’architecture des solutions Digital Twins, 
 
 1. Le jeton obtenu soit ensuite utilisé pour appeler ou s’authentifier auprès d’API plus en aval à l’aide du flux On-Behalf-Of
 
-Pour obtenir des instructions sur la façon d’orchestrer le flux On-Behalf-Of, consultez [Flux On-Behalf-Of OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Vous pouvez aussi consulter des exemples de code dans [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
+Pour obtenir des instructions sur la façon d’orchestrer le flux On-Behalf-Of, consultez le [flux OAuth 2.0 On-Behalf-Of](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). Vous pouvez aussi consulter des exemples de code dans [Calling a downstream web API](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 9adf8dd4a5a3c469ed130b29308a0d828aee40bf
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1c13414bb252da1192f82675da5b134bf43a40f0
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65873989"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772633"
 ---
 # <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’arrêt automatique d’un laboratoire dans Azure DevTest Labs
 Azure DevTest Labs vous permet de contrôler les coûts et de réduire le gaspillage dans vos laboratoires en gérant les stratégies (paramètres) de chacun d’entre eux. Cet article vous montre comment configurer la stratégie d’arrêt automatique pour un compte de laboratoire et configurer les paramètres d’arrêt automatique pour un laboratoire dans le compte de laboratoire. Pour savoir comment définir chaque stratégie de laboratoire, consultez [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -38,7 +38,7 @@ La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laque
 
 Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.   
 4. Sélectionnez **Configuration et stratégies**.
@@ -49,28 +49,31 @@ Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme 
     ![Arrêt automatique](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 6. Sélectionnez **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
 7. Si vous activez cette stratégie, spécifiez l’heure (et le fuseau horaire) de l’arrêt pour toutes les machines virtuelles du laboratoire actif.
-8. Spécifiez **Oui** ou **Non** pour l’option d’envoi de notification 15 minutes avant l’heure d’arrêt automatique spécifiée. Si vous choisissez **Oui**, saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt. Pour en savoir plus, consultez la section [Notifications](#notifications). 
+8. Sélectionnez **Oui** ou **Non** pour l’option d’envoi de notification 30 minutes avant l’heure d’arrêt automatique indiquée. Si vous choisissez **Oui**, saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt. Pour en savoir plus, consultez la section [Notifications](#notifications). 
 9. Sélectionnez **Enregistrer**.
 
     Par défaut, une fois activée, cette stratégie s’applique à toutes les machines virtuelles dans le laboratoire en cours. Pour supprimer ce paramètre sur une machine virtuelle spécifique, ouvrez le volet de gestion de la machine virtuelle et modifiez son paramètre **Arrêt automatique**.
+    
+> [!NOTE]
+> Si vous mettez à jour la planification de l’arrêt automatique pour votre laboratoire ou une machine virtuelle de laboratoire spécifique dans les 30 minutes de l’heure actuelle planifiée, l’heure d’arrêt mise à jour s’applique à la planification du jour suivant. 
 
 ### <a name="user-sets-a-schedule-and-can-opt-out"></a>L'utilisateur définit une planification qu'il peut refuser
 Si vous définissez cette stratégie pour votre laboratoire, les utilisateurs du laboratoire peuvent remplacer ou refuser la planification du laboratoire. Cette option accorde aux utilisateurs du laboratoire un contrôle total sur la planification d’arrêt automatique de leurs machines virtuelles. Les utilisateurs du laboratoire ne voient aucune modification de leur page de planification d’arrêt automatique des machine virtuelles.
 
-![Option de stratégie d’arrêt automatique - 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
+![Option de stratégie d’arrêt automatique – 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
 
 ### <a name="user-sets-a-schedule-and-cannot-opt-out"></a>L'utilisateur définit une planification qu'il ne peut pas refuser
 Si vous définissez cette stratégie pour votre laboratoire, les utilisateurs du laboratoire peuvent remplacer la planification du laboratoire. Ils ne peuvent cependant pas renoncer à la stratégie d’arrêt automatique. Cette option permet de s’assurer que chaque machine de votre laboratoire fait l’objet d’une planification d’arrêt automatique. Les utilisateurs du laboratoire peuvent mettre à jour la planification d’arrêt automatique de leurs machines virtuelles et définir des notifications d’arrêt.
 
-![Option de stratégie d’arrêt automatique - 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
+![Option de stratégie d’arrêt automatique – 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
 
 ### <a name="user-has-no-control-over-the-schedule-set-by-lab-admin"></a>L'utilisateur n'a aucun contrôle sur la planification définie par l'administrateur du laboratoire
 Si vous définissez cette stratégie pour votre laboratoire, les utilisateurs du laboratoire ne peuvent ni remplacer ni refuser la planification du laboratoire. Cette option offre à l’administrateur du laboratoire le contrôle total sur la planification de chaque machine du laboratoire. Les utilisateurs du laboratoire ne peuvent configurer de notifications d’arrêt automatique que pour leurs machines virtuelles.
 
-![Option de stratégie d’arrêt automatique - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
+![Option de stratégie d’arrêt automatique – 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
 ## <a name="notifications"></a>Notifications
-Une fois l’arrêt automatique configuré par le propriétaire du laboratoire, des notifications seront envoyées aux utilisateurs du laboratoire 15 minutes avant le déclenchement de l’arrêt automatique si l’une de leurs machines virtuelles est affectée. Cette option donne aux utilisateurs du laboratoire la possibilité d’enregistrer leur travail avant l’arrêt. La notification fournit également des liens de chaque machine virtuelle pour les actions suivantes :
+Une fois l’arrêt automatique configuré par le propriétaire du laboratoire, des notifications seront envoyées aux utilisateurs du laboratoire 30 minutes avant le déclenchement de l’arrêt automatique si l’une de leurs machines virtuelles est concernée. Cette option donne aux utilisateurs du laboratoire la possibilité d’enregistrer leur travail avant l’arrêt. La notification fournit également des liens de chaque machine virtuelle pour les actions suivantes :
 
 - Pour l’instant, ignorez l’arrêt automatique
 - Répétez l’arrêt automatique pendant une heure ou deux heures afin qu’ils puissent continuer à travailler sur la machine virtuelle.

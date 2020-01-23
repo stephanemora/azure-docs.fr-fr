@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997052"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940904"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -71,6 +71,7 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
 
 - **Attribut source** : attribut utilisateur du système source (par exemple, Azure Active Directory).
 - **Attribut cible** : attribut utilisateur dans le système cible (par exemple, ServiceNow).
+- **Valeur par défaut si null (facultatif)**  : la valeur qui sera passée au système cible si l’attribut source est null. Cette valeur sera configurée uniquement lors de la création d’un utilisateur. La « valeur par défaut si null » ne sera pas configurée lors de la mise à jour d’un utilisateur existant. Si, par exemple, vous souhaitez configurer tous les utilisateurs existants dans le système cible avec un poste particulier (lorsque la valeur est null dans le système source), vous pouvez utiliser [l’expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)suivante : Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Veillez à remplacer la « valeur par défaut » par ce que vous souhaitez configurer lorsque la valeur est null dans le système source. 
 - **Trouver les objets utilisant cet attribut** : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
 - **Priorité des correspondances** : plusieurs attributs de correspondance peuvent être définis. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
 - **Appliquer ce mappage**

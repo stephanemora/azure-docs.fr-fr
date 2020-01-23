@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 5b1c3e6dcd106e16ab07f707729f31ee1e269461
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 75ed2029582438ede43687addfd54c0a187e0120
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660305"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861096"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Traitement des données et fonctions définies par l’utilisateur
 
@@ -104,7 +104,7 @@ Les fonctions définies par l’utilisateur peuvent être rédigées en JavaScri
 - Créer une notification lorsque certaines conditions sont remplies pour des données de capteur entrantes
 - Attacher des métadonnées de graphe aux données du capteur avant d’envoyer une notification
 
-Pour en savoir plus, consultez [Utilisation des fonctions définies par l’utilisateur](./how-to-user-defined-functions.md).
+Pour en savoir plus, consultez la section [Utilisation des fonctions définies par l’utilisateur](./how-to-user-defined-functions.md).
 
 #### <a name="examples"></a>Exemples
 
@@ -114,7 +114,7 @@ Le [dépôt GitHub pour l’exemple en C# Digital Twins](https://github.com/Azur
 
 ### <a name="role-assignment"></a>Attribution de rôle
 
-Les actions d’une fonction définie par l’utilisateur sont soumises au [contrôle d’accès en fonction du rôle d’Azure Digital Twins](./security-role-based-access-control.md), afin de sécuriser les données au sein du service. Les attributions de rôles définissent quelles fonctions définies par l’utilisateur ont les autorisations appropriées pour interagir avec le graphique spatial et ses entités. Par exemple, une fonction définie par l’utilisateur peut avoir la capacité et l’autorisation de *CRÉER*, *LIRE*, *METTRE À JOUR*, ou *SUPPRIMER* des données graphiques sous un espace donné. Le niveau d’accès d’une fonction définie par l’utilisateur est vérifié lorsque la fonction demande des données au graphe ou tente une action. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle](./security-create-manage-role-assignments.md).
+Les actions d’une fonction définie par l’utilisateur sont soumises au [contrôle d’accès en fonction du rôle d’Azure Digital Twins](./security-role-based-access-control.md), afin de sécuriser les données au sein du service. Les attributions de rôles définissent quelles fonctions définies par l’utilisateur ont les autorisations appropriées pour interagir avec le graphique spatial et ses entités. Par exemple, une fonction définie par l’utilisateur peut avoir la capacité et l’autorisation de *CRÉER*, *LIRE*, *METTRE À JOUR*, ou *SUPPRIMER* des données graphiques sous un espace donné. Le niveau d’accès d’une fonction définie par l’utilisateur est vérifié lorsque la fonction demande des données au graphe ou tente une action. Pour en savoir plus, consultez la section [Contrôle d’accès en fonction du rôle](./security-create-manage-role-assignments.md).
 
 Un détecteur peut déclencher une fonction définie par l’utilisateur à laquelle aucun rôle n’est attribué. Dans ce cas, la fonction ne peut pas lire les données du graphique.
 

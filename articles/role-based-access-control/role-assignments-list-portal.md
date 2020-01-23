@@ -11,19 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c265e03cfea2ebe8bbe55a63ade04bffd06360e0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462264"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934475"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] Cet article explique comment lister les attributions de rôles à l’aide du portail Azure.
+
+> [!NOTE]
+> Si votre organisation possède des fonctions de gestion externalisées pour un fournisseur de services qui utilise la [gestion des ressources déléguées Azure](../lighthouse/concepts/azure-delegated-resource-management.md), les attributions de rôles autorisées par ce fournisseur de services ne seront pas affichées ici.
 
 ## <a name="list-role-assignments-for-a-user-or-group"></a>Lister les attributions de rôles pour un utilisateur ou un groupe
 
@@ -40,6 +43,22 @@ La façon la plus simple de voir les rôles attribués à un utilisateur ou à u
     ![Attributions de rôles pour un utilisateur](./media/role-assignments-list-portal/azure-resources-user.png)    
 
 1. Pour changer d’abonnement, cliquez sur la liste **Abonnements**.
+
+## <a name="list-owners-of-a-subscription"></a>Répertorier les propriétaires d’un abonnement
+
+Les utilisateurs qui se sont vu attribuer le rôle [Propriétaire](built-in-roles.md#owner) pour un abonnement peuvent gérer tous les éléments de l’abonnement. Procédez comme suit pour répertorier les propriétaires d’un abonnement.
+
+1. Dans le portail Azure, cliquez sur **Tous les services**, puis sur **Abonnements**.
+
+1. Cliquez sur l’abonnement dont vous souhaitez répertorier les propriétaires.
+
+1. Cliquez sur **Contrôle d’accès (IAM)** .
+
+1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
+
+1. Faites défiler la page jusqu’à la section **Propriétaires** pour voir tous les utilisateurs auxquels le rôle Propriétaire a été attribué pour cet abonnement.
+
+   ![Contrôle d’accès à l’abonnement – Onglet Attributions de rôles](./media/role-assignments-list-portal/access-control-role-assignments-subscription.png)
 
 ## <a name="list-role-assignments-at-a-scope"></a>Lister les attributions de rôles dans une étendue
 

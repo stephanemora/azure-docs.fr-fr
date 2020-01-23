@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 8b914b8ffe995cf31f8a22b6f80250431facc770
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682246"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747862"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>Disponibilité et fiabilité des clusters Apache Hadoop dans HDInsight
 
@@ -33,7 +33,7 @@ Les nœuds d’un cluster HDInsight sont implémentés à l’aide de machines v
 
 Pour garantir une haute disponibilité des services Hadoop, HDInsight fournit deux nœuds principaux. Les deux nœuds principaux sont actifs et s’exécutent simultanément sur le cluster HDInsight. Certains services, par exemple Apache HDFS et Apache Hadoop YARN, ne sont « actifs » que sur un seul nœud principal à un moment donné. D'autres services tels que HiveServer2 ou Hive MetaStore sont actifs sur les deux nœuds principaux simultanément.
 
-Les nœuds principaux (et les autres nœuds dans HDInsight) possèdent une valeur numérique comme partie du nom d’hôte du nœud. Par exemple, `hn0-CLUSTERNAME` ou `hn4-CLUSTERNAME`.
+Pour obtenir les noms d’hôte de différents types de nœuds dans votre cluster, veuillez utiliser [l’API REST Ambari](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes).
 
 > [!IMPORTANT]  
 > N’associez pas la valeur numérique avec l’information selon laquelle un nœud est principal ou secondaire. La valeur numérique est uniquement présente afin de fournir un nom unique à chaque nœud.
@@ -88,7 +88,7 @@ curl -u admin:$password "https://$clusterName.azurehdinsight.net/api/v1/clusters
 Cette commande renvoie une valeur similaire à la valeur suivante, qui contient l’URL interne à utiliser avec la commande `oozie` :
 
 ```output
-"oozie.base.url": "http://hn0-CLUSTERNAME-randomcharacters.cx.internal.cloudapp.net:11000/oozie"
+"oozie.base.url": "http://<ACTIVE-HEADNODE-NAME>cx.internal.cloudapp.net:11000/oozie"
 ```
 
 Pour plus d’informations sur l’API REST Ambari, consultez [Surveiller et gérer HDInsight avec l’API REST Apache Ambari](hdinsight-hadoop-manage-ambari-rest-api.md).
@@ -132,7 +132,7 @@ Les alertes suivantes aident à superviser la disponibilité d’un cluster :
 | Interface utilisateur web `ResourceManager`                   | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web `ResourceManager` est inaccessible.                                                                                                             |
 | NodeManager Health Summary               | Cette alerte au niveau du service est déclenchée si des NodeManagers ne sont pas sains                                                                                                                    |
 | App Timeline Web UI                      | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de chronologie d’application est inaccessible.                                                                                                         |
-| DataNode Health Summary                  | Cette alerte au niveau du service est déclenchée si des DataNodes ne sont pas sains                                                                                                                       |
+| DataNode Health Summary (Récapitulatif d’intégrité DataNode)                  | Cette alerte de niveau de service est déclenchée si des DataNodes ne sont pas sains                                                                                                                       |
 | NameNode Web UI                          | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de NameNode est inaccessible.                                                                                                                    |
 | ZooKeeper Failover Controller Process    | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible de confirmer que le processus du contrôleur de basculement ZooKeeper est opérationnel et à l’écoute sur le réseau.                                                   |
 | Oozie Server Web UI                      | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web du serveur Oozie est inaccessible.                                                                                                                |
@@ -149,11 +149,11 @@ Les alertes suivantes aident à superviser la disponibilité d’un cluster :
 | Percent NodeManagers Available           | Cette alerte est déclenchée si le nombre de NodeManagers en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus NodeManager.        |
 | NodeManager Health                       | Cette alerte au niveau de l’hôte vérifie la propriété de contrôle d’intégrité du nœud disponible à partir du composant de NodeManager.                                                                                              |
 | NodeManager Web UI                       | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de NodeManager est inaccessible.                                                                                                                 |
-| NameNode High Availability Health        | Cette alerte au niveau du service est déclenchée si Active NameNode ou Standby NameNode ne sont pas en cours d’exécution.                                                                                     |
+| NameNode High Availability Health (Intégrité de la haute disponibilité de NameNode)        | Cette alerte de niveau de service est déclenchée si Active NameNode ou Standby NameNode ne sont pas exécutés.                                                                                     |
 | DataNode Process                         | Cette alerte au niveau de l’hôte est déclenchée s’il n’est pas possible d’établir que les processus DataNode individuels sont opérationnels et à l’écoute sur le réseau.                                                         |
 | DataNode Web UI                          | Cette alerte au niveau de l’hôte est déclenchée si l’interface utilisateur web de DataNode est inaccessible.                                                                                                                    |
-| Percent JournalNodes Available           | Cette alerte est déclenchée si le nombre de JournalNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications de processus JournalNode.        |
-| Percent DataNodes Available (Pourcentage de DataNodes disponibles)              | Cette alerte est déclenchée si le nombre de DataNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications des processus DataNode.              |
+| Percent JournalNodes Available (Pourcentage de JournalNodes disponibles)           | Cette alerte est déclenchée si le nombre de JournalNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications de processus JournalNode.        |
+| Percent DataNodes Available (Pourcentage de DataNodes disponibles)              | Cette alerte est déclenchée si le nombre de DataNodes en panne dans le cluster est supérieur au seuil critique configuré. Elle agrège les résultats des vérifications de processus DataNode.              |
 | Zeppelin Server Status                   | Cette alerte au niveau de l’hôte est déclenchée lorsqu’il n’est pas possible de déterminer si le serveur Zeppelin est opérationnel et répond aux demandes des clients.                                                                   |
 | HiveServer2 Interactive Process          | Cette alerte au niveau de l’hôte est déclenchée lorsqu’il n’est pas possible de déterminer si HiveServerInteractive est opérationnel et répond aux demandes des clients.                                                             |
 | LLAP Application                         | Cette alerte est déclenchée lorsqu’il n’est pas possible de déterminer si l’application LLAP est opérationnelle et répond aux demandes.                                                                                    |
@@ -194,7 +194,7 @@ La réponse se présente comme le JSON suivant :
 
 ```json
 {
-    "href" : "http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
+    "href" : "http://mycluster.wutj3h4ic1zejluqhxzvckxq0g.cx.internal.cloudapp.net:8080/api/v1/clusters/mycluster/services/HDFS?fields=ServiceInfo/state",
     "ServiceInfo" : {
     "cluster_name" : "mycluster",
     "service_name" : "HDFS",
@@ -203,7 +203,7 @@ La réponse se présente comme le JSON suivant :
 }
 ```
 
-L’URL indique que le service est en cours d’exécution sur un nœud principal nommé **hn0-CLUSTERNAME**.
+L’URL nous indique que le service est en cours d’exécution sur un nœud principal nommé **mycluster.wutj3h4ic1zejluqhxzvckxq0g**.
 
 L'URL indique que le service est en cours d'exécution ou **démarré**.
 

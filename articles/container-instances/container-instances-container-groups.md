@@ -4,12 +4,12 @@ description: En savoir plus sur les groupes de conteneurs dans Azure Container I
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: ca160c62160bc5233139dccc650474811c4cd784
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 73781418321c3932bf3e0190b646dcd3bb178195
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442299"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75888054"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Groupes de conteneurs dans Azure Container Instances
 
@@ -32,7 +32,7 @@ Le groupe de conteneurs donné en exemple :
 * Inclut deux partages de fichiers Azure en tant que montages de volume, et chaque conteneur monte l’un des partages localement.
 
 > [!NOTE]
-> Les groupes à plusieurs conteneurs ne prennent actuellement en charge que les conteneurs Linux. Pour les conteneurs Windows, Azure Container Instances prend uniquement en charge le déploiement d’une instance unique. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans le service [Vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
+> Les groupes à plusieurs conteneurs ne prennent actuellement en charge que les conteneurs Linux. Pour les conteneurs Windows, Azure Container Instances prend uniquement en charge le déploiement d’une instance de conteneur unique. Nous travaillons actuellement à proposer toutes ces fonctionnalités dans des conteneurs Windows. En attendant, nous vous invitons à découvrir les différences actuelles de la plateforme dans le service [Vue d’ensemble](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>Déploiement
 
@@ -44,19 +44,19 @@ Pour conserver la configuration d’un groupe de conteneurs, vous pouvez exporte
 
 ## <a name="resource-allocation"></a>Allocation des ressources
 
-Azure Container Instances alloue des ressources comme l’UC, la mémoire et éventuellement le [GPU][gpus] (préversion) à un groupe multi-conteneurs en ajoutant les [demandes de ressources][resource-requests] des instances du groupe. Par exemple, pour les ressources d’UC, si vous créez un groupe de conteneurs avec deux instances, chacune demandant 1 UC, le groupe de conteneurs se voit allouer 2 UC.
+Azure Container Instances alloue des ressources comme l’UC, la mémoire et éventuellement le [GPU][gpus] (préversion) à un groupe multi-conteneurs en ajoutant les [demandes de ressources][resource-requests] des instances du groupe. Par exemple, pour les ressources d’UC, si vous créez un groupe de conteneurs avec deux instances de conteneur, chacune demandant 1 UC, le groupe de conteneurs se voit allouer 2 UC.
 
-### <a name="resource-usage-by-instances"></a>Utilisation des ressources par les instances
+### <a name="resource-usage-by-container-instances"></a>Utilisation des ressources par les instances de conteneur
 
-Chaque instance de conteneur dans un groupe se voit allouer les ressources spécifiées dans sa demande de ressource. Toutefois, le nombre maximal de ressources utilisées par une instance dans un groupe peut être différent si vous configurez sa propriété facultative de [limite des ressources][resource-limits]. La limite des ressources d’une instance doit être supérieure ou égale à la propriété obligatoire de [demande de ressource][resource-requests].
+Chaque instance de conteneur dans un groupe se voit allouer les ressources spécifiées dans sa demande de ressource. Toutefois, le nombre maximal de ressources utilisées par une instance de conteneur dans un groupe peut être différent si vous configurez sa propriété facultative de [limite des ressources][resource-limits]. La limite des ressources d’une instance de conteneur doit être supérieure ou égale à la propriété obligatoire de [demande de ressources][resource-requests].
 
-* Si vous ne spécifiez pas de limite de ressources, l’utilisation maximale des ressources de l’instance est identique à celle de sa demande de ressource.
+* Si vous ne spécifiez pas de limite de ressources, l’utilisation maximale des ressources de l’instance de conteneur est identique à celle de sa demande de ressources.
 
-* Si vous spécifiez une limite pour une instance, l’utilisation maximale de l’instance peut être supérieure à la demande, jusqu’à la limite que vous définissez. En conséquence, l’utilisation des ressources par d’autres instances dans le groupe peut diminuer. La limite maximale de ressources que vous pouvez définir pour une instance est le nombre total de ressources allouées au groupe.
+* Si vous spécifiez une limite pour une instance de conteneur, l’utilisation maximale de l’instance peut être supérieure à la demande, jusqu’à la limite que vous définissez. En conséquence, l’utilisation des ressources par d’autres instances de conteneur dans le groupe peut diminuer. La limite maximale de ressources que vous pouvez définir pour une instance de conteneur est le nombre total de ressources allouées au groupe.
     
-Par exemple, dans un groupe avec deux instances demandant chacune 1 processeur, un de vos conteneurs peut exécuter une charge de travail qui nécessite plus de processeurs que l’autre.
+Par exemple, dans un groupe ayant deux instances de conteneur qui demandent chacune 1 UC, un de vos conteneurs peut exécuter une charge de travail qui nécessite davantage d’UC que l’autre.
 
-Dans ce scénario, vous pouvez définir une limite de ressource de 2 UC pour l’instance. Cette configuration permet au conteneur d’utiliser jusqu’à 2 UC complètes si elles sont disponibles.
+Dans ce scénario, vous pouvez définir une limite de ressources de 2 UC pour l’instance de conteneur. Cette configuration permet à l’instance de conteneur d’utiliser jusqu’à 2 UC complètes si elles sont disponibles.
 
 ### <a name="minimum-and-maximum-allocation"></a>Allocation minimale et maximale
 
@@ -66,15 +66,21 @@ Dans ce scénario, vous pouvez définir une limite de ressource de 2 UC pour l�
 
 ## <a name="networking"></a>Mise en réseau
 
-Les groupes de conteneurs peuvent partager une adresse IP externe et un espace de noms de port sur cette adresse IP. Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. Étant donné que les conteneurs au sein du groupe partagent un espace de noms de port, le mappage de port n’est pas pris en charge. 
+Les groupes de conteneurs peuvent partager une adresse IP externe, un ou plusieurs ports sur cette adresse IP et une étiquette DNS avec un nom de domaine complet (FQDN). Pour que les clients externes puissent atteindre un conteneur au sein du groupe, vous devez exposer le port sur l’adresse IP et à partir du conteneur. Étant donné que les conteneurs au sein du groupe partagent un espace de noms de port, le mappage de port n’est pas pris en charge. L’adresse IP et le FQDN d’un groupe de conteneurs seront à nouveau disponibles au moment de la suppression du groupe de conteneurs. 
 
-Dans un groupe de conteneurs, les instances de conteneur peuvent s’atteindre les unes les autres via localhost sur n’importe quel port, même si ce port n’est pas exposé en externe sur l’adresse IP du groupe ou à partir du conteneur.
+Dans un groupe de conteneurs, les instances de conteneur peuvent s’atteindre les unes les autres via localhost sur n’importe quel port, même si ce port n’est pas exposé en externe sur l’adresse IP du groupe ou à partir du conteneur.
 
-Déployez éventuellement des groupes de conteneurs dans un [réseau virtuel Azure][virtual-network] (préversion) pour permettre à vos conteneurs de communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
+Déployez éventuellement des groupes de conteneurs dans un [réseau virtuel Azure][virtual-network] pour permettre à vos conteneurs de communiquer en toute sécurité avec d’autres ressources dans le réseau virtuel.
 
 ## <a name="storage"></a>Stockage
 
-Vous pouvez spécifier des volumes externes à monter dans un groupe de conteneurs. Vous pouvez mapper ces volumes à des chemins spécifiques dans les conteneurs individuels d’un groupe.
+Vous pouvez spécifier des volumes externes à monter dans un groupe de conteneurs. Les volumes pris en charge sont les suivants :
+* [Partage de fichiers Azure][azure-files]
+* [Secret][secret]
+* [Répertoire vide][empty-directory]
+* [Référentiel git cloné][volume-gitrepo]
+
+Vous pouvez mapper ces volumes à des chemins spécifiques dans les conteneurs individuels d’un groupe. 
 
 ## <a name="common-scenarios"></a>Scénarios courants
 
@@ -110,5 +116,8 @@ Découvrez comment déployer un groupe de plusieurs conteneurs avec un modèle A
 [resource-requirements]: /rest/api/container-instances/containergroups/createorupdate#resourcerequirements
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
+[secret]: container-instances-volume-secret.md
+[volume-gitrepo]: container-instances-volume-gitrepo.md
 [gpus]: container-instances-gpu.md
+[empty-directory]: container-instances-volume-emptydir.md
 [az-container-export]: /cli/azure/container#az-container-export

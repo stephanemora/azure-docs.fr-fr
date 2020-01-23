@@ -1,22 +1,21 @@
 ---
-title: Pilote de volume Azure Files pour Service Fabric (disponibilité générale)
+title: Pilote de volume Azure Files pour Service Fabric
 description: Service Fabric prend en charge l’utilisation d’Azure Files pour sauvegarder des volumes à partir de votre conteneur.
 ms.topic: conceptual
 ms.date: 6/10/2018
-ms.openlocfilehash: 0bd84c8367f722c013abff5c2a6caaa991fa841f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 514a0cb12359d58e38ebc30ae12cdb277757f2b2
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464792"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750047"
 ---
-# <a name="service-fabric-azure-files-volume-driver"></a>Pilote de volume Azure Files pour Service Fabric
-Le plug-in de volume Azure Files, un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](/azure/storage/files/storage-files-introduction) pour les conteneurs Docker, est désormais en **disponibilité générale**.
+# <a name="azure-files-volume-driver-for-service-fabric"></a>Pilote de volume Azure Files pour Service Fabric
 
-Ce plug-in de volume Docker est fourni sous la forme d’une application Service Fabric qui peut être déployée sur des clusters Service Fabric. Il vise à fournir des volumes basés sur Azure Files aux autres applications de conteneur Service Fabric qui sont déployées sur le cluster.
+Le pilote de volume Azure Files est un [plug-in de volume Docker](https://docs.docker.com/engine/extend/plugins_volume/) qui fournit des volumes basés sur [Azure Files](/azure/storage/files/storage-files-introduction) pour les conteneurs Docker. Il se trouve dans un package en tant qu’application Service Fabric pouvant être déployée sur un cluster Service Fabric pour fournir des volumes pour d’autres applications de conteneur Service Fabric au sein du cluster.
 
 > [!NOTE]
-> La version 6.5.661.9590 du plug-in de volume Azure Files est une version en disponibilité générale. 
+> La version 6.5.661.9590 du plug-in de volume Azure Files a été publiée pour la mise à la disposition générale.
 >
 
 ## <a name="prerequisites"></a>Conditions préalables requises
@@ -55,7 +54,6 @@ Dans la section fabricSettings de votre modèle Azure Resource Manager (pour les
   }
 ]
 ```
-
 
 ## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Déployer un exemple d'application à l’aide du pilote de volume Azure Files Service Fabric
 

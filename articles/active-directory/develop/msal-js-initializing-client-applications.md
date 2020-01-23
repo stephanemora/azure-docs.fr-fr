@@ -14,21 +14,21 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916500"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777834"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Initialiser des applications clientes avec MSAL.js
 Cet article décrit l’initialisation de la bibliothèque d’authentification Microsoft pour JavaScript (MSAL.js) avec une instance d’application agent utilisateur. L’application agent utilisateur est une forme d'application cliente publique dans laquelle le code client est exécuté dans un agent utilisateur, par exemple un navigateur web. Ces clients ne stockent pas de secrets car le contexte du navigateur est directement accessible. Pour en savoir plus sur les types d’applications clientes et les options de configuration d’application, consultez la [vue d’ensemble](msal-client-applications.md).
 
-## <a name="prerequisites"></a>Prérequis
-Avant d’initialiser une application, vous devez d’abord [l’inscrire sur le portail Azure](scenario-spa-app-registration.md) afin que votre application puisse être intégrée à la plate-forme d’identité Microsoft. Après l’inscription, vous aurez peut-être besoin des informations suivantes (que vous trouverez sur le portail Azure) :
+## <a name="prerequisites"></a>Conditions préalables requises
+Avant d’initialiser une application, vous devez d’abord [l’inscrire sur le portail Azure](scenario-spa-app-registration.md) afin que votre application puisse être intégrée à la plate-forme d’identité Microsoft. Après l’inscription, vous aurez peut-être besoin des informations suivantes (que vous trouverez sur le Portail Azure) :
 
 - L’ID client (une chaîne représentant un GUID pour votre application)
-- L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent l’autorité.
+- L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent collectivement l’autorité.
 - L’ID locataire, si vous écrivez une application cœur de métier uniquement pour votre organisation (également nommée application à locataire unique).
 - Pour les applications web, vous devrez également définir l’URI de redirection (redirectUri) utilisé par le fournisseur d’identité pour retourner à votre application avec les jetons de sécurité.
 
@@ -108,7 +108,7 @@ export type Configuration = {
 
 Voici l’ensemble des options configurables actuellement prises en charge dans l’objet de configuration :
 
-- **clientID** : Requis. L’ID client de votre application que vous devez obtenir à partir du portail d’inscription de l’application.
+- **clientID** : Obligatoire. L’ID client de votre application que vous devez obtenir à partir du portail d’inscription de l’application.
 
 - **authority** : facultatif. URL indiquant un répertoire à partir duquel MSAL peut demander des jetons. La valeur par défaut est `https://login.microsoftonline.com/common`.
     * Dans Azure AD, son format est https://&lt;instance&gt;/&lt;audience&gt;, où &lt;instance&gt; est le domaine du fournisseur d'identité (par exemple, `https://login.microsoftonline.com`) et &lt;audience&gt; est un identificateur représentant l’audience de connexion. Les valeurs suivantes peuvent être définies :
@@ -116,7 +116,7 @@ Voici l’ensemble des options configurables actuellement prises en charge dans 
         * `https://login.microsoftonline.com/common`- permet de connecter des utilisateurs disposant d’un compte professionnel et scolaire, ou d’un compte Microsoft personnel.
         * `https://login.microsoftonline.com/organizations/`- permet de connecter des utilisateurs disposant d’un compte professionnel et scolaire.
         * `https://login.microsoftonline.com/consumers/`- permet de connecter des utilisateurs disposant uniquement d’un compte Microsoft personnel (live).
-    * Dans Azure AD B2C, le format est `https://<instance>/tfp/<tenant>/<policyName>/`, où instance est le domaine Azure AD B2C, tenant est le nom du locataire Azure AD B2C, policyName est le nom de la stratégie B2C à appliquer.
+    * Dans Azure AD B2C, le format est `https://<instance>/tfp/<tenant>/<policyName>/`, où l’instance est le domaine Azure AD B2C, c’est-à-dire {your-tenant-name}.b2clogin.com, le locataire est le nom du locataire Azure AD B2C, c’est-à-dire {your-tenant-name}.onmicrosoft.com et policyName est le nom de la stratégie B2C à appliquer.
 
 
 - **validateAuthority** : facultatif.  Validez l’émetteur des jetons. La valeur par défaut est `true`. Pour les applications B2C, étant donné que la valeur d’autorité est connue et peut être différente pour chaque stratégie, la validation de l’autorité ne fonctionne pas et doit être définie sur `false`.

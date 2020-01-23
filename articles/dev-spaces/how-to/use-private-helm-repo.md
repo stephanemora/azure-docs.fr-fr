@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Utilisez un référentiel Helm privé dans un espace Azure Dev.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, conteneurs, Helm
 manager: gwallace
-ms.openlocfilehash: f212df74ab8102391e4170ccef6b0c3b1129b046
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: dddec69dc019f286c714a09e6f1a7e47240d5572
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279915"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867282"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Utiliser un référentiel Helm privé dans Azure Dev Spaces
 
@@ -35,6 +35,9 @@ Accédez au répertoire de votre projet, puis exécutez `azds prep`.
 ```cmd
 azds prep --public
 ```
+
+> [!TIP]
+> La commande `prep` tente de générer un [Dockerfile et un chart Helm](../how-dev-spaces-works.md#prepare-your-code) pour votre projet. Azure Dev Spaces utilise ces fichiers pour générer et exécuter votre code. Toutefois, vous pouvez modifier ces fichiers si vous souhaitez changer la façon dont le projet est généré et exécuté.
 
 Créez un fichier [requirements.yaml][helm-requirements] avec votre graphique dans le répertoire des graphiques de votre application. Par exemple, si votre application est nommée *app1*, vous devez créer *charts/app1/requirements.yaml*.
 

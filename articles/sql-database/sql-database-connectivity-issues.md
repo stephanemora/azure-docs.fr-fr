@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
+ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082492"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027800"
 ---
-# <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Gestion des problèmes de connexion et des erreurs temporaires de base de données SQL
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Résolution des erreurs temporaires de connexion à SQL Database
 
 Cet article décrit comment empêcher, résoudre, diagnostiquer et limiter les erreurs de connexion et les erreurs temporaires que votre application cliente rencontre lorsqu’elle interagit avec Azure SQL Database. Découvrez comment configurer une logique de nouvelle tentative, générer la chaîne de connexion et ajuster les autres paramètres de connexion.
 
@@ -77,8 +77,8 @@ Vous pouvez également définir le nombre maximal de tentatives avant l’arrêt
 
 Des exemples de code avec logique de nouvelle tentative sont disponibles aux emplacements suivants :
 
-- [Se connecter de façon robuste à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
-- [Se connecter de façon robuste à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+- [Connexion résiliente à SQL avec ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Connexion résiliente à SQL avec PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
@@ -188,7 +188,7 @@ En règle générale, vous devez simplement vous assurer que le port 1433 est o
 Par exemple, lorsque votre programme client est hébergé sur un ordinateur Windows, vous pouvez utiliser le pare-feu Windows sur l’hôte pour ouvrir le port 1433.
 
 1. Ouvrez le Panneau de configuration.
-2. Sélectionnez **Tous les éléments du Panneau de configuration** > **Pare-feu Windows** > **Paramètres avancés** > **Règles de trafic sortant**   >  **Actions** > **Nouvelle règle**.
+2. Sélectionnez **Tous les éléments du Panneau de configuration** > **Pare-feu Windows** > **Paramètres avancés** > **Règles de trafic sortant**  > **Actions** > **Nouvelle règle**.
 
 Si votre programme client est hébergé sur une machine virtuelle Azure, lisez [Ports au-delà de 1433 pour ADO.NET 4.5 et SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
 
@@ -444,7 +444,6 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la résolution d’autres problèmes de connexion courants à SQL Database, consultez [Résolution des problèmes de connexion à Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 - [Bibliothèques de connexions pour SQL Database et SQL Server](sql-database-libraries.md)
 - [Regroupement de connexions SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - [*Nouvelle tentative* est une bibliothèque de nouvelle tentative sous licence Apache 2.0 à usage général écrite en langage Python,](https://pypi.python.org/pypi/retrying) pour simplifier la tâche consistant à ajouter des comportements de nouvelle tentative dans toutes les situations.
