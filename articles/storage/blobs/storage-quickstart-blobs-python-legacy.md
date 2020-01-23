@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 606c7d1fd012052a22afeef906bbe9df4c63a76b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3e1adc9220dd9b49c49ff3fe5e798dfcc9d5c928
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825300"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122676"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Démarrage rapide : Bibliothèque de client de stockage blob Azure v2.1 pour Python
 
@@ -21,7 +21,7 @@ Dans cet article, vous allez utiliser Python pour charger, télécharger et list
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -67,7 +67,7 @@ L’exemple de programme crée un fichier de test dans votre dossier *Documents*
 1. Installez les dépendances :
 
     ```console
-    pip install azure-storage-blob
+    pip install azure-storage-blob==2.1.0
     ```
 
 1. Accédez à l’exemple d’application :
@@ -196,7 +196,7 @@ block_blob_service.get_blob_to_path(
     container_name, local_file_name, full_path_to_file2)
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous n’avez plus besoin des objets blob chargés dans ce démarrage rapide, vous pouvez supprimer l’intégralité du conteneur à l’aide de la méthode `delete_container`. Si vous préférez supprimer les fichiers individuels, utilisez la méthode `delete_blob`.
 
 ```python

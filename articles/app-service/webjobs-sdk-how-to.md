@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421960"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549085"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Comment utiliser le Kit de développement logiciel (SDK) Azure WebJobs pour le traitement en arrière-plan basé sur les événements
 
@@ -681,8 +681,8 @@ Pour plus d’informations, consultez [Liaison au runtime](../azure-functions/fu
 La documentation Azure Functions fournit des informations de référence sur chaque type de liaison. Vous trouverez les informations suivantes dans chaque article de référence sur les liaisons. (Cet exemple est basé sur la file d’attente de Stockage.)
 
 * [Packages](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). Package à installer pour inclure la prise en charge de la liaison dans un projet du kit SDK WebJobs.
-* [Exemples](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Exemples de code. L’exemple de bibliothèque de classe C# s’applique au kit SDK WebJobs. Omettez simplement l’attribut `FunctionName`.
-* [Attributs](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). Attributs à utiliser pour le type de liaison.
+* [Exemples](../azure-functions/functions-bindings-storage-queue.md#trigger). Exemples de code. L’exemple de bibliothèque de classe C# s’applique au kit SDK WebJobs. Omettez simplement l’attribut `FunctionName`.
+* [Attributs](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). Attributs à utiliser pour le type de liaison.
 * [Configuration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Explications relatives aux propriétés d’attribut et aux paramètres de constructeur.
 * [Utilisation](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Types avec lesquels vous pouvez effectuer une liaison et informations sur le fonctionnement de la liaison. Exemple : algorithme d’interrogation, traitement de file d’attente de messages incohérents.
   

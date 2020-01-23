@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2018
+ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: ef2319f18b6df15fd7f33e9344e8506f853f47e6
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 23dcabf74284c36f0cb221db7e192859aa75f1f6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532229"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544546"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Vue d’ensemble du service Protection DDos Standard Azure
 
@@ -33,8 +33,8 @@ Combiné aux bonnes pratiques de conception d’application, le service de prote
 
 |Fonctionnalité                                         |DDoS Protection Basic                 |DDoS Protection Standard                      |
 |------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Supervision du trafic actif et détection Always On |OUI                                   |OUI                                           |
-|Atténuation automatique des attaques                    |OUI                                   |OUI                                           |
+|Supervision du trafic actif et détection Always On |Oui                                   |Oui                                           |
+|Atténuation automatique des attaques                    |Oui                                   |Oui                                           |
 |Garantie de disponibilité                          |Région Azure                          |Application                                   |
 |Stratégies d’atténuation des risques                             |Optimisé pour le volume de la région du trafic Azure |Optimisé pour le volume du trafic des applications          |
 |Métriques et alertes                                |Non                                    |Métriques et journaux de diagnostic des attaques en temps réel via                                                                                            Azure Monitor                                 |
@@ -69,14 +69,14 @@ Les fonctionnalités du service Protection DDos Standard sont les suivantes :
 - **Échelle de prévention étendue :** Plus de 60 types d’attaques différents peuvent être contrées, avec une protection globale contre les attaques DDoS les plus connues.
 - **Analytique des attaques :** Recevez des rapports détaillés toutes les cinq minutes pendant une attaque, et un résumé complet une fois l’attaque terminée. Transmettez en continu les journaux de flux de prévention des attaques à un système hors ligne de gestion des informations et des événements de sécurité (SIEM) pour une supervision en temps quasi-réel pendant une attaque.
 - **Métriques des attaques :** Des métriques récapitulatives de chaque attaque sont accessibles via Azure Monitor.
-- **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels, comme les journaux d’activité Azure Monitor, Splunk, Stockage Azure, votre messagerie électronique et le portail Azure.
+- **Alerte d’attaque :** Vous pouvez configurer des alertes pour le début et la fin d’une attaque, ainsi que pendant qu’elle se produit, avec des métriques d’attaque intégrées. Les alertes s’intègrent à vos logiciels opérationnels, comme les journaux d’activité Microsoft Azure Monitor, Splunk, Stockage Azure, votre messagerie électronique et le portail Azure.
 - **Maîtrise des coûts :** Si vous documentez les attaques DDoS, vous bénéficiez en retour de crédits pour les services de scale-out d’application et de transfert de données.
 
 ## <a name="ddos-protection-standard-mitigation"></a>Mitigation avec le service Protection DDos Standard
 
 Le service Protection DDoS Standard surveille l’utilisation du trafic réelle et la compare en permanence aux seuils définis dans la stratégie DDoS. Si le seuil de trafic est dépassé, l’atténuation DDoS est lancée automatiquement. Quand le trafic repasse sous le seuil, l’atténuation est supprimée.
 
-![Atténuation](./media/ddos-protection-overview/mitigation.png)
+![Limitation des risques](./media/ddos-protection-overview/mitigation.png)
 
 Pendant l’atténuation, le trafic envoyé vers la ressource protégée est redirigé par le service de protection DDoS et plusieurs vérifications sont effectuées, telles que les suivantes :
 

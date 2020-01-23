@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 6e2c1af03d5d6ccfbcb15a2dd33bc2e987be4d48
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867559"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543118"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Qu’est-ce que Liaison privée Azure ? (Préversion)
 Azure Private Link vous permet d’accéder aux services PaaS Azure (par exemple Stockage Azure, Azure Cosmos DB et SQL Database) ainsi qu’aux services de partenaires ou de clients hébergés par Azure sur un [Point de terminaison privé](private-endpoint-overview.md) dans votre réseau virtuel. Le trafic entre votre réseau virtuel et le service transite par le réseau principal de Microsoft, éliminant ainsi toute exposition à l’Internet public. Vous pouvez également créer votre propre [service Liaison privée](private-link-service-overview.md) dans votre réseau virtuel et le distribuer en privé à vos clients. L’expérience de configuration et de consommation à l’aide du service Liaison privée Azure est cohérente entre les services PaaS Azure, appartenant au client et de partenaires partagés.

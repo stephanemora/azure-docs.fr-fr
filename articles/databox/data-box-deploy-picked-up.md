@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 517940ab4a3e004d99faf6ca2bedb43c93dba8c5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407040"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514185"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure
+# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Tutoriel : Retourner l’appareil Azure Data Box et vérifier le chargement des données dans Azure
 
 ::: zone-end
 
@@ -35,13 +35,13 @@ Ce didacticiel vous explique comment retourner l’appareil Azure Data Box et v�
 Ce didacticiel fournit des informations sur les sujets suivants :
 
 > [!div class="checklist"]
-> * Prérequis
+> * Conditions préalables requises
 > * Préparer l’expédition
 > * Expédier la Data Box à Microsoft
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données de la Data Box
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez les points suivants :
 

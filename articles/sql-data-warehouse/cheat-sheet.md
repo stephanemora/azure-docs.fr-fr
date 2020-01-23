@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9355ae1522c653924574b94594e894fdaf3f764e
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: ea6e5b5ac829c95a0eca328e8f7f40e7d4a9a94d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646643"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547980"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Aide-mémoire pour Azure Synapse Analytics (anciennement SQL DW)
 
@@ -23,7 +23,7 @@ Cet aide-mémoire vous procure des conseils et des meilleures pratiques à suivr
 
 Le graphique suivant illustre le processus de conception d’un entrepôt de données :
 
-![Diagramme simplifié]
+![Diagramme simplifié](media/sql-data-warehouse-cheat-sheet/picture-flow.png)
 
 ## <a name="queries-and-operations-across-tables"></a>Requêtes et opérations entre les tables
 
@@ -36,16 +36,16 @@ Le fait de bien déterminer le type des opérations à l’avance vous aide à o
 
 ## <a name="data-migration"></a>Migration des données
 
-Commencez par charger vos données dans [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) ou le stockage Blob Azure. Ensuite, utilisez PolyBase pour charger vos données dans des tables de mise en lots. Utilisez la configuration suivante :
+Commencez par charger vos données dans [Azure Data Lake Storage](../data-factory/connector-azure-data-lake-store.md) ou le stockage Blob Azure. Ensuite, utilisez PolyBase pour charger vos données dans des tables de mise en lots. Utilisez la configuration suivante :
 
 | Conception | Recommandation |
 |:--- |:--- |
-| Distribution | Tourniquet |
-| Indexation | Segment de mémoire |
-| Partitionnement | Aucun |
-| Classe de ressources | largerc ou xlargerc |
+| Distribution | Tourniquet (round robin) |
+| Indexation | Segment de mémoire (heap) |
+| Partitionnement | None |
+| Classe de ressource | largerc ou xlargerc |
 
-En savoir plus sur la [migration des données], le [chargement des données] et le [processus ELT (extraire, charger et transformer)](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading). 
+En savoir plus sur la [migration des données](https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/), le [chargement des données](design-elt-data-loading.md) et le [processus ELT (extraire, charger et transformer)](design-elt-data-loading.md). 
 
 ## <a name="distributed-or-replicated-tables"></a>Tables répliquées ou distribuées
 
@@ -62,10 +62,10 @@ Appliquez les stratégies suivantes, en fonction des caractéristiques de vos ta
 * Assurez-vous que les clés de hachage communes ont toutes le même format de données.
 * N’effectuez pas de distribution sur le format varchar.
 * Les tables de dimension ayant une clé de hachage commune avec une table de faits soumise à de fréquentes opérations de jointure peuvent faire l’objet d’une distribution par hachage.
-* Utilisez *[sys.dm_pdw_nodes_db_partition_stats]* pour analyser l’asymétrie dans les données.
-* Utilisez *[sys.dm_pdw_request_steps]* pour analyser les mouvements de données subséquents aux requêtes, et surveiller la durée des opérations de diffusion et de lecture aléatoire. Ces informations sont utiles pour la revue de votre stratégie de distribution.
+* Utilisez *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql)* pour analyser l’asymétrie dans les données.
+* Utilisez *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql)* pour analyser les mouvements de données subséquents aux requêtes, et surveiller la durée des opérations de diffusion et de lecture aléatoire. Ces informations sont utiles pour la revue de votre stratégie de distribution.
 
-Découvrez plus en détail les [tables répliquées] et les [tables distribuées].
+Découvrez plus en détail les [tables répliquées](design-guidance-for-replicated-tables.md) et les [tables distribuées](sql-data-warehouse-tables-distribute.md).
 
 ## <a name="index-your-table"></a>Indexer votre table
 
@@ -73,7 +73,7 @@ L’indexation sert à accélérer la lecture des tables. Selon vos besoins, vou
 
 | Type | Usage recommandé | À utiliser avec précaution dans ces cas|
 |:--- |:--- |:--- |
-| Segment de mémoire | • Table de mise en lots/temporaire<br></br>• Tables de petite taille avec des recherches réduites |• Analyse complète de la table à chaque recherche |
+| Segment de mémoire (heap) | • Table de mise en lots/temporaire<br></br>• Tables de petite taille avec des recherches réduites |• Analyse complète de la table à chaque recherche |
 | Index cluster | • Tables comportant jusqu’à 100 millions de lignes<br></br>• Tables volumineuses (plus de 100 millions de lignes) où seulement une ou deux colonnes sont souvent utilisées |• Index utilisé sur une table répliquée<br></br>• Requêtes complexes avec plusieurs opérations de jointure et de regroupement<br></br>• Consommation de mémoire à cause des mises à jour sur les colonnes indexées |
 | Index columnstore cluster (par défaut) | • Tables volumineuses (plus de 100 millions de lignes) | • Index utilisé sur une table répliquée<br></br>• Nombre élevé de mises à jour effectuées dans la table<br></br>• Partitionnement excessif de la table : les groupes de lignes ne sont pas répartis entre les différents nœuds et partitions de la distribution |
 
@@ -85,7 +85,7 @@ L’indexation sert à accélérer la lecture des tables. Selon vos besoins, vou
 * Selon la fréquence et la taille du chargement incrémentiel, il peut être utile d’automatiser la réorganisation ou la regénération de vos index. Un nettoyage est toujours conseillé.
 * Faites preuve de stratégie lors de la suppression d’un groupe de lignes. De quelle taille sont les groupes de ligne ouverts ? Quelle quantité de données prévoyez-vous de charger dans les jours à venir ?
 
-Découvrez plus en détail les [index].
+Découvrez plus en détail les [index](sql-data-warehouse-tables-index.md).
 
 ## <a name="partitioning"></a>Partitionnement
 Vous pouvez partitionner votre table quand vous avez des tables de faits volumineuses contenant plus d’un milliard de lignes. Dans 99 % des cas, la clé de partition doit être basée sur la date. Veillez à ne pas effectuer de partitionnement excessif, en particulier si vous utilisez un index columnstore cluster.
@@ -93,22 +93,22 @@ Vous pouvez partitionner votre table quand vous avez des tables de faits volumin
 Avec les tables de mise en lots qui nécessitent ELT, le partitionnement peut être bénéfique. Il simplifie la gestion du cycle de vie des données.
 Là-aussi, n’effectuez pas de partitionnement excessif, notamment avec un index columnstore cluster.
 
-Découvrez plus en détail les [partitions].
+Découvrez plus en détail les [partitions](sql-data-warehouse-tables-partition.md).
 
 ## <a name="incremental-load"></a>Chargement incrémentiel
 
-Si vous envisagez de charger vos données de manière incrémentielle, assurez-vous d’allouer des classes de ressources plus grandes au chargement de vos données.  C’est particulièrement important lors d’un chargement dans des tables contenant des index columnstore en cluster.  Pour plus d’informations, consultez [Classes de ressources](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management).  
+Si vous envisagez de charger vos données de manière incrémentielle, assurez-vous d’allouer des classes de ressources plus grandes au chargement de vos données.  C’est particulièrement important lors d’un chargement dans des tables contenant des index columnstore en cluster.  Pour plus d’informations, consultez [Classes de ressources](resource-classes-for-workload-management.md).  
 
 Nous vous recommandons d’utiliser PolyBase et ADF V2 pour automatiser vos pipelines ELT dans votre entrepôt de données.
 
-Pour un grand lot de mises à jour dans vos données d’historique, envisagez d’utiliser une opération [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas) afin d’écrire les données à conserver dans une table plutôt que d’utiliser une opération INSERT, UPDATE et DELETE.
+Pour un grand lot de mises à jour dans vos données d’historique, envisagez d’utiliser une opération [CTAS](sql-data-warehouse-develop-ctas.md) afin d’écrire les données à conserver dans une table plutôt que d’utiliser une opération INSERT, UPDATE et DELETE.
 
 ## <a name="maintain-statistics"></a>Mettre à jour les statistiques
  Jusqu’à la disponibilité générale des statistiques automatiques, la maintenance manuelle des statistiques est requise. Il est important de mettre à jour les statistiques dès que des modifications *significatives* ont été apportées à vos données. Cela permet d’optimiser davantage vos plans de requête. Si vous trouvez que la mise à jour de toutes vos statistiques prend trop de temps, vous pouvez sélectionner moins de colonnes contenant des statistiques. 
 
 Vous pouvez également définir la fréquence des mises à jour. Par exemple, vous pouvez mettre à jour des colonnes de date, où de nouvelles valeurs peuvent être ajoutées de façon quotidienne. Pour obtenir des performances optimales, effectuez des statistiques sur les colonnes utilisées dans les jointures, celles utilisées dans la clause WHERE et celles figurant dans GROUP BY.
 
-Découvrez plus en détail les [statistiques].
+Découvrez plus en détail les [statistiques](sql-data-warehouse-tables-statistics.md).
 
 ## <a name="resource-class"></a>classe de ressources
 Des groupes de ressources sont utilisés pour allouer de la mémoire aux requêtes. Si vous avez besoin de davantage de mémoire pour accélérer les requêtes ou le chargement, allouez des classes de ressources plus grandes. L’utilisation de classes de ressources plus grandes impacte toutefois la concurrence. C’est un point à prendre en compte avant de déplacer tous vos utilisateurs dans une classe de ressources de plus grande taille.
@@ -117,7 +117,7 @@ Si vous remarquez que les requêtes prennent trop de temps, vérifiez que vos ut
 
 Enfin, avec le [pool SQL](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) Gen2, chaque classe de ressource obtient 2,5 fois plus de mémoire qu’avec Gen1.
 
-Découvrez plus en détail comment utiliser les [classes de ressources et la concurrence].
+Découvrez plus en détail comment utiliser les [classes de ressources et la concurrence](resource-classes-for-workload-management.md).
 
 ## <a name="lower-your-cost"></a>Réduire vos coûts
 Une fonctionnalité clé d’Azure Synapse est la possibilité de [gérer des ressources de calcul](sql-data-warehouse-manage-compute-overview.md). Vous pouvez suspendre le pool SQL lorsque vous ne l’utilisez pas, ce qui permet d’arrêter la facturation des ressources de calcul. Vous pouvez faire évoluer les ressources pour répondre à vos exigences de performances. Pour suspendre, utilisez le [portail Azure](pause-and-resume-compute-portal.md) ou [PowerShell](pause-and-resume-compute-powershell.md). Pour mettre à l’échelle, utilisez le [portail Azure](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) ou une [API REST](sql-data-warehouse-manage-compute-rest-api.md#scale-compute).
@@ -139,29 +139,3 @@ Déployez en un seul clic vos rayons dans les bases de données SQL à partir du
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
-
-
-<!--Image references-->
-[Diagramme simplifié]:media/sql-data-warehouse-cheat-sheet/picture-flow.png
-
-<!--Article references-->
-[chargement des données]:design-elt-data-loading.md
-[deeper guidance]:guidance-for-loading-data.md
-[index]:sql-data-warehouse-tables-index.md
-[partitions]:sql-data-warehouse-tables-partition.md
-[statistiques]:sql-data-warehouse-tables-statistics.md
-[classes de ressources et la concurrence]:resource-classes-for-workload-management.md
-[tables répliquées]:design-guidance-for-replicated-tables.md
-[tables distribuées]:sql-data-warehouse-tables-distribute.md
-
-<!--MSDN references-->
-
-
-<!--Other Web references-->
-[typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
-[is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
-[migration des données]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
-
-[Azure Data Lake Storage]: ../data-factory/connector-azure-data-lake-store.md
-[sys.dm_pdw_nodes_db_partition_stats]: /sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql
-[sys.dm_pdw_request_steps]:/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql

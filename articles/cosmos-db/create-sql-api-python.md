@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 82426c0093550864b421d7acc35780c4173895a8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a794a9ed35cbbdd36c2cf136b8afc208c3ea0692
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824729"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549005"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Démarrage rapide : Générer une application Python à l’aide d’un compte d’API SQL Azure Cosmos DB
 
@@ -35,9 +35,9 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 Ce guide de démarrage rapide utilise la version 4 du [SDK Python](https://pypi.org/project/azure-cosmos/#history).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)][!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Python 3.6](https://www.python.org/downloads/), avec l’exécutable `python` disponible dans votre `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
@@ -49,7 +49,26 @@ Ce guide de démarrage rapide utilise la version 4 du [SDK Python](https://pypi
 
 ## <a name="add-a-container"></a>Ajouter un conteneur
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+Vous pouvez désormais utiliser l’outil Explorateur de données dans le portail Azure pour créer une base de données et un conteneur. 
+
+1. Sélectionnez **Explorateur de données** > **Nouveau conteneur**. 
+    
+    La zone **Ajouter un conteneur** s’affiche à l’extrême droite : il peut donc être nécessaire de faire défiler à droite pour l’afficher.
+
+    ![Explorateur de données du portail Azure, volet Ajouter un conteneur](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+
+2. Dans la page **Ajouter un conteneur**, entrez les paramètres du nouveau conteneur.
+
+    |Paramètre|Valeur suggérée|Description
+    |---|---|---|
+    |**ID de base de données**|Tâches|Entrez *ToDoList* pour le nom de la nouvelle base de données. Les noms de base de données doivent comporter entre 1 et 255 caractères, et ne peuvent pas contenir les caractères `/, \\, #, ?`, ni un espace de fin. Cochez l’option **Provisionner le débit de base de données** qui vous permet de partager le débit provisionné pour la base de données entre tous les conteneurs au sein de la base de données. Cette option permet également de réduire les coûts. |
+    |**Débit**|400|Laissez le débit sur 400 unités de requête par seconde (RU/s). Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite.| 
+    |**ID de conteneur**|Éléments|Entrez *Éléments* comme nom de votre nouveau conteneur. Les ID de conteneur sont soumis aux mêmes exigences en termes de caractères que les noms de base de données.|
+    |**Clé de partition**| /category| L’exemple décrit dans cet article utilise */category* comme clé de partition.|
+    
+    Outre les paramètres précédents, vous pouvez ajouter des **clés uniques** pour le conteneur. Laissez le champ vide dans cet exemple. Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à la base de données. En créant une stratégie de clé unique durant la création d’un conteneur, vous garantissez l’unicité d’une ou de plusieurs valeurs par clé de partition. Pour en savoir plus, référez-vous à l’article [Clés uniques dans Azure Cosmos DB](unique-keys.md).
+    
+    Sélectionnez **OK**. L’Explorateur de données affiche la nouvelle base de données et le nouveau conteneur.
 
 ## <a name="add-sample-data"></a>Ajouter un exemple de données
 
@@ -135,7 +154,7 @@ Tous les extraits suivants proviennent du fichier `cosmos_get_started.py`.
 
     [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
    
-## <a name="run-the-app"></a>Exécution de l'application
+## <a name="run-the-app"></a>Exécuter l’application
 
 1. Dans Visual Studio Code, sélectionnez **Affichage** > **Palette de commandes**. 
 
@@ -201,7 +220,7 @@ Tous les extraits suivants proviennent du fichier `cosmos_get_started.py`.
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

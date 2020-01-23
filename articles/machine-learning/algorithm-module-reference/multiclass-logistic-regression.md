@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aba33730d235cc50742cdc86007933e12f763053
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465967"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548456"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Module de régression logistique multiclasse
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un modèle de régression logistique permettant de prédire plusieurs valeurs.
 
@@ -38,7 +38,7 @@ Dans une régression logistique multiclasse, le classifieur permet de prédire p
 
 2. Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.
 
-    + **Paramètre unique** : sélectionnez cette option si vous savez comment vous voulez configurer le modèle, et fournissez un ensemble spécifique de valeurs en tant qu’arguments.
+    + **Single Parameter** (Paramètre unique) : sélectionnez cette option si vous savez comment vous voulez configurer le modèle, et fournissez un ensemble spécifique de valeurs en tant qu’arguments.
 
     + **Plage de paramètres** : utilisez cette option si vous n’êtes pas sûr des paramètres à choisir et que vous souhaitez utiliser un balayage paramétrique.
 
@@ -60,9 +60,6 @@ Dans une régression logistique multiclasse, le classifieur permet de prédire p
 
 9. Exécuter le pipeline.
 
-## <a name="results"></a>Résultats
-
-Après l’apprentissage, vous pouvez visualiser un résumé des paramètres du modèle avec les pondérations de fonctionnalités tirées de l’apprentissage en cliquant avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis en sélectionnant **Visualiser**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

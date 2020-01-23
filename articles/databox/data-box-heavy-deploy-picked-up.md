@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: e438fb38afb649f6f4c7f595059ef64800977242
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240346"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514440"
 ---
 ::: zone target = "docs"
 
-# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Didacticiel : Retourner l’appareil Azure Data Box Heavy et vérifier le chargement des données dans Azure
+# <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>Tutoriel : Retourner l’appareil Azure Data Box Heavy et vérifier le chargement des données dans Azure
 
 ::: zone-end
 
@@ -35,13 +35,13 @@ Ce tutoriel vous explique comment retourner l’appareil Azure Data Box Heavy et
 Ce didacticiel fournit des informations sur les sujets suivants :
 
 > [!div class="checklist"]
-> * Prérequis
+> * Conditions préalables requises
 > * Préparer l’expédition
 > * Expédier le Data Box Heavy à Microsoft
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données du Data Box Heavy
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez les points suivants :
 
@@ -134,7 +134,7 @@ Une fois que le chargement des données vers Azure est terminé, la Data Box eff
 Ce tutoriel vous a apporté des connaissances concernant Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
-> * Prérequis
+> * Conditions préalables requises
 > * Préparer l’expédition
 > * Expédier le Data Box Heavy à Microsoft
 > * Vérifier le chargement des données dans Azure

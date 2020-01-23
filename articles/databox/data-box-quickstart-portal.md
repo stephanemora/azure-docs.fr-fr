@@ -9,24 +9,14 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772746"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313771"
 ---
-::: zone target="docs"
-
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box à l’aide du portail Azure
-
-::: zone-end
-
-::: zone target="chromeless"
-
 # <a name="get-started-with-azure-data-box"></a>Bien démarrer avec Azure Data Box 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -44,7 +34,7 @@ Ce guide explique comment déployer Azure Data Box à partir du portail Azure. L
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
@@ -68,7 +58,7 @@ Avant de commencer :
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez avoir :
 
@@ -89,7 +79,7 @@ Avant de commencer, vous devez avoir :
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Ordre
+## <a name="order"></a>JSON
 
 Cette étape prend environ 5 minutes.
 
@@ -112,7 +102,7 @@ Lorsque vous recevez la Data Box, procédez comme suit pour brancher les câbles
 2. Avant de brancher votre appareil, assurez-vous d’avoir les câbles suivants :
     
     - Un cordon d’alimentation relié à la terre (inclus) de 10 A ou plus, muni d’un connecteur IEC60320 C-13 à une extrémité pour se connecter à l’appareil.
-    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
+    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau 10 Gbit/s DATA 1 et DATA 2)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
@@ -128,7 +118,7 @@ Lorsque vous recevez la Data Box, procédez comme suit pour brancher les câbles
     4. Allumez l'appareil. Le bouton d’alimentation est situé sur le panneau avant de l’appareil.
 
 
-## <a name="connect"></a>Connecter
+## <a name="connect"></a>Se connecter
 
 Cette étape prend environ 5 à 7 minutes.
 
@@ -164,7 +154,7 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
     1. Vérifiez les journaux d’activité d’erreurs pour connaître les échecs éventuels et prendre les mesures appropriées.
     2. Vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Cette étape dure 2 à 3 minutes.
 

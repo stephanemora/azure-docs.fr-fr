@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3b27a4788bd144a8d2d423af1fa23ef09c5379f8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772850"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514423"
 ---
 ::: zone target = "docs"
 
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Didacticiel : Brancher votre Azure Data Box Heavy et s’y connecter
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>Tutoriel : Brancher votre Azure Data Box Heavy et s’y connecter
 
 ::: zone-end
 
@@ -32,7 +32,7 @@ ms.locfileid: "70772850"
 
 Ce tutoriel explique comment brancher votre Azure Data Box Heavy, vous y connecter et l’activer.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Brancher votre Data Box Heavy
@@ -46,7 +46,7 @@ Ce guide fournit des instructions sur la façon de passer en revue les prérequi
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous que :
 

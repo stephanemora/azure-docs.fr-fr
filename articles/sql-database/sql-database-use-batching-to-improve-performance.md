@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822418"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545022"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Comment utiliser le traitement par lots pour améliorer les performances des applications de base de données SQL
 
@@ -91,7 +91,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](https://msdn.microsoft.com/library/ms186259.aspx), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
+Les transactions sont en fait utilisées dans ces deux exemples. Dans le premier exemple, chaque appel individuel est une transaction implicite. Dans le deuxième exemple, une transaction explicite encapsule tous les appels. Conformément à la documentation du [journal des transactions à écriture anticipée](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), les enregistrements de journal sont vidés sur le disque lorsque la transaction est validée. Par conséquent, en incluant plusieurs appels dans une transaction, l’écriture dans le journal des transactions peut être retardée jusqu’à ce que la transaction soit validée. En effet, vous activez le traitement par lots pour les écritures effectuées dans le journal des transactions du serveur.
 
 Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont consisté à exécuter les mêmes insertions séquentielles avec et sans transactions. Pour plus de perspective, la première série de tests a été exécutée à distance entre un ordinateur portable et la base de données dans Microsoft Azure. La deuxième série de tests a été exécutée depuis un service cloud et une base de données qui résidaient dans le même centre de données Microsoft Azure (USA Ouest). Le tableau suivant indique la durée en millisecondes des insertions séquentielles avec et sans transactions.
 
@@ -100,7 +100,7 @@ Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont 
 | Opérations | Sans transaction (ms) | Avec transaction (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
-| 10 |1 208 |1 226 |
+| 10 |1208 |1226 |
 | 100 |12 662 |10 395 |
 | 1 000 |128 852 |102 917 |
 
@@ -111,7 +111,7 @@ Le tableau suivant présente quelques résultats de tests ad hoc. Les tests ont 
 | 1 |21 |26 |
 | 10 |220 |56 |
 | 100 |2 145 |341 |
-| 1 000 |21 479 |2 756 |
+| 1 000 |21 479 |2756 |
 
 > [!NOTE]
 > Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
@@ -124,7 +124,7 @@ L’exemple précédent montre que vous pouvez ajouter une transaction locale au
 
 Pour plus d’informations sur les transactions dans ADO.NET, consultez [Transactions locales dans ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
-### <a name="table-valued-parameters"></a>Paramètres table
+### <a name="table-valued-parameters"></a>Paramètres table
 
 Les paramètres table prennent en charge les types de tables définis par l’utilisateur en tant que paramètres dans les instructions Transact-SQL, en tant que procédures stockées et en tant que fonctions. Cette technique de traitement par lots côté client vous permet d’envoyer plusieurs lignes de données dans le paramètre table. Pour utiliser les paramètres table, commencez par définir un type de table. L’instruction Transact-SQL suivante crée un type de table nommé **MyTableType**.
 
@@ -239,7 +239,7 @@ Les résultats des tests ad hoc suivants montrent les performances du traitement
 | 10 |441 |32 |
 | 100 |636 |53 |
 | 1 000 |2 535 |341 |
-| 10000 |21 605 |2 737 |
+| 10000 |21605 |2 737 |
 
 > [!NOTE]
 > Les résultats ne représentent pas des valeurs de référence. Voir la [remarque relative au minutage fournie dans cet article](#note-about-timing-results-in-this-article)
@@ -343,7 +343,7 @@ Autre facteur à prendre en compte : si le lot total devient trop volumineux, l
 
 Enfin, équilibrez la taille du lot en fonction des risques liés au traitement par lots. Si vous obtenez des erreurs temporaires ou si le rôle échoue, tenez compte des conséquences associées à une nouvelle tentative de l’opération ou à la perte de données dans le lot.
 
-### <a name="parallel-processing"></a>Traitement en parallèle
+### <a name="parallel-processing"></a>Traitement parallèle
 
 Que se passe-t-il si vous avez adopté l’approche consistant à réduire la taille de lot mais que vous avez utilisé plusieurs threads pour exécuter la tâche ? Là encore, nos tests ont montré que plusieurs petits lots multithreads produisaient de moins bonnes performances que celles obtenues avec un seul lot plus volumineux. Le test suivant tente d’insérer 1 000 lignes dans un ou plusieurs lots parallèles. Il montre comment un plus grand nombre de lots simultanés affecte les performances.
 
@@ -382,7 +382,7 @@ Si les paramètres table utilisent une procédure stockée, vous pouvez utiliser
 
 Les sections suivantes expliquent comment utiliser les paramètres table dans trois scénarios d’application. Le premier scénario montre comment utiliser une mise en mémoire tampon parallèlement à un traitement par lots. Le deuxième scénario améliore les performances en exécutant des opérations maître/détail dans un appel de procédure stockée unique. Le dernier scénario montre comment utiliser des paramètres table dans une opération « UPSERT ».
 
-### <a name="buffering"></a>Mise en mémoire tampon
+### <a name="buffering"></a>des réponses
 
 Bien que certains scénarios apparaissent comme des candidats évidents pour le traitement par lots, il existe de nombreux scénarios qui peuvent tirer parti des avantages d’un traitement par lots différé. Ce type de traitement induit toutefois un risque plus élevé de perte des données en cas de défaillance inattendue. Il est important de comprendre ce risque et de prendre en compte ses conséquences.
 

@@ -9,15 +9,15 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 14fe7fff85c7aecd3f98843794f5057cf26fc88d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497742"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548439"
 ---
 # <a name="linear-regression-module"></a>Module Régression linéaire
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un modèle de régression linéaire à utiliser dans un pipeline.  Une régression linéaire tente d’établir une relation linéaire entre une ou plusieurs variables indépendantes et un résultat numérique ou une variable dépendante. 
 
@@ -88,9 +88,8 @@ Ce module prend en charge deux méthodes d’ajustement d’un modèle de régre
 
 ## <a name="results-for-ordinary-least-squares-model"></a>Résultats de modèle de moindres carrés ordinaires
 
-Une fois l’apprentissage terminé :
+Une fois l’apprentissage terminé :
 
-+ Pour afficher les paramètres du modèle, cliquez avec le bouton droit sur la sortie du formateur, puis sélectionnez **Visualize** (Visualiser).
 
 + Pour effectuer des prédictions, connectez le modèle formé au module [Score Model](./score-model.md) (Noter le modèle), ainsi qu’un jeu de données de nouvelles valeurs. 
 
@@ -105,7 +104,7 @@ Une fois l’apprentissage terminé :
 
 3. Pour **Create trainer mode** (créer un mode d’apprentissage), indiquer si vous souhaitez effectuer l’apprentissage du modèle avec un ensemble prédéfini de paramètres, ou si vous souhaitez optimiser le modèle à l’aide d’un balayage de paramètre.
 
-    + **Paramètre unique** : si vous savez comment vous voulez configurer le réseau de régression linéaire, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.
+    + **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le réseau de régression linéaire, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.
 
    
 4. Pour **Learning rate** (Taux d’apprentissage), spécifiez le taux d’apprentissage initial pour l’optimiseur de descente de gradient stochastique.
@@ -136,7 +135,7 @@ Une fois l’apprentissage terminé :
 
 ## <a name="results-for-online-gradient-descent"></a>Résultats pour la descente de gradient en ligne
 
-Une fois l’apprentissage terminé :
+Une fois l’apprentissage terminé :
 
 + Pour effectuer des prédictions, connectez le modèle formé au module [Score Model](./score-model.md) (Noter le modèle), ainsi que de nouvelles données d’entrée.
 

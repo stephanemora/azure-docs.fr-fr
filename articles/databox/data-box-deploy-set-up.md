@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338480"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514134"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Didacticiel : Branchement des câbles et connexion à une Azure Data Box
+# <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Tutoriel : Branchement des câbles et connexion à une Azure Data Box
 
 ::: zone-end
 
@@ -32,13 +32,13 @@ ms.locfileid: "71338480"
 
 Ce didacticiel explique le raccordement, la connexion et le démarrage d’une Azure Data Box.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Raccordement de la Data Box
 > * Connexion à la Data Box
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous que :
 
@@ -55,7 +55,7 @@ Avant de commencer, assurez-vous que :
 7. Vous disposez des câbles suivants pour connecter votre Data Box à l’ordinateur hôte.
     - Un ou plusieurs câbles Twinax 10 GbE SFP+ cuivre ou SFP+ fibre optique (à utiliser avec les interface réseau DATA 1, DATA 2). Étant donné que Data Box est équipé de cartes Mellanox ConnectX®-3 Pro EN 10GBASE-T Double port avec l’interface réseau PCI Express 3.0, les câbles qui sont compatibles avec cette interface doivent fonctionner. Par exemple, un câble CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M a été utilisé pour les tests internes. Pour plus d’informations, voir la [liste des câbles et commutateurs compatibles de Mellanox](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
-    - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
+    - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 
 ## <a name="cable-your-device"></a>Raccordement de l'appareil
 
@@ -89,7 +89,7 @@ Une fois que vous avez reçu l’appareil, vous devez le brancher et vous y conn
 2. Avant de brancher votre appareil, assurez-vous d’avoir les câbles suivants :
     
     - Un cordon d’alimentation relié à la terre (inclus) de 10 A ou plus, muni d’un connecteur IEC60320 C-13 à une extrémité pour se connecter à l’appareil.
-    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
+    - Un câble réseau RJ-45 CAT 6 (à utiliser avec l’interface réseau MGMT)
     - Deux câbles en cuivre Twinax SFP+ 10 GbE (à utiliser avec les interfaces réseau 10 Gbit/s DATA 1 et DATA 2)
     - Un câble réseau RJ-45 CAT 6A OU RJ-45 CAT 6 (à utiliser avec l’interface réseau DATA 3 et configurés en mode 10 Gbit/s ou 1 Gbit/s, respectivement)
 

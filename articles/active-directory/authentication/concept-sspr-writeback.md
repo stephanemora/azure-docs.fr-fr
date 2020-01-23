@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 151e7b2ab091959c8b6c08d366318a49987aefd9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6ddd7160a56a4529ee31c111f0e202ca235c71af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848525"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544019"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
@@ -118,8 +118,8 @@ La réécriture du mot de passe est un service hautement sécurisé. Pour garant
 Lorsqu’un utilisateur soumet une réinitialisation de mot de passe, cette demande transite via plusieurs étapes de chiffrement avant son arrivée dans votre environnement local. Ces étapes de chiffrement garantissent une sécurité et une fiabilité maximales. En voici le détail :
 
 * **Étape 1 : Chiffrement du mot de passe avec la clé RSA de 2 048 bits**. Lorsqu’un utilisateur envoie un mot de passe en vue de sa réécriture en local, celui-ci est préalablement chiffré avec une clé RSA de 2 048 bits.
-* **Étape 2 : Chiffrement de niveau package avec AES-GCM**. La méthode AES-GCM permet de chiffrer la totalité du package, avec le mot de passe et les métadonnées nécessaires. Ce chiffrement empêche quiconque ayant un accès direct au canal ServiceBus sous-jacent de visualiser ou compromettre le contenu.
-* **Étape 3 : Toutes les communications passent par une connexion TLS/SSL**. Toutes les communications avec ServiceBus transitent par un canal SSL/TLS. Ce chiffrement protège le contenu contre les tiers non autorisés.
+* **Étape 2 : Chiffrement de niveau package avec AES-GCM**. La méthode AES-GCM permet de chiffrer la totalité du package, avec le mot de passe et les métadonnées nécessaires. Ce chiffrement empêche quiconque ayant un accès direct au canal ServiceBus sous-jacent de visualiser ou compromettre le contenu.
+* **Étape 3 : Toutes les communications passent par une connexion TLS/SSL**. Toutes les communications avec ServiceBus transitent par un canal SSL/TLS. Ce chiffrement protège le contenu contre les tiers non autorisés.
 * **Renouvellement automatique des clés tous les 6 mois**. Tous les 6 mois ou chaque fois que la réécriture du mot de passe est désactivée puis réactivée sur Azure AD Connect, nous renouvelons automatiquement toutes les clés afin d’assurer la sécurité et la protection maximales du service.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Utilisation de la bande passante de la réécriture du mot de passe
@@ -164,7 +164,7 @@ Les mots de passe ne sont *pas* réécrits dans les situations suivantes :
    * Toute réinitialisation du mot de passe de l’utilisateur final réalisée par l’administrateur depuis le [Centre d’administration Microsoft 365](https://admin.microsoft.com)
 
 > [!WARNING]
-> L’utilisation de la case à cocher « L’utilisateur doit changer de mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Utilisateurs et ordinateurs Active Directory ou le Centre d’administration Active Directory, est prise en charge comme fonctionnalité en préversion d’Azure AD Connect. Pour plus d’informations, consultez l’article [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
+> L’utilisation de la case à cocher « L’utilisateur doit changer de mot de passe à la prochaine ouverture de session » dans les outils d’administration d’Active Directory locaux, comme Utilisateurs et ordinateurs Active Directory ou le Centre d’administration Active Directory, est prise en charge comme fonctionnalité en préversion d’Azure AD Connect. Pour plus d’informations, consultez l’article [Implémenter la synchronisation de hachage du mot de passe avec la synchronisation Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

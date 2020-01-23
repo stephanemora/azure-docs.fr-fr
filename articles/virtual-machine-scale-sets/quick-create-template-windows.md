@@ -1,27 +1,19 @@
 ---
 title: Démarrage rapide - Créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle Azure
 description: Apprendre à créer rapidement un groupe de machines virtuelles identiques Windows avec un modèle Azure Resource Manager qui déploie un exemple d’application et configure des règles de mise à l’échelle automatique
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: cynthn
-ms.openlocfilehash: f3dd2fd092e49a0e526856f1e55211ec1837cfa4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4430a73f7b46a31847322e65c0aa3c95ebd385ca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351096"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270169"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-scale-set-with-an-azure-template"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques Windows à l’aide d’un modèle Azure
 

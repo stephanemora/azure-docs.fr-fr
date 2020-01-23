@@ -4,16 +4,16 @@ description: Cet article présente les tâches courantes à la charge d’un adm
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 469bd66a6074db34d1efb6f82fda229400239058
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985753"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547572"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -124,17 +124,12 @@ Gardez les points suivants à l’esprit quand vous transférez un compte d’en
 - Seuls les comptes spécifiés dans la demande sont transférés. Si tous les comptes sont choisis, ils sont tous transférés.
 - L’inscription source conserve son état actif ou étendu. Vous pouvez continuer à utiliser l’inscription jusqu’à ce qu’elle expire.
 
-### <a name="effective-transfer-date"></a>Date de transfert effectif
-
-Vous pouvez antidater un transfert de compte jusqu’à la date de début de l’inscription cible, ou la date d’ouverture du compte, selon celle qui est la plus récente. Une fois le compte transféré, toutes les informations sur l’utilisation du compte avant la date de transfert effectif restent dans l’inscription à partir de laquelle vous effectuez le transfert. Les informations d’utilisation après la date de transfert seront déplacées vers l’inscription cible.
-
 ### <a name="prerequisites"></a>Conditions préalables requises
 
 Lorsque vous demandez un transfert de compte, fournissez les informations suivantes :
 
 - Le numéro de l’inscription cible, le nom du compte et l’e-mail du propriétaire du compte à transférer
 - Pour l’inscription source, le numéro d’inscription et le compte à transférer
-- Pour la date d’effet de transfert du compte, elle peut être antidatée jusqu’à la date de début de l’inscription cible, ou la date d’ouverture du compte, selon celle qui est la plus récente
 
 Autres points à garder à l’esprit avant un transfert de compte :
 
@@ -162,15 +157,12 @@ Lorsque vous demandez à transférer une inscription d’entreprise complète ve
 - Tout solde restant de l’engagement monétaire dans le contrat est perdu, y compris les termes futurs.
 -   Si l’inscription à partir de laquelle vous transférez inclut des achats RI, les frais d’achat RI resteront dans l’inscription source. Toutefois, tous les avantages RI seront transférés pour être utilisés dans la nouvelle inscription.
 -   Les frais d’achat à usage unique de la place de marché et les frais fixes mensuels déjà engagés sur l’ancienne inscription ne seront pas transférés vers la nouvelle inscription. Les frais de la place de marché basés sur la consommation seront transférés.
--   Après un transfert d’inscription en retard, les frais à usage unique des achats restent dans l’inscription source.
 
 ### <a name="effective-transfer-date"></a>Date de transfert effectif
 
 Le jour du transfert effectif peut correspondre à la date de début de l’inscription cible ou à une date ultérieure.
 
 L’utilisation de l’inscription source est facturée dans le cadre de l’engagement monétaire ou comme dépassement. L’utilisation postérieure à la date de transfert effectif est transférée vers la nouvelle inscription et facturée en conséquence.
-
-Un transfert antidaté est accepté jusqu’à la date de début de l’inscription cible. Le fait de fournir la date de transfert choisie n’affecte pas l’utilisation d’une facture de dépassement qui a déjà été émise.
 
 ### <a name="prerequisites"></a>Conditions préalables requises
 

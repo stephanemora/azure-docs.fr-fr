@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 10/16/2019
+ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b78c04d6e0ba2f87a5ff99098f689949cf7aa5e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e3dcd9305a48b0d34f1bcbea64d6628efabc1235
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771953"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546059"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -47,7 +47,6 @@ Utilisez ces outils pour Azure Machine Learning :
 +  Interagissez avec le service dans un environnement Python avec le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interagissez avec le service dans un environnement R avec le [Kit de développement logiciel (SDK) Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Automatisez vos activités Machine Learning avec l’[interface CLI Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
-+ Écrivez du code dans Visual Studio Code avec l’[extension Azure Machine Learning VS Code](how-to-vscode-tools.md)
 + Utilisez le [Concepteur Azure Machine Learning (préversion)](concept-designer.md) pour effectuer les étapes de workflow sans écrire de code.
 
 

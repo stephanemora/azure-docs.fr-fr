@@ -9,13 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092075"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514117"
 ---
 ::: zone target="chromeless"
 
@@ -25,17 +24,17 @@ ms.locfileid: "74092075"
 
 ::: zone target="docs"
 
-# <a name="tutorial-return-azure-data-box-disk"></a>Didacticiel : Renvoyer un disque Azure Data Box 
+# <a name="tutorial-return-azure-data-box-disk"></a>Tutoriel : Renvoyer un disque Azure Data Box 
 
 Ce tutoriel explique comment planifier un enlèvement pour renvoyer un disque Azure Data Box. Les instructions d’enlèvement varient selon la destination de renvoi de l’appareil. 
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > * Expédier le disque Data Box à Microsoft
 > * Procéder à l’enlèvement du disque Data Box dans différentes régions
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Copier des données sur Azure Data Box Disk et procéder à une vérification](data-box-disk-deploy-copy-data.md).
 

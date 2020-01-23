@@ -14,12 +14,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c75162cc66e9277d111def92842f5a67a132f59
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424326"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548150"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Problèmes connus sur les navigateurs Internet Explorer et Microsoft Edge (MSAL.js)
 
@@ -38,10 +38,6 @@ La cause de la plupart de ces problèmes est la suivante. Le stockage de session
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
 - **La fenêtre contextuelle ne se ferme pas ou est bloquée lors de l’utilisation de la connexion via la fenêtre contextuelle pour l’authentification**. Lors de l’authentification via une fenêtre contextuelle dans Microsoft Edge ou IE (InPrivate), une fois la saisie des informations d’identification et la connexion effectuées, si plusieurs domaines dans les zones de sécurité sont impliqués dans la navigation, la fenêtre contextuelle ne se ferme pas parce que MSAL.js perd le descripteur de la fenêtre contextuelle.  
-
-    Voici des liens vers ces problèmes dans le suivi des problèmes de Microsoft Edge :  
-    - [Bogue 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
-    - [Bogue 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Mise à jour : Correctif disponible dans MSAL.js 0.2.3
 Des correctifs pour les problèmes de boucle de redirection d’authentification ont été publiés dans [MSAL.js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Activez l’indicateur `storeAuthStateInCookie` dans la configuration MSAL.js pour tirer parti de ce correctif. Par défaut, cet indicateur est défini sur false.

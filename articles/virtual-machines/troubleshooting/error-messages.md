@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 3b8c9c80c93430d8dc5a888742e4e4e96ba99400
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695328"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543016"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Présentation des messages d’erreur courants lors de la gestion des machines virtuelles dans Azure
 
@@ -37,7 +37,7 @@ Les machines virtuelles Azure utilisent le format JSON suivant pour les réponse
     "message":"Top level error message",
     "details":[
      {
-      "code":"Inner evel error code",
+      "code":"Inner level error code",
       "message":"Inner level error message"
      }
     ]

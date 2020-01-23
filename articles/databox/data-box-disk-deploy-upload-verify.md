@@ -9,17 +9,16 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fc3145ee0b60402026389863b94d21da4b3e4123
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: e2851f7087151b09b5f859b7142aa28e5b18a4e5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307764"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514083"
 ---
 ::: zone target="docs"
 
-# <a name="tutorial-verify-data-upload-from-azure-data-box-disk"></a>Didacticiel : Vérifier le chargement de données à partir d’un disque Azure Data Box
+# <a name="tutorial-verify-data-upload-from-azure-data-box-disk"></a>Tutoriel : Vérifier le chargement de données à partir d’un disque Azure Data Box
 
 Ce tutoriel est le dernier de la série : Déployer Azure Data Box Disk. Dans ce tutoriel, vous allez découvrir :
 
@@ -27,7 +26,7 @@ Ce tutoriel est le dernier de la série : Déployer Azure Data Box Disk. Dans c
 > * Vérifier le chargement des données dans Azure
 > * Effacer les données du disque Data Box
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que vous avez suivi le [tutoriel : Renvoyer un disque Azure Data Box](data-box-disk-deploy-picked-up.md).
 

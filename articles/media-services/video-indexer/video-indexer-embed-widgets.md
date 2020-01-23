@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892734"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545889"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -29,7 +29,7 @@ Cet article explique comment incorporer des widgets Video Indexer dans vos appli
 
 Un widget Cognitive Insights inclut tous les insights visuels extraits à partir du processus d’indexation de votre vidéo. Le widget Cognitive Insights prend en charge les paramètres d’URL facultatifs suivants.
 
-|Nom|Définition|Description|
+|Name|Définition|Description|
 |---|---|---|
 |`widgets`|Chaînes séparées par des virgules|Vous permet de contrôler les insights dont vous voulez faire le rendu. <br/> Exemple : `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` affiche uniquement les insights d’IU des marques et des personnes.<br/>Options disponibles : personnes (people), mots clés (keywords), annotations, marques (brands), sentiments, transcription (transcript), recherche (search).<br/>Notez que le paramètre d’URL `widgets` n’est pas pris en charge dans la version 2.<br/>|
 |`locale`|Code de langue court|Contrôle la langue des insights. La valeur par défaut est `en`. <br/> Exemple : `locale=de`.|
@@ -39,7 +39,7 @@ Un widget Cognitive Insights inclut tous les insights visuels extraits à partir
 
 Vous pouvez utiliser le widget Lecteur pour le streaming vidéo avec vitesse de transmission adaptative. Le widget Lecteur prend en charge les paramètres d’URL facultatifs suivants.
 
-|Nom|Définition|Description|
+|Name|Définition|Description|
 |---|---|---|
 |`t`|Secondes écoulées depuis le début|Fait démarrer le lecteur à partir d’un instant donné.<br/> Exemple : `t=60`.|
 |`captions`|Code de langue|Extrait les sous-titres dans la langue spécifiée pendant le chargement du widget pour les rendre disponibles dans le menu **Captions** (Sous-titres).<br/> Exemple : `captions=en-US`.|
@@ -52,9 +52,9 @@ Vous pouvez utiliser le widget Lecteur pour le streaming vidéo avec vitesse de 
 
 Vous pouvez utiliser le widget Éditeur pour créer des projets et de gérer les insights d’une vidéo. Le widget Éditeur prend en charge les paramètres d’URL facultatifs suivants.
 
-|Nom|Définition|Description|
+|Name|Définition|Description|
 |---|---|---|
-|`accessToken`<sup>*</sup>|Chaîne|Fournit uniquement l’accès aux vidéos qui se trouvent dans le compte utilisé pour incorporer le widget.<br> Le widget Éditeur nécessite le paramètre `accessToken`.|
+|`accessToken`<sup>*</sup>|String|Fournit uniquement l’accès aux vidéos qui se trouvent dans le compte utilisé pour incorporer le widget.<br> Le widget Éditeur nécessite le paramètre `accessToken`.|
 |`language`|Code de langue|Détermine la langue du lecteur. La valeur par défaut est `en-US`.<br/>Exemple : `language=de-DE`.|
 |`locale`|Code de langue court|Contrôle la langue des insights. La valeur par défaut est `en`.<br/>Exemple : `language=de`.|
 
@@ -159,7 +159,8 @@ Cette section montre comment obtenir une interaction entre un widget Cognitive I
             this.videobreakdown({
             videoId: "c4c1ad4c9a",
             syncTranscript: true,
-            syncLanguage: true
+            syncLanguage: true,
+            location: "trial" /* location option for paid accounts (default is trial) */
             });
 
             // Set the source dynamically.

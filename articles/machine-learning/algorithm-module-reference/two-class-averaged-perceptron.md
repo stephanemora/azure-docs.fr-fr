@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 379cddd9654cc897b49fd085d8df55fcd77a7ce8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62e2168c674693ded31bd94206e2e13c82c67b68
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490355"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546382"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Module Perceptron moyenné à deux classes
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Ce module vous permet de créer un modèle Machine Learning reposant sur l’algorithme perceptron moyenné.  
   
@@ -50,13 +50,9 @@ Les modèles Perceptron les plus simples sont adaptés à l’apprentissage des 
   
 1.  Connecter un jeu de données d’apprentissage à l’un des modules de formation :
   
-    -   Si vous définissez **Create trainer mode** (Créer un mode d’apprentissage) sur **Single Parameter** (Paramètre unique), utilisez le module [Train Model](train-model.md) (Entraîner le modèle).
+    -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](train-model.md).
 
-## <a name="results"></a>Résultats
 
-Une fois la formation terminée :
-
-+ Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation, cliquez avec le bouton droit sur la sortie [Train Model](./train-model.md) (Entraîner le modèle).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

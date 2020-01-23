@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241374"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514406"
 ---
 ::: zone target = "docs"
 
@@ -24,11 +24,11 @@ Ce démarrage rapide explique comment déployer Azure Data Box Heavy à l’aide
 
 Pour obtenir des instructions pas à pas sur le déploiement et le suivi, consultez [Tutoriel : Commander Azure Data Box Heavy](data-box-heavy-deploy-ordered.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Effectuez les prérequis de configuration suivants pour le site d’installation, le service Data Box et l’appareil avant de déployer de dernier.
 
-### <a name="for-installation-site"></a>Pour le site d’installation
+### <a name="for-installation-site"></a>Pour l’emplacement d’installation
 
 Avant de commencer, assurez-vous que :
 
@@ -53,8 +53,8 @@ Avant de commencer, assurez-vous que :
 - Vous disposez d’un ordinateur hôte connecté au réseau du centre de données. Le Data Box Heavy va copier les données de cet ordinateur. Votre ordinateur hôte doit exécuter un [système d’exploitation pris en charge](data-box-heavy-system-requirements.md).
 - Vous disposez d’un ordinateur portable équipé d’un câble RJ-45 pour vous connecter à l’interface utilisateur locale et configurer l’appareil. Utilisez l’ordinateur portable pour configurer une fois chaque nœud de l’appareil.
 - Votre centre de données dispose d’un réseau haut débit avec une connexion 10 GbE minimum.
-- Vous devez disposer d’un câble de 40 Gbits/s ou de 10 Gbits/s par nœud d’appareil. Choisissez des câbles compatibles avec l’interface réseau Mellanox MCX314A-BCCT :
-    - Concernant le câble à 40 Gbits/s, l’extrémité du câble côté appareil doit être QSFP+.
+- Vous devez disposer d’un câble 40 Gbits/s ou d’un câble 10 Gbits/s par nœud d’appareil. Choisissez des câbles compatibles avec l’interface réseau Mellanox MCX314A-BCCT :
+    - Concernant le câble 40 Gbits/s, l’extrémité du câble côté appareil doit être QSFP+.
     - Concernant le câble à 10 Gbits/s, vous devez disposer d’un câble SFP+ dont une extrémité est branchée à un commutateur 10 G, avec un adaptateur QSFP+ en SFP+ (ou un adaptateur QSA) pour l’extrémité qui est branchée sur l’appareil.
 - Les câbles d’alimentation sont inclus et rangés dans un tiroir à l’arrière de l’appareil.
 
@@ -63,7 +63,7 @@ Avant de commencer, assurez-vous que :
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="order"></a>Ordre
+## <a name="order"></a>JSON
 
 Cette étape prend environ 5 minutes.
 
@@ -160,7 +160,7 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
     1. Vérifiez les journaux d’activité d’erreurs pour connaître les échecs éventuels et prendre les mesures appropriées.
     2. Vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Cette étape dure 2 à 3 minutes.
 

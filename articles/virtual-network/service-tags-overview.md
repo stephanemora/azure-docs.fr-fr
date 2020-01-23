@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: e4c18f1148259d246445b94ac6117ebefa9470a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975371"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543033"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel 
 <a name="network-service-tags"></a>
@@ -51,7 +51,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureAdvancedThreatProtection** | Azure Advanced Threat Protection. | Règle de trafic sortant | Non | Non |
 | **AzureBackup** |Sauvegarde Azure.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport aux balises **Storage** and **AzureActiveDirectory**. | Règle de trafic sortant | Non | Oui |
 | **AzureBotService** | Service Azure Bot. | Règle de trafic sortant | Non | Non |
-| **AzureCloud** | Toutes les [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=41653). | Règle de trafic sortant | Oui | Oui |
+| **AzureCloud** | Toutes les [adresses IP publiques du centre de données](https://www.microsoft.com/download/details.aspx?id=56519). | Règle de trafic sortant | Oui | Oui |
 | **AzureCognitiveSearch** | Recherche cognitive Azure (si vous utilisez des indexeurs avec un ensemble de compétences). | Les deux | Non | Non |
 | **AzureConnectors** | Connecteurs Azure Logic Apps pour les connexions principales/de sonde. | Trafic entrant | Oui | Oui |
 | **AzureContainerRegistry** | Azure Container Registry. | Règle de trafic sortant | Oui | Oui |

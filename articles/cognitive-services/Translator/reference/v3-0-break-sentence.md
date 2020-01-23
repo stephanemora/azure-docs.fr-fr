@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446694"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548116"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
-<table width="100%">
-  <th width="20%">Paramètre de requête.</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Paramètre de requête obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
-  </tr>
-  <tr>
-    <td>langage</td>
-    <td>*Paramètre de requête facultatif*.<br/>Balise de langue identifiant la langue du texte d’entrée. Si aucun code n’est spécifié, la détection automatique de la langue est appliquée.</td>
-  </tr>
-  <tr>
-    <td>script</td>
-    <td>*Paramètre de requête facultatif*.<br/>Balise de script qui identifie le script utilisé par le texte d’entrée. Si aucun script n’est spécifié, le script par défaut de la langue est supposé.</td>
-  </tr>
-</table> 
+| Paramètre de requête | Description |
+| -------| ----------- |
+| api-version <img width=200/>   | **Paramètre de requête obligatoire**.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`. |
+| langage | **Paramètre de requête facultatif**.<br/>Balise de langue identifiant la langue du texte d’entrée. Si aucun code n’est spécifié, la détection automatique de la langue est appliquée. |
+| script    | **Paramètre de requête facultatif**.<br/>Balise de script qui identifie le script utilisé par le texte d’entrée. Si aucun script n’est spécifié, le script par défaut de la langue est supposé.  | 
 
 Les en-têtes de demande sont les suivants :
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
-  <tr>
-    <td>En-tête(s) d’authentification</td>
-    <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*En-tête de demande obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*En-tête de demande obligatoire*.<br/>Longueur du corps de la demande.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Facultatif*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
-  </tr>
-</table> 
+| headers | Description |
+| ------- | ----------- |
+| En-tête(s) d’authentification <img width=200/>  | **En-tête de demande obligatoire**.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>. |
+| Content-Type | **En-tête de demande obligatoire**.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`. |
+| Content-Length    | **En-tête de demande obligatoire**.<br/>Longueur du corps de la demande.  | 
+| X-ClientTraceId   | **Facultatif**.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.  | 
 
 ## <a name="request-body"></a>Corps de la demande
 

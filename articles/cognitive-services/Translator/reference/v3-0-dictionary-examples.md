@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: daa3ff7cb9006a0ec940a57a4db31746dcb0550a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b3551a8df19e47178c7bacd9218cfa60b66d81f9
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888098"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548065"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API de traduction de texte Translator Text 3.0 : Exemples de dictionnaire
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
-<table width="100%">
-  <th width="20%">Paramètre de requête.</th>
-  <th>Description</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Paramètre obligatoire*.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`.</td>
-  </tr>
-  <tr>
-    <td>from</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte d’entrée. La langue source doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
-  </tr>
-  <tr>
-    <td>to</td>
-    <td>*Paramètre obligatoire*.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`.</td>
-  </tr>
-</table>
+| Paramètre de requête | Description |
+| --------- | ----------- |
+| api-version <img width=200/> | **Paramètre obligatoire**.<br/>Version de l’API demandée par le client. La valeur doit être `3.0`. |
+| de | **Paramètre obligatoire**.<br/>Spécifie la langue du texte d’entrée. La langue source doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`. |
+| to | **Paramètre obligatoire**.<br/>Spécifie la langue du texte de sortie. La langue cible doit être l’une des [langues prises en charge](./v3-0-languages.md) incluses dans l’étendue `dictionary`.  | 
 
 Les en-têtes de demande sont les suivants :
 
-<table width="100%">
-  <th width="20%">headers</th>
-  <th>Description</th>
-  <tr>
-    <td>En-tête(s) d’authentification</td>
-    <td><em>En-tête de demande obligatoire</em>.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*En-tête de demande obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Content-Length</td>
-    <td>*En-tête de demande obligatoire*.<br/>Longueur du corps de la demande.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Facultative*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`.</td>
-  </tr>
-</table> 
+| headers  | Description |
+| ------ | ----------- |
+| En-tête(s) d’authentification <img width=200/>  | **En-tête de demande obligatoire**.<br/>Voir les <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">options disponibles pour l’authentification</a>. |
+| Content-Type | **En-tête de demande obligatoire**.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`. |
+| Content-Length   | **En-tête de demande obligatoire**.<br/>Longueur du corps de la demande. |
+| X-ClientTraceId   | **Facultatif**.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`. |
 
 ## <a name="request-body"></a>Corps de la demande
 

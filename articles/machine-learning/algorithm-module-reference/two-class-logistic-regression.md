@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7c2618f7703ba1a9803952efabcfbd800149ada4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485932"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548337"
 ---
 # <a name="two-class-logistic-regression-module"></a>Module de régression logistique à deux classes
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un modèle de régression logistique qui peut être utilisé pour prédire seulement deux résultats. 
 
@@ -40,19 +40,18 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
   
 2.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.  
   
-    -   **Paramètre unique** : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments.  
+    -   **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.  
   
 3.  Pour la **tolérance d’optimisation**, spécifiez une valeur de seuil à utiliser lors de l’optimisation du modèle. Si l’amélioration entre les itérations tombe au-dessous du seuil spécifié, on considère que l’algorithme a convergé vers une solution, et l’entraînement cesse.  
   
-4.  Pour la **pondération de régularisation L1** et la **pondération de régularisation L2**, saisissez une valeur à utiliser pour les paramètres de régularisation L1 et L2. Une valeur non nulle est recommandée pour les deux.  
-  
+4.  Pour la **pondération de régularisation L1** et la **pondération de régularisation L2**, saisissez une valeur à utiliser pour les paramètres de régularisation L1 et L2. La définition d’une valeur non nulle est recommandée pour les deux options.  
      La *régularisation* est une méthode qui sert à empêcher le surajustement en pénalisant les modèles avec des valeurs de coefficient extrêmes. La régularisation fonctionne en ajoutant la pénalité associée aux valeurs de coefficient à l’erreur de l’hypothèse. Par conséquent, un modèle précis avec des valeurs de coefficient extrêmes est plus pénalisé, mais un modèle moins précis avec des valeurs plus conservatrices est moins pénalisé.  
   
-     Les régularisations L1 et L2 ont différents effets et cas d’utilisation.  
+     Les régularisations L1 et L2 ont différents effets et cas d’utilisation.  
   
     -   La régularisation L1 est applicable aux modèles dispersés, ce qui est utile lorsque vous travaillez avec des données de grande dimension.  
   
-    -   En revanche, la régularisation L2 est préférable pour les données qui ne sont pas dispersées.  
+    -   En revanche, la régularisation L2 est préférable pour les données qui ne sont pas dispersées.  
   
      Cet algorithme prend en charge une combinaison linéaire de valeurs de régularisation L1 et L2 : autrement dit, si <code>x = L1</code> et <code>y = L2</code>, <code>ax + by = c</code> définit l’étendue linéaire des termes du contrat de régularisation.  
   
@@ -78,9 +77,8 @@ Par exemple, la colonne d’étiquette peut être [Voté], avec les valeurs poss
   
 ## <a name="results"></a>Résultats
 
-Une fois l’apprentissage terminé :
-
-+ Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de l’apprentissage, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.   
+Une fois l’apprentissage terminé :
+ 
   
 + Pour effectuer des prévisions sur de nouvelles données, utilisez le modèle entraîné et les nouvelles données en tant qu’entrée pour le module de [notation de modèle](./score-model.md). 
 

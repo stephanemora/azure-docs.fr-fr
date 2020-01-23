@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045626"
+ms.locfileid: "76121078"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Liaison privée pour Azure SQL Database et Data Warehouse (préversion)
 
@@ -43,8 +43,6 @@ Grâce à Liaison privée, les clients peuvent désormais configurer des contrô
 Quand des clients se connectent au point de terminaison public à partir de machines locales, leur adresse IP doit être ajoutée au pare-feu IP à l’aide d’une [règle de pare-feu au niveau du serveur](sql-database-server-level-firewall-rule.md). Bien que ce modèle fonctionne bien pour autoriser l’accès à des machines individuelles pour des charges de travail de développement ou de test, il est difficile à gérer dans un environnement de production.
 
 Grâce à Liaison privée, les clients peuvent activer l’accès entre différents locaux au point de terminaison privé en utilisant [ ExpressRoute](../expressroute/expressroute-introduction.md), un appairage privé ou un tunneling VPN. Les clients peuvent ensuite désactiver tout accès par le biais du point de terminaison public et s’abstenir d’utiliser le pare-feu IP pour autoriser les adresses IP.
-
-Grâce à Liaison privée, les clients peuvent activer l’accès entre différents locaux au point de terminaison privé en utilisant ExpressRoute (ER), un appairage privé ou un tunnel VPN. Ils peuvent ensuite désactiver tout accès par le biais du point de terminaison public et s’abstenir d’utiliser le pare-feu IP.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Comment configurer Liaison privée pour Azure SQL Database 
 

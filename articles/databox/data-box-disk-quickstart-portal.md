@@ -9,27 +9,16 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b07adc955b7904c6e6a3278480cec5a2be91ec35
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: fcc7c6ff74e17db2066d97597849c985f5a961e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232914"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514066"
 ---
 ::: zone target="docs"
 
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box Disk à l’aide du portail Azure
-
-::: zone-end
-
-::: zone target="chromeless"
-
-## <a name="get-started-with-azure-data-box-disk"></a>Démarrer avec Azure Data Catalog Disk 
-
-::: zone-end
-
-::: zone target="docs"
 
 Ce démarrage rapide explique comment déployer le disque Azure Data Box à l’aide du portail Azure. Vous y apprendrez notamment à créer une commande, recevoir des disques, déballer, vous connecter et copier des données vers des disques pour effectuer un chargement vers Azure.
 
@@ -47,7 +36,7 @@ Ce guide vous décrit les étapes relatives à l’utilisation d’Azure Data Bo
 
 ::: zone target="docs"
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
@@ -74,7 +63,7 @@ Connectez-vous au portail Azure sur [https://aka.ms/azuredataboxfromdiskdocs](ht
 
 ::: zone target="docs"
 
-## <a name="order"></a>Ordre
+## <a name="order"></a>JSON
 
 Cette étape prend environ 5 minutes.
 
@@ -143,7 +132,7 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
     1. Vérifiez les journaux d’activité d’erreurs pour connaître les échecs éventuels et prendre les mesures appropriées.
     2. Vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Cette étape dure 2 à 3 minutes.
 
