@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754001"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543560"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Pour plus d’informations sur les concepts impliqués dans le workflow de dépl
 
 - Un modèle Si vous n’avez pas de modèle entraîné, vous pouvez utiliser les fichiers de modèle et de dépendance fournis dans [ce tutoriel](https://aka.ms/azml-deploy-cloud).
 
-- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’[extension Azure Machine Learning pour Visual Studio Code](how-to-vscode-tools.md).
+- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="connect-to-your-workspace"></a>Se connecter à un espace de travail
 
@@ -59,7 +59,7 @@ Le code suivant montre comment se connecter à un espace de travail Azure Machin
 
 + **Avec VS Code**
 
-   Quand vous utilisez VS Code, vous sélectionnez l’espace de travail dans une interface graphique. Pour plus d’informations, consultez [Déployer et gérer des modèles](how-to-vscode-tools.md#deploy-and-manage-models) dans la documentation relative à l’extension VS Code.
+   Quand vous utilisez VS Code, vous sélectionnez l’espace de travail dans une interface graphique. Pour plus d’informations, consultez [Déployer et gérer des modèles](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) dans la documentation relative à l’extension VS Code.
 
 ## <a id="registermodel"></a> Inscrire votre modèle
 
@@ -115,7 +115,7 @@ Les extraits de code de cette section montrent comment inscrire un modèle à pa
 
 + **Avec VS Code**
 
-  Utilisez l’extension [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) pour inscrire des modèles à l’aide de fichiers ou de dossiers de modèles.
+  Utilisez l’extension [VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) pour inscrire des modèles à l’aide de fichiers ou de dossiers de modèles.
 
 ### <a name="register-a-model-from-a-local-file"></a>Inscrire un modèle à partir d’un fichier local
 
@@ -185,7 +185,7 @@ Pour déployer le modèle, vous avez besoin des éléments suivants :
     >
     > * Le kit SDK Azure Machine Learning n’offre aucun moyen pour les déploiements de service web ou IoT Edge d’accéder à votre magasin de données ou à vos jeux de données. Si votre modèle déployé doit accéder aux données stockées en dehors du déploiement, par exemple à celles dans un compte de stockage Azure, vous devez développer une solution de code personnalisée à l’aide du kit SDK approprié. Exemple : [Kit de développement logiciel (SDK) Stockage Azure pour Python](https://github.com/Azure/azure-storage-python).
     >
-    >   Une autre solution possible pour votre scénario consiste à utiliser les [prédictions par lots](how-to-run-batch-predictions.md), qui donnent accès aux magasins de travail durant le scoring.
+    >   Une autre solution possible pour votre scénario consiste à utiliser les [prédictions par lots](how-to-use-parallel-run-step.md), qui donnent accès aux magasins de travail durant le scoring.
 
 * Des **dépendances**, comme les scripts d’assistance ou les packages Python/Conda nécessaires à l’exécution du script d’entrée ou du modèle.
 
@@ -551,7 +551,7 @@ Avant de déployer votre modèle en tant que service, vous pouvez le profiler po
 
 ```python
 import json
-test_sample = json.dumps({'data': [
+test_data = json.dumps({'data': [
     [1,2,3,4,5,6,7,8,9,10]
 ]})
 

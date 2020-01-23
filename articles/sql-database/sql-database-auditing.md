@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 3d6f9f7d09664f9a5bd968ca5c0441b0846ceca3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028535"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122693"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Bien démarrer avec l’audit de bases de données SQL
 
@@ -249,11 +249,11 @@ Dans un environnement de production, vous allez probablement actualiser périodi
 
 - Pour configurer l’audit immuable sur le compte de stockage, consultez [Autoriser les écritures protégées d’objets blob d’ajout](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Notez que le nom du conteneur pour l’audit est **sqldbauditlogs**.
 
-> [!IMPORTANT] 
->  Le paramètre Autoriser les écritures protégées d’objets blob d’ajout dont la conservation est limitée dans le temps est actuellement disponible et visible uniquement dans les régions suivantes :
-> - USA Est
-> - États-Unis - partie centrale méridionale
-> - USA Ouest 2
+    > [!IMPORTANT]
+    > Le paramètre Autoriser les écritures protégées d’objets blob d’ajout dont la conservation est limitée dans le temps est actuellement disponible et visible uniquement dans les régions suivantes :
+    > - USA Est
+    > - États-Unis - partie centrale méridionale
+    > - USA Ouest 2
 
 
 ## <a id="subheading-7"></a>Gérer Azure SQL Server et l’audit de base de données avec Azure PowerShell

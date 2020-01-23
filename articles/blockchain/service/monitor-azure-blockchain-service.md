@@ -3,13 +3,13 @@ title: Supervision d’Azure Blockchain Service (ABS)
 description: Supervision d’Azure Blockchain Service avec Azure Monitor
 ms.date: 01/08/2020
 ms.topic: article
-ms.reviewer: coborn
-ms.openlocfilehash: 8c2dc6afeaa00e4c7455940cbdf5a7acd6e17394
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.reviewer: v-umha
+ms.openlocfilehash: 6f2a91a8ffce67d3c4008a7587f2787f6446c341
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780721"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293247"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Superviser Azure Blockchain Service avec Azure Monitor  
 
@@ -83,7 +83,7 @@ Le tableau suivant liste les propriétés des journaux de proxy Azure Blockchain
 |:---|:---|
 | time | Date et heure (UTC) de l’opération. |
 | resourceID  | Ressource Azure Blockchain Service pour laquelle les journaux sont activés.  |
-| category  |Pour Azure Blockchain Service, les valeurs possibles sont **Proxylogs** et **Applicationlogs**. |
+| catégorie  |Pour Azure Blockchain Service, les valeurs possibles sont **Proxylogs** et **Applicationlogs**. |
 | operationName  | Nom de l’opération représentée par cet événement.   |
 | Log level  | Par défaut, Azure Blockchain Service active le niveau de journal **Information**.   |
 | NodeLocation  | Région Azure dans laquelle le membre blockchain est déployé.  |
@@ -115,7 +115,7 @@ Le tableau suivant liste les propriétés des journaux d’application Azure Blo
 | NodeLocation  | Région Azure dans laquelle le membre blockchain est déployé.  |
 | BlockchainNodeName  | Nom du nœud du membre Azure Blockchain Service sur lequel l’opération est effectuée.   |
 | BlockchainMessage    | Ce champ contient le journal d’application Blockchain qui correspond aux journaux standard de données. Pour Quorum ABS, il s’agirait des journaux Quorum. Les informations contenues renseignent sur le type d’entrée du journal (information, erreur, avertissement), et une chaîne fournit des informations supplémentaires sur l’action exécutée.   |
-| TenantID    | Locataire spécifique à la région d’Azure Blockchain Service. Le format de ce champ est https://westlake-rp-prod.<region>. cloudapp.azure.com, dans lequel « region » précise la région Azure du membre déployé.       |
+| ID de locataire    | Locataire spécifique à la région d’Azure Blockchain Service. Le format de ce champ est https://westlake-rp-prod.<region>. cloudapp.azure.com, dans lequel « region » précise la région Azure du membre déployé.       |
 | SourceSystem   | Le système renseigne les journaux, dans ce cas, il s’agit d’**Azure**.    |
 
 
