@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978388"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509000"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Transférer des données avec la bibliothèque de déplacement de données
 
-La bibliothèque de déplacement des données Stockage Azure est une bibliothèque multiplateforme open source conçue pour charger, télécharger et copier des objets blob et des fichiers avec des performances élevées. Cette bibliothèque est l’infrastructure centrale de déplacement des données [d’AzCopy](../storage-use-azcopy.md). La bibliothèque de déplacement des données fournit des méthodes utiles qui ne sont pas disponibles dans la bibliothèque de client Stockage Azure pour .NET. Ces méthodes offrent la capacité à définir le nombre d’opérations parallèles, à suivre la progression des transferts, à reprendre facilement un transfert annulé et bien plus encore.
+La bibliothèque de déplacement des données Stockage Azure est une bibliothèque multiplateforme open source conçue pour charger, télécharger et copier des objets blob et des fichiers avec des performances élevées. La bibliothèque de déplacement des données fournit des méthodes utiles qui ne sont pas disponibles dans la bibliothèque de client Stockage Azure pour .NET. Ces méthodes offrent la capacité à définir le nombre d’opérations parallèles, à suivre la progression des transferts, à reprendre facilement un transfert annulé et bien plus encore.
 
 Cette bibliothèque utilise également .NET Core, ce qui signifie que vous pouvez l’utiliser pour créer des applications .NET pour Windows, Linux et macOS. Pour en savoir plus sur .NET Core, consultez la [Documentation .NET Core](https://dotnet.github.io/). Cette bibliothèque fonctionne également pour les applications .NET Framework classiques pour Windows.
 

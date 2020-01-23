@@ -4,12 +4,12 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b08ffa79e012344cad6cf72df98a0f1ba5240ce0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897492"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76508590"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>S’authentifier à l’aide d’Azure Active Directory
 
@@ -25,10 +25,10 @@ Dans les sections suivantes, vous allez utiliser l’environnement Azure Cloud S
 
 La première étape consiste à créer un sous-domaine personnalisé. Si vous voulez utiliser une ressource Cognitive Services existante n’ayant pas de nom de sous-domaine personnalisé, suivez les instructions de la rubrique [Sous-domaines personnalisés de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#how-does-this-impact-existing-resources) pour activer un sous-domaine personnalisé pour votre ressource.
 
-1. Commencez par ouvrir Azure Cloud Shell. Ensuite, [sélectionnez un abonnement](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description) :
+1. Commencez par ouvrir Azure Cloud Shell. Ensuite, [sélectionnez un abonnement](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext?view=azps-3.3.0) :
 
    ```azurecli-interactive
-   Select-AzureSubscription -SubscriptionName <YOUR_SUBCRIPTION>
+   Set-AzContext -SubscriptionName <SubscriptionName>
    ```
 
 2. Ensuite, [créez une ressource Cognitive Services](https://docs.microsoft.com/powershell/module/az.cognitiveservices/new-azcognitiveservicesaccount?view=azps-1.8.0) avec un sous-domaine personnalisé. Le nom de sous-domaine doit être globalement unique et ne peut pas inclure de caractères spéciaux, comme : « . », « ! », « , ».

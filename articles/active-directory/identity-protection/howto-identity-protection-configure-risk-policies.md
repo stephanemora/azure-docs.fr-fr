@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 01/06/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37091b2551d68e241c7179949c3eb1db9a381de6
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4ffa08f7ebf013d42d6da0589ce0f1ccc97289de
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382178"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75707003"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Procédure : Configurer et activer des stratégies de risque
 
@@ -31,7 +31,7 @@ Ensemble, les deux stratégies automatisent la réponse aux détections de risqu
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 Si votre organisation souhaite autoriser les utilisateurs à résoudre eux-mêmes les problèmes quand des risques sont détectés, les utilisateurs doivent être inscrits à la fois pour la réinitialisation du mot de passe en libre-service et Azure Multi-Factor Authentication. Nous vous recommandons [l’activation de l’expérience d’inscription d’informations de sécurité combinée](../authentication/howto-registration-mfa-sspr-combined.md) pour une expérience optimale. Le fait de permettre aux utilisateurs de résoudre eux-mêmes les problèmes les ramène à un état productif plus rapidement, sans nécessiter l’intervention de l’administrateur. Les administrateurs peuvent toujours voir ces événements et les examiner après coup. 
 
@@ -46,6 +46,8 @@ La sélection d’un niveau de risque **Élevé** réduit la fréquence de décl
 ## <a name="exclusions"></a>Exclusions
 
 Toutes les stratégies permettent d’exclure des utilisateurs, tels que vos [comptes d’administrateur d’accès en urgence ou d’interruption](../users-groups-roles/directory-emergency-access.md). Les organisations peuvent déterminer qu’elles doivent exclure les autres comptes de stratégies spécifiques en fonction de la façon dont les comptes sont utilisés. Toutes les exclusions doivent être examinées régulièrement pour déterminer si elles sont toujours applicables.
+
+Les [emplacements réseau](../conditional-access/location-condition.md) approuvés qui ont été configurés sont utilisés par Identity Protection dans certaines détections de risques afin de réduire les faux positifs.
 
 ## <a name="enable-policies"></a>Activer les stratégies
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: robinsh
-ms.openlocfilehash: 6f070462dca6e835504a33014a7ed48e9949f874
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: c43c142b22709d42416b2dd14dfc78812970916a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432627"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169604"
 ---
 # <a name="create-an-iot-hub-using-the-azure-portal"></a>Création d’un IoT Hub à l’aide du portail Azure
 
@@ -59,6 +59,10 @@ Cliquez sur **Ajouter** pour ouvrir le panneau **Ajouter une stratégie d’acc�
 Cliquez sur **Créer** pour ajouter la stratégie créée à la liste existante.
 
 Pour plus d’informations sur les accès accordés par des autorisations spécifiques, consultez [Autorisations IoT Hub](./iot-hub-devguide-security.md#iot-hub-permissions).
+
+## <a name="register-a-new-device-in-the-iot-hub"></a>Inscrire un nouvel appareil dans le hub IoT
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## <a name="message-routing-for-an-iot-hub"></a>Routage des messages pour un hub IoT
 

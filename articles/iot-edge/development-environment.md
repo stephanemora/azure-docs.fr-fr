@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ddfa93328fb3533a937cc7f0d81482b66275faf3
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 96078be20e8048e481a994fefc169e48ab1d8459
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848949"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511091"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Préparer votre environnement de développement et de test pour IoT Edge
 
@@ -23,33 +23,33 @@ Dans toute solution IoT Edge, il existe au moins deux types de machines à prend
 
 ## <a name="operating-system"></a>Système d’exploitation
 
-Azure IoT Edge s’exécute sur un ensemble spécifique de [systèmes d’exploitation pris en charge](support.md). Pour développer pour IoT Edge, vous pouvez utiliser la plupart des systèmes d’exploitation pouvant exécuter un moteur de conteneur. La présence du moteur de conteneur est obligatoire sur l’ordinateur de développement pour générer vos modules en tant que conteneurs et les envoyer à un registre de conteneurs. 
+Azure IoT Edge s’exécute sur un ensemble spécifique de [systèmes d’exploitation pris en charge](support.md). Pour développer pour IoT Edge, vous pouvez utiliser la plupart des systèmes d’exploitation pouvant exécuter un moteur de conteneur. La présence du moteur de conteneur est obligatoire sur l’ordinateur de développement pour générer vos modules en tant que conteneurs et les envoyer à un registre de conteneurs.
 
-Si votre ordinateur de développement ne peut pas exécuter Azure IoT Edge, poursuivez la lecture de cet article pour en savoir plus sur les [outils de test](#testing-tools) qui vous aident à tester et à déboguer localement. 
+Si votre ordinateur de développement ne peut pas exécuter Azure IoT Edge, poursuivez la lecture de cet article pour en savoir plus sur les [outils de test](#testing-tools) qui vous aident à tester et à déboguer localement.
 
-Le système d’exploitation de votre ordinateur de développement ne doit pas nécessairement être le même que celui de votre appareil IoT Edge. En revanche, le système d’exploitation du conteneur doit être identique sur l’ordinateur de développement et l’appareil IoT Edge. Par exemple, vous pouvez développer des modules sur un ordinateur Windows et les déployer sur un appareil Linux. L’ordinateur Windows doit exécuter des conteneurs Linux pour générer les modules pour l’appareil Linux. 
+Le système d’exploitation de votre ordinateur de développement ne doit pas nécessairement être le même que celui de votre appareil IoT Edge. En revanche, le système d’exploitation du conteneur doit être identique sur l’ordinateur de développement et l’appareil IoT Edge. Par exemple, vous pouvez développer des modules sur un ordinateur Windows et les déployer sur un appareil Linux. L’ordinateur Windows doit exécuter des conteneurs Linux pour générer les modules pour l’appareil Linux.
 
 ## <a name="container-engine"></a>Moteur de conteneur
 
-Le concept central d’IoT Edge est que vous pouvez déployer à distance votre logique métier et cloud sur des appareils en l’empaquetant dans des conteneurs. Pour créer des conteneurs, vous avez besoin d’un moteur de conteneur sur votre ordinateur de développement. 
+Le concept central d’IoT Edge est que vous pouvez déployer à distance votre logique métier et cloud sur des appareils en l’empaquetant dans des conteneurs. Pour créer des conteneurs, vous avez besoin d’un moteur de conteneur sur votre ordinateur de développement.
 
-Le seul moteur de conteneur pris en charge pour des appareils IoT Edge en production est Moby. Toutefois, tout moteur de conteneur compatible avec l’Initiative de conteneur ouvert, tel Docker, est capable de créer des images de modules IoT Edge. 
+Le seul moteur de conteneur pris en charge pour des appareils IoT Edge en production est Moby. Toutefois, tout moteur de conteneur compatible avec l’Initiative de conteneur ouvert, tel Docker, est capable de créer des images de modules IoT Edge.
 
 ## <a name="development-tools"></a>Outils de développement
 
-Visual Studio et Visual Studio Code comprennent des extensions de modules complémentaires pour vous aider à développer des solutions IoT Edge. Ces extensions fournissent des modèles spécifiques du langage pour faciliter la création et le déploiement de nouveaux scénarios IoT Edge. Les extensions Azure IoT Edge pour Visual Studio et Visual Studio Code vous aident à coder, à générer, à déployer et à déboguer vos solutions IoT Edge. Vous pouvez créer une solution IoT Edge entière contenant plusieurs modules. Les extensions mettent à jour automatiquement un modèle de manifeste de déploiement avec chaque nouvel ajout de module. Les extensions vous permettent également de gérer vos appareils IoT à partir de Visual Studio ou de Visual Studio Code. Déployez des modules sur un appareil, surveillez l’état et affichez les messages à mesure qu’ils parviennent à IoT Hub. Les deux extensions utilisent l’[outil de développement IoT EdgeHub](#iot-edgehub-dev-tool) pour permettre l’exécution et le débogage locaux de modules également sur votre ordinateur de développement. 
+Visual Studio et Visual Studio Code comprennent des extensions de modules complémentaires pour vous aider à développer des solutions IoT Edge. Ces extensions fournissent des modèles spécifiques du langage pour faciliter la création et le déploiement de nouveaux scénarios IoT Edge. Les extensions Azure IoT Edge pour Visual Studio et Visual Studio Code vous aident à coder, à générer, à déployer et à déboguer vos solutions IoT Edge. Vous pouvez créer une solution IoT Edge entière contenant plusieurs modules. Les extensions mettent à jour automatiquement un modèle de manifeste de déploiement avec chaque nouvel ajout de module. Les extensions vous permettent également de gérer vos appareils IoT à partir de Visual Studio ou de Visual Studio Code. Déployez des modules sur un appareil, surveillez l’état et affichez les messages à mesure qu’ils parviennent à IoT Hub. Les deux extensions utilisent l’[outil de développement IoT EdgeHub](#iot-edgehub-dev-tool) pour permettre l’exécution et le débogage locaux de modules également sur votre ordinateur de développement.
 
-Si vous préférez développer avec d’autres éditeurs ou à partir de l’interface CLI, l’outil de développement Azure IoT Edge fournit des commandes qui vous permettent de développer et tester à partir de la ligne de commande. Vous pouvez créer des scénarios IoT Edge, générer des images de module, exécuter des modules dans un simulateur et surveiller les messages envoyés à IoT Hub. 
+Si vous préférez développer avec d’autres éditeurs ou à partir de l’interface CLI, l’outil de développement Azure IoT Edge fournit des commandes qui vous permettent de développer et tester à partir de la ligne de commande. Vous pouvez créer des scénarios IoT Edge, générer des images de module, exécuter des modules dans un simulateur et surveiller les messages envoyés à IoT Hub.
 
 ### <a name="visual-studio-code-extension"></a>Extension de Visual Studio Code
 
-L’extension Azure IoT Edge pour Visual Studio Code fournit des modèles de modules IoT Edge basés sur des langages de programmation, dont C, C#, Java, Node.js et Python, ainsi que des fonctions Azure en C#. 
+L’extension Azure IoT Edge pour Visual Studio Code fournit des modèles de modules IoT Edge basés sur des langages de programmation, dont C, C#, Java, Node.js et Python, ainsi que des fonctions Azure en C#.
 
 Pour plus d’informations et pour accéder au téléchargement, consultez [Outils Azure IoT pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 
-En plus des extensions IoT Edge, il peut s’avérer utile d’installer des extensions supplémentaires pour le développement. Par exemple, vous pouvez utiliser la [Prise en charge de Docker pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) afin de gérer vos images, conteneurs et registres. De plus, tous les principaux langages pris en charge comprennent des extensions pour Visual Studio Code qui peuvent vous aider à développer des modules. 
+En plus des extensions IoT Edge, il peut s’avérer utile d’installer des extensions supplémentaires pour le développement. Par exemple, vous pouvez utiliser la [Prise en charge de Docker pour Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) afin de gérer vos images, conteneurs et registres. De plus, tous les principaux langages pris en charge comprennent des extensions pour Visual Studio Code qui peuvent vous aider à développer des modules.
 
-#### <a name="prerequisites"></a>Prérequis
+#### <a name="prerequisites"></a>Conditions préalables requises
 
 Les modèles de modules pour certains langages et services imposent des conditions préalables qui sont nécessaires pour générer les dossiers de projet sur votre ordinateur de développement avec Visual Studio Code.
 
@@ -64,21 +64,21 @@ Les modèles de modules pour certains langages et services imposent des conditio
 
 ### <a name="visual-studio-20172019-extension"></a>Extension Visual Studio 2017/2019
 
-Les outils Azure IoT Edge pour Visual Studio fournissent un modèle de module IoT Edge basé sur C# et C. 
+Les outils Azure IoT Edge pour Visual Studio fournissent un modèle de module IoT Edge basé sur C# et C.
 
 Pour plus d’informations et pour télécharger, voir [Outils Azure IoT Edge pour Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) ou [Outils Azure IoT Edge pour Visual Studio 2019](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vs16iotedgetools).
 
 ### <a name="iot-edge-dev-tool"></a>Outil de développement IoT Edge
 
-L’outil de développement Azure IoT Edge simplifie le développement IoT Edge avec des fonctionnalités de ligne de commande. Cet outil fournit des commandes CLI pour développer, déboguer et tester des modules. L’outil de développement IoT Edge fonctionne avec votre système de développement, que vous ayez installé manuellement les dépendances sur votre ordinateur ou que vous utilisiez le conteneur de développement IoT Edge. 
+L’outil de développement Azure IoT Edge simplifie le développement IoT Edge avec des fonctionnalités de ligne de commande. Cet outil fournit des commandes CLI pour développer, déboguer et tester des modules. L’outil de développement IoT Edge fonctionne avec votre système de développement, que vous ayez installé manuellement les dépendances sur votre ordinateur ou que vous utilisiez le conteneur de développement IoT Edge.
 
 Pour plus d’informations et pour commencer, voir le [wiki de l’outil de développement IoT Edge](https://github.com/Azure/iotedgedev/wiki).
 
 ## <a name="testing-tools"></a>Outils de test
 
-Plusieurs outils de test sont disponibles pour vous aider à simuler des appareils IoT Edge ou à déboguer des modules plus efficacement. Le tableau suivant présente une comparaison générale entre les outils, tandis que les sections individuelles décrivent chaque outil plus précisément. 
+Plusieurs outils de test sont disponibles pour vous aider à simuler des appareils IoT Edge ou à déboguer des modules plus efficacement. Le tableau suivant présente une comparaison générale entre les outils, tandis que les sections individuelles décrivent chaque outil plus précisément.
 
-Seul le runtime IoT Edge est pris en charge pour les déploiements de production, mais les outils suivants vous permettent de simuler ou de créer aisément des appareils IoT Edge à des fins de test et développement. Ces outils ne s’excluent pas mutuellement et peuvent opérer ensemble pour offrir une expérience de développement complète. 
+Seul le runtime IoT Edge est pris en charge pour les déploiements de production, mais les outils suivants vous permettent de simuler ou de créer aisément des appareils IoT Edge à des fins de test et développement. Ces outils ne s’excluent pas mutuellement et peuvent opérer ensemble pour offrir une expérience de développement complète.
 
 | Outil | Également appelé | Plateformes prises en charge | Idéal pour |
 | ---- | ------------- | ------------------- | --------- |
@@ -91,13 +91,13 @@ Seul le runtime IoT Edge est pris en charge pour les déploiements de production
 
 L’outil de développement hub Azure IoT Edge fournit une expérience de développement et débogage locale. L’outil aide à démarrer des modules IoT Edge sans le runtime IoT Edge de façon à pouvoir créer, développer, tester, exécuter et déboguer des modules et solutions IoT Edge localement. Vous n’êtes pas obligé d’envoyer des images à un registre de conteneurs et de les déployer sur un appareil à des fins de test.
 
-L’outil de développement IoT EdgeHub a été conçu pour fonctionner conjointement avec les extensions Visual Studio et Visual Studio Code, ainsi qu’avec l’outil de développement IoT Edge. Il prend en charge le développement de boucle interne ainsi qu’un test de boucle externe, et s’intègre donc également avec les outils de DevOps. 
+L’outil de développement IoT EdgeHub a été conçu pour fonctionner conjointement avec les extensions Visual Studio et Visual Studio Code, ainsi qu’avec l’outil de développement IoT Edge. Il prend en charge le développement de boucle interne ainsi qu’un test de boucle externe, et s’intègre donc également avec les outils de DevOps.
 
 Pour plus d’informations et pour installer, voir [Outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/).
 
 ### <a name="iot-edge-dev-container"></a>Conteneur de développement IoT Edge
 
-Le conteneur de développement Azure IoT Edge est un conteneur Docker comprenant toutes les dépendances dont vous avez besoin pour le développement IoT Edge. Ce conteneur facilite la prise en main avec tout langage dans lequel vous souhaitez développer, dont C#, Python, Node.js et Java. Il vous suffit d’installer un moteur de conteneur tel que Docker ou Moby pour extraire le conteneur sur votre ordinateur de développement. 
+Le conteneur de développement Azure IoT Edge est un conteneur Docker comprenant toutes les dépendances dont vous avez besoin pour le développement IoT Edge. Ce conteneur facilite la prise en main avec tout langage dans lequel vous souhaitez développer, dont C#, Python, Node.js et Java. Il vous suffit d’installer un moteur de conteneur tel que Docker ou Moby pour extraire le conteneur sur votre ordinateur de développement.
 
 Pour plus d’informations, voir [Conteneur de développement Azure IoT Edge](https://hub.docker.com/r/microsoft/iotedgedev/).
 
@@ -109,7 +109,7 @@ Pour plus d’informations, voir [Exécution d’Azure IoT Edge dans un conteneu
 
 ### <a name="iot-edge-device-container"></a>Conteneur d’appareil IoT Edge
 
-Le conteneur d’appareil IoT Edge est un appareil IoT Edge complet, prêt pour lancement sur tout ordinateur disposant d’un moteur de conteneur. Le conteneur d’appareil inclut le runtime IoT Edge et un moteur de conteneur. Chaque instance du conteneur est un appareil IoT Edge s’auto-approvisionnant entièrement fonctionnel. Le conteneur d’appareil prend en charge le débogage à distance de modules tant qu’il existe un itinéraire réseau vers le module. Le conteneur d’appareil convient bien pour créer rapidement de grands nombres d’appareils IoT Edge afin de tester des scénarios ou Azure Pipelines à grande échelle. Il prend également en charge le déploiement vers Kubernetes via Helm. 
+Le conteneur d’appareil IoT Edge est un appareil IoT Edge complet, prêt pour lancement sur tout ordinateur disposant d’un moteur de conteneur. Le conteneur d’appareil inclut le runtime IoT Edge et un moteur de conteneur. Chaque instance du conteneur est un appareil IoT Edge s’auto-approvisionnant entièrement fonctionnel. Le conteneur d’appareil prend en charge le débogage à distance de modules tant qu’il existe un itinéraire réseau vers le module. Le conteneur d’appareil convient bien pour créer rapidement de grands nombres d’appareils IoT Edge afin de tester des scénarios ou Azure Pipelines à grande échelle. Il prend également en charge le déploiement vers Kubernetes via Helm.
 
 Pour plus d’informations, voir [Conteneur d’appareil Azure IoT Edge](https://github.com/toolboc/azure-iot-edge-device-container).
 
@@ -118,6 +118,7 @@ Pour plus d’informations, voir [Conteneur d’appareil Azure IoT Edge](https:/
 Lorsque vous êtes prêt à développer des solutions à grande échelle pour des scénarios de production d’envergure, tirez parti des principes de DevOps modernes, dont l’automation, la surveillance et les processus d’ingénierie logicielle simplifiée. IoT Edge comprend des extensions pour prendre en charge des outils de DevOps, dont Azure DevOps, Azure DevOps Projects et Jenkins. Si vous souhaitez personnaliser un pipeline existant ou vous servir d’un autre outil de DevOps tel que CircleCI ou TravisCI, vous pouvez le faire avec les fonctionnalités CLI incluses dans l’outil de développement IoT Edge.
 
 Pour plus d’informations, des conseils et des exemples, voir les pages suivantes :
+
 * [Intégration continue et déploiement continu dans Azure IoT Edge](how-to-ci-cd.md)
 * [Créer un pipeline CI/CD pour IoT Edge avec Azure DevOps Projects](how-to-devops-project.md)
 * [Plug-in Jenkins pour Azure IoT Edge](https://plugins.jenkins.io/azure-iot-edge)

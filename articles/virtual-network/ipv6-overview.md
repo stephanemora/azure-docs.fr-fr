@@ -12,12 +12,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 12/19/2019
 ms.author: kumud
-ms.openlocfilehash: a44f99b5a7f25a7350e6a63cf85c6b2287647162
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9214886f468a4a052328a99289845361a059b650
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75373245"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780077"
 ---
 # <a name="what-is-ipv6-for-azure-virtual-network-preview"></a>Qu’est-ce que le protocole IPv6 pour réseau virtuel Azure ? (Préversion)
 
@@ -75,7 +75,7 @@ Le protocole IPv6 pour réseaux virtuels Azure VNET est un ensemble de fonctionn
 ## <a name="limitations"></a>Limites
 La version actuelle du protocole IPv6 pour réseau virtuel Azure présente les limitations suivantes :
 - Le protocole IPv6 pour réseau virtuel Azure (préversion) est disponible dans toutes les régions Azure, mais uniquement dans Azure international, pas encore dans les clouds pour le secteur public.
-- ExpressRoute et les passerelles VPN ne peuvent pas être utilisés dans un réseau virtuel dans lequel le protocole IPv6 est activé, que ce soit directement ou appairés avec « UseRemoteGateway ». 
+- ExpressRoute et les passerelles VPN ne peuvent pas être utilisés dans un réseau virtuel où le protocole IPv6 est activé, que ce soit directement ou appairé avec « UseRemoteGateway ». 
 - La plateforme Azure (AKS, etc.) ne prend pas en charge la communication IPv6 pour les conteneurs.  
 
 ## <a name="pricing"></a>Tarifs

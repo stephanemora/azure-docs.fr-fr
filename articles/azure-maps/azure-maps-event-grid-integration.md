@@ -1,6 +1,6 @@
 ---
-title: Réagir aux événements Azure Maps à l'aide d'Event Grid | Microsoft Docs
-description: Apprenez à réagir aux événements Azure Maps à l'aide d'Event Grid.
+title: Réagir aux événements de carte avec Event Grid | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à réagir aux événements Microsoft Azure Maps avec Event Grid.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a70011b934398ac4e7f74bb67013e93bb5e86e4e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60799158"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911807"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Réagir aux événements Azure Maps à l'aide d'Event Grid 
 
@@ -34,7 +34,7 @@ Event Grid utilise les [abonnements aux événements](https://docs.microsoft.com
 | ---------- | ----------- |
 | Microsoft.Maps.GeofenceEntered | Déclenché lorsque les coordonnées reçues sont passées de l’extérieur d’une limite géographique donnée à l’intérieur d’une zone donnée. |
 | Microsoft.Maps.GeofenceExited | Déclenché lorsque les coordonnées reçues sont passées de l’intérieur d’une limite géographique donnée à l’extérieur de celle-ci. |
-| Microsoft.Maps.GeofenceResult | Déclenché chaque fois qu'une requête de geofencing renvoie un résultat, quel que soit l'état. |
+| Microsoft.Maps.GeofenceResult | Déclenché chaque fois qu’une requête de geofencing renvoie un résultat, quel que soit l’état. |
 
 ## <a name="event-schema"></a>Schéma d’événement
 

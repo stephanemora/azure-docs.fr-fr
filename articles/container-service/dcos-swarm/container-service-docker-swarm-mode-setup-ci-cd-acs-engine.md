@@ -1,20 +1,18 @@
 ---
 title: (DÉPRÉCIÉ) CI/CD avec le moteur Azure Container Service et le mode Swarm
 description: Utiliser le moteur Azure Container Service avec le mode Docker Swarm, un Azure Container Registry, et Azure DevOps pour fournir en continu une application .NET Core multiconteneur
-services: container-service
 author: diegomrtnzg
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/27/2017
 ms.author: dimart
 ms.custom: mvc
-ms.openlocfilehash: fe24ab21a9a7d227d58e50c58f9aff2bd91e767f
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ec7ece6f5afd1bbd2613ae08af04b82e8a156b2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598556"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277912"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DÉPRÉCIÉ) Pipeline CI/CD complet pour déployer une application à plusieurs conteneurs sur Azure Container Service, avec le moteur ACS et le mode Docker Swarm par le biais d’Azure DevOps
 
@@ -27,7 +25,6 @@ De nos jours, l’un des plus grands défis lors du déploiement d’application
 * Azure Container Registry
 * Azure DevOps
 
-Cet article est basé sur une application simple, disponible sur [GitHub](https://github.com/jcorioland/MyShop/tree/docker-linux), développée avec ASP.NET Core. L’application est composée de quatre services différents : trois API web et un serveur web frontal :
 
 ![Exemple d’application MyShop](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/myshop-application.png)
 
@@ -46,7 +43,7 @@ Voici une brève explication de ces étapes :
 7. Le mode Docker Swarm sur le cluster extrait la dernière version des images 
 8. La nouvelle version de l’application est déployée à l’aide de Docker Stack 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer ce didacticiel, vous devez effectuer les tâches suivantes :
 
@@ -94,7 +91,7 @@ Les dernières étapes avant d’aborder le pipeline CI/CD consistent à configu
 
 Toute la configuration est à présent effectuée. Dans les étapes suivantes, vous allez créer le pipeline CI/CD qui génère et déploie l’application sur le cluster Docker Swarm. 
 
-## <a name="step-2-create-the-build-pipeline"></a>Étape 2 : Créer le pipeline de build
+## <a name="step-2-create-the-build-pipeline"></a>Étape 2 : Créer le pipeline de build
 
 Dans cette étape, vous configurez un pipeline de build pour votre projet Azure DevOps, et définissez le flux de travail de build pour vos images conteneur.
 
@@ -189,7 +186,7 @@ Il vous faut deux étapes Docker pour chaque image, une pour créer l’image et
 
    ![Azure DevOps - Build réussie](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
-## <a name="step-3-create-the-release-pipeline"></a>Étape 3 : Créer le pipeline de mise en production
+## <a name="step-3-create-the-release-pipeline"></a>Étape 3 : Créer le pipeline de mise en production
 
 Azure DevOps vous permet de [gérer les mises en production dans les différents environnements](https://www.visualstudio.com/team-services/release-management/). Vous pouvez activer le déploiement continu pour vous assurer que votre application est déployée sur vos différents environnements (par exemple, développement, test, pré-production et production) de façon fluide. Vous pouvez créer un environnement qui représente votre cluster Docker Swarm Azure Container Service.
 
@@ -245,7 +242,7 @@ Le flux de travail de mise en production est composé de deux tâches que vous a
      >
 3. Enregistrez ce nouveau pipeline de mise en production.
 
-## <a name="step-4-test-the-cicd-pipeline"></a>Étape 4 : test du pipeline CI/CD
+## <a name="step-4-test-the-cicd-pipeline"></a>Étape 4 : test du pipeline CI/CD
 
 Maintenant que vous avez terminé la configuration, il est temps de tester ce nouveau pipeline CI/CD. La façon la plus simple de tester consiste à mettre à jour le code source et à valider les modifications dans votre référentiel GitHub. Quelques secondes après avoir envoyé le code, vous verrez une nouvelle build s’exécutant dans Azure DevOps. Une fois l’opération terminée avec succès, une nouvelle build est déclenchée et déployée dans la nouvelle version de l’application sur le cluster Azure Container Service.
 

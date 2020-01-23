@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 714faa43f34de965055ceba80de08972dd4192ac
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792677"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75861198"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Authentifier l’accès aux ressources Azure avec des identités managées dans Azure Logic Apps
 
@@ -24,7 +24,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
 * [Types d’authentification pris en charge sur des appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound)
 * [Limites d’identité managée pour les applications logiques](../logic-apps/logic-apps-limits-and-config.md#managed-identity)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Abonnement Azure ou, si vous n’en avez pas, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/). L’identité managée et la ressource Azure cible à laquelle vous souhaitez accéder doivent toutes deux utiliser le même abonnement Azure.
 
@@ -40,10 +40,8 @@ Pour plus d’informations, consultez les rubriques suivantes :
 
 À la différences des identités attribuées par l’utilisateur, vous n’avez pas besoin de créer manuellement l’identité attribuée par le système. Pour configurer l’identité attribuée par le système de votre application logique, vous pouvez utiliser les options suivantes :
 
-* [Portail Azure](#azure-portal-system-logic-app)
+* [Azure portal](#azure-portal-system-logic-app)
 * [Modèles Microsoft Azure Resource Manager](#template-system-logic-app)
-* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
-* [Interface de ligne de commande Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -115,7 +113,17 @@ Quand Azure crée la définition de ressource de votre application logique, l’
 
 ## <a name="give-identity-access-to-resources"></a>Accorder à une identité l’accès aux ressources
 
-Une fois que vous avez configuré une identité managée pour votre application logique, vous pouvez [accorder à cette identité l’accès à d’autres ressources Azure](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Vous pouvez ensuite utiliser cette identité à des fins d’authentification.
+Avant de pouvoir utiliser l’identité managée affectée par le système de votre application logique pour l’authentification, accordez à cette identité l’accès à la ressource Azure sur laquelle vous envisagez d’utiliser l’identité. Pour effectuer cette tâche, attribuez le rôle approprié à cette identité sur la ressource Azure cible. Voici les options que vous pouvez utiliser :
+
+* [Portail Azure](#azure-portal-assign-access)
+* [Modèle Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
+* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)) : pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles à l’aide du RBAC Azure et d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* Azure CLI ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)) : pour plus d’informations, consultez [Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et Azure CLI](../role-based-access-control/role-assignments-cli.md).
+* [API REST Azure](../role-based-access-control/role-assignments-rest.md)
+
+<a name="azure-portal-assign-access"></a>
+
+### <a name="assign-access-in-the-azure-portal"></a>Accorder l’accès dans le portail Azure
 
 1. Dans le [portail Azure](https://portal.azure.com), accédez à la ressource Azure à laquelle vous souhaitez que votre identité managée ait accès.
 
@@ -167,11 +175,11 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
    | Propriété | Obligatoire | Description |
    |----------|----------|-------------|
-   | **Méthode** | OUI | Méthode HTTP utilisée par l’opération que vous souhaitez exécuter |
-   | **URI** | OUI | URL de point de terminaison pour accéder à la ressource ou entité Azure cibles. La syntaxe de l’URI comprend généralement l’[ID de ressource](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) pour la ressource ou le service Azure. |
+   | **Méthode** | Oui | Méthode HTTP utilisée par l’opération que vous souhaitez exécuter |
+   | **URI** | Oui | URL de point de terminaison pour accéder à la ressource ou entité Azure cibles. La syntaxe de l’URI comprend généralement l’[ID de ressource](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) pour la ressource ou le service Azure. |
    | **En-têtes** | Non | Toute valeur d’en-tête que vous devez ou souhaitez inclure dans la demande sortante, telle que le type de contenu |
    | **Requêtes** | Non | Tout paramètre de requête que vous devez ou souhaitez inclure dans la demande, tel que le paramètre pour une opération spécifique ou la version de l’API pour l’opération que vous souhaitez exécuter |
-   | **Authentification** | OUI | Type d’authentification à utiliser pour authentifier l’accès à la ressource ou entité cibles |
+   | **Authentification** | Oui | Type d’authentification à utiliser pour authentifier l’accès à la ressource ou entité cibles |
    ||||
 
    À titre d’exemple, supposons que vous souhaitez exécuter l’[opération de capture instantanée d’objet blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) sur un blob dans le compte de Stockage Azure où vous avez précédemment configuré l’accès pour votre identité. Toutefois, le [connecteur de Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblob/) ne propose pas cette opération actuellement. Au lieu de cela, vous pouvez l’exécuter à l’aide de l’[action HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) ou d’une autre [opération de l’API REST du service BLOB](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
@@ -181,13 +189,13 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
    Pour exécuter l’[opération de capture instantanée d’objet blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), l’action HTTP spécifie les propriétés suivantes :
 
-   | Propriété | Obligatoire | Exemple de valeur | Description |
+   | Propriété | Obligatoire | Valeur d'exemple | Description |
    |----------|----------|---------------|-------------|
-   | **Méthode** | OUI | `PUT`| Méthode HTTP utilisée par l’opération de capture instantanée d’objet blob |
-   | **URI** | OUI | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID de ressource d’un fichier de Stockage Blob Azure dans l’environnement global (public) Azure qui utilise cette syntaxe |
+   | **Méthode** | Oui | `PUT`| Méthode HTTP utilisée par l’opération de capture instantanée d’objet blob |
+   | **URI** | Oui | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | ID de ressource d’un fichier de Stockage Blob Azure dans l’environnement global (public) Azure qui utilise cette syntaxe |
    | **En-têtes** | Oui, pour Stockage Azure | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Valeurs d’en-tête `x-ms-blob-type` et `x-ms-version` requises pour les opérations de Stockage Azure. <p><p>**Important !** Dans le déclencheur HTTP sortant et les demandes d’action pour Stockage Azure, l’en-tête requiert la propriété `x-ms-version` et la version de l’API pour l’opération que vous souhaitez exécuter. <p>Pour plus d’informations, consultez les rubriques suivantes : <p><p>- [En-têtes de demande – Capture instantanée d’objet blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Contrôle de version pour les services Stockage Azure](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Requêtes** | Oui, pour cette opération | `comp` = `snapshot` | Nom et valeur du paramètre de requête pour l’opération de capture instantanée d’objet blob. |
-   | **Authentification** | OUI | `Managed Identity` | Type d’authentification à utiliser pour l’authentification de l’accès à l’objet blob Azure |
+   | **Authentification** | Oui | `Managed Identity` | Type d’authentification à utiliser pour l’authentification de l’accès à l’objet blob Azure |
    |||||
 
    Voici l’exemple d’action HTTP qui affiche toutes ces valeurs de propriété :
@@ -225,10 +233,10 @@ Ces étapes montrent comment utiliser l’identité managée avec un déclencheu
 
 Pour cesser d’utiliser l’identité attribuée par le système pour votre application logique, vous disposez des options suivantes :
 
-* [Portail Azure](#azure-portal-disable)
+* [Azure portal](#azure-portal-disable)
 * [Modèles Microsoft Azure Resource Manager](#template-disable)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.resources/remove-azroleassignment)
-* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-delete)
+* [Azure CLI](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-delete)
 
 Si vous supprimez votre application logique, Azure supprime automatiquement d’Azure AD l’identité managée.
 

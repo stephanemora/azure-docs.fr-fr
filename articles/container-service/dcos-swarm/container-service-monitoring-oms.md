@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Analyser un cluster DC/OS Azure - Gestion des opérations
 description: Analysez un cluster DC/OS Azure Container Service avec Log Analytics.
-services: container-service
 author: keikhara
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ab8d1cf3eb38a17f0b3d6c8137e37237498a527
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60809975"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277321"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(DÉCONSEILLÉ) Analyser un cluster DC/OS Azure Container Service avec Log Analytics
 

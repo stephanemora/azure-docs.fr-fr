@@ -1,19 +1,19 @@
 ---
-title: 'Démarrage rapide : Utilisez le portail Azure pour créer des rubriques et des abonnements Service Bus'
+title: Utilisez le portail Azure pour créer des rubriques et des abonnements Service Bus
 description: 'Démarrage rapide : Dans ce guide de démarrage rapide, vous allez apprendre à créer une rubrique Service Bus et des abonnements à cette rubrique à l’aide du portail Azure.'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 6788bf43ef97daf5ef2f823a502c223d718abaac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a1e330a62a58daaa3fb2a2e8758d14791a3208c1
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718865"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260818"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique
 Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer une rubrique Service Bus, puis des abonnements à cette rubrique. 

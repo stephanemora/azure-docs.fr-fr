@@ -1,26 +1,18 @@
 ---
-title: Configurations d’appareils VPN partenaires pour une connexion à des passerelles VPN Azure | Microsoft Docs
+title: Configurations d’appareils VPN partenaires pour une connexion à des passerelles VPN Azure
 description: Cet article fournit une vue d’ensemble des configurations d’appareils VPN partenaires pour une connexion à des passerelles VPN Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
-ms.openlocfilehash: 7d3a32b5f2b2742a36716bac9747f20c47c98858
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 733add5aa86ebd7faaaab78bb301ba9469433fdd
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150173"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778020"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Vue d’ensemble des configurations d’appareils VPN partenaires
 Cet article fournit une vue d’ensemble de la configuration des appareils VPN locaux pour une connexion à des passerelles VPN Azure. Un exemple de configuration de réseau virtuel Azure et de passerelle VPN est utilisé pour vous montrer comment établir une connexion à différentes configurations d’appareils VPN locaux en utilisant les mêmes paramètres.

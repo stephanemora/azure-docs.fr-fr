@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 01/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 548fa8181c4841d8f57de485c0a4e714b5e9321a
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082677"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863908"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Configurer la récupération d’urgence dans Azure pour les machines virtuelles Hyper-V à l’aide de PowerShell et de Azure Resource Manager
 
@@ -37,7 +37,7 @@ Vous n’avez pas besoin d’être un expert de PowerShell pour utiliser cet art
 ## <a name="before-you-start"></a>Avant de commencer
 Assurez-vous que les conditions préalables sont remplies :
 
-* Un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer avec une [version d'évaluation gratuite](https://azure.microsoft.com/pricing/free-trial/). Vous pouvez aussi consulter la [Tarification Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
+* Un compte [Microsoft Azure](https://azure.microsoft.com/) . Vous pouvez commencer par une version d’ [essai gratuit](https://azure.microsoft.com/pricing/free-trial/). Vous pouvez aussi consulter la [Tarification Azure Site Recovery Manager](https://azure.microsoft.com/pricing/details/site-recovery/).
 * Azure PowerShell. Pour plus d’informations sur cette version et la méthode d’installation, consultez [Installer Azure PowerShell](/powershell/azure/install-az-ps).
 
 De plus, l’exemple décrit dans cet article présente les conditions préalables suivantes :
@@ -66,7 +66,7 @@ De plus, l’exemple décrit dans cet article présente les conditions préalabl
 
     `Get-AzResourceProvider -ProviderNamespace  Microsoft.RecoveryServices`
 
-## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configurer le coffre
+## <a name="step-2-set-up-the-vault"></a>Étape 2 : Configurer le coffre
 
 1. Créez un groupe de ressources Azure Resource Manager dans lequel vous allez créer le coffre, ou utilisez un groupe de ressources existant. Créez un nouveau groupe de ressources de la manière suivante. La variable $ResourceGroupName contient le nom du groupe de ressources que vous souhaitez créer et la variable $Geo contient la région Azure dans laquelle créer le groupe de ressources (par exemple, « Brésil Sud »).
 
@@ -86,7 +86,7 @@ Définissez le contexte d’archivage comme suit :
 
 `Set-AsrVaultSettings -Vault $vault`
 
-## <a name="step-4-create-a-hyper-v-site"></a>Étape 4 : Créer un site Hyper-V
+## <a name="step-4-create-a-hyper-v-site"></a>Étape 4 : Créer un site Hyper-V
 
 1. Créez un nouveau site Hyper-V comme suit :
 
@@ -104,7 +104,7 @@ Définissez le contexte d’archivage comme suit :
 
 5. Copiez la clé téléchargée sur l’hôte Hyper-V. Vous avez besoin de la clé pour inscrire l’hôte Hyper-V sur le site.
 
-## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installer le fournisseur et l’agent
+## <a name="step-5-install-the-provider-and-agent"></a>Étape 5 : Installer le fournisseur et l’agent
 
 1. Téléchargez le programme d’installation de la dernière version du fournisseur sur le site de [Microsoft](https://aka.ms/downloaddra).
 2. Exécutez le programme d’installation sur l’hôte Hyper-V.
@@ -188,7 +188,13 @@ Avant de commencer, notez que le compte de stockage spécifié doit se trouver d
 
         Succeeded
 
-
+> [!NOTE]
+> Si vous voulez répliquer sur des disques managés activés par une CMK dans Azure, effectuez les étapes suivantes avec la commande Az de PowerShell 3.3.0 et versions ultérieures :
+>
+> 1. Activez le basculement vers des disques managés en mettant à jour les propriétés des machines virtuelles.
+> 2. Utilisez la cmdlet Get-AsrReplicationProtectedItem pour extraire l’ID de chaque disque de l’élément protégé.
+> 3. Créez un objet de dictionnaire à l’aide de la cmdlet New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]" pour contenir le mappage de l’ID de disque dans un jeu de chiffrement de disque. Vous devez créer ces jeux de chiffrement de disque au préalable dans la région cible.
+> 4. Mettez à jour les propriétés des machines virtuelles à l’aide de la cmdlet Set-AsrReplicationProtectedItem en passant l’objet du dictionnaire dans le paramètre -DiskIdToDiskEncryptionSetMap.
 
 ## <a name="step-8-run-a-test-failover"></a>Étape 8 : Exécuter un test de basculement
 1. Exécutez un test de basculement, en procédant comme suit :

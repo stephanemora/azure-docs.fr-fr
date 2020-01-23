@@ -4,12 +4,12 @@ description: Décrit comment résoudre les erreurs courantes lors du déploiemen
 tags: top-support-issue
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.openlocfilehash: 37c2e8d64da633dc85c46a4f6bf6152785a170da
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58519056bd59f449fe26aa2fee3620f3ed28cc31
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474391"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154514"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager
 
@@ -201,19 +201,19 @@ Pour enregistrer les informations de débogage pour un modèle imbriqué, utilis
 
 ```json
 {
-    "apiVersion": "2016-09-01",
-    "name": "nestedTemplate",
-    "type": "Microsoft.Resources/deployments",
-    "properties": {
-        "mode": "Incremental",
-        "templateLink": {
-            "uri": "{template-uri}",
-            "contentVersion": "1.0.0.0"
-        },
-        "debugSetting": {
-           "detailLevel": "requestContent, responseContent"
-        }
+  "type": "Microsoft.Resources/deployments",
+  "apiVersion": "2016-09-01",
+  "name": "nestedTemplate",
+  "properties": {
+    "mode": "Incremental",
+    "templateLink": {
+      "uri": "{template-uri}",
+      "contentVersion": "1.0.0.0"
+    },
+    "debugSetting": {
+       "detailLevel": "requestContent, responseContent"
     }
+  }
 }
 ```
 
@@ -226,26 +226,25 @@ Dans certains cas, le moyen le plus simple pour résoudre les problèmes de votr
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "storageName": {
-        "type": "string"
-    },
-    "storageResourceGroup": {
-        "type": "string"
-    }
+  "storageName": {
+    "type": "string"
+  },
+  "storageResourceGroup": {
+    "type": "string"
+  }
   },
   "variables": {},
   "resources": [],
   "outputs": {
-    "exampleOutput": {
-        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-        "type" : "object"
-    }
+  "exampleOutput": {
+    "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+    "type" : "object"
+  }
   }
 }
 ```
 
 Si vous obtenez des erreurs de déploiement que vous pensez liées à une mauvaise définition des dépendances, vous pouvez tester votre modèle en le divisant en modèles plus simples. Commencez par créer un modèle déployant une seule ressource (comme un serveur SQL Server). Lorsque vous êtes sûr que cette ressource est correctement définie, ajoutez une ressource qui en dépend (par exemple, une base de données SQL). Une fois ces deux ressources correctement définies, ajoutez les autres ressources dépendantes (telles que les stratégies d’audit). Supprimez le groupe de ressources entre chaque déploiement de test afin de tester correctement les dépendances.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

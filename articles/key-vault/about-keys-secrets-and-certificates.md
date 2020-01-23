@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3024d77c02f623f8b8dc1a8956e692c208c8c9e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799403"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832918"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
 
@@ -139,7 +139,7 @@ Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conform
 Key Vault prend en charge les opérations sur les objets de clés suivantes :  
 
 -   **Créer** : permet à un client de créer une clé dans Key Vault. La valeur de la clé est générée par le coffre de clés et stockée, mais n’est pas communiquée au client. Les clés asymétriques peuvent être créées dans un coffre de clés.  
--   **Importer** : permet à un client d’importer une clé existante dans Key Vault. Des clés asymétriques peuvent être importées dans un coffre de clés selon diverses méthodes d’empaquetage dans un construct JWK. 
+-   **Importer** : permet à un client d’importer une clé existante dans Key Vault. Des clés asymétriques peuvent être importées dans un coffre de clés selon diverses méthodes d’empaquetage dans un construct JWK. 
 -   **Mettre à jour** : permet à un client disposant des autorisations suffisantes de modifier les métadonnées (attributs de clé) associées à une clé précédemment stockée dans Key Vault.  
 -   **Supprimer** : permet à un client disposant des autorisations suffisantes de supprimer une clé dans Key Vault.  
 -   **Lister** : permet à un client de lister toutes les clés d’un coffre de clés donné.  
@@ -376,7 +376,7 @@ Le tableau suivant représente le mappage de la stratégie d’utilisation de la
 
 Un objet certificat Key Vault conserve une configuration utilisée pour communiquer avec un fournisseur de l’émetteur de certificat sélectionné pour demander des certificats x509.  
 
--   Partenaires Key Vault avec les fournisseurs de l’émetteur de certificat suivants pour les certificats SSL
+-   Partenaires Key Vault avec les fournisseurs de l’émetteur de certificat suivants pour les certificats TLS/SSL
 
 |**Nom du fournisseur**|**Emplacements**|
 |----------|--------|
@@ -389,7 +389,7 @@ Avant de pouvoir créer un émetteur de certificat dans un coffre de clés, les 
 
     -   Un administrateur de l’organisation doit intégrer sa société (par ex. Contoso) à au moins un fournisseur d’autorité de certification.  
 
-2. L’administrateur crée des informations d’identification du demandeur pour Key Vault afin d’inscrire (et de renouveler) des certificats SSL  
+2. L’administrateur crée des informations d’identification du demandeur pour Key Vault afin d’inscrire (et de renouveler) des certificats TLS/SSL  
 
     -   Fournit la configuration à utiliser pour créer un objet émetteur du fournisseur dans le coffre de clés  
 

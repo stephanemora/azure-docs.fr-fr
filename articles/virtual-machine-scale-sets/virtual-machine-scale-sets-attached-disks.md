@@ -1,26 +1,19 @@
 ---
 title: Groupes de machines virtuelles identiques Azure - Disques de données associés
 description: Découvrez comment utiliser des disques de données associés à des groupes de machines virtuelles identiques grâce à la présentation de cas d’utilisation spécifiques.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 4/25/2017
 ms.author: manayar
-ms.openlocfilehash: 6b6c752c1b86061f43af912405e610d466f17e37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c7fd4d89fcc66fb4110029be45ad94e21faea0e0
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465013"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278167"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
 Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.

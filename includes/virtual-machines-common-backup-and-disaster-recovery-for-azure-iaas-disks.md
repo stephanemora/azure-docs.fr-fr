@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012540"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530896"
 ---
 Cet article explique comment planifier la sauvegarde et la récupération d’urgence (DR) de machines virtuelles (VM) IaaS et de disques dans Azure. Ce document couvre les disques managés et non managés.
 
@@ -90,7 +90,7 @@ Examinons la charge de travail de l’application IaaS. Par exemple, cette appli
 
 Voici un autre exemple : un serveur de rapports qui extrait des données provenant d’autres sources et génère des rapports agrégés. La perte de cette machine virtuelle ou des disques peut entraîner la perte des rapports. Toutefois, il est possible de réexécuter le processus de création de rapports et de regénérer la sortie. Dans ce cas, vous ne subissez pas vraiment une perte de données, même si le serveur de rapports est atteint par un sinistre. Par conséquent, vous pouvez avoir un niveau plus élevé de tolérance en cas de perte d’une partie des données sur le serveur de rapports. Dans ce cas, des sauvegardes moins fréquentes sont une option permettant de réduire les coûts.
 
-### <a name="scenario-4-iaas-application-data-issues"></a>Scénario 4 : Problèmes liés aux données d’une application IaaS
+### <a name="scenario-4-iaas-application-data-issues"></a>Scénario 4 : Problèmes liés aux données d’une application IaaS
 
 Des problèmes peuvent également affecter les données d’une application IaaS. Par exemple, vous avez une application qui calcule, tient à jour et gère des données commerciales critiques telles que des informations de tarification. Une nouvelle version de votre application a rencontré un bogue logiciel qui a incorrectement calculé la tarification et a endommagé les données commerciales actuelles prises en charge par la plateforme. Ici, le meilleur plan d’action consiste à rétablir la version antérieure de l’application et des données. Pour ce faire, effectuez des sauvegardes périodiques de votre système.
 
@@ -109,17 +109,17 @@ Pour les disques non managés, vous pouvez utiliser le type de stockage pour les
 
 | Scénario | Réplication automatique | Solution de récupération d’urgence |
 | --- | --- | --- |
-| Disques SSD Premium | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
-| Disques managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
-| Disques de stockage localement redondants non managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/) |
-| Disques de stockage géoredondants non managés | Inter-région ([stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
-| Disques de stockage géoredondants avec accès en lecture non managés | Inter-région ([stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Sauvegarde Azure](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
+| Disques SSD Premium | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Disques managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Disques de stockage localement redondants non managés | Local ([stockage localement redondant](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Disques de stockage géoredondants non managés | Inter-région ([stockage géoredondant](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
+| Disques de stockage géoredondants avec accès en lecture non managés | Inter-région ([stockage géoredondant avec accès en lecture](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Captures instantanées cohérentes](#alternative-solution-consistent-snapshots) |
 
 Pour obtenir une haute disponibilité, il est conseillé d’utiliser des disques managés dans un groupe à haute disponibilité avec Sauvegarde Azure. Si vous utilisez des disques non managés, vous pouvez toujours utiliser Sauvegarde Azure pour la récupération d’urgence. Si vous ne pouvez pas utiliser Sauvegarde Azure, une solution consiste à utiliser des [captures instantanées cohérentes](#alternative-solution-consistent-snapshots), comme décrit dans une section ultérieure.
 
 Vos choix pour la haute disponibilité, la sauvegarde et la récupération d’urgence aux niveaux Application et Infrastructure peuvent être représentés comme suit :
 
-| Niveau |   Haute disponibilité   | Sauvegarde ou récupération d’urgence |
+| Level |   Haute disponibilité   | Sauvegarde ou récupération d’urgence |
 | --- | --- | --- |
 | Application | SQL Server AlwaysOn | Sauvegarde Azure |
 | Infrastructure    | Groupe à haute disponibilité  | Stockage géoredondant avec captures instantanées cohérentes |
@@ -151,8 +151,6 @@ Utilisez les étapes suivantes pour activer les sauvegardes de vos machines virt
 1.  Configurez la stratégie de sauvegarde et sélectionnez la machine virtuelle à partir de la même interface utilisateur.
 
 1.  Vérifiez que l’agent de sauvegarde est installé sur la machine virtuelle. Si votre machine virtuelle est créée à l’aide d’une image de la galerie Azure, l’agent de sauvegarde est déjà installé. Sinon (autrement dit, si vous utilisez une image personnalisée), utilisez les instructions de la page [Installer l’agent de machine virtuelle sur une machine virtuelle](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.  Vérifiez que la machine virtuelle autorise la connectivité réseau pour que le service de sauvegarde fonctionne. Suivez les instructions relatives à la [connectivité réseau](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.  Une fois les étapes précédentes terminées, la sauvegarde s’exécute à intervalles réguliers, comme spécifié dans la stratégie de sauvegarde. Si nécessaire, vous pouvez déclencher la première sauvegarde manuellement à partir du tableau de bord du coffre sur le portail Azure.
 
@@ -235,7 +233,7 @@ Pour les machines virtuelles contenant plusieurs disques, vous devez copier tout
 
 SQL Server exécuté dans une machine virtuelle a ses propres fonctionnalités intégrées permettant de sauvegarder votre base de données SQL Server vers Stockage Blob Azure ou un partage de fichiers. Si le compte de stockage est un stockage géoredondant ou un stockage géoredondant avec accès en lecture, vous pouvez accéder à ces sauvegardes dans le centre de données secondaire du compte de stockage en cas de sinistre, avec les mêmes restrictions indiquées précédemment. Pour plus d’informations, voir [Sauvegarde et restauration de SQL Server dans les machines virtuelles Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-backup-recovery.md). En plus de la sauvegarde et de la restauration, [les groupes de disponibilité SQL Server AlwaysOn](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md) peuvent gérer les réplicas secondaires de bases de données. Cela réduit considérablement le délai de reprise d’activité après sinistre.
 
-## <a name="other-considerations"></a>Autres points à considérer
+## <a name="other-considerations"></a>Autres considérations
 
 Cet article a décrit la sauvegarde ou la réalisation de captures instantanées de vos machines virtuelles et de leurs disques pour prendre en charge la reprise d’activité après sinistre. Il a également présenté l’utilisation de ces sauvegardes ou captures instantanées dans le cadre d’une récupération de vos données. Avec le modèle Azure Resource Manager, de nombreuses personnes utilisent des modèles pour créer leurs machines virtuelles et d’autres infrastructures dans Azure. Vous pouvez utiliser un modèle pour créer une machine virtuelle qui possède la même configuration à chaque fois. Si vous utilisez des images personnalisées pour la création de vos machines virtuelles, vous devez également vérifier que vos images sont protégées en utilisant un compte de stockage géoredondant avec accès en lecture pour les stocker.
 

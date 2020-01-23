@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 603bbc715176515afd21f286ea64e79e974266ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc709294b92fd26343e9520e3775b9f079aba94f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449868"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708478"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -141,6 +141,19 @@ Le service Sauvegarde prend en charge la compression du trafic de sauvegarde, co
 **Conservation des points de récupération** | Quotidienne, hebdomadaire, mensuelle, annuelle
 **Période de rétention maximale** | Dépend de la fréquence de sauvegarde
 **Points de récupération sur un disque DPM/MAB** | 64 pour les serveurs de fichiers ; 448 pour les serveurs d’applications <br/><br/>Points de récupération sur bande illimités pour les DPM locaux
+
+## <a name="cross-region-restore"></a>Restauration inter-régions
+
+La sauvegarde Azure a ajouté la fonctionnalité de restauration inter-régions pour renforcer la disponibilité des données et la capacité de résilience, ce qui donne aux clients le contrôle total pour restaurer des données dans une région secondaire. Pour configurer cette fonctionnalité, consultez l’article [Définir la restauration inter-région](backup-create-rs-vault.md#set-cross-region-restore). Cette fonctionnalité est prise en charge pour les types de gestion suivants :
+
+| Type de gestion des sauvegardes | Prise en charge                                                    | Régions prises en charge |
+| ---------------------- | ------------------------------------------------------------ | ----------------- |
+| Azure VM               | Oui. Préversion publique limitée avec prise en charge pour les machines virtuelles chiffrées et les machines virtuelles disposant de disques de moins de 4 To | Centre-USA Ouest   |
+| Agent MARS/En local | Non                                                           | N/A               |
+| SQL /SAP HANA          | Non                                                           | N/A               |
+| AFS                    | Non                                                           | N/A               |
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

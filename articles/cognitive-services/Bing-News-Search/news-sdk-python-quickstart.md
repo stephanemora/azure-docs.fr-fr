@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: b84b5ee8682007191953bef34579973c7c24ca45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7d7da659aed5a4ba6ef984384524254207d6eda
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448511"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311425"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Démarrage rapide : Effectuer une recherche d’actualités avec le Kit de développement logiciel (SDK) Recherche d’actualités Bing pour Python
 
@@ -45,18 +45,19 @@ python -m pip install azure-cognitiveservices-search-newssearch
 1. Créez un fichier Python dans votre éditeur ou IDE favori, puis importez les bibliothèques suivantes. Créez une variable pour votre clé d’abonnement ainsi qu’un terme de recherche.
 
     ```python
-    from azure.cognitiveservices.search.newssearch import NewsSearchAPI
+    from azure.cognitiveservices.search.newssearch import NewsSearchClient
     from msrest.authentication import CognitiveServicesCredentials
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    endpoint = "YOUR-ENDPOINT"
     search_term = "Quantum Computing"
     ```
 
 ## <a name="initialize-the-client-and-send-a-request"></a>Initialiser le client et envoyer une requête
 
-1. Créez une instance de `CognitiveServicesCredentials`. Instanciez le client :
+1. Créez une instance de `CognitiveServicesCredentials`.
     
     ```python
-    client = NewsSearchAPI(CognitiveServicesCredentials(subscription_key))
+    client = NewsSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 2. Envoyez une requête de recherche à l’API Recherche d’actualités et stockez la réponse.

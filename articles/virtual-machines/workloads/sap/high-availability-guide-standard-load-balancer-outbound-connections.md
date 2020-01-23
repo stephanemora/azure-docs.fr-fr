@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: ae2fb4c13633fa2ac22510a98e193bd9f01efb12
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045254"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293808"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Connectivité de point de terminaison public pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP
 
@@ -29,13 +29,13 @@ L’objectif de cet article est de décrire les configurations qui permettront u
 Si vous utilisez Pacemaker avec l’agent d’isolation Azure dans votre solution de haute disponibilité, les machines virtuelles doivent disposer d’une connectivité sortante à l’API de gestion Azure.  
 L’article présente plusieurs options pour vous permettre de sélectionner l’option qui convient le mieux à votre scénario.  
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lors de l’implémentation de la haute disponibilité pour les solutions SAP via le clustering, l’un des composants nécessaires est [Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview). Azure propose deux références SKU d’équilibrage de charge : Standard et De base.
 
 L’équilibrage de charge Azure Standard offre des avantages par rapport à celui De base. Par exemple, il fonctionne sur les zones de disponibilité Azure, il offre de meilleures fonctions de surveillance et de journalisation pour faciliter la résolution des problèmes, et une latence réduite. La fonctionnalité « Ports haute disponibilité » couvre tous les ports, autrement dit, il n’est plus nécessaire de répertorier tous les ports individuels.  
 
-Il existe quelques différences importantes entre la référence De base et la référence Standard d’Azure Load Balancer. L’une d’entre elles est la gestion du trafic sortant vers le point de terminaison public. Pour en savoir plus sur la comparaison entre les équilibrages de charge Standard et De base, consultez [Comparaison des références SKU d’équilibrage de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus).  
+Il existe quelques différences importantes entre la référence De base et la référence Standard d’Azure Load Balancer. L’une d’entre elles est la gestion du trafic sortant vers le point de terminaison public. Pour en savoir plus sur la comparaison entre les équilibrages de charge Standard et De base, consultez [Comparaison des références SKU d’équilibrage de charge](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
 Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité sortante aux points de terminaison publics, sauf si une configuration supplémentaire est effectuée.  
 
@@ -65,7 +65,7 @@ Lisez tout d’abord les documents suivants :
   * [Règles de trafic sortant dans Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview) : explique les concepts des règles de trafic sortant de Load Balancer et comment créer des règles de trafic sortant
 * Pare-feu Azure
   * [Présentation du pare-feu Azure](https://docs.microsoft.com/azure/firewall/overview) : une présentation du pare-feu Azure
-  * [Tutoriel : Déployer et configurer le pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) : des instructions sur la configuration du pare-feu Azure via le portail Azure
+  * [Tutoriel : Déployer et configurer le pare-feu Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) : des instructions sur la configuration du pare-feu Azure via le portail Azure
 * [Réseaux virtuels - Règles définies par l’utilisateur](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#user-defined) : concepts et règles de routage Azure  
 * [Balises de service des groupes de sécurité](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) : comment simplifier vos groupes de sécurité réseau et la configuration du pare-feu avec des balises de service
 

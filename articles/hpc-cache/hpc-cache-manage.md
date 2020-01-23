@@ -4,14 +4,14 @@ description: Comment gérer et mettre à jour Azure HPC Cache à l’aide du Por
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 11/18/2019
+ms.date: 1/08/2020
 ms.author: rohogue
-ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166723"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867077"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gérer votre cache à partir du Portail Azure
 
@@ -23,7 +23,7 @@ Pour ouvrir la page d’aperçu, sélectionnez votre ressource de cache dans le 
 
 Les boutons situés en haut de la page peuvent vous aider à gérer le cache :
 
-* [**Vider**](#flush-cached-data) : écrit toutes les données en cache dans les cibles de stockage
+* [**Vider**](#flush-cached-data) : écrit les données modifiées dans les cibles de stockage
 * [**Mettre à niveau**](#upgrade-cache-software) : met à jour le logiciel de cache
 * **Actualiser** : recharge la page d’aperçu
 * [**Supprimer**](#delete-the-cache) : supprime définitivement le cache
@@ -63,9 +63,18 @@ Cliquez sur le bouton **Mettre à niveau** pour lancer la mise à jour de logici
 
 Le bouton **Supprimer** détruit le cache. Lorsque vous supprimez un cache, toutes ses ressources sont détruites et n’occasionnent plus de frais de compte.
 
-Les cibles de stockage ne sont pas affectées lorsque vous supprimez le cache. Vous pouvez les ajouter ultérieurement à un cache futur ou les désactiver séparément.
+Les volumes de stockage back-end utilisés comme cibles de stockage ne sont pas affectés quand vous supprimez le cache. Vous pouvez les ajouter ultérieurement à un cache futur ou les désactiver séparément.
 
-Le cache vide automatiquement toutes les données non enregistrées sur les cibles de stockage dans le cadre de son arrêt final.
+> [!NOTE]
+> Azure HPC Cache n’écrit pas automatiquement les données modifiées du cache sur les systèmes de stockage back-end avant de supprimer le cache.
+>
+> Pour vous assurer que toutes les données du cache ont été écrites dans un stockage à long terme, appliquez la procédure suivante :
+>
+> 1. [Supprimez](hpc-cache-edit-storage.md#remove-a-storage-target) chaque cible de stockage d’Azure HPC Cache à l’aide du bouton Supprimer présent dans la page Cibles de stockage. Le système écrit automatiquement toutes les données modifiées du cache dans le système de stockage back-end avant de supprimer la cible.
+> 1. Attendez la suppression complète de la cible de stockage. Le processus peut prendre une heure ou plus s’il y a beaucoup de données à écrire à partir du cache. Une fois l’opération terminée, une notification du portail signale que l’opération de suppression a réussi et la cible de stockage disparaît de la liste.
+> 1. Une fois que toutes les cibles de stockage affectées ont été supprimées, vous pouvez supprimer le cache en toute sécurité.
+>
+> Vous pouvez également utiliser l’option [Vider](#flush-cached-data) pour enregistrer les données mises en cache, mais il existe un faible risque de perte de travail si un client écrit une modification dans le cache après la fin du vidage mais avant la destruction de l’instance de cache.
 
 ## <a name="cache-metrics-and-monitoring"></a>Mesures et supervision du cache
 

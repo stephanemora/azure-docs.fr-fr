@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: yexu
-ms.openlocfilehash: b874c0dcc1f394866e74b45e6bc335a25ce24499
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 42c637839172dab09a8721a93a67785a748afd2f
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930014"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708900"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolérance de panne de l’activité de copie dans Azure Data Factory
-> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
+> [!div class="op_single_selector" title1="Sélectionnez la version du service Data Factory que vous utilisez :"]
 > * [Version 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Version actuelle](copy-activity-fault-tolerance.md)
 
@@ -37,7 +37,7 @@ L’activité de copie offre la possibilité de détecter, d’ignorer et de jou
 
 - **Incompatibilité du nombre de colonnes entre la source et le récepteur**
 
-    Par exemple :  Copier des données d’un fichier CSV dans Stockage Blob vers une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus ou moins de six colonnes sont considérées comme incompatibles et ignorées.
+    Par exemple :  Copier des données d’un fichier CSV dans Stockage Blob vers une base de données SQL avec une définition de schéma contenant six colonnes. Les lignes du fichier CSV qui contiennent six colonnes sont correctement copiées dans le magasin récepteur. Les lignes du fichier CSV qui contiennent plus de six colonnes sont considérées comme incompatibles et ignorées.
 
 - **Violation de clé primaire lors de l’écriture dans SQL Server/Azure SQL Database/Azure Cosmos DB**.
 

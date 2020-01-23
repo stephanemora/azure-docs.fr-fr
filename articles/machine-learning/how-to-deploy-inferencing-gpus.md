@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763587"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122523"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Déployer un modèle de deep learning pour une inférence avec GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Cet article explique comment utiliser Azure Machine Learning pour déployer un m
 L’inférence, ou notation de modèle, est la phase au cours de laquelle le modèle déployé est utilisé pour effectuer des prédictions. L’utilisation de GPU au lieu d’UC offre des avantages en termes de performances pour le calcul hautement parallélisable.
 
 > [!IMPORTANT]
-> Pour les déploiements de service web, l’inférence GPU est uniquement prise en charge sur Azure Kubernetes Service. Pour l'inférence à l’aide d’un __pipeline d'apprentissage machine__, les GPU sont uniquement pris en charge sur Azure Machine Learning Compute. Pour plus d’informations sur l’utilisation des pipelines d’apprentissage machine, voir [Exécuter des prédictions par lot](how-to-run-batch-predictions.md). 
+> Pour les déploiements de service web, l’inférence GPU est uniquement prise en charge sur Azure Kubernetes Service. Pour l'inférence à l’aide d’un __pipeline d'apprentissage machine__, les GPU sont uniquement pris en charge sur Azure Machine Learning Compute. Pour plus d’informations sur l’utilisation des pipelines d’apprentissage machine, voir [Exécuter des prédictions par lot](how-to-use-parallel-run-step.md). 
 
 > [!TIP]
 > Bien que les extraits de code de cet article utilisent un modèle TensorFlow, vous pouvez appliquer les informations à n’importe quel framework Machine Learning qui prend en charge les GPU.

@@ -3,21 +3,20 @@ title: Déployer Azure Log Analytics Nozzle pour la surveillance de Cloud Foundr
 description: Procédure de déploiement pas à pas du compileur de fichiers log de Cloud Foundry Nozzle pour Azure Log Analytics. Surveillez les mesures de performances et d’intégrité du système Cloud Foundry via l’infrastructure Nozzle.
 services: virtual-machines-linux
 author: ningk
-manager: jeconnoc
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: azure-monitor
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: d71f1d6af0944a676e35dfe6347fafb8706f21b8
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: bf6691310ec964a1d6293f3a60c151e3d6f8e641
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286640"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277355"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Deploy Azure Log Analytics for Cloud Foundry Monitoring (Déployer l’infrastructure Nozzle d’Azure Log Analytics pour surveiller le système Cloud Foundry)
 
@@ -29,7 +28,7 @@ Ce document explique comment déployer l’infrastructure Nozzle dans votre envi
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les étapes suivantes sont requises pour le déploiement de Nozzle.
 
@@ -68,7 +67,7 @@ Vous pouvez créer l’espace de travail Log Analytics manuellement ou à l’ai
    * **Emplacement** : indiquez l’emplacement.
    * **Niveau tarifaire** : sélectionnez **OK** pour terminer.
 
-Pour plus d’informations, voir [Prise en main d’Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
+Pour plus d’informations, consultez [Prise en main des journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started).
 
 #### <a name="to-create-the-log-analytics-workspace-through-the-monitoring-template-from-azure-market-place"></a>Pour créer l’espace de travail Log Analytics par le biais du modèle de supervision de la Place de Marché Azure :
 
@@ -131,7 +130,7 @@ git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
 ```
 
-#### <a name="set-environment-variables"></a>Définition des variables d'environnement
+#### <a name="set-environment-variables"></a>Définir des variables d’environnement
 
 Vous pouvez désormais définir des variables d’environnement dans le fichier manifest.yml de votre répertoire actuel. Le code suivant illustre le manifeste d’application pour Nozzle. Remplacez les valeurs par des informations sur l’espace de travail Log Analytics spécifique.
 
@@ -220,7 +219,7 @@ Pour mettre à l’échelle l’infrastructure Nozzle, utilisez le gestionnaire 
 Le compileur de fichiers log envoie un message de journal **LGR** pour signaler les problèmes liés à la connexion. Vous pouvez surveiller l’alerte pour déterminer si le compileur de fichiers log doit être mis à l’échelle.
 Pour le mettre à l’échelle, augmentez la taille du tampon Doppler ou ajoutez des instances de serveur Doppler supplémentaires dans le manifeste Cloud Foundry. Pour en savoir plus, consultez [les conseils de mise à l’échelle du compileur de fichiers log](https://docs.cloudfoundry.org/running/managing-cf/logging-config.html#scaling).
 
-## <a name="update"></a>Mettre à jour
+## <a name="update"></a>Update
 
 Pour mettre à jour l’infrastructure Nozzle vers une version plus récente, téléchargez la nouvelle version de Nozzle, suivez les étapes de la section « Déployer », puis envoyez de nouveau l’application (push).
 

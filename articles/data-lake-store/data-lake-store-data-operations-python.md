@@ -7,25 +7,25 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: f2ee982e2c1e1c363a391779721f848b8ae6afd5
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17b53c508f0c4c5ba8fa257fcdc692cdaa45d470
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088886"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294216"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-python"></a>Opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1 à l’aide de Python
 > [!div class="op_single_selector"]
 > * [Kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
 > * [Kit SDK Java](data-lake-store-get-started-java-sdk.md)
-> * [API REST](data-lake-store-data-operations-rest-api.md)
+> * [REST API](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
 >
 > 
 
 Dans cet article, vous apprenez à utiliser le kit de développement logiciel (SDK) Python pour réaliser des opérations de gestion du système de fichiers sur Azure Data Lake Storage Gen1. Pour obtenir des instructions sur l’exécution des opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de Python, consultez la section relative aux [opérations de gestion des comptes sur Data Lake Storage Gen1 à l’aide de Python](data-lake-store-get-started-python.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * **Python** Pour télécharger Python, accédez [ici](https://www.python.org/downloads/). Cet article utilise Python 3.6.2.
 
@@ -39,7 +39,7 @@ Pour utiliser Data Lake Storage Gen1 avec Python, vous devez installer trois mod
 
 * Le module `azure-mgmt-resource`, qui inclut des modules Azure pour Active Directory, etc.
 * Le module `azure-mgmt-datalake-store`, qui inclut les opérations de gestion du compte Azure Data Lake Storage Gen1. Pour plus d’informations sur ce module, voir les [informations de référence sur le module azure-mgmt-datalake-store](/python/api/azure-mgmt-datalake-store/).
-* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Storage Gen1. Pour plus d’informations sur ce module, voir les [informations de référence sur le module azure-datalake-store file-system](https://azure-datalake-store.readthedocs.io/en/latest/).
+* Le module `azure-datalake-store`, qui inclut les opérations de gestion du système de fichiers Azure Data Lake Storage Gen1. Pour plus d’informations sur ce module, voir les [informations de référence sur le module azure-datalake-store file-system](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Utilisez les commandes suivantes pour installer les modules.
 
@@ -127,5 +127,5 @@ L’extrait de code suivant crée dans un premier temps le client du compte Data
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Documents de référence sur la gestion de système de fichiers avec Azure Data Lake Storage Gen1 et Python](https://azure-datalake-store.readthedocs.io/en/latest)
+* [Documents de référence sur la gestion de système de fichiers avec Azure Data Lake Storage Gen1 et Python](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core)
 * [Ouvrir des applications Big Data open source compatibles avec Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)

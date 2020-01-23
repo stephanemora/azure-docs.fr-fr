@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762798"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314332"
 ---
 # <a name="what-is-azure-machine-learning"></a>Qu'est-ce que Azure Machine Learning ?
 
@@ -46,7 +46,7 @@ Azure Machine Learning fournit tous les outils dont les développeurs et les sci
 
 + Utilisez des scripts R ou des notebooks dans lesquels vous utilisez le <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">Kit de développement logiciel (SDK) pour R</a> pour écrire votre propre code, ou utilisez les modules R dans le concepteur.
 
-+ [Extension Visual Studio Code](how-to-vscode-tools.md)
++ [Extension Visual Studio Code](tutorial-setup-vscode-extension.md)
 
 + [Interface CLI Machine Learning](reference-azure-machine-learning-cli.md)
 
@@ -66,7 +66,7 @@ Vous pouvez aussi [automatiser l’entraînement et l’optimisation de modèle]
 
 Pour un entraînement et un déploiement sans code ou avec peu de code, essayez :
 
-+ **Concepteur Azure Machine Learning (préversion)**
++ **Concepteur Azure Machine Learning**
 
   Utilisez le concepteur pour préparer des données, entraîner, tester, déployer, gérer et suivre des modèles de Machine Learning sans écrire de code. Aucune programmation n’est nécessaire : il suffit de visualiser la connexion des jeux de données et des modules pour construire votre modèle. Essayez le [didacticiel du concepteur](tutorial-designer-automobile-price-train-score.md).
 
@@ -85,7 +85,7 @@ Quand vous disposez du modèle adéquat, vous pouvez facilement l’utiliser dan
 
 Vous pouvez ensuite gérer vos modèles déployés à l’aide du [Kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://aka.ms/aml-sdk), d’[Azure Machine Learning Studio](https://ml.azure.com) ou de l’[interface CLI Machine Learning](reference-azure-machine-learning-cli.md).
 
-Une fois déployé, votre modèle peut retourner des prédictions [en temps réel](how-to-consume-web-service.md) ou [de manière asynchrone](how-to-run-batch-predictions.md) sur de grandes quantités de données.
+Une fois déployé, votre modèle peut retourner des prédictions [en temps réel](how-to-consume-web-service.md) ou [de manière asynchrone](how-to-use-parallel-run-step.md) sur de grandes quantités de données.
 
 Et avec les [pipelines de machine learning](concept-ml-pipelines.md) avancés, vous pouvez collaborer à chaque étape, de la préparation des données jusqu’à l’entraînement et à l’évaluation des modèles, en passant par le déploiement. Les pipelines vous permettent d’effectuer les opérations suivantes :
 

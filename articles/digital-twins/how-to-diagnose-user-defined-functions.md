@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: d362512ac6d06577a5c46bb0c6dab461f07ae709
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 94038d743bf0aafaadb4693ffc48108e5351bca4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457018"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863544"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour utiliser des fonctions de débogage définies par l’utilisateur dans Azure Digital Twins
 
@@ -35,7 +35,7 @@ Azure Digital Twins prend en charge de solides fonctionnalités de journalisatio
 
 * Pour la configuration de journalisation spécifique à Azure Digital Twins, consultez [Guide pratique pour configurer la supervision et la journalisation](./how-to-configure-monitoring.md).
 * Consultez la vue d’ensemble [Azure Monitor](../azure-monitor/overview.md) pour en savoir plus sur les puissants paramètres de journalisation activés via Azure Monitor.
-* Pour savoir comment configurer les paramètres du journal de diagnostic dans Azure Digital Twins via le portail Azure, Azure CLI ou PowerShell, consultez l’article [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/resource-logs-overview.md).
+* Pour savoir comment configurer les paramètres du journal de diagnostic dans Azure Digital Twins via le portail Azure, Azure CLI ou PowerShell, consultez l’article [Collecter et utiliser des données de journaux à partir de vos ressources Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 Une fois la configuration terminée, vous pourrez sélectionner toutes les catégories de journaux, de métriques, et utiliser les puissants espaces de travail Log Analytics d'Azure Monitor pour soutenir vos efforts de débogage.
 
@@ -56,7 +56,7 @@ AzureDiagnostics
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | ID de corrélation qui a été spécifié dans les données d’événement |
 
-Pour voir toutes les requêtes de journaux de télémétrie récentes :
+Pour lire tous les journaux de télémétrie récents, exécutez la requête :
 
 ```Kusto
 AzureDiagnostics
@@ -187,7 +187,7 @@ sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification
 
 Le moyen le plus simple d’éviter ce problème consiste à utiliser la méthode `Notify` sur l’objet des métadonnées.
 
-Exemple :
+Exemple :
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -216,4 +216,4 @@ Si vous activez les paramètres de diagnostic, vous pouvez rencontrer ces except
 
 - Découvrez comment activer la [supervision et les journaux d’activité](./how-to-configure-monitoring.md) dans Azure Digital Twins.
 
-- Lisez l’article [Vue d’ensemble du journal d’activité Azure](../azure-monitor/platform/activity-logs-overview.md) pour découvrir d’autres options de journalisation Azure.
+- Lisez l’article [Vue d’ensemble du journal d’activité Azure](../azure-monitor/platform/platform-logs-overview.md) pour découvrir d’autres options de journalisation Azure.

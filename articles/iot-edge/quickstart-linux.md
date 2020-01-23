@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8d2e0b4683261a06c39b9a5f335d7f4f22a2fd05
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4a076f9e6ae67b9a4dc27fcd058945716dfebe75
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912339"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264608"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-linux-device"></a>Démarrage rapide : Déployer votre premier module IoT Edge sur un appareil virtuel Linux
 
@@ -58,7 +58,7 @@ Appareil IoT Edge :
 * Un appareil ou une machine virtuelle Linux faisant office de périphérique IoT Edge. Vous devez utiliser la machine virtuelle [Azure IoT Edge sur Ubuntu](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft_iot_edge.iot_edge_vm_ubuntu) fournie par Microsoft, qui préinstalle tout ce dont vous avez besoin pour exécuter IoT Edge sur un appareil. Acceptez les conditions d’utilisation et créez cette machine virtuelle à l’aide des commandes suivantes :
 
    ```azurecli-interactive
-   az vm image accept-terms --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
+   az vm image terms accept --urn microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 

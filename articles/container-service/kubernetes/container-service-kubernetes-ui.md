@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Gérer un cluster Kubernetes Azure par l’intermédiaire de l’interface utilisateur web
 description: Utilisation de l’interface web Kubernetes dans Azure Container Service
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/21/2017
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: c3a79b2e4fab807613a54d2792f5f5b97570293b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6ce78ca19458b497980cf2cfc374f787d3a5d9f5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60309659"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276982"
 ---
 # <a name="deprecated-using-the-kubernetes-web-ui-with-azure-container-service"></a>(DÉCONSEILLÉ) Utilisation de l’interface utilisateur web Kubernetes avec Azure Container Service
 
@@ -23,7 +21,7 @@ ms.locfileid: "60309659"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 
@@ -49,7 +47,7 @@ Si `kubectl` n’est pas installé, vous pouvez exécuter :
 $ az acs kubernetes install-cli
 ```
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 ### <a name="connect-to-the-web-ui"></a>Connexion à l’interface web
 Vous pouvez lancer l’interface web Kubernetes en exécutant :
@@ -67,7 +65,7 @@ Cette commande ouvre un navigateur web configuré pour communiquer avec un proxy
 
     Une boîte de dialogue dans laquelle vous pouvez commencer à créer votre application s’ouvre.
 
-2. Donnez-lui le nom `hello-nginx`. Utilisez le [ `nginx` conteneur de Docker](https://hub.docker.com/_/nginx/) et déployez trois réplicas de ce service web.
+2. Donnez-lui le nom `hello-nginx`. Utilisez le [`nginx` conteneur de Docker](https://hub.docker.com/_/nginx/) et déployez trois réplicas de ce service web.
 
     ![Boîte de dialogue de création de pods Kubernetes](./media/container-service-kubernetes-ui/nginx.png)
 

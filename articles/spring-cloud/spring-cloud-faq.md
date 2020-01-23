@@ -6,18 +6,18 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6835132192040b4b943b156fb78ae1547522be0c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 12786f59db9644fd54e812687d27443c250aec05
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229248"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75891856"
 ---
 # <a name="azure-spring-cloud-faq"></a>Questions fréquentes sur Azure Spring Cloud
 
 Cette page répond aux questions fréquentes à propos d’Azure Spring Cloud. 
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="why-azure-spring-cloud"></a>Pourquoi Azure Spring Cloud ?
 
@@ -63,7 +63,7 @@ Pendant la préversion, Azure Spring Cloud a les limitations connues suivantes :
 
 ### <a name="how-can-i-provide-feedback-and-report-issues"></a>Comment puis-je donner un feedback et signaler des problèmes ?
 
-Si vous rencontrez des problèmes avec Azure Spring Cloud, créez une [demande de support Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Pour soumettre une demande de fonctionnalité ou fournir des commentaires, accédez à la page de [commentaires sur Azure](https://feedback.azure.com/forums/34192--general-feedback).
+Si vous rencontrez des problèmes avec Azure Spring Cloud, créez une [demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). Pour soumettre une demande de fonctionnalité ou fournir des commentaires, accédez à la page de [commentaires sur Azure](https://feedback.azure.com/forums/34192--general-feedback).
 
 ## <a name="development"></a>Développement
 
@@ -83,7 +83,7 @@ Azure Spring Cloud prend en charge l’exportation des journaux et des métrique
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>Azure Spring Cloud prend-il en charge le suivi distribué ?
 
-Oui. Pour plus d’informations, consultez [Tutoriel : Utiliser le suivi distribué avec Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
+Oui. Pour plus d’informations, consultez [Didacticiel : Utiliser le suivi distribué avec Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md).
 
 ### <a name="what-resource-types-does-service-binding-support"></a>Quels sont les types de ressources pris en charge par la liaison de service ?
 

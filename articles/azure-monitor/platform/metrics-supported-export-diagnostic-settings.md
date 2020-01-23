@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1bab6a990ba38bc32c2b7350bb1d4eac15a7b95e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474691"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152950"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Métriques de plateforme Azure Monitor exportables par le biais des paramètres de diagnostic
 
@@ -661,9 +661,9 @@ Oui | Microsoft.DBforPostgreSQL/serversv2 | network_bytes_ingress | Network In |
 Oui | Microsoft.DBforPostgreSQL/serversv2 | storage_percent | Pourcentage de stockage | Pourcentage | Average
 Oui | Microsoft.DBforPostgreSQL/serversv2 | storage_used | Stockage utilisé | Octets | Average
 Oui | Microsoft.Devices/Account | digitaltwins.telemetry.nodes | Espace réservé des données de télémétrie des nœuds Digital Twins | Count | Total
-Oui | Microsoft.Devices/IotHubs | c2d.commands.egress.abandon.success | Messages du cloud vers l’appareil abandonnés | Count | Total
-Oui | Microsoft.Devices/IotHubs | c2d.commands.egress.complete.success | Remises des messages du cloud vers l’appareil terminées | Count | Total
-Oui | Microsoft.Devices/IotHubs | c2d.commands.egress.reject.success | Messages du cloud vers l’appareil rejetés | Count | Total
+Oui | Microsoft.Devices/IotHubs | c2d.commands.egress.abandon.success | Messages cloud vers appareil abandonnés | Count | Total
+Oui | Microsoft.Devices/IotHubs | c2d.commands.egress.complete.success | Remises de messages cloud vers appareil terminées | Count | Total
+Oui | Microsoft.Devices/IotHubs | c2d.commands.egress.reject.success | Messages cloud vers appareil rejetés | Count | Total
 Oui | Microsoft.Devices/IotHubs | c2d.methods.failure | Appels de méthode directe en échec | Count | Total
 Oui | Microsoft.Devices/IotHubs | c2d.methods.requestSize | Taille de demande des appels de méthode directe | Octets | Average
 Oui | Microsoft.Devices/IotHubs | c2d.methods.responseSize | Taille de réponse des appels de méthode directe | Octets | Average
@@ -674,7 +674,7 @@ Oui | Microsoft.Devices/IotHubs | c2d.twin.read.success | Lectures de représent
 Oui | Microsoft.Devices/IotHubs | c2d.twin.update.failure | Mises à jour de représentations de serveur principal en échec | Count | Total
 Oui | Microsoft.Devices/IotHubs | c2d.twin.update.size | Taille des mises à jour de représentations de serveur principal | Octets | Average
 Oui | Microsoft.Devices/IotHubs | c2d.twin.update.success | Mises à jour de représentations réussies de serveur principal | Count | Total
-Oui | Microsoft.Devices/IotHubs | C2DMessagesExpired | Messages du cloud vers l’appareil ayant expiré (préversion) | Count | Total
+Oui | Microsoft.Devices/IotHubs | C2DMessagesExpired | Messages cloud vers appareil ayant expiré (préversion) | Count | Total
 Oui | Microsoft.Devices/IotHubs | configurations | Métriques de configuration | Count | Total
 Non | Microsoft.Devices/IotHubs | connectedDeviceCount | Appareils connectés (préversion) | Count | Average
 Oui | Microsoft.Devices/IotHubs | d2c.endpoints.egress.builtIn.events | Routage : messages remis à des messages/événements | Count | Total
@@ -689,10 +689,10 @@ Oui | Microsoft.Devices/IotHubs | d2c.endpoints.latency.eventHubs | Routage : la
 Oui | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | Routage : latence des messages de la file d’attente Service Bus | Millisecondes | Average
 Oui | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | Routage : latence des messages de la rubrique Service Bus | Millisecondes | Average
 Oui | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | Routage : latence des messages du stockage | Millisecondes | Average
-Oui | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routage : messages de télémétrie annulés� | Count | Total
+Oui | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routage : messages de télémétrie annulés  | Count | Total
 Oui | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | Routage : messages remis à l’itinéraire de secours | Count | Total
 Oui | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | Routage : messages de télémétrie incompatibles | Count | Total
-Oui | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routage : messages de télémétrie orphelins� | Count | Total
+Oui | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routage : messages de télémétrie orphelins  | Count | Total
 Oui | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | Routage : messages de télémétrie remis | Count | Total
 Oui | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | Tentatives d’envoi de message de télémétrie | Count | Total
 Oui | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | Nombre d’erreurs de limitation | Count | Total

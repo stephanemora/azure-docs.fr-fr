@@ -1,20 +1,18 @@
 ---
 title: (DÉPRÉCIÉ) Principal de service de cluster Azure Kubernetes
 description: Créer et gérer un principal de service Azure Active Directory pour un cluster Kubernetes dans Azure Container Service
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 52ed101199126818abaddef47892e1f033eb3968
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3126339a1eb8ff9c0ef34a330333635d3d0f6433
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60609126"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274364"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(DÉPRÉCIÉ) Configurer un principal de service Azure Active Directory pour un cluster Kubernetes dans Container Service
 
@@ -33,7 +31,7 @@ Cet article indique les différentes options permettant de configurer un princip
 
 Vous pouvez utiliser un principal de service Azure AD existant qui répond aux exigences ci-dessous ou en créer un.
 
-* **Portée** : Groupe de ressources
+* **Étendue** : Resource group
 
 * **Rôle** : Contributeur
 
@@ -97,7 +95,7 @@ L’exemple suivant montre un moyen de passer les paramètres avec Azure CLI. Ce
     ```
 
 
-## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Option 2 : générer un principal de service lors de la création du cluster avec `az acs create`
+## <a name="option-2-generate-a-service-principal-when-creating-the-cluster-with-az-acs-create"></a>Option n°2 : générer un principal de service lors de la création du cluster avec `az acs create`
 
 Si vous exécutez la commande [`az acs create`](/cli/azure/acs#az-acs-create) pour créer le cluster Kubernetes, vous pouvez générer un principal de service automatiquement.
 

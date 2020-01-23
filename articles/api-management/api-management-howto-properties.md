@@ -10,37 +10,40 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: d11239aa49a53a90a38f2b5336d36cea6c97e9df
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7c25455e28e57ff40664a69718a2e406b52b7632
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824172"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834297"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Guide pratique pour utiliser des valeurs nommées dans les stratégies Gestion des API Azure
 
 Les stratégies Gestion des API sont une fonctionnalité puissante du système qui permet au portail Azure de modifier le comportement de l’API grâce à la configuration. Les stratégies sont un ensemble d'instructions qui sont exécutées dans l'ordre sur demande ou sur réponse d'une API. Les instructions de la stratégie peuvent être construites à l’aide de valeurs de texte littéral, d’expressions de stratégie et de valeurs nommées.
 
-Chaque instance du service Gestion des API possède une collection de propriétés de paires clé/valeur, appelées « valeurs nommées », qui s’appliquent de manière globale à l’instance du service. Il n’existe aucune limite imposée quant au nombre d’éléments que peut contenir une collection. Les valeurs nommées peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration des API. Chaque valeur nommée peut avoir les attributs suivants :
+Chaque instance du service Gestion des API possède une collection de paires clé/valeur, appelées « valeurs nommées », qui s’appliquent de manière globale à l’instance du service. Il n’existe aucune limite imposée quant au nombre d’éléments que peut contenir une collection. Les valeurs nommées peuvent être utilisées pour gérer les valeurs de chaîne constantes dans l’ensemble des stratégies et de la configuration des API. Chaque valeur nommée peut avoir les attributs suivants :
 
-| Attribut      | Type            | Description                                                                                                                         |
-| -------------- | --------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Attribut      | Type            | Description                                                                                                                            |
+| -------------- | --------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | `Display name` | string          | Utilisé pour référencer la valeur nommée dans les stratégies. Chaîne de 1 à 256 caractères. Seuls les lettres, les chiffres, les points et les tirets sont autorisés. |
-| `Value`        | string          | Valeur réelle. Ne peut pas être vide ni se composer uniquement d’espaces blancs. Longueur maximale de 4 096 caractères.                                     |
-| `Secret`       | boolean         | Détermine si la valeur est un secret et doit être chiffrée.                                                            |
+| `Value`        | string          | Valeur réelle. Ne peut pas être vide ni se composer uniquement d’espaces blancs. Longueur maximale de 4 096 caractères.                                        |
+| `Secret`       | boolean         | Détermine si la valeur est un secret et doit être chiffrée.                                                               |
 | `Tags`         | tableau de chaînes | Utilisé pour filtrer la liste de valeurs nommées. Jusqu’à 32 étiquettes.                                                                                    |
 
 ![Valeurs nommées](./media/api-management-howto-properties/named-values.png)
 
 Les valeurs nommées peuvent contenir des chaînes littérales et des [expressions de stratégie](/azure/api-management/api-management-policy-expressions). Par exemple, la valeur de `Expression` est une expression de stratégie qui retourne une chaîne contenant la date et l’heure actuelles. La valeur nommée `Credential` est marquée en tant que secret. Par défaut, cette valeur n’est donc pas affichée.
 
-| Nom       | Valeur                      | Secret | Balises          |
+| Name       | Valeur                      | Secret | Balises          |
 | ---------- | -------------------------- | ------ | ------------- |
 | Valeur      | 42                         | False  | vital-numbers |
 | Informations d'identification | ••••••••••••••••••••••     | True   | security      |
 | Expression | @(DateHeure.Now.ToString()) | False  |               |
+
+> [!NOTE]
+> Au lieu de valeurs nommées stockées dans un service Gestion des API, vous pouvez utiliser les valeurs stockées dans le service [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), comme illustré dans cet [exemple](https://github.com/Azure/api-management-policy-snippets/blob/master/examples/Look%20up%20Key%20Vault%20secret%20using%20Managed%20Service%20Identity.policy.xml).
 
 ## <a name="to-add-and-edit-a-named-value"></a>Pour ajouter et modifier une valeur nommée
 
@@ -50,7 +53,7 @@ Les valeurs nommées peuvent contenir des chaînes littérales et des [expressio
 2. Sélectionnez **Valeurs nommées**.
 3. Appuyez sur **+ Ajouter**.
 
-    Nom et Valeur doivent être renseignés. Si la valeur est un secret, cochez la case *Il s’agit d’une clé secrète*. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
+    Nom et Valeur doivent être renseignés. Si la valeur est un secret, cochez la case _Il s’agit d’une clé secrète_. Entrez une ou plusieurs balises facultatives pour aider à organiser vos valeurs nommées, puis cliquez sur Enregistrer.
 
 4. Cliquez sur **Créer**.
 

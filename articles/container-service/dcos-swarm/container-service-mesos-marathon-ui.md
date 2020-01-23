@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Gérer le cluster DC/OS Azure avec l’interface utilisateur Marathon
 description: Déployez des conteneurs dans un cluster Azure Container Service à l’aide de l’interface utilisateur web Marathon.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 16c16c0217a796ffbb57e10430f90cb4a7660ac6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b251096915506c3c7a4eebf45b6a03e24779a3d8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61468224"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277802"
 ---
 # <a name="deprecated-manage-an-azure-container-service-dcos-cluster-through-the-marathon-web-ui"></a>(DÉCONSEILLÉ) Gérer un cluster de contrôleur de domaine/système d’exploitation Azure Container Service via l’interface utilisateur web Marathon
 
@@ -25,7 +23,7 @@ DC/OS offre un environnement de déploiement et de mise à l’échelle des char
 Bien qu’il existe des frameworks pour de nombreuses charges de travail courantes, ce document décrit comment commencer à déployer des conteneurs avec Marathon. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
 
 * [Déploiement d’un cluster Azure Container Service](container-service-deployment.md)
@@ -50,12 +48,12 @@ Pour déployer un nouveau conteneur à l’aide de Marathon, cliquez sur **Crée
 
 | Champ | Valeur |
 | --- | --- |
-| ID |nginx |
+| id |nginx |
 | Mémoire | 32 |
 | Image |nginx |
 | Réseau |Relié par un pont |
 | Port de l’hôte |80 |
-| Protocole |TCP |
+| Protocol |TCP |
 
 ![Nouvelle interface utilisateur d’application : général](./media/container-service-mesos-marathon-ui/dcos4.png)
 

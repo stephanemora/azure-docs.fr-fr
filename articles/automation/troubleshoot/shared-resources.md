@@ -1,6 +1,6 @@
 ---
 title: Résoudre des erreurs en lien avec des ressources partagées d’Azure Automation
-description: Découvrez comment résoudre des problèmes en lien avec des ressources partagées d’Azure Automation
+description: Découvrez comment dépanner et résoudre des problèmes en lien avec des ressources partagées Azure Automation prenant en charge les runbooks.
 services: automation
 author: mgoedtel
 ms.author: magoedte
@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 9313b042433489307a2bd2822a96d1e0e127362b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4cea558b11d7ee7bbe838cecbd061cd487b536d2
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849290"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769861"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Résoudre des erreurs en lien avec des ressources partagées
 
@@ -21,7 +21,7 @@ Cet article présente des solutions pour résoudre des problèmes que vous pouve
 
 ## <a name="modules"></a>Modules
 
-### <a name="module-stuck-importing"></a>Scénario : Module dont l’importation est bloquée
+### <a name="module-stuck-importing"></a>Scénario : Module dont l’importation est bloquée
 
 #### <a name="issue"></a>Problème
 
@@ -31,7 +31,7 @@ Un module est bloqué dans l’état **Importation** quand vous importez ou mett
 
 L’importation de modules PowerShell est un processus complexe en plusieurs étapes. Ce processus introduit la possibilité qu’un module ne s’importe pas correctement. Si ce problème se produit, il se peut que le module que vous importez soit bloqué dans un état transitoire. Pour en savoir plus sur ce processus, voir [Importation d’un module PowerShell](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process).
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Pour résoudre ce problème, vous devez supprimer le module bloqué dans l’état **Importation** à l’aide de la cmdlet [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule). Vous pouvez ensuite réessayer d’importer le module.
 
@@ -53,7 +53,7 @@ Azure modules are being updated
 
 Un problème a été identifié lors de la mise à jour des modules AzureRM dans un compte Automation appartenant à un groupe de ressources dont le nom numérique commence par 0.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Pour mettre à jour vos modules Azure dans votre compte Automation, celui-ci doit appartenir à un groupe de ressources portant un nom alphanumérique. Pour le moment, les groupes de ressources dont les noms numériques commencent par 0 ne peuvent pas mettre à jour les modules AzureRM.
 
@@ -72,7 +72,7 @@ Voici quelques raisons courantes pour lesquelles l’importation d’un module d
 * Le module n’a pas de dépendances dans le dossier.
 * L’applet de commande `New-AzureRmAutomationModule` est utilisée pour charger le module, et vous n’avez pas spécifié le chemin de stockage complet ou vous n’avez pas chargé le module en utilisant une URL accessible publiquement.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Une des solutions suivantes corrige ce problème :
 
@@ -90,7 +90,7 @@ Lorsque vous utilisez le runbook [Update-AzureModule.ps1](https://github.com/azu
 
 Lors de l’utilisation du script `Update-AzureModule.ps1`, le paramètre par défaut déterminant le nombre de modules mis à jour simultanément est de 10. Le processus de mise à jour est sujet aux erreurs lorsque les modules mis à jour en même temps sont en nombre excessif.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Il n’est pas courant que tous les modules AzureRM soient requis dans le même compte Automation. Il est recommandé de n’importer que les modules AzureRM dont vous avez besoin.
 
@@ -118,7 +118,7 @@ Si le processus de mise à jour est suspendu, vous devez ajouter le paramètre `
 
 ## <a name="run-as-accounts"></a>Compte d’identification
 
-### <a name="unable-create-update"></a>Scénario : Vous ne pouvez pas créer ou mettre à jour un compte d’identification
+### <a name="unable-create-update"></a>Scénario : Vous ne pouvez pas créer ou mettre à jour un compte d’identification
 
 #### <a name="issue"></a>Problème
 
@@ -132,7 +132,7 @@ You do not have permissions to create…
 
 Vous ne disposez pas des autorisations nécessaires pour créer ou mettre à jour le compte d’identification, ou la ressource est verrouillée au niveau du groupe de ressources.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Pour créer ou mettre à jour d’un compte d’identification, vous devez disposer des autorisations appropriées pour les diverses ressources utilisées par le compte d’identification. Pour en savoir plus sur les autorisations nécessaires pour créer ou mettre à jour un compte d’identification, consultez [Autorisations pour les comptes d’identification](../manage-runas-account.md#permissions).
 
@@ -152,7 +152,7 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 Cette erreur est probablement due à un [Compte d'identification](../manage-runas-account.md) mal configuré.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Assurez-vous que votre [Compte d'identification](../manage-runas-account.md) est correctement configuré. Une fois celui-ci correctement configuré, vérifiez que votre runbook contient le code approprié pour vous authentifier auprès d'Azure. L'exemple suivant montre un extrait de code permettant de s'authentifier auprès d'Azure dans un runbook à l'aide d'un Compte d'identification.
 

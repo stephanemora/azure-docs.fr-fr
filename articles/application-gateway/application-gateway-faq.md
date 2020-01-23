@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 72c44f47060a745c5a5266a0ca7173276eb5cb66
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658302"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770082"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -122,7 +122,7 @@ Utilisez Traffic Manager pour répartir le trafic entre plusieurs instances Appl
 
 Oui. La référence SKU v2 d’Application Gateway prend en charge la mise à l’échelle automatique. Pour plus d’informations, consultez [Application Gateway avec mise à l’échelle automatique et redondance interzone](application-gateway-autoscaling-zone-redundant.md).
 
-### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>Les opérations de montée/descente en puissance manuelles entraînent-elles des temps d’arrêt ?
+### <a name="does-manual-or-automatic-scale-up-or-scale-down-cause-downtime"></a>L’opération de scale-up ou scale-down manuelle ou automatique entraîne-t-elle un temps d’arrêt ?
 
 Non. Aucun temps d’arrêt n’a lieu, les instances sont réparties entre les domaines de mise à niveau et les domaines d’erreur.
 

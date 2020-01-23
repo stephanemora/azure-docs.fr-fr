@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 08/23/2019
-ms.openlocfilehash: 59e545e788fd6173de70e6d1580cf2832f71b72b
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ba1e0eee5de65364d8e5e762195f7de98384c2a7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535301"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122579"
 ---
 | Cible de calcul | Utilisé pour | Prise en charge GPU | Prise en charge FPGA | Description |
 | ----- | ----- | ----- | ----- | ----- |
@@ -22,7 +22,7 @@ ms.locfileid: "75535301"
 | [Service&nbsp;web&nbsp;d’instances de calcul Azure Machine Learning](../articles/machine-learning/how-to-deploy-and-where.md#notebookvm) | Test/débogage | &nbsp; | &nbsp; | Pour les tests et la résolution des problèmes limités.
 | [Azure Kubernetes Service (AKS)](../articles/machine-learning/how-to-deploy-and-where.md#aks) | Inférence en temps réel |  [Oui](../articles/machine-learning/how-to-deploy-inferencing-gpus.md) (déploiement de services web) | [Oui](../articles/machine-learning/how-to-deploy-fpga-web-service.md)   |Pour les déploiements de production à grande échelle. Fournit un temps de réponse et une mise à l’échelle automatique rapides du service déployé. La mise à l’échelle automatique du cluster n’est pas prise en charge via le Kit de développement logiciel (SDK) Azure Machine Learning. Pour modifier les nœuds du cluster AKS, utilisez l’interface utilisateur de votre cluster AKS dans le portail Azure. AKS est la seule option disponible pour le concepteur. |
 | [Azure Container Instances](../articles/machine-learning/how-to-deploy-and-where.md#aci) | Test ou développement | &nbsp;  | &nbsp; | Pour les charges de travail à faible échelle basées sur le processeur qui nécessitent moins de 48 Go de RAM. |
-| [Clusters de calcul Azure Machine Learning](../articles/machine-learning/how-to-run-batch-predictions.md) | (Préversion) Inférence&nbsp;Batch | [Oui](../articles/machine-learning/how-to-run-batch-predictions.md) (pipeline d’apprentissage automatique) | &nbsp;  | Exécutez le scoring par lots sur un calcul sans serveur. Prend en charge des machines virtuelles normales et basse priorité. |
+| [Clusters de calcul Azure Machine Learning](../articles/machine-learning/how-to-use-parallel-run-step.md) | (Préversion) Inférence&nbsp;Batch | [Oui](../articles/machine-learning/how-to-use-parallel-run-step.md) (pipeline d’apprentissage automatique) | &nbsp;  | Exécutez le scoring par lots sur un calcul sans serveur. Prend en charge des machines virtuelles normales et basse priorité. |
 | [Azure Functions](../articles/machine-learning/how-to-deploy-functions.md) | Inférence en temps réel (préversion) | &nbsp; | &nbsp; | &nbsp; |
 | [Azure IoT Edge](../articles/machine-learning/how-to-deploy-and-where.md#iotedge) | (Préversion) Module&nbsp;IoT |  &nbsp; | &nbsp; | Déployez et servez des modèles sur des appareils IoT. |
 | [Azure Data Box Edge](../articles/databox-online/data-box-edge-overview.md)   | Via IoT Edge |  &nbsp; | Oui | Déployez et servez des modèles sur des appareils IoT. |

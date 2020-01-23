@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 3cdeecd5b7698274b899832d7a66a5572a114e4b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 139d1a470c67d5dab310c4fa2a9171f433df2061
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954514"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912376"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Connecter IoT DevKit AZ3166 à Azure IoT Hub
 
@@ -156,8 +156,8 @@ Suivez ces étapes pour préparer l’environnement de développement pour le De
 
 1. Installez [l’IDE Arduino](https://www.arduino.cc/en/Main/Software). Il fournit la chaîne d’outils nécessaire pour la compilation et le chargement du code Arduino.
     * **Windows** : utilisez la version Windows Installer. N’installez pas depuis l’App Store.
-    * **macOS** : faites glisser et déposez le fichier **Arduino.app** extrait dans le dossier `/Applications`.
-    * **Ubuntu** : décompressez-le dans un dossier tel que `$HOME/Downloads/arduino-1.8.8`.
+    * **macOS** : faites glisser et déposez le fichier **Arduino.app** extrait dans le dossier `/Applications`.
+    * **Ubuntu** : décompressez-le dans un dossier tel que `$HOME/Downloads/arduino-1.8.8`.
 
 2. Installez [Visual Studio Code](https://code.visualstudio.com/), un éditeur de code source inter-plateformes avec des outils de complétion de code et de prise en charge du débogage puissants, tels qu’IntelliSense, ainsi que des extensions complètes que vous pouvez installer à partir du marketplace.
 
@@ -174,7 +174,7 @@ Suivez ces étapes pour préparer l’environnement de développement pour le De
     > [Installer le pack d’extension Azure IoT Tools](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > Le pack d’extension Azure IoT Tools contient [Azure IoT Device Workbench](https://aka.ms/iot-workbench), qui est utilisé pour le développement et le déboguage sur divers appareils d’IoT devkit. Le [Kit de ressources Azure IoT Hub](https://aka.ms/iot-toolkit), également inclus avec le pack d’extension Azure IoT Tools, est utilisé pour gérer Azure IoT Hubs et interagir avec cet outil.
+    > Le pack d’extension Azure IoT Tools contient [Azure IoT Device Workbench](https://aka.ms/iot-workbench), qui est utilisé pour le développement et le déboguage sur divers appareils d’IoT devkit. L’[extension Azure IoT Hub](https://aka.ms/iot-toolkit), également fournie avec le pack d’extension Azure IoT Tools, est utilisée pour gérer Azure IoT Hubs et interagir avec cet outil.
 
 5. Configurez VS Code avec les paramètres Arduino.
 
@@ -191,14 +191,14 @@ Suivez ces étapes pour préparer l’environnement de développement pour le De
         "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
         ```
 
-    * **macOS** :
+    * **macOS** :
 
         ```json
         "arduino.path": "/Applications",
         "arduino.additionalUrls": "https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/master/package_azureboard_index.json"
         ```
 
-    * **Ubuntu** :
+    * **Ubuntu** :
 
         Remplacez l'espace réservé **{username}** ci-dessous par votre nom d'utilisateur.
 
@@ -216,8 +216,8 @@ Suivez ces étapes pour préparer l’environnement de développement pour le De
 [ST-Link/V2](https://www.st.com/en/development-tools/st-link-v2.html) est l’interface USB utilisée par IoT DevKit pour communiquer avec votre ordinateur de développement. Vous devez l’installer sur Windows pour flasher le code d’appareil compilé pour le DevKit. Suivez les étapes spécifiques au système d’exploitation pour permettre à l’ordinateur d’accéder à votre appareil.
 
 * **Windows** : téléchargez et installez le pilote USB à partir du [site web STMicroelectronics](https://www.st.com/en/development-tools/stsw-link009.html).
-* **macOS** : aucun pilote n'est requis pour macOS.
-* **Ubuntu** : Exécutez les commandes dans le terminal et déconnectez-vous, puis reconnectez-vous, afin que la modification de groupe prenne effet :
+* **macOS** : aucun pilote n'est requis pour macOS.
+* **Ubuntu** : Exécutez les commandes dans le terminal et déconnectez-vous, puis reconnectez-vous, afin que la modification de groupe prenne effet :
 
     ```bash
     # Copy the default rules. This grants permission to the group 'plugdev'

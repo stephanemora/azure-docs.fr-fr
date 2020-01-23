@@ -6,16 +6,16 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: bae027fc5a3b6ce7b4246c403841fa529b8884cb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925941"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120573"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Liaisons Azure Cosmos DB pour Azure Functions 1.x
 
-> [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
+> [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
 > * [Version 1](functions-bindings-cosmosdb.md)
 > * [Version 2](functions-bindings-cosmosdb-v2.md)
 
@@ -180,9 +180,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type** || Cette propriété doit être définie sur `cosmosDBTrigger`. |
-|**direction** || Cette propriété doit être définie sur `in`. Ce paramètre est défini automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
-|**name** || Nom de variable utilisé dans le code de fonction, qui représente la liste des documents modifiés. |
+|**type** | n/a | Cette propriété doit être définie sur `cosmosDBTrigger`. |
+|**direction** | n/a | Cette propriété doit être définie sur `in`. Ce paramètre est défini automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
+|**name** | n/a | Nom de variable utilisé dans le code de fonction, qui représente la liste des documents modifiés. |
 |**connectionStringSetting**|**ConnectionStringSetting** | Nom d’un paramètre d’application contenant la chaîne de connexion utilisée pour se connecter au compte Azure Cosmos DB surveillé. |
 |**databaseName**|**DatabaseName**  | Nom de la base de données Azure Cosmos DB contenant la collection surveillée. |
 |**collectionName** |**CollectionName** | Nom de la collection surveillée. |
@@ -1115,14 +1115,14 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type**     || Cette propriété doit être définie sur `documentdb`.        |
-|**direction**     || Cette propriété doit être définie sur `in`.         |
-|**name**     || Nom du paramètre de liaison qui représente le document dans la fonction.  |
+|**type**     | n/a | Cette propriété doit être définie sur `documentdb`.        |
+|**direction**     | n/a | Cette propriété doit être définie sur `in`.         |
+|**name**     | n/a | Nom du paramètre de liaison qui représente le document dans la fonction.  |
 |**databaseName** |**DatabaseName** |Base de données contenant le document.        |
 |**collectionName** |**CollectionName** | Nom de la collection qui contient le document. |
 |**id**    | **Id** | ID du document à récupérer. Cette propriété prend en charge les [expressions de liaison](./functions-bindings-expressions-patterns.md). Ne définissez pas à la fois la propriété **id** et la propriété **sqlQuery**. Si vous ne définissez aucune des deux, l’ensemble de la collection est récupéré. |
 |**sqlQuery**  |**SqlQuery**  | Requête SQL Azure Cosmos DB utilisée pour récupérer plusieurs documents. La propriété prend en charge les liaisons d’exécution, comme dans cet exemple : `SELECT * FROM c where c.departmentId = {departmentId}`. Ne définissez pas à la fois la propriété **id** et la propriété **sqlQuery**. Si vous ne définissez aucune des deux, l’ensemble de la collection est récupéré.|
-|**Connexion**     |**ConnectionStringSetting**|Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.        |
+|**connection**     |**ConnectionStringSetting**|Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.        |
 |**partitionKey**|**PartitionKey**|Spécifie la valeur de la clé de partition pour la recherche. Peut inclure des paramètres de liaison.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -1454,15 +1454,15 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type**     || Cette propriété doit être définie sur `documentdb`.        |
-|**direction**     || Cette propriété doit être définie sur `out`.         |
-|**name**     || Nom du paramètre de liaison qui représente le document dans la fonction.  |
+|**type**     | n/a | Cette propriété doit être définie sur `documentdb`.        |
+|**direction**     | n/a | Cette propriété doit être définie sur `out`.         |
+|**name**     | n/a | Nom du paramètre de liaison qui représente le document dans la fonction.  |
 |**databaseName** | **DatabaseName**|Base de données contenant la collection dans laquelle le document est créé.     |
 |**collectionName** |**CollectionName**  | Nom de la collection dans laquelle le document est créé. |
 |**createIfNotExists**  |**CreateIfNotExists**    | Valeur booléenne indiquant si la collection doit être créée si elle n’existe pas déjà. La valeur par défaut est *false* car les nouvelles collections sont créées avec un débit réservé, ce qui a des conséquences sur la tarification. Pour plus d’informations, consultez la [page relative aux prix appliqués](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |Lorsque `CreateIfNotExists` a la valeur true, définit le chemin de la clé de partition pour la collection créée.|
 |**collectionThroughput**|**CollectionThroughput**| Lorsque `CreateIfNotExists` a la valeur true, définit le [débit](../cosmos-db/set-throughput.md) de la collection créée.|
-|**Connexion**    |**ConnectionStringSetting** |Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.        |
+|**connection**    |**ConnectionStringSetting** |Nom du paramètre d’application contenant votre chaîne de connexion Azure Cosmos DB.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

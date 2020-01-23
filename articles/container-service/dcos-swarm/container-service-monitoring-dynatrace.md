@@ -1,20 +1,18 @@
 ---
 title: (DÉPRÉCIÉ) Superviser un cluster DC/OS Azure - Dynatrace
 description: Surveillez un cluster DC/OS Azure Container Service avec Dynatrace. Déployez Dynatrace OneAgent à l’aide du tableau de bord DC/OS.
-services: container-service
 author: MartinGoodwell
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8f34a00d9256c288a2842e905c06d5336522eece
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a82481c5cb3d12b11179b41999f73e67583ec43b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119847"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277744"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-dynatrace-saasmanaged"></a>(DÉPRÉCIÉ) Superviser un cluster DC/OS Azure Container Service avec Dynatrace SaaS/Managé
 
@@ -29,7 +27,7 @@ La figure suivante illustre l’interface utilisateur de Dynatrace :
 
 ![IU de Dynatrace](./media/container-service-monitoring-dynatrace/dynatrace.png)
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 [Déployez](container-service-deployment.md) et [connectez](./../container-service-connect.md) sur un cluster configuré par Azure Container Service. Explorez [l’interface utilisateur Marathon](container-service-mesos-marathon-ui.md). Accédez à [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) pour configurer un compte SaaS Dynatrace.  
 
 ## <a name="configure-a-dynatrace-deployment-with-marathon"></a>Configurer un déploiement Dynatrace avec Marathon

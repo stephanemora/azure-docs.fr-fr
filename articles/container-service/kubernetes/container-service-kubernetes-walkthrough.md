@@ -1,20 +1,18 @@
 ---
 title: '(DÉCONSEILLÉ) Démarrage rapide : Cluster Azure Kubernetes pour Linux'
 description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Linux dans Azure Container Service, avec Azure CLI.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659607"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273499"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(DÉCONSEILLÉ) Déployer un cluster Azure Kubernetes pour des conteneurs Linux
 
@@ -74,7 +72,7 @@ Dans certains cas, par exemple avec une version d’évaluation limitée, un abo
 
 Au bout de quelques minutes, la commande se termine et retourne des informations formatées Json sur le cluster. 
 
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
+## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
 Pour gérer un cluster Kubernetes, utilisez [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), le client de ligne de commande Kubernetes. 
 
@@ -102,7 +100,7 @@ k8s-agent-14ad53a1-2    Ready                      10m       v1.6.6
 k8s-master-14ad53a1-0   Ready,SchedulingDisabled   10m       v1.6.6
 ```
 
-## <a name="run-the-application"></a>Exécution de l’application
+## <a name="run-the-application"></a>Exécution de l'application
 
 Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, incluant les images conteneur à exécuter. Dans cet exemple, un manifeste est utilisé afin de créer tous les objets nécessaires pour l’exécution de l’application Azure Vote. 
 
@@ -184,7 +182,7 @@ deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-the-application"></a>Test de l'application
+## <a name="test-the-application"></a>Test de l’application
 
 Lorsque l’application est exécutée, un [service Kubernetes](https://kubernetes.io/docs/concepts/services-networking/service/) est créé, qui expose le serveur frontal de l’application à internet. L’exécution de ce processus peut prendre plusieurs minutes. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: a1c514368960d39834125bd497d05b3d9ebeae7c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640701"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513369"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>Restrictions et problèmes connus relatifs à l’importation d’API
 
@@ -52,7 +52,6 @@ Si vous recevez des erreurs durant l’importation de votre document OpenAPI, v�
 
 -   Si de nombreux `servers` sont spécifiés, Gestion des API tente de sélectionner la première URL HTTPs. En cas d’absence d’URL HTTPs, elle sélectionne la première URL HTTP. En cas d’absence d’URL HTTP, l’URL de serveur est vide.
 -   `Examples` n’est pas pris en charge, contrairement à `example`.
--   `Multipart/form-data` n’est pas pris en charge.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>Mécanismes d’importation, de mise à jour et d’exportation OpenAPI
 

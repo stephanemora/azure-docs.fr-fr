@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b3f622b360f565ef5b16d5376cb1aa2498655017
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665321"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75744734"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architecture de réseau virtuel Azure HDInsight
 
@@ -31,6 +31,16 @@ Les clusters Azure HDInsight présentent différents types de machines virtuelle
 | Nœud de région | Pour le type de cluster HBase, le nœud de région (également appelé nœud de données) s’exécute le serveur de région. Les serveurs de région gèrent une partie des données gérées par HBase. Les nœuds région peuvent être ajoutés ou supprimés du cluster pour mettre à l'échelle les capacités de calcul et gérer les coûts.|
 | Nœud Nimbus | Pour le type de cluster Storm, le nœud Nimbus offre des fonctionnalités similaires à celles du nœud principal. Le nœud Nimbus attribue des tâches aux autres nœuds d'un cluster via Zookeeper, qui coordonne l’exécution des topologies Storm. |
 | Nœud superviseur | Pour le type de cluster Storm, le nœud superviseur exécute les instructions fournies par le nœud Nimbus pour effectuer le traitement souhaité. |
+
+## <a name="resource-naming-conventions"></a>Conventions de nommage des ressources
+
+Utilisez des noms de domaine complets (FQDN) lors de l’adressage des nœuds de votre cluster. Vous pouvez obtenir les noms de domaine complets de différents types de nœuds dans votre cluster à l’aide de l’[API Ambari](hdinsight-hadoop-manage-ambari-rest-api.md). 
+
+Ces noms de domaine complets sont au format suivant : `<node-type-prefix><instance-number>-<abbreviated-clustername>.<unique-identifier>.cx.internal.cloudapp.net`.
+
+`<node-type-prefix>` est *hn* pour les nœuds principaux, *wn* pour les nœuds Worker et *zn* pour les nœuds ZooKeeper.
+
+Si vous n’avez besoin que du nom d’hôte, utilisez uniquement la première partie du nom de domaine complet : `<node-type-prefix><instance-number>-<abbreviated-clustername>`
 
 ## <a name="basic-virtual-network-resources"></a>Ressources de base du réseau virtuel
 

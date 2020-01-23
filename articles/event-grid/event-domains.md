@@ -1,18 +1,18 @@
 ---
 title: Domaines d’événements dans Azure Event Grid
-description: Décrit comment utiliser les domaines d’événements pour gérer les rubriques dans Azure Event Grid.
+description: Cet article décrit comment utiliser les domaines d’événements pour gérer le flux d’événements personnalisés vers vos organisations, clients ou applications.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.date: 01/21/2020
+ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305405"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511380"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
 
@@ -39,7 +39,7 @@ Il vous donne également un point de terminaison unique, dans lequel vous pouvez
 
 ![Exemple Contoso Construction](./media/event-domains/contoso-construction-example.png)
 
-## <a name="access-management"></a>gestion de l’accès
+## <a name="access-management"></a>Gestion de l’accès
 
 Avec un domaine, vous bénéficiez d’autorisations détaillées et du contrôle de l’authentification sur chaque rubrique via le contrôle d’accès en fonction du rôle (RBAC) d’Azure. Vous pouvez vous servir de ces rôles pour limiter l’accès de chaque abonné dans votre application aux rubriques que souhaitez uniquement.
 

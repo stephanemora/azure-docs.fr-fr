@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Présentation d’Azure Container Service pour Kubernetes
 description: Azure Container Service pour Kubernetes simplifie le déploiement et la gestion des applications en conteneur dans Azure.
-services: container-service
 author: gabrtv
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: c0ef7255a087dd5dc26532316deab337f9eff715
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999180"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271584"
 ---
 # <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(DÉCONSEILLÉ) Présentation d’Azure Container Service pour Kubernetes
 
@@ -48,7 +46,7 @@ Diagramme architectural de Kubernetes déployé via Azure Container Service :
 
 ![Azure Container Service configuré pour utiliser Kubernetes.](media/acs-intro/kubernetes.png)
 
-## <a name="videos"></a>vidéos
+## <a name="videos"></a>Videos
 
 Prise en charge de Kubernetes dans Azure Container Service (Azure Friday janvier 2017) :
 

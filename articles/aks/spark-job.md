@@ -1,26 +1,24 @@
 ---
 title: Exécuter une tâche Apache Spark avec Azure Kubernetes Service (AKS)
 description: Utiliser Azure Kubernetes Service (AKS) pour exécuter une tâche Apache Spark
-services: container-service
 author: lenadroid
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: alehall
 ms.custom: mvc
-ms.openlocfilehash: 5ecfa1853479c1cdc705a1a465a1de6318917a72
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 72e87acf418d5085a76f18c595bf31d43b0d64ac
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928997"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274662"
 ---
 # <a name="running-apache-spark-jobs-on-aks"></a>Exécution de tâches Apache Spark sur AKS
 
 [Apache Spark][apache-spark] est un moteur rapide pour le traitement des données à grande échelle. À compter de la [version 2.3.0 de Spark][spark-latest-release], Apache Spark prend en charge l’intégration native avec des clusters Kubernetes. Azure Kubernetes Service (AKS) est un environnement Kubernetes géré s’exécutant dans Azure. Ce document décrit en détail la préparation et l’exécution de tâches Apache Spark sur un cluster Azure Kubernetes Service (AKS).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
@@ -31,7 +29,7 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 * SBT ([Scala Build Tool][sbt-install]) installé sur votre système.
 * L’installation des outils en ligne de commande Git sur votre système
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Spark est utilisé pour le traitement des données à grande échelle et nécessite que les nœuds Kubernetes soient dimensionnés pour répondre aux exigences en matière de ressources Spark. Nous recommandons une taille minimale de `Standard_D3_v2` pour vos nœuds Azure Kubernetes Service (AKS).
 

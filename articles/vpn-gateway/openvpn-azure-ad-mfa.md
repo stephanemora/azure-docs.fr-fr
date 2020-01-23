@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: alzam
-ms.openlocfilehash: 7f05b850a0d886ac0df5c542de647f91fe62eb05
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b22581d012b2c69081bc7b4eee093227c060b4c2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382217"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169710"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Activer Azure MFA pour les utilisateurs du VPN
 
@@ -22,27 +22,7 @@ Si vous souhaitez que les utilisateurs soient invités à fournir un deuxième f
 
 La configuration requise est un locataire Azure AD configuré à l’aide des étapes décrites dans [Configurer un locataire](openvpn-azure-ad-tenant.md).
 
-## <a name="mfa"></a>Ouvrir la page MFA
-
-1. Connectez-vous au portail Azure.
-2. Accédez à **Azure Active Directory > Tous les utilisateurs**.
-3. Sélectionnez **Multi-Factor Authentication** pour ouvrir la page correspondante.
-
-   ![Se connecter](./media/openvpn-azure-ad-mfa/mfa1.jpg)
-
-## <a name="users"></a> Sélectionner des utilisateurs
-
-1. Sur la page **authentification multifacteur**, sélectionnez les utilisateurs pour lesquels vous souhaitez activer MFA.
-2. Sélectionnez **Activer**.
-
-   ![Sélectionnez](./media/openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>Activer l’authentification
-
-1. Accédez à **Azure Active Directory -> Applications d’entreprise -> Toutes les applications**.
-2. Dans la page **Applications d’entreprise - Toutes les applications**, sélectionnez **VPN Azure**.
-
-   ![ID du répertoire](./media/openvpn-azure-ad-mfa/user1.jpg)
+[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
 ## <a name="enablesign"></a> Configurer les paramètres de connexion
 

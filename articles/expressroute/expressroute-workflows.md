@@ -7,28 +7,28 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: ae6c2b7257ee6a8184f3a5bb002f24cb75a86d67
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e833e20085d7cfd8f727acb394851e96e7e19368
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083326"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864364"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Workflows ExpressRoute d’approvisionnement du circuit et états du circuit
 Cette page vous guide de façon sommaire tout au long des workflows d’approvisionnement du service et de configuration du routage.
 
 ![workflow de circuit](./media/expressroute-workflows/expressroute-circuit-workflow.png)
 
-L'illustration et les étapes correspondantes suivantes montrent les tâches que vous devez effectuer pour approvisionner un circuit ExpressRoute de bout en bout. 
+La figure suivante et les étapes correspondantes décrivent les tâches de provisionnement d’un circuit ExpressRoute de bout en bout. 
 
 1. Utilisez PowerShell pour configurer un circuit ExpressRoute. Suivez les instructions de l’article [Création de circuits ExpressRoute](expressroute-howto-circuit-classic.md) pour plus de détails.
 2. Commandez la connectivité auprès du fournisseur de services. Ce processus varie. Contactez votre fournisseur de connectivité pour plus d’informations sur la commande de connectivité.
 3. Assurez-vous que le circuit a été correctement approvisionné en vérifiant l’état approvisionnement du circuit ExpressRoute via PowerShell. 
-4. Configurez les domaines de routage. Si votre fournisseur de connectivité gère la couche 3 pour vous, il configurera le routage pour votre circuit. Si votre fournisseur de connectivité offre uniquement des services de couche 2, vous devez configurer le routage conformément aux instructions décrites dans les pages [Conditions requises pour le routage](expressroute-routing.md) et [Configuration du routage](expressroute-howto-routing-classic.md).
+4. Configurez les domaines de routage. Si votre fournisseur de connectivité gère une configuration de couche 3, il configurera le routage pour votre circuit. Si votre fournisseur de connectivité offre uniquement des services de couche 2, vous devez configurer le routage conformément aux instructions décrites dans les pages [Conditions requises pour le routage](expressroute-routing.md) et [Configuration du routage](expressroute-howto-routing-classic.md).
    
    * Activer le peering privé Azure : activez ce peering pour vous connecter aux machines virtuelles/services cloud déployés au sein de réseaux virtuels.
 
-   * Activer l’appairage Microsoft - Activer cette option pour accéder aux services Office 365. De plus, tous les services Azure PaaS sont accessibles via le peering Microsoft.
+   * Activer le peering Microsoft : activez cette option pour accéder aux services en ligne de Microsoft, tels qu’Office 365. Tous les services Azure PaaS sont accessibles via le peering Microsoft.
      
      > [!IMPORTANT]
      > Pour vous connecter à Microsoft, vous devez veiller à utiliser un proxy/appareil edge différent de celui que vous utilisez pour Internet. L’utilisation du même appareil edge à la fois pour ExpressRoute et Internet entraîne un routage asymétrique et provoque des pertes de connectivité sur votre réseau.
@@ -46,14 +46,14 @@ Chaque circuit ExpressRoute comporte deux états :
 
 L'état représente l’état d'approvisionnement de Microsoft. Cette propriété est définie sur Activée lorsque vous créez un circuit ExpressRoute
 
-L'état d’approvisionnement du fournisseur de connectivité représente l'état du côté du fournisseur de connectivité. Il peut afficher *NotProvisioned*, *Provisioning* ou *Provisioned*. Le circuit ExpressRoute doit être dans l'état Provisioned pour pouvoir être utilisé.
+L'état d’approvisionnement du fournisseur de connectivité représente l'état du côté du fournisseur de connectivité. Il peut afficher *NotProvisioned*, *Provisioning* ou *Provisioned*. Pour que vous puissiez configurer le peering, l’état du circuit ExpressRoute doit indiquer Provisioned (Provisionné).
 
 ### <a name="possible-states-of-an-expressroute-circuit"></a>États possibles d'un circuit ExpressRoute
-Cette section répertorie les états possibles d’un circuit ExpressRoute.
+Cette section liste les états possibles d’un circuit ExpressRoute.
 
 **Lors de la création**
 
-Le circuit ExpressRoute affiche l'état suivant dès que vous exécutez l'applet de commande PowerShell pour créer le circuit ExpressRoute.
+Le circuit ExpressRoute signale les états suivants lors de la création des ressources.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
@@ -61,7 +61,7 @@ Le circuit ExpressRoute affiche l'état suivant dès que vous exécutez l'applet
 
 **Quand le fournisseur de connectivité est en cours d’approvisionnement du circuit**
 
-Le circuit ExpressRoute affiche l'état suivant dès que vous passez la clé de service au fournisseur de connectivité et qu’il démarre le processus d’approvisionnement.
+Le circuit ExpressRoute indique les états suivants lorsque le fournisseur de connectivité procède au provisionnement du circuit.
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
@@ -69,16 +69,15 @@ Le circuit ExpressRoute affiche l'état suivant dès que vous passez la clé de 
 
 **Quand fournisseur de connectivité a terminé le processus d’approvisionnement**
 
-Le circuit ExpressRoute affiche l'état suivant dès que le fournisseur de connectivité a terminé le processus d’approvisionnement.
+Le circuit ExpressRoute indique les états suivants une fois que le fournisseur de connectivité a terminé le provisionnement du circuit.
 
     ServiceProviderProvisioningState : Provisioned
     Status                           : Enabled
 
-Provisioned et Enabled sont les seuls états dans lesquels le circuit peut se trouver pour pouvoir être utilisé. Si vous utilisez un fournisseur de couche 2, vous pouvez configurer le routage pour votre circuit uniquement lorsqu'il est dans cet état.
 
 **Quand le fournisseur de connectivité est en train d’annuler l’approvisionnement du circuit**
 
-Si vous avez demandé au fournisseur de services d’annuler l’approvisionnement du circuit ExpressRoute, le circuit affichera l’état suivant une fois que le fournisseur de services aura terminé le processus d’annulation de l’approvisionnement.
+Si le circuit ExpressRoute doit être déprovisionné, le circuit signalera les états suivants une fois que le fournisseur de services aura terminé le déprovisionnement.
 
     ServiceProviderProvisioningState : NotProvisioned
     Status                           : Enabled
@@ -87,19 +86,18 @@ Si vous avez demandé au fournisseur de services d’annuler l’approvisionneme
 Vous pouvez choisir de le réactiver si nécessaire, ou exécuter des applets de commande PowerShell pour supprimer le circuit.  
 
 > [!IMPORTANT]
-> Si vous exécutez l’applet de commande PowerShell pour supprimer le circuit alors que ServiceProviderProvisioningState a la valeur En cours d’approvisionnement ou Approvisionné, l’opération échoue. Veuillez au préalable contacter votre fournisseur de connectivité pour annuler l’approvisionnement du circuit ExpressRoute, puis supprimer le circuit. Microsoft continuera à facturer le circuit jusqu’à ce que vous exécutiez l’applet de commande PowerShell pour supprimer le circuit.
-> 
+> Un circuit ne peut pas être supprimé si ServiceProviderProvisioningState a la valeur Provisioning (En cours de provisionnement) ou Provisioned (Provisionné). Le fournisseur de connectivité doit déprovisionner le circuit avant de pouvoir le supprimer. Microsoft continuera de facturer le circuit tant que la ressource de circuit ExpressRoute n’aura pas été supprimée dans Azure.
 > 
 
 ## <a name="routing-session-configuration-state"></a>État de configuration d’une session de routage
-Le protocole d’approvisionnement BGP vous indique si la session BGP a été activée sur le matériel edge Microsoft. L'état doit être activé pour que vous puissiez utiliser le peering.
+L’état de provisionnement BGP indique si la session BGP a été activée sur le réseau de périmètre Microsoft. L’utilisation du peering privé ou Microsoft doit être activée (Enabled).
 
-Il est important de vérifier l'état de la session BGP, en particulier pour le peering Microsoft. En plus de l'état d’approvisionnement BGP, il existe un autre état appelé *état des préfixes publics publiés*. Les préfixes publics publiés doivent afficher l’état *configured* , à la fois pour que la session BGP soit opérationnelle et pour que votre routage fonctionne de bout en bout. 
+Il est important de vérifier l'état de la session BGP, en particulier pour le peering Microsoft. En plus de l'état d’approvisionnement BGP, il existe un autre état appelé *état des préfixes publics publiés*. Les préfixes publics publiés doivent afficher l’état *configured*, pour que la session BGP soit opérationnelle et pour que votre routage fonctionne de bout en bout. 
 
 Si l'état du préfixe public publié indique qu’une *validation est nécessaire* , la session BGP n'est pas activée car les préfixes publiés ne correspondent pas au numéro AS dans un des registres de routage. 
 
 > [!IMPORTANT]
-> Si l'état des préfixes publics publiés indique une *validation manuelle* , vous devez ouvrir un ticket de support auprès du [support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et fournir la preuve que vous possédez les adresses IP publiés ainsi que le numéro système autonome associé.
+> Si l’état des préfixes publics publiés indique *manual validation* (validation manuelle), vous devez ouvrir un ticket de support auprès du [support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) et fournir la preuve que vous êtes le propriétaire des adresses IP publiées, ainsi que le numéro système autonome associé.
 > 
 > 
 

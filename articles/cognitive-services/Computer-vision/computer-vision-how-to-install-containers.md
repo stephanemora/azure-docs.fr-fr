@@ -11,22 +11,22 @@ ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: c65ed214747fd6a3729c2e9acff5489f5fa1b9d7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 51c60c8cd13c8ad7cef123f2001fcd0ec61f38ba
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74323628"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770796"
 ---
 # <a name="install-and-run-read-containers-preview"></a>Installer et exécuter des conteneurs Lire (préversion)
 
 Les conteneurs vous permettent d’exécuter les API Vision par ordinateur dans votre propre environnement. Les conteneurs conviennent particulièrement bien à certaines exigences de sécurité et de gouvernance des données. Dans cet article, vous allez apprendre à télécharger, installer et exécuter un conteneur Vision par ordinateur.
 
-Un seul conteneur Docker, *Lire*, est disponible pour Vision par ordinateur. Le conteneur *Lire* permet de détecter et d’extraire du *texte imprimé* à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur *Lire* détecte le *texte manuscrit* dans les images, et prend en charge les documents PDF, TIFF, multipage. Pour plus d’informations, consultez la documentation sur l’[API Lire](concept-recognizing-text.md#read-api).
+Un seul conteneur Docker, *Lire*, est disponible pour Vision par ordinateur. Le conteneur *Lire* permet de détecter et d’extraire du *texte imprimé* à partir d’images d’objets divers avec différents arrière-plans et surfaces, tels que des reçus, des affiches et des cartes de visite. De plus, le conteneur *Lire* détecte le *texte manuscrit* dans les images, et prend en charge les documents PDF, TIFF, multipage. Pour plus d’informations, consultez la documentation sur l’API [Read](concept-recognizing-text.md#read-api).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs :
 
@@ -34,7 +34,7 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs 
 |--|--|
 |Moteur Docker| Vous avez besoin d’un moteur Docker installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> **Sur Windows**, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous devez avoir une compréhension élémentaire des concepts Docker, notamment les registres, référentiels, conteneurs et images conteneurs, ainsi qu’une maîtrise des commandes `docker` de base.| 
-|Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**|
+|Ressource Vision par ordinateur |Pour pouvoir utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Vision par ordinateur** Azure, la clé d’API associée et l’URI de point de terminaison. Les deux valeurs, disponibles dans les pages Vue d’ensemble et Clés de la ressource, sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**|
 
 ## <a name="request-access-to-the-private-container-registry"></a>Demander l’accès au registre de conteneurs privé
 
@@ -282,7 +282,7 @@ Pour obtenir un exemple de cas d’utilisation, consultez <a href="https://aka.m
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous exécutez le conteneur avec un [montage](./computer-vision-resource-container-config.md#mount-settings) de sortie et la journalisation activée, il génère des fichiers journaux qui sont utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
 

@@ -2,13 +2,13 @@
 title: Vue d’ensemble d’Azure Monitor pour les conteneurs | Microsoft Docs
 description: Cet article décrit Azure Monitor pour les conteneurs qui surveille la solution AKS Container Service et la valeur qu’elle offre en surveillant l’intégrité de vos clusters AKS et Container Instances dans Azure.
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.openlocfilehash: 8372d0882c381a8c98cb74ab764097d4f595eeae
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.date: 01/07/2020
+ms.openlocfilehash: 341dd28f6c1523e4b4c06da30a0a8ffc61b1c6f4
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690016"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730734"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Vue d’ensemble d’Azure Monitor pour les conteneurs
 
@@ -19,6 +19,8 @@ Azure Monitor pour les conteneurs est une fonctionnalité conçue pour supervise
 - Clusters Kubernetes automanagés hébergés sur Azure Stack ou localement
 - Azure Red Hat OpenShift
 
+Azure Monitor pour les conteneurs prend en charge les clusters exécutant le système d’exploitation Linux et Windows Server 2019. 
+
 La surveillance de vos conteneurs est cruciale, particulièrement lorsque vous exécutez un cluster de production à grande échelle, avec plusieurs applications.
 
 Azure Monitor pour les conteneurs vous permet de surveiller les performances en collectant des métriques sur le processeur et la mémoire à partir des contrôleurs, des nœuds et des conteneurs qui sont disponibles dans Kubernetes via l’API Metrics. Les journaux d’activité de conteneur sont aussi collectés.  Une fois que vous avez activé la supervision des clusters Kubernetes, les métriques et les journaux d’activité sont automatiquement collectés à l’aide d’une version conteneurisée de l’agent Log Analytics pour Linux. Les métriques sont rédigées dans la banque de métriques et les données de journaux dans la banque de journaux associée à votre espace de travail [Log Analytics](../log-query/log-query-overview.md). 
@@ -27,7 +29,7 @@ Azure Monitor pour les conteneurs vous permet de surveiller les performances en 
  
 ## <a name="what-does-azure-monitor-for-containers-provide"></a>Qu’est-ce qu’Azure Monitor pour les conteneurs vous apporte ?
 
-Azure Monitor pour conteneurs offre une expérience de surveillance complète via différentes fonctionnalités vous permettant de comprendre les performances et l’intégrité de votre cluster Kubernetes et des charges de travail de conteneur. Avec Azure Monitor pour conteneurs, vous pouvez :
+Grâce à ses différentes fonctionnalités, Azure Monitor pour conteneurs vous offre une expérience de supervision complète. Ces fonctionnalités vous permettent d’avoir une meilleure visibilité des performances et de l’intégrité de votre cluster Kubernetes Linux ou Windows Server 2019 ainsi que des charges de travail des conteneurs. Avec Azure Monitor pour conteneurs, vous pouvez :
 
 * Identifier les conteneurs AKS en cours d’exécution sur le nœud, ainsi que leur utilisation moyenne du processeur et de la mémoire. Cette information peut vous aider à identifier les goulots d’étranglement des ressources.
 * Identifier l’utilisation du processeur et de la mémoire des groupes de conteneurs et de leurs conteneurs hébergés dans Azure Container Instances.  
@@ -42,6 +44,15 @@ Azure Monitor pour conteneurs offre une expérience de surveillance complète vi
     >[!NOTE]
     >La prise en charge d’Azure Red Hat OpenShift est actuellement une fonctionnalité en préversion publique.
     >
+
+Les principales différences entre la supervision d’un cluster Windows Server et celle d’un cluster Linux sont les suivantes :
+
+- La métrique Mémoire RSS n’est pas disponible pour le nœud et les conteneurs Windows.
+- Les informations de capacité de stockage des disques ne sont pas disponibles pour les nœuds Windows.
+- Les journaux de conteneurs ne sont pas disponibles pour les conteneurs s’exécutant dans les nœuds Windows.
+- La fonctionnalité Données actives (préversion) est prise en charge, sauf pour les journaux de conteneurs Windows.
+- Seuls les environnements de pod sont surveillés, pas les environnements Docker.
+- Avec la préversion, un maximum de 30 conteneurs Windows Server sont pris en charge. Cette limitation ne s’applique pas aux conteneurs Linux. 
 
 Regardez la vidéo suivante qui fournit une présentation approfondie de niveau intermédiaire pour vous apprendre à surveiller votre cluster AKS avec Azure Monitor pour les conteneurs.
 

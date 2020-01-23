@@ -1,20 +1,18 @@
 ---
 title: '(DÉPRÉCIÉ) Démarrage rapide : Cluster Azure Kubernetes pour Windows'
 description: Découvrez rapidement comment créer un cluster Kubernetes pour des conteneurs Windows dans Azure Container Service avec l’interface de ligne de commande Azure.
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148815"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277646"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(DÉPRÉCIÉ) Déployer un cluster Azure Kubernetes pour des conteneurs Windows
 
@@ -43,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="create-kubernetes-cluster"></a>Créer un cluster Kubernetes
-Créez un cluster Kubernetes dans Azure Container Service avec la commande [az acs create](/cli/azure/acs#az-acs-create). 
+Pour créer un cluster Kubernetes dans Azure Container Service, utilisez la commande [az acs create](/cli/azure/acs#az-acs-create). 
 
 L’exemple ci-après crée un cluster nommé *myK8sCluster* avec un nœud maître Linux et deux nœuds agents Windows. Cet exemple crée les clés SSH requises pour la connexion au maître Linux. Cet exemple utilise le nom d’utilisateur administratif *azureuser* et le mot de passe *myPassword12* sur les nœuds Windows. Mettez à jour ces valeurs avec quelque chose d’approprié pour votre environnement. 
 

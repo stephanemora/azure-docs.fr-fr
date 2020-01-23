@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Surveiller le cluster DC/OS Azure - Datadog
 description: Surveillez un cluster Azure Container Service avec Datadog. Utilisez l’interface utilisateur web du contrôleur de domaine/système d’exploitation pour déployer les agents Datadog sur votre cluster.
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/28/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: a094369d467b3b1f3d5fe93f870dccc9eae7519c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 530092dfabacb0b07f4002a82078dd3535cd7e8f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60508080"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275248"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-datadog"></a>(DÉCONSEILLÉ) Surveiller un cluster DC/OS Azure Container Service avec Datadog
 
@@ -22,7 +20,7 @@ ms.locfileid: "60508080"
 
 Dans cet article, nous allons déployer des agents Datadog sur tous les nœuds d’agent de votre cluster Azure Container Service. Vous aurez besoin d’un compte Datadog pour cette configuration. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 [Déployez](container-service-deployment.md) et [connectez](../container-service-connect.md) un cluster configuré par Azure Container Service. Explorez [l’interface utilisateur Marathon](container-service-mesos-marathon-ui.md). Accédez à [https://datadoghq.com](https://datadoghq.com) pour configurer un compte Datadog. 
 
 ## <a name="datadog"></a>Datadog

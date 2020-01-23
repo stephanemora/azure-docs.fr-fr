@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 3fe4dfae2e86d549056805e87c0fd3927697fe24
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 668087ae596688e86b7b84a16bc5c0fd0f9fcef6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890567"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912248"
 ---
 # <a name="create-an-iot-hub-using-the-azure-iot-tools-for-visual-studio-code"></a>Créer un hub Azure IoT avec Azure IoT Tools pour Visual Studio Code
 
@@ -28,7 +28,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 - [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pour Visual Studio Code.
+- [Outils Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pour Visual Studio Code.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -64,4 +64,4 @@ Nous avons maintenant déployé un hub Azure IoT avec Azure IoT Tools pour Visua
 
 * [Utiliser Azure IoT Tools pour Visual Studio Code pour la gestion des appareils Azure IoT Hub](iot-hub-device-management-iot-toolkit.md)
 
-* [Voir la page wiki d’Azure IoT Hub Toolkit](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).
+* [Consultez la page wiki Azure IoT Hub pour VS Code](https://github.com/microsoft/vscode-azure-iot-toolkit/wiki).

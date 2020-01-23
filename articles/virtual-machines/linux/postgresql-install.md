@@ -14,19 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: cynthn
-ms.openlocfilehash: f6d521c7003583228990c80a90c1454821f584d3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: bbfad994de663881e3aa03292fc0d0611a0d0933
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035268"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75747801"
 ---
 # <a name="install-and-configure-postgresql-on-azure"></a>Installer et configurer PostgreSQL sur Microsoft Azure
 PostgreSQL est une base de données open source avancée similaire à Oracle et DB2. Il inclut des fonctionnalités destinées aux entreprises, comme la conformité complète à ACID, un traitement transactionnel fiable et un contrôle d’accès concurrentiel multiversion. Il prend également en charge des normes comme ANSI SQL et SQL/MED (y compris les wrappers de données externes pour Oracle, MySQL, MongoDB et beaucoup d’autres). Il est hautement extensible, avec la prise en charge de 12 langages procéduraux, les index GIN et GIST, la prise en charge des données spatiales et plusieurs fonctionnalités de type NoSQL pour les applications JSON ou basées sur les paires clé-valeur.
 
 Dans cet article, vous allez apprendre à installer et à configurer PostgreSQL sur une machine virtuelle Azure exécutant Linux.
 
-[!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="install-postgresql"></a>Installation de PostgreSQL
 > [!NOTE]
@@ -64,7 +63,7 @@ Connectez-vous à la machine virtuelle Linux que vous avez créée via PuTTY. S�
         # cd postgresql-9.3.5
    
         # ./configure --prefix=/opt/postgresql-9.3.5
-5. Si vous voulez créer tout ce qui peut l’être, notamment la documentation (HTML et les pages man) et les modules complémentaires (contrib), exécutez à la place la commande suivante :
+5. Si vous voulez créer tout ce qui peut l’être, notamment la documentation (HTML et les pages man) et les modules complémentaires (`contrib`), exécutez à la place la commande suivante :
    
         # gmake install-world
    

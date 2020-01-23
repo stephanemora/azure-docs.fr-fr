@@ -1,23 +1,23 @@
 ---
 title: Configurer un environnement de préproduction dans Azure Spring Cloud | Microsoft Docs
 description: Découvrir comment utiliser le déploiement bleu-vert avec Azure Spring Cloud
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.author: jeconnoc
-ms.openlocfilehash: cd1573a3d896f3d2d5cb53130d8fac86be43beb6
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.author: brendm
+ms.openlocfilehash: 4adeb5593f86bdf3f8a4ea5f844c31a8314e0f15
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152095"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276919"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurer un environnement intermédiaire dans Azure Spring Cloud
 
 Cet article explique comment configurer un déploiement intermédiaire à l’aide du modèle de déploiement bleu-vert dans Azure Spring Cloud. Il vous montre également comment faire passer ce déploiement intermédiaire en production sans modifier directement le déploiement de production.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cet article part du principe que vous avez déjà déployé l’application PiggyMetrics à partir de notre [tutoriel sur le lancement d’une application Azure Spring Cloud](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprend trois applications : « Gateway », « account-service » et « auth-service ».  
 

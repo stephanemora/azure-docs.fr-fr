@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: f9f0a74a6ca57f90ed8bd217d0d2f57e4bc16749
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 5c2c519ece9806b92c3e455d5f550bc2abfc9f3b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660339"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862473"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrée de télémétrie et connectivité des appareils
 
@@ -21,7 +21,7 @@ Les données de télémétrie envoyées par les appareils et les capteurs consti
 
 Pour commencer, créez une ressource Azure IoT Hub à la racine du graphique spatial. La ressource IoT Hub permet à tous les appareils sous l’espace racine d’envoyer des messages. Une fois l’IoT Hub créé, enregistrez vos appareils dotés de capteurs dans l’instance Digital Twins. Les appareils peuvent envoyer des données à un service Digital Twins via le [Kit de développement logiciel (SDK) pour appareils Azure IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks).
 
-Un guide pas à pas sur l’intégration des appareils est disponible dans le [tutoriel indiquant comment déployer et configurer Digital Twins](tutorial-facilities-setup.md). Voici un récapitulatif des étapes :
+Un guide pas à pas sur l’intégration des appareils est disponible dans le [tutoriel de déploiement et de configuration de Digital Twins](tutorial-facilities-setup.md). Voici un récapitulatif des étapes :
 
 - Déployez une instance Digital Twins à partir du [portail Azure](https://portal.azure.com).
 - Créez des espaces dans votre graphique.

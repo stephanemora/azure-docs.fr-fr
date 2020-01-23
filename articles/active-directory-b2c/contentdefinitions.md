@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064333"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119650"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -37,7 +37,7 @@ L’exemple suivant montre l’identificateur de définition de contenu et la d�
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
@@ -63,7 +63,7 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | OUI | Un identificateur de définition de contenu. La valeur est l’une de celles spécifiées dans la section **ID de définition de contenu** plus loin dans cette page. |
+| Id | Oui | Un identificateur de définition de contenu. La valeur est l’une de celles spécifiées dans la section **ID de définition de contenu** plus loin dans cette page. |
 
 L’élément **ContentDefinition** contient les éléments suivants :
 
@@ -101,8 +101,8 @@ L’élément **LocalizedResourcesReferences** contient les attributs suivants 
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Langage | OUI | Chaîne contenant une langue prise en charge pour la stratégie conformément à la spécification RFC 5646 - Tags pour l’identification des langues. |
-| LocalizedResourcesReferenceId | OUI | Identificateur de l’élément **LocalizedResources**. |
+| Langage | Oui | Chaîne contenant une langue prise en charge pour la stratégie conformément à la spécification RFC 5646 - Tags pour l’identification des langues. |
+| LocalizedResourcesReferenceId | Oui | Identificateur de l’élément **LocalizedResources**. |
 
 L’exemple suivant montre une définition de contenu d’inscription ou de connexion :
 

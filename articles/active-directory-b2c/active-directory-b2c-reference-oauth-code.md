@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d738bfb8bcd11c8da4c39d873c7f298b8c49af98
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e813a16416343954ea92813cb53bbd81f1977320
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167189"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290119"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flux de code d’autorisation OAuth 2.0 dans Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Pour tester les requêtes HTTP de cet article :
 
 1. Remplacez `{tenant}` par le nom de votre locataire Azure AD B2C.
 1. Remplacez `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` par l’ID d’application d’une application que vous avez précédemment inscrite dans votre locataire Azure AD B2C.
-1. Remplacez `{policy}` par le nom d’une stratégie que vous avez créée dans votre locataire, par exemple `b2c_1_sign_in`.
+1. Remplacez `{policy}` par le nom d'une stratégie que vous avez créée dans votre locataire, par exemple `b2c_1_sign_in`.
 
 ## <a name="1-get-an-authorization-code"></a>1. Obtention d’un code d’autorisation
 Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Il s’agit de la partie interactive du flux, dans laquelle l’utilisateur agit réellement. Dans cette demande, le client indique dans le paramètre `scope` les autorisations qu’il doit obtenir auprès de l’utilisateur. Les trois exemples suivants (avec sauts de ligne pour faciliter la lecture) utilisent chacun un flux d’utilisateur différent.
@@ -64,7 +64,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | state |Recommandé |Une valeur incluse dans la requête peut être une chaîne de n’importe quel contenu que vous voulez utiliser. Généralement, une valeur unique générée de manière aléatoire est utilisée, pour empêcher les attaques par falsification de requête intersites. L’état est également utilisé pour coder les informations sur l’état de l’utilisateur dans l’application avant la demande d’authentification. Par exemple, la page dans laquelle l’utilisateur se trouvait ou le flux d’utilisateur en cours d’exécution. |
 | prompt |Facultatif |Type d’interaction utilisateur requis. Actuellement, la seule valeur valide est `login`, ce qui oblige l’utilisateur à entrer ses informations d’identification sur cette demande. L’authentification unique ne prendra pas effet. |
 
-À ce stade, il est demandé à l’utilisateur d’effectuer le workflow du flux d’utilisateur. Il est possible que l’utilisateur doive entrer son nom d’utilisateur et son mot de passe, se connecter avec une identité sociale, s’inscrire à l’annuaire, etc. Les actions de l’utilisateur dépendent de la façon dont le flux d’utilisateur est défini.
+À ce stade, il est demandé à l’utilisateur d’effectuer le workflow du flux utilisateur. Il est possible que l’utilisateur doive entrer son nom d’utilisateur et son mot de passe, se connecter avec une identité sociale, s’inscrire à l’annuaire, etc. Les actions de l’utilisateur dépendent de la façon dont le flux d’utilisateur est défini.
 
 Une fois que l’utilisateur a terminé le flux d’utilisateur, Azure AD retourne une réponse à votre application avec la valeur que vous avez utilisée pour `redirect_uri`. Il utilise la méthode spécifiée dans le paramètre `response_mode`. La réponse est exactement la même pour chacun des scénarios d’actions utilisateur, indépendamment du flux d’utilisateur exécuté.
 
@@ -78,7 +78,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...        // the auth
 
 | Paramètre | Description |
 | --- | --- |
-| code |Le code d’autorisation demandé par l’application. L’application peut utiliser le code d’autorisation pour demander un jeton d’accès pour une ressource cible. Les codes d’autorisation ont des durées de vie très courtes. Généralement, ils expirent au bout de 10 minutes. |
+| code |Le code d’autorisation demandé par l’application. L’application peut utiliser ce code d’autorisation afin de demander un jeton d’accès pour une ressource cible. Les codes d’autorisation ont des durées de vie très courtes. Généralement, ils expirent au bout de 10 minutes. |
 | state |Consultez la description complète dans le tableau de la section précédente. Si un paramètre `state` est inclus dans la demande, la même valeur doit apparaître dans la réponse. L’application doit vérifier que les valeurs `state` de la demande et de la réponse sont identiques. |
 
 Les réponses d’erreur peuvent également être envoyées à l’URI de redirection, pour que l’application puisse les traiter de façon appropriée :
@@ -102,8 +102,8 @@ Un code d’autorisation étant acquis, vous pouvez maintenant échanger `code` 
 Vous pouvez également demander un jeton d’accès pour l’API web de back-end de votre application par convention visant à utiliser l’ID client de l’application comme étendue demandée (ce qui génère un jeton d’accès avec cet ID client comme « public ») :
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -157,7 +157,7 @@ Les réponses d’erreur ressemblent à ceci :
 | error_description |Un message d’erreur spécifique qui peut vous aider à identifier la cause principale d’une erreur d’authentification. |
 
 ## <a name="3-use-the-token"></a>3. Utilisation du jeton
-Un jeton d’accès étant acquis, vous pouvez maintenant l’utiliser dans les demandes dirigées vers vos API web principales en l’incluant dans l’en-tête `Authorization` :
+Un jeton d’accès étant acquis, vous pouvez maintenant l’utiliser dans les demandes effectuées à vos API web principales en l’incluant dans l’en-tête `Authorization` :
 
 ```HTTP
 GET /tasks
@@ -169,8 +169,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Les jetons d’accès et les jetons d’ID ont une courte durée de vie. Après leur expiration, vous devez les actualiser pour continuer à accéder aux ressources. Pour cela, envoyez une autre demande POST au point de terminaison `/token`. Cette fois, fournissez l’élément `refresh_token` au lieu de l’élément `code` :
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -183,7 +183,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | client_id |Obligatoire |ID d’application affecté à votre application dans le [portail Azure](https://portal.azure.com). |
 | client_secret | Oui, dans Web Apps | Secret d'application qui a été généré dans le [portail Azure](https://portal.azure.com/). Les clés secrètes client sont utilisées dans ce flux pour les scénarios de type application web, dans lesquels le client peut les stocker de manière sécurisée. Dans les scénarios de type application native (client public), les clés secrètes client ne peuvent pas être stockées de façon sécurisée et ne sont donc pas utilisées dans cet appel. Si vous utilisez une clé secrète client, modifiez-la régulièrement. |
 | grant_type |Obligatoire |Type d’autorisation. Pour ce tronçon du flux de code d’autorisation, le type d’autorisation doit être `refresh_token`. |
-| scope |Recommandé |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. Utiliser l’ID de client comme étendue indique que votre application a besoin d’un jeton d’accès qui peut être utilisé avec votre propre service ou API web, représenté par le même ID de client.  L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour un accès durable aux ressources.  Vous pouvez également utiliser l’étendue `openid` pour demander un jeton d’ID à partir d’Azure AD B2C. |
+| scope |Recommandé |Une liste d’étendues séparées par des espaces. Une valeur d’étendue unique indique à Azure AD les deux autorisations qui sont demandées. Utiliser l’ID de client comme étendue indique que votre application a besoin d’un jeton d’accès qui peut être utilisé avec votre propre service ou API web, représenté par le même ID de client.  L’étendue `offline_access` indique que votre application a besoin d’un jeton d’actualisation pour un accès de longue durée aux ressources.  Vous pouvez également utiliser l’étendue `openid` pour demander un jeton d’ID à partir d’Azure AD B2C. |
 | redirect_uri |Facultatif |URI de redirection de l’application où vous avez reçu le code d’autorisation. |
 | refresh_token |Obligatoire |Jeton d’actualisation d’origine que vous avez acquis dans le second tronçon du flux. |
 
@@ -227,4 +227,4 @@ Pour essayer vous-même ces demandes, effectuez les étapes suivantes. Remplacez
 
 1. [Créez un annuaire Azure AD B2C](active-directory-b2c-get-started.md). Utilisez le nom de votre annuaire dans les demandes.
 2. [Créez une application](active-directory-b2c-app-registration.md) pour obtenir un ID d’application et un URI de redirection. Incluez un client natif dans votre application.
-3. [Créez vos flux d’utilisateur](active-directory-b2c-reference-policies.md) pour obtenir vos noms de flux d’utilisateur.
+3. [Créez vos flux d’utilisateurs](active-directory-b2c-reference-policies.md) pour obtenir vos noms de flux utilisateur.

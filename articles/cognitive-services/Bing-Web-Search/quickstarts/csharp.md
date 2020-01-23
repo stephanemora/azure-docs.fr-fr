@@ -11,22 +11,22 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6c847af4f6938923abdfced4d5e8b842ae84eca6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: cf12b279cf7bcb20aa655646ce34fb9df2bda016
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978813"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167666"
 ---
 # <a name="quickstart-search-the-web-using-the-bing-web-search-rest-api-and-c"></a>Démarrage rapide : Effectuer des recherches sur le web à l'aide de l'API REST Recherche Web Bing et de C#
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing et recevoir la réponse JSON. Cette application C# envoie une requête de recherche à l’API et affiche la réponse. Alors que cette application est écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
-* Windows : [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/downloads/)
+* Windows : [Visual Studio 2017 ou version ultérieure](https://www.visualstudio.com/downloads/)
 * Linux/macOS : [Mono](https://www.mono-project.com/)  
 * Une clé d’abonnement
 
@@ -62,7 +62,7 @@ namespace BingSearchApisQuickstart
 
 ## <a name="define-variables"></a>Définir des variables
 
-Quelques variables doivent être définies avant de continuer.  `uriBase` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource. Vérifiez que `uriBase` est valide et remplacez la valeur `accessKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `searchTerm`. N’oubliez pas d’ajouter ce code à la `Program` comme indiqué ci-dessus.
+Quelques variables doivent être définies avant de continuer.  `uriBase` peut être le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource. Vérifiez que `uriBase` est valide et remplacez la valeur `accessKey` par une clé d’abonnement valide à partir de votre compte Azure. N’hésitez pas à personnaliser la requête de recherche en remplaçant la valeur de `searchTerm`. N’oubliez pas d’ajouter ce code à la classe `Program` comme indiqué ci-dessus.
 
 ```csharp
 // Enter a valid subscription key.
@@ -259,9 +259,9 @@ Les réponses à partir de l’API Recherche Web Bing sont retournées au format
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using the Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",

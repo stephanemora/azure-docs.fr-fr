@@ -1,5 +1,5 @@
 ---
-title: Résoudre les problèmes avec la Configuration de l’état souhaité Azure Automation (DSC)
+title: Résoudre les problèmes de configuration de l’état souhaité Azure Automation
 description: Cet article fournit des informations sur la résolution des problèmes de la Configuration de l’état souhaité
 services: automation
 ms.service: automation
@@ -9,14 +9,14 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3c3c9950aab9a5a422ebc9e858daded2888fd82e
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951460"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834272"
 ---
-# <a name="troubleshoot-desired-state-configuration-dsc"></a>Dépanner la Configuration de l’état souhaité
+# <a name="troubleshoot-issues-with-azure-automation-desired-state-configuration-dsc"></a>Résoudre les problèmes liés à la configuration de l’état souhaité Azure Automation
 
 Cet article fournit des informations sur la résolution des problèmes de la Configuration de l’état souhaité.
 
@@ -59,7 +59,7 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 Cette erreur est due à un problème temporaire dont la résolution est prévue.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 * Utilisez l’applet de commande Az « Remove-AzAutomationDscConfiguration » pour supprimer la configuration.
 * La documentation relative à cette applet de commande n’a pas encore été mise à jour.  En attendant, reportez-vous à la documentation du module AzureRM.
@@ -86,7 +86,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 Cette erreur est habituellement due à un pare-feu, la machine se trouvant derrière un serveur proxy, ou à d’autres erreurs de réseau.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Vérifiez que votre machine a accès aux points de terminaison appropriés pour Azure Automation DSC et réessayez. Pour obtenir la liste des ports et adresses nécessaires, consultez [Planification réseau](../automation-dsc-overview.md#network-planning).
 
@@ -108,7 +108,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 Ce problème est dû à un certificat incorrect ou expiré.  Pour plus d’informations, consultez [Expiration du certificat et réinscription](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration).
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Suivez les étapes indiquées ci-dessous pour réinscrire le nœud DSC défaillant.
 
@@ -166,7 +166,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 Cette erreur se produit généralement quand le nœud est affecté à un nom de configuration (par exemple ABC) au lieu d’un nom de configuration de nœud (par exemple ABC.WebServer).
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 * Assurez-vous d’affecter le nœud avec « nom de configuration de nœud » et non pas le « nom de configuration ».
 * Vous pouvez affecter une configuration de nœud à un nœud à l'aide du portail Azure ou d’une applet de commande PowerShell.
@@ -188,7 +188,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 Quand l’expression qui suit le mot-clé **Node** dans la configuration DSC s’évalue à `$null`, aucune configuration de nœud n’est générée.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Une des solutions suivantes corrige ce problème :
 
@@ -209,7 +209,7 @@ No instance found with given property values
 
 Vous avez mis à niveau votre version de WMF et endommagé WMI.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Pour résoudre ce problème, suivez les instructions fournies dans l’article [Problèmes connus liés à la Configuration d’état souhaité (DSC)](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc).
 
@@ -227,7 +227,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 Vous avez utilisé des informations d’identification dans une configuration, mais n’avez pas fourni la bonne valeur de **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 * Assurez-vous de transmettre la bonne valeur **ConfigurationData** pour définir **PSDscAllowPlainTextPassword** sur true pour chaque configuration de nœud mentionnée dans la configuration. Pour plus d’informations, consultez les [ressources d’Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
@@ -245,7 +245,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 Cette erreur se produit généralement quand le nœud est affecté à un nom de configuration de nœud qui n’existe pas dans le service.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 * Assurez-vous que vous affectez le nœud avec un nom de configuration de nœud qui correspond exactement au nom dans le service.
 * Vous pouvez choisir de ne pas inclure le nom de configuration de nœud, ce qui entraîne l’intégration du nœud,sans affectation de configuration de nœud
@@ -264,13 +264,13 @@ One or more errors occurred.
 
 Cette erreur se produit lorsque vous tentez d’inscrire un nœud qui réside dans un abonnement distinct du compte Automation.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Traitez ce nœud d’un autre abonnement comme s’il se trouvait dans un cloud distinct ou localement.
 
 Suivez les étapes ci-dessous pour inscrire le nœud.
 
-* Windows : [Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws).
+* Windows : [Machines physiques/virtuelles Windows locales ou dans un cloud autre qu’Azure/AWS](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure-including-aws-ec2-instances).
 * Linux : [Machines physiques/virtuelles Linux locales ou dans un cloud autre qu’Azure](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure).
 
 ### <a name="agent-has-a-problem"></a>Scénario : Message d’erreur : « Échec de l’approvisionnement »
@@ -287,7 +287,7 @@ Provisioning has failed
 
 Ce message s’affiche lorsqu’il y a un problème de connectivité entre le nœud et Azure.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 Déterminez si votre nœud se trouve dans un réseau virtuel privé ou s’il a d’autres problèmes pour se connecter à Azure.
 
@@ -307,7 +307,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 Les clients ont déterminé que si l’emplacement `/tmp` est défini sur `noexec`, la version actuelle de DSC ne parvient pas à appliquer les configurations.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 * Supprimez l’option `noexec` de l’emplacement `/tmp`.
 
@@ -323,7 +323,7 @@ Par exemple, si un script de configuration unique est utilisé pour générer de
 
 Problème connu avec le service de compilation.
 
-#### <a name="resolution"></a>Résolution :
+#### <a name="resolution"></a>Résolution
 
 La meilleure solution de contournement consiste à compiler localement ou dans un pipeline CI/CD, et à charger les fichiers MOF directement dans le service.  Si la compilation dans le service est une exigence, la meilleure solution suivante consiste à fractionner les travaux de compilation afin qu’il n’y ait pas de chevauchement des noms.
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 2a15ad41850fdf574262c396bf70e43b3b08399c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 13ac51fc4cefa4d66cf9d8310dce80704454bd93
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984945"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122149"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Bien démarrer avec votre compte de facturation dans le cadre d’un Contrat Partenaire Microsoft
 
@@ -71,7 +71,7 @@ Pour activer la stratégie :
 
 ## <a name="resellers"></a>Revendeurs
 
-Les fournisseurs indirects dans le [modèle CSP de niveau deux](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) peuvent sélectionner un revendeur quand ils créent des abonnements pour les clients dans le portail Azure. Après la création, ils peuvent voir la liste des abonnements filtrés par un revendeur et analyser le coût pour un client par les revendeurs dans l’analyse des coûts Azure.
+Les fournisseurs indirects dans le [modèle CSP de niveau deux](https://docs.microsoft.com/partner-center) peuvent sélectionner un revendeur quand ils créent des abonnements pour les clients dans le portail Azure. Après la création, ils peuvent voir la liste des abonnements filtrés par un revendeur et analyser le coût pour un client par les revendeurs dans l’analyse des coûts Azure.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Vérifier l’accès à un Contrat Partenaire Microsoft
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]

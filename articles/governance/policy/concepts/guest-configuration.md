@@ -3,12 +3,12 @@ title: Découvrez comment auditer le contenu des machines virtuelles
 description: Découvrez comment Azure Policy utilise l’agent Configuration d’invité pour auditer les paramètres à l’intérieur des machines virtuelles.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: f3d99b32b952470f266ed2168d5760c2c72377c4
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 205aa5a9292d0f70fed8247a8af1fe575ad3614e
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666718"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830494"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Comprendre la configuration d’invité d’Azure Policy
 
@@ -91,12 +91,8 @@ Windows Server Nano Server n’est pris en charge dans aucune version.
 
 ## <a name="guest-configuration-extension-network-requirements"></a>Configuration réseau requise pour l’extension de configuration d’invité
 
-Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si vous utilisez un réseau privé virtuel dans Azure sans autoriser le trafic sortant, vous devez configurer les exceptions à l’aide des règles du [groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule). Il n’existe pas actuellement d’étiquette de service pour la configuration d’invité Azure Policy.
-
-Pour les listes d’adresses IP, vous pouvez télécharger [Plages d’adresses IP et étiquettes des services Azure](https://www.microsoft.com/download/details.aspx?id=56519). Ce fichier, qui est mis à jour chaque semaine, possède les plages actuellement déployées et tous les changements à venir des plages d’adresses IP. Vous avez uniquement besoin d’autoriser l’accès sortant vers les adresses IP dans les régions où vos machines virtuelles seront déployées.
-
-> [!NOTE]
-> Le fichier JSON de plages d’adresses IP et de balises de service répertorie les plages d’adresses IP utilisées dans les centres de données Microsoft Azure. Le fichier comprend les plages Compute, SQL et Stockage. Un fichier mis à jour est publié chaque semaine. Le fichier reflète les plages déployées et toutes les modifications à venir dans les plages IP. Les nouvelles plages figurant dans le fichier ne sont pas utilisées dans les centres de données avant une semaine minimum. Pensez à télécharger le nouveau fichier XML chaque semaine. Ensuite, mettez à jour votre site afin qu’il identifie correctement les services en cours d’exécution dans Azure. Les utilisateurs d’Azure ExpressRoute doivent noter que ce fichier est utilisé pour mettre à jour la publication BGP (Border Gateway Protocol) de l’espace Azure la première semaine de chaque mois.
+Pour communiquer avec le fournisseur de ressources de configuration d’invité dans Azure, les machines nécessitent un accès sortant vers des centres de données Azure sur le port **443**. Si vous utilisez un réseau privé virtuel dans Azure sans autoriser le trafic sortant, vous devez configurer les exceptions à l’aide des règles du [groupe de sécurité réseau](../../../virtual-network/manage-network-security-group.md#create-a-security-rule).
+L’[étiquette de service](../../../virtual-network/service-tags-overview.md) « GuestAndHybridManagement » peut être utilisée pour référencer le service Guest Configuration.
 
 ## <a name="guest-configuration-definition-requirements"></a>Exigences de définition de la configuration d’invité
 

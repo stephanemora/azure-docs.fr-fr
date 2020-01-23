@@ -3,17 +3,16 @@ title: Renouveler un certificat Azure Application Gateway
 description: Découvrez comment renouveler un certificat associé à un écouteur de passerelle Application Gateway.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: 90200f7be6c71346441922365fc4439111dd8701
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c7c27f00b9f8b4fdcd8f735f842edb8f66803c6a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133694"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277998"
 ---
 # <a name="renew-application-gateway-certificates"></a>Renouveler des certificats Application Gateway
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 2abdae95e14ecc9dab673216a2c6aef652915988
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2019
+ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435423"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027758"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -21,49 +21,41 @@ Cet article fournit des informations sur les mises à jour **les plus récentes*
 
 ## <a name="summary"></a>Résumé
 
-Azure HDInsight est l'un des services les plus populaires parmi les clients d'entreprise pour l'analytique Apache Hadoop et Apache Spark open source sur Azure.
+Azure HDInsight est l’un des services les plus populaires parmi les clients d’entreprise pour l’analytique open source sur Azure.
 
-## <a name="release-date-12172019"></a>Date de publication : 17/12/2019
+## <a name="release-date-01092019"></a>Date de publication : 09/01/2019
 
-Cette version s’applique à la fois à HDInsight 3.6 et 4.0.
+Cette version s’applique à la fois à HDInsight 3.6 et 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les modifications ci-dessous, veuillez attendre quelques jours pour que la mise en production soit active dans votre région.
 
 > [!IMPORTANT]  
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [l’article sur le contrôle de version de HDInsight](hdinsight-component-versioning.md).
 
-
 ## <a name="new-features"></a>Nouvelles fonctionnalités
+### <a name="tls-12-enforcement"></a>Application de TLS 1.2
+TLS (Transport Layer Security) et SSL (Secure Sockets Layer) sont des protocoles de chiffrement qui permettent la sécurité des communications sur un réseau d’ordinateurs. Apprenez-en davantage sur [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). HDInsight utilise TLS 1.2 sur les points de terminaison HTTPS publics, mais TLS 1.1 est toujours pris en charge à des fins de compatibilité descendante. 
 
-### <a name="service-tags"></a>Balises de service
-Les balises de service simplifient la sécurité des machines virtuelles Azure et des réseaux virtuels Azure en vous permettant de limiter facilement l’accès réseau aux services Azure. Vous pouvez utiliser des balises de service dans vos règles de groupe de sécurité réseau pour autoriser ou refuser le trafic vers un service Azure spécifique à l’échelle mondiale ou par région Azure. Azure fournit la maintenance des adresses IP sous-tendant chaque balise. Les balises de service HDInsight pour les groupes de sécurité réseau sont des groupes d’adresses IP pour les services d’intégrité et de gestion. Ces groupes permettent de réduire la complexité de la création de règles de sécurité. Les clients HDInsight peuvent activer la balise de service via le portail Azure, PowerShell et l’API REST. Pour plus d’informations, consultez [Étiquettes de service de groupe de sécurité réseau (NSG) pour Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-service-tags).
+Avec cette version, les clients peuvent choisir TLS 1.2 uniquement pour toutes les connexions qui passent par le point de terminaison de cluster public. Pour prendre cela en charge, vous pouvez spécifier la nouvelle propriété **minSupportedTlsVersion** lors de la création du cluster. Si cette propriété n’est pas définie, le cluster prend toujours en charge TLS 1.0, 1.1 et 1.2, ce qui est identique au comportement actuel. Les clients peuvent affecter la valeur « 1.2 » à cette propriété, ce qui signifie que le cluster ne prend en charge que TLS 1.2 et versions ultérieures. Pour plus d’informations, consultez [Planifier un réseau virtuel - Transport Layer Security](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#transport-layer-security).
 
-### <a name="custom-ambari-db"></a>Base de données Ambari personnalisée
-HDInsight vous permet à présent d’utiliser votre propre base de données SQL pour Apache Ambari. Vous pouvez configurer cette instance Ambari DB personnalisée à partir du portail Azure ou par le biais du modèle Resource Manager.  Cette fonctionnalité vous permet de choisir la base de données SQL adaptée à vos besoins en matière de traitement et de capacité. Vous pouvez également effectuer une mise à niveau facilement pour répondre aux besoins de croissance de l’entreprise. Pour plus d’informations, consultez [Configurer des clusters HDInsight avec une base de données Ambari personnalisée](hdinsight-custom-ambari-db.md).
-
-![Base de données Ambari personnalisée](./media/hdinsight-release-notes/custom-ambari-db.png)
+### <a name="bring-your-own-key-for-disk-encryption"></a>BYOK (Bring Your Own Key) pour le chiffrement de disque
+Tous les disques managés dans HDInsight sont protégés par Azure Storage Service Encryption (SSE). Par défaut, les données stockées sur ces disques sont chiffrées à l’aide de clés managées par Microsoft. À compter de cette version, vous pouvez utiliser votre propre clé (BYOK, Bring Your Own Key) pour le chiffrement de disque et effectuer la gestion à l’aide d’Azure Key Vault. Le chiffrement BYOK est une configuration en une étape qui a lieu lors de la création d’un cluster, sans coût supplémentaire. Il vous suffit d’inscrire HDInsight comme identité managée auprès d’Azure Key Vault et d’ajouter la clé de chiffrement pendant la création du cluster. Pour plus d’informations, consultez [Chiffrement de disque avec clé gérée par le client](https://docs.microsoft.com/azure/hdinsight/disk-encryption).
 
 ## <a name="deprecation"></a>Dépréciation
 Cette version ne fait pas l’objet d’une dépréciation. Pour vous préparer aux dépréciations à venir, consultez [Modifications à venir](#upcoming-changes).
 
 ## <a name="behavior-changes"></a>Changements de comportement
-Cette version n’est associée à aucun changement de comportement. Pour vous préparer aux changements de comportement à venir, consultez [Modifications à venir](#upcoming-changes).
+Cette version n’est associée à aucun changement de comportement. Pour vous préparer aux changements à venir, consultez [Changements à venir](#upcoming-changes).
 
 ## <a name="upcoming-changes"></a>Changements à venir
 Les changements suivants se produiront dans les prochaines versions. 
 
-### <a name="transport-layer-security-tls-12-enforcement"></a>Application de TLS (Transport Layer Security) 1.2
-TLS (Transport Layer Security) et SSL (Secure Sockets Layer) sont des protocoles de chiffrement qui permettent la sécurité des communications sur un réseau d’ordinateurs. Pour plus d’informations, consultez [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security#SSL_1.0.2C_2.0_and_3.0). Alors que les clusters Azure HDInsight acceptent les connexions TLS 1.2 sur les points de terminaison HTTPS publics, TLS 1.1 est toujours pris en charge pour la compatibilité descendante avec les clients plus anciens.
-
-À partir de la prochaine version, vous serez en mesure d’activer et de configurer vos nouveaux clusters HDInsight pour qu’ils acceptent uniquement les connexions TLS 1.2. 
-
-Plus tard dans l’année, à compter du 30/06/2020, Azure HDInsight appliquera TLS 1.2 ou versions ultérieures pour toutes les connexions HTTPS. Nous vous recommandons de vous assurer que tous vos clients sont prêts à gérer TLS 1.2 ou versions ultérieures.
-
-### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
-HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de février 2020 (la date sera précisée ultérieurement), HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+### <a name="a-minimum-4-core-vm-is-required-for-head-node"></a>Une machine virtuelle à au moins quatre cœurs est nécessaire pour le nœud principal 
+Une machine virtuelle à au moins quatre cœurs est nécessaire pour le nœud principal, afin de garantir la haute disponibilité et la fiabilité des clusters HDInsight. À compter du 6 avril 2020, les clients peuvent uniquement choisir des machines virtuelles à quatre cœurs ou plus comme nœud principal pour les nouveaux clusters HDInsight. Les clusters existants continueront à s’exécuter comme prévu. 
 
 ### <a name="esp-spark-cluster-node-size-change"></a>Modification de la taille du nœud de cluster ESP Spark 
-Dans la prochaine version :
-- La taille de nœud minimale autorisée pour le cluster ESP Spark sera remplacée par la taille Standard_D13_V2. 
-- Les machines virtuelles de série A seront dépréciées pour la création de nouveaux clusters ESP, car elles peuvent provoquer des problèmes de cluster ESP en raison d’une capacité de processeur et de mémoire relativement faible.
+Dans la version à venir, la taille de nœud minimale autorisée pour le cluster ESP Spark sera remplacée par la taille Standard_D13_V2. Les machines virtuelles de la série A peuvent provoquer des problèmes liés au cluster ESP, en raison d’une capacité de mémoire et de processeur relativement faible. L’utilisation des machines virtuelles de la série A sera dépréciée pour la création de nouveaux clusters ESP.
+
+### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. Dans la version à venir, HDInsight utilisera à la place des groupes de machines virtuelles identiques Azure. Apprenez-en davantage sur les groupes de machines virtuelles identiques Azure.
 
 ### <a name="hbase-20-to-21"></a>HBase 2.0 à 2.1
 Dans la prochaine version de HDInsight 4.0, la version de HBase sera mise à niveau de la version 2.0 à 2.1.
@@ -72,15 +64,4 @@ Dans la prochaine version de HDInsight 4.0, la version de HBase sera mise à ni
 HDInsight continue à améliorer la fiabilité et les performances des clusters. 
 
 ## <a name="component-version-change"></a>Changement de la version des composants
-Nous avons prolongé la prise en charge de HDInsight 3.6 jusqu’au 31 décembre 2020. Pour plus d’informations, consultez la page [Versions HDInsight prises en charge](hdinsight-component-versioning.md#supported-hdinsight-versions).
-
-Il n’y a aucune modification de la version des composants pour HDInsight 4.0.
-
-Apache Zeppelin sur HDInsight 3.6 : 0.7.0-->0.7.3. 
-
-Vous pouvez trouver les versions les plus récentes des composants dans [ce document](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
-
-## <a name="new-regions"></a>Nouvelles régions
-
-### <a name="uae-north"></a>Émirats arabes unis Nord
-Les adresses IP de gestion de la région Émirats arabes unis Nord sont les suivantes : `65.52.252.96` et `65.52.252.97`.
+Aucune modification de la version des composants pour cette version. Vous pouvez trouver les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 ici.

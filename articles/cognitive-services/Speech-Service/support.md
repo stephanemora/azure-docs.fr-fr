@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928657"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169523"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
@@ -55,19 +55,8 @@ Sachant que *{Your Search Terms}* est l’emplacement où indiquer les mots clé
 
 Les clients Azure peuvent créer et gérer des demandes de support dans le Portail Azure.
 
-* [Portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portail Azure pour le gouvernement des États-Unis](https://portal.azure.us)
-
-## <a name="post-a-question-to-stack-overflow"></a>Publication d’une question sur Stack Overflow
-
-Stack Overflow est le canal de prédilection pour les questions de développement. C’est l’endroit où les membres de la communauté et les membres de l’équipe Microsoft apportent directement leur contribution en vous aidant à résoudre vos problèmes.
-
-Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soumettez une nouvelle question à Stack Overflow à l’aide des balises [\[microsoft-cognitive\]\[speech\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
-
-> [!TIP]
-> Les publications suivantes de Stack Overflow présentent des conseils sur la façon de formuler des questions et d’ajouter du code source. En suivant ces recommandations, vous augmentez vos chances que des membres de la communauté comprennent votre question et y répondent rapidement :  
-> * [Comment poser une bonne question ?](https://stackoverflow.com/help/how-to-ask)
-> * [Comment créer un exemple minimal, complet et vérifiable](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Créer un problème GitHub
 
@@ -108,6 +97,16 @@ Version du kit de développement logiciel utilisé.
  - Si vous signalez une erreur pour une interaction de service spécifique, indiquez l’ID de session et l’heure (y compris le fuseau horaire) de l’incident en question. L’ID de session figure dans tous les rappels/événements reçus.
  - Toute autre information supplémentaire
 
+## <a name="post-a-question-to-stack-overflow"></a>Publication d’une question sur Stack Overflow
+
+Stack Overflow est le canal de prédilection pour les questions de développement. C’est l’endroit où les membres de la communauté et les membres de l’équipe Microsoft apportent directement leur contribution en vous aidant à résoudre vos problèmes.
+
+Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soumettez une nouvelle question à Stack Overflow à l’aide des balises [\[microsoft-cognitive\]\[speech\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+
+> [!TIP]
+> Les publications suivantes de Stack Overflow présentent des conseils sur la façon de formuler des questions et d’ajouter du code source. En suivant ces recommandations, vous augmentez vos chances que des membres de la communauté comprennent votre question et y répondent rapidement :  
+> * [Comment poser une bonne question ?](https://stackoverflow.com/help/how-to-ask)
+> * [Comment créer un exemple minimal, complet et vérifiable](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>Forum UserVoice
 

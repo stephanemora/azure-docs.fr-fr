@@ -8,18 +8,18 @@ ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad92d4cf0d5b61c778b87114d4be6c23557f8e26
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457143"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510938"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Créer et provisionner un appareil IoT Edge simulé avec un TPM virtuel sous Windows
 
 Les appareils Azure IoT Edge peuvent être provisionnés automatiquement à l’aide du [service Device Provisioning](../iot-dps/index.yml) tout comme les appareils qui ne sont pas compatibles avec Edge. Si vous ne connaissez pas le processus de provisionnement automatique, révisez les [concepts du provisionnement automatique](../iot-dps/concepts-auto-provisioning.md) avant de poursuivre.
 
-DPS prend désormais en charge l’attestation de clé symétrique pour les appareils IoT Edge lors d’une inscription individuelle et d’une inscription de groupe. Pour une inscription de groupe, si l’option « Est un appareil IoT Edge » est définie sur true dans une attestation de clé symétrique, tous les appareils inscrits sous ce groupe d’inscriptions sont marqués en tant qu’appareils IoT Edge. 
+DPS prend désormais en charge l’attestation de clé symétrique pour les appareils IoT Edge lors d’une inscription individuelle et d’une inscription de groupe. Pour une inscription de groupe, si l’option « Est un appareil IoT Edge » est définie sur true dans une attestation de clé symétrique, tous les appareils inscrits sous ce groupe d’inscriptions sont marqués en tant qu’appareils IoT Edge.
 
 Cet article explique comment tester le provisionnement automatique sur un appareil IoT Edge simulé en procédant comme suit :
 
@@ -28,16 +28,16 @@ Cet article explique comment tester le provisionnement automatique sur un appare
 * Création d’une inscription individuelle pour l’appareil.
 * Installation du runtime IoT Edge et connexion de l’appareil à IoT Hub.
 
-> [!NOTE]
-> TPM 2.0 est requis lors de l'utilisation de l'attestation TPM avec DPS, et il ne peut être utilisé que pour créer des inscriptions individuelles, et non groupées.
-
 > [!TIP]
 > Cet article explique comment tester le provisionnement automatique à l'aide de l'attestation TPM sur des appareils virtuels, mais il s'applique principalement à l'utilisation de matériel TPM physique.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Une machine de développement Windows. Cet article utilise Windows 10.
 * Un hub IoT actif.
+
+> [!NOTE]
+> TPM 2.0 est requis lors de l'utilisation de l'attestation TPM avec DPS, et il ne peut être utilisé que pour créer des inscriptions individuelles, et non groupées.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Configurer le service IoT Hub Device Provisioning
 

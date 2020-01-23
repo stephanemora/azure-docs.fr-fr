@@ -5,48 +5,68 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: aa9550d1ec6201f7cbaf552fac5f71c875428e21
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f9bee35ee8e82070b4cf601139b471562ba5e10b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458257"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934203"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Ajouter ou supprimer des nœuds d’un cluster Service Fabric autonome sous Windows Server
 Une fois que vous avez [créé votre cluster Service Fabric autonome sur des ordinateurs Windows Server](service-fabric-cluster-creation-for-windows-server.md), les besoins de votre entreprise peuvent évoluer et vous obliger à ajouter ou supprimer des nœuds dans votre cluster. Cet article fournit des étapes détaillées pour effectuer ces tâches. Veuillez noter que la fonctionnalité d’ajout/suppression de nœud n’est pas prise en charge dans les clusters de développement locaux.
 
 ## <a name="add-nodes-to-your-cluster"></a>Ajouter des nœuds à votre cluster
 
-1. Préparez l’ordinateur ou la machine virtuelle que vous souhaitez ajouter à votre cluster en suivant les étapes décrites dans [Planifier et préparer votre déploiement de cluster Service Fabric](service-fabric-cluster-creation-for-windows-server.md).
+1. Préparez l’ordinateur ou la machine virtuelle que vous souhaitez ajouter à votre cluster en suivant les étapes décrites dans [Planifier et préparer votre déploiement de cluster Service Fabric](service-fabric-cluster-standalone-deployment-preparation.md).
+
 2. Identifiez le domaine d’erreur et le domaine de mise à niveau auxquels vous allez ajouter cette machine virtuelle ou cet ordinateur.
+
+   Si vous utilisez des certificats pour sécuriser le cluster, ils sont censés être installés dans les magasins de certificats locaux pour préparer la jonction du nœud au cluster. La même chose s’applique quand vous utilisez d’autres formes de sécurité.
+
 3. Avec Bureau à distance (RDP), accédez à la machine virtuelle ou à l’ordinateur que vous souhaitez ajouter au cluster.
+
 4. Copiez ou [téléchargez le package autonome Service Fabric pour Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690) sur cette machine virtuelle ou cet ordinateur et décompressez le package.
-5. Exécutez PowerShell avec des privilèges élevés, puis naviguez jusqu’à l’emplacement du package décompressé.
-6. Exécutez le script *AddNode.ps1* avec les paramètres qui décrivent le nouveau nœud à ajouter. L’exemple ci-dessous ajoute un nouveau nœud nommé VM5, de type NodeType0, avec l’adresse IP 182.17.34.52, à UD1 et fd:/dc1/r0. *ExistingClusterConnectionEndPoint* est un point de terminaison de connexion pour un nœud déjà présent dans le cluster existant. Il peut s’agir de l’adresse IP de *n’importe quel nœud* du cluster.
 
-    ```
-    .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
-    ```
-    Une fois le script exécuté, vous pouvez vérifier si le nouveau nœud a été ajouté en exécutant la cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
+5. Exécutez PowerShell avec des privilèges élevés, puis accédez à l’emplacement du package décompressé.
 
-7. Pour garantir la cohérence entre les différents nœuds du cluster, vous devez lancer une mise à niveau de la configuration. Exécutez [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) pour obtenir le dernier fichier de configuration, et ajoutez le nœud nouvellement ajouté à la section « Nodes ». Il est également recommandé de disposer en permanence de la dernière configuration de cluster disponible au cas où vous devriez redéployer un cluster avec la même configuration.
+6. Exécutez le script *AddNode.ps1* avec les paramètres qui décrivent le nouveau nœud à ajouter. L’exemple suivant ajoute un nouveau nœud nommé VM5, de type NodeType0, avec l’adresse IP 182.17.34.52, à UD1 et fd:/dc1/r0. `ExistingClusterConnectionEndPoint` est un point de terminaison de connexion pour un nœud déjà présent dans le cluster existant. Il peut s’agir de l’adresse IP de *n’importe quel* nœud du cluster. 
 
-    ```
-        {
-            "nodeName": "vm5",
-            "iPAddress": "182.17.34.52",
-            "nodeTypeRef": "NodeType0",
-            "faultDomain": "fd:/dc1/r0",
-            "upgradeDomain": "UD1"
-        }
-    ```
+   Non sécurisé (prototypage) :
+
+   ```
+   .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -AcceptEULA
+   ```
+
+   Sécurisé (basé sur un certificat) :
+
+   ```  
+   $CertThumbprint= "***********************"
+    
+   .\AddNode.ps1 -NodeName VM5 -NodeType NodeType0 -NodeIPAddressorFQDN 182.17.34.52 -ExistingClientConnectionEndpoint 182.17.34.50:19000 -UpgradeDomain UD1 -FaultDomain fd:/dc1/r0 -X509Credential -ServerCertThumbprint $CertThumbprint  -AcceptEULA
+
+   ```
+
+   Une fois le script exécuté, vous pouvez vérifier si le nouveau nœud a été ajouté en exécutant la cmdlet [Get-ServiceFabricNode](/powershell/module/servicefabric/get-servicefabricnode?view=azureservicefabricps).
+
+7. Pour garantir la cohérence entre les différents nœuds du cluster, vous devez lancer une mise à niveau de la configuration. Exécutez [Get-ServiceFabricClusterConfiguration](/powershell/module/servicefabric/get-servicefabricclusterconfiguration?view=azureservicefabricps) pour obtenir le dernier fichier de configuration et ajoutez le nœud nouvellement ajouté à la section « Nodes ». Il est également recommandé de disposer en permanence de la dernière configuration de cluster disponible au cas où vous devriez redéployer un cluster de même configuration.
+
+   ```
+    {
+        "nodeName": "vm5",
+        "iPAddress": "182.17.34.52",
+        "nodeTypeRef": "NodeType0",
+        "faultDomain": "fd:/dc1/r0",
+        "upgradeDomain": "UD1"
+    }
+   ```
+
 8. Exécutez [Start-ServiceFabricClusterConfigurationUpgrade](/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade?view=azureservicefabricps) pour commencer la mise à niveau.
 
-    ```
-    Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
+   ```
+   Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
+   ```
 
-    ```
-    Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer. Vous pouvez également exécuter [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps) pour cela.
+   Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer. Vous pouvez également exécuter [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 ### <a name="add-nodes-to-clusters-configured-with-windows-security-using-gmsa"></a>Ajouter des nœuds aux clusters configurés avec la sécurité Windows à l’aide de gMSA
 Pour les clusters configurés avec un compte de service géré de groupe (gMSA) (https://technet.microsoft.com/library/hh831782.aspx), un nouveau nœud peut être ajouté à l’aide d’une mise à niveau de la configuration :
@@ -104,7 +124,7 @@ Ajoutez le paramètre « NodesToBeRemoved » à la section « Setup », dans
     Start-ServiceFabricClusterConfigurationUpgrade -ClusterConfigPath <Path to Configuration File>
 
     ```
-    Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer. Vous pouvez également exécuter [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps) pour cela.
+    Vous pouvez surveiller la progression de la mise à niveau avec Service Fabric Explorer. Vous pouvez également exécuter [Get-ServiceFabricClusterUpgrade](/powershell/module/servicefabric/get-servicefabricclusterupgrade?view=azureservicefabricps).
 
 > [!NOTE]
 > La suppression de nœuds peut entraîner plusieurs mises à niveau. Certains nœuds sont marqués avec la balise `IsSeedNode=”true”` et peuvent être identifiés en interrogeant le manifeste de cluster à l’aide de `Get-ServiceFabricClusterManifest`. La suppression de ces nœuds peut prendre plus de temps car, dans ce cas, les nœuds initiaux devront être déplacés. Le cluster doit conserver au moins 3 nœuds de type nœud principal.

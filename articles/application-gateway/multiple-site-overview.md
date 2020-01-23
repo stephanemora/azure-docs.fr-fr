@@ -4,19 +4,19 @@ description: Cet article fournit une vue d’ensemble de la prise en charge de s
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 1/17/2019
+ms.date: 1/7/2020
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 61184fc7415de3c142b460710cceefed61a25af3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0192d27ebfa696376ce79f90a6ceeb816dfb1e46
+ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835337"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75719951"
 ---
 # <a name="application-gateway-multiple-site-hosting"></a>Hébergement de plusieurs sites Application Gateway
 
-L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur la même instance de passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
+L’hébergement de plusieurs sites vous permet de configurer plusieurs applications web sur le même port d’une passerelle Application Gateway. Cette fonctionnalité vous permet de configurer une topologie plus efficace pour vos déploiements en ajoutant jusqu’à 100 sites web à une passerelle Application Gateway. Chaque site web peut être dirigé vers son propre pool principal. Dans l’exemple suivant, la passerelle Application Gateway gère le trafic pour contoso.com et fabrikam.com avec deux pools de serveurs principaux : ContosoServerPool et FabrikamServerPool.
 
 ![imageURLroute](./media/multiple-site-overview/multisite.png)
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5a45b9e3ba59a91f580ce0f2dc180adf5d20c87d
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810350"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754058"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Guide de procédures des pools d’instances Azure SQL Database (préversion)
 
@@ -28,16 +28,16 @@ Le tableau suivant présente les opérations disponibles liées aux pools d’in
 
 |Commande|Portail Azure|PowerShell|
 |:---|:---|:---|
-|Créer un pool d’instances|Non|OUI|
-|Mettre à jour le pool d’instances (nombre limité de propriétés)|Non |OUI |
-|Vérifier l’utilisation et les propriétés du pool d’instances|Non|OUI |
-|Supprimer le pool d’instances|Non|OUI|
-|Créer une instance gérée à l’intérieur du pool d’instances|Non|OUI|
-|Mettre à jour l'utilisation des ressources de l'instance managée|OUI |OUI|
-|Vérifier l’utilisation et les propriétés de l’instance gérée|OUI|OUI|
-|Supprimer l’instance gérée du pool|OUI|OUI|
-|Créer une base de données dans une instance gérée placée dans le pool|OUI|OUI|
-|Supprimer une base de données d’une instance gérée|OUI|OUI|
+|Créer un pool d’instances|Non|Oui|
+|Mettre à jour le pool d’instances (nombre limité de propriétés)|Non |Oui |
+|Vérifier l’utilisation et les propriétés du pool d’instances|Non|Oui |
+|Supprimer le pool d’instances|Non|Oui|
+|Créer une instance gérée à l’intérieur du pool d’instances|Non|Oui|
+|Mettre à jour l'utilisation des ressources de l'instance managée|Oui |Oui|
+|Vérifier l’utilisation et les propriétés de l’instance gérée|Oui|Oui|
+|Supprimer l’instance gérée du pool|Oui|Oui|
+|Créer une base de données dans une instance gérée placée dans le pool|Oui|Oui|
+|Supprimer une base de données d’une instance gérée|Oui|Oui|
 
 [Commandes PowerShell](https://docs.microsoft.com/powershell/module/az.sql/) disponibles
 
@@ -92,11 +92,17 @@ Les restrictions suivantes s’appliquent aux pools d’instances :
 
 - Seules les options Usage général et Gen5 sont disponibles en préversion publique.
 - Le nom du pool ne peut contenir que des minuscules, des chiffres et des traits d’union, et ne peut pas commencer par un trait d’union.
-- Pour récupérer l’ID du sous-réseau, utilisez `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`.
 - Si vous souhaitez utiliser AHB (Azure Hybrid Benefit), il s’applique au niveau du pool d’instances. Vous pouvez définir le type de licence lors de la création du pool ou le mettre à jour à tout moment après sa création.
 
 > [!IMPORTANT]
 > Le déploiement d’un pool d’instances est une opération longue qui prend environ 4,5 heures.
+
+Pour obtenir les paramètres du réseau :
+
+```powershell
+$virtualNetwork = Get-AzVirtualNetwork -Name "miPoolVirtualNetwork" -ResourceGroupName "myResourceGroup"
+$subnet = Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork
+```
 
 Pour créer un pool d’instances :
 
@@ -104,7 +110,7 @@ Pour créer un pool d’instances :
 $instancePool = New-AzSqlInstancePool `
   -ResourceGroupName "myResourceGroup" `
   -Name "mi-pool-name" `
-  -SubnetId "/subscriptions/subscriptionID/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/miPoolVirtualNetwork/subnets/miPoolSubnet" `
+  -SubnetId $subnet.Id `
   -LicenseType "LicenseIncluded" `
   -VCore 80 `
   -Edition "GeneralPurpose" `

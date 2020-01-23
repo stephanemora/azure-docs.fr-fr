@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ff84b085b7d40bcb6c5a0aa87416e5814f67814b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073824"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979586"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -23,7 +23,7 @@ L’extension de script personnalisé télécharge et exécute des scripts sur d
 
 Ce document explique en détail l’utilisation de l’extension de script personnalisé à l’aide du module Azure PowerShell, des modèles Azure Resource Manager, et détaille également les étapes de résolution de problèmes sur les systèmes Windows.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 > [!NOTE]  
 > N’utilisez pas l’extension de script personnalisé pour exécuter Update-AzVM avec la même machine virtuelle en tant que paramètre, car elle s’attendra elle-même.  
@@ -81,7 +81,7 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -92,11 +92,15 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
+
+> [!NOTE]
+> la propriété managedIdentity **ne doit pas** être utilisée conjointement avec les propriétés storageAccountName ou storageAccountKey
 
 > [!NOTE]
 > Il n’est possible d’installer qu’une seule version d’une extension sur une machine virtuelle à un moment donné. Spécifier deux fois un script personnalisé dans le même modèle Azure Resource Manager pour une même machine virtuelle aboutira à un échec.
@@ -106,17 +110,18 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-| Nom | Valeur/Exemple | Type de données |
+| Name | Valeur/Exemple | Type de données |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
+| apiVersion | 2015-06-15 | Date |
 | publisher | Microsoft.Compute | string |
-| Type | CustomScriptExtension | string |
-| typeHandlerVersion | 1.9 | int |
-| fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
-| timestamp (p. ex.) | 123456789 | Entier 32 bits |
+| type | CustomScriptExtension | string |
+| typeHandlerVersion | 1,10 | int |
+| fileUris (p. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | tableau |
+| timestamp (p. ex.) | 123456789 | Entier de 32 bits |
 | commandToExecute (p. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName (p. ex.) | examplestorageacct | string |
 | storageAccountKey (p. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
+| managedIdentity (par exemple) | { } or { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" } or { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" } | Objet JSON |
 
 >[!NOTE]
 >Ces noms de propriétés respectent la casse. Pour éviter des problèmes de déploiement, utilisez les noms présentés ici.
@@ -127,7 +132,10 @@ Ces éléments doivent être traités comme des données sensibles et spécifié
 * `fileUris` : (facultatif, tableau de chaînes) URL des fichiers à télécharger.
 * `timestamp` : (facultatif, entier 32 bits) utilisez ce champ uniquement pour déclencher la réexécution du script en modifiant la valeur de ce champ.  Toutes les valeurs sont autorisées pour l’entier. Cette valeur doit uniquement être différente de la valeur précédente.
 * `storageAccountName` : (facultatif, chaîne) nom du compte de stockage. Si vous spécifiez des informations d’identification de stockage, toutes les propriétés `fileUris` doivent être des URL d’objets blob Azure.
-* `storageAccountKey` : (facultatif, chaîne) clé d’accès du compte de stockage.
+* `storageAccountKey` : (facultatif, chaîne) clé d’accès du compte de stockage
+* `managedIdentity` : (facultatif, objet JSON) [identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour le téléchargement de fichiers
+  * `clientId` : (facultatif, chaîne) ID de client de l’identité managée
+  * `objectId` : (facultatif, chaîne) ID d’objet de l’identité managée
 
 Les valeurs suivantes peuvent être définies dans les paramètres publics ou protégés. L’extension rejette les configurations dans lesquelles les valeurs indiquées ci-dessous sont définies à la fois dans les paramètres publics et protégés.
 
@@ -137,11 +145,51 @@ L’utilisation des paramètres publics peut être utile pour le débogage, mais
 
 Les paramètres publics sont envoyés en texte clair à la machine virtuelle sur laquelle le script est exécuté.  Les paramètres protégés sont chiffrés à l’aide d’une clé connue uniquement d’Azure et de la machine virtuelle. Les paramètres sont enregistrés sur la machine virtuelle tels qu’ils ont été envoyés. Autrement dit, si les paramètres ont été chiffrés, ils sont enregistrés chiffrés sur la machine virtuelle. Le certificat utilisé pour déchiffrer les valeurs chiffrées est stocké sur la machine virtuelle et permet de déchiffrer les paramètres (si nécessaire) lors de l’exécution.
 
+####  <a name="property-managedidentity"></a>Propriété : managedIdentity
+
+CustomScript (version 1.10.4 et ultérieures) prend en charge RBAC basé sur l’[identité managée](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour télécharger des fichiers à partir des URL fournies dans le paramètre « fileUris ». Il permet à CustomScript d’accéder aux objets blob/conteneurs privés de Stockage Azure sans que l’utilisateur doive passer des secrets comme des jetons SAS ou des clés de compte de stockage.
+
+Pour utiliser cette fonctionnalité, l’utilisateur doit ajouter une identité [attribuée par le système](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) ou [attribuée par l’utilisateur](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) à la machine virtuelle ou au groupe de machines virtuelles identiques où CustomScript doit s’exécuter, et [accorder l’accès à l’identité managée au conteneur ou à l’objet blob de Stockage Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+Pour utiliser l’identité attribuée par le système sur la machine virtuelle/groupe de machines virtuelles identiques cible, définissez le champ « managedidentity » sur un objet JSON vide. 
+
+> Exemple :
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+Pour utiliser l’identité attribuée par l’utilisateur sur la machine virtuelle/groupe de machines virtuelles identiques cible, configurez le champ « managedidentity » avec l’ID de client ou l’ID d’objet de l’identité managée.
+
+> Exemples :
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> la propriété managedIdentity **ne doit pas** être utilisée conjointement avec les propriétés storageAccountName ou storageAccountKey
+
 ## <a name="template-deployment"></a>Déploiement de modèle
 
 Les extensions de machines virtuelles Azure peuvent être déployées avec des modèles Azure Resource Manager. Le schéma JSON détaillé dans la section précédente peut être utilisé dans un modèle Azure Resource Manager pour exécuter l’extension de script personnalisé pendant un déploiement. Les exemples suivants montrent comment utiliser l’extension de script personnalisé :
 
-* [Tutoriel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Tutoriel : Déployer des extensions de machines virtuelles avec des modèles Azure Resource Manager](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
 * [Déployer une application à deux niveaux sur Windows et Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>Déploiement PowerShell
@@ -181,7 +229,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -199,7 +247,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```
@@ -253,7 +301,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 
-### <a name="troubleshoot"></a>Résolution des problèmes
+### <a name="troubleshoot"></a>Dépanner
 
 Vous pouvez récupérer les données sur l’état des déploiements d’extension à partir du portail Azure et à l’aide du module Azure PowerShell. Pour voir l’état du déploiement des extensions pour une machine virtuelle donnée, exécutez la commande suivante :
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: 734bb48d1ddb50af7c28e948c8267b4cd88fcdf7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f2b106df531dfdf26c2c83b765e3f7270a63df5
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437024"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770983"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -48,6 +48,14 @@ Oui. La configuration des circuits ExpressRoute vous permet d’augmenter jusqu�
 
 Oui. Un circuit ExpressRoute, une fois configuré, vous permet d’accéder simultanément aux services au sein d’un réseau virtuel et aux autres services Azure. Vous vous connectez aux réseaux virtuels via le chemin d’accès de peering privé, et aux autres services via le chemin d’accès de peering Microsoft.
 
+### <a name="how-are-vnets-advertised-on-expressroute-private-peering"></a>Comment les réseaux virtuels sont-ils publiés pour le peering privé ExpressRoute ?
+
+La passerelle ExpressRoute publie l’*espace d’adressage* du réseau virtuel Azure. Vous ne pouvez pas configurer d’inclusions ou d’exclusions au niveau du sous-réseau. En effet, c’est toujours l’espace d’adressage du réseau virtuel qui est publié. En outre, si le peering des réseaux virtuels est utilisé et si l’option « Utiliser la passerelle distante » est activée pour le réseau virtuel appairé, l’espace d’adressage du réseau virtuel appairé sera également publié.
+
+### <a name="can-i-filter-routes-coming-from-my-on-premises-network"></a>Puis-je filtrer les routes qui proviennent de mon réseau local ?
+
+La seule façon de filtrer ou d’inclure des routes consiste à utiliser le routeur de périphérie local. Vous pouvez ajouter des routes définies par l’utilisateur au réseau virtuel afin d’affecter un certain routage. Toutefois, cela sera statique et ne fera pas partie de la publication BGP.
+
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>ExpressRoute offre-t-il un contrat de niveau de service (SLA) ?
 
 Pour plus d’informations, consultez la page [SLA ExpressRoute](https://azure.microsoft.com/support/legal/sla/) .
@@ -73,7 +81,8 @@ Si votre circuit ExpressRoute est activé pour le peering Microsoft Azure, vous 
 * Azure Active Directory
 * [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (communauté Services globaux Azure)
-* La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.
+* Adresses IP publiques Azure pour IaaS (machines virtuelles, passerelles de réseau virtuel, équilibreurs de charge, etc.)  
+* La plupart des autres services Azure sont également pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.
 
 **Non pris en charge :**
 

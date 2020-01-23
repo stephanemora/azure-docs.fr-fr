@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: d3959b9a86ccc2d42cbf7bd188ce86bf4b7a2e63
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 14946a05f021a9b155fd9a9621f73bde980970fa
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670089"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75750465"
 ---
 # <a name="deployment-best-practices"></a>Meilleures pratiques de déploiement
 
@@ -66,3 +66,12 @@ Utilisez toujours le cache local conjointement avec les [emplacements de déploi
 ### <a name="high-cpu-or-memory"></a>Utilisation de l’UC ou de mémoire élevée
 
 Si votre plan App Service utilise plus de 90 % de l’UC ou de la mémoire disponible, la machine virtuelle sous-jacente risque de rencontrer des problèmes lors du traitement de votre déploiement. Dans ce cas, mettez temporairement à l’échelle le nombre d’instances pour effectuer le déploiement. Une fois le déploiement terminé, vous pouvez remettre le nombre d’instances à sa valeur précédente.
+
+Pour plus d’informations sur les bonnes pratiques, consultez [Diagnostics App Service](https://docs.microsoft.com/azure/app-service/overview-diagnostics) pour connaître les bonnes pratiques applicables spécifiques à votre ressource.
+
+- Accédez à votre application web dans le [portail Azure](https://portal.azure.com).
+- Dans le volet de navigation de gauche, cliquez sur **Diagnostiquer et résoudre les problèmes** pour ouvrir Diagnostics App Service.
+- Choisissez la vignette de page d’accueil **Bonnes pratiques**.
+- Cliquez sur **Bonnes pratiques pour la disponibilité et les performances** ou **Bonnes pratiques pour une configuration optimale** afin d’afficher l’état actuel de votre application en ce qui concerne ces bonnes pratiques.
+
+Vous pouvez également utiliser ce lien pour ouvrir directement Diagnostics App Service pour votre ressource : `https://ms.portal.azure.com/?websitesextension_ext=asd.featurePath%3Ddetectors%2FParentAvailabilityAndPerformance#@microsoft.onmicrosoft.com/resource/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/troubleshoot`.

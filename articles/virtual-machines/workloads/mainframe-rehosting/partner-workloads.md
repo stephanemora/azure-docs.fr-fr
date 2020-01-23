@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 1923d6fe71a0a7c4b469dc88b61a6ab3a794c45e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf02ff7078fe5d33f220c0abc2d941d483e5c125
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487305"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293502"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Charges de travail mainframe prises en charge sur Azure
 
@@ -29,8 +29,8 @@ Pour obtenir plus d’aide vis-à-vis de l’émulation de systèmes et services
 - [Micro Focus PL / je](https://www.microfocus.com/campaign/download/pli-modernization/) compilateur hérité pour la plate-forme .NET, prenant en charge la syntaxe PL/I, les types de données et le comportement mainframe.
 - [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) plate-forme d’intégration mainframe.
 - [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) outils de développement et d’intégration.
-- [NTT Data Enterprise COBOL](https://www.nttdataservices.com/en-ie/services/application-modernization-services) outils de développement et d’intégration.
-- [NTT Open PL/I](https://www.nttdataservices.com/en-ie/services/application-modernization-services) compilateur hérité pour la plate-forme .NET, prenant en charge la syntaxe PL/I, les types de données et le comportement.
+- [NTT Data Enterprise COBOL](https://us.nttdata.com/en/digital/application-development-and-modernization) outils de développement et d’intégration.
+- [NTT Open PL/I](https://us.nttdata.com/en/digital/application-development-and-modernization) compilateur hérité pour la plate-forme .NET, prenant en charge la syntaxe PL/I, les types de données et le comportement.
 - [Compilateur Raincode COBOL](https://www.raincode.com/products/cobol/) outils de développement et d’intégration.
 - [Compilateur Raincode PL/I](https://www.raincode.com/products/pli/) pour que plateforme .NET prenne en charge la syntaxe PL/I, les types de données et le comportement mainframe.
 - [Compilateur Raincode ASM370](https://www.raincode.com/technical-landscape/asm370/) pour la syntaxe d’assembleur 370 et HLASM mainframe.

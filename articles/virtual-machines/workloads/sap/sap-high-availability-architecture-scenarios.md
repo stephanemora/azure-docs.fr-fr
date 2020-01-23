@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638202"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291479"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Scénarios et architecture de haute disponibilité pour SAP NetWeaver
 
@@ -294,7 +294,7 @@ Azure est en train de déployer un concept de [zones de disponibilité Azure](ht
 Vous devez tenir compte de certains éléments quand vous utilisez des zones de disponibilité. Notamment :
 
 - Vous ne pouvez pas déployer de groupes à haute disponibilité Azure dans une zone de disponibilité. Vous devez choisir une zone de disponibilité ou un groupe à haute disponibilité comme cadre de déploiement pour une machine virtuelle.
-- Vous ne pouvez pas utiliser l’[équilibreur de charge de base](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) pour créer des solutions de cluster de basculement basées sur les services de cluster de basculement Windows ou Linux Pacemaker. À la place, vous devez utiliser la [référence SKU Standard Load Balancer d’Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Vous ne pouvez pas utiliser l’[équilibreur de charge de base](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) pour créer des solutions de cluster de basculement basées sur les services de cluster de basculement Windows ou Linux Pacemaker. À la place, vous devez utiliser la [référence SKU Standard Load Balancer d’Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - Les zones de disponibilité Azure ne donnent aucune garantie d’une certaine distance entre les différentes zones dans une région
 - La latence du réseau entre les différentes zones de disponibilité Azure dans les différentes régions Azure peut varier selon la région. Il est tout à fait possible que vous, en tant que client, puissiez raisonnablement exécuter la couche Application SAP déployée sur différentes zones parce que la latence du réseau d’une zone vers la machine virtuelle SGBD active est encore acceptable du point de vue de l’impact sur les processus métier. En revanche, il est possible aussi que la latence entre la machine virtuelle SGBD active dans une zone et une instance d’application SAP sur une machine virtuelle dans une autre zone soit trop intrusive et inacceptable pour les processus métier SAP. Par conséquent, les architectures de déploiement doivent être différentes avec une architecture active/active pour l’application ou une architecture active/passive si la latence est trop forte.
 - L’utilisation de [disques managés Azure](https://azure.microsoft.com/services/managed-disks/) est obligatoire pour le déploiement dans les zones de disponibilité Azure 

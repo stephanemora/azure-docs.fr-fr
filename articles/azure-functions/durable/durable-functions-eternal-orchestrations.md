@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8d28ae18c44c434dba053b23a60eb78728f8d8e0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 572fec4d6e47efd734bc84a40dc974c79bd619fb
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232906"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262977"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations externes dans Fonctions durables (Azure Functions)
 
@@ -33,7 +33,7 @@ Lorsque la méthode `ContinueAsNew` est appelée, l’instance garde un message 
 
 Voici un cas d’utilisation des orchestrations externes : un code a besoin d’effectuer un travail périodique indéfiniment.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Periodic_Cleanup_Loop")]
@@ -53,7 +53,7 @@ public static async Task Run(
 > [!NOTE]
 > L’exemple C# précédent porte sur Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -70,6 +70,8 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 La différence entre cet exemple et une fonction déclenchée par un minuteur est que les heures de déclenchement du nettoyage ne sont pas ici basées sur une planification. Par exemple, une planification CRON qui exécute une fonction toutes les heures se produira à 1 h 00, 2 h 00, 3 h 00 etc., et risque d’entraîner des problèmes de chevauchement. Mais dans cet exemple, si le nettoyage prend 30 minutes, il sera alors planifié à 1 h 00, 2 h 30, 4 h 00, etc., et il n’existe aucun risque de chevauchement.
 
 ## <a name="starting-an-eternal-orchestration"></a>Démarrage d’une orchestration externe
@@ -78,6 +80,8 @@ Utilisez la méthode `StartNewAsync` (.NET) ou `startNew` (JavaScript) pour dém
 
 > [!NOTE]
 > Si vous devez vous assurer qu’une orchestration externe singleton est en cours d’exécution, il est important de conserver le même `id` d’instance lors du démarrage de l’orchestration. Pour plus d’informations, consultez [Gestion d’instance](durable-functions-instance-management.md).
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
@@ -94,6 +98,25 @@ public static async Task<HttpResponseMessage> OrchestrationTrigger(
 
 > [!NOTE]
 > Le code précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, req) {
+    const client = df.getClient(context);
+    const instanceId = "StaticId";
+    
+    // null is used as the input, since there is no input in "Periodic_Cleanup_Loop".
+    await client.startNew("Periodic_Cleanup_Loop", instanceId, null);
+
+    context.log(`Started orchestration with ID = '${instanceId}'.`);
+    return client.createCheckStatusResponse(context.bindingData.req, instanceId);
+};
+```
+
+---
 
 ## <a name="exit-from-an-eternal-orchestration"></a>Fermeture d’une orchestration externe
 

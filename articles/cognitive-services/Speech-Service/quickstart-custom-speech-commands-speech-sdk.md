@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Se connecter à une application Commandes personnal
 titleSuffix: Azure Cognitive Services
 description: Dans cet article, vous allez créer une application cliente du kit de développement logiciel (SDK) Speech avec Commandes personnalisées.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381101"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156775"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Démarrage rapide : Se connecter à une application Commandes personnalisées avec le kit de développement logiciel (SDK) Speech (préversion)
 
@@ -46,7 +46,7 @@ Ce guide de démarrage rapide explique, étape par étape, comment créer une ap
 
 1. Ouvrez votre [application Commandes personnalisées précédemment créée](./quickstart-custom-speech-commands-create-new.md), puis sélectionnez **Publier**
 
-   > [!div class="mx-imgBorder"] 
+   > [!div class="mx-imgBorder"]
    > ![Publication de l’application](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Copiez l’ID d’application à partir de la notification de publication pour utilisation ultérieure

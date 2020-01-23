@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 11/06/2019
+ms.date: 01/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e3966a93f15d8853348d314d078fa1fa5fc90941
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 4c3e60e9c296dc8e3a1e31a52a262d8462237407
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535389"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75765661"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Utiliser un modèle Azure Machine Learning déployé en tant que service web
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,6 +72,15 @@ Il y a trois manières de récupérer ces informations pour les services web dé
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
+
+### <a name="secured-web-service"></a>Service web sécurisé
+
+Si vous avez sécurisé le service web déployé à l’aide d’un certificat SSL, vous pouvez utiliser [HTTPS](https://en.wikipedia.org/wiki/HTTPS) pour vous connecter au service à l’aide de l’URI de notation ou Swagger. HTTPS permet de sécuriser les communications entre un client et un service web en chiffrant les communications entre les deux. Le chiffrement utilise [TLS (Transport Layer Security)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS est toujours parfois appelé *SSL (Secure Sockets Layer)* , qui était le prédécesseur de TLS.
+
+> [!IMPORTANT]
+> Les services web déployés par Azure Machine Learning prennent uniquement en charge TLS version 1.2. Lors de la création d’une application cliente, vérifiez qu’elle prend en charge cette version.
+
+Pour plus d’informations, consultez [Utiliser SSL pour sécuriser un service web par le biais d’Azure Machine Learning](how-to-secure-web-service.md).
 
 ### <a name="authentication-for-services"></a>Authentification pour les services
 
@@ -495,7 +504,7 @@ Les résultats retournés sont similaires au document JSON suivant :
 
 Power BI prend en charge l’utilisation des services web d’Azure Machine Learning pour enrichir les données de Power BI à l’aide de prédictions. 
 
-Pour générer un service web pris en charge pour l’utilisation dans Power BI, le schéma doit prendre en charge le format requis par Power BI. [Découvrez comment créer un schéma pris en charge par Power BI](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-entry-script).
+Pour générer un service web pris en charge pour l’utilisation dans Power BI, le schéma doit prendre en charge le format requis par Power BI. [Découvrez comment créer un schéma pris en charge par Power BI](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
 
 Une fois le service web déployé, il est utilisable à partir du flux de données Power BI. [Découvrez comment utiliser un service web Azure Machine Learning depuis Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 12/15/2019
-ms.openlocfilehash: 462b41b3f75857c85ea82916ed94860c39ce5866
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 734acd712eb954e66a9c0b037d10b7b1fd626c6a
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535009"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732159"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Réentraîner des modèles à l’aide du concepteur Azure Machine Learning (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -56,7 +56,7 @@ Pour réentraîner un modèle, il faut disposer d’un modèle initial. Cette se
 
 1. Indiquez le chemin de vos données. Vous pouvez également sélectionner **Parcourir** pour naviguer visuellement dans votre magasin de données. 
 
-1. Sélectionnez **Exécuter** en haut du canevas pour exécuter le pipeline.
+1. Sélectionnez l’option **Exécuter** située en haut du canevas.
     
     > [!NOTE]
     > Si vous avez déjà défini un calcul par défaut pour ce brouillon de pipeline, le pipeline s’exécute automatiquement. Dans le cas contraire, vous pouvez suivre les invites du volet Paramètres qui s’affichent pour en définir un maintenant.
@@ -77,7 +77,7 @@ Le concepteur enregistre toutes les sorties de pipeline, et notamment les modèl
 
 ## <a name="create-a-pipeline-parameter"></a>Créer un paramètre de pipeline
 
-Vous pouvez ajouter des paramètres de pipeline pour définir dynamiquement des variables à l’exécution. Pour ce pipeline, ajoutez un paramètre de chemin des données d’apprentissage afin de pouvoir réentraîner votre modèle sur de nouveaux jeux de données.
+Ajoutez des paramètres de pipeline pour définir dynamiquement des variables au moment du runtime. Pour ce pipeline, ajoutez un paramètre pour le chemin des données d’entraînement afin de pouvoir réentraîner votre modèle sur un nouveau jeu de données.
 
 1. Sélectionnez le module **Importer des données**.
 1. Dans le volet Paramètres, sélectionnez les points de suspension situés au-dessus du champ **Chemin**.
@@ -87,11 +87,11 @@ Vous pouvez ajouter des paramètres de pipeline pour définir dynamiquement des 
     > [!NOTE]
     > Vous pouvez examiner et modifier vos paramètres de pipeline en sélectionnant **l’icône d’engrenage Paramètres** à côté du titre de votre brouillon de pipeline. 
 
-[Capture d’écran montrant comment créer un paramètre de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
+![Capture d’écran montrant comment créer un paramètre de pipeline](media/how-to-retrain-designer/add-pipeline-parameter.png)
 
 ## <a name="publish-a-training-pipeline"></a>Publier un pipeline d’entraînement
 
-Le fait de publier un pipeline a pour effet de créer un point de terminaison de pipeline. Les points de terminaison de pipeline permettent de réutiliser et de gérer les pipelines à des fins de répétabilité et d’automatisation. Pour ce scénario, publiez votre pipeline d’entraînement afin de le réutiliser pour le réentraînement.
+Le fait de publier un pipeline a pour effet de créer un point de terminaison de pipeline. Les points de terminaison de pipeline permettent de réutiliser et de gérer les pipelines à des fins de répétabilité et d’automatisation. Dans cet exemple, vous avez configuré votre pipeline pour le réentraînement.
 
 1. Sélectionnez **Publier** au-dessus du canevas du concepteur.
 1. Sélectionnez ou créez un point de terminaison de pipeline.

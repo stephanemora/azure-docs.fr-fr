@@ -3,12 +3,12 @@ title: Ressources enfants dans les modèles
 description: Décrit comment définir le nom et le type des ressources enfants dans un modèle de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 058c28329942a1bd2e5d0e12321022fb022ef74f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474867"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122013"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Définir le nom et le type des ressources enfants
 
@@ -56,8 +56,8 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau. Notez que le s
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -69,10 +69,10 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau. Notez que le s
     },
     "resources": [
       {
-        "apiVersion": "2018-10-01",
         "type": "subnets",
-        "location": "[parameters('location')]",
+        "apiVersion": "2018-10-01",
         "name": "Subnet1",
+        "location": "[parameters('location')]",
         "dependsOn": [
           "VNet1"
         ],
@@ -103,8 +103,8 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous d
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -116,8 +116,8 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous d
     }
   },
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks/subnets",
+    "apiVersion": "2018-10-01",
     "location": "[parameters('location')]",
     "name": "VNet1/Subnet1",
     "dependsOn": [
@@ -132,6 +132,6 @@ L’exemple suivant montre un réseau virtuel et un sous-réseau qui sont tous d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md). 
+* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md).
 
 * Pour en savoir plus sur le format du nom de la ressource lors du référencement de la ressource, consultez la [fonction de référence](template-functions-resource.md#reference).

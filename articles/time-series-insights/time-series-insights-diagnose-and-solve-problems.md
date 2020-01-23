@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 3e73afa89ee61243784c5952eeda26a79d508dee
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900249"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863408"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
 
@@ -34,7 +34,7 @@ Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Raison A : les données sources des événements ne sont pas au format JSON
 
-Azure Time Series Insights prend uniquement en charge les données JSON. Pour obtenir des exemples de données JSON, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
+Azure Time Series Insights prend uniquement en charge les données JSON. Pour obtenir des exemples JSON, consultez [Formes JSON prises en charge](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Raison B : il manque une autorisation nécessaire pour la clé de la source des événements
 
@@ -69,7 +69,7 @@ Si votre source de l’événement comporte des événements antérieurs, vous p
 - Modifiez les limites de rétention de votre source de l’événement pour vous débarrasser des anciens événements que vous ne souhaitez pas voir apparaître dans Time Series Insights.
 - Configurez une plus grande taille d’environnement (nombre d’unités) pour augmenter le débit des anciens événements. Dans l’exemple précédent, si vous augmentez l’environnement S1 à cinq unités pendant un jour, l’environnement doit rattraper le retard en un seul jour. Si votre production d’événement stable compte 1 million d’événements par jour maximum, vous pouvez réduire la capacité de l’événement à une unité après le rattrapage.
 
-Les limitations sont appliquées en fonction de la capacité et du type de référence de l’environnement. Cette capacité est répartie entre les différentes sources d’événements de l’environnement. Si la source de l’événement pour votre hub IoT/Event Hub envoie des données au-delà des limites définies, cela génère des limitations et un décalage.
+Les limitations sont appliquées en fonction de la capacité et du type de référence de l’environnement. Cette capacité est répartie entre les différentes sources d’événements de l’environnement. Si la source d’événements pour votre hub IoT/Event Hub envoie des données au-delà des limites définies, vous allez constater un ralentissement et un décalage.
 
 La figure suivante illustre un environnement Time Series Insights ayant une référence SKU S1 et une capacité de 3 unités. Cet environnement peut recevoir 3 millions d’événements par jour.
 
@@ -82,7 +82,7 @@ Par exemple, supposons qu’un environnement ingère les messages à partir d’
 
 Un environnement de référence SKU S1 qui a une capacité de 3 unités peut seulement ingérer 2 100 événements toutes les minutes (1 million d’événements par jour = 700 événements par minute à 3 unités = 2 100 événements par minute). 
 
-Pour en savoir plus sur la logique de mise à plat, consultez [Structures JSON prises en charge](./how-to-shape-query-json.md).
+Pour une présentation générale de la logique de mise à plat, consultez [Formes JSON prises en charge](./how-to-shape-query-json.md).
 
 #### <a name="recommended-resolutions-for-excessive-throttling"></a>Résolutions recommandées en cas de limitation excessive
 
@@ -109,16 +109,16 @@ Vérifiez que le nom et la valeur de la propriété timestamp répondent aux cri
 
 La méthode la plus simple pour vous assurer que votre nom de propriété timestamp est capturé et fonctionne correctement consiste à utiliser l’explorateur Time Series Insights. Dans l’explorateur Time Series Insights, à l’aide du graphique, sélectionnez une période de temps spécifique après avoir indiqué le nom de la propriété timestamp. Cliquez avec le bouton droit sur la sélection, puis sélectionnez l’option **Explorer les événements**.
 
-Le premier en-tête de colonne doit correspondre au nom de votre propriété timestamp. En regard du mot **Timestamp**, vous devez voir **($ts)** .
+Le premier en-tête de colonne doit correspondre au nom de votre propriété timestamp. À côté du mot **Horodatage** est affiché **($ts)** .
 
-Vous ne devez pas voir les valeurs suivantes :
+Les valeurs suivantes ne seront pas affichées :
 
 - *(abc)* : indique que Time Series Insights lit les valeurs de données sous forme de chaînes.
 - *Icône de calendrier* : indique que Time Series Insights lit la valeur de données sous la forme *dateHeure*.
-- *#* : indique que Time Series Insights lit les valeurs de données sous forme d’entier.
+- *#*  : indique que Time Series Insights lit les valeurs de données sous forme d’entier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur [Comment limiter la latence dans Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Apprenez comment [Mettre à l’échelle votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Apprenez [comment mettre à l’échelle votre environnement Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

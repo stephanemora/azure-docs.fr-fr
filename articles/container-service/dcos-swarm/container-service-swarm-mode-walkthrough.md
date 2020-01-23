@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Guide de démarrage rapide - Cluster Azure Docker CE pour Linux
 description: Découvrez rapidement comment créer un cluster Docker CE pour des conteneurs Linux dans Azure Container Service, avec Azure CLI.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: iainfou
 ms.custom: ''
-ms.openlocfilehash: a7a7455ce9167a9c480d317d50fdce49e2ef06a9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5f492dd2bd270d3f067c05c1dc2235d54e481847
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60721780"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274876"
 ---
 # <a name="deprecated-deploy-docker-ce-cluster"></a>(DÉCONSEILLÉ) Déployer le cluster Docker CE
 
@@ -65,9 +63,9 @@ az acs create --name mySwarmCluster --orchestrator-type dockerce --resource-grou
 
 Dans certains cas, par exemple avec une version d’évaluation limitée, un abonnement Azure dispose d’un accès limité aux ressources Azure. Si le déploiement échoue à cause d’une limitation du nombre de cœurs disponibles, réduisez le nombre d’agents par défaut en ajoutant `--agent-count 1` à la commande [az acs create](/cli/azure/acs#az-acs-create). 
 
-Au bout de quelques minutes, la commande se termine et retourne des informations formatées JSON sur le cluster.
+Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster.
 
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
+## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
 Pour suivre ce guide de démarrage rapide, vous avez besoin du nom de domaine complet du nœud maître Docker Swarm et du pool d’agents Docker. Exécutez la commande suivante pour retourner les noms de domaine complets du nœud maître et de l’agent.
 
@@ -106,7 +104,6 @@ Créez un fichier nommé `azure-vote.yaml`, puis copiez-y le contenu suivant.
 
 ```yaml
 version: '3'
-services:
   azure-vote-back:
     image: redis
     ports:

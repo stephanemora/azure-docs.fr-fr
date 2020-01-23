@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: d6bb57c8163f7653f4b10142d7ec2b34f50456f1
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d8d57c15fffaa6a9d18ad3c83716f99247512c15
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527856"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860745"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Accéder aux ressources Réseau virtuel Microsoft Azure à partir d’Azure Logic Apps à l’aide d’environnements de service d’intégration (ISE)
 
@@ -23,10 +23,10 @@ Après avoir créé votre ISE, lorsque vous vous apprêtez à créer votre appli
 
 ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
-Votre application logique peut désormais accéder directement aux systèmes se trouvant dans votre réseau virtuel ou connectés à votre réseau virtuel à l’aide de l’un de ces éléments :
+Votre application logique peut désormais accéder directement aux systèmes se trouvant sur votre réseau virtuel ou connectés à votre réseau virtuel à l’aide de l’un de ces éléments, qui s’exécutent dans le même ISE que votre application logique :
 
 * Un connecteur étiqueté **ISE** pour ce système
-* Une action ou un déclencheur intégré étiqueté **Core**, tel qu’une action ou un déclencheur HTTP
+* Une action ou un déclencheur intégré étiqueté **CORE**, tel qu’une action ou un déclencheur HTTP
 * Un connecteur personnalisé
 
 Cette vue d’ensemble explique de façon plus détaillée comment un environnement de service d’intégration permet aux applications logiques et aux comptes d’intégration d’accéder directement aux ressources à votre réseau virtuel Azure, et compare un environnement de service d’intégration au service Logic Apps mondial.
@@ -43,23 +43,21 @@ Cette vue d’ensemble explique de façon plus détaillée comment un environnem
 
 Quand vous créez un environnement de service d’intégration dans Azure, vous pouvez sélectionner un réseau virtuel Azure où vous souhaitez *injecter* votre environnement. Azure injecte ou déploie une instance privée du service Logic Apps dans votre réseau virtuel. Cette action crée un environnement isolé où vous pouvez créer et exécuter vos applications logiques sur des ressources dédiées. Quand vous créez une application logique, vous sélectionnez votre ISE en tant qu’emplacement de votre application, ce qui donne à votre application logique un accès direct au réseau virtuel et aux ressources correspondantes.
 
-Les applications logiques d’un ISE fournissent les mêmes expériences d’utilisateur avec des fonctionnalités similaires que le service Logic Apps global. Vous pouvez non seulement utiliser les mêmes actions et déclencheurs intégrés et les mêmes connecteurs du service Logic Apps mondial, mais aussi des connecteurs spécifiques à l’environnement de service d’intégration. Voici, par exemple, quelques connecteurs standard offrant des versions qui s’exécutent dans un ISE :
+Les applications logiques d’un ISE fournissent les mêmes expériences utilisateur avec des fonctionnalités similaires que le service Logic Apps global public. Vous pouvez utiliser les mêmes actions, déclencheurs intégrés et connecteurs managés que ceux disponibles dans le service global Logic Apps. Certains connecteurs managés offrent des versions d’ISE supplémentaires. La différence réside dans l’emplacement où elles s’exécutent et les étiquettes qu’elles affichent dans le concepteur d’applications logiques quand vous travaillez dans un environnement ISE.
 
-* Stockage Fichier, stockage Table et stockage Blob Azure
-* Files d’attente Azure, Azure Service Bus, Azure Event Hubs et IBM MQ
-* FTP et SFTP-SSH
-* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
-* AS2, X12 et EDIFACT
+![Connecteurs avec et sans étiquettes dans un ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/labeled-built-in-actions-triggers-managed-connectors.png)
 
-La différence entre les connecteurs d’environnement de service d’intégration et les autres connecteurs réside dans les emplacements où s’exécutent les déclencheurs et les actions :
+* Les déclencheurs et actions intégrés présentent l’étiquette **CORE**, et s’exécutent toujours dans le même ISE que votre application logique. Les connecteurs managés qui présentent l’étiquette **ISE** s’exécutent aussi dans le même ISE que votre application logique.
 
-* Dans votre ISE, les déclencheurs et les actions intégrés, comme HTTP, s’exécutent toujours dans le même environnement de service d’intégration que votre application logique et affichent l’étiquette **Core**.
+  Voici par exemple quelques connecteurs qui proposent des versions d’ISE :
 
-  ![Sélectionner les actions et déclencheurs intégrés « Core »](./media/connect-virtual-network-vnet-isolated-environment-overview/select-core-built-in-actions-triggers.png)
+  * Stockage Fichier, stockage Table et stockage Blob Azure
+  * Files d’attente Azure, Azure Service Bus, Azure Event Hubs et IBM MQ
+  * FTP et SFTP-SSH
+  * SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
+  * AS2, X12 et EDIFACT
 
-* Les connecteurs qui s’exécutent dans un ISE ont des versions hébergées publiquement disponibles dans le service Logic Apps mondial. Pour les connecteurs offrant deux versions, ceux qui portent l’étiquette **ISE** s’exécutent toujours dans le même ISE que votre application logique. Les connecteurs ne présentant pas le libellé **ISE** s’exécutent dans le service Logic Apps global.
-
-  ![Sélection de connecteurs ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/select-ise-connectors.png)
+* Les connecteurs managés qui n’affichent pas d’étiquettes supplémentaires s’exécutent toujours dans le service Logic Apps global public, mais vous pouvez quand même utiliser ces connecteurs dans une application logique basée sur ISE.
 
 Un ISE offre également de plus grandes limites de durée d’exécution, de rétention du stockage, de débit, de délai d’attente des requêtes et réponses HTTP, de taille des messages et de requêtes de connecteur personnalisé. Pour plus d’informations, consultez [Limites et configuration pour Azure Logic Apps](logic-apps-limits-and-config.md).
 

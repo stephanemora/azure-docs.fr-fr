@@ -1,26 +1,18 @@
 ---
-title: Résoudre les problèmes de configuration et de connexion de la passerelle VPN | Microsoft Docs
+title: 'Passerelle VPN Azure : Résoudre les problèmes des configurations et des connexions'
 description: Cet article propose des liens vers d’autres articles pour vous aider à résoudre les problèmes de configuration et de connexion de votre passerelle VPN et à valider le débit.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 01/31/2018
 ms.author: cherylmc
-ms.openlocfilehash: 263c1010ec6cf5f6140c4dc9323dd9bd149b2368
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d73bc8e9c39c14a254e8f7bae1d7b1a96a6c3225
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727285"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75780162"
 ---
 # <a name="troubleshoot-vpn-gateway"></a>Résoudre les problèmes liés à la passerelle VPN
 

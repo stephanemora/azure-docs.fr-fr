@@ -3,12 +3,12 @@ title: Secret Azure Key Vault avec modèle
 description: Montre comment passer une clé secrète à partir d’un coffre de clés en tant que paramètre lors du déploiement.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 75757d36be62289023f96adcdb2f81589b54281b
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 56fa2def49f6d98abf1c939ed87456c4bf353eb9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689664"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154021"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Utiliser Azure Key Vault pour transmettre une valeur de paramètre sécurisée pendant le déploiement
 
@@ -147,7 +147,7 @@ La procédure suivante montre comment créer un rôle avec les permissions minim
 
     ---
 
-    L’exemple attribue le rôle personnalisé à l’utilisateur au niveau du groupe de ressources.  
+    L’exemple attribue le rôle personnalisé à l’utilisateur au niveau du groupe de ressources.
 
 Quand vous utilisez un coffre de clés avec le modèle pour une [Application managée](../managed-applications/overview.md), vous devez accorder l’accès au principal de service du **fournisseur de ressources d’appliance**. Pour plus d’informations, consultez [Accéder au secret de coffre de clés pendant le déploiement d’applications managées Azure](../managed-applications/key-vault-access.md).
 
@@ -178,9 +178,9 @@ Le modèle suivant déploie un serveur SQL qui comprend un mot de passe administ
   },
   "resources": [
     {
-      "name": "[parameters('sqlServerName')]",
       "type": "Microsoft.Sql/servers",
       "apiVersion": "2015-05-01-preview",
+      "name": "[parameters('sqlServerName')]",
       "location": "[resourceGroup().location]",
       "tags": {},
       "properties": {
@@ -201,24 +201,24 @@ Dans le fichier de paramètres suivant, le secret du coffre de clés doit déjà
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "adminLogin": {
-            "value": "exampleadmin"
-        },
-        "adminPassword": {
-            "reference": {
-              "keyVault": {
-                "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
-              },
-              "secretName": "ExamplePassword"
-            }
-        },
-        "sqlServerName": {
-            "value": "<your-server-name>"
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "adminLogin": {
+        "value": "exampleadmin"
+      },
+      "adminPassword": {
+        "reference": {
+          "keyVault": {
+          "id": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.KeyVault/vaults/<vault-name>"
+          },
+          "secretName": "ExamplePassword"
         }
-    }
+      },
+      "sqlServerName": {
+        "value": "<your-server-name>"
+      }
+  }
 }
 ```
 
@@ -236,9 +236,9 @@ Déployez le modèle et transmettez le fichier de paramètres :
 ```azurecli-interactive
 az group create --name SqlGroup --location westus2
 az group deployment create \
-    --resource-group SqlGroup \
-    --template-uri <template-file-URI> \
-    --parameters <parameter-file>
+  --resource-group SqlGroup \
+  --template-uri <template-file-URI> \
+  --parameters <parameter-file>
 ```
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -257,7 +257,7 @@ New-AzResourceGroupDeployment `
 
 La section précédente expliquait comment transmettre un ID de ressource statique pour la clé secrète du coffre de clés à partir du paramètre. Toutefois, dans certains scénarios, vous devez référencer une clé secrète de coffre de clés qui varie selon le déploiement actuel. Ou bien, vous pouvez souhaiter transmettre des valeurs de paramètre au modèle au lieu de créer un paramètre de référence dans le fichier de paramètres. Dans les deux cas, vous pouvez générer dynamiquement l’ID de ressource pour un secret de coffre de clés à l’aide d’un modèle lié.
 
-Vous ne pouvez pas générer dynamiquement l’ID de ressource dans le fichier de paramètres, car les expressions de modèle ne sont pas autorisées dans ce dernier. 
+Vous ne pouvez pas générer dynamiquement l’ID de ressource dans le fichier de paramètres, car les expressions de modèle ne sont pas autorisées dans ce dernier.
 
 Dans votre modèle parent, ajoutez le modèle imbriqué et passez un paramètre contenant l’ID de la ressource généré dynamiquement. L’illustration suivante montre comment un paramètre dans le modèle lié fait référence au secret.
 
@@ -267,109 +267,109 @@ Le modèle suivant crée de façon dynamique l’ID du coffre de clés et le pas
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-                "description": "The location where the resources will be deployed."
-            }
-        },
-        "vaultName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the keyvault that contains the secret."
-            }
-        },
-        "secretName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the secret."
-            }
-        },
-        "vaultResourceGroupName": {
-            "type": "string",
-            "metadata": {
-                "description": "The name of the resource group that contains the keyvault."
-            }
-        },
-        "vaultSubscription": {
-            "type": "string",
-            "defaultValue": "[subscription().subscriptionId]",
-            "metadata": {
-                "description": "The name of the subscription that contains the keyvault."
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]",
+        "metadata": {
+          "description": "The location where the resources will be deployed."
         }
-    },
-    "resources": [
-        {
-            "apiVersion": "2018-05-01",
-            "name": "dynamicSecret",
-            "type": "Microsoft.Resources/deployments",
-            "properties": {
-                "mode": "Incremental",
-                "expressionEvaluationOptions": {
-                    "scope": "inner"
-                },
-                "template": {
-                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                    "contentVersion": "1.0.0.0",
-                    "parameters": {
-                        "adminLogin": {
-                            "type": "string"
-                        },
-                        "adminPassword": {
-                            "type": "securestring"
-                        },
-                        "location": {
-                            "type": "string"
-                        }
-                    },
-                    "variables": {
-                        "sqlServerName": "[concat('sql-', uniqueString(resourceGroup().id, 'sql'))]"
-                    },
-                    "resources": [
-                        {
-                            "name": "[variables('sqlServerName')]",
-                            "type": "Microsoft.Sql/servers",
-                            "apiVersion": "2018-06-01-preview",
-                            "location": "[parameters('location')]",
-                            "properties": {
-                                "administratorLogin": "[parameters('adminLogin')]",
-                                "administratorLoginPassword": "[parameters('adminPassword')]"
-                            }
-                        }
-                    ],
-                    "outputs": {
-                        "sqlFQDN": {
-                            "type": "string",
-                            "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
-                        }
-                    }
-                },
-                "parameters": {
-                    "location": {
-                        "value": "[parameters('location')]"
-                    },
-                    "adminLogin": {
-                        "value": "ghuser"
-                    },
-                    "adminPassword": {
-                        "reference": {
-                            "keyVault": {
-                                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
-                            },
-                            "secretName": "[parameters('secretName')]"
-                        }
-                    }
-                }
-            }
+      },
+      "vaultName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of the keyvault that contains the secret."
         }
-    ],
-    "outputs": {
+      },
+      "secretName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of the secret."
+        }
+      },
+      "vaultResourceGroupName": {
+        "type": "string",
+        "metadata": {
+          "description": "The name of the resource group that contains the keyvault."
+        }
+      },
+      "vaultSubscription": {
+        "type": "string",
+        "defaultValue": "[subscription().subscriptionId]",
+        "metadata": {
+          "description": "The name of the subscription that contains the keyvault."
+        }
+      }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deployments",
+      "apiVersion": "2018-05-01",
+      "name": "dynamicSecret",
+      "properties": {
+        "mode": "Incremental",
+        "expressionEvaluationOptions": {
+          "scope": "inner"
+        },
+        "template": {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "adminLogin": {
+              "type": "string"
+            },
+            "adminPassword": {
+              "type": "securestring"
+            },
+            "location": {
+              "type": "string"
+            }
+          },
+          "variables": {
+            "sqlServerName": "[concat('sql-', uniqueString(resourceGroup().id, 'sql'))]"
+          },
+          "resources": [
+            {
+              "type": "Microsoft.Sql/servers",
+              "apiVersion": "2018-06-01-preview",
+              "name": "[variables('sqlServerName')]",
+              "location": "[parameters('location')]",
+              "properties": {
+                "administratorLogin": "[parameters('adminLogin')]",
+                "administratorLoginPassword": "[parameters('adminPassword')]"
+              }
+            }
+          ],
+          "outputs": {
+            "sqlFQDN": {
+              "type": "string",
+              "value": "[reference(variables('sqlServerName')).fullyQualifiedDomainName]"
+            }
+          }
+        },
+        "parameters": {
+          "location": {
+            "value": "[parameters('location')]"
+          },
+          "adminLogin": {
+            "value": "ghuser"
+          },
+          "adminPassword": {
+            "reference": {
+              "keyVault": {
+                "id": "[resourceId(parameters('vaultSubscription'), parameters('vaultResourceGroupName'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+              },
+              "secretName": "[parameters('secretName')]"
+            }
+          }
+        }
+      }
     }
+  ],
+  "outputs": {
+  }
 }
 ```
 

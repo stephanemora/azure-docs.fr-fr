@@ -8,12 +8,12 @@ ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: d59cca4b5c956134516aa2c8066894aa14e5d33d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453100"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291955"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Créer des composants de back-end mobile avec les services de calcul
 Chaque application mobile a besoin d’un back-end qui est responsable du stockage des données, de la logique métier et de la sécurité. La gestion de l’infrastructure pour héberger et exécuter du code back-end vous oblige à dimensionner, provisionner et mettre à l’échelle plusieurs serveurs. Vous devez également gérer les mises à jour du système d’exploitation et le matériel impliqué, ainsi qu’appliquer des correctifs de sécurité. Vous devez ensuite surveiller les performances, la disponibilité et la tolérance de panne de tous ces composants d’infrastructure. 
@@ -36,7 +36,7 @@ Utilisez les services suivants pour activer les fonctionnalités de calcul serve
 - Pilotage par événements et scalabilité : vous pouvez utiliser des déclencheurs et des liaisons pour définir le moment où une fonction est appelée et les données auxquelles elle se connecte.
 - Intégration de vos propres dépendances : Azure Functions prenant en charge NuGet et NPM, vous pouvez utiliser vos bibliothèques préférées.
 - La sécurité intégrée vous permet de protéger les fonctions déclenchées par HTTP à l’aide de fournisseurs OAuth comme Azure Active Directory, Facebook, Google, Twitter et Microsoft Account.
-- Intégration simplifiée avec différents [services Azure](/azure/azure-functions/functions-overview#integrations) et offres SaaS (software as a Service).
+- Intégration simplifiée avec différents [services Azure](/azure/azure-functions/functions-overview) et offres SaaS (software as a Service).
 - La flexibilité en matière de développement vous permet de coder vos fonctions directement dans le portail ou de configurer une intégration continue et de déployer votre code par le biais de GitHub, Azure DevOps Services et d’autres outils de développement pris en charge.
 - Le runtime Azure Functions est open source et disponible sur [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 - L’expérience de développement améliorée vous permet de coder, de tester et de déboguer localement à l’aide de votre éditeur préféré ou d’une interface web facile à utiliser, avec supervision à l’aide d’outils intégrés et fonctionnalités DevOps intégrées.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9338f0e26595c1ab25ab51578880daf8c0c5bbc4
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: a9b942c4726c770f1ea0d35c924395cdff40e1c7
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672448"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75732016"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>Démarrage rapide : Développer sur Azure Kubernetes Service (AKS) avec Draft
 
@@ -21,12 +21,12 @@ Draft est un outil open source qui facilite l'empaquetage et l’exécution de c
 Cet article vous montre comment utiliser le package Draft et exécuter une application sur AKS.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 * [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 * Docker installé et configuré. Docker fournit des packages qui le configurent sur un système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
-* [Helm installé](https://github.com/helm/helm#install).
+* [Helm v2 installé][helm-install].
 * [Draft installé][draft-documentation].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service
@@ -95,7 +95,7 @@ az role assignment create --assignee $AKS_SP_ID --scope $ACR_RESOURCE_ID --role 
 
 ## <a name="connect-to-your-aks-cluster"></a>Se connecter à votre cluster AKS
 
-Pour vous connecter au cluster Kubernetes à partir de votre ordinateur local, vous utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes.
+Pour vous connecter au cluster Kubernetes à partir de votre ordinateur local, utilisez [kubectl][kubectl], le client de ligne de commande Kubernetes.
 
 Si vous utilisez Azure Cloud Shell, `kubectl` est déjà installé. Vous pouvez également l’installer en local à l’aide de la commande [az aks install-cli][] :
 
@@ -332,6 +332,7 @@ Pour plus d’informations sur l'utilisation de Draft, consultez la documentatio
 [example-java-hello-l7]: https://github.com/Azure/draft/blob/master/examples/example-java/src/main/java/helloworld/Hello.java#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubernetes-service-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#type-loadbalancer
-[helm-init]: https://docs.helm.sh/helm/#helm-init
+[helm-init]: https://v2.helm.sh/docs/helm/#helm-init
+[helm-install]: https://v2.helm.sh/docs/using_helm/#installing-helm
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[tiller-rbac]: https://docs.helm.sh/using_helm/#tiller-namespaces-and-rbac
+[tiller-rbac]: https://v2.helm.sh/docs/using_helm/#tiller-namespaces-and-rbac

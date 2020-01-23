@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 18da289f9d364fa79023809324d59b89b8ac898c
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073627"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768110"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Validation contrôlée de la jonction Azure AD hybride
 
-Lorsque toutes les conditions préalables sont en place, les appareils Windows sont inscrits automatiquement en tant qu’appareils dans votre locataire Azure AD. L’état de ces identités d’appareils dans Azure AD est appelé jonction Azure AD hybride. Des informations supplémentaires sur les concepts abordés dans cet article sont disponibles dans les articles [Présentation de la gestion des appareils dans Azure Active Directory](overview.md) et [Planifier votre implémentation de jonction Azure Active Directory hybride](hybrid-azuread-join-plan.md).
+Lorsque toutes les conditions préalables sont en place, les appareils Windows sont inscrits automatiquement en tant qu’appareils dans votre locataire Azure AD. L’état de ces identités d’appareils dans Azure AD est appelé jonction Azure AD Hybride. Des informations supplémentaires sur les concepts abordés dans cet article sont disponibles dans les articles [Présentation de la gestion des appareils dans Azure Active Directory](overview.md) et [Planifier votre implémentation de jonction Azure Active Directory hybride](hybrid-azuread-join-plan.md).
 
-Les organisations peuvent vouloir effectuer une validation contrôlée de la jonction Azure AD hybride avant de l’activer dans leur organisation entière en une fois. Cet article explique comment effectuer une validation contrôlée de jonction Azure AD hybride.
+Les organisations peuvent vouloir effectuer une validation contrôlée de la jonction Azure AD Hybride avant de l’activer dans leur organisation entière en une fois. Cet article explique comment effectuer une validation contrôlée de jonction Azure AD hybride.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-current-devices"></a>Validation contrôlée de la jonction Azure AD hybride sur des appareils Windows actuels
 
@@ -56,14 +56,14 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
 1. Ouvrez une console de gestion des stratégies de groupe et créez un objet Stratégie de groupe dans votre domaine.
    1. Nommez votre objet de stratégie de groupe nouvellement créé (par exemple, ClientSideSCP).
 1. Modifiez l’objet de stratégie de groupe et recherchez le chemin suivant : **Configuration de l’ordinateur** > **Préférences** > **Paramètres Windows** > **Registre**
-1. Cliquez avec le bouton droit sur le Registre, puis sélectionnez **Nouveau** > **Élément de Registre**
+1. Cliquez avec le bouton droit sur le Registre, puis sélectionnez **Nouveau** > **Élément du Registre**
    1. Sous l’onglet **Général**, configurez ce qui suit :
       1. Action : **Mettre à jour**
       1. Hive : **HKEY_LOCAL_MACHINE**
       1. Chemin de la clé : **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Nom de la valeur : **TenantId**
       1. Type de valeur : **REG_SZ**
-      1. Données de la valeur : Le GUID ou **ID de répertoire** de votre instance Azure AD (cette valeur se trouve dans le **portail Azure** > **Azure Active Directory**  > **Propriétés** > **ID de répertoire**)
+      1. Données de la valeur : Le GUID ou **ID de répertoire** de votre instance Azure AD (cette valeur se trouve dans le **portail Azure** > **Azure Active Directory** > **Propriétés** > **ID de répertoire**)
    1. Cliquez sur **OK**
 1. Cliquez avec le bouton droit sur le Registre, puis sélectionnez **Nouveau** > **Élément du Registre**
    1. Sous l’onglet **Général**, configurez ce qui suit :
@@ -79,7 +79,7 @@ Utilisez l’exemple suivant pour créer un objet de stratégie de groupe afin d
 
 ### <a name="configure-ad-fs-settings"></a>Configurer les paramètres AD FS
 
-Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion de service côté client en suivant les instructions mentionnées ci-dessus, mais en liant l’objet de stratégie de groupe à vos serveurs AD FS. L’objet SCP définit la source d’autorité pour les objets d’appareil. Il peut être local ou Azure AD. Lorsque cette configuration est configurée pour AD FS, la source des objets d’appareil est définie comme Azure AD.
+Si vous utilisez AD FS, vous devez d’abord configurer le point de connexion de service côté client en suivant les instructions mentionnées ci-dessus, en liant l’objet de stratégie de groupe à vos serveurs AD FS. L’objet SCP définit la source d’autorité pour les objets d’appareil. Il peut être local ou Azure AD. Quand le point de connexion de service côté client est configuré pour AD FS, la source des objets d’appareil est établie en tant qu’Azure AD.
 
 > [!NOTE]
 > Si vous n'avez pas réussi à configurer SCP côté client sur vos serveurs AD FS, la source des identités des appareils sera considérée comme locale. ADFS commencera alors à supprimer les objets de l’appareil à partir du répertoire local après la période stipulée définie dans l'attribut « MaximumInactiveDays » de l’inscription d’appareil ADFS. Les objets de l’inscription d’appareil ADFS peuvent être identifiés en utilisant l’[applet de commande Get-AdfsDeviceRegistration](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps).

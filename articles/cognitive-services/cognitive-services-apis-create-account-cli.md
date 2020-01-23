@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: d715252f16a34f2261c108ebd3ff5d1f6f3424d8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887910"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169163"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Créer une ressource Cognitive Services avec Azure CLI
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous allez apprendre à vous inscrire à Azu
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure valide : [créez-en un](https://azure.microsoft.com/free/) gratuitement.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -91,7 +91,7 @@ Lorsque vous créez une nouvelle ressource, vous devez connaître le « type �
 | Vision par ordinateur            | `ComputerVision`          |
 | Custom Vision - Prédiction | `CustomVision.Prediction` |
 | Custom Vision - Formation   | `CustomVision.Training`   |
-| API Visage                   | `Face`                    |
+| Face                       | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
@@ -188,7 +188,7 @@ az cognitiveservices account list-usage \
     --subscription subscription-name
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous voulez nettoyer et supprimer une ressource Cognitive Services, vous pouvez supprimer la ressource ou le groupe de ressources. La suppression du groupe de ressources supprime également toutes les autres ressources se trouvant dans le groupe.
 

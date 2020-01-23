@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: 2a87bee4769111e01dc49e8fce14569233dfaef3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5d27aa80a63232694e1c9951f98b2191ba575e74
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111616"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913067"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envoi de requêtes de recherche à l’API Recherche visuelle Bing
 
@@ -73,12 +73,12 @@ Les requêtes doivent être envoyées uniquement en tant que requêtes HTTP POS
 
 Votre requête doit spécifier les paramètres suivants. Au minimum, vous devez inclure le paramètre de requête `mkt` :
 
-| Nom | Valeur | Type | Obligatoire |
+| Name | Valeur | Type | Obligatoire |
 | --- | --- | --- | --- |
-| <a name="cc" />cc  | Code à 2 caractères du pays représentant d’où proviennent les résultats.<br /><br /> Si vous définissez ce paramètre, vous devez également spécifier l’en-tête [Accept-Language](#acceptlanguage). Bing utilise la première langue prise en charge qu’il trouve dans la liste et associe la langue au code de pays que vous spécifiez pour déterminer le marché à partir duquel renvoyer les résultats. Si la liste des langues n’inclut de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la requête. Sinon, il peut utiliser un marché agrégé ou par défaut pour les résultats au lieu de celui spécifié.<br /><br /> Vous ne devez utiliser ce paramètre de requête et le paramètre de requête `Accept-Language` que si vous spécifiez plusieurs langues ; sinon, vous devez utiliser les paramètres de requête `mkt` et `setLang`.<br /><br /> Ce paramètre et le paramètre de requête [mkt](#mkt) s’excluent mutuellement &mdash; ne spécifiez pas les deux. | Chaîne | Non       |
-| <a name="mkt" />mkt   | Marché d’où proviennent les résultats. <br /><br /> **REMARQUE :** Il est recommandé de toujours spécifier le marché, s’il est connu. Le fait d’indiquer le marché aide Bing à router la requête et à renvoyer une réponse appropriée et optimale.<br /><br /> Ce paramètre et le paramètre de requête [cc](#cc) s’excluent mutuellement &mdash; ne spécifiez pas les deux. | Chaîne | OUI      |
-| <a name="safesearch" />safeSearch | Un filtre pour le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Renvoyer les pages web avec le texte ou les images pour adultes.<br /><br/></li><li>Modéré &mdash; Renvoyer les pages web avec le texte pour adultes, mais pas les images pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas renvoyer les pages web avec le texte ou les images pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la requête provient d’un marché où la stratégie de Bing en matière de contenu pour adultes requiert que la valeur Strict pour `safeSearch`, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes.  | Chaîne | Non       |
-| <a name="setlang" />setLang  | Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée. | Chaîne | Non   |
+| <a name="cc" />cc  | Code à 2 caractères du pays représentant d’où proviennent les résultats.<br /><br /> Si vous définissez ce paramètre, vous devez également spécifier l’en-tête [Accept-Language](#acceptlanguage). Bing utilise la première langue prise en charge qu’il trouve dans la liste et associe la langue au code de pays que vous spécifiez pour déterminer le marché à partir duquel renvoyer les résultats. Si la liste des langues n’inclut de langue prise en charge, Bing recherche la langue et le marché les plus proches qui prennent en charge la requête. Sinon, il peut utiliser un marché agrégé ou par défaut pour les résultats au lieu de celui spécifié.<br /><br /> Vous ne devez utiliser ce paramètre de requête et le paramètre de requête `Accept-Language` que si vous spécifiez plusieurs langues ; sinon, vous devez utiliser les paramètres de requête `mkt` et `setLang`.<br /><br /> Ce paramètre et le paramètre de requête [mkt](#mkt) s’excluent mutuellement &mdash; ne spécifiez pas les deux. | String | Non       |
+| <a name="mkt" />mkt   | Marché d’où proviennent les résultats. <br /><br /> **REMARQUE :** Il est recommandé de toujours spécifier le marché, s’il est connu. Le fait d’indiquer le marché aide Bing à router la requête et à renvoyer une réponse appropriée et optimale.<br /><br /> Ce paramètre et le paramètre de requête [cc](#cc) s’excluent mutuellement &mdash; ne spécifiez pas les deux. | String | Oui      |
+| <a name="safesearch" />safeSearch | Un filtre pour le contenu pour adultes. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>Désactivé &mdash; Renvoyer les pages web avec le texte ou les images pour adultes.<br /><br/></li><li>Modéré &mdash; Renvoyer les pages web avec le texte pour adultes, mais pas les images pour adultes.<br /><br/></li><li>Strict &mdash; Ne pas renvoyer les pages web avec le texte ou les images pour adultes.</li></ul><br /> La valeur par défaut est Modéré.<br /><br /> **REMARQUE :** Si la requête provient d’un marché où la stratégie de Bing en matière de contenu pour adultes requiert que la valeur Strict pour `safeSearch`, Bing ignore la valeur `safeSearch` et utilise Strict.<br/><br/>**REMARQUE :** Si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre de requête `safeSearch` défini. N’utilisez `site:` que si vous connaissez le contenu du site et si votre scénario accepte le contenu pour adultes.  | String | Non       |
+| <a name="setlang" />setLang  | Langue à utiliser pour les chaînes de l’interface utilisateur. Spécifiez la langue en utilisant le code de langue ISO 639-1 à deux lettres. Par exemple, celui de l’anglais est EN. La valeur par défaut est EN (anglais).<br /><br /> Nous vous conseillons de toujours indiquer la langue, bien qu’elle soit facultative. En général, on définit `setLang` sur la langue spécifiée par `mkt`, sauf si l’utilisateur souhaite que les chaînes de l’interface utilisateur soient affichées dans une autre langue.<br /><br /> Ce paramètre et l’en-tête [Accept-Language](#acceptlanguage) s’excluent mutuellement &mdash; ne spécifiez pas les deux.<br /><br /> Une chaîne d’interface utilisateur est une chaîne utilisée comme étiquette dans une interface utilisateur. Les objets de réponse JSON en comportent quelques-unes. En outre, les liens vers les propriétés Bing.com dans les objets de la réponse s’appliquent à la langue spécifiée. | String | Non   |
 
 ## <a name="headers"></a>headers
 
@@ -95,7 +95,7 @@ Votre requête doit spécifier les en-têtes suivants. Les en-têtes `Content-Ty
 | <a name="useragent" />User-Agent  | En-tête de demande facultatif.<br /><br /> Agent utilisateur à l’origine de la requête. Bing utilise l’agent utilisateur pour offrir une expérience optimisée aux utilisateurs mobiles. Nous vous conseillons de toujours indiquer cet en-tête, bien qu’il soit facultatif.<br /><br /> L’agent utilisateur doit correspondre à la chaîne envoyée par n’importe quel navigateur couramment utilisé. Pour plus d’informations sur les agents utilisateurs, voir [RFC 2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Voici quelques exemples de chaînes de l’agent utilisateur.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (compatible ; MSIE 10.0 ; Windows Phone 8.0 ; Trident/6.0 ; IEMobile/10.0 ; ARM ; Touch ; NOKIA ; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux ; U ; Android 2.3.5 ; en-us ; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML ; comme Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone ; CPU iPhone OS 6_1 comme Mac OS X) AppleWebKit/536.26 (KHTML ; comme Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3 ; WOW64 ; Trident/7.0 ; Touch ; rv:11.0) comme Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad ; CPU OS 7_0 comme Mac OS X) AppleWebKit/537.51.1 (KHTML, comme Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>      |
 | <a name="clientid" />X-MSEdge-ClientID  | En-tête de demande et de réponse facultatif.<br /><br /> Bing utilise cet en-tête pour garantir aux utilisateurs un comportement cohérent d’un appel d’API Bing à l’autre. Bing propose souvent de nouvelles fonctionnalités et améliorations, et se sert de l’ID client comme d’une clé pour attribuer le trafic aux différentes versions d’évaluation. Si vous n’assignez pas le même ID client à un utilisateur d’une demande à l’autre, Bing est susceptible d’affecter cet utilisateur à plusieurs versions d’évaluation en conflit, ce qui risque de nuire à l’expérience utilisateur. Par exemple, si la deuxième demande comporte une attribution de version d’évaluation différente de la première, l’expérience se révélera peut-être inattendue. De même, Bing peut utiliser l’ID client pour personnaliser les résultats web d’après l’historique de recherche correspondant à cet ID et ainsi proposer à l’utilisateur une expérience plus riche.<br /><br /> Bing utilise également cet en-tête pour aider à améliorer le classement des résultats en analysant l’activité générée par un ID client. L’amélioration de la pertinence permet d’obtenir des résultats de meilleure qualité de la part des API Bing et, en retour, des taux de clic plus élevés pour le consommateur des API.<br /><br /> **IMPORTANT :** Il est vivement recommandé d’indiquer cet en-tête, bien qu’il soit facultatif. Grâce à la persistance de l’ID client dans plusieurs demandes pour une même combinaison appareil/utilisateur final, (1) le consommateur des API bénéficie d’une expérience utilisateur cohérente et (2) le taux de clic est plus élevé du fait des résultats de meilleure qualité provenant des API Bing.<br /><br /> Voici les règles d’utilisation de base qui s’appliquent à cet en-tête.<br /><ul><li>Chaque utilisateur de votre application sur l’appareil doit avoir un ID client unique, généré par Bing.<br /><br/>Si vous n’insérez pas cet en-tête dans la demande, Bing génère un ID et le retourne dans l’en-tête de réponse X-MSEdge-ClientID. La première fois que l’utilisateur utilise votre application sur cet appareil est la seule fois où vous ne devez PAS inclure cet en-tête dans la demande.<br /><br/></li><li>**ATTENTION :** Vous devez vous assurer que cet ID client ne peut pas être associé à des informations de compte utilisateur authentifiables.</li><li>Utilisez l’ID client pour chaque requête d’API Bing qu’effectue votre application pour cet utilisateur sur l’appareil.<br /><br/></li><li>Conservez l’ID client. Pour conserver l’identifiant dans une application de navigateur, utilisez un cookie HTTP persistant qui garantit l’utilisation de cet identifiant dans toutes les sessions. N’utilisez pas de cookie de session. Dans le cas d’autres applications, comme des applications mobiles, utilisez le stockage persistant de l’appareil pour conserver cet identifiant.<br /><br/>La prochaine fois que l’utilisateur utilisera votre application sur cet appareil, vous récupérerez l’ID client que vous aurez conservé.</li></ul><br /> **REMARQUE :** Les réponses de Bing ne comportent pas forcément cet en-tête. Si elles l’incluent, capturez l’ID client et utilisez-le pour toutes les demandes Bing suivantes concernant l’utilisateur sur cet appareil.<br /><br /> **REMARQUE :** Si vous insérez l’en-tête X-MSEdge-ClientID, n’incluez pas les cookies dans la requête. |
 | <a name="clientip" />X-MSEdge-ClientIP   | En-tête de demande facultatif.<br /><br /> Adresse IPv4 ou IPv6 de l’appareil client. L’adresse IP est utilisée pour découvrir l’emplacement de l’utilisateur. Bing utilise les informations de localisation pour déterminer le comportement de recherche approprié.<br /><br /> **REMARQUE :** Nous vous conseillons de toujours indiquer cet en-tête et l’en-tête X-Search-Location, bien qu’ils soient facultatifs.<br /><br /> N’obfusquez pas l’adresse (par exemple, en remplaçant le dernier octet par 0). Cela aurait pour effet d’éloigner la localisation de l’emplacement réel de l’appareil, ce qui pourrait conduire Bing à retourner des résultats erronés. |
-| <a name="location" />X-Search-Location   | En-tête de demande facultatif.<br /><br /> Liste délimitée par des points-virgules de paires clé/valeur qui décrivent la situation géographique du client. Bing utilise les informations de localisation pour déterminer le comportement de recherche approprié et retourner le contenu local pertinent. Spécifiez la paire clé/valeur sous la forme \<clé\>:\<valeur\>. Voici les clés qui vous permettent de spécifier la localisation de l’utilisateur.<br /><br /><ul><li>lat &mdash; Obligatoire. Latitude de la localisation du client, en degrés. La valeur doit être supérieure ou égale à -90 et inférieure ou égale à +90. Les valeurs négatives indiquent les latitudes sud et les valeurs positives indiquent les latitudes nord.<br /><br /></li><li>long &mdash; Obligatoire. Longitude de la localisation du client, en degrés. La valeur doit être supérieure ou égale à -180 et inférieure ou égale à +180. Les valeurs négatives indiquent les longitudes occidentales et les valeurs positives indiquent les longitudes orientales.<br /><br /></li><li>re &mdash; Obligatoire. Rayon, en mètres, qui spécifie la précision horizontale des coordonnées. Transmettez la valeur retournée par le service de localisation de l’appareil. Voici quelques valeurs courantes : 22 m pour le GPS/Wi-Fi, 380 m pour la triangulation des tours cellulaires et 18 000 m pour la recherche IP inversée.<br /><br /></li><li>ts &mdash; Facultatif. Horodatage UTC UNIX correspondant au moment où le client était à cette position. (L’horodatage UNIX est le nombre de secondes écoulées depuis le 1er janvier 1970.)<br /><br /></li><li>head &mdash; Facultatif. Direction relative du client en déplacement. Spécifiez-la en degrés, entre 0 et 360, dans le sens horaire par rapport au nord géographique. Spécifiez cette clé uniquement si la clé `sp` est différente de zéro.<br /><br /></li><li>sp &mdash; Facultatif. Vitesse horizontale, en mètres par seconde, à laquelle se déplace l’appareil client.<br /><br /></li><li>alt &mdash; Facultatif. Altitude de l’appareil client, en mètres.<br /><br /></li><li>are &mdash; Facultatif. Rayon, en mètres, qui spécifie la précision verticale des coordonnées. N’indiquez cette clé que si vous spécifiez la clé `alt`.<br /><br /></li></ul> **REMARQUE :** Bien que la plupart des clés soient facultatives, plus vous fournissez d’informations, plus les résultats de localisation sont précis.<br /><br /> **REMARQUE :** Nous vous conseillons de toujours indiquer la situation géographique de l’utilisateur (qui est facultative). C’est particulièrement important si l’adresse IP du client ne reflète pas exactement l’emplacement physique de l’utilisateur (par exemple, si le client utilise un VPN). Pour des résultats optimaux, précisez cet en-tête et l’en-tête `X-MSEdge-ClientIP` ; au minimum, indiquez cet en-tête.       |
+| <a name="location" />X-Search-Location   | En-tête de demande facultatif.<br /><br /> Liste délimitée par des points-virgules de paires clé/valeur qui décrivent la situation géographique du client. Bing utilise les informations de localisation pour déterminer le comportement de recherche approprié et retourner le contenu local pertinent. Spécifiez la paire clé/valeur sous la forme \<clé\>:\<valeur\>. Voici les clés permettant de spécifier l’emplacement de l’utilisateur.<br /><br /><ul><li>lat &mdash; Obligatoire. Latitude de la localisation du client, en degrés. Elle doit être supérieure ou égale à -90,0 et inférieure ou égale à +90,0. Les valeurs négatives indiquent les latitudes sud et les valeurs positives les latitudes nord.<br /><br /></li><li>long &mdash; Obligatoire. Longitude de la localisation du client, en degrés. Elle doit être supérieure ou égale à -180,0 et inférieure ou égale à +180,0. Les valeurs négatives indiquent les longitudes occidentales et les valeurs positives les longitudes orientales.<br /><br /></li><li>re &mdash; Obligatoire. Rayon, en mètres, qui spécifie la précision horizontale des coordonnées. Transmettez la valeur retournée par le service de localisation de l’appareil. Voici quelques valeurs courantes : 22 m pour le GPS/Wi-Fi, 380 m pour la triangulation des tours cellulaires et 18 000 m pour la recherche IP inversée.<br /><br /></li><li>ts &mdash; Facultatif. Horodatage UTC UNIX correspondant au moment où le client était à cette position. (L’horodatage UNIX est le nombre de secondes écoulées depuis le 1er janvier 1970.)<br /><br /></li><li>head &mdash; Facultatif. Direction relative du client en déplacement. Spécifiez-la en degrés, entre 0 et 360, dans le sens horaire par rapport au nord géographique. N’indiquez cette clé que si la clé `sp` est différente de zéro.<br /><br /></li><li>sp &mdash; Facultatif. Vitesse horizontale, en mètres par seconde, à laquelle se déplace l’appareil client.<br /><br /></li><li>alt &mdash; Facultatif. Altitude de l’appareil client, en mètres.<br /><br /></li><li>are &mdash; Facultatif. Rayon, en mètres, qui spécifie la précision verticale des coordonnées. N’indiquez cette clé que si vous spécifiez la clé `alt`.<br /><br /></li></ul> **REMARQUE :** Bien que la plupart des clés soient facultatives, plus vous fournissez d’informations, plus les résultats de localisation sont précis.<br /><br /> **REMARQUE :** Nous vous conseillons de toujours indiquer la situation géographique de l’utilisateur (qui est facultative). C’est particulièrement important si l’adresse IP du client ne reflète pas exactement l’emplacement physique de l’utilisateur (par exemple, si le client utilise un VPN). Pour des résultats optimaux, précisez cet en-tête et l’en-tête `X-MSEdge-ClientIP` ; au minimum, indiquez cet en-tête.       |
 
 > [!NOTE]
 > N’oubliez pas que les [Conditions d’utilisation et d’affichage de l’API Recherche Bing](../../bing-web-search/use-display-requirements.md) imposent le respect de toutes les lois en vigueur, y compris en ce qui concerne l’utilisation de ces en-têtes. Par exemple, dans certaines juridictions, comme en Europe, il faut obtenir le consentement de l’utilisateur pour pouvoir placer certains dispositifs de suivi sur les appareils des utilisateurs.
@@ -116,6 +116,26 @@ Content-Disposition: form-data; name="knowledgeRequest"
     "imageInfo" : {
         "url" : "https://contoso.com/2018/05/fashion/red.jpg"
     }
+}
+
+--boundary_1234-abcd--
+```
+
+Vous pouvez éventuellement définir l’attribut `enableEntityData` dans l’en-tête sur `true` pour obtenir des informations détaillées sur l’entité principale de l’image que vous téléchargez, notamment des liens vers les informations sur le web et sur l’attribution. Ce champ est défini par défaut sur `false`.
+
+```
+--boundary_1234-abcd
+Content-Disposition: form-data; name="knowledgeRequest"
+
+{
+  "imageInfo" : {
+      "url" : "https://contoso.com/2018/05/fashion/red.jpg"
+  },
+  "knowledgeRequest" : {
+    "invokedSkillsRequestData" : {
+        "enableEntityData" : "true"
+    }
+  }
 }
 
 --boundary_1234-abcd--
@@ -368,40 +388,84 @@ La reconnaissance de texte peut aussi reconnaître les coordonnées sur des cart
     }
 ```
 
-Si l’image contient une entité reconnue, comme une personne, un lieu ou un objet populaires ou culturellement bien connus, l’une des étiquettes peut inclure des insights sur cette entité.
+Si l’image contient une entité reconnue, comme une personne, un lieu ou un objet populaires ou culturellement bien connus, l’une des étiquettes peut inclure des insights sur cette entité. Les champs `mainEntity` et `data` sont disponibles seulement si l’attribut `enableEntityData` dans l’en-tête `Content-Type` est défini sur `true`.
 
 ```json
-    {
-      "image" : {
-        "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Statue+of+Liberty..."
-      },
-      "displayName" : "Statue of Liberty",
-      "boundingBox" : {
-        "queryRectangle" : {
-          "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
-          "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
-          "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
-          "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
-        },
-        "displayRectangle" : {
-          "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
-          "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
-          "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
-          "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
-        }
-      },
-      "actions" : [
-        {
-          "_type" : "ImageEntityAction",
-          "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
-          "displayName" : "Statue of Liberty",
-          "actionType" : "Entity",
-        }
-      ]
+{
+  "image" : {
+    "thumbnailUrl" : "https:\/\/tse4.mm.bing.net\/th?q=Statue+of+Liberty..."
+  },
+  "displayName" : "Statue of Liberty",
+  "boundingBox" : {
+    "queryRectangle" : {
+      "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
+      "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
+      "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
+      "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
+    },
+    "displayRectangle" : {
+      "topLeft" : {"x" : 0.40625, "y" : 0.1757813},
+      "topRight" : {"x" : 0.6171875, "y" : 0.1757813},
+      "bottomRight" : {"x" : 0.6171875, "y" : 0.3867188},
+      "bottomLeft" : {"x" : 0.40625, "y" : 0.3867188}
     }
+  },
+  "actions" : [
+    {
+      "_type" : "ImageEntityAction",
+      "webSearchUrl" : "https:\/\/www.bing.com\/search?q=Statue+of+Liberty",
+      "displayName" : "Statue of Liberty",
+      "actionType" : "Entity",
+      "mainEntity" : {
+        "name" = "Statue of liberty",
+        "bingId" : "..."
+      },
+      "data" : {
+        "id" : "https://api.cognitive.microsoft.com/api/v7/entities/...",
+        "readLink": "https://www.bingapis.com/api/v7/search?q=...",
+        "readLinkPingSuffix": "...",
+        "contractualRules": [
+          {
+            "_type": "ContractualRules/LicenseAttribution",
+            "targetPropertyName": "description",
+            "mustBeCloseToContent": true,
+            "license": {
+                "name": "CC-BY-SA",
+                "url": "http://creativecommons.org/licenses/by-sa/3.0/",
+                "urlPingSuffix": "..."
+            },
+            "licenseNotice": "Text under CC-BY-SA license"
+          },
+          {
+            "_type": "ContractualRules/LinkAttribution",
+            "targetPropertyName": "description",
+            "mustBeCloseToContent": true,
+            "text": "Wikipedia",
+            "url": "http://en.wikipedia.org/wiki/...",
+            "urlPingSuffix": "..."
+          }
+        ],
+        "webSearchUrl": "https://www.bing.com/entityexplore?q=...",
+        "webSearchUrlPingSuffix": "...",
+        "name": "Statue of Liberty",
+        "image": {
+          "thumbnailUrl": "https://tse1.mm.bing.net/th?id=...",
+          "hostPageUrl": "http://upload.wikimedia.org/wikipedia/...",
+          "hostPageUrlPingSuffix": "...",
+          "width": 50,
+          "height": 50,
+          "sourceWidth": 474,
+          "sourceHeight": 598
+        },
+        "description" : "...",
+        "bingId": "..."
+        }
+      }
+  ]
+}
 ```
 
 ## <a name="see-also"></a>Voir aussi
 
 - [Qu’est-ce que l’API Recherche visuelle Bing ?](../overview.md)
-- [Tutoriel : Créer une application web monopage de recherche visuelle](../tutorial-bing-visual-search-single-page-app.md)
+- [Tutoriel : Créer une application web monopage de recherche visuelle](../tutorial-bing-visual-search-single-page-app.md)

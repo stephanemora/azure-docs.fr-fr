@@ -1,14 +1,14 @@
 ---
 title: Publier une offre de services managés sur la Place de marché Azure
 description: Découvrez comment publier une offre de service managé qui intègre des clients à la gestion des ressources déléguées Azure.
-ms.date: 12/16/2019
+ms.date: 01/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1eb06794551be498e05e2b9c3b893013b718ce9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a1720a3bcfd0b08f8d9c8147b5e47ed42af6fda
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453535"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834089"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publier une offre de services managés sur la Place de marché Azure
 
@@ -63,7 +63,7 @@ Complétez les sections suivantes dans **Détails du plan** :
 |**Ce plan est-il privé ?**     | Indique si la référence SKU est privée ou publique. La valeur par défaut est **Non** (publique). Si vous conservez cette sélection, votre plan ne sera pas limité à des clients spécifiques (ou à un certain nombre de clients). Une fois que vous avez publié un plan public, vous ne pouvez plus le modifier en plan privé par la suite. Pour que ce plan soit disponible uniquement pour des clients spécifiques, sélectionnez **Oui**. Dans ce cas, vous devez identifier les clients en fournissant leurs ID d’abonnement. Vous pouvez entrer ceux-ci un par un (pour jusqu’à 10 abonnements) ou en chargeant un fichier .csv (pour jusqu’à 20 000 abonnements). Veillez à inclure vos propres abonnements ici afin de pouvoir tester et valider l’offre. Pour plus d’informations, voir [Références SKU et plans privés](../../marketplace/cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md).  |
 
 > [!IMPORTANT]
-> Une fois que vous avez publié un plan public, vous ne pouvez plus le changer en plan privé. Pour contrôler les clients qui peuvent accepter votre offre et déléguer des ressources, utilisez un plan privé. Avec un plan public, vous ne pouvez pas limiter la disponibilité à des clients spécifiques ou à un certain nombre de clients (en revanche, vous pouvez arrêter complètement la vente du plan si vous le souhaitez). Il n’existe actuellement aucun mécanisme permettant de rejeter ou supprimer des délégations une fois qu’un client accepte une offre, bien que vous puissiez toujours contacter un client et lui demander de [supprimer votre accès](view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Une fois que vous avez publié un plan public, vous ne pouvez plus le changer en plan privé. Pour contrôler les clients qui peuvent accepter votre offre et déléguer des ressources, utilisez un plan privé. Avec un plan public, vous ne pouvez pas limiter la disponibilité à des clients spécifiques ou à un certain nombre de clients (en revanche, vous pouvez arrêter complètement la vente du plan si vous le souhaitez). Vous pouvez [supprimer l’accès à une délégation](onboard-customer.md#remove-access-to-a-delegation) après qu’un client a accepté une offre uniquement si vous avez inclus une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de la publication de l’offre. Vous pouvez également contacter le client et lui demander de [supprimer votre accès](view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ### <a name="manifest-details"></a>Détails du manifeste
 
@@ -76,7 +76,10 @@ Tout d’abord, fournissez une **Version** pour le manifeste. Utilisez le format
 
 Ensuite, entrez votre **ID de locataire**. Il s’agit d’un GUID associé à l’ID de locataire Azure Active Directory de votre organisation (par exemple, le locataire dans lequel vous allez travailler pour gérer les ressources de vos clients). Si vous ne l’avez pas sous la main, vous pouvez le trouver en pointant sur le nom de votre compte dans l’angle supérieur droit du portail Azure ou en sélectionnant **Changer de répertoire**.
 
-Enfin, ajoutez une ou plusieurs entrées **Autorisation** à votre plan. Les autorisations définissent les entités qui peuvent accéder aux ressources et aux abonnements pour les clients qui achètent le plan, et affectent des rôles qui accordent des niveaux spécifiques d’accès. Pour plus d’informations sur les rôles pris en charge, consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
+Enfin, ajoutez une ou plusieurs entrées **Autorisation** à votre plan. Les autorisations définissent les entités qui peuvent accéder aux ressources et aux abonnements pour les clients qui achètent le plan, et affectent des rôles qui accordent des niveaux spécifiques d’accès.
+
+> [!TIP]
+> Dans la plupart des cas, vous affectez des autorisations à un groupe d’utilisateurs ou à un principal de service Azure AD, plutôt qu’à une série de comptes d’utilisateur individuels. Cela vous permet d’ajouter ou de supprimer l’accès d’utilisateurs individuels sans devoir mettre à jour et republier le plan lorsque vos conditions d’accès changent. Pour obtenir des recommandations supplémentaires, consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
 
 Pour chaque **autorisation**, vous devez fournir les informations suivantes. Vous pouvez ensuite sélectionner **Nouvelle autorisation** autant de fois que nécessaire pour ajouter des utilisateurs et définitions de rôles.
 
@@ -86,7 +89,7 @@ Pour chaque **autorisation**, vous devez fournir les informations suivantes. Vou
 - **Rôles attribuables** : cela est nécessaire uniquement si vous avez sélectionné Administrateur de l’accès utilisateur dans la **Définition de rôle** pour cette autorisation. Si tel est le cas, vous devez ajouter un ou plusieurs rôles attribuables ici. L’utilisateur indiqué dans le champ **ID d’objet Azure AD** sera en mesure d’attribuer ces **Rôles attribuables** à des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md), ce qui est nécessaire pour [déployer des stratégies qui peuvent être corrigées](deploy-policy-remediation.md). Notez qu’aucune autre autorisation normalement associée au rôle Administrateur de l’accès utilisateur ne s’appliquera à cet utilisateur. Si vous ne sélectionnez pas un ou plusieurs rôles ici, votre envoi n’obtiendra pas la certification. (si vous n’avez pas sélectionné Administrateur de l’accès utilisateur pour la définition de rôle de cet utilisateur, ce champ est sans effet).
 
 > [!TIP]
-> Dans la plupart des cas, vous affectez des autorisations à un groupe d’utilisateurs ou à un principal de service Azure AD, plutôt qu’à une série de comptes d’utilisateur individuels. Cela vous permet d’ajouter ou de supprimer l’accès d’utilisateurs individuels sans devoir mettre à jour et republier le plan lorsque vos conditions d’accès changent. Pour obtenir des recommandations supplémentaires, consultez [Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse](../concepts/tenants-users-roles.md).
+> Pour être sûr de pouvoir [supprimer l’accès à une délégation](onboard-customer.md#remove-access-to-a-delegation) en cas de nécessité, incluez une **Autorisation** avec la **Définition de rôle** définie sur [Inscription des services managés, attribution Supprimer le rôle](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Si ce rôle n’est pas attribué, les ressources déléguées ne peuvent être supprimées que par un utilisateur dans le locataire du client.
 
 Une fois que vous avez renseigné ces informations, vous pouvez sélectionner **Nouveau plan** autant de fois que nécessaire pour créer des plans supplémentaires. Lorsque vous avez terminé, sélectionnez **Enregistrer**, puis passez à la section **Place de marché**.
 
@@ -147,7 +150,7 @@ Vous pouvez [publier une version mise à jour de votre offre](../../marketplace/
 Une fois qu’un client a ajouté votre offre, il est en mesure de [déléguer un ou plusieurs abonnements ou groupes de ressources spécifiques](view-manage-service-providers.md#delegate-resources), qui seront ensuite intégrés pour la gestion des ressources déléguées Azure. Si un client a accepté une offre mais n’a pas encore délégué de ressources, il voit une note s’afficher en haut de la section **Offres de fournisseur** de la page [**Fournisseurs de services**](view-manage-service-providers.md) du portail Azure.
 
 > [!IMPORTANT]
-> La délégation doit être effectuée par un compte non invité dans le locataire client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** , [Répertorier tous les rôles](../../role-based-access-control/role-definitions-list.md#list-all-roles), puis sélectionnez **Propriétaire** pour voir tous les utilisateurs avec ce rôle.
+> La délégation doit être effectuée par un compte non invité dans le locataire client qui a le [rôle intégré Propriétaire](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) pour l’abonnement en cours d’intégration (ou qui contient les groupes de ressources en cours d’intégration). Pour voir tous les utilisateurs qui peuvent déléguer l’abonnement, un utilisateur du locataire du client peut sélectionner l’abonnement dans le portail Azure, ouvrir **Contrôle d’accès (IAM)** et [afficher tous les utilisateurs ayant le rôle Propriétaire](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Une fois que le client aura délégué un abonnement (ou un ou plusieurs groupes de ressources d’un abonnement), le fournisseur de ressources **Microsoft.ManagedServices** sera inscrit pour cet abonnement, et les utilisateurs de votre locataire pourront accéder aux ressources déléguées conformément aux autorisations de votre offre.
 

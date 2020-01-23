@@ -9,12 +9,12 @@ ms.date: 12/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1e15f237bddd586f81c3b04483111f7e211bfb10
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0a20ea4236683e26c51bc75309435c65e24271d7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563409"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510258"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure
 
@@ -24,7 +24,7 @@ Pour plus d’informations, consultez [Comprendre les déploiements automatiques
 
 ## <a name="identify-devices-using-tags"></a>Identifier les appareils à l’aide de balises
 
-Avant de pouvoir créer un déploiement, vous devez être en mesure de spécifier les appareils concernés. Azure IoT Edge identifie les appareils à l’aide de **balises** dans le jumeau d’appareil. Chaque appareil peut avoir plusieurs balises que vous pouvez définir comme bon vous semble pour votre solution. 
+Avant de pouvoir créer un déploiement, vous devez être en mesure de spécifier les appareils concernés. Azure IoT Edge identifie les appareils à l’aide de **balises** dans le jumeau d’appareil. Chaque appareil peut avoir plusieurs balises que vous pouvez définir comme bon vous semble pour votre solution.
 
 Par exemple, si vous gérez un campus de bâtiments intelligents, vous pouvez ajouter des étiquettes de localisation, de type de pièce et d’environnement à un appareil :
 
@@ -63,7 +63,7 @@ La création d’un déploiement nécessite cinq étapes. Les sections suivantes
 
 Vous pouvez ajouter jusqu’à 20 modules à un déploiement. Si vous créez un déploiement sans module, il supprime tous les modules actuels des appareils cibles.
 
-Dans les déploiements, vous pouvez gérer les paramètres de l’agent IoT Edge et des modules du hub IoT Edge. Sélectionnez **Paramètres du runtime** pour configurer les deux modules de runtime. Dans un déploiement en couches, les modules de runtime ne sont pas inclus et ne peuvent donc pas être configurés. 
+Dans les déploiements, vous pouvez gérer les paramètres de l’agent IoT Edge et des modules du hub IoT Edge. Sélectionnez **Paramètres du runtime** pour configurer les deux modules de runtime. Dans un déploiement en couches, les modules de runtime ne sont pas inclus et ne peuvent donc pas être configurés.
 
 Vous pouvez ajouter trois types de module :
 
@@ -83,8 +83,8 @@ Pour ajouter du code personnalisé en tant que module, ou pour ajouter manuellem
 1. Utilisez le menu déroulant pour sélectionner une **Stratégie de redémarrage**. Choisissez parmi les options suivantes :
    * **toujours** : le module redémarre toujours s’il s’arrête pour une raison quelconque.
    * **jamais** : le module ne redémarre jamais s’il s’arrête pour une raison quelconque.
-   * **on-failure** (en cas d’échec) : le module redémarre s’il se bloque, mais pas s’il est fermé correctement. 
-   * **on-unhealthy** (en cas d’état défectueux) : le module redémarre s’il se bloque ou s’il retourne un état défectueux. C’est à chaque module d’implémenter la fonction d’état d’intégrité. 
+   * **on-failure** (en cas d’échec) : le module redémarre s’il se bloque, mais pas s’il est fermé correctement.
+   * **on-unhealthy** (en cas d’état défectueux) : le module redémarre s’il se bloque ou s’il retourne un état défectueux. C’est à chaque module d’implémenter la fonction d’état d’intégrité.
 1. Utilisez le menu déroulant pour sélectionner **l’État souhaité** pour le module. Choisissez parmi les options suivantes :
    * **en cours d’exécution** : il s’agit de l’option par défaut. Le module commence à s’exécuter immédiatement après son déploiement.
    * **arrêté** : après son déploiement, le module reste inactif jusqu’à ce que vous-même ou un autre module demandiez son démarrage.
@@ -113,9 +113,9 @@ Pour ajouter un module à partir d’Azure Stream Analytics, effectuez les étap
 
 #### <a name="configure-module-settings"></a>Configurer les paramètres du module
 
-Après avoir ajouté un module à un déploiement, vous pouvez sélectionner son nom pour ouvrir la page **Mettre à jour le module IoT Edge**. Dans cette page, vous pouvez modifier les paramètres du module, les variables d’environnement, les options de création et le jumeau de module. Si vous avez ajouté un module à partir de la Place de marché, certains de ces paramètres sont peut-être déjà renseignés. 
+Après avoir ajouté un module à un déploiement, vous pouvez sélectionner son nom pour ouvrir la page **Mettre à jour le module IoT Edge**. Dans cette page, vous pouvez modifier les paramètres du module, les variables d’environnement, les options de création et le jumeau de module. Si vous avez ajouté un module à partir de la Place de marché, certains de ces paramètres sont peut-être déjà renseignés.
 
-Si vous créez un déploiement en couches, il se peut que vous configuriez un module qui existe dans d’autres déploiements ciblant les mêmes appareils. Pour mettre à jour le jumeau de module sans remplacer d’autres versions, ouvrez l’onglet **Paramètres de jumeau de module**. Créez une **Propriété de jumeau de module** avec un nom unique pour une sous-section des propriétés souhaitées du jumeau de module, par exemple `properties.desired.settings`. Si vous définissez des propriétés uniquement dans le champ `properties.desired`, les propriétés souhaitées pour le module défini dans des déploiements de moindre priorité seront remplacées. 
+Si vous créez un déploiement en couches, il se peut que vous configuriez un module qui existe dans d’autres déploiements ciblant les mêmes appareils. Pour mettre à jour le jumeau de module sans remplacer d’autres versions, ouvrez l’onglet **Paramètres de jumeau de module**. Créez une **Propriété de jumeau de module** avec un nom unique pour une sous-section des propriétés souhaitées du jumeau de module, par exemple `properties.desired.settings`. Si vous définissez des propriétés uniquement dans le champ `properties.desired`, les propriétés souhaitées pour le module défini dans des déploiements de moindre priorité seront remplacées.
 
 ![Définir la propriété de jumeau de module pour un déploiement en couches](./media/how-to-deploy-monitor/module-twin-property.png)
 
@@ -154,9 +154,9 @@ Utilisez la propriété tags à partir de vos appareils pour cibler des appareil
 
 Étant donné que plusieurs déploiements peuvent cibler le même appareil, vous devez donner à chaque déploiement un numéro de priorité. En cas de conflit, le déploiement avec la priorité la plus élevée prévaut (plus la valeur est grande, plus la priorité est élevée). Si deux déploiements ont le même numéro de priorité, celui qui a été créé le plus récemment prévaut.
 
-Si plusieurs déploiements ciblent un même appareil, seul celui qui a la priorité la plus élevée est appliqué. Si plusieurs déploiements en couches ciblent un même appareil, ils sont tous appliqués. En revanche, s’il existe des propriétés en double avec par exemple la présence de deux routes de même nom, celle du déploiement en couches de priorité supérieure remplace le reste. 
+Si plusieurs déploiements ciblent un même appareil, seul celui qui a la priorité la plus élevée est appliqué. Si plusieurs déploiements en couches ciblent un même appareil, ils sont tous appliqués. En revanche, s’il existe des propriétés en double avec par exemple la présence de deux routes de même nom, celle du déploiement en couches de priorité supérieure remplace le reste.
 
-Pour s’appliquer, un déploiement en couches ciblant un appareil doit avoir une priorité plus élevée que celle du déploiement de base. 
+Pour s’appliquer, un déploiement en couches ciblant un appareil doit avoir une priorité plus élevée que celle du déploiement de base.
 
 1. Entrez un entier positif pour la **Priorité** du déploiement.
 1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`.
@@ -179,7 +179,7 @@ Pour afficher les détails d’un déploiement et surveiller les appareils qui l
 
 1. Inspectez la liste des déploiements. Pour chaque déploiement, vous pouvez consulter les détails suivants :
    * **ID** : nom du déploiement.
-   * **Type**  : type de déploiement, à savoir **Déploiement** ou **Déploiement en couches**. 
+   * **Type**  : type de déploiement, à savoir **Déploiement** ou **Déploiement en couches**.
    * **Condition cible** : étiquette servant à définir les appareils ciblés.
    * **Priorité** : numéro de priorité du déploiement.
    * **System metrics** - **Targeted** (Métriques système - Ciblé) spécifie le nombre de jumeaux d’appareil dans IoT Hub qui correspondent à la condition de ciblage, et **Applied** (appliqué) spécifie le nombre d’appareils dont les jumeaux de module se sont vu appliquer le contenu de déploiement dans IoT Hub.

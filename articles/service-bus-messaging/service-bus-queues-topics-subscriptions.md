@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: aschhab
-ms.openlocfilehash: bc549f9bfbb48da9263493c21ec38735b3cc0c24
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9ac8d95dda392bd3f2a438389f5f6aa434b8a2fa
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426928"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772140"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Files d’attente, rubriques et abonnements Service Bus
 
@@ -41,7 +41,7 @@ Pour un exemple concret, voir [BasicSendReceiveUsingQueueClient](https://github.
 
 ### <a name="receive-modes"></a>Modes de réception
 
-Service Bus propose deux modes différents de réception des messages : *ReceiveAndDelete* et *PeekLock*. En mode [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), l’opération est exécutée une seule fois, en d’autres termes, lorsque Service Bus reçoit la demande, il marque ce message comme étant consommé et le renvoie à l’application. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels l’application peut tolérer l’absence de traitement d’un message en cas d’échec. Pour comprendre ce comportement, imaginez un scénario selon lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l’application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l’incident.
+Service Bus propose deux modes différents de réception des messages : *ReceiveAndDelete* et *PeekLock*. En mode [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode), l’opération est exécutée une seule fois, en d’autres termes, lorsque Service Bus reçoit la demande du consommateur, il marque ce message comme étant consommé et le renvoie à l’application du consommateur. Le mode **ReceiveAndDelete** est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels l’application peut tolérer l’absence de traitement d’un message en cas d’échec. Pour comprendre ce comportement, imaginez un scénario selon lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Service Bus ayant marqué le message comme étant consommé, lorsque l’application redémarre et recommence à traiter des messages, elle ignore le message consommé avant l’incident.
 
 En mode [PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas se permettre de manquer des messages. Lorsque Service Bus reçoit la demande, il recherche le message suivant à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, puis le renvoie à l’application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable en vue d’un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant [CompleteAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) sur le message reçu. Lorsque Service Bus voit l’appel **CompleteAsync**, il marque le message comme étant consommé.
 

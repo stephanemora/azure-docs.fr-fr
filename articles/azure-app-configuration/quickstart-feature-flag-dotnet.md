@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 0aecf2284e448f879bc20391c8528f8efde42d94
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: bdb00bfbadec68fa110f747858d264a2c34f8bd1
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184972"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120867"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalités à une application .NET Framework
 
@@ -27,7 +27,7 @@ Dans ce guide de démarrage rapide, vous incorporez Azure App Configuration à u
 
 Les bibliothèques de gestion des fonctionnalités .NET étendent le framework avec une prise en charge complète des indicateurs de fonctionnalités. Ces bibliothèques sont basées sur le système de configuration de .NET. Elles s’intègrent facilement à App Configuration via son fournisseur de configuration .NET.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -67,22 +67,32 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
 1. Mettez à jour la méthode `Main` pour vous connecter à App Configuration, en spécifiant l’option `UseFeatureFlags` pour que les indicateurs de fonctionnalité soient récupérés. Affichez ensuite un message si l’indicateur de fonctionnalité `Beta` est activé.
 
     ```csharp
-        static void Main(string[] args)
+        public static void Main(string[] args)
+        {
+            AsyncMain().Wait();
+        }
+
+        private static async Task AsyncMain()
         {
             IConfigurationRoot configuration = new ConfigurationBuilder()
-                .AddAzureAppConfiguration(options => 
-                { 
+                .AddAzureAppConfiguration(options =>
+                {
                     options.Connect(Environment.GetEnvironmentVariable("ConnectionString"))
-                           .UseFeatureFlags(); 
+                           .UseFeatureFlags();
                 }).Build();
-            
-            IServiceCollection services = new ServiceCollection(); 
-            services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement(); 
-            IFeatureManager featureManager = services.BuildServiceProvider().GetRequiredService<IFeatureManager>(); 
-            
-            if (featureManager.IsEnabled("Beta")) 
-            { 
-                Console.WriteLine("Welcome to the beta"); 
+
+            IServiceCollection services = new ServiceCollection();
+
+            services.AddSingleton<IConfiguration>(configuration).AddFeatureManagement();
+
+            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
+            {
+                IFeatureManager featureManager = serviceProvider.GetRequiredService<IFeatureManager>();
+
+                if (await featureManager.IsEnabledAsync("Beta"))
+                {
+                    Console.WriteLine("Welcome to the beta!");
+                }
             }
 
             Console.WriteLine("Hello World!");
@@ -105,7 +115,7 @@ Les bibliothèques de gestion des fonctionnalités .NET étendent le framework a
 
     ![Application avec indicateur de fonctionnalité activé](./media/quickstarts/dotnet-app-feature-flag.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

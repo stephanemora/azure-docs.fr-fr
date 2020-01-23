@@ -7,25 +7,25 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173809"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277425"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Superviser les opérations d’ingestion d’Azure Data Explorer à l’aide des journaux de diagnostic (préversion)
 
 Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils IoT, etc. Pour utiliser Azure Data Explorer, créez tout d’abord un cluster et une ou plusieurs bases de données dans ce cluster. Ensuite, ingérez (chargez) des données dans une table d’une base de données pour pouvoir exécuter des requêtes dessus. Les [journaux de diagnostic Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-overview) fournissent des données sur les opérations effectuées sur des ressources Azure. Azure Data Explorer utilise les journaux de diagnostic pour obtenir des insights sur les réussites et les échecs d’ingestion. Vous pouvez exporter les journaux des opérations vers Stockage Azure, Event Hub ou Log Analytics afin de superviser l’état de l’ingestion. Les journaux de Stockage Azure et d’Azure Event Hub peuvent être routés vers une table de votre cluster Azure Data Explorer pour une analyse plus poussée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas encore d’abonnement Azure, [créez un compte Azure gratuit](https://azure.microsoft.com/free/)
 * Créez [un cluster et une base de données](create-cluster-database-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Configurer les journaux de diagnostic pour un cluster Azure Data Explorer
 
@@ -52,7 +52,7 @@ Les journaux de diagnostic sont désactivés par défaut. Pour activer les journ
     1. Indiquez le **Nom** de votre paramètre de diagnostic.
     1. Sélectionnez une ou plusieurs cibles : compte de stockage, Event Hub ou Log Analytics.
     1. Sélectionnez les journaux à collecter : `SucceededIngestion` ou `FailedIngestion`.
-    1. Sélectionnez les [métriques](using-metrics.md) à collecter (facultatif).   
+    1. Sélectionnez les [métriques](using-metrics.md#supported-azure-data-explorer-metrics) à collecter (facultatif).  
     1. Sélectionnez **Enregistrer** pour enregistrer les nouveaux paramètres et métriques des journaux de diagnostic.
     1. Créez une **demande de support** dans le portail Azure pour demander l’activation des journaux de diagnostic.
 
@@ -66,13 +66,13 @@ Tous [les journaux de diagnostic Azure Monitor partagent un schéma de niveau su
 
 Les chaînes JSON des journaux incluent les éléments listés dans le tableau suivant :
 
-|Nom               |Description
+|Name               |Description
 |---                |---
 |time               |Heure du rapport
 |resourceId         |ID de ressource Azure Resource Manager
 |operationName      |Nom de l’opération : 'MICROSOFT.KUSTO/CLUSTERS/INGEST/ACTION'
 |operationVersion   |Version du schéma : '1.0' 
-|category           |Catégorie de l’opération. `SucceededIngestion` ou `FailedIngestion`. Les propriétés sont différentes pour une [opération réussie](#successful-ingestion-operation-log) ou pour une [opération ayant échoué](#failed-ingestion-operation-log).
+|catégorie           |Catégorie de l’opération. `SucceededIngestion` ou `FailedIngestion`. Les propriétés sont différentes pour une [opération réussie](#successful-ingestion-operation-log) ou pour une [opération ayant échoué](#failed-ingestion-operation-log).
 |properties         |Informations détaillées sur l’opération.
 
 #### <a name="successful-ingestion-operation-log"></a>Journal des opérations d’ingestion réussies
@@ -100,7 +100,7 @@ Les chaînes JSON des journaux incluent les éléments listés dans le tableau s
 ```
 **Propriétés d’un journal de diagnostic d’une opération réussie**
 
-|Nom               |Description
+|Name               |Description
 |---                |---
 |succeededOn        |Heure d’achèvement de l’ingestion
 |operationId        |ID d’opération de l’ingestion Azure Data Explorer
@@ -141,7 +141,7 @@ Les chaînes JSON des journaux incluent les éléments listés dans le tableau s
 
 **Propriétés d’un journal de diagnostic d’une opération ayant échoué**
 
-|Nom               |Description
+|Name               |Description
 |---                |---
 |failedOn           |Heure d’achèvement de l’ingestion
 |operationId        |ID d’opération de l’ingestion Azure Data Explorer
@@ -158,6 +158,6 @@ Les chaînes JSON des journaux incluent les éléments listés dans le tableau s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Tutoriel : Ingérer et interroger des données de supervision dans Azure Data Explorer](ingest-data-no-code.md)
+* [Tutoriel : Ingérer et interroger des données de supervision dans Azure Data Explorer](ingest-data-no-code.md)
 * [Utiliser des métriques pour superviser l’intégrité du cluster](using-metrics.md)
 

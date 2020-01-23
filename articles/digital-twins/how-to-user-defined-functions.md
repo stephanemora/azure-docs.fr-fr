@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7334d4292db710a32b888d9a3ad4e78872d15227
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383310"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863510"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Guide pratique pour créer des fonctions définies par l’utilisateur dans Azure Digital Twins
 
@@ -193,11 +193,11 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Le guide [Démarrage rapide de recherche de salles disponibles](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js) fournit un exemple de fonction plus complexe définie par l’utilisateur.
+Pour obtenir un exemple de code d’une fonction plus complexe définie par l’utilisateur, lisez le [Guide de démarrage rapide de recherche de salles disponibles](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## <a name="create-a-role-assignment"></a>Création d'une affectation de rôle
 
-Créez une attribution de rôle permettant à la fonction définie par l’utilisateur de s’exécuter. Si aucune attribution de rôle n’existe pour la fonction définie par l’utilisateur, cette dernière n’a pas les autorisations appropriées pour interagir avec l’API de gestion ou avoir l’accès permettant d’effectuer des actions sur les objets de graphe. Les actions susceptibles d’être effectuées par la fonction définie par l’utilisateur sont spécifiées et définies via le contrôle d’accès en fonction du rôle (RBAC) au sein des API de gestion Azure Digital Twins. Par exemple, les fonctions définies par l’utilisateur peuvent avoir une étendue limitée en spécifiant certains rôles ou certains chemins de contrôle d’accès. Pour plus d’informations, consultez la documentation sur le [contrôle d’accès en fonction du rôle (RBAC)](./security-role-based-access-control.md).
+Créez une attribution de rôle permettant à la fonction définie par l’utilisateur de s’exécuter. Si aucune attribution de rôle n’existe pour la fonction définie par l’utilisateur, cette dernière n’a pas les autorisations appropriées pour interagir avec l’API de gestion ou avoir l’accès permettant d’effectuer des actions sur les objets de graphe. Les actions susceptibles d’être effectuées par la fonction définie par l’utilisateur sont spécifiées et définies via le contrôle d’accès en fonction du rôle (RBAC) au sein des API de gestion Azure Digital Twins. Par exemple, les fonctions définies par l’utilisateur peuvent avoir une étendue limitée en spécifiant certains rôles ou certains chemins de contrôle d’accès. Pour plus d’informations, lisez la documentation sur le [contrôle d’accès en fonction du rôle](./security-role-based-access-control.md).
 
 1. [Interrogez l’API System](./security-create-manage-role-assignments.md#retrieve-all-roles) pour tous les rôles afin d’obtenir l’ID de rôle que vous souhaitez affecter à votre fonction définie par l’utilisateur. Exécutez une requête HTTP GET authentifiée sur :
 

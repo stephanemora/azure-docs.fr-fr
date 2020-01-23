@@ -3,12 +3,12 @@ title: Sauvegarder et restaurer des machines virtuelles Azure chiffrées
 description: Décrit comment sauvegarder et restaurer des machines virtuelles Azure chiffrées avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449980"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513777"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Sauvegarder et restaurer une machine virtuelle Azure chiffrée
 
@@ -53,7 +53,6 @@ Avant de commencer, procédez comme suit :
 Par ailleurs, vous risquez de devoir faire deux choses dans certaines circonstances :
 
 - **Installer l’agent de machine virtuelle sur la machine virtuelle** : Sauvegarde Azure sauvegarde les machines virtuelles Azure en installant une extension à l’agent de machine virtuelle Azure en cours d’exécution sur l’ordinateur. Si votre machine virtuelle a été créée à partir d’une image de la Place de marché Azure, l’agent est installé et en cours d’exécution. Si vous créez une machine virtuelle personnalisée ou que vous migrez une machine locale, vous devrez peut-être [installer l’agent manuellement](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-- **Autoriser explicitement l’accès sortant** : En règle générale, vous n’avez pas besoin d’autoriser explicitement l’accès réseau sortant pour une machine virtuelle Azure afin qu’elle communique avec Sauvegarde Azure. Toutefois, certaines machines virtuelles peuvent rencontrer des problèmes de connexion, indiquant l’erreur **ExtensionSnapshotFailedNoNetwork** lors d’une tentative de connexion. Si cela se produit, vous devez [autoriser explicitement l’accès sortant](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access) afin que l’extension Sauvegarde Azure puisse communiquer avec des adresses IP publiques Azure pour le trafic de sauvegarde.
 
 ## <a name="configure-a-backup-policy"></a>Configurer une stratégie de sauvegarde
 

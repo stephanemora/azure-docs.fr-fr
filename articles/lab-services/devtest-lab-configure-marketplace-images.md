@@ -1,5 +1,5 @@
 ---
-title: Configuration des paramètres d’image Azure Marketplace dans Azure DevTest Labs | Microsoft Docs
+title: Configuration des paramètres d’image Azure Marketplace dans Azure DevTest Labs
 description: Configurer quelles images Azure Marketplace peuvent être utilisées lors de la création d’une machine virtuelle dans Azure DevTest Labs
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: d0375713c4881c0b73b91fc07bda3ceac2dbc620
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2dc3aa000cefc0e65305b58f8fdce93b94bfd35f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60201866"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169549"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configuration des paramètres d’image Azure Marketplace dans Azure DevTest Labs
 DevTest Labs prend en charge la création de machines virtuelles basées sur des images Azure Marketplace en fonction de la manière dont vous avez configuré des images Azure Marketplace à utiliser dans votre laboratoire. Cet article montre comment spécifier, le cas échéant, les images Azure Marketplace qui peuvent être utilisées lors de la création de machines virtuelles dans un laboratoire. Cela garantit que votre équipe a accès uniquement aux images de la Place de marché dont elle a besoin. 
 
 ## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Sélection des images Azure Marketplace autorisées lors de la création d’une machine virtuelle
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires. 
 4. Dans le panneau du laboratoire, sélectionnez **Configuration et stratégies**.

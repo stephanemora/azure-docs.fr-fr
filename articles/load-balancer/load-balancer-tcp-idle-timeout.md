@@ -11,147 +11,56 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 530bfbe85a564b3dd517e14df819586dee332a78
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 565707b0e081a495f01f369125584038981b4ae8
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076962"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834661"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Configuration des paramètres de délai d’inactivité et d’expiration TCP pour Azure Load Balancer
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 5.4.1 ou ultérieure pour les besoins de cet article. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Connect-AzAccount` pour créer une connexion avec Azure.
+
+## <a name="tcp-idle-timeout"></a>Délai d’inactivité TCP
 Dans sa configuration par défaut, l’équilibrage de charge Azure a un paramètre de délai d’inactivité de 4 minutes. Si une période d’inactivité est supérieure à la valeur de délai d’expiration, il n’est pas garanti que la session TCP ou HTTP est maintenue entre le client et votre service cloud.
 
 Lorsque la connexion est fermée, votre application cliente peut recevoir le message d’erreur suivant : « Le serveur a clos la connexion sous-jacente : une connexion qui devait être tenue active a été fermée par le serveur. »
 
-Une pratique courante consiste à utiliser TCP keep-alive. Cela permet de maintenir la connexion active pendant une période plus longue. Pour plus d’informations, consultez ces [exemples .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). avec keep-alive activé, les paquets sont envoyés au cours des périodes d’inactivité sur la connexion. Ces paquets keep-alive garantissent que la valeur de délai d’inactivité n’est jamais atteinte et que la connexion est maintenue pendant une longue période.
+Une pratique courante consiste à utiliser TCP keep-alive. Cela permet de maintenir la connexion active pendant une période plus longue. Pour plus d’informations, consultez ces [exemples .NET](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx). avec keep-alive activé, les paquets sont envoyés au cours des périodes d’inactivité sur la connexion. Les paquets keep-alive garantissent que la valeur de délai d’inactivité n’est pas atteinte et que la connexion est maintenue pendant une longue période.
 
-Ce paramètre fonctionne uniquement pour les connexions entrantes. Pour éviter la perte de la connexion, vous devez configurer TCP keep-alive sur un intervalle inférieur au paramètre de délai d’inactivité ou augmentez la valeur du délai d’inactivité. Pour prendre en charge ces scénarios, nous avons ajouté la prise en charge d’un délai d’inactivité configurable. Vous pouvez maintenant le définir sur une durée comprise entre 4 et 30 minutes.
+Le paramètre fonctionne uniquement pour les connexions entrantes. Pour éviter la perte de la connexion, configurez TCP keep-alive sur un intervalle inférieur au paramètre de délai d’inactivité ou augmentez la valeur du délai d’inactivité. Pour prendre en charge ces scénarios, la prise en charge d’un délai d’inactivité configurable a été ajoutée. Vous pouvez maintenant le définir sur une durée comprise entre 4 et 30 minutes.
 
-TCP keep-alive fonctionne bien pour les scénarios où l’autonomie de la batterie n’est pas une contrainte. Il n’est pas recommandé de l’utiliser pour les applications mobiles. L’utilisation de TCP keep-alive depuis une application mobile peut décharger la batterie de l’appareil plus rapidement.
+TCP keep-alive convient aux scénarios où l’autonomie de la batterie n’est pas une contrainte. Il n’est pas recommandé de l’utiliser pour les applications mobiles. L’utilisation de TCP keep-alive depuis une application mobile peut décharger la batterie de l’appareil plus rapidement.
 
 ![Délai d’expiration TCP](./media/load-balancer-tcp-idle-timeout/image1.png)
 
-Les sections suivantes décrivent comment modifier les paramètres de délai d’inactivité dans les machines virtuelles et les services cloud.
+Les sections suivantes décrivent comment modifier les paramètres de délai d’inactivité pour les ressources d’adresses IP publiques et d’équilibreur de charge.
 
 ## <a name="configure-the-tcp-timeout-for-your-instance-level-public-ip-to-15-minutes"></a>Configurer le délai d’expiration TCP pour votre adresse IP publique de niveau instance à 15 minutes
 
-```powershell
-Set-AzurePublicIP -PublicIPName webip -VM MyVM -IdleTimeoutInMinutes 15
+```azurepowershell-interactive
+$publicIP = Get-AzPublicIpAddress -Name MyPublicIP -ResourceGroupName MyResourceGroup
+$publicIP.IdleTimeoutInMinutes = "15"
+Set-AzPublicIpAddress -PublicIpAddress $publicIP
 ```
 
-`IdleTimeoutInMinutes` est facultatif. Si cela n'est pas défini, le délai d'expiration par défaut est de 4 minutes. La plage de délai d’expiration acceptable est comprise entre 4 et 30 minutes.
+`IdleTimeoutInMinutes` est facultatif. S’il n’est pas défini, le délai d’expiration par défaut est de 4 minutes. La plage de délai d’expiration acceptable est comprise entre 4 et 30 minutes.
 
-## <a name="set-the-idle-timeout-when-creating-an-azure-endpoint-on-a-virtual-machine"></a>Définir le délai d’inactivité pendant la création d’un point de terminaison Azure sur une machine virtuelle
+## <a name="set-the-tcp-timeout-on-a-load-balanced-rule-to-15-minutes"></a>Affecter la valeur 15 minutes au délai d’expiration TCP sur une règle d’équilibrage de charge
 
-Pour modifier le paramètre de délai d’attente pour un point de terminaison, utilisez ce qui suit :
+Pour définir le délai d’inactivité d’un équilibreur de charge, la valeur « IdleTimeoutInMinutes » est définie sur la règle d’équilibrage de charge. Par exemple :
 
-```powershell
-Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn" -Protocol "tcp" -PublicPort 80 -LocalPort 8080 -IdleTimeoutInMinutes 15| Update-AzureVM
+```azurepowershell-interactive
+$lb = Get-AzLoadBalancer -Name "MyLoadBalancer" -ResourceGroup "MyResourceGroup"
+$lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 ```
-
-Pour récupérer votre configuration du délai d’inactivité, utilisez la commande suivante :
-
-    PS C:\> Get-AzureVM -ServiceName "MyService" -Name "MyVM" | Get-AzureEndpoint
-    VERBOSE: 6:43:50 PM - Completed Operation: Get Deployment
-    LBSetName : MyLoadBalancedSet
-    LocalPort : 80
-    Name : HTTP
-    Port : 80
-    Protocol : tcp
-    Vip : 65.52.xxx.xxx
-    ProbePath :
-    ProbePort : 80
-    ProbeProtocol : tcp
-    ProbeIntervalInSeconds : 15
-    ProbeTimeoutInSeconds : 31
-    EnableDirectServerReturn : False
-    Acl : {}
-    InternalLoadBalancerName :
-    IdleTimeoutInMinutes : 15
-
-## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>Définir le délai d’expiration TCP sur un jeu de points de terminaison d’équilibrage de charge
-
-Si les points de terminaison font partie d'un jeu de points de terminaison d'équilibrage de charge, le délai d'expiration TCP doit être défini sur le jeu de points de terminaison d'équilibrage de charge. Par exemple :
-
-```powershell
-Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
-```
-
-## <a name="change-timeout-settings-for-cloud-services"></a>Modifier les paramètres de délai d’expiration pour les services cloud
-
-Vous pouvez utiliser le Kit de développement logiciel (SDK) Azure pour mettre à jour votre service cloud. Les paramètres de point de terminaison des services cloud sont définis dans le fichier .csdef. La mise à jour du délai d’expiration TCP pour le déploiement d’un service cloud requiert une mise à niveau du déploiement. L’exception est si le délai d’expiration TCP n’est spécifié que pour une adresse IP publique. Les paramètres d’adresse IP publique sont définis dans le fichier .cscfg et peuvent être mis à jour via une mise à jour et une mise à niveau du déploiement.
-
-Les modifications apportées aux paramètres de point de terminaison dans .csdef sont les suivantes :
-
-```xml
-<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-    <Endpoints>
-    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" idleTimeoutInMinutes="tcp-timeout" />
-    </Endpoints>
-</WorkerRole>
-```
-
-Les modifications de .cscfg pour le paramètre de délai d’expiration sur des adresses IP publiques sont :
-
-```xml
-<NetworkConfiguration>
-    <VirtualNetworkSite name="VNet"/>
-    <AddressAssignments>
-    <InstanceAddress roleName="VMRolePersisted">
-    <PublicIPs>
-        <PublicIP name="public-ip-name" idleTimeoutInMinutes="timeout-in-minutes"/>
-    </PublicIPs>
-    </InstanceAddress>
-    </AddressAssignments>
-</NetworkConfiguration>
-```
-
-## <a name="rest-api-example"></a>Exemple d’API REST
-
-Vous pouvez configurer le délai d’inactivité TCP à l’aide de l’API Gestion des services. Assurez-vous que l’en-tête `x-ms-version` est défini sur la version `2014-06-01` ou une version ultérieure. Mettre à jour la configuration des points de terminaison d’entrée d’équilibrage de charge spécifiés sur toutes les machines virtuelles d’un déploiement.
-
-### <a name="request"></a>Requête
-
-    POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
-
-### <a name="response"></a>response
-
-```xml
-<LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">
-    <InputEndpoint>
-    <LoadBalancedEndpointSetName>endpoint-set-name</LoadBalancedEndpointSetName>
-    <LocalPort>local-port-number</LocalPort>
-    <Port>external-port-number</Port>
-    <LoadBalancerProbe>
-        <Path>path-of-probe</Path>
-        <Port>port-assigned-to-probe</Port>
-        <Protocol>probe-protocol</Protocol>
-        <IntervalInSeconds>interval-of-probe</IntervalInSeconds>
-        <TimeoutInSeconds>timeout-for-probe</TimeoutInSeconds>
-    </LoadBalancerProbe>
-    <LoadBalancerName>name-of-internal-loadbalancer</LoadBalancerName>
-    <Protocol>endpoint-protocol</Protocol>
-    <IdleTimeoutInMinutes>15</IdleTimeoutInMinutes>
-    <EnableDirectServerReturn>enable-direct-server-return</EnableDirectServerReturn>
-    <EndpointACL>
-        <Rules>
-        <Rule>
-            <Order>priority-of-the-rule</Order>
-            <Action>permit-rule</Action>
-            <RemoteSubnet>subnet-of-the-rule</RemoteSubnet>
-            <Description>description-of-the-rule</Description>
-        </Rule>
-        </Rules>
-    </EndpointACL>
-    </InputEndpoint>
-</LoadBalancedEndpointList>
-```
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 [Présentation de l’équilibrage de charge interne](load-balancer-internal-overview.md)

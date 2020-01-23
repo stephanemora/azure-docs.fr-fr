@@ -1,5 +1,5 @@
 ---
-title: Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs | Documents Microsoft
+title: Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs
 description: Découvrez comment attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/05/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 2e168867ed342fb0b0545b5fdc330ba790f78de0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e6b470c55815255c50a42821b0bf52219d890206
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304437"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170076"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs
 [Azure Disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gère les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.
@@ -35,7 +35,7 @@ Avant d’attacher un disque de données, lisez les conseils suivants :
 ### <a name="attach-a-new-disk"></a>Attacher un nouveau disque
 Suivez ces étapes pour créer et attacher un disque de données managé à une machine virtuelle dans Azure DevTest Labs.
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires. 
 1. Dans la liste de **Mes machines virtuelles**, sélectionnez-en une en cours d’exécution.

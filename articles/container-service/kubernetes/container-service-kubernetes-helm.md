@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Déployer des conteneurs avec Helm dans Azure Kubernetes
 description: Utiliser l’outil d’empaquetage Helm pour déployer des conteneurs sur un cluster Kubernetes dans Azure Container Service
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712264"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271080"
 ---
 # <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(DÉCONSEILLÉ) Utiliser Helm pour déployer des conteneurs sur un cluster Kubernetes
 
@@ -30,7 +28,7 @@ Helm comprend deux composants :
 
 * **Tiller** est un serveur qui s’exécute sur le cluster Kubernetes et gère le cycle de vie de vos applications Kubernetes 
  
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * [Déployer un cluster Kubernetes](container-service-kubernetes-walkthrough.md) dans Azure Container Service
 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: e77bf5226a216c04beae86a23f1c08303d56db94
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534097"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982456"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -61,7 +61,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 
 Les objets TabularDataset permettent de charger les données dans un DataFrame pandas ou spark afin que vous puissiez travailler avec des bibliothèques d’entraînement et de préparation des données familières. Pour tirer parti de cette fonctionnalité, vous pouvez transmettre un TabularDataset en tant qu’entrée dans votre configuration d’entraînement, puis le récupérer dans votre script.
 
-Pour ce faire, accédez au jeu de données d’entrée par le biais de l’objet [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) dans votre script d’entraînement et utilisez la méthode [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--). 
+Pour ce faire, accédez au jeu de données d’entrée par le biais de l’objet [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) dans votre script d’entraînement et utilisez la méthode [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--). 
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -188,11 +188,12 @@ y_test = load_data(y_test, True).reshape(-1)
 
 ## <a name="notebook-examples"></a>Exemples de notebooks
 
-Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent et développent les concepts abordés dans cet article. 
+Les [notebooks de jeux de données](https://aka.ms/dataset-tutorial) illustrent et développent les concepts abordés dans cet article.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Entraîner automatiquement des modèles Machine Learning](how-to-auto-train-remote.md) avec des TabularDatasets.
+* [Entraîner automatiquement des modèles Machine Learning](how-to-auto-train-remote.md) avec des TabularDatasets
 
-* [Entraîner des modèles de classification d’image](https://aka.ms/filedataset-samplenotebook) avec des FileDatasets.
+* [Entraîner des modèles de classification d’image](https://aka.ms/filedataset-samplenotebook) avec des FileDatasets
 
+* [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md)

@@ -8,17 +8,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 8cefd8357893657d94959cb853004b34b0ec9d8d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f4d180dd6ad99d5bc00e6970e22b756aa26275da
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505842"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76268225"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Clé de démarrage.
-* Importez l’application [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) à partir du référentiel GitHub cognitive-services-language-understanding.
+* Une clé de démarrage.
+* Importez l’application [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) à partir du dépôt GitHub cognitive-services-language-understanding.
 * L’ID d’application LUIS pour l’application TravelAgent importée. L’ID d’application est indiqué dans le tableau de bord de l’application.
 * L’ID de version dans l’application qui reçoit les énoncés. L’ID par défaut est « 0.1 ».
 * [Python 3.6](https://www.python.org/downloads/) ou version ultérieure.
@@ -34,9 +34,9 @@ ms.locfileid: "73505842"
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 
-## <a name="change-model-programmatically"></a>Modifier le modèle par programmation
+## <a name="change-model-programmatically"></a>Changer le modèle programmatiquement
 
-Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v3-authoring) d’entité issue de l’apprentissage automatique. 
+Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v3-authoring) d’entité issue du Machine Learning. 
 
 1. Créez un nouveau fichier appelé `model.py`. Ajoutez le code suivant :
 
@@ -55,8 +55,8 @@ Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v
     # The version number of your LUIS app
     LUIS_APP_VERSION = "0.1"
     
-    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/examples'
-    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_ID}/train'
+    URI_AddUtterances = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/examples'
+    URI_Train = f'https://{LUIS_ENDPOINT}/luis/authoring/v3.0-preview/apps/{LUIS_APP_ID}/versions/{LUIS_APP_VERSION}/train'
     
     HEADERS = {'Ocp-Apim-Subscription-Key': LUIS_authoringKey}
     
@@ -92,7 +92,7 @@ Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v
 
 [!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous aurez fini de suivre ce guide de démarrage rapide, supprimez le fichier du système de fichiers. 
 

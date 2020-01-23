@@ -4,12 +4,12 @@ description: Forum aux questions sur Service Fabric, fonctionnalités, cas d’u
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614636"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293519"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -183,4 +183,4 @@ Consultez le [blog Service Fabric](https://blogs.msdn.microsoft.com/azureservice
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les [principaux concepts](service-fabric-technical-overview.md) et les [meilleurs pratiques](service-fabric-best-practices-overview.md) ice Fabric concepts](service-fabric-technical-overview.md) de [Service Fabric](service-fabric-best-practices-overview.md)
+En savoir plus sur les [principaux concepts](service-fabric-technical-overview.md) et les [meilleures pratiques de Service Fabric](service-fabric-best-practices-overview.md)

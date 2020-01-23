@@ -191,6 +191,9 @@
         - name: Étiqueter les images
           displayName: 'data, dataset, labeling'
           href: how-to-label-images.md
+        - name: Créer des jeux de données avec des étiquettes
+          displayName: 'data, labels, torchvision'
+          href: how-to-use-labeled-dataset.md
     - name: Entraîner des modèles
       items:
         - name: Utiliser le concepteur

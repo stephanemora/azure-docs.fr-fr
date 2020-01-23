@@ -1,27 +1,21 @@
 ---
-title: Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure | Microsoft Docs
+title: Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
 description: En savoir plus sur les différentes méthodes de mise à l’échelle automatique d’un groupe de machines virtuelles identiques Azure définies en fonction des performances ou selon une planification fixe
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eb96be187502afcccfd3fb2c88f709facfbc3b59
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883668"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278137"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Vue d’ensemble de la mise à l’échelle automatique avec des groupes de machines virtuelles identiques Azure
 Un groupe de machines virtuelles identiques Azure peut augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle qui exécutent votre application. Ce comportement élastique et automatisé réduit la charge de gestion pour analyser et optimiser les performances de votre application. Vous créez des règles qui définissent les performances acceptables pour une expérience utilisateur positive. Lorsque les seuils définis sont respectés, les règles de mise à l’échelle automatique prennent des mesures pour ajuster la capacité de votre groupe identique. Vous pouvez également planifier des événements qui augmentent ou diminuent automatiquement la capacité de votre groupe identique à des moments donnés. Cet article fournit une vue d’ensemble des mesures de performance disponibles et des actions réalisables par la mise à l’échelle automatique.
@@ -40,9 +34,9 @@ Vous pouvez créer des règles de mise à l’échelle automatique qui intègren
 
 Les règles de mise à l’échelle qui utilisent des indicateurs basés sur les hôtes peuvent être créées avec l’un des outils suivants :
 
-- [Portail Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure portal](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Interface de ligne de commande Azure](tutorial-autoscale-cli.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
 - [Modèle Azure](tutorial-autoscale-template.md)
 
 Pour créer des règles de mise à l’échelle automatique qui utilisent des mesures de performance plus détaillées, vous pouvez [installer et configurer l’extension des diagnostics Azure](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) sur les instances de machine virtuelle, ou [configurer votre application à l’aide d’Application Insights](#application-level-metrics-with-app-insights).
@@ -79,23 +73,23 @@ Lorsque vous créez des règles de mise à l’échelle automatique pour surveil
 
 | Type d’agrégation |
 |------------------|
-| Moyenne          |
-| Minimale          |
+| Average          |
+| Minimum          |
 | Maximale          |
 | Total            |
 | Dernier             |
-| Nombre            |
+| Count            |
 
 Les règles de mise à l’échelle automatique sont alors déclenchées lorsque les mesures sont comparées à votre seuil défini avec l’un des opérateurs suivants :
 
-| Operator                 |
+| Opérateur                 |
 |--------------------------|
 | Supérieur à             |
 | Supérieur ou égal à |
 | Inférieur à                |
 | Inférieur ou égal à    |
 | Égal à                 |
-| Non égal à             |
+| Différent de             |
 
 
 ### <a name="actions-when-rules-trigger"></a>Actions lors du déclenchent des règles
@@ -139,7 +133,7 @@ Les exemples suivants sont des scénarios qui peuvent bénéficier de l’utilis
 Vous pouvez créer des règles de mise à l’échelle automatique qui utilisent des indicateurs basés sur les hôtes avec l’un des outils suivants :
 
 - [Azure PowerShell](tutorial-autoscale-powershell.md)
-- [Interface de ligne de commande Azure](tutorial-autoscale-cli.md)
+- [Azure CLI](tutorial-autoscale-cli.md)
 - [Modèle Azure](tutorial-autoscale-template.md)
 
 Cette présentation vous a appris à utiliser des règles de mise à l’échelle automatique pour mettre à l’échelle horizontalement, et augmenter ou diminuer le *nombre* d’instances de machines virtuelles dans votre groupe identique. Vous pouvez également mettre à l’échelle verticalement pour augmenter ou diminuer la *taille* d’instance de machine virtuelle. Pour plus d’informations, voir [Mise à l’échelle verticale avec des groupes de machines virtuelles identiques](virtual-machine-scale-sets-vertical-scale-reprovision.md).

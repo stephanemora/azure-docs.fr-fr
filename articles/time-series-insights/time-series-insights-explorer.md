@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: f6fafb2d4d363ee0d01d5bd9f18a1294ae8110b7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b8c2ba54fcc69ba126bf5f68aed99b25f8156155
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327713"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046178"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Explorateur Azure Time Series Insights
 
@@ -35,13 +35,13 @@ Azure Time Series Insights est un service entièrement managé d’analyse, de s
 > [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 >[!NOTE]
->Regardez la vidéo précédente <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">Getting started with Time Series Insights using an Azure IoT Solution Accelerator</a> (Prise en main de Time Series Insights avec un accélérateur de solution Azure IoT).
+>Regardez la vidéo précédente <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">« Getting started with Time Series Insights using an Azure IoT Solution Accelerator »</a> (Bien démarrer avec Time Series Insights en utilisant un accélérateur de solution Azure IoT).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de pouvoir utiliser l’Explorateur Time Series Insights, vous devez :
 
-- Créez un environnement Time Series Insights. Pour plus d’informations, consultez [Comment prendre en main Time Series Insights](./time-series-insights-get-started.md).
+- Créez un environnement Time Series Insights. Pour plus d’informations, consultez [Bien démarrer avec Time Series Insights](./time-series-insights-get-started.md).
 - [Fournissez l’accès](time-series-insights-data-access.md) à votre compte dans l’environnement.
 - Ajoutez-y une source [hub IoT](time-series-insights-how-to-add-an-event-source-iothub.md) ou un [hub d’événement](time-series-insights-how-to-add-an-event-source-eventhub.md).
 
@@ -51,7 +51,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
 1. Pour démarrer, ouvrez l’[Explorateur Time Series Insights](https://insights.timeseries.azure.com/) dans votre navigateur web. Sur le côté gauche de la fenêtre, sélectionnez un environnement. Tous les environnements auxquels vous avez accès sont répertoriés par ordre alphabétique.
 
-1. Une fois que vous sélectionnez un environnement, utilisez les configurations **From** (À partir de) et **To** (Vers) en haut, ou cliquez et faites glisser l’intervalle de temps souhaité. Sélectionnez la loupe en haut à droite, ou cliquez avec le bouton droit sur l’intervalle de temps sélectionné et sélectionnez **Rechercher**.
+1. Après avoir sélectionné un environnement, utilisez les configurations **From** (À partir de) et **To** (Vers) en haut, ou sélectionnez et faites glisser l’intervalle de temps souhaité. Sélectionnez la loupe en haut à droite, ou cliquez avec le bouton droit sur l’intervalle de temps sélectionné et sélectionnez **Rechercher**.
 
 1. Vous pouvez également actualiser la disponibilité automatiquement toutes les minutes, en sélectionnant le bouton **Activer automatiquement**. Le bouton **Activer automatiquement** s’applique uniquement au graphique de disponibilité, pas au contenu de la visualisation principale.
 
@@ -59,7 +59,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
    [![Sélection de l’environnement Time Series Insights](media/time-series-insights-explorer/tsi-ga-explorer-environments.png)](media/time-series-insights-explorer/tsi-ga-explorer-environments.png#lightbox)
 
-1. Ensuite, vous voyez un graphique qui affiche le nombre total d’événements pendant la période sélectionnée. Vous avez plusieurs commandes disponibles :
+1. Ensuite, un graphique s’affiche, montrant le nombre total d’événements pendant la période sélectionnée. Vous avez plusieurs commandes disponibles :
 
     - **Panneau de l’éditeur de termes** : L’espace de terme correspond à l’endroit où vous interrogez votre environnement. Vous le trouverez sur le côté gauche de l’écran :
       - **MESURE** : Cette liste déroulante affiche toutes les colonnes numériques (**doubles**).
@@ -82,11 +82,11 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
          [![Exemples de requêtes GA](media/time-series-insights-explorer/tsi-ga-example-queries.png)](media/time-series-insights-explorer/tsi-ga-example-queries.png#lightbox)
 
-1. Vous pouvez utiliser l’outil curseur **Taille de l’intervalle** pour effectuer un zoom/zoom arrière sur les intervalles pour le même intervalle. Ce curseur fournit un contrôle plus précis du déplacement entre les tranches de temps volumineuses qui montrent les tendances lissées, jusqu’à tranches aussi petites que la milliseconde, ce qui vous permet de voir des morceaux granulaires, haute résolution de vos données. Le point de départ par défaut du curseur est défini comme la vue optimale des données à partir de votre sélection afin d’équilibrer la résolution, la vitesse de la requête et la granularité.
+1. Vous pouvez utiliser l’outil curseur **Taille de l’intervalle** pour effectuer un zoom/zoom arrière sur les intervalles pour le même intervalle. Ce curseur fournit un contrôle plus précis du déplacement entre des grandes tranches de temps qui montrent des tendances lissées pour des tranches se réduisant jusqu’à la milliseconde, ce qui vous permet de visualiser et d’analyser des segments précis de vos donnés avec une haute résolution. Le point de départ par défaut du curseur est défini comme la vue optimale des données à partir de votre sélection afin d’équilibrer la résolution, la vitesse de la requête et la granularité.
 
 1. L’outil **Balayage temporel** simplifie la navigation entre intervalles.
 
-1. Sélectionnez l’icône **Enregistrer** pour enregistrer votre requête actuelle et la partager avec d’autres utilisateurs de l’environnement. En sélectionnant l’icône **Ouvrir**, vous pouvez voir toutes vos requêtes enregistrées et toutes les requêtes partagées des autres utilisateurs dans les environnements auxquels vous avez accès.
+1. Sélectionnez l’icône **Enregistrer** pour enregistrer votre requête actuelle et la partager avec d’autres utilisateurs de l’environnement. Quand vous sélectionnez l’icône **Ouvrir**, vous pouvez passer en revue toutes vos requêtes enregistrées et toutes les requêtes partagées des autres utilisateurs dans les environnements auxquels vous avez accès.
 
    [![Requêtes](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png)](media/time-series-insights-explorer/tsi-ga-explorer-saved-queries.png#lightbox)
 
@@ -101,8 +101,8 @@ Après quelques minutes suite à la connexion de votre source d’événements �
     - **Sélectionnez** ou **cliquez sur** un intervalle de temps spécifique ou une série de données unique.
     - Dans une sélection d’intervalle, vous pouvez effectuer un zoom ou explorer les événements.
     - Au sein d’une série de données, vous pouvez fractionner la série par une autre colonne, ajouter la série en tant que nouveau terme, afficher uniquement la série sélectionnée, exclure les séries sélectionnées, effectuer un test ping sur cette série ou explorer les événements de la série sélectionnée.
-    - Dans la zone de filtre à gauche du graphique, vous pouvez voir toutes les séries de données affichées et les réorganiser par valeur ou par nom. Vous pouvez aussi afficher toutes les séries de données ou des séries épinglées ou non épinglées. Vous pouvez sélectionner une seule série de données et fractionner la série par une autre colonne, ajouter la série en tant que nouveau terme, afficher uniquement la série sélectionnée, exclure les séries sélectionnées, effectuer un test ping sur cette série ou explorer les événements de la série sélectionnée.
-    - Lorsque vous affichez plusieurs termes simultanément, vous pouvez empiler, désempiler et voir des données supplémentaires sur une série de données et utiliser le même axe des ordonnées sur tous les termes du contrat. Utilisez les boutons dans le coin supérieur droit du graphique.
+    - Dans la zone de filtre à gauche du graphique, vous pouvez passer en revue toutes les séries de données affichées, et les réorganiser par valeur ou par nom. Vous pouvez aussi afficher toutes les séries de données ou des séries épinglées ou non épinglées. Vous pouvez sélectionner une seule série de données et fractionner la série par une autre colonne, ajouter la série en tant que nouveau terme, afficher uniquement la série sélectionnée, exclure les séries sélectionnées, effectuer un test ping sur cette série ou explorer les événements de la série sélectionnée.
+    - Quand vous affichez plusieurs termes simultanément, vous pouvez empiler, désempiler et passer en revue des données supplémentaires sur une série de données, et utiliser le même axe des ordonnées sur tous les termes. Utilisez les boutons dans le coin supérieur droit du graphique.
 
     [![Paramètres des options de l’outil graphique dans le coin supérieur droit ](media/time-series-insights-explorer/tsi-ga-example-chart-options.png)](media/time-series-insights-explorer/tsi-ga-example-chart-options.png#lightbox)
 
@@ -110,7 +110,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
     [![Graphique de la carte thermique de l’Explorateur GA ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
-1. Lorsque vous explorez des événements en les sélectionnant ou en cliquant dessus, le panneau **ÉVÉNEMENTS** est affiché. Ici, vous pouvez voir tous les événements bruts et exporter vos événements sous forme de fichiers JSON ou CSV. Time Series Insights stocke toutes les données brutes.
+1. Lorsque vous explorez des événements en les sélectionnant ou en cliquant dessus, le panneau **ÉVÉNEMENTS** est affiché. Ici, vous pouvez passer en revue tous les événements bruts, et exporter vos événements sous forme de fichiers JSON ou CSV. Time Series Insights stocke toutes les données brutes.
 
     [![Événements](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png)](media/time-series-insights-explorer/tsi-ga-explorer-events-panel.png#lightbox)
 
@@ -121,7 +121,7 @@ Après quelques minutes suite à la connexion de votre source d’événements �
 
       [![Graphiques et options de la colonne STATISTIQUES](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png)](media/time-series-insights-explorer/tsi-ga-explorer-stat-column.png#lightbox)
 
-Vous avez maintenant vu les différentes fonctionnalités et options disponibles dans l’application web de l’Explorateur Time Series Insights.
+Vous avez maintenant découvert les fonctionnalités clés, les paramètres de configuration et les options d’affichage disponibles dans l’application web Explorateur Time Series Insights.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -309,7 +309,7 @@
                   href: vmware-physical-mobility-service-overview.md
                 - name: Préparer l’installation Push du service Mobilité
                   href: vmware-azure-install-mobility-service.md
-                - name: Déployer le service Mobilité avec System Center Configuration Manager
+                - name: Déployer le service Mobilité avec Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Exécuter un basculement et une restauration automatique
           href: physical-to-azure-failover-failback.md

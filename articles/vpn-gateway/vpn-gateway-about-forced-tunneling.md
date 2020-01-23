@@ -1,26 +1,18 @@
 ---
-title: 'Configurer le tunneling forcé pour les connexions de site à site Azure : modèle de déploiement classique | Microsoft Docs'
+title: 'Passerelle VPN Azure : Configurer le tunneling forcé - Connexions de site à site : classique'
 description: Comment rediriger ou « forcer » tout le trafic Internet vers votre emplacement local.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: timlt
-editor: ''
-tags: azure-service-management
-ms.assetid: 5c0177f1-540c-4474-9b80-f541fa44240b
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 08/01/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0955d95ebfd9e1f72ed1da577bf3520a70b71624
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6b31555215f4f2efc63d0e1df0a7b4bf13a43924
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60506011"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834583"
 ---
 # <a name="configure-forced-tunneling-using-the-classic-deployment-model"></a>Configuration du tunneling forcé à l’aide du modèle de déploiement classique
 

@@ -7,12 +7,12 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269473"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029928"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Utiliser l’émulateur Azurite à des fins de développement et de test pour le Stockage Azure (préversion)
 
@@ -282,6 +282,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### <a name="loose-mode"></a>Mode relâché
+
+**Facultatif** Par défaut, Azurite applique le mode strict pour bloquer les en-têtes et les paramètres de requête non pris en charge. Désactivez le mode strict en utilisant le commutateur **--loose**.
+
+```console
+azurite --loose
+```
+
+Notez que le raccourci du commutateur est un « L » majuscule :
+
+```console
+azurite -L
+```
+
 ## <a name="authorization-for-tools-and-sdks"></a>Autorisation pour les outils et les kits SDK
 
 Connectez-vous à Azurite à partir des kits SDK ou des outils du service Stockage Azure, par exemple l’[Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/), à l’aide d’une stratégie d’authentification. L’authentification est obligatoire. Azurite prend en charge l’autorisation basée sur une clé partagée et les SAP (signatures d’accès partagé). Azurite prend également en charge l’accès anonyme aux conteneurs publics.
@@ -307,6 +321,33 @@ La méthode la plus simple pour vous connecter à Azurite à partir de votre app
 ```
 
 Pour plus d’informations, consultez [Configuration des chaînes de connexion Stockage Azure](storage-configure-connection-string.md).
+
+### <a name="custom-storage-accounts-and-keys"></a>Comptes et clés de stockage personnalisés
+
+Azurite prend en charge les noms de compte et les clés de stockage personnalisés via la définition de la variable d’environnement `AZURITE_ACCOUNTS` au format suivant : `account1:key1[:key2];account2:key1[:key2];...`.
+
+Par exemple, utilisez un compte de stockage personnalisé qui a une clé :
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+Vous pouvez aussi utiliser plusieurs comptes de stockage avec 2 clés chacun :
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+Par défaut, Azurite actualise les noms de compte et les clés personnalisés à partir de la variable d’environnement toutes les minutes. Avec cette fonctionnalité, vous pouvez effectuer dynamiquement une rotation de la clé de compte ou ajouter de nouveaux comptes de stockage sans redémarrer Azurite.
+
+> [!NOTE]
+> Le compte de stockage `devstoreaccount1` par défaut est désactivé quand vous définissez des comptes de stockage personnalisés.
+
+> [!NOTE]
+> Mettez à jour la chaîne de connexion en conséquence lors de l’utilisation de noms et de clés de compte personnalisés.
+
+> [!NOTE]
+> Utilisez le mot clé `export` pour définir des variables d’environnement dans un environnement Linux ; dans Windows, utilisez `set`.
 
 ### <a name="storage-explorer"></a>Explorateur Stockage
 

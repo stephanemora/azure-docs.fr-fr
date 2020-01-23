@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917197"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291582"
 ---
 # <a name="authentication-flows"></a>Flux d’authentification
 
@@ -32,9 +32,9 @@ Cet article décrit les différents flux d’authentification fournis par Micros
 | [Code d’autorisation](#authorization-code) | Peut servir dans les applications qui sont installées sur un périphérique pour accéder à des ressources protégées, comme des API web. Cela vous permet d’ajouter un accès de connexion et d’API à vos applications mobiles et de bureau. | [Applications de bureau](scenario-desktop-overview.md), [applications mobiles](scenario-mobile-overview.md), [applications web](scenario-web-app-call-api-overview.md) | 
 | [On-behalf-of](#on-behalf-of) | Une application appelle un service ou une API web, qui à son tour doit appeler un autre service ou une autre API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. | [API web](scenario-web-api-call-api-overview.md) |
 | [Informations d’identification du client](#client-credentials) | Vous permet d’accéder aux ressources hébergées sur le web à l’aide de l’identité d’une application. Couramment utilisé pour les interactions de serveur à serveur qui doivent s’exécuter en arrière-plan sans l’interaction immédiate d’un utilisateur. | [Applications démon](scenario-daemon-overview.md) |
-| [Code d’appareil](#device-code) | Permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Code d’appareil](#device-code) | Permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Authentification Windows intégrée](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Permet aux applications sur des ordinateurs joints à un domaine ou à Azure Active Directory (Azure AD) d’obtenir un jeton silencieusement (sans interaction de l’utilisateur avec l’interface utilisateur).| [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Nom d’utilisateur/mot de passe](scenario-desktop-acquire-token.md#username--password) | Permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Ce flux n’est pas recommandé. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#username--password) |
+| [Nom d’utilisateur/mot de passe](scenario-desktop-acquire-token.md#username-and-password) | Permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Ce flux n’est pas recommandé. | [Applications de bureau/mobiles](scenario-desktop-acquire-token.md#username-and-password) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Comment chaque flux émet des jetons et des codes
  
@@ -203,7 +203,7 @@ Le flux d’authentification Windows intégrée est activé pour les application
   
 Pour plus d’informations sur le consentement, consultez [Autorisations et consentement dans v2.0](v2-permissions-and-consent.md).
 
-## <a name="usernamepassword"></a>Nom d’utilisateur/mot de passe
+## <a name="usernamepassword"></a>Nom d'utilisateur/mot de passe
 
 MSAL prend en charge l’[octroi des informations d’identification de mot de passe du propriétaire des ressources OAuth 2](v2-oauth-ropc.md), qui permet à une application de connecter l’utilisateur en gérant directement son mot de passe. Dans votre application de bureau, vous pouvez utiliser le flux de nom d’utilisateur/mot de passe pour acquérir un jeton silencieusement. Aucune interface utilisateur n’est requise lorsque vous utilisez l’application.
 
@@ -227,7 +227,7 @@ Même si cette méthode peut parfois s’avérer utile (scénarios DevOps), si v
 
 En dehors des [contraintes inhérentes à l’authentification Windows intégrée](#integrated-windows-authentication), les contraintes suivantes s’appliquent :
 
-- Le flux de nom d’utilisateur/mot de passe n’est pas compatible avec l’accès conditionnel et l’authentification multifacteur. Par conséquent, si votre application s’exécute dans un locataire Azure AD pour lequel l’administrateur de locataires exige une authentification multifacteur, vous ne pouvez pas utiliser ce flux. De nombreuses organisations procèdent ainsi.
+- Le flux de nom d’utilisateur/mot de passe n’est pas compatible avec l’accès conditionnel et l’authentification multifacteur. Par conséquent, si votre application s’exécute dans un locataire Azure AD pour lequel l’administrateur de locataires exige une authentification multifacteur, vous ne pouvez pas utiliser ce flux. De nombreuses organisations font cela.
 - Cela fonctionne uniquement pour les comptes professionnels et scolaires (pas les comptes Microsoft).
 - Ce flux est disponible sur les applications de bureau .NET et .NET Core, mais pas sur la plateforme Windows universelle.
 

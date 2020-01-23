@@ -1,25 +1,18 @@
 ---
-title: Résoudre les problèmes de connexion VPN de site à site Azure | Microsoft Docs
+title: 'Résoudre les problèmes de connexion VPN de site à site Azure : Passerelle VPN Azure'
 description: Découvrez comment résoudre un problème de connexion VPN de site à site qui cesse soudainement de fonctionner sans possibilité de reconnexion.
 services: vpn-gateway
-documentationcenter: na
 author: chadmath
-manager: dcscontentpm
-editor: ''
-tags: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: genli
-ms.openlocfilehash: e196c4b512de3fac97347e4c252b697ed6818227
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4e827c5f6eedc819bc3635cb09a28f65df51312c
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058870"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75862575"
 ---
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Résolution des problèmes : la connexion VPN site à site Azure cesse de fonctionner
 
@@ -53,7 +46,7 @@ Comparez la clé partagée du périphérique VPN local et celle du VPN de résea
 
 Pour afficher la clé partagée dans l’optique de la connexion VPN Azure, utilisez l’une des méthodes suivantes :
 
-**Portail Azure**
+**Azure portal**
 
 1. Accédez à la connexion de site à site de passerelle VPN que vous avez créée.
 
@@ -78,7 +71,7 @@ Pour le modèle de déploiement classique :
 -   La définition de l’adresse IP dans l’objet **Passerelle de réseau local** dans Azure doit correspondre à l’adresse IP de l’appareil local.
 -   La définition de l’adresse IP de la passerelle Azure qui est configurée sur l’appareil local doit correspondre à l’adresse IP de la passerelle Azure.
 
-### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Étape 4. Vérifier les paramètres d’itinéraire défini par l’utilisateur et des groupes de sécurité réseau sur le sous-réseau de passerelle
+### <a name="step-4-check-udr-and-nsgs-on-the-gateway-subnet"></a>Étape 4. Vérifier les paramètres d’itinéraire défini par l’utilisateur et des groupes de sécurité réseau sur le sous-réseau de passerelle
 
 Recherchez et supprimez l’itinéraire défini par l’utilisateur (UDR) ou les groupes de sécurité réseau (NSG) sur le sous-réseau de passerelle, puis testez le résultat. Si le problème est résolu, validez les paramètres de l’itinéraire défini par l’utilisateur ou des groupes de sécurité réseau appliqués.
 

@@ -1,6 +1,6 @@
 - name: Documentation Spatial Anchors
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Spatial Anchors
       href: overview.md
@@ -40,7 +40,7 @@
       href: tutorials/tutorial-new-unity-hololens-app.md
     - name: Démarrage d’une nouvelle application Android
       href: tutorials/tutorial-new-android-app.md
-- name: Procédure
+- name: Procédures
   items:
     - name: Créer et localiser des ancres
       href: create-locate-anchors-overview.md
@@ -57,7 +57,7 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: En C++/WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: Utiliser des capteurs sur l’appareil pour découvrir les points d’ancrage proches
+    - name: Utiliser la relocalisation grossière pour découvrir des ancres à proximité
       items:
         - name: 'En C#/Unity'
           href: how-tos/set-up-coarse-reloc-unity.md
@@ -87,7 +87,7 @@
       href: concepts/logging-diagnostics.md
     - name: Relocalisation grossière
       href: concepts/coarse-reloc.md
-- name: Références
+- name: References
   items:
     - name: Kit SDK pour Unity
       href: 'https://docs.microsoft.com/dotnet/api/Microsoft.Azure.SpatialAnchors/'
@@ -105,7 +105,7 @@
       href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
     - name: API REST pour la gestion des ressources Azure Mixed Reality
       href: 'https://docs.microsoft.com/rest/api/mixedreality/'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: spatial-anchor-faq.md
     - name: Indiquer des commentaires sur le produit
       href: 'https://feedback.azure.com/forums/919252-azure-spatial-anchors'

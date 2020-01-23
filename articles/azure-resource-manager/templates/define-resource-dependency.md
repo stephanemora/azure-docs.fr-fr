@@ -3,12 +3,12 @@ title: Définir l’ordre de déploiement des ressources
 description: Décrit la procédure permettant de définir une ressource comme dépendante d’une autre ressource au cours du déploiement afin de garantir le déploiement des ressources dans l'ordre adéquat.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd988670b5fa6a0e602b50d9c25dd6dad6b3b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44cf793859d2817695a58bd1159e2f4465c1f9c2
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476555"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121962"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Définir l’ordre de déploiement des ressources dans les modèles Azure Resource Manager
 
@@ -25,9 +25,9 @@ L’exemple suivant montre un groupe identique de machines virtuelles dépendant
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "apiVersion": "2016-03-30",
   "name": "[variables('namingInfix')]",
   "location": "[variables('location')]",
-  "apiVersion": "2016-03-30",
   "tags": {
     "displayName": "VMScaleSet"
   },
@@ -65,12 +65,12 @@ L'exemple suivant montre un serveur SQL et une base de données SQL. Notez qu'un
 "resources": [
   {
     "name": "[variables('sqlserverName')]",
+    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
     "location": "[resourceGroup().location]",
     "tags": {
       "displayName": "SqlServer"
     },
-    "apiVersion": "2014-04-01-preview",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
@@ -78,15 +78,15 @@ L'exemple suivant montre un serveur SQL et une base de données SQL. Notez qu'un
     "resources": [
       {
         "name": "[parameters('databaseName')]",
+        "apiVersion": "2014-04-01-preview",
         "type": "databases",
         "location": "[resourceGroup().location]",
-        "tags": {
-          "displayName": "Database"
-        },
-        "apiVersion": "2014-04-01-preview",
         "dependsOn": [
           "[variables('sqlserverName')]"
         ],
+        "tags": {
+          "displayName": "Database"
+        },
         "properties": {
           "edition": "[parameters('edition')]",
           "collation": "[parameters('collation')]",
@@ -120,15 +120,15 @@ Dans l’exemple suivant, un point de terminaison CDN dépend explicitement du p
 ```json
 {
     "name": "[variables('endpointName')]",
+    "apiVersion": "2016-04-02",
     "type": "endpoints",
     "location": "[resourceGroup().location]",
-    "apiVersion": "2016-04-02",
     "dependsOn": [
-            "[variables('profileName')]"
+      "[variables('profileName')]"
     ],
     "properties": {
-        "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
-        ...
+      "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
+      ...
     }
 ```
 
@@ -152,6 +152,6 @@ Pour plus d’informations sur l’évaluation de l’ordre de déploiement et l
 * Pour un didacticiel, consultez [Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes](template-tutorial-create-templates-with-dependent-resources.md).
 * Pour obtenir des recommandations lors de la définition des dépendances, consultez [Bonnes pratiques relatives aux modèles Azure Resource Manager](template-best-practices.md).
 * Pour en savoir plus sur la résolution des problèmes liés aux dépendances lors du déploiement, consultez [Résolution des erreurs courantes dans des déploiements Azure avec Azure Resource Manager](common-deployment-errors.md).
-* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md). 
+* Pour en savoir plus sur la création de modèles Azure Resource Manager, consultez [Création de modèles](template-syntax.md).
 * Pour obtenir la liste des fonctions disponibles dans un modèle, consultez [Fonctions de modèle](template-functions.md).
 

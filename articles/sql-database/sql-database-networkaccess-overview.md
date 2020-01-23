@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 44fcaa0a4292ac86c7371c27f29faf0e7246e9d5
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802938"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75894790"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Contrôles d’accès réseau Azure SQL Database et Data Warehouse
 
@@ -47,30 +47,59 @@ Vous pouvez aussi changer ce paramètre via le volet du pare-feu une fois le ser
 
 Quand la valeur est définie sur **ACTIVÉ**, Azure SQL Server autorise les communications à partir de toutes les ressources situées dans la limite Azure, qu’elles fassent partie de votre abonnement ou non.
 
-Dans de nombreux cas, le paramètre **ACTIVÉ** est plus permissif que ce que souhaite la plupart des clients, donc ceux-ci voudront peut-être définir ce paramètre sur **DÉSACTIVÉ** et le remplacer par des règles de pare-feu IP ou des règles de pare-feu de réseau virtuel plus restrictives. Procéder ainsi affecte les fonctionnalités suivantes :
+Dans de nombreux cas, le paramètre **ACTIVÉ** est plus permissif que ce que souhaite la plupart des clients, donc ceux-ci voudront peut-être définir ce paramètre sur **DÉSACTIVÉ** et le remplacer par des règles de pare-feu IP ou des règles de pare-feu de réseau virtuel plus restrictives. Ce choix affecte les fonctionnalités suivantes qui s’exécutent sur des machines virtuelles dans Azure qui ne font pas partie de votre réseau virtuel et qui, par conséquent, se connectent à la base de données SQL par le biais d’une adresse IP Azure.
 
 ### <a name="import-export-service"></a>Service d’importation/exportation
+Le service d’importation/exportation ne fonctionne pas. L’option **Autoriser les services Azure à accéder au serveur** est désactivée. Toutefois, vous pouvez contourner le problème [en exécutant manuellement sqlpackage.exe à partir d’une machine virtuelle Azure ou en effectuant l’exportation](https://docs.microsoft.com/azure/sql-database/import-export-from-vm) directement dans votre code à l’aide de l’API DACFx.
 
-Le service d’importation/exportation Azure SQL Database s’exécute sur des machines virtuelles dans Azure. Ces machines virtuelles, qui ne se trouvent pas dans votre réseau virtuel, obtiennent une adresse IP Azure lors de la connexion à votre base de données. Si vous supprimez la règle **Autoriser l’accès des services Azure au serveur**, ces machines virtuelles ne seront plus en mesure d’accéder à vos bases de données.
-Vous pouvez contourner le problème en exécutant le service d’importation/exportation BACPAC directement dans votre code à l’aide de l’API DACFx.
+### <a name="data-sync"></a>Synchronisation des données
+Pour utiliser la fonctionnalité de synchronisation des données avec l’option **Autoriser les services Azure à accéder au serveur** désactivée, vous devez créer des entrées de règle de pare-feu individuelles pour [ajouter des adresses IP](sql-database-server-level-firewall-rule.md) à partir de la **balise du service SQL** pour la région hébergeant la base de données **Hub**.
+Ajoutez ces règles de pare-feu au niveau du serveur aux serveurs logiques hébergeant à la fois des bases de données **Hub** et **Member** (qui peuvent être dans des régions différentes).
 
-### <a name="sql-database-query-editor"></a>Éditeur de requêtes SQL Database
+Utilisez le script PowerShell suivant pour générer les adresses IP correspondant à la balise du service SQL pour la région USA Ouest.
+```powershell
+PS C:\>  $serviceTags = Get-AzNetworkServiceTag -Location eastus2
+PS C:\>  $sql = $serviceTags.Values | Where-Object { $_.Name -eq "Sql.WestUS" }
+PS C:\> $sql.Properties.AddressPrefixes.Count
+70
+PS C:\> $sql.Properties.AddressPrefixes
+13.86.216.0/25
+13.86.216.128/26
+13.86.216.192/27
+13.86.217.0/25
+13.86.217.128/26
+13.86.217.192/27
+```
 
-L’éditeur de requêtes Azure SQL Database est déployé sur des machines virtuelles dans Azure. Ces machines virtuelles ne se trouvent pas dans votre réseau virtuel. Elles obtiennent donc une adresse IP Azure lors de la connexion à votre base de données. Si vous supprimez la règle **Autoriser l’accès des services Azure au serveur**, ces machines virtuelles ne seront plus en mesure d’accéder à vos bases de données.
+> [!TIP]
+> Get-AzNetworkServiceTag retourne la plage globale de la balise du service SQL malgré la spécification du paramètre Location. Veillez à la filtrer sur la région qui héberge la base de données Hub utilisée par votre groupe de synchronisation.
 
-### <a name="table-auditing"></a>Audit de table
+Notez que la sortie du script PowerShell est en notation CIDR (Classless Inter-Domain Routing) et doit être convertie au format d’adresse IP de début et de fin à l’aide de [Get-IPrangeStartEnd.ps1](https://gallery.technet.microsoft.com/scriptcenter/Start-and-End-IP-addresses-bcccc3a9) comme ceci :
+```powershell
+PS C:\> Get-IPrangeStartEnd -ip 52.229.17.93 -cidr 26                                                                   
+start        end
+-----        ---
+52.229.17.64 52.229.17.127
+```
 
-Il existe actuellement deux façons d’activer l’audit sur votre instance SQL Database. L’audit de table échoue une fois que vous avez activé des points de terminaison de service sur votre instance Azure SQL Server. Pour contourner le problème, vous pouvez utiliser un audit d’objets blob.
+Effectuez les étapes supplémentaires suivantes pour convertir toutes les adresses IP en notation CIDR au format d’adresse IP de début et de fin.
 
-### <a name="impact-on-data-sync"></a>Impact sur la synchronisation de données
+```powershell
+PS C:\>foreach( $i in $sql.Properties.AddressPrefixes) {$ip,$cidr= $i.split('/') ; Get-IPrangeStartEnd -ip $ip -cidr $cidr;}                                                                                                                
+start          end
+-----          ---
+13.86.216.0    13.86.216.127
+13.86.216.128  13.86.216.191
+13.86.216.192  13.86.216.223
+```
+Vous pouvez maintenant les ajouter en tant que règles de pare-feu distinctes, puis définir **Autoriser les services Azure à accéder au serveur** sur OFF (désactivé).
 
-Azure SQL Database dispose de la fonctionnalité de synchronisation de données qui se connecte à vos bases de données à l’aide d’adresses IP Azure. Lorsque vous utilisez des points de terminaison de service, vous désactivez l’accès **Autoriser l’accès des services Azure au serveur** à votre serveur SQL Database et casser la fonctionnalité Synchronisation des données.
 
 ## <a name="ip-firewall-rules"></a>Règles de pare-feu IP
 Le pare-feu basé sur IP est une fonctionnalité Azure SQL Server qui empêche tout accès à votre serveur de base de données tant que vous n’avez pas [ajouté les adresses IP](sql-database-server-level-firewall-rule.md) des ordinateurs clients de manière explicite.
 
 
-## <a name="virtual-network-firewall-rules"></a>Règles de pare-feu de réseau virtuel
+## <a name="virtual-network-firewall-rules"></a>règles de pare-feu de réseau virtuel
 
 En plus des règles IP, le pare-feu Azure SQL Server vous permet de définir des *règles de réseau virtuel*.  
 Pour en savoir plus, consultez [Points de terminaison de service de réseau virtuel et règles dans Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) ou regardez cette vidéo :

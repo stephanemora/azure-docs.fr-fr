@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8c12e0ab854bb2b5764dd326e3f1649202f6f16b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4eff7c4c91ed664fcf1f4fc7a8be2d43d24e5c6b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232798"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262807"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>Orchestrateurs de singleton dans l’extension Fonctions durables (Azure Functions)
 
@@ -20,7 +20,7 @@ Pour les travaux en arrière-plan, vous avez souvent besoin de vérifier qu’un
 
 L’exemple suivant illustre une fonction de déclencheur HTTP, qui crée une orchestration singleton de travail en arrière-plan. Le code garantit que seule une instance existe pour un ID d’instance spécifié.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```cs
 [FunctionName("HttpStartSingle")]
@@ -54,9 +54,10 @@ public static async Task<HttpResponseMessage> RunSingle(
 > [!NOTE]
 > Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Voici le fichier function.json :
+**function.json**
+
 ```json
 {
   "bindings": [
@@ -82,7 +83,8 @@ Voici le fichier function.json :
 }
 ```
 
-Voici le code JavaScript :
+**index.js**
+
 ```javascript
 const df = require("durable-functions");
 
@@ -109,6 +111,8 @@ module.exports = async function(context, req) {
     }
 };
 ```
+
+---
 
 Par défaut, les ID d’instance sont des identificateurs globaux uniques générés de manière aléatoire. Cependant, dans l’exemple précédent, l’ID d’instance est passé dans les données d’itinéraire à partir de l’URL. Le code appelle `GetStatusAsync` (C#) ou `getStatus` (JavaScript) pour vérifier si une instance ayant l’ID spécifié est déjà en cours d’exécution. Si aucune instance de ce type n’est en cours d’exécution, une nouvelle instance est créée avec cet ID.
 

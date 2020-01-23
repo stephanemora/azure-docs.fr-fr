@@ -1,20 +1,18 @@
 ---
 title: (DÉPRÉCIÉ) Pools d’agents DC/OS pour Azure Container Service
 description: Fonctionnement des pools d’agents publics et privés avec un cluster Azure Container Service DC/OS
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 03cacda1aa405cb2d0ded579c8ddb5f6011ce3bb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb9b33bf537ebd5a563f8e8a8afd45cd2e5b292d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60478444"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278384"
 ---
 # <a name="deprecated-dcos-agent-pools-for-azure-container-service"></a>(DÉPRÉCIÉ) Pools d’agents DC/OS pour Azure Container Service
 

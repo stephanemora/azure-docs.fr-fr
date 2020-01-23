@@ -3,18 +3,18 @@ title: Définir vos préférences pour le portail Azure | Microsoft Docs
 description: Vous pouvez changer les paramètres par défaut du portail Azure pour appliquer vos propres préférences. Les paramètres incluent le délai d’expiration des sessions inactives, la vue par défaut, le mode de menu, le contraste, le thème, les notifications et les formats de langue et de région
 services: azure-portal
 keywords: paramètres, délai d’expiration, langue, région
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 12/19/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 0c18ccbf5d9e4884af46e088f1a4ead67f50c3f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7bcfdeec832b14eb53c0dab6cb2f53970d85c804
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75641364"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310677"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Définir vos préférences relatives au portail Azure
 

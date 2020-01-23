@@ -4,12 +4,12 @@ description: Résolvez les problèmes d’installation et d’enregistrement du 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: bf641c4ef27ce561c005709e6de94f40855b9a5f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 7fc27a2624fc38883135bdb6d2767625ab02a5a5
+ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665326"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75830205"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Résoudre les problèmes d’un serveur de sauvegarde Azure
 
@@ -46,11 +46,11 @@ Nous vous recommandons d’effectuer les validations ci-dessous avant de résoud
 | --- | --- | --- |
 | Backup | Échec de la création de points de récupération en ligne. | **Message d’erreur** : Windows Azure Backup Agent n’a pas pu créer un instantané du volume sélectionné. <br> **Solution de contournement** : augmentez la taille de l’espace dans le volume du point de récupération et le réplica.<br> <br> **Message d’erreur** : Windows Azure Backup Agent ne peut pas se connecter au service OBEngine <br> **Solution de contournement** : vérifiez qu’OBEngine existe dans la liste des services en cours d’exécution sur l’ordinateur. Si le service OBEngine n’est pas en cours d’exécution, utilisez la commande « net start OBEngine » pour le démarrer. <br> <br> **Message d’erreur** : La phrase secrète de chiffrement de ce serveur n’est pas définie. Veuillez configurer une phrase secrète de chiffrement. <br> **Solution de contournement** : essayez de configurer une phrase secrète de chiffrement. En cas d’échec, suivez les étapes ci-dessous : <br> <ol><li>Vérifiez que l’emplacement temporaire existe. L’emplacement mentionné dans la clé de Registre **HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config** qui porte le nom **ScratchLocation** doit exister.</li><li> Si l’emplacement temporaire existe, enregistrez à nouveau l’ancienne phrase secrète. *Chaque fois que vous configurez une phrase secrète de chiffrement, enregistrez-la dans un emplacement sécurisé.*</li><ol>|
 
-## <a name="the-vault-credentials-provided-are-different-from-the-vault-the-server-is-registered"></a>Les informations d’identification du coffre fournies ne correspondent pas au coffre auprès duquel le serveur est enregistré.
+## <a name="the-original-and-external-dpm-servers-must-be-registered-to-the-same-vault"></a>Les serveurs DPM d’origine et externe doivent être inscrits dans le même coffre
 
 | Opération | Détails de l’erreur | Solution de contournement |
 | --- | --- | --- |
-| Restaurer | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les informations d’identification du coffre fournies ne correspondent pas au coffre auprès duquel le serveur est enregistré. | **Cause** : Ce problème se produit quand vous essayez de restaurer des fichiers sur un autre serveur que le serveur d’origine à l’aide de l’option de récupération DPM externe, et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
+| Restaurer | **Code d’erreur** : CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Message d’erreur** : Les serveurs DPM d’origine et externe doivent être inscrits dans le même coffre | **Cause** : Ce problème se produit quand vous essayez de restaurer des fichiers sur un autre serveur que le serveur d’origine à l’aide de l’option de récupération DPM externe, et si le serveur en cours de récupération et le serveur d’origine à partir duquel les données sont sauvegardées ne sont pas associés au même coffre Recovery Services.<br/> <br/>**Solution de contournement** Pour résoudre ce problème, assurez-vous que le serveur d'origine et l'autre serveur sont enregistrés dans le même coffre.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>Les tâches de création de points de récupération en ligne pour les machines virtuelles VMware échouent.
 

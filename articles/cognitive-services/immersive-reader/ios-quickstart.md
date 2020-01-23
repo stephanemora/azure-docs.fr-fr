@@ -8,18 +8,18 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: b82a86d6a3f7b2afd8feee18a863e34b7a6079a4
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 7f46f7697207fe194f4fb7c3584c40c87abdb727
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945461"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514202"
 ---
 # <a name="quickstart-create-an-ios-app-that-launches-the-immersive-reader-swift"></a>Démarrage rapide : Créer une application iOS qui lance le lecteur immersif (Swift)
 
 Le [lecteur immersif](https://www.onenote.com/learningtools) est un outil conçu de façon inclusive qui implémente des techniques éprouvées pour améliorer la compréhension de la lecture.
 
-Dans ce guide de démarrage rapide, vous créez une application iOS à partir de zéro et vous intégrez le Lecteur immersif. Un exemple complet fonctionnel de ce guide de démarrage rapide est disponible [ici](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift).
+Dans ce guide de démarrage rapide, vous créez une application iOS à partir de zéro et vous intégrez le Lecteur immersif. Un exemple complet fonctionnel de ce guide de démarrage rapide est disponible [ici](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/ios).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

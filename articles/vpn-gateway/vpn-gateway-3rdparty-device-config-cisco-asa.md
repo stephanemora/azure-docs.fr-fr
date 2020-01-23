@@ -1,5 +1,5 @@
 ---
-title: Exemple de configuration pour la connexion de périphériques Cisco ASA à des passerelles VPN Azure | Microsoft Docs
+title: Exemple de configuration pour la connexion d’appareils Cisco ASA à des passerelles VPN Azure
 description: Cet article fournit un exemple de configuration pour la connexion de périphériques Cisco ASA à des passerelles VPN Azure.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: e575fac61a1c5d9351391d39d200b87e34ff26cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 96e5c26ea7b5f1baa33fd8830491ee3aa1e60221
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60648745"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75778080"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemple de configuration : Appareil Cisco ASA (IKEv2/pas de BGP)
 Cet article fournit des exemples de configurations pour la connexion de périphériques Cisco ASA (Adaptive Security Appliance) à des passerelles VPN Azure. L’exemple s’applique à des périphériques Cisco ASA qui exécutent IKEv2 sans protocole de passerelle frontière (BGP). 

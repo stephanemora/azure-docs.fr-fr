@@ -3,17 +3,16 @@ title: Utiliser les GPU sur Azure Kubernetes Service (AKS)
 description: Découvrez comment utiliser des GPU pour le calcul haute performance ou les charges de travail nécessitant beaucoup de ressources graphiques sur Azure Kubernetes Service (AKS).
 services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: e805ca87a34a6b50e9f799909efe8fcbe859883c
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a68bd124f323225062a86a3e1fc178d2fc089c5d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899460"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276011"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Utiliser des GPU pour les charges de travail nécessitant beaucoup de ressources système sur Azure Kubernetes Service (AKS)
 
@@ -30,7 +29,7 @@ Cet article part du principe que vous disposez déjà d’un cluster AKS qui com
 
 Le logiciel Azure CLI version 2.0.64 ou ultérieure doit également être installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI][install-azure-cli].
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Si vous avez besoin d’un cluster AKS qui remplisse les exigences minimales (nœud compatible GPU et Kubernetes 1.10 ou version ultérieure), suivez les étapes ci-dessous. Si vous avez déjà un cluster AKS répondant à ces exigences, [passez à la section suivante](#confirm-that-gpus-are-schedulable).
 
@@ -320,7 +319,7 @@ Accuracy at step 490: 0.9494
 Adding run metadata for 499
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les objets Kubernetes associés créés dans cet article, utilisez la commande [delete job][kubectl delete] de la manière suivante :
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/04/2019
 ms.author: junhan
-ms.openlocfilehash: 03997bb6999af9ebaad36cc95f7834e3b9ed4569
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 9d4d82472664900c96b77b31740573d0463465b8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953207"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911908"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-for-azure-iot-hub-device-management"></a>Utiliser Azure IoT Tools pour Visual Studio Code pour la gestion des appareils Azure IoT Hub
 
@@ -71,7 +71,7 @@ Exécuter Azure IoT Tools pour Visual Studio Code avec diverses options de gesti
 
 2. Entrez le nom de la méthode et la charge utile dans la zone d’entrée.
 
-3. Les résultats seront affichés dans la vue **SORTIE** > **Azure IoT Hub Toolkit**.
+3. Les résultats seront affichés dans la vue **SORTIE** > **Azure IoT Hub**.
 
 ## <a name="read-device-twin"></a>Lire le jumeau d’appareil
 
@@ -95,7 +95,7 @@ Pour envoyer un message à partir de votre instance IoT Hub sur votre appareil, 
 
 2. Entrez le message dans la zone de saisie.
 
-3. Les résultats seront affichés dans la vue **SORTIE** > **Azure IoT Hub Toolkit**.
+3. Les résultats seront affichés dans la vue **SORTIE** > **Azure IoT Hub**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

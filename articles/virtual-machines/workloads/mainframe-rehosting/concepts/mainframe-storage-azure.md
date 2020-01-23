@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190444"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288912"
 ---
 # <a name="move-mainframe-storage-to-azure"></a>Déplacement du stockage du mainframe vers Azure
 
@@ -94,7 +94,7 @@ Le type de stockage d’un système donné dépend de la configuration requise d
 
 Les disques SSD offrent les meilleures performances de stockage sur Azure. Les options suivantes sont disponibles (au moment de la rédaction de ce document) :
 
-| Type         | Taille           | E/S par seconde                  |
+| Type         | Size           | E/S par seconde                  |
 |--------------|----------------|-----------------------|
 | Ultra SSD    | 4 Go à 64 To  | 1 200 à 160 000 IOPS |
 | SSD Premium  | 32 Go à 32 To | 12 à 15 000 IOPS     |
@@ -126,6 +126,5 @@ Le stockage Blob fournit le plus grand volume de stockage sur Azure. En plus de 
 
 ### <a name="more-migration-resources"></a>Autres ressources de migration
 
-- [Platform Modernization Alliance : IBM Db2 on Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 - [Azure Virtual Datacenter: Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [iSCSI GlusterFS](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

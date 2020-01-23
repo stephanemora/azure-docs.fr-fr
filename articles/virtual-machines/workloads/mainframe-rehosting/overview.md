@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305847"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289796"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Réhébergement de mainframe sur des machines virtuelles Azure
 
@@ -112,14 +112,14 @@ Pour commencer, téléchargez le document [Microsoft Azure Government cloud for 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Demandez à nos [partenaires](partner-workloads.md) pour vous aider à migrer ou réhéberger vos applications de mainframe. Pour obtenir des conseils détaillés sur le choix d’une solution partenaire, consultez le site web [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
+Demandez à nos [partenaires](partner-workloads.md) pour vous aider à migrer ou réhéberger vos applications de mainframe. 
 
 Voir aussi :
 
 - [White papers about mainframe topics](mainframe-white-papers.md) (Livres blancs relatifs aux mainframes)
 - [Migration de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
 - [Dépannage](/azure/virtual-machines/troubleshooting/)
-- [Démystifier la migration d’une infrastructure mainframe vers Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Démystifier la migration d’un mainframe vers Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

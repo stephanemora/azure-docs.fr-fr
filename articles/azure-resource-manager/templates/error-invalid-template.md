@@ -3,12 +3,12 @@ title: Erreurs de modèle non valide
 description: Décrit comment résoudre les erreurs de modèle non valide quand vous déployez des modèles Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/08/2018
-ms.openlocfilehash: 9337812152dac7948afc7471760f3dc14443f549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65cd69d67933d117b51f37b587b276aec2bd635a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476395"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154055"
 ---
 # <a name="resolve-errors-for-invalid-template"></a>Résoudre les erreurs de modèle non valide
 
@@ -86,18 +86,18 @@ Pour les ressources enfants, le type et le nom ont le même nombre de segments. 
 
 ```json
 "resources": [
-    {
-        "type": "Microsoft.KeyVault/vaults",
-        "name": "contosokeyvault",
+  {
+    "type": "Microsoft.KeyVault/vaults",
+    "name": "contosokeyvault",
+    ...
+    "resources": [
+      {
+        "type": "secrets",
+        "name": "appPassword",
         ...
-        "resources": [
-            {
-                "type": "secrets",
-                "name": "appPassword",
-                ...
-            }
-        ]
-    }
+      }
+    ]
+  }
 ]
 ```
 
@@ -105,9 +105,9 @@ Obtenir des segments valides peut être difficile si des types Resource Manager 
 
 ```json
 {
-    "type": "Microsoft.Web/sites/providers/locks",
-    "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-    ...
+  "type": "Microsoft.Web/sites/providers/locks",
+  "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+  ...
 }
 ```
 
@@ -140,13 +140,13 @@ Vous recevez cette erreur lorsque des ressources dépendant les unes des autres 
 
 Pour résoudre une dépendance circulaire :
 
-1. Dans votre modèle, recherchez la ressource identifiée dans la dépendance circulaire. 
-2. Pour cette ressource, examinez la propriété **dependsOn** et les utilisations de la fonction **référence** pour voir de quelles ressources elle dépend. 
+1. Dans votre modèle, recherchez la ressource identifiée dans la dépendance circulaire.
+2. Pour cette ressource, examinez la propriété **dependsOn** et les utilisations de la fonction **référence** pour voir de quelles ressources elle dépend.
 3. Examinez ces ressources pour voir de quelles ressources elles dépendent. Suivez les dépendances jusqu’à ce que vous trouviez une ressource qui dépend de la ressource d’origine.
-5. Pour les ressources impliquées dans la dépendance circulaire, examinez attentivement toutes les utilisations de la propriété **dependsOn** pour identifier les dépendances qui ne sont pas nécessaires. Supprimer ces dépendances. Si vous n’êtes pas certain qu’une dépendance soit nécessaire, essayez de la supprimer. 
+5. Pour les ressources impliquées dans la dépendance circulaire, examinez attentivement toutes les utilisations de la propriété **dependsOn** pour identifier les dépendances qui ne sont pas nécessaires. Supprimer ces dépendances. Si vous n’êtes pas certain qu’une dépendance soit nécessaire, essayez de la supprimer.
 6. Redéployez le modèle.
 
-La suppression de valeurs de la propriété **dependsOn** peut provoquer des erreurs lors du déploiement du modèle. Si vous obtenez une erreur, rajoutez la dépendance dans le modèle. 
+La suppression de valeurs de la propriété **dependsOn** peut provoquer des erreurs lors du déploiement du modèle. Si vous obtenez une erreur, rajoutez la dépendance dans le modèle.
 
 Si cette approche ne résout pas le problème de dépendance circulaire, essayez de déplacer une partie de votre logique de déploiement dans les ressources enfants (par exemple, les extensions ou les paramètres de configuration). Configurez ces ressources enfants pour qu’elles se déploient après les ressources impliquées dans la dépendance circulaire. Par exemple, supposons que vous déployiez deux machines virtuelles, mais que vous deviez définir sur chacune d’elles des propriétés faisant référence les unes aux autres. Vous pouvez les déployer dans l’ordre suivant :
 

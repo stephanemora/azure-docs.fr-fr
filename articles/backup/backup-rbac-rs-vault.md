@@ -4,12 +4,12 @@ description: Le contrôle d’accès en fonction du rôle permet de gérer l’a
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: afb8067f2547e3a26a505bb5ec8063dd340e8500
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e2e32ac6981635e3b9885119fdf397783ac32cc9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172186"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156384"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Utiliser le contrôle d’accès en fonction du rôle pour gérer les points de récupération Sauvegarde Azure
 
@@ -35,25 +35,25 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 | Créer un coffre Recovery Services | Contributeur de sauvegarde | Groupe de ressources contenant le coffre |
 | Activer la sauvegarde des machines virtuelles Azure | Opérateur de sauvegarde | Groupe de ressources contenant le coffre |
 | | Contributeur de machine virtuelle | Ressource de machine virtuelle |
-| Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Ressource du coffre |
+| Sauvegarde de machine virtuelle à la demande | Opérateur de sauvegarde | Coffre Recovery Services |
 | Restaurer une machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |
 | | Contributeur | Groupe de ressources dans lequel la machine virtuelle sera déployée |
 | | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
-| Restaurer la sauvegarde de machine virtuelle de disques non managés | Opérateur de sauvegarde | Ressource du coffre |
+| Restaurer la sauvegarde de machine virtuelle de disques non managés | Opérateur de sauvegarde | Coffre Recovery Services |
 | | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
 | | Contributeur de compte de stockage | Ressource de compte de stockage où les disques vont être restaurés |
-| Restaurer des disques managés de la sauvegarde de machine virtuelle | Opérateur de sauvegarde | Ressource du coffre |
+| Restaurer des disques managés de la sauvegarde de machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |
 | | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
 | | Contributeur de compte de stockage | Compte de stockage temporaire sélectionné dans le cadre de la restauration pour conserver les données de l’espace de stockage avant de les convertir en disques managés. |
 | | Contributeur | Groupe de ressources vers lequel le(s) disque(s) managé(s) sera (seront) restauré(s) |
-| Restaurer des fichiers individuels à partir d’une sauvegarde de machine virtuelle | Opérateur de sauvegarde | Ressource du coffre |
+| Restaurer des fichiers individuels à partir d’une sauvegarde de machine virtuelle | Opérateur de sauvegarde | Coffre Recovery Services |
 | | Contributeur de machine virtuelle | Machine virtuelle source qui a été sauvegardée |
-| Créer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Ressource du coffre |
-| Modifier une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Ressource du coffre |
-| Supprimer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Ressource du coffre |
-| Arrêt de la sauvegarde (avec conservation ou suppression des données) lors la sauvegarde d’une machine virtuelle | Contributeur de sauvegarde | Ressource du coffre |
-| Inscrire un Windows Server/client/SCDPM ou un serveur de sauvegarde Azure | Opérateur de sauvegarde | Ressource du coffre |
-| Supprimer un Windows Server/client/SCDPM inscrit ou un serveur de sauvegarde Azure | Contributeur de sauvegarde | Ressource du coffre |
+| Créer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
+| Modifier une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
+| Supprimer une stratégie de sauvegarde pour la sauvegarde de machine virtuelle Azure | Contributeur de sauvegarde | Coffre Recovery Services |
+| Arrêt de la sauvegarde (avec conservation ou suppression des données) lors la sauvegarde d’une machine virtuelle | Contributeur de sauvegarde | Coffre Recovery Services |
+| Inscrire un Windows Server/client/SCDPM ou un serveur de sauvegarde Azure | Opérateur de sauvegarde | Coffre Recovery Services |
+| Supprimer un Windows Server/client/SCDPM inscrit ou un serveur de sauvegarde Azure | Contributeur de sauvegarde | Coffre Recovery Services |
 
 > [!IMPORTANT]
 > Si vous spécifiez VM Contributor dans le cadre d’une ressource de machine virtuelle et cliquez sur Backup dans les paramètres de la machine virtuelle, l’écran 'Enable Backup' (Activer la sauvegarde) s’ouvre même si la VM est déjà sauvegardée car l’appel de vérification de l’état de la sauvegarde fonctionne uniquement au niveau abonnement. Pour éviter cela, allez dans le coffre-fort et ouvrez l’affichage des éléments de sauvegarde de la machine virtuelle ou spécifiez le rôle VM Contributor au niveau de l’abonnement.
@@ -80,6 +80,6 @@ Le tableau suivant répertorie les actions de gestion des sauvegardes et le rôl
 * [Contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) : Découvrez comment bien démarrer avec le contrôle d’accès en fonction du rôle dans le portail Azure.
 * Découvrez comment gérer l’accès avec :
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [interface de ligne de commande Azure](../role-based-access-control/role-assignments-cli.md)
-  * [API REST](../role-based-access-control/role-assignments-rest.md)
+  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+  * [REST API](../role-based-access-control/role-assignments-rest.md)
 * [Résolution des problèmes de contrôle d’accès en fonction du rôle](../role-based-access-control/troubleshooting.md) : obtenez des suggestions pour résoudre les problèmes courants.

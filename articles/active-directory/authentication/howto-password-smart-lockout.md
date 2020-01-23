@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30006d0dcccdd1b160289c72769340d141198d3c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bfd49a4429dc0d7f5db07a577016c21de8fc58d8
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847590"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75762873"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Verrouillage intelligent Azure Active Directory
 
@@ -67,8 +67,8 @@ En fonction des besoins de votre organisation, les valeurs de verrouillage intel
 
 Pour vérifier ou modifier les valeurs de verrouillage intelligent de votre organisation, procédez aux étapes suivantes :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-1. Recherchez et sélectionnez *Azure Active Directory*. Sélectionnez **Méthodes d’authentification** > **Protection par mot de passe**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Recherchez et sélectionnez *Azure Active Directory*. Sélectionnez **Sécurité** > **Méthodes d’authentification** > **Protection par mot de passe**.
 1. Définissez le **Seuil de verrouillage**, c’est-à-dire le nombre d’échecs de connexions autorisé avant qu’un compte ne soit verrouillé. La valeur par défaut est de 10.
 1. Définissez la **Durée du verrouillage en secondes** sur la durée en secondes souhaitée de chaque verrouillage. La valeur par défaut est 60 secondes (une minute).
 

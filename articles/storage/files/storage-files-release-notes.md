@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: cc919cabab94e078b8a212feec40047639a36341
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 67f04b3873da020853c2523f6acc8c7dc7dcdedc
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452913"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75749600"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -142,6 +142,7 @@ Les éléments suivants ne se synchronisent pas, mais le reste du système conti
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud
 - Si un fichier hiérarchisé est copié vers un autre emplacement à l’aide de Robocopy, le fichier résultant n’est pas hiérarchisé. L’attribut hors connexion peut être défini car Robocopy inclut cet attribut de façon erronée dans les opérations de copie.
 - Lors de la copie de fichiers à l’aide de Robocopy, utilisez l’option /MIR pour conserver les horodatages des fichiers. Les plus anciens fichiers sont ainsi hiérarchisés plus tôt que les derniers fichiers utilisés.
+- La hiérarchisation des fichiers peut échouer si le fichier pagefile.sys se trouve sur un volume où la hiérarchisation cloud est activée. Le fichier pagefile.sys doit se trouver sur un volume où la hiérarchisation cloud est désactivée.
 
 ## <a name="agent-version-8000"></a>Version 8.0.0.0 de l’agent
 Les notes de publication suivantes concernent la version 8.0.0.0 de l’agent Azure File Sync (mise en production le 8 octobre 2019).

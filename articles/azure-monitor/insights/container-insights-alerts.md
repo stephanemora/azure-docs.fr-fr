@@ -2,13 +2,13 @@
 title: Créer des alertes de performances pour Azure Monitor pour conteneurs | Microsoft Docs
 description: Cet article explique comment créer des alertes personnalisées basées sur des requêtes de journal relatives à l’utilisation de la mémoire et du processeur à partir d’Azure Monitor pour conteneurs.
 ms.topic: conceptual
-ms.date: 04/26/2019
-ms.openlocfilehash: efeb86dc0b71217cf566f7e6671e72601ec69371
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/07/2020
+ms.openlocfilehash: 5d73f4399d10683597fb2a2e8a3a2ab4ba0d1165
+ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405609"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75730923"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Comment configurer des alertes pour des problèmes de performances dans Azure Monitor pour conteneurs
 
@@ -284,13 +284,14 @@ Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utili
 >
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Monitor** dans le volet situé à gauche. Sous **Insights**, sélectionnez **Conteneurs**.
-3. Dans la liste de l’onglet **Clusters supervisés**, sélectionnez un cluster.
-4. Dans le volet situé à gauche sous **Surveillance**, sélectionnez **Journaux** pour ouvrir la page de journaux Azure Monitor. Cette page vous permet d’écrire et exécuter des requêtes Azure Log Analytics.
-5. Sur la page **Journaux**, sélectionnez **+ Nouvelle règle d’alerte**.
-6. Dans la section **Condition**, sélectionnez la condition de journal personnalisée prédéfinie **Chaque fois que la recherche dans les journaux est \<logique non définie>** . Le type de signal **Recherche dans les journaux d’activité personnalisée** est automatiquement sélectionné pour nous parce que nous créons une règle d’alerte directement à partir de la page de journaux d’Azure Monitor.  
-7. Collez l’une des [requêtes](#resource-utilization-log-search-queries) fournies précédemment dans le champ **Requête de recherche**.
-8. Configurez l’alerte comme suit :
+2. Dans le portail Azure, recherchez et sélectionnez **Espaces de travail Log Analytics**.
+3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez l’espace de travail qui prend en charge Azure Monitor pour conteneurs. 
+4. Dans le volet à gauche, sélectionnez **Journaux** pour ouvrir la page des journaux Azure Monitor. Cette page vous permet d’écrire et exécuter des requêtes Azure Log Analytics.
+5. Dans la page **Journaux**, collez l’une des [requêtes](#resource-utilization-log-search-queries) fournies précédemment dans le champ **Requête de recherche**, puis sélectionnez **Exécuter** pour valider les résultats. Si vous n’effectuez pas cette étape, l’option **+Nouvelle alerte** n’est pas sélectionnable.
+6. Sélectionnez **+Nouvelle alerte** pour créer une alerte de journal.
+7. Dans la section **Condition**, sélectionnez la condition de journal personnalisée prédéfinie **Chaque fois que la recherche dans les journaux est \<logique non définie>** . Le type de signal **Recherche dans les journaux d’activité personnalisée** est automatiquement sélectionné pour nous parce que nous créons une règle d’alerte directement à partir de la page de journaux d’Azure Monitor.  
+8. Collez l’une des [requêtes](#resource-utilization-log-search-queries) fournies précédemment dans le champ **Requête de recherche**.
+9. Configurez l’alerte comme suit :
 
     1. Dans la liste déroulante **Basé sur**, sélectionnez **Mesure des métriques**. Une mesure des métriques crée une alerte pour chaque objet de la requête dont la valeur dépasse le seuil spécifié.
     1. Pour **Condition**, sélectionnez **Supérieur à**, puis entrez **75** comme **Seuil** de ligne de base initiale pour les alertes d’utilisation de la mémoire et de l’UC. Pour l’alerte d’espace disque faible, entrez **90**. Ou saisissez une valeur différente qui répond à vos critères.
@@ -298,11 +299,11 @@ Suivez ces étapes pour créer une alerte de journal dans Azure Monitor en utili
     1. Pour configurer une alerte pour l’utilisation de la mémoire ou l’UC du conteneur, sous **Agréger sur**, sélectionnez **ContainerName**. Pour configurer l’alerte de disque faible de nœud de cluster, sélectionnez **ClusterId**.
     1. Dans la section **Évaluées sur la base de**, définissez la valeur de **Période** sur **60 minutes**. La règle s’exécute toutes les 5 minutes et renvoie les enregistrements qui ont été créés au cours de la dernière heure. Le fait de définir la période sur une fenêtre d’une certaine amplitude permet de tenir compte d’une potentielle latence des données. Cela garantit également que la requête renvoie des données afin d’éviter un faux négatif dans lequel l’alerte se déclenche jamais.
 
-9. Sélectionnez **Terminé** pour terminer la règle d’alerte.
-10. Entrez un nom dans le champ **Nom de la règle d’alerte**. Spécifiez une **description** qui fournit des détails sur l’alerte. Enfin, sélectionnez un niveau de gravité approprié parmi les options proposées.
-11. Pour activer immédiatement la règle d’alerte, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
-12. Sélectionnez un **groupe d’actions** existant ou créez-en un. Cette étape garantit que chaque déclenchement d’alerte entraîne la même action. Choisissez la configuration en fonction de la façon dont l’équipe chargée des opérations informatiques ou de DevOps gère les incidents.
-13. Sélectionnez **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
+10. Sélectionnez **Terminé** pour terminer la règle d’alerte.
+11. Entrez un nom dans le champ **Nom de la règle d’alerte**. Spécifiez une **description** qui fournit des détails sur l’alerte. Enfin, sélectionnez un niveau de gravité approprié parmi les options proposées.
+12. Pour activer immédiatement la règle d’alerte, acceptez la valeur par défaut pour l’option **Activer la règle lors de sa création**.
+13. Sélectionnez un **groupe d’actions** existant ou créez-en un. Cette étape garantit que chaque déclenchement d’alerte entraîne la même action. Choisissez la configuration en fonction de la façon dont l’équipe chargée des opérations informatiques ou de DevOps gère les incidents.
+14. Sélectionnez **Créer une règle d’alerte** pour terminer la règle d’alerte. Son exécution démarre immédiatement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

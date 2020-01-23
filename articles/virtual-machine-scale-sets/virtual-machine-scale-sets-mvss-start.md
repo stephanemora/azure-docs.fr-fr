@@ -1,26 +1,19 @@
 ---
 title: En savoir plus sur les modèles de groupes de machines virtuelles identiques
 description: Découvrez comment créer un Modèle de groupe identique de base pour les groupes de machines virtuelles identiques Azure en quelques étapes simples.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24db9b2d39771c481a8c43e2b55f12cef381b4d6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980182"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271908"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>En savoir plus sur les modèles de groupes de machines virtuelles identiques
 Les [modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) constituent un excellent moyen de déployer des groupes de ressources liées. Cette série de didacticiels montre comment créer un modèle de groupe identique de base et comment modifier ce modèle pour l’adapter à différents scénarios. Tous les exemples proviennent de ce [référentiel GitHub](https://github.com/gatneil/mvss).

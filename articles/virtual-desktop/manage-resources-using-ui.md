@@ -1,25 +1,22 @@
 ---
-title: Déployer un outil de gestion - Azure
-description: Guide pratique pour installer un outil d’interface utilisateur permettant de gérer les ressources Windows Virtual Desktop.
+title: Déployer un outil de gestion avec un modèle Azure Resource Manager - Azure
+description: Guide pratique pour installer un outil de gestion avec un modèle Azure Resource Manager pour gérer les ressources de Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
-ms.topic: tutorial
-ms.date: 11/09/2019
+ms.topic: conceptual
+ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384279"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75887357"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Didacticiel : Déployer un outil de gestion
+# <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Déployer un outil de gestion avec un modèle Azure Resource Manager
 
-L’outil de gestion fournit une interface utilisateur (IU) pour la gestion des ressources Microsoft Virtual Desktop. Dans ce tutoriel, vous allez découvrir comment déployer et vous connecter à l’outil de gestion.
-
->[!NOTE]
->Ces instructions concernent une configuration spécifique à Windows Virtual Desktop, que vous pouvez utiliser avec les processus existants de votre organisation.
+Les instructions de cet article vous indiquent comme déployer l’interface utilisateur avec un modèle Azure Resource Manager.
 
 ## <a name="important-considerations"></a>Points importants à prendre en compte
 
@@ -33,18 +30,17 @@ Les navigateurs suivants sont compatibles avec l’outil de gestion :
 - Mozilla Firefox version 52.0 ou ultérieure
 - Safari version 10 ou ultérieure (macOS uniquement)
 
-## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Exécution du modèle Azure Resource Manager
+## <a name="what-you-need-to-deploy-the-management-tool"></a>Ce dont vous avez besoin pour déployer l’outil de gestion
 
-Avant de déployer le modèle Azure Resource Manager, un utilisateur Azure Active Directory doit déployer l’interface utilisateur de gestion. Cet utilisateur doit remplir les conditions suivantes :
+Avant de déployer l’outil de gestion, vous avez besoin d’un utilisateur Azure Active Directory (Azure AD) pour créer une inscription d’application et déployer l’interface utilisateur de gestion. Cet utilisateur doit remplir les conditions suivantes :
 
 - Azure Multi-Factor Authentication (MFA) doit être désactivé.
 - Il doit avoir l’autorisation de créer des ressources dans votre abonnement Azure.
-- Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur a les [autorisations nécessaires](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+- Il doit avoir l’autorisation de créer une application Azure AD. Suivez ces étapes pour vérifier si votre utilisateur dispose des autorisations nécessaires en suivant les instructions fournies dans [Autorisations nécessaires](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-Après avoir déployé le modèle Azure Resource Manager, vous pouvez lancer l’interface utilisateur de gestion pour la vérifier. Cet utilisateur doit remplir les conditions suivantes :
-- Avoir une attribution de rôle pour afficher ou modifier votre locataire Windows Virtual Desktop
+Une fois que vous avez déployé et configuré l’outil de gestion, nous vous recommandons de demander à un utilisateur de lancer l’interface utilisateur de gestion pour vérifier que tout fonctionne correctement. L’utilisateur qui lance l’interface utilisateur de gestion doit avoir une attribution de rôle qui lui permet de voir ou de modifier le locataire Windows Virtual Desktop.
 
-## <a name="run-the-azure-resource-manager-template-to-provision-the-management-ui"></a>Exécuter le modèle Azure Resource Manager pour provisionner l’interface utilisateur de gestion
+## <a name="deploy-the-management-tool"></a>Déployer l’outil de gestion
 
 Avant de commencer, vérifiez que les applications serveur et client ont le consentement nécessaire en vous rendant sur la [page de consentement de Windows Virtual Desktop](https://rdweb.wvd.microsoft.com) pour l’annuaire Azure Active Directory (AAD) représenté.
 
@@ -52,26 +48,24 @@ Suivez ces instructions pour déployer le modèle Azure Resource Management :
 
 1. Accédez à la [page Azure RDS-Templates de GitHub ](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy).
 2. Déployez le modèle sur Azure.
-    - Si vous déployez sur un abonnement Entreprise, faites défiler vers le bas et sélectionnez **Déployer sur Azure**. Consultez [Conseils pour les paramètres des modèles](#guidance-for-template-parameters).
+    - Si vous déployez sur un abonnement Entreprise, faites défiler vers le bas et sélectionnez **Déployer sur Azure**. 
     - Si vous déployez sur un abonnement de fournisseur de solutions cloud, suivez ces instructions pour déployer sur Azure :
         1. Faites défiler vers le bas et cliquez sur **Déployer sur Azure**, puis sélectionnez **Copier l’adresse du lien**.
         2. Ouvrez un éditeur de texte tel que le bloc-notes et collez le lien.
         3. Juste après <https://portal.azure.com/> et avant le dièse (#), entrez un arobase (@) suivi du nom de domaine du locataire. Voici un exemple du format : <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Connectez-vous au portail Azure en tant qu’utilisateur avec des autorisations d’administrateur/contributeur pour l’abonnement du fournisseur de solutions cloud.
         5. Collez le lien que vous avez copié dans l’éditeur de texte dans la barre d’adresse.
-
-### <a name="guidance-for-template-parameters"></a>Conseils pour les paramètres des modèles
-Voici comment entrer des paramètres pour la configuration de l’outil :
-
-- Pour le paramètre **isServicePrincipal**, sélectionnez **false**.
-- Pour les informations d’identification, entrez vos informations d’identification Azure Active Directory avec l’authentification multifacteur désactivée. Ces informations d’identification sont celles que vous utilisez pour vous connecter à Azure, et pour créer l’application Azure AD et les ressources de l’application web Azure. Pour plus d’informations, consultez [Conditions nécessaires pour exécuter le modèle Azure Resource Manager](#what-you-need-to-run-the-azure-resource-manager-template).
-- Pour **applicationName**, utilisez un nom unique pour l’application qui sera inscrite dans votre annuaire Azure Active Directory. Ce nom sera également utilisé pour l’URL de l’application web. Par exemple, vous pouvez utiliser un nom comme « Apr3UX ».
+3. Quand vous entrez les paramètres, procédez comme suit :
+    - Pour le paramètre **isServicePrincipal**, sélectionnez **false**.
+    - Pour les informations d’identification, entrez vos informations d’identification Azure AD avec l’authentification multifacteur désactivée. Ces informations d’identification seront utilisées pour créer l’application Azure AD et les ressources Azure. Pour plus d’informations, consultez [Ce dont vous avez besoin pour déployer l’outil de gestion](#what-you-need-to-deploy-the-management-tool).
+    - Pour **applicationName**, utilisez un nom unique pour l’application qui sera inscrite dans votre annuaire Azure Active Directory. Ce nom sera également utilisé pour l’URL de l’application web. Par exemple, vous pouvez utiliser un nom comme « Apr3UX ».
+4. Après avoir spécifié les paramètres, acceptez les conditions générales, puis sélectionnez **Acheter**.
 
 ## <a name="provide-consent-for-the-management-tool"></a>Donner son consentement pour l’outil de gestion
 
 Après avoir exécuté le modèle Azure Resource Manager de GitHub, vous trouverez un groupe de ressources contenant deux services d’application ainsi qu’un plan App Service dans le portail Azure.
 
-Avant de vous connecter et d’utiliser l’outil de gestion, vous devez donner un consentement pour la nouvelle application Azure Active Directory qui est associée à l’outil de gestion. En fournissant ce consentement, vous autorisez l’outil de gestion à effectuer des appels de gestion de Windows Virtual Desktop pour le compte de l’utilisateur qui est connecté à l’outil.
+Avant de vous connecter et d’utiliser l’outil de gestion, vous devez donner un consentement pour la nouvelle application Azure AD qui est associée à l’outil de gestion. En fournissant ce consentement, vous autorisez l’outil de gestion à effectuer des appels de gestion de Windows Virtual Desktop pour le compte de l’utilisateur qui est actuellement connecté à l’outil.
 
 ![Capture d’écran montrant les autorisations fournies quand vous donnez un consentement à l’outil de gestion de l’interface utilisateur.](media/management-ui-delegated-permissions.png)
 
@@ -83,7 +77,7 @@ Pour déterminer quel utilisateur vous pouvez utiliser pour vous connecter à l�
 - Si la valeur est définie sur **Non**, vous devez vous connecter en tant qu’administrateur général dans l’annuaire Azure Active Directory et donner le consentement de l’administrateur pour tous les utilisateurs de l’annuaire. Aucun autre utilisateur ne recevra une invite de consentement.
 
 
-Une fois que vous décidez quel utilisateur vous allez utiliser pour donner le consentement, suivez ces instructions pour donner le consentement à l’outil :
+Une fois que vous avez décidé quel utilisateur vous allez utiliser pour donner le consentement, suivez ces instructions pour donner ce consentement à l’outil :
 
 1. Accédez à vos ressources Azure, sélectionnez la ressource Azure App Services avec le nom fourni dans le modèle (par exemple Apr3UX), puis accédez à l’URL associée, par exemple <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Connectez-vous en utilisant le compte d’utilisateur Azure Active Directory approprié.
@@ -102,18 +96,15 @@ Suivez ces instructions pour lancer l’outil :
 1. Sélectionnez la ressource Azure App Services avec le nom fourni dans le modèle (par exemple Apr3UX), puis accédez à l’URL associée, par exemple <https://rdmimgmtweb-210520190304.azurewebsites.net>.
 2. Connectez-vous avec vos informations d’identification Windows Virtual Desktop.
 3. Quand vous êtes invité à choisir un groupe de locataires, sélectionnez **Groupe de locataires par défaut** dans la liste déroulante.
-4. Lorsque vous sélectionnez Groupe de locataires par défaut, un menu doit s’afficher du côté droit de votre fenêtre. Dans ce menu, recherchez le nom de votre groupe de locataires et sélectionnez-le.
-
-> [!NOTE]
-> Si vous avez un groupe de locataires personnalisé, entrez le nom manuellement au lieu de choisir dans la liste déroulante.
+4. Quand vous sélectionnez **Groupe de locataires par défaut**, un menu doit s’afficher du côté gauche de votre fenêtre. Dans ce menu, recherchez le nom de votre groupe de locataires et sélectionnez-le.
+  
+  > [!NOTE]
+  > Si vous avez un groupe de locataires personnalisé, entrez le nom manuellement au lieu de choisir dans la liste déroulante.
 
 ## <a name="report-issues"></a>Signaler des problèmes
 
-Si vous rencontrez des problèmes avec l’outil de gestion ou d’autres outils Windows Virtual Desktop, suivez les instructions dans [Modèles ARM pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md) pour les signaler sur GitHub.
+Si vous rencontrez des problèmes avec l’outil de gestion ou d’autres outils Windows Virtual Desktop, suivez les instructions de [Modèles Azure Resource Manager pour les services Bureau à distance](https://github.com/Azure/RDS-Templates/blob/master/README.md) pour les signaler sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez découvert comment déployer et vous connecter à l’outil de gestion, vous pouvez découvrir comment utiliser Azure Service Health pour superviser les problèmes des services et les alertes d’intégrité.
-
-> [!div class="nextstepaction"]
-> [Tutoriel sur la configuration des alertes des services](./set-up-service-alerts.md)
+Maintenant que vous avez découvert comment déployer et vous connecter à l’outil de gestion, vous pouvez découvrir comment utiliser l’aide d’Azure Service pour superviser les problèmes des services et les alertes d’intégrité. Pour plus d’informations, consultez notre [Tutoriel de configuration des alertes de service](./set-up-service-alerts.md).

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: de3a3d9e5523341c2f549ff2a90c9c40a4e3cb50
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: df3ca877570b6b3e3a34dd20d617ce3896f1dd99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889444"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120959"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 
@@ -45,7 +45,7 @@ Pour plus d’informations, consultez [Planifier l’adressage IP pour votre clu
 Il peut y avoir diverses raisons pour que le pod soit bloqué dans ce mode. Vous pourriez examiner :
 
 * Le pod lui-même, en utilisant `kubectl describe pod <pod-name>`.
-* Les journaux d’activité en utilisant `kubectl log <pod-name>`.
+* Les journaux d’activité en utilisant `kubectl logs <pod-name>`.
 
 Pour plus d’informations sur la façon de résoudre les problèmes de pod, voir [Déboguer des applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 

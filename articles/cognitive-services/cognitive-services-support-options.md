@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2cdf34bb7df121665548be98f9f2098cc5cfe99b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533692"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169080"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Options d’aide et de support Azure Cognitive Services
 
@@ -36,7 +36,7 @@ Commencez-vous juste à explorer les fonctionnalités d’Azure Cognitive Servic
 
 Découvrez l’éventail des [options de support Azure et choisissez le plan](https://azure.microsoft.com/support/plans) qui vous convient, que vous soyez un développeur qui commence à explorer le cloud ou une grande organisation déployant des applications stratégiques et critiques. Les clients Azure peuvent créer et gérer des demandes de support dans le Portail Azure.
 
-* [Portail Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Portail Azure pour le gouvernement des États-Unis](https://portal.azure.us)
 
 ## <a name="post-a-question-on-stack-overflow"></a>Poser une question sur Stack Overflow
@@ -73,7 +73,7 @@ Pour demander de nouvelles fonctionnalités, publiez-les sur UserVoice. Partagez
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Vision personnalisée                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Face                          | https://cognitive.uservoice.com/forums/430315-face |
-| Forme                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Formulaire                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | Immersive                     | https://feedback.azure.com/forums/34192--general-feedback |
 | Language Understanding (LUIS) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personalizer                  | https://cognitive.uservoice.com/forums/921562-personalizer |
@@ -91,8 +91,8 @@ Pour demander de nouvelles fonctionnalités, publiez-les sur UserVoice. Partagez
 
 Les notes de publication sont mises à jour à mesure qu’une nouvelle version est rendue disponible. Les notes contiennent des informations sur les nouvelles fonctionnalités, les améliorations et les correctifs de bogues.
 
- - [Service Custom Vision](custom-vision-service/release-notes.md)
- - [API Face](face/releasenotes.md)
+ - [Custom Vision](custom-vision-service/release-notes.md)
+ - [Visage](face/releasenotes.md)
  - [Language Understanding (LUIS)](luis/whats-new.md)
  - [Services Speech](speech-service/releasenotes.md)
  - [Kit de développement logiciel (SDK) Services Speech](speech-service/devices-sdk-release-notes.md)

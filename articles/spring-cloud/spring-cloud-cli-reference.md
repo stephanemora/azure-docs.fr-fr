@@ -1,17 +1,17 @@
 ---
 title: az spring cloud
 description: Gérer Azure Spring Cloud à l’aide d’Azure CLI
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
-ms.author: jeconnoc
-ms.openlocfilehash: a1f82d4efa7756b44ca5ed9859aa872c1f55b565
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: brendm
+ms.openlocfilehash: 869a47469f8e0429d3726651c28f5a58acfcb856
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607821"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279039"
 ---
 # <a name="az-spring-cloud"></a>az spring-cloud
 
@@ -126,7 +126,7 @@ az spring cloud --name -n
 | --- | ---: |
 | -no-wait | Ne pas attendre la fin des opérations de longue durée. |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Supprimer une instance Azure Spring Cloud nommée « MyService » de « MyResourceGroup ».
 
@@ -500,14 +500,14 @@ az spring-cloud app update --name -n
 | Paramètres facultatifs | |
 | --- | ---: |
 | --deployment -d | Nom d’un déploiement existant de l’application.  Par défaut, il s’agit de l’environnement de production. |
-| --enable-persistent-storage | Booléen.  Si la valeur est true, monter un disque de 50 Go avec le chemin par défaut. |
+| --enable-persistent-storage | Propriété booléenne.  Si la valeur est true, monter un disque de 50 Go avec le chemin par défaut. |
 | --env | Variables d’environnement séparées par des espaces au format « clé[= valeur] ». |
-| --is-public | Booléen.  Si la valeur est true, assigner un domaine public à l’application. |
+| --is-public | Propriété booléenne.  Si la valeur est true, assigner un domaine public à l’application. |
 | --jvm-options | Chaîne contenant des options JVM.  Utilisez « = » au lieu de «  » pour éviter les erreurs d’analyse du shell. Par exemple, `--jvm-options='-Xms1024m -Xmx2048m`. |
 | --no-wait | Ne pas attendre la fin des opérations de longue durée. |
 | --runtime-version | Version du runtime du langage utilisé dans l’application.  Valeurs autorisées : `Java_11`, `Java_8`. |
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Ajouter une variable d’environnement pour l’application.
 

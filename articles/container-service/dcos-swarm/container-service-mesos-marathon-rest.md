@@ -1,20 +1,18 @@
 ---
 title: (DÉCONSEILLÉ) Gérer le cluster DC/OS Azure à l’aide de l’API REST Marathon
 description: Déployez des conteneurs vers un cluster DC/OS Azure Container Service à l’aide de l’API REST Marathon.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3492f35d54dd3ee61ab8d29a3af06e4998bbd477
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916695"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277777"
 ---
 # <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(DÉCONSEILLÉ) Gestion de conteneur DC/OS à l’aide de l’API REST Marathon
 
@@ -22,7 +20,7 @@ ms.locfileid: "64916695"
 
 DC/OS offre un environnement de déploiement et de mise à l’échelle des charges de travail en cluster tout en faisant abstraction du matériel sous-jacent. DC/OS sous-tend un framework qui gère la planification et l’exécution des charges de travail de calcul. Bien qu’il existe des infrastructures pour de nombreuses charges de travail courantes, ce document décrit la création et la mise à l’échelle des déploiements de conteneurs avec l’API REST Marathon. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’étudier ces exemples, vous devez avoir un cluster DC/OS configuré dans Azure Container Service. Vous devez également disposer d’une connectivité à distance à ce cluster. Pour plus d’informations sur ces éléments, voir les articles suivants :
 

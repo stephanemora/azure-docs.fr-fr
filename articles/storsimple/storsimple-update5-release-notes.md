@@ -1,29 +1,22 @@
 ---
-title: Notes de publication de StorSimple 8000 Series Update 5 | Microsoft Docs
+title: Notes de publication de StorSimple 8000 Series Update 5
 description: Décrit les nouvelles fonctionnalités, les problèmes et les solutions de contournement de StorSimple 8000 Series Update 5.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844089"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275171"
 ---
 # <a name="storsimple-8000-series-update-5-release-notes"></a>Notes de publication de StorSimple 8000 Series Update 5
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les notes de publication suivantes décrivent les nouvelles fonctionnalités et identifient les problèmes critiques non résolus relatifs à StorSimple 8000 Series Update 5. Elles contiennent également une liste des mises à jour du logiciel StorSimple incluses dans cette version.
 
@@ -53,9 +46,9 @@ Le tableau suivant récapitule les problèmes qui ont été résolus dans Update
 
 | Non | Fonctionnalité | Problème | S’applique à un appareil physique | S’applique à un appareil virtuel |
 | --- | --- | --- | --- | --- |
-| 1 |Accès distant Windows PowerShell |Dans la version précédente, un utilisateur recevait une erreur lorsqu’il tentait d’établir une connexion à distance à StorSimple Cloud Appliance via Windows PowerShell. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |Non |OUI |
-| 2 |Modèles de bande passante |Dans la version précédente, un problème de modèles de bande passante aboutissait à l’utilisation d’une bande passante inférieure à celle pour laquelle l’appareil avait été configuré. Ce problème a été résolu dans cette version. |OUI |OUI |
-| 3 |Basculement |Dans la version précédente, quand un appareil doté d’un grand nombre de volumes basculait vers un autre appareil exécutant Update 4, le processus échouait lors de la tentative d’application des enregistrements de contrôle d’accès. Ce problème a été résolu dans cette version. |OUI |OUI |
+| 1 |Accès distant Windows PowerShell |Dans la version précédente, un utilisateur recevait une erreur lorsqu’il tentait d’établir une connexion à distance à StorSimple Cloud Appliance via Windows PowerShell. La cause racine de ce problème a été identifiée et il a été résolu dans cette version. |Non |Oui |
+| 2 |Modèles de bande passante |Dans la version précédente, un problème de modèles de bande passante aboutissait à l’utilisation d’une bande passante inférieure à celle pour laquelle l’appareil avait été configuré. Ce problème a été résolu dans cette version. |Oui |Oui |
+| 3 |Basculement |Dans la version précédente, quand un appareil doté d’un grand nombre de volumes basculait vers un autre appareil exécutant Update 4, le processus échouait lors de la tentative d’application des enregistrements de contrôle d’accès. Ce problème a été résolu dans cette version. |Oui |Oui |
 
 
 

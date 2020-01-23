@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d5ded7200c438fc734e1af0a42ca6071196bd41c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769487"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120335"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>Liaisons de service SignalR pour Azure Functions
 
@@ -1011,9 +1011,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type**|| Cette propriété doit être définie sur `signalRConnectionInfo`.|
-|**direction**|| Cette propriété doit être définie sur `in`.|
-|**name**|| Nom de variable utilisé dans le code de fonction pour l’objet d’informations de connexion. |
+|**type**| n/a | Cette propriété doit être définie sur `signalRConnectionInfo`.|
+|**direction**| n/a | Cette propriété doit être définie sur `in`.|
+|**name**| n/a | Nom de variable utilisé dans le code de fonction pour l’objet d’informations de connexion. |
 |**hubName**|**HubName**| Cette valeur doit être définie sur le nom du hub SignalR pour lequel les informations de connexion sont générées.|
 |**userId**|**UserId**| Facultatif : valeur de la revendication d’identification d’utilisateur à définir dans le jeton de clé d’accès. |
 |**connectionStringSetting**|**ConnectionStringSetting**| Nom du paramètre d’application contenant la chaîne de connexion du service SignalR (« AzureSignalRConnectionString » par défaut) |
@@ -1024,9 +1024,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 |Propriété function.json | Propriété d’attribut |Description|
 |---------|---------|----------------------|
-|**type**|| Cette propriété doit être définie sur `signalR`.|
-|**direction**|| Cette propriété doit être définie sur `out`.|
-|**name**|| Nom de variable utilisé dans le code de fonction pour l’objet d’informations de connexion. |
+|**type**| n/a | Cette propriété doit être définie sur `signalR`.|
+|**direction**| n/a | Cette propriété doit être définie sur `out`.|
+|**name**| n/a | Nom de variable utilisé dans le code de fonction pour l’objet d’informations de connexion. |
 |**hubName**|**HubName**| Cette valeur doit être définie sur le nom du hub SignalR pour lequel les informations de connexion sont générées.|
 |**connectionStringSetting**|**ConnectionStringSetting**| Nom du paramètre d’application contenant la chaîne de connexion du service SignalR (« AzureSignalRConnectionString » par défaut) |
 

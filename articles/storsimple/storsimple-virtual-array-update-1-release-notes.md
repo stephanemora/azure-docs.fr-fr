@@ -1,29 +1,21 @@
 ---
-title: Notes de version de StorSimple Virtual Array Update 1.0 | Microsoft Docs
+title: Notes de version de StorSimple Virtual Array Update 1.0
 description: Décrit les problèmes critiques non résolus et les solutions possibles pour StorSimple Virtual Array exécutant Update 1.0.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: alkohli
-ms.openlocfilehash: fdf37a8360ec69017458fabee2a9e16aa2c160aa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 48dec3a87ab540af224ae4ac59dd37cee7c9d0ee
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789669"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271342"
 ---
 # <a name="storsimple-virtual-array-update-10-release-notes"></a>Notes de version de StorSimple Virtual Array Update 1.0
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les notes suivantes identifient les problèmes majeurs existants et les problèmes résolus dans les mises à jour Microsoft Azure StorSimple Virtual Array.
 
@@ -60,7 +52,7 @@ Le tableau suivant récapitule les problèmes corrigés dans cette version.
 | 1 |Authentification AAD (Azure Active Directory)| Cette version a été modifiée pour permettre l’authentification AAD auprès du service StorSimple Device Manager.|
 | 2 |Nettoyage de la mémoire| Ce problème a été rencontré sur le site d’un client où les comptes de stockage et l’appareil se trouvaient dans des régions différentes. Le client a signalé des erreurs de réseau intermittentes, avec un impact sur la facturation. Ce problème a été résolu dans cette version. |
 | 3 |Performances| Cette version a été modifiée pour améliorer les performances de restauration, de lecture dans le cloud et de hiérarchisation.|
-| 4 |Mettre à jour| Dans la version antérieure, un problème de mise à jour provoquait des échecs de sauvegarde sur le site d’un client. Ce problème a été résolu dans cette version.|
+| 4 |Update| Dans la version antérieure, un problème de mise à jour provoquait des échecs de sauvegarde sur le site d’un client. Ce problème a été résolu dans cette version.|
 
 ## <a name="known-issues-in-update-10"></a>Problèmes connus dans Update 1.0
 
@@ -91,7 +83,7 @@ Le tableau suivant récapitule les problèmes connus pour StorSimple Virtual Arr
 ## <a name="next-steps"></a>Étapes suivantes
 [Installer Update 1.0](storsimple-virtual-array-install-update-1.md) sur votre appareil StorSimple Virtual Array.
 
-## <a name="references"></a>Références
+## <a name="references"></a>References
 Vous recherchez une note de version antérieure ? Accédez à :
 *  [Notes de version de StorSimple Virtual Array Update 0.6](storsimple-virtual-array-update-06-release-notes.md)
 * [Notes de publication de StorSimple Virtual Array Update 0.5](storsimple-virtual-array-update-05-release-notes.md)

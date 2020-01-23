@@ -3,12 +3,12 @@ title: Erreurs de ressources parentes
 description: Décrit comment résoudre les erreurs liées à des ressources parentes dans un modèle Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 9fcf12db7375e6d19ef9e77ea4dcaf13130175b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476383"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154038"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Résoudre les erreurs avec des ressources parentes
 
@@ -34,7 +34,7 @@ Lorsqu’une ressource est l’enfant d’une autre ressource, la ressource pare
   ...
 ```
 
-Si vous déployez le serveur et la base de données dans le même modèle, mais que vous ne spécifiez pas de dépendance sur le serveur, le déploiement de la base de données peut commencer avant que le serveur n’ait été déployé. 
+Si vous déployez le serveur et la base de données dans le même modèle, mais que vous ne spécifiez pas de dépendance sur le serveur, le déploiement de la base de données peut commencer avant que le serveur n’ait été déployé.
 
 Si la ressource parente existe déjà et n’est pas déployée dans le même modèle, vous obtenez cette erreur quand le Gestionnaire des ressources ne peut pas associer la ressource enfant au parent. Cette erreur peut se produire quand la ressource enfant n’est pas dans le format correct, ou que la ressource enfant est déployée dans un groupe de ressources différent du groupe de ressources de la ressource parente.
 
@@ -44,7 +44,7 @@ Pour résoudre cette erreur quand les ressources parente et enfant sont déploy�
 
 ```json
 "dependsOn": [
-    "[variables('databaseServerName')]"
+  "[variables('databaseServerName')]"
 ]
 ```
 
@@ -52,29 +52,29 @@ Pour résoudre cette erreur quand la ressource parente a déjà été déployée
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlServerName": {
-            "type": "string"
-        },
-        "databaseName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "apiVersion": "2014-04-01",
-            "type": "Microsoft.Sql/servers/databases",
-            "location": "[resourceGroup().location]",
-            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
-            "properties": {
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "edition": "Basic"
-            }
-        }
-    ],
-    "outputs": {}
+    "databaseName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "edition": "Basic"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

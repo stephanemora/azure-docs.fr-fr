@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 18031400155b92f243877ae8c8d7a56e1d5295a0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d70f2f3ec87c8673013bcf7b6f70ebcbb8d06f08
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933642"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75770014"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Sélectionner et de déployer un agent de sécurité sur votre appareil IoT
 
@@ -41,20 +41,20 @@ Chaque version de l’agent de sécurité Azure Security Center pour IoT offre l
 
 L’agent de sécurité basé sur C représente un encombrement mémoire moindre et est le choix idéal pour les appareils avec moins de ressources disponibles. 
 
-|     | Agent de sécurité basé sur C | Agent de sécurité C# |
+|     | Agent de sécurité C | Agent de sécurité C# |
 | --- | ----------- | --------- |
 | Open source | Disponible sous [licence MIT](https://en.wikipedia.org/wiki/MIT_License) dans [GitHub](https://aka.ms/iot-security-github-cs) | Disponible sous [licence MIT](https://en.wikipedia.org/wiki/MIT_License) dans [GitHub](https://aka.ms/iot-security-github-c) |
 | Langage de développement    | C | C# |
-| Plateformes Windows prises en charge ? | Non | OUI |
+| Plateformes Windows prises en charge ? | Non | Oui |
 | Conditions préalables pour Windows | --- | [WMI](https://docs.microsoft.com/windows/desktop/wmisdk/) |
 | Plateformes Linux prises en charge ? | Oui, x64 et x86 | Oui, x64 uniquement |
 | Composants requis Linux | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins | libunwind8, libcurl3, uuid-runtime, auditd, audispd-plugins, sudo, netstat, iptables |
 | Encombrement disque | 10,5 Mo | 90 Mo |
 | Encombrement mémoire (en moyenne) | 5,5 Mo | 33 Mo |
-| [Authentification](concept-security-agent-authentication-methods.md) à IoT Hub | OUI | OUI |
-| [Collection](how-to-agent-configuration.md#supported-security-events) de données de sécurité | OUI | OUI |
-| Agrégation des événements | OUI | OUI |
-| Configuration à distance via [jumeau de module de sécurité](concept-security-module.md) | OUI | OUI |
+| [Authentification](concept-security-agent-authentication-methods.md) à IoT Hub | Oui | Oui |
+| [Collection](how-to-agent-configuration.md#supported-security-events) de données de sécurité | Oui | Oui |
+| Agrégation des événements | Oui | Oui |
+| Configuration à distance via [jumeau de module de sécurité](concept-security-module.md) | Oui | Oui |
 |
 
 ## <a name="security-agent-installation-guidelines"></a>Instructions relatives à l’installation de l’agent de sécurité
@@ -91,10 +91,10 @@ La liste suivante inclut toutes les plateformes prises en charge actuellement.
 |Azure Security Center pour IoT |Système d’exploitation |Architecture |
 |--------------|------------|--------------|
 |C|Ubuntu 16.04 |   x64|
-|C|Ubuntu 18.04 |   x64|
+|C|Ubuntu 18.04 |   x64, ARMv7|
 |C|Debian 9 |   x64, x86|
 |C#|Ubuntu 16.04    |x64|
-|C#|Ubuntu 18.04    |x64|
+|C#|Ubuntu 18.04    |x64, ARMv7|
 |C#|Debian 9    |x64|
 |C#|Windows Server 2016|    X64|
 |C#|Windows 10 IoT Core, build 17763    |x64|

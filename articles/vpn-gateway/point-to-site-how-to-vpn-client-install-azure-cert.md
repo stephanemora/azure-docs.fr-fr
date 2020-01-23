@@ -1,19 +1,18 @@
 ---
-title: 'Installer un certificat client point à site : Azure | Microsoft Docs'
+title: 'Passerelle VPN Azure : Installer un certificat client point à site'
 description: Installer un certificat client pour une authentification de certificat P2S - Windows, Mac, Linux.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: c278c1c85961fbeb0779cad98f8ac16d4961ba75
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 787b8a34ed4b232b9e6cc033e67b1a8162c85f6c
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60679954"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902846"
 ---
 # <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Installer des certificats client pour des connexions d’authentification par certificat P2S
 

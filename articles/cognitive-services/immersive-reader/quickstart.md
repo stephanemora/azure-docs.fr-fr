@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: dd3e1e6de886b24a2912fe6a12b47a852d8956d0
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a219d83551b63d564ee4296a7c28b0ac99adc159
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945430"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122302"
 ---
 # <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Démarrage rapide : Créer une application web qui lance le lecteur immersif (C#)
 
@@ -62,7 +62,7 @@ Le code ci-dessous utilise des objets du package NuGet **Microsoft.IdentityModel
 Ouvrez la console du Gestionnaire de package NuGet dans **Outils -> Gestionnaire de package NuGet -> Console du Gestionnaire de package** et exécutez cette commande :
 
 ```powershell
-    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
+    Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.2.0
 ```
 
 ### <a name="update-the-controller-to-acquire-the-token"></a>Mettre à jour le contrôleur pour obtenir le jeton 

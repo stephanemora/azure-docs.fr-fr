@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: f2e6f16f3def5d510cf8f7309ed67eb22d0e970a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 19dd0051985231a0274baf550755cc61782ce740
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898997"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281306"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>Créer et gérer le service Liaison privé pour Azure Database pour PostgreSQL – Serveur unique (préversion) à l’aide de l’interface CLI
 
@@ -32,7 +32,7 @@ Si vous décidez d’installer et d’utiliser Azure CLI en local, ce guide de d
 
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Avant de pouvoir créer des ressources, vous devez créer un groupe de ressources qui hébergera le réseau virtuel. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Cet exemple crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *westeurope* :
+Avant de pouvoir créer des ressources, vous devez créer un groupe de ressources qui hébergera le réseau virtuel. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group). Cet exemple crée un groupe de ressources nommé *myResourceGroup* à l’emplacement *westeurope* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westeurope
@@ -101,9 +101,9 @@ az network private-endpoint create \
 Créez une zone DNS privé pour le domaine du serveur PostgreSQL, puis un lien d’association avec le Réseau virtuel. 
 ```azurecli-interactive
 az network private-dns zone create --resource-group myResourceGroup \ 
-   --name  "privatelink.database.azure.com" 
+   --name  "privatelink.postgres.database.azure.com" 
 az network private-dns link vnet create --resource-group myResourceGroup \ 
-   --zone-name  "privatelink.database.azure.com"\ 
+   --zone-name  "privatelink.postgres.database.azure.com"\ 
    --name MyDNSLink \ 
    --virtual-network myVirtualNetwork \ 
    --registration-enabled false 
@@ -117,8 +117,8 @@ az resource show --ids $networkInterfaceId --api-version 2019-04-01 -o json
  
  
 #Create DNS records 
-az network private-dns record-set a create --name myserver --zone-name privatelink.database.azure.com --resource-group myResourceGroup  
-az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
+az network private-dns record-set a create --name myserver --zone-name privatelink.postgres.database.azure.com --resource-group myResourceGroup  
+az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>Se connecter à une machine virtuelle à partir d’Internet
@@ -150,14 +150,14 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
 
 1. Dans le Bureau à distance de  *myVM*, ouvrez PowerShell.
 
-2. Entrez  `nslookup mydemopostgresserver.postgres.privatelink.database.azure.com`. 
+2. Entrez  `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
     Vous recevez un message similaire à celui ci :
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemopostgresserver.postgres.privatelink.database.azure.com
+    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
@@ -167,7 +167,7 @@ Connectez-vous à la machine virtuelle *myVm* à partir d’Internet comme suit�
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.postgres.privatelink.database.azure.com* |
+    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
     |Password |Enter a password provided during the PostgreSQL server creation. |
     |SSL|Select **Required**.|
@@ -189,4 +189,4 @@ az group delete --name myResourceGroup --yes
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- En savoir plus sur [Qu’est-ce qu’Azure Private Endpoint ?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)

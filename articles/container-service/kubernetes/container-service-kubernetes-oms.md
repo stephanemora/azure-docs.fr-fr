@@ -1,20 +1,18 @@
 ---
 title: (DÉPRÉCIÉ) Superviser un cluster Kubernetes Azure - Operations Management
 description: Analyse du cluster Kubernetes dans Azure Container Service à l’aide de Log Analytics
-services: container-service
 author: bburns
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: d7370fc14a5ede23744e04ac9d35140f2368e21f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3cb500d2f00d6657420d7f294a7318b339e1f81e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711784"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271066"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-cluster-with-log-analytics"></a>(DÉPRÉCIÉ) Analyser un cluster Azure Container Service avec Log Analytics
 
@@ -23,7 +21,7 @@ ms.locfileid: "60711784"
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Elle suppose également que vous avez installé l’outil `az` de l’interface Azure CLI et l’outil `kubectl`.
@@ -93,7 +91,7 @@ Pour protéger votre ID et la clé de votre espace de travail Log Analytics, vou
 
 - Copiez le script, le fichier modèle de la clé secrète et le fichier YAML DaemonSet (dans le [référentiel](https://github.com/Microsoft/OMS-docker/tree/master/Kubernetes)) et assurez-vous qu’ils se trouvent dans le même répertoire.
   - clé de secret générant le script - secret-gen.sh
-  - modèle de clé de secret - secret-template.yaml
+  - Modèle de secret - secret-template.yaml
     - Fichier DaemonSet YAML - omsagent-ds-secrets.yaml
 - Exécutez le script. Le script demande l’ID et la clé primaire de l’espace de travail Log Analytics. Insérez-le et le script crée un fichier yaml secret pour que vous puissiez l’exécuter.
   ```
@@ -123,7 +121,7 @@ Pour protéger votre ID et la clé de votre espace de travail Log Analytics, vou
   KEY:    88 bytes
   ```
 
-  - Créer votre DaemonsSet omsagent en exécutant ```kubectl create -f omsagent-ds-secrets.yaml```
+  - Créer votre DaemonsSet de l’agent OMS en exécutant ```kubectl create -f omsagent-ds-secrets.yaml```
 
 ### <a name="conclusion"></a>Conclusion
 Et voilà ! Après quelques minutes, vous devez être en mesure de voir le flux de données vers votre tableau de bord Log Analytics.

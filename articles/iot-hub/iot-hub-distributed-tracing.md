@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457053"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911893"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Suivre les messages appareil-à-cloud Azure IoT avec le traçage distribué (préversion)
 
@@ -208,15 +208,15 @@ Pour modifier le pourcentage de messages devant être suivis à partir du cloud,
 
 1. (Facultatif) Modifiez la valeur du taux d’échantillonnage, puis observez que la fréquence à laquelle `tracestate` est inclus dans les propriétés d’application n’est plus la même.
 
-### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>Mettre à jour à l’aide d’Azure IoT Hub Toolkit pour VS Code
+### <a name="update-using-azure-iot-hub-for-vs-code"></a>Mettre à jour à l’aide d’Azure IoT Hub pour VS Code
 
-1. Installez VS Code, puis [cliquez ici](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pour installer la dernière version d’Azure IoT Hub Toolkit pour VS Code.
+1. Installez VS Code, puis [cliquez ici](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) pour installer la dernière version d’Azure IoT Hub pour VS Code.
 
 1. Ouvrez VS Code, puis [configurez la chaîne de connexion IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
 1. Développez l’appareil puis recherchez **Distributed Tracing Setting (Preview)** (Paramètres de traçage distribué (préversion)). Dans cette section, cliquez sur le sous-noeud **Update Distributed Tracing Setting (Preview)** (Mettre à jour les paramètres de traçage distribué (préversion)).
 
-    ![Activer le traçage distribué dans Azure IoT Hub Toolkit](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Activer le traçage distribué dans l’extension Azure IoT Hub](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. Dans la fenêtre contextuelle, sélectionnez **Activer**, puis appuyez sur Entrée pour confirmer le taux d’échantillonnage de 100.
 

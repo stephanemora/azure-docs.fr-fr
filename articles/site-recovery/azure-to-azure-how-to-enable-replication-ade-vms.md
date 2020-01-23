@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 2b6c6f2882701515d868e96ae10af85890004587
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 3a59f137240eff2a3a68fa5547be8c6c25d3e5fe
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954680"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772225"
 ---
 # <a name="replicate-azure-disk-encryption-enabled-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles prenant en charge Azure Disk Encryption vers une autre région Azure
 
 Cet article décrit comment répliquer des machines virtuelles Azure avec Azure Disk Encryption (ADE) activé, d’une région Azure vers une autre.
 
 >[!NOTE]
-> Site Recovery prend actuellement en charge ADE, avec et sans Azure Active Directory (AAD) pour les machines virtuelles exécutant Windows.  Pour les machines exécutant ADE 1.1 (sans AAD), les machines virtuelles Windows doivent utiliser des disques managés. Les machines virtuelles avec des disques non managés ne sont pas prises en charge. Si vous passez de ADE 0.1 (avec AAD) à 1.1, vous devez désactiver la réplication et activer la réplication pour une machine virtuelle après avoir activé 1.1.
+> Site Recovery prend actuellement en charge ADE, avec et sans Azure Active Directory (AAD) pour les machines virtuelles exécutant les systèmes d’exploitation Windows et Linux.  Pour les machines exécutant ADE 1.1 (sans AAD), les machines virtuelles doivent utiliser des disques managés. Les machines virtuelles avec des disques non managés ne sont pas prises en charge. Si vous passez de ADE 0.1 (avec AAD) à 1.1, vous devez désactiver la réplication et activer la réplication pour une machine virtuelle après avoir activé 1.1.
 
 
 ## <a id="required-user-permissions"></a> Autorisations utilisateur requises

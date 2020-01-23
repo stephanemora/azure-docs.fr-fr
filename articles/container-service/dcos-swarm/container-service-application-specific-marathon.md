@@ -1,20 +1,18 @@
 ---
 title: (DÉPRÉCIÉ) Service Marathon propre à une application ou à un utilisateur
 description: Créer un service Marathon lié à une application ou à un utilisateur donnés
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 423dc7f62806f774a5ec4855faa8be9001292773
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557530"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277712"
 ---
 # <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(DÉPRÉCIÉ) Créer un service Marathon propre à une application ou à un utilisateur
 
@@ -26,7 +24,7 @@ Dans cet article, nous expliquerons comment ajouter un service Marathon lié à 
 
 Étant donné que ce service appartiendra à un utilisateur ou à une équipe unique, ces derniers peuvent le configurer comme ils l’entendent. En outre, Azure Container Service garantit l’exécution continue du service. En cas d’échec de ce dernier, Azure Container Service le redémarre à votre place. La plupart du temps, vous ne remarquerez même pas la survenue d’un temps d’arrêt.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 [Déployez une instance d’Azure Container Service](container-service-deployment.md) avec un orchestrator de type DC/OS, et [vérifiez que votre client peut se connecter à votre cluster](../container-service-connect.md). Effectuez également les étapes suivantes.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

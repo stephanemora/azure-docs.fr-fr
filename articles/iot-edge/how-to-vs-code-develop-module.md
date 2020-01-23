@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 09371cc66b54d822db5ad24679d28f40323eb871
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 42431c0db55219c3cb49968986c1a0c7f071b219
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561016"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509273"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code afin de développer et déboguer des modules pour Azure IoT Edge
 
@@ -28,9 +28,9 @@ Cet article fournit des instructions pour le développement et le débogage de m
 >[!NOTE]
 >La prise en charge du développement et du débogage des appareils Linux ARM64 est disponible en [préversion publique](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Pour plus d’informations, consultez [Développer et déboguer des modules IoT Edge ARM64 dans Visual Studio Code (préversion)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Sur les ordinateurs Windows, vous pouvez développer des modules Windows ou Linux. Pour développer des modules Windows, utilisez un ordinateur Windows exécutant la version 1809/build 17763 ou une version plus récente. Pour développer des modules Linux, utilisez un ordinateur Windows qui est conforme à la [configuration requise pour Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
+Vous pouvez utiliser un ordinateur ou une machine virtuelle Windows, macOS ou Linux comme machine de développement. Sur les ordinateurs Windows, vous pouvez développer des modules Windows ou Linux. Pour développer des modules Windows, utilisez un ordinateur Windows exécutant la version 1809/build 17763 ou une version plus récente. Pour développer des modules Linux, utilisez un ordinateur Windows qui est conforme à la [configuration requise pour Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install).
 
 Commencez par installer [Visual Studio Code](https://code.visualstudio.com/), puis ajoutez les extensions suivantes :
 
@@ -50,7 +50,7 @@ Vous devrez également installer d'autres outils spécifiques au langage utilis�
 
 - Node.js : [Node.js](https://nodejs.org). Vous pourrez également installer [Yeoman](https://www.npmjs.com/package/yo) et le [générateur de module Node.js Azure IoT Edge](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
-- Java : [Java SE Development Kit 10](https://aka.ms/azure-jdks) et [Maven](https://maven.apache.org/). Vous devrez [définir la variable d'environnement `JAVA_HOME` ](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)de manière à ce qu'elle pointe vers votre installation JDK.
+- Java : [Java SE Development Kit 10](https://aka.ms/azure-jdks) et [Maven](https://maven.apache.org/). Vous devrez [définir la variable d'environnement `JAVA_HOME`](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/)de manière à ce qu'elle pointe vers votre installation JDK.
 
 Pour générer et déployer l'image de votre module, vous devez disposer de Docker pour générer l'image du module et d'un registre de conteneurs pour stocker cette image :
 
@@ -66,6 +66,7 @@ Pour générer et déployer l'image de votre module, vous devez disposer de Dock
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
+   
 > [!NOTE]
 > Actuellement, iotedgehubdev utilise une bibliothèque docker-py qui n’est pas compatible avec Python 3.8.
 >
@@ -77,7 +78,7 @@ Pour tester votre module sur un appareil, vous devez disposer d’un hub IoT act
 
 Les étapes suivantes expliquent comment créer un module IoT Edge dans votre langage de développement préféré (y compris Azure Functions, en C#) en utilisant Visual Studio Code et les outils IoT Azure. Vous commencez par créer une solution, puis vous y générez le premier module. Chaque solution peut contenir plusieurs modules.
 
-1. Sélectionnez **Affichage** > **Palette de commandes**.
+1. Sélectionnez **Afficher** > **Palette de commandes**.
 
 1. Dans la palette de commandes, entrez et exécutez la commande **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge : Nouvelle solution IoT Edge).
 

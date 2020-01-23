@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: c3da9c6a49fd79946d62b0319bead1bd721f3aa6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ce85c45d80a776af84a0987cfbc3f496c2bbb72b
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534145"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75893956"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurer l’authentification pour des ressources et workflows Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -170,7 +170,8 @@ ws.get_details()
 
 Le principal de service créé aux étapes précédentes permet également de s’authentifier auprès de l’[’API REST](https://docs.microsoft.com/rest/api/azureml/) Azure Machine Learning. Vous utilisez le [flux d’octroi des informations d’identification du client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) Azure Active Directory, qui permet d’effectuer des appels de service à service pour l’authentification sans affichage dans les workflows automatisés. Les exemples sont implémentés avec la [bibliothèque ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) en Python et en Node.js, mais vous pouvez aussi utiliser n’importe quelle bibliothèque open source prenant en charge OpenID Connect 1.0. 
 
-> ![NOTE] MSAL.js est une bibliothèque plus récente qu’ADAL. Toutefois, MSAL.js ne prend pas en charge l’authentification de service à service avec les informations d’identification du client, car il s’agit principalement d’une bibliothèque côté client conçue pour l’authentification interactive/basée sur l’interface utilisateur qui est associée à un utilisateur spécifique. Nous vous recommandons d’utiliser ADAL comme indiqué ci-dessous pour créer des workflows automatisés avec l’API REST.
+> [!NOTE]
+> MSAL.js est une bibliothèque plus récente qu’ADAL. Toutefois, MSAL.js ne prend pas en charge l’authentification de service à service avec les informations d’identification du client, car il s’agit principalement d’une bibliothèque côté client conçue pour l’authentification interactive/basée sur l’interface utilisateur qui est associée à un utilisateur spécifique. Nous vous recommandons d’utiliser ADAL comme indiqué ci-dessous pour créer des workflows automatisés avec l’API REST.
 
 ### <a name="nodejs"></a>Node.js
 
@@ -268,15 +269,19 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                 auth_enable=True)
 ```
 
-Vous pouvez ensuite utiliser la configuration ACI personnalisée dans le déploiement avec la classe `WebService` parente.
+Vous pouvez ensuite utiliser la configuration ACI personnalisée dans le déploiement avec la classe `Model`.
 
 ```python
-from azureml.core.webservice import Webservice
+from azureml.core.model import Model, InferenceConfig
 
-aci_service = Webservice.deploy_from_image(deployment_config=aci_config,
-                                           image=image,
-                                           name="aci_service_sample",
-                                           workspace=ws)
+
+inference_config = InferenceConfig(entry_script="score.py",
+                                   environment=myenv)
+aci_service = Model.deploy(workspace=ws,
+                       name="aci_service_sample",
+                       models=[model],
+                       inference_config=inference_config,
+                       deployment_config=aci_config)
 aci_service.wait_for_deployment(True)
 ```
 

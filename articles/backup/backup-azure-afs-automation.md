@@ -3,18 +3,18 @@ title: Sauvegarder et restaurer Azure Files avec PowerShell
 description: Dans cet article, découvrez comment sauvegarder et restaurer Azure Files avec le service Sauvegarde Azure et PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224160"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294046"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Sauvegarder et restaurer Azure Files avec PowerShell
 
 Cet article explique comment utiliser Azure PowerShell pour sauvegarder et restaurer un partage de fichiers Azure Files à l’aide du coffre Recovery Services [Sauvegarde Azure](backup-overview.md).
 
-Cet article vous explique comment :
+Cet article explique comment :
 
 > [!div class="checklist"]
 >
@@ -28,7 +28,7 @@ Cet article vous explique comment :
 ## <a name="before-you-start"></a>Avant de commencer
 
 * [En savoir plus](backup-azure-recovery-services-vault-overview.md) sur les coffres Recovery Services.
-* En savoir plus sur les fonctionnalités en préversion de [sauvegarde de partages de fichiers Azure](backup-azure-files.md).
+* En savoir plus sur les fonctionnalités en préversion de [sauvegarde de partages de fichiers Azure](backup-afs.md).
 * Passez en revue la hiérarchie des objets PowerShell pour Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Hiérarchie des objets dans Recovery Services
@@ -60,7 +60,7 @@ Configurez PowerShell comme suit :
 4. Connectez-vous à votre compte Azure à l’aide de **Connect-AzAccount**.
 5. Sur la page web qui s’affiche, vous êtes invité à entrer les informations d’identification de votre compte.
 
-    * Vous pouvez également inclure les informations d’identification de votre compte en tant que paramètre dans la cmdlet **Connect-AzAccount** avec **-Credential**.
+    * Vous pouvez également inclure les informations d’identification de votre compte en tant que paramètres dans la cmdlet **Connect-AzAccount** avec **-Credential**.
     * Si vous êtes partenaire CSP travaillant pour le compte d’un locataire, spécifiez le client en tant que locataire à l’aide de son ID locataire ou de son nom de domaine principal. Par exemple **Connect-AzAccount -Tenant** fabrikam.com.
 
 6. Associez l’abonnement que vous souhaitez utiliser avec le compte, car un compte peut compter plusieurs abonnements.
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[En savoir plus sur](backup-azure-files.md) la sauvegarde Azure Files dans le Portail Azure.
+[En savoir plus sur](backup-afs.md) la sauvegarde Azure Files dans le Portail Azure.

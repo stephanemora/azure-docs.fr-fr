@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 335a056a34412a7ed148613bfff59ecb30053e09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190313"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288929"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Déplacer le calcul mainframe vers Azure
 
@@ -57,7 +57,7 @@ Les machines virtuelles Azure fournissent une puissance de calcul dans une large
 
 Actuellement, l’éventail des tailles de machines virtuelles Azure s’étend de 1 à 128 vCPU. Les types de machines virtuelles (VM) sont optimisés pour des charges de travail spécifiques. Par exemple, la liste suivante montre les types de machine virtuelle (à jour au moment de la rédaction du présent document) et leurs utilisations recommandées :
 
-| Taille     | Type et description                                                                 |
+| Size     | Type et description                                                                 |
 |----------|--------------------------------------------------------------------------------------|
 | Série D | Usage général avec 64 vCPU et jusqu'à 3,5 GHz de fréquence d’horloge                           |
 | Série E | Optimisé pour la mémoire avec jusqu'à 64 vCPU                                                 |
@@ -124,7 +124,7 @@ Chaque niveau peut fournir des services de reprise d’activité après sinistre
 - [IBM CICS and the Coupling Facility: Beyond the Basics](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
 - [Création des utilisateurs requis pour l’installation d’une fonctionnalité DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
 - [DB2icrt - Commande Créer une instance](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Solution de données de clusters Db2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Solution de base de données de clusters Db2 pureScale](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBMData Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
@@ -134,6 +134,5 @@ Chaque niveau peut fournir des services de reprise d’activité après sinistre
 
 ### <a name="more-migration-resources"></a>Autres ressources de migration
 
-- [Platform Modernization Alliance : IBM Db2 sur Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 - [Azure Virtual Datacenter: Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [iSCSI GlusterFS](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

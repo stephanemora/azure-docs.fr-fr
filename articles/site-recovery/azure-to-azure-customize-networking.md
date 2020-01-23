@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968913"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292856"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Personnaliser les configurations réseau de la machine virtuelle Azure cible
 
@@ -27,11 +27,11 @@ Découvrez comment Site Recovery permet la récupération d’urgence pour [ce s
 
 Vous pouvez fournir la configuration des ressources clés suivantes pour la machine virtuelle de basculement lors de la réplication des machines virtuelles Azure :
 
-- [Équilibreur de charge interne](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
+- [Équilibreur de charge interne](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 - [Adresse IP publique](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Groupe de sécurité réseau](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) pour le sous-réseau et pour la carte réseau
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Veillez à planifier à l’avance vos configurations côté récupération.
 - Créez à l’avance les ressources de mise en réseau. Fournissez-les en entrée afin que le service Azure Site Recovery puisse respecter ces paramètres et s’assurer que la machine virtuelle de basculement adhérera à ces paramètres.
@@ -55,7 +55,7 @@ Site Recovery respecte à présent ces paramètres et s’assure que, lors du ba
 
 Lorsque vous déclenchez le test de basculement via le plan de récupération, il demande toujours le réseau virtuel Azure. Ce réseau virtuel sera utilisé pour le basculement de test pour les machines qui ne possédaient pas de paramètres de basculement de test préconfigurés.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="unable-to-view-or-select-a-resource"></a>Impossible d’afficher ou de sélectionner une ressource
 

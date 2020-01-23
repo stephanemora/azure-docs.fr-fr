@@ -1,5 +1,5 @@
 ---
-title: Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure | Microsoft Docs
+title: Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure Pipelines
 description: Découvrez comment utiliser Azure DevTest Labs dans les pipelines de build et de mise en production Azure.
 services: devtest-lab, lab-services
 documentationcenter: na
@@ -10,16 +10,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e16f3c5a0c0b2b86d6a893f541cefb275a8e7d07
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774486"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169236"
 ---
-# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Utiliser DevTest Labs dans les pipelines de build et de mise en production Azure Pipelines
 Cet article fournit des informations sur la façon dont DevTest Labs peut être utilisé dans les pipelines de build et de mise en production Azure. 
 
 ## <a name="overall-flow"></a>Flux général
@@ -96,7 +96,7 @@ Pour la deuxième tâche **Déployer Azure App Service**, spécifiez l’abonnem
 Maintenant que les deux pipelines sont configurés, vous pouvez mettre en file d’attente une build manuellement et la voir fonctionner. L’étape suivante consiste à définir le déclencheur approprié pour la build et à connecter la build au pipeline de mise en production.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue d’Azure Pipelines](devtest-lab-integrate-ci-cd-vsts.md)
 - [Intégrer des environnements à vos pipelines CI/CD Azure Pipelines](integrate-environments-devops-pipeline.md)

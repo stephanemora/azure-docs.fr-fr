@@ -1,15 +1,15 @@
 ---
-author: jpconnock
+author: tanmaygore
+ms.author: tagore
 ms.service: cloud-services
 ms.topic: include
 ms.date: 11/25/2018
-ms.author: jeconnoc
-ms.openlocfilehash: a73e8b2d0c35fe4575f36598beee1c1e4bbca488
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a8fae34622e5306dd9f462ed49c876cbacb504ba
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968865"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279391"
 ---
 > [!NOTE]
 > Pour terminer cette section, vous devez avoir installé Node.js et le Kit de développement logiciel (SDK) Azure pour Node.js sur votre plateforme.

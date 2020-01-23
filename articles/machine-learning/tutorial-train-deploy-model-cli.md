@@ -8,13 +8,13 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: 5e840960c66f586882e64a655ddbfa078dae51ef
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/08/2019
+ms.openlocfilehash: f920df20a8dc1cace76f641ce1c71f9b91a30bf4
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646640"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867667"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutoriel : Entraîner et déployer un modèle à partir de l’interface CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -213,7 +213,7 @@ Pour entraîner un modèle, vous pouvez fournir les données d’entraînement �
 Pour enregistrer le jeu de données à l'aide du fichier `dataset.json`, utilisez la commande suivante :
 
 ```azurecli-interactive
-az ml dataset register -f dataset.json
+az ml dataset register -f dataset.json --skip-validation
 ```
 
 Le résultat de cette commande doit ressembler au JSON suivant :
@@ -242,8 +242,14 @@ Le résultat de cette commande doit ressembler au JSON suivant :
 }
 ```
 
+
 > [!IMPORTANT]
 > Copiez la valeur de l'entrée `id`, telle qu'elle est utilisée dans la section suivante.
+
+Pour consulter un modèle plus complet du fichier JSON qui décrit un jeu de données, utilisez la commande suivante :
+```azurecli-interactive
+az ml dataset register --show-template
+```
 
 ## <a name="reference-the-dataset"></a>Faire référence au jeu de données
 
@@ -368,6 +374,9 @@ Pour déployer un modèle, utilisez la commande suivante :
 az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aciDeploymentConfig.yml
 ```
 
+> [!NOTE]
+> Vous pouvez recevoir un avertissement sur un « échec de la vérification de l’existence de LocalWebservice ». Vous pouvez l’ignorer en toute sécurité, car vous ne déployez pas un service web local.
+
 Cette commande déploie un nouveau service nommé `myservice`, en utilisant la version 1 du modèle que vous avez inscrit précédemment.
 
 Le fichier `inferenceConfig.yml` fournit des informations sur la façon d’effectuer une inférence, comme le script d’entrée (`score.py`) et les dépendances logicielles. Pour plus d’informations sur la structure de ce fichier, consultez le [schéma de configuration de l’inférence](reference-azure-machine-learning-cli.md#inference-configuration-schema). Pour plus d’informations sur les scripts d’entrée, consultez [Déployer des modèles avec Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
@@ -413,6 +422,13 @@ Même si vous pouvez créer une application cliente pour appeler le point de ter
 ```azurecli-interactive
 az ml service run -n myservice -d @testdata.json
 ```
+
+> [!TIP]
+> Si vous utilisez PowerShell, utilisez plutôt la commande suivante :
+>
+> ```powershell
+> az ml service run -n myservice -d `@testdata.json
+> ```
 
 La réponse de la commande est similaire à `[ 3 ]`.
 

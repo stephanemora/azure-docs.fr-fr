@@ -1,23 +1,18 @@
 ---
-title: Héberger de zones de recherche inversées DNS dans Azure DNS | Microsoft Docs
+title: Héberger des zones de recherche DNS inversées dans Azure DNS
 description: Découvrez comment utiliser Azure DNS pour héberger les zones de recherche inversées DNS pour vos plages d’adresses IP
-services: dns
-documentationcenter: na
 author: asudbring
-manager: jeconnoc
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: allensu
-ms.openlocfilehash: aeefb523b401effe4dedb21a8284f296948bbef9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6052934e15d6975265c9eded459eea4446c9eee1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211260"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277952"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Héberger des zones de recherche DNS inversées dans Azure DNS
 
@@ -33,7 +28,7 @@ Cet article vous indique la procédure à suivre pour créer votre première zon
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Créer une zone de recherche inversée DNS
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le menu **Hub**, sélectionnez **Nouveau** > **Mise en réseau**, puis choisissez **Zone DNS**.
 
    ![Sélection de « zone DNS »](./media/dns-reverse-dns-hosting/figure1.png)
@@ -71,7 +66,7 @@ New-AzDnsZone -Name 2.0.192.in-addr.arpa -ResourceGroupName MyResourceGroup
 azure network dns zone create MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 2.0.192.in-addr.arpa
@@ -102,7 +97,7 @@ New-AzDnsZone -Name 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceGroupName 
 azure network dns zone create MyResourceGroup 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n 0.0.0.0.d.c.b.a.8.b.d.0.1.0.0.2.ip6.arpa
@@ -146,7 +141,7 @@ New-AzDnsRecordSet -Name 15 -RecordType PTR -ZoneName 2.0.192.in-addr.arpa -Reso
 azure network dns record-set add-record MyResourceGroup 2.0.192.in-addr.arpa 15 PTR --ptrdname dc1.contoso.com  
 ```
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     az network dns record-set ptr add-record -g MyResourceGroup -z 2.0.192.in-addr.arpa -n 15 --ptrdname dc1.contoso.com
@@ -183,7 +178,7 @@ New-AzDnsRecordSet -Name "e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f" -RecordType PTR -Zone
 azure network dns record-set add-record MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f PTR --ptrdname dc2.contoso.com 
 ```
  
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     az network dns record-set ptr add-record -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -n e.5.0.4.9.f.a.1.c.b.0.1.4.2.5.f --ptrdname dc2.contoso.com
@@ -213,7 +208,7 @@ Get-AzDnsRecordSet -ZoneName 2.0.192.in-addr.arpa -ResourceGroupName MyResourceG
     azure network dns record-set list MyResourceGroup 2.0.192.in-addr.arpa
 ```
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     azure network dns record-set list -g MyResourceGroup -z 2.0.192.in-addr.arpa
@@ -239,13 +234,13 @@ Get-AzDnsRecordSet -ZoneName 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa -ResourceG
     azure network dns record-set list MyResourceGroup 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 
 ```azurecli
     azure network dns record-set list -g MyResourceGroup -z 0.0.0.0.c.d.b.a.8.b.d.0.1.0.0.2.ip6.arpa
 ```
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 ### <a name="can-i-host-reverse-dns-lookup-zones-for-my-isp-assigned-ip-blocks-on-azure-dns"></a>Puis-je héberger des zones de recherche inversée DNS pour les blocs IP attribués par mon fournisseur de services Internet sur Azure DNS ?
 

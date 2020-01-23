@@ -1,22 +1,20 @@
 ---
-title: Utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure | Microsoft Docs
+title: Utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure
 description: Découvrez comment utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure qui utilisent la configuration de scale-in automatique pour gérer le nombre d’instances.
-services: virtual-machine-scale-sets
 author: avverma
-manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: avverma
-ms.openlocfilehash: c1618c398c0f7c4f0f54647e5232fdacc17de186
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72452959"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271763"
 ---
 # <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Aperçu : Utiliser des stratégies de scale-in personnalisées avec des groupes de machines virtuelles identiques Azure
 
@@ -137,7 +135,7 @@ Une machine virtuelle protégée n’est pas supprimée par le biais d’une act
 
 Une machine virtuelle protégée peut être supprimée manuellement par l’utilisateur à tout moment, quelle que soit la stratégie de scale-in activée sur le groupe identique. 
 
-## <a name="usage-examples"></a>Exemples d’utilisation 
+## <a name="usage-examples"></a>Exemples d'utilisation 
 
 Les exemples ci-dessous illustrent comment un groupe de machines virtuelles identiques sélectionnera les machines virtuelles à supprimer lors du déclenchement d’un événement de scale-in. Les machines virtuelles avec les ID d’instances les plus élevés sont supposées être les machines virtuelles les plus récentes dans le groupe identique, et les machines virtuelles avec les ID d’instances les plus petits sont supposées être les machines virtuelles les plus anciennes dans le groupe identique. 
 
@@ -169,7 +167,7 @@ Pour un groupe de machines virtuelles identiques non zonal, la stratégie choisi
 
 Pour un groupe de machines virtuelles identiques non zonal, la stratégie choisira de supprimer la machine virtuelle la plus récente dans le groupe identique. Toute machine virtuelle protégée est ignorée pour la suppression. 
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 1. Échec d’activation de scaleInPolicy Si vous obtenez une erreur « BadRequest » avec un message d’erreur indiquant que le membre « scaleInPolicy » est introuvable sur l’objet de type « properties », vérifiez la version de l’API utilisée pour le groupe de machines virtuelles identiques. L’API de version 2019-03-01 ou ultérieure est requise pour cette préversion.
 

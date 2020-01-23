@@ -1,21 +1,18 @@
 ---
 title: En savoir plus sur les modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure
 description: Apprenez-en plus sur les modes d’orchestration pour les groupes de machines virtuelles identiques dans Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: gwallace
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: vashan
-ms.openlocfilehash: 063b3210877c06edf7eeddab37c50ed84033098a
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73065727"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279062"
 ---
 # <a name="orchestration-mode-preview"></a>Mode d’orchestration (préversion)
 
@@ -42,7 +39,7 @@ Les groupes de machines virtuelles identiques prendront en charge deux modes d�
 
 |                             | “orchestrationMode” : « VM » (VirtualMachine) | “orchestrationMode” : “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
-| Modèle de configuration des machines virtuelles      | Aucun                                       | Obligatoire |
+| Modèle de configuration des machines virtuelles      | None                                       | Obligatoire |
 | Ajout d’une nouvelle machine virtuelle à un groupe identique  | Les machines virtuelles sont ajoutées explicitement au groupe identique lors de la création de la machine virtuelle. | Les machines virtuelles sont implicitement créées et ajoutées au groupe identique en fonction du modèle de configuration de machine virtuelle, du nombre d’instances et des règles de mise à l’échelle automatique | |
 | Supprimer une machine virtuelle                   | Les machines virtuelles doivent être supprimées individuellement, le groupe identique ne sera pas supprimé s’il comporte des machines virtuelles. | Les machines virtuelles peuvent être supprimées individuellement, la suppression du groupe identique entraîne la suppression de toutes les instances de machine virtuelle.  |
 | Attacher/Détacher des machines virtuelles           | Non pris en charge                              | Non pris en charge |
@@ -50,14 +47,14 @@ Les groupes de machines virtuelles identiques prendront en charge deux modes d�
 | Domaines d’erreur               | Peut définir les domaines d’erreur. 2 ou 3 en fonction du support régional, et 5 pour la zone de disponibilité. | Peut définir des domaines d’erreur allant de 1 à 5 |
 | Domaines de mise à jour              | Les domaines de mise à jour sont automatiquement mappés aux domaines d’erreur | Les domaines de mise à jour sont automatiquement mappés aux domaines d’erreur |
 | Zones de disponibilité          | Prend en charge le déploiement régional ou les machines virtuelles dans une zone de disponibilité | Prend en charge le déploiement régional ou plusieurs zones de disponibilité ; peut définir la stratégie d’équilibrage de zone |
-| Mise à l'échelle automatique                   | Non pris en charge                              | Pris en charge |
-| Mise à niveau du système d’exploitation                  | Non pris en charge                              | Pris en charge |
-| Mises à jour de modèle               | Non pris en charge                              | Pris en charge |
+| Mise à l'échelle automatique                   | Non pris en charge                              | Prise en charge |
+| Mise à niveau du système d’exploitation                  | Non pris en charge                              | Prise en charge |
+| Mises à jour de modèle               | Non pris en charge                              | Prise en charge |
 | Contrôle d’instance            | Contrôle complet des machines virtuelles. Les machines virtuelles possèdent un URI complet qui prend en charge la gamme complète des fonctionnalités de gestion des machines virtuelles Azure (par exemple, Azure Policy, Sauvegarde Azure et Azure Site Recovery) | Les machines virtuelles sont des ressources dépendantes du groupe identique. Les instances sont accessibles pour la gestion uniquement par le biais du groupe identique. |
 | Modèle d’instance              | Définition de modèle Microsoft. Compute/VirtualMachines. | Définition de modèle Microsoft.Compute/VirtualMachineScaleSets/VirtualMachines. |
 | Capacité                    | Un groupe identique vide peut être créé ; jusqu’à 200 machines virtuelles peuvent être ajoutées au groupe identique | Les groupes identiques peuvent être définis avec un nombre d’instances compris entre 0 et 1000 |
-| Déplacer                        | Pris en charge                                  | Pris en charge |
-| Single placement group == false | Non pris en charge                          | Pris en charge |
+| Déplacer                        | Prise en charge                                  | Prise en charge |
+| Single placement group == false | Non pris en charge                          | Prise en charge |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

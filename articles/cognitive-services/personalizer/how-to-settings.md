@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 4ab1dcf4f3554c941107ec653f717b3680543da2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d20f81bf7db2e098f2bca674c5540bc067577f30
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490736"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75833904"
 ---
 # <a name="configure-personalizer"></a>Configurer Personalizer
 
@@ -23,9 +23,9 @@ La configuration du service porte sur la façon dont le service traite les réco
 
 ## <a name="create-personalizer-resource"></a>Créer une ressource Personalizer
 
-Créez une ressource Personalizer pour chaque boucle de rétroaction. 
+Créez une ressource Personalizer pour chaque boucle de rétroaction.
 
-1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Le lien précédent vous permet d'accéder à la page **Créer** du service Personalizer. 
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer). Le lien précédent vous permet d'accéder à la page **Créer** du service Personalizer.
 1. Entrez le nom de votre service, puis sélectionnez un abonnement, un emplacement, un niveau tarifaire et un groupe de ressources.
 1. Sélectionnez la confirmation, puis **Créer**.
 
@@ -33,8 +33,8 @@ Créez une ressource Personalizer pour chaque boucle de rétroaction.
 
 ## <a name="configure-service-in-the-azure-portal"></a>Configurer un service dans le portail Azure
 
-1. Connectez-vous au [Portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
-1. Recherchez votre ressource Personalizer. 
+1. Connectez-vous au [portail Azure](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer).
+1. Recherchez votre ressource Personalizer.
 1. Dans la section **Gestion des ressources**, sélectionnez **Configuration**.
 
     Avant de quitter le portail Azure, copiez l’une de vos clés de ressource à partir de la page **Clés**. Vous en aurez besoin pour utiliser le [SDK Personalizer](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer).
@@ -55,9 +55,9 @@ Configurez le service pour l’utilisation des récompenses par votre boucle de 
 
 Après avoir changé ces valeurs, veillez à sélectionner **Enregistrer**.
 
-### <a name="configure-exploration"></a>Configurer l’exploration 
+### <a name="configure-exploration"></a>Configurer l’exploration
 
-La personnalisation est en mesure de découvrir de nouveaux modèles et de s’adapter aux changements de comportement des utilisateurs au fil du temps en explorant des alternatives. La valeur **Exploration** détermine le pourcentage des appels du classement qui reçoivent une réponse donnée via une exploration. 
+La personnalisation est en mesure de découvrir de nouveaux modèles et de s’adapter aux changements de comportement des utilisateurs au fil du temps en explorant des alternatives. La valeur **Exploration** détermine le pourcentage des appels du classement qui reçoivent une réponse donnée via une exploration.
 
 Les modifications apportées à ce paramètre réinitialisent le modèle actuel de Personalizer et effectuent de nouveau son apprentissage avec les données des 2 derniers jours.
 
@@ -67,7 +67,7 @@ Après avoir changé cette valeur, veillez à sélectionner **Enregistrer**.
 
 ### <a name="model-update-frequency"></a>Fréquence de mise à jour du modèle
 
-Le dernier modèle, qui a été entraîné à l’aide des appels d’API Reward de chaque événement actif, n’est pas utilisé automatiquement par les appels Rank de Personalizer. La **fréquence de mise à jour des modèles** définit la fréquence à laquelle le modèle utilisé par l’appel Rank est mis à jour. 
+Le dernier modèle, qui a été entraîné à l’aide des appels d’API Reward de chaque événement actif, n’est pas utilisé automatiquement par les appels Rank de Personalizer. La **fréquence de mise à jour des modèles** définit la fréquence à laquelle le modèle utilisé par l’appel Rank est mis à jour.
 
 Les fréquences élevées de mise à jour des modèles sont utiles lorsque vous souhaitez suivre de près les modifications apportées au comportements des utilisateurs, par exemple, dans le cas de sites d’actualités en direct, de contenu viral ou d’enchères en direct. Dans de tels scénarios, vous pouvez utiliser une fréquence de 15 minutes. Pour la plupart des cas d’usage, une fréquence de mise à jour moins élevée restera efficace. Une mise à jour effectuée toutes les minutes peut se révéler utile lorsque vous déboguez le code d’une application à l’aide de Personalizer, lorsque vous effectuez des démonstrations ou lorsque vous testez interactivement certains aspects de Machine Learning.
 
@@ -83,14 +83,9 @@ Après avoir changé cette valeur, veillez à sélectionner **Enregistrer**.
 
 ## <a name="export-the-personalizer-model"></a>Exporter le modèle de Personalizer
 
-Dans la section **Paramètres de modèle et d’apprentissage** de Gestion des ressources, examinez la date de création et de dernière mise à jour du modèle, puis exportez le modèle actuel. Vous pouvez utiliser le portail Azure ou les API Personalizer pour exporter un fichier de modèle à des fins d’archivage. 
+Dans la section **Paramètres de modèle et d’apprentissage** de Gestion des ressources, examinez la date de création et de dernière mise à jour du modèle, puis exportez le modèle actuel. Vous pouvez utiliser le portail Azure ou les API Personalizer pour exporter un fichier de modèle à des fins d’archivage.
 
 ![Exporter le modèle actuel de Personalizer](media/settings/export-current-personalizer-model.png)
-
-## <a name="import-and-export-learning-policy"></a>Importer et exporter la stratégie d’apprentissage
-
-Dans la section **Paramètres de modèle et d’apprentissage** de Gestion des ressources, importez une nouvelle stratégie d’apprentissage ou exportez la stratégie d’apprentissage actuelle.
-Vous pouvez obtenir des fichiers de stratégie d’apprentissage à partir d’exportations précédentes ou télécharger les stratégies optimisées découvertes lors des évaluations hors connexion. Les modifications manuelles apportées à ces fichiers affectent les performances de machine learning et la précision des évaluations hors connexion, et Microsoft ne peut pas garantir la précision du machine learning et des évaluations, ni des exceptions de service résultant de stratégies modifiées manuellement.
 
 ## <a name="clear-data-for-your-learning-loop"></a>Effacer les données de votre boucle d'apprentissage
 
@@ -105,9 +100,8 @@ Vous pouvez obtenir des fichiers de stratégie d’apprentissage à partir d’e
     |Réinitialisez le modèle Personalizer.|Ce modèle change à chaque nouvelle formation. Cette fréquence de formation est spécifiée dans la section **Fréquence du modèle de chargement** de la page **Configuration**. |
     |Définissez la stratégie d'apprentissage sur le paramètre par défaut.|Si vous avez modifié la stratégie d'apprentissage dans le cadre d'une évaluation hors connexion, la stratégie d'apprentissage d'origine est rétablie.|
 
-1. Sélectionnez **Effacer les données sélectionnées** pour lancer le processus de suppression. L'état est signalé dans les notifications Azure, en haut à droite. 
+1. Sélectionnez **Effacer les données sélectionnées** pour lancer le processus de suppression. L'état est signalé dans les notifications Azure, en haut à droite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-
-[Découvrir la disponibilité dans la région](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+[Découvrir comment gérer une stratégie d’apprentissage](how-to-learning-policy.md)

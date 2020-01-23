@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: ecc996cc07cfbf22a04a620ca426ca97056a9a9d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 547ca9c98d77b2aaa6d3630bff4b2ec10dcc5be0
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371205"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75754169"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>Guide d’ouverture de ports et de points de terminaison sur une machine virtuelle dans Azure à l’aide de PowerShell
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -97,5 +97,5 @@ Dans cet exemple, vous avez créé une règle simple pour autoriser le trafic HT
 
 * [Présentation d’Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 * [Présentation du groupe de sécurité réseau](../../virtual-network/security-overview.md)
-* [Présentation d’Azure Resource Manager](../../load-balancer/load-balancer-arm.md)
+* [Vue d’ensemble d’Azure Load Balancer](../../load-balancer/load-balancer-overview.md)
 

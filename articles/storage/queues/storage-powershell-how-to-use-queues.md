@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 98c59555f2b9b93ee3f78da91f85a7728679235d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 94e28c59c3281dc6c1d65ce782568233d0e23f03
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269379"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313839"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage File d’attente Azure avec Azure PowerShell
 
@@ -44,10 +44,10 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Récupérer la liste des régions
 
-Si vous ne savez pas quelle région utiliser, listez celles qui sont disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Cet exercice utilise **eastus**. Stockez cette région dans la variable **location** pour une utilisation ultérieure.
+Si vous ne savez pas quelle localisation utiliser, affichez la liste des localisations disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Cet exercice utilise **eastus**. Stockez cette région dans la variable **location** pour une utilisation ultérieure.
 
 ```powershell
-Get-AzLocation | select Location
+Get-AzLocation | Select-Object Location
 $location = "eastus"
 ```
 
@@ -98,7 +98,7 @@ $queue = Get-AzStorageQueue –Name $queueName –Context $ctx
 $queue
 
 # Retrieve all queues and show their names
-Get-AzStorageQueue -Context $ctx | select Name
+Get-AzStorageQueue -Context $ctx | Select-Object Name
 ```
 
 ## <a name="add-a-message-to-a-queue"></a>Ajout d'un message à une file d'attente
@@ -109,17 +109,16 @@ L’exemple suivant montre comment ajouter un message à votre file d’attente.
 
 ```powershell
 # Create a new message using a constructor of the CloudQueueMessage class
-$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
-  -ArgumentList "This is message 1"
+$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 1")
+
 # Add a new message to the queue
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 # Add two more messages to the queue
-$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
-  -ArgumentList "This is message 2"
+$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 2")
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
-$queueMessage = New-Object -TypeName "Microsoft.Azure.Storage.Queue.CloudQueueMessage,$($queue.CloudQueue.GetType().Assembly.FullName)" `
-  -ArgumentList "This is message 3"
+
+$queueMessage = [Microsoft.Azure.Storage.Queue.CloudQueueMessage]::new("This is message 3")
 $queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
@@ -171,7 +170,7 @@ Pour supprimer une file d’attente et tous les messages qu’elle contient, app
 Remove-AzStorageQueue –Name $queueName –Context $ctx
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer toutes les ressources que vous avez créées dans cet exercice, supprimez le groupe de ressources. Cette opération supprime également toutes les ressources contenues dans le groupe. Dans le cas présent, le compte de stockage créé et le groupe de ressources sont supprimés.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 76a87d539e19acc30944a6a896cb0e01f431fa37
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bf8d8a2c11962467300ae8d65fe5bbbe9a65cf92
+ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073575"
+ms.lasthandoff: 01/07/2020
+ms.locfileid: "75708353"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Ajout de mise en cache pour améliorer les performances dans Gestion des API Azure
 
@@ -39,7 +39,7 @@ Ce que vous allez apprendre :
 > [!NOTE]
 > Le cache interne n’est pas disponible dans le niveau **Consommation** de Gestion des API Azure. Vous pouvez [utiliser un Cache Azure pour Redis externe](api-management-howto-cache-external.md) à la place.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -70,14 +70,14 @@ Avec les stratégies de mise en cache montrées dans cet exemple, la première r
 
 9. Dans l’élément **sortant**, ajoutez la stratégie suivante :
 
-        <cache-store caching-mode="cache-on" duration="20" />
+        <cache-store duration="20" />
 
     **Durée** spécifie l'intervalle d'expiration des réponses mises en cache. Dans cet exemple, l’intervalle est de **20** secondes.
 
 > [!TIP]
 > Si vous utilisez un cache externe, comme décrit dans [Utiliser un Cache Azure pour Redis externe dans Gestion des API Azure](api-management-howto-cache-external.md), vous souhaiterez peut-être spécifier l’attribut `caching-type` des stratégies de mise en cache. Consultez [Stratégies de mise en cache de Gestion des API](api-management-caching-policies.md) pour plus d’informations.
 
-## <a name="test-operation"></a>Appel d’une opération et test de la mise en cache
+## <a name="test-operation"> </a>Appel d’une opération et test de la mise en cache
 Pour voir la mise en cache en action, appelez l'opération depuis le portail des développeurs.
 
 1. Dans le portail Azure, accédez à votre instance APIM.

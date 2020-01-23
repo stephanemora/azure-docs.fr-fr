@@ -4,22 +4,20 @@ description: Décrit comment Cloud Foundry peut utiliser les services Azure pour
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
-manager: jeconnoc
-editor: ''
 tags: Cloud-Foundry
 ms.assetid: 00c76c49-3738-494b-b70d-344d8efc0853
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: e341cc5beeb8e8362a848bb1e208ddf1dc773978
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 04ef72f7ec70b370305395ae8de8180f4594b43b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976796"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277342"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Intégrer Cloud Foundry avec Azure
 

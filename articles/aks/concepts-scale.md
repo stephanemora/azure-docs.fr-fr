@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: 5bceb6715fc3fd2f9f23738936df2f2c549d0212
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: aaa279596532d3a1d47a974b48a45bd67101fa95
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048187"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768620"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Options de mise à l’échelle des applications dans AKS (Azure Kubernetes Service)
 
@@ -28,6 +28,8 @@ Cet article présente les concepts fondamentaux qui vous aident à mettre à l�
 ## <a name="manually-scale-pods-or-nodes"></a>Mettre à l’échelle des pods ou des nœuds manuellement
 
 Vous pouvez mettre à l’échelle des réplicas (pods) et des nœuds manuellement pour tester la façon dont votre application répond à une modification au niveau des ressources disponibles et de l’état. Adapter manuellement les ressources vous permet également de définir une quantité donnée de ressources à utiliser pour maintenir un coût fixe, par exemple le nombre de nœuds. Pour mettre à l’échelle manuellement, vous définissez le nombre de réplicas ou de nœuds. L’API Kubernetes planifie ensuite la création de pods supplémentaires ou le drainage de nœuds en fonction du nombre de réplicas ou de nœuds.
+
+Lors d’un scale-down des nœuds, l’API Kubernetes appelle l’API de calcul Azure appropriée liée au type de calcul utilisé par votre cluster. Par exemple, pour les clusters basés sur VM Scale Sets, la logique de sélection des nœuds à supprimer est déterminée par l’API VM Scale Sets. Pour en savoir plus sur la façon dont les nœuds sont sélectionnés pour la suppression lors d’un scale-down, consultez les [Questions fréquentes (FAQ) sur VMSS](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-faq#if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed).
 
 Pour vous familiariser avec la mise à l’échelle manuelle des pods et des nœuds, consultez [Mettre à l’échelle des applications dans AKS][aks-scale].
 

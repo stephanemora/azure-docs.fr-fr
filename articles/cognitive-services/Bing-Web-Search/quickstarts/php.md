@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Effectuer une recherche avec PHP - API Recherche Web Bing'
+title: 'Démarrage rapide : Effectuer une recherche avec PHP - API Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Utilisez ce démarrage rapide pour envoyer des requêtes à l’API REST Recherche Web Bing à l’aide de PHP et recevoir une réponse JSON
 services: cognitive-services
@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.date: 12/09/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: cf3cf1f69f7b45dd90070f4074e85fa21359837d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 58192845e0119ce96ea2577007d211f075d3e419
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961474"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169725"
 ---
-# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser PHP pour appeler l’API Recherche Web Bing  
+# <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Démarrage rapide : Utiliser PHP pour appeler l’API Recherche Web Bing  
 
 Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche Web Bing et recevoir la réponse JSON. Cette application Node.js envoie une demande de recherche à l’API et affiche la réponse. Alors que cette application est écrite en JavaScript, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici quelques points dont vous aurez besoin avant d’exécuter ce démarrage rapide :
 
@@ -177,9 +177,9 @@ Les réponses à partir de l’API Recherche Web Bing sont retournées au format
         "snippet": "Knock down barriers between you and your ideas. Enable natural and contextual interaction with tools that augment users' experiences via the power of machine-based AI. Plug them in and bring your ideas to life.",
         "deepLinks": [
           {
-            "name": "Face API",
+            "name": "Face",
             "url": "https://azure.microsoft.com/services/cognitive-services/face/",
-            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using a Face API from Microsoft Azure. ... Cognitive Services; Face API;"
+            "snippet": "Add facial recognition to your applications to detect, identify, and verify faces using the Face service from Microsoft Azure. ... Cognitive Services; Face service;"
           },
           {
             "name": "Text Analytics",

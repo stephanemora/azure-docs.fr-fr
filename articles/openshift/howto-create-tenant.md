@@ -1,18 +1,17 @@
 ---
-title: Créer un locataire Azure AD pour Azure Red Hat OpenShift | Microsoft Docs
+title: Créer un locataire Azure AD pour Azure Red Hat OpenShift
 description: Voici comment créer un locataire Azure Active Directory (Azure AD) pour héberger votre cluster Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306459"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270451"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Créer un locataire Azure AD pour Azure Red Hat OpenShift
 

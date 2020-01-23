@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5000d79db0d9036fe8904322764e4c480111d6cc
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561365"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75863391"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Surveiller et réduire la limitation afin d'éviter la latence dans Azure Time Series Insights
 
@@ -64,7 +64,7 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
    |**Octets stockés en entrée**     | Taille totale des événements stockés et disponibles pour la requête. La taille est calculée uniquement sur la valeur de propriété.        |
    |**Événements stockés en entrée**     |   Nombre d’événements aplatis stockés et disponibles pour la requête.      |
    |**Retard des messages reçus en entrée**    |  Différence en secondes entre l’heure à laquelle le message est placé en file d’attente dans la source d’événement et l’heure à laquelle il est traité en entrée.      |
-   |**Décalage de nombre des messages reçus en entrée**    |  Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée.      |
+   |**Décalage du nombre des messages reçus en entrée**    |  Différence entre le numéro de séquence du dernier message placé en file d’attente dans la partition source de l’événement et le numéro de séquence du message traité en entrée.      |
 
    Sélectionnez **Terminé**.
 
@@ -78,7 +78,7 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
 
   Le champ *Décalage de nombre des messages reçus en entrée* doit également comporter une valeur, vous octroyant une visibilité sur le nombre de messages de retard que vous accusez.  Le moyen le plus simple de rattraper le retard est d’augmenter la capacité de votre environnement à une taille qui vous permettra de combler la différence.  
 
-  Par exemple, si vous constatez que votre environnement S1 affiche un décalage de 5 000 000 de messages, vous pouvez augmenter la taille de votre environnement à 6 unités durant environ une journée pour refaire votre retard.  Vous pouvez même augmenter davantage pour rattraper plus vite le retard. La période de rattrapage se produit souvent lors du provisionnement initial d’un environnement, plus particulièrement lorsque vous le connectez à une source d’événement qui présente déjà des événements ou quand vous chargez de manière groupée de gros volumes de données d’historique.
+  Par exemple, si votre environnement S1 montre un décalage de 5 000 000 de messages, vous pouvez augmenter la taille de votre environnement à 6 unités pendant environ une journée pour refaire votre retard.  Vous pouvez même augmenter davantage pour rattraper plus vite le retard. La période de rattrapage se produit souvent lors du provisionnement initial d’un environnement, plus particulièrement lorsque vous le connectez à une source d’événement qui présente déjà des événements ou quand vous chargez de manière groupée de gros volumes de données d’historique.
 
 * Une autre technique est de définir une alerte d’**événements stockés en entrée** >= à un seuil légèrement inférieur à la capacité totale de votre environnement pour une période de 2 heures.  Cette alerte peut vous aider à comprendre si vous êtes en permanence à votre capacité maximale, ce qui implique une forte probabilité de latence. 
 
@@ -90,7 +90,7 @@ Les alertes peuvent vous aider à diagnostiquer et réduire les problèmes de la
 
 La meilleure façon de réduire la limitation ou la latence est de d’augmenter la capacité de votre environnement.
 
-Vous pouvez éviter la latence et la limitation en configurant correctement votre environnement pour la quantité de données que vous souhaitez analyser. Pour plus d’informations sur comment augmenter la capacité de votre environnement, consultez l’article [Mettre à l’échelle votre environnement](time-series-insights-how-to-scale-your-environment.md).
+Vous pouvez éviter la latence et la limitation en configurant correctement votre environnement pour la quantité de données que vous souhaitez analyser. Pour plus d’informations l’augmentation de la capacité de votre environnement, consultez [Mettre à l’échelle votre environnement](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

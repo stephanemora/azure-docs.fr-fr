@@ -4,12 +4,12 @@ description: Guide pratique pour appeler des orchestrations à partir d’orches
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 379f2cb238aef08faba8dd3c8e5d9da4542a1867
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d4d599063f727510cbf504ea3d121bdabfe001c9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231289"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261515"
 ---
 # <a name="sub-orchestrations-in-durable-functions-azure-functions"></a>Orchestrations secondaires dans Fonctions durables (Azure Functions)
 
@@ -18,11 +18,11 @@ En plus d’appeler des fonctions d’activité, les fonctions d’orchestrateur
 Une fonction d’orchestrateur peut en appeler une autre avec les méthodes `CallSubOrchestratorAsync` ou `CallSubOrchestratorWithRetryAsync` en .NET, ou les méthodes `callSubOrchestrator` ou `callSubOrchestratorWithRetry` en JavaScript. L’article [Gestion des erreurs et compensation](durable-functions-error-handling.md#automatic-retry-on-failure) fournit des informations supplémentaires sur la nouvelle tentative automatique.
 
 Les fonctions d’orchestrateur secondaires se comportent comme des fonctions d’activité du point de vue de l’appelant. Elles peuvent retourner une valeur, lever une exception et être attendues par la fonction d’orchestrateur parente. 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 L’exemple suivant montre un scénario IoT (« Internet of Things ») dans lequel plusieurs appareils doivent être configurés. La fonction suivante représente le workflow de configuration qui doit être exécuté pour chaque appareil :
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -43,7 +43,7 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -64,11 +64,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
 Cette fonction d’orchestrateur peut être utilisée en l’état pour la configuration unique d’un appareil, ou elle peut faire partie d’une orchestration plus importante. Dans ce cas, la fonction d’orchestrateur parente peut planifier des instances de `DeviceProvisioningOrchestration` à l’aide de l’API `CallSubOrchestratorAsync` (.NET) or `callSubOrchestrator` (JavaScript).
 
 Voici un exemple montrant comment exécuter en parallèle plusieurs fonctions d’orchestrateur.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -94,7 +96,7 @@ public static async Task ProvisionNewDevices(
 > [!NOTE]
 > Les exemples C# précédents portent sur Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser `DurableOrchestrationContext` au lieu de `IDurableOrchestrationContext`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-20-only"></a>JavaScript (Functions 2.0 uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -117,6 +119,8 @@ module.exports = df.orchestrator(function*(context) {
     // ...
 });
 ```
+
+---
 
 > [!NOTE]
 > Des sous-orchestrations doivent être définies dans la même application de fonction que l’orchestration parente. Si vous avez besoin d’appeler et d’attendre des orchestrations dans une autre application de fonction, envisagez d’utiliser la prise en charge intégrée des API HTTP et le modèle d’interrogation de consommateur HTTP 202. Pour plus d’informations, consultez la rubrique [Fonctionnalités HTTP](durable-functions-http-features.md).

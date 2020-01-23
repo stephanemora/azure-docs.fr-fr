@@ -8,17 +8,17 @@ ms.date: 09/23/2019
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 34aa4ff6c54b34acf865af0b57c3dfa7945a637c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 3d5f3ade3ef3b79ddb3996b5bf2d609b11aff8a5
+ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212834"
+ms.lasthandoff: 01/08/2020
+ms.locfileid: "75748564"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le diagnostic et la résolution des problèmes dans une application distribuée hébergée dans un environnement cloud peuvent s'avérer plus complexes que dans des environnements traditionnels. Les applications peuvent être déployées dans une infrastructure PaaS ou IaaS, localement, sur un appareil mobile ou dans une combinaison de ces environnements. Le trafic réseau de votre application traverse généralement des réseaux publics et privés, et votre application peut utiliser différentes technologies de stockage, comme Stockage Table, Stockage Blob, Stockage File d’attente ou Stockage Fichier de Microsoft Azure, en plus d’autres magasins de données, comme des bases de données relationnelles et de documents.
 
 Pour gérer avec succès de telles applications, vous devez les analyser de façon proactive et savoir comment diagnostiquer et résoudre n'importe quel problème associé à leur fonctionnement et leurs technologies associées. En tant qu'utilisateur des services Azure Storage, vous devez surveiller en permanence les services de stockage utilisés par votre application afin de détecter tout comportement imprévu (par ex., des temps de réponse plus lents que d'habitude), et utiliser la journalisation afin de collecter davantage de données détaillées et analyser chaque problème en profondeur. Les informations de diagnostic obtenues via l'analyse et la journalisation vous aideront à déterminer la cause première du problème rencontré par votre application. Vous pouvez alors résoudre le problème et déterminer la procédure appropriée pour y remédier. Azure Storage est l'un des principaux services de Azure et un élément essentiel de la plupart des solutions que les clients déploient dans l'infrastructure Azure. Azure Storage inclut des fonctionnalités qui permettent de simplifier l'analyse, le diagnostic et la résolution des problèmes de stockage rencontrés par vos applications sur le cloud.
@@ -102,7 +102,7 @@ Si vous connaissez les outils d’analyse de performances Windows, vous pouvez c
 
 Vous pouvez sélectionner les métriques horaires à afficher dans le [portail Azure](https://portal.azure.com) et configurer les règles de notification par e-mail des administrateurs lorsqu’une métrique horaire dépasse un seuil spécifique. Pour plus d’informations, consultez [Réception de notifications d’alerte](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
-Nous vous recommandons d’examiner [Azure Monitor pour le stockage](../../azure-monitor/insights/storage-insights-overview.md) (préversion). Il s’agit d’une fonctionnalité d’Azure Monitor qui fournit une analyse complète de vos comptes de Stockage Azure en présentant une vue unifiée des performances, de la capacité et de la disponibilité de vos services de Stockage Azure. Vous n’avez pas besoin d’activer ou de configurer quoi que ce soit, et vous pouvez afficher immédiatement ces métriques à partir des graphiques interactifs prédéfinis et d’autres visualisations incluses.
+Nous vous recommandons de consulter [Azure Monitor pour le stockage](../../azure-monitor/insights/storage-insights-overview.md) (préversion). Il s’agit d’une fonctionnalité d’Azure Monitor qui fournit une analyse complète de vos comptes de Stockage Azure en présentant une vue unifiée des performances, de la capacité et de la disponibilité de vos services de Stockage Azure. Vous n’avez pas besoin d’activer ou de configurer quoi que ce soit, et vous pouvez afficher immédiatement ces métriques à partir des graphiques interactifs prédéfinis et d’autres visualisations incluses.
 
 Le service de stockage collecte les métriques du mieux qu’il peut, mais peut ne pas enregistrer toutes les opérations de stockage.
 
@@ -201,10 +201,10 @@ Les ressources suivantes sont utiles pour comprendre les codes d’état et d’
 * [Codes d'erreur API REST communs](https://msdn.microsoft.com/library/azure/dd179357.aspx)
 * [Codes d’erreur de service BLOB](https://msdn.microsoft.com/library/azure/dd179439.aspx)
 * [Codes d’erreur de service de File d’attente](https://msdn.microsoft.com/library/azure/dd179446.aspx)
-* [Codes d'erreur de service de table](https://msdn.microsoft.com/library/azure/dd179438.aspx)
+* [Codes d’erreur de service de Table](https://msdn.microsoft.com/library/azure/dd179438.aspx)
 * [Codes d’erreur de service de fichier](https://msdn.microsoft.com/library/azure/dn690119.aspx)
 
-### <a name="storage-emulator-issues"></a>Problèmes d’émulateur de stockage
+### <a name="storage-emulator-issues"></a>Problèmes liés à l’émulateur de stockage
 Le Kit de développement logiciel (SDK) Azure inclut un émulateur de stockage que vous pouvez exécuter sur une station de travail de développement. Cet émulateur simule la plupart des comportements des services de stockage Azure et est utile lors du développement et des tests, vous permettant d’exécuter les applications qui utilisent les services de stockage Azure sans avoir besoin d’un abonnement et d’un compte de stockage Azure.
 
 La section «[Instructions pour la résolution des problèmes]» de ce guide décrit certains des problèmes liés à l'utilisation de l'émulateur de stockage.
@@ -417,7 +417,7 @@ Si vous constatez un retard entre le moment où une application ajoute un messag
 * Vérifiez dans les journaux d’activité de journalisation du stockage la présence d’opérations de file d’attente présentant des valeurs **E2ELatency** et **ServerLatency** supérieures à celles prévues, pendant une période plus longue que prévu.
 
 ### <a name="metrics-show-an-increase-in-PercentThrottlingError"></a>Les métriques indiquent une augmentation de la valeur PercentThrottlingError
-Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage connaît des limitations afin de s’assurer qu’aucun client ni locataire ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur les cibles d’évolutivité des comptes de stockage et les cibles de performances des partitions dans les comptes de stockage, voir [Objectifs de performance et évolutivité d'Azure Storage](storage-scalability-targets.md).
+Les erreurs de limitation se produisent lorsque vous dépassez les valeurs cibles d’évolutivité d’un service de stockage. Le service de stockage connaît des limitations afin de s’assurer qu’aucun client ni locataire ne peut utiliser le service au détriment des autres utilisateurs. Pour plus d’informations sur les objectifs de scalabilité des comptes de stockage et les objectifs de performances des partitions dans les comptes de stockage, consultez [Cibles de scalabilité et de performances pour les comptes de stockage standard](scalability-targets-standard-account.md).
 
 Si la métrique **PercentThrottlingError** indique une augmentation du pourcentage de demandes qui échouent avec une erreur de limitation, vous devez enquêter sur un des deux scénarios suivants :
 
@@ -562,14 +562,14 @@ Si l’application cliente tente d’utiliser une clé SAS qui n’inclut pas le
 
 Le tableau suivant donne un exemple de message de journal côté serveur à partir du fichier journal de journalisation du stockage :
 
-| Nom | Valeur |
+| Name | Valeur |
 | --- | --- |
 | Heure de début de la demande | 2014-05-30T06:17:48.4473697Z |
 | Type d'opération     | GetBlobProperties            |
 | État de la demande     | SASAuthorizationError        |
 | Code d'état HTTP   | 404                          |
 | Type d'authentification| Sas                          |
-| Type de service       | Blob                         |
+| Type de service       | Objet blob                         |
 | URL de la demande        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | En-tête d’ID de requête  | a1f348d5-8032-4912-93ef-b393e5252a3b |
@@ -627,7 +627,7 @@ Si ce problème se produit fréquemment, vous devez rechercher pourquoi le clien
 ### <a name="the-client-is-receiving-409-messages"></a>Le client reçoit des messages HTTP 409 (Conflict)
 Le tableau suivant montre un extrait du journal côté serveur pour deux opérations clientes : **DeleteIfExists** suivi immédiatement par **CreateIfNotExists** et le même nom de conteneur d’objets blob. Chaque opération cliente génère l’envoi de deux requêtes au serveur : d’abord une requête **GetContainerProperties** afin de vérifier l’existence du conteneur, puis la requête **DeleteContainer** ou **CreateContainer**.
 
-| Timestamp | Opération | Résultat | Nom du conteneur | ID de la demande client |
+| Timestamp | Opération | Résultats | Nom du conteneur | ID de la demande client |
 | --- | --- | --- | --- | --- |
 | 05:10:13.7167225 |GetContainerProperties |200 |mmcont |c9f52c89-… |
 | 05:10:13.8167325 |DeleteContainer |202 |mmcont |c9f52c89-… |
@@ -679,8 +679,8 @@ Pour plus d’informations, consultez [Utilisation de l’émulateur de stockage
 ### <a name="you-are-encountering-problems-installing-the-Windows-Azure-SDK"></a>Vous rencontrez des problèmes pendant l’installation du Kit de développement logiciel (SDK) Azure pour .NET
 Lorsque vous tentez d'installer le Kit de développement logiciel (SDK), vous ne parvenez pas à installer l'émulateur de stockage sur votre machine locale. Le journal d'installation contient un des messages suivants :
 
-* CAQuietExec :  Error: Impossible d’accéder à l’instance SQL
-* CAQuietExec :  Error: Impossible de créer la base de données.
+* CAQuietExec :  Erreur : Impossible d’accéder à l’instance SQL
+* CAQuietExec :  Erreur : Impossible de créer la base de données.
 
 Cela est dû à un problème au niveau de l'installation LocalDB existante. Par défaut, l'émulateur de stockage utilise LocalDB pour conserver les données lorsqu'il simule les services de stockage Azure. Vous pouvez réinitialiser votre instance LocalDB en exécutant les commandes suivantes dans une fenêtre d'invite de commandes avant de tenter d'installer le Kit de développement logiciel (SDK).
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/22/2019
+ms.date: 01/09/2019
 ms.author: b-juche
-ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0398cc6a5336141f51dde26ed7cf4cce8c2c0bb4
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65523102"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75832580"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Niveaux de service pour Azure NetApp Files
 Les niveaux de service sont un attribut d’un pool de capacités. Les niveaux de service sont définis et différenciés par le débit maximum autorisé pour un volume dans le pool de capacités en fonction du quota attribué au volume.
@@ -59,3 +59,4 @@ Dans l’exemple 2 ci-dessus, un volume d’un pool de capacités avec le niveau
 - Consultez la [page des tarifs Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) pour connaître le prix des différents niveaux de service
 - Consultez [Modèle de coût pour Azure NetApp Files](azure-netapp-files-cost-model.md) pour le calcul de la consommation de capacité dans un pool de capacités 
 - [Configurer un pool de capacité](azure-netapp-files-set-up-capacity-pool.md)
+- Consultez [Contrat de niveau de service (SLA) pour Azure NetApp Files](https://azure.microsoft.com/support/legal/sla/netapp/)

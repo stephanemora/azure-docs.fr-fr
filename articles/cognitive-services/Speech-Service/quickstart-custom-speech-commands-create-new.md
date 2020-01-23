@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Créer une commande personnalisée (préversion) - 
 titleSuffix: Azure Cognitive Services
 description: Cet article explique comment créer et tester une application de commandes personnalisées hébergée.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446872"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155585"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Démarrage rapide : Créer une commande personnalisée (préversion)
 
@@ -24,7 +24,7 @@ L’application reconnaît un énoncé tel que « Allume la télévision » et
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- Abonnement Speech. 
+- Abonnement Speech.
 
 Si vous n’avez pas d’abonnement Speech, vous pouvez en créer un en accédant à [Speech Studio](https://speech.microsoft.com/), puis en sélectionnant **Créer une ressource Speech**.
 
@@ -73,7 +73,7 @@ Votre affichage devrait à présent présenter une vue d’ensemble de votre app
 
 ## <a name="update-luis-resources-optional"></a>Mettre à jour les ressources LUIS (facultatif)
 
-Vous pouvez mettre à jour le jeu de ressources de création dans la fenêtre du nouveau projet, puis définir une ressource de prédiction utilisée pour reconnaître les entrées pendant l’exécution. 
+Vous pouvez mettre à jour le jeu de ressources de création dans la fenêtre du nouveau projet, puis définir une ressource de prédiction utilisée pour reconnaître les entrées pendant l’exécution.
 
 > [!NOTE]
 > Vous devrez définir une ressource de prédiction avant que votre application ne demande des prédictions au-delà des 1 000 requêtes fournies par la ressource de création.
