@@ -10,41 +10,38 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 12/13/2019
+ms.date: 01/08/2020
 ms.author: raiye
-ms.openlocfilehash: 742f54ffb6c77d9f84582d6a68dff936fdbbe99c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386202"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75779584"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
 
 ## <a name="december-2019-guest-os"></a>Système d’exploitation invité, décembre 2019
 
->[!NOTE]
->Le système d’exploitation invité de décembre est en cours de déploiement sur les machines virtuelles de service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité de décembre. Cette liste est susceptible d’être modifiée.
-
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
 | --- | --- | --- | --- | --- |
-|  Version 12-19  |  [4530692]  |  Sécurité Windows  | 2,93 | 10 décembre 2019 |
-|  Version 12-19  |  [4530677]  |  Internet Explorer  | 2,93 | 10 décembre 2019 |
-|  Version 12-19  |  [4530677]  |  Internet Explorer  | 3.80 | 10 décembre 2019 |
-|  Version 12-19  |  [4530698]  |  Sécurité Windows  | 3.80 | 10 décembre 2019 |
-|  Version 12-19  |  [4530730]  |  Sécurité Windows  | 4.73 | 10 décembre 2019 |
-|  Version 12-19  |  [4530677]  |  Internet Explorer  | 4.73 | 10 décembre 2019 |
-|  Version 12-19  |  [4530689]  |  Dernière mise à jour cumulative  | 5.38 | 10 décembre 2019 |
-|  Version 12-19  |  [4530715]  |  Dernière mise à jour cumulative  | 6.14 | 10 décembre 2019 |
-|  Version 12-19  |  [4525235]  |  Non relatif à la sécurité  | 2,93 | 12 nov. 2019 |
-|  Version 12-19  |  [4531786]  |  Mise à jour de la pile de maintenance  | 2,93 | 10 décembre 2019 |
-|  Version 12-19  |  [4525246]  |  Non relatif à la sécurité  | 3.80 | 12 nov. 2019 |
-|  Version 12-19  |  [4523208]  |  Mise à jour de la pile de maintenance  | 3.8 | 12 nov. 2019 |
-|  Version 12-19  |  [4525243]  |  Non relatif à la sécurité  | 4.73 | 12 nov. 2019 |
-|  Version 12-19  |  [4524445]  |  Mise à jour de la pile de maintenance  | 4.73 | 12 nov. 2019 |
-|  Version 12-19  |  [4520724]  |  Mise à jour de la pile de maintenance  | 5.38 | 12 nov. 2019 |
-|  Version 12-19  |  [4523204]  |  ServicingStackUpdate  | 6.14 | 12 nov. 2019 |
+|  Version 12-19  |  [4530692]  |  Sécurité Windows  | [2.93] | 10 décembre 2019 |
+|  Version 12-19  |  [4530677]  |  Internet Explorer  | [2.93] | 10 décembre 2019 |
+|  Version 12-19  |  [4530677]  |  Internet Explorer  | [3.80] | 10 décembre 2019 |
+|  Version 12-19  |  [4530698]  |  Sécurité Windows  | [3.80] | 10 décembre 2019 |
+|  Version 12-19  |  [4530730]  |  Sécurité Windows  | [4.73] | 10 décembre 2019 |
+|  Version 12-19  |  [4530677]  |  Internet Explorer  | [4.73] | 10 décembre 2019 |
+|  Version 12-19  |  [4530689]  |  Dernière mise à jour cumulative  | [5.38] | 10 décembre 2019 |
+|  Version 12-19  |  [4530715]  |  Dernière mise à jour cumulative  | [6.14] | 10 décembre 2019 |
+|  Version 12-19  |  [4525235]  |  Non relatif à la sécurité  | [2.93] | 12 nov. 2019 |
+|  Version 12-19  |  [4531786]  |  Mise à jour de la pile de maintenance  | [2.93] | 10 décembre 2019 |
+|  Version 12-19  |  [4525246]  |  Non relatif à la sécurité  | [3.80] | 12 nov. 2019 |
+|  Version 12-19  |  [4523208]  |  Mise à jour de la pile de maintenance  | [3.80] | 12 nov. 2019 |
+|  Version 12-19  |  [4525243]  |  Non relatif à la sécurité  | [4.73] | 12 nov. 2019 |
+|  Version 12-19  |  [4524445]  |  Mise à jour de la pile de maintenance  | [4.73] | 12 nov. 2019 |
+|  Version 12-19  |  [4520724]  |  Mise à jour de la pile de maintenance  | [5.38] | 12 nov. 2019 |
+|  Version 12-19  |  [4523204]  |  ServicingStackUpdate  | [6.14] | 12 nov. 2019 |
 
 [4530692]: https://support.microsoft.com/kb/4530692
 [4530677]: https://support.microsoft.com/kb/4530677
@@ -62,6 +59,12 @@ Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Re
 [4524445]: https://support.microsoft.com/kb/4524445
 [4520724]: https://support.microsoft.com/kb/4520724
 [4523204]: https://support.microsoft.com/kb/4523204
+[6.14]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.38]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.73]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.80]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.93]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+
 
 
 ## <a name="november-2019-guest-os"></a>Système d’exploitation invité, novembre 2019

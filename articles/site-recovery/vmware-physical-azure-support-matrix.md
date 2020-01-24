@@ -3,13 +3,14 @@ title: Prendre en charge la matrice de récupération d’urgence VMware/physiqu
 description: Résume la prise en charge de la récupération d’urgence des machines virtuelles et des serveurs physiques VMware sur Azure en utilisant Azure Site Recovery.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: 752f2276f23aa22feac870493e1ea5c1fdc4ca98
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 1/10/2020
+ms.author: raynew
+ms.openlocfilehash: 1d6f5df59a318388a7a5fea75d1fd17e18cb7745
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645937"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75864330"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice de prise en charge de la reprise d’activité des machines virtuelles VMware et serveurs physiques sur Azure
 
@@ -226,7 +227,7 @@ Stockage froid | Non
 Stockage chaud| Non
 Objets blob de blocs | Non
 Chiffrement au repos (SSE)| Oui
-Chiffrement au repos (CMK)| Non
+Chiffrement au repos (CMK)| Oui (par le biais du module PowerShell Az 3.3.0 et ultérieur)
 Stockage Premium | Oui
 Service Import/Export | Non
 Pare-feu de Stockage Azure pour les réseaux virtuels | Oui.<br/> Configurés sur le compte de stockage de cache/stockage cible (utilisé pour stocker les données de réplication).

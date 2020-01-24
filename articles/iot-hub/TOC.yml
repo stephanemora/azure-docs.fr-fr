@@ -84,9 +84,9 @@
 - name: Concepts
   items:
     - name: Prise en charge de TLS
-      href: iot-hub-tls.md
+      href: iot-hub-tls-support.md
     - name: Dépréciation de TLS 1.0 et 1.1
-      href: tls-1.2-everywhere.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Vue d’ensemble des enrichissements de message
       href: iot-hub-message-enrichments-overview.md
     - name: Présentation de la gestion des appareils

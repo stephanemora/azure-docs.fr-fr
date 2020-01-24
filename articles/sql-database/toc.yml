@@ -86,12 +86,6 @@
               href: sql-database-ssms-mfa-authentication.md
             - name: Configuration de l’authentification multifacteur
               href: sql-database-ssms-mfa-authentication-configure.md
-            - name: Configurer TDE avec BYOK
-              href: transparent-data-encryption-byok-azure-sql-configure.md
-            - name: Effectuer une rotation des clés TDE BYOK
-              href: transparent-data-encryption-byok-azure-sql-key-rotation.md
-            - name: Supprimer le protecteur TDE
-              href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
         - name: Protection de données
           items:
             - name: Transparent Data Encryption (TDE)
@@ -100,6 +94,12 @@
                   href: transparent-data-encryption-azure-sql.md
                 - name: TDE avec Service Bring Your Own Key (BYOK)
                   href: transparent-data-encryption-byok-azure-sql.md
+                - name: Configurer TDE avec BYOK
+                  href: transparent-data-encryption-byok-azure-sql-configure.md
+                - name: Effectuer une rotation des clés TDE BYOK
+                  href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+                - name: Supprimer le protecteur TDE
+                  href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
             - name: Masquage dynamique des données
               href: sql-database-dynamic-data-masking-get-started.md
             - name: Always Encrypted

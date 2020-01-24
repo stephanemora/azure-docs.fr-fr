@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: dbfee5d897d54d68ea6471f0001793a905c95e62
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cb2e1c16c1419d9925bd837bb4e12119f08d56c4
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835070"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119531"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Utilisez Python pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2 (préversion)
 
@@ -64,7 +64,7 @@ except Exception as e:
  
 - Remplacez la valeur d’espace réservé `storage_account_name` par le nom de votre compte de stockage.
 
-- Remplacez la valeur d’espace réservé `storage-account-key` par la clé d’accès de votre compte de stockage.
+- Remplacez la valeur d’espace réservé `storage_account_key` par la clé d’accès de votre compte de stockage.
 
 ## <a name="create-a-file-system"></a>Créer un système de fichiers
 
