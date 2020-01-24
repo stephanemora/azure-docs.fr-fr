@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de64385e21604188a5c9002f2e007dad86b2674c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420438"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978030"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Utiliser le rapport d’activité des applications AD FS (préversion) pour migrer des applications vers Azure AD
 
@@ -32,7 +32,7 @@ Le rapport d’activité des applications AD FS (préversion) dans le portail Az
 
 Les données d’activité des applications AD FS sont disponibles pour les utilisateurs auxquels est attribué l’un des rôles d’administrateur suivants : administrateur général, lecteur de rapport, lecteur de sécurité, administrateur d’application ou administrateur d’application cloud.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Votre entreprise doit utiliser actuellement AD FS pour accéder aux applications.
 * Azure AD Connect Health doit être activé dans votre locataire Azure AD.
@@ -73,7 +73,7 @@ Le rapport d’activité des applications AD FS est disponible sur le portail Az
 
 Le tableau suivant répertorie tous les tests de configuration effectués sur les applications AD FS.
 
-|Résultat  |Réussite/Avertissement/Échec  |Description  |
+|Résultats  |Réussite/Avertissement/Échec  |Description  |
 |---------|---------|---------|
 |Test-ADFSRPAdditionalAuthenticationRules <br> Au moins une règle non migrable a été détectée pour l’authentification supplémentaire.       | Réussite/Avertissement          | La partie de confiance a des règles pour demander une authentification MFA (authentification multifacteur). Pour passer à Azure AD, convertissez ces règles en stratégies d’accès conditionnel. Si vous utilisez une authentification MFA locale, nous vous recommandons de passer à Azure MFA. [En savoir plus sur l’accès conditionnel](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).        |
 |Test-ADFSRPAdditionalWSFedEndpoint <br> La partie de confiance a la valeur AdditionalWSFedEndpoint définie sur true.       | Réussite/Échec          | La partie de confiance dans AD FS autorise plusieurs points de terminaison d’assertion WS-Fed. Azure AD n’en prend en charge qu’un seul. Si vous êtes dans une situation où cela bloque la migration, [faites-le nous savoir](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/38695621-allow-multiple-ws-fed-assertion-endpoints).     |
@@ -124,6 +124,7 @@ Le tableau suivant répertorie tous les tests de règle de revendication effectu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Vidéo : Utilisation du rapport d’activité AD FS pour migrer une application](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Gestion des applications avec Azure Active Directory](what-is-application-management.md)
 - [Gérer l’accès aux applications](what-is-access-management.md)
 - [Fédération avec Azure AD Connect](../hybrid/how-to-connect-fed-whatis.md)

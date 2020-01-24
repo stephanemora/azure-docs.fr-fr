@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: da564f8d49675ba0d51c5120768028e9d333e2fd
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225389"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045473"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Créer un équilibreur de charge interne à l’aide du module Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portail Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modèle](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -48,7 +48,7 @@ Pour déployer un équilibreur de charge, il est nécessaire de créer et de con
 * Configuration de sonde : sondes de l’état d’intégrité pour les machines virtuelles.
 * Règles NAT entrantes : les règles de port permettant l’accès direct aux machines virtuelles.
 
-Pour plus d’informations sur les composants de l’équilibreur de charge, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](load-balancer-arm.md).
+Pour plus d’informations sur les composants de l’équilibreur de charge, consultez [Composants d’Azure Load Balancer](concepts-limitations.md#load-balancer-components).
 
 Les étapes suivantes expliquent comment configurer un équilibreur de charge entre deux machines virtuelles.
 
@@ -64,7 +64,7 @@ Démarrez le module PowerShell pour Azure Resource Manager.
 Connect-AzAccount
 ```
 
-### <a name="step-2-view-your-subscriptions"></a>Étape 2 : Visualiser vos abonnements
+### <a name="step-2-view-your-subscriptions"></a>Étape 2 : Visualiser vos abonnements
 
 Vérifiez vos abonnements Azure disponibles.
 
@@ -74,7 +74,7 @@ Get-AzSubscription
 
 Entrez vos informations d’identification lorsqu’on vous demande de vous authentifier.
 
-### <a name="step-3-select-the-subscription-to-use"></a>Étape 3 : Sélectionnez l’abonnement à utiliser
+### <a name="step-3-select-the-subscription-to-use"></a>Étape 3 : Sélectionnez l’abonnement à utiliser
 
 Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour déployer l’équilibreur de charge.
 
@@ -82,7 +82,7 @@ Sélectionnez l’abonnement Azure que vous souhaitez utiliser pour déployer l�
 Select-AzSubscription -Subscriptionid "GUID of subscription"
 ```
 
-### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>Étape 4 : Choisir le Groupe de ressources pour l’équilibreur de charge
+### <a name="step-4-choose-the-resource-group-for-the-load-balancer"></a>Étape 4 : Choisir le Groupe de ressources pour l’équilibreur de charge
 
 Créez un nouveau groupe de ressources pour l’équilibreur de charge. Ignorez cette étape si vous utilisez un groupe de ressources existant.
 
@@ -122,7 +122,7 @@ Créez un pool d’adresses IP frontales avec l’adresse IP privée 10.0.2.5 po
 $frontendIP = New-AzLoadBalancerFrontendIpConfig -Name LB-Frontend -PrivateIpAddress 10.0.2.5 -SubnetId $vnet.subnets[0].Id
 ```
 
-### <a name="step-2-create-a-back-end-address-pool"></a>Étape 2 : Créer un pool d’adresses principal
+### <a name="step-2-create-a-back-end-address-pool"></a>Étape 2 : Créer un pool d’adresses principal
 
 Créez un pool d’adresses IP principales pour recevoir le trafic entrant à partir du pool d’adresses IP frontales.
 
@@ -153,7 +153,7 @@ $healthProbe = New-AzLoadBalancerProbeConfig -Name "HealthProbe" -RequestPath "H
 $lbrule = New-AzLoadBalancerRuleConfig -Name "HTTP" -FrontendIpConfiguration $frontendIP -BackendAddressPool $beAddressPool -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80
 ```
 
-### <a name="step-2-create-the-load-balancer"></a>Étape 2 : Créer l’équilibreur de charge
+### <a name="step-2-create-the-load-balancer"></a>Étape 2 : Créer l’équilibreur de charge
 
 Créer l’équilibrage de charge et de combiner les objets de règle (NAT de trafic entrant pour RDP, équilibrage de charge et sonde d’intégrité) :
 
@@ -181,7 +181,7 @@ Créez la première interface réseau avec le nom **lb-nic1-be**. Affectez l’i
 $backendnic1= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic1-be -Location "West US" -PrivateIpAddress 10.0.2.6 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[0]
 ```
 
-### <a name="step-2-create-the-second-network-interface"></a>Étape 2 : Créer la deuxième interface réseau
+### <a name="step-2-create-the-second-network-interface"></a>Étape 2 : Créer la deuxième interface réseau
 
 Créez la deuxième interface réseau avec le nom **lb-nic2-be**. Affectez la deuxième interface au même pool principal d’équilibrage de charge que la première interface. Associez la deuxième carte réseau à la deuxième règle NAT pour le protocole RDP :
 
@@ -239,7 +239,7 @@ Les paramètres doivent se présenter comme suit :
 
 
 
-### <a name="step-3-assign-the-nic-to-a-vm"></a>Étape 3 : Affecter la carte réseau à une machine virtuelle
+### <a name="step-3-assign-the-nic-to-a-vm"></a>Étape 3 : Affecter la carte réseau à une machine virtuelle
 
 Affectez la carte réseau à une machine virtuelle en utilisant la commande `Add-AzVMNetworkInterface`.
 
@@ -257,7 +257,7 @@ Stockez la ressource d'équilibrage de charge dans une variable (si vous ne l'av
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
 ```
 
-### <a name="step-2-store-the-back-end-configuration"></a>Étape 2 : Stocker la configuration du back-end
+### <a name="step-2-store-the-back-end-configuration"></a>Étape 2 : Stocker la configuration du back-end
 
 Stockez la configuration de serveur principal dans la variable **$backend**.
 
@@ -265,7 +265,7 @@ Stockez la configuration de serveur principal dans la variable **$backend**.
 $backend = Get-AzLoadBalancerBackendAddressPoolConfig -name LB-backend -LoadBalancer $lb
 ```
 
-### <a name="step-3-store-the-network-interface"></a>Étape 3 : Stocker l’interface réseau
+### <a name="step-3-store-the-network-interface"></a>Étape 3 : Stocker l’interface réseau
 
 Stockez l’interface réseau dans une autre variable. Cette interface a été créée dans « Créer les interfaces réseau, étape 1. » Nous utilisons le nom de variable **$nic1**. Utilisez le même nom d’interface réseau utilisé dans l'exemple précédent.
 
@@ -273,7 +273,7 @@ Stockez l’interface réseau dans une autre variable. Cette interface a été c
 $nic = Get-AzNetworkInterface –name lb-nic1-be -resourcegroupname NRP-RG
 ```
 
-### <a name="step-4-change-the-back-end-configuration"></a>Étape 4 : Modifier la configuration du back-end
+### <a name="step-4-change-the-back-end-configuration"></a>Étape 4 : Modifier la configuration du back-end
 
 Modifiez la configuration du serveur principal sur l’interface réseau.
 
@@ -281,7 +281,7 @@ Modifiez la configuration du serveur principal sur l’interface réseau.
 $nic.IpConfigurations[0].LoadBalancerBackendAddressPools=$backend
 ```
 
-### <a name="step-5-save-the-network-interface-object"></a>Étape 5 : Enregistrer l’objet d’interface réseau
+### <a name="step-5-save-the-network-interface-object"></a>Étape 5 : Enregistrer l’objet d’interface réseau
 
 Enregistrer l'objet d'interface réseau.
 
@@ -301,7 +301,7 @@ Affectez l’objet d’équilibrage de charge (à partir de l’exemple précéd
 $slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
 ```
 
-### <a name="step-2-add-a-nat-rule"></a>Étape 2 : Ajouter une règle NAT
+### <a name="step-2-add-a-nat-rule"></a>Étape 2 : Ajouter une règle NAT
 
 Ajoutez une règle NAT de trafic entrant à un équilibreur de charge existant. Utilisez le port 81 pour le pool frontal et le port 8181 pour le pool principal :
 
@@ -309,7 +309,7 @@ Ajoutez une règle NAT de trafic entrant à un équilibreur de charge existant. 
 $slb | Add-AzLoadBalancerInboundNatRuleConfig -Name NewRule -FrontendIpConfiguration $slb.FrontendIpConfigurations[0] -FrontendPort 81  -BackendPort 8181 -Protocol Tcp
 ```
 
-### <a name="step-3-save-the-configuration"></a>Étape 3 : Enregistrer la configuration
+### <a name="step-3-save-the-configuration"></a>Étape 3 : Enregistrer la configuration
 
 Enregistrez la nouvelle configuration à l’aide de la commande `Set-AzureLoadBalancer`.
 

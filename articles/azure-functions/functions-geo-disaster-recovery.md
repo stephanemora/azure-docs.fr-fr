@@ -6,12 +6,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bdeff0194bda620250481a215c145b1ec3b2207e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226971"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920791"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Géo-reprise d’activité après sinistre dans Azure Functions
 
@@ -34,7 +34,7 @@ Pour déployer des fonctions suivant le modèle actif/actif, vous devez disposer
 
 ## <a name="activeactive-for-non-https-functions"></a>Modèle actif/actif pour les fonctions non-HTTPS
 
-Vous pouvez toujours déployer des fonctions non-HTTPS suivant le modèle actif/actif.  Toutefois, vous devez réfléchir à la façon dont les deux régions vont interagir ou se coordonner entre elles.  Si vous avez déployé la même application de fonction dans deux régions (chacune se déclenchant sur la même file d’attente Service Bus), celles-ci se comporteront en tant que consommateurs concurrents pour retirer les messages de cette file d’attente.  Chaque message est alors traité par l’une des instances uniquement, mais cela signifie aussi qu’il existe toujours un point de défaillance unique sur la seule file d’attente Service Bus.  Si vous déployez deux files d’attente Service Bus (l’une dans une région primaire et l’autre dans une région secondaire) et que les deux applications de fonction pointaient vers la file d’attente de leur région, la difficulté réside maintenant dans la répartition des messages des files d’attente entre les deux régions.  Cela signifie souvent que chaque serveur de publication tente de publier un message dans *les deux* régions et que chaque message est traité par les deux applications de fonction actives.  Bien que cela crée un modèle actif/actif, d’autres difficultés apparaissent concernant la duplication du calcul ainsi que la façon dont les données sont regroupées (et à quel moment).  Il est donc préférable que les déclencheurs non-HTTPS utilisent le modèle actif/passif.
+Vous pouvez toujours déployer des fonctions non-HTTPS suivant le modèle actif/actif.  Toutefois, vous devez réfléchir à la façon dont les deux régions vont interagir ou se coordonner entre elles.  Si vous avez déployé la même application de fonction dans deux régions (chacune se déclenchant sur la même file d’attente Service Bus), celles-ci se comporteront en tant que consommateurs concurrents pour retirer les messages de cette file d’attente.  Chaque message est alors traité uniquement par l’une des instances, mais cela signifie aussi qu’il existe toujours un point de défaillance unique sur la seule file d’attente Service Bus.  Si vous déployez deux files d’attente Service Bus (l’une dans une région primaire et l’autre dans une région secondaire) et que les deux applications de fonction pointaient vers la file d’attente de leur région, la difficulté réside maintenant dans la répartition des messages des files d’attente entre les deux régions.  Cela signifie souvent que chaque serveur de publication tente de publier un message dans *les deux* régions et que chaque message est traité par les deux applications de fonction actives.  Bien que cela crée un modèle actif/actif, d’autres difficultés apparaissent concernant la duplication du calcul ainsi que la façon dont les données sont regroupées (et à quel moment).  Il est donc préférable que les déclencheurs non-HTTPS utilisent le modèle actif/passif.
 
 ## <a name="activepassive-for-non-https-functions"></a>Modèle actif/passif pour les fonctions non-HTTPS
 
@@ -52,7 +52,7 @@ Si nous prenons pour exemples les déclencheurs Azure Event Hubs, le modèle act
 
 Avant le basculement, les serveurs de publication effectuant des envois vers l’alias partagé sont routés vers le hub d’événements primaire.  L’application de fonction primaire écoute exclusivement le hub d’événements primaire.  L’application de fonction secondaire est passive et inactive.  Dès que le basculement est déclenché, les serveurs de publication qui effectuent des envois vers l’alias partagé sont routés vers le hub d’événements secondaire.  L’application de fonction secondaire devient alors active et son déclenchement commence automatiquement.  Il est possible de réaliser en intégralité un basculement efficace vers une région secondaire à partir du hub d’événements, les fonctions devenant actives uniquement quand le hub d’événements correspondant est actif.
 
-Consultez ces articles sur le basculement avec [Service Bus](../service-bus-messaging/service-bus-geo-dr.md) et [Event Hubs](../event-hubs/event-hubs-geo-dr.md) pour en savoir plus et pour connaître les éléments à prendre en compte.
+Découvrez d’autres informations et éléments à prendre en compte pour le basculement avec [Service Bus](../service-bus-messaging/service-bus-geo-dr.md) et [Event Hubs](../event-hubs/event-hubs-geo-dr.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

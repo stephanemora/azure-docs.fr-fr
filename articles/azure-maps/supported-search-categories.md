@@ -1,6 +1,6 @@
 ---
-title: Rechercher des catégories dans Azure Maps | Microsoft Docs
-description: En savoir plus sur la recherche des catégories dans Azure Maps
+title: Catégories de recherche | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir les catégories de recherche prises en charge dans Microsoft Azure Maps.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/14/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 4d854aef62af1004faacf73c11bb417cf508a727
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: de44d07b5ebc6a898e3c098f16e553e9d4a46150
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64727146"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910408"
 ---
 # <a name="azure-maps-supported-categories"></a>Catégories prises en charge dans Azure Maps
 

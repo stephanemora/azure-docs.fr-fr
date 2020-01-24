@@ -4,15 +4,15 @@ description: Décrit comment utiliser l’API REST Azure Analysis Services pour 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573393"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029878"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Actualisation asynchrone avec l’API REST
 
@@ -30,7 +30,7 @@ L’URL de base suit ce format :
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Prenons l’exemple d’un modèle nommé AdventureWorks, sur un serveur nommé myserver, situé dans la région Azure USA Ouest. Le nom du serveur est :
+Prenons l’exemple d’un modèle nommé AdventureWorks sur un serveur nommé `myserver`, situé dans la région Azure USA Ouest. Le nom du serveur est :
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -93,11 +93,11 @@ Le corps doit ressembler à ceci :
 }
 ```
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paramètres
 
 La spécification des paramètres n’est pas nécessaire. La valeur par défaut est appliquée.
 
-| Nom             | type  | Description  |Default  |
+| Name             | Type  | Description  |Default  |
 |------------------|-------|--------------|---------|
 | `Type`           | Enum  | Type de traitement à effectuer. Les types sont alignés sur les types de [commande d’actualisation](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) TMSL : full, clearValues, calculate, dataOnly, automatic et defragment. Le type add n’est pas pris en charge.      |   automatique      |
 | `CommitMode`     | Enum  | Détermine si les objets doivent être validés par lot ou uniquement à la fin. Modes inclus : default, transactional, partialBatch.  |  transactional       |
@@ -110,9 +110,20 @@ CommitMode équivaut à partialBatch. Il est utilisé lors du chargement initial
 > [!NOTE]
 > Au moment de l’écriture, la taille de lot est la valeur MaxParallelism, mais cette valeur peut changer.
 
+### <a name="status-values"></a>Valeurs d’état
+
+|Valeur d’état  |Description  |
+|---------|---------|
+|`notStarted`    |   Opération pas encore commencée.      |
+|`inProgress`     |   Opération en cours.      |
+|`timedOut`     |    Délai de l’opération expiré conformément au délai d’expiration spécifié par l’utilisateur.     |
+|`cancelled`     |   Opération annulée par l’utilisateur ou le système.      |
+|`failed`     |   Échec de l’opération.      |
+|`succeeded`      |   Opération réussie.      |
+
 ## <a name="get-refreshesrefreshid"></a>GET /refreshes/\<refreshId>
 
-Pour vérifier l’état d’une opération d’actualisation, utilisez le verbe GET sur l’ID de l’actualisation. Voici un exemple de corps de réponse. Si l’opération est en cours, **inProgress** est renvoyé dans l’état.
+Pour vérifier l’état d’une opération d’actualisation, utilisez le verbe GET sur l’ID de l’actualisation. Voici un exemple de corps de réponse. Si l’opération est en cours, `inProgress` est retourné dans l’état.
 
 ```
 {
@@ -186,7 +197,7 @@ Pour vérifier l’état d’une opération de synchronisation, utilisez le verb
 Valeurs possibles de `syncstate` :
 
 - 0 : Réplication. Les fichiers de base de données sont en cours de réplication vers un dossier cible.
-- 1: Réalimentation. La base de données est en cours réalimentation sur une ou plusieurs instances de serveur en lecture seule.
+- 1 : Réalimentation. La base de données est en cours réalimentation sur une ou plusieurs instances de serveur en lecture seule.
 - 2 : Terminé. L’opération de synchronisation est terminée.
 - 3 : Échec. L’opération de synchronisation a échoué.
 - 4 : Finalisation. L’opération de synchronisation est terminée, mais des étapes de nettoyage sont en cours.
@@ -214,6 +225,6 @@ Consultez [Créer un principal du service – Portail Azure](../active-directory
 ## <a name="see-also"></a>Voir aussi
 
 [Exemples](analysis-services-samples.md)   
-[API REST](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

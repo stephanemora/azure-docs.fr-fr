@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ae29a068ef29898c3fa27d3620d1e6be0be4bf3b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950236"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931199"
 ---
-# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
+# <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C : configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
 À l’aide de stratégies personnalisées Azure Active Directory B2C (Azure AD B2C), vous pouvez envoyer un paramètre dans une chaîne de requête. En transmettant le paramètre à votre point de terminaison HTML, vous pouvez changer le contenu de la page de façon dynamique. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article se concentre sur la façon de personnaliser l’interface utilisateur Azure AD B2C avec du *contenu dynamique* à l’aide de stratégies personnalisées. Pour commencer, consultez [Personnalisation de l’interface utilisateur dans une stratégie personnalisée](active-directory-b2c-ui-customization-custom.md).
 
 >[!NOTE]
@@ -81,9 +81,9 @@ Lors de cette procédure pas à pas, vous allez effectuer les opérations suivan
 
     ![Sélectionnez le modèle Application web.](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-create-project2.png)
 
-6. Cliquez sur **OK** pour créer le projet.
+6. Sélectionnez **OK** pour créer le projet.
 
-## <a name="step-2-create-mvc-view"></a>Étape 2 : Créer une vue MVC
+## <a name="step-2-create-mvc-view"></a>Étape 2 : Créer une vue MVC
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Étape 2.1 : Télécharger le modèle HTML5 intégré à B2C
 Votre modèle HTML5 personnalisé est basé sur le modèle HTML5 intégré à Azure AD B2C. Vous pouvez télécharger le [fichier unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) ou télécharger le modèle à partir du [pack de démarrage](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). Vous utilisez ce fichier HTML5 pour créer une page de connexion ou d’inscription unifiée.
 
@@ -122,7 +122,7 @@ Votre modèle HTML5 personnalisé est basé sur le modèle HTML5 intégré à Az
 
 ### <a name="step-23-change-the-background-image"></a>Étape 2.3 : Changer l’image d’arrière-plan
 
-Localisez l’élément `<img>` contenant la valeur `ID` *background_background_image*, puis remplacez la valeur `src` par **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou toute autre image d’arrière-plan que vous souhaitez utiliser.
+Localisez l’élément `<img>` contenant la valeur `ID`*background_background_image*, puis remplacez la valeur `src` par **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** ou toute autre image d’arrière-plan que vous souhaitez utiliser.
 
 ![élément img avec la valeur personnalisée src background_background_image](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
@@ -168,7 +168,7 @@ Localisez l’élément `<img>` contenant la valeur `ID` *background_background_
 
 5. Copiez l’URL de la page _unified_ (par exemple, _https://<nom_app>.azurewebsites.net/home/unified_).
 
-## <a name="step-3-configure-cors-in-azure-app-service"></a>Étape 3 : Configurer CORS dans Azure App Service
+## <a name="step-3-configure-cors-in-azure-app-service"></a>Étape 3 : Configurer CORS dans Azure App Service
 1. Dans le [portail Azure](https://portal.azure.com/), sélectionnez **App Services**, puis sélectionnez le nom de votre application API.
 
     ![Sélectionner l’application API dans le portail Azure](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS1.png)
@@ -188,7 +188,7 @@ Localisez l’élément `<img>` contenant la valeur `ID` *background_background_
 
     Quand vous sélectionnez **Enregistrer**, l’application API accepte les appels JavaScript provenant des URL spécifiées.
 
-## <a name="step-4-html5-template-validation"></a>Étape 4 : Validation du modèle HTML5
+## <a name="step-4-html5-template-validation"></a>Étape 4 : Validation du modèle HTML5
 Votre modèle HTML5 est prêt à être utilisé. Toutefois, il n’est pas disponible dans le code des `ContentDefinition`. Avant d’ajouter `ContentDefinition` à votre stratégie personnalisée, vérifiez les points suivants :
 * Votre contenu est accessible et conforme à HTML5.
 * CORS est activé sur votre serveur de contenu.
@@ -217,19 +217,21 @@ Pour configurer `ContentDefinition`, effectuez les opérations suivantes :
     ![Exemple d’extrait XML avec l’élément LoadUri mis en évidence](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Étape 6 : Charger la stratégie sur un client
-1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 
-2. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 
-3. Sélectionnez **Toutes les stratégies**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
 
-4. Sélectionnez **Charger la stratégie**.
+1. Sélectionnez **Toutes les stratégies**.
 
-5. Activez la case à cocher **Remplacer la stratégie si elle existe**.
+1. Sélectionnez **Charger la stratégie**.
 
-6. Chargez le fichier *TrustFrameworkExtensions.xml*, puis assurez-vous que sa validation réussit.
+1. Activez la case à cocher **Remplacer la stratégie si elle existe**.
 
-## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Étape 7 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
+1. Chargez le fichier *TrustFrameworkExtensions.xml*, puis assurez-vous que sa validation réussit.
+
+## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Étape 7 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
 1. Sélectionnez **Paramètres Azure AD B2C**, puis **Infrastructure d’expérience d’identité**.
 
     >[!NOTE]
@@ -345,7 +347,3 @@ Si vous sélectionnez le lien **Inscrivez-vous dès maintenant** dans la page de
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facultatif) Télécharger les fichiers de stratégie et le code complets
 * Une fois que vous avez [pris en main les stratégies personnalisées](active-directory-b2c-get-started-custom.md), nous vous recommandons de créer votre scénario à l’aide de vos propres fichiers de stratégie personnalisée. Des [exemples de fichiers de stratégie](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization) sont à votre disposition pour référence.
 * Vous pouvez télécharger le code complet dans [Exemple de solution Visual Studio pour référence](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-
-
-
-

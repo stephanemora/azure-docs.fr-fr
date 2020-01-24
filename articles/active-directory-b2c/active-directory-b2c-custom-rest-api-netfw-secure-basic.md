@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a956638e8bd74c974012834ca650195e5bee37e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 24aa0d3d3f12934c54ac9aaa5ab8ae5c0d710825
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949438"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930502"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Sécuriser vos services RESTful à l’aide de l’authentification de base HTTP
 
@@ -28,11 +28,11 @@ Dans cet article, vous ajoutez l’authentification HTTP de base à votre servic
 
 Pour plus d’informations, consultez [Authentification de base dans l’API web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Effectuez les étapes de l’article [Procédure pas à pas : intégration des échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-custom-rest-api-netfw.md).
 
-## <a name="step-1-add-authentication-support"></a>Étape 1 : Ajouter le support de l’authentification
+## <a name="step-1-add-authentication-support"></a>Étape 1 : Ajouter le support de l’authentification
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Étape 1.1 : Ajouter des paramètres d’application au fichier web.config de votre projet
 
@@ -223,7 +223,7 @@ Ouvrez le fichier Controllers\IdentityController.cs, puis ajoutez la balise `[Au
 
 ![Ajouter la balise Authorize au contrôleur](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
-## <a name="step-2-publish-to-azure"></a>Étape 2 : Publication dans Azure
+## <a name="step-2-publish-to-azure"></a>Étape 2 : Publication dans Azure
 
 Pour publier votre projet, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet **Contoso.AADB2C.API**, puis sélectionnez **Publier**.
 
@@ -303,17 +303,19 @@ Une fois que votre service RESTful est protégé par l’ID client (nom d’util
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Étape 5 : Charger la stratégie sur un client
 
-1. Sur le [portail Azure](https://portal.azure.com), basculez vers le [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis ouvrez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
 
-2. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 
-3. Ouvrez **Toutes les stratégies**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
 
-4. Sélectionnez **Charger la stratégie**.
+1. Ouvrez **Toutes les stratégies**.
 
-5. Activez la case à cocher **Remplacer la stratégie si elle existe**.
+1. Sélectionnez **Charger la stratégie**.
 
-6. Chargez le fichier *TrustFrameworkExtensions.xml*, puis vérifiez que sa validation réussit.
+1. Activez la case à cocher **Remplacer la stratégie si elle existe**.
+
+1. Chargez le fichier *TrustFrameworkExtensions.xml*, puis vérifiez que sa validation réussit.
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Étape 6 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
 

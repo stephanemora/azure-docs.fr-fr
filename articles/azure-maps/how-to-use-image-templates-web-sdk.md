@@ -1,6 +1,6 @@
 ---
-title: Modèles d’image dans le SDK web Azure Maps | Microsoft Docs
-description: Guide pratique pour utiliser des modèles d’image dans le SDK web Azure Maps.
+title: Modèles d’image dans le SDK web Azure Maps | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à utiliser des modèles d’image avec des marqueurs HTML et différentes couches dans le SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 8/6/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: b9b1543ca37c636f4a82ff9ada3dfe212fa9b8d0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: cb182a5db77a517b11fb1863665f8c54d58b254a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976666"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911570"
 ---
 # <a name="how-to-use-image-templates"></a>Guide pratique pour utiliser des modèles d’image
 
-Les images peuvent être utilisées par des marqueurs HTML et différentes couches dans le SDK web Azure Maps :
+Les images peuvent être utilisées avec des marqueurs HTML et différentes couches dans le SDK web Azure Maps :
 
  - Les couches de symboles peuvent afficher des points sur la carte avec une icône d’image. Les symboles peuvent également être rendus le long d’un tracé de lignes.
  - Les couches de polygones peuvent être rendues avec une image de motif de remplissage. 
@@ -108,7 +108,7 @@ Consultez la page Pen <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>Marqueu
 
 Si votre application utilise la même icône avec des icônes différentes ou si vous créez un module qui ajoute des modèles d’image supplémentaires, vous pouvez facilement ajouter et récupérer ces icônes à partir du SDK web Azure Maps en utilisant les fonctions statiques suivantes sur l’espace de nom `atlas`.
 
-| Nom | Type de retour | Description | 
+| Name | Type de retour | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Ajoute un modèle d’image SVG personnalisé à l’espace de noms atlas. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Récupère un modèle SVG par son nom. |
@@ -116,7 +116,7 @@ Si votre application utilise la même icône avec des icônes différentes ou si
 
 Les modèles d’images SVG prennent en charge les valeurs d’espace réservé suivantes :
 
-| Placeholder | Description |
+| Espace réservé | Description |
 |-|-|
 | `{color}` | La couleur principale. | 
 | `{secondaryColor}` | La couleur secondaire. | 

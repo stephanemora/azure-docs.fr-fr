@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment résoudre les erreurs rencontr
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664641"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513794"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Résolution des échecs de sauvegarde sur les machines virtuelles Azure
 
@@ -262,7 +262,6 @@ Vérifiez la version de l’agent de machine virtuelle sur les machines virtuell
 
 La sauvegarde de machines virtuelles émet des commandes de capture instantanée à destination du stockage sous-jacent. Le fait de ne pas avoir accès au stockage ou tout retard dans l’exécution d’une tâche de capture instantanée peut faire échouer le travail de sauvegarde. Voici les causes possibles de l’échec d’une tâche de capture instantanée :
 
-* **Accès réseau au Stockage bloqué par l’utilisation du groupe de sécurité réseau**. Découvrez plus en détail comment [établir un accès réseau](backup-azure-arm-vms-prepare.md#establish-network-connectivity) au Stockage en utilisant une liste verte d’adresses IP ou via un serveur proxy.
 * **Les machines virtuelles pour lesquelles la sauvegarde SQL Server est configurée peuvent provoquer des retards de tâches de capture instantanée**. Par défaut, la sauvegarde de machines virtuelles crée une sauvegarde complète VSS sur les machines virtuelles Windows. Les machines virtuelles qui exécutent SQL Server, avec la sauvegarde SQL Server configurée, peuvent subir des retards dans les captures instantanées. Si des retards dans les captures instantanées font échouer la sauvegarde, définissez la clé de Registre suivante :
 
    ```text
@@ -276,29 +275,9 @@ La sauvegarde de machines virtuelles émet des commandes de capture instantanée
 
 ## <a name="networking"></a>Mise en réseau
 
-Comme toutes les extensions, l’extension Sauvegarde Azure a besoin d’accéder à l’Internet public pour fonctionner. En l’absence d’accès Internet public, plusieurs cas de figure sont possibles :
+Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si vous avez besoin d’une adresse IP privée statique, configurez-la via le Portail Azure ou PowerShell. Vérifiez que l’option DHCP à l’intérieur de la machine virtuelle est activée.
+Pour obtenir plus d’informations sur la configuration d’une adresse IP statique via PowerShell :
 
-* L’installation de l’extension peut échouer.
-* Les opérations de sauvegarde telles que la capture instantanée de disque peuvent échouer.
-* L’affichage de l’état de l’opération de sauvegarde peut échouer.
+* [Ajout d’une adresse IP interne statique à une machine virtuelle existante](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Modifier la méthode d’allocation pour une adresse IP privée affectée à une interface réseau](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-La nécessité de résoudre les adresses Internet publiques est abordée dans [ce blog du support Azure](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Vérifiez la configuration DNS du réseau virtuel et assurez-vous que les URI Azure peuvent être résolus.
-
-Une fois que la résolution de noms a été effectuée correctement, l’accès aux adresses IP Azure doit également être fourni. Pour débloquer l’accès à l’infrastructure Azure, effectuez une des opérations suivantes :
-
-* Autorisez la liste des plages d’adresses IP du centre de données Azure :
-   1. Obtenez la liste des [adresses IP de centres de données Azure](https://www.microsoft.com/download/details.aspx?id=41653) à mettre en liste verte.
-   1. Débloquez les adresses IP à l’aide de la cmdlet [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute). Exécutez cette cmdlet dans la machine virtuelle Azure, dans une fenêtre PowerShell avec élévation de privilèges. Exécutez en tant qu’Administrateur.
-   1. Ajoutez des règles au groupe de sécurité réseau, le cas échéant, pour autoriser l’accès aux adresses IP.
-* Créez un chemin d’accès pour le trafic HTTP :
-   1. Si vous avez des restrictions réseau en place, déployez un serveur proxy HTTP pour acheminer le trafic. Par exemple, un groupe de sécurité réseau. Consultez la procédure de déploiement d’un serveur proxy HTTP dans [Établir la connectivité réseau](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-   1. Ajoutez des règles au groupe de sécurité réseau, le cas échéant, pour autoriser l’accès à Internet à partir du proxy HTTP.
-
-> [!NOTE]
-> Le protocole DHCP doit être activé dans l’invité pour que la sauvegarde de la machine virtuelle IaaS fonctionne. Si vous avez besoin d’une adresse IP privée statique, configurez-la via le Portail Azure ou PowerShell. Vérifiez que l’option DHCP à l’intérieur de la machine virtuelle est activée.
-> Pour obtenir plus d’informations sur la configuration d’une adresse IP statique via PowerShell :
->
-> * [Ajout d’une adresse IP interne statique à une machine virtuelle existante](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [Modifier la méthode d’allocation pour une adresse IP privée affectée à une interface réseau](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

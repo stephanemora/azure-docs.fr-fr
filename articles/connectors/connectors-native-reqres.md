@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786993"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030147"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Recevoir et répondre aux appels HTTPS entrants à l’aide d’Azure Logic Apps
 
@@ -23,13 +23,22 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 * Recevoir et répondre à un appel HTTPS en provenance d’une autre application logique.
 
 > [!NOTE]
-> Le déclencheur de demande prend en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2 pour les appels entrants. Les appels sortants continuent à prendre en charge les protocoles TLS 1.0, 1.1 et 1.2. Si vous constatez des erreurs de liaison SSL, assurez-vous d’utiliser le protocole TLS 1.2.
+> Le déclencheur de demande prend en charge *uniquement* le protocole TLS (Transport Layer Security) 1.2 pour les appels entrants. Les appels sortants continuent à prendre en charge les protocoles TLS 1.0, 1.1 et 1.2. Si vous constatez des erreurs de liaison SSL, assurez-vous d’utiliser le protocole TLS 1.2. Pour les appels entrants, voici les suites de chiffrement prises en charge :
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas encore d’abonnement, vous pouvez [vous inscrire pour obtenir un compte Azure gratuitement](https://azure.microsoft.com/free/).
 
-* Connaissance de base sur les [applications logiques](../logic-apps/logic-apps-overview.md). Si vous débutez avec les applications logiques, découvrez [comment créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Connaissances de base sur les [applications logiques](../logic-apps/logic-apps-overview.md). Si vous débutez avec les applications logiques, découvrez [comment créer votre première application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-request"></a>
 
@@ -37,7 +46,7 @@ Avec [Azure Logic Apps](../logic-apps/logic-apps-overview.md) et le déclencheur
 
 Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être appelé manuellement et peut recevoir *uniquement* des requête HTTPS entrantes. Lorsque cet événement se produit, le déclencheur s’active et exécute l’application logique. Pour plus d’informations sur la définition JSON sous-jacente du déclencheur et sur la façon d’appeler ce dernier, consultez [Type de déclencheur de requête](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) et [Appeler, déclencher ou imbriquer des workflows avec des points de terminaison HTTP dans Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Créez une application logique vide.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Créez une application logique vide.
 
 1. Une fois que le concepteur Logic Apps s’ouvre, entrez « requête HTTP » comme filtre dans la zone de recherche. Dans la liste de déclencheurs, sélectionnez le déclencheur **Quand une requête HTTP est reçue**, qui est la première étape du flux de travail de votre application logique.
 
@@ -49,7 +58,7 @@ Ce déclencheur intégré crée un point de terminaison HTTPS qui peut être app
 
    | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
    |---------------|--------------------|----------|-------------|
-   | **URL HTTP POST** | {aucune} | OUI | L’URL de point de terminaison générée après l’enregistrement de l’application logique et utilisée pour appeler votre application logique |
+   | **URL HTTP POST** | {aucune} | Oui | L’URL de point de terminaison générée après l’enregistrement de l’application logique et utilisée pour appeler votre application logique |
    | **Schéma JSON du corps de la demande** | `schema` | Non | Schéma JSON qui décrit les propriétés et les valeurs dans le corps de la demande entrante |
    |||||
 
@@ -222,7 +231,7 @@ Votre application logique garde la requête entrante ouverte seulement pendant u
 
    | Nom de la propriété | Nom de la propriété JSON | Obligatoire | Description |
    |---------------|--------------------|----------|-------------|
-   | **Code d’état** | `statusCode` | OUI | Code d’état à retourner dans la réponse |
+   | **Code d’état** | `statusCode` | Oui | Code d’état à retourner dans la réponse |
    | **En-têtes** | `headers` | Non | Objet JSON qui décrit un ou plusieurs en-têtes à inclure dans la réponse |
    | **Corps** | `body` | Non | Le corps de texte de la réponse |
    |||||

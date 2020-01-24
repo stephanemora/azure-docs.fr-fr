@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5cf357f5f0c1d58c390cf48d636aadf059579396
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e4081ecca4714c713d105d363a83a4f96a0d3fc
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410146"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769623"
 ---
 # <a name="http-api-reference"></a>Référence sur l'API HTTP
 
@@ -105,7 +105,7 @@ Voici un exemple de charge utile de réponse pour une instance d’orchestration
 }
 ```
 
-La réponse http est destinée à être compatible avec le *modèle d’interrogation de consommateur*. Elle comprend également les en-têtes de réponse notables suivants :
+La réponse HTTP est destinée à être compatible avec le *modèle d’interrogation de consommateur*. Elle comprend également les en-têtes de réponse notables suivants :
 
 * **Emplacement** : URL du point de terminaison de l’état. Cette URL contient la même valeur que le champ `statusQueryGetUri`.
 * **Retry-After** : Nombre de secondes à attendre entre les opérations d’interrogation. La valeur par défaut est `10`.

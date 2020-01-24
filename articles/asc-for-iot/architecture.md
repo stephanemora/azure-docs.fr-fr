@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a013d4cfcfddc709e60e91adf57bc27c98934a96
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2e55f98f8c7b6ddbc21f7ea8633467461ea5be29
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596569"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922163"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Architecture d’Azure Security Center pour IoT
 
@@ -38,8 +38,8 @@ Azure Security Center pour IoT est composé des éléments suivants :
 
 Azure Security Center pour IoT fonctionne dans l’un des deux flux de travail de fonctionnalités : intégré et amélioré  
 
-### <a name="built-in"></a>Intégration
-En **mode intégré**, Azure Security Center pour IOT s’active lorsque vous choisissez d’activer l’option **Sécurité** dans votre IOT Hub. Grâce à sa surveillance, ses suggestions et ses alertes en temps réel, le mode intégré offre une visibilité de l’appareil en une seule étape et une sécurité inégalée. Le mode de génération ne nécessite pas l’installation de l’agent sur un appareil et utilise des analyses avancées sur les activités journalisées pour analyser et protéger votre appareil de champ. 
+### <a name="built-in"></a>Intégré
+En **mode intégré**, Azure Security Center pour IOT s’active lorsque vous choisissez d’activer l’option **Sécurité** dans votre IOT Hub. Grâce à sa supervision, ses suggestions et ses alertes en temps réel, le mode intégré offre une visibilité de l’appareil en une seule étape et une sécurité inégalée. Le mode de génération ne nécessite pas l’installation de l’agent sur un appareil et utilise des analyses avancées sur les activités journalisées pour analyser et protéger votre appareil de champ. 
 
 ### <a name="enhanced"></a>Amélioré 
 En mode **étendu**, après l’activation de l’option **Sécurité** dans votre IOT Hub et l’installation des agents d’appareils Azure Security Center pour IoT sur vos appareils, les agents collectent, agrègent et analysent les événements de sécurité bruts de vos appareils. Les événements de sécurité bruts peuvent inclure des connexions IP, la création de processus, des connexions utilisateur et d’autres informations liées à la sécurité. Les agents d’appareil Azure Security Center pour IoT gèrent également l’agrégation d’événements afin d’éviter un débit réseau élevé. Les agents sont hautement personnalisables, vous permettant ainsi de les utiliser pour des tâches spécifiques, comme l’envoi d’informations importantes uniquement sur le contrat SLA le plus rapide, ou l’agrégation du contexte et des informations de sécurité étendues en segments plus volumineux, pour éviter des coûts de service plus élevés.
@@ -61,7 +61,7 @@ Les suggestions et les alertes d’Azure Security Center pour IoT (sortie du pip
 Dans cet article, vous avez découvert l’architecture de base et le flux de travail de la solution Azure Security Center pour IoT. Pour en savoir plus sur les prérequis, la prise en main et l’activation de votre solution de sécurité dans IoT Hub, consultez les articles suivants :
 
 - [Prérequis du service](service-prerequisites.md)
-- [Prise en main](getting-started.md)
+- [Bien démarrer](getting-started.md)
 - [Configurer votre solution](quickstart-configure-your-solution.md)
 - [Activer la sécurité dans IoT Hub](quickstart-onboard-iot-hub.md)
 - [FAQ Azure Security Center pour IoT](resources-frequently-asked-questions.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12ecacf1266c0d8211f5928a933cfd4acf8c49f0
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
+ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551384"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75777816"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -36,7 +36,7 @@ Les métriques suivantes relatives au minutage de la requête et de la réponse 
 
   Temps moyen nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle moyen entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que cela implique généralement le temps de traitement d’Application Gateway, le temps pendant lequel les paquets de requête et de réponse transitent sur le réseau et le temps que le serveur principal a mis pour répondre.
   
-Si le *RTT client* est bien plus grand que le *temps total d'Application Gateway*, il peut être déduit que la latence observée par le client est due à la connectivité réseau entre le client et Application Gateway. Si les deux latences sont comparables, la latence élevée peut être due à l’une des raisons suivantes : Application Gateway, le réseau entre le Application Gateway et l’application principale, ou les performances de l’application principale.
+Après un filtrage par écouteur, si le *RTT client* est bien plus grand que la *durée totale d’Application Gateway*, il peut être déduit que la latence observée par le client est due à la connectivité réseau entre le client et Application Gateway. Si les deux latences sont comparables, la latence élevée peut être due à l’une des raisons suivantes : Application Gateway, le réseau entre le Application Gateway et l’application principale, ou les performances de l’application principale.
 
 - **Temps de réponse du premier octet du principal**
 

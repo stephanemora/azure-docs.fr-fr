@@ -3,12 +3,12 @@ title: Informations de référence pour Azure Functions destinées aux développ
 description: Découvrez comment développer des fonctions à l’aide de Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: 50fc4dc278e274109725ff60ea8d438310ce464d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4af2a860657f6066112146e1f88d81861d9430ea
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230397"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75769028"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guide des développeurs Java sur Azure Functions
 
@@ -102,7 +102,7 @@ Utilisez les annotations Java incluses dans le package [com.microsoft.azure.func
 > [!IMPORTANT] 
 > Vous devez configurer un compte de stockage Azure dans votre fichier [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) pour exécuter les déclencheurs de Stockage Blob Azure, Stockage File d’attente Azure et Stockage Table Azure en local.
 
-Exemple :
+Exemple :
 
 ```java
 public class Function {
@@ -160,7 +160,7 @@ Vous pouvez fournir des arguments supplémentaires dans le paramètre d’applic
 
 Dans le [portail Azure](https://portal.azure.com), utilisez l’[onglet Paramètres d’application](functions-how-to-use-azure-function-app-settings.md#settings) pour ajouter le paramètre `JAVA_OPTS`.
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Vous pouvez utiliser la commande [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) pour définir `JAVA_OPTS`, comme le montre l’exemple suivant :
 
@@ -358,7 +358,7 @@ public class Function {
     }
 }
 ```
-Dans l’exemple précédent, le `queryValue` est lié au paramètre de chaîne de requête `name` dans l’URL de requête HTTP `http://{example.host}/api/metadata?name=test`. Voici un autre exemple de liaison à `Id` à partir des métadonnées de déclencheur de file d’attente.
+Dans l’exemple précédent, la valeur `queryValue` est liée au paramètre de chaîne de requête `name` dans l’URL de requête HTTP `http://{example.host}/api/metadata?name=test`. Voici un autre exemple de liaison à `Id` à partir des métadonnées de déclencheur de file d’attente.
 
 ```java
  @FunctionName("QueueTriggerMetadata")
@@ -385,7 +385,7 @@ Le contenu `ExecutionContext` défini dans la bibliothèque `azure-functions-jav
 
 Utilisez `getLogger`, défini dans `ExecutionContext`, pour écrire des journaux d’activité à partir du code de fonction.
 
-Exemple :
+Exemple :
 
 ```java
 
@@ -427,7 +427,7 @@ az webapp log download --resource-group resourcegroupname --name functionappname
 
 Avant d’exécuter cette commande, vous devez avoir activé la journalisation du système de fichiers dans le portail Azure ou dans Azure CLI.
 
-## <a name="environment-variables"></a>Variables d’environnement
+## <a name="environment-variables"></a>Variables d'environnement
 
 Dans Functions, les [paramètres de l’application](functions-app-settings.md), par exemple, les chaînes de connexion de service, sont exposées en tant que variables d’environnement pendant l’exécution. Vous pouvez accéder à ces paramètres avec `System.getenv("AzureWebJobsStorage")`.
 

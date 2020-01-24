@@ -1,6 +1,6 @@
 ---
-title: Géométries GeoJSON étendues dans Azure Maps | Microsoft Docs
-description: Découvrir comment étendre les géométries GeoJSON dans Azure Maps
+title: Géométries GeoJSON étendues | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir de quelle manière Microsoft Azure Maps étend la spécification GeoJSON pour représenter certaines géométries.
 author: sataneja
 ms.author: sataneja
 ms.date: 05/17/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 52325248d21a5d5112c9a7f9497c3e03fdf102a4
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 75ad83411edfdfe7545e8f80df17fea56e317ee0
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881980"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911615"
 ---
 # <a name="extended-geojson-geometries"></a>Géométries GeoJSON étendues
 
@@ -28,7 +28,7 @@ La [spécification GeoJSON][1] ne prend en charge que les géométries suivantes
 * MultiPoint
 * MultiPolygon
 * Point
-* Polygon
+* Polygone
 
 Certaines API Azure Maps (par exemple, [Search Inside Geometry](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)) acceptent les géométries comme « Circle », qui ne relèvent pas de la [spécification GeoJSON][1].
 
@@ -38,7 +38,7 @@ Cet article fournit une explication détaillée sur la façon dont Azure Maps é
 
 La géométrie `Circle` n’est pas prise en charge par la [spécification GeoJSON][1]. Nous utilisons un objet `GeoJSON Point Feature` pour représenter un cercle.
 
-Une géométrie `Circle` représentée à l’aide de l’objet `GeoJSON Feature` __doit__ contenir les éléments suivants :
+Une géométrie `Circle` représentée à l’aide de l’objet `GeoJSON Feature`__doit__ contenir les éléments suivants :
 
 - Center
 
@@ -52,7 +52,7 @@ Une géométrie `Circle` représentée à l’aide de l’objet `GeoJSON Feature
 
     La géométrie circle doit également contenir la propriété `subType`. Cette propriété doit faire partie des propriétés de la `GeoJSON Feature`, et sa valeur doit être _Circle_.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Voici comment vous allez représenter un cercle centré au niveau de la latitude 47,639754 et de la longitude -122,126986, avec un rayon égal à 100 mètres, à l’aide d’un objet `GeoJSON Feature` :
 
@@ -74,7 +74,7 @@ Voici comment vous allez représenter un cercle centré au niveau de la latitude
 
 La géométrie `Rectangle` n’est pas prise en charge par la [spécification GeoJSON][1]. Nous utilisons un objet `GeoJSON Polygon Feature` pour représenter un rectangle. L’extension de rectangle est principalement utilisée par le module des outils de dessin du SDK web.
 
-Une géométrie `Rectangle` représentée à l’aide de l’objet `GeoJSON Polygon Feature` __doit__ contenir les éléments suivants :
+Une géométrie `Rectangle` représentée à l’aide de l’objet `GeoJSON Polygon Feature`__doit__ contenir les éléments suivants :
 
 - Angles
 
@@ -84,7 +84,7 @@ Une géométrie `Rectangle` représentée à l’aide de l’objet `GeoJSON Poly
 
     La géométrie rectangle doit également contenir la propriété `subType`. Cette propriété doit faire partie des propriétés de la `GeoJSON Feature`, et sa valeur doit être _Rectangle_.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```json
 {

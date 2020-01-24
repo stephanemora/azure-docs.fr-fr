@@ -1,6 +1,6 @@
 ---
-title: Gérer le niveau tarifaire de votre compte Azure Maps | Microsoft Docs
-description: Vous pouvez utiliser le portail Azure pour gérer votre compte Azure Maps et ses niveaux tarifaires.
+title: Gérer le niveau tarifaire de votre compte Azure Maps | Microsoft Azure Maps
+description: Vous pouvez utiliser le portail Azure pour gérer votre compte Microsoft Azure Maps et son niveau tarifaire.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/12/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 43f5c6ea42464a83d070775fae8c5befe35bf60d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8cba1e56b96f24764af00f04f399d0cdbe54be24
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60794185"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911483"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gérer le niveau tarifaire de votre compte Azure Maps
 

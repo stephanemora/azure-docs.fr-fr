@@ -3,7 +3,7 @@ title: Choisir des tailles de machines virtuelles pour des pools - Azure Batch |
 description: Quelle taille de machine virtuelle choisir parmi celles disponibles pour les nœuds de calcul dans des pools Azure Batch
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 34ab09f7d8d47804992b8ef6864bfea60d1c9b4d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983748"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026614"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -43,8 +43,8 @@ La prise en charge de toute taille de machine virtuelle en préversion ou en pro
 | Série A de base | Toutes les tailles *sauf* Basic_A0 (A0) | Quelconque |
 | Série A | Toutes les tailles *sauf* Standard_A0 | Quelconque |
 | Série Av2 | Toutes les tailles | Quelconque |
-| Série B | Aucun | Non disponible |
-| Série DC | Aucun | Non disponible |
+| Série B | None | Non disponible |
+| Série DC | None | Non disponible |
 | Série Dv2, DSv2 | Toutes les tailles | Quelconque |
 | Série Dv3, Dsv3 | Toutes les tailles | Quelconque |
 | Série Ev3, Esv3 | Toutes les tailles | Quelconque |
@@ -53,17 +53,17 @@ La prise en charge de toute taille de machine virtuelle en préversion ou en pro
 | Série HB<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série HC<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série Ls | Toutes les tailles | Quelconque |
-| Série Lsv2 | Aucun | Non disponible |
+| Série Lsv2 | None | Non disponible |
 | Série M | Standard_M64ms (priorité basse uniquement), Standard_M128s (priorité basse uniquement) | Quelconque |
-| Série Mv2 | Aucun | Non disponible |
+| Série Mv2 | None | Non disponible |
 | Série NC | Toutes les tailles | Quelconque |
 | Série NCv2<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série NCv3<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série ND<sup>2</sup> | Toutes les tailles | Quelconque |
 | Série NDv2 | Toutes les tailles | Mode Abonnement utilisateur |
 | Série NV | Toutes les tailles | Quelconque |
-| Série NVv3 | Aucun | Non disponible |
-| SAP HANA | Aucun | Non disponible |
+| Série NVv3 | None | Non disponible |
+| SAP HANA | None | Non disponible |
 
 <sup>1</sup> Certaines séries de machines virtuelles plus récentes sont au départ partiellement prises en charge. Ces séries de machines virtuelles peuvent être allouées par comptes Batch avec le **mode d’allocation de pool** défini sur **abonnement utilisateur**. Consultez [Gérer des comptes Batch](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) pour en savoir plus sur la configuration du compte Batch. Consultez [Quotas et limites](batch-quota-limit.md) pour savoir comment demander des quotas pour ces séries de machines virtuelles partiellement prises en charge pour les comptes Batch d’**abonnement utilisateur**.  
 
@@ -71,7 +71,7 @@ La prise en charge de toute taille de machine virtuelle en préversion ou en pro
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools dans la configuration de service cloud
 
-Les pools Batch dans la configuration de service cloud prennent en charge toutes les [tailles de machine virtuelle pour Services cloud](../cloud-services/cloud-services-sizes-specs.md), **sauf** les suivantes :
+Les pools Batch dans la configuration de service cloud prennent en charge toutes les [tailles de machine virtuelle pour Services cloud](../cloud-services/cloud-services-sizes-specs.md), **sauf** les suivantes :
 
 | Série de la machine virtuelle  | Tailles non prises en charge |
 |------------|-------------------|

@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: d0118f815a2ceb149c62363fa334c16d28c6d615
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894406"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903244"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Contrôles de sécurité pour la messagerie Azure Service Bus
 
@@ -33,32 +33,32 @@ Cet article décrit les contrôles de sécurité intégrés à la messagerie Azu
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | Prise en charge par le biais de [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |  |
-| Journalisation et audit du plan de gestion et de contrôle| OUI | Des journaux d’opérations sont disponibles.  | [Journaux de diagnostic Service Bus](service-bus-diagnostic-logs.md) |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | Prise en charge par le biais de [Azure Monitor and Alerts](service-bus-metrics-azure-monitor.md). |  |
+| Journalisation et audit du plan de gestion et de contrôle| Oui | Des journaux d’opérations sont disponibles.  | [Journaux de diagnostic Service Bus](service-bus-diagnostic-logs.md) |
 | Journalisation et audit du plan de données| Non |  |
 
 ## <a name="identity"></a>Identité
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Authentication| OUI | Géré avec la [fonctionnalité Managed Service Identity d’Azure Active Directory](service-bus-managed-service-identity.md).| [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) |
-| Authorization| OUI | Prend en charge l’autorisation par [contrôle d’accès en fonction du rôle (RBAC)](authenticate-application.md) et jeton SAS. | [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) |
+| Authentication| Oui | Géré avec la [fonctionnalité Managed Service Identity d’Azure Active Directory](service-bus-managed-service-identity.md).| [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) |
+| Autorisation| Oui | Prend en charge l’autorisation par [contrôle d’accès en fonction du rôle (RBAC)](authenticate-application.md) et jeton SAS. | [Authentification et autorisation Service Bus](service-bus-authentication-and-authorization.md) |
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation |
 |---|---|--|--|
 | Chiffrement côté serveur au repos : Clés managées par Microsoft |  Oui pour le chiffrement côté serveur au repos par défaut. |  |  |
-| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui. Actuellement en préversion | Une clé gérée par le client dans Azure KeyVault peut être utilisée pour chiffrer les données sur l’espace de noms Service Bus au repos. | [Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du Portail Azure (Préversion)](configure-customer-managed-key.md)  |
+| Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui. | Une clé gérée par le client dans Azure KeyVault peut être utilisée pour chiffrer les données sur l’espace de noms Service Bus au repos. | [Configurer des clés gérées par le client pour chiffrer les données Azure Service Bus au repos à l’aide du portail Azure](configure-customer-managed-key.md)  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |   |
-| Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Prend en charge le mécanisme HTTPS/TLS standard. |   |
-| Appels d’API chiffrés| OUI | Les appels d’API sont effectués via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |   |
+| Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| Oui | Prend en charge le mécanisme HTTPS/TLS standard. |   |
+| Appels d’API chiffrés| Oui | Les appels d’API sont effectués via [Azure Resource Manager](../azure-resource-manager/index.yml) et HTTPS. |   |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| OUI | Prend en charge le contrôle de version du fournisseur de ressources via l’[API Azure Resource Manager](/rest/api/resources/).|   |
+| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| Oui | Prend en charge le contrôle de version du fournisseur de ressources via l’[API Azure Resource Manager](/rest/api/resources/).|   |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

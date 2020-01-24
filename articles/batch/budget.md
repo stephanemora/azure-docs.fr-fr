@@ -2,20 +2,20 @@
 title: Analyse des coûts et budgets - Azure Batch
 description: Découvrez comment obtenir une analyse des coûts et établir un budget pour votre charge de travail Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/19/2019
-ms.author: lahugh
-ms.openlocfilehash: 6ccf530fe2164b3d9b1936648ffe9057c334efd6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.author: jushiman
+ms.openlocfilehash: 7707d966049e9eced1add1104441af8fee356ef0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70094201"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029568"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Analyse des coûts et budgets pour Azure Batch
 
@@ -23,7 +23,7 @@ Il n'y a aucuns frais pour utiliser Azure Batch, mais seulement pour les ressour
 
 ## <a name="batch-resources"></a>Ressources Batch
 
-Les machines virtuelles représentent la ressource la plus importante utilisée pour le traitement Batch. Le coût d'utilisation des machines virtuelles pour Batch est calculé en fonction du type, de la quantité et de la durée d'utilisation. Les options de facturation des machines virtuelles incluent le [paiement à l'utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou la [réservation](../billing/billing-save-compute-costs-reservations.md) (payer à l'avance). Les deux options de paiement offrent différents avantages selon votre charge de travail, et les deux modèles de paiement impacteront différemment votre facture.
+Les machines virtuelles représentent la ressource la plus importante utilisée pour le traitement Batch. Le coût d'utilisation des machines virtuelles pour Batch est calculé en fonction du type, de la quantité et de la durée d'utilisation. Les options de facturation des machines virtuelles incluent le [paiement à l'utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou la [réservation](../cost-management-billing/reservations/save-compute-costs-reservations.md) (payer à l'avance). Les deux options de paiement offrent différents avantages selon votre charge de travail, et les deux modèles de paiement impacteront différemment votre facture.
 
 Lorsque des applications sont déployées sur des nœuds Batch (machines virtuelles) à l’aide de [packages d’application](batch-application-packages.md), vous êtes facturé pour les ressources Stockage Azure que vos packages d’application consomment. Vous êtes également facturé pour le stockage de tout fichier d'entrée ou de sortie, notamment les fichiers de ressources et autres données de journal. En général, le coût des données de stockage associées à Batch est beaucoup moins élevé que celui des ressources de calcul. Chaque machine virtuelle d’un pool créé avec **VirtualMachineConfiguration** est associée à un disque OS qui utilise des disques managés par Azure. Les disques managés par Azure entraînent un coût supplémentaire, et d’autres niveaux de performance de disque ont également des coûts différents.
 
@@ -58,7 +58,7 @@ L'analyse du coût qui en résulte montre le coût du pool ainsi que les ressour
 
 Afin de créer un budget pour le pool, sélectionnez **Budget : aucun**, puis **Créer un nouveau budget >** . Utilisez maintenant la fenêtre pour définir un budget spécifique à votre pool.
 
-Pour plus d’informations sur la définition d’un budget, consultez [Créer et gérer des budgets Azure](../cost-management/tutorial-acm-create-budgets.md).
+Pour plus d’informations sur la définition d’un budget, consultez [Créer et gérer des budgets Azure](../cost-management-billing/costs/tutorial-acm-create-budgets.md).
 
 > [!NOTE]
 > Azure Batch est basé sur la technologie d’Azure Cloud Services et des machines virtuelles Azure. Si vous sélectionnez **Configuration des services cloud**, vous êtes facturé en fonction de la structure de tarification des services cloud. Si vous sélectionnez la **Configuration de la machine virtuelle**, vous êtes facturé en fonction de la structure de tarification des machines virtuelles. L'exemple sur cette page utilise la **configuration de machine virtuelle**.
@@ -81,7 +81,7 @@ Les disques de système d’exploitation SSD Premium sont plus chers, mais plus 
 
 ### <a name="reserved-virtual-machine-instances"></a>Instances de machines virtuelles réservées
 
-Si vous avez l'intention d'utiliser Batch sur une longue période, vous pouvez réduire le coût des machines virtuelles en utilisant des [réservations Azure](../billing/billing-save-compute-costs-reservations.md) pour vos charges de travail. Le coût d’une réservation est nettement inférieur à celui d’un paiement à l'utilisation. Les instances de machines virtuelles utilisées sans réservation sont facturées à l’utilisation. Si vous achetez une réservation, la remise de réservation est appliquée et vous n'êtes plus facturé selon un paiement à l'utilisation.
+Si vous avez l'intention d'utiliser Batch sur une longue période, vous pouvez réduire le coût des machines virtuelles en utilisant des [réservations Azure](../cost-management-billing/reservations/save-compute-costs-reservations.md) pour vos charges de travail. Le coût d’une réservation est nettement inférieur à celui d’un paiement à l'utilisation. Les instances de machines virtuelles utilisées sans réservation sont facturées à l’utilisation. Si vous achetez une réservation, la remise de réservation est appliquée et vous n'êtes plus facturé selon un paiement à l'utilisation.
 
 ### <a name="automatic-scaling"></a>Mise à l’échelle automatique
 

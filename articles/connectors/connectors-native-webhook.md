@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/10/2019
 tags: connectors
-ms.openlocfilehash: 7ff411ae082acfe2d465ab9d3371982b0693c226
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 24746b7bbbbf3985a9801139b301a829c51a14da
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787044"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030084"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Créer et exécuter des flux de travail automatisés basés sur des événements à l’aide de Webhooks HTTP dans Azure Logic Apps
 
@@ -36,7 +36,16 @@ Une action de Webhook HTTP est également basée sur un événement et *s’abon
 Par exemple, l’action [**Envoyer un e-mail d’approbation**](connectors-create-api-office365-outlook.md) du connecteur Office 365 Outlook est un exemple d’action de Webhook qui suit ce modèle. Vous pouvez étendre ce modèle à tout service à l’aide de l’action de Webhook.
 
 > [!NOTE]
-> Logic Apps applique le protocole TLS (Transport Layer Security) 1.2 lors de la réception du rappel sur le déclencheur ou l’action Webhook HTTP. Si vous constatez des erreurs de liaison SSL, assurez-vous d’utiliser le protocole TLS 1.2.
+> Logic Apps applique le protocole TLS (Transport Layer Security) 1.2 lors de la réception du rappel sur le déclencheur ou l’action Webhook HTTP. Si vous constatez des erreurs de liaison SSL, assurez-vous d’utiliser le protocole TLS 1.2. Pour les appels entrants, voici les suites de chiffrement prises en charge :
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 Pour plus d’informations, consultez les rubriques suivantes :
 
@@ -44,7 +53,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
 * [Webhooks et abonnements](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Créer des API personnalisées qui prennent en charge un Webhook](../logic-apps/logic-apps-create-api-app.md)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -58,7 +67,7 @@ Pour plus d’informations, consultez les rubriques suivantes :
 
 Ce déclencheur intégré inscrit une URL de rappel avec le service spécifié, et attend que celui-ci envoie une requête HTTP POST à cette URL. Lorsque cet événement se produit, le déclencheur s’active et exécute immédiatement l’application logique.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique vide dans le Concepteur d’application logique.
 
 1. Dans le concepteur, dans la zone de recherche, entrez « http webhook » en tant que filtre. Dans la liste **Déclencheurs**, sélectionnez le déclencheur **Webhook HTTP**.
 
@@ -76,7 +85,7 @@ Ce déclencheur intégré inscrit une URL de rappel avec le service spécifié, 
 
 1. Continuez à générer le flux de travail de votre application logique avec des actions qui s’exécutent quand le déclencheur se déclenche.
 
-1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
    L’enregistrement de votre application logique a pour effet d’appeler le point de terminaison d’abonnement et d’inscrire l’URL de rappel pour le déclenchement de cette application logique.
 
@@ -86,7 +95,7 @@ Ce déclencheur intégré inscrit une URL de rappel avec le service spécifié, 
 
 Cette action intégrée inscrit une URL de rappel avec le service spécifié, suspend le flux de travail de l’application logique, et attend que ce service envoie une requête HTTP POST à cette URL. Lorsque cet événement se produit, l’action reprend l’exécution de l’application logique.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Ouvrez votre application logique dans le Concepteur d’applications logiques.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Ouvrez votre application logique dans le Concepteur d’applications logiques.
 
    Cet exemple utilise le déclencheur de Webhook HTTP en tant que première étape.
 
@@ -100,7 +109,7 @@ Cette action intégrée inscrit une URL de rappel avec le service spécifié, su
 
    Cet exemple renomme l’action « Action de Webhook HTTP » afin qu’elle ait un nom plus descriptif.
 
-1. Spécifiez les valeurs des paramètres d’action de Webhook HTTP, qui sont similaires aux [paramètres du déclencheur de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger) que vous souhaitez utiliser pour les appels d’abonnement et de désabonnement, par exemple :
+1. Spécifiez les valeurs des paramètres d’action de Webhook HTTP, qui sont similaires aux [paramètres du déclencheur de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger) que vous souhaitez utiliser pour les appels d’abonnement et de désabonnement, par exemple :
 
    ![Entrer des paramètres d’action de Webhook HTTP](./media/connectors-native-webhook/http-webhook-action-parameters.png)
 
@@ -110,17 +119,17 @@ Cette action intégrée inscrit une URL de rappel avec le service spécifié, su
 
    Pour en savoir plus sur les types d’authentification disponibles pour Webhook HTTP, consultez [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound).
 
-1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Lorsque vous avez terminé, pensez à enregistrer votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Pour plus d’informations sur les paramètres de déclencheur et d’action, qui sont similaires entre eux, voir [Paramètres de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md##http-webhook-trigger).
+Pour plus d’informations sur les paramètres de déclencheur et d’action, qui sont similaires entre eux, voir [Paramètres de Webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
 
 ### <a name="output-details"></a>Détails des résultats
 
 Voici d’autres informations sur les sorties d’un déclencheur ou d’une action de Webhook HTTP qui renvoient les informations suivantes :
 
-| Nom de la propriété | type | Description |
+| Nom de la propriété | Type | Description |
 |---------------|------|-------------|
 | headers | object | En-têtes de la requête |
 | body | object | Objet JSON | Objet avec le contenu du corps de la requête |

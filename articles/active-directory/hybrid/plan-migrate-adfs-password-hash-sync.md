@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818907"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028395"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrer de la fédération à la synchronisation de hachage de mot de passe pour Azure Active Directory
 
 Cet article décrit comment faire passer les domaines de votre organisation d’AD FS (Active Directory Federation Services) à la synchronisation de hachage de mot de passe.
 
-Vous pouvez [télécharger cet article](https://aka.ms/ADFSTOPHSDPDownload).
+> [!NOTE]
+> Modifier votre méthode d’authentification implique une planification, des tests et de possibles temps d’arrêt. Le [lancement intermédiaire](how-to-connect-staged-rollout.md) fournit un autre moyen de tester et d’effectuer une migration progressive de la fédération vers l’authentification cloud à l’aide de la synchronisation de hachage du mot de passe.
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>Prérequis pour la migration vers la synchronisation de hachage de mot de passe
 
@@ -99,7 +100,7 @@ Pour trouver le paramètre de fédération actuel, exécutez l’applet de comma
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-Exemple :
+Exemple :
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
@@ -224,7 +225,7 @@ Vous avez planifié votre solution. Vous pouvez maintenant l’implémenter. L�
 * Préparation pour l’authentification unique fluide.
 * Changement de la méthode de connexion pour la synchronisation de hachage de mot de passe et activation de l’authentification unique fluide.
 
-### <a name="step-1-enable-password-hash-synchronization"></a>Étape 1 : Activer la synchronisation de hachage de mot de passe
+### <a name="step-1-enable-password-hash-synchronization"></a>Étape 1 : Activer la synchronisation de hachage de mot de passe
 
 La première étape de l’implémentation de cette solution consiste à activer la synchronisation de hachage de mot de passe avec l’Assistant Azure AD Connect. La synchronisation de hachage de mot de passe est une fonctionnalité facultative que vous pouvez activer dans les environnements qui utilisent la fédération. Cela n’a aucun effet sur le flux d’authentification. Dans ce cas, Azure AD Connect démarre la synchronisation des hachages de mot de passe sans affecter les utilisateurs qui se connectent en utilisant la fédération.
 
@@ -259,7 +260,7 @@ Pour vérifier que la synchronisation de hachage de mot de passe fonctionne corr
 
 Pour résoudre les problèmes, consultez [Résoudre les problèmes de synchronisation du hachage de mot de passe avec Azure AD Connect Sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-troubleshoot-password-hash-synchronization).
 
-### <a name="step-2-prepare-for-seamless-sso"></a>Étape 2 : Préparer pour l’authentification unique fluide
+### <a name="step-2-prepare-for-seamless-sso"></a>Étape 2 : Préparer pour l’authentification unique fluide
 
 Pour que vos appareils utilisent l’authentification unique fluide, vous devez ajouter une URL Azure AD aux paramètres de zone intranet des utilisateurs via une stratégie de groupe dans Active Directory.
 
@@ -455,7 +456,7 @@ Historiquement, les mises à jour de l’attribut **UserPrincipalName**, qui uti
 
 Pour savoir comment vérifier ou activer cette fonctionnalité, consultez [Synchroniser les mises à jour de userPrincipalName](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 Votre équipe de support doit comprendre comment résoudre les problèmes d’authentification qui surviennent pendant ou après le passage de l’authentification fédérée à l’authentification managée. Utilisez la documentation de dépannage suivante pour aider votre équipe de support à se familiariser avec les procédures de dépannage courantes, et les mesures à prendre pour isoler et résoudre le problème.
 

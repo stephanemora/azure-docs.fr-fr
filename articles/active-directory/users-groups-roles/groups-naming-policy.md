@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3a9300148f4ac2adf6b95ef0afb500af5bc9284
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027033"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941056"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Appliquer une stratégie d’attribution de noms sur les groupes Office 365 dans Azure Active Directory
 
@@ -65,7 +65,12 @@ Règles de liste de mots bloqués :
 - Les mots bloqués ne sont soumis à aucune restriction de caractères.
 - Le nombre d’expressions pouvant être configurées dans la liste de mots bloqués est limité à 5 000. 
 
-### <a name="administrator-override"></a>Substitution par l’administrateur
+### <a name="roles-and-permissions"></a>Rôles et autorisations
+
+Pour configurer la stratégie de nommage, l’un des rôles suivants est nécessaire :
+- Administrateur général
+- Administrateur de groupe
+- Administrateur d’utilisateurs
 
 Certains administrateurs peuvent être exemptés de ces stratégies dans toutes les charges de travail et tous les points de terminaison de groupe. Ils peuvent ainsi créer des groupes en utilisant des mots bloqués et avec leurs propres conventions de nommage. Les rôles d’administrateur exemptés de la stratégie de nommage de groupes sont indiqués ci-dessous.
 
@@ -77,7 +82,7 @@ Certains administrateurs peuvent être exemptés de ces stratégies dans toutes 
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Configurer une stratégie d’attribution de noms dans le portail Azure
 
-1. Se connecter au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte administrateur général.
+1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) avec un compte d’administrateur de groupe.
 1. Sélectionnez **Groupes**, puis **Stratégie d'attribution de noms** pour ouvrir la page Stratégie d'attribution de noms.
 
     ![Ouvrez la page Stratégie d'attribution de noms dans le Centre d'administration](./media/groups-naming-policy/policy.png)
@@ -87,7 +92,7 @@ Certains administrateurs peuvent être exemptés de ces stratégies dans toutes 
 1. Sur la page **Stratégie d'attribution de noms**, sélectionnez **Stratégie de noms de groupes**.
 1. Vous pouvez afficher ou modifier individuellement les stratégies actuelles d'attribution de suffixes/préfixes en sélectionnant les attributs ou les chaînes que vous souhaitez appliquer dans le cadre de la stratégie d'attribution de noms.
 1. Pour supprimer un préfixe ou un suffixe dans la liste, sélectionnez-le et choisissez **Supprimer**. Plusieurs éléments peuvent être supprimés en même temps.
-1. Enregistrez les modifications de la nouvelle stratégie afin de les appliquer en sélectionnant **Enregistrer**.
+1. Enregistrez les modifications de la nouvelle stratégie pour qu’elle prenne effet en sélectionnant **Enregistrer**.
 
 ### <a name="edit-custom-blocked-words"></a>Modifier les mots bloqués personnalisés
 

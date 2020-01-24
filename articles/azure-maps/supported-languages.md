@@ -1,6 +1,6 @@
 ---
-title: Prise en charge de la localisation dans Azure Maps | Microsoft Docs
-description: En savoir plus sur les langues prises en charge pour les services dans Azure Maps
+title: Prise en charge de la traduction | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir les différentes langues prises en charge pour les services dans Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 64197cc85822997926a8011af8cb3b981fa9064d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286417"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910427"
 ---
-# <a name="localization-support-in-azure-maps"></a>Prise en charge de la localisation dans Azure Maps
+# <a name="localization-support-in-azure-maps"></a>Prise en charge de la traduction dans Azure Maps
 
 Azure Maps prend en charge différentes langues et différents affichages basés sur le pays ou la région. Cet article présente les langues et affichages pris en charge pour vous aider à implémenter Azure Maps.
 
@@ -25,7 +25,7 @@ Azure Maps prend en charge différentes langues et différents affichages basés
 Les services Azure Maps ont été localisés en différentes langues. Le tableau suivant indique les codes des langues prises en charge pour chaque service.  
   
 
-| id         | Nom                   |  Cartes | Recherche | Routage | Météo | Incidents de trafic | Commandes de la carte JS |
+| id         | Name                   |  Cartes | Recherche | Routage | Météo | Incidents de trafic | Commandes de la carte JS |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabe                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -46,7 +46,7 @@ Les services Azure Maps ont été localisés en différentes langues. Le tableau
 | en-AU      | Anglais (Australie)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-NZ      | Anglais (Nouvelle-Zélande)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-GB      | Anglais (Grande-Bretagne) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en-US      | Anglais (États-Unis)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| fr-FR      | Anglais (États-Unis)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | Et-EE      | Estonien               |       |    ✓   |         |      ✓    |         ✓         |                |
 | fil-PH     | Filipino               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finnois                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |

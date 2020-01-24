@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d2f25774f89182004e23605bf4c37d1e1d739df7
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084903"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867032"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configurer la reprise d’activité de machines virtuelles Hyper-V sur un site secondaire à l’aide de PowerShell (Resource Manager)
 
@@ -21,7 +21,7 @@ Cet article montre comment automatiser les étapes de la réplication des machin
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Examinez [l’architecture et les composants du scénario](hyper-v-vmm-architecture.md).
 - Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-sec-site.md) pour tous les composants.
@@ -194,6 +194,14 @@ Après avoir correctement configuré les serveurs, les clouds et les réseaux, a
 3. Activez la réplication de la machine virtuelle.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+
+> [!NOTE]
+> Si vous voulez répliquer sur des disques managés activés par une CMK dans Azure, effectuez les étapes suivantes avec la commande Az de PowerShell 3.3.0 et versions ultérieures :
+>
+> 1. Activez le basculement vers des disques managés en mettant à jour les propriétés des machines virtuelles.
+> 2. Utilisez l’applet de commande Get-AsrReplicationProtectedItem pour extraire l’ID de chaque disque de l’élément protégé.
+> 3. Créez un objet de dictionnaire avec l’applet de commande New-Object "System.Collections.Generic.Dictionary``2[System.String,System.String]" pour contenir le mappage de l’ID de disque dans un jeu de chiffrement de disque. Vous devez créer ces jeux de chiffrement de disque au préalable dans la région cible.
+> 4. Mettez à jour les propriétés des machines virtuelles à l’aide de l’applet de commande Set-AsrReplicationProtectedItem en passant l’objet du dictionnaire dans le paramètre -DiskIdToDiskEncryptionSetMap.
 
 ## <a name="run-a-test-failover"></a>Exécuter un test de basculement
 

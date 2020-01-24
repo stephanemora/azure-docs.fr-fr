@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6646217149cec48ca5fcee59b3dd9d850965c602
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 21ceacf27f92781b40a856b0c0a4d627d41a0738
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779918"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028561"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrer de la fédération à l’authentification directe pour Azure Active Directory
 
 Cet article décrit comment faire passer les domaines de votre organisation d’AD FS (Active Directory Federation Services) à l’authentification directe.
 
-Vous pouvez [télécharger cet article](https://aka.ms/ADFSTOPTADPDownload).
+> [!NOTE]
+> Modifier votre méthode d’authentification implique une planification, des tests et de possibles temps d’arrêt. Le [lancement intermédiaire](how-to-connect-staged-rollout.md) fournit un autre moyen de tester et d’effectuer une migration progressive de la fédération vers l’authentification cloud à l’aide de l’authentification directe.
 
 ## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Prérequis pour la migration vers l’authentification directe
 
@@ -88,7 +89,7 @@ Pour trouver le paramètre de fédération actuel, exécutez l’applet de comma
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-Exemple :
+Exemple :
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
@@ -218,7 +219,7 @@ Vous avez planifié votre solution. Vous pouvez maintenant l’implémenter. L�
 * Préparation pour l’authentification unique fluide.
 * Changement de la méthode de connexion pour l’authentification directe et activation de l’authentification unique fluide.
 
-### <a name="step-1-prepare-for-seamless-sso"></a>Étape 1 : Préparer pour l’authentification unique fluide
+### <a name="step-1-prepare-for-seamless-sso"></a>Étape 1 : Préparer pour l’authentification unique fluide
 
 Pour que vos appareils utilisent l’authentification unique fluide, vous devez ajouter une URL Azure AD aux paramètres de zone intranet des utilisateurs via une stratégie de groupe dans Active Directory.
 
@@ -229,7 +230,7 @@ Effectuez les étapes pour [déployer](https://docs.microsoft.com/azure/active-d
 > [!IMPORTANT]
 > Ce changement ne modifie pas la façon dont vos utilisateurs se connectent à Azure AD. Cependant, il est important d’appliquer cette configuration à tous vos appareils avant de continuer. Les utilisateurs qui se connectent sur des appareils qui n’ont pas reçu cette configuration doivent simplement entrer un nom d’utilisateur et un mot de passe pour se connecter à Azure AD.
 
-### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Étape 2 : Changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Étape 2 : Changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide
 
 Vous avez deux options pour changer la méthode de connexion pour l’authentification directe et activer l’authentification unique fluide.
 

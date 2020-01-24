@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: allensu
-ms.openlocfilehash: 0dd57bb30a993baadac41552669a629aaaaff6df
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c682749de0be6329a254bda25a32954dd44e6db
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210957"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978715"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -30,7 +30,7 @@ Vous pouvez automatiser les opérations de création, de suppression ou de mise 
 En règle générale, l’accès par programme aux ressources Azure est accordé via un compte dédié au lieu de vos propres informations d’identification de l’utilisateur. Ces comptes dédiés sont appelés comptes de « principal du service ». Pour utiliser l’exemple de projet de kit de développement logiciel Azure DNS, vous devez d’abord créer un compte de principal du service et lui attribuer les autorisations appropriées.
 
 1. Suivez [ces instructions](../active-directory/develop/howto-authenticate-service-principal-powershell.md) pour créer un compte de principal du service (l’exemple de projet de kit de développement logiciel Azure DNS part du principe qu’il s’agit d’une authentification par mot de passe).
-2. Créez un groupe de ressources ([procédure](../azure-resource-manager/resource-group-template-deploy-portal.md)).
+2. Créez un groupe de ressources ([procédure](../azure-resource-manager/templates/deploy-portal.md)).
 3. Utilisez Azure RBAC pour accorder une autorisation « Collaborateur de zone DNS » au groupe de ressources ([procédure](../role-based-access-control/role-assignments-portal.md)).
 4. Si vous utilisez l’exemple de projet de kit de développement logiciel Azure DNS, modifiez le fichier program.cs comme suit :
 
@@ -43,7 +43,7 @@ En règle générale, l’accès par programme aux ressources Azure est accordé
 Pour utiliser le Kit de développement logiciel .NET d’Azure DNS, vous devez installer le package NuGet de la **bibliothèque de gestion Azure DNS** et les autres packages Azure requis.
 
 1. Dans **Visual Studio**, ouvrez un projet existant ou un nouveau projet.
-2. Accédez à **Outils** **>** **Gestionnaire de package NuGet** **>** **Gérer les packages NuGet pour la solution**.
+2. Accédez à **Outils** **>** **Gestionnaire de package NuGet** **>** **Gérer les packages NuGet pour la solution...** .
 3. Cliquez sur **Parcourir**, cochez la case **Inclure la version préliminaire** et tapez **Microsoft.Azure.Management.Dns** dans la zone de recherche.
 4. Sélectionnez le package et cliquez sur **Installer** pour l’ajouter à votre projet Visual Studio.
 5. Répétez le processus ci-dessus pour installer les packages suivants : **Microsoft.Rest.ClientRuntime.Azure.Authentication** et **Microsoft.Azure.Management.ResourceManager**.

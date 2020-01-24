@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3205f853088245461e854562999164f9813f3bd5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 97d8d49b958293e3b51937cafc0874beb4f5ff4a
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534121"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942235"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Former des modèles avec Azure Machine Learning à l’aide de l’estimateur
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -131,7 +131,7 @@ Une fois que vous avez entraîné le modèle, vous pouvez l’enregistrer et l�
 L’exécution du code suivant va inscrire le modèle dans votre espace de travail et permettre son référencement (à l’aide de son nom) dans des contextes de calcul distant ou des scripts de déploiement. Pour plus d’informations, notamment sur les autres paramètres disponibles, consultez [`register_model`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#register-model-model-name--model-path-none--tags-none--properties-none--model-framework-none--model-framework-version-none--description-none--datasets-none--sample-input-dataset-none--sample-output-dataset-none--resource-configuration-none----kwargs-) dans la documentation de référence.
 
 ```python
-model = run.register_model(model_name='sklearn-sample')
+model = run.register_model(model_name='sklearn-sample', model_path=None)
 ```
 
 ## <a name="github-tracking-and-integration"></a>Intégration et suivi GitHub
@@ -158,3 +158,4 @@ Pour les notebooks d’entraînement des modèles à l’aide d’estimateurs sp
 * [Entraîner des modèles TensorFlow](how-to-train-tensorflow.md)
 * [Optimiser les hyperparamètres](how-to-tune-hyperparameters.md)
 * [Déployer un modèle entraîné](how-to-deploy-and-where.md)
+* [Créer et gérer des environnements pour l’entraînement et le déploiement](how-to-use-environments.md)

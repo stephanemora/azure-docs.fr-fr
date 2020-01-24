@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 1c26e5c6b4bd484b643182e9e4ade3d71929fdba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 638a90615d248b3c2829770432dd6a08eb4bb2fb
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476899"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75771732"
 ---
 # <a name="azure-lab-services---administrator-guide"></a>Azure Lab Services – Guide de l’administrateur
 Les administrateurs des technologies de l’information qui gèrent les ressources cloud d’une organisation sont aussi généralement responsables de la configuration du compte Lab de leur organisation. Les administrateurs ou les formateurs créent les labos de classe dans le compte Lab. Cet article offre une vue d’ensemble globale des ressources Azure en question ainsi que des conseils pour les créer.
@@ -68,7 +68,7 @@ La liste suivante met en avant les scénarios dans lesquels l’existence de plu
 - **Budget séparé par compte Lab**
 
     Pour éviter que les coûts de tous les labos de classe soient imputés à un seul compte Lab, il peut être judicieux de séparer le budget plus distinctement. Pour reprendre l’exemple précédent, vous pourriez créer un compte Lab pour chaque département de l’université de façon à séparer le budget en conséquence. En utilisant Azure Cost Management, vous pourriez alors voir les coûts pour chaque compte Lab.
-•   **Isoler les labos pilotes des labos actifs**
+- **Isoler les labos pilotes des labos actifs**
 
     Dans certains cas, vous souhaiterez peut-être piloter des changements de stratégies dans un compte Lab sans risquer d’affecter les labos actifs. Dans ce type de scénario, la création d’un compte Lab distinct à des fins de pilotage permet d’isoler les modifications. 
 

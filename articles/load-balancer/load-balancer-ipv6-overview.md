@@ -13,17 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 6bc7f45d84d525156a3d25bdceef4d1012844afa
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666203"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931982"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Vue d’ensemble du protocole IPv6 pour Azure Load Balancer
 
 
 >[!NOTE] 
+>Ce contenu a été remplacé par [Vue d’ensemble d’IPv6 pour les réseaux virtuels Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview). Azure recommande que les nouveaux déploiements IPv6 utilisent les nouvelles fonctionnalités IPv6 pour Réseaux virtuels Azure.
+
+>[!NOTE]
 >Azure Load Balancer prend en charge deux types différents : De base et Standard. Cet article décrit Basic Load Balancer. Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](load-balancer-standard-overview.md).
 
 Des équilibreurs de charge de la référence SKU De base, accessibles sur Internet, peuvent être déployés avec une adresse IPv6. En plus d’une connectivité IPv4, les fonctionnalités suivantes sont activées :
@@ -37,7 +40,7 @@ L’image suivante illustre la fonctionnalité IPv6 pour Azure Load Balancer.
 
 Une fois déployé, un client Internet compatible IPv4 ou IPv6 peut communiquer avec les adresses (ou noms d’hôte) IPv4 ou IPv6 publiques de l’équilibrage de charge accessible sur Internet d’Azure. L’équilibrage de charge achemine les paquets IPv6 vers les adresses IPv6 privées des machines virtuelles à l’aide de la traduction d’adresses réseau (NAT). Le client Internet IPv6 ne peut pas communiquer directement avec l’adresse IPv6 des machines virtuelles.
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 Une prise en charge IPv6 native pour les machines virtuelles déployées via Azure Resource Manager fournit :
 

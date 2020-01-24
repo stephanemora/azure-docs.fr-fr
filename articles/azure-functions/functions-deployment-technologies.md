@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 0eeb9c0c938793bb13218c5407f2a3fa117880e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c946667befdf34a2ae6769b2c1bb43871111c24
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227007"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921034"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Technologies de déploiement dans Azure Functions
 
@@ -40,7 +40,7 @@ Chaque plan a des comportements différents. Les technologies de déploiement ne
 | Modification dans le portail |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
 <sup>1</sup> Cette technologie de déploiement nécessite une [synchronisation manuelle des déclencheurs](#trigger-syncing).  
-<sup>2</sup> La modification dans le portail est disponible uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et Dédié.
+<sup>2</sup> La modification dans le portail est activée uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et dédié.
 
 ## <a name="key-concepts"></a>Concepts clés
 
@@ -190,7 +190,7 @@ Le tableau suivant présente les systèmes d’exploitation et les langages qui 
 | PowerShell (préversion) |✔|✔|✔| | | |
 | TypeScript (Node.js) | | | | | | |
 
-<sup>*</sup> La modification dans le portail est disponible uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et Dédié.
+<sup>*</sup> La modification dans le portail est activée uniquement pour les déclencheurs HTTP et de minuteur quand Azure Functions est exécuté sur Linux avec des plans Premium et dédié.
 
 ## <a name="deployment-slots"></a>Emplacements de déploiement
 

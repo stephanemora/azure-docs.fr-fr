@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076986"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903334"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
@@ -209,10 +209,6 @@ La redondance interzone favorise la simplicité avec une option non spécifique 
 Le mode zonal peut fournir une garantie explicite dans une zone, en partageant explicitement son sort avec l’intégrité de la zone. La création d’une règle Load Balancer avec un front-end d’adresse IP zonale ou un front-end Load Balancer interne zonal peut être souhaitable, notamment si votre ressource attachée est une machine virtuelle zonale dans la même zone.  Ou peut-être que votre application nécessite des connaissances explicites sur la zone dans laquelle une ressource se trouve à l’avance et que vous voulez réfléchir explicitement à la disponibilité dans des zones distinctes.  Vous pouvez choisir d’exposer plusieurs frontends zonaux pour un service de bout en bout distribué entre des zones (autrement dit, des frontends zonaux par zone pour plusieurs groupes zonaux de machines virtuelles identiques).  Et si vos frontends zonaux sont des adresses IP publiques, vous pouvez les utiliser pour exposer votre service avec [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Ou bien, vous pouvez utiliser plusieurs frontends zonaux pour obtenir des insights d’intégrité et de performance par zone par le biais de solutions de surveillance tierces et exposer le service global avec un frontend redondant interzone. Vous devez uniquement servir des ressources zonales avec des frontends zonaux alignés sur la même zone et éviter les scénarios entre zones potentiellement dangereux pour les ressources zonales.  Les ressources zonales existent uniquement dans les régions où des zones de disponibilité existent.
 
 Il n’est pas possible de déterminer le meilleur choix sans connaître l’architecture du service.  Passez en revue les [modèles de conception cloud Azure](https://docs.microsoft.com/azure/architecture/patterns/) pour améliorer la résilience de votre application aux scénarios de défaillance.
-
-## <a name="limitations"></a>Limites
-
-- Alors que le plan de données est entièrement redondant interzone (sauf si une garantie zonale a été spécifiée), les opérations de plan de contrôle ne sont pas entièrement redondantes interzone.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - En savoir plus sur les [zones de disponibilité](../availability-zones/az-overview.md)

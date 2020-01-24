@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0201c0947c2f6052182721294e8972e29479825d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949855"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930640"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Sécuriser votre service RESTful à l’aide de certificats clients
 
@@ -34,11 +34,11 @@ Cet article explique comment :
 * Télécharger le certificat sur les clés de stratégie de Azure AD B2C
 * Configurer votre stratégie personnalisée pour utiliser le certificat client
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Suivre les étapes dans l’article [Intégrer les échanges de revendications de l’API REST](active-directory-b2c-custom-rest-api-netfw.md).
 * Obtenir un certificat valide (fichier .pfx avec une clé privée).
 
-## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Étape 1 : Configurer une application web pour l’authentification par certificat client
+## <a name="step-1-configure-a-web-app-for-client-certificate-authentication"></a>Étape 1 : Configurer une application web pour l’authentification par certificat client
 Pour configurer **Azure App Service** afin d’exiger des certificats clients, définissez le paramètre de site de l’application web `clientCertEnabled` sur *true*. Pour procéder à cette modification, dans le Portail Azure, ouvrez votre page d’application web. Dans le volet de navigation gauche, dans **Paramètres**, sélectionnez **Paramètres SSL**. Dans la section **Certificats clients**, activez l’option **Certificat client entrant**.
 
 >[!NOTE]
@@ -47,7 +47,7 @@ Pour configurer **Azure App Service** afin d’exiger des certificats clients, d
 >[!NOTE]
 >Pour plus d’informations sur la définition de la propriété **clientCertEnabled**, consultez [Configurer l’authentification mutuelle TLS pour des applications web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
-## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Étape 2 : Charger votre certificat sur les clés de stratégie Azure AD B2C
+## <a name="step-2-upload-your-certificate-to-azure-ad-b2c-policy-keys"></a>Étape 2 : Charger votre certificat sur les clés de stratégie Azure AD B2C
 Après avoir défini `clientCertEnabled` sur *true*, la communication avec votre API RESTful nécessite un certificat client. Pour obtenir, charger et stocker le certificat client dans votre locataire Azure AD B2C, effectuez les opérations suivantes :
 1. Dans votre locataire Azure AD B2C, sélectionnez **Paramètres Azure AD B2C** > **Infrastructure d’expérience d’identité**.
 
@@ -100,17 +100,19 @@ Pour prendre en charge l’authentification par certificat client dans votre str
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>Étape 4 : Charger la stratégie sur un client
 
-1. Dans le [portail Azure](https://portal.azure.com), passez au [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis sélectionnez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 
-2. Sélectionnez **Infrastructure d’expérience d’identité**.
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 
-3. Sélectionnez **Toutes les stratégies**.
+1. Sélectionnez **Infrastructure d’expérience d’identité**.
 
-4. Sélectionnez **Charger la stratégie**.
+1. Sélectionnez **Toutes les stratégies**.
 
-5. Activez la case à cocher **Remplacer la stratégie si elle existe**.
+1. Sélectionnez **Charger la stratégie**.
 
-6. Chargez le fichier *TrustFrameworkExtensions.xml*, puis vérifiez que sa validation réussit.
+1. Activez la case à cocher **Remplacer la stratégie si elle existe**.
+
+1. Chargez le fichier *TrustFrameworkExtensions.xml*, puis vérifiez que sa validation réussit.
 
 ## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Étape 5 : Tester la stratégie personnalisée en utilisant Exécuter maintenant
 1. Ouvrez **Paramètres Azure AD B2C**, puis sélectionnez **Infrastructure d’expérience d’identité**.

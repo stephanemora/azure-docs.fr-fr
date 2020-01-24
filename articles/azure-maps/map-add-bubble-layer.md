@@ -1,6 +1,6 @@
 ---
-title: Ajouter une couche de bulles dans Azure Maps | Microsoft Docs
-description: Guide pratique pour ajouter une couche de bulles au SDK web Azure Maps.
+title: Ajouter une couche de bulles à une carte | Microsoft Azure Maps
+description: Dans cet article, vous découvrirez comment ajouter une couche de bulles à une carte à l’aide du SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5cc5dbdc89f629c09d47ef683b7ff7fff61d2f49
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976571"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911286"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
 

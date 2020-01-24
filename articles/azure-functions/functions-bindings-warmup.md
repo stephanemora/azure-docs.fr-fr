@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925179"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933331"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Déclencheur de préchauffage Azure Functions
 
@@ -30,11 +30,11 @@ Le package NuGet [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/pack
 
 ## <a name="trigger"></a>Déclencheur
 
-Le déclencheur de préchauffage vous permet de définir une fonction qui sera exécutée sur une instance quand elle est ajoutée à votre application en cours d’exécution. Vous pouvez utiliser une fonction de préchauffage pour ouvrir des connexions, charger des dépendances ou exécuter toute autre logique personnalisée avant que votre application ne commence à recevoir le trafic. 
+Le déclencheur de préchauffage vous permet de définir une fonction qui est exécutée sur une nouvelle instance quand elle est ajoutée à votre application en cours d’exécution. Vous pouvez utiliser une fonction de préchauffage pour ouvrir des connexions, charger des dépendances ou exécuter toute autre logique personnalisée avant que votre application ne commence à recevoir le trafic. 
 
 Le déclencheur de préchauffage est destiné à créer des dépendances partagées qui seront utilisées par les autres fonctions de application. [Consultez des exemples de dépendances partagées ici](./manage-connections.md#client-code-examples).
 
-Notez que le déclencheur de préchauffage est uniquement appelé pendant les opérations de montée en puissance, et non lors des redémarrages ou d’autres démarrages sans échelle. Vous devez vous assurer que votre logique peut charger toutes les dépendances nécessaires sans utiliser le déclencheur de préchauffage. Le chargement différé est un bon modèle pour y parvenir.
+Notez que le déclencheur de préchauffage est uniquement appelé pendant les opérations de scale-out et non lors des redémarrages ou d’autres démarrages sans échelle. Vous devez vous assurer que votre logique peut charger toutes les dépendances nécessaires sans utiliser le déclencheur de préchauffage. Le chargement différé est un bon modèle pour y parvenir.
 
 ## <a name="trigger---example"></a>Déclencheur - exemple
 

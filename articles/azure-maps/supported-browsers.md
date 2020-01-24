@@ -1,6 +1,6 @@
 ---
-title: Navigateurs pris en charge par le SDK web - Azure Maps | Microsoft Docs
-description: En savoir plus sur les navigateurs pris en charge pour le SDK web Azure Maps
+title: Navigateurs pris en charge par le SDK web | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir les navigateurs pris en charge par le SDK web Microsoft Azure Maps et comment vérifier si un navigateur est pris en charge.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 6aa256f026033a8b204b3c2ab1080f9f63ef63d7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a67a358d45ac61c955c26f495169f7cd8364074
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432785"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910443"
 ---
 # <a name="web-sdk-supported-browsers"></a>Navigateurs pris en charge pour le kit SDK web
 

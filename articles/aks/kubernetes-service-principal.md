@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913490"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75867168"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -131,6 +131,8 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
 - Lorsque vous spécifiez **l’ID client** du principal de service, utilisez la valeur de `appId`.
 - Sur les machines virtuelles du nœud de l’agent du cluster Kubernetes, les informations d’identification du principal du service sont stockées dans le fichier `/etc/kubernetes/azure.json`.
 - Si vous utilisez la commande [az aks create][az-aks-create] pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/aksServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
+- Si vous ne transmettez pas spécifiquement un principal de service dans des commandes CLI AKS supplémentaires, le principal de service par défaut situé dans `~/.azure/aksServicePrincipal.json` est utilisé.  
+- Vous pouvez également supprimer le fichier aksServicePrincipal.json, auquel cas AKS créera un principal de service.
 - Si vous supprimez un cluster AKS qui a été créé par [az aks create][az-aks-create], le principal de service qui a été créé automatiquement ne sera pas supprimé.
     - Pour supprimer le principal du service, recherchez votre *servicePrincipalProfile.clientId* de cluster et procédez à la suppression en utilisant [az ad app delete][az-ad-app-delete]. Remplacez les noms de cluster et de groupe de ressources suivants par vos propres valeurs :
 
@@ -138,7 +140,7 @@ Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez l
         az ad sp delete --id $(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalProfile.clientId -o tsv)
         ```
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 Les informations d’identification du principal du service d’un cluster AKS sont mises en cache par Azure CLI. Si ces informations d’identification ont expiré, vous rencontrez des erreurs de déploiement des clusters AKS. Lors de l’exécution de [az aks create][az-aks-create], le message d’erreur suivant peut indiquer un problème lié aux informations d’identification du principal du service mises en cache :
 

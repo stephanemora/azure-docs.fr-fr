@@ -1,6 +1,6 @@
 ---
-title: Résolution des problèmes liés au démarrage et à l’arrêt des machines virtuelles avec Azure Automation
-description: Cet article fournit des informations sur la résolution des problèmes liés au démarrage et à l’arrêt des machines virtuelles dans Azure Automation
+title: Résoudre les problèmes de démarrage et d’arrêt des machines virtuelles - Azure Automation
+description: Cet article fournit des informations sur la résolution des problèmes de démarrage et d’arrêt des machines virtuelles dans Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1817d8e060f944b1bcc31c8ea9eb4fbcff58a165
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850106"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966682"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Résoudre les problèmes liés à la solution Start/Stop VMs during off-hours
 
@@ -62,18 +62,18 @@ Les déploiements peuvent échouer pour les raisons suivantes :
 4. L’espace de travail Log Analytics est verrouillé.
 5. Vous avez une version obsolète des modules AzureRM ou de la solution Start/Stop.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Examinez la liste suivante pour trouver des solutions possibles à votre problème ou des endroits où en chercher :
 
 1. Les comptes Automation doivent être uniques dans une région Azure, même s’ils se trouvent dans différents groupes de ressources. Vérifiez vos comptes Automation dans la région cible.
-2. Une stratégie existante empêche le déploiement d’une ressource nécessaire à la solution Start/Stop VMs. Accédez à vos affectations de stratégie sur le Portail Azure et regardez s’il en existe une qui interdit le déploiement de cette ressource. Pour plus d’informations, voir [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+2. Une stratégie existante empêche le déploiement d’une ressource nécessaire à la solution Start/Stop VMs. Accédez à vos affectations de stratégie sur le Portail Azure et regardez s’il en existe une qui interdit le déploiement de cette ressource. Pour plus d’informations, voir [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
 3. Votre abonnement doit être inscrit aux espaces de noms de ressources Azure suivants pour que vous puissiez déployer la solution Start/Stop VMs :
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   Pour plus d’informations sur les erreurs à l’inscription des fournisseurs, voir [Résoudre les erreurs d’inscription des fournisseurs de ressources](../../azure-resource-manager/resource-manager-register-provider-errors.md).
+   Pour plus d’informations sur les erreurs à l’inscription des fournisseurs, voir [Résoudre les erreurs d’inscription des fournisseurs de ressources](../../azure-resource-manager/templates/error-register-resource-provider.md).
 4. Si votre espace de travail Log Analytics est verrouillé, accédez-y sur le Portail Azure et supprimez tous les verrous de la ressource.
 5. Si les solutions ci-dessus ne résolvent pas votre problème, suivez les instructions sous [Mettre à jour la solution](../automation-solution-vm-management.md#update-the-solution) pour redéployer la solution Start/Stop.
 
@@ -92,7 +92,7 @@ Cette erreur peut être due à l’une des raisons suivantes :
 3. Un runbook a peut-être rencontré des erreurs
 4. Les machines virtuelles ont peut-être été exclues
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Examinez la liste suivante pour trouver des solutions possibles à votre problème ou des endroits où en chercher :
 
@@ -133,7 +133,7 @@ Cette erreur peut être due à l’une des raisons suivantes :
 3. Le compte d’identification ne dispose peut-être pas des autorisations suffisantes sur la machine virtuelle
 4. Quelque chose dans la machine virtuelle a peut-être empêché son démarrage ou son arrêt
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Examinez la liste suivante pour trouver des solutions possibles à votre problème ou des endroits où en chercher :
 
@@ -165,7 +165,7 @@ Vous avez créé un runbook personnalisé ou vous en avez téléchargé un à pa
 
 Les causes de l’échec peuvent être diverses. Accédez à votre compte Automation dans le portail Azure, puis sélectionnez **Tâches** sous **Automatisation des processus**. Dans la page **Tâches**, recherchez les tâches de votre runbook pour afficher les éventuels échecs des tâches.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Il est recommandé d’utiliser la [solution Start/Stop VMs during off-hours](../automation-solution-vm-management.md) pour démarrer et arrêter des machines virtuelles dans Azure Automation. Cette solution a été créée par Microsoft. Les runbooks personnalisés ne sont pas pris en charge par Microsoft. Vous pouvez trouver une solution pour votre runbook personnalisé en consultant l’article relatif à la [résolution des problèmes liés aux runbooks](runbooks.md). Cet article fournit des conseils généraux et de résolution des problèmes liés aux runbooks de tous types. Vérifiez les [flux de tâches](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) afin de détecter d’éventuelles erreurs. Dans le portail, accédez à votre compte Automation, puis sélectionnez **Tâches** sous **Automatisation des processus**.
 
@@ -179,7 +179,7 @@ Les machines virtuelles que vous avez configurées dans la solution ne démarren
 
 Cela est dû à un balisage incorrect sur les machines virtuelles.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Effectuez les étapes suivantes pour vérifier que la solution est correctement configurée.
 
@@ -199,7 +199,7 @@ Vous trouvez des tâches qui ont échoué avec une erreur `403 forbidden` pour l
 
 Ce problème peut être dû à un compte d’identification incorrectement configuré ou ayant expiré. Il peut également être dû à des autorisations inappropriées pour les ressources des machines virtuelles accordées par le compte d’identification des comptes Automation.
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour vérifier que votre compte d’identification est correctement configuré, accédez à votre compte Automation dans le portail Azure, puis sélectionnez **Comptes d’identification** sous **Paramètres du compte**. L’état de vos comptes d’identification s’affiche alors. Si un compte d’identification est incorrectement configuré ou a expiré, son état l’indique.
 
@@ -222,7 +222,7 @@ Souvent, les erreurs peuvent être dues à l’utilisation d’une ancienne vers
 > [!NOTE]
 > La solution Start/Stop VMs during off-hours a été testée avec les modules Azure importés dans votre compte Automation lors du déploiement de la solution. La solution ne fonctionne actuellement pas avec des versions plus récentes du module Azure. Cela affecte uniquement le compte Automation que vous utilisez pour exécuter la solution Start/Stop VMs during off-hours. Vous pouvez toujours utiliser des versions les plus récentes du module Azure dans vos autres comptes Automation, comme décrit dans le [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md).
 
-### <a name="resolution"></a>Résolution :
+### <a name="resolution"></a>Résolution
 
 Pour résoudre de nombreuses erreurs, il est recommandé de supprimer et de mettre à jour la solution. Pour savoir comment mettre à jour la solution, consultez [Mettre à jour la solution Start/Stop VMs during off-hours](../automation-solution-vm-management.md#update-the-solution). Pour rechercher des erreurs éventuelles, vous pouvez également vérifier le [flux de tâches](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal). Dans le portail, accédez à votre compte Automation, puis sélectionnez **Tâches** sous **Automatisation des processus**.
 

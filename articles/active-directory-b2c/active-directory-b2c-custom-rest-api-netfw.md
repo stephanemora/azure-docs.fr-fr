@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3bea04ba077aebe9a52400a1292c5cd27c15b72e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8bc6a9c8910c25f5fdb403e7f45c5f567f7c1224
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950916"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930658"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur
 
@@ -48,7 +48,7 @@ Vous pouvez concevoir l’intégration aux services RESTful comme suit :
 
 Dans cette procédure pas à pas, vous allez développer une API web .NET Framework qui valide l’entrée utilisateur et fournit le numéro de fidélité d’un utilisateur. Par exemple, votre application peut accorder l’accès aux *avantages platinum* en fonction du numéro de fidélité.
 
-Vue d’ensemble :
+Présentation :
 
 * Développer le service RESTful (API web .NET Framework)
 * Utiliser le service RESTful dans le parcours utilisateur
@@ -57,11 +57,11 @@ Vue d’ensemble :
 * Renvoyer un numéro de fidélité
 * Ajouter le numéro de fidélité à un JSON Web Token (JWT)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
 
-## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET
+## <a name="step-1-create-an-aspnet-web-api"></a>Étape 1 : Créer une API web ASP.NET
 
 1. Dans Visual Studio, créez un projet en sélectionnant **Fichier** > **Nouveau** > **Projet**.
 1. Dans la fenêtre **Nouveau projet**, sélectionnez **Visual C#**  > **Web** > **Application web ASP.NET(.NET Framework)** .
@@ -74,9 +74,9 @@ Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnal
     ![Sélection d’un modèle d’API web dans Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 1. Vérifiez que l’authentification est définie sur **Aucune authentification**.
-1. Cliquez sur **OK** pour créer le projet.
+1. Sélectionnez **OK** pour créer le projet.
 
-## <a name="step-2-prepare-the-rest-api-endpoint"></a>Étape 2 : Préparer le point de terminaison de l’API REST
+## <a name="step-2-prepare-the-rest-api-endpoint"></a>Étape 2 : Préparer le point de terminaison de l’API REST
 
 ### <a name="step-21-add-data-models"></a>Étape 2.1 : Ajout de modèles de données
 
@@ -337,7 +337,9 @@ Une fois que vous avez ajouté la nouvelle revendication, le code de partie de c
 
 ## <a name="step-7-upload-the-policy-to-your-tenant"></a>Étape 7 : Charger la stratégie sur un client
 
-1. Sur le [portail Azure](https://portal.azure.com), basculez vers le [contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md), puis ouvrez **Azure AD B2C**.
+1. Dans le [portail Azure](https://portal.azure.com), sélectionnez l’icône **Répertoire + abonnement** dans la barre d’outils, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+
+1. Dans la Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 
 1. Sélectionnez **Infrastructure d’expérience d’identité**.
 

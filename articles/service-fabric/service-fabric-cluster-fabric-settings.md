@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: aab59af7031d8b2d8aa52e9ba13b73a204f19acc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458345"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75772123"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -555,7 +555,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |PlacementSearchTimeout | Durée en secondes (valeur par défaut est 0.5) |Dynamique| Spécifiez la durée en secondes. Lors du placement de services, effectuez une recherche au moins aussi longue avant de renvoyer un résultat. |
 |PLBRefreshGap | Durée en secondes (valeur par défaut : 1) |Dynamique| Spécifiez la durée en secondes. Définit le délai minimum à respecter avant que PLB ne réactualise l’état. |
 |PreferredLocationConstraintPriority | Entier (valeur par défaut : 2)| Dynamique|Détermine la priorité de la contrainte d’emplacement préféré : 0 : Stricte ; 1 : Souple ; 2 : optimisation ; valeur négative : Ignorer |
-|PreferUpgradedUDs|Valeur booléenne, valeur par défaut : TRUE|Dynamique|Active ou désactive la logique qui préfère le déplacement vers des UD déjà mis à niveau.|
+|PreferUpgradedUDs|valeur booléenne,valeur par défaut : FALSE|Dynamique|Active ou désactive la logique qui préfère le déplacement vers des UD déjà mis à niveau. À partir de SF 7.0, la valeur par défaut de ce paramètre passe de TRUE à FALSE.|
 |PreventTransientOvercommit | Valeur booléenne (valeur par défaut : false) | Dynamique|Détermine si PLB doit immédiatement compter sur les ressources qui seront libérées par les déplacements initiés. Par défaut, PLB peut initier un mouvement sortant et un mouvement entrant sur le même nœud, ce qui peut créer une survalidation temporaire. Le réglage de ce paramètre sur true empêche ces types de survalidation et désactive la défragmentation à la demande (également appelée placementWithMove). |
 |ScaleoutCountConstraintPriority | Entier (valeur par défaut : 0) |Dynamique| Détermine la priorité de la contrainte de nombre d’opérations de scale-out : 0 : Stricte ; 1 : Souple ; valeur négative : à ignorer. |
 |SwapPrimaryThrottlingAssociatedMetric | Chaîne (valeur par défaut : "")|statique| Nom de la mesure associée à cette limitation. |

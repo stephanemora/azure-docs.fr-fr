@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: fb697003da8c0604b2ce1e8956fcd434014b5b82
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e5f9762533dc2ad47f855714822ba39c645bf847
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077053"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045456"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Création d’un équilibrage de charge accessible sur Internet avec IPv6 à l’aide de PowerShell pour Resource Manager
 
 > [!div class="op_single_selector"]
 > * [PowerShell](load-balancer-ipv6-internet-ps.md)
-> * [Interface de ligne de commande Azure](load-balancer-ipv6-internet-cli.md)
+> * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Modèle](load-balancer-ipv6-internet-template.md)
 
->[!REMARQUE : changement de meilleure pratique pour IPv6] Cet article décrit une fonction d’introduction IPv6 qui permet aux équilibreurs de charge de base de fournir une connectivité IPv4 et IPv6.  Une connectivité IPv6 plus complète est maintenant disponible avec [IPv6 pour les réseaux virtuels Azure](../virtual-network/ipv6-overview.md), qui intègre la connectivité IPv6 à vos réseaux virtuels et inclut des fonctionnalités clés telles que les règles de groupe de sécurité réseau IPv6, le routage défini par l’utilisateur IPv6, le partage de charge IPv6 de base et standard, et plus encore.  Le protocole IPv6 pour les réseaux virtuels Azure est la meilleure pratique recommandée pour les applications IPv6 dans Azure. 
->Consultez [IPv6 pour le déploiement PowerShell de réseau virtuel Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). 
+>[!NOTE] 
+>Cet article décrit une fonctionnalité IPv6 qui permet aux équilibreurs de charge de base de fournir une connectivité IPv4 et IPv6. Une connectivité IPv6 complète est maintenant disponible avec [IPv6 pour les réseaux virtuels Azure](../virtual-network/ipv6-overview.md), qui intègre la connectivité IPv6 aux réseaux virtuels et inclut des fonctionnalités clés comme les règles de groupe de sécurité réseau IPv6, le routage défini par l’utilisateur IPv6, l’équilibrage de charge IPv6 de base et standard, et plus encore.  Le protocole IPv6 pour les réseaux virtuels Azure est la norme recommandée pour les applications IPv6 dans Azure. Consultez [IPv6 pour le déploiement PowerShell de réseau virtuel Azure](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). 
 
 Un équilibrage de charge Azure est de type Couche 4 (TCP, UDP). L’équilibrage de charge offre une disponibilité élevée en distribuant le trafic entrant parmi les instances de service saines dans les services cloud ou les machines virtuelles dans un jeu d’équilibrage de la charge. Azure Load Balancer peut également présenter ces services sur plusieurs ports, plusieurs adresses IP ou les deux.
 
@@ -46,7 +46,7 @@ Dans ce scénario, vous allez créer les ressources Azure suivantes :
 * un équilibrage de charge accessible sur Internet avec une adresse IP publique IPv4 et IPv6 ;
 * deux règles d’équilibrage de charge pour mapper les adresses IP virtuelles publiques sur les points de terminaison privés.
 * un groupe à haute disponibilité contenant les deux machines virtuelles ;
-* deux machines virtuelles ;
+* deux machines virtuelles.
 * une interface de réseau virtuel pour chaque machine virtuelle avec des adresses IPv4 et IPv6 affectées ;
 
 ## <a name="deploying-the-solution-using-the-azure-powershell"></a>Déploiement de la solution à l’aide de Microsoft Azure PowerShell
@@ -55,13 +55,13 @@ Les étapes suivantes expliquent comment créer un équilibrage de charge access
 
 Pour déployer un équilibrage de charge, vous devez créer et configurer les objets suivants :
 
-* Configuration d’adresses IP frontales : contient les adresses IP publiques pour le trafic réseau entrant.
-* Pool d’adresses principales : contient des interfaces réseau (NIC) pour que les machines virtuelles puissent recevoir le trafic réseau de l’équilibrage de charge.
+* Configuration d’adresses IP front-end : contient les adresses IP publiques pour le trafic réseau entrant.
+* Pool d’adresses back-end : contient des interfaces réseau pour que les machines virtuelles puissent recevoir le trafic réseau en provenance de l’équilibreur de charge.
 * Règles d’équilibrage de charge : contient des règles de mappage d’un port public situé sur l’équilibrage de charge pour le pool d’adresses principales.
 * Règles NAT entrantes : contient des règles de mappage d’un port public situé sur l’équilibrage de charge vers le port d’une machine virtuelle spécifique située dans le pool d’adresses principales.
 * Sondes : contient les sondes d’intégrité utilisées pour vérifier la disponibilité des instances de machines virtuelles du pool d’adresses principales.
 
-Pour plus d’informations, consultez [Prise en charge d’un équilibreur de charge par Azure Resource Manager](load-balancer-arm.md).
+Pour plus d’informations, consultez [Composants d’Azure Load Balancer](./concepts-limitations.md#load-balancer-components).
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Configurer PowerShell pour utiliser Resource Manager
 

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687737"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931694"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Développement d’actions de script avec HDInsight
 
@@ -29,7 +29,7 @@ Les actions de script peuvent être appliquées selon les méthodes suivantes :
 | Portail Azure |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure Classic CLI |&nbsp; |✓ |
-| Kit de développement logiciel (SDK) .NET de HDInsight |✓ |✓ |
+| Kit HDInsight .NET SDK |✓ |✓ |
 | Modèle Azure Resource Manager |✓ |&nbsp; |
 
 Pour plus d’informations sur l’utilisation de ces méthodes pour appliquer des actions de script, consultez [Personnalisation de clusters HDInsight à l’aide d’actions de script](hdinsight-hadoop-customize-cluster-linux.md).
@@ -322,12 +322,9 @@ Pour plus d’informations sur l’utilisation de chaque méthode, consultez [Co
 
 ## <a name="sampleScripts"></a>Exemples de scripts personnalisés
 
-Microsoft fournit des exemples de scripts pour installer des composants sur un cluster HDInsight. Consultez les liens suivants pour voir d’autres exemples d’action de script.
+Microsoft fournit des exemples de scripts pour installer des composants sur un cluster HDInsight. Consultez [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md) pour obtenir un exemple d’action de script.
 
-* [Installer et utiliser Hue sur les clusters HDInsight](hdinsight-hadoop-hue-linux.md)
-* [Installer et utiliser Apache Giraph sur les clusters HDInsight](hdinsight-hadoop-giraph-install-linux.md)
-
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Voici des erreurs susceptibles de se produire quand vous utilisez les scripts que vous avez développés :
 

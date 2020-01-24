@@ -1,6 +1,6 @@
 ---
-title: Concepts relatifs aux services météo dans Azure Maps | Microsoft Docs
-description: En savoir plus sur les services météo dans Azure Maps
+title: Concepts relatifs aux services météo | Microsoft Azure Maps
+description: Dans cet article, vous allez découvrir les concepts qui s’appliquent aux services météo de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9d464ab172fcb375d62b9928818362574a485231
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382805"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911023"
 ---
 # <a name="weather-services-in-azure-maps"></a>Services météo dans Azure Maps
 
@@ -30,7 +30,7 @@ Certaines API du service météo permettent à l’utilisateur de spécifier si 
 |2       |milles               |
 |3       |millimètre          |
 |4       |centimètre          |
-|5\.       |mètre               |
+|5       |mètre               |
 |6       |kilomètre           |
 |7       |kilometersPerHour   |
 |8       |nœuds               |
@@ -47,7 +47,7 @@ Certaines API du service météo permettent à l’utilisateur de spécifier si 
 |19      |kelvin              |
 |20      |pour cent             |
 |21      |float               |
-|22      |integer             |
+|22      |entier             |
 
 
 ## <a name="weather-icons"></a>Icônes météo
@@ -56,46 +56,46 @@ Certaines API du service météo retournent des codes d’icône (iconCode) dans
 
 | Numéro d’icône |Icône| jour | Nuit | Texte |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | OUI |  Non    | Ensoleillé|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | OUI |  Non    | Principalement ensoleillé|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | OUI |  Non    | Partiellement ensoleillé|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | OUI |  Non    | Nuages intermittents|
-| 5\.           |![](./media/weather-services-concepts/hazy-sunshine.png)               | OUI |  Non    | Rayonnement diffus |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | OUI |  Non    | Principalement nuageux|
-| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | OUI |  OUI   | Nuageux |
-| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | OUI |  OUI   | Maussade (couvert)|
-| 11           |![](./media/weather-services-concepts/fog-i.png)                       | OUI |  OUI   | Brouillard|
-| 12           |![](./media/weather-services-concepts/showers-i.png)                   | OUI |  OUI   | Averses|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | OUI |  Non    | Principalement nuageux avec des averses|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | OUI |  Non    | Partiellement ensoleillé avec des averses|
-| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | OUI |  OUI   | Orages|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | OUI |  Non    | Principalement nuageux avec des orages|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | OUI |  Non    | Partiellement ensoleillé avec des orages|
-| 18           |![](./media/weather-services-concepts/rain-i.png)                      | OUI |  OUI   | Pluie|
-| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | OUI |  OUI   | Averses de neige|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | OUI |  Non    | Principalement nuageux avec des averses de neige|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | OUI |  Non    | Partiellement ensoleillé avec des averses de neige|
-| 22           |![](./media/weather-services-concepts/snow-i.png)                      | OUI |  OUI   | Neige|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | OUI |  Non    | Principalement nuageux avec de la neige|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | OUI |  OUI   | Verglas |
-| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | OUI |  OUI   | Giboulée|
-| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | OUI |  OUI   | Pluie verglaçante|
-| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | OUI |  OUI   | Pluie et neige|
-| 30           |![](./media/weather-services-concepts/hot-i.png)                       | OUI |  OUI   | À chaud|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | OUI |  OUI   | Froid|
-| 32           |![](./media/weather-services-concepts/windy-i.png)                     | OUI |  OUI   | Venteux|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | Non  |  OUI   | Effacer|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Non  |  OUI   | Ciel plutôt dégagé|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Non  |  OUI   | Partiellement nuageux|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Non  |  OUI   | Nuages intermittents|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Non  |  OUI   | Clair de lune brumeux|
-| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Non  |  OUI   | Principalement nuageux|
-| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Non  |  OUI   | Partiellement nuageux avec des averses|
-| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Non  |  OUI   | Principalement nuageux avec des averses|
-| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Non  |  OUI   | Partiellement nuageux avec des orages|
-| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Non  |  OUI   | Principalement nuageux avec des orages|
-| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Non  |  OUI   | Principalement nuageux avec des averses de neige|
-| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Non  |  OUI   | Principalement nuageux avec de la neige|
+| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Oui |  Non    | Ensoleillé|
+| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Oui |  Non    | Principalement ensoleillé|
+| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Oui |  Non    | Partiellement ensoleillé|
+| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Oui |  Non    | Nuages intermittents|
+| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Oui |  Non    | Rayonnement diffus |
+| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Oui |  Non    | Principalement nuageux|
+| 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Oui |  Oui   | Nuageux |
+| 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Oui |  Oui   | Maussade (couvert)|
+| 11           |![](./media/weather-services-concepts/fog-i.png)                       | Oui |  Oui   | Brouillard|
+| 12           |![](./media/weather-services-concepts/showers-i.png)                   | Oui |  Oui   | Averses|
+| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Oui |  Non    | Principalement nuageux avec des averses|
+| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Oui |  Non    | Partiellement ensoleillé avec des averses|
+| 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Oui |  Oui   | Orages|
+| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Oui |  Non    | Principalement nuageux avec des orages|
+| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Oui |  Non    | Partiellement ensoleillé avec des orages|
+| 18           |![](./media/weather-services-concepts/rain-i.png)                      | Oui |  Oui   | Pluie|
+| 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Oui |  Oui   | Averses de neige|
+| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Oui |  Non    | Principalement nuageux avec des averses de neige|
+| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Oui |  Non    | Partiellement ensoleillé avec des averses de neige|
+| 22           |![](./media/weather-services-concepts/snow-i.png)                      | Oui |  Oui   | Neige|
+| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Oui |  Non    | Principalement nuageux avec de la neige|
+| 24           |![](./media/weather-services-concepts/ice-i.png)                       | Oui |  Oui   | Verglas |
+| 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Oui |  Oui   | Giboulée|
+| 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Oui |  Oui   | Pluie verglaçante|
+| 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Oui |  Oui   | Pluie et neige|
+| 30           |![](./media/weather-services-concepts/hot-i.png)                       | Oui |  Oui   | À chaud|
+| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Oui |  Oui   | Froid|
+| 32           |![](./media/weather-services-concepts/windy-i.png)                     | Oui |  Oui   | Venteux|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | Non  |  Oui   | Désactiver|
+| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Non  |  Oui   | Ciel plutôt dégagé|
+| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Non  |  Oui   | Partiellement nuageux|
+| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Non  |  Oui   | Nuages intermittents|
+| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Non  |  Oui   | Clair de lune brumeux|
+| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Non  |  Oui   | Principalement nuageux|
+| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Non  |  Oui   | Partiellement nuageux avec des averses|
+| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Non  |  Oui   | Principalement nuageux avec des averses|
+| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Non  |  Oui   | Partiellement nuageux avec des orages|
+| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Non  |  Oui   | Principalement nuageux avec des orages|
+| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Non  |  Oui   | Principalement nuageux avec des averses de neige|
+| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Non  |  Oui   | Principalement nuageux avec de la neige|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Mise à l’échelle de couleurs des images radar et par satellite
@@ -129,7 +129,7 @@ La palette de couleurs détaillée pour les mosaïques radar avec des codes de c
 
 | **PLUIE**             | **VERGLAS**              | **NEIGE**              | **CONDITIONS MIXTES**             |
 |----------------------|----------------------|-----------------------|-----------------------|
-| **dBZ** **(couleur)**  | **dBZ** **(couleur)**  | **dBZ** **(couleur)**   | **dBZ** **(couleur)**   |
+| **dBZ** **(color)**  | **dBZ** **(color)**  | **dBZ** **(color)**   | **dBZ** **(color)**   |
 | 1,25       (#93C701) | 1,25       (#E6A5C8) | 1,25       (#9EC8F2)  | 1,25        (#C196E6) |
 | 2,5        (#92C201) | 2,5        (#E6A2C6) | 2,5        (#98C5F0)  | 2,5         (#BF92E6) |
 | 3,75       (#92BE01) | 3,75       (#E69FC5) | 3,75       (#93C3EF)  | 3,75        (#BD8EE6) |

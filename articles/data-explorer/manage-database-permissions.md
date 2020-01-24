@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 36e1bb77be1e825e42f0e5d25457214a8b5f882d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b4d5e56e990c0353f44209c6b19ae2d1727de27a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60758753"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030092"
 ---
 # <a name="manage-azure-data-explorer-database-permissions"></a>Gérer les autorisations de base de données de l’Explorateur de données Azure
 
@@ -24,7 +24,7 @@ Cet article décrit les rôles disponibles et comment affecter des principaux à
 
 L’Explorateur de données Azure a les rôles suivants :
 
-|Rôle                       |Autorisations                                                                        |
+|Role                       |Autorisations                                                                        |
 |---------------------------|-----------------------------------------------------------------------------------|
 |Administrateur de base de données             |Peut effectuer n’importe quelle opération dans la portée d’une base de données particulière.|
 |Utilisateur de base de données              |Peut lire toutes les données et métadonnées dans la base de données. De plus, il peut créer des tables (devenir l’administrateur de table pour cette table) et des fonctions dans la base de données.|
@@ -36,13 +36,13 @@ L’Explorateur de données Azure a les rôles suivants :
 
 ## <a name="manage-permissions-in-the-azure-portal"></a>Gérer les autorisations dans le portail Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. Accédez à votre cluster de l’Explorateur de données Azure.
 
 1. Dans la section **Vue d’ensemble**, sélectionnez la base de données où vous souhaitez gérer les autorisations.
 
-    ![Sélectionner la base de données](media/manage-database-permissions/select-database.png)
+    ![Sélectionner une base de données](media/manage-database-permissions/select-database.png)
 
 1. Sélectionnez **Autorisations**, puis **Ajouter**.
 
@@ -73,6 +73,8 @@ L’Explorateur de données Azure a les rôles suivants :
     ```
 
     La sortie de la commande affiche la liste des utilisateurs existants et les rôles auxquels ils sont affectés dans la base de données.
+    
+    Pour obtenir des exemples relatifs à Azure Active Directory et au modèle d’autorisation Kusto, consultez [Principes et fournisseurs d’identité](https://docs.microsoft.com/azure/kusto/management/access-control/principals-and-identity-providers)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,25 +1,23 @@
 ---
 title: Questions courantes sur la récupération d’urgence de machine virtuelle Azure avec Azure Site Recovery
-description: Cet article répond aux questions courantes concernant la récupération d'urgence de machines virtuelles Azure dans une autre région Azure avec Azure Site Recovery
-author: asgang
+description: Cet article répond aux questions courantes sur la reprise d’activité des machines virtuelles Azure avec Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 051e8b0add7cf7ab2c4cb2f02ed4e33ea9a23c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621065"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973808"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Questions courantes : Récupération d'urgence d'Azure vers Azure
 
-Cet article fournit des réponses aux questions courantes concernant la reprise d’activité après sinistre de machines virtuelles Azure dans une autre région Azure avec [Site Recovery](site-recovery-overview.md). 
+Cet article fournit des réponses aux questions courantes concernant la reprise d’activité après sinistre de machines virtuelles Azure dans une autre région Azure avec [Site Recovery](site-recovery-overview.md).
 
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="how-is-site-recovery-priced"></a>Comment les tarifs Azure Site Recovery sont-ils fixés ?
 Pour plus d’informations, consultez [Tarification Site Recovery ](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
@@ -28,7 +26,7 @@ Chaque instance protégée avec Azure Site Recovery est gratuite pendant les 31�
 ### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Pendant les 31 premiers jours, d'autres frais Azure sont-ils facturés ?
 Oui, bien qu'Azure Site Recovery soit gratuit pendant les 31 premiers jours d'une instance protégée, des frais peuvent s'appliquer pour Stockage Azure, les transactions de stockage et le transfert de données. Des frais de calcul Azure peuvent également être facturés pour une machine virtuelle récupérée. Consultez les informations complètes sur la tarification [ici](https://azure.microsoft.com/pricing/details/site-recovery)
 
-### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Où puis-je trouver les meilleures pratiques relatives à la récupération d'urgence d’une machine virtuelle Azure ? 
+### <a name="where-can-i-find-best-practices-for-azure-vm-disaster-recovery"></a>Où puis-je trouver les meilleures pratiques relatives à la récupération d'urgence d’une machine virtuelle Azure ?
 1. [Comprendre l’architecture Azure vers Azure](azure-to-azure-architecture.md)
 2. [Examiner les configurations prises en charge et non prises en charge](azure-to-azure-support-matrix.md)
 3. [Configurer la récupération d’urgence pour les machines virtuelles Azure](azure-to-azure-how-to-enable-replication.md)

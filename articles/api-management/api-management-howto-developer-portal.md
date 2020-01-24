@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442591"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045578"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -39,7 +39,7 @@ Cet article décrit les différences entre la version auto-hébergée et la vers
 Vous pouvez générer votre portail des développeurs de deux manières :
 
 - **Version managée**, via la modification et la personnalisation du portail : intégrée dans votre instance de Gestion des API et accessible via l’URL `<your-api-management-instance-name>.developer.azure-api.net` ; Pour savoir comment accéder au portail managé et le personnaliser, voir [cet article de documentation](api-management-howto-developer-portal-customize.md).
-- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier la base de code du portail et d’étendre la fonctionnalité principale fournie. Vous devez également passer à la dernière version du portail par vous-même. Pour en savoir plus et accéder à des instructions, reportez-vous au [référentiel GitHub avec le code source du portail][1]. Le [tutoriel de la version managée](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, qui est également proposé dans la version auto-hébergée.
+- **version auto-hébergée**, via le déploiement et l’auto-hébergement de votre portail en dehors d’une instance de gestion des API. Cette approche vous permet de modifier la base de code du portail et d’étendre la fonctionnalité principale fournie. Vous devez également passer à la dernière version du portail par vous-même. Pour obtenir plus de détails et d’instructions, reportez-vous au [dépôt GitHub avec le code source du portail][1] et au [tutoriel sur l’implémentation d’un widget][4]. Le [tutoriel de la version managée](api-management-howto-developer-portal-customize.md) décrit le panneau d’administration du portail, qui est également proposé dans la version auto-hébergée.
 
 ## <a name="portal-architectural-concepts"></a>Concepts architecturaux du portail
 
@@ -101,6 +101,10 @@ L’authentification avec OAuth dans la console du développeur interactive n’
 L’ancien portail des développeurs et l’ancien portail des éditeurs sont désormais des fonctionnalités *héritées*, qui ne recevront que des mises à jour de sécurité. Les nouvelles fonctionnalités ne seront implémentées que dans le nouveau portail des développeurs.
 
 La dépréciation des portails hérités sera annoncée séparément. Si vous avez des questions, des doutes ou des commentaires, signalez-les dans un [problème GitHub dédié](https://github.com/Azure/api-management-developer-portal/issues/121).
+
+### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Les fonctionnalités dont j’ai besoin ne sont pas prises en charge dans le portail
+
+Utilisez la version auto-hébergée et [implémentez votre propre widget][4].
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Comment automatiser les déploiements de portails ?
 
@@ -216,6 +220,7 @@ Découvrez le nouveau portail des développeurs :
 
 - [Accéder au portail managé des développeurs et le personnaliser](api-management-howto-developer-portal-customize.md)
 - [Configurer la version auto-hébergée du portail][2]
+- [Implémenter votre propre widget][4]
 
 Parcourez d’autres ressources :
 
@@ -225,3 +230,4 @@ Parcourez d’autres ressources :
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
 [3]: https://github.com/Azure/api-management-developer-portal/projects
+[4]: https://aka.ms/apimdevportal/extend

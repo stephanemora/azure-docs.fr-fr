@@ -4,15 +4,15 @@ description: Découvrez comment installer et configurer une passerelle de donné
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572857"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029886"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 
@@ -20,18 +20,18 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 
 Pour en savoir plus sur la passerelle et son utilisation par Azure Analysis Services, voir [Connexion aux sources de données locales](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 **Configuration minimale requise :**
 
 * .NET Framework 4.5
-* Version 64 bits de Windows 7 / Windows Server 2008 R2 (ou version ultérieure)
+* Version 64 bits de Windows 8/Windows Server 2012 R2 (ou version ultérieure)
 
 **Recommandé :**
 
 * Processeur 8 cœurs
 * 8 Go de mémoire
-* Version 64 bits de Windows 2012 R2 (ou version ultérieure)
+* Version 64 bits de Windows 8/Windows Server 2012 R2 (ou version ultérieure)
 
 **Points importants à prendre en compte :**
 
@@ -75,14 +75,14 @@ Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’inst
 
 1.  Sélectionnez **Inscrivez une nouvelle passerelle sur cet ordinateur**.
 
-    ![Register](media/analysis-services-gateway-install/aas-gateway-register-new.png)
+    ![Inscrire](media/analysis-services-gateway-install/aas-gateway-register-new.png)
 
 2. Saisissez un nom et une clé de récupération pour votre passerelle. Par défaut, la passerelle utilise la région par défaut de votre abonnement. Si vous souhaitez choisir une autre région, sélectionnez **Changer la région**.
 
     > [!IMPORTANT]
     > Enregistrez votre clé de récupération dans un endroit sûr. La clé de récupération est requise en cas de prise en charge, migration ou restauration d’une passerelle. 
 
-   ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
+   ![Inscrire](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
 ## <a name="create-resource"></a>Créer une ressource de passerelle Azure
@@ -95,7 +95,7 @@ Une fois que vous avez installé et inscrit votre passerelle, vous devez créer 
 
 2. Dans **Créer une passerelle connexion**, entrez les paramètres suivants:
 
-   * **Nom** : entrez un nom pour votre ressource de passerelle. 
+   * **Name** : entrez un nom pour votre ressource de passerelle. 
 
    * **Abonnement**: sélectionnez l’abonnement Azure à associer à votre ressource de passerelle. 
    

@@ -1,6 +1,6 @@
 ---
-title: Ajouter un calque de lignes dans Azure Maps | Microsoft Docs
-description: Découvrez comment ajouter un calque de lignes au kit SDK web Azure Maps.
+title: Ajouter une couche de lignes à une carte | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à ajouter une couche de lignes à une carte à l’aide du SDK web Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: f07e36d82c9044a212cda8173df9fe0a9544393a
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976565"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911187"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Ajouter un calque de lignes à la carte
 
@@ -51,7 +51,7 @@ Les calques de lignes peuvent être stylisés à l’aide de [LineLayerOptions](
 
 ## <a name="add-symbols-along-a-line"></a>Ajouter des symboles le long d’une ligne
 
-Cet exemple montre comment ajouter des icônes en forme de flèches le long d’une ligne sur la carte. Lors de l’utilisation d’un calque de symboles, définissez l’option « placement » sur « line ». Cela affiche les symboles le long de la ligne et fait pivoter les icônes (0 degré = vers la droite).
+Cet exemple montre comment ajouter des icônes en forme de flèches le long d’une ligne sur la carte. Lors de l’utilisation d’une couche de symboles, définissez l’option « placement » sur « line ». cela affiche les symboles le long de la ligne et faire pivoter les icônes (0 degré = vers la droite).
 
 <br/>
 
@@ -108,4 +108,4 @@ Pour obtenir plus d’exemples de code à ajouter à vos cartes, consultez les a
 > [Guide pratique pour utiliser des modèles d’image](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Ajouter un calque de polygones](map-add-shape.md)
+> [Ajouter une couche de polygones](map-add-shape.md)

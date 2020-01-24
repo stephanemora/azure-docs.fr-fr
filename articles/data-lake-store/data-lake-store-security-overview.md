@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4e640aa1cb02174c935c0f7c1d61ab2fca5ea046
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195248"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974579"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Sécurité dans Azure Data Lake Storage Gen1
 Un grand nombre d’entreprises tirent parti de l’analyse du Big Data pour bénéficier d’informations métier afin de prendre des décisions éclairées. Une organisation peut évoluer dans un environnement complexe et réglementé, avec un nombre croissant d’utilisateurs divers. Il est essentiel pour une entreprise de garantir que les données métier critiques sont stockées de manière plus sécurisée, avec le niveau d’accès adéquat pour chaque utilisateur. Azure Data Lake Storage Gen1 vous permet de respecter ces exigences de sécurité. Dans cet article, découvrez les fonctionnalités de sécurité de Data Lake Storage Gen1, notamment :
 
 * Authentication
-* Authorization
+* Autorisation
 * Isolement réseau
-* Protection des données
+* Protection de données
 * Audit
 
 ## <a name="authentication-and-identity-management"></a>Authentification et gestion des identités
@@ -51,9 +51,9 @@ Par défaut, quatre rôles de base sont définis pour Data Lake Storage Gen1. Le
 
 Notez que, même si les rôles sont attribués pour la gestion des comptes, certains rôles affectent l’accès aux données. Vous devez utiliser les ACL pour contrôler l’accès aux opérations qu’un utilisateur peut effectuer sur le système de fichiers. Le tableau suivant présente un résumé des droits d’accès aux données et aux droits de gestion pour les rôles par défaut.
 
-| contrôleur | Droits de gestion | Droits d’accès aux données | Explication |
+| Rôles | Droits de gestion | Droits d’accès aux données | Explication |
 | --- | --- | --- | --- |
-| Aucun rôle affecté |Aucun |Régi par ACL |L’utilisateur ne peut pas utiliser le portail Azure ou les applets de commande Azure PowerShell pour parcourir Data Lake Storage Gen1. L’utilisateur peut uniquement utiliser les outils de ligne de commande. |
+| Aucun rôle affecté |None |Régi par ACL |L’utilisateur ne peut pas utiliser le portail Azure ou les applets de commande Azure PowerShell pour parcourir Data Lake Storage Gen1. L’utilisateur peut uniquement utiliser les outils de ligne de commande. |
 | Propriétaire |Tous |Tous |Le rôle Propriétaire est un super utilisateur. Ce rôle peut tout gérer et bénéficie d’un accès total aux données. |
 | Lecteur |Lecture seule |Régi par ACL |Le rôle Lecteur peut tout afficher en matière de gestion des comptes, notamment quel utilisateur est affecté à quel rôle. Le rôle Lecteur ne permet pas d’effectuer des modifications. |
 | Contributeur |Tout, sauf ajouter et supprimer des rôles |Régi par ACL |Le rôle Collaborateur peut gérer certains aspects d’un compte, tels que les déploiements et la création et la gestion des alertes. Le rôle Collaborateur ne peut pas ajouter ou supprimer des rôles. |
@@ -66,14 +66,14 @@ Data Lake Storage Gen1 est un système de fichiers hiérarchique comme Hadoop HD
 
 Nous vous recommandons de définir des ACL pour plusieurs utilisateurs à l’aide des [groupes de sécurité](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Ajoutez des utilisateurs dans un groupe de sécurité, puis affectez les ACL d’un fichier ou dossier à ce groupe de sécurité. Cela est utile lorsque vous souhaitez fournir des autorisations assignées, parce que vous êtes limité à un maximum de 28 entrées pour les autorisations assignées. Pour plus d’informations sur comment améliorer la sécurisation des données stockées dans Data Lake Storage Gen1 à l’aide de groupes de sécurité Azure Active Directory, consultez [Affecter des utilisateurs ou un groupe de sécurité comme ACL au système de fichiers Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
 
-![Répertorier les autorisations d’accès](./media/data-lake-store-security-overview/adl.acl.2.png "Répertorier les autorisations d’accès")
+![Lister les autorisations d’accès](./media/data-lake-store-security-overview/adl.acl.2.png "Lister les autorisations d’accès")
 
 ## <a name="network-isolation"></a>Isolement réseau
 Utilisez Data Lake Storage Gen1 pour contrôler l’accès à votre magasin de données au niveau du réseau. Vous pouvez activer des pare-feu et définir une plage d’adresses IP pour vos clients approuvés. Avec une plage d’adresses IP, seuls les clients qui ont une adresse IP dans la plage définie peuvent se connecter à Data Lake Storage Gen1.
 
-![Paramètres de pare-feu et accès IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Paramètres de pare-feu et accès IP")
+![Paramètres de pare-feu et adresse IP](./media/data-lake-store-security-overview/firewall-ip-access.png "Paramètres de pare-feu et adresse IP")
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 Data Lake Storage Gen1 protège vos données tout au long de leur cycle de vie. Pour les données en transit, Data Lake Storage Gen1 utilise le protocole normalisé TLS (Transport Layer Security) 1.2 pour sécuriser les données sur le réseau.
 
 ![Chiffrement dans Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "Chiffrement dans Data Lake Storage Gen1")
@@ -95,12 +95,12 @@ Pour les pistes d’audit de gestion des comptes, affichez et choisissez les col
 
 ![Journal d’activité](./media/data-lake-store-security-overview/activity-logs.png "Journal d’activité")
 
-Pour plus d’informations sur l’utilisation des journaux d’activité, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/resource-group-audit.md).
+Pour plus d’informations sur l’utilisation des journaux d’activité, consultez [Afficher les journaux d’activité pour auditer les actions sur les ressources](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="diagnostics-logs"></a>Journaux de diagnostics
 Vous pouvez activer l’audit d’accès aux données et la journalisation des diagnostics dans le Portail Azure et envoyer des journaux à un compte de stockage Blob Azure, à Event Hub ou à des journaux Azure Monitor.
 
-![Journaux de diagnostic](./media/data-lake-store-security-overview/diagnostic-logs.png "Journaux de diagnostic")
+![Journaux de diagnostics](./media/data-lake-store-security-overview/diagnostic-logs.png "Journaux de diagnostics")
 
 Pour plus d’informations sur l’utilisation des journaux de diagnostic avec Data Lake Storage Gen1, consultez [Accès aux journaux de diagnostic pour Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
 
@@ -113,4 +113,3 @@ Si vous souhaitez voir de nouvelles fonctionnalités de Data Lake Storage Gen1, 
 * [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Prise en main de Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)
-

@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 71f768506d7cec575c6bd765447397d8d0406859
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0314dceb23f02b723854dfc406e9440bbc14ccf6
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446083"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044291"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Créer, superviser et gérer des fichiers FTP avec Azure Logic Apps
 
@@ -25,7 +25,7 @@ Avec Azure Logic Apps et le connecteur FTP, vous pouvez créer des tâches et de
 
 Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre serveur FTP, et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions d’exécution dans vos applications logiques pour la gestion des fichiers sur votre serveur FTP. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions FTP. Par exemple, si vous obtenez régulièrement des fichiers à partir de votre serveur FTP, vous pouvez envoyer un e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md).
 
-## <a name="limits"></a>limites
+## <a name="limitations"></a>Limites
 
 * Le connecteur FTP ne prend en charge que FTPS (FTP sur SSL en mode explicite) ; il n’est pas compatible avec le protocole FTPS implicite.
 
@@ -36,6 +36,8 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre ser
   * Utilisez un déclencheur FTP qui retourne des propriétés de fichier comme **Quand un fichier est ajouté ou modifié (propriétés uniquement)** .
 
   * Suivez le déclencheur avec l’action FTP **Obtenir le contenu du fichier**, qui lit le fichier complet et utilise implicitement la segmentation.
+
+* Si vous disposez d’un serveur FTP local, envisagez de créer un [environnement de service d'intégration (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) ou d’utiliser des [connexions hybrides d’Azure App Service](../app-service/app-service-hybrid-connections.md) ; cela vous permet dans les deux cas d’accéder à des sources de données locales sans utiliser de passerelle de données locale.
 
 ## <a name="how-ftp-triggers-work"></a>Fonctionnement des déclencheurs FTP
 

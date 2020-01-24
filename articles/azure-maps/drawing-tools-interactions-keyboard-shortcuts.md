@@ -1,6 +1,6 @@
 ---
-title: "Outils de dessin d'Azure Maps : types d'interaction et raccourcis clavier | Microsoft Docs"
-description: Tracer et modifier des formes à l'aide d'une souris, d'un écran tactile ou d'un clavier dans le kit de développement logiciel (SDK) web Azure Maps
+title: Types d’interaction et raccourcis clavier des outils de dessin sur la carte | Microsoft Azure Maps
+description: Découvrez comment tracer et modifier des formes en utilisant la souris, l’écran tactile ou le clavier dans le SDK Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8385f294426f6d793f7b539006eafd0b2cb940ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267579f7b4bbfe026f3aa01b00f01f3b872cf4a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475587"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911654"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Types d'interaction et raccourcis clavier dans le module Outils de dessin
 

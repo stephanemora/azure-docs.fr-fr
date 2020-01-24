@@ -3,12 +3,12 @@ title: Installer ou mettre à jour manuellement des extensions de liaison d’Az
 description: Découvrez comment installer ou mettre à jour des extensions de liaison d’Azure Functions pour les applications de fonction déployées.
 ms.topic: reference
 ms.date: 09/26/2018
-ms.openlocfilehash: 83ae2cdd16bce0b0a5b11b8c24e996306453a7a9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e8716f691a5d19ddac7fece47c423e1f7787b9db
+ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977486"
+ms.lasthandoff: 01/09/2020
+ms.locfileid: "75768858"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>Installer ou mettre à jour manuellement des extensions de liaison d’Azure Functions à partir du portail
 

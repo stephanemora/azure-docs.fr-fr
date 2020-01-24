@@ -1,18 +1,18 @@
 ---
 title: Voir l’activité des fournisseurs de services
 description: Les clients peuvent consulter l’activité journalisée pour voir les actions effectuées par les fournisseurs de services par le biais de la gestion des ressources déléguées Azure.
-ms.date: 12/6/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: a6ae5668601e3587b7306ba1652f6b107800fcb3
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: de149bddb6917a63d91b1890c0430f64465cb40c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527822"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046114"
 ---
 # <a name="view-service-provider-activity"></a>Voir l’activité des fournisseurs de services
 
-Les clients qui ont délégué des abonnements pour la gestion des ressources déléguées Azure peuvent [consulter les données du journal d’activité Azure](../../azure-monitor/platform/activity-logs-overview.md) pour voir toutes les actions effectuées. Les clients bénéficient d’une visibilité complète sur les opérations effectuées par les fournisseurs de services par le biais de la gestion des ressources déléguées Azure, ainsi que sur celles effectuées par les utilisateurs dans le propre locataire Azure Active Directory (Azure AD) du client.
+Les clients qui ont délégué des abonnements pour la gestion des ressources déléguées Azure peuvent [consulter les données du journal d’activité Azure](../../azure-monitor/platform/platform-logs-overview.md) pour voir toutes les actions effectuées. Les clients bénéficient d’une visibilité complète sur les opérations effectuées par les fournisseurs de services par le biais de la gestion des ressources déléguées Azure, ainsi que sur celles effectuées par les utilisateurs dans le propre locataire Azure Active Directory (Azure AD) du client.
 
 ## <a name="view-activity-log-data"></a>Voir les données du journal d’activité
 
@@ -24,6 +24,9 @@ Vous pouvez [voir le journal d’activité](../../azure-monitor/platform/activit
 Dans le journal d’activité, vous verrez le nom de l’opération et son état, ainsi que la date et l’heure de son exécution. La colonne **Événement lancé par** indique l’utilisateur qui a effectué l’opération, qu’il s’agisse d’un utilisateur dans le locataire d’un fournisseur de services agissant par le biais de la gestion des ressources déléguées Azure ou d’un utilisateur dans le propre locataire du client. Notez que le nom de l’utilisateur est indiqué, et non le locataire ou le rôle auquel l’utilisateur a été affecté pour cet abonnement.
 
 L’activité journalisée des 90 derniers jours est disponible dans le portail Azure. Pour savoir comment stocker ces données pendant plus de 90 jours, consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](../../azure-monitor/platform/activity-log-collect.md).
+
+> [!NOTE]
+> Les utilisateurs du fournisseur de services apparaissent dans le journal d’activité, mais ces utilisateurs et leurs attributions de rôles ne sont pas affichés dans **Contrôle d’accès (IAM)** ni lors de la récupération des informations d’attribution de rôle par le biais des API.
 
 ## <a name="set-alerts-for-critical-operations"></a>Définir des alertes pour les opérations critiques
 

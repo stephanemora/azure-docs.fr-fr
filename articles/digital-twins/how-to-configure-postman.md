@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.date: 01/10/2020
+ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74304831"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933443"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -66,7 +66,7 @@ Configurez votre application Azure Active Directory pour utiliser le flux d’oc
 
     Activez la case à cocher **Jetons d’accès** pour activer le paramètre **oauth2AllowImplicitFlow** dans votre fichier Manifest.json.
 
-    [![Paramètres de configuration du client public](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
+    [![Paramètres de configuration du client public](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1. Copiez et conservez l’**ID d’application** de votre application Azure Active Directory. Vous l’utiliserez lors des étapes qui suivent.
 
@@ -86,7 +86,7 @@ Configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, ad
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0
     ```
 
-    | Nom  | Remplacer par | Exemples |
+    | Name  | Remplacer par | Exemple |
     |---------|---------|---------|
     | YOUR_AZURE_TENANT | Nom de votre locataire ou organisation | `microsoft` |
 
@@ -130,7 +130,13 @@ Après avoir effectué les étapes précédentes, configurez Postman pour effect
    > * Vous n’avez pas besoin de spécifier ces en-têtes pour chaque partie.
    > * Vous devez sélectionner `multipart/mixed` ou un autre **Content-Type** approprié pour l’ensemble de la requête.
 
-1. Pour finir, sélectionnez **Envoyer** pour envoyer votre requête HTTP POST multipart. Un code d’état `200` ou `201` indique une demande réussie. Un message de réponse approprié s’affichera également.
+1. Pour finir, sélectionnez **Envoyer** pour envoyer votre requête HTTP POST multipart. Un code d’état `200` ou `201` indique une demande réussie. Le message de réponse approprié s’affiche dans l’interface client.
+
+1. Validez vos données de requête HTTP POST en appelant le point de terminaison d’API : 
+
+   ```URL
+   YOUR_MANAGEMENT_API_URL/spaces/blobs?includes=description
+   ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

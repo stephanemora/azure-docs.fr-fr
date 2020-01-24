@@ -1,6 +1,6 @@
 ---
-title: Afficher des informations sur une coordonnée avec Azure Maps | Microsoft Docs
-description: Guide d’affichage des informations sur une adresse sur la carte au moment de la sélection d’une coordonnée par un utilisateur
+title: Afficher des informations à partir d’une coordonnée sur une carte | Microsoft Azure Maps
+description: Découvrez comment afficher des informations sur une adresse sur la carte quand un utilisateur sélectionne une coordonnée.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: df0966569a753d5000414451a2b69f1e69449b2c
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 5450ada04a1af44a3fff0402b30540e899cc4dd5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638666"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911042"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtenir des informations à partir d’une coordonnée
 

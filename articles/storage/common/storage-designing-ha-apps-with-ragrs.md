@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895342"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945447"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Conception d’applications hautement disponibles à l’aide du stockage géoredondant avec accès en lecture
 
@@ -67,7 +67,7 @@ Par exemple, si vous utilisez des files d’attente et des blobs dans votre appl
 
 Cela dépend de la complexité de votre application. Vous pouvez décider de ne pas gérer les échecs par service, mais plutôt de rediriger les demandes de lecture pour tous les services de stockage vers la région secondaire et d’exécuter l’application en mode lecture seule lorsque vous détectez un problème affectant tout service de stockage dans la région primaire.
 
-### <a name="other-considerations"></a>Autres points à considérer
+### <a name="other-considerations"></a>Autres considérations
 
 Voici les autres considérations dont nous parlerons dans le reste de cet article.
 
@@ -99,7 +99,7 @@ Il existe de nombreuses façons de gérer les demandes de mise à jour lors d’
 
 ## <a name="handling-retries"></a>Gestion des nouvelles tentatives
 
-La bibliothèque cliente de stockage Azure vous permet de déterminer les erreurs qui peuvent être renouvelées. Par exemple, une erreur 404 (ressource introuvable) est renouvelable, car une nouvelle tentative serait peu susceptible d’aboutir. En revanche, une erreur 500 n’est pas renouvelable, car il s’agit d’une erreur de serveur. Il se peut que le problème ne soit que temporaire. Pour plus d’informations, consultez le [code open source de la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) dans la bibliothèque cliente de stockage .NET. (Recherchez la méthode ShouldRetry.)
+La bibliothèque cliente de stockage Azure vous permet de déterminer les erreurs qui peuvent être renouvelées. Par exemple, une erreur 404 (ressource introuvable) ne fera pas l’objet d’une nouvelle tentative, car elle serait peu susceptible d’aboutir. En revanche, une erreur 500 fera l’objet d’une nouvelle tentative, car il s’agit d’une erreur de serveur : le problème peut donc être simplement temporaire. Pour plus d’informations, consultez le [code open source de la classe ExponentialRetry](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) dans la bibliothèque cliente de stockage .NET. (Recherchez la méthode ShouldRetry.)
 
 ### <a name="read-requests"></a>Demandes de lecture
 
@@ -204,8 +204,8 @@ Le tableau suivant illustre ce qui peut se produire lorsque vous mettez à jour 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaction A : <br> Insérer l’entité d’employé <br> dans la région primaire |                                   |                    | Transaction A insérée dans la région primaire,<br> pas encore répliquée. |
 | T1       |                                                            | Transaction A <br> répliquée sur<br> la région secondaire | T1 | Transaction A répliquée sur la région secondaire. <br>Dernière heure de synchronisation mise à jour.    |
-| T2       | Transaction B :<br>Mettre à jour<br> l’entité d’employé<br> dans la région primaire  |                                | T1                 | Transaction B écrite dans la région primaire,<br> pas encore répliquée.  |
-| T3       | Transaction C :<br> Mettre à jour <br>administrator<br>entité de rôle dans<br>primary |                    | T1                 | Transaction C écrite dans la région primaire,<br> pas encore répliquée.  |
+| T2       | Transaction B :<br>Update<br> l’entité d’employé<br> dans la région primaire  |                                | T1                 | Transaction B écrite dans la région primaire,<br> pas encore répliquée.  |
+| T3       | Transaction C :<br> Update <br>administrator<br>entité de rôle dans<br>primary |                    | T1                 | Transaction C écrite dans la région primaire,<br> pas encore répliquée.  |
 | *T4*     |                                                       | Transaction C <br>répliquée sur<br> la région secondaire | T1         | Transaction C répliquée sur la région secondaire.<br>LastSyncTime pas encore mis à jour car <br>la transaction B n’a pas encore été répliquée.|
 | *T5*     | Lire les entités <br>de la région secondaire                           |                                  | T1                 | Vous obtenez la valeur périmée pour l’entité d’employé <br> car la transaction B n’a <br> pas encore été répliquée. Vous obtenez la nouvelle valeur pour<br> l’entité de rôle d’administrateur car C a<br> été répliquée. La dernière heure de synchronisation n’a pas encore<br> été mise à jour car la transaction B<br> n’a pas été répliquée. Vous savez que<br>l’entité de rôle d’administrateur est cohérente <br>car l’heure/la date de l’entité sont postérieures à <br>la dernière heure de synchronisation. |
 | *T6*     |                                                      | Transaction B<br> répliquée sur<br> la région secondaire | T6                 | *T6* – Toutes les transactions jusqu’à C ont <br>été répliquées. La dernière heure de synchronisation<br> est mise à jour. |
@@ -234,7 +234,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
     -IncludeGeoReplicationStats).GeoReplicationStats.LastSyncTime
 ```
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Pour obtenir la dernière heure de synchronisation du compte de stockage à l’aide d’Azure CLI, vérifiez la propriété **geoReplicationStats.lastSyncTime** du compte de stockage. Utilisez le paramètre `--expand` afin de retourner des valeurs pour les propriétés imbriquées sous **geoReplicationStats**. N’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs :
 

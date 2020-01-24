@@ -1,6 +1,6 @@
 ---
-title: Ajouter une couche de polygones dans Azure Maps | Microsoft Docs
-description: Comment ajouter une couche de polygones à un kit de développement logiciel (SDK) web Azure Maps.
+title: Ajouter une couche de polygones à une carte | Microsoft Azure Maps
+description: Dans cet article, vous allez apprendre à afficher un polygone et un polygone multiple sur une carte à l’aide du SDK web Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ca6c0f5e6fde5a31655ed17f4a016bf44216643f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 77d952666be12d7dea780b3aa8f094cf5f70f2d3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976136"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911129"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Ajouter une couche de polygones à la carte
 
@@ -47,7 +47,7 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 }));
 ```
 
-Vous trouverez ci-dessous l’exemple de code d’exécution complet des fonctionnalités ci-dessus.
+Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonctionnalité ci-dessus.
 
 <br/>
 
@@ -146,7 +146,7 @@ En savoir plus sur les classes et les méthodes utilisées dans cet article :
 Pour consulter plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants :
 
 > [!div class="nextstepaction"]
-> [Création d'une source de données](create-data-source-web-sdk.md)
+> [Créer une source de données](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Ajouter une fenêtre contextuelle](map-add-popup.md)

@@ -1,19 +1,16 @@
 ---
 title: Résoudre les problèmes de récupération d’urgence de connectivité pour Azure avec Azure Site Recovery
-description: Résoudre les erreurs et les problèmes liés à la réplication des machines virtuelles Azure pour la récupération d’urgence
-services: site-recovery
-author: asgang
+description: Résoudre les problèmes de connectivité dans le cadre de la reprise d’activité d’une machine virtuelle Azure
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/05/2019
-ms.author: asgang
-ms.openlocfilehash: 4995a4086c471a06fe859febfd2d1af7fbb22a76
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d55f06669a538c2f26f3a1d2da0d96a73529f76e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622447"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941464"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Résoudre les problèmes de connectivité du réseau de machines virtuelles Azure vers Azure
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 099dc723db44ba71fc4672c382d24ac93ffe742f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 951d707c898ad0efa1f21480c12f0c733f5218ee
+ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689146"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75834943"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problèmes connus avec Azure Data Lake Storage Gen2
 
@@ -66,7 +66,7 @@ Le tableau suivant liste tous les autres outils et fonctionnalités qui ne sont 
 |--------|-----------|
 | **Basculement de compte** |Pas encore pris en charge|
 | **AZCopy** | Prise en charge propre à la version <br><br>Utilisez uniquement la dernière version d’AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Les versions antérieures d’AzCopy, telles qu’AzCopy v8.1, ne sont pas prises en charge.|
-| **Stratégies de gestion du cycle de vie de Stockage Blob Azure** | Les stratégies de gestion du cycle de vie sont prises en charge (préversion).  Tous les niveaux d’accès sont pris en charge. Le niveau d’accès archive est actuellement en préversion. La suppression des instantanés d’objets BLOB n’est pas encore prise en charge. <br><br> Il existe actuellement des bogues affectant les stratégies de gestion du cycle de vie et le niveau d’accès à l’archive.  Inscrivez-vous à la préversion des stratégies de gestion du cycle de vie et du niveau d’accès archive [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   |
+| **Stratégies de gestion du cycle de vie de Stockage Blob Azure** | Les stratégies de gestion du cycle de vie sont prises en charge (préversion).  Inscrivez-vous à la préversion des stratégies de gestion du cycle de vie et du niveau d’accès archive [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>Tous les niveaux d’accès sont pris en charge. Le niveau d’accès archive est actuellement en préversion. La suppression des instantanés d’objets BLOB n’est pas encore prise en charge.  Il existe actuellement des bogues affectant les stratégies de gestion du cycle de vie et le niveau d’accès à l’archive.  |
 | **Azure Content Delivery Network (CDN)** | Pas encore pris en charge|
 | **Recherche Azure** |Prise en charge (préversion)|
 | **Azure Storage Explorer** | Prise en charge propre à la version. <br><br>Utilisez uniquement les versions `1.6.0` ou ultérieures. <br> Il existe actuellement un bogue lié au stockage affectant la version `1.11.0` qui peut entraîner des erreurs d’authentification dans certains scénarios. Un correctif pour le bogue de stockage est en cours de déploiement, mais comme solution de contournement, nous vous recommandons d’utiliser la version `1.10.x` qui est disponible en [téléchargement gratuit](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` n’est pas affecté par le bogue de stockage.|
@@ -74,7 +74,7 @@ Le tableau suivant liste tous les autres outils et fonctionnalités qui ne sont 
 | **Blobfuse** |Pas encore pris en charge|
 | **Domaines personnalisés** |Pas encore pris en charge|
 | **Explorateur Stockage sur le Portail Azure** | Prise en charge limitée. Les ACL ne sont pas encore prises en charge. |
-| **Journalisation de diagnostic** |Les journaux de diagnostic sont pris en charge (préversion).<br><br>L’activation des journaux dans le Portail Azure n’est pas prise en charge actuellement. Voici un exemple d’activation des journaux à l’aide de PowerShell. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>Veillez à spécifier `Blob` comme valeur du paramètre `-ServiceType`, comme indiqué dans cet exemple. <br><br>Actuellement, l’Explorateur Stockage Azure ne peut pas être utilisé pour l’affichage des journaux de diagnostic. Pour afficher les journaux, utilisez AzCopy ou des SDK.
+| **Journalisation de diagnostic** |Les journaux de diagnostic sont pris en charge (préversion). <br><br>L’Explorateur Stockage Azure 1.10.x ne permet pas de consulter les journaux de diagnostic. Pour afficher les journaux, utilisez AzCopy ou des SDK.
 | **Stockage non modifiable** |Pas encore pris en charge <br><br>Le stockage non modifiable vous donne la possibilité de stocker des données dans un état [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage).|
 | **Couches de niveau objet** |Les niveaux froid et archive sont pris en charge. Le niveau archive est en préversion. Tous les autres niveaux d’accès ne sont pas encore pris en charge. <br><br> Il existe actuellement des bogues affectant le niveau d’accès de l’archive.  Inscrivez-vous à la préversion du niveau d’accès de l’archive [ici](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
 | **Sites web statiques** |Pas encore pris en charge <br><br>Plus spécifiquement, la possibilité de délivrer des fichiers à des [sites web statiques](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|

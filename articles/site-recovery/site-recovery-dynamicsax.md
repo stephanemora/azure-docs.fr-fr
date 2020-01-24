@@ -1,18 +1,16 @@
 ---
-title: Récupération d’urgence pour un déploiement Dynamics AX multiniveau avec Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment configurer la reprise d’activité pour Dynamics AX avec Azure Site Recovery
-author: asgang
+title: Reprise d’activité de Dynamics AX avec Azure Site Recovery
+description: Découvrez comment configurer la reprise d’activité pour Dynamics AX avec Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620757"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941589"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Configurer la reprise d’activité pour une application Dynamics AX multiniveau   
 
@@ -27,7 +25,7 @@ Cet article explique comment créer une solution de récupération d’urgence p
 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 L’implémentation de la récupération d’urgence pour l’application Dynamics AX à l’aide de Site Recovery nécessite les prérequis suivants :
 
@@ -45,9 +43,9 @@ Pour les besoins de cet article, des machines virtuelles VMware avec Dynamics AX
 
 **Scénario** | **Vers un site secondaire** | **Vers Azure**
 --- | --- | ---
-**Hyper-V** | OUI | OUI
-**VMware** | OUI | OUI
-**Serveur physique** | OUI | OUI
+**Hyper-V** | Oui | Oui
+**VMware** | Oui | Oui
+**Serveur physique** | Oui | Oui
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Permettre la récupération d’urgence de l’application Dynamics AX à l’aide de Site Recovery
 ### <a name="protect-your-dynamics-ax-application"></a>Protéger votre application Dynamics AX

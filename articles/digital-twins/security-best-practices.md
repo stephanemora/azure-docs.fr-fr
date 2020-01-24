@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
+ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229040"
+ms.lasthandoff: 01/10/2020
+ms.locfileid: "75860943"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Bonnes pratiques de sécurité relatives à Azure Digital Twins
 
@@ -46,7 +46,7 @@ Voici certaines des pratiques les plus importantes pour sécuriser un espace IoT
 > [!div class="checklist"]
 > * Chiffrer les données enregistrées, stockées ou persistantes.
 > * Changer ou actualiser régulièrement les mots de passe ou les clés.
-> * Limiter soigneusement l’accès et les autorisations en fonction du rôle. Consultez la section [Bonnes pratiques relatives au contrôle d'accès en fonction du rôle](#role-based-access-control-best-practices) ci-dessous.
+> * Limiter soigneusement l’accès et les autorisations en fonction du rôle. Lisez la section [Bonnes pratiques relatives au contrôle d’accès en fonction du rôle](#role-based-access-control-best-practices) ci-dessous.
 > * Songez par exemple à une topologie de réseau divisée afin que les périphériques de chaque réseau soient isolés.
 > * Utiliser un chiffrement puissant. Cela implique d’utiliser des mots de passe longs, des protocoles sécurisés et l’[authentification multifacteur](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
@@ -56,7 +56,7 @@ Voici certaines des pratiques les plus importantes pour sécuriser un espace IoT
 > Lisez les [bonnes pratiques relatives à la sécurité Azure IoT](../iot-fundamentals/iot-security-best-practices.md) pour commencer une stratégie de sécurité IoT complète.
 
 > [!NOTE]
-> Pour plus d’informations sur le traitement et le monitoring des événements, voir [Acheminer des événements et des messages avec Azure Digital Twins](./concepts-events-routing.md).
+> Pour plus d’informations sur la surveillance et le traitement des événements, lisez [Router des événements et des messages avec Azure Digital Twins](./concepts-events-routing.md).
 
 ## <a name="azure-active-directory-best-practices"></a>Bonnes pratiques relatives à Azure Active Directory
 
