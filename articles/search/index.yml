@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Documentation de la Recherche Azure
-summary: Effectuez des recherches dans le cloud sur du contenu hétérogène privé, avec des options d’utilisation de l’IA si votre contenu n’est pas structuré ou qu’il ne peut pas faire l’objet de recherche sous une forme brute.
+title: Documentation Recherche cognitive Azure
+summary: Effectuez des recherches cloud de contenu hétérogène privé, avec des options d’enrichissement par IA si votre contenu n’est pas structuré ou qu’il ne peut pas faire l’objet de recherche sous forme brute.
 metadata:
-  title: Documentation de la Recherche Azure
-  description: Effectuez des recherches dans le cloud sur du contenu hétérogène privé, avec des options d’utilisation de l’IA si votre contenu n’est pas structuré ou qu’il ne peut pas faire l’objet de recherche sous une forme brute.
+  title: Documentation Recherche cognitive Azure
+  description: Effectuez des recherches cloud de contenu hétérogène privé, avec des options d’enrichissement par IA si votre contenu n’est pas structuré ou qu’il ne peut pas faire l’objet de recherche sous forme brute.
   services: search
   ms.service: service
   ms.topic: landing-page
@@ -11,28 +11,28 @@ metadata:
   author: HeidiSteen
   ms.author: heidist
   ms.date: 09/20/2019
-  ms.openlocfilehash: 5521f784704fe4d97ed30de0ec5367b9b4bb4f5f
-  ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+  ms.openlocfilehash: 3d011bdf1f0da04efec86adc121326a877532b6f
+  ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 10/29/2019
-  ms.locfileid: "72790053"
+  ms.lasthandoff: 01/24/2020
+  ms.locfileid: "76721062"
 landingContent:
-- title: En savoir plus sur Recherche Azure
+- title: À propos de la Recherche cognitive
   linkLists:
   - linkListType: overview
     links:
-    - text: Présentation de Recherche Azure
+    - text: Qu’est-ce que la Recherche cognitive Azure ?
       url: search-what-is-azure-search.md
   - linkListType: architecture
     links:
-    - text: Fonctionnement de la recherche en texte intégral dans la recherche Azure
+    - text: Fonctionnement de la recherche en texte intégral dans la Recherche cognitive
       url: search-lucene-query-architecture.md
   - linkListType: video
     links:
-    - text: Qu’est-ce que la Recherche Azure (1 min 27 s)
+    - text: Qu’est-ce que la Recherche cognitive ? (1 min 27 s)
       url: https://channel9.msdn.com/Blogs/Azure/What-is-Azure-Search/player
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
@@ -42,9 +42,13 @@ landingContent:
       url: search-get-started-portal.md
     - text: Créer un pipeline d’enrichissement
       url: cognitive-search-quickstart-blob.md
+  - linkListType: tutorial
+    links:
+    - text: Créer une application
+      url: tutorial-csharp-create-first-app.md
   - linkListType: learn
     links:
-    - text: Présentation de la Recherche Azure
+    - text: Présentation de la Recherche cognitive Azure
       url: https://docs.microsoft.com/learn/modules/intro-to-azure-search/
 - title: Utiliser avec le stockage Blob
   linkLists:
@@ -54,7 +58,7 @@ landingContent:
       url: search-blob-ai-integration.md
     - text: Rechercher dans le contenu de votre objet bob
       url: search-blob-storage-integration.md
-    - text: Stocker les enrichissements de l’IA
+    - text: Stocker les enrichissements par IA
       url: knowledge-store-concept-intro.md
   - linkListType: tutorial
     links:
@@ -72,10 +76,6 @@ landingContent:
       url: search-indexer-overview.md
   - linkListType: how-to-guide
     links:
-    - text: Indexer à partir du Stockage Blob
-      url: search-howto-indexing-azure-blob-storage.md
-    - text: Indexer des objets blob JSON
-      url: search-howto-index-json-blobs.md
     - text: Indexer à partir d’Azure SQL Database
       url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
     - text: Indexer à partir de données Cosmos DB
@@ -90,7 +90,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Qu’est-ce que la recherche cognitive ?
+    - text: Pipeline d’enrichissement de l’IA
       url: cognitive-search-concept-intro.md
     - text: Ensemble de compétences
       url: cognitive-search-defining-skillset.md
@@ -114,7 +114,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Vue d'ensemble
+    - text: Vue d’ensemble
       url: search-query-overview.md
     - text: Syntaxe simple (par défaut)
       url: query-simple-syntax.md
@@ -136,7 +136,7 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Forum Aux Questions
+    - text: Questions fréquentes (FAQ)
       url: search-faq-frequently-asked-questions.md
     - text: Poser des questions sur Stack Overflow
       url: https://stackoverflow.com/questions/tagged/azure-search

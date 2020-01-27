@@ -411,7 +411,7 @@
                 - name: Transformer des types de données complexes
                   href: /azure/databricks/delta/data-transformation/complex-types
                   maintainContext: true
-            - name: Meilleures pratiques
+            - name: Bonnes pratiques
               href: /azure/databricks/delta/best-practices
               maintainContext: true
             - name: Gestion des versions des tables
@@ -1681,6 +1681,9 @@
                   maintainContext: true
                 - name: "Databricks Runtime\_6.3 ML"
                   href: /azure/databricks/release-notes/runtime/6.3ml
+                  maintainContext: true
+                - name: "Databricks Runtime\_6.3 Genomics"
+                  href: /azure/databricks/release-notes/runtime/6.3genomics
                   maintainContext: true
                 - name: "Databricks Runtime\_6.2"
                   href: /azure/databricks/release-notes/runtime/6.2

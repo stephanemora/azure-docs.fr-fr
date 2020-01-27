@@ -1,6 +1,6 @@
 - name: Documentation Azure Time Series Insights
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Time Series Insights
       href: time-series-insights-update-overview.md
@@ -37,7 +37,7 @@
           href: time-series-insights-explorer.md
         - name: Comprendre la rétention des données
           href: time-series-insights-concepts-retention.md
-        - name: Développement
+        - name: Développer
           items:
             - name: Authentifier et autoriser
               href: time-series-insights-authentication-and-authorization.md
@@ -61,7 +61,7 @@
           href: time-series-insights-update-tsq.md
         - name: Visualiser des données dans l’explorateur (préversion)
           href: time-series-insights-update-explorer.md
-        - name: Développement
+        - name: Développer
           items:
             - name: Authentifier et autoriser
               href: time-series-insights-authentication-and-authorization.md
@@ -91,7 +91,7 @@
           href: time-series-insights-send-events.md
         - name: Mettre à l’échelle votre environnement
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: Forme JSON pour les requêtes
+        - name: Modeler JSON pour les entrées et les requêtes
           href: how-to-shape-query-json.md
         - name: Résoudre la limitation
           href: time-series-insights-environment-mitigate-latency.md
@@ -105,9 +105,9 @@
           href: time-series-insights-update-how-to-id.md
         - name: Diagnostiquer et résoudre les problèmes
           href: time-series-insights-update-how-to-troubleshoot.md
-        - name: Modélisation des données
+        - name: Modélisation de données
           href: time-series-insights-update-how-to-tsm.md
-        - name: Forme JSON pour les requêtes
+        - name: Modeler JSON pour les entrées et les requêtes
           href: time-series-insights-update-how-to-shape-events.md
         - name: Se connecter à Power BI
           href: how-to-connect-power-bi.md

@@ -124,15 +124,15 @@
           items:
             - name: Motivation et avantages
               href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-            - name: Meilleures pratiques - architecture
+            - name: Bonnes pratiques - architecture
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-architecture.md
-            - name: Meilleures pratiques - infrastructure
+            - name: Bonnes pratiques - infrastructure
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-infrastructure.md
-            - name: Meilleures pratiques - stockage
+            - name: Bonnes pratiques - stockage
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-storage.md
-            - name: Meilleures pratiques - migration des données
+            - name: Bonnes pratiques - migration des données
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
-            - name: Meilleures pratiques - sécurité et DevOps
+            - name: Bonnes pratiques - sécurité et DevOps
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
         - name: Gérer
           items:
@@ -501,6 +501,8 @@
               href: ./hadoop/apache-ambari-troubleshoot-fivezerotwo-error.md
             - name: Apache Ambari affiche que les hôtes et services ne fonctionnent pas
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
+            - name: Alertes obsolètes Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
             - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Résolution des problèmes HDFS Apache Hadoop
@@ -509,6 +511,8 @@
               href: ./hdinsight-troubleshoot-yarn.md
             - name: Résoudre les problèmes des fichiers Data Lake Store
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
+            - name: Alertes de répertoire Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
 - name: Apache Kafka
   items:
     - name: Vue d’ensemble

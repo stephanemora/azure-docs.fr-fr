@@ -27,9 +27,11 @@
       href: visualize-power-bi.md
 - name: Concepts
   items:
-    - name: Vue d’ensemble de l’ingestion de données
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
+    - name: Ingestion de données
+      items:
+        - name: Vue d’ensemble de l’ingestion de données
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
     - name: Vue d’ensemble de la visualisation de données
       href: viz-overview.md
     - name: Présentation de la sécurité
@@ -84,18 +86,20 @@
           href: ingest-data-one-click.md
         - name: Ingestion de streaming
           href: ingest-data-streaming.md
+        - name: Utilisation des kits SDK
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: SDK Node
+              href: node-ingest-data.md
+            - name: SDK .NET Standard
+              href: net-standard-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
-        - name: Python
-          href: python-ingest-data.md
-        - name: SDK Node
-          href: node-ingest-data.md
-        - name: SDK .NET Standard
-          href: net-standard-ingest-data.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: Copier des données à l’aide d’Azure Data Factory
-          href: data-factory-load-data.md
+        - name: Données au format json
+          href: ingest-json-formats.md
     - name: Interroger des données
       items:
         - name: Rédiger des requêtes
@@ -122,7 +126,7 @@
       items:
         - name: Power BI
           items:
-            - name: Meilleures pratiques
+            - name: Bonnes pratiques
               href: power-bi-best-practices.md
             - name: connecteur
               href: power-bi-connector.md
@@ -204,6 +208,8 @@
           items:
             - name: Intégration à Data Factory
               href: data-factory-integration.md
+            - name: Copier des données à l’aide d’Azure Data Factory
+              href: data-factory-load-data.md
             - name: Copier des données en bloc avec le modèle Azure Data Factory
               href: data-factory-template.md
             - name: Exécuter des commandes de contrôle à l’aide d’Azure Data Factory

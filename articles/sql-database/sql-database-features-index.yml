@@ -16,7 +16,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: 'Azure SQL Database est bien plus qu’un moteur de base de données relationnelle classique qui vous permet d’interroger des données à l’aide du langage SQL. En effet, les fonctionnalités de base de données dans Azure SQL Database vous permettent d’effectuer des opérations plus complexes et d’implémenter des scénarios avancés.'
+        text: 'Azure SQL Database est bien plus qu’un moteur de base de données relationnelle classique qui vous permet d’interroger des données à l’aide du langage SQL. En effet, les fonctionnalités de base de données dans Azure SQL Database vous permettent d’effectuer des opérations plus puissantes et d’implémenter des scénarios avancés.'
       - type: list
         style: cards
         className: cardsM
