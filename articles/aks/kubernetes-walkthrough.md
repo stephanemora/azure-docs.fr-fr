@@ -65,7 +65,7 @@ L’exemple de sortie suivant montre que le groupe de ressources a été créé 
 }
 ```
 
-## <a name="create-aks-cluster"></a>Créer un cluster ACS
+## <a name="create-aks-cluster"></a>Créer un cluster AKS
 
 Utilisez la commande [az aks create][az-aks-create] pour créer un cluster AKS. L’exemple suivant crée un cluster à un nœud nommé *myAKSCluster*. Il est également possible d’activer Azure Monitor pour conteneurs à l’aide du paramètre *--enable-addons monitoring*.  L’exécution de cette commande prend plusieurs minutes.
 
@@ -264,7 +264,7 @@ Dans ce guide de démarrage rapide, des images conteneur créées au préalable 
 
 Dans ce Démarrage rapide, vous avez déployé un cluster Kubernetes dans lequel vous avez déployé une application de plusieurs conteneurs. Vous pouvez également [accéder au tableau de bord web Kubernetes][kubernetes-dashboard] pour votre cluster AKS.
 
-Pour en savoir plus sur ACS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
+Pour en savoir plus sur AKS et parcourir le code complet de l’exemple de déploiement, passez au tutoriel sur le cluster Kubernetes.
 
 > [!div class="nextstepaction"]
 > [Didacticiel AKS][aks-tutorial]
