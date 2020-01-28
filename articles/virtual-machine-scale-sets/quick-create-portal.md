@@ -1,9 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure'
 description: Commencez vos déploiements en apprenant à créer rapidement un groupe de machines virtuelles identiques dans le portail Azure.
-services: virtual-machine-scale-sets.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2acde4efa1dc118498f3c7da29c75e48c0478ac0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351141"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543135"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 
@@ -33,7 +31,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 L’[équilibrer la charge](../load-balancer/load-balancer-overview.md) Azure distribue le trafic entrant entre les instances de machine virtuelle saines. 
 
-Commencez par créer un équilibreur de charge de base public à l’aide du portail. Le nom et l’adresse IP publique que vous créez sont automatiquement configurés comme front-end de l’équilibreur de charge.
+Commencez par créer un équilibreur de charge Standard public en utilisant le portail. Le nom et l’adresse IP publique que vous créez sont automatiquement configurés comme front-end de l’équilibreur de charge.
 
 1. Dans la zone de recherche, tapez **équilibreur de charge**. Sous **Place de marché** dans les résultats de la recherche, choisissez **Équilibreur de charge**.
 1. Dans l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes :

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5e66632fab0306da7766f079733cd1d8cb3edc8d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442341"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544087"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Démarrage rapide : Diriger le trafic web avec Azure Application Gateway - Portail Azure
 
@@ -66,7 +66,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
 
 1. Sous l’onglet **Front-ends**, vérifiez que **Type d’adresse IP de front-end** est défini sur **Publique**. <br>Vous pouvez l’adresse IP frontale pour qu’elle soit publique ou privée conformément à votre cas d’utilisation. Dans cet exemple, vous allez choisir une adresse IP front-end publique.
    > [!NOTE]
-   > Pour la référence SKU Application Gateway v2, vous pouvez uniquement choisir la configuration d’une adresse IP front-end **publique**. Seule la configuration d’une adresse IP de front-end privée (uniquement en mode ILB) n’est pas activée pour la référence SKU v2. Vous pouvez disposer d’une configuration d’adresse IP frontale publique et privée.
+   > Pour la référence SKU Application Gateway v2, il doit y avoir une configuration d’une adresse IP front-end **publique**. Vous pouvez toujours disposer d’une configuration d’adresse IP front-end publique et privée, mais la configuration d’adresse IP front-end uniquement privée (mode ILB uniquement) n’est pas activée pour la référence SKU v2. 
 
 2. Choisissez **Créer nouveau** pour **Adresse IP publique**, puis entrez *myAGPublicIPAddress* comme nom d’adresse IP publique, puis sélectionnez **OK**. 
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/23/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71521348c5510696add4399d3046833d3b42193c
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 8d0793c863f4f682c967c7a5ae61c5a0b78cdb4d
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561885"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292533"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Salesforce
 
@@ -50,6 +50,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Salesforce prend en charge l’attribution d’utilisateurs **juste-à-temps**
 
 * L’application Salesforce Mobile peut désormais être configurée avec Azure AD pour activer l’authentification unique. Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+* Après avoir configuré Salesforce, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-salesforce-from-the-gallery"></a>Ajout de Salesforce à partir de la galerie
 
@@ -241,3 +242,7 @@ Le fait de cliquer sur la vignette Salesforce dans le panneau d’accès doit vo
 - [Configurer l’approvisionnement de l’utilisateur](salesforce-provisioning-tutorial.md)
 
 - [Essayer Salesforce avec Azure AD](https://aad.portal.azure.com)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/protect-salesforce)
+
+- [Guide pratique pour protéger Salesforce avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

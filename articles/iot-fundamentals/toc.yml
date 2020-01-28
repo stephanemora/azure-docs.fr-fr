@@ -1,18 +1,20 @@
 - name: Azure Internet of Things
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Introduction
       href: iot-introduction.md
     - name: Services et technologies Azure IoT
       href: iot-services-and-technologies.md
+    - name: Options d’aide et de support
+      href: iot-support-help.md
 - name: Sécurité
   items:
     - name: Recommandations
       href: security-recommendations.md
     - name: Tout savoir sur la sécurité
       href: iot-security-ground-up.md
-    - name: Meilleures pratiques en matière de sécurité
+    - name: Bonnes pratiques de sécurité
       href: iot-security-best-practices.md
     - name: Architecture de la sécurité
       href: iot-security-architecture.md

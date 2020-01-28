@@ -1,6 +1,6 @@
 - name: Documentation sur les accélérateurs de solution IoT
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: Que sont les accélérateurs de solution IoT ?
       href: about-iot-accelerators.md
@@ -221,6 +221,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Surveillance à distance
       items:
         - name: Guide d’informations de référence pour les développeurs (.NET)
@@ -262,7 +264,7 @@
               href: 'https://www.azureiotsolutions.com/Accelerators#description/edge-dynamometer-analysis'
             - name: Solution de signalisation numérique
               href: 'https://www.azureiotsolutions.com/Accelerators#description/digital-signage-solution'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: iot-accelerators-faq.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-iot-suite'

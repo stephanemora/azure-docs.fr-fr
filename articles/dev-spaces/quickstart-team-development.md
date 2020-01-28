@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment développer en équipe dans Kubernetes à l’aide de conteneurs et de microservices avec Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 86d8d559a2d6408eb6846705887a82b440d50d7b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b84bb67556eda3a453ede5a6fb745d8ae472fb6c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770830"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290408"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développement en équipe dans Kubernetes avec Azure Dev Spaces
 
@@ -137,7 +137,7 @@ azds space select -n dev/azureuser1 -y
 azds space select -n dev/azureuser2 -y
 ```
 
-Les commandes ci-dessus créent sous *dev* deux espaces enfants nommés *azureuser1* et *azureuser2*. Ces deux espaces enfants représentent des espaces de développement distincts destinés à être utilisés par les *azureuser1* et *azureuser2* des développeurs pour apporter des modifications à l’exemple d’application.
+Les commandes ci-dessus créent sous *dev* deux espaces enfants nommés *azureuser1* et *azureuser2*. Ces deux espaces enfants représentent des espaces de développement distincts pour les développeurs *azureuser1* et *azureuser2* à utiliser pour apporter des modifications à l’exemple d’application.
 
 Utilisez la commande `azds space list` pour répertorier tous les espaces de développement et confirmer que *dev/azureuser2* est sélectionné.
 

@@ -1,5 +1,5 @@
 ---
-title: Exemple de script Azure CLI - Créer et vérifier une machine virtuelle dans un laboratoire | Microsoft Docs
+title: Azure CLI - Créer et vérifier une machine virtuelle dans un laboratoire
 description: Ce script Azure CLI crée une machine virtuelle dans un laboratoire et vérifie qu’elle est disponible.
 services: lab-services
 author: spelluru
@@ -11,15 +11,15 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/12/2018
+ms.date: 01/16/2020
 ms.author: spelluru
 ms.custom: mvc
-ms.openlocfilehash: 225e62cedfea79875d56a50b4b04bdf0ad4c7892
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 767d1f3a504e91783e37d8ff1c1b97f62816af3b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872027"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169275"
 ---
 # <a name="use-azure-cli-to-create-and-verify-availability-of-a-virtual-machine-in-a-lab-in-azure-devtest-labs"></a>Utilisez Azure CLI pour créer et vérifier la disponibilité d’une machine virtuelle dans un laboratoire personnalisé dans Azure DevTest Labs
 

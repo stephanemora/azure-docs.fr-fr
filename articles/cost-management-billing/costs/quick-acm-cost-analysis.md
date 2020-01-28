@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 0221930f0b9fff0c9d4e398559f8d12999a66e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982857"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294148"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec l’analyse du coût
 
@@ -138,24 +138,29 @@ Vous pouvez afficher le jeu de données complet pour n’importe quelle vue. L�
 
 Le tableau suivant répertorie quelques options courantes de regroupement et de filtrage, et indique à quel moment les utiliser.
 
-| Propriété | Quand l’utiliser |
-| --- | --- |
-| **Période de facturation** | Pour répartir les coûts mois par mois. Cette option est importante pour les abonnements avec paiement à l’utilisation et les abonnements de développement/test qui ne sont pas liés aux mois du calendrier. Les comptes EA/MCA peuvent utiliser les mois du calendrier dans le sélecteur de dates ou la granularité mensuelle pour atteindre le même objectif. |
-| **Type de dépense** | Pour décomposer selon le type de dépense : utilisation, achat, remboursement ou réservation non utilisée. Les achats de réservation et les remboursements sont disponibles pour les coûts d’action, mais pas pour les coûts amortis. Les coûts liés aux réservations non utilisées s’affichent uniquement lors e la consultation des coûts amortis. |
-| **Cloud** | Pour décomposer les coûts liés à AWS et liés à Azure. Les coûts AWS sont uniquement disponibles dans les groupes d’administration, les comptes de facturation externes et les abonnements externes. |
-| **Département** / **Section de facture** | Pour décomposer les coûts par département EA ou par section de facture MCA. Cette option est disponible uniquement pour les comptes de facturation EA/MCA et les profils de facturation MCA. |
-| **Compte d’inscription** | Pour décomposer les coûts par propriétaire de compte EA. Cette option est disponible uniquement pour les départements et les comptes de facturation EA. |
-| **Fréquence** | Pour décomposer les coûts selon qu’ils sont uniques, récurrents ou basés sur l’utilisation. |
-| **Compteur** | Pour décomposer les coûts d’après le compteur d’utilisation Azure. Cette option est disponible uniquement pour l’utilisation d’Azure. L’utilisation de la Place de marché ainsi que tous les achats s’affichent comme étant **Non spécifiés** ou **Non attribués**. |
-| **Type d’éditeur** | Pour décomposer les coûts selon qu’ils proviennent d’AWS, d’Azure ou de la Place de marché. |
-| **Réservation** | Pour décomposer les coûts par réservation. Toute utilisation n’incluant pas de réservation apparaît comme **Non spécifiée**. |
-| **Ressource** | Pour décomposer les coûts par ressource. Tous les achats s’affichent comme étant **Non spécifiés** dans la mesure où ils s’appliquent au niveau du compte de facturation EA/Paiement à l’utilisation ou au niveau du profil de facturation MCA.  |
-| **Groupe de ressources** | Pour décomposer les coûts par groupe de ressources. Cette option est disponible uniquement pour une utilisation non classique. L’utilisation classique des ressources apparaît comme **Autre** et les achats apparaissent comme **Non spécifiés**. |
-| **Type de ressource** | Pour décomposer les coûts par type de ressource. Cette option est disponible uniquement pour une utilisation non classique. L’utilisation classique des ressources apparaît comme **Autre** et les achats apparaissent comme **Non spécifiés**. |
-| **Nom du service** ou **Catégorie du compteur** | Pour décomposer les coûts par service Azure. Cette option est disponible uniquement pour l’utilisation d’Azure. L’utilisation de la Place de marché ainsi que tous les achats s’affichent comme étant **Non spécifiés** ou **Non attribués**. |
-| **Niveau de service** ou **Sous-catégorie de compteur** | Pour décomposer les coûts par sous-classification du compteur d’utilisation Azure. Cette option est disponible uniquement pour l’utilisation d’Azure. L’utilisation de la Place de marché ainsi que tous les achats s’affichent comme étant **Non spécifiés** ou **Non attribués**. |
-| **Abonnement** | Pour décomposer les coûts par abonnement. Tous les achats s’affichent comme **Non spécifié**. |
-| **Tag** | Pour décomposer les coûts par valeur d’étiquette pour une clé d’étiquette spécifique. |
+| Propriété | Quand l’utiliser | Notes |
+| --- | --- | --- |
+| **Zones de disponibilité** | Décompose les coûts AWS par zone de disponibilité. | S’applique uniquement aux étendues et aux groupes d’administration AWS. Les données Azure n’incluent pas la zone de disponibilité et s’affichent avec le libellé **Non applicable**. |
+| **Période de facturation** | Décompose les coûts PAYG selon le mois où ils ont été (ou seront) facturés. | Utilisez **Période de facturation** pour avoir une représentation précise des frais PAYG facturés. Incluez 2 jours supplémentaires avant et après la période de facturation si vous filtrez sur une plage de dates personnalisée. La limitation aux dates exactes de la période de facturation ne correspondra pas à la facture. Affiche les coûts de toutes les factures de la période de facturation. Utilisez **ID de facture** pour filtrer sur une facture spécifique. S’applique uniquement aux abonnements PAYG, car EA et MCA sont facturés par mois calendaires. Les comptes EA/MCA peuvent utiliser les mois du calendrier dans le sélecteur de dates ou la granularité mensuelle pour atteindre le même objectif. |
+| **Type de dépense** | Pour décomposer selon le type de dépense : utilisation, achat, remboursement ou réservation non utilisée. | Les achats de réservation et les remboursements sont disponibles seulement pour les coûts réels, mais pas pour les coûts amortis. Les coûts liés aux réservations non utilisées s’affichent uniquement lors e la consultation des coûts amortis. |
+| **Département** | Décompose les coûts par département EA. | Disponible uniquement pour EA et les groupes d’administration. Les abonnements PAYG n’ont pas de département et apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
+| **Compte d’inscription** | Pour décomposer les coûts par propriétaire de compte EA. | Disponible seulement pour les comptes, les départements et groupes d’administration EA. Les abonnements PAYG n’ont pas d’inscription EA et apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
+| **Fréquence** | Pour décomposer les coûts selon qu’ils sont uniques, récurrents ou basés sur l’utilisation. | |
+| **ID de facture** | Décompose les coûts par facture émise. | Les frais non facturés n’ont pas encore d’ID de facture, et les coûts EA n’incluent pas les détails de facturation et s’affichent avec le libellé **Non applicable**.  |
+| **Compteur** | Décompose les coûts par compteur d’utilisation. | Les achats et l’utilisation de la Place de marché s’affichent avec le libellé **Non applicable**. Reportez-vous à **Type de frais** pour identifier les achats et à **Type d’éditeur** pour identifier les frais de la Place de marché. |
+| **opération** | Décompose les coûts AWS par opération. | S’applique uniquement aux étendues et aux groupes d’administration AWS. Les données Azure n’incluent pas les opérations et s’affichent avec le libellé **Non applicable** ; utilisez **Compteur** à la place. |
+| **Modèle de tarification** | Décompose les coûts en fonction de l’utilisation à la demande, à la réservation ou ponctuelle. | Les achats apparaissent avec le libellé **OnDemand**. Si vous voyez **Non applicable**, regroupez par **Réservation** pour déterminer si l’utilisation est « Réservation » ou « À la demande », par **Type de frais** pour identifier les achats.
+| **Fournisseur** | Pour décomposer les coûts liés à AWS et liés à Azure. | Disponible uniquement pour les groupes d’administration. |
+| **Type d’éditeur** | Pour décomposer les coûts selon qu’ils proviennent d’AWS, d’Azure ou de la Place de marché. |  |
+| **Réservation** | Pour décomposer les coûts par réservation. | Les utilisations ou les achats qui ne sont pas associés à une réservation s’affichent avec le libellé **Non applicable**. Regroupez par **Type d’éditeur** pour identifier les autres achats Azure, AWS ou Place de marché. |
+| **Ressource** | Pour décomposer les coûts par ressource. | Les achats s’affichent avec le libellé **Non applicable**, car ils s’appliquent au niveau d’un compte de facturation EA/PAYG ou au niveau du profil de facturation MCA, et ne sont pas associés à une ressource spécifique. Regroupez par **Type d’éditeur** pour identifier les autres achats Azure, AWS ou Place de marché. |
+| **Groupe de ressources** | Pour décomposer les coûts par groupe de ressources. | Les achats, les ressources de locataire non associées à des abonnements, les ressources d’abonnement non déployées sur un groupe de ressources et les ressources classiques n’ont pas de groupe de ressources, et ils apparaissent avec le libellé **Autres**, **Services classiques**, **$system**ou **Non applicable**. |
+| **Type de ressource** | Pour décomposer les coûts par type de ressource. | Les achats et les services classiques n’ont pas de type de ressource Azure Resource Manager et apparaissent avec le libellé **Autres**, **Services classiques** ou **Non applicable**. |
+| **Emplacement de la ressource** | Décompose les coûts par emplacement ou par région. | Les achats et l’utilisation de la Place de marché peuvent apparaître avec le libellé **Non affecté**, **Inconnu**, **Non mappé** ou **Non applicable**. |
+| **Nom du service** ou **Catégorie du compteur** | Pour décomposer les coûts par service Azure. | Les achats et l’utilisation de la Place de marché apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
+| **Niveau de service** ou **Sous-catégorie de compteur** | Pour décomposer les coûts par sous-classification du compteur d’utilisation Azure. | Les achats et l’utilisation de la Place de marché apparaissent avec le libellé **Non applicable** ou **Non affecté**. |
+| **Abonnement** | Décompose les coûts par abonnement Azure et par compte AWS lié. | Les achats et les ressources des locataires peuvent apparaître avec le libellé **Non applicable**. |
+| **Tag** | Pour décomposer les coûts par valeur d’étiquette pour une clé d’étiquette spécifique. | Les étiquettes ne sont pas disponibles pour les achats, les ressources des locataires qui ne sont pas associées à des abonnements, les ressources d’abonnement non déployées sur un groupe de ressources et les ressources classiques. Notez que certains services n’incluent pas d’étiquettes dans les données d’utilisation. Pour plus d’informations, consultez [Prise en charge des étiquettes pour chaque type de ressource](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
 
 Pour plus d’informations sur ces termes, consultez [Comprendre les termes utilisés dans le fichier Utilisation et frais Azure](../understand/understand-usage.md).
 

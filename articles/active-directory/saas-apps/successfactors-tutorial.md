@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à SuccessFactors | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à SuccessFactors | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et SuccessFactors.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38d40a2f72e73dde0f99ebbc9701e02c8d03738b
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d49915271580b5665981bf7e212f3d5712c86456
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989505"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292977"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Didacticiel : Intégration de l’authentification unique (SSO) Azure Active Directory à SuccessFactors
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à SuccessFactors
 
 L’objectif de ce tutoriel est de vous apprendre à intégrer SuccessFactors à Azure Active Directory (Azure AD). Quand vous intégrez SuccessFactors à Azure AD, vous pouvez :
 
@@ -33,7 +32,7 @@ L’objectif de ce tutoriel est de vous apprendre à intégrer SuccessFactors à
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -44,7 +43,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
-* SuccessFactors prend en charge l’authentification unique initiée par le **fournisseur de services**
+* SuccessFactors prend en charge l’authentification unique lancée par le **fournisseur de services**.
+* Après avoir configuré SuccessFactors, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-successfactors-from-the-gallery"></a>Ajout de SuccessFactors à partir de la galerie
 
@@ -218,7 +218,7 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 6. Suivez ces étapes si vous souhaitez que les noms d’utilisateur de connexion ne respectent pas la casse.
 
-    ![Configurer l'authentification unique][29]
+    ![Configure Single Sign-On][29]
 
     a. Accédez à **Company Settings** (Paramètres de l’entreprise) (en bas).
 
@@ -250,6 +250,10 @@ Quand vous cliquez sur la vignette SuccessFactors dans le volet d’accès, vous
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer SuccessFactors avec Azure AD](https://aad.portal.azure.com)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Guide pratique pour protéger SuccessFactors avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 
