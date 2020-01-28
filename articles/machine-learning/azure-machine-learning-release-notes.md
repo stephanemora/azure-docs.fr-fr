@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 11/04/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771919"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546348"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -23,12 +23,49 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
+## <a name="2020-01-21"></a>2020-01-21
+
+### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.85
+
++ **Nouvelles fonctionnalités**
+  + **azureml-core**
+    + Obtenir l’utilisation des cœurs actuelle et la limite de quota pour les ressources AmlCompute dans un espace de travail et un abonnement donnés
+  
+  + **azureml-contrib-pipeline-steps**
+    + Permettre à l’utilisateur de passer le jeu de données tabulaire en tant que résultat intermédiaire de l’étape précédente à parallelrunstep
+
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-runtime**
+    + Suppression de l’exigence de colonne y_query dans la demande envoyée au service de prévision déployé. 
+    + Le « y_query » a été supprimé de la section de la demande de service notebook Orange Juice de Dominick.
+    + Correction du bogue empêchant les prévisions sur les modèles déployés opérant sur des jeux de données avec des colonnes de date et d’heure.
+    + Ajout du coefficient de corrélation Matthews en tant que métrique de classification, pour la classification binaire et multiclasse.
+  + **azureml-contrib-interpret**
+    + Suppression des explications de texte d’azureml-contrib-interpret, car une explication du texte a été déplacée vers le référentiel interpret-text qui sera bientôt publié.
+  + **azureml-core**
+    + Jeu de données : les utilisations du jeu de données de fichier ne dépendent plus de l’installation de numpy et pandas dans l’environnement Python.
+    + Modification de LocalWebservice.wait_for_deployment() pour vérifier l’état du conteneur Docker local avant d’essayer d’effectuer un test ping de son point de terminaison d’intégrité, ce qui réduit considérablement le temps nécessaire pour signaler un échec de déploiement.
+    + Correction de l’initialisation d’une propriété interne utilisée dans LocalWebservice.reload() lors de la création de l’objet service à partir d’un déploiement existant à l’aide du constructeur LocalWebservice().
+    + Modification du message d’erreur pour clarification.
+    + Ajout d’une nouvelle méthode appelée get_access_token() à AksWebservice, qui retourne l’objet AksServiceAccessToken contenant un jeton d’accès, une actualisation après horodatage, une expiration sur horodatage et un type de jeton. 
+    + Abandon de la méthode get_token() existante dans AksWebservice, car la nouvelle méthode retourne toutes les informations que cette méthode retourne.
+    + Modification de la sortie de la commande az ml service get-access-token. Changement de nom de token en accessToken et de refreshBy en refreshAfter. Ajout des propriétés expiryOn et tokenType.
+    + Correction de Fixed get_active_runs
+  + **azureml-explain-model**
+    + mise à jour de shap vers 0.33.0 et d’interpret-community vers 0.4.*
+  + **azureml-interpret**
+    + mise à jour de shap vers 0.33.0 et d’interpret-community vers 0.4.*
+  + **azureml-train-automl-runtime**
+    + Ajout du coefficient de corrélation Matthews en tant que métrique de classification, pour la classification binaire et multiclasse.
+    + Abandon de l’indicateur de prétraitement du code et remplacement par caractérisation (caractérisation activée par défaut)
+
 ## <a name="2020-01-06"></a>2020-01-06
 
 ### <a name="azure-machine-learning-sdk-for-python-v1083"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.83
 
 + **Nouvelles fonctionnalités**
   + Jeu de données : ajoutez deux options `on_error` et `out_of_range_datetime` pour que `to_pandas_dataframe` échoue lorsque les données ont des valeurs d’erreur au lieu de les remplir avec `None`.
+  + Espace de travail : Ajout de l’indicateur `hbi_workspace` pour les espaces de travail avec des données sensibles qui permettent un chiffrement supplémentaire et désactivent les diagnostics avancés sur les espaces de travail. Nous avons également ajouté la prise en charge de l’ajout de vos propres clés pour l’instance Cosmos DB associée, en spécifiant les paramètres `cmk_keyvault` et `resource_cmk_uri` lors de la création d’un espace de travail, ce qui crée une instance Cosmos DB dans votre abonnement lors de l’approvisionnement de votre espace de travail. [Apprenez-en davantage ici](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db).
 
 + **Résolutions de bogue et améliorations**
   + **azureml-automl-runtime**
@@ -49,7 +86,6 @@ Consultez la [liste des problèmes connus](resource-known-issues.md) pour en sav
   + **azureml-train-automl-client**
     + Correction de l’alignement sur la sortie de la console pour les exécutions AutoML.
     + Correction du bogue selon lequel une mauvaise version de pandas était parfois installée sur amlcompute distant.
-
 
 ## <a name="2019-12-23"></a>2019-12-23
 
@@ -1488,7 +1524,7 @@ La capacité de calcul Azure Machine Learning peut être créée dans Python, à
 + Pipelines ML
   + Notebooks nouveaux et mis à jour pour bien démarrer avec les pipelines, l’étendue par lot et des exemples de transfert de style : https://aka.ms/aml-pipeline-notebooks
   + Découvrez comment [créer votre premier pipeline](how-to-create-your-first-pipeline.md)
-  + Découvrez comment [exécuter des prédictions par lots à l’aide de pipelines](how-to-run-batch-predictions.md)
+  + Découvrez comment [exécuter des prédictions par lots à l’aide de pipelines](how-to-use-parallel-run-step.md)
 + Cible de calcul Azure Machine Learning
   + Les [exemples de notebooks](https://aka.ms/aml-notebooks) ont été mis à jour pour utiliser la nouvelle capacité de calcul managé.
   + [En savoir plus sur cette capacité de calcul](how-to-set-up-training-targets.md#amlcompute)

@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Identifier les visages dans une image - API Visage'
+title: 'Exemple : Identifier les visages dans une image - Visage'
 titleSuffix: Azure Cognitive Services
 description: Ce guide montre comment identifier des visages inconnus à l'aide d'objets PersonGroup créés à l'avance à partir de personnes connues.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: ec209eb2c60efcb1363c177aad0fe5a72ad2a239
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977180"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169911"
 ---
-# <a name="example-identify-faces-in-images"></a>Exemple : Identifier des visages sur des images
+# <a name="example-identify-faces-in-images"></a>Exemple : Identifier des visages sur des images
 
-Ce guide montre comment identifier des visages inconnus à l'aide d'objets PersonGroup créés à l'avance à partir de personnes connues. Les exemples sont écrits en C# à l'aide de la bibliothèque de client de l'API Visage d'Azure Cognitive Services.
+Ce guide montre comment identifier des visages inconnus à l'aide d'objets PersonGroup créés à l'avance à partir de personnes connues. Les exemples sont écrits en C# à l’aide de la bibliothèque de client Visage d’Azure Cognitive Services.
 
 ## <a name="preparation"></a>Préparation
 
@@ -33,7 +33,7 @@ Pour cette démonstration, préparez :
 - Quelques photos montrant le visage de la personne. [Téléchargez des exemples de photos](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) pour Anna, Bill et Clare.
 - Une série de photos test. Les photos peuvent contenir ou non le visage d'Anna, de Bill ou de Clare. Elles sont utilisées pour tester l'identification. Sélectionnez également des exemples d'images à partir du lien précédent.
 
-## <a name="step-1-authorize-the-api-call"></a>Étape 1 : Autoriser l’appel d’API
+## <a name="step-1-authorize-the-api-call"></a>Étape 1 : Autoriser l’appel d’API
 
 Chaque appel de l’API Visage nécessite une clé d’abonnement. Cette clé peut être transmise via un paramètre de chaîne de requête, ou spécifiée dans l'en-tête de la requête. Pour transmettre la clé d'abonnement par le biais d'une chaîne de requête, reportez-vous à l'URL de la requête de [Visage - Détecter](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) en guise d'exemple :
 ```
@@ -52,7 +52,7 @@ private readonly IFaceClient faceClient = new FaceClient(
  
 Pour obtenir la clé d'abonnement, accédez à la Place de marché Azure à partir du portail Azure. Pour plus d'informations, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/).
 
-## <a name="step-2-create-the-persongroup"></a>Étape 2 : Créer PersonGroup
+## <a name="step-2-create-the-persongroup"></a>Étape 2 : Créer PersonGroup
 
 Ici, un objet PersonGroup intitulé « MesAmis » contient Anna, Bill et Clare. Plusieurs visages sont enregistrés pour chaque personne. Les visages doivent être détectés à partir des images. À l’issue de toutes ces étapes, vous disposez d’un PersonGroup tel qu’illustré ci-dessous :
 
@@ -131,7 +131,7 @@ while(true)
 
 ## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>Étape 4 : Identifier un visage par rapport à un PersonGroup défini
 
-Lorsque l'API Visage procède à des identifications, elle calcule les similitudes entre un visage test et tous les visages d'un groupe. Elle renvoie les personnes les plus proches du visage test. Ce processus s'effectue à l'aide de l'API [Visage - Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) ou de la méthode IdentifyAsync de la bibliothèque de client.
+Lorsque le service Visage procède à des identifications, il calcule les similitudes entre un visage test et tous les visages d’un groupe. Elle renvoie les personnes les plus proches du visage test. Ce processus s'effectue à l'aide de l'API [Visage - Identifier](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) ou de la méthode IdentifyAsync de la bibliothèque de client.
 
 Le visage test doit être détecté en suivant les étapes précédentes. L'ID du visage est ensuite transmis à l'API d'identification comme deuxième argument. Plusieurs ID de visage peuvent être identifiés simultanément. Le résultat contient tous les résultats identifiés. Par défaut, le processus d'identification renvoie la personne la plus proche du visage test. Si vous préférez, spécifiez le paramètre facultatif maxNumOfCandidatesReturned pour permettre au processus d'identification de renvoyer davantage de candidats.
 
@@ -188,4 +188,4 @@ Dans ce guide, vous avez appris à créer un objet PersonGroup et à identifier 
 - [Concepts de reconnaissance faciale](../concepts/face-recognition.md)
 - [Détecter des visages sur une image](HowtoDetectFacesinImage.md)
 - [Ajouter des visages](how-to-add-faces.md)
-- [Utilisez la fonctionnalité à grande échelle](how-to-use-large-scale.md)
+- [Utiliser la fonctionnalité à grande échelle](how-to-use-large-scale.md)

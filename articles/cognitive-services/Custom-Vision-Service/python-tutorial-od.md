@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un projet de détection d’objets à l’aide du kit SDK Custom Vision pour Python'
 titleSuffix: Azure Cognitive Services
-description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage de votre projet et détectez des objets avec le kit de développement logiciel (SDK) Python.
+description: Créez un projet, ajoutez des étiquettes, chargez des images, entraînez votre projet et détectez des objets avec le kit SDK Python.
 services: cognitive-services
 author: areddish
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 54a028afa9da22bddddb855558668cccb027f70b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68d63fbc71ea2dcd07522c6ba42808f88966cd7b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961044"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166618"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Démarrage rapide : Créer un projet de détection d’objets à l’aide du kit SDK Custom Vision Python
 
 Cet article vous montre comment bien démarrer avec le SDK Vision par ordinateur et Python pour générer un modèle de détection d’objet. Une fois le projet créé, vous pouvez ajouter des régions étiquetées, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction publié du projet et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple comme modèle pour générer votre propre application Python.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
 - Outil [pip](https://pip.pypa.io/en/stable/installing/)
@@ -74,9 +74,9 @@ print ("Creating project...")
 project = trainer.create_project("My Detection Project", domain_id=obj_detection_domain.id)
 ```
 
-### <a name="create-tags-in-the-project"></a>Créer des balises dans un projet
+### <a name="create-tags-in-the-project"></a>Créer des étiquettes dans un projet
 
-Pour créer des balises d’objet dans votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
+Pour créer des étiquettes d’objet dans votre projet, ajoutez le code suivant à la fin du fichier *sample.py* :
 
 ```Python
 # Make two tags in the new project
@@ -86,9 +86,13 @@ scissors_tag = trainer.create_tag(project.id, "scissors")
 
 ### <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
-Lorsque vous appliquez des balises à des images dans des projets de détection d’objet, vous devez préciser la région de chaque objet balisé avec des coordonnées normalisées.
+Lorsque vous appliquez des étiquettes à des images dans des projets de détection d’objet, vous devez préciser la région de chaque objet étiqueté avec des coordonnées normalisées.
 
-Pour ajouter les images, les régions et les balises au projet, insérez le code suivant après la création de la balise. Pour ce tutoriel, les régions sont codées en dur inline avec le code. Les régions spécifient le niveau du bit dans des coordonnées normalisées, et ces dernières sont données dans l’ordre : gauche, haut, largeur et hauteur.
+> [!NOTE]
+> Si vous n’avez pas d’utilitaire permettant d’effectuer des opérations de glisser-déposer pour marquer les coordonnées des régions, vous pouvez utiliser l’IU web sur [Customvision.ai](https://www.customvision.ai/). Dans cet exemple, les coordonnées sont déjà fournies.
+
+
+Pour ajouter les images, les régions et les étiquettes au projet, insérez le code suivant après la création de l’étiquette. Pour ce tutoriel, les régions sont codées en dur inline avec le code. Les régions spécifient le niveau du bit dans des coordonnées normalisées, et ces dernières sont données dans l’ordre : gauche, haut, largeur et hauteur.
 
 ```Python
 fork_image_regions = {
@@ -138,11 +142,14 @@ scissors_image_regions = {
 }
 ```
 
-Utilisez alors cette carte d’associations pour charger chaque exemple d’image avec ses coordonnées de région (vous pouvez charger jusqu’à 64 images dans un même lot). Ajoutez le code suivant.
+Utilisez alors cette carte d’associations pour charger chaque exemple d’image avec ses coordonnées de région (vous pouvez charger jusqu’à 64 images dans un même lot). Ajoutez le code ci-dessous.
+
+> [!NOTE]
+> Vous devrez changer le chemin des images en fonction de l’emplacement à partir duquel vous avez téléchargé le dépôt d’exemples du kit SDK Python pour Cognitive Services.
 
 ```Python
 # Update this with the path to where you downloaded the images.
-base_image_url = "<path to the images>"
+base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
 
 # Go through the data table above and create the images
 print ("Adding images...")
@@ -172,7 +179,7 @@ if not upload_result.is_batch_successful:
 
 ### <a name="train-the-project-and-publish"></a>Entraîner le projet et publier
 
-Ce code crée la première itération dans le projet, puis la publie sur le point de terminaison de prédiction. Le nom donné à l’itération publiée peut être utilisé pour envoyer des requêtes de prédiction. Les itérations ne sont pas disponibles sur le point de terminaison de prédiction tant qu’elles n’ont pas été publiées.
+Ce code crée la première itération du modèle de prédiction, puis publie cette itération sur le point de terminaison de prédiction. Le nom donné à l’itération publiée peut être utilisé pour envoyer des requêtes de prédiction. Les itérations ne sont pas disponibles sur le point de terminaison de prédiction tant qu’elles n’ont pas été publiées.
 
 ```Python
 import time

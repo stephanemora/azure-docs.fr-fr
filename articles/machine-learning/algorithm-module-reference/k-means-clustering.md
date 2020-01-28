@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 000db771f27c7063aee120f06e13eec3575c8ef5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213911"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546637"
 ---
 # <a name="module-k-means-clustering"></a>Module : Clustering k-moyennes
 
@@ -58,7 +58,7 @@ Lorsqu’il traite les données d’apprentissage, l’algorithme k-moyennes com
   
 2.  Pour spécifier le mode d’apprentissage du modèle, sélectionnez l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
-    -   **Single Parameter** (Paramètre unique) : Si vous connaissez les paramètres exacts que vous souhaitez utiliser dans le modèle de clustering, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.  
+    -   **Single Parameter** (Paramètre unique) : Si vous connaissez les paramètres exacts que vous souhaitez utiliser dans le modèle de clustering, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.  
   
 3.  Pour le **nombre de centroïdes**, entrez le nombre de clusters par lesquels doit commencer l’algorithme.  
   
@@ -103,7 +103,7 @@ Lorsqu’il traite les données d’apprentissage, l’algorithme k-moyennes com
   
      Si vous appliquez la normalisation avant la formation, les points de données sont normalisés à `[0,1]` par MinMaxNormalizer.
 
-10. Effectuez la formation du modèle.  
+10. Effectuez l’apprentissage du modèle.  
   
     -   Si vous définissez le **mode Create trainer** (Créer formateur) sur **Paramètre unique**, ajoutez un jeu de données balisé et formez le modèle à l’aide du module [Train Clustering Model](train-clustering-model.md).  
   
@@ -115,9 +115,9 @@ Une fois la configuration et la formation du modèle terminées, vous disposez d
 
 Si vous avez utilisé le module [Train Clustering Model](train-clustering-model.md) :
 
-1. Cliquez avec le bouton droit sur le module **Train Clustering Model**.
+1. Sélectionnez le module **Entraîner un modèle de clustering** et ouvrez le volet droit.
 
-2. Sélectionnez **Trained model** (Modèle formé), puis **Save as Trained Model** (Enregistrer en tant que modèle formé).
+2. Sélectionnez l’onglet **Sorties**. Sélectionnez l’icône **Enregistrer le jeu de données** pour enregistrer une copie du modèle formé.
 
 Le modèle enregistré représente les données d’apprentissage au moment où vous avez enregistré le modèle. Si vous mettez à jour ultérieurement les données de formation utilisées dans le pipeline, le modèle enregistré n’est pas mis à jour. 
 
@@ -127,7 +127,7 @@ Si vous avez utilisé le module [Train Clustering Model](train-clustering-model.
 
 1. Cliquez avec le bouton droit sur le module **Train Clustering Model**.
 
-2. Sélectionnez **Results dataset** (Jeu de données des résultats), puis **Visualize** (Visualiser).
+2. Sélectionnez **Visualiser**.
 
 ### <a name="tips-for-generating-the-best-clustering-model"></a>Conseils pour générer le meilleur modèle de clustering  
 

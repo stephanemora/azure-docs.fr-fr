@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934380"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289610"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,23 @@ Pour utiliser le compte Stockage Azure de l’espace de travail d’un réseau v
 >
 > Le compte de stockage par défaut est automatiquement configuré lorsque vous créez un espace de travail.
 >
-> Pour les comptes de stockage autres que ceux par défaut, le paramètre `storage_account` dans la fonction [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) vous permet de spécifier un compte de stockage personnalisé par ID de ressource Azure.
+> Pour les comptes de stockage autres que ceux par défaut, le paramètre `storage_account` dans la fonction [`Workspace.create()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) vous permet de spécifier un compte de stockage personnalisé par ID de ressource Azure.
+
+## <a name="use-azure-data-lake-storage-gen-2"></a>Utiliser Azure Data Lake Storage Gen 2
+
+Azure Data Lake Storage Gen2 est un ensemble de fonctionnalités dédiées à l’analytique du Big Data s’appuyant sur le Stockage Blob Azure. Il permet de stocker des données utilisées pour l’apprentissage de modèles avec Azure Machine Learning. 
+
+Pour utiliser Azure Data Lake Storage Gen 2 à l’intérieur du réseau virtuel de votre espace de travail Azure Machine Learning, procédez comme suit :
+
+1. Créez un compte Azure Data Lake Storage Gen 2. Pour plus d’informations, voir [Créer un compte Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+1. Suivez les étapes 2-4 de la section précédente, [Utiliser un compte de stockage pour votre espace de travail](#use-a-storage-account-for-your-workspace) afin de placer le compte dans le réseau virtuel.
+
+Lorsque vous utilisez Azure Machine Learning avec Azure Data Lake Storage Gen 2 à l’intérieur d’un réseau virtuel, suivez les instructions suivantes :
+
+* Si vous utilisez le __Kit de développement logiciel (SDK) pour créer un jeu de données__ et que le système exécutant le code __n’est pas dans le réseau virtuel__, utilisez le paramètre `validate=False`. Ce paramètre ignore la validation qui échoue si le système n’est pas dans le même réseau virtuel que le compte de stockage. Pour plus d’informations, voir la méthode [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-).
+
+* Lorsque vous utilisez une instance ou un cluster de calcul Azure Machine Learning pour effectuer l’apprentissage d’un modèle à l’aide du jeu de données, celui-ci doit se trouver dans le même réseau virtuel que le compte de stockage.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Utilisez une instance de coffre de clés avec votre espace de travail
 

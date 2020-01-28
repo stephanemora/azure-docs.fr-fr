@@ -1,5 +1,5 @@
 ---
-title: Encoder un fichier distant basé sur une URL et streamer la vidéo avec Azure Media Services - REST | Microsoft Docs
+title: Encoder un fichier distant et diffuser en streaming avec Azure Media Services v3
 description: Suivez les étapes décrites dans ce tutoriel pour encoder un fichier basé sur une URL et streamer votre contenu avec Azure Media Services au moyen de REST.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685110"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514338"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Didacticiel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutoriel : Encoder un fichier distant basé sur une URL et streamer la vidéo - REST
 
-Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage).
+Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en streaming, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage).
 
-Ce tutoriel montre comment encoder un fichier distant basé sur une URL et comment streamer la vidéo avec Azure Media Services au moyen de REST. 
+Ce tutoriel montre comment encoder un fichier distant basé sur une URL et comment diffuser la vidéo en streaming avec Azure Media Services au moyen de REST. 
 
 ![Lire la vidéo](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -35,12 +35,12 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Télécharger les fichiers Postman
 > * Configurer Postman
 > * Envoyer des requêtes à l’aide de Postman
-> * Tester l’URL de diffusion en continu
-> * Supprimer des ressources
+> * Tester l’URL de diffusion en streaming
+> * Nettoyer les ressources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - [Créer un compte Media Services](create-account-cli-how-to.md).
 
@@ -173,9 +173,9 @@ La [ressource](https://docs.microsoft.com/rest/api/media/assets) de sortie stock
 
 ### <a name="create-a-transform"></a>Créer une transformation
 
-Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres de codage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en continu sur divers appareils iOS et Android. 
+Lors de l’encodage ou du traitement de contenus dans Media Services, il est courant de configurer les paramètres de codage en tant que formule. Vous envoyez ensuite un **travail** pour appliquer cette formule à une vidéo. En envoyant de nouveaux travaux pour chaque nouvelle vidéo, vous appliquez cette formule à toutes les vidéos de votre bibliothèque. Une formule dans Media Services est référencée comme une **transformation**. Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md). L’exemple décrit dans ce didacticiel définit une formule qui encode la vidéo, afin de la diffuser en streaming sur divers appareils iOS et Android. 
 
-Lorsque vous créez une instance de [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. Pour plus d’informations sur ce préréglage, consultez [Encode with an auto-generated bitrate ladder](autogen-bitrate-ladder.md) (Encoder avec une échelle des vitesses de transmission générée automatiquement).
+Lorsque vous créez une instance de [transformation](https://docs.microsoft.com/rest/api/media/transforms), vous devez spécifier ce qu’elle doit produire comme sortie. Le paramètre requis est un objet **TransformOutput**. Chaque objet **TransformOutput** contient un **préréglage**. Le **préréglage** décrit les instructions détaillées concernant les opérations de traitement vidéo et/ou audio qui doivent être utilisées pour générer l’objet **TransformOutput** souhaité. L’exemple décrit dans cet article utilise un préréglage appelé **AdaptiveStreaming**. Le préréglage encode la vidéo d’entrée dans une échelle des vitesses de transmission générée automatiquement (paires vitesse de transmission-résolution) basée sur la vitesse de transmission et la résolution de la sortie, et crée des fichiers MP4 ISO avec des fichiers audio AAC et des fichiers vidéo H.264 qui correspondent à chaque paire vitesse de transmission-résolution. Pour plus d’informations sur ce préréglage, consultez [Encoder avec une échelle des vitesses de transmission générée automatiquement](autogen-bitrate-ladder.md).
 
 Vous pouvez utiliser un préréglage EncoderNamedPreset intégré ou des préréglages personnalisés. 
 
@@ -211,7 +211,7 @@ Vous pouvez utiliser un préréglage EncoderNamedPreset intégré ou des préré
         }
         ```
 
-### <a name="create-a-job"></a>Création d’un travail
+### <a name="create-a-job"></a>Créer un travail
 
 Un [travail](https://docs.microsoft.com/rest/api/media/jobs) est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie.
 
@@ -256,13 +256,13 @@ Le **travail** passe généralement par les états suivants : **Planifié**, **
 
 Consultez [Codes d’erreur](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
 
-### <a name="create-a-streaming-locator"></a>Créer un localisateur de diffusion en continu
+### <a name="create-a-streaming-locator"></a>Créer un localisateur de streaming
 
-Une fois le travail d’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans l’**actif multimédia** de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de diffusion en continu que les clients peuvent utiliser. 
+Une fois le travail d’encodage terminé, l’étape suivante consiste à mettre à la disposition des clients la vidéo dans l’**actif multimédia** de sortie pour qu’ils puissent la lire. Vous pouvez le faire en deux étapes : d’abord, créez un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puis générez les URL de streaming que les clients peuvent utiliser. 
 
 Le processus de création d’un localisateur de streaming est appelée « publication ». Par défaut, le localisateur de streaming est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les heures de début et de fin facultatives. 
 
-Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le nom **StreamingPolicyName** souhaité. Dans cet exemple, vous allez diffuser en continu du contenu en clair (ou non chiffré), la stratégie de diffusion en continu en clair prédéfinie (« Predefined_ClearStreamingOnly ») est donc utilisée.
+Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le nom **StreamingPolicyName** souhaité. Dans cet exemple, vous allez diffuser en streaming du contenu en clair (ou non chiffré), la stratégie de streaming en clair prédéfinie (« Predefined_ClearStreamingOnly ») est donc utilisée.
 
 > [!IMPORTANT]
 > Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. 
@@ -291,7 +291,7 @@ Votre compte Media Services a un quota en matière de nombre d’entrées de **s
         }
         ```
 
-### <a name="list-paths-and-build-streaming-urls"></a>Répertorier les chemins d’accès et générer l’URL de diffusion en continu
+### <a name="list-paths-and-build-streaming-urls"></a>Répertorier les chemins d’accès et générer l’URL de streaming
 
 #### <a name="list-paths"></a>Répertorier les chemins d’accès
 
@@ -309,7 +309,7 @@ Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/ap
         
     * L'opération n'a pas de corps :
         
-4. Prenez note de l’un des chemins d’accès que vous souhaitez utiliser pour la diffusion en continu, vous allez l’utiliser dans la section suivante. Dans ce cas, les chemins d’accès suivants ont été retournés :
+4. Prenez note de l’un des chemins que vous souhaitez utiliser pour le streaming, vous allez l’utiliser dans la section suivante. Dans ce cas, les chemins d’accès suivants ont été retournés :
     
     ```
     "streamingPaths": [
@@ -337,9 +337,9 @@ Maintenant que le [localisateur de streaming](https://docs.microsoft.com/rest/ap
     ]
     ```
 
-#### <a name="build-the-streaming-urls"></a>Création des URL de diffusion
+#### <a name="build-the-streaming-urls"></a>Création des URL de streaming
 
-Dans cette section, nous allons créer une URL de diffusion HLS. Les URL se composent des valeurs suivantes :
+Dans cette section, nous allons créer une URL de streaming HLS. Les URL se composent des valeurs suivantes :
 
 1. Le protocole sur lequel les données sont envoyées. Dans ce cas « https ».
 
@@ -362,13 +362,13 @@ Par conséquent, l’URL HLS suivante a été générée
 https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa78e5c63/Ignite-short.ism/manifest(format=m3u8-aapl)
 ```
 
-## <a name="test-the-streaming-url"></a>Tester l’URL de diffusion en continu
+## <a name="test-the-streaming-url"></a>Tester l’URL de streaming
 
 
 > [!NOTE]
 > Vérifiez que le **point de terminaison de streaming** à partir duquel vous voulez diffuser du contenu est en cours d’exécution.
 
-Pour tester la diffusion en continu, cet article utilise le lecteur multimédia Azure. 
+Pour tester le streaming, cet article utilise le Lecteur multimédia Azure. 
 
 1. Ouvrez un navigateur web et accédez à [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. Dans la zone **URL :** , collez l’URL que vous avez créée. 
@@ -382,7 +382,7 @@ En général, vous devez nettoyer tous les éléments à l’exception des objet
 
 Pour supprimer une ressource, sélectionnez l’opération « Supprimer... » sous la ressource que vous souhaitez supprimer.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.  
 
@@ -398,7 +398,7 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous savez comment charger, encoder et diffuser en continu votre vidéo, consultez l’article suivant : 
+Maintenant que vous savez comment charger, encoder et diffuser en streaming votre vidéo, consultez l’article suivant : 
 
 > [!div class="nextstepaction"]
 > [Analyser des vidéos](analyze-videos-tutorial-with-api.md)

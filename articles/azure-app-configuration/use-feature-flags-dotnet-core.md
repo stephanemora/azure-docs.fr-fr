@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4fe49c25ad71c48103f044915d187099b75b3d04
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798376"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121248"
 ---
-# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Didacticiel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
+# <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutoriel : Utiliser des indicateurs de fonctionnalités dans une application ASP.NET Core
 
 Les bibliothèques de gestion des fonctionnalités .NET Core fournissent une prise en charge idiomatique de l’implémentation des indicateurs de fonctionnalités dans une application .NET ou ASP.NET Core. Ces bibliothèques vous permettent d’ajouter de manière déclarative des indicateurs de fonctionnalités à votre code afin de vous éviter d’écrire manuellement toutes les instructions `if` correspondantes.
 
@@ -29,7 +29,7 @@ Les bibliothèques de gestion des fonctionnalités gèrent également les cycles
 
 Le [guide de démarrage rapide Ajouter des indicateurs de fonctionnalités dans une application ASP.NET Core](./quickstart-feature-flag-aspnet-core.md) montre plusieurs façons d’ajouter des indicateurs de fonctionnalités à une application ASP.NET Core. Ce tutoriel explique plus en détails ces différentes méthodes. Pour obtenir une référence complète, consultez la [documentation sur la gestion des fonctionnalités ASP.NET Core](https://go.microsoft.com/fwlink/?linkid=2091410).
 
-Ce didacticiel vous apprendra à effectuer les opérations suivantes :
+Dans ce didacticiel, vous apprendrez à :
 
 > [!div class="checklist"]
 > * Ajouter des indicateurs de fonctionnalités dans des parties clés de votre application afin de contrôler la disponibilité des fonctionnalités
@@ -177,7 +177,7 @@ Le modèle de gestion des fonctionnalités de base consiste à d’abord vérifi
 ```csharp
 IFeatureManager featureManager;
 ...
-if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
+if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 {
     // Run the following code
 }
@@ -254,7 +254,7 @@ La balise de fonctionnalité `<feature>` peut également être utilisée pour af
 
 ## <a name="mvc-filters"></a>Filtres MVC
 
-Vous pouvez configurer des filtres MVC de sorte que leur activation soit basée sur l’état d’un indicateur de fonctionnalité. Le code suivant ajoute un filtre MVC nommé `SomeMvcFilter`. Ce filtre est déclenché dans le pipeline MVC seulement si `FeatureA` est activé.
+Vous pouvez configurer des filtres MVC de sorte que leur activation soit basée sur l’état d’un indicateur de fonctionnalité. Le code suivant ajoute un filtre MVC nommé `SomeMvcFilter`. Ce filtre est déclenché dans le pipeline MVC seulement si `FeatureA` est activé. Cette fonctionnalité est limitée à `IAsyncActionFilter`. 
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -267,16 +267,6 @@ public void ConfigureServices(IServiceCollection services)
         options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
     });
 }
-```
-
-## <a name="routes"></a>Itinéraires
-
-Vous pouvez utiliser des indicateurs de fonctionnalités pour exposer dynamiquement des routes. Le code suivant ajoute une route qui définit `Beta` comme contrôleur par défaut uniquement quand `FeatureA` est activé :
-
-```csharp
-app.UseMvc(routes => {
-    routes.MapRouteForFeature(nameof(MyFeatureFlags.FeatureA), "betaDefault", "{controller=Beta}/{action=Index}/{id?}");
-});
 ```
 
 ## <a name="middleware"></a>Middlewares

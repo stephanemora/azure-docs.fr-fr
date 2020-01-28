@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/25/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: c2b409f0eefe5efa389432cbb007cc08e0c6ae1e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 4b10955a1d3b85acbcae109836bebc03ec04c72c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71078245"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279622"
 ---
 Azure fournit les rôles RBAC intégrés suivants pour autoriser l’accès au blob et aux données de file d’attente à l’aide d’Azure AD et d’OAuth :
 
@@ -29,3 +29,5 @@ Azure fournit les rôles RBAC intégrés suivants pour autoriser l’accès au b
 > Les attributions de rôles RBAC peuvent prendre jusqu’à cinq minutes pour se propager.
 >
 > Seuls les rôles explicitement définis pour l’accès aux données permettent à un principal de sécurité d’accéder aux données d’objet blob ou de file d’attente. Des rôles tels que **Propriétaire**, **Contributeur** et **Contributeur de comptes de stockage** permettent à un principal de sécurité de gérer un compte de stockage, mais n’accordent pas l’accès aux données de l’objet blob ou de la file d’attente dans ce compte.
+>
+> Vous pouvez autoriser l’accès aux données d’objet blob ou de file d’attente dans le Portail Azure à l’aide de votre compte Azure AD ou de la clé d’accès du compte de stockage. Pour plus d’informations, voir [Utiliser le portail Azure pour accéder aux données d’objet blob ou de file d’attente](../articles/storage/common/storage-access-blobs-queues-portal.md).

@@ -1,5 +1,5 @@
 ---
-title: Dépanner une machine virtuelle Azure à l’aide de la virtualisation imbriquée dans Azure | Microsoft Docs
+title: Dépanner une machine virtuelle Azure défaillante à l’aide d’une virtualisation imbriquée dans Azure | Microsoft Docs
 description: Guide pratique pour dépanner une machine virtuelle Azure posant problème à l’aide de la virtualisation imbriquée dans Azure
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4ef8bc029c63aaf297462a7b53f6daba1a7c850b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e1acfc3216ccfaeac035f1ff31e82c7b67c17daf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028428"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119616"
 ---
-# <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure à l’aide de la virtualisation imbriquée dans Azure
+# <a name="troubleshoot-a-faulty-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure défaillante à l’aide d’une virtualisation imbriquée dans Azure
 
-Cet article explique comment créer un environnement de virtualisation imbriquée dans Microsoft Azure pour pouvoir ensuite monter le disque de la machine virtuelle à dépanner sur l’hôte Hyper-V (machine virtuelle de secours).
+Cet article explique comment créer un environnement de virtualisation imbriqué dans Microsoft Azure pour pouvoir ensuite monter le disque de la machine virtuelle défaillante à dépanner sur l’hôte Hyper-V (machine virtuelle de secours).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour monter la machine virtuelle posant problème, la machine virtuelle de secours doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle posant problème.
+Pour monter la machine virtuelle défaillante, la machine virtuelle de secours doit utiliser le même type de compte de stockage (Standard ou Premium) que la machine virtuelle défaillante.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Étape 1 : Créer une machine virtuelle de secours et installer le rôle Hyper-V
 
@@ -36,9 +36,9 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
     -  Taille : n’importe quelle machine de la gamme V3 avec au moins deux cœurs prenant en charge la virtualisation imbriquée. Pour plus d’informations, consultez le blog [Introducing the new Dv3 and Ev3 VM sizes](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/).
 
-    -  Même emplacement, même compte de stockage et même groupe de ressources que la machine virtuelle posant problème.
+    -  Mêmes emplacement, compte de stockage et groupe de ressources que la machine virtuelle défaillante.
 
-    -  Même type de stockage (Standard ou Premium) que la machine virtuelle posant problème.
+    -  Sélectionnez le même type de stockage (Standard ou Premium) que la machine virtuelle défaillante.
 
 2.  Après avoir créé la machine virtuelle de secours, établissez une connexion Bureau à distance à cette machine virtuelle.
 
@@ -64,13 +64,13 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 13. Autorisez le serveur à installer le rôle Hyper-V. Cette opération prend quelques minutes. Le serveur redémarre ensuite automatiquement.
 
-## <a name="step-2-create-the-problem-vm-on-the-rescue-vms-hyper-v-server"></a>Étape 2 : créer la machine virtuelle posant problème sur le serveur Hyper-V de la machine virtuelle de secours
+## <a name="step-2-create-the-faulty-vm-on-the-rescue-vms-hyper-v-server"></a>Étape 2 : créer la machine virtuelle défaillante sur le serveur Hyper-V de la machine virtuelle de secours
 
 1.  [Créez un disque d’instantané](troubleshoot-recovery-disks-portal-windows.md#take-a-snapshot-of-the-os-disk) pour le disque du système d’exploitation de la machine virtuelle qui rencontre un problème, puis joignez le disque d’instantané à la machine virtuelle de secours.
 
 2.  Bureau à distance vers la machine virtuelle de secours.
 
-3.  Ouvrez Gestion des disques (diskmgmt.msc). Vérifiez que le disque de la machine virtuelle posant problème est défini sur **Hors connexion**.
+3.  Ouvrez Gestion des disques (diskmgmt.msc). Vérifiez que le disque de la machine virtuelle défaillante est défini sur **Hors connexion**.
 
 4.  Ouvrez Hyper-V Manager : dans **Gestionnaire de serveur**, sélectionnez le **rôle Hyper-V**. Cliquez avec le bouton droit sur le serveur, puis sélectionnez **Gestionnaire Hyper-V**.
 
@@ -96,7 +96,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
     ![image de l’ajout d’un nouveau disque dur](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
-14. Dans **Disque dur physique**, sélectionnez le disque de la machine virtuelle posant problème que vous avez attaché à la machine virtuelle Azure. Si vous ne voyez pas de disques répertoriés, vérifiez si le disque est défini sur Hors connexion à l’aide de la fonction Gestion des disques.
+14. Dans **Disque dur physique**, sélectionnez le disque de la machine virtuelle défaillante que vous avez attachée à la machine virtuelle Azure. Si vous ne voyez pas de disques répertoriés, vérifiez si le disque est défini sur Hors connexion à l’aide de la fonction Gestion des disques.
 
     ![image du montage du disque](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
@@ -107,7 +107,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 17. Vous pouvez maintenant utiliser la machine virtuelle en tant que machine virtuelle locale. Vous pouvez effectuer les étapes de dépannage nécessaires.
 
-## <a name="step-3-replace-the-os-disk-used-by-the-problem-vm"></a>Étape 3 : Remplacer le disque du système d’exploitation utilisé par la machine virtuelle posant problème
+## <a name="step-3-replace-the-os-disk-used-by-the-faulty-vm"></a>Étape 3 : Remplacer le disque du système d’exploitation utilisé par la machine virtuelle défaillante
 
 1.  Après avoir remis en ligne la machine virtuelle, arrêtez la machine virtuelle dans le Gestionnaire Hyper-V.
 

@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment utiliser Azure Dev Spaces et Visual Studio Code pour déboguer et itérer rapidement une application Node.js sur Azure Kubernetes Service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: f96806828b2169e9022b1eaf2ec1819879c729ab
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 557e5a541b175f1641142779de23bb83ab212831
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867703"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290507"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-nodejs---azure-dev-spaces"></a>Démarrage rapide : Déboguer et itérer dans Kubernetes avec Visual Studio Code et Node.js - Azure Dev Spaces
 
@@ -21,7 +21,7 @@ Dans ce guide, vous allez apprendre à :
 - Développez du code de façon itérative dans des conteneurs avec Visual Studio Code.
 - Déboguez le code dans votre espace de développement à partir de Visual Studio Code.
 
-Azure Dev Spaces vous permet également de déboguer et d’itérer à l’aide de :
+Azure Dev Spaces vous permet également de déboguer et d’itérer avec :
 - [Java et Visual Studio Code](quickstart-java.md)
 - [.NET Core et Visual Studio Code](quickstart-netcore.md)
 - [.NET Core et Visual Studio](quickstart-netcore-visualstudio.md)

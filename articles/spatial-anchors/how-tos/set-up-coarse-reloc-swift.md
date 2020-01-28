@@ -1,6 +1,6 @@
 ---
-title: Relocalisation grossière en Swift
-description: Explication détaillée de la création et de la localisation d’ancres à l’aide de capteurs intégrés en Swift.
+title: Relocalisation approximative en Swift
+description: Explication détaillée de la création et de la localisation d’ancres avec la relocalisation approximative en Swift.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1381f6340d1b85376ad5be9e00c596aa921d957f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b568c43f8420b5a2f994b4cba145bf4d70b9010
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277176"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546161"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-swift"></a>Guide pratique pour créer et localiser des ancres en utilisant des capteurs intégrés en Swift
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-swift"></a>Guide pratique pour créer et localiser des ancres avec la relocalisation approximative en Swift
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -25,9 +25,9 @@ ms.locfileid: "74277176"
 > * [C++/NDK](set-up-coarse-reloc-cpp-ndk.md)
 > * [C++/WinRT](set-up-coarse-reloc-cpp-winrt.md)
 
-Azure Spatial Anchors peut associer des données de capteur de positionnement intégré aux ancres que vous créez. Ces données permettent également de déterminer rapidement s’il existe des ancres à proximité de votre appareil. Pour plus d’informations, consultez [Relocalisation grossière](../concepts/coarse-reloc.md).
+Azure Spatial Anchors peut associer des données de capteur de positionnement intégré aux ancres que vous créez. Ces données permettent également de déterminer rapidement s’il existe des ancres à proximité de votre appareil. Pour plus d’informations, consultez [Relocalisation approximative](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce guide, veillez à disposer des éléments suivants :
 

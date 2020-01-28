@@ -1,5 +1,5 @@
 ---
-title: Résoudre les échecs de création de machine virtuelle et d’environnement dans Azure DevTest Labs | Microsoft Docs
+title: Résoudre des défaillances de machine virtuelle et d’environnement Azure DevTest Labs
 description: Découvrez comment résoudre les échecs de création de machine virtuelle et d’environnement dans Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 945afd4f0a5049985955bbc71bbf6b2250f68d2a
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 155a359608cf6d846578306545f5ce0b4003949c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129034"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166346"
 ---
 # <a name="troubleshoot-virtual-machine-vm-and-environment-creation-failures-in-azure-devtest-labs"></a>Résoudre les échecs de création de machine virtuelle et d’environnement dans Azure DevTest Labs
 DevTest Labs vous communique des avertissements si un nom d’ordinateur n’est pas valide ou si vous êtes sur le point de violer une stratégie de laboratoire. Parfois, un symbole `X` rouge apparaît en regard de l’état de l’environnement ou de la machine virtuelle de laboratoire, vous indiquant qu’une erreur est survenue.  Cet article fournit quelques astuces que vous pouvez utiliser pour identifier le problème sous-jacent et, nous l’espérons, pour éviter que le problème ne se reproduise.

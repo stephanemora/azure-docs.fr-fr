@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 7185ac40cafce86c68efbf28c7e6a35fd4789bc3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 24369ed547b811b212518193a2ae2f76ed197754
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027642"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264625"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -61,7 +61,8 @@ Si les agents ne sont pas installés, vous ne pouvez pas utiliser certains servi
 ### <a name="manual-installation"></a>Installation manuelle
 L’agent de machine virtuelle Windows peut être installé manuellement avec un package Windows Installer. L’installation manuelle peut s’avérer nécessaire lorsque vous créez une image de machine virtuelle personnalisée qui est déployée sur Azure. Pour installer manuellement l’agent de machine virtuelle Windows, [téléchargez le programme d’installation de l’agent de machine virtuelle](https://go.microsoft.com/fwlink/?LinkID=394789). L’agent de machine virtuelle est pris en charge sur Windows Server 2008 R2 et les versions ultérieures.
 
-> [Remarque !] Il est important de mettre à jour l’option AllowExtensionOperations après l’installation manuelle de VMAgent sur une machine virtuelle qui a été déployée à partir d’une image que ProvisionVMAgent soit activé.
+> [!NOTE]
+> Il est important de mettre à jour l’option AllowExtensionOperations après l’installation manuelle de VMAgent sur une machine virtuelle déployée à partir d’une image sans que ProvisionVMAgent soit activé.
 
 ```powershell
 $vm.OSProfile.AllowExtensionOperations = $true

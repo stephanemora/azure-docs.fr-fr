@@ -5,16 +5,16 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 54e1eb0be18de8e5ed420e96629d6f23473272fe
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545709"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261549"
 ---
 # <a name="durable-orchestrations"></a>Orchestrations durables
 
-Durable Functions est une extension d’[Azure Functions](../functions-overview.md). Vous pouvez utiliser une *fonction orchestrator* pour orchestrer l’exécution d’autres fonctions Durable Functions dans une application de fonction. Les fonctions orchestrator présentent les caractéristiques suivantes :
+Durable Functions est une extension d’[Azure Functions](../functions-overview.md). Vous pouvez utiliser une *fonction d’orchestrateur* pour orchestrer l’exécution d’autres fonctions durables dans une application de fonction. Les fonctions orchestrator présentent les caractéristiques suivantes :
 
 * Les fonctions orchestrator définissent les workflows de fonction à l’aide de code procédural. Elles ne nécessitent aucun concepteur ou schéma déclaratif.
 * Les fonctions orchestrator peuvent appeler d’autres fonctions durables de façon synchrone et asynchrone. La sortie des fonctions appelées peut être enregistrée de façon fiable dans des variables locales.
@@ -55,7 +55,9 @@ Lorsqu’une fonction d’orchestration reçoit plus de tâches à effectuer (pa
 
 ## <a name="orchestration-history"></a>Historique d’orchestration
 
-Le comportement de l’approvisionnement en événements du framework Durable Task est étroitement lié au code de fonction orchestrator que vous écrivez. Supposons que vous disposiez d’une fonction orchestrator de chaînage d’activités, comme la fonction orchestrator C# suivante :
+Le comportement de l’approvisionnement en événements du framework Durable Task est étroitement lié au code de fonction orchestrator que vous écrivez. Supposons que vous disposez d’une fonction orchestrateur de chaînage d’activités, comme la fonction d’orchestrateur suivante :
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Si vous codez en JavaScript, votre fonction orchestrator de chaînage d’activités peut se présenter comme dans l’exemple de code suivant :
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,6 +90,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 À chaque instruction `await` (C#) ou `yield` (JavaScript), le framework Durable Task crée un point de contrôle de l’état d’exécution de la fonction dans un back-end de stockage durable (généralement le Stockage Table Azure). Cet état est appelé *historique d’orchestration*.
 
@@ -106,7 +110,7 @@ Une fois le point de contrôle terminé, la fonction d’orchestrateur peut êtr
 
 Une fois que vous avez terminé, l’historique de la fonction présentée précédemment ressemble au tableau suivant dans le Stockage Table Azure (présentation raccourcie à des fins d’illustration) :
 
-| PartitionKey (InstanceId)                     | Type d’événement             | Timestamp               | Entrée | Nom             | Résultat                                                    | Statut |
+| PartitionKey (InstanceId)                     | Type d’événement             | Timestamp               | Entrée | Name             | Résultats                                                    | Statut |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -139,7 +143,7 @@ Quelques remarques sur les valeurs de colonne :
   * **OrchestratorCompleted** : la fonction orchestrator a attendu.
   * **ContinueAsNew** : la fonction orchestrator s’est terminée et a redémarré avec un nouvel état. La colonne `Result` contient la valeur, qui est utilisée comme entrée dans l’instance redémarrée.
   * **ExecutionCompleted** : la fonction orchestrator s’est exécutée entièrement (ou a échoué). Les sorties de la fonction ou les détails de l’erreur sont stockés dans la colonne `Result`.
-* **Timestamp** : horodatage UTC de l’événement d’historique.
+* **Timestamp** : horodatage UTC de l’événement d’historique.
 * **Name** : nom de la fonction qui a été appelée.
 * **Entrée**: entrée au format JSON de la fonction.
 * **Result** : sortie de la fonction ; autrement dit, sa valeur renvoyée.
@@ -182,7 +186,7 @@ Les fonctions orchestrator peuvent également ajouter des stratégies de nouvell
 
 Pour obtenir plus d’informations et des exemples, consultez l’article [Gestion des erreurs](durable-functions-error-handling.md).
 
-### <a name="critical-sections-durable-functions-2x"></a>Sections critiques (Durable Functions 2. x)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Sections critiques (Durable Functions 2.x, actuellement seulement pour .NET)
 
 Les instances d’orchestration étant à thread unique, il n’est pas nécessaire de se soucier des conditions de concurrence *dans* une orchestration. Toutefois, des conditions de concurrence sont possibles quand les orchestrations interagissent avec des systèmes externes. Pour atténuer les conditions de concurrence en cas d’interaction avec des systèmes externes, les fonctions orchestrator peuvent définir des *sections critiques* à l’aide d’une méthode `LockAsync` dans .NET.
 
@@ -212,7 +216,9 @@ La fonctionnalité de section critique est également utile pour coordonner les 
 
 Les fonctions orchestrator ne sont pas autorisées à effectuer des E/S, comme décrit dans [Contraintes du code des fonctions orchestrator](durable-functions-code-constraints.md). La solution de contournement classique de cette limitation consiste à wrapper dans une fonction d’activité tout code qui doit effectuer des E/S. Les orchestrations qui interagissent avec des systèmes externes utilisent fréquemment des fonctions d’activité pour effectuer des appels HTTP et retourner le résultat à l’orchestration.
 
-Pour simplifier ce modèle courant, les fonctions orchestrator peuvent utiliser la méthode `CallHttpAsync` dans .NET pour appeler directement des API HTTP. En plus de prendre en charge les modèles de requête/réponse de base, `CallHttpAsync` prend en charge la gestion automatique des modèles d’interrogation HTTP 202 asynchrones courants, ainsi que l’authentification avec des services externes à l’aide d’[identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Pour simplifier ce modèle courant, les fonctions d’orchestrateur peuvent utiliser la méthode `CallHttpAsync` pour appeler directement des API HTTP.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -232,6 +238,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -244,6 +252,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+En plus de prendre en charge les modèles de requête/réponse de base, la méthode prend en charge la gestion automatique des modèles d’interrogation HTTP 202 asynchrones courants ainsi que l’authentification avec des services externes en utilisant des [identités managées](../../active-directory/managed-identities-azure-resources/overview.md).
+
 Pour obtenir plus d’informations et des exemples détaillés, consultez l’article [Fonctionnalités HTTP](durable-functions-http-features.md).
 
 > [!NOTE]
@@ -251,9 +263,11 @@ Pour obtenir plus d’informations et des exemples détaillés, consultez l’ar
 
 ### <a name="passing-multiple-parameters"></a>Transmission de plusieurs paramètres
 
-Il n’est pas possible de passer directement plusieurs paramètres à une fonction d’activité. Il est recommandé de passer un tableau d’objets ou d’utiliser des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) dans .NET.
+Il n’est pas possible de passer directement plusieurs paramètres à une fonction d’activité. La recommandation est de passer un tableau d’objets ou d’objets composites.
 
-Dans l’exemple suivant, de nouvelles fonctionnalités des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) sont ajoutées avec [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples) :
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Dans .NET, vous pouvez également utiliser des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). Dans l’exemple suivant, de nouvelles fonctionnalités des objets [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) sont ajoutées avec [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples) :
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -289,6 +303,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="orchestrator"></a>Un orchestrateur
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### <a name="activity"></a>Activité
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

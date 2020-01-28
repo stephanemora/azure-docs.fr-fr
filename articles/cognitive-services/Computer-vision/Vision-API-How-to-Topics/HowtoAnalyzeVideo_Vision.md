@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4855451136edfe86baaace48e2582fc7080a9b12
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 18b158b7a4881619b93ab404de67f7bb25f92b6a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770371"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166827"
 ---
 # <a name="analyze-videos-in-near-real-time"></a>Analyser des vidéos en quasi temps réel
 
@@ -148,7 +148,7 @@ La bibliothèque contient la classe `FrameGrabber`, qui implémente le système 
 
 Pour illustrer certaines des possibilités, nous avons fourni deux exemples d’applications qui utilisent la bibliothèque. 
 
-Le premier exemple d’application est une application console simple qui récupère des images de la webcam par défaut, puis les soumet à l’API Visage pour la détection de visage. Une version simplifiée de l’application est reproduite dans le code suivant :
+Le premier exemple d’application est une application console simple qui récupère des images de la webcam par défaut, puis les envoie au service Visage pour la détection des visages. Une version simplifiée de l’application est reproduite dans le code suivant :
 
 ```csharp
 using System;
@@ -169,7 +169,7 @@ namespace BasicConsoleSample
             // Create grabber.
             FrameGrabber<DetectedFace[]> grabber = new FrameGrabber<DetectedFace[]>();
 
-            // Create Face API Client.
+            // Create Face Client.
             FaceClient faceClient = new FaceClient(new ApiKeyServiceClientCredentials(ApiKey))
             {
                 Endpoint = Endpoint
@@ -185,7 +185,7 @@ namespace BasicConsoleSample
             grabber.AnalysisFunction = async frame =>
             {
                 Console.WriteLine($"Submitting frame acquired at {frame.Metadata.Timestamp}");
-                // Encode image and submit to Face API.
+                // Encode image and submit to Face service.
                 return (await faceClient.Face.DetectWithStreamAsync(frame.Image.ToMemoryStream(".jpg"))).ToArray();
             };
 
@@ -230,13 +230,13 @@ Grâce à cette approche, vous pouvez visualiser immédiatement le visage détec
 
 Pour commencer avec cet exemple, effectuez ceci :
 
-1. Obtenez des clés API pour les API Vision à partir [d’Abonnements](https://azure.microsoft.com/try/cognitive-services/). Pour l’analyse des trames vidéo, les API applicables sont les suivantes :
-    - [L’API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [L’API Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview)
+1. Obtenez des clés API pour les API Vision à partir [d’Abonnements](https://azure.microsoft.com/try/cognitive-services/). Pour l’analyse des images vidéo, les services applicables sont les suivants :
+    - [Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
+    - [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 2. Clonez le dépôt GitHub [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/).
 
 3. Ouvrez l’exemple dans Visual Studio 2015 ou ultérieur, puis générez et exécutez les exemples d’applications :
-    - Pour BasicConsoleSample, la clé API Visage est codée en dur directement dans [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - Pour BasicConsoleSample, la clé Visage est codée en dur directement dans [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - Pour LiveCameraSample, entrez les clés dans le volet **Paramètres** de l’application. Les clés sont conservées d’une session à l’autre en tant que données utilisateur.
 
 Quand vous êtes prêt à intégrer les exemples, référencez la bibliothèque VideoFrameAnalyzer depuis vos propres projets.
@@ -245,7 +245,7 @@ Les fonctionnalités de compréhension d’image, de voix, de vidéo et de texte
 
 ## <a name="summary"></a>Résumé
 
-Dans cet article, vous avez découvert comment exécuter une analyse quasi en temps réel sur des flux vidéo en direct en utilisant l’API Visage et l’API Vision par ordinateur. Vous avez également découvert comment vous pouvez utiliser notre exemple de code pour commencer. Pour commencer à créer votre application avec des clés d’API gratuites, accédez à la [page d’inscription d’Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
+Dans cet article, vous avez découvert comment exécuter une analyse en quasi temps réel sur des streams vidéo en direct à l’aide des services Visage et Vision par ordinateur. Vous avez également découvert comment vous pouvez utiliser notre exemple de code pour commencer. Pour commencer à créer votre application avec des clés d’API gratuites, accédez à la [page d’inscription d’Azure Cognitive Services](https://azure.microsoft.com/try/cognitive-services/).
 
 N’hésitez pas à fournir un feedback et des suggestions dans le [dépôt GitHub](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/). Pour fournir un feedback plus général sur l’API, accédez à notre [site UserVoice](https://cognitive.uservoice.com/).
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79f5284f95f6157c70461179177179a9fbee4fe0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561974"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293689"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à ServiceNow
 
@@ -46,9 +46,15 @@ Pour commencer, vous devez disposer de ce qui suit :
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. ServiceNow prend en charge l’authentification unique lancée par le **fournisseur de service** et le [provisionnement d’utilisateurs automatisé](servicenow-provisioning-tutorial.md).
+Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test. 
 
-Vous pouvez configurer l’application ServiceNow Classic (Mobile) avec Azure AD pour activer l’authentification unique. Il prend en charge les utilisateurs Android et iOS. Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
+* ServiceNow prend en charge l’authentification unique lancée par le **fournisseur de services**.
+
+* ServiceNow prend en charge le [provisionnement d’utilisateurs automatisé](servicenow-provisioning-tutorial.md).
+
+* Après avoir configuré ServiceNow, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+* Vous pouvez configurer l’application ServiceNow Classic (Mobile) avec Azure AD pour activer l’authentification unique. Il prend en charge les utilisateurs Android et iOS. Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 ## <a name="add-servicenow-from-the-gallery"></a>Ajouter ServiceNow à partir de la galerie
 
@@ -460,3 +466,7 @@ Quand vous sélectionnez la vignette ServiceNow dans le volet d’accès, vous d
 - [Configurer l’approvisionnement des utilisateurs](servicenow-provisioning-tutorial.md)
 
 - [Essayer ServiceNow avec Azure AD](https://aad.portal.azure.com)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+
+- [Guide pratique pour protéger ServiceNow avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -4,20 +4,25 @@ description: Explique la planification à effectuer avant de déployer Avere vFX
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: d4fc2a6b7def4b7c55faa37fbed756fbb830ff73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cd0c74c8aa40b3e96716ef37aa27b08b5f6aece1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415440"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547538"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planifier votre système Avere vFXT
 
 Cet article explique comment planifier un nouveau cluster vFXT Avere pour Azure dont la position et la taille répondent à vos besoins.
 
-Avant d’accéder à la Place de marché Azure ou de créer des machines virtuelles, vous devez réfléchir à la façon dont le cluster va interagir avec les autres éléments dans Azure. Vous devez prévoir l’emplacement des ressources de cluster dans votre réseau privé et vos sous-réseaux, ainsi que celui de votre stockage back-end. Vérifiez que les nœuds de cluster que vous créez sont suffisamment puissants pour prendre en charge votre flux de travail.
+Avant d’accéder à la Place de marché Azure ou de créer des machines virtuelles, prenez-en compte les aspects suivants :
+
+* Comment le cluster interagit-il avec d’autres ressources Azure ?
+* Où les éléments de cluster doivent-ils être situés dans des réseaux privés et des sous-réseaux ?
+* Quel type de stockage back-end allez-vous utiliser et comment le cluster y accèdera-t-il ?
+* Quelle doit être la puissance de vos nœuds de cluster pour prendre en charge votre workflow ?
 
 Lisez la suite pour en savoir plus.
 
@@ -41,12 +46,14 @@ Pensez à l’emplacement des éléments de votre déploiement vFXT Avere pour A
 
 ![Diagramme montrant le contrôleur de cluster et les machines virtuelles de cluster dans un sous-réseau Les limites du sous-réseau sont entourées des limites d’un réseau virtuel. Dans le réseau virtuel, un hexagone représente le point de terminaison du service de stockage. Celui-ci est relié par une flèche pointillée à un stockage Blob situé en dehors du réseau virtuel.](media/avere-vfxt-components-option.png)
 
-Suivez ces instructions pour planifier l’infrastructure réseau de votre système Avere vFXT :
+Suivez ces instructions pour planifier l’infrastructure réseau de votre cluster Avere vFXT :
 
-* Créez un nouvel abonnement pour chaque déploiement Avere vFXT pour Azure et gérez tous les composants de cet abonnement. Voici les avantages :
+* Créez un abonnement par Avere vFXT pour un déploiement Azure. Gérez tous les composants de cet abonnement.
+
+  Les avantages de l’utilisation d’un nouvel abonnement pour chaque déploiement sont les suivants :
   * Simplification du suivi des coûts : visualisez et auditez tous les coûts des ressources, de l’infrastructure et des cycles de calcul dans un seul abonnement.
   * Simplification du nettoyage : vous pouvez supprimer l’ensemble de l’abonnement une fois que vous en avez terminé avec le projet.
-  * Partitionnement des quotas de ressources : protégez d’autres charges de travail critiques contre une éventuelle limitation des ressources en isolant le cluster et les clients Avere vFXT dans un abonnement unique. Cela permet d'éviter les conflits lors de l'importation d'un grand nombre de clients pour un workflow de calcul haute performance.
+  * Partitionnement approprié des quotas de ressources : isolez les clients et clusters Avere vFXT dans un seul abonnement pour protéger d’autres charges de travail critiques d’une possible limitation des ressources. Cela permet d’éviter des conflits lors de l’importation d’un grand nombre de clients pour un workflow de calcul haute performance.
 
 * Recherchez les systèmes de calcul clients qui sont proches du cluster vFXT. Le stockage back-end, quant à lui, peut être plus distant.  
 
@@ -54,9 +61,9 @@ Suivez ces instructions pour planifier l’infrastructure réseau de votre syst�
 
   * Dans le même réseau virtuel
   * Dans le même groupe de ressources
-  * Dans le même compte de stockage
+  * À l’aide du même compte de stockage
   
-  Le modèle de création de cluster automatisée le gère dans la plupart des situations.
+  Le modèle de création de cluster gère cette configuration dans la plupart des situations.
 
 * Le cluster doit se trouver dans son propre sous-réseau afin d’éviter tout conflit d’adresses IP avec des clients ou d’autres ressources de calcul.
 
@@ -69,7 +76,7 @@ Suivez ces instructions pour planifier l’infrastructure réseau de votre syst�
   | Resource group | Oui, si vide | Doit être vide|
   | Compte de stockage | **Oui**, en cas de connexion d'un conteneur d'objets blob existant après création du cluster <br/>  **Non**, en cas de création d'un conteneur d’objets blob lors de la création du cluster | Le conteneur d’objets blob existant doit être vide <br/> &nbsp; |
   | Réseau virtuel | Oui | Doit inclure un point de terminaison de service de stockage en cas de création d’un conteneur d’objets blob Azure |
-  | Subnet | Oui |   |
+  | Subnet | Oui | Ne peut pas contenir d’autres ressources |
 
 ## <a name="ip-address-requirements"></a>Exigences relatives aux adresses IP
 
@@ -79,7 +86,7 @@ Le cluster Avere vFXT utilise les adresses IP suivantes :
 
 * Une adresse IP de gestion de cluster. Cette adresse peut être déplacée de nœud à nœud dans le cluster en fonction des besoins, afin qu’elle soit toujours disponible. Utilisez cette adresse pour vous connecter à l’outil de configuration du panneau de configuration Avere.
 * Pour chaque nœud du cluster :
-  * Au moins une adresse IP exposée aux clients (toutes les adresses exposées aux clients sont gérées par le *vserver* du cluster, qui peut les déplacer d’un nœud à l’autre en fonction des besoins).
+  * Au moins une adresse IP exposée aux clients (toutes les adresses exposées aux clients sont gérées par le *vserver* du cluster, qui peut déplacer les adresses IP entre les nœuds en fonction des besoins).
   * Une adresse IP pour la communication de cluster
   * Une adresse IP d’instance (affectée à la machine virtuelle)
 
@@ -102,9 +109,7 @@ Chaque nœud vFXT est identique. Autrement dit, si vous créez un cluster à tro
 
 La taille du cache de disque par nœud est configurable et peut aller de 1 000 Go à 8 000 Go. La taille du cache recommandée est de 4 To par nœud pour les nœuds Standard_E32s_v3.
 
-Pour plus d’informations sur ces machines virtuelles, consultez la documentation Microsoft Azure :
-
-* [Tailles de machine virtuelle à mémoire optimisée](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Pour plus d’informations sur ces machines virtuelles, consultez la documentation Microsoft Azure : [Tailles de machine virtuelle à mémoire optimisée](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Quota des comptes
 
@@ -112,11 +117,11 @@ Vérifiez que votre abonnement a la capacité nécessaire pour exécuter le clus
 
 ## <a name="back-end-data-storage"></a>Stockage de données back-end
 
-Les systèmes de stockage principaux fournissent des fichiers dans le cache du cluster et reçoivent également les données modifiées du cache. Décidez si votre plage de travail sera stockée à long terme dans un nouveau conteneur d’objets blob ou dans un système de stockage matériel ou cloud existant. Ces systèmes sont appelés *systèmes de stockage principaux*.
+Les systèmes de stockage principaux fournissent des fichiers dans le cache du cluster et reçoivent également les données modifiées du cache. Décidez si votre plage de travail sera stockée à long terme dans un nouveau conteneur d’objets blob ou dans un système de stockage (cloud ou matériel) existant. Ces systèmes sont appelés *systèmes de stockage principaux*.
 
 ### <a name="hardware-core-filers"></a>Systèmes de stockage principaux matériels
 
-Ajoutez des systèmes de stockage matériels au cluster vFXT après avoir créé le cluster. Vous pouvez utiliser n’importe quel système matériel local existant, y compris les systèmes locaux, tant que le système de stockage est accessible à partir du sous-réseau du cluster.
+Ajoutez des systèmes de stockage matériels au cluster vFXT après avoir créé le cluster. Vous pouvez utiliser divers systèmes matériels courants, dont des systèmes locaux, tant que le système de stockage est accessible à partir du sous-réseau du cluster.
 
 Pour obtenir des instructions détaillées sur l’ajout d’un système de stockage existant au cluster vFXT Avere, lisez [Configurer le stockage](avere-vfxt-add-storage.md).
 
@@ -142,7 +147,7 @@ Les options d’accès disponibles sont les suivantes :
   > [!TIP]
   > Si vous définissez une adresse IP publique sur le contrôleur de cluster, vous pouvez l’utiliser en tant qu’hôte de saut. Pour plus d’informations, consultez [Contrôleur de cluster en tant qu’hôte de saut](#cluster-controller-as-jump-host).
 
-* Réseau privé virtuel (VPN) : configurez un VPN point à site ou site à site vers votre réseau privé.
+* Réseau privé virtuel (VPN) : configurez un VPN point à site ou site à site entre votre réseau privé dans Azure et des réseaux d’entreprise.
 
 * Azure ExpressRoute : configurez une connexion privée par le biais d’un partenaire ExpressRoute.
 
@@ -156,20 +161,20 @@ Pour améliorer la sécurité d'un contrôleur avec adresse IP publique, le scri
 
 Quand vous créez le cluster, vous pouvez choisir s’il faut créer une adresse IP publique sur le contrôleur de cluster.
 
-* Si vous créez un **réseau virtuel** ou un **sous-réseau**, une **adresse IP publique** est affectée au contrôleur de cluster.
+* Si vous créez un **réseau virtuel** ou un **sous-réseau**, une **adresse IP publique** est attribuée au contrôleur de cluster.
 * Si vous sélectionnez un réseau virtuel et un sous-réseau existants, le contrôleur de cluster aura uniquement des adresses IP **privées**.
 
 ## <a name="vm-access-roles"></a>Rôles d’accès de machine virtuelle
 
 Azure utilise le [contrôle d’accès en fonction du rôle](../role-based-access-control/index.yml) (RBAC) pour autoriser les machines virtuelles de cluster à effectuer certaines tâches. Par exemple, le contrôleur de cluster doit être autorisé à créer et configurer les machines virtuelles de nœud de cluster. Les nœuds de cluster doivent pouvoir affecter ou réaffecter des adresses IP à d’autres nœuds de cluster.
 
-Deux rôles Azure intégrés sont utilisés pour les machines virtuelles Avere vFXT pour Azure :
+Deux rôles Azure intégrés sont utilisés pour les machines virtuelles Avere vFXT :
 
 * Le contrôleur de cluster utilise le rôle intégré [Contributeur Avere](../role-based-access-control/built-in-roles.md#avere-contributor).
 * Les nœuds de cluster utilisent le rôle intégré [Opérateur Avere](../role-based-access-control/built-in-roles.md#avere-operator).
 
 S'il vous faut personnaliser les rôles d’accès pour les composants Avere vFXT, définissez votre propre rôle, puis attribuez-le aux machines virtuelles au moment de leur création. Vous ne pouvez pas utiliser le modèle de déploiement dans la Place de marché Azure. Contactez le Support technique et le Service clientèle Microsoft en ouvrant un ticket dans le portail Azure, comme décrit dans [Obtenir de l’aide avec votre système](avere-vfxt-open-ticket.md).
 
-## <a name="next-step-understand-the-deployment-process"></a>Étape suivante : Comprendre le processus de déploiement
+## <a name="next-steps"></a>Étapes suivantes
 
-La [vue d’ensemble du déploiement](avere-vfxt-deploy-overview.md) donne une vue globale des étapes nécessaires à la création d’un système Avere vFXT pour système Azure, ainsi qu’à sa préparation en vue de fournir des données.
+La [vue d’ensemble du déploiement](avere-vfxt-deploy-overview.md) donne une vision globale des étapes nécessaires pour créer un système Avere vFXT pour Azure, ainsi que pour le préparer à fournir des données.

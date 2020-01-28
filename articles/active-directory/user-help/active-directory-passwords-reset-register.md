@@ -10,58 +10,63 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6dddd13f31366e5a99d6c68ab82b048de4064b2
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: d27b0b7aadf5cffc2a362843ab5373ee0dc5b170
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681359"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261838"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>Inscrire vos informations de méthode de vérification pour réinitialiser votre mot de passe
 
-> [!IMPORTANT]
-> Vous ne pouvez pas vous connecter et vous êtes retrouvé ici ? Dans ce cas, consultez [Réinitialiser votre mot de passe professionnel ou scolaire](active-directory-passwords-update-your-own-password.md).
+Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser.
 
-En tant qu’utilisateur final, vous pouvez réinitialiser votre mot de passe ou déverrouiller votre compte vous-même au moyen de la réinitialisation de mot de passe en libre-service (SSPR) Azure Active Directory (Azure AD). Pour pouvoir utiliser cette fonctionnalité, il vous faut inscrire vos méthodes de vérification ou confirmer les méthodes de vérification prédéfinies et remplies par votre administrateur.
+Votre administrateur doit activer cette fonctionnalité pour que vous puissiez enregistrer vos informations et réinitialiser votre mot de passe. Si l’option **J’ai oublié mon mot de passe** n’apparaît pas, cela signifie que votre administrateur n’a pas encore activé cette fonctionnalité pour votre organisation. Si vous pensez que ce n’est pas normal, contactez votre support technique pour obtenir de l’aide.
 
-## <a name="register-or-confirm-authentication-data-with-sspr"></a>Inscrire ou confirmer les données d’authentification avec SSPR
+>[!Important]
+>Cet article est destiné aux utilisateurs qui essaient d’utiliser une inscription pour la réinitialisation de mot de passe en libre-service. Cela signifie que vous serez en mesure de réinitialiser votre mot de passe professionnel ou scolaire (par exemple, alain@contoso.com), sans l’aide de votre administrateur. Si vous êtes administrateur et recherchez des informations sur la façon d’activer la réinitialisation de mot de passe en libre-service pour vos employés ou d’autres utilisateurs, voir [Déployer la réinitialisation de mot de passe en libre-service Azure AD et autres articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
-1. Ouvrez le navigateur web de votre appareil et accédez à la [page d’inscription à la réinitialisation de mot de passe](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
-2. Entrez le nom d’utilisateur et le mot de passe que vous a fournis votre administrateur.
-3. Selon la façon dont votre service informatique a effectué la configuration, une ou plusieurs des options suivantes peuvent être configurées et vérifiées par vous. Si vous avez autorisé votre administrateur à utiliser vos informations, il peut remplir certaines informations pour vous.
-    * **Téléphone de bureau** : seul votre administrateur peut définir cette option.
-    * **Téléphone d’authentification** : définissez cette option sur un autre numéro de téléphone auquel vous avez accès. Par exemple, un téléphone cellulaire qui peut recevoir un texte ou un appel.
-    * **E-mail d’authentification** : définissez cette option sur une autre adresse e-mail à laquelle vous avez accès sans utiliser le mot de passe que vous souhaitez réinitialiser.
-    * **Question de sécurité** : votre administrateur a approuvé cette liste de questions auxquelles vous devez répondre. Vous ne pouvez pas utiliser la même question ou réponse plusieurs fois.
-4. Fournissez et vérifiez les informations que demande votre administrateur. Si plusieurs options sont disponibles, nous vous suggérons d’inscrire plusieurs méthodes. Cela vous donne une grande souplesse si une des méthodes n’est pas disponible. C’est par exemple le cas quand vous êtes en déplacement et que vous ne pouvez pas accéder à votre téléphone de bureau.
+## <a name="set-up-your-password-reset-verification-method"></a>Configurer votre méthode de vérification de réinitialisation de mot de passe
 
-    ![Inscrire des méthodes de vérification et sélectionner Terminer][Register]
+1. Ouvrez le navigateur web sur votre appareil et accédez à la [page des informations de sécurité](https://account.activedirectory.windowsazure.com/PasswordReset/Register.aspx?regref=ssprsetup).
 
-5. Sélectionnez **Terminer**. Vous pouvez désormais utiliser la fonctionnalité SSPR.
+2. Selon la façon dont votre administrateur a configuré votre organisation, une ou plusieurs des options suivantes sont disponibles pour vous permettre de configurer votre méthode de vérification de sécurité. Si plusieurs options sont disponibles, nous vous recommandons vivement d’en utiliser plusieurs comme méthode de vérification de sécurité, au cas où l’une de vos méthodes deviendrait indisponible.
 
-Si vous entrez des données pour **Téléphone d’authentification** ou **E-mail d’authentification**, elles ne sont pas visibles dans l’annuaire global. Les seules personnes qui peuvent voir ces données sont vos administrateurs et vous-même. Vous êtes la seule personne à pouvoir voir les réponses à vos questions de sécurité.
+    - **Application d’authentification.** Choisissez d’utiliser l’application Microsoft Authenticator ou une autre application d’authentification comme méthode de vérification de sécurité. Pour plus d’informations sur la configuration de l’application, voir [Configurer l’application Microsoft Authenticator comme méthode de vérification](security-info-setup-auth-app.md).
 
-Vos administrateurs peuvent vous demander de confirmer vos méthodes de vérification après quelque temps pour vérifier que les méthodes inscrites sont toujours les bonnes.
+    - **Messagerie texte.** Choisissez d’envoyer des SMS à votre appareil mobile. Pour plus d’informations sur la configuration de la messagerie texte, voir [Configurer l’envoi de SMS comme méthode de vérification](security-info-setup-text-msg.md).
+
+    - **Appels téléphoniques.** Choisissez de recevoir un appel téléphonique sur votre numéro de téléphone inscrit. Pour plus d’informations sur la configuration des appels téléphoniques, voir [Configurer un numéro de téléphone comme méthode de vérification](security-info-setup-phone-number.md).
+
+    - **Clé de sécurité.** Choisissez d’utiliser une clé de sécurité compatible avec Microsoft. Pour plus d’informations, voir [Configurer une clé de sécurité comme méthode de vérification](security-info-setup-security-key.md).
+
+    - **Adresse e-mail.** Choisissez d’utiliser une autre adresse e-mail utilisable sans votre mot de passe oublié ou manquant. Cela ne fonctionne que pour la réinitialisation de mot de passe, pas comme méthode de vérification de sécurité. Pour plus d’informations sur la configuration d’une adresse e-mail, voir [Configurer une adresse e-mail comme méthode de vérification](security-info-setup-email.md).
+
+    - **Questions de sécurité.** Choisissez de configurer et de répondre à des questions de sécurité prédéfinies formulées par votre administrateur. Cela ne fonctionne que pour la réinitialisation de mot de passe, pas comme méthode de vérification de sécurité. Pour plus d’informations sur les questions de sécurité, voir [Configurer des questions de sécurité comme méthode de vérification](security-info-setup-questions.md).
+
+3. Après avoir sélectionné et configuré vos méthodes, choisissez **Terminer** pour achever le processus.
+
+    > [!Note]
+    > Les informations ajoutées pour votre numéro de téléphone ou votre adresse e-mail ne sont pas partagées avec l’annuaire global de votre organisation. Les seules personnes qui peuvent voir ces informations sont votre administrateur et vous-même. Vous êtes la seule personne à pouvoir voir les réponses à vos questions de sécurité.
 
 ## <a name="common-problems-and-their-solutions"></a>Problèmes courants et leurs solutions
 
  Voici quelques cas d'erreur courants et leurs solutions :
 
-| Cas d’erreur| Quelle erreur voyez-vous ?| Solution |
+| Message d’erreur |  Solution possible |
 | --- | --- | --- |
-| J’obtiens une page « Veuillez contacter votre administrateur » après avoir entré mon identifiant utilisateur. | Contactez votre administrateur. <br> <br> Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par Microsoft. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe. <br> <br> Contactez votre service informatique pour une aide supplémentaire. | Ce message s’affiche parce que votre service informatique gère votre mot de passe dans votre environnement local et ne vous autorise pas à réinitialiser votre mot de passe à partir du lien **Votre compte n’est pas accessible**. <br> <br> Pour réinitialiser votre mot de passe, contactez votre service informatique directement. Indiquez-lui que vous voulez réinitialiser votre mot de passe pour qu’il active cette fonctionnalité pour vous.|
-| J'obtiens une erreur « Votre compte n'est pas activé pour la réinitialisation de mot de passe » après avoir entré mon identifiant utilisateur. | Votre compte n’est pas activé pour la réinitialisation du mot de passe. <br> <br> Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que votre service informatique n’a pas activé la réinitialisation de mot de passe pour votre entreprise à partir du lien **Vous ne pouvez pas accéder à votre compte** ou ne vous a pas octroyé de licence vous permettant d’utiliser la fonctionnalité. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien **Contacter un administrateur**. Un e-mail est envoyé au service informatique de votre entreprise. Il lui indique que vous voulez réinitialiser votre mot de passe afin qu’elle active cette fonctionnalité pour vous. |
-| J'obtiens une erreur « Impossible de vérifier votre compte » après avoir entré mon identifiant utilisateur. | Nous n'avons pas pu vérifier votre compte. <br> <br> Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Ce message s’affiche parce que vous êtes autorisé à réinitialiser le mot de passe, mais que vous ne vous êtes pas inscrit pour utiliser le service. Pour demander une réinitialisation du mot de passe, accédez à la [page d’inscription à la réinitialisation du mot de passe](https://aka.ms/ssprsetup) une fois que vous avez à nouveau accès à votre compte. <br> <br> Pour réinitialiser votre mot de passe, sélectionnez le lien **Contacter un administrateur** afin d’envoyer un e-mail au service informatique de votre entreprise. |
+| Contactez votre administrateur.<br>Nous avons détecté que votre mot de passe de compte d'utilisateur n'est pas géré par Microsoft. Par conséquent, nous ne pouvons pas réinitialiser automatiquement votre mot de passe.<br>Contactez votre service informatique pour une aide supplémentaire.| Si vous recevez ce message d’erreur après avoir tapé votre ID d’utilisateur, cela signifie que votre organisation gère votre mot de passe en interne et ne veut pas que vous réinitialisiez votre mot de passe à partir du lien **Vous ne pouvez pas accéder à votre compte ?** . Pour réinitialiser votre mot de passe dans ce cas, vous devez contacter le support technique de votre organisation ou votre administrateur pour obtenir de l’aide. |
+| Votre compte n’est pas activé pour la réinitialisation du mot de passe.<br>Nous sommes désolés, mais votre service informatique n’a pas configuré votre compte pour utiliser ce service.<br>Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Si vous recevez ce message d’erreur après avoir tapé votre ID d’utilisateur, cela signifie que votre organisation n’a pas activé la fonctionnalité de réinitialisation de mot de passe ou que vous n’êtes pas autorisé à l’utiliser. Pour réinitialiser votre mot de passe dans ce cas, vous devez sélectionner le lien **Contacter un administrateur**. Une fois que vous avez cliqué sur le lien, un message électronique est envoyé au support technique ou à l’administrateur de votre organisation, les informant que vous souhaitez réinitialiser votre mot de passe. |
+| Nous n'avons pas pu vérifier votre compte.<br>Si vous le souhaitez, nous pouvons contacter un administrateur de votre organisation pour réinitialiser le mot de passe à votre place. | Si vous recevez ce message d’erreur après avoir tapé votre ID d’utilisateur, cela signifie que votre organisation a activé la réinitialisation de mot de passe et que vous pouvez l’utiliser, mais que vous ne vous êtes pas inscrit au service. Dans ce cas, vous devez contacter le support technique ou l’administrateur de votre organisation pour réinitialiser votre mot de passe. Pour plus d’informations sur l’inscription à la réinitialisation de mot de passe après retour sur votre appareil, voir le processus décrit plus haut dans cet article. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Changer votre mot de passe avec la réinitialisation de mot de passe en libre-service](active-directory-passwords-update-your-own-password.md)
-* [Page relative à l’inscription à la réinitialisation du mot de passe](https://aka.ms/ssprsetup)
-* [Portail de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/)
-* [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- [Changer votre mot de passe avec la réinitialisation de mot de passe en libre-service](active-directory-passwords-update-your-own-password.md)
 
-[Register]: ./media/active-directory-passwords-reset-register/register-2-methods.png "Page Inscription à la réinitialisation de mot de passe, montrant les méthodes inscrites et le bouton Terminer"
+- [Page d’informations de sécurité](https://mysignins.microsoft.com/security-info)
 
+- [Portail de réinitialisation du mot de passe](https://passwordreset.microsoftonline.com/)
+
+- [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)

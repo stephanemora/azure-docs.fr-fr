@@ -1,29 +1,21 @@
 ---
-title: 'Didacticiel : mettre automatiquement à l’échelle un groupe identique avec Azure PowerShell | Microsoft Docs'
+title: Tutoriel - Effectuer une mise à l’échelle automatique d’un groupe identique avec Azure PowerShell
 description: Découvrez comment mettre automatiquement à l’échelle un groupe de machines virtuelles identiques avec Azure PowerShell en fonction de l’augmentation et de la baisse des demandes d’UC
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677593"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278407"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques avec Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
@@ -76,12 +68,12 @@ Les paramètres suivants sont utilisés pour cette règle :
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | Métrique de performances à surveiller et sur laquelle appliquer des actions de groupe identique.                                                   | Percentage CPU |
 | *-TimeGrain*            | Fréquence à laquelle les métriques sont collectées à des fins d’analyse.                                                                   | 1 minute       |
-| *-MetricStatistic*      | Définit la manière dont les métriques collectées doivent être agrégées à des fins d’analyse.                                                | Moyenne        |
+| *-MetricStatistic*      | Définit la manière dont les métriques collectées doivent être agrégées à des fins d’analyse.                                                | Average        |
 | *-TimeWindow*           | Temps de surveillance avant que les valeurs de métrique et de seuil soient comparées.                                   | 5 minutes      |
 | *-Operator*             | Opérateur utilisé pour comparer les données de métrique au seuil.                                                     | Supérieur à   |
 | *-Threshold*            | Valeur qui amène la règle de mise à l’échelle automatique à déclencher une action.                                                      | 70 %            |
 | *-ScaleActionDirection* | Définit si le groupe identique doit augmenter ou réduire l’échelle lorsque la règle s’applique.                                             | Augmenter       |
-| *–ScaleActionScaleType* | Indique que le nombre d’instances de machine virtuelle doit être modifié par une certaine valeur.                                    | Nombre de modifications   |
+| *-ScaleActionScaleType* | Indique que le nombre d’instances de machine virtuelle doit être modifié par une certaine valeur.                                    | Nombre de modifications   |
 | *-ScaleActionValue*     | Le pourcentage d’instances de machine virtuelle doit être modifié lorsque la règle se déclenche.                                            | 3              |
 | *-ScaleActionCooldown*  | Temps d’attente avant que la règle soit appliquée à nouveau afin que les actions de mise à l’échelle automatique aient le temps de porter effet. | 5 minutes      |
 
@@ -97,7 +89,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
@@ -119,7 +111,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 
@@ -216,7 +208,7 @@ Une fois que vous êtes connecté à la deuxième instance de machine virtuelle,
 Pour permettre à l’outil **CPU Stress** de continuer à s’exécuter, laissez les deux sessions de connexion au Bureau à distance ouvertes.
 
 
-## <a name="monitor-the-active-autoscale-rules"></a>Surveiller les règles de mise à l’échelle automatique actives
+## <a name="monitor-the-active-autoscale-rules"></a>Surveiller les règles actives de mise à l’échelle automatique
 Pour surveiller le nombre d’instances de machine virtuelle dans votre groupe identique, utilisez **while**. Les règles de mise à l’échelle automatique prennent 5 minutes pour commencer le processus de montée en puissance en réponse à la charge d’UC générée par **CPUStress* sur chacune des instances de machine virtuelle :
 
 ```azurepowershell-interactive
@@ -246,7 +238,7 @@ MYRESOURCEGROUP   myScaleSet_6   eastus Standard_DS2                   6        
 Quittez *while* avec `Ctrl-c`. Le groupe identique continue à diminuer toutes les 5 minutes et supprime une instance de machine virtuelle jusqu’à ce que la quantité minimale d’instances (2) soit atteinte.
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup). Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
 
 ```azurepowershell-interactive

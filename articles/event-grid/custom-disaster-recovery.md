@@ -1,18 +1,18 @@
 ---
 title: Reprise d’activité pour les rubriques personnalisées dans Event Grid
-description: Découvrez comment survivre aux pannes régionales pour maintenir la connexion d’Azure Event Grid.
+description: Ce tutoriel vous aide à configurer votre architecture de gestion des événements en vue d’une reprise d’activité, si le service Event Grid devient non sain dans une région.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 87f8f79e2cf125fa5735653153d8fcaa781f5200
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790275"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511516"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Créer votre propre système de reprise d’activité pour les rubriques personnalisées dans Event Grid
 La récupération d’urgence se concentre sur la récupération des fonctionnalités des applications en cas de perte grave. Ce tutoriel vous aide à configurer votre architecture de gestion des événements en vue d’une reprise d’activité, si le service Event Grid devient non sain dans une région.
@@ -46,7 +46,7 @@ Prenez note de cette URL, car vous en aurez besoin ultérieurement.
 
 Tout d’abord, créez deux rubriques Event Grid. Il s’agira de la rubrique principale et de la rubrique secondaire. Par défaut, vos événements sont acheminés vers votre rubrique principale. En cas d’interruption du service dans la région primaire, la secondaire prend le relais.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 
 1. En haut à gauche du menu Azure principal, choisissez **Tous les services**, recherchez **Event Grid**, puis sélectionnez **Rubriques Event Grid**.
 

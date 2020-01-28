@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428523"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548473"
 ---
 # <a name="filter-based-feature-selection"></a>Sélection de caractéristiques par filtrage
 
@@ -97,9 +97,9 @@ Vous choisissez une métrique statistique standard. Le module calcule la corrél
 
 Une fois le processus terminé :
 
-+ Pour afficher la liste complète des colonnes de caractéristiques qui ont été analysées ainsi que leur score, cliquez avec le bouton droit sur le module. Sélectionnez **Caractéristiques**, puis sélectionnez **Visualiser**.  
++ Pour afficher la liste complète des colonnes de caractéristiques analysées ainsi que leurs scores, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**.  
 
-+ Pour afficher le jeu de données qui est généré en fonction de vos critères de sélection de caractéristiques, cliquez avec le bouton droit sur le module. Sélectionnez **Jeu de données**, puis **Visualiser**. 
++ Pour afficher le jeu de données basé sur vos critères de sélection de caractéristiques, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**. 
 
 Si le jeu de données contient moins de colonnes que prévu, vérifiez les paramètres du module. Vérifiez également les types de données des colonnes fournies comme entrées. Par exemple, si vous avez indiqué 1 dans **Number of desired features** (Nombre de caractéristiques souhaité), le jeu de données de sortie contient seulement deux colonnes : la colonne Étiquette et la colonne de type Caractéristique la mieux classée.
 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982456"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543305"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Entraîner avec des jeux de données dans Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ Ce code crée un objet estimateur générique, `est`, qui spécifie
 
 * Un répertoire de script pour vos scripts. Tous les fichiers dans ce répertoire sont chargés dans les nœuds de cluster pour l’exécution.
 * Le script d’entraînement, *train_titanic.py*.
-* Le jeu de données d’entrée pour l’entraînement, `titanic`.
+* Le jeu de données d’entrée pour l’entraînement, `titanic`. `as_named_input()` est requis pour que le jeu de données d’entrée puisse être référencé par le nom attribué dans votre script de formation. 
 * La cible de calcul pour l’expérience.
 * La définition de l’environnement pour l’expérience.
 
@@ -105,8 +105,11 @@ experiment_run.wait_for_completion(show_output=True)
 Si vous souhaitez que vos fichiers de données soient disponibles sur la cible de calcul pour l’entraînement, utilisez [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) pour monter ou télécharger des fichiers référencés par celui-ci.
 
 ### <a name="mount-vs-download"></a>Montage/ Téléchargement
-Quand vous montez un jeu de données, vous attachez les fichiers référencés par le jeu de données à un répertoire (point de montage) et le rendez disponible sur la cible de calcul. Le montage est pris en charge pour les calculs basés sur Linux, y compris la capacité de calcul Azure Machine Learning, les machines virtuelles et HDInsight. Si la taille de vos données dépasse la taille du disque de calcul ou si vous chargez uniquement une partie du jeu de données dans votre script, le montage est recommandé. En effet, le téléchargement d’un jeu de données d’une taille supérieure à celle du disque échoue, alors que le montage ne charge que les données utilisées par votre script au moment du traitement. Lorsque vous téléchargez un jeu de données, tous les fichiers référencés par le jeu de données sont téléchargés sur la cible de calcul. Le téléchargement est pris en charge pour tous les types de calcul. Si votre script traite tous les fichiers référencés par le jeu de données et que votre disque de calcul peut contenir le jeu de données complet, le téléchargement est recommandé pour éviter la charge de traitement inhérente au streaming des données à partir des services de stockage.
+Quand vous montez un jeu de données, vous attachez les fichiers référencés par le jeu de données à un répertoire (point de montage) et le rendez disponible sur la cible de calcul. Le montage est pris en charge pour les calculs basés sur Linux, y compris la capacité de calcul Azure Machine Learning, les machines virtuelles et HDInsight. Si la taille de vos données dépasse la taille du disque de calcul ou si vous chargez uniquement une partie du jeu de données dans votre script, le montage est recommandé. En effet, le téléchargement d’un jeu de données d’une taille supérieure à celle du disque échoue, alors que le montage ne charge que les données utilisées par votre script au moment du traitement. 
 
+Lorsque vous téléchargez un jeu de données, tous les fichiers référencés par le jeu de données sont téléchargés sur la cible de calcul. Le téléchargement est pris en charge pour tous les types de calcul. Si votre script traite tous les fichiers référencés par le jeu de données et que votre disque de calcul peut contenir le jeu de données complet, le téléchargement est recommandé pour éviter la charge de traitement inhérente au streaming des données à partir des services de stockage.
+
+Le montage ou le téléchargement de fichiers de tout format sont pris en charge pour des jeux de données créés à partir des stockages suivants : Stockage Blob Azure, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database et Azure Database pour PostgreSQL. 
 
 ### <a name="create-a-filedataset"></a>Créer un FileDataset
 
@@ -126,7 +129,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Configurer l’estimateur
 
-Au lieu de transmettre le jeu de données par le biais du paramètre `inputs` dans l’estimateur, vous pouvez le transmettre par le biais de `script_params` et obtenir le chemin de données (point de montage) dans votre script d’entraînement via des arguments. De cette façon, vous pouvez accéder à vos données et utiliser un script d’entraînement existant.
+En plus de transmettre le jeu de données via le paramètre `inputs` dans l’estimateur, vous pouvez le transmettre via `script_params` et obtenir le chemin d’accès aux données (point de montage) dans votre script de formation via des arguments. De cette façon, vous pouvez conserver votre script de formation indépendant d’azureml-sdk. Autrement dit, vous serez en mesure d’utiliser le même script de formation pour le débogage local et la formation à distance sur tout plateforme cloud.
 
 Un objet estimateur [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) est utilisé afin de soumettre l’exécution pour les expériences scikit-learn. Apprenez-en davantage sur l’entraînement avec l’[estimateur SKlearn](how-to-train-scikit-learn.md).
 

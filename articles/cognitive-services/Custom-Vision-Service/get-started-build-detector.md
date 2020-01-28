@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 0d9c175db1370fe07b3278a46d910c59d81df860
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969919"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170004"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>Démarrage rapide : Créer un détecteur d’objets avec Custom Vision
 
@@ -23,7 +23,7 @@ Dans ce guide de démarrage rapide, vous allez découvrir comment créer un dét
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un ensemble d’images avec lequel entraîner votre modèle de détecteur. Vous pouvez utiliser l’ensemble d’[exemples d’images](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) disponible sur GitHub, ou choisir vos propres images à l’aide des conseils ci-dessous.
 
@@ -107,6 +107,8 @@ Une fois l’entraînement terminé, les performances du modèle sont calculées
 ## <a name="manage-training-iterations"></a>Gérer les itérations d’entraînement
 
 Chaque fois que vous entraînez votre détecteur, vous créez une nouvelle _itération_ avec ses propres métriques de performances mises à jour. Vous pouvez afficher toutes vos itérations dans le volet gauche de l’onglet **Performance**. Dans le volet gauche, vous trouvez également le bouton **Delete** (Supprimer), que vous pouvez utiliser pour supprimer une itération si elle est obsolète. Quand vous supprimez une itération, vous supprimez également toutes les images qui lui sont spécifiquement associées.
+
+Consultez [Utiliser votre modèle avec l’API de prédiction](./use-prediction-api.md) pour apprendre à accéder à vos modèles entraînés par programmation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

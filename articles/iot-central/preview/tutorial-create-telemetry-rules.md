@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 793bb46e14725b14c766569e8b0fc2aa0246858e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3889378f34d66f54ea408da4aa43b12f86e7c586
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979051"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262619"
 ---
-# <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Didacticiel : Créer une règle et configurer des notifications dans votre application Azure IoT Central (fonctionnalités en préversion)
+# <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Tutoriel : Créer une règle et configurer des notifications dans votre application Azure IoT Central (fonctionnalités en préversion)
 
 *Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
 
@@ -25,21 +25,22 @@ Vous pouvez utiliser Azure IoT Central pour surveiller à distance vos appareils
 
 Les appareils utilisent la télémétrie pour envoyer des données numériques. Une règle se déclenche quand la télémétrie de l’appareil sélectionné dépasse un seuil spécifique.
 
-Dans ce tutoriel, vous créez une règle pour envoyer un e-mail quand la température d’un capteur environnemental dépasse 80&deg; F (environ 26° C).
+Dans ce tutoriel, vous créez une règle pour envoyer un e-mail quand la température d’un capteur environnemental dépasse 70&deg; F (environ 21° C).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Créer une règle
 > * Ajouter une action de messagerie
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez suivre les deux guides de démarrage rapide [Créer une application Azure IoT Central](./quick-deploy-iot-central.md) et [Ajouter un appareil simulé à votre application IoT Central](./quick-create-pnp-device.md) pour créer le modèle d’appareil **Capteur environnemental** à utiliser.
 
 ## <a name="create-a-rule"></a>Créer une règle
 
-Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au moins une mesure de télémétrie définie. Ce tutoriel utilise un capteur environnemental qui envoie la télémétrie relative à la température et à l’humidité. Vous avez ajouté ce modèle d’appareil et créé un appareil simulé dans le guide de démarrage rapide [Ajouter un appareil simulé à votre application IoT Central](./quick-create-pnp-device.md). La règle surveille la température signalée par l’appareil et envoie un e-mail quand elle dépasse 80 degrés.
+Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au moins une mesure de télémétrie définie. Ce tutoriel utilise un capteur environnemental qui envoie la télémétrie relative à la température et à l’humidité. Vous avez ajouté ce modèle d’appareil et créé un appareil simulé dans le guide de démarrage rapide [Ajouter un appareil simulé à votre application IoT Central](./quick-create-pnp-device.md). La règle surveille la température signalée par l’appareil et envoie un e-mail quand elle dépasse 70 degrés.
 
 1. Dans le volet gauche, sélectionnez **Règles**.
 
@@ -57,18 +58,18 @@ Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au m
 
 ### <a name="configure-the-rule-conditions"></a>Configurer les conditions de la règle
 
-Les conditions définissent les critères de supervision de la règle. Dans ce tutoriel, vous configurez la règle pour qu’elle se déclenche quand la température dépasse 80 &deg;F (environ 26° C).
+Les conditions définissent les critères de supervision de la règle. Dans ce tutoriel, vous configurez la règle pour qu’elle se déclenche quand la température dépasse 70 &deg;F (environ 21° C).
 
 1. Sélectionnez **Température** dans le menu déroulant **Télémétrie**.
 
-1. Choisissez ensuite **Est supérieur à** pour **Opérateur**, puis entrez _80_ pour **Valeur**.
+1. Choisissez ensuite **Est supérieur à** pour **Opérateur**, puis entrez _70_ pour **Valeur**.
 
     ![Condition](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
 1. Vous pouvez éventuellement définir une **Agrégation de temps**. Quand vous sélectionnez une agrégation de temps, vous devez également sélectionner un type d’agrégation, par exemple une moyenne ou une somme, dans la liste déroulante d’agrégation.
 
-    * Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température dépasse 80, la règle se déclenche presque instantanément lorsque l’appareil affiche température > 80.
-    * Avec l’agrégation, la règle se déclenche si la valeur agrégée des points de données de télémétrie de la fenêtre de temps répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température est supérieure à 80, si l’agrégation de temps est définie à 10 minutes et si le type d’agrégation est une moyenne, la règle se déclenche quand l’appareil signale une température moyenne > 80 calculée sur un intervalle de 10 minutes.
+    * Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température dépasse 70, elle se déclenche presque instantanément quand l’appareil signale une température supérieure à 70.
+    * Avec l’agrégation, la règle se déclenche si la valeur agrégée des points de données de télémétrie de la fenêtre de temps répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température est supérieure à 70, si l’agrégation de temps est définie à 10 minutes et si le type d’agrégation est une moyenne, la règle se déclenche quand l’appareil signale une température moyenne supérieure à 70 calculée sur un intervalle de 10 minutes.
 
      ![Agréger une condition](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 
@@ -109,7 +110,7 @@ Choisissez la règle que vous voulez activer ou désactiver. Ajoutez un filtre d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 * Créer une règle basée sur la télémétrie
 * Ajouter une action

@@ -1,5 +1,5 @@
 ---
-title: Utilisation du chiffrement dynamique DRM et du service de remise des licences
+title: Chiffrement de gestion des droits numériques (DRM) et service de remise de licence Azure Media Services
 titleSuffix: Azure Media Services
 description: Découvrez comment utiliser le chiffrement dynamique DRM et le service de remise de licences pour remettre des flux chiffrés avec des licences Microsoft PlayReady, Google Widevine ou Apple FairPlay.
 services: media-services
@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974068"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513063"
 ---
-# <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Didacticiel : Utilisation du chiffrement dynamique DRM et du service de remise des licences
+# <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutoriel : Utilisation du chiffrement dynamique DRM et du service de remise des licences
 
 > [!NOTE]
 > Ce tutoriel utilise les exemples du [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), mais les étapes générales sont les mêmes pour l’[API REST](https://docs.microsoft.com/rest/api/media/liveevents), l’[interface CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [SDK](media-services-apis-overview.md#sdks) pris en charge.
@@ -46,7 +46,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Créer un localisateur de streaming avec la stratégie de streaming spécifiée.
 > * Créer une URL utilisée pour la lecture de votre fichier.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les éléments suivants sont requis pour suivre le didacticiel :
 
@@ -166,7 +166,7 @@ En règle générale, vous devez supprimer tous les éléments à l’exception 
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#CleanUp)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.
 

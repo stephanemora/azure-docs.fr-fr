@@ -1,29 +1,21 @@
 ---
-title: 'Tutoriel : Créer et utiliser des disques pour les groupes identiques avec Azure CLI | Microsoft Docs'
+title: Tutoriel - Créer et utiliser des disques pour les groupes identiques avec Azure CLI
 description: Découvrez comment utiliser Azure CLI pour créer et utiliser la fonctionnalité Disques managés avec un groupe de machines virtuelles identiques, notamment comment ajouter, préparer, répertorier et détacher les disques.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751155"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278246"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques avec Azure CLI
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
@@ -54,7 +46,7 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 | [Optimisé pour le calcul](../virtual-machines/linux/sizes-compute.md) | Série F | 576 |
 | [Mémoire optimisée](../virtual-machines/linux/sizes-memory.md) | Séries D, E, G et M | 6144 |
 | [Optimisé pour le stockage](../virtual-machines/linux/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 1 440 |
+| [GPU](../virtual-machines/linux/sizes-gpu.md) | Série N | 1440 |
 | [Hautes performances](../virtual-machines/linux/sizes-hpc.md) | Séries A et H | 2000 |
 
 
@@ -84,9 +76,9 @@ Les disques Premium reposent sur un disque SSD à faible latence et hautes perfo
 ### <a name="premium-disk-performance"></a>Performances du disque Premium
 |Type de disque de stockage Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Taille du disque (arrondie) | 32 Go | 64 Go | 128 Go | 512 Go | 1 024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) |
+| Taille du disque (arrondie) | 32 Go | 64 Go | 128 Go | 512 Go | 1 024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) |
 | Nb max. d'E/S par seconde par disque | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
-Débit par disque | 25 Mo/s | 50 Mo/s | 100 Mo/s | 150 Mo/s | 200 Mo/s | 250 Mo/s | 250 Mo/s |
+Débit par disque | 25 Mo/s | 50 Mo/s | 100 Mo/s | 150 Mo/s | 200 Mo/s | 250 Mo/s | 250 Mo/s |
 
 Bien que le tableau ci-dessus identifie le nombre max. d’E/S par seconde par disque, un niveau de performances plus élevé est possible en entrelaçant plusieurs disques de données. Par exemple, une machine virtuelle Standard_GS5 peut atteindre un nombre maximum d’E/S par seconde de 80 000. Pour plus d’informations sur le nombre max. d’E/S par seconde par machine virtuelle, consultez [Tailles des machines virtuelles Linux dans Azure](../virtual-machines/linux/sizes.md).
 
@@ -164,7 +156,7 @@ Examinez les partitions sur l’instance de machine virtuelle comme suit :
 sudo fdisk -l
 ```
 
-L’exemple de sortie suivant montre que trois disques sont attachés à l’instance de machine virtuelle : */dev/sdc*, */dev/sdd* et *sde/dev/*. Chacun de ces disques a une seule partition qui utilise tout l’espace disponible :
+L’exemple de sortie suivant montre que trois disques sont attachés à l’instance de machine virtuelle : */dev/sdc*, */dev/sdd* et *sde/dev/* . Chacun de ces disques a une seule partition qui utilise tout l’espace disponible :
 
 ```bash
 Disk /dev/sdc: 64 GiB, 68719476736 bytes, 134217728 sectors
@@ -289,7 +281,7 @@ az vmss disk detach \
 ```
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer votre groupe identique et vos disques, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive

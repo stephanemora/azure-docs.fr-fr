@@ -5,18 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d9e20c8e5859efc8f1f8a5214e6837ad46d2980d
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777782"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513731"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
 Azure FarmBeats vous permet de récupérer, dans Datahub, les données de streaming de vos appareils et capteurs IoT. À l’heure actuelle, nous travaillons en partenariat avec les fournisseurs de capteurs suivants.
 
-  ![Partenaires de FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![Partenaires de FarmBeats](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
 L’intégration de données d’appareils à Azure FarmBeats vous permet de récupérer, dans le hub de données, des données relatives au sol fournies par les capteurs IoT déployés dans votre ferme. Une fois les données disponibles, vous pouvez les visualiser par le biais de l’accélérateur FarmBeats. Vous pouvez utiliser les données pour la fusion de données et pour la création de modèles ML/IA (machine learning/intelligence artificielle) à l’aide de FarmBeats.
 
@@ -44,9 +44,9 @@ Vous pouvez également générer les informations d’identification en exécuta
 1. Téléchargez le [fichier zip](https://aka.ms/farmbeatspartnerscriptv2) et extrayez-le sur votre lecteur local. Il y aura un fichier dans le fichier zip.
 2. Connectez-vous à https://portal.azure.com/ et accédez à Azure Active Directory -> Inscriptions d’applications.
 
-3. Cliquez sur l’inscription de l’application qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre DataHub FarmBeats.
+3. Cliquez sur l’inscription de l’application qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre hub de données FarmBeats.
 
-4. Cliquez sur « Exposer une API » -> cliquez sur « Ajouter une application cliente », puis entrez **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** et cochez la case « Autoriser l’étendue ». Cela permet d’accéder à l’interface de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous.
+4. Cliquez sur « Exposer une API » -> cliquez sur « Ajouter une application cliente », puis entrez **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** et cochez la case « Autoriser l’étendue ». Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous.
 
 5. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
 

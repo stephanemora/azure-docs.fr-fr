@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Utiliser la fonctionnalité de grande échelle - API Visage'
+title: 'Exemple : Utiliser la fonctionnalité de grande échelle - Visage'
 titleSuffix: Azure Cognitive Services
 description: Ce guide est un article sur la montée en puissance des objets PersonGroup et FaceList vers des objets LargePersonGroup et LargeFaceList.
 services: cognitive-services
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743733"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169784"
 ---
-# <a name="example-use-the-large-scale-feature"></a>Exemple : Utilisez la fonctionnalité à grande échelle
+# <a name="example-use-the-large-scale-feature"></a>Exemple : Utilisez la fonctionnalité à grande échelle
 
 Ce guide est un article avancé sur la montée en puissance des objets PersonGroup et FaceList vers les objets LargePersonGroup et LargeFaceList, respectivement. Ce guide décrit le processus de migration. Il requiert des connaissances de base sur les objets PersonGroup et FaceList, l'opération [Former](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599ae2d16ac60f11b48b5aa4) et les fonctions de reconnaissance faciale. Pour en savoir plus sur ces sujets, consultez le guide conceptuel [Reconnaissance faciale](../concepts/face-recognition.md).
 
 Les objets LargePersonGroup et LargeFaceList sont collectivement désignés sous le nom d'« opérations à grande échelle ». L'objet LargePersonGroup peut contenir 1 million de personnes, avec un maximum de 248 visages par personne. L'objet LargeFaceList peut contenir 1 million de visages. Les opérations à grande échelle sont semblables aux objets PersonGroup et FaceList classiques, mais présentent quelques différences liées à la nouvelle architecture. 
 
-Les exemples sont écrits en C# à l'aide de la bibliothèque de client de l'API Visage d'Azure Cognitive Services.
+Les exemples sont écrits en C# à l’aide de la bibliothèque de client Visage d’Azure Cognitive Services.
 
 > [!NOTE]
 > Pour activer les performances de recherche de visage dans le cadre des opérations Identification et FindSimilar à grande échelle, introduisez une opération Former afin de prétraiter les objets LargeFaceList et LargePersonGroup. La durée de la formation varie de quelques secondes à environ une demi-heure en fonction de la capacité réelle. Pendant la formation, il est possible d'exécuter des opérations Identification et FindSimilar si une formation a déjà eu lieu au préalable. L'inconvénient est que les nouvelles personnes et les nouveaux visages ajoutés n'apparaîtront pas dans le résultat tant qu'une nouvelle formation post-migration à grande échelle n'aura pas été effectuée.
 
-## <a name="step-1-initialize-the-client-object"></a>Étape 1 : Initialiser l’objet client
+## <a name="step-1-initialize-the-client-object"></a>Étape 1 : Initialiser l’objet client
 
-Lorsque vous utilisez la bibliothèque de client de l'API Visage, la clé d'abonnement et le point de terminaison de l'abonnement sont transmis par le biais du constructeur de la classe FaceClient. Par exemple :
+Lorsque vous utilisez la bibliothèque de client Visage, la clé d’abonnement et le point de terminaison de l’abonnement sont transmis par le biais du constructeur de la classe FaceClient. Par exemple :
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -45,7 +45,7 @@ faceClient.Endpoint = SubscriptionEndpoint
 Pour obtenir la clé d'abonnement et le point de terminaison correspondant, accédez à la Place de marché Azure à partir du portail Azure.
 Pour plus d'informations, consultez [Abonnements](https://azure.microsoft.com/services/cognitive-services/directory/vision/).
 
-## <a name="step-2-code-migration"></a>Étape 2 : Migration de code
+## <a name="step-2-code-migration"></a>Étape 2 : Migration de code
 
 Cette section porte sur la migration d'une implémentation PersonGroup ou FaceList vers une implémentation LargePersonGroup ou LargeFaceList. Bien que les objets LargePersonGroup et LargeFaceList diffèrent des objets PersonGroup et FaceList en termes de conception et d'implémentation interne, les interfaces API sont similaires pour faciliter la compatibilité descendante.
 
@@ -64,10 +64,10 @@ Ajoutez tous les visages et toutes les personnes de l'objet PersonGroup dans le 
 | API FaceList | API LargeFaceList |
 |:---:|:---:|
 | Créer | Créer |
-| Supprimer | Supprimer |
+| DELETE | DELETE |
 | Obtenir | Obtenir |
 | List | List |
-| Mettre à jour | Mettre à jour |
+| Update | Update |
 | - | Former |
 | - | Obtenir l’état de l’entraînement |
 

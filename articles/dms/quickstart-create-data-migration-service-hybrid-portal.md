@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.date: 01/21/2019
+ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708289"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274810"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Démarrage rapide : Créer une instance en mode hybride à l’aide du portail Azure et d’Azure Database Migration Service
 
@@ -73,7 +73,7 @@ Avant de créer votre première instance d’Azure Database Migration Service, v
     - Choisissez **l’emplacement** le plus proche de votre serveur source ou cible.
     - Pour **Mode de service**, sélectionnez **Hybride (préversion)** .
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Créer un service de migration - Notions de base](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Sélectionnez **Revoir + créer**.
 
@@ -186,7 +186,7 @@ Ce script est conçu pour un prototypage rapide lorsque l’utilisateur possède
 > [!IMPORTANT]
 > Ce script suppose qu’il existe déjà une instance d’Azure Database Migration Service en mode hybride et que le compte Azure utilisé a les autorisations appropriées pour créer des AdApps dans le locataire et modifier les règles RBAC sur l’abonnement.
 
-Spécifiez simplement les paramètres en haut du script, puis exécutez le script à partir d’une instance de PowerShell en tant qu’administrateur.
+Spécifiez les paramètres en haut du script, puis exécutez le script à partir d’une instance de PowerShell en tant qu’administrateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

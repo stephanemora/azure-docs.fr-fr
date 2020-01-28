@@ -1,24 +1,24 @@
 ---
 title: 'Tutoriel : Rechercher des lieux à proximité sur une carte | Microsoft Azure Maps'
-description: Dans ce tutoriel, vous allez apprendre à rechercher des lieux à proximité (points d’intérêt) sur une carte à l’aide de Microsoft Azure Maps.
+description: Dans ce tutoriel, vous allez apprendre à rechercher des points d’intérêt sur une carte à l’aide de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910826"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153018"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutoriel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
-Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utiliser les API Maps pour rechercher un point d’intérêt. Dans ce tutoriel, vous allez apprendre à :
+Ce tutoriel montre comment configurer un compte avec Azure Maps, puis utiliser les API Maps pour rechercher un point d’intérêt. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un compte Azure Maps
@@ -59,7 +59,7 @@ Une fois le compte Maps créé, récupérez la clé qui vous permet d’interrog
 
 1. Ouvrez votre compte Maps dans le portail.
 2. Dans la section des paramètres, sélectionnez **Authentification**.
-3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
+3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce tutoriel.
 
 ![Obtenir la clé primaire dans le portail Azure](./media/tutorial-search-location/get-key.png)
 
@@ -69,7 +69,7 @@ Pour plus d’informations sur l’authentification dans Azure Maps, consultez [
 
 ## <a name="create-a-new-map"></a>Créer une carte
 
-L’API Map Control est une bibliothèque cliente pratique qui vous permet d’intégrer facilement Maps à votre application web. Elle masque la complexité des appels de service REST bruts et améliore votre productivité grâce à des composants personnalisables et dont vous pouvez définir le style. Les étapes suivantes vous indiquent comment créer une page HTML statique intégrée avec l’API Map Control.
+L’API Map Control est une bibliothèque de client pratique. Elle vous permet d’intégrer facilement des cartes dans votre application web. Elle masque la complexité des appels de service REST bruts et améliore votre productivité grâce à des composants personnalisables. Les étapes suivantes vous indiquent comment créer une page HTML statique intégrée avec l’API Map Control.
 
 1. Sur votre ordinateur local, créez un fichier et nommez-le **MapSearch.html**.
 2. Ajoutez les composants HTML suivants au fichier :
@@ -133,7 +133,7 @@ L’API Map Control est une bibliothèque cliente pratique qui vous permet d’i
 
    Ce segment lance l’API Map Control pour votre clé de compte Azure Maps. `atlas` est l’espace de noms qui contient l’API et les composants visuels associés. `atlas.Map` fournit le contrôle d’une carte web visuelle et interactive.
 
-4. Enregistrez vos modifications du fichier, puis ouvrez la page HTML dans un navigateur. Il s’agit de la carte la plus basique que vous pouvez créer en appelant `atlas.Map` à l’aide de votre clé de compte.
+4. Enregistrez vos modifications du fichier, puis ouvrez la page HTML dans un navigateur. La carte illustrée est la plus basique que vous pouvez créer en appelant `atlas.Map` à l’aide de votre clé de compte.
 
    ![Afficher la carte](./media/tutorial-search-location/basic-map.png)
 
@@ -163,13 +163,13 @@ L’API Map Control est une bibliothèque cliente pratique qui vous permet d’i
     });
     ```
 
-   Dans ce segment de code, un événement `ready` est ajouté à la carte. Il est déclenché une fois que les ressources de la carte ont été chargées et que la carte est accessible. Dans le gestionnaire d’événements `ready` de la carte, une source de données est créée pour stocker des données de résultat. Une couche de symbole est créée et jointe à la source de données. Cette couche spécifie comment les données de résultat dans la source de données doivent être restituées, dans ce cas avec une icône d’épingle ronde bleue foncée centrée sur les coordonnées des résultats et qui autorise le chevauchement d’autres icônes. La couche des résultats est ajoutée aux couches de la carte.
+   Dans ce segment de code, un événement `ready` est ajouté à la carte. Il est déclenché une fois que les ressources de la carte ont été chargées et que la carte est accessible. Dans le gestionnaire d’événements `ready` de la carte, une source de données est créée pour stocker des données de résultat. Une couche de symbole est créée et jointe à la source de données. Cette couche spécifie comment les données de résultat dans la source de données doivent être restituées. En l’occurrence, le résultat est restitué avec une icône d’épingle bleu foncé, centrée sur la coordonnée des résultats, et le chevauchement d’autres icônes est autorisé. La couche des résultats est ajoutée aux couches de la carte.
 
 <a id="usesearch"></a>
 
 ## <a name="add-search-capabilities"></a>Ajouter les fonctionnalités de recherche
 
-Cette section montre comment utiliser l’[API de recherche](https://docs.microsoft.com/rest/api/maps/search) de Maps pour rechercher un point d’intérêt sur votre carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un emplacement à l’aide de l’API Maps Search.
+Cette section montre comment utiliser l’[API de recherche](https://docs.microsoft.com/rest/api/maps/search) de Maps pour rechercher un point d’intérêt sur votre carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un lieu avec l’API Maps Search.
 
 ### <a name="service-module"></a>Module de service
 
@@ -215,7 +215,7 @@ Cette section montre comment utiliser l’[API de recherche](https://docs.micros
     });
     ```
 
-3. Enregistrez le fichier **MapSearch.html**, puis actualisez votre navigateur. Vous devriez maintenant voir que la carte est centrée sur Seattle avec des repères ronds de couleur bleu marquant l’emplacement des stations-service dans la zone.
+3. Enregistrez le fichier **MapSearch.html**, puis actualisez votre navigateur. Vous devriez voir que la carte est centrée sur Seattle, avec des épingles de couleur bleu pour les stations-service dans la zone.
 
    ![Afficher la carte avec les résultats de la recherche](./media/tutorial-search-location/pins-map.png)
 
@@ -225,13 +225,13 @@ Cette section montre comment utiliser l’[API de recherche](https://docs.micros
    https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
-À ce stade, la page MapSearch peut afficher les emplacements des points d’intérêt renvoyés d’une requête de recherche approximative. Ajoutons quelques fonctionnalités interactives et des informations supplémentaires sur les emplacements.
+À ce stade, la page MapSearch peut afficher la localisation des points d’intérêt retournés d’une requête de recherche approximative. Ajoutons quelques fonctionnalités interactives et des informations supplémentaires sur les localisations.
 
 ## <a name="add-interactive-data"></a>Ajouter des données interactives
 
-La carte développée jusqu’à présent produit des résultats de recherche comportant uniquement les données de longitude/latitude. Si vous analysez le fichier brut JSON renvoyé par le service Maps Search, cependant, vous constatez qu’il contient des informations supplémentaires sur chaque station service, notamment le nom et l’adresse. Vous pouvez intégrer ces données dans la carte à l’aide de zones contextuelles interactives.
+La carte développée jusqu’à présent produit des résultats de recherche comportant uniquement les données de longitude/latitude. Toutefois, le JSON brut retourné par le service de recherche Maps contient des informations supplémentaires sur chaque station-service, notamment le nom et l’adresse postale. Vous pouvez intégrer ces données dans la carte à l’aide de zones contextuelles interactives.
 
-1. Ajoutez les lignes de code suivantes dans le gestionnaire d’événements `ready` de la carte après le code pour interroger le service de recherche approximative. Une instance de fenêtre contextuelle est créée et un événement mouseover est ajouté dans la couche de symbole.
+1. Ajoutez les lignes de code suivantes dans le gestionnaire d’événements `ready` de la carte après le code pour interroger le service de recherche approximative. Ce code crée une instance de fenêtre contextuelle et il ajoute un événement mouseover à la couche de symbole.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.
@@ -277,7 +277,7 @@ La carte développée jusqu’à présent produit des résultats de recherche co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un compte avec Azure Maps
@@ -291,7 +291,7 @@ Dans ce didacticiel, vous avez appris à :
 > [!div class="nextstepaction"]
 > [Afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
-Le prochain didacticiel vous explique comment afficher un itinéraire entre deux emplacements.
+Le prochain tutoriel vous explique comment afficher un itinéraire entre deux lieux.
 
 > [!div class="nextstepaction"]
 > [Itinéraire vers une destination](./tutorial-route-location.md)

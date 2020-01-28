@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: f5e36095c506918298404758523642073dfd19c7
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865221"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156724"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Intégration de données avec Azure Data Factory et Azure Data Share
 
@@ -99,7 +99,7 @@ Pour activer le débogage, cliquez dans la barre supérieure de la fabrique sur 
 
 ![Portail](media/lab-data-flow-data-share/configure10.png)
 
-## <a name="ingest-data-from-azure-sql-db-into-adls-gen2-using-the-copy-activity"></a>Ingérer des données d’Azure SQL DB dans ADLS Gen2 à l’aide de l’activité de copie
+## <a name="ingest-data-using-the-copy-activity"></a>Ingérer des données à l’aide de l’activité de copie
 
 Dans cette section, vous allez créer un pipeline avec une activité de copie qui ingère une table Azure SQL DB dans un compte de stockage ADLS Gen2. Vous allez apprendre à ajouter un pipeline, à configurer un jeu de données et à déboguer un pipeline via l’expérience utilisateur ADF. Le modèle de configuration utilisé dans cette section peut s’appliquer à la copie d’un magasin de données relationnelles vers un magasin de données basées sur des fichiers.
 

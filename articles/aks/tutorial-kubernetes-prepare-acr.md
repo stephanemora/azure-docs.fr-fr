@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 04fbea9714224f0ecbac0e14618caaf39fa3cedf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614241"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291139"
 ---
-# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Didacticiel : Déployer et utiliser Azure Container Registry
+# <a name="tutorial-deploy-and-use-azure-container-registry"></a>Tutoriel : Déployer et utiliser Azure Container Registry
 
 Azure Container Registry (ACR) est un registre privé destiné d’images de conteneur. Un registre de conteneurs privé vous permet de générer et déployer vos applications et codes personnalisés en toute sécurité. Au cours de ce didacticiel, le deuxième d’une série de sept, vous allez déployer une instance ACR et lui envoyer une image conteneur par une transmission de type push. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -80,7 +80,7 @@ Pour obtenir l’adresse du serveur de connexion, utilisez la commande [az acr l
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-À présent, balisez votre image *azure-vote-front* locale avec l’adresse *acrloginServer* du registre de conteneurs. Pour indiquer la version de l’image, ajoutez *:v1* à la fin du nom de l’image :
+À présent, étiquetez votre image *azure-vote-front* locale avec l’adresse *acrLoginServer* du registre de conteneurs. Pour indiquer la version de l’image, ajoutez *:v1* à la fin du nom de l’image :
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -142,7 +142,7 @@ Vous disposez désormais d’une image conteneur stockée dans une instance Azur
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans le cadre de ce didacticiel, vous avez créé une instance Azure Container Registry et vous lui avez envoyé une image à utiliser dans un cluster AKS. Vous avez appris à effectuer les actions suivantes :
+Dans le cadre de ce didacticiel, vous avez créé une instance Azure Container Registry et vous lui avez envoyé une image à utiliser dans un cluster AKS. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer une instance Azure Container Registry (ACR)

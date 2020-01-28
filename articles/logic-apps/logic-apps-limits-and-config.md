@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
-ms.openlocfilehash: 8d34a0905973a8080ee53eeac878432db0c51128
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/18/2020
+ms.openlocfilehash: 95960a0af628526eb11335ea5c2fcec51f3c66b5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979067"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548541"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -47,8 +47,8 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Name | Limite multilocataire | Limite d’environnement de service d’intégration | Notes |
 |------|--------------------|---------------------------------------|-------|
-| Durée d’exécution | 90 jours | 366 jours | Pour changer la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de stockage](#change-duration). |
-| Rétention de stockage | 90 jours à compter de l’heure de début de l’exécution | 366 jours | Pour changer la limite par défaut, consultez [Modifier la durée d’exécution et la conservation de stockage](#change-retention). |
+| Durée d’exécution | 90 jours | 366 jours | La durée d’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée *à l’heure de début* par le paramètre de workflow, [**Conservation de l’historique des exécutions en jours**](#change-duration). <p><p>Pour modifier la limite par défaut de 90 jours, voir [Modifier la durée d’exécution](#change-duration). |
+| Conservation de l’exécution dans le stockage | 90 jours | 366 jours | La conservation de l’exécution est calculée à l’aide de l’heure de début d’une exécution et de la limite spécifiée *à l’heure en cours* par le paramètre de workflow [**Conservation de l’historique des exécutions en jours**](#change-retention). Qu’une exécution aboutisse ou expire, le calcul de la rétention utilise toujours l’heure de début de l’exécution. Quand la durée d’une exécution dépasse la limite de conservation *actuelle*, l’exécution est supprimée de l’historique des exécutions. <p><p>Si vous modifiez ce paramètre, la limite actuelle est toujours utilisée pour le calcul de la rétention, quelle que soit la limite précédente. Par exemple, si vous réduisez la limite de conservation de 90 jours à 30 jours, une exécution datant de 60 jours est supprimée de l’historique des exécutions. Si vous augmentez la période de rétention de 30 jours à 60 jours, une exécution datant de 20 jours reste dans l’historique des exécutions pendant 40 jours supplémentaires. <p><p>Pour modifier la limite par défaut de 90 jours, voir [Modifier la conservation de l’exécution dans le stockage](#change-retention). |
 | Intervalle de périodicité minimal | 1 seconde | 1 seconde ||
 | Intervalle de périodicité maximal | 500 jours | 500 jours ||
 |||||
@@ -56,9 +56,13 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-storage-retention"></a>Modifier la durée d’exécution et la rétention de stockage
+### <a name="change-run-duration-and-run-retention-in-storage"></a>Modifier la durée d’exécution et la conservation de l’exécution dans le stockage
 
-Pour changer la limite par défaut pour la durée d’exécution et la conservation de stockage, procédez comme suit. Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour qu’elle réponde à vos besoins.
+Pour modifier la limite par défaut pour la durée d’exécution et la conservation de l’exécution dans le stockage, procédez comme suit. Pour augmenter la limite maximale, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) pour qu’elle réponde à vos besoins.
+
+> [!NOTE]
+> Pour les applications logiques dans Azure multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
+> Pour les applications logiques dans un environnement de service d’intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
 
 1. Accédez au [portail Azure](https://portal.azure.com). Dans la zone de recherche du Portail, recherchez et sélectionnez **Logic Apps**.
 
@@ -68,11 +72,9 @@ Pour changer la limite par défaut pour la durée d’exécution et la conservat
 
 1. Sous **Options de runtime**, dans la liste **Conservation de l’historique des exécutions en jours**, choisissez **Personnalisée**.
 
-1. Entrez le nombre de jours souhaité ou faites glisser le curseur pour sélectionner ce nombre.
+1. Faites glisser le curseur pour modifier le nombre de jours souhaité.
 
-   > [!NOTE]
-   > Pour les applications logiques dans Azure multilocataire, la limite par défaut de 90 jours est identique à la limite maximale. Vous pouvez uniquement réduire cette valeur.
-   > Pour les applications logiques dans un environnement de service d’intégration, vous pouvez réduire ou augmenter la limite par défaut de 90 jours.
+1. Lorsque vous avez terminé, dans la barre d’outils **Paramètres du workflow**, sélectionnez **Enregistrer**.
 
 <a name="looping-debatching-limits"></a>
 
@@ -82,11 +84,11 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 | Name | Limite | Notes |
 | ---- | ----- | ----- |
-| Déclencheur simultané | * Illimité lorsque le contrôle d’accès concurrentiel est désactivé <p><p>* 25 est la limite par défaut lorsque le contrôle d’accès concurrentiel est activé, ce qui ne peut pas être annulé une fois le contrôle activé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant être exécutée simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Exécutions en attente maximale | Lorsque le contrôle d’accès concurrentiel est activé, le nombre minimal d’exécutions en attente est égal à 10 plus le nombre d’exécutions simultanées (concurrence du déclencheur). Vous pouvez modifier le nombre maximal jusqu’à la valeur maximale 100 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p><p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Déclencheur simultané | - Illimité lorsque le contrôle d’accès concurrentiel est désactivé <p><p>- 25 est la limite par défaut lorsque le contrôle d’accès concurrentiel est activé, que vous ne pouvez pas annuler une fois qu’il est activé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant être exécutée simultanément ou en parallèle. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments pour la [décomposition des tableaux](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Pour modifier la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Modifier la limite du déclencheur simultané](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Exécutions en attente maximale | - Sans accès concurrentiel, le nombre minimal d’exécutions en attente est 1, tandis que leur nombre maximal est 50. <p><p>- Avec l’accès concurrentiel, le nombre minimal d’exécutions en attente est égal à 10 plus le nombre d’exécutions simultanées (concurrence du déclencheur). Vous pouvez modifier le nombre maximal jusqu’à la valeur maximale 100 (inclus). | Cette limite décrit le nombre maximal d’instances d’application logique pouvant attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p><p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Éléments du tableau Foreach | 100 000 | Cette limite décrit le nombre maximal d’éléments de tableau qu’une boucle « for each » peut traiter. <p><p>Pour filtrer des tables plus grandes, vous pouvez utiliser l’[action de requête](logic-apps-perform-data-operations.md#filter-array-action). |
 | Accès concurrentiel Foreach | La limite par défaut est 20 lorsque le contrôle d’accès concurrentiel est désactivé. Vous pouvez modifier la valeur par défaut en la remplaçant par une valeur comprise entre 1 et 50 (inclus). | Cette limite indique le nombre maximal d’itérations de boucles « for each » qui peuvent s’exécuter simultanément ou en parallèle. <p><p>Pour changer la limite par défaut pour une valeur comprise entre 1 et 50, consultez [Changer la limite de simultanéité « for each »](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Éléments SplitOn | * 100 000 sans la concurrence du déclencheur <p><p>* 100 avec la concurrence du déclencheur | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments. |
+| Éléments SplitOn | - 100 000 sans concurrence du déclencheur <p><p>- 100 avec concurrence du déclencheur | Pour les déclencheurs qui retournent un tableau, vous pouvez spécifier une expression utilisant une propriété « SplitOn » qui [fractionne ou dégroupe des éléments de tableau en plusieurs instances de workflows](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) à des fins de traitement, au lieu d’utiliser une boucle « for each ». Cette expression fait référence au tableau à utiliser pour la création et l’exécution d’une instance de workflow pour chaque élément du tableau. <p><p>**Remarque** : Lorsque la concurrence est activée, la limite SplitOn est réduite à 100 éléments. |
 | Itérations Until | 5 000 | |
 ||||
 
@@ -153,8 +155,15 @@ Comme certaines opérations de connecteur effectuent des appels asynchrones ou �
 |------|--------------------|---------------------------------------|-------|
 | Taille des messages | 100 Mo | 200 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. |
 | Taille des messages avec segmentation | 1 Go | 5 Go | Cette limite s’applique aux actions qui prennent en charge la segmentation en mode natif ou vous permettent d’activer la segmentation dans la configuration de leur runtime. <p>Pour l’environnement de service d’intégration, le moteur Logic Apps prend en charge cette limite, mais les connecteurs ont leurs propres limites de segmentation jusqu’à la limite du moteur. Pour un exemple, voir les [Informations de référence sur l’API du connecteur Stockage Blob Azure](https://docs.microsoft.com/connectors/azureblob/). Pour plus d’informations sur la segmentation, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). |
-| Limite d’évaluation des expressions | 131 072 caractères | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
-|||||
+|||||   
+
+#### <a name="character-limits"></a>Limites de caractères
+
+| Name | Notes |
+|------|-------|
+| Limite d’évaluation des expressions | 131 072 caractères | Les expressions `@concat()`, `@base64()`, `@string()` ne peuvent pas contenir plus de caractères. |
+| Limite de caractères de l’URL de la requête | 16 384 caractères |
+|||
 
 #### <a name="retry-policy"></a>Stratégie de nouvelle tentative
 

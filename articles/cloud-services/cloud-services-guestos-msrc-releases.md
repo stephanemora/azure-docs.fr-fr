@@ -10,17 +10,65 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: raiye
-ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779584"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122132"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="january-2020-guest-os"></a>Système d’exploitation invité, janvier 2020
+
+>[!NOTE]
+>Le système d'exploitation invité de janvier est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d'exploitation invité de janvier. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+|  Version 20-01  |  [4532960]  |  Sécurité Windows  | 2.94 | 14 janvier 2020 |
+|  Version 20-01  |  [4534251]  |  Internet Explorer  | 2.94 | 14 janvier 2020 |
+|  Version 20-01  |  [4534314]  |  Sécurité Windows  | 2.94 | 14 janvier 2020 |
+|  Version 20-01  |  [4532958]  |  Sécurité Windows  | 3.81 | 14 janvier 2020 |
+|  Version 20-01  |  [4532963]  |  Sécurité Windows  | 3.81 | 14 janvier 2020 |
+|  Version 20-01  |  [4534251]  |  Internet Explorer  | 3.81 | 14 janvier 2020 |
+|  Version 20-01  |  [4534288]  |  Sécurité Windows  | 3.81 | 14 janvier 2020 |
+|  Version 20-01  |  [4532961]  |  Sécurité Windows  | 4.74 | 14 janvier 2020 |
+|  Version 20-01  |  [4532962]  |  Sécurité Windows  | 4.74 | 14 janvier 2020 |
+|  Version 20-01  |  [4534251]  |  Internet Explorer  | 4.74 | 14 janvier 2020 |
+|  Version 20-01  |  [4534309]  |  Sécurité Windows  | 4.74 | 14 janvier 2020 |
+|  Version 20-01  |  [4494175]  |  Microcode v3  | 5.39 | 29 août 2019 |
+|  Version 20-01  |  [4534271]  |  LCU  | 5.39 | 14 janvier 2020 |
+|  Version 20-01  |  [4494174]  |  Microcode v4  | 6.15 | 29 août 2019 |
+|  Version 20-01  |  [4532947]  |  Sécurité Windows  | 6.15 | 14 janvier 2020 |
+|  Version 20-01  |  [4534273]  |  LCU  | 6.15 | 14 janvier 2020 |
+|  Version 20-01  |  [4530734]  |  Non relatif à la sécurité  | 2.94 | 10 décembre 2019 |
+|  Version 20-01  |  [4530691]  |  Non relatif à la sécurité   | 3.81 | 10 décembre 2019 |
+|  Version 20-01  |  [4530702]  |  Non relatif à la sécurité  | 4.74 | 10 décembre 2019 |
+
+[4532960]: https://support.microsoft.com/kb/4532960
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534314]: https://support.microsoft.com/kb/4534314
+[4532958]: https://support.microsoft.com/kb/4532958
+[4532963]: https://support.microsoft.com/kb/4532963
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534288]: https://support.microsoft.com/kb/4534288
+[4532961]: https://support.microsoft.com/kb/4532961
+[4532962]: https://support.microsoft.com/kb/4532962
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534309]: https://support.microsoft.com/kb/4534309
+[4494175]: https://support.microsoft.com/kb/4494175
+[4534271]: https://support.microsoft.com/kb/4534271
+[4494174]: https://support.microsoft.com/kb/4494174
+[4532947]: https://support.microsoft.com/kb/4532947
+[4534273]: https://support.microsoft.com/kb/4534273
+[4530734]: https://support.microsoft.com/kb/4530734
+[4530691]: https://support.microsoft.com/kb/4530691
+[4530702]: https://support.microsoft.com/kb/4530702
+
 
 ## <a name="december-2019-guest-os"></a>Système d’exploitation invité, décembre 2019
 

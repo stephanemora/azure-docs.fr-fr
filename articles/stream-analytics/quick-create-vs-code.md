@@ -4,15 +4,15 @@ description: Ce démarrage rapide vous explique comment créer une tâche Stream
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 09/16/2019
+ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 236d29d2c50a792bc4dc11916964db47ca092807
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659591"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313873"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Démarrage rapide : Créer une tâche Azure Stream Analytics dans Visual Studio Code (préversion)
 
@@ -163,7 +163,7 @@ Pour plus d’informations, suivez les instructions fournies dans [Tester des re
 
    ![Sélectionner IoT Hub en tant qu’option d’entrée](./media/quick-create-vs-code/iot-hub.png)
 
-3. Si vous avez ajouté l’entrée à partir de la palette de commandes, choisissez le script de requête Stream Analytics qui utilisera l’entrée. Il doit être automatiquement renseigné avec le chemin du fichier **myASAproj.asaql**.
+3. Si vous avez ajouté l'entrée à partir de la palette de commandes, choisissez le script de requête Stream Analytics qui utilisera l'entrée. Celui-ci doit être automatiquement renseigné avec le chemin du fichier **myASAproj.asaql**.
 
    ![Sélectionner un script Stream Analytics dans Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
 
@@ -179,11 +179,13 @@ Pour plus d’informations, suivez les instructions fournies dans [Tester des re
    |IotHubNamespace|MyASAIoTHub|Choisissez ou entrez le nom de votre hub IoT. Si les hubs IoT sont créés dans le même abonnement, leurs noms sont automatiquement détectés.|
    |SharedAccessPolicyName|iothubowner| |
 
-   Vous pouvez vous aider de la fonctionnalité CodeLens pour entrer une chaîne, opérer une sélection dans une liste déroulante ou modifier le texte directement dans le fichier. La capture d’écran suivante montre **Sélectionner parmi vos abonnements** à titre d’exemple.
+   Vous pouvez vous aider de la fonctionnalité CodeLens pour entrer une chaîne, opérer une sélection dans une liste déroulante ou modifier le texte directement dans le fichier. La capture d’écran suivante montre **Sélectionner parmi vos abonnements** à titre d’exemple. Les informations d’identification sont automatiquement listées et enregistrées dans le gestionnaire d’informations d’identification local.
 
    ![Configurer l’entrée dans Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
 
-## <a name="preview-input"></a>Afficher un aperçu de l’entrée
+   ![Configurer la valeur d’entrée dans Visual Studio Code](./media/quick-create-vs-code/configure-input-value.png)
+
+## <a name="preview-input"></a>Afficher un aperçu de l'entrée
 
 Sélectionnez **Aperçu des données** dans **IoTHub1.json** à partir de la ligne supérieure. Certaines données d’entrée sont extraites du hub IoT et affichées dans la fenêtre d’aperçu. Ce processus peut prendre un certain temps.
 

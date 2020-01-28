@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830137"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547300"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 
@@ -60,7 +60,7 @@ Le diagramme suivant illustre le flux de données entre un groupe d’administra
 Les ordinateurs désignés pour exécuter la passerelle Log Analytics doivent respecter la configuration suivante :
 
 * Windows 10, Windows 8.1 ou Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008
+* Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 ou Windows Server 2008
 * Microsoft .NET Framework 4.5
 * Au moins un processeur 4 cœurs et 8 Go de mémoire 
 * Un [agent Log Analytics pour Windows](agent-windows.md) configuré pour transmettre ses rapports vers l’espace de travail avec lequel les agents communiquent via la passerelle

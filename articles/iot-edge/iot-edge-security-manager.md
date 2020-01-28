@@ -9,16 +9,16 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666067"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548694"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestionnaire de sécurité Azure IoT Edge
 
-Le Gestionnaire de sécurité Azure IoT Edge est un cœur de sécurité bien délimité de protection de l’appareil IoT Edge et tous ses composants en faisant abstraction du matériel de silicium de sécurité. Il est le point focal du renforcement de la sécurité et fournit un point d’intégration technologique aux fabricants OEM.
+Le Gestionnaire de sécurité Azure IoT Edge est un cœur de sécurité bien délimité de protection de l’appareil IoT Edge et tous ses composants en faisant abstraction du matériel de silicium de sécurité. Le Gestionnaire de sécurité, point focal du renforcement de la sécurité, fournit un point d’intégration technologique aux fabricants OEM.
 
 ![Gestionnaire de sécurité Azure IoT Edge](media/edge-security-manager/iot-edge-security-manager.png)
 
@@ -41,7 +41,7 @@ Le gestionnaire de sécurité IoT Edge comprend trois composants :
 
 ## <a name="the-iot-edge-security-daemon"></a>Démon de sécurité IoT Edge
 
-Le démon de sécurité IoT Edge est responsable des opérations logiques du gestionnaire de sécurité IoT Edge. Il représente une partie significative du TCB (Trusted Computing Base) de l’appareil IoT Edge. 
+Le démon de sécurité IoT Edge est responsable des opérations logiques du gestionnaire de sécurité IoT Edge. Il représente une partie significative du TCB (Trusted Computing Base) de l’appareil IoT Edge.
 
 ### <a name="design-principles"></a>Principes de conception
 
@@ -79,11 +79,11 @@ L’interface cloud permet au démon de sécurité IoT Edge d’accéder à des 
 
 #### <a name="management-api"></a>API de gestion
 
-Le démon de sécurité IoT Edge offre une API de gestion, qui est appelée par l’agent IoT Edge lors de la création, du démarrage, de l’arrêt et de la suppression d’un module IoT Edge. Le démon de sécurité stocke les « inscriptions » pour tous les modules actifs. Ces inscriptions mappent les identités d’un module à certaines propriétés du module. L’identificateur de processus (pid) du processus en cours d’exécution dans le conteneur ou le hachage du contenu du conteneur de docker constituent deux exemples pour ces propriétés.
+Le démon de sécurité IoT Edge offre une API de gestion, qui est appelée par l’agent IoT Edge lors de la création, du démarrage, de l’arrêt et de la suppression d’un module IoT Edge. Le démon de sécurité stocke les « inscriptions » pour tous les modules actifs. Ces inscriptions mappent les identités d’un module à certaines propriétés du module. Ces propriétés du module sont, par exemple, l’identificateur du processus (pid) en cours d’exécution dans le conteneur ou le hachage du contenu du conteneur Docker.
 
 Elles sont utilisées par l’API de charge de travail (décrite ci-dessous) pour vérifier que l’appelant est autorisé à effectuer une action.
 
-L’API de gestion est une API avec privilèges, qui peut être appelée seulement depuis l’agent IoT Edge.  Étant donné que le démon de sécurité IoT Edge amorce et démarre l’agent IoT Edge, il peut créer une inscription implicite pour l’agent IoT Edge, une fois qu’il a été attesté que l’agent IoT Edge n’a pas été falsifié. Le même processus d’attestation qui utilise des API de charge de travail est utilisé pour restreindre l’accès de l’API de gestion à l’agent IoT Edge uniquement.
+L’API de gestion est une API avec privilèges, qui peut être appelée seulement depuis l’agent IoT Edge.  Étant donné que le démon de sécurité IoT Edge amorce et démarre l’agent IoT Edge, il vérifie que l’agent IoT Edge n’a pas été falsifié, puis il peut créer une inscription implicite pour l’agent IoT Edge. Le même processus d’attestation qui utilise des API de charge de travail est utilisé pour restreindre l’accès de l’API de gestion à l’agent IoT Edge uniquement.
 
 #### <a name="container-api"></a>API de conteneur
 
@@ -93,7 +93,7 @@ L’API de conteneur interagit avec le système de conteneur utilisé pour la ge
 
 L’API de charge de travail est accessible à tous les modules. Il fournit à un module une preuve d’identité (un jeton signé avec la racine HSM ou un certificat X509) et le bundle de confiance correspondant. Le bundle de confiance contient les certificats d’autorité de certification de tous les autres serveurs que les modules doivent approuver.
 
-Le démon de sécurité IoT Edge utilise un processus d’attestation pour protéger cette API. Quand un module appelle cette API, le démon de sécurité tente de trouver une inscription pour l’identité. En cas de réussite, il utilise les propriétés de l’inscription pour mesurer le module. Si le résultat du processus de mesure correspond à l’inscription, une nouvelle preuve d’identité est générée. Les certificats d’autorité de certification correspondants (bundle de confiance) sont retournés au module.  Le module utilise ce certificat pour vous connecter à IoT Hub, les autres modules, ou démarrer un serveur. Quand la date d’expiration du jeton signé ou du certificat approche, il est de la responsabilité du module de demander un nouveau certificat. 
+Le démon de sécurité IoT Edge utilise un processus d’attestation pour protéger cette API. Quand un module appelle cette API, le démon de sécurité tente de trouver une inscription pour l’identité. En cas de réussite, il utilise les propriétés de l’inscription pour mesurer le module. Si le résultat du processus de mesure correspond à l’inscription, une nouvelle preuve d’identité est générée. Les certificats d’autorité de certification correspondants (bundle de confiance) sont retournés au module.  Le module utilise ce certificat pour vous connecter à IoT Hub, les autres modules, ou démarrer un serveur. Quand la date d’expiration du jeton signé ou du certificat approche, il est de la responsabilité du module de demander un nouveau certificat.
 
 ### <a name="integration-and-maintenance"></a>Intégration et maintenance
 

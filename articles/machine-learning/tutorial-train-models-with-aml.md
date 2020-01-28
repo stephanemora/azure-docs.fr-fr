@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab407ffbc0e22a2f65436741ce5c7019ac7fc540
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532462"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261362"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>Tutoriel : entraîner des modèles de classification d’images avec des données MNIST et scikit-learn à l’aide d’Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Découvrez comment effectuer les actions suivantes :
 > [!div class="checklist"]
 > * Configurer l’environnement de développement
 > * Accéder aux données et les examiner
-> * Effectuez l’apprentissage d’un modèle de régression logistique simple sur un cluster distant.
+> * Entraînez un modèle de régression logistique simple sur un cluster distant.
 > * Examiner les résultats de l’entraînement et inscrire le meilleur modèle
 
 Vous découvrirez comment sélectionner un modèle et le déployer dans la [deuxième partie de ce tutoriel](tutorial-deploy-models-with-aml.md).
@@ -105,7 +105,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-or-attach-an-existing-compute-target"></a>Créer ou attacher une cible de calcul existante
 
-En utilisant le service managé Capacité de calcul Azure Machine Learning, les scientifiques des données peuvent entraîner des modèles Machine Learning sur des clusters de machines virtuelles Azure. Il peut s’agir notamment de machines virtuelles prenant en charge les GPU. Dans ce tutoriel, vous allez créer la Capacité de calcul Azure Machine Learning qui vous servira d’environnement d’entraînement. Le code ci-dessous crée automatiquement les clusters de calcul s’ils n’existent pas encore dans votre espace de travail.
+En utilisant le service managé Capacité de calcul Azure Machine Learning, les scientifiques des données peuvent entraîner des modèles Machine Learning sur des clusters de machines virtuelles Azure. Il peut s’agir notamment de machines virtuelles prenant en charge les GPU. Dans ce tutoriel, vous allez créer la Capacité de calcul Azure Machine Learning qui vous servira d’environnement d’entraînement. Vous soumettrez du code Python à exécuter sur cette machine virtuelle plus loin dans ce tutoriel. 
+
+Le code ci-dessous crée automatiquement les clusters de calcul s’ils n’existent pas encore dans votre espace de travail.
 
  **La création de la cible de calcul prend environ cinq minutes.** Si la ressource de calcul se trouve déjà dans l’espace de travail, le code l’utilise et ignore le processus de création.
 
@@ -146,7 +148,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-Vous disposez désormais des packages et des ressources de calcul nécessaires pour entraîner un modèle dans le cloud.
+Vous disposez désormais des packages et des ressources de calcul nécessaires pour entraîner un modèle dans le cloud. 
 
 ## <a name="explore-data"></a>Explorer des données
 
@@ -215,7 +217,7 @@ Vous avez maintenant une idée de l’aspect de ces images et du résultat de pr
 
 ## <a name="train-on-a-remote-cluster"></a>Effectuer l’entraînement sur un cluster distant
 
-Pour cette tâche, envoyez le travail au cluster d’entraînement distant défini précédemment.  Pour envoyer un travail, vous devez :
+Pour cette tâche, vous envoyez le travail pour l’exécuter sur le cluster d’entraînement distant défini plus tôt.  Pour envoyer un travail, vous devez :
 * Créer un répertoire
 * Créer un script d’entraînement
 * Créer un objet Estimator

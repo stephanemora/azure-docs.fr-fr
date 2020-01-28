@@ -1,7 +1,7 @@
 ---
-title: 'Exemple : Ajouter des visages à un objet PersonGroup - API Visage'
+title: 'Exemple : Ajouter des visages à un objet PersonGroup - Visage'
 titleSuffix: Azure Cognitive Services
-description: Ce guide explique comment ajouter un grand nombre de personnes et de visages à un objet PersonGroup avec l’API Visage Azure Cognitive Services.
+description: Ce guide explique comment ajouter un grand nombre de personnes et de visages à un objet PersonGroup avec le service Visage Azure Cognitive Services.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 2f8a6272b02aea5948be79ddf72d105c4f72bb33
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744249"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169827"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Ajouter des visages à un objet PersonGroup
 
-Ce guide explique comment ajouter un grand nombre de personnes et de visages à un objet PersonGroup. Cette stratégie s'applique également aux objets LargePersonGroup, FaceList et LargeFaceList. Cet exemple est écrit en C# à l'aide de la bibliothèque de client .NET de l'API Visage d'Azure Cognitive Services.
+Ce guide explique comment ajouter un grand nombre de personnes et de visages à un objet PersonGroup. Cette stratégie s'applique également aux objets LargePersonGroup, FaceList et LargeFaceList. Cet exemple est écrit en C# à l’aide de la bibliothèque de client .NET Visage d’Azure Cognitive Services.
 
-## <a name="step-1-initialization"></a>Étape 1 : Initialisation
+## <a name="step-1-initialization"></a>Étape 1 : Initialisation
 
 Le code suivant déclare plusieurs variables et implémente une fonction d'assistance pour planifier les requêtes d'ajout de visage :
 
@@ -58,7 +58,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step-2-authorize-the-api-call"></a>Étape 2 : Autoriser l’appel d’API
+## <a name="step-2-authorize-the-api-call"></a>Étape 2 : Autoriser l’appel d’API
 
 Lorsque vous utilisez une bibliothèque de client, vous devez transmettre votre clé d'abonnement au constructeur de la classe **FaceClient**. Par exemple :
 
@@ -87,7 +87,7 @@ await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 Les personnes sont créées simultanément, et `await WaitCallLimitPerSecondAsync()` est également appliqué pour éviter de dépasser la limite d'appel.
 
 ```csharp
-CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
+Person[] persons = new Person[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
     await WaitCallLimitPerSecondAsync();

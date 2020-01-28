@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: c9a5138146897fdfed4661b85198cbff6b74bf5a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665206"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293859"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Tutoriel : Développer un module IoT Edge en C# pour les appareils Windows
 
@@ -92,7 +92,7 @@ Le manifeste de déploiement partage les informations d’identification de votr
 
 1. Dans l’Explorateur de solutions Visual Studio, ouvrez le fichier **deployment.template.json**. 
 
-2. Recherchez la propriété **registryCredentials** dans les propriétés $edgeAgent souhaitées. Votre adresse de registre doit se renseigner automatiquement à partir des informations que vous avez fournies lors de la création du projet. Les champs du nom d’utilisateur et du mot de passe doivent contenir des noms de variables. Par exemple : 
+2. Recherchez la propriété **registryCredentials** dans les propriétés $edgeAgent souhaitées. Votre adresse de registre doit être automatiquement remplie à partir des informations que vous avez fournies lors de la création du projet. Les champs du nom d’utilisateur et du mot de passe doivent contenir des noms de variables. Par exemple : 
 
    ```json
    "registryCredentials": {
@@ -102,20 +102,21 @@ Le manifeste de déploiement partage les informations d’identification de votr
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+3. Ouvrez le fichier **.env** dans votre solution de module. (Dans la mesure où il est masqué par défaut dans l’Explorateur de solutions, vous devrez peut-être sélectionner le bouton **Afficher tous les fichiers** pour l’afficher.) Le fichier .env doit contenir les mêmes variables de nom d’utilisateur et de mot de passe que celles que vous avez vues dans le fichier deployment.template.json. 
 
-4. Add the **Username** and **Password** values from your Azure container registry. 
+4. Ajoutez les valeurs de **Nom d’utilisateur** et **Mot de passe** provenant de votre registre de conteneurs Azure. 
 
-5. Save your changes to the .env file.
+5. Enregistrez les modifications apportées au fichier .env.
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+Le code du module par défaut reçoit des messages dans une file d’attente d’entrée, puis les transmet à une file d’attente de sortie. Nous allons ajouter du code supplémentaire afin que le module traite les messages en périphérie avant leur transfert vers IoT Hub. Mettez à jour le module afin qu’il analyse les données de température dans chaque message et n’envoie le message à IoT Hub que si la température dépasse un certain seuil. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. Dans Visual Studio, ouvrez **CSharpModule** > **Program.cs**.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. En haut de l’espace de noms **CSharpModule**, ajoutez trois instructions **using** pour les types utilisés ultérieurement :
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

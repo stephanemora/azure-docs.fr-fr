@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer des règles et des actions dans Azure IoT Central'
+title: 'Tutoriel : Configurer des règles et des actions dans Azure IoT Central'
 description: Ce didacticiel vous montre, en tant que générateur, comment configurer des règles et des actions basées sur la télémétrie dans votre application Azure IoT Central.
 author: ankitscribbles
 ms.author: ankitgup
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9c2c8c1bacf4abfa775747a03d2a4a6121b67714
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9140114e7d31f24770bdcce9aae849b01aae9996
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106592"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263619"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Tutoriel : Configurer des règles et des actions pour votre appareil dans Azure IoT Central
 
@@ -22,15 +22,16 @@ ms.locfileid: "74106592"
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Dans ce didacticiel, vous créez une règle qui envoie un courrier électronique lorsque la température d’un climatiseur raccordé dépasse 90&deg; F.
+Dans ce tutoriel, vous créez une règle qui envoie un e-mail quand la température d’un climatiseur raccordé dépasse 70&deg; F (environ 21° C).
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Créer une règle basée sur la télémétrie
 > * Ajouter une action
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vous devez effectuer le tutoriel [Définir un nouveau type d’appareil dans votre application](tutorial-define-device-type.md) pour créer le modèle d’appareil **Climatiseur raccordé** à utiliser.
 
@@ -48,14 +49,14 @@ Avant de commencer, vous devez effectuer le tutoriel [Définir un nouveau type d
 
     ![Vue Règles](media/tutorial-configure-rules/newrule.png)
 
-5. Pour définir votre règle, utilisez les informations du tableau suivant :
+4. Pour définir votre règle, utilisez les informations du tableau suivant :
 
     | Paramètre                                      | Valeur                             |
     | -------------------------------------------- | ------------------------------    |
-    | Nom                                         | Alerte de température du climatiseur |
+    | Name                                         | Alerte de température du climatiseur |
     | Activer la règle pour tous les appareils de ce modèle | Il en va                                |
-    | Condition                                    | Température supérieure à 90    |
-    | Agrégation                                  | Aucun                              |
+    | Condition                                    | Température supérieure à 70    |
+    | Agrégation                                  | None                              |
 
     ![Condition de règle de température](media/tutorial-configure-rules/temperaturerule.png)
 
@@ -71,10 +72,11 @@ Lorsque vous définissez une règle, vous définissez également une action à e
 
 2. Pour définir votre action, utilisez les informations du tableau suivant :
 
-    | Paramètre   | Valeur                          |
-    | --------- | ------------------------------ |
-    | À        | Votre adresse e-mail             |
-    | Notes     | La température du climatiseur a dépassé le seuil. |
+    | Paramètre      | Valeur                                               |
+    | ------------ | --------------------------------------------------- |
+    | Nom complet | Envoyer un e-mail d’alerte de température                             |
+    | À           | Votre adresse e-mail                                  |
+    | Notes        | La température du climatiseur a dépassé le seuil. |
 
     > [!NOTE]
     > Pour recevoir une notification par courrier électronique, l’adresse e-mail doit être un [ID d’utilisateur dans l’application](howto-administer.md), et l’utilisateur doit s’être connecté au moins une fois à l’application.
@@ -92,16 +94,18 @@ Peu après l’enregistrement de la règle, elle devient active. Lorsque les con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]
+>
 > * Créer une règle basée sur la télémétrie
 > * Ajouter une action
 
 Maintenant que vous avez défini une règle basée sur un seuil, nous vous suggérons de passer à l’étape suivante, [Personnaliser les vues de l’opérateur](tutorial-customize-operator.md).
 
 Pour en savoir plus sur les différents types de règles dans Azure IoT Central et comment paramétrer la définition de règle, consultez :
+
 * [Créer une règle de télémétrie et configurer des notifications](howto-create-telemetry-rules.md).
 * [Créer une règle d’événements et configurer des notifications](howto-create-event-rules.md).
 

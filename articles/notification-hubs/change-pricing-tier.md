@@ -13,17 +13,17 @@ ms.date: 01/28/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 679e8b58e5876d5460b426e694df85ded992a36d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212568"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261073"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Changer le niveau tarifaire d’un espace de noms Azure Notification Hubs
 Notification Hubs est disponible en trois niveaux : **Gratuit**, **De base** et **Standard**. Cet article vous montre comment changer le niveau tarifaire d’un espace de noms Azure Notification Hubs. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans Azure Notification Hubs, un **hub** est l’entité/la ressource la plus petite. Elle mappe généralement à une application et peut conserver un certificat pour chaque système Platform Notification System que nous prenons en charge pour l’application. L’application peut être une application multiplateforme hybride ou native.
 
 Un **espace de noms** est une collection de hubs de notification. Chaque espace de noms se compose généralement de hubs qui sont liés et utilisés dans un but spécifique. Par exemple, vous pouvez avoir trois espaces de noms différents pour le développement, le test et la production, respectivement. 
@@ -36,7 +36,7 @@ Quand vous utilisez le portail Azure, vous pouvez changer le niveau tarifaire d�
 ### <a name="change-tier-on-the-namespace-page"></a>Changer le niveau tarifaire dans la page des espaces de noms
 La procédure suivante indique les étapes à suivre pour changer le niveau tarifaire d’un espace de noms dans la page des espaces de noms. Quand vous changez le niveau pour un espace de noms, celui-ci s’applique à tous les hubs qu’il contient.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** dans le menu de gauche. 
 3. Sélectionnez **Espaces de noms du hub de notification** dans la section **Internet des objets**. Si vous sélectionnez l’étoile (`*`) affichée à côté du texte, celui-ci est ajouté à la barre de navigation de gauche sous **FAVORIS**. Cela vous permet d’accéder plus rapidement à la page des espaces de noms la prochaine fois. Après l’avoir ajouté aux FAVORIS, sélectionnez **Espaces de noms du hub de notification**. 
 
@@ -56,7 +56,7 @@ La procédure suivante indique les étapes à suivre pour changer le niveau tari
 ### <a name="change-tier-on-the-hub-page"></a>Changer le niveau tarifaire dans la page de hub
 La procédure suivante indique les étapes à suivre pour changer le niveau tarifaire d’un espace de noms dans la page de hub. Même si vous effectuez ces étapes à partir de la page de hub, vous changez en fait le niveau tarifaire pour l’espace de noms et tous les hubs qu’il contient. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Tous les services** dans le menu de gauche.
 3. Sélectionnez **Hubs de notifications** dans la section **Internet des objets**. 
 4. Sélectionnez votre **hub** de notification. 

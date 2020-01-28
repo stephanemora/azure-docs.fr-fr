@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 01/16/2020
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d6fe6744c2af22f8891d2f3b3a6eb30ec9d3904
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: dc68b34ce10957d8c025d4767cc4f8d04c6a72c3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045268"
+ms.locfileid: "76155857"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Forum aux questions (FAQ) sur l’application Microsoft Authenticator
 
@@ -52,6 +52,7 @@ L’application Microsoft Authenticator a remplacé l’application Azure Authen
 | Qu'est-ce que la fonctionnalité Verrou d'application et en quoi m'offre-t-elle plus de sécurité ? | Pour sécuriser les codes secrets à usage unique, les informations et les paramètres d'application, vous pouvez activer la fonctionnalité Verrou d'application dans l'application Microsoft Authenticator. Si vous activez Verrou d'application à partir de l'écran **Paramètres** de l'application Microsoft Authenticator, vous serez invité à vous authentifier à l'aide de votre code PIN ou verrou biométrique chaque fois que vous ouvrirez l'application Microsoft Authenticator. Cette fonctionnalité offre une protection supplémentaire ; la façon dont vous approuvez vos notifications dans l'application Microsoft Authenticator ne change pas.<br><br>**Remarque**<br>Étant donné que l’inscription de l’appareil peut se produire dans d’autres emplacements en dehors de l’application Microsoft Authenticator, par exemple dans l’application Portail d’entreprise ou dans les paramètres de compte Android, il n’est pas garanti que le Verrou d’application empêche un utilisateur d’accéder à l’application Microsoft Authenticator. |
 | Pourquoi est-ce que je reçois des notifications sur l’activité de mon compte ? | Pour vous aider à connaître l’activité actuelle de votre compte personnel Microsoft, nous envoyons des notifications d’activité à votre application Microsoft Authenticator. Ces notifications apparaissent dès qu’un événement se produit, ce qui contribue à surveiller le compte en permanence à des fins de sécurité. Précédemment, nous envoyions ces notifications par e-mail et SMS, et nous avons maintenant élargi la surveillance à l’application. Pour plus d’informations sur ces notifications d’activité, voir [Que se passe-t-il en cas de connexion inhabituelle à votre compte](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Pour changer l’endroit où vous recevez vos notifications, connectez-vous à la page [Où pouvons-nous vous contacter pour les alertes de compte non critiques](https://account.live.com/SecurityNotifications/Update) de votre compte. |
 | Lorsque je me connecte à mon compte professionnel ou scolaire à l’aide de l’application de messagerie par défaut fournie avec iOS, l’application Microsoft Authenticator m’invite à fournir mes informations de vérification de sécurité. Une fois que je saisis ces informations et que je retourne sur l’application de messagerie, je reçois un message d’erreur. Que puis-je faire ? | Cela est probablement dû au fait que votre connexion et votre application de messagerie se font sur deux applications différentes, provoquant ainsi l’arrêt, puis l’échec du processus initial de connexion en arrière-plan. Pour tenter de résoudre ce problème, nous vous recommandons de sélectionner l’icône **Safari** située en bas à droite de l’écran lorsque vous vous connectez à l’application de messagerie. En utilisant Safari, l’ensemble du processus de connexion se produit dans une application unique, ce qui vous permet de vous connecter à l’application avec succès. |
+| Les codes de mon mot de passe à usage unique (OTP) ne fonctionnent pas. Que dois-je faire ? | Vérifiez que la date et l’heure de votre appareil sont correctes et qu’elles sont synchronisées automatiquement. Si la date et l’heure sont incorrectes ou ne sont pas synchronisées, le code ne fonctionne pas. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

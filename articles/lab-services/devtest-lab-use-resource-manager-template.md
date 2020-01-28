@@ -1,5 +1,5 @@
 ---
-title: Afficher et utiliser un modèle Azure Resource Manager de machine virtuelle | Microsoft Docs
+title: Afficher et utiliser un modèle Azure Resource Manager de machine virtuelle
 description: Découvrez comment utiliser le modèle Azure Resource Manager à partir d’une machine virtuelle pour créer d’autres machines virtuelles
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c14abf3acce0084507a03f3d34fdd59566d88c28
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 7064fdeec04f4dc5ae2c73c1a3896cf2d10dd01d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854277"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169116"
 ---
 # <a name="create-virtual-machines-using-an-azure-resource-manager-template"></a>Créer des machines virtuelles à l’aide d’un modèle Azure Resource Manager 
 
@@ -63,7 +63,7 @@ Après avoir enregistré le modèle Resource Manager, vous devez mettre à jour 
 
 Le modèle Resource Manager est maintenant préparé pour [créer une machine virtuelle](devtest-lab-create-environment-from-arm.md).
 
-## <a name="set-expiration-date"></a>Définir une date d’expiration
+## <a name="set-expiration-date"></a>Définir la date d’expiration
 Dans des scénarios tels que la formation, les démonstrations et les essais, vous pouvez créer des machines virtuelles et les supprimer automatiquement après une durée fixe, afin de ne pas occasionner de coûts inutiles. Vous pouvez créer une machine virtuelle de laboratoire avec une date d’expiration en spécifiant la propriété **expirationDate** pour la machine virtuelle. Consultez le même modèle Resource Manager dans [notre dépôt GitHub](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates/101-dtl-create-vm-username-pwd-customimage-with-expiration).
 
 

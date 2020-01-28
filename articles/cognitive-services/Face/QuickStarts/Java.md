@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 7097f399b2bf5a3b0f9adb990fbd66785adc09aa
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d6d0a5cdf4b33ba290042627f0ceaf4cf73a375c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977996"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169323"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et Java
 
@@ -23,9 +23,9 @@ Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azur
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
+- Clé d’abonnement au service Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions fournies dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Visage et obtenir votre clé.
 - Un IDE Java de votre choix.
 
 ## <a name="create-the-java-project"></a>Créer le projet Java
@@ -248,7 +248,7 @@ Compilez le code et exécutez-le. Une réponse correcte affiche les données Vis
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé une application de console Java simple qui utilise des appels REST avec l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Découvrez à présent comment exploiter davantage cette fonctionnalité dans une application Android.
+Dans ce guide de démarrage rapide, vous avez créé une application console Java simple qui utilise des appels REST à l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Découvrez à présent comment exploiter davantage cette fonctionnalité dans une application Android.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer une application Android pour détecter et encadrer des visages](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+> [Tutoriel : Créer une application Android pour détecter et encadrer des visages](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

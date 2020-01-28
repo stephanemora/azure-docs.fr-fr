@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 03855b7596f45fcdde0bebe018d2157ad33a617b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278944"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156078"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>Configurer la clé de sécurité comme méthode de vérification
 
@@ -25,8 +25,21 @@ Vous pouvez utiliser des clés de sécurité comme méthode de connexion avec mo
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
->[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>[!Note]
+> Si vous ne voyez pas l’option de clé de sécurité, il est possible que votre organisation ne vous autorise pas à l’utiliser à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l’aide.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Vérification de la sécurité ou authentification avec réinitialisation du mot de passe
+
+Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation du mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
+
+| Méthode | Utilisé pour |
+| ------ | -------- |
+| Application Authenticator | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| SMS | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Appels téléphoniques | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Clé de sécurité | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Compte e-mail | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
+| Questions de sécurité | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
 
 ## <a name="what-is-a-security-key"></a>Qu’est-ce qu’une clé de sécurité ?
 

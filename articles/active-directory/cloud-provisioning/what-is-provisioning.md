@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 166fb9320672e63b8c53717133dc61aa93f57a62
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868641"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167627"
 ---
 # <a name="what-is-identity-provisioning"></a>Qu’est-ce que le provisionnement d’identités ?
 
@@ -50,9 +50,7 @@ Le scénario le plus courant correspond à un nouvel employé qui rejoint votre 
 
 ![provisionnement cloud](media/what-is-provisioning/cloud3.png)
 
-Le provisionnement d’applications implique le provisionnement d’utilisateurs et de rôles dans les applications auxquelles l’utilisateur a besoin d’accéder.  
-
-Le scénario le plus courant correspond au provisionnement dans O365 ou Salesforce d’un utilisateur dans Azure AD.
+Dans Azure Active Directory (Azure AD), le terme **[provisionnement de l’application](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** désigne la création automatique des identités et rôles des utilisateurs dans les applications cloud auxquelles les utilisateurs ont besoin d’accéder. En plus de créer des identités utilisateur, l’approvisionnement automatique comprend la maintenance et la suppression d’identités utilisateur en cas de modification de l’état ou des rôles. Les scénarios courants incluent la configuration d’un utilisateur Azure AD dans des applications telles que [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial), et bien plus encore.
 
 ## <a name="directory-provisioning"></a>Provisionnement d’annuaire
 

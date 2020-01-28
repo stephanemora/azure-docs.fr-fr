@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429303"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546943"
 ---
 # <a name="control-access-to-iot-hub"></a>Contrôler l’accès à IoT Hub
 
@@ -347,7 +347,7 @@ Le résultat, qui revient à accorder l’accès en lecture à toutes les identi
 
 ## <a name="supported-x509-certificates"></a>Certificats X.509 pris en charge
 
-Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil avec IoT Hub en chargeant une empreinte de certificat ou une autorité de certification (CA) sur Azure IoT Hub. L’authentification à l’aide d’empreintes de certificat vérifie seulement que l’empreinte présentée correspond à l’empreinte configurée. L’authentification à l’aide de l’autorité de certification valide la chaîne de certificats. 
+Vous pouvez utiliser n’importe quel certificat X.509 pour authentifier un appareil avec IoT Hub en chargeant une empreinte de certificat ou une autorité de certification (CA) sur Azure IoT Hub. L’authentification à l’aide d’empreintes de certificat vérifie que l’empreinte présentée correspond à l’empreinte configurée. L’authentification à l’aide de l’autorité de certification valide la chaîne de certificats. Dans les deux cas, la négociation TLS nécessite que l’appareil dispose d’un certificat et d’une clé privée valides. Pour plus d’informations, voir la spécification TLS, par exemple : [RFC 5246 – Protocole TLS version 1.2](https://tools.ietf.org/html/rfc5246/).
 
 Les certificats pris en charge incluent :
 
@@ -461,6 +461,8 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 * La rubrique [Langage de requête IoT Hub](iot-hub-devguide-query-language.md) décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur les jumeaux d’appareil et les travaux.
 
 * La rubrique [Prise en charge de MQTT au niveau d’IoT Hub](iot-hub-mqtt-support.md), qui fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
+
+* [RFC 5246 – Le protocole TLS version 1.2](https://tools.ietf.org/html/rfc5246/) fournit plus d’informations sur l’authentification TLS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

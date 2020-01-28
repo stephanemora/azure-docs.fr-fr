@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/11/2020
-ms.openlocfilehash: 0354abf6a5450a1116423e3a35c3a7e2ae7b9057
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ef70c211c395556a4c15ff06e65098e8aaac32ba
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971088"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120262"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>Configuration de clés gérées par le client dans Azure Monitor 
 
@@ -378,8 +378,6 @@ Si vous mettez à jour votre clé dans Key Vault et que vous ne mettez pas à jo
 
 - Le chiffrement CMK s’applique aux données nouvellement ingérées après la configuration de CMK. Les données qui ont été ingérées avant la configuration de CMK demeurent chiffrées avec la clé Microsoft. Vous pouvez interroger les données avant et après la configuration de manière fluide.
 
-- La fonctionnalité CMK est régionale : vos coffre de clés Azure, ressource de *cluster* et espaces de travail associés doivent se trouver dans la même région, mais ils peuvent être dans des abonnements différents.
-
 - Une fois que l’espace de travail est associé à une ressource de *cluster*, il ne peut pas en être dissocié, car les données sont chiffrées avec votre clé et ne sont pas accessibles sans votre clé KEK dans Azure Key Vault.
 
 - Le coffre de clés Azure doit être configuré comme récupérable. Les propriétés ci-après, qui ne sont pas activées par défaut, doivent être configurées à l’aide de l’interface CLI et de PowerShell :
@@ -391,9 +389,9 @@ Si vous mettez à jour votre clé dans Key Vault et que vous ne mettez pas à jo
 
 - Le déplacement de la ressource de *cluster* vers un autre groupe de ressources ou abonnement n’est pas pris en charge.
 
-- L’association d’un espace de travail à la ressource de *cluster* échoue si celle-ci se trouve dans un autre locataire.
+- Votre Azure Key Vault, la ressource de *cluster* et les espaces de travail associés doivent se trouver dans la même région et dans le même locataire Azure Active Directory (Azure AD) mais peuvent être liés à des abonnements différents.
 
--   L’Association d’un espace de travail à la ressource de *cluster* échoue s’il est associé à une autre ressource de *cluster*.
+- L’association d’un espace de travail à la ressource de *cluster* échoue s’il est associé à une autre ressource de *cluster*
 
 ## <a name="troubleshooting-and-management"></a>Résolution des problèmes et gestion
 
@@ -557,7 +555,7 @@ Content-type: application/json
 
 ```json
 {
-  "id": "/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.insights/components/{component-name}",
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.insights/components/component-name",
   "name": "component-name",
   "type": "Microsoft.Insights/components",
   "location": "region-name",

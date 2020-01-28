@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : Détecter et afficher les données relatives au visage dans une image à l’aide du kit SDK .NET'
+title: 'Tutoriel : Détecter et afficher les données relatives au visage dans une image à l’aide du kit SDK .NET'
 titleSuffix: Azure Cognitive Services
-description: Dans ce tutoriel, vous allez créer une application Windows qui utilise l’API Visage pour détecter et encadrer des visages dans une image.
+description: Dans ce tutoriel, vous allez créer une application Windows qui utilise le service Visage pour détecter et encadrer des visages dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977962"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165915"
 ---
-# <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Didacticiel : Créer une application WPF (Windows Presentation Framework) pour afficher les données sur les visages dans une image
+# <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Tutoriel : Créer une application WPF (Windows Presentation Framework) pour afficher les données sur les visages dans une image
 
-Dans ce tutoriel, vous allez apprendre à utiliser l’API Visage Azure via le kit SDK .NET client pour détecter des visages dans une image et présenter les données dans l’IU. Vous allez créer une application WPF qui détecte les visages, trace un cadre autour de chaque visage et affiche une description du visage dans la barre d’état. 
+Dans ce tutoriel, vous allez apprendre à utiliser le service Visage Azure via le SDK .NET client pour détecter des visages dans une image et présenter les données dans l’interface utilisateur. Vous allez créer une application WPF qui détecte les visages, trace un cadre autour de chaque visage et affiche une description du visage dans la barre d’état. 
 
 Ce didacticiel vous explique les procédures suivantes :
 
 > [!div class="checklist"]
 > - Créer une application WPF
-> - Installer la bibliothèque de client de l’API Visage
+> - Installer la bibliothèque de client du service Visage
 > - Utiliser la bibliothèque de client pour détecter les visages dans une image
 > - Tracer un cadre autour de chaque visage détecté
 > - Afficher une description du visage mis en surbrillance dans la barre d’état
@@ -37,9 +37,9 @@ L’exemple de code complet est disponible dans le dépôt [Cognitive Face CShar
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
+- Clé d’abonnement au service Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions fournies dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Visage et obtenir votre clé. Ensuite, [créez des variables d’environnement](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) pour la chaîne de point de terminaison de la clé et du service, nommées respectivement `FACE_SUBSCRIPTION_KEY` et `FACE_ENDPOINT`.
 - N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
@@ -61,7 +61,7 @@ Ouvrez *MainWindow.xaml*, puis remplacez le contenu par le code suivant. Ce code
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?name=snippet_xaml)]
 
-### <a name="create-the-main-class"></a>Créer la classe main
+### <a name="create-the-main-class"></a>Créer la classe principale
 
 Ouvrez *MainWindow.xaml.cs*, puis ajoutez les espaces de noms de la bibliothèque de client ainsi que les autres espaces de noms nécessaires. 
 

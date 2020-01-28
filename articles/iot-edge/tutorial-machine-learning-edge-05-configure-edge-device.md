@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a9f9c6ebd55752ea5a3400da8d42b6c6487277df
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612868"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514644"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Tutoriel : Configurer un appareil IoT Edge
 
@@ -262,7 +262,7 @@ Par la suite, nous mettons à jour les certificats et le nom d’hôte en modifi
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Vérifiez que « certificates: » n’est pas précédé d’un espace et que chaque certificat est précédé de deux espaces.
+    Vérifiez que la ligne **certificates:** n’est pas précédée d’un espace et que chaque certificat imbriqué est mis en retrait de deux espaces.
 
     Dans nano, cliquez avec le bouton droit pour coller le contenu de votre Presse-papiers à la position actuelle du curseur. Pour remplacer la chaîne, utilisez les touches de direction pour accéder à la chaîne à remplacer, supprimez la chaîne, puis cliquez avec le bouton droit pour coller à partir de la mémoire tampon.
 

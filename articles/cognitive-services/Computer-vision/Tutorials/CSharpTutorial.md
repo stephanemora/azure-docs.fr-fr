@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Explorer une application de traitement d’image en C#'
+title: 'Exemple : Explorer une application de traitement d’image en C#'
 titleSuffix: Azure Cognitive Services
 description: Explorez une application Windows de base qui utilise l’API Vision par ordinateur dans Azure Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170036"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168882"
 ---
-# <a name="sample-explore-an-image-processing-app-with-c"></a>Exemple : Explorer une application de traitement d’image avec C#
+# <a name="sample-explore-an-image-processing-app-with-c"></a>Exemple : Explorer une application de traitement d’image avec C#
 
 Explorez une application Windows de base qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, mais aussi détecter, classer, baliser et décrire des caractéristiques visuelles, y compris les visages, dans une image. L’exemple ci-dessous vous permet d’envoyer une URL d’image ou un fichier stocké localement. Vous pouvez utiliser cet exemple open source comme modèle afin de générer votre propre application pour Windows avec l’API Vision par ordinateur et Windows Presentation Foundation (WPF), qui fait partie du .NET Framework.
 
@@ -28,7 +28,7 @@ Explorez une application Windows de base qui utilise l’API Vision par ordinate
 > * Exécuter l’exemple d’application et interagir pour réaliser différents scénarios
 > * Explorer les différents scénarios inclus dans l’exemple d’application
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant d’explorer l’exemple d’application, assurez-vous que vous avez rempli les conditions préalables suivantes :
 
@@ -304,11 +304,11 @@ La méthode `UploadAndThumbnailImageAsync` crée une instance `ComputerVisionCli
 
 La méthode `RecognizeUrlAsync` crée une instance `ComputerVisionClient` à l’aide de l’URL de point de terminaison et de la clé d’abonnement spécifiées. Elle appelle la méthode `ComputerVisionClient.GenerateThumbnailAsync`, en soumettant la largeur, la hauteur, l’URL de l’image et l’utilisation éventuelle du rognage intelligent, puis retourne le résultat en tant que `Stream`. Les méthodes héritées de la classe `ImageScenarioPage` présentent les résultats retournés dans la page de scénario.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le dossier dans lequel vous avez cloné le référentiel `Microsoft/Cognitive-Vision-Windows`. Si vous avez choisi d’utiliser les exemples d’image, supprimez également le dossier dans lequel vous avez cloné le référentiel `Microsoft/Cognitive-Face-Windows`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Bien démarrer avec l’API Visage](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Bien démarrer avec le service Visage](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

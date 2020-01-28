@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045796"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277987"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -417,7 +417,7 @@ La personnalisation prise en charge comprend les éléments suivants :
 |Personnalisation|Définition|
 |--|--|
 |Mise à jour de l’objectif de la colonne|Remplacer le type de caractéristique pour la colonne spécifiée.|
-|Mise à jour des paramètres du transformateur |Mettre à jour les paramètres du transformateur spécifié. Prend actuellement en charge Imputer et HashOneHotEncoder.|
+|Mise à jour des paramètres du transformateur |Mettre à jour les paramètres du transformateur spécifié. Prend actuellement en charge Imputer (moyen, le plus fréquent et médian) et HashOneHotEncoder.|
 |Supprimer des colonnes |Colonnes à supprimer de la caractérisation.|
 |Transformateurs de blocs| Transformateurs de blocs à utiliser dans le processus de caractérisation.|
 

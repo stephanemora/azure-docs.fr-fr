@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 76d355413bc0dceb91f7cfa1a3988f48e2701d5e
-ms.sourcegitcommit: 541e6139c535d38b9b4d4c5e3bfa7eef02446fdc
+ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75667502"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513930"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
 
@@ -20,7 +20,7 @@ L’ingestion de données historiques à partir de ressources IoT (Internet des 
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Avant de poursuivre cet article, vérifiez que vous avez installé FarmBeats et collecté des données historiques à partir de ressources IoT.
+Avant de poursuivre cet article, vérifiez que vous avez installé FarmBeats et collecté des données historiques à partir de appareils IoT.
 Vous devez également activer l’accès partenaire comme indiqué dans les étapes suivantes.
 
 ## <a name="enable-partner-access"></a>Activer l’accès partenaire
@@ -38,31 +38,36 @@ Effectuez les opérations suivantes.
 >[!NOTE]
 > Pour effectuer les étapes suivantes, vous devez être administrateur.
 
-1. Téléchargez ce [script](https://aka.ms/farmbeatspartnerscript) et extrayez-le sur votre lecteur local. Le fichier zip contient deux fichiers.
-2. Connectez-vous au [portail Azure](https://portal.azure.com/) et ouvrez Azure Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail.
+1. Téléchargez le [fichier zip](https://aka.ms/farmbeatspartnerscriptv2) et extrayez-le sur votre lecteur local. Il y aura un fichier dans le fichier zip.
+2. Connectez-vous à https://portal.azure.com/ et accédez à Azure Active Directory -> Inscriptions d’applications.
 
-    ![Barre d’outils du portail Azure](./media/for-tutorials/navigation-bar-1.png)
+3. Cliquez sur l’inscription de l’application qui a été créée dans le cadre de votre déploiement FarmBeats. Elle aura le même nom que votre DataHub FarmBeats.
 
-3. Veillez à ce que **PowerShell** soit défini comme environnement.
+4. Cliquez sur « Exposer une API » -> cliquez sur « Ajouter une application cliente », puis entrez **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** et cochez la case « Autoriser l’étendue ». Cela permet d’accéder à l’interface de ligne de commande Azure (Cloud Shell) pour effectuer les étapes ci-dessous.
 
-    ![Paramètre PowerShell](./media/for-tutorials/power-shell-new-1.png)
+5. Ouvrez Cloud Shell. Cette option est disponible dans la barre d’outils située en haut à droite du portail Azure.
 
-4. Chargez les deux fichiers que vous avez téléchargés à l’étape 1 dans votre instance Cloud Shell.
+    ![Barre d’outils du portail Azure](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-    ![Bouton de chargement dans la barre d’outils](./media/for-tutorials/power-shell-two-1.png)
+6. Veillez à ce que **PowerShell** soit défini comme environnement. Bash est sélectionné par défaut.
 
-5. Accédez au répertoire où les fichiers ont été chargés.
+    ![Paramètre de la barre d’outils PowerShell](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-   >[!NOTE]
-   > Par défaut, les fichiers sont chargés dans le répertoire de base sous le nom d’utilisateur.
-6. Exécutez le script à l’aide de la commande suivante :
+7. Chargez le fichier obtenu à l’étape 1 dans votre instance Cloud Shell.
 
-    ```azurepowershell-interactive
-    ./generateCredentials.ps1
+    ![Bouton de chargement dans la barre d’outils](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+
+8. Accédez au répertoire où le fichier a été chargé. Par défaut, les fichiers sont chargés dans le répertoire de base sous le nom d’utilisateur.
+
+9. Exécutez le script suivant. Le script invite à fournir l’ID de locataire, qui peut être obtenu à partir de la page Azure Active Directory > Vue d’ensemble.
+
+    ```azurepowershell-interactive 
+
+    ./generatePartnerCredentials.ps1   
+
     ```
 
-7. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements). La chaîne de connexion EventHub est disponible dans la réponse d’API dans Swagger.
-
+10. Suivez les instructions à l’écran pour capturer les valeurs suivantes : **API Endpoint** (Point de terminaison d’API), **Tenant ID** (ID de locataire), **Client ID** (ID client), **Client Secret** (Secret client) et **EventHub Connection String** (Chaîne de connexion du hub d’événements).
 ## <a name="create-device-or-sensor-metadata"></a>Créer des métadonnées d’appareils ou de capteurs
 
  Maintenant que vous disposez des informations d’identification nécessaires, vous pouvez définir les appareils et les capteurs. Pour cela, créez les métadonnées en appelant les API FarmBeats. Sachez que vous devrez appeler les API en tant qu’application cliente créée dans la section ci-dessus.
@@ -326,11 +331,11 @@ Convertissez les données de capteur historiques dans un format canonique compr�
       "sensordata": [
         {
           "timestamp": "< timestamp in ISO 8601 format >",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         },
         {
           "timestamp": "<timestamp in ISO 8601 format>",
-          "<sensor measure name (as defined in the Sensor Model)>": "<value>"
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
         }
       ]
     }

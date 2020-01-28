@@ -1,29 +1,21 @@
 ---
-title: 'Didacticiel : Créer et utiliser des disques pour les groupes identiques avec Azure PowerShell | Microsoft Docs'
+title: Tutoriel - Créer et utiliser des disques pour les groupes identiques avec Azure PowerShell
 description: Découvrez comment utiliser Azure PowerShell pour créer et utiliser la fonctionnalité Disques managés avec des groupes identiques de machines virtuelles, notamment comment ajouter, préparer, répertorier et détacher des disques.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: ba2d216b9827eeb499df40ceffca16780bdf5a02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728580"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278255"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Créer et utiliser des disques avec un groupe de machines virtuelles identiques à l’aide d’Azure PowerShell
 
 Les groupes de machines virtuelles identiques utilisent des disques pour stocker le système d’exploitation, les applications et les données de l’instance de machine virtuelle. Lorsque vous créez et gérez un groupe identique, il est important de choisir une taille de disque et une configuration appropriées à la charge de travail prévue. Ce didacticiel explique comment créer et gérer des disques de machine virtuelle. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -55,7 +47,7 @@ Lorsqu’un groupe identique est créé ou mis à l’échelle, deux disques son
 | [Optimisé pour le calcul](../virtual-machines/windows/sizes-compute.md) | Série F | 576 |
 | [Mémoire optimisée](../virtual-machines/windows/sizes-memory.md) | Séries D, E, G et M | 6144 |
 | [Optimisé pour le stockage](../virtual-machines/windows/sizes-storage.md) | Série L | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 1 440 |
+| [GPU](../virtual-machines/windows/sizes-gpu.md) | Série N | 1440 |
 | [Hautes performances](../virtual-machines/windows/sizes-hpc.md) | Séries A et H | 2000 |
 
 
@@ -85,9 +77,9 @@ Les disques Premium reposent sur un disque SSD à faible latence et hautes perfo
 ### <a name="premium-disk-performance"></a>Performances du disque Premium
 |Type de disque de stockage Premium | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Taille du disque (arrondie) | 32 Go | 64 Go | 128 Go | 512 Go | 1 024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) |
+| Taille du disque (arrondie) | 32 Go | 64 Go | 128 Go | 512 Go | 1 024 Go (1 To) | 2 048 Go (2 To) | 4 095 Go (4 To) |
 | Nb max. d'E/S par seconde par disque | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
-Débit par disque | 25 Mo/s | 50 Mo/s | 100 Mo/s | 150 Mo/s | 200 Mo/s | 250 Mo/s | 250 Mo/s |
+Débit par disque | 25 Mo/s | 50 Mo/s | 100 Mo/s | 150 Mo/s | 200 Mo/s | 250 Mo/s | 250 Mo/s |
 
 Bien que le tableau ci-dessus identifie le nombre max. d’E/S par seconde par disque, un niveau de performances plus élevé est possible en entrelaçant plusieurs disques de données. Par exemple, une machine virtuelle Standard_GS5 peut atteindre un nombre maximum d’E/S par seconde de 80 000. Pour plus d’informations sur le nombre maximal d’E/S par seconde par machine virtuelle, consultez [Tailles des machines virtuelles Windows](../virtual-machines/windows/sizes.md).
 
@@ -304,7 +296,7 @@ Update-AzVmss `
 ```
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer votre groupe identique et vos disques, supprimez le groupe de ressources et toutes ses ressources avec [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup). Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
 
 ```azurepowershell-interactive

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 0ecbb4399e038355a328055590da1c34170f3852
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894621"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294250"
 ---
 # <a name="supported-platforms"></a>Plateformes prises en charge 
 
@@ -49,6 +49,10 @@ Les sections suivantes répertorient les systèmes d’exploitation serveur pris
 |Windows Server 2008 R2|✔|✔|
 
 Pour en savoir plus sur les fonctionnalités prises en charge pour les systèmes d’exploitation Windows, voir les [fonctionnalités de machine virtuelle/serveur prises en charge](security-center-services.md#vm-server-features).
+
+### Systèmes d’exploitation Windows <a name="os-windows (non-server)"></a>
+
+Azure Security Center s’intègre aux services Azure pour superviser et protéger vos machines virtuelles Windows.
 
 ### Systèmes d’exploitation Linux <a name="os-linux"></a>
 

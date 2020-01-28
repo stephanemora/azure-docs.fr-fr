@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790317"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122200"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Choisissez entre les trois services de messagerie Azure - Event Grid, Event Hubs et Service Bus
 
@@ -44,7 +44,7 @@ Un message est constitué de données brutes générées par un service et desti
 
 ## <a name="comparison-of-services"></a>Comparaison des services
 
-| Service | Objectif | Type | Quand utiliser |
+| Service | Objectif | Type | Quand l’utiliser |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Programmation réactive | Distribution d’événements (discrets) | Réagir aux changements d’état |
 | Event Hubs | Pipeline de Big Data | Streaming d’événements (série) | Données de télémétrie et streaming de données distribuées |
@@ -67,7 +67,7 @@ Il présente les caractéristiques suivantes :
 
 ### <a name="event-hubs"></a>Event Hubs
 
-Azure Event Hubs est un pipeline de Big Data. Il facilite la capture, la rétention et la relecture des données de télémétrie et des données de flux d’événements. Les données peuvent provenir de nombreuses sources simultanées. Event Hubs permet de mettre les données de télémétrie et d’événements à la disposition d’un grand nombre de services d’analytique et d’infrastructures de traitement de flux. Les données sont disponibles sous forme de flux de données ou de lots d’événements regroupés. Ce service fournit une solution unique pour la récupération rapide de données à traiter en temps réel et pour la relecture répétée de données brutes stockées. Il peut capturer les données de diffusion en continu dans un fichier à des fins de traitement et d’analyse.
+Azure Event Hubs est un pipeline de Big Data. Il facilite la capture, la rétention et la relecture des données de télémétrie et des données de flux d’événements. Les données peuvent provenir de nombreuses sources simultanées. Event Hubs permet de mettre les données de télémétrie et d’événements à la disposition d’un grand nombre de services d’analytique et d’infrastructures de traitement de flux. Les données sont disponibles sous forme de flux de données ou de lots d’événements regroupés. Ce service fournit une solution unique pour la récupération rapide de données à traiter en temps réel et pour la relecture répétée de données brutes stockées. Il peut capturer les données de streaming dans un fichier à des fins de traitement et d’analyse.
 
 Il présente les caractéristiques suivantes :
 
@@ -90,14 +90,14 @@ Il présente les caractéristiques suivantes :
 
 ## <a name="use-the-services-together"></a>Utiliser les services ensemble
 
-Dans certains cas, vous utilisez les services côte à côte afin qu’ils remplissent des rôles distincts. Par exemple, un site marchand peut utiliser Service Bus pour traiter les commandes, Event Hubs pour capturer les données de télémétrie du site et Event Grid pour répondre aux événements tels que l’expédition d’un article.
+Dans certains cas, vous utilisez les services côte à côte afin qu’ils remplissent des rôles distincts. Par exemple, un site marchand peut utiliser Service Bus pour traiter les commandes, Event Hubs pour capturer la télémétrie du site et Event Grid pour répondre à des événements comme l’expédition d’un article.
 
 Dans d’autres cas, vous les liez pour former un pipeline d’événements et de données. Event Grid vous permet de répondre aux événements dans les autres services. Pour obtenir un exemple d’utilisation d’Event Grid avec Event Hubs afin de migrer des données vers un entrepôt de données, consultez [Flux de Big Data dans un entrepôt de données](event-grid-event-hubs-integration.md). L’image suivante montre le flux de travail du flux des données.
 
 ![Vue d’ensemble du flux des données](./media/compare-messaging-services/overview.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants : 
+Voir les articles suivants : 
 - [Options de messagerie asynchrone dans Azure](/azure/architecture/guide/technology-choices/messaging)
 - [Événements, points de données et messages - Sélection du service de messagerie Azure adapté à vos données](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/).
 - [Files d’attente de stockage et files d’attente Service Bus : comparaison et différences](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)

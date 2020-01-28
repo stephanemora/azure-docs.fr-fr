@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble de l’API Azure Relay | Microsoft Docs
-description: Vue d’ensemble des API Azure Relay disponibles
+description: Cet article fournit une vue d’ensemble des API Azure Relay disponibles (.NET Standard, .NET Framework, node.js, etc.)
 services: event-hubs
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/02/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 05d7ac56d6c1c48125eb458d0eee852ba396b300
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 41d9e2026c19c959dc6fe2546b0ef699571ec7cd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60593336"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513964"
 ---
 # <a name="available-relay-apis"></a>API Relay disponibles
 

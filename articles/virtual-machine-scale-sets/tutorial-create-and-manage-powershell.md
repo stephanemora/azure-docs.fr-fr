@@ -1,29 +1,21 @@
 ---
-title: 'Didacticiel : Créer et gérer un groupe de machines virtuelles identiques Azure | Microsoft Docs'
+title: Tutoriel - Créer et gérer un groupe de machines virtuelles identiques Azure
 description: Découvrez comment utiliser Azure PowerShell pour créer un groupe de machines virtuelles identiques, ainsi que certaines tâches de gestion courantes comme le démarrage et l’arrêt d’une instance, ou la modification de la capacité du groupe identique.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 14616fcc9fd63731c50c5977c88b5030f60664ff
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728693"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271408"
 ---
-# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Didacticiel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
+# <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutoriel : Créer et gérer un groupe de machines virtuelles identiques avec Azure PowerShell
 
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Tout au long du cycle de vie du groupe de machines virtuelles identiques, vous devrez peut-être exécuter une ou plusieurs tâches de gestion. Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
@@ -146,7 +138,7 @@ Créez une connexion distante vers votre première instance de machine virtuelle
 mstsc /v 52.168.121.216:50001
 ```
 
-Une fois connecté à l’instance de machine virtuelle, vous pouvez effectuer certaines modifications de configuration manuelle, le cas échéant. Pour l’instant, fermez la connexion à distance.
+Une fois connecté à l’instance de machine virtuelle, vous pouvez modifier la configuration manuelle, le cas échéant. Pour l’instant, fermez la connexion à distance.
 
 
 ## <a name="understand-vm-instance-images"></a>Comprendre les images d’instance de machine virtuelle
@@ -156,7 +148,7 @@ La Place de marché Azure comprend de nombreuses images qui permettent de créer
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Pour afficher la liste des images pour un serveur de publication donné, utilisez [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). Vous pouvez également utiliser `-PublisherName` ou `–Offer` pour filtrer la liste d’images. Dans l’exemple suivant, la liste est filtrée pour toutes les images avec le nom du serveur de publication de *MicrosoftWindowsServer* et une offre qui correspond à *WindowsServer* :
+Pour afficher la liste des images pour un serveur de publication donné, utilisez [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). Vous pouvez également utiliser `-PublisherName` ou `-Offer` pour filtrer la liste d’images. Dans l’exemple suivant, la liste est filtrée pour toutes les images avec le nom du serveur de publication de *MicrosoftWindowsServer* et une offre qui correspond à *WindowsServer* :
 
 ```azurepowershell-interactive
 Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -182,7 +174,7 @@ Skus                                  Offer         PublisherName          Locat
 2016-Nano-Server                      WindowsServer MicrosoftWindowsServer eastus
 ```
 
-Lorsque vous avez créé un groupe identique au début de ce didacticiel, une image de machine virtuelle par défaut de *Windows Server 2016 DataCenter* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une image de machine virtuelle différente en fonction de la sortie de [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). L’exemple suivant créerait un groupe identique avec le paramètre `-ImageName` pour spécifier une image de machine virtuelle de *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, vous n’avez pas à déployer le groupe identique suivant :
+Lorsque vous avez créé un groupe identique au début de ce didacticiel, une image de machine virtuelle par défaut de *Windows Server 2016 DataCenter* a été fournie pour les instances de machine virtuelle. Vous pouvez spécifier une image de machine virtuelle différente en fonction de la sortie de [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku). L’exemple suivant créerait un groupe identique avec le paramètre `-ImageName` pour spécifier une image de machine virtuelle de *MicrosoftWindowsServer:WindowsServer:2016-Datacenter-with-Containers:latest*. Comme la création et la configuration de toutes les ressources et les instances de machine virtuelle du groupe identique prennent quelques minutes, il est inutile de déployer le groupe identique suivant :
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -313,7 +305,7 @@ Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Lorsque vous supprimez un groupe de ressources, toutes les ressources qu’il contient, comme les instances de machine virtuelle, le réseau virtuel et les disques, sont également supprimées. Le paramètre `-Force` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin. Le paramètre `-AsJob` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine.
 
 ```azurepowershell-interactive

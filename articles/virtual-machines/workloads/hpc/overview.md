@@ -1,23 +1,19 @@
 ---
-title: Calcul haute performance sur des machines virtuelles de la série H - Machines virtuelles Azure | Microsoft Docs
+title: Calcul haute performance sur des machines virtuelles de la série H - Machines virtuelles Azure
 description: Découvrez les fonctionnalités et les capacités des machines virtuelles de la série H optimisées pour le HPC (High-Performance Computing, Calcul haute performance).
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: jeconnoc
-editor: ''
+ms.author: amverma
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.author: amverma
-ms.openlocfilehash: d6e857a87e4c7df8ffb2be1eefb7a0290da5b10a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67799004"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271018"
 ---
 # <a name="high-performance-computing-on-h-series-vms"></a>Calcul haute performance sur des machines virtuelles de la série H
 
@@ -41,7 +37,7 @@ La configuration d’InfiniBand prenant en charge les machines virtuelles des s�
 
 Pour plus d’informations sur la configuration d’InfiniBand sur vos machines virtuelles des séries HB et HC, consultez [Activer InfiniBand](enable-infiniband.md).
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Décidez d’abord quelle machine virtuelle de la série H vous allez utiliser. Pour plus d’informations sur les machines virtuelles optimisées pour HPC, consultez [Vue d’ensemble de la série HB](hb-series-overview.md) et [Vue d’ensemble de la série HC](hc-series-overview.md). Pour les spécifications, consultez [Tailles des machines virtuelles de calcul haute performance](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
 

@@ -1,30 +1,28 @@
 ---
 title: Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 description: Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
-services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 7a887905bcb4b09c1b4ae179116b3f08c75caabd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758282"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276805"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>Intégrer avec des services gérés par Azure à l’aide d’Open Service Broker pour Azure (OSBA)
 
 Avec le [Catalogue de services Kubernetes][kubernetes-service-catalog], Open Service Broker pour Azure (OSBA) permet aux développeurs d’utiliser des services gérés par Azure dans Kubernetes. Ce guide se concentre sur le déploiement du Catalogue de services Kubernetes, d’Open Service Broker pour Azure (OSBA) et d’applications qui utilisent des services gérés par Azure à l’aide de Kubernetes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Abonnement Azure
 
-* Azure CLI : [installez-le localement][azure-cli-install] ou utilisez-le dans [Azure Cloud Shell][azure-cloud-shell].
+* Azure CLI : [installez-le localement][azure-cli-install] ou utilisez-le dans [Azure Cloud Shell][azure-cloud-shell].
 
-* Helm CLI 2.7+ : [installez-le localement][helm-cli-install] ou utilisez-le dans [Azure Cloud Shell][azure-cloud-shell].
+* Helm CLI 2.7+ : [installez-le localement][helm-cli-install] ou utilisez-le dans [Azure Cloud Shell][azure-cloud-shell].
 
 * Autorisations pour créer un principal de service avec le rôle Collaborateur pour votre abonnement Azure
 
@@ -131,7 +129,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-Lorsque le déploiement d’OSBA est terminé, installez [l’interface CLI du Catalogue de services][service-catalog-cli], une interface de ligne de commande facile à utiliser pour interroger les Service Brokers, classes de services, plans de services, etc.
+Lorsque le déploiement d’OSBA est terminé, installez [l’interface CLI du Catalogue de services][service-catalog-cli], une interface de ligne de commande facile à utiliser pour interroger les répartiteurs de services, classes de services, plans de services, etc.
 
 Exécutez les commandes suivantes pour installer l’interface CLI binaire du Catalogue de services :
 
@@ -146,7 +144,7 @@ Maintenant, répertoriez les répartiteurs de services installés :
 ./svcat get brokers
 ```
 
-Le résultat ressemble à ce qui suit :
+Vous devez obtenir une sortie similaire à la suivante :
 
 ```
   NAME                               URL                                STATUS

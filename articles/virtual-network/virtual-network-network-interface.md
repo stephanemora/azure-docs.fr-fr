@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: df2eb0886b71a2d5daaa95f33ef29a2afc7e112a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980714"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543101"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Créer, modifier ou supprimer une interface réseau
 
@@ -90,7 +90,7 @@ Vous pouvez afficher et modifier la plupart des paramètres d’une interface r�
    - **Propriétés :** affiche des paramètres clés concernant l’interface réseau, dont son adresse MAC (vide si l’interface réseau n’est pas attachée à une machine virtuelle), ainsi que l’abonnement dans lequel elle existe.
    - **Obtenir les règles de sécurité effectives :**  les règles de sécurité sont listées si l’interface réseau est attachée à une machine virtuelle en cours d’exécution, tandis qu’un groupe de sécurité réseau est associé à l’interface réseau et/ou au sous-réseau auquel il est assigné. Pour en savoir plus sur ce qui est affiché, consultez [Voir les règles de sécurité effectives](#view-effective-security-rules). Pour en savoir plus sur les groupes de sécurité réseau, consultez [Groupes de sécurité réseau](security-overview.md).
    - **Obtenir les routages effectifs :** les routes sont listées si l’interface réseau est attachée à une machine virtuelle en cours d’exécution. Les itinéraires sont une combinaison d’itinéraires par défaut d’Azure, d’itinéraires définis par l’utilisateur et de tous les itinéraires BGP existants pour le sous-réseau auquel l’interface réseau est assignée. Pour en savoir plus sur ce qui est affiché, consultez [Voir les itinéraires effectifs](#view-effective-routes). Pour plus d’informations sur les itinéraires par défaut Azure et les itinéraires définis par l’utilisateur, consultez [Vue d’ensemble du routage](virtual-networks-udr-overview.md).
-   - **Paramètres courants d’Azure Resource Manager :**  Pour en savoir plus sur les paramètres courants d’Azure Resource Manager, consultez les articles [Journal d’activité](../azure-monitor/platform/platform-logs-overview.md), [Contrôle d’accès (IAM)](../role-based-access-control/overview.md), [Balises](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Verrous](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Script Automation](../azure-resource-manager/templates/export-template-portal.md).
+Paramètres courants d’Azure Resource Manager : Pour en savoir plus sur les paramètres courants d’Azure Resource Manager, consultez les articles [Journal d’activité](../azure-monitor/platform/platform-logs-overview.md), [Contrôle d’accès (IAM)](../role-based-access-control/overview.md), [Balises](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Verrous](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) et [Script Automation](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Commandes**
 
@@ -168,7 +168,7 @@ Vous pouvez modifier le sous-réseau, mais pas le réseau virtuel auquel une int
 Vous ne pouvez ajouter ou supprimer une interface réseau dans un groupe de sécurité d’application à l’aide du portail que si l’interface réseau est attachée à une machine virtuelle. Vous pouvez utiliser PowerShell ou Azure CLI pour ajouter ou supprimer une interface réseau dans un groupe de sécurité d’application, que l’interface réseau soit attachée ou non à une machine virtuelle. Apprenez-en davantage sur les [groupes de sécurité d’application](security-overview.md#application-security-groups) et sur la création d’un [groupe de sécurité d’application](manage-network-security-group.md).
 
 1. Dans la zone *Rechercher parmi les ressources, services et documents* en haut du portail, commencez à taper le nom d’une machine virtuelle qui a une interface réseau que vous souhaitez ajouter ou supprimer dans un groupe de sécurité d’application. Quand le nom de votre machine virtuelle apparaît dans les résultats de la recherche, sélectionnez-le.
-2. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**.  Sélectionnez **Configure the application security groups (Configurer les groupes de sécurité d’application)** , sélectionnez les groupes de sécurité d’application auxquels vous souhaitez ajouter l’interface réseau ou désélectionnez les groupes de sécurité d’application desquels vous souhaitez supprimer l’interface réseau, puis sélectionnez **Enregistrer**. Seules les interfaces réseau qui existent dans le même réseau virtuel peuvent être ajoutées au même groupe de sécurité d’application. Le groupe de sécurité d’application doit exister dans le même emplacement que l’interface réseau.
+2. Sous **PARAMÈTRES**, sélectionnez **Mise en réseau**.  Sélectionnez **Groupes de sécurité d’application**, puis **Configurer les groupes de sécurité d’application**, choisissez les groupes de sécurité d’application auxquels vous souhaitez ajouter l’interface réseau ou désélectionnez les groupes de sécurité d’application dont vous souhaitez supprimer l’interface réseau, puis sélectionnez **Enregistrer**. Seules les interfaces réseau qui existent dans le même réseau virtuel peuvent être ajoutées au même groupe de sécurité d’application. Le groupe de sécurité d’application doit exister dans le même emplacement que l’interface réseau.
 
 **Commandes**
 
@@ -196,8 +196,8 @@ Vous ne pouvez ajouter ou supprimer une interface réseau dans un groupe de séc
 Vous pouvez supprimer une interface réseau tant qu’elle n’est pas attachée à une machine virtuelle. Si une interface réseau est attachée à une machine virtuelle, vous devez d’abord placer la machine virtuelle en état Arrêté (libéré), puis détacher l’interface réseau de la machine virtuelle. Pour détacher une interface réseau d’une machine virtuelle, procédez de la manière décrite dans la section [Supprimer une interface réseau d’une machine virtuelle](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Toutefois, vous ne pouvez pas détacher une interface réseau d’une machine virtuelle s’il s’agit de la seule interface réseau attachée à cette machine. Une machine virtuelle doit toujours être associée à au moins une interface réseau. La suppression d’une machine virtuelle détache toutes les interfaces réseau attachées, mais elle ne supprime pas les interfaces réseau.
 
 1. Dans la zone qui contient le texte *Rechercher des ressources* en haut du portail Azure, saisissez *interfaces réseau*. Lorsque la mention **interfaces réseau** apparaît dans les résultats de recherche, sélectionnez-la.
-2. Sélectionnez **...** à droite de l’interface réseau que vous souhaitez supprimer de la liste d’interfaces réseau.
-3. Sélectionnez **Supprimer**.
+2. Sélectionnez dans la liste l’interface réseau que vous souhaitez supprimer.
+3. Sous **Vue d’ensemble**, sélectionnez **Supprimer**.
 4. Cliquez sur **Oui** pour confirmer la suppression de l’interface réseau.
 
 Lorsque vous supprimez une interface réseau, toutes les adresses MAC ou IP qui lui sont assignées sont libérées.

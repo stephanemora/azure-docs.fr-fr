@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a168f9bf58c4942fc0b76b9ffefc2b32b5bfbe5a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dd178f52665c77f03a48d87a9e73c9019390bb21
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549361"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154854"
 ---
 # <a name="quickstart-configure-azure-active-directory-self-service-password-reset"></a>Démarrage rapide : Configurer la réinitialisation de mot de passe en libre-service Azure Active Directory
 
@@ -71,7 +71,7 @@ Maintenant, testez votre configuration SSPR avec un utilisateur test qui fait pa
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Pour désactiver la réinitialisation de mot de passe en libre-service, recherchez et sélectionnez **Azure Active Directory** dans le portail Azure. Sélectionnez **Propriétés** > **Réinitialisation de mot de passe**, puis choisissez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**. Quand vous êtes prêt, sélectionnez **Enregistrer**.
+Pour désactiver la réinitialisation de mot de passe en libre-service, recherchez et sélectionnez **Azure Active Directory** dans le portail Azure. Sélectionnez **Réinitialisation de mot de passe**, puis choisissez **Aucun** sous **Réinitialisation de mot de passe en libre-service activée**. Quand vous êtes prêt, sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

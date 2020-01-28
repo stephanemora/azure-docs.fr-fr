@@ -1,14 +1,14 @@
 ---
 title: Voir et gérer les clients et les ressources déléguées
 description: En tant que fournisseur de services utilisant la gestion des ressources déléguées Azure, vous pouvez afficher l’ensemble des ressources et abonnements délégués de vos clients en accédant à Mes clients sur le portail Azure.
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456831"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543424"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Voir et gérer les clients et les ressources déléguées
 
@@ -40,13 +40,20 @@ Vous pouvez afficher les informations suivantes de cette page :
 - Pour afficher des détails supplémentaires sur une offre et ses délégations, sélectionnez le nom de l’offre.
 - Pour voir plus de détails sur les affectations de rôles pour les abonnements ou groupes de ressources délégués, sélectionnez l’entrée dans la colonne **Délégations**.
 
-## <a name="view-delegations"></a>Afficher les délégations
+## <a name="view-and-manage-delegations"></a>Afficher et gérer les délégations
 
 Les délégations affichent l’abonnement ou le groupe de ressources délégués, ainsi que les utilisateurs et autorisations qui y ont accès. Pour afficher ces informations, sélectionnez **Délégations** sur le côté gauche de la page **Mes clients**.
 
 Les filtres en haut de la page vous permettent de trier et de regrouper vos informations d’affectation d’accès ou de filtrer sur des clients, offres ou mots clés spécifiques.
 
+### <a name="view-role-assignments"></a>Voir les attributions de rôles
+
 Les utilisateurs et les autorisations associés à chaque délégation apparaissent dans la colonne **Attributions de rôles**. Vous pouvez sélectionner chaque entrée pour afficher la liste complète des utilisateurs, groupes et principaux de service qui ont reçu l’accès à l’abonnement ou au groupe de ressources. À partir de là, vous pouvez sélectionner un utilisateur, un groupe ou un nom de principal du service particuliers pour obtenir plus de détails.
+
+### <a name="remove-delegations"></a>Supprimer des délégations
+
+Si vous avez inclus des utilisateurs avec le [rôle Supprimer l’attribution de l’inscription des services managés](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) lors de l’intégration d’un client pour la gestion des ressources déléguées Azure, ces utilisateurs peuvent supprimer une délégation en sélectionnant l’icône de la corbeille figurant dans la ligne de cette délégation. Dans ce cas, aucun utilisateur du locataire du fournisseur de services ne pourra accéder aux ressources précédemment déléguées.
+
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>Travailler dans le contexte d’un abonnement délégué
 

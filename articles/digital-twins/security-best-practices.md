@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/15/2020
+ms.openlocfilehash: 5fc5ba447557aa89e8f0870c576d6d4c439f3353
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860943"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122557"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Bonnes pratiques de sécurité relatives à Azure Digital Twins
 
@@ -40,6 +40,7 @@ Voici certaines des pratiques les plus importantes pour sécuriser vos appareils
 > * Limitation des E/S et de la bande passante des appareils pour améliorer les performances. La limitation du débit peut améliorer la sécurité en empêchant les attaques par déni de service.
 > * Maintenez à jour le microprogramme, le système d’exploitation et les logiciels de l’appareil.
 > * Auditez et examinez régulièrement les bonnes pratiques en matière de sécurité des appareils, des logiciels, des réseaux et des passerelles, car elles s’améliorent et évoluent constamment.
+> * Utilisez des systèmes, logiciels et appareils de sécurité approuvés, certifiés et conformes. Par exemple, passez en revue [les offres de conformité](https://azure.microsoft.com/overview/trusted-cloud/compliance/) pour le Cloud Azure.
 
 Voici certaines des pratiques les plus importantes pour sécuriser un espace IoT :
 
@@ -67,8 +68,8 @@ Azure Digital Twins utilise [Azure Active Directory](https://docs.microsoft.com/
 > * Utiliser un certificat émis par une [autorité de certification](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) approuvée pour s’authentifier, plutôt que des secrets d’application.
 > * Limiter l’étendue d’accès OAuth 2.0 pour un jeton.
 > * Vérifier la durée de validité d’un jeton, ainsi que de sa capacité à rester valide.
-> * Définir des durées de validité appropriées pour les jetons.
-> * Actualiser des jetons expirés.
+> * Définir des durées de validité appropriées pour les jetons. Actualiser des jetons expirés.
+> * Supprimez les **URI de redirection** et autorisations inutilisés conformément aux [meilleures pratiques de contrôle d’accès en fonction du rôle](#role-based-access-control-best-practices).
 
 ## <a name="role-based-access-control-best-practices"></a>Bonnes pratiques relatives au contrôle d’accès en fonction du rôle
 

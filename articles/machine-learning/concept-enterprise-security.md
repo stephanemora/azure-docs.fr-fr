@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 9dad936e2e6cc7a9b0cdde78a9557a51d3074e71
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: bc083a95ebf6c7ecfabfef87e606f99053ba58bb
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930877"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312411"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sécurité de l’entreprise pour Azure Machine Learning
 
@@ -176,12 +176,12 @@ Azure Container Instance ne prend pas en charge le chiffrement de disque. Si vou
 
 #### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
 
-Vous pouvez chiffrer une ressource Azure Kubernetes Service déployée en utilisant des clés gérées par un client à tout moment. Pour plus d’informations, consultez [https://aka.ms/aks/byok](https://aka.ms/aks/byok). 
+Vous pouvez chiffrer une ressource Azure Kubernetes Service déployée en utilisant des clés gérées par un client à tout moment. Pour plus d’informations, consultez [Apporter vos propres clés avec Azure Container Service](../aks/azure-disk-customer-managed-keys.md). 
 
 Ce processus vous permet de chiffrer à la fois les données et le disque de système d’exploitation des machines virtuelles déployées dans le cluster Kubernetes.
 
 > [!IMPORTANT]
-> Ce processus fonctionne uniquement avec AKS K8s version 1.16 ou ultérieure. Azure Machine Learning a ajouté une prise en charge pour AKS 1.16 le 13 janvier 2020.
+> Ce processus fonctionne uniquement avec AKS K8s version 1.17 ou ultérieure. Azure Machine Learning a ajouté un support pour AKS 1.17 le 13 janvier 2020.
 
 #### <a name="machine-learning-compute"></a>Capacité de calcul Machine Learning
 
@@ -335,7 +335,7 @@ Voici les détails :
 
 * [Sécuriser les services web Azure Machine Learning avec SSL](how-to-secure-web-service.md)
 * [Utiliser un modèle Machine Learning déployé en tant que service web](how-to-consume-web-service.md)
-* [Exécuter des prédictions par lots](how-to-run-batch-predictions.md)
+* [Exécuter des prédictions par lots](how-to-use-parallel-run-step.md)
 * [Superviser vos modèles Azure Machine Learning avec Application Insights](how-to-enable-app-insights.md)
 * [Collecter des données pour des modèles en production](how-to-enable-data-collection.md)
 * [Kit de développement logiciel (SDK) Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

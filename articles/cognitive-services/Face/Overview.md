@@ -1,7 +1,7 @@
 ---
-title: Qu’est ce que le l’API Visage ?
+title: Qu’est ce que le service Visage ?
 titleSuffix: Azure Cognitive Services
-description: L’API Visage d’Azure Cognitive Services fournit des algorithmes qui sont utilisés pour détecter, reconnaître et analyser les visages humains dans des images.
+description: Le service Visage d’Azure Cognitive Services fournit des algorithmes qui sont utilisés pour détecter, reconnaître et analyser les visages humains dans des images.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,25 +9,25 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961537"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170256"
 ---
-# <a name="what-is-the-azure-face-api"></a>Qu’est ce que le l’API Visage Azure ?
+# <a name="what-is-the-azure-face-service"></a>Présentation du service Visage Azure
 
-L’API Visage d’Azure Cognitive Services fournit des algorithmes qui sont utilisés pour détecter, reconnaître et analyser les visages humains dans des images. La capacité à traiter les informations relatives aux visages humains concerne de nombreux scénarios logiciels. La reconnaissance faciale est notamment utilisée dans la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
+Le service Visage d’Azure Cognitive Services fournit des algorithmes qui sont utilisés pour détecter, reconnaître et analyser les visages humains dans des images. La capacité à traiter les informations relatives aux visages humains concerne de nombreux scénarios logiciels. La reconnaissance faciale est notamment utilisée dans la sécurité, l’interface utilisateur naturelle, l’analyse et la gestion du contenu de l’image, les applications mobiles et la robotique.
 
-L’API Visage offre différentes fonctions. Chacune d’elles est présentée dans les sections suivantes. Lisez la suite pour en savoir plus sur ces fonctions.
+Le service Visage offre plusieurs fonctions différentes. Chacune d’elles est présentée dans les sections suivantes. Lisez la suite pour en savoir plus sur ces fonctions.
 
 ## <a name="face-detection"></a>Détection des visages
 
-L’API Visage détecte les visages humains dans une image et renvoie les coordonnées du rectangle de leur emplacement. La détection des visages peut éventuellement extraire une série d’attributs liés au visage, tels que la posture de tête, le sexe, l’âge, l’émotion, la pilosité faciale et les lunettes.
+Le service Visage détecte les visages humains dans une image et retourne les coordonnées du rectangle de leur emplacement. La détection des visages peut éventuellement extraire une série d’attributs liés au visage, tels que la posture de tête, le sexe, l’âge, l’émotion, la pilosité faciale et les lunettes.
 
 > [!NOTE]
-> La fonctionnalité de détection des visages est également disponible via l’[API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Pour aller plus loin dans l’analyse des données du visage, utilisez l’API Visage, qui est le service présenté dans cet article.
+> La fonctionnalité de détection des visages est également disponible via l’[API Vision par ordinateur](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Pour aller plus loin dans l’analyse des données du visage, utilisez le service Visage, qui est le service présenté dans cet article.
 
 ![Une image d’une femme et d’un homme, avec des rectangles dessinés autour de leur visage, et un âge et un sexe affichés](./Images/Face.detection.jpg)
 
@@ -57,7 +57,7 @@ L’API de regroupement divise un ensemble de visages inconnus en plusieurs grou
 
 ## <a name="person-identification"></a>Identification de personnes
 
-L’API d’identification permet d’identifier un visage détecté en le comparant à ceux d’une base de données de personnes. Cette fonctionnalité peut être utile pour baliser automatiquement les images dans les logiciels de gestion de photos. Vous créez la base de données à l’avance,qui pourra ensuite être modifiée au fil du temps.
+L’API d’identification permet d’identifier un visage détecté en le comparant à ceux d’une base de données de personnes. Cette fonctionnalité peut être utile pour étiqueter automatiquement les images dans les logiciels de gestion de photos. Vous créez la base de données à l’avance,qui pourra ensuite être modifiée au fil du temps.
 
 L’image suivante est un exemple de base de données nommée `"myfriends"`. Chaque groupe peut contenir jusqu’à 1 million d’objets Personne différents. Chaque objet Personne peut avoir jusqu’à 248 visages enregistrés.
 
@@ -73,9 +73,9 @@ Pour plus d’informations sur l’identification de personnes, consultez le gui
 
 ## <a name="sample-apps"></a>Exemples d’application
 
-Les exemples d’applications suivants montrent différentes façons d’utiliser l’API Visage :
+Les exemples d’applications suivants montrent différentes façons d’utiliser le service Visage :
 
-- [API Visage de Microsoft : bibliothèque de client Windows et exemple](https://github.com/Microsoft/Cognitive-Face-Windows) est une application WPF qui présente plusieurs scénarios de détection, d’analyse et d’identification de visages.
+- [API Visage : bibliothèque de client Windows et exemple](https://github.com/Microsoft/Cognitive-Face-Windows) est une application WPF qui présente plusieurs scénarios de détection, d’analyse et d’identification de visages.
 - L’[application FamilyNotes UWP](https://github.com/Microsoft/Windows-appsample-familynotes) est une application Universal Windows Platform (UWP) qui utilise l’identification des visages, ainsi que la reconnaissance vocale, Cortana, l’écriture manuscrite et la caméra dans un scénario de partage de notes en famille.
 
 ## <a name="data-privacy-and-security"></a>Sécurité et confidentialité des données
@@ -86,4 +86,4 @@ Comme avec toutes les ressources Cognitive Services, les développeurs utilisant
 
 Suivez un guide de démarrage rapide pour implémenter un scénario de détection des visages dans du code :
 
-- [Démarrage rapide : Détecter des visages dans une image à l’aide du kit SDK .NET Visage avec C#](quickstarts/csharp.md). D’autres langues sont disponibles.
+- [Démarrage rapide : Détecter des visages dans une image à l’aide du kit SDK .NET Visage avec C#](quickstarts/csharp.md). D’autres langues sont disponibles.

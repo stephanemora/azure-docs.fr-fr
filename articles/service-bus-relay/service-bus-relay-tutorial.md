@@ -1,6 +1,6 @@
 ---
 title: Exposer un service REST WCF local aux clients à l’aide d’Azure Relay
-description: 'Tutoriel : Créez une application cliente et un service à l’aide de WCF Relay.'
+description: Ce tutoriel explique comment exposer un service WCF REST local à un client externe avec Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 551c8e662669737d9d074a69cb03d6060ab87ad5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452289"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513080"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutoriel : Exposer un service WCF REST local sur un client externe en utilisant Azure WCF Relay
 
@@ -192,7 +192,7 @@ Le fichier de configuration est similaire à un fichier de configuration WCF. Il
 
 1. Dans l'**Explorateur de solutions**, double-cliquez sur le fichier **App.config** pour l’ouvrir dans l’éditeur Visual Studio.
 1. Dans l’élément `<appSettings>`, remplacez les espaces réservés par le nom de votre espace de noms de service et par la clé SAP que vous avez copiée à l’étape précédente.
-1. Dans les balises `<system.serviceModel>`, ajouter un élément `<services>`. Vous pouvez définir plusieurs applications de relais dans un même fichier de configuration. Toutefois, ce didacticiel n’en définit qu’un seul.
+1. Dans les étiquettes `<system.serviceModel>`, ajouter un élément `<services>`. Vous pouvez définir plusieurs applications de relais dans un même fichier de configuration. Toutefois, ce didacticiel n’en définit qu’un seul.
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>

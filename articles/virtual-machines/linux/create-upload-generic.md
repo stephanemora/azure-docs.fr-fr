@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mimckitt
-ms.openlocfilehash: d98efd46e3c2fbc11be2cde6a0c4f2b37acc8d7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ffa99c6ba0157eca133dc36ecbbb159b076b8bc0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934012"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155551"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Informations concernant les distributions non approuvées
 
@@ -43,7 +43,7 @@ Cet article fournit des conseils généraux pour exécuter votre distribution Li
 
 ## <a name="general-linux-installation-notes"></a>Notes générales d'installation de Linux
 * Le format de disque dur virtuel pour Hyper-V (VHDX) n’est pas pris en charge dans Azure ; seul le format *VHD fixe* l’est.  Vous pouvez convertir le disque au format VHD à l’aide de Hyper-V Manager ou de la cmdlet [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd). Si vous utilisez VirtualBox, il est conseillé de sélectionner **Taille fixe** plutôt que la valeur par défaut (allouée dynamiquement) lorsque vous créez le disque.
-* Azure ne prend en charge que les machines virtuelles de la génération 1. Vous pouvez convertir une machine virtuelle de génération 1 du format de fichier VHDX au format VHD et d’une taille à expansion dynamique en taille fixe. Vous ne pouvez pas modifier la génération d’une machine virtuelle. Pour plus d’informations, consultez [Dois-je créer une machine virtuelle de génération 1 ou 2 dans Hyper-V ?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Azure prend en charge les machines virtuelles Gen1 (BIOS Boot) & Gen2 (amorçage UEFI).
 * La taille maximale autorisée pour le disque dur virtuel s’élève à 1 023 Go.
 * Lorsque vous installez le système Linux, nous vous recommandons d’utiliser les partitions standard plutôt que le Gestionnaire de volumes logiques (LVM), qui constitue le choix par défaut pour de nombreuses installations. L’utilisation des partitions standard permet d’éviter les conflits de noms avec des machines virtuelles clonées, notamment si un disque de système d’exploitation est attaché à une autre machine virtuelle identique à des fins de dépannage. La technique [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) ou [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) peut être utilisée sur les disques de données.
 * La prise en charge du noyau pour le montage du système de fichiers UDF est nécessaire. Au premier démarrage sur Azure, la configuration d’approvisionnement est transmise à la machine virtuelle Linux à l’aide de supports au format UDF qui sont attachés à l’invité. L’agent Linux Azure doit monter le système de fichiers UDF pour lire sa configuration et approvisionner la machine virtuelle.

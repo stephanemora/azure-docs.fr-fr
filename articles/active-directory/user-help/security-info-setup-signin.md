@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f75cea566a09a1f4e147b999ad7d2c2d7ea80f29
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278982"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156112"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurer vos informations de sécurité (préversion) à partir d’une invite de connexion
 
@@ -26,6 +26,19 @@ Vous pouvez suivre ces étapes si vous êtes invité à définir des information
 Cette invite apparaît uniquement si vous n’avez pas configuré les informations de sécurité demandées par votre organisation. Si vous avez déjà configuré vos informations de sécurité et que vous souhaitez les changer, suivez les étapes décrites dans les différents articles de procédure fondés sur une méthode. Pour plus d’informations, consultez la [vue d’ensemble décrivant comment ajouter ou mettre à jour vos informations de sécurité](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Authentification avec vérification de la sécurité ou réinitialisation de mot de passe
+
+Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation de mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
+
+| Méthode | Utilisé pour |
+| ------ | -------- |
+| Application Authenticator | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| SMS | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Appels téléphoniques | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Clé de sécurité | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Compte e-mail | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
+| Questions de sécurité | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Se connecter à votre compte professionnel ou scolaire
 
@@ -43,9 +56,9 @@ Suivez ces étapes pour configurer les informations de sécurité de votre compt
 1. Quand vous sélectionnez **Suivant** à partir de l’invite, l’Assistant **Protéger votre compte** apparaît et vous montre la première méthode que votre administrateur et votre organisation vous demandent de configurer. Cet exemple utilise l’application Microsoft Authenticator.
 
    > [!Note]
-   > Si vous souhaitez utiliser une application d’authentification autre que Microsoft Authenticator, sélectionnez le lien **Je souhaite utiliser une autre application d’authentification**.
+   > Si vous souhaitez utiliser une autre application d’authentification que Microsoft Authenticator, sélectionnez le lien **Je souhaite utiliser une autre application d’authentification**.
    >
-   > Si votre organisation vous permet de choisir une autre méthode en plus de l’application d’authentification, vous pouvez sélectionner **Je veux configurer une autre méthode**.
+   > Si votre organisation vous permet de choisir une autre méthode en plus de l’application d’authentification, vous pouvez sélectionner le lien **Je veux configurer une autre méthode**.
 
     ![Page de téléchargement de l’application Authenticator dans l’Assistant Protéger votre compte](media/security-info/securityinfo-prompt-get-auth-app.png)
 

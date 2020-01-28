@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc3630f4b832a9b15217e8f5cdc03830f15ee2a7
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428572"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546756"
 ---
 # <a name="convert-to-dataset"></a>Convertir en jeu de données
 
@@ -51,11 +51,11 @@ Nous vous recommandons d’utiliser le module [Modifier les métadonnées](edit-
     Notez que l’opération **Remplacer des valeurs** s’applique uniquement aux correspondances exactes. Par exemple, ces chaînes ne sont pas affectées : `obs.`, `obsolete`.  
  
   
-5.  Exécutez le pipeline ou cliquez avec le bouton droit sur le module Convertir en jeu de données, et sélectionnez **Exécuter la sélection**.  
+5.  Exécuter le pipeline.  
 
 ## <a name="results"></a>Résultats
 
-+  Pour enregistrer le jeu de données résultant avec un nouveau nom, cliquez avec le bouton droit sur la sortie du module Convertir en jeu de données et sélectionnez **Enregistrer comme jeu de données**.  
++  Pour enregistrer le jeu de données résultant sous un nouveau nom, sélectionnez l’icône **Inscrire le jeu de données** sous l’onglet **Sorties** dans le volet droit du module.  
   
 ## <a name="technical-notes"></a>Notes techniques  
 

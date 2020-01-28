@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Confluence SAML SSO by Microsoft | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Confluence SAML SSO by Microsoft | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Confluence SAML SSO by Microsoft.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d54580d395b17d80742ed95aefa479f4bc104484
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e6ea52474f3b352fabf19050f20012438e9d0c19
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960122"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120587"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Confluence SAML SSO by Microsoft
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Confluence SAML SSO by Microsoft
 
 Dans ce tutoriel, vous allez apprendre à intégrer Confluence SAML SSO by Microsoft à Azure Active Directory (Azure AD). Quand vous intégrez Confluence SAML SSO by Microsoft à Azure AD, vous pouvez :
 
@@ -37,7 +37,7 @@ Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, cons
 
 Utilisez votre compte Microsoft Azure Active Directory avec le serveur Atlassian Confluence pour activer l’authentification unique. Ainsi, l’ensemble des utilisateurs de votre organisation peuvent utiliser les informations d’identification d’Azure AD pour se connecter à l’application Confluence. Ce plug-in utilise SAML 2.0 pour la fédération.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD à Confluence SAML SSO by Microsoft, vous avez besoin des éléments suivants :
 
@@ -64,24 +64,8 @@ Pour commencer, vous devez disposer de ce qui suit :
 Les versions suivantes de Confluence sont actuellement prises en charge :
 
 - Confluence : 5.0 à 5.10
-- Confluence : 6.0.1
-- Confluence : 6.1.1
-- Confluence : 6.2.1
-- Confluence : 6.3.4
-- Confluence : 6.4.0
-- Confluence : 6.5.0
-- Confluence : 6.6.2
-- Confluence : 6.7.0
-- Confluence : 6.8.1
-- Confluence : 6.9.0
-- Confluence : 6.10.0
-- Confluence : 6.10.3
-- Confluence : 6.11.0
-- Confluence : 6.12.0
-- Confluence : 6.13.5
-- Confluence : 6.15.3
-- Confluence : 6.15.4
-- Confluence : 6.15.8
+- Confluence : 6.0.1 à 6.15.9
+- Confluence : 7.0.1 à 7.1.0
 
 > [!NOTE]
 > Veuillez noter que nos plug-ins Confluence fonctionnent également sur Ubuntu Version 16.04
@@ -177,11 +161,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 1. Pointez sur le roue dentée, puis cliquez sur **Modules complémentaires**.
 
-    ![Configurer l'authentification unique](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Téléchargez le plug-in depuis le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56503). Chargez manuellement le plug-in fourni par Microsoft à l’aide du menu **Upload add-on** (Charger le module complémentaire). Le téléchargement du plug-in est couvert dans [Contrat de Services Microsoft](https://www.microsoft.com/servicesagreement/).
 
-    ![Configurer l'authentification unique](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Pour exécuter le scénario de proxy inverse Confluence ou le scénario d’équilibreur de charge, effectuez les étapes suivantes :
 
@@ -192,19 +176,19 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configurer l'authentification unique](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. Modifiez l’**URL de base** dans les **paramètres système** en fonction du proxy/de l’équilibreur de charge.
 
-    ![Configurer l'authentification unique](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Une fois que le plug-in est installé, il s’affiche sous **User Installed** (Installé par l’utilisateur), dans la section **Manage add-ons** (Gérer les modules complémentaires). Cliquez sur **Configurer** pour configurer le nouveau plug-in.
 
-    ![Configurer l'authentification unique](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Effectuez les opérations suivantes dans la page de configuration :
 
-    ![Configurer l'authentification unique](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Vérifiez qu’un seul certificat est associé à l’application pour éviter toute erreur liée à la résolution des métadonnées. Si plusieurs certificats sont associés, l’administrateur verra un message d’erreur s’afficher lors de la résolution des métadonnées.

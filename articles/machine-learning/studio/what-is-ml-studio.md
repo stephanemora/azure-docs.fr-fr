@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3be29dc222e0e9b98ed51d8f921fb9926b018ca
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528349"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314066"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Qu'est-ce que Machine Learning Studio (classique) ?
 
@@ -38,13 +38,13 @@ Aucune programmation n'est nécessaire : visualisez la connexion des jeux de do
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>En quoi Machine Learning Studio (classique) est-il différent d’Azure Machine Learning ?
 
-[Azure Machine Learning](../overview-what-is-azure-ml.md) propose les deux kits SDK **plus** le concepteur Azure Machine Learning (préversion) qui vous permet de préparer rapidement les données, d’entraîner et de déployer des modèles Machine Learning. Ce concepteur offre une expérience de glisser-déplacer similaire à Studio (classique). Cependant, contrairement à la plateforme de calcul propriétaire de Studio, le concepteur (classique) utilise vos propres ressources de calcul et est entièrement intégré à Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) fournit les deux SDK **et** le concepteur Azure Machine Learning, qui vous permettent de préparer rapidement les données, d’entraîner et de déployer des modèles Machine Learning. Ce concepteur offre une expérience de glisser-déplacer similaire à Studio (classique). Cependant, contrairement à la plateforme de calcul propriétaire de Studio, le concepteur (classique) utilise vos propres ressources de calcul et est entièrement intégré à Azure Machine Learning.
 
 Voici une comparaison rapide :
 
 || Machine Learning Studio (classique) | Azure Machine Learning |
 |---| --- | --- |
-| Interface de glisser-déplacer | Oui | Oui - [Concepteur Azure Machine Learning (préversion)](../concept-designer.md) |
+| Interface de glisser-déplacer | Oui | Oui - [Concepteur Azure Machine Learning](../concept-designer.md) |
 | Expérience | Évolutive (limite de 10 Go de données de formation) | Mise à l’échelle avec cible de calcul |
 | Modules pour l’interface de glisser-déplacer | Divers | Jeu initial de [modules](../algorithm-module-reference/module-reference.md) courants|
 |Cibles de calcul d’entraînement| Cible de calcul propriétaire, prise en charge CPU uniquement| Prend en charge le calcul Azure Machine Learning (GPU ou CPU) et les machines virtuelles Notebook.<br/>([Autres calculs pris en charge dans le SDK](../concept-compute-target.md#train))|

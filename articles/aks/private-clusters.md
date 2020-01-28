@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 2344e2189d6b0f02e7fed1aab25d32551c1fedcf
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045591"
+ms.locfileid: "76154339"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Créer un cluster Azure Kubernetes Service privé (préversion)
 
@@ -131,7 +131,7 @@ Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. P
 
 ## <a name="limitations"></a>Limites 
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés, aux points de terminaison privés Azure et aux points de terminaison de service de réseau virtuel qui ne sont actuellement pas pris en charge dans le même réseau virtuel.
-* Aucune prise en charge des nœuds virtuels dans un cluster privé pour faire tourner des instances ACI (Application Centric Infrastructure) Cisco privées dans un réseau virtuel Azure privé.
+* Aucune prise en charge des nœuds virtuels dans un cluster privé pour faire tourner des Azure Container Instances privées dans un réseau virtuel Azure privé.
 * Aucune prise en charge de l’intégration d’Azure DevOps prête à l’emploi avec les clusters privés.
 * Pour les clients qui doivent activer Azure Container Registry afin d’utiliser des clusters AKS privés, le réseau virtuel Container Registry doit être appairé avec le réseau virtuel du cluster d’agent.
 * Aucune prise en charge actuelle d’Azure Dev Spaces.

@@ -6,30 +6,30 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476946"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263946"
 ---
-# <a name="tutorial-install-azure-data-box-edge"></a>Didacticiel : Installer Azure Data Box Edge
+# <a name="tutorial-install-azure-data-box-edge"></a>Tutoriel : Installer Azure Data Box Edge
 
 Ce tutoriel explique comment installer un appareil physique Data Box Edge. La procédure d’installation comprend le déballage, le montage en rack et le câblage de l’appareil. 
 
 L’installation peut prendre environ deux heures.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Déballez l’appareil
 > * Monter l’appareil en rack
 > * Câblage de l’appareil
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici les prérequis pour l’installation d’un appareil physique :
 
@@ -86,7 +86,7 @@ L’appareil doit être installé sur un rack standard de 19 pouces. Effectuez l
 > Les appareils Data Box Edge doivent être montés en rack pour fonctionner correctement.
 
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 - Avant de commencer, lisez les instructions du livret relatif à la sécurité, l’environnement et les réglementations. Ce livret a été fourni avec l’appareil.
 - Commencez par installer les rails dans l’espace alloué le plus proche de la partie inférieure du châssis.
@@ -154,21 +154,10 @@ Identifiez les éléments d’installation de l’assemblage du kit de rails :
 
     ![Ouvrir et fermer les rabats](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
-### <a name="route-the-cables"></a>Passer les câbles
-
-> [!NOTE]
->  Si vous n’avez pas commandé de passe-câbles, utilisez les deux sangles à boucle et crochet fournies dans le kit de rails pour passer les câbles à l’arrière du système.
-
-1. Localisez les supports externes du passe-câbles à l’intérieur des deux collerettes du rack.
-2. Regroupez les câbles avec précaution en veillant à les dégager des connecteurs système situés de chaque côté.
-3. Faites passer les sangles à boucle et crochet à travers les fentes situées sur les supports externes du passe-câbles de chaque côté du système afin de sécuriser les groupes de câbles.
-
-
-    ![Passer les câbles](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Câblage de l’appareil
 
-Les procédures suivantes expliquent comment effectuer le câblage d’alimentation et de réseau de votre appareil Data Box Edge.
+Acheminez les câbles, puis branchez votre appareil. Les procédures suivantes expliquent comment effectuer le câblage d’alimentation et de réseau de votre appareil Data Box Edge.
 
 Avant de commencer à câbler votre appareil, vous avez besoin des éléments suivants :
 

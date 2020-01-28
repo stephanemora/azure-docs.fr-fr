@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 3946f6d034baee528f9cd5abd6467b8c393e73de
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1941cca7c13cb3d84b623222e11c13e793cee0f9
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977979"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169298"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-javascript"></a>Démarrage rapide : Détecter des visages sur une image avec l’API REST et JavaScript
 
 Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec JavaScript pour détecter des visages humains dans une image.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
+- Clé d’abonnement au service Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions fournies dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Visage et obtenir votre clé.
 - Un éditeur de code tel que [Visual Studio Code](https://code.visualstudio.com/download).
 
 ## <a name="initialize-the-html-file"></a>Initialiser le fichier HTML
@@ -41,7 +41,7 @@ Créez un fichier HTML, *detectFaces.html*, et ajoutez le code suivant.
 </html>
 ```
 
-Ajoutez ensuite le code suivant à l’intérieur de l’élément `body` du document. Ce code configure une interface utilisateur de base avec un champ URL, un bouton **Analyze face** (Analyser le visage), un volet de réponse et un volet d’affichage de l’image.
+Ajoutez ensuite le code suivant à l’intérieur de l’élément `body` du document. Ce code définit une interface utilisateur de base avec un champ URL, un bouton **Analyze face**, un volet de réponse et un volet d’affichage de l’image.
 
 ```html
 <h1>Detect Faces:</h1>
@@ -128,13 +128,13 @@ Vous devez mettre à jour le champ `subscriptionKey` avec la valeur de votre cl�
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
-## <a name="run-the-script"></a>Exécutez le script
+## <a name="run-the-script"></a>Exécuter le script
 
 Ouvrez *detectFaces.html* dans votre navigateur. Quand vous cliquez sur le bouton **Analyze face**, l’application doit afficher l’image à partir de l’URL indiquée ainsi qu’une chaîne JSON de données du visage.
 
 ![GettingStartCSharpScreenshot](../Images/face-detect-javascript.png)
 
-Le texte suivant est un exemple de réponse JSON correcte.
+Le texte suivant est un exemple de réponse JSON réussie.
 
 ```json
 [
@@ -230,7 +230,7 @@ Le texte suivant est un exemple de réponse JSON correcte.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez écrit un script JavaScript qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
+Dans ce guide de démarrage rapide, vous avez écrit un script JavaScript qui appelle le service Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
 
 > [!div class="nextstepaction"]
 > [API Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

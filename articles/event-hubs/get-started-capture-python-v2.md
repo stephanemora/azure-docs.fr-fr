@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d7a0c757f7314e45d5b4d13273df984739912b27
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 43223f7cb9ed254340c99d235d494d1e93583c7f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942342"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293536"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-using-python"></a>Capturer des données Event Hubs dans le Stockage Azure et les lire à l’aide de Python 
 Vous pouvez configurer un hub d’événements de sorte que les données qui lui sont envoyées soient capturées dans le Stockage Azure ou dans Azure Data Lake Storage. Cet article explique comment utiliser du code Python pour envoyer des événements au hub d’événements et lire les données capturées à partir du Stockage Blob Azure. Pour plus d’informations sur cette fonctionnalité, consultez la [présentation de la fonctionnalité Event Hubs Capture](event-hubs-capture-overview.md).
@@ -42,9 +42,9 @@ Dans ce guide de démarrage rapide, vous allez :
 - Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - [Créer un espace de noms Event Hubs comprenant un hub d’événement](event-hubs-create.md). Notez le nom de l’espace de noms Event Hubs, le nom du hub d’événements et la clé d’accès primaire de l’espace de noms. Obtenez la clé d’accès en suivant les instructions de cet article : [Obtenir la chaîne de connexion](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Le nom de clé par défaut est : **RootManageSharedAccessKey**. Vous n’aurez pas besoin de la chaîne de connexion pour ce tutoriel. Vous avez seulement besoin de la clé primaire. 
 - Effectuez les étapes suivantes pour créer un **compte de stockage Azure** et un **conteneur d’objets blob** :
-    1. [Créer un compte de stockage Azure](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal)
-    2. [Créer un conteneur d’objets blob dans le stockage](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 
-    3. [Obtenir la chaîne de connexion au compte de stockage](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+    1. [Créer un compte de stockage Azure](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal)
+    2. [Créer un conteneur d’objets blob dans le stockage](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) 
+    3. [Obtenir la chaîne de connexion au compte de stockage](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string).
 
         Notez la **chaîne de connexion** et le **nom du conteneur**. Vous les utiliserez plus tard dans le code. 
 - Activez la fonctionnalité **Capture** pour le hub d’événements en suivant les instructions ci-après : [Activer Event Hubs Capture à l’aide du portail Azure](event-hubs-capture-enable-through-portal.md). Sélectionnez le compte de stockage et le conteneur d’objets blob que vous avez créés à l’étape précédente. Vous pouvez également activer la fonctionnalité lors de la création d’un hub d’événements. 

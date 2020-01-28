@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à DocuSign | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à DocuSign | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et DocuSign.
 services: active-directory
 documentationCenter: na
@@ -11,29 +11,28 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/02/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f02492dd7c9563c8c0002a63f0b105bd0be8b14
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3022303f319ba7955f80ae0b52783fa9b5d411f2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345572"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290068"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à DocuSign
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à DocuSign
 
 Dans ce tutoriel, vous allez découvrir comment intégrer DocuSign à Microsoft Azure Active Directory (Azure AD). Quand vous intégrez DocuSign à Azure AD, vous pouvez :
 
 * Utiliser Azure AD pour contrôler qui a accès à DocuSign.
 * Permettre à vos utilisateurs de se connecter automatiquement à DocuSign par le biais de leurs comptes Azure AD.
-* Gérer vos comptes à un emplacement central : le portail Azure.
+* gérer vos comptes à un emplacement central : le portail Azure.
 
 Pour en savoir plus sur l’intégration d’applications software as a service (SaaS) à Azure AD, consultez l’article [S’authentifier avec l’authentification unique auprès des applications dans Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -49,6 +48,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * DocuSign prend en charge le provisionnement d’utilisateurs *juste-à-temps*.
 
 * DocuSign prend en charge le [provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
+* Après avoir configuré DocuSign, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Ajout de DocuSign à partir de la galerie
 
@@ -72,7 +72,7 @@ Pour configurer et tester l’authentification unique Azure AD avec DocuSign, su
     1. [Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user) pour tester l’authentification unique Azure AD avec B.Simon.
     1. [Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user) pour permettre à B.Simon d’utiliser l’authentification unique Azure AD.
 1. [Configurer DocuSign](#configure-docusign-sso) pour configurer les paramètres de l’authentification unique côté application.
-1. [Créer un utilisateur de test DocuSign](#create-docusign-test-user) pour générer un équivalent de B.Simon dans DocuSign lié à la représentation Azure AD associée.
+    1. [Créer un utilisateur de test DocuSign](#create-docusign-test-user) pour générer un équivalent de B.Simon dans DocuSign lié à la représentation Azure AD associée.
 1. [Tester l’authentification unique (SSO)](#test-sso) pour vérifier que la configuration fonctionne.
 
 ## <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
@@ -236,6 +236,10 @@ Quand vous sélectionnez la vignette DocuSign dans le volet d’accès, vous dev
 - [Qu’est-ce que l’accès conditionnel dans Azure AD ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer DocuSign avec Azure AD](https://aad.portal.azure.com/)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Guide pratique pour protéger DocuSign avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

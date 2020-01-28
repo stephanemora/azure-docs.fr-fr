@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/29/2019
 ms.author: pafarley
-ms.openlocfilehash: 168b4fce873206e39a32a83da3dc5509b431d6a1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 534846044770d66ec5171ad4f61de921d2d5d194
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67058578"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169800"
 ---
 # <a name="use-the-headpose-attribute"></a>Utiliser l’attribut HeadPose
 
@@ -129,8 +129,8 @@ La détection d’activité est la tâche consistant à déterminer qu’un suje
 > [!CAUTION]
 > Pour détecter les mouvements de tête en temps réel, vous devez appeler l’API Visage à une fréquence élevée (plus d’une fois par seconde). Cela n’est pas possible avec un abonnement de niveau gratuit (f0). Si vous disposez d’un abonnement payant, veillez à calculer les coûts d’appels d’API fréquents pour la détection des mouvements de tête.
 
-Consultez l’[exemple HeadPose de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) sur GitHub pour obtenir un exemple opérationnel de détection des mouvements de tête.
+Pour obtenir un exemple opérationnel de détection des mouvements de tête, consultez l’[exemple HeadPose du service Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceAPIHeadPoseSample) sur GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) sur GitHub pour obtenir un exemple opérationnel de rectangles de visages tournés. Vous pouvez aussi consulter l’application [HeadPose de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), qui effectue le suivi en temps réel de l’attribut HeadPose pour détecter les mouvements de tête.
+Consultez l’application [WPF Visage de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) sur GitHub pour obtenir un exemple opérationnel de rectangles de visages tournés. Vous pouvez aussi consulter l’application [Exemple HeadPose du service Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples), qui permet de suivre en temps réel l’attribut HeadPose pour détecter les mouvements de tête.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: 66850c3871981a537d36c3b2a3a664d8a2f2eee7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b696d57919383e87f8e5e647b774fc9e4dbdf16b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977714"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513471"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Créer un espace de travail Log Analytics avec Azure CLI 2.0
 
@@ -20,7 +20,7 @@ Vous utilisez Azure CLI 2.0 pour créer et gérer des ressources Azure à partir
 
 * Ressources Azure dans votre abonnement  
 * Ordinateurs locaux surveillés par System Center Operations Manager  
-* Collections d’appareils de System Center Configuration Manager  
+* Regroupements d’appareils à partir de Configuration Manager  
 * Données de diagnostics et de journaux du Stockage Azure  
 
 Pour les autres sources, telles que les machines virtuelles Azure et les machines virtuelles Windows ou Linux dans votre environnement, consultez les rubriques suivantes :

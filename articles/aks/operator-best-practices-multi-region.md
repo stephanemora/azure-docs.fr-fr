@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff55257891ff379bea9ff44aa5136195ced44354
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 855d40f9c20f966f6fa2b89949e47c943704bf2b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613106"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549153"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Bonnes pratiques pour la continuité d’activité et la reprise d’activité dans AKS (Azure Kubernetes Services)
 
@@ -66,7 +66,7 @@ Traffic Manager utilise DNS (couche 3) pour former le trafic. [Azure Front Door
 
 Si les clusters doivent communiquer entre eux, il est possible de connecter les deux réseaux virtuels entre eux via [l’appairage de réseau virtuel](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview). Cette technologie interconnecte les réseaux virtuels entre eux pour fournir une bande passante élevée à travers le réseau principal de Microsoft, même entre différentes régions géographiques.
 
-Un prérequis pour appairer les réseaux virtuels où des clusters AKS sont en cours d’exécution est d’utiliser le service Load Balancer standard dans votre cluster AKS, de sorte que les services Kubernetes soient accessibles via l’appairage de réseau virtuel.
+Un prérequis pour appairer les réseaux virtuels où des clusters AKS sont en cours d’exécution est d’utiliser le service Load Balancer standard dans votre cluster AKS, de sorte que les services Kubernetes soient accessibles via l’appairage de réseaux virtuels.
 
 ## <a name="enable-geo-replication-for-container-images"></a>Activer la géoréplication pour les images conteneur
 

@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2e14b1bcc991a009ed9b3267477933706e1ec474
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977518"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289949"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Intégration et livraison continues dans Azure Data Factory
 
@@ -82,7 +82,7 @@ Un guide de configuration d’une version d’Azure Pipelines est fourni ci-apr�
 
 ### <a name="requirements"></a>Spécifications
 
--   Un abonnement Azure lié à Visual Studio Team Foundation Server ou Azure Repos qui utilise le [point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
+-   Un abonnement Azure lié à Visual Studio Team Foundation Server ou Azure Repos qui utilise le [point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).
 
 -   Une fabrique de données configurée avec l’intégration d’Azure Repos Git.
 
@@ -330,7 +330,7 @@ Si vous êtes en mode GIT, vous pouvez remplacer les propriétés par défaut da
 * Vous utilisez CI/CD automatisé et souhaitez modifier certaines propriétés pendant le déploiement de Resource Manager, mais les propriétés ne sont pas paramétrables par défaut.
 * Votre fabrique est si volumineuse que le modèle Resource Manager par défaut n’est pas valide car il dépasse le nombre maximum autorisé de paramètres (256).
 
-Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé arm-template-parameters-definition.json dans le dossier racine du dépôt. Vous devez utiliser ce nom de fichier exact. Data Factory lit ce fichier à partir de la branche dans laquelle vous vous trouvez actuellement dans le portail Azure Data Factory, et pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications en sélectionnant **Exporter le modèle ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
+Dans ces conditions, pour remplacer le modèle de paramétrage par défaut, créez un fichier nommé arm-template-parameters-definition.json dans le dossier racine pour l’intégration du git de la fabrique de données. Vous devez utiliser ce nom de fichier exact. Data Factory lit ce fichier à partir de la branche dans laquelle vous vous trouvez actuellement dans le portail Azure Data Factory, et pas uniquement à partir de la branche de collaboration. Vous pouvez créer ou modifier le fichier à partir d’une branche privée, dans laquelle vous pouvez tester vos modifications en sélectionnant **Exporter le modèle ARM** dans l’interface utilisateur. Vous pouvez ensuite fusionner le fichier dans la branche de collaboration. Si aucun fichier n’est trouvé, le modèle par défaut est utilisé.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Syntaxe d’un fichier de paramètres personnalisés
 

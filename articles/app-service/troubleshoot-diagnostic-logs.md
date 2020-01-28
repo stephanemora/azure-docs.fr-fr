@@ -5,15 +5,15 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 54435dd21fccdd43f17d13674b324b989a00f7a1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 777fa7caa80371592f93ee6f7458a7669fe6698f
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74684252"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121356"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure fournit des diagnostics intégrés pour aider au débogage d’une [application App Service](overview.md). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
 Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -27,7 +27,7 @@ Cet article utilise le [portail Azure](https://portal.azure.com) et Azure CLI po
 |-|-|-|-|
 | Journalisation des applications | Windows, Linux | Système de fichiers App Service et/ou objets blob de stockage Azure | Consigne les messages générés par votre code d’application. Les messages peuvent être générés par l’infrastructure web de votre choix ou directement à partir de votre code d’application à l’aide du modèle de journalisation standard de votre langage. Chaque message se voit attribuer l’une des catégories suivantes : **Critique**, **Erreur**, **Avertissement**, **Info**, **Débogage** ou **Trace**. Vous pouvez sélectionner le degré de détail de la journalisation en définissant le niveau de gravité lorsque vous activez la journalisation des applications.|
 | Journalisation du serveur web| Windows | Système de fichiers App Service ou objets blob de stockage Azure| Données de requête HTTP brutes au [format de fichier journal étendu W3C](/windows/desktop/Http/w3c-logging). Chaque message de journalisation comprend des données telles que la méthode HTTP, l’URI de ressource, l’adresse IP du client, le port client, l’agent utilisateur, le code de réponse, etc. |
-| Journalisation détaillée des erreurs | Windows | Système de fichiers App Service | Copies des pages d’erreur *.htm* qui auraient été envoyées au navigateur client. Pour des raisons de sécurité, les pages d’erreur détaillées ne doivent pas être envoyées aux clients en production, mais App Service peut enregistrer la page d’erreur chaque fois qu’une erreur d’application se produit avec le code HTTP 400 ou supérieur. La page peut contenir des informations permettant de déterminer la raison pour laquelle le serveur renvoie ce code d’erreur. |
+| Messages d’erreur détaillés| Windows | Système de fichiers App Service | Copies des pages d’erreur *.htm* qui auraient été envoyées au navigateur client. Pour des raisons de sécurité, les pages d’erreur détaillées ne doivent pas être envoyées aux clients en production, mais App Service peut enregistrer la page d’erreur chaque fois qu’une erreur d’application se produit avec le code HTTP 400 ou supérieur. La page peut contenir des informations permettant de déterminer la raison pour laquelle le serveur renvoie ce code d’erreur. |
 | Suivi des demandes ayant échoué | Windows | Système de fichiers App Service | Informations de suivi détaillées des demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations sont utiles si vous souhaitez améliorer les performances du site ou isoler une erreur HTTP spécifique. Un dossier est généré pour chaque demande ayant échoué, qui contient le fichier journal XML et la feuille de style XSL permettant d’afficher le fichier journal. |
 | Journalisation du déploiement | Windows, Linux | Système de fichiers App Service | Journaux relatifs à votre publication de contenu dans une application. La journalisation du déploiement se déroule automatiquement et il n’existe aucun paramètre de configuration de la journalisation du déploiement. Elle vous aide à déterminer la raison de l’échec d’un déploiement. Par exemple, si vous utilisez un [script de déploiement personnalisé](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script), vous pouvez recourir à la journalisation de déploiement pour déterminer la cause de l’échec du script. |
 
@@ -57,9 +57,9 @@ L’option **Système de fichiers** est utilisée à des fins de débogage tempo
 
 Sélectionnez le **niveau** ou le niveau de détails à consigner. Le tableau suivant présente les catégories de journaux incluses à chaque niveau :
 
-| Niveau | Catégories incluses |
+| Level | Catégories incluses |
 |-|-|
-|**Désactivé** | Aucun |
+|**Désactivé** | None |
 |**Error** | Erreur, Critique |
 |**Avertissement** | Avertissement, Erreur, Critique|
 |**Informations** | Info, Avertissement, Erreur, Critique|
@@ -184,14 +184,14 @@ Le tableau suivant renseigne sur les types et la descriptions des journaux pris 
 
 | Type de journal | Prise en charge de Windows | Prise en charge de Linux (Docker) | Description |
 |-|-|-|
-| AppServiceConsoleLogs | À confirmer | OUI | Sortie standard et erreur standard |
-| AppServiceHTTPLogs | OUI | OUI | Journaux d’activité des serveurs Web |
-| AppServiceEnvironmentPlatformLogs | OUI | OUI | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
-| AppServiceAuditLogs | OUI | OUI | Activité de connexion via FTP et Kudu |
+| AppServiceConsoleLogs | À confirmer | Oui | Sortie standard et erreur standard |
+| AppServiceHTTPLogs | Oui | Oui | Journaux d’activité des serveurs Web |
+| AppServiceEnvironmentPlatformLogs | Oui | Oui | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
+| AppServiceAuditLogs | Oui | Oui | Activité de connexion via FTP et Kudu |
 | AppServiceFileAuditLogs | À confirmer | À confirmer | Modifications de fichiers via FTP et Kudu |
 | AppServiceAppLogs | À confirmer | Java SE et Tomcat | Journaux d’activité d’application |
 
-## <a name="nextsteps"></a> Étapes suivantes
+## <a name="nextsteps"></a>Étapes suivantes
 * [Interrogation de journaux d’activité grâce à Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
 * [Surveillance des applications dans Azure App Service](web-sites-monitor.md)
 * [Dépannage d’une application web dans le Service d’application Microsoft Azure à l’aide de Visual Studio](troubleshoot-dotnet-visual-studio.md)

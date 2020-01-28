@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 82bbdd7f209b2ce22225628416a07524c62f1484
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279017"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156163"
 ---
 # <a name="set-up-an-email-address-as-your-verification-method"></a>Configurer une adresse e-mail comme méthode de vérification
 
-Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pourrez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
-
-Après avoir configuré votre méthode de réinitialisation de mot de passe, vous devez également configurer votre méthode de vérification en deux étapes, à l'aide d'une [application d'authentification](security-info-setup-auth-app.md), de la [messagerie texte](security-info-setup-text-msg.md), ou d'un [appel téléphonique](security-info-setup-phone-number.md).
+Procédez comme suit pour ajouter votre méthode de réinitialisation de mot de passe. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>Si vous ne voyez pas d’option d’e-mail, il se peut que votre organisation ne vous autorise pas à utiliser cette option pour votre méthode de réinitialisation de mot de passe. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l’aide.
+
+## <a name="security-vs-password-reset-verification"></a>Sécurité et vérification de la réinitialisation de mot de passe
+
+Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation du mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
+
+| Méthode | Utilisé pour |
+| ------ | -------- |
+| Application Authenticator | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| SMS | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Appels téléphoniques | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Clé de sécurité | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Compte e-mail | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
+| Questions de sécurité | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
 
 ## <a name="set-up-your-email-address-from-the-security-info-page"></a>Configurer votre adresse e-mail à partir de la page Informations de sécurité
 
@@ -50,7 +64,7 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser vo
 
 4. Sur la page **E-mail**, entrez votre adresse e-mail (par exemple, alain@gmail.com), puis sélectionnez **Suivant**.
 
-    ![Ajouter le numéro de téléphone et choisir la méthode de l'appel téléphonique](media/security-info/securityinfo-myprofile-emailaddress.png)
+    ![Ajouter le numéro de téléphone et choisir la méthode de l’appel téléphonique](media/security-info/securityinfo-myprofile-emailaddress.png)
 
     >[!Important]
     >Cette adresse e-mail ne peut pas être votre e-mail professionnel ou scolaire.
@@ -76,7 +90,7 @@ Si vous ne souhaitez plus utiliser votre adresse e-mail comme méthode d'informa
 
 2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer le compte **E-mail**. Une fois le compte e-mail supprimé, celui-ci disparaît de vos informations de sécurité et de la page **Informations de sécurité**.
 
-## <a name="additional-security-info-methods"></a>Autres méthodes d'informations de sécurité
+## <a name="additional-security-info-methods"></a>Autres méthodes d’informations de sécurité
 
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :
 

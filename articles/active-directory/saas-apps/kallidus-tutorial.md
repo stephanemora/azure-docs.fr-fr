@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Kallidus | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Kallidus | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Kallidus.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 07/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 734df138bc58deb0c96916ba5178c84a63f3c53a
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e3caa48e1461552f2999aa2fd91447a41d146379
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711157"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120313"
 ---
-# <a name="tutorial-integrate-kallidus-with-azure-active-directory"></a>Didacticiel : Intégrer Kallidus à Azure Active Directory
+# <a name="tutorial-integrate-kallidus-with-azure-active-directory"></a>Tutoriel : Intégrer Kallidus à Azure Active Directory
 
 Dans ce tutoriel, vous allez apprendre à intégrer Kallidus à Azure Active Directory (Azure AD). Une fois que vous avez intégré Kallidus à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Kallidus à Azure Active Dir
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -91,7 +91,7 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 ### <a name="configure-kallidus"></a>Configurer Kallidus
 
-Pour configurer l’authentification unique côté **Kallidus**, vous devez envoyer l’**URL des métadonnées de fédération d’application** à l’[équipe du support technique Kallidus](https://kallidus.zendesk.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour configurer l’authentification unique côté **Kallidus**, vous devez envoyer l’**URL des métadonnées de fédération d’application** et une copie du **Certificat de signature (public)** à l’[équipe du support technique de Kallidus](https://kallidus.zendesk.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

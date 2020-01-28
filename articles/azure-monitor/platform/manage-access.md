@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/22/2019
-ms.openlocfilehash: 890e2fb06b9194bba49b94eae4b8ea3f0bfed1d7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3a75efc8c73c96bfff0ba94ca3e9753ea536fd53
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932186"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289116"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gérer l’accès aux données du journal et les espaces de travail dans Azure Monitor
 
@@ -47,7 +47,7 @@ Vous pouvez changer ce paramètre dans la page **Propriétés** de l’espace de
 
 ![Changer le mode d’accès à l’espace de travail](media/manage-access/change-access-control-mode.png)
 
-### <a name="using-powershell"></a>Utiliser PowerShell
+### <a name="using-powershell"></a>Utilisation de PowerShell
 
 Pour examiner le mode de contrôle d’accès pour tous les espaces de travail dans l’abonnement, utilisez la commande suivante :
 
@@ -189,10 +189,10 @@ Quand les utilisateurs interrogent les journaux à partir d’un espace de trava
 
 | Autorisation | Description |
 | ---------- | ----------- |
-| `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemples :<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacité d’afficher toutes les données de journal pour la ressource.  |
+| `Microsoft.Insights/logs/<tableName>/read`<br><br>Exemples :<br>`Microsoft.Insights/logs/*/read`<br>`Microsoft.Insights/logs/Heartbeat/read` | Capacité d’afficher toutes les données de journal pour la ressource.  |
 | `Microsoft.Insights/diagnosticSettings/write` | Possibilité de configurer les paramètres de diagnostic pour autoriser la configuration des journaux pour cette ressource. |
 
-L’autorisation `/read` est généralement accordée à partir d’un rôle disposant d’autorisations _\*/read ou_  _\*_ tel que les rôles prédéfinis [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et [Contributeur](../../role-based-access-control/built-in-roles.md#contributor). Les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peuvent ne pas inclure cette autorisation.
+L’autorisation `/read` est généralement accordée à partir d’un rôle disposant d’autorisations _\*/read ou_ _\*_ tel que les rôles prédéfinis [Lecteur](../../role-based-access-control/built-in-roles.md#reader) et [Contributeur](../../role-based-access-control/built-in-roles.md#contributor). Les rôles personnalisés qui incluent des actions spécifiques ou des rôles intégrés dédiés peuvent ne pas inclure cette autorisation.
 
 Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez créer différents contrôles d’accès pour différentes tables.
 
@@ -241,13 +241,12 @@ Consultez [RBAC au niveau table](#table-level-rbac) ci-après si vous souhaitez 
 
 Le **RBAC au niveau table** vous permet de définir un contrôle plus précis sur les données dans un espace de travail Log Analytics en plus des autres autorisations. Avec ce contrôle, vous pouvez définir des types de données spécifiques qui sont accessibles uniquement à un ensemble spécifique d’utilisateurs.
 
-Vous implémentez le contrôle d’accès au niveau table avec des [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder ou refuser l’accès à des [tables](../log-query/logs-structure.md) spécifiques dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail dont le [mode de contrôle d’accès](design-logs-deployment.md#access-control-mode) est en fonction du contexte de l’espace de travail ou en fonction du contexte de la ressource, quel que soit le [mode d’accès](design-logs-deployment.md#access-mode) de l’utilisateur.
+Vous implémentez le contrôle d’accès au niveau table avec des [rôles personnalisés Azure](../../role-based-access-control/custom-roles.md) pour accorder l’accès à des [tables](../log-query/logs-structure.md) spécifiques dans l’espace de travail. Ces rôles sont appliqués aux espaces de travail dont le [mode de contrôle d’accès](design-logs-deployment.md#access-control-mode) est en fonction du contexte de l’espace de travail ou en fonction du contexte de la ressource, quel que soit le [mode d’accès](design-logs-deployment.md#access-mode) de l’utilisateur.
 
 Créez un [rôle personnalisé](../../role-based-access-control/custom-roles.md) avec les actions suivantes pour définir le contrôle d’accès à une table.
 
-* Pour accorder l’accès à une table, incluez-la dans la section **Actions** de la définition de rôle.
-* Pour refuser l’accès à une table, incluez-la dans la section **NotActions** de la définition de rôle.
-* Utilisez * pour spécifier toutes les tables.
+* Pour accorder l’accès à une table, incluez-la dans la section **Actions** de la définition de rôle. Pour retirer l’accès à partir des **actions** autorisées, incluez-le dans la section **NotActions**.
+* Utilisez Microsoft.OperationalInsights/Workspaces/Query/* pour spécifier toutes les tables.
 
 Par exemple, pour créer un rôle ayant accès aux tables _Heartbeat_ et _AzureActivity_, créez un rôle personnalisé à l’aide des actions suivantes :
 
@@ -268,16 +267,13 @@ Pour créer un rôle ayant accès uniquement à la table _SecurityBaseline_, cr�
     "Microsoft.OperationalInsights/workspaces/query/read",
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
-"NotActions":  [
-    "Microsoft.OperationalInsights/workspaces/query/*/read"
-],
 ```
 
 ### <a name="custom-logs"></a>Journaux d’activité personnalisés
 
  Les journaux personnalisés sont créés à partir de sources de données telles que des journaux personnalisés et l’API Collecteur de données HTTP. Le moyen le plus simple d’identifier le type de journal consiste à vérifier les tables listées sous [Journaux personnalisés dans le schéma de journal](../log-query/get-started-portal.md#understand-the-schema).
 
- Vous ne pouvez pas accorder ou refuser l’accès à des journaux personnalisés spécifiques, mais vous pouvez accorder ou refuser l’accès à la totalité d’entre eux. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :
+ Vous ne pouvez actuellement pas accorder l’accès à des journaux personnalisés spécifiques, mais uniquement à la totalité de ceux-ci. Pour créer un rôle ayant accès à tous les journaux personnalisés, créez un rôle personnalisé à l’aide des actions suivantes :
 
 ```
 "Actions":  [

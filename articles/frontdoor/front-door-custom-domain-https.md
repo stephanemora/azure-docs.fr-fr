@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907839"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512842"
 ---
-# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Didacticiel : Configurer HTTPS sur un domaine personnalisé Front Door
+# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Front Door
 
 Ce didacticiel montre comment activer le protocole HTTPS pour un domaine personnalisé associé à votre porte d’entrée sous la section d’hôtes frontend. En utilisant le protocole HTTPS sur votre domaine personnalisé (par exemple, https :\//www.contoso.com), vous vous assurez que vos données sensibles sont remises en toute sécurité via le chiffrement TLS/SSL lors de l’envoi sur Internet. Lorsque votre navigateur web est connecté à un site web par le biais de HTTPS, ce protocole valide le certificat de sécurité du site et vérifie qu’il est fourni par une autorité de certification légitime. Ce processus assure la sécurité et protège également vos applications web contre les attaques.
 
-Par défaut, Azure Front Door Service prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une porte d’entrée (comme https:\//contoso.azurefd.net), HTTPS est automatiquement activé pour les requêtes effectuées sur https://contoso.azurefd.net. Toutefois, une fois que vous intégrez le domaine personnalisé 'www.contoso.com', vous devez également activer HTTPS pour cet hôte frontend.   
+Par défaut, Azure Front Door Service prend en charge HTTPS sur un nom d’hôte Front Door par défaut. Par exemple, si vous créez une porte d’entrée (comme https:\//contoso.azurefd.net), HTTPS est automatiquement activé pour les requêtes effectuées sur https://contoso.azurefd.net. Toutefois, une fois que vous intégrez le domaine personnalisé « www.contoso.com », vous devez également activer HTTPS pour cet hôte frontend.   
 
 Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisée :
 
@@ -33,7 +33,7 @@ Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisé
 
 - La gestion complète de certificats est disponible : l’approvisionnement et la gestion de tous les certificats sont assurés pour vous. Les certificats sont automatiquement provisionnés et renouvelés avant expiration, ce qui élimine les risques d’interruption de service en raison d’une expiration de certificat.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > - Activer le protocole HTTPS sur votre domaine personnalisé.
 > - Utiliser un certificat géré par AFD 
@@ -44,9 +44,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant d’effectuer les étapes de ce didacticiel, vous devez créer une porte d’entrée et au moins un domaine personnalisé intégré. Pour plus d’informations, consultez [Tutoriel : Ajouter un domaine personnalisé à votre Front Door](front-door-custom-domain.md).
+Avant d’effectuer les étapes de ce didacticiel, vous devez créer une porte d’entrée et au moins un domaine personnalisé intégré. Pour plus d’informations, consultez [Didacticiel : Ajouter un domaine personnalisé à votre Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>Certificats SSL
 
@@ -70,7 +70,7 @@ Pour activer HTTPS sur un domaine personnalisé, suivez ces étapes :
 5. Faites [Valider le domaine](#validate-the-domain).
 
 
-### <a name="option-2-use-your-own-certificate"></a>Option 2 : utiliser votre propre certificat ;
+### <a name="option-2-use-your-own-certificate"></a>Option n°2 : utiliser votre propre certificat ;
 
 Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTTPS. Ce processus s’effectue via une intégration à Azure Key Vault, ce qui vous permet de stocker vos certificats en toute sécurité. Azure Front Door Service utilise ce mécanisme sécurisé pour obtenir le certificat, et quelques étapes supplémentaires sont nécessaires. Lorsque vous créez votre certificat SSL, vous devez le créer avec une autorité de certification autorisée (CA). Autrement, si vous utilisez une autorité de certification non autorisée, votre demande sera rejetée. Pour obtenir la liste des autorités de certification autorisées, consultez [Autorités de certification autorisées pour l’activation du protocole HTTPS personnalisé sur Azure Front Door Service](front-door-troubleshoot-allowed-ca.md).
 
@@ -91,7 +91,7 @@ Vous pouvez utiliser votre propre certificat pour activer la fonctionnalité HTT
 Inscrivez le principal du service pour Azure Front Door Service en tant qu’application dans Azure Active Directory par le biais de PowerShell.
 
 > [!NOTE]
-> Cette action ne doit être effectuée **qu’une fois** par locataire.
+> Cette action nécessite des autorisations d’administrateur général et doit être exécutée **une seule fois** par locataire.
 
 1. Si nécessaire, installez [Azure PowerShell](/powershell/azure/install-az-ps) dans PowerShell sur votre ordinateur local.
 
@@ -147,7 +147,7 @@ Si vous utilisez votre propre certificat, la validation du domaine n’est pas n
 
 Votre enregistrement CNAME doit être au format suivant, où *Nom* désigne le nom de votre domaine personnalisé et *Valeur* désigne le nom d’hôte .azurefd.net par défaut de votre porte d’entrée :
 
-| Nom            | type  | Valeur                 |
+| Name            | Type  | Valeur                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -240,11 +240,11 @@ Le tableau suivant présente le déroulement de l’opération qui s’exécute 
 
 | Progression de l’opération | Détails de l’opération | 
 | --- | --- |
-| 1 Soumission de la requête | Envoi de la requête |
+| 1 Soumission de la requête | Envoi de la requête |
 | 2 Annulation de l’approvisionnement du certificat | Suppression du certificat |
 | 3 Fin | Le certificat est supprimé |
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 1. *Qui est le fournisseur de certificats et quel est le type de certificat utilisé ?*
 

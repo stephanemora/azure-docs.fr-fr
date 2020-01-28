@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2020
+ms.date: 01/17/2020
 ms.author: banders
-ms.openlocfilehash: 2beb1d3e4468ff96f629dd6ec7015376a7f3a904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 75b6dd1b2d76d12087270e155551402d1bcd4965
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984004"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274022"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Comprendre votre facture Contrat Entreprise Azure
 
@@ -127,7 +127,7 @@ Connectez-vous au [portail Entreprise](https://ea.azure.com), puis sélectionnez
 
 ![Capture d’écran qui montre l’option M + C dans le récapitulatif de l’utilisation.](./media/review-enterprise-agreement-bill/ea-portal-usage-sumary-cm-option.png)  
 
-Le total de la **Place de marché Azure** doit correspondre au **Total de la vente** sur votre facture de la Place de marché. Pour plus d’informations sur vos frais d’utilisation, accédez à **Télécharger l’utilisation**. Sous **Frais de la Place de marché**, sélectionnez **Télécharger**. Ce rapport n’inclut pas les taxes et ne montre pas les achats définitifs.  
+Le total de la **Place de marché Azure** doit correspondre au **Total de la vente** sur votre facture de la Place de marché. Pour plus d’informations sur vos frais d’utilisation, accédez à **Télécharger l’utilisation**. Sous **Frais de la Place de marché**, sélectionnez **Télécharger**. Le prix de la Place de marché comprend une taxe déterminée par l’éditeur. Les clients ne recevront pas de facture distincte de la part de l’éditeur pour collecter les taxes sur la transaction.
 
 ![Capture d’écran montrant l’option de téléchargement sous les frais de la Place de marché.](./media/review-enterprise-agreement-bill/ea-portal-download-usage-marketplace.png)
 

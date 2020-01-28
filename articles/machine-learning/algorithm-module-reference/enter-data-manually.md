@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8db1d782b6f92637ad929ba863a8d24c81280577
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497936"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548422"
 ---
 # <a name="enter-data-manually-module"></a>Module Entrer des données manuellement
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un petit jeu de données en saisissant des valeurs. Le jeu de données peut avoir plusieurs colonnes.
   
@@ -48,19 +48,19 @@ Ce module peut être utile dans des scénarios tels que les suivants :
   
 3.  Cliquez à l’intérieur de la zone de texte **Données** pour commencer à entrer des données. Les formats suivants requièrent une attention particulière :  
   
-    - **CSV** :  Pour créer plusieurs colonnes, collez du texte séparé par des virgules, ou saisissez plusieurs colonnes en utilisant des virgules entre les champs.
+    - **CSV** :  Pour créer plusieurs colonnes, collez du texte séparé par des virgules, ou saisissez plusieurs colonnes en utilisant des virgules entre les champs.
   
         Si vous sélectionnez l’option **HasHeader**, vous pouvez utiliser la première ligne de valeurs comme en-tête de colonne.  
   
         Si vous désélectionnez cette option, les noms de colonnes, Col1, Col2 et ainsi de suite, sont utilisés. Vous pouvez ajouter ou modifier des noms de colonnes ultérieurement à l’aide de [Modifier les métadonnées](./edit-metadata.md).  
   
-    - **TSV** : Pour créer plusieurs colonnes, collez du texte séparé par des tabulations, ou saisissez plusieurs colonnes en utilisant des tabulations entre les champs.  
+    - **TSV** : Pour créer plusieurs colonnes, collez du texte séparé par des tabulations, ou saisissez plusieurs colonnes en utilisant des tabulations entre les champs.  
   
         Si vous sélectionnez l’option **HasHeader**, vous pouvez utiliser la première ligne de valeurs comme en-tête de colonne.  
   
         Si vous désélectionnez cette option, les noms de colonnes, Col1, Col2 et ainsi de suite, sont utilisés. Vous pouvez ajouter ou modifier des noms de colonnes ultérieurement à l’aide de [Modifier les métadonnées](./edit-metadata.md).  
   
-    -   **ARFF** :  Collez dans un fichier de format ARFF existant. Si vous saisissez des valeurs directement, veillez à ajouter l’en-tête facultatif et les champs d’attribut obligatoires au début des données. 
+    -   **ARFF** :  Collez dans un fichier de format ARFF existant. Si vous saisissez des valeurs directement, veillez à ajouter l’en-tête facultatif et les champs d’attribut obligatoires au début des données. 
     
         Par exemple, les lignes d’en-tête et d’attribut suivantes peuvent être ajoutées à une liste simple. L’en-tête de colonne serait `SampleText`.
     
@@ -97,9 +97,9 @@ Ce module peut être utile dans des scénarios tels que les suivants :
   
      Si vous créez des lignes avec des valeurs manquantes, vous pouvez toujours les filtrer ultérieurement.  
   
-5.  Cliquez avec le bouton droit de la souris sur le module et sélectionnez **Exécuter la sélection** pour analyser les données et les charger dans votre espace de travail en tant que jeu de données.  
+5.  Connectez le port de sortie à d’autres modules, puis exécutez le pipeline.  
   
-     Pour afficher le jeu de données, cliquez sur le port de sortie et sélectionnez **Visualiser**.  
+     Pour afficher le jeu de données, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**.  
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

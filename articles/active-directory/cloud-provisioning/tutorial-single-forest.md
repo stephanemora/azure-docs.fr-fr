@@ -1,6 +1,6 @@
 ---
 title: Tutoriel - Intégrer une seule forêt à un seul locataire Azure AD
-description: Cette rubrique décrit les prérequis et la configuration matérielle exigée pour le provisionnement cloud.
+description: Cette rubrique décrit les prérequis et la configuration matérielle requise pour le provisionnement cloud.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,14 +11,14 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 691c8e8d2f2c6c8e9472ba7a4ae83d8b76f2850c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 7f7c348e29fa2234627a53095a99e913a6389a27
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868726"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280966"
 ---
-# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Didacticiel : Intégrer une seule forêt à un seul locataire Azure AD
+# <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>Tutoriel : Intégrer une seule forêt à un seul locataire Azure AD
 
 Ce tutoriel vous guide tout au long de la création d’un environnement d’identité hybride à l’aide du provisionnement cloud Azure Active Directory (Azure AD) Connect.
 
@@ -26,7 +26,7 @@ Ce tutoriel vous guide tout au long de la création d’un environnement d’ide
 
 Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des fins de test, ou pour vous familiariser avec le provisionnement cloud.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 ### <a name="in-the-azure-active-directory-admin-center"></a>Dans le Centre d’administration Azure Active Directory
 
 1. Créez un compte d’administrateur général « cloud uniquement » dans votre locataire Azure AD. De cette façon, vous pouvez gérer la configuration de votre locataire si vos services locaux venaient à échouer ou ne plus être disponibles. Découvrez comment [ajouter un compte d’administrateur général de type cloud uniquement](../active-directory-users-create-azure-portal.md). Cette étape est essentielle si vous voulez éviter de vous retrouver en dehors de votre locataire.
@@ -34,7 +34,7 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
 
 ### <a name="in-your-on-premises-environment"></a>Dans votre environnement local
 
-1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou ultérieur, avec au minimum 4 Go de RAM et .NET 4.7.1 + Runtime 
+1. Identifiez un serveur hôte joint à un domaine exécutant Windows Server 2012 R2 ou version ultérieure, avec au minimum 4 Go de RAM et le runtime .NET 4.7.1+ 
 
 2. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
    - Assurez-vous que les agents peuvent effectuer des requêtes *sortantes* sur Azure AD sur les ports suivants :
@@ -68,7 +68,7 @@ Vous pouvez utiliser l’environnement que vous créez dans ce tutoriel à des f
 
    ![Écran d’accueil](media/how-to-install/install3.png)
 
-9. Dans l’écran **Configuration terminée**, cliquez sur **Confirmer**.  Cette opération inscrira et redémarrera l’agent.
+9. Dans l’écran **Configuration terminée**, cliquez sur **Confirmer**.  Cette opération inscrit et redémarre l’agent.
 
    ![Écran d’accueil](media/how-to-install/install4.png)
 
@@ -85,7 +85,7 @@ Pour vérifier que l’agent est visible par Azure, procédez comme suit :
 
 1. Connectez-vous au portail Azure.
 2. Sur la gauche, sélectionnez **Azure Active Directory**, cliquez sur **Azure AD Connect** et, au centre, sélectionnez **Gérer le provisionnement (préversion)** .</br>
-![Portail Azure](media/how-to-install/install6.png)</br>
+![Azure portal](media/how-to-install/install6.png)</br>
 
 3.  Dans l’écran **Provisionnement Azure AD (préversion)** , cliquez sur **Passer en revue tous les agents**.
 ![Provisionnement Azure AD](media/how-to-install/install7.png)</br>

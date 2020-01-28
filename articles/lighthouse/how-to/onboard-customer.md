@@ -1,14 +1,14 @@
 ---
 title: Intégrer un client dans la gestion des ressources déléguées Azure
 description: Découvrez comment intégrer un client à la gestion des ressources déléguées Azure, permettant ainsi que ses ressources soient accessibles et gérables via votre propre locataire.
-ms.date: 01/09/2020
+ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09e42a65891494370250fbab9b22cdf37a6fd318
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b3868987fa76d4ce0d4c34e81b46301ea106203d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834127"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543407"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Intégrer un client dans la gestion des ressources déléguées Azure
 
@@ -229,15 +229,15 @@ New-AzDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create –-name <deploymentName> \
+az deployment create --name <deploymentName> \
                      --location <AzureRegion> \
                      --template-file <pathToTemplateFile> \
                      --parameters <parameters/parameterFile> \
                      --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create –-name <deploymentName \
-                     –-location <AzureRegion> \
+az deployment create --name <deploymentName> \
+                     --location <AzureRegion> \
                      --template-uri <templateUri> \
                      --parameters <parameterFile> \
                      --verbose
@@ -302,6 +302,12 @@ L’exemple ci-dessous montre une affectation octroyant le **rôle Supprimer l�
 ```
 
 Un utilisateur disposant de cette autorisation peut supprimer une délégation de l’une des manières suivantes.
+
+### <a name="azure-portal"></a>Portail Azure
+
+1. Accédez à la [page Mes clients](view-manage-customers.md).
+2. Sélectionnez **Délégations**.
+3. Recherchez la délégation que vous souhaitez supprimer, puis sélectionnez l’icône de corbeille qui apparaît dans sa ligne.
 
 ### <a name="powershell"></a>PowerShell
 

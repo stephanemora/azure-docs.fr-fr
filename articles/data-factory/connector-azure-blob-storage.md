@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/12/2019
-ms.openlocfilehash: 9001a7837e6106df4e052277168388064e65e7ee
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/16/2020
+ms.openlocfilehash: f245254c85cbf9223ab5dda60799c6b7ce72f11c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893304"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120211"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copier et transformer des données dans un stockage Azure Blob à l’aide d’Azure Data Factory
 
@@ -270,7 +270,7 @@ Une fabrique de données peut être associée à une [identité managée pour le
 
 Pour plus d’informations sur l’authentification de Stockage Azure en général, consultez [Authentifier l’accès à Stockage Azure à l’aide d’Azure Active Directory](../storage/common/storage-auth-aad.md). Pour utiliser les identités managées afin d’authentifier les ressources Azure, procédez comme suit :
 
-1. [Récupérez les informations d’identité managée de la fabrique de données](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur « SERVICE IDENTITY APPLICATION ID » générée en même temps que votre fabrique.
+1. [Récupérez les informations d’identité managée de la fabrique de données](data-factory-service-identity.md#retrieve-managed-identity) en copiant la valeur d’**ID d’objet de l’identité managée** générée en même temps que votre fabrique.
 
 2. Accordez l’autorisation nécessaire à l’identité managée dans le Stockage Blob Azure. Pour plus d’informations sur les rôles, consultez [Gérer les droits d’accès aux données de Stockage Azure avec RBAC](../storage/common/storage-auth-aad-rbac.md).
 
@@ -560,14 +560,14 @@ Dans la transformation du récepteur, vous pouvez écrire dans un conteneur ou u
 
 **Effacer le contenu du dossier :** Détermine si le contenu du dossier de destination doit être effacé avant l’écriture des données.
 
-**Option de nom de fichier :** Détermine la façon dont les fichiers de destination sont nommés dans le dossier de destination. Les options de nom de fichier sont les suivantes :
+**Option de nom de fichier :** Détermine la façon dont les fichiers de destination sont nommés dans le dossier de destination. Les options de nom de fichier sont les suivantes :
    * **Par défaut** : Autorisez Spark à nommer les fichiers en fonction des valeurs par défaut de la partition.
    * **Modèle** : Entrez un modèle qui énumère vos fichiers de sortie par partition. Par exemple, **loans[n].csv** crée loans1.csv, loans2.csv, etc.
    * **Par partition** : Entrez un nom de fichier pour chaque partition.
    * **Comme les données de la colonne** : Définissez le fichier de sortie sur la valeur d’une colonne. Le chemin est relatif au conteneur du jeu de données et non pas au dossier de destination.
    * **Sortie d’un seul fichier** : Combinez les fichiers de sortie partitionnés en un seul fichier nommé. Le chemin est relatif au dossier du jeu de données. Sachez que cette opération de fusion peut échouer en fonction de la taille du nœud. Cette option n’est pas recommandée pour des jeux de données volumineux.
 
-**Tout mettre entre guillemets :** Détermine si toutes les valeurs doivent être placées entre guillemets.
+**Tout mettre entre guillemets :** Détermine si toutes les valeurs doivent être placées entre guillemets
 
 ## <a name="lookup-activity-properties"></a>Propriétés de l’activité Lookup
 
@@ -584,7 +584,7 @@ Pour en savoir plus sur les propriétés, consultez [Activité Delete](delete-ac
 ## <a name="legacy-models"></a>Modèles hérités
 
 >[!NOTE]
->Les modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau modèle.
+>Les Modèles suivants sont toujours pris en charge tels quels à des fins de compatibilité descendante. Il est recommandé d’utiliser le nouveau Modèle mentionné dans les sections ci-dessus à partir de maintenant. L’interface utilisateur de création ADF peut désormais générer ce nouveau Modèle.
 
 ### <a name="legacy-dataset-model"></a>Modèle de jeu de données hérité
 

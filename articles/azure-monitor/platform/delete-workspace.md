@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 739f97e912a33402aa7482e59dd78f5aeb005772
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944424"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547249"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Supprimer et restaurer un espace de travail Azure Log Analytics
 
@@ -57,6 +57,29 @@ Vous pouvez supprimer un espace de travail à l'aide de [PowerShell](https://doc
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+## <a name="permanent-workspace-delete"></a>Suppression d’espace de travail permanent
+La méthode de suppression réversible peut ne pas convenir dans certains cas, par exemple, de développement et le test, où vous devez répéter un déploiement avec les mêmes paramètres et nom d’espace de travail. Dans ces cas, vous pouvez supprimer définitivement votre espace de travail en « écrasant » la période de suppression réversible. L’opération de suppression définitive de l’espace de travail libère le nom de celui-ci de sorte que vous pouvez créer un espace de travail du même nom.
+
+
+> [!IMPORTANT]
+> Soyez prudent lorsque vous supprimez définitivement votre espace de travail car, l’opération étant irréversible, l’espace de travail et ses données seront ensuite irrécupérables.
+
+La suppression définitive de l’espace de travail peut actuellement être effectuée via une API REST.
+
+> [!NOTE]
+> Toute demande API doit inclure un jeton d’autorisation du porteur dans son en-tête.
+>
+> Vous pouvez acquérir le jeton comme suit :
+> - [Inscriptions des applications](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - Accédez au portail Azure à l’aide de la console du développeur (F12) dans le navigateur. Recherchez dans l’une des instances **batch?** la chaîne d’authentification sous **En-têtes de demande**. Elle suit le modèle *autorisation : porteur <token>* . Copiez-la et ajoutez-la à votre appel d’API, comme dans les exemples.
+> - Accédez au site de documentation REST Azure. Appuyez sur **Essayer** pour une API, copiez le jeton du porteur, puis ajoutez-le à votre appel d’API.
+Pour supprimer définitivement votre espace de travail, utilisez l’appel d’API [REST Workspaces - Delete]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) avec une balise force :
+>
+> ```rst
+> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
+> ```
 
 ## <a name="recover-workspace"></a>Récupérer un espace de travail
 

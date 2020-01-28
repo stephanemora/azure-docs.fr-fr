@@ -3,8 +3,7 @@ title: Démarrage rapide pour ajouter des indicateurs de fonctionnalité à Spri
 description: Guide de démarrage rapide pour ajouter des indicateurs de fonctionnalité à des applications Spring Boot et leur gestion dans Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: mrm9084
-manager: zhenlwa
+author: lisaguthrie
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +11,14 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
-ms.date: 09/26/2019
-ms.author: mametcal
-ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 1/9/2019
+ms.author: lcozzens
+ms.openlocfilehash: 3e82354116969b01743700485b5c2dd75b4887e4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184946"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310048"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Démarrage rapide : Ajouter des indicateurs de fonctionnalité à une application Spring Boot
 
@@ -27,7 +26,7 @@ Dans ce guide de démarrage rapide, vous incorporez Azure App Configuration à u
 
 Les bibliothèques de gestion des fonctionnalités Spring Boot étendent le framework avec une prise en charge complète des indicateurs de fonctionnalités. Ces bibliothèques **n’ont pas** de dépendance envers les bibliothèques Azure. Elles s’intègrent de manière fluide à App Configuration par le biais de son fournisseur de configuration Spring Boot.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
 - Un [kit SDK de développement Java](https://docs.microsoft.com/java/azure/jdk) pris en charge avec version 8
@@ -54,7 +53,7 @@ Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un proje
    - Générez un projet **Maven** avec **Java**.
    - Spécifiez une version de **Spring Boot** égale ou supérieure à 2.0.
    - Indiquez les noms du **Groupe** et de l’**Artefact** de votre application.
-   - Ajoutez la dépendance **Web**.
+   - Ajoutez la dépendance **Spring Web**.
 
 3. Une fois les options précédentes spécifiées, sélectionnez **Générer le projet**. Lorsque vous y êtes invité, téléchargez le projet dans un emplacement défini par un chemin d’accès sur votre ordinateur local.
 
@@ -68,12 +67,12 @@ Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un proje
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0</version>
     </dependency>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -86,27 +85,46 @@ Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un proje
 
 ## <a name="connect-to-an-app-configuration-store"></a>Se connecter à un magasin App Configuration
 
-1. Ouvrez `bootstrap.properties`, qui se trouve sous le répertoire des ressources de votre application, puis ajoutez les lignes suivantes au fichier. Ajoutez les informations App Configuration.
+1. Ouvrez _bootstrap.properties_ sous le répertoire _resources_ de votre application. Si _bootstrap.properties_ n’existe pas, créez-le. Ajoutez la ligne suivante au fichier.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-2. Dans le portail App Configuration pour votre magasin de configuration, accédez à Clés d’accès. Sélectionnez l’onglet Clés en lecture seule. Sous cet onglet, copiez la valeur de l’une des chaînes de connexion et ajoutez-la en tant que nouvelle variable d’environnement avec le nom de variable `APP_CONFIGURATION_CONNECTION_STRING`.
+1. Dans le portail App Configuration pour votre magasin de configuration, accédez à Clés d’accès. Sélectionnez l’onglet Clés en lecture seule. Sous cet onglet, copiez la valeur de l’une des chaînes de connexion et ajoutez-la en tant que nouvelle variable d’environnement avec le nom de variable `APP_CONFIGURATION_CONNECTION_STRING`.
 
-3. Ouvrez le fichier Java de l’application principale et ajoutez `@EnableConfigurationProperties` pour activer cette fonctionnalité.
+1. Ouvrez le fichier Java de l’application principale et ajoutez `@EnableConfigurationProperties` pour activer cette fonctionnalité.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
 
-4. Créez un fichier Java nommé *HelloController.java* dans le répertoire du package de votre application. Ajoutez les lignes suivantes :
+1. Créez un fichier Java nommé *MessageProperties.java* dans le répertoire du package de votre application. Ajoutez les lignes suivantes :
+
+    ```java
+    @ConfigurationProperties(prefix = "config")
+    public class MessageProperties {
+        private String message;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
+    ```
+
+1. Créez un fichier Java nommé *HelloController.java* dans le répertoire du package de votre application. Ajoutez les lignes suivantes :
 
     ```java
     @Controller
@@ -127,7 +145,7 @@ Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un proje
     }
     ```
 
-5. Créez un fichier HTML nommé *welcome.html* dans le répertoire de modèles de votre application. Ajoutez les lignes suivantes :
+1. Créez un fichier HTML nommé *welcome.html* dans le répertoire de modèles de votre application. Ajoutez les lignes suivantes :
 
     ```html
     <!DOCTYPE html>
@@ -184,7 +202,7 @@ Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un proje
 
     ```
 
-6. Créez un dossier nommé CSS sous « static », puis dans ce dossier, créez un fichier CSS nommé *main.css*. Ajoutez les lignes suivantes :
+1. Créez un dossier nommé CSS sous « static », puis dans ce dossier, créez un fichier CSS nommé *main.css*. Ajoutez les lignes suivantes :
 
     ```css
     html {
@@ -240,7 +258,7 @@ Vous utilisez [Spring Initializr](https://start.spring.io/) pour créer un proje
 
     ![Démarrage rapide du lancement d’application local](./media/quickstarts/spring-boot-feature-flag-local-after.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643640"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289082"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C : Forum Aux Questions (FAQ)
 
@@ -27,7 +27,7 @@ Si l’extension Azure AD ne fonctionne pas pour vous, il peut y avoir deux rais
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Puis-je utiliser les fonctionnalités d’Azure AD B2C dans mon client Azure AD existant, basé sur les employés ?
 
-Azure AD et Azure AD B2C sont deux offres de produits distinctes qui ne peuvent pas coexister dans le même locataire. Un locataire Azure AD représente une organisation. Un locataire Azure AD B2C représente une collection d’identités à utiliser avec des applications par partie de confiance. Avec les stratégies personnalisées, il est possible de fédérer Azure AD B2C avec Azure AD, ce qui permet l’authentification des employés dans une organisation.
+Azure AD et Azure AD B2C sont deux offres de produits distinctes qui ne peuvent pas coexister dans le même locataire. Un locataire Azure AD représente une organisation. Un locataire Azure AD B2C représente une collection d’identités à utiliser avec des applications par partie de confiance. En ajoutant un **Nouveau fournisseur OpenID Connect** sous **Azure AD B2C > Fournisseurs d’identité** ou avec des stratégies personnalisées, Azure AD B2C peut fédérer pour Azure AD en autorisant l’authentification des employés dans une organisation.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Puis-je utiliser Azure AD B2C pour activer la connexion à des réseaux sociaux (Facebook et Google+) dans Office 365 ?
 

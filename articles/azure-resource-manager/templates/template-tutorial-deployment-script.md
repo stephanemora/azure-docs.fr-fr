@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/09/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e52a859c86ff451293ac6ff795c7fe427a383b9d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 459d75bec3d4b4d0cf9057e0c6de238e7f165bfb
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75843506"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548983"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Tutoriel : Utiliser des scripts de déploiement pour créer un certificat auto-signé (préversion)
 
@@ -45,7 +45,7 @@ Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléme
 
 * **[Visual Studio Code](https://code.visualstudio.com/) avec l’extension Outils Resource Manager**. Consultez [Utiliser Visual Studio Code pour créer des modèles Azure Resource Manager](./use-vs-code-to-create-template.md).
 
-* **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Vous avez besoin de l’ID d’identité quand vous déployez le modèle. Le format de l’identité est :
+* **Une identité managée affectée par l’utilisateur avec le rôle de contributeur au niveau de l’abonnement**. Cette identité est utilisée pour exécuter les scripts de déploiement. Pour en créer une, consultez [Identité managée affectée par l’utilisateur](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#user-assigned-managed-identity). Vous avez besoin de l’ID d’identité lorsque vous déployez le modèle. Le format de l’identité est le suivant :
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
@@ -262,12 +262,12 @@ Le script de déploiement ajoute un certificat au coffre de clés. Configurez le
     * **kind** : Spécifiez le type de script. Actuellement, seul le script PowerShell est pris en charge.
     * **forceUpdateTag** : Déterminez si le script de déploiement doit être exécuté même si la source du script n’a pas changé. Il peut s’agir de l’horodatage actuel ou d’un GUID. Pour plus d’informations, consultez [Exécuter un script plusieurs fois](./deployment-script-template.md#run-script-more-than-once).
     * **azPowerShellVersion** : Spécifie la version du module Azure PowerShell à utiliser. Actuellement, le script de déploiement prend en charge la version 2.7.0, 2.8.0 et 3.0.0.
-    * **timeout** : Spécifiez la durée d’exécution de script maximale autorisée au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
+    * **timeout** : précise la durée d’exécution maximale autorisée du script, définie au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). La valeur par défaut est **P1D**.
     * **arguments** : Spécifiez les valeurs de paramètre. Les valeurs sont séparées par des espaces.
     * **scriptContent** : Spécifiez le contenu du script. Pour exécuter un script externe, utilisez plutôt **primaryScriptURI**. Pour plus d’informations, consultez [Utiliser un script externe](./deployment-script-template.md#use-external-scripts).
         La déclaration de **$DeploymentScriptOutputs** est uniquement nécessaire lors du test du script sur une machine locale. La déclaration de la variable permet d’exécuter le script sur une machine locale et dans une ressource deploymentScript sans avoir à apporter de modifications. La valeur affectée à $DeploymentScriptOutputs est disponible en tant que sortie dans les déploiements. Pour plus d’informations, consultez [Utiliser des sorties issues de scripts de déploiement](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference** : Spécifiez votre préférence quant à la suppression des ressources de script de déploiement.  La valeur par défaut est **Toujours**, ce qui signifie que les ressources de script de déploiement sont supprimées quel que soit l’état terminal (réussite, échec, annulation). Dans ce tutoriel, **OnSuccess** est utilisé pour vous permettre de voir les résultats de l’exécution du script.
-    * **retentionInterval** : Spécifiez l’intervalle pendant lequel le service conserve les ressources de script une fois qu’il a atteint un état terminal. Les ressources sont supprimées à l’issue de cet interval. La durée s’appuie sur le modèle ISO 8601. Ce tutoriel utilise P1D, ce qui correspond à une journée.  Cette propriété est utilisée lorsque  **retentionInterval** a la valeur **OnExpiration**. Cette propriété n’est pas activée actuellement.
+    * **retentionInterval** : Spécifiez l’intervalle pendant lequel le service conserve les ressources de script une fois qu’il a atteint un état terminal. Les ressources sont supprimées à l’issue de cet interval. La durée s’appuie sur le modèle ISO 8601. Ce tutoriel utilise P1D, ce qui correspond à une journée.  Cette propriété est utilisée quand **cleanupPreference** a la valeur **OnExpiration**. Cette propriété n’est pas activée actuellement.
 
     Le script de déploiement accepte trois paramètres : le nom du coffre de clés, le nom du certificat et le nom de l’objet.  Il crée un certificat, puis l’ajoute au coffre de clés.
 

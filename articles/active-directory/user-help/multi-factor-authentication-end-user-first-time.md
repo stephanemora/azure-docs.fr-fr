@@ -1,6 +1,6 @@
 ---
-title: Présentation - Configurer des méthodes de vérification à deux facteurs - Azure Active Directory | Microsoft Docs
-description: Découvrez comment configurer vos méthodes de vérification à deux facteurs pour la vérification à deux facteurs.
+title: Qu’est-ce que la page Vérification supplémentaire ? - Azure AD
+description: Guide pratique pour accéder à la page Vérification de sécurité supplémentaire pour la vérification à deux facteurs.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -8,30 +8,35 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/12/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83bba343ac73fd0df575ae1e8a83c589a0bc15ac
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7dfcc02928cc92aedd0eb0f966bea9804be5fdcc
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616165"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156248"
 ---
-# <a name="set-up-your-two-factor-verification-methods-overview"></a>Présentation - Configurer vos méthodes de vérification à deux facteurs
+# <a name="what-is-the-additional-verification-page"></a>Qu’est-ce que la page Vérification supplémentaire ?
 
-Votre organisation a activé la vérification à deux facteurs, ce qui signifie que la connexion de votre compte professionnel ou scolaire nécessite à présent une combinaison de votre nom d’utilisateur, de votre mot de passe et d’un appareil mobile ou d’un téléphone. Votre organisation a activé cette vérification supplémentaire car elle est plus sécurisée qu’un mot de passe, puisqu’elle s’appuie sur deux formes d’authentification : quelque chose que vous connaissez et quelque chose que vous avez avec vous. La vérification à deux facteurs peut aider à empêcher les pirates de se faire passer pour vous, car même s’ils ont votre mot de passe, il est probable qu’ils n’ont pas votre appareil.
+Vous avez reçu un e-mail d’une personne du service informatique ou de votre patron, qui vous indique qu’une vérification de sécurité supplémentaire a été ajoutée à votre compte. Qu’est-ce que cela signifie ? Cela signifie que votre organisation effectue des étapes supplémentaires pour s’assurer que vous êtes bien celui que vous prétendez être lorsque vous vous connectez. Cette vérification supplémentaire, également appelée vérification à deux facteurs, s’effectue via une combinaison de votre nom d’utilisateur, de votre mot de passe et d’un appareil mobile ou d’un téléphone.
+
+Elle est plus sécurisée qu’un simple mot de passe, car elle s’appuie sur deux formes d’authentification : quelque chose que vous connaissez et quelque chose que vous avez avec vous. L’élément que vous connaissez est votre mot de passe. L’élément que vous avez sur vous est un téléphone ou un appareil que vous avez généralement avec vous. La vérification à deux facteurs peut aider à empêcher les pirates de se faire passer pour vous, car même s’ils ont votre mot de passe, il est probable qu’ils n’ont pas votre appareil.
 
 >[!Important]
->Ce contenu est destiné aux utilisateurs. Si vous êtes un administrateur, vous trouverez plus d’informations sur la méthode à suivre pour configurer et gérer votre environnement Azure Active Directory (Azure AD) dans le [documentation relative à Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
+>Cet article s’adresse aux utilisateurs qui essaient d’utiliser la vérification à deux facteurs avec un compte professionnel ou scolaire (par exemple, alain@contoso.com). Si vous êtes administrateur et que vous recherchez des informations sur l’activation de la vérification à deux facteurs pour vos employés ou d’autres utilisateurs, consultez la [documentation sur l’authentification Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/).
 
 ## <a name="who-decides-if-you-use-this-feature"></a>Qui décide si vous utilisez cette fonctionnalité ?
 
 Selon votre type de compte, votre organisation peut décider que vous devez utiliser la vérification à deux facteurs ou vous pouvez le décider par vous-même.
 
-- **Un compte professionnel ou scolaire.** Si vous utilisez un compte professionnel ou scolaire (par exemple alain@contoso.com), c’est à votre organisation de décider si vous devez utiliser la vérification à deux facteurs, ainsi que les méthodes de vérification spécifiques. Étant donné que votre organisation a décidé que vous devez utiliser cette fonctionnalité, vous n’avez aucun moyen de la désactiver individuellement.
+- **Un compte professionnel ou scolaire.** Si vous utilisez un compte professionnel ou scolaire (par exemple alain@contoso.com), c’est à votre organisation de décider si vous devez utiliser la vérification à deux facteurs, ainsi que les méthodes de vérification spécifiques. Comme votre organisation a décidé que cette fonctionnalité était obligatoire, vous n’avez aucun moyen de la désactiver individuellement.
 
 - **Compte Microsoft personnel.** Vous pouvez choisir de configurer la vérification à deux facteurs pour vos comptes Microsoft personnels (par exemple alain@outlook.com). Si vous rencontrez des problèmes avec la vérification à deux facteurs et votre compte Microsoft personnel, consultez [Activation ou désactivation de la vérification à deux facteurs de votre compte Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Étant donné que vous choisissez d’utiliser cette fonctionnalité, vous pouvez l’activer et la désactiver chaque fois que vous le souhaitez.
+
+    >[!Note]
+    >Si vous rencontrez des problèmes avec la vérification à deux facteurs et l’un de vos comptes Microsoft personnels (par exemple, danielle@outlook.com), vous pouvez essayer les suggestions sur la [façon d’utiliser la vérification en deux étapes avec votre compte Microsoft](https://support.microsoft.com/help/12408/microsoft-account-how-to-use-two-step-verification).
 
 ## <a name="access-the-additional-security-verification-page"></a>Accès à la page Vérification de sécurité supplémentaire
 

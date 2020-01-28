@@ -4,17 +4,19 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 5443ee6912c30b89cee6fdb43f84f3bc1fbcfe68
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021006"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280597"
 ---
 Azure Data Explorer chiffre toutes les données dans un compte de stockage au repos. Par défaut, les données sont chiffrées avec des clés managées par Microsoft Pour plus de contrôle sur les clés de chiffrement, vous pouvez fournir des clés gérées par le client à utiliser pour le chiffrement des données. Les clés gérées par le client doivent être stockées dans [Azure Key Vault](/azure/key-vault/key-vault-overview). Vous pouvez créer vos propres clés et les stocker dans un coffre de clés, ou utiliser une API d’Azure Key Vault pour générer des clés. Le cluster Azure Data Explorer et le coffre de clés doivent se trouver dans la même région, mais ils peuvent appartenir à des abonnements différents. Pour obtenir une explication détaillée sur les clés gérées par le client, consultez [Clés gérées par le client avec Azure Key Vault](/azure/storage/common/storage-service-encryption). Cet article vous montre comment configurer des clés gérées par le client.
 
-> [!Note]
-> Pour configurer des clés gérées par le client avec Azure Data Explorer, vous devez [définir deux propriétés sur le coffre de clés](/azure/key-vault/key-vault-ovw-soft-delete) : **Suppression réversible** et **Ne pas vider**. Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, utilisez [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) ou [Azure CLI](/azure/key-vault/key-vault-soft-delete-cli). Seules les clés RSA et la taille de clé 2048 sont prises en charge.
+Pour configurer des clés gérées par le client avec Azure Data Explorer, vous devez [définir deux propriétés sur le coffre de clés](/azure/key-vault/key-vault-ovw-soft-delete) : **Suppression réversible** et **Ne pas vider**. Ces propriétés ne sont pas activées par défaut. Pour activer ces propriétés, utilisez [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) ou [Azure CLI](/azure/key-vault/key-vault-soft-delete-cli). Seules les clés RSA et la taille de clé 2048 sont prises en charge.
+
+> [!NOTE]
+> Le chiffrement des données à l’aide de clés gérées par le client n’est pas pris en charge sur les clusters de [responsable de d’abonné](/azure/data-explorer/follower). 
 
 ## <a name="assign-an-identity-to-the-cluster"></a>Attribuer une identité au cluster
 

@@ -1,7 +1,7 @@
 ---
-title: 'Didacticiel : API Visage en C#'
+title: 'Tutoriel : service connecté Visage'
 titleSuffix: Azure Cognitive Services
-description: Créez une application Windows qui utilise l’API Visage Cognitive Services pour détecter les traits de visages dans une image.
+description: Créez une application Windows qui utilise le service Visage Cognitive Services pour détecter les traits de visages dans une image.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0fe92fc7f19c3c899bcccfa9f9cc18029af049c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970293"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170236"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Se connecter à l’API Visage Cognitive Services avec les Services connectés dans Visual Studio
+# <a name="connect-to-the-face-service-by-using-connected-services-in-visual-studio"></a>Se connecter au service Visage avec les Services connectés dans Visual Studio
 
-L’API Visage Cognitive Services permet de détecter, d’analyser, d’organiser et d’identifier des visages sur des photos.
+Le service Visage Azure permet de détecter, d’analyser, d’organiser et d’étiqueter des visages sur des photos.
 
-Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisation de la fonctionnalité Service connecté Visual Studio de l’API Visage Cognitive Services. Elle est disponible dans Visual Studio 2017 15.7 et les versions ultérieures, à condition que l’extension Cognitive Services soit installée.
+Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisation de la fonctionnalité Service connecté Visual Studio du service Visage. Elle est disponible dans Visual Studio 2017 15.7 et les versions ultérieures, à condition que l’extension Cognitive Services soit installée.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure. Si vous n’en possédez pas, vous pouvez vous inscrire pour créer dès aujourd’hui un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 - Visual Studio 2017 version 15.7 ou ultérieure avec la charge de travail **Développement web** installée. [Téléchargez-le maintenant](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>Créer un projet et ajouter la prise en charge de l’API Visage Cognitive Services
+## <a name="create-a-project-and-add-support-for-face"></a>Créer un projet et ajouter la prise en charge du service Visage
 
 1. Créez un projet web ASP.NET Core. Utilisez le modèle de projet Vide. 
 
@@ -47,16 +47,16 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
    ![Sélectionnez votre abonnement](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. Sélectionnez l’abonnement que vous souhaitez utiliser. Ensuite, choisissez un nom pour l’API Visage ou cliquez sur le lien Modifier pour modifier le nom généré automatiquement. Choisissez le groupe de ressources et le niveau tarifaire.
+1. Sélectionnez l’abonnement que vous souhaitez utiliser. Ensuite, choisissez un nom pour le service Visage ou cliquez sur le lien Modifier pour modifier le nom généré automatiquement. Choisissez le groupe de ressources et le niveau tarifaire.
 
    ![Modifier les informations du service connecté](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
    Pour plus d’informations sur les niveaux tarifaires, suivez le lien.
 
 1. Cliquez sur Ajouter pour ajouter la prise en charge du Service connecté.
-   Visual Studio modifie votre projet en ajoutant les packages NuGet, les entrées du fichier de configuration et autres afin de prendre en charge une connexion à l’API Visage.
+   Visual Studio modifie votre projet en ajoutant les packages NuGet, les entrées du fichier de configuration et autres afin de prendre en charge une connexion au service Visage.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Utiliser l’API Visage pour détecter des attributs de visages dans une image
+## <a name="use-the-face-service-to-detect-attributes-of-faces-in-an-image"></a>Utiliser le service Visage pour détecter les attributs des visages dans une image
 
 1. Ajoutez les instructions using suivantes dans Startup.cs.
  
@@ -79,7 +79,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
       }
    ```
 
-1. Dans le dossier wwwroot de votre projet, ajoutez un dossier images et un fichier image. Par exemple, vous pouvez utiliser l’une des images de cette [page de l’API Visage](https://azure.microsoft.com/services/cognitive-services/face/). Cliquez avec le bouton droit sur une des images et enregistrez-la sur votre disque dur local. Ensuite, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier des images et choisissez **Ajouter** > **Élément existant** pour l’ajouter à votre projet. Votre projet devrait se présenter ainsi dans l’Explorateur de solutions :
+1. Dans le dossier wwwroot de votre projet, ajoutez un dossier images et un fichier image. Par exemple, vous pouvez utiliser l’une des images de la [page Visage](https://azure.microsoft.com/services/cognitive-services/face/) du portail Azure. Cliquez avec le bouton droit sur une des images et enregistrez-la sur votre disque dur local. Ensuite, dans l’Explorateur de solutions, cliquez avec le bouton droit sur le dossier des images et choisissez **Ajouter** > **Élément existant** pour l’ajouter à votre projet. Votre projet devrait se présenter ainsi dans l’Explorateur de solutions :
  
    ![Dossier images avec fichier image](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -87,7 +87,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
    ![Copier si plus récent](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Remplacez la méthode Configurer par le code suivant pour accéder à l’API Visage et tester une image. Remplacez la chaîne imagePath par le chemin qui convient et le nom de fichier de votre image de visage.
+1. Remplacez la méthode Configurer par le code suivant pour accéder au service Visage et tester une image. Remplacez la chaîne imagePath par le chemin qui convient et le nom de fichier de votre image de visage.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -231,13 +231,13 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
         }
    ```
 
-1. Exécutez l’application web : l’API Visage indique ce qu’elle a trouvé dans l’image.
+1. Exécutez l’application web pour voir ce que le service Visage a trouvé dans l’image.
  
-   ![Image de l’API Visage et résultats mis en forme](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Image du service Visage et résultats mis en forme](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
+Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce démarrage rapide dans les résultats de recherche, sélectionnez-le.
 1. Sélectionnez **Supprimer le groupe de ressources**.
@@ -245,4 +245,4 @@ Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette o
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur l’API Visage, lisez la [Documentation de l’API Visage](Overview.md).
+Pour plus d’informations sur le service Visage, lisez la [documentation du service Visage](Overview.md).

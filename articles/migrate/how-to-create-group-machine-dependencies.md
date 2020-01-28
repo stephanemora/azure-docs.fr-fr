@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: hamusa
-ms.openlocfilehash: 1cd1ff83fd706e3474426f6cc2ac99d39e74dc22
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 96d1c44eb9ecb71684e817a89f9376a07dbe3ccb
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177949"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514967"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances pour l'évaluation
 
@@ -34,11 +34,11 @@ Le mappage des dépendances vous permet de visualiser les dépendances entre les
 - Assurez-vous d'avoir découvert vos machines dans Azure Migrate ; vous pouvez le faire en configurant une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md) ou [Hyper-V](how-to-set-up-appliance-hyper-v.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
 
 
-**Caractéristiques** | **Remarque :**
+**Caractéristiques** | **Remarque**
 --- | ---
 Disponibilité | La visualisation des dépendances n’est pas disponible dans Azure Government.
 Service Map | La visualisation des dépendances utilise la solution Service Map dans Azure Monitor. [Service Map](../azure-monitor/insights/service-map.md) détecte et affiche automatiquement les connexions entre serveurs.
-Agents | Pour utiliser la visualisation des dépendances, installez les agents suivants sur les machines que vous voulez mapper :<br/> - [Agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (anciennement Microsoft Monitoring Agent (MMA)).<br/> - [Service Map Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Pour automatiser l’installation de l’agent, vous pouvez utiliser un outil de déploiement comme System Center Configuration Manager, qui propose une solution de déploiement d’agent pour Azure Migrate.
+Agents | Pour utiliser la visualisation des dépendances, installez les agents suivants sur les machines que vous voulez mapper :<br/> - [Agent Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (anciennement Microsoft Monitoring Agent (MMA)).<br/> - [Service Map Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent).<br/><br/> Pour automatiser l’installation de l’agent, vous pouvez utiliser un outil de déploiement tel que Configuration Manager, qui propose une solution de déploiement d’agent pour Azure Migrate.
 Agent de dépendances | Passez en revue la [prise en charge de Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) pour Windows et Linux.<br/><br/> [En savoir plus](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) sur l’utilisation des scripts pour installer l’agent de dépendances.
 Log Analytics agent (MMA) | [En savoir](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) plus sur les méthodes d’installation MMA.<br/><br/> Pour les machines surveillées par System Center Operations Manager 2012 R2 ou version ultérieure, il n'est pas nécessaire d'installer l'agent MMA. Service Map s’intègre à Operations Manager. Vous pouvez activer l’intégration en suivant les conseils disponibles [ici](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Notez toutefois que Dependency Agent doit être installé sur ces machines.<br/><br/> [Passez en revue](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) les systèmes d'exploitation Linux pris en charge par l'agent Log Analytics.
 Groupes d’évaluation | Les groupes pour lesquels vous souhaitez visualiser les dépendances ne doivent pas contenir plus de 10 machines. Si vous avez plus de 10 machines, divisez-les en petits groupes pour visualiser les dépendances.
@@ -88,7 +88,7 @@ Pour installer l’agent sur une machine Windows :
 4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**.
 5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail Log Analytics. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
 
-Vous pouvez installer l’agent à partir de la ligne de commande ou en employant une méthode automatisée comme System Center Configuration Manager ou [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sur l’utilisation de ces méthodes pour installer l’agent MMA. Ce [script](https://go.microsoft.com/fwlink/?linkid=2104394) permet également d’installer l’agent MMA.
+Vous pouvez installer l’agent à partir de la ligne de commande ou en utilisant une solution automatisée telle que Configuration Manager ou [Intigua](https://go.microsoft.com/fwlink/?linkid=2104196). [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) sur l’utilisation de ces méthodes pour installer l’agent MMA. Ce [script](https://go.microsoft.com/fwlink/?linkid=2104394) permet également d’installer l’agent MMA.
 
 [En savoir plus](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-windows-operating-systems) sur les systèmes d’exploitation Windows pris en charge par MMA.
 
@@ -165,7 +165,7 @@ Nous fournissons quelques exemples de requêtes que vous pouvez utiliser pour ex
 - [Consultez](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) une liste complète d’enregistrements de données de dépendance.
 - [Consultez](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) d’autres exemples de requêtes.
 
-#### <a name="sample-review-inbound-connections"></a>Exemple : Examiner les connexions entrantes
+#### <a name="sample-review-inbound-connections"></a>Exemple : Examiner les connexions entrantes
 
 Examiner les connexions entrantes pour un ensemble de machines virtuelles.
 
@@ -187,7 +187,7 @@ VMConnection
 | summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-#### <a name="sample-summarize-sent-and-received-data"></a>Exemple : Résumer les données envoyées et reçues
+#### <a name="sample-summarize-sent-and-received-data"></a>Exemple : Résumer les données envoyées et reçues
 
 Cet exemple résume le volume de données envoyées et reçues sur les connexions entrantes entre un ensemble de machines.
 

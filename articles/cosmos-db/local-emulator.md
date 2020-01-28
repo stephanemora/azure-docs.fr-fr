@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 1c352ad5d18f891cd82d90eef7d0a8c6c3d1cdb9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcab5f76b95939b0a9a4232eab2bcf8b2a5fd40b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441675"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309980"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Utiliser l’émulateur Azure Cosmos pour le développement et le test en local
 
@@ -283,7 +283,6 @@ Par défaut, vous pouvez créer jusqu’à 25 conteneurs de taille fixe (pris e
 Si vous tentez de créer un conteneur après le dépassement du nombre de partitions actuel, l’émulateur lève une exception ServiceUnavailable et affiche un message similaire à celui-ci.
 
 « Nous sommes désolés, mais nous rencontrons actuellement une demande élevée dans cette région et nous ne pouvons pas répondre à votre demande pour l’instant. Nous nous efforçons d’offrir une capacité en ligne toujours plus grande, et nous vous encourageons à réessayer plus tard.
-N’hésitez pas à nous contacter par e-mail à l’adresse askcosmosdb@microsoft.com à tout moment et pour quelque raison que ce soit.
 ActivityId : 12345678-1234-1234-1234-123456789abc »
 
 Pour changer le nombre de conteneurs disponibles dans l’émulateur Azure Cosmos, effectuez les étapes suivantes :
@@ -496,7 +495,7 @@ Aidez-vous des conseils suivants pour résoudre les problèmes rencontrés avec 
 
 - Si vous avez installé une nouvelle version de l’émulateur et si vous rencontrez des erreurs, réinitialisez vos données. Pour réinitialiser vos données, cliquez avec le bouton droit sur l’icône de l’émulateur Azure Cosmos dans la zone d’état, puis cliquez sur Réinitialiser les données…. Si cela ne résout pas les erreurs, désinstallez l’émulateur et toute autre version ultérieure de l’émulateur détectée, supprimez le répertoire « C:\Program files\Azure Cosmos DB Emulator » et réinstallez l’émulateur. Pour obtenir des instructions, consultez [Désinstaller l’émulateur local](#uninstall).
 
-- Si l’émulateur Azure Cosmos plante, collectez les fichiers de vidage du dossier « %LOCALAPPDATA%\CrashDumps », compressez-les et joignez-les à un e-mail que vous envoyez à l’adresse [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- Si l’émulateur Azure Cosmos plante, collectez les fichiers de vidage du dossier « %LOCALAPPDATA%\CrashDumps », compressez-les et ouvrez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
 - Si des problèmes de plantage se produisent dans `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`, cela peut être le symptôme d’un état endommagé d’un compteur de performances. Généralement, l’exécution de la commande suivante à partir d’une invite de commandes administrateur résout le problème :
 
@@ -504,7 +503,7 @@ Aidez-vous des conseils suivants pour résoudre les problèmes rencontrés avec 
   lodctr /R
    ```
 
-- Si vous rencontrez un problème de connectivité, [collectez les fichiers de trace](#trace-files), compressez-les et joignez-les à un e-mail à [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- Si vous rencontrez un problème de connectivité, [collectez les fichiers de trace](#trace-files), compressez-les et ouvrez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
 - Si vous recevez un message **Service indisponible**, il se peut que l’émulateur n’arrive pas à initialiser la pile réseau. Vérifiez si les clients Pulse Secure ou Juniper Networks sont installés, car leurs pilotes de filtre réseau peuvent être à l’origine du problème. La désinstallation des pilotes de filtre de réseau tiers permet généralement de résoudre le problème. Vous pouvez également démarrer l’émulateur avec l’option /DisableRIO, pour passer la communication réseau de l’émulateur à Winsock standard. 
 
@@ -519,9 +518,9 @@ Pour collecter des traces de débogage, exécutez les commandes suivantes à par
 3. `Microsoft.Azure.Cosmos.Emulator.exe /startwprtraces`
 4. `Microsoft.Azure.Cosmos.Emulator.exe`
 5. Reproduisez le problème. Si l’Explorateur de données ne fonctionne pas, attendez quelques secondes pour que le navigateur s’ouvre afin d’intercepter l’erreur.
-5. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
-6. Accédez à `%ProgramFiles%\Azure Cosmos DB Emulator` et recherchez le fichier docdbemulator_000001.etl.
-7. Envoyez le fichier .etl ainsi que les étapes de reproduction à [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) pour le débogage.
+6. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
+7. Accédez à `%ProgramFiles%\Azure Cosmos DB Emulator` et recherchez le fichier docdbemulator_000001.etl.
+8. Ouvrez un ticket de support dans le [portail Azure](https://portal.azure.com) et incluez le fichier. etl avec les étapes de reproduction.
 
 ### <a id="uninstall"></a>Désinstaller l’émulateur local
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 71041012bc77da6d7613deb178c3cec1413e57e2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863493"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314881"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Créer un jeu de données de référence pour votre environnement Time Series Insights à l’aide du portail Azure
 
@@ -38,7 +38,9 @@ Les données de référence ne sont pas jointes rétroactivement. Cela signifie 
 
 1. Recherchez votre environnement Azure Time Series Insights existant. Sélectionnez **Toutes les ressources** dans le menu de gauche du portail Azure. Sélectionnez votre environnement Time Series Insights.
 
-1. Sélectionnez la page **Vue d’ensemble**. Localisez l’**URL de l’explorateur Time Series Insights** et ouvrez le lien.  
+1. Sélectionnez la page **Vue d’ensemble**. Développez la section **Essentials** près du haut de la page pour localiser l’**URL de l’Explorateur Time Series Insights** et ouvrir le lien.  
+
+   [![Développez la section Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
    Affichez l’explorateur pour votre environnement Time Series Insights.
 

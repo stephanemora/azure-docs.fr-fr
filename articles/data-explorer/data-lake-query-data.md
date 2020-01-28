@@ -7,14 +7,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922157"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512910"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Data Lake à l'aide d'Azure Data Explorer (préversion)
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Interroger des données dans Azure Data Lake à l'aide d'Azure Data Explorer
 
 Azure Data Lake Storage est une solution Data Lake hautement évolutive et économique pour l’analytique Big Data. Elle combine la puissance d’un système de fichiers haute performance à grande échelle et la rentabilité qui vous permettront d’obtenir des insights rapidement. Data Lake Storage Gen2 étend les fonctionnalités de Stockage Blob Azure et est optimisé pour les charges de travail analytiques.
  
@@ -122,7 +122,7 @@ L'exemple de jeu de données *TaxiRides* contient des données relatives aux tax
 ### <a name="create-external-table-taxirides"></a>Créer une table externe *TaxiRides* 
 
 > [!NOTE]
-> Cette section décrit la requête utilisée pour créer la table externe *TaxiRides* dans le cluster d'*aide*. Cette table ayant déjà été créée, vous pouvez ignorer cette section et [interroger*les*données de la table externe](#query-taxirides-external-table-data) TaxiRides. 
+> Cette section décrit la requête utilisée pour créer la table externe *TaxiRides* dans le cluster *help*. Cette table ayant déjà été créée, vous pouvez ignorer cette section et [interroger*les*données de la table externe](#query-taxirides-external-table-data) TaxiRides. 
 
 1. La requête suivante a été utilisée pour créer la table externe *TaxiRides* dans le cluster d'aide. 
 

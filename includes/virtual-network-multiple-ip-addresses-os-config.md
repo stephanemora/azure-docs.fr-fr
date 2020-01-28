@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176986"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159151"
 ---
 ## <a name="os-config"></a>Ajouter des adresses IP à un système d’exploitation de machine virtuelle
 
@@ -52,7 +52,69 @@ ping -S 10.0.0.5 hotmail.com
 >Pour les configurations IP secondaires, vous pouvez uniquement exécuter une commande ping sur Internet si une adresse IP publique est associée à la configuration. Pour les configurations IP principales, une adresse IP publique n’est pas requise pour exécuter une commande ping sur Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-Nous vous recommandons de jeter un œil à la documentation récente relative pour votre distribution Linux. 
+
+Nous vous recommandons de consulter la documentation la plus récente relative de votre distribution Linux. 
+
+1. Ouvrez une fenêtre de terminal.
+2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, saisissez la commande suivante :
+
+   ```bash
+   sudo -i
+   ```
+
+3. Mettez à jour le fichier de configuration de l’interface réseau (en supposant que « eth0 » est utilisé).
+
+   * Conservez l’élément de ligne existant pour dhcp. L’adresse IP principale reste configurée telle qu’elle était précédemment.
+   * Ajoutez une configuration pour une adresse IP statique supplémentaire à l’aide des commandes suivantes :
+
+     ```bash
+     cd /etc/network/interfaces.d/
+     ls
+     ```
+
+     Un fichier .cfg doit s’afficher.
+4. Ouvrez le fichier. Les lignes suivantes doivent figurer à la fin du fichier :
+
+   ```bash
+   auto eth0
+   iface eth0 inet dhcp
+   ```
+
+5. Ajoutez les lignes suivantes après les lignes qui existent dans ce fichier :
+
+   ```bash
+   iface eth0 inet static
+   address <your private IP address here>
+   netmask <your subnet mask>
+   ```
+
+6. Enregistrez le fichier à l’aide de la commande suivante :
+
+   ```bash
+   :wq
+   ```
+
+7. Réinitialisez l’interface réseau à l’aide de la commande suivante :
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   > [!IMPORTANT]
+   > Exécutez les scripts ifup et ifdown sur la même ligne si vous utilisez une connexion à distance.
+   >
+
+8. Vérifiez que l’adresse IP est ajoutée à l’interface réseau à l’aide de la commande suivante :
+
+   ```bash
+   ip addr list eth0
+   ```
+
+   Vous devez voir l’adresse IP que vous avez ajoutée à la liste.
+
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04+)
+
+Les versions 18.04 et ultérieures d’Ubuntu sont passées à `netplan` pour la gestion du réseau du système d’exploitation. Nous vous recommandons de consulter la documentation la plus récente relative de votre distribution Linux. 
 
 1. Ouvrez une fenêtre de terminal.
 2. Assurez-vous d’être l’utilisateur root. Si ce n’est pas le cas, saisissez la commande suivante :
@@ -61,47 +123,43 @@ Nous vous recommandons de jeter un œil à la documentation récente relative po
     sudo -i
     ```
 
-3. Mettez à jour le fichier de configuration de l’interface réseau (en supposant que « eth0 » est utilisé).
-
-   * Conservez l’élément de ligne existant pour dhcp. L’adresse IP principale reste configurée telle qu’elle était précédemment.
-   * Ajoutez une configuration pour une adresse IP statique supplémentaire à l’aide des commandes suivantes :
-
-       ```bash
-       cd /etc/network/interfaces.d/
-       ls
-       ```
-
-     Un fichier .cfg doit s’afficher.
-4. Ouvrez le fichier. Les lignes suivantes doivent figurer à la fin du fichier :
+3. Créez un fichier pour la deuxième interface et ouvrez-le dans un éditeur de texte :
 
     ```bash
-    auto eth0
-    iface eth0 inet dhcp
+    vi /etc/netplan/60-static.yaml
     ```
 
-5. Ajoutez les lignes suivantes après les lignes qui existent dans ce fichier :
+4. Ajoutez les lignes suivantes au fichier, en remplaçant `10.0.0.6/24` par votre IP/netmask :
 
     ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    netmask <your subnet mask>
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
     ```
 
-6. Enregistrez le fichier à l’aide de la commande suivante :
+5. Enregistrez le fichier à l’aide de la commande suivante :
 
     ```bash
     :wq
     ```
 
-7. Réinitialisez l’interface réseau à l’aide de la commande suivante :
+6. Testez les modifications à l’aide de [netplan try](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) pour confirmer la syntaxe :
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    netplan try
     ```
 
-    > [!IMPORTANT]
-    > Exécutez les scripts ifup et ifdown sur la même ligne si vous utilisez une connexion à distance.
-    >
+> [!NOTE]
+> `netplan try` applique les modifications temporairement, puis les annule après 120 secondes. En cas de perte de connexion, patientez 120 secondes, puis rétablissez la connexion. Les modifications auront alors été annulées.
+
+7. En supposant qu’aucun problème ne se pose avec `netplan try`, appliquez les modifications de configuration :
+
+    ```bash
+    netplan apply
+    ```
 
 8. Vérifiez que l’adresse IP est ajoutée à l’interface réseau à l’aide de la commande suivante :
 
@@ -109,8 +167,25 @@ Nous vous recommandons de jeter un œil à la documentation récente relative po
     ip addr list eth0
     ```
 
-    Vous devez voir l’adresse IP que vous avez ajoutée à la liste.
+    Vous devez voir l’adresse IP que vous avez ajoutée à la liste. Exemple :
 
+    ```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS, etc.)
 
 1. Ouvrez une fenêtre de terminal.

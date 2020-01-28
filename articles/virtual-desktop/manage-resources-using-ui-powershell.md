@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 5049c32e06967cc123a24f07f601c1698bea3351
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898593"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122506"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Déployer un outil de gestion avec PowerShell
 
@@ -135,7 +135,7 @@ Pour vérifier l’application Azure AD et fournir un consentement :
    
    [ ![Page d’authentification avec l’URI de redirection entré](media/management-ui-redirect-uri-inline.png) ](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. Dans le volet gauche, sélectionnez **Autorisations de l’API** pour vérifier que les autorisations ont été ajoutées. Si vous êtes un administrateur général, sélectionnez le bouton **Accorder un consentement d’administrateur pour `tenantname`** et suivez les invites de la boîte de dialogue pour fournir le consentement de l’administrateur pour votre organisation.
+5. Dans le volet gauche, sélectionnez **Autorisations de l’API** pour vérifier que les autorisations ont été ajoutées. Si vous êtes un administrateur général, sélectionnez le bouton **Accorder un consentement d’administrateur pour `tenantname`** et suivez les invites de la boîte de dialogue pour fournir le consentement administrateur pour votre organisation.
     
     [ ![La page des autorisations de l’API](media/management-ui-permissions-inline.png) ](media/management-ui-permissions-expanded.png#lightbox)
 

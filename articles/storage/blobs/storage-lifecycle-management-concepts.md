@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351337"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260951"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gérer le cycle de vie du Stockage Blob Azure
 
@@ -246,6 +246,9 @@ Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’
 ### <a name="sample-rule"></a>Exemple de règle
 
 L’exemple de règle suivant filtre le compte pour exécuter les actions sur des objets existant à l’intérieur de `container1` et commençant par `foo`.  
+
+>[!NOTE]
+>La gestion du cycle de vie ne prend en charge que le type d’objet blob de blocs.  
 
 - Niveau objet blob sur accès froid 30 jours après la dernière modification
 - Niveau objet blob sur accès archive 90 jours après la dernière modification

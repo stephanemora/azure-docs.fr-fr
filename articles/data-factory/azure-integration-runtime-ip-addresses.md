@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: 1a2947eee31ccb193c8a81cff86cead577e6810c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d64475ce524a3e859ed68a46552fedf30068f71d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863857"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514780"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Adresses IP Azure Integration Runtime
 
@@ -45,6 +45,7 @@ Autorisez le trafic provenant des adresses IP listées pour le runtime d’int�
 | Inde          | Inde centrale       | 52.140.104.128/25,</br>52.140.105.0/26,</br>20.43.121.48/28  |
 | Japon          | Japon Est          | 20.43.64.128/25,</br>20.43.65.0/26,</br>13.78.109.192/28     |
 | Corée du Sud          | Centre de la Corée       | 20.41.64.128/25,</br>20.41.65.0/26,</br>52.231.20.64/28      |
+| Afrique du Sud   | Afrique du Sud Nord  | 102.133.124.104/29,</br>102.133.216.128/25,</br>102.133.217.0/26 |
 | United Kingdom | Sud du Royaume-Uni            | 51.104.24.128/25,</br>51.104.25.0/26,</br>51.104.9.32/28     |
 | États-Unis  | USA Centre          | 20.37.154.0/23,</br>20.37.156.0/26,</br>20.44.10.64/28       |
 |                | USA Est             | 20.42.2.0/23,</br>20.42.4.0/26,</br>40.71.14.32/28           |

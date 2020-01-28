@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à &frankly | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à &frankly | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et &frankly.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c097c1f08bd72ed5795e4274c41e4eb48dbe34ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152952"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120653"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Didacticiel : Intégration d’Azure Active Directory à &frankly
+# <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutoriel : Intégration d’Azure Active Directory à &frankly
 
 Dans ce didacticiel, vous allez apprendre à intégrer &frankly à Azure Active Directory (Azure AD).
 L’intégration d’Azure AD dans &frankly offre les avantages suivants :
@@ -35,7 +35,7 @@ L’intégration d’Azure AD dans &frankly offre les avantages suivants :
 Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour configurer l’intégration d’Azure AD dans &frankly, vous avez besoin des éléments suivants :
 
@@ -119,23 +119,19 @@ Pour configurer l’authentification unique Azure AD avec &frankly, effectuez le
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Pour obtenir ces valeurs, contactez l’[équipe de support client &frankly](mailto:help@andfrankly.com). Vous pouvez également consulter les modèles figurant à la section **Configuration SAML de base** dans le portail Azure.
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies en fonction de vos besoins, puis enregistrez-le sur votre ordinateur.
+6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur **Télécharger** pour télécharger le fichier **XML de métadonnées de fédération** en fonction des options définies selon vos besoins, puis enregistrez-le sur votre ordinateur.
 
     ![Lien Téléchargement de certificat](common/metadataxml.png)
 
-7. Dans la section **Configurer &frankly**, copiez la ou les URL appropriées en fonction de vos besoins.
-
-    ![Copier les URL de configuration](common/copy-configuration-urls.png)
-
-    a. URL de connexion
-
-    b. Identificateur Azure AD
-
-    c. URL de déconnexion
 
 ### <a name="configure-frankly-single-sign-on"></a>Configurer l’authentification unique &frankly
 
-Pour configurer l’authentification unique côté **&frankly**, vous devez envoyer le **XML des métadonnées de fédération** téléchargé et les URL appropriées copiées à partir du portail Azure à l’[équipe du support technique &frankly](mailto:help@andfrankly.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+Pour activer l’authentification unique dans &frankly :
+
+1. Connectez-vous à &frankly. Accédez à **Account** (Compte) > **User Management** (Gestion des utilisateurs).
+1. Remplacez le mécanisme d’authentification par défaut par **Enterprise Sign-on (SAML)** .
+1. Chargez le fichier **XML de métadonnées de fédération** que vous avez téléchargé à l’étape 6 de la section précédente.
+1. Sélectionnez **Enregistrer**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 
@@ -156,7 +152,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
     b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
+    Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -204,4 +200,4 @@ Quand vous cliquez sur la vignette &frankly dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

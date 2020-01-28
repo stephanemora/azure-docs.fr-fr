@@ -1,7 +1,7 @@
 ---
-title: Créer une ressource Lecteur immersif
+title: Créer une ressource de Lecteur immersif
 titleSuffix: Azure Cognitive Services
-description: Cet article vous montre comment créer une ressource Lecteur immersif avec un sous-domaine personnalisé et comment configurer Azure AD dans votre locataire Azure.
+description: Cet article vous montre comment créer une ressource de lecteur immersif avec un sous-domaine personnalisé et comment configurer Azure AD dans votre locataire Azure.
 services: cognitive-services
 author: rwaller
 manager: guillasi
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: a806e6eeecc6976286566d05a0f19dac684b2c0b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a2a404a03c06dde59edc88436afdc9dba3d74797
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75946020"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170162"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Créer une ressource Lecteur immersif et configurer l’authentification Azure Active Directory
 
@@ -151,9 +151,9 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
     | Paramètre | Commentaires |
     | --- | --- |
     | SubscriptionName |Nom de l’abonnement Azure à utiliser pour votre ressource Lecteur immersif. Vous devez avoir un abonnement pour pouvoir créer une ressource. |
-    | ResourceName |  Doit être de type alphanumérique et peut contenir « - », du moment que « - » ne soit pas le premier ou le dernier caractère. La longueur ne doit pas dépasser 63 caractères.|
+    | Nom_ressource |  Doit être de type alphanumérique et peut contenir « - », du moment que « - » ne soit pas le premier ou le dernier caractère. La longueur ne doit pas dépasser 63 caractères.|
     | ResourceSubdomain |Un sous-domaine personnalisé est nécessaire pour votre ressource Lecteur immersif. Le sous-domaine est utilisé par le kit SDK lors de l’appel du service Lecteur immersif pour lancer le Lecteur. Le sous-domaine doit être globalement unique. Le sous-domaine doit être de type alphanumérique et peut contenir « - », du moment que « - » ne soit pas le premier ou le dernier caractère. La longueur ne doit pas dépasser 63 caractères. Ce paramètre est facultatif si la ressource existe déjà. |
-    | ResourceSKU |Options : `S0` et `S1`. Visitez notre [page des prix de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) pour en savoir plus sur chaque référence SKU disponible. Ce paramètre est facultatif si la ressource existe déjà. |
+    | ResourceSKU |Options : `S0`. Visitez notre [page des prix de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) pour en savoir plus sur chaque référence SKU disponible. Ce paramètre est facultatif si la ressource existe déjà. |
     | ResourceLocation |Options : `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. Ce paramètre est facultatif si la ressource existe déjà. |
     | ResourceGroupName |Les ressources sont créées dans des groupes de ressources au sein d’abonnements. Donnez le nom d’un groupe de ressources existant. Si le groupe de ressources n’existe pas encore, un nouveau groupe avec ce nom est créé. |
     | ResourceGroupLocation |Si votre groupe de ressources n’existe pas, vous devez fournir un emplacement dans lequel créer le groupe. Pour trouver une liste d’emplacements, exécutez `az account list-locations`. Utilisez la propriété *name* (sans espaces) du résultat retourné. Ce paramètre est facultatif si votre groupe de ressources existe déjà. |
@@ -175,9 +175,9 @@ Le script est conçu pour être flexible. Il recherche d’abord les ressources 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Consulter le [guide de démarrage rapide Node.js](./quickstart-nodejs.md) pour voir ce que vous pouvez faire d’autre avec le SDK Lecteur immersif pour Node.js
-* Consulter le [tutoriel Python](./tutorial-python.md) pour voir ce que vous pouvez faire d’autre avec le kit SDK Lecteur immersif en utilisant Python
-* Consulter le [tutoriel Swift](./tutorial-ios-picture-immersive-reader.md) pour voir ce que vous pouvez faire d’autre avec le kit SDK Lecteur immersif en utilisant Swift
-* Explorer le [SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et les [Informations de référence sur le SDK Lecteur immersif](./reference.md)
+* Consulter le [didacticiel Python](./tutorial-python.md) pour voir ce que vous pouvez faire d’autre avec le kit SDK Lecteur immersif à l’aide de Python
+* Consulter le [didacticiel Swift](./tutorial-ios-picture-immersive-reader.md) pour voir ce que vous pouvez faire d’autre avec le kit SDK Lecteur immersif à l’aide de Swift
+* Explorer le [SDK Lecteur Immersif](https://github.com/microsoft/immersive-reader-sdk) et la [référence du SDK Lecteur immersif](./reference.md)
 
 
 

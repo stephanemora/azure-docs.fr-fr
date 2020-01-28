@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423119"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511873"
 ---
 # <a name="what-is-a-device-identity"></a>Qu’est-ce qu’une identité d’appareil ?
 
@@ -54,7 +54,7 @@ Pour obtenir un appareil à Azure AD, vous avez plusieurs options :
 
 ## <a name="device-management"></a>Gestion des appareils
 
-Les appareils d’Azure AD peuvent être gérés à l’aide d’outils de gestion des appareils mobiles (MDM) tels que Microsoft Intune, System Center Configuration Manager, Group Policy (jointure hybride Azure AD), Mobile Application Management (MAM) ou d’autres outils tiers.
+Vous pouvez gérer les appareils Azure AD avec des outils de gestion des appareils mobiles (MDM) tels que Microsoft Intune, Microsoft Endpoint Configuration Manager, la stratégie de groupe (jonction hybride Azure AD), Mobile Application Management (MAM) ou autres outils tiers.
 
 ## <a name="resource-access"></a>Accès aux ressources
 

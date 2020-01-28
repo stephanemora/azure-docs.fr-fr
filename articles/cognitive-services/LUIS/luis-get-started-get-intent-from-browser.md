@@ -11,28 +11,28 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: a99dbc594b53d00ae02b2581d149fe7b4573ab7d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495230"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165741"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>Démarrage rapide : Reconnaître une intention avec un navigateur
 
 Pour comprendre ce que retourne un point de terminaison de prédiction LUIS, affichez un résultat de prédiction dans un navigateur web. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour pouvoir interroger une application publique, voici ce dont vous avez besoin :
 
-* Votre propre clé LUIS (Language Understanding). Si vous n’avez pas encore d’abonnement pour créer une clé, vous pouvez vous inscrire pour obtenir un [compte gratuit](https://azure.microsoft.com/free/). La clé de création LUIS ne fonctionnera pas. 
+* Votre propre clé de création ou de prédiction LUIS, que vous pouvez obtenir à partir du [portail LUIS (préversion)](https://preview.luis.ai/). Si vous n’avez pas encore d’abonnement pour créer une clé, vous pouvez vous inscrire pour obtenir un [compte gratuit](https://azure.microsoft.com/free/). 
 * L’ID de l’application publique : `df67dcdb-c37d-46af-88e1-8b97951ca1c2`. 
 
 ## <a name="use-the-browser-to-see-predictions"></a>Utiliser le navigateur pour voir des prédictions
 
 1. Ouvrez un navigateur web. 
-1. Utilisez les URL complètes ci-dessous, en remplaçant `YOUR-KEY` par votre propre clé LUIS. Les demandes sont des demandes GET qui incluent l’autorisation, avec votre clé LUIS, en tant que paramètre de chaîne de requête.
+1. Utilisez les URL complètes ci-dessous, en remplaçant `YOUR-KEY` par votre propre clé de création ou de prédiction LUIS. Les requêtes sont des requêtes GET qui incluent l’autorisation, avec votre clé de création ou de prédiction LUIS, en tant que paramètre de chaîne de requête.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[Requête de prédiction V3](#tab/V3-1-1)
     
