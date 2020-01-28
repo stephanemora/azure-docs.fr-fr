@@ -233,6 +233,8 @@
       href: /azure/templates/microsoft.maps/accounts
 - name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Conditions d’utilisation d’Azure Maps
       href: 'https://azure.microsoft.com/support/legal/'
     - name: Prix Azure Maps
@@ -268,7 +270,7 @@
         - name: Accélérateurs de solution IoT
           href: /azure/iot-suite
         - name: IoT Central
-          href: 'https://docs.microsoft.com/microsoft-iot-central/'
+          href: /azure/iot-central/iot-support-help
     - name: Services de plateforme
       items:
         - name: IoT Hub
@@ -279,13 +281,13 @@
           href: /azure/iot-dps
         - name: Cartes
           href: /azure/azure-maps
-        - name: Kits de développement logiciel (SDK) IoT Service
+        - name: Kits Service SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Solutions Edge
       items:
         - name: IoT Edge
           href: /azure/iot-edge
-        - name: Kits de développement logiciel (SDK) IoT Device
+        - name: Kits IoT Device SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

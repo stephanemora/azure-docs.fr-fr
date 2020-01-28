@@ -1,6 +1,6 @@
 - name: Documentation Azure Security Center pour IoT
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   href: overview.md
   items:
     - name: Architecture de solution
@@ -37,6 +37,8 @@
       href: concept-security-module.md
     - name: Alertes de sécurité
       href: concept-security-alerts.md
+    - name: Alertes de sécurité personnalisables
+      href: concept-customizable-security-alerts.md
     - name: Recommandations de sécurité
       href: concept-recommendations.md
     - name: Ligne de base
@@ -79,7 +81,7 @@
       href: how-to-customize-solution.md
 - name: Ressources
   items:
-    - name: Questions fréquentes (FAQ)
+    - name: Forum aux questions
       href: resources-frequently-asked-questions.md
     - name: Feuille de route Azure
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'

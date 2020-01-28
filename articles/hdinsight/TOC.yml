@@ -124,15 +124,15 @@
           items:
             - name: Motivation et avantages
               href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-            - name: Bonnes pratiques - architecture
+            - name: Meilleures pratiques - architecture
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-architecture.md
-            - name: Bonnes pratiques - infrastructure
+            - name: Meilleures pratiques - infrastructure
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-infrastructure.md
-            - name: Bonnes pratiques - stockage
+            - name: Meilleures pratiques - stockage
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-storage.md
-            - name: Bonnes pratiques - migration des données
+            - name: Meilleures pratiques - migration des données
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
-            - name: Bonnes pratiques - sécurité et DevOps
+            - name: Meilleures pratiques - sécurité et DevOps
               href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
         - name: Gérer
           items:
@@ -503,16 +503,20 @@
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
             - name: Alertes obsolètes Apache Ambari
               href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
+            - name: Alertes de répertoire Apache Ambari
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
             - name: Résoudre les problèmes d’un cluster HDInsight défaillant ou lent
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Résolution des problèmes HDFS Apache Hadoop
               href: ./hdinsight-troubleshoot-hdfs.md
             - name: Résolution des problèmes YARN Apache Hadoop
               href: ./hdinsight-troubleshoot-yarn.md
+            - name: Erreur BCFile non valide dans le journal Yarn
+              href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
             - name: Résoudre les problèmes des fichiers Data Lake Store
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
-            - name: Alertes de répertoire Apache Ambari
-              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
+            - name: Conflit de port lors du démarrage des services
+              href: ./hadoop/troubleshoot-port-conflict.md
 - name: Apache Kafka
   items:
     - name: Vue d’ensemble
@@ -610,7 +614,7 @@
               href: ./hbase/apache-hbase-phoenix-zeppelin.md
             - name: Apache Phoenix dans HDInsight
               href: ./hdinsight-phoenix-in-hdinsight.md
-            - name: Utiliser le Kit de développement logiciel (SDK) REST du serveur de requête Apache Phoenix
+            - name: Utiliser le kit SDK REST du serveur de requête Apache Phoenix
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Charger des données en bloc dans Apache Phoenix à l’aide de psql
               href: ./hbase/apache-hbase-phoenix-psql.md
@@ -870,5 +874,5 @@
           items:
             - name: Problèmes d’authentification ESP
               href: ./domain-joined/domain-joined-authentication-issues.md
-            - name: Impossible de se connecter à Zeppelin avec ESP
-              href: ./domain-joined/domain-joined-zeppelin-signin.md
+            - name: Échec de création du cluster avec DomainNotFound
+              href: ./domain-joined/troubleshoot-domainnotfound.md

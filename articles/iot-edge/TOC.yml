@@ -209,20 +209,22 @@
           href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits de développement logiciel (SDK) IoT Service
+        - name: Kits IoT Service SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Cartes
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Solutions Edge
       items:
         - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
-        - name: Kits de développement logiciel (SDK) IoT Device
+        - name: Kits IoT Device SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Exemples Azure IoT pour C# (.NET)'
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
     - name: Exemples Azure IoT pour Node.js

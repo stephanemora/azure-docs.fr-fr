@@ -107,7 +107,7 @@
       href: iot-hub-event-grid-routing-comparison.md
     - name: Meilleures pratiques en matière de configuration d’appareil
       href: iot-hub-configuration-best-practices.md
-    - name: Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
+    - name: Prise en charge des plateformes des kits Azure IoT SDK
       href: iot-hub-device-sdk-platform-support.md
     - name: Vue d’ensemble des flux d’appareil IoT Hub (préversion)
       href: iot-hub-device-streams-overview.md
@@ -160,7 +160,7 @@
           href: iot-hub-devguide-quotas-throttling.md
         - name: Exemples de tarification
           href: iot-hub-devguide-pricing.md
-        - name: Kits de développement logiciel (SDK) de services et d’appareils
+        - name: Kits Device et Service SDK
           href: iot-hub-devguide-sdks.md
         - name: Support MQTT
           href: iot-hub-mqtt-support.md
@@ -190,12 +190,12 @@
   items:
     - name: Développer
       items:
-        - name: Utiliser les Kits de développement logiciel (SDK) de services et d’appareils
+        - name: Utiliser les kits Device et Service SDK
           href: iot-hub-devguide-sdks.md
           items:
-            - name: Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
+            - name: Prise en charge des plateformes par les kits Azure IoT SDK
               href: iot-hub-device-sdk-platform-support.md
-            - name: Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C
+            - name: Utiliser le kit IoT Device SDK pour C
               href: iot-hub-device-sdk-c-intro.md
               items:
                 - name: Utiliser IoTHubClient
@@ -378,6 +378,8 @@
   items:
     - name: Azure CLI
       href: /cli/azure/iot
+    - name: Azure PowerShell
+      href: '/powershell/module/az.iothub#iot'
     - name: .NET (service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (appareils)
@@ -390,7 +392,7 @@
       href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
     - name: Node.js (service)
       href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
-    - name: C (Kit de développement logiciel (SDK) de l’appareil)
+    - name: Kit Device SDK en C
       href: 'https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/'
     - name: "Azure IoT\_Edge"
       href: 'http://azure.github.io/iot-edge/'
@@ -426,20 +428,22 @@
           href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits de développement logiciel (SDK) IoT Service
+        - name: Kits IoT Service SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Cartes
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Solutions Edge
       items:
         - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
-        - name: Kits de développement logiciel (SDK) IoT Device
+        - name: Kits IoT Device SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
+    - name: Options d’aide et de support
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Exemples Azure IoT pour C# (.NET)'
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
     - name: Exemples Azure IoT pour Node.js

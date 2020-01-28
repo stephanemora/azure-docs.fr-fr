@@ -25,7 +25,7 @@
         - name: Créer une expérience de machine learning automatisé
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
-    - name: Kit de développement logiciel (SDK) Python
+    - name: Kit SDK Python
       items:
         - name: Créer votre première expérience ML
           items:
@@ -35,14 +35,14 @@
               href: tutorial-1st-experiment-sdk-train.md
         - name: Classification d’images (données MNIST)
           items:
-            - name: 1. Effectuer l’apprentissage d’un modèle
+            - name: 1. Entraîner un modèle
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
             - name: 2. Déployer un modèle
               href: tutorial-deploy-models-with-aml.md
         - name: Régression avec ML automatisé (données des taxis de New York)
           items:
-            - name: Former automatiquement un modèle ML
+            - name: Entraîner automatiquement un modèle ML
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
         - name: Pipelines de Machine Learning (avancé)
@@ -79,7 +79,7 @@
       href: concept-environments.md
     - name: Données
       href: concept-data.md
-    - name: Apprentissage du modèle
+    - name: Entraînement du modèle
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
     - name: Gestion de modèles (MLOps)
@@ -342,6 +342,9 @@
           href: how-to-schedule-pipelines.md
         - name: Déboguer et dépanner les pipelines
           href: how-to-debug-pipelines.md
+        - name: Déboguer des pipelines dans Application Insights
+          displayname: 'pipelines, log, monitor'
+          href: how-to-debug-pipelines-application-insights.md
         - name: Pipelines Azure pour CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
@@ -365,7 +368,7 @@
       href: how-to-use-event-grid.md
 - name: Informations de référence
   items:
-    - name: Kit de développement logiciel (SDK) Python
+    - name: Kit SDK Python
       displayName: 'api, core, package, python, class'
       href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
     - name: SDK R
