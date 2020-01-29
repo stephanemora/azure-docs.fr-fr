@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/25/2019
-ms.openlocfilehash: 7b23da81143a4ae66d9f25cd953c4a3952f27455
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5b37ce1ba3d8a9d56cb2204c9db89d0e47d9996e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678367"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277679"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Suivi des dépendances dans Azure Application Insights 
 
-Un *dépendance* est un composant externe qui est appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mesure la durée des appels de dépendances, indique si les appels ont réussi ou échoué et fournit diverses autres informations comme le nom des dépendances. Vous pouvez examiner des appels de dépendances spécifiques et les mettre en corrélation avec les requêtes et les exceptions.
+Une *dépendance* est un composant externe appelé par votre application. Il s’agit habituellement d’un service appelé à l’aide de HTTP, d’une base de données ou d’un système de fichiers. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mesure la durée des appels de dépendances, indique si les appels ont réussi ou échoué et fournit diverses autres informations comme le nom des dépendances. Vous pouvez examiner des appels de dépendances spécifiques et les mettre en corrélation avec les requêtes et les exceptions.
 
 ## <a name="automatically-tracked-dependencies"></a>Dépendances suivies automatiquement
 
@@ -182,7 +182,7 @@ Vous pouvez suivre les dépendances dans le [langage de requête Kusto](/azure/k
       on operation_Id
 ```
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*Comment le collecteur automatique de dépendances signale-t-il les échecs d’appels des dépendances ?*
 

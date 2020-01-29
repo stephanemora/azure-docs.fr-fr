@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 7065d5e9cae9e0a06eab82bd982693a1ad1d8fba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476151"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290646"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Développer des modèles Azure Resource Manager de cohérence du cloud
 
@@ -22,7 +22,7 @@ La cohérence est l’un des principaux avantages d’Azure. Les investissements
 Microsoft propose des services cloud intelligents adaptés à l’entreprise dans de nombreux emplacements, notamment :
 
 * La plateforme Azure globale est prise en charge par un réseau croissant de centres de données gérés par Microsoft dans différentes régions partout dans le monde.
-* Clouds souverains isolés comme Azure Allemagne, Azure Government et Azure Chine (Azure géré par 21Vianet). Les clouds souverains fournissent une plateforme cohérente avec la plupart des fonctionnalités auxquelles les clients Azure globaux ont accès.
+* Clouds souverains isolés comme Azure Germany, Azure Government et Azure China 21Vianet. Les clouds souverains fournissent une plateforme cohérente avec la plupart des fonctionnalités auxquelles les clients Azure globaux ont accès.
 * Azure Stack, une plateforme cloud hybride permettant de créer des services Azure à partir du centre de données de votre organisation. Les entreprises peuvent configurer Azure Stack dans leurs propres centres de données ou consommer des Services Azure auprès de fournisseurs de services, en exécutant Azure Stack sur leurs installations (parfois appelées régions hébergées).
 
 Au cœur de tous ces clouds, Azure Resource Manager fournit une API qui permet à de nombreuses interfaces utilisateur de communiquer avec la plateforme Azure. Cette API vous offre des fonctionnalités puissantes d’infrastructure en tant que code. Tous les types de ressource disponibles sur la plateforme cloud Azure peuvent être déployés et configurés avec Azure Resource Manager. Avec un seul modèle, vous pouvez déployer et configurer votre application complète pour un état final opérationnel.
@@ -47,15 +47,15 @@ Pour une présentation des modèles Azure Resource Manager, consultez [Déploiem
 
 La syntaxe de base d’un modèle Resource Manager est JSON. Les modèles utilisent un sur-ensemble de JSON, étendant la syntaxe avec des expressions et des fonctions. Le processeur de langage de modèle est fréquemment mis à jour pour prendre en charge les fonctions de modèle supplémentaires. Pour obtenir une explication détaillée des fonctions de modèle disponibles, consultez [Fonctions des modèles Azure Resource Manager](template-functions.md).
 
-Les nouvelles fonctions de modèle intégrées à Azure Resource Manager ne sont pas immédiatement disponibles dans les clouds souverains ou dans Azure Stack. Pour déployer un modèle avec succès, toutes les fonctions référencées dans le modèle doivent être disponibles dans le cloud cible. 
+Les nouvelles fonctions de modèle intégrées à Azure Resource Manager ne sont pas immédiatement disponibles dans les clouds souverains ou dans Azure Stack. Pour déployer un modèle avec succès, toutes les fonctions référencées dans le modèle doivent être disponibles dans le cloud cible.
 
-Les fonctionnalités d’Azure Resource Manager sont toujours introduites à Azure global en premier. Vous pouvez utiliser le script PowerShell suivant pour vérifier si les fonctions de modèle nouvellement introduites sont également disponibles dans Azure Stack : 
+Les fonctionnalités d’Azure Resource Manager sont toujours introduites à Azure global en premier. Vous pouvez utiliser le script PowerShell suivant pour vérifier si les fonctions de modèle nouvellement introduites sont également disponibles dans Azure Stack :
 
 1. Clonez le référentiel GitHub : [https://github.com/marcvaneijk/arm-template-functions](https://github.com/marcvaneijk/arm-template-functions).
 
 1. Une fois que vous avez un clone local du référentiel, connectez-vous au Azure Resource Manager de la destination avec PowerShell.
 
-1. Importez le module psm1 et exécutez l’applet de commande Test-AzTemplateFunctions :
+1. Importez le module psm1 et exécutez l’applet de commande Test-AzureRmTemplateFunctions :
 
    ```powershell
    # Import the module
@@ -69,7 +69,7 @@ Le script déploie plusieurs modèles réduits, chacun contenant seulement des f
 
 ## <a name="working-with-linked-artifacts"></a>Utilisation des artefacts liés
 
-Un modèle peut contenir des références aux artefacts liés et une ressource de déploiement qui établit un lien vers un autre modèle. Les modèles liés (également appelés modèles imbriqués) sont récupérés par Resource Manager au moment de l’exécution. Un modèle peut également contenir des références à des artefacts pour les extensions de machine virtuelle. Ces artefacts sont récupérés par l’extension de machine virtuelle en cours d’exécution à l’intérieur de la machine virtuelle pour configurer l’extension de machine virtuelle pendant le déploiement du modèle. 
+Un modèle peut contenir des références aux artefacts liés et une ressource de déploiement qui établit un lien vers un autre modèle. Les modèles liés (également appelés modèles imbriqués) sont récupérés par Resource Manager au moment de l’exécution. Un modèle peut également contenir des références à des artefacts pour les extensions de machine virtuelle. Ces artefacts sont récupérés par l’extension de machine virtuelle en cours d’exécution à l’intérieur de la machine virtuelle pour configurer l’extension de machine virtuelle pendant le déploiement du modèle.
 
 Les sections suivantes décrivent les considérations relatives à la cohérence du cloud lors du développement de modèles qui comprennent des artefacts externes au modèle de déploiement principal.
 
@@ -82,9 +82,9 @@ Le code suivant explique comment le paramètre templateLink fait référence à 
 ```json
 "resources": [
   {
+     "type": "Microsoft.Resources/deployments",
      "apiVersion": "2017-05-10",
      "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
      "properties": {
        "mode": "incremental",
        "templateLink": {
@@ -100,9 +100,9 @@ Azure Resource Manager évalue le modèle principal au moment de l’exécution,
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>Rendre les modèles liés accessibles dans différents clouds
 
-Déterminez où et comment stocker les modèles liés que vous utilisez. Au moment de l’exécution, Azure Resource Manager récupère les modèles liés, et nécessite donc un accès direct à ces modèles. Une pratique courante consiste à utiliser GitHub pour stocker les modèles imbriqués. Un référentiel GitHub peut contenir des fichiers accessibles publiquement via une URL. Bien que cette technique fonctionne bien pour le cloud public et les clouds souverains, un environnement Azure Stack peut se trouver sur un réseau d’entreprise ou sur un emplacement distant déconnecté, sans accès Internet sortant. Dans ce cas, Azure Resource Manager ne réussit pas à récupérer les modèles imbriqués. 
+Déterminez où et comment stocker les modèles liés que vous utilisez. Au moment de l’exécution, Azure Resource Manager récupère les modèles liés, et nécessite donc un accès direct à ces modèles. Une pratique courante consiste à utiliser GitHub pour stocker les modèles imbriqués. Un référentiel GitHub peut contenir des fichiers accessibles publiquement via une URL. Bien que cette technique fonctionne bien pour le cloud public et les clouds souverains, un environnement Azure Stack peut se trouver sur un réseau d’entreprise ou sur un emplacement distant déconnecté, sans accès Internet sortant. Dans ce cas, Azure Resource Manager ne réussit pas à récupérer les modèles imbriqués.
 
-Une meilleure pratique relative aux déploiements entre clouds consiste à stocker vos modèles liés dans un emplacement accessible au cloud cible. Dans l’idéal, tous les artefacts de déploiement sont conservés et déployés à partir d’un pipeline d’intégration continue/de déploiement continu (CI/CD). Sinon, vous pouvez stocker les modèles imbriqués dans un conteneur de stockage d’objets blob, d’où Azure Resource Manager peut les récupérer. 
+Une meilleure pratique relative aux déploiements entre clouds consiste à stocker vos modèles liés dans un emplacement accessible au cloud cible. Dans l’idéal, tous les artefacts de déploiement sont conservés et déployés à partir d’un pipeline d’intégration continue/de déploiement continu (CI/CD). Sinon, vous pouvez stocker les modèles imbriqués dans un conteneur de stockage d’objets blob, d’où Azure Resource Manager peut les récupérer.
 
 Étant donné que le stockage d’objets blob de chaque cloud utilise un nom de domaine complet (FQDN) de point de terminaison différent, configurez le modèle avec l’emplacement des modèles liés avec deux paramètres. Les paramètres peuvent accepter une entrée utilisateur au moment du déploiement. Les modèles sont généralement créés et partagés par plusieurs personnes. Il est donc recommandé d’utiliser un nom standard pour ces paramètres. Les conventions d’affectation de noms permettent de réutiliser plus facilement les modèles entre les régions, les clouds et les auteurs.
 
@@ -132,9 +132,9 @@ Dans le modèle, les liens sont générés en combinant l’URI de base (à part
 ```json
 "resources": [
   {
-    "name": "shared",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2015-01-01",
+    "name": "shared",
     "properties": {
       "mode": "Incremental",
       "templateLink": {
@@ -150,7 +150,7 @@ Avec cette approche, la valeur par défaut est utilisée pour le paramètre `_ar
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Utiliser _artifactsLocation à la place de liens de codage en dur
 
-Outre son utilisation pour les modèles imbriqués, l’URL du paramètre `_artifactsLocation` est utilisé comme base pour tous les artefacts associés d’un modèle de déploiement. Certaines extensions de machine virtuelle contiennent un lien vers un script stocké en dehors du modèle. Pour ces extensions, vous ne devez pas coder les liens en dur. Par exemple, les extensions de Script personnalisé et de DSC PowerShell peuvent établir un lien vers un script externe sur GitHub comme suit : 
+Outre son utilisation pour les modèles imbriqués, l’URL du paramètre `_artifactsLocation` est utilisé comme base pour tous les artefacts associés d’un modèle de déploiement. Certaines extensions de machine virtuelle contiennent un lien vers un script stocké en dehors du modèle. Pour ces extensions, vous ne devez pas coder les liens en dur. Par exemple, les extensions de Script personnalisé et de DSC PowerShell peuvent établir un lien vers un script externe sur GitHub comme suit :
 
 ```json
 "properties": {
@@ -215,7 +215,7 @@ Sachant que leurs services disponibles peuvent varier dans les clouds et région
 
 Un modèle déploie et configure des ressources. Un type de ressource est fourni par un fournisseur de ressources. Par exemple, le fournisseur de ressources de calcul (Microsoft.Compute) propose plusieurs types de ressources tels que virtualMachines et availabilitySets. Chaque fournisseur de ressources fournit à Azure Resource Manager une API définie par un contrat commun, permettant une expérience de création cohérente et unifiée sur tous les fournisseurs de ressources. Toutefois, un fournisseur de ressources disponible dans Azure global peut ne pas être disponible dans un cloud souverain ou une région Azure Stack.
 
-![Fournisseurs de ressources](./media/templates-cloud-consistency/resource-providers.png) 
+![Fournisseurs de ressources](./media/templates-cloud-consistency/resource-providers.png)
 
 Pour vérifier quels fournisseurs de ressources sont disponibles dans un cloud donné, exécutez le script suivant dans l’interface de ligne de commande Azure ([CLI](/cli/azure/install-azure-cli)) :
 
@@ -253,7 +253,7 @@ Un modèle est toujours déployé dans un groupe de ressources qui se trouve dan
 
 Bien que vous puissiez coder en dur les noms des régions lorsque vous spécifiez les propriétés de ressource dans un modèle, cette approche ne garantit pas que le modèle peut être déployé dans d’autres environnements Azure Stack, car le nom de la région n’y existe probablement pas.
 
-Pour prendre en compte plusieurs régions, ajoutez un emplacement de paramètre d’entrée au modèle avec une valeur par défaut. La valeur par défaut est utilisée si aucune valeur n’est spécifiée au cours du déploiement. 
+Pour prendre en compte plusieurs régions, ajoutez un emplacement de paramètre d’entrée au modèle avec une valeur par défaut. La valeur par défaut est utilisée si aucune valeur n’est spécifiée au cours du déploiement.
 
 La fonction de modèle `[resourceGroup()]` retourne un objet contenant les paires clé/valeur suivantes :
 
@@ -284,9 +284,9 @@ En référençant la clé d’emplacement de l’objet dans la valeur defaultVal
 },
 "resources": [
   {
-    "name": "storageaccount1",
     "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2015-06-15",
+    "name": "storageaccount1",
     "location": "[parameters('location')]",
     ...
 ```
@@ -301,40 +301,40 @@ C’est pour cette raison que Resource Manager a introduit le concept de profils
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Location the resources will be deployed to."
-            },
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+          "description": "Location the resources will be deployed to."
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "name": "mystorageaccount",
+      "location": "[parameters('location')]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
     },
-    "variables": {},
-    "resources": [
-        {
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "name": "myavailabilityset",
-            "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2016-03-30",
-            "location": "[parameters('location')]",
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 2
-            }
-        }
-    ],
-    "outputs": {}
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "apiVersion": "2016-03-30",
+      "name": "myavailabilityset",
+      "location": "[parameters('location')]",
+      "properties": {
+        "platformFaultDomainCount": 2,
+        "platformUpdateDomainCount": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -357,16 +357,16 @@ Une version de profil d’API agit en tant qu’alias pour une seule version d�
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -399,17 +399,17 @@ Le profil d’API n’est pas un élément nécessaire dans un modèle. Même si
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2016-01-01",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -423,7 +423,7 @@ Le profil d’API n’est pas un élément nécessaire dans un modèle. Même si
 
 ## <a name="check-endpoint-references"></a>Vérification des références de point de terminaison
 
-Les ressources peuvent avoir des références à d’autres services sur la plateforme. Par exemple, une adresse IP publique peut avoir un nom DNS public affecté. Le cloud public, les clouds souverains et les solutions Azure Stack possèdent leurs propres espaces de noms de point de terminaison distincts. La plupart du temps, une ressource ne nécessite qu’un préfixe en guise d’entrée dans le modèle. Durant l’exécution, Azure Resource Manager y ajoute la valeur de point de terminaison. Certaines valeurs de point de terminaison doivent être spécifiées explicitement dans le modèle. 
+Les ressources peuvent avoir des références à d’autres services sur la plateforme. Par exemple, une adresse IP publique peut avoir un nom DNS public affecté. Le cloud public, les clouds souverains et les solutions Azure Stack possèdent leurs propres espaces de noms de point de terminaison distincts. La plupart du temps, une ressource ne nécessite qu’un préfixe en guise d’entrée dans le modèle. Durant l’exécution, Azure Resource Manager y ajoute la valeur de point de terminaison. Certaines valeurs de point de terminaison doivent être spécifiées explicitement dans le modèle.
 
 > [!NOTE]
 > Pour développer des modèles de cohérence du cloud, ne codez pas les espaces de noms du point de terminaison en dur.
@@ -444,7 +444,7 @@ Les espaces de noms du point de terminaison peuvent également être utilisés d
 De manière générale, évitez les points de terminaison codés en dur dans un modèle. La meilleure pratique consiste à utiliser la fonction de modèle de référence pour récupérer les points de terminaison de manière dynamique. Par exemple, le point de terminaison généralement codé en dur est l’espace de noms du point de terminaison des comptes de stockage. Chaque compte de stockage possède un nom de domaine complet (FQDN) unique, construit en concaténant le nom du compte de stockage avec l’espace de noms du point de terminaison. Un compte de stockage d’objets blob nommé mystorageaccount1 donne lieu à différents noms de domaine complets (FQDN) en fonction du cloud :
 
 * **mystorageaccount1.blob.core.windows.net** s’il est créé dans le cloud Azure global.
-* **mystorageaccount1.blob.core.chinacloudapi.cn** s’il est créé dans le cloud Azure Chine.
+* **mystorageaccount1.blob.core.chinacloudapi.cn**s’il est créé dans le cloud Azure Chine 21Vianet.
 
 La fonction de modèle de référence suivante récupère l’espace de noms du point de terminaison du fournisseur de ressources de stockage :
 
@@ -456,7 +456,7 @@ En remplaçant la valeur codée en dur du point de terminaison du compte de stoc
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>Faire référence à des ressources existantes avec un ID unique
 
-Vous pouvez également faire référence à une ressource existante à partir du même groupe de ressources ou d’un autre groupe de ressources, dans le même abonnement ou dans un autre, au sein du même client dans le même cloud. Pour récupérer les propriétés de ressources, vous devez utiliser l’identificateur unique pour la ressource elle-même. La fonction de modèle `resourceId` récupère l’ID unique d’une ressource telle que SQL Server, comme l’indique le code suivant : 
+Vous pouvez également faire référence à une ressource existante à partir du même groupe de ressources ou d’un autre groupe de ressources, dans le même abonnement ou dans un autre, au sein du même client dans le même cloud. Pour récupérer les propriétés de ressources, vous devez utiliser l’identificateur unique pour la ressource elle-même. La fonction de modèle `resourceId` récupère l’ID unique d’une ressource telle que SQL Server, comme l’indique le code suivant :
 
 ```json
 "outputs": {
@@ -602,8 +602,8 @@ Comme les extensions de machine virtuelle sont des ressources Resource Manager i
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2015-06-15",
     "name": "myExtension",
     "location": "[parameters('location')]",
     ...
@@ -627,9 +627,9 @@ Chaque extension spécifique est gérée. Cette version est montrée dans la pro
 
 ```json
 {
-    "name": "MyCustomScriptExtension",
     "type": "extensions",
     "apiVersion": "2016-03-30",
+    "name": "MyCustomScriptExtension",
     "location": "[parameters('location')]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/myVM', copyindex())]"
@@ -638,7 +638,7 @@ Chaque extension spécifique est gérée. Cette version est montrée dans la pro
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.7",
-        ...   
+        ...
 ```
 
 Pour obtenir une liste des versions disponibles d’une extension de machine virtuelle spécifique, utilisez l’applet de commande [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage). L’exemple suivant récupère les versions disponibles de l’extension de machine virtuelle PowerShell DSC (Configuration de l’état souhaité) à partir de **myLocation** :
@@ -655,12 +655,12 @@ Il est difficile d’effectuer le suivi de tous les paramètres connexes, des fo
 
 L’image suivante montre un exemple typique d’un processus de développement d’une équipe à l’aide d’un environnement de développement intégré (IDE). Différents types de tests sont exécutés à différents stages de la chronologie. Ici, deux développeurs travaillent sur la même solution, mais ce scénario s’applique autant à un développeur seul qu’à une grande équipe. Chaque développeur crée généralement une copie locale d’un référentiel central, ce qui permet à chacun de travailler sur la copie locale sans affecter les autres qui travaillent peut-être sur les mêmes fichiers.
 
-![Workflow](./media/templates-cloud-consistency/workflow.png) 
+![Workflow](./media/templates-cloud-consistency/workflow.png)
 
 Prenez en compte les conseils suivants relatifs aux tests et à l’automatisation :
 
 * Utilisez les outils de test. Par exemple, Visual Studio Code et Visual Studio comprennent IntelliSense et d’autres fonctionnalités qui peuvent vous aider à valider vos modèles.
-* Pour améliorer la qualité du code pendant le développement sur l’IDE local, effectuez une analyse statique du code avec des tests unitaires et d’intégration. 
+* Pour améliorer la qualité du code pendant le développement sur l’IDE local, effectuez une analyse statique du code avec des tests unitaires et d’intégration.
 * Pour une meilleure expérience lors du développement initial, les tests unitaires et d’intégration émettent uniquement un avertissement lorsqu’un problème est détecté, et se poursuivent. De cette façon, vous pouvez identifier les problèmes à corriger, et hiérarchiser l’ordre des modifications, ce qui également appelé déploiement piloté par les tests (TDD).
 * N’oubliez pas que certains tests peuvent être effectués sans être connecté à Azure Resource Manager. D’autres, comme les tests de déploiement de modèle, nécessitent Resource Manager pour effectuer certaines actions qui ne peuvent pas être réalisées hors connexion.
 * Tester d’un modèle de déploiement par rapport à l’API de validation n’équivaut pas à un déploiement réel. En outre, même si vous déployez un modèle à partir d’un fichier local, toutes les références à des modèles imbriqués dans le modèle sont directement récupérées par Resource Manager, et les artefacts référencés par les extensions de machine virtuelle sont récupérés par l’agent de machine virtuelle en cours d’exécution dans la machine virtuelle déployée.

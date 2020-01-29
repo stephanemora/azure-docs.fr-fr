@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 10724407b8ba5568b38a844f2bf475060e2b7699
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227664"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515103"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>FAQ sur Windows 10 Entreprise multisession
 
@@ -44,7 +44,7 @@ Personnalisez l’image selon vos besoins à l’aide d’applications métier e
  
 ## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>Comment gérer Windows 10 Entreprise multisession après le déploiement ?
 
-Vous pouvez utiliser n’importe quel outil de configuration pris en charge. Toutefois, nous vous recommandons System Center Configuration Manager 1906, car il prend en charge Windows 10 Entreprise multisession. Nous travaillons actuellement à la prise en charge de Microsoft Intune.
+Vous pouvez utiliser n’importe quel outil de configuration pris en charge. Toutefois, nous vous recommandons Configuration Manager version 1906, car celui-ci prend en charge Windows 10 entreprise multi-session. Nous travaillons actuellement à la prise en charge de Microsoft Intune.
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>Peut-on joindre Windows 10 Entreprise multisession à un domaine Azure Active Directory (AD) ?
 

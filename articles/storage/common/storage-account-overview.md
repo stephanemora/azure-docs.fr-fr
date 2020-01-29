@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975704"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274531"
 ---
 # <a name="storage-account-overview"></a>Vue d’ensemble du compte de stockage
 
@@ -64,17 +64,15 @@ Dans la plupart des cas, vous devez utiliser des comptes v2 universels. Vous po
 
 ### <a name="blockblobstorage-accounts"></a>Comptes BlockBlobStorage
 
-Un compte BlockBlobStorage est un compte de stockage spécialisé que vous utilisez pour stocker des données d’objets non structurées en tant qu’objets blob de blocs. Vous pouvez également utiliser un compte BlockBlobStorage pour créer des objets blob de blocs Premium. Ce type de compte de stockage prend en charge le stockage des objets blob de blocs et des objets blob d’ajout, mais pas des objets blob de pages, des tables ni des files d’attente.
+Un compte BlockBlobStorage est un compte de stockage spécialisé dans le niveau de performance Premium pour le stockage des données d’objets non structurées en tant qu’objets BLOB de blocs ou d’ajout. Comparés aux comptes v2 et BlobStorage à usage général, les comptes BlockBlobStorage fournissent une latence faible et cohérente ainsi que des taux de transactions plus élevés.
 
-En comparaison des comptes BlobStorage et v2 universels , les comptes de stockage BlockBlobStorage fournissent une latence faible et cohérente, et des taux de transactions plus élevés.
-
-Les comptes BlockBlobStorage ne prennent actuellement pas en charge la hiérarchisation en niveau d’accès chaud, froid ou archive.
+Les comptes BlockBlobStorage ne prennent actuellement pas en charge la hiérarchisation en niveau d’accès chaud, froid ou archive. Ce type de compte de stockage ne prend pas en charge les objets BLOB de pages, les tables ou les files d’attente.
 
 ### <a name="filestorage-accounts"></a>Comptes FileStorage
 
 Un compte FileStorage est un compte de stockage spécialisée utilisé pour stocker et créer des partages de fichiers Premium. Ce genre de compte de stockage prend en charge les fichiers mais pas les objets blob de blocs, d’ajout, de pages, de tables ou de files d’attente.
 
-Les comptes FileStorage offrent des caractéristiques de performances dédiées uniques, telles que l’IOPS en mode rafale. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de performances de partage de fichiers](../files/storage-files-planning.md#file-share-performance-tiers) du guide de planification des fichiers.
+Les comptes FileStorage offrent des caractéristiques de performances uniques, telles que l’IOPS en mode rafale. Pour plus d’informations sur ces caractéristiques, consultez la section [Niveaux de performances de partage de fichiers](../files/storage-files-planning.md#file-share-performance-tiers) du guide de planification des fichiers.
 
 ## <a name="naming-storage-accounts"></a>Nommage des comptes de stockage
 
@@ -85,12 +83,20 @@ Gardez les règles suivantes à l’esprit lorsque vous nommez votre compte de s
 
 ## <a name="performance-tiers"></a>Niveaux de performances
 
+Selon le type de compte de stockage que vous créez, vous pouvez choisir entre les niveaux de performance standard et Premium.
+
+### <a name="general-purpose-storage-accounts"></a>Comptes de stockage à usage général
+
 Les comptes de stockage universels peuvent être configurés avec l’un des niveaux de performances suivants :
 
 - Un niveau de performances Standard pour le stockage des objets blob, des fichiers, des tables, des files d’attente et des disques de machine virtuelle Azure Pour plus d’informations sur les objectifs d’évolutivité pour les comptes de stockage standard, consultez [Objectifs d’extensibilité pour les comptes de stockage standard](scalability-targets-standard-account.md).
-- Un niveau de performance Premium pour le stockage des disques de machine virtuelle non gérés uniquement Microsoft recommande d’utiliser des disques gérés avec des machines virtuelles Azure au lieu de disques non gérés. Pour plus d’informations sur les objectifs d’extensibilité pour le niveau de performance Premium, consultez [Objectifs d’évolutivité pour les comptes de stockage d’objets blob de pages Premium](../blobs/scalability-targets-premium-page-blobs.md).
+- Un niveau de performances Premium pour le stockage des disques de machine virtuelle non gérés. Microsoft recommande d’utiliser des disques gérés avec des machines virtuelles Azure au lieu de disques non gérés. Pour plus d’informations sur les objectifs d’extensibilité pour le niveau de performance Premium, consultez [Objectifs d’évolutivité pour les comptes de stockage d’objets blob de pages Premium](../blobs/scalability-targets-premium-page-blobs.md).
+
+### <a name="blockblobstorage-storage-accounts"></a>Comptes de stockage BlockBlobStorage
 
 Les comptes de stockage BlockBlobStorage fournissent un niveau de performances Premium pour stocker des objets blob de blocs et d’ajout. Pour plus d’informations, consultez [Objectifs de scalabilité pour les comptes de stockage d’objets blob de blocs Premium](../blobs/scalability-targets-premium-block-blobs.md).
+
+### <a name="filestorage-storage-accounts"></a>Comptes de stockage FileStorage
 
 Les comptes de stockage FileStorage fournissent un niveau de performances premium pour les partages de fichiers Azure. Pour plus d’informations, voir [Objectifs de performance et d’extensibilité d’Azure Files](../files/storage-files-scale-targets.md).
 
@@ -102,7 +108,7 @@ Les niveaux d’accès disponibles sont les suivants :
 
 - Niveau d’accès **chaud**. Le niveau est optimisé pour les accès fréquents aux objets du compte de stockage. L’accès aux données de niveau Chaud est le plus économique. Les coûts de stockage sont toutefois plus élevés. Par défaut, les nouveaux comptes de stockage sont créés au niveau Chaud.
 - Niveau d’accès **froid**. Le niveau est optimisé pour le stockage de grandes quantités de données rarement sollicitées et stockées depuis au moins 30 jours. Le stockage des données au niveau Froid est plus économique. Toutefois, l’accès à ces données peut être plus onéreux que celui du niveau chaud.
-- Niveau d’accès **archive**. Le niveau est disponible uniquement pour chaque objet blob de blocs. Le niveau d’accès archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau d’accès archive pendant au moins 180 jours. Ce niveau est l’option la plus économique pour le stockage des données. Toutefois, l’accès à ces données est plus onéreux que l’accès aux données dans les niveaux d’accès chaud ou froid.
+- Niveau d’accès **archive**. Ce niveau est uniquement disponible pour les objets BLOB de blocs individuels et les objets BLOB d’ajout. Le niveau d’accès archive est optimisé pour les données qui peuvent tolérer plusieurs heures de latence de récupération et qui restent dans le niveau d’accès archive pendant au moins 180 jours. Ce niveau est l’option la plus économique pour le stockage des données. Toutefois, l’accès à ces données est plus onéreux que l’accès aux données dans les niveaux d’accès chaud ou froid.
 
 En cas de changement de votre modèle d’utilisation des données, vous pouvez basculer d’un niveau d’accès à l’autre à tout moment. Pour plus d’informations sur les niveaux d’accès, consultez [Stockage d’objets blob Azure : niveaux d’accès chaud, froid et archive](../blobs/storage-blob-storage-tiers.md).
 

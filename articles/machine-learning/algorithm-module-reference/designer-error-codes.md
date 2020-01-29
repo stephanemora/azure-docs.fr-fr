@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
-ms.openlocfilehash: d491a67a44a2cb01e4968c4d31d20dee4b75a60a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979990"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311663"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Exceptions et codes d’erreur du concepteur (préversion)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Exceptions et codes d’erreur pour le concepteur
 
-Cet article décrit les messages d’erreur et codes d’exception dans le concepteur Azure Machine Learning (préversion) pour vous aider à résoudre les problèmes liés à vos pipelines Machine Learning.
+Cet article décrit les messages d’erreur et les codes d’exception dans le concepteur Azure Machine Learning afin de vous aider à résoudre les problèmes liés à vos pipelines d’apprentissage automatique.
 
 Il y a deux façons d’obtenir le texte complet d’un message d’erreur dans le concepteur :  
 
@@ -704,7 +704,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 
 |Messages d’exception|
 |------------------------|
-|L’opération a échoué.|
+|Échec de l’opération.|
 |Erreur lors de l’exécution de l’opération : « {opération_ayant_écoué} ».|
 |Erreur lors de l’exécution de l’opération : « {opération_ayant_écoué} ». Raison : « {raison} ».|
 

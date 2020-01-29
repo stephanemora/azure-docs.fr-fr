@@ -9,17 +9,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: e0e4ea4689baeb8e85a765a33c3f8124d6bc4362
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 991f7ebf51be5f805a8b12fa0af0fefeff0ef582
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764284"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309555"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Déboguer et résoudre les problèmes de pipelines de machine learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cet article, vous allez découvrir comment déboguer et résoudre les problèmes de [pipelines de machine learning](concept-ml-pipelines.md) dans le [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) et le [concepteur Azure Machine Learning (préversion)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
+Dans cet article, vous allez découvrir comment déboguer et résoudre les problèmes de [pipelines d’apprentissage automatique](concept-ml-pipelines.md) dans le [SDK Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) et le [concepteur Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-designer).
 
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Déboguer et résoudre les problèmes dans le SDK Azure Machine Learning
@@ -79,7 +79,7 @@ Le tableau suivant présente les problèmes courants qui se produisent pendant l
 | Le pipeline ne réutilise pas les étapes | La réutilisation d’étape est activée par défaut, mais vérifiez que vous ne l’avez pas désactivée dans une étape du pipeline. Si la réutilisation est désactivée, le paramètre `allow_reuse` de l’étape est défini sur `False`. |
 | Le pipeline se réexécute inutilement | Pour faire en sorte que les étapes ne se réexécutent que lorsque leurs données sous-jacents ou leurs scripts changent, découplez vos répertoires pour chaque étape. Si vous utilisez le même répertoire source pour plusieurs étapes, des réexécutions inutiles peuvent se produire. Utilisez le paramètre `source_directory` sur un objet d’étape de pipeline pour pointer vers votre répertoire isolé pour cette étape, et vérifiez que vous n’utilisez pas le même chemin `source_directory` pour plusieurs étapes. |
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Déboguer et résoudre les problèmes dans le concepteur Azure Machine Learning (préversion)
+## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer"></a>Déboguer et résoudre les problèmes dans le concepteur Azure Machine Learning
 
 Cette section fournit une vue d’ensemble de la résolution des problèmes des pipelines dans le concepteur.
 Pour les pipelines créés dans le concepteur, vous trouverez les **fichiers journaux** dans la page de création ou dans la page des détails d’exécutions de pipeline.

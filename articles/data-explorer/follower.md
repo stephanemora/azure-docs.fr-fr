@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030065"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281340"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Utiliser une base de données d’abonné pour joindre des bases de données dans Azure Data Explorer
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Joindre une base de données à l’aide d’un modèle Azure Resource Manager
 
-Dans cette section, vous allez apprendre à créer un cluster de suivi et à y joindre une base de données à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/management/overview.md). Si vous disposez déjà d’un cluster, supprimez la ressource `Microsoft.Kusto/clusters` de la liste des ressources ci-dessous.
+Dans cette section, vous allez apprendre à attacher une base de données à un cluster existant à l’aide d’un [modèle de Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -138,7 +138,7 @@ Dans cette section, vous allez apprendre à créer un cluster de suivi et à y j
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the follower cluster."
+                "description": "Name of the cluster to which the database will be attached."
             }
         },
         "attachedDatabaseConfigurationsName": {
@@ -180,17 +180,6 @@ Dans cette section, vous allez apprendre à créer un cluster de suivi et à y j
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('followerClusterName')]",
-            "type": "Microsoft.Kusto/clusters",
-            "sku": {
-                "name": "Standard_D13_v2",
-                "tier": "Standard",
-                "capacity": 2
-            },
-            "apiVersion": "2019-09-07",
-            "location": "[parameters('location')]"
-        },
-        {
             "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
@@ -217,7 +206,7 @@ Vous pouvez déployer le modèle Azure Resource Manager [à l’aide du Portail 
 
 |**Paramètre**  |**Description**  |
 |---------|---------|
-|Nom du cluster de l’abonné     |  Nom du cluster de suivi. Si le nom du cluster existe, supprimez la ressource `Microsoft.Kusto/clusters` de la liste des ressources dans le modèle Resource Manager. Dans le cas contraire, un cluster sera créé.     |
+|Nom du cluster de l’abonné     |  Nom du cluster de suivi.  |
 |Nom de configurations de base de données attachée    |    Le nom de l’objet de configurations de base de données attachée. Le nom doit être unique au niveau du cluster.     |
 |Nom de la base de données     |      Le nom de la base de données à suivre. Si vous souhaitez suivre toutes les bases de données du responsable, utilisez « * ».   |
 |ID de ressource du cluster du responsable    |   L’ID de la ressource du cluster du responsable.      |
@@ -394,6 +383,7 @@ L’administrateur de base de données d’abonné peut modifier la [stratégie 
 
 * Les clusters de l’abonné et du responsable doivent se trouver dans la région.
 * [L’ingestion de streaming](/azure/data-explorer/ingest-data-streaming) ne peut pas être utilisée sur une base de données suivie.
+* Le chiffrement des données à l’aide de [clés gérées par le client](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) n’est pas pris en charge sur les clusters principaux et les clusters suivants. 
 * Vous ne pouvez pas supprimer une base de données attachée à un autre cluster avant de la détacher.
 * Vous ne pouvez pas supprimer un cluster qui dispose d’une base de données attachée à un autre cluster avant de la détacher.
 * Vous ne pouvez pas arrêter un cluster qui dispose d’une ou plusieurs bases de données de responsable ou d’abonné. 

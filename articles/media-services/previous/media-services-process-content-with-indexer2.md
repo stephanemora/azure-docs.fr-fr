@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 60458365fd9ed3a9a72f5c2da82431fb55792a50
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 9c463095612b1540cc593b17a0e52bfd24db30d2
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464068"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514474"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexation de fichiers multimédias avec Azure Media Indexer 2 Preview
 
 > [!NOTE]
-> Le processeur multimédia [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) sera mis hors service le 1er janvier 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ce processeur multimédia hérité. Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+> Le processeur multimédia [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) sera mis hors service. Pour les dates de mise hors service, consultez cette rubrique sur les[composants hérités](legacy-components.md). [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ce processeur multimédia hérité. Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 Le processeur multimédia **Azure Media Indexer 2 Preview** permet d’effectuer des recherches dans les fichiers multimédias et le contenu et de générer des pistes de sous-titrage. Par rapport à la version précédente d’ [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** effectue une indexation plus rapide et offre une prise en charge plus large des langues. Les langues prises en charge incluent l’anglais, l’espagnol, le français, l’allemand, l’italien, le chinois (mandarin, simplifié), le portugais, l’arabe, le russe et le japonais.
 
@@ -121,7 +121,7 @@ Le programme suivant montre comment effectuer les tâches suivantes :
 
 Configurez votre environnement de développement et ajoutez des informations de connexion au fichier app.config selon la procédure décrite dans l’article [Développement Media Services avec .NET](media-services-dotnet-how-to-use.md). 
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 ```csharp
 using System;

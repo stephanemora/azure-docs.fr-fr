@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: f3a6da6888b823c637411c508c949686fc378e58
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 98461928e465a103f73761afce5270234224fbae
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790102"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167344"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Réplicas en lecture dans Azure Database pour MySQL
 
@@ -103,7 +103,7 @@ Lorsque vous décidez d’arrêter la réplication pour un réplica, celui-ci pe
 
 Découvrez comment [arrêter la réplication sur un réplica](howto-read-replicas-portal.md).
 
-## <a name="considerations-and-limitations"></a>Considérations et limitations
+## <a name="considerations-and-limitations"></a>Observations et limitations
 
 ### <a name="pricing-tiers"></a>Niveaux de tarification
 
@@ -132,7 +132,7 @@ Si vous arrêtez la réplication entre un serveur maître et un réplica en lect
 
 ### <a name="deleted-master-and-standalone-servers"></a>Serveurs maîtres et autonomes supprimés
 
-Quand un serveur maître est supprimé, la réplication est arrêtée sur tous les réplicas en lecture. Ces réplicas deviennent des serveurs autonomes. Le serveur maître lui-même est supprimé.
+Quand un serveur maître est supprimé, la réplication est arrêtée sur tous les réplicas en lecture. Ces réplicas deviennent automatiquement des serveurs autonomes pouvant accepter des lectures et des écritures. Le serveur maître lui-même est supprimé.
 
 ### <a name="user-accounts"></a>Comptes d'utilisateurs
 

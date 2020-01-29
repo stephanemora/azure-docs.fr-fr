@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 00200436784eca970f736c4a7f2afebd652c9577
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848423"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155211"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Sécurisation des ressources de cloud avec le serveur Azure Multi-Factor Authentication et AD FS
 
@@ -85,8 +85,8 @@ La première chose à faire consiste à configurer les revendications AD FS. Cr�
 
 Maintenant que les revendications sont en place, nous pouvons configurer des adresses IP approuvées.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Sélectionnez **Azure Active Directory** > **Sécurité** > **Accès conditionnel** > **Emplacements nommés**.
 3. À partir du panneau **Accès conditionnel - Emplacements nommés**, sélectionnez **Configurer des adresses IP approuvées MFA**
 
    ![Emplacements nommés pour l’accès conditionnel Azure AD - Configurer des adresses IP approuvées MFA](./media/howto-mfa-adfs/trustedip6.png)

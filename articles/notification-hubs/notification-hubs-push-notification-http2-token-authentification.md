@@ -1,6 +1,6 @@
 ---
-title: Authentification basée sur un jeton (HTTP/2) pour APNS dans Azure Notification Hubs | Microsoft Docs
-description: Cette rubrique explique comment utiliser la nouvelle authentification de jeton pour APNS
+title: Authentification basée sur un jeton (HTTP/2) pour APNS dans Azure Notification Hubs | Microsoft Docs
+description: Découvrez comment utiliser la nouvelle authentification par jeton pour APNS.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -15,16 +15,16 @@ ms.date: 11/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/13/2019
-ms.openlocfilehash: 56689981d6c85c844fefbec6a4ec4aeb041dbc7f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 448b5c38371024c2eae900f4f87b343ee0a3b36a
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111948"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263810"
 ---
-# <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
+# <a name="token-based-http2-authentication-for-apns"></a>Authentification basée sur un jeton (HTTP/2) pour APNS
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article explique comment utiliser le nouveau protocole APNS HTTP/2 avec une authentification basée sur un jeton.
 
@@ -79,7 +79,7 @@ Les informations d'identification basées sur des jetons sont composées des cha
 * **ID de l’équipe** : Aussi appelé « Préfixe » ou « Préfixe de l'application ». C'est l'identificateur de l'organisation dans le portail des développeurs Apple ; par exemple, `S4V3D7CHJR`.
 * **ID de l’offre groupée** : Aussi appelé « ID de l’application ». C'est l'identificateur de l’offre groupée pour l'application ; par exemple, `com.microsoft.nhubsample2019`. Notez que vous pouvez utiliser une même clé pour plusieurs applications. Cette valeur est mappée à l'en-tête HTTP `apns-topic` lors de l'envoi d'une notification, et sert à cibler l'application spécifique.
 * **Jeton** : Aussi appelé « clé » « clé privée ». Il est obtenu à partir du fichier .p8 généré sur le portail des développeurs Apple. La clé doit avoir l'APNS activé (sélectionné dans le portail des développeurs Apple lors de la génération de la clé). L’en-tête ou le pied de page PEM doit être supprimé de la valeur lorsque vous la fournissez au portail NH ou à l’API.
-* **Point de terminaison** : Il s'agit d'un bouton bascule dans la volet du portail Notification Hubs, et d'un champ de chaîne dans l'API. Les valeurs autorisées sont `https://api.push.apple.com` ou `https://api.sandbox.push.apple.com`. Notification Hubs utilise cette valeur soit pour l'environnement de production, soit pour l'environnement de bac à sable (sandbox), afin d’envoyer des notifications. Elle doit correspondre à l’autorisation `aps-environment` dans l'application , sinon, les jetons d’appareils APNS générés ne correspondent pas à l'environnement, et les notifications ne sont pas envoyées.
+* **Point de terminaison** : Il s'agit d'un bouton bascule dans la volet du portail Notification Hubs, et d'un champ de chaîne dans l'API. Les valeurs valides sont `https://api.push.apple.com` ou `https://api.sandbox.push.apple.com`. Notification Hubs utilise cette valeur soit pour l'environnement de production, soit pour l'environnement de bac à sable (sandbox), afin d’envoyer des notifications. Elle doit correspondre à l’autorisation `aps-environment` dans l'application , sinon, les jetons d’appareils APNS générés ne correspondent pas à l'environnement, et les notifications ne sont pas envoyées.
 
 Voici un exemple de code illustrant l’utilisation correcte :
 

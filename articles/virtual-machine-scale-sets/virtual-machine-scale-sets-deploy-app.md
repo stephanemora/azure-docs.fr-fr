@@ -1,26 +1,19 @@
 ---
-title: Déployez une application sur un groupe de machines virtuelles identiques Azure | Microsoft Docs
+title: Déployer une application sur un groupe de machines virtuelles identiques Azure
 description: Découvrez comment déployer des applications sur des instances de machine virtuelle Linux et Windows d’un groupe identique
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 0dc1c52e65090acd5f63d1b23d8da6f37e3cf567
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960738"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278100"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
 
@@ -32,14 +25,14 @@ Lorsque vous utilisez une des images de plateforme Azure pour créer les instanc
 
 Pour simplifier la gestion de la configuration et accélérer la configuration d’une machine virtuelle, vous pouvez créer une image de machine virtuelle personnalisée prête à exécuter votre application dès qu’une instance est configurée dans le groupe identique. Pour plus d’informations sur la façon de créer et d’utiliser une image de machine virtuelle personnalisée avec un groupe identique, voir les didacticiels suivants :
 
-- [Interface de ligne de commande Azure](tutorial-use-custom-image-cli.md)
+- [Azure CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Installer une application avec l’extension de script personnalisé
 L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de GitHub, ou fournis dans le portail Azure lors de l’exécution de l’extension. Pour plus d’informations sur l’installation d’une application à l’aide d’une extension de script personnalisé, consultez les tutoriels suivants :
 
-- [Interface de ligne de commande Azure](tutorial-install-apps-cli.md)
+- [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Modèle Azure Resource Manager](tutorial-install-apps-template.md)
 
@@ -47,7 +40,7 @@ L’extension de script personnalisé télécharge et exécute des scripts sur d
 ## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installer une application sur une machine virtuelle Windows avec PowerShell DSC
 La [Configuration d’état souhaité (DSC) PowerShell](/powershell/scripting/dsc/overview/overview) est une plateforme de gestion qui définit la configuration des machines cibles. Les configurations d’état souhaité définissent les éléments à installer sur une machine et la procédure à suivre pour configurer l’hôte. Un moteur du Gestionnaire de configuration local (LCM) s’exécute sur chaque nœud cible qui traite les actions demandées en fonction des configurations envoyées.
 
-L’extension PowerShell DSC vous permet de personnaliser les instances de machine virtuelle d’un groupe identique avec PowerShell. L’exemple suivant permet :
+L’extension PowerShell DSC vous permet de personnaliser les instances de machine virtuelle d’un groupe identique avec PowerShell. L’exemple suivant :
 
 - Donne pour instruction aux instances de machine virtuelle de télécharger un package DSC à partir de GitHub – *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
 - Définit l’extension pour exécuter un script d’installation - `configure-http.ps1`

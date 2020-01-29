@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 11/06/2019
-ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/16/2020
+ms.openlocfilehash: 32a1ac971edb55c6e162f02b60042056cd0fee0f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024940"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315046"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Déployer un modèle sur un cluster Azure Kubernetes Service
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -43,7 +43,7 @@ Lors d’un déploiement sur Azure Kubernetes Service, vous déployez sur un clu
 
 - Un modèle Machine Learning inscrit dans votre espace de travail. Si vous n’avez pas de modèle inscrit, consultez la section [Comment et où déployer des modèles](how-to-deploy-and-where.md).
 
-- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’[extension Azure Machine Learning pour Visual Studio Code](how-to-vscode-tools.md).
+- L’[extension Azure CLI pour Machine Learning service](reference-azure-machine-learning-cli.md), le [SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) ou l’[extension Azure Machine Learning pour Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 - Les extraits de code __Python__ de cet article partent du principe que les variables suivantes sont définies :
 
@@ -109,13 +109,13 @@ Pour plus d’informations sur les classes, les méthodes et les paramètres uti
 az ml computetarget create aks -n myaks
 ```
 
-Pour plus d’informations, consultez la référence [az ml computetarget create ask](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks).
+Pour plus d’informations, consultez la référence [AZ ml computetarget Create AKS](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks).
 
 ## <a name="attach-an-existing-aks-cluster"></a>Attacher un cluster AKS existant
 
 **Durée estimée** : 5 minutes environ.
 
-Si vous avez déjà un cluster AKS version 1.16 ou inférieur dans votre abonnement Azure, vous pouvez l’utiliser pour déployer votre image.
+Si vous avez déjà un cluster AKS dans votre abonnement Azure et qu’il s’agit d’une version 1,17 ou antérieure, vous pouvez l’utiliser pour déployer votre image.
 
 > [!TIP]
 > Le cluster AKS existant peut se trouver dans une autre région Azure que celle de votre espace de travail Azure Machine Learning.
@@ -227,7 +227,7 @@ Pour plus d’informations, consultez les informations de référence sur [az ml
 
 ### <a name="using-vs-code"></a>Avec VS Code
 
-Pour plus d’informations sur l’utilisation de VS Code, consultez [déployer sur AKS via l’extension VS Code](how-to-vscode-tools.md#deploy-and-manage-models).
+Pour plus d’informations sur l’utilisation de VS Code, consultez [déployer sur AKS via l’extension VS Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
 > Le déploiement via VS Code nécessite que le cluster AKS soit créé ou attaché à votre espace de travail à l’avance.
@@ -251,9 +251,9 @@ endpoint_name = "mynewendpoint",
 version_name= "versiona",
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
-                                                              enable_app_insights = true,
+                                                              enable_app_insights = True,
                                                               tags = {'sckitlearn':'demo'},
-                                                              decription = testing versions,
+                                                              description = "testing versions",
                                                               version_name = version_name,
                                                               traffic_percentile = 20)
  # deploy the model and endpoint

@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769793"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513267"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -376,7 +376,7 @@ Si vous ne pouvez pas résoudre un problème de mise à jour corrective, pour po
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Je sais que des mises à jour sont disponibles, mais elles n’apparaissent pas comme étant disponibles sur mes ordinateurs
 
-* Cela se produit souvent si les ordinateurs sont configurés pour obtenir des mises à jour depuis WSUS ou System Center Configuration Manager (SCCM), mais que WSUS et SCCM n’ont pas approuvé ces mises à jour.
+* Cela se produit souvent lorsque les machines sont configurées pour recevoir des mises à jour de WSUS ou de Microsoft Endpoint Configuration Manager, mais que WSUS et Configuration Manager n’ont pas approuvé les mises à jour.
 * Vous pouvez vérifier si les machines sont configurées pour WSUS et SCCM en [faisant une référence croisée de la clé de Registre UseWUServer avec les clés de Registre de la section « Configuration automatique des mises à jour par modification du Registre » de cet article](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 * Si les mises à jour ne sont pas approuvées dans WSUS, elles ne seront pas installées. Vous pouvez rechercher les mises à jour non approuvées dans Log Analytics en exécutant la requête suivante :
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services – Avenant relatif au protocole Smooth Streaming pour HEVC | Microsoft Docs
+title: Protocole de diffusion en continu lisse (MS-SSTR) Amendement pour HEVC-Azure
 description: Cette spécification décrit le protocole et le format requis pour l’ingestion de streaming en direct basée sur le format MP4 avec HEVC pour Azure Media Services. Seules les modifications nécessaires à la distribution HEVC sont spécifiées dans cet article, à l’exception de la mention « Pas de modification » qui indique que le texte est copié pour clarification uniquement.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: johndeu
-ms.openlocfilehash: 6dd7e0dc7e58f33f952aa5531773a84ebd31a163
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: be4009d418f2f8f3dff755e2e990efee593f070b
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887864"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514219"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Avenant relatif au protocole Smooth Streaming (MS-SSTR) pour HEVC 
 
@@ -52,7 +52,7 @@ Les termes suivants sont spécifiques à ce document :
 > 
 >   **manifeste :** métadonnées relatives à la **présentation** qui permet à un client d’effectuer des requêtes de **média**. **média :** données audio, vidéo et texte compressées utilisées par le client pour lire une **présentation**. **format de média :** format bien défini de représentation audio ou vidéo en tant qu’**exemple** compressé.
 > 
->   **présentation :** ensemble de tous les **flux** et des métadonnées associées nécessaires pour lire un film. **requête :** message HTTP envoyé par le client au serveur, tel que défini dans [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **réponse :** message HTTP envoyé par le serveur au client, tel que défini dans [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
+>   **présentation :** ensemble de tous les **flux** et des métadonnées associées nécessaires pour lire un film. **requête :** Un message  HTTP envoyé du client au serveur, tel que défini dans [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372) **réponse :** message HTTP envoyé par le serveur au client, tel que défini dans [[RFC2616]](https://go.microsoft.com/fwlink/?LinkId=90372)
 > 
 >   **exemple :** plus petite unité fondamentale (par exemple, une image) dans laquelle des **média** sont stockés et traités.
 > 
@@ -64,7 +64,7 @@ Les termes suivants sont spécifiques à ce document :
 
 ### <a name="121-normative-references"></a>1.2.1 Références normatives 
 
->  [MS-SSTR] Protocole de diffusion en continu lisse *v20140502* [https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
+>  [MS-SSTR] Protocole de diffusion en continu lisse *v20140502*[https://msdn.microsoft.com/library/ff469518.aspx](https://msdn.microsoft.com/library/ff469518.aspx)
 > 
 >   [ISO/CEI 14496-12] Organisation internationale de normalisation, « Technologies de l’information -- Codage des objets audiovisuels -- Partie 12: Format ISO de base pour les fichiers médias », ISO/CEI 14496-12:2014, Édition 4, Plus Corrigendum 1, Avenants 1 & 2.
 >   <https://standards.iso.org/ittf/PubliclyAvailableStandards/c061988_ISO_IEC_14496-12_2012.zip>
@@ -175,7 +175,7 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 
 ### <a name="223-fragment-request"></a>2.2.3 Requête du fragment 
 
->   **Remarque**: Le format de média par défaut requis pour **MinorVersion** 2 et «  hev1 » ou « hvc1 »   est le format de fichier multimédia de base ISO « iso8 » , indiqué dans [ISO/CEI 14496-12]    Format de fichier multimédia de base ISO quatrième édition et [ISO/CEI 23001-7] Chiffrement    commun deuxième édition.
+>   **Remarque** : Le format de média par défaut requis pour **MinorVersion** 2 et «  hev1 » ou « hvc1 »   est le format de fichier multimédia de base ISO « iso8 » , indiqué dans [ISO/CEI 14496-12]    Format de fichier multimédia de base ISO quatrième édition et [ISO/CEI 23001-7] Chiffrement    commun deuxième édition.
 
 ### <a name="224-fragment-response"></a>2.2.4 Réponse du fragment 
 
@@ -189,7 +189,7 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 
 >   **TfxdBox** est déconseillé et sa fonction est remplacée par la zone Track Fragment Decode Time (« tfdt ») spécifiée dans [ISO/CEI 14496-12] section 8.8.12.
 > 
->   **Remarque**: un client peut calculer la durée d’un fragment en additionnant les durées d’exemples répertoriées dans la zone Track Run (« trun ») ou en multipliant le nombre de durées d’exemples par la durée d’exemple par défaut. baseMediaDecodeTime dans « tfdt » plus la durée de fragment est égal au paramètre de temps d’URL du fragment suivant.
+>   **Remarque** : un client peut calculer la durée d’un fragment en additionnant les durées d’exemples répertoriées dans la zone Track Run (« trun ») ou en multipliant le nombre de durées d’exemples par la durée d’exemple par défaut. baseMediaDecodeTime dans « tfdt » plus la durée de fragment est égal au paramètre de temps d’URL du fragment suivant.
 > 
 >   Une zone Producer Reference Time (« prft ») doit être insérée avant une zone Movie   Fragment (« moof ») en fonction des besoins, pour indiquer l’heure UTC correspondant à la zone Track Fragment Decode Time du premier exemple référencé par la zone Movie Fragment, comme spécifié dans [ISO/CEI 14496-12] section 8.16.5.
 
@@ -197,7 +197,7 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 
 >   **TfrfBox** est déconseillé et sa fonction est remplacée par la zone Track   Fragment Decode Time (« tfdt ») spécifiée dans [ISO/CEI 14496-12] section 8.8.12.
 > 
->   **Remarque**: un client peut calculer la durée d’un fragment en additionnant les durées d’exemples répertoriées dans la zone Track Run (« trun ») ou en multipliant le nombre de durées d’exemples par la durée d’exemple par défaut. baseMediaDecodeTime dans « tfdt » plus la durée de fragment est égal au paramètre de temps d’URL du fragment suivant. Anticipez les adresses déconseillées du fait qu’elles retardent le streaming en direct.
+>   **Remarque** : un client peut calculer la durée d’un fragment en additionnant les durées d’exemples répertoriées dans la zone Track Run (« trun ») ou en multipliant le nombre de durées d’exemples par la durée d’exemple par défaut. baseMediaDecodeTime dans « tfdt » plus la durée de fragment est égal au paramètre de temps d’URL du fragment suivant. Anticipez les adresses déconseillées du fait qu’elles retardent le streaming en direct.
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
@@ -247,7 +247,7 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
     MinorVersion = STRING_UINT32
     CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 
-**Remarque**: les marques de compatibilité « ccff » et « iso8 » indiquent que les fragments sont conformes au « Format de fichier conteneur commun » et au chiffrement commun [ISO/CEI 23001-7] et au format de fichier multimédia de base ISO 4 [ISO/CEI 14496-12].
+**Remarque** : les marques de compatibilité « ccff » et « iso8 » indiquent que les fragments sont conformes au « Format de fichier conteneur commun » et au chiffrement commun [ISO/CEI 23001-7] et au format de fichier multimédia de base ISO 4 [ISO/CEI 14496-12].
 
 #### <a name="2272-streammanifestbox"></a>2.2.7.2 StreamManifestBox 
 
@@ -354,7 +354,7 @@ ProtectionElement DOIT être présent lorsque le chiffrement commun (CENC) est a
 
 >   Si le contenu transporté à l’aide de ce protocole a une valeur commerciale élevée, un système de protection du contenu doit être utilisé pour empêcher toute utilisation non autorisée du contenu. **ProtectionElement** peut être utilisé pour transporter les métadonnées liées à l’utilisation d’un système de protection du contenu. Le contenu audio et vidéo protégé DOIT être chiffré tel que spécifié par Chiffrement commun MPEG Deuxième édition : 2015 [ISO/IEC 23001-7].
 > 
->   **Remarque**: pour la vidéo HEVC, seules les données de tranche de VCL NAL sont chiffrées. Les en-têtes de tranche et autres NAL sont accessibles aux applications de présentation avant le déchiffrement. dans un chemin d’accès vidéo sécurisé, les informations chiffrées ne sont pas disponibles pour les applications de présentation.
+>   **Remarque** : pour la vidéo HEVC, seules les données de tranche de VCL NAL sont chiffrées. Les en-têtes de tranche et autres NAL sont accessibles aux applications de présentation avant le déchiffrement. dans un chemin d’accès vidéo sécurisé, les informations chiffrées ne sont pas disponibles pour les applications de présentation.
 
 ## <a name="52-index-of-security-parameters"></a>5.2 Index de paramètres de sécurité 
 

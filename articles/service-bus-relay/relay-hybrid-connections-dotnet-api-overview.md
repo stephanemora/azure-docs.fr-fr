@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des API .NET standard Azure Relay | Microsoft Docs
-description: Vue d’ensemble des API .NET standard Azure Relay
+description: Cet article résume une partie de la clé de Azure Relay Connexions hybrides .NET Standard API.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 78ad3ab49db162af060b4273deea717cd3472668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749017"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514533"
 ---
 # <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Présentation des API .NET standard pour les connexions hybrides Azure Relay
 
@@ -27,7 +27,7 @@ Cet article passe en revue les principales [API clientes](/dotnet/api/microsoft.
   
 ## <a name="relay-connection-string-builder-class"></a>Classe Générateur de chaînes de connexion Relay
 
-La classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] met en forme des chaînes de connexion propres aux connexions hybrides Relay. Vous pouvez l’utiliser pour vérifier le format d’une chaîne de connexion ou pour créer une chaîne de connexion à partir de zéro. Le code suivant montre un exemple :
+La classe [RelayConnectionStringBuilder][RelayConnectionStringBuilder] met en forme des chaînes de connexion propres aux connexions hybride Relay. Vous pouvez l’utiliser pour vérifier le format d’une chaîne de connexion ou pour créer une chaîne de connexion à partir de zéro. Le code suivant montre un exemple :
 
 ```csharp
 var endpoint = "[Relay namespace]";
@@ -63,13 +63,13 @@ catch (ArgumentException ae)
 
 ## <a name="hybrid-connection-stream"></a>Flux de connexion hybride
 
-La classe [HybridConnectionStream][HCStream] est l’objet principal utilisé pour envoyer et recevoir des données à partir d’un point de terminaison Azure Relay si vous travaillez avec un [HybridConnectionClient][HCClient] ou un [HybridConnectionListener][HCListener].
+La classe [HybridConnectionStream][HCStream] est l’objet principal utilisé pour envoyer et recevoir des données à partir d’un point de terminaison Azure Relay si vous travaillez avec un[ HybridConnectionClient][HCClient] ou un [HybridConnectionListener][HCListener].
 
 ### <a name="getting-a-hybrid-connection-stream"></a>Obtention d’un flux de connexion hybride
 
 #### <a name="listener"></a>Écouteur
 
-À l’aide d’un objet [HybridConnectionListener][HCListener], vous pouvez obtenir un objet `HybridConnectionStream` comme suit :
+À l’aide d’un objet [HybridConnectionListener][HCListener], vous pouvez obtenir un `HybridConnectionStream`objet comme suit :
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string

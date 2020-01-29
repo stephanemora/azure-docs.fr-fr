@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ab9cc9b093008730d175fa3fde4391f9de236a84
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 43094fe91921d1399650d9cf47e7a84c47996cd5
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231375"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261566"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gérer des instances dans Durable Functions dans Azure
 
@@ -30,7 +30,7 @@ Cette opération asynchrone se termine quand le processus d’orchestration est 
 
 Les paramètres de démarrage d’une nouvelle instance d’orchestration sont les suivants :
 
-* **Nom** : Nom de la fonction orchestrator à planifier.
+* **Name** : Nom de la fonction orchestrator à planifier.
 * **Entrée**: Toutes les données JSON sérialisables devant être passées comme entrée à la fonction orchestrator.
 * **InstanceId** : (Facultatif) ID unique de l’instance. Si vous ne spécifiez pas ce paramètre, la méthode utilise un ID aléatoire.
 
@@ -39,7 +39,7 @@ Les paramètres de démarrage d’une nouvelle instance d’orchestration sont l
 
 Le code suivant est un exemple de fonction qui démarre une nouvelle instance d’orchestration :
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("HelloWorldManualStart")]
@@ -54,9 +54,42 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+<a name="javascript-function-json"></a>Sauf indication contraire, les exemples de cette page utilisent le déclencheur HTTP avec le function  JSON suivant.
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": ["post"]
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> Cet exemple cible la version 2  x de Durable Functions. Dans la version 1. x, utilisez `orchestrationClient`au lieu de`durableClient`.
+
+**index.js**
 
 ```javascript
 const df = require("durable-functions");
@@ -69,9 +102,11 @@ module.exports = async function(context, input) {
 };
 ```
 
+---
+
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi démarrer une instance directement via la commande [Azure Functions Core Tools](../functions-run-local.md) `durable start-new`. Les paramètres suivants sont pris en compte :
+Vous pouvez aussi démarrer une instance directement via la commande [Azure Functions Core Tools](../functions-run-local.md)`durable start-new`. Les paramètres suivants sont pris en compte :
 
 * **`function-name` (obligatoire)**  : Nom de la fonction à démarrer.
 * **`input` (facultatif)**  : Entrée de la fonction, en ligne ou par le biais d’un fichier JSON. Pour les fichiers, ajoutez un préfixe au chemin du fichier avec `@`, par exemple, `@path/to/file.json`.
@@ -96,31 +131,31 @@ La méthode `GetStatusAsync` (.NET) ou `getStatus` (JavaScript) sur la [liaison 
 
 Elle prend `instanceId` (obligatoire), `showHistory` (facultatif), `showHistoryOutput` (facultatif) et `showInput` (facultatif) comme paramètres.
 
-* **`showHistory`** : Si la valeur est définie sur `true`, la réponse contient l’historique d’exécution.
-* **`showHistoryOutput`** : Si la valeur est définie sur `true`, l’historique d’exécution contient les sorties de l’activité.
-* **`showInput`** : Si la valeur est définie sur `false`, la réponse ne contient pas l’entrée de la fonction. La valeur par défaut est `true`.
+* **`showHistory`**  : Si la valeur est définie sur `true`, la réponse contient l’historique d’exécution.
+* **`showHistoryOutput`**  : Si la valeur est définie sur `true`, l’historique d’exécution contient les sorties de l’activité.
+* **`showInput`**  : Si la valeur est définie sur `false`, la réponse ne contient pas l’entrée de la fonction. La valeur par défaut est `true`.
 
 La méthode renvoie un objet avec les propriétés suivantes :
 
-* **Nom** : Nom de la fonction orchestrator.
+* **Name** : Nom de la fonction orchestrator.
 * **InstanceId** : ID d’instance de l’orchestration (doit être identique à l’entrée `instanceId`).
 * **CreatedTime** : Heure à laquelle la fonction orchestrator a commencé à s’exécuter.
 * **LastUpdatedTime** : Heure du dernier point de contrôle d’orchestration.
 * **Entrée**: Entrée de la fonction sous forme de valeur JSON. Ce champ n’est pas rempli si `showInput` est false.
 * **CustomStatus** : État personnalisé de l’orchestration au format JSON.
 * **Sortie**: Sortie de la fonction sous forme de valeur JSON (si cette fonction est terminée). En cas d’échec de la fonction d’orchestrateur, cette propriété inclut les détails de l’échec. En cas d’interruption de la fonction de l’orchestrateur, cette propriété indique la raison de cette interruption (s’il y en a une).
-* **RuntimeStatus** : L’une des valeurs suivantes :
+* **RuntimeStatus** : L’une des valeurs suivantes :
   * **Pending** : L’instance a été planifiée mais n’est pas encore en cours d’exécution.
-  * **Running** : L’instance a commencé à s’exécuter.
+  * **En cours d’exécution** : L’instance a commencé à s’exécuter.
   * **Completed** : L’instance s’est terminée normalement.
   * **ContinuedAsNew** : L’instance a redémarré automatiquement avec un nouvel historique. Cet état est temporaire.
-  * **Failed** : Échec de l’instance avec une erreur.
-  * **Terminated** : L’instance a été brusquement arrêtée.
+  * **Échec** : Échec de l’instance avec une erreur.
+  * **Terminé** : L’instance a été brusquement arrêtée.
 * **History** : L’historique d’exécution de l’orchestration. Ce champ est renseigné uniquement si `showHistory` est défini sur `true`.
 
 Cette méthode renvoie `null` (.NET) ou `undefined` (JavaScript) si l’instance n’existe pas.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetStatus")]
@@ -134,9 +169,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -149,9 +184,13 @@ module.exports = async function(context, instanceId) {
 }
 ```
 
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
+
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi obtenir l’état d’une instance d’orchestration directement via la commande [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status`. Les paramètres suivants sont pris en compte :
+Il est également possible d’obtenir l’état d’une instance d’orchestration à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable get-runtime-status`. Les paramètres suivants sont pris en compte :
 
 * **`id` (obligatoire)**  : ID de l’instance d’orchestration.
 * **`show-input` (facultatif)**  : Si la valeur est définie sur `true`, la réponse contient l’entrée de la fonction. La valeur par défaut est `false`.
@@ -181,7 +220,7 @@ Au lieu d’interroger chaque instance de votre orchestration une par une, il pe
 
 Vous pouvez utiliser la méthode `GetStatusAsync` (.NET) ou `getStatusAll` (JavaScript) pour interroger les états de toutes les instances de l’orchestration. Dans .NET, si vous souhaitez l’annuler, vous pouvez passer un objet `CancellationToken`. La méthode renvoie des objets avec les mêmes propriétés que la méthode `GetStatusAsync` avec des paramètres.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("GetAllStatus")]
@@ -199,9 +238,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -216,9 +255,13 @@ module.exports = async function(context, req) {
 };
 ```
 
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
+
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi interroger des instances directement à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable get-instances`. Les paramètres suivants sont pris en compte :
+Vous pouvez aussi interroger des instances directement à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable get-instances`. Les paramètres suivants sont pris en compte :
 
 * **`top` (facultatif)**  : Cette commande prend en charge la pagination. Ce paramètre correspond au nombre d’instances récupérées par demande. La valeur par défaut est de 10.
 * **`continuation-token` (facultatif)**  : Jeton qui indique la page ou la section des instances à récupérer. Chaque exécution de `get-instances` retourne un jeton à l’ensemble suivant d’instances.
@@ -235,7 +278,7 @@ Il est possible que vous n’ayez pas vraiment besoin de toutes les informations
 
 Utilisez la méthode `GetStatusAsync` (.NET) ou `getStatusBy` (JavaScript) pour obtenir la liste des instances d’orchestration qui correspondent à un ensemble de filtres prédéfinis.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryStatus")]
@@ -261,9 +304,9 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -285,6 +328,10 @@ module.exports = async function(context, req) {
     });
 };
 ```
+
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
@@ -310,7 +357,7 @@ Si vous disposez d’une instance d’orchestration dont l’exécution est trop
 
 Vous pouvez utiliser la méthode `TerminateAsync` (.NET) ou `terminate` (JavaScript) de la [liaison du client d’orchestration](durable-functions-bindings.md#orchestration-client) pour terminer les instances. Les deux paramètres sont une chaîne `instanceId` et `reason`, qui est écrite dans les journaux et dans l’état de l’instance. Une instance arrêtée cesse de s’exécuter dès qu’elle atteint le point `await` (.NET) ou `yield` (JavaScript) suivant, ou elle s’arrête immédiatement si elle se trouve déjà sur un `await` ou un `yield`.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("TerminateInstance")]
@@ -324,9 +371,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -339,12 +386,16 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
+
 > [!NOTE]
 > Il n’est pas possible de propager l’arrêt des instances. Les fonctions et sous-orchestrations de l’activité s’exécutent jusqu’à la fin, même si l’instance d’orchestration qui les a appelées a été arrêtée.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi arrêter une instance d’orchestration directement, à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable terminate`. Les paramètres suivants sont pris en compte :
+Vous pouvez aussi directement arrêter une instance d’orchestration, à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable terminate`. Les paramètres suivants sont pris en compte :
 
 * **`id` (obligatoire)**  : ID de l’instance d’orchestration à arrêter.
 * **`reason` (facultatif)**  : Raison de l’arrêt.
@@ -369,7 +420,7 @@ Les paramètres destinés à `RaiseEventAsync` (.NET) et à `raiseEvent` (JavaSc
 * **EventName** : Nom de l’événement à envoyer.
 * **EventData** : Charge utile JSON sérialisable à envoyer à l’instance.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RaiseEvent")]
@@ -383,9 +434,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -398,15 +449,19 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
+
 > [!NOTE]
 > S’il n’existe aucune instance d’orchestration avec l’ID d’instance spécifié, le message d’événement est ignoré. Si une instance existe, mais qu’elle n’attend pas encore l’événement, ce dernier est stocké dans l’état de l’instance jusqu’à ce qu’il soit prêt à être reçu et traité.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi déclencher un événement pour une instance d’orchestration directement, à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable raise-event`. Les paramètres suivants sont pris en compte :
+Vous pouvez également déclencher directement un événement vers une instance d’orchestration, à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable raise-event`. Les paramètres suivants sont pris en compte :
 
 * **`id` (obligatoire)**  : ID de l’instance d’orchestration.
-* **`event-name`** : Nom de l’événement à déclencher.
+* **`event-name`**  : Nom de l’événement à déclencher.
 * **`event-data` (facultatif)**  : Données à envoyer à l’instance d’orchestration. Il peut s’agir d’un chemin de fichier JSON. Vous pouvez également fournir les données directement sur la ligne de commande.
 * **`connection-string-setting` (facultatif)**  : Nom du paramètre d’application contenant la chaîne de connexion de stockage à utiliser. Par défaut, il s’agit de `AzureWebJobsStorage`.
 * **`task-hub-name` (facultatif)**  : Nom du hub de tâches Durable Functions à utiliser. Par défaut, il s’agit de `DurableFunctionsHub`. Vous pouvez également le définir dans [host.json](durable-functions-bindings.md#host-json), à l’aide de durableTask:HubName.
@@ -427,9 +482,17 @@ Vous pouvez utiliser la méthode `WaitForCompletionOrCreateCheckStatusResponseAs
 
 Voici un exemple de fonction de déclencheur HTTP qui montre comment utiliser cette API :
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpSyncStart.cs)]
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpSyncStart/index.js)]
+
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
 
 Appelez la fonction avec la ligne suivante. Utilisez une valeur de 2 secondes pour le délai d’attente et de 0,5 seconde pour l’intervalle avant nouvelle tentative :
 
@@ -493,7 +556,7 @@ Les méthodes renvoient un objet avec les propriétés de chaîne suivantes :
 
 Les fonctions peuvent envoyer des instances de ces objets à des systèmes externes pour surveiller ou déclencher des événements sur les orchestrations correspondantes, comme indiqué dans les exemples suivants :
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("SendInstanceInfo")]
@@ -513,9 +576,9 @@ public static void SendInstanceInfo(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `DurableActivityContext` au lieu de l’attribut `IDurableActivityContext`, et vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et devez utiliser le type de paramètre `DurableOrchestrationClient` et non `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `DurableActivityContext` au lieu de l’attribut `IDurableActivityContext`, et vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et devez utiliser le type de paramètre `DurableOrchestrationClient` et non `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -533,6 +596,10 @@ modules.exports = async function(context, ctx) {
 };
 ```
 
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
+
 ## <a name="rewind-instances-preview"></a>Rembobiner des instances (préversion)
 
 Si une orchestration échoue pour une raison quelconque, vous pouvez *rembobiner* l’instance vers un état sain précédent à l’aide d’une API intégrée à cet effet.
@@ -547,7 +614,7 @@ Par exemple, supposons que vous ayez un workflow impliquant une suite d’[appro
 > [!NOTE]
 > La fonctionnalité de *rembobinage* ne prend pas en charge le rembobinage des instances d’orchestration qui utilisent des minuteurs durables.
 
-### <a name="c"></a>C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("RewindInstance")]
@@ -561,9 +628,9 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-### <a name="javascript-functions-2x-only"></a>JavaScript (Functions 2.x uniquement)
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -576,9 +643,13 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
+
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi rembobiner une instance d’orchestration directement, à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable rewind`. Les paramètres suivants sont pris en compte :
+Vous pouvez également rembobiner une instance d’orchestration directement à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable rewind`. Les paramètres suivants sont pris en compte :
 
 * **`id` (obligatoire)**  : ID de l’instance d’orchestration.
 * **`reason` (facultatif)**  : Motif de rembobinage de l’instance d’orchestration.
@@ -595,6 +666,8 @@ Pour supprimer toutes les données associées à une orchestration, vous pouvez 
 
 Cette méthode comporte deux surcharges. La première vide l’historique par ID d’instance d’orchestration :
 
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
@@ -605,6 +678,8 @@ public static Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -614,7 +689,13 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
+Consultez les [Instances de démarrage](#javascript-function-json) pour la configuration de la function  JSON.
+
+---
+
 L’exemple suivant affiche une fonction déclenchée, par un minuteur, qui purge l’historique de toutes les instances d’orchestration terminées après l’intervalle de temps spécifié. Dans ce cas, elle supprime les données de toutes les instances terminées depuis 30 jours ou plus. Elle est planifiée pour s’exécuter une fois par jour à 00:00 :
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
@@ -633,16 +714,58 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article sur les [versions de Durable Functions](durable-functions-versions.md).
+> Le code C# précédent correspond à Durable Functions 2.x. Pour Durable Functions 1.x, vous devez utiliser l’attribut `OrchestrationClient` au lieu de l’attribut `DurableClient`, et vous devez utiliser le type de paramètre `DurableOrchestrationClient` au lieu de `IDurableOrchestrationClient`. Pour en savoir plus sur les différences entre les versions, consultez l’article [Versions de Durable Functions](durable-functions-versions.md).
 
-**JavaScript** : la méthode `purgeInstanceHistoryBy` peut être utilisée pour vider l’historique des instances de plusieurs instances de manière conditionnelle.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+La méthode `purgeInstanceHistoryBy` peut être utilisée pour vider l’historique des instances de plusieurs instances de manière conditionnelle.
+
+**function.json**
+
+```json
+{
+  "bindings": [
+    {
+      "schedule": "0 0 12 * * *",
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "starter",
+      "type": "durableClient",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+> [!NOTE]
+> Cet exemple cible la version 2  x de Durable Functions. Dans la version 1. x, utilisez `orchestrationClient`au lieu de`durableClient`.
+
+**index.js**
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context, myTimer) {
+    const client = df.getClient(context);
+    const createdTimeFrom = new Date(0);
+    const createdTimeTo = new Date().setDate(today.getDate() - 30);
+    const runtimeStatuses = [ df.OrchestrationRuntimeStatus.Completed ];
+    return client.purgeInstanceHistoryBy(createdTimeFrom, createdTimeTo, runtimeStatuses);
+};
+```
+
+---
 
 > [!NOTE]
 > Pour que cette opération aboutisse, l’état d’exécution de l’instance cible doit être **Terminé**, **Terminé** ou **Échec**.
 
 ### <a name="azure-functions-core-tools"></a>Azure Functions Core Tools
 
-Vous pouvez aussi vider l’historique d’une instance d’orchestration à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable purge-history`. Tout comme dans le deuxième exemple C# de la section précédente, elle vide l’historique de toutes les instances d’orchestration créées dans un intervalle de temps spécifié. Vous pouvez filtrer encore davantage les instances vidées, selon leur état d’exécution. La commande a plusieurs paramètres :
+Vous pouvez aussi vider l’historique d’une instance d’orchestration à l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md)`durable purge-history`. Tout comme dans le deuxième exemple C# de la section précédente, elle vide l’historique de toutes les instances d’orchestration créées dans un intervalle de temps spécifié. Vous pouvez filtrer encore davantage les instances vidées, selon leur état d’exécution. La commande a plusieurs paramètres :
 
 * **`created-after` (facultatif)**  : Purge l’historique des instances créées après cette date/heure (UTC). Les dates et heures au format ISO 8601 sont acceptées.
 * **`created-before` (facultatif)**  : Purge l’historique des instances créées avant cette date/heure (UTC). Les dates et heures au format ISO 8601 sont acceptées.
@@ -658,7 +781,7 @@ func durable purge-history --created-before 2018-11-14T19:35:00.0000000Z --runti
 
 ## <a name="delete-a-task-hub"></a>Supprimer un hub de tâches
 
-À l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub`, vous pouvez supprimer tous les artefacts de stockage associés à un hub de tâches spécifique, notamment les tables de stockage, files d’attente et objets blob Azure. La commande a deux paramètres :
+À l’aide de la commande [Azure Functions Core Tools](../functions-run-local.md) `durable delete-task-hub`, vous pouvez supprimer tous les artefacts de stockage associés à un concentrateur de tâches particulier, notamment les tables de stockage, les files d’attente et les objets blob Azure. La commande a deux paramètres :
 
 * **`connection-string-setting` (facultatif)**  : Nom du paramètre d’application contenant la chaîne de connexion de stockage à utiliser. Par défaut, il s’agit de `AzureWebJobsStorage`.
 * **`task-hub-name` (facultatif)**  : Nom du hub de tâches Durable Functions à utiliser. Par défaut, le nom du hub de tâches dans le fichier [host.json](durable-functions-bindings.md#host-json) est utilisé.
@@ -675,4 +798,4 @@ func durable delete-task-hub --task-hub-name UserTest
 > [Découvrez comment gérer les versions](durable-functions-versioning.md)
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur les API HTTP intégrées pour la gestion des instances](durable-functions-http-api.md)
+> [Référence sur l'API HTTP intégrée pour la gestion des instances](durable-functions-http-api.md)

@@ -10,23 +10,23 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bdc9e8cbea77b504cfdc2c3b1c83c74ea4ab8ed1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935976"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294335"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Définir et utiliser des travaux de modération (.NET)
 
-Un travail de modération est un type de wrapper permettant d’obtenir une modération du contenu, des flux de travail et des révisions. Ce guide fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit de développement logiciel (SDK) Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) afin d’effectuer les opérations suivantes :
+Un travail de modération est une forme de wrapper des fonctionnalités de modération du contenu, de flux de travail et de révision. Ce guide fournit des informations et des exemples de code qui vont vous aider à prendre en main le [kit de développement logiciel (SDK) Content Moderator pour .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) afin d’effectuer les opérations suivantes :
 
 - Lancez une tâche de modération pour analyser et créer des révisions pour des modérateurs humains
 - Obtenir l’état de la révision en attente
 - Suivre et obtenir l’état final de la révision
 - Envoyer les résultats de la révision à l’URL de rappel
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Connectez-vous ou créez un compte sur le site de l’[outil de révision](https://contentmoderator.cognitive.microsoft.com/) de Content Moderator.
 
@@ -124,7 +124,7 @@ public static class Clients
 Ajoutez les constantes et champs statiques suivants à la classe **Program** dans Program.cs.
 
 > [!NOTE]
-> Vous définissez la constante TeamName par le nom utilisé lorsque vous avez créé votre abonnement à Content Moderator. Vous récupérez la constante TeamName depuis le [site web Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Vous définissez la constante TeamName par le nom utilisé lorsque vous avez créé votre abonnement à Content Moderator. Vous récupérez TeamName à partir du site Web Content Moderator.
 > Une fois connecté, sélectionnez **Informations d'identification** dans le menu (engrenage) **Paramètres**.
 >
 > Le nom de votre équipe est la valeur du champ **Id** dans la section **API**.

@@ -11,18 +11,18 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: a4f4306023b37c3b1cba46acd11ec5c0a489d0d6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1f0e6694e596dc60264dfe0789a2f80090e0da3d
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822574"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293842"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Advanced Data Security pour Azure SQL Database
 
 Advanced Data Security est un package unifié de fonctionnalités de sécurité SQL avancées. Il inclut des fonctionnalités permettant de découvrir et de classifier les données sensibles, de présenter et de corriger les vulnérabilités de votre base de données et de détecter les activités anormales susceptibles d’indiquer une menace ciblant votre base de données. Il vous permet d’activer et de gérer ces fonctionnalités à partir d’un seul et même emplacement.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Advanced Data Security (ADS) fournit un ensemble de fonctionnalités de sécurité SQL avancées, dont la découverte et la classification des données, l’évaluation des vulnérabilités et Advanced Threat Protection.
 
@@ -40,7 +40,7 @@ La procédure suivante vous aide à prendre en main Advanced Data Security.
 
 ## <a name="1-enable-ads"></a>1. Activer SQL Advanced Data Security
 
-Activez SQL Advanced Data Security en accédant à **Advanced Data Security** sous le titre **Sécurité** pour votre serveur SQL Database ou instance managée. Pour activer SQL Advanced Data Security pour toutes les bases de données sur le serveur de base de données ou l’instance gérée, cliquez sur **Activer Advanced Data Security sur le serveur**.
+Activer ADS en vous rendant sur**Sécurité avancée des données** sous **Sécurité** de votre serveur SQL Database ou de votre instance gérée. Pour activer SQL Advanced Data Security pour toutes les bases de données sur le serveur de base de données ou l’instance gérée, cliquez sur **Activer Advanced Data Security sur le serveur**.
 
 > [!NOTE]
 > Un compte de stockage est automatiquement créé et configuré pour stocker les résultats d’analyse de votre **évaluation des vulnérabilités**. Si vous avez déjà activé ADS pour un autre serveur dans le même groupe de ressources et la même région, alors le compte de stockage existant est utilisé.

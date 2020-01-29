@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27d219f46f82f4a74cb5dee0a6b11b673a4a3509
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847216"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155005"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -53,7 +53,7 @@ Dans l’interface du portail Azure, nous avons amélioré la méthode d’affic
 
 ### <a name="converged-registration-preview"></a>Inscription convergée (préversion)
 
-Si vous participez à la préversion publique de l’inscription convergée, les informations sur l’activité des utilisateurs dans les journaux d’audit se trouvent sous le service **Méthodes d’authentification**.
+Si vous participez à la préversion publique de l’inscription convergée, les informations relatives à l’activité des utilisateurs dans les journaux d’audit se trouvent dans **Sécurité** > **Méthodes d’authentification**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Description des colonnes du rapport dans le portail Azure
 

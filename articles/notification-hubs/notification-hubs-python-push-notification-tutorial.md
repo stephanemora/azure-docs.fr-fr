@@ -1,6 +1,6 @@
 ---
 title: Utilisation de Notification Hubs avec Python
-description: Découvrez comment utiliser Azure Notification Hubs à partir d'un serveur principal Python.
+description: Découvrez comment utiliser Azure Notification Hubs à partir d’une application Python.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 1ff8c382813654b1dee38a99bf2cc0ca67afbedd
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213065"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313825"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Utilisation de Notification Hubs à partir de Python
 
@@ -32,7 +32,7 @@ Vous pouvez accéder à toutes les fonctionnalités Notification Hubs à partir 
 > [!NOTE]
 > Ceci est un exemple d’implémentation de référence pour l’implémentation des envois de notifications dans Python. Il ne s’agit pas du Kit de développement logiciel (SDK) de Notification Hub Python officiellement pris en charge. L’exemple a été créé à l’aide de Python 3.4.
 
-Cet article vous montre comment procéder.
+Cet article vous montre comment :
 
 - créer un client REST pour les fonctionnalités de Notification Hubs dans Python ;
 - envoyer des notifications à l’aide de l’interface de Python vers les API REST Notification Hub ;
@@ -305,7 +305,7 @@ L’URL HTTP de demande d’envoi de hub de notification est ajoutée avec une c
 
 Vous pouvez à présent terminer le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal Python.
 
-Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du hub comme indiqué dans le [didacticiel de prise en main]) :
+Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du concentrateur comme indiqué dans le [didacticiel de prise en main]) :
 
 ```python
 hub = NotificationHub("myConnectionString", "myNotificationHubName")
@@ -447,7 +447,7 @@ hub.send_template_notification(template_payload)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Cet article a montré comment créer un client REST Python pour Notification Hubs. À ce stade, vous pouvez :
+Cet article a montré comment créer un client REST Python pour Notification Hubs. À partir de là, vous pouvez :
 
 - télécharger l'intégralité de l'[exemple de wrapper REST Python], qui contient tout le code de cet article ;
 - poursuivre l'apprentissage de la fonctionnalité de balisage de Notification Hubs dans le [didacticiel Nouvelles de dernière minute]

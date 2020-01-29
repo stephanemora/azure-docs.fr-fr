@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f528135445824a17a8d8c95913adf6934cc87eb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895743"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260113"
 ---
 # <a name="configure-rules-preview-features"></a>Configurer des règles (fonctionnalités en préversion)
 
@@ -33,7 +33,7 @@ Utilisez la section Appareils cibles pour sélectionner le type d’appareils au
 
 Les conditions déterminent ce qui entraîne le déclenchement des règles. Actuellement, quand vous ajoutez plusieurs conditions à une règle, elles sont agrégées (AND) de manière logique. En d’autres termes, toutes les conditions doivent être remplies pour que la règle soit évaluée comme vraie.  
 
-Dans la capture d’écran suivante, les conditions vérifient que la température est supérieure à 90 et que l’humidité est inférieure à 10. Quand ces deux instructions sont vraies (true), la règle prend la valeur true et déclenche une action.
+Dans la capture d’écran suivante, les conditions vérifient que la température est supérieure à 70 &deg;F et que l’humidité est inférieure à 10. Quand ces deux instructions sont vraies (true), la règle prend la valeur true et déclenche une action.
 
 ![Conditions](media/howto-configure-rules/conditions.png)
 

@@ -2,19 +2,21 @@
 title: Modes de déploiement
 description: Explique comment spécifier s’il faut utiliser un mode de déploiement complet ou incrémentiel avec Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: f5a6f6416240ce512167e779c086d2665771c3f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/17/2020
+ms.openlocfilehash: e53b8c58bf0919e64079e62c687b76ada1db7ff0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476451"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261022"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modes de déploiement Azure Resource Manager
 
-Lorsque vous déployez vos ressources, vous spécifiez que le déploiement est soit une mise à jour incrémentielle, soit une mise à jour complète.  La différence entre ces deux modes réside dans la manière dont le Gestionnaire des ressources gère les ressources existantes dans le groupe de ressources qui ne se trouvent pas dans le modèle. Le mode par défaut est incrémentiel.
+Lorsque vous déployez vos ressources, vous spécifiez que le déploiement est soit une mise à jour incrémentielle, soit une mise à jour complète. La différence entre ces deux modes réside dans la manière dont le Gestionnaire des ressources gère les ressources existantes dans le groupe de ressources qui ne se trouvent pas dans le modèle.
 
 Pour les deux modes, Resource Manager essaie de créer toutes les ressources spécifiées dans le modèle. Si la ressource existe déjà dans le groupe de ressources et que ses paramètres sont conservés, aucune opération n’est effectuée pour cette ressource. Si vous modifiez les valeurs de propriété d’une ressource, la ressource est mise à jour avec ces nouvelles valeurs. Si vous essayez de mettre à jour l’emplacement ou le type d’une ressource existante, le déploiement échoue avec une erreur. Vous devez dans ce cas déployer une nouvelle ressource avec l’emplacement ou le type dont vous avez besoin.
+
+Le mode par défaut est incrémentiel.
 
 ## <a name="complete-mode"></a>Mode Complet
 
@@ -26,16 +28,16 @@ Soyez prudent lorsque vous utilisez le mode Complet avec les [boucles de copie](
 
 Si vous déployez sur [plusieurs groupes de ressources dans un modèle](cross-resource-group-deployment.md), les ressources du groupe de ressources spécifié dans le déploiement peuvent être supprimées. Les ressources dans les groupes de ressources secondaires ne sont pas supprimées.
 
-Il existe des différences dans la manière dont les types de ressources traitent les suppressions en mode complet. Les ressources parentes sont automatiquement supprimées lorsqu'elles ne figurent pas dans un modèle déployé en mode complet. Certaines ressources enfants ne sont pas automatiquement supprimées lorsqu'elles ne figurent pas dans le modèle. Toutefois, ces ressources enfants sont supprimées si la ressource parent est supprimée. 
+Il existe des différences dans la manière dont les types de ressources traitent les suppressions en mode complet. Les ressources parentes sont automatiquement supprimées lorsqu'elles ne figurent pas dans un modèle déployé en mode complet. Certaines ressources enfants ne sont pas automatiquement supprimées lorsqu'elles ne figurent pas dans le modèle. Toutefois, ces ressources enfants sont supprimées si la ressource parent est supprimée.
 
-Par exemple, si votre groupe de ressources contient une zone DNS (type de ressource Microsoft.Network/dnsZones) et un enregistrement CNAME (type de ressource Microsoft.Network/dnsZones/CNAME), la zone DNS est la ressource parente de l'enregistrement CNAME. Si vous procédez à un déploiement en mode complet et que vous n'incluez pas la zone DNS dans votre modèle, la zone DNS et l'enregistrement CNAME sont tous deux supprimés. Si vous incluez la zone DNS dans votre modèle mais pas l’enregistrement CNAME, ce dernier n’est pas supprimé. 
+Par exemple, si votre groupe de ressources contient une zone DNS (type de ressource Microsoft.Network/dnsZones) et un enregistrement CNAME (type de ressource Microsoft.Network/dnsZones/CNAME), la zone DNS est la ressource parente de l'enregistrement CNAME. Si vous procédez à un déploiement en mode complet et que vous n'incluez pas la zone DNS dans votre modèle, la zone DNS et l'enregistrement CNAME sont tous deux supprimés. Si vous incluez la zone DNS dans votre modèle mais pas l’enregistrement CNAME, ce dernier n’est pas supprimé.
 
 Pour plus d'informations sur la façon dont les types de ressources gèrent la suppression, consultez [Suppression de ressources Azure pour les déploiements en mode complet](complete-mode-deletion.md).
 
 Si le groupe de ressources est [verrouillé](../management/lock-resources.md), le mode complet ne supprime pas les ressources.
 
 > [!NOTE]
-> Seuls les modèles de niveau racine prennent en charge le mode de déploiement complet. Pour les [modèles liés ou imbriqués](linked-templates.md), vous pouvez utiliser le mode incrémentiel. 
+> Seuls les modèles de niveau racine prennent en charge le mode de déploiement complet. Pour les [modèles liés ou imbriqués](linked-templates.md), vous pouvez utiliser le mode incrémentiel.
 >
 > Les [déploiements de niveau abonnement](deploy-to-subscription.md) ne prennent pas en charge le mode complet.
 >
@@ -46,7 +48,8 @@ Si le groupe de ressources est [verrouillé](../management/lock-resources.md), l
 
 En mode incrémentiel, le Gestionnaire des ressources **conserve telles quelles** les ressources qui existent dans le groupe de ressources, mais qui ne sont pas spécifiées dans le modèle. Les ressources du modèle **sont ajoutées** au groupe de ressources.
 
-Il est important de noter que le mode incrémentiel s'applique à la ressource entière et non aux propriétés individuelles d'une ressource existante. Lors du redéploiement d’une ressource existante en mode incrémentiel, toutes les propriétés sont réappliquées. Les **propriétés ne sont pas ajoutées de manière incrémentielle**. On pense souvent à tort que les propriétés qui ne sont pas spécifiées dans le modèle restent inchangées. Si vous omettez de spécifier certaines propriétés, Resource Manager interprète le déploiement comme un remplacement de ces valeurs. Les propriétés qui ne sont pas incluses dans le modèle sont réinitialisées aux valeurs par défaut définies par le fournisseur de ressources. Spécifiez toutes les valeurs non définies par défaut pour la ressource et pas seulement celles que vous mettez à jour. La définition de la ressource dans le modèle contient toujours l’état final de la ressource. Elle ne peut pas représenter une mise à jour partielle d’une ressource existante.
+> [!NOTE]
+> Lors du redéploiement d’une ressource existante en mode incrémentiel, toutes les propriétés sont réappliquées. Les **propriétés ne sont pas ajoutées de manière incrémentielle**. On pense souvent à tort que les propriétés qui ne sont pas spécifiées dans le modèle restent inchangées. Si vous omettez de spécifier certaines propriétés, Resource Manager interprète le déploiement comme un remplacement de ces valeurs. Les propriétés qui ne sont pas incluses dans le modèle sont réinitialisées aux valeurs par défaut. Spécifiez toutes les valeurs non définies par défaut pour la ressource et pas seulement celles que vous mettez à jour. La définition de la ressource dans le modèle contient toujours l’état final de la ressource. Elle ne peut pas représenter une mise à jour partielle d’une ressource existante.
 
 ## <a name="example-result"></a>Résultat de l’exemple
 
@@ -105,9 +108,9 @@ L’exemple suivant montre un modèle lié dans le mode de déploiement incréme
 ```json
 "resources": [
   {
+      "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
           <nested-template-or-external-template>

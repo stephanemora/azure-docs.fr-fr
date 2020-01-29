@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402592"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168173"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 
@@ -27,7 +27,7 @@ Cet article décrit les détails de l’intégration et de l’utilisation de Se
 * L’agent de dépendances installé sur l’ordinateur Windows ou le serveur Linux.
 
 >[!NOTE]
->Si vous avez déjà déployé Service Map, vous pouvez maintenant visualiser vos mappages dans Azure Monitor pour les machines virtuelles, incluant des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances de celles-ci. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte Azure Monitor pour machines virtuelles, consultez les [questions fréquentes (FAQ)](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
+>Si vous avez déjà déployé Service Map, vous pouvez maintenant visualiser vos mappages dans Azure Monitor pour les machines virtuelles, incluant des fonctionnalités supplémentaires pour la supervision de l’intégrité et des performances de celles-ci. Pour en savoir plus, consultez [Présentation d’Azure Monitor pour machines virtuelles](../../azure-monitor/insights/vminsights-overview.md). Pour en savoir plus sur les différences entre la solution Service Map et la fonctionnalité de carte Azure Monitor pour machines virtuelles, consultez les [questions fréquentes (FAQ)](../faq.md#azure-monitor-for-vms-preview).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
@@ -321,7 +321,7 @@ Il existe des propriétés générées en interne que vous pouvez utiliser pour 
 
 ### <a name="connections"></a>Connexions
 
-Les métriques de connexion sont écrites dans une nouvelle table dans Log Analytics (VMConnection). Cette table fournit des informations sur les connexions relatives à une machine (entrantes et sortantes). Les métriques de connexion sont également exposées avec des API offrant le moyen d’obtenir une métrique spécifique dans une fenêtre de temps.  Les connexions TCP résultant de l’acceptation (*accept*) sur un socket d’écoute sont des connexions entrantes, tandis que celles créées par le biais d’une connexion (*connect*) à une adresse IP et un port spécifiques sont des connexions sortantes. La direction d’une connexion est représentée par la propriété Direction, qui peut être définie avec la valeur **inbound** ou **outbound**. 
+Les métriques de connexion sont écrites dans une nouvelle table dans Log Analytics (VMConnection). Cette table fournit des informations sur les connexions relatives à une machine (entrantes et sortantes). Les métriques de connexion sont également exposées avec des API offrant le moyen d’obtenir une métrique spécifique dans une fenêtre de temps.  Les connexions TCP qui résultent de l’acceptation sur un socket d’écoute sont entrantes, alors que celles créées en se connectant à une adresse IP et à un port donnés sont sortantes. La direction d’une connexion est représentée par la propriété Direction, qui peut être définie avec la valeur **inbound** ou **outbound**. 
 
 Les enregistrements inclus dans ces tables sont générés à partir des données rapportées par Dependency Agent. Chaque enregistrement représente une observation sur un intervalle de temps d’une minute. La propriété TimeGenerated indique le début de l’intervalle de temps. Chaque enregistrement contient des informations identifiant l’entité respective (à savoir la connexion ou le port), ainsi que des métriques associées à cette entité. Actuellement, seule l’activité réseau utilisant TCP sur IPv4 est rapportée.
 

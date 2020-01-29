@@ -1,28 +1,20 @@
 ---
-title: Utiliser des images de machine virtuelle partagées pour créer un groupe identique dans Azure | Microsoft Docs
+title: Utiliser des images partagées de machines virtuelles pour créer un groupe identique dans Azure
 description: Découvrez comment utiliser Azure CLI pour créer des images de machine virtuelle partagées dans le but de déployer des groupes de machines virtuelles identiques dans Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: axayjo
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.reviewer: cynthn
 ms.custom: ''
-ms.openlocfilehash: 166e859f8ddd080ec8e44cf9647e1c8687b12b2c
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 83b3d5c904a65b28482acf8b685c939493c8c03b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621507"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276264"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-cli-20"></a>Créer et utiliser des images partagées pour les groupe de machines virtuelles identiques avec Azure CLI 2.0
 
@@ -52,7 +44,7 @@ La création et la configuration des l’ensemble des ressources et des machines
 [!INCLUDE [virtual-machines-common-gallery-list-cli](../../includes/virtual-machines-common-gallery-list-cli.md)]
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Pour supprimer votre groupe identique et les ressources supplémentaires, supprimez le groupe de ressources et toutes ses ressources avec [az group delete](/cli/azure/group). Le paramètre `--no-wait` retourne le contrôle à l’invite de commandes sans attendre que l’opération se termine. Le paramètre `--yes` confirme que vous souhaitez supprimer les ressources sans passer par une invite supplémentaire à cette fin.
 
 ```azurecli-interactive

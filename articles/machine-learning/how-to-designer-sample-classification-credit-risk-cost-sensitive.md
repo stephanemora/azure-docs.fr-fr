@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 54ca0df005dccceacc88044a51f31ad784b7071b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 1430db34f9c31cbd9d9df921650c628d265bccc5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763400"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311085"
 ---
 # <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Créer un classifieur et utiliser des scripts Python pour prédire le risque de crédit à l’aide du concepteur Azure Machine Learning
 
-**Exemple 4 du concepteur (préversion)**
+**Échantillon de concepteur 4**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Cet article vous montre comment générer un pipeline de Machine Learning complexe à l’aide du concepteur (préversion). Vous allez apprendre à implémenter une logique personnalisée à l’aide de scripts Python et à comparer plusieurs modèles, afin de choisir la meilleure option.
+Cet article vous montre comment générer un pipeline complexe d’apprentissage automatique à l’aide du concepteur. Vous allez apprendre à implémenter une logique personnalisée à l’aide de scripts Python et à comparer plusieurs modèles, afin de choisir la meilleure option.
 
 Cet exemple forme un classifieur à la prédiction des risques de crédit à l’aide d’informations sur les demandes de crédit (historique de crédit, âge et nombre de cartes de crédit, par exemple). Toutefois, vous pouvez appliquer les concepts de cet article pour gérer les difficultés liées à l’apprentissage automatique.
 

@@ -1,26 +1,18 @@
 ---
-title: Gérer les domaines d'erreur dans les groupes de machines virtuelles identiques Azure | Microsoft Docs
+title: Gérer les domaines d’erreur dans les groupes de machines virtuelles identiques Azure
 description: Découvrez comment choisir le bon nombre de domaines d’erreur pendant la création d’un groupe de machines virtuelles identiques.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: rajsqr
-manager: drewm
-editor: ''
-tags: ''
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: drewm
-ms.openlocfilehash: d6207a1a77ff00ff36fe6b3b748c3f8f7279b62d
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 297837354cea4bb5ccdcc03261810dcffd144243
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639962"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275727"
 ---
 # <a name="choosing-the-right-number-of-fault-domains-for-virtual-machine-scale-set"></a>Choisir le bon nombre de domaines d’erreur pour un groupe de machines virtuelles identiques
 Des groupes de machines virtuelles identiques sont créés avec cinq domaines d’erreur par défaut dans les régions Azure sans zones. Pour les régions qui prennent en charge le déploiement zonal de groupes de machines virtuelles identiques et si cette option est sélectionnée, la valeur par défaut du nombre de domaines d’erreur est de 1 pour chacune des zones. FD = 1 implique dans ce cas que les instances de machine virtuelle appartenant au groupe identique sont réparties entre plusieurs racks dans la mesure du possible.
@@ -30,7 +22,7 @@ Vous pouvez également envisager d’aligner le nombre de domaines d’erreur du
 ## <a name="rest-api"></a>API REST
 Vous pouvez définir la propriété `properties.platformFaultDomainCount` sur 1, 2 ou 3 (la valeur par défaut est 5 si aucune valeur n’est spécifiée). Reportez-vous à la documentation de l’API REST [ici](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate).
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 Vous pouvez définir le paramètre `--platform-fault-domain-count` sur 1, 2 ou 3 (la valeur par défaut est 5 si aucune valeur n’est spécifiée). Reportez-vous à la documentation d’Azure CLI [ici](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az-vmss-create).
 
 ```azurecli-interactive

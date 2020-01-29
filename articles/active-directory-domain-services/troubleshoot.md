@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 5c2a8c8cfa2425985a22b93d4ade509320c48564
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70998728"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512621"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Erreurs courantes et étapes de dépannage pour Azure Active Directory Domain Services
 
@@ -43,7 +43,7 @@ Si vous avez des difficultés à activer Azure AD DS, examinez ci-dessous les er
 
 **Résolution :**
 
-Vérifiez qu’aucun environnement AD DS existant n’est associé au même nom de domaine sur le réseau virtuel. Par exemple, si vous disposez d’un domaine AD DS nommé *contoso.com* qui s’exécute sur des machines virtuelles Azure, quand vous essayez d’activer un domaine managé Azure AD DS avec le même nom de domaine (*contoso.com*) sur le réseau virtuel, l’opération demandée échoue.
+Vérifiez que vous n’avez pas d’environnement AD DS existant avec le même nom de domaine sur le même réseau virtuel ou sur un réseau virtuel appairé. Par exemple, si vous disposez d’un domaine AD DS nommé *contoso.com* qui s’exécute sur des machines virtuelles Azure, quand vous essayez d’activer un domaine managé Azure AD DS avec le même nom de domaine (*contoso.com*) sur le réseau virtuel, l’opération demandée échoue.
 
 Cet échec est dû à des conflits de noms pour le nom de domaine sur le réseau virtuel. Une recherche DNS vérifie si un environnement AD DS existant répond au nom de domaine demandé. Pour résoudre cet échec, utilisez un nom différent pour configurer votre domaine managé Azure AD DS ou déprovisionnez le domaine AD DS existant, puis réessayez d’activer Azure AD DS.
 
@@ -55,7 +55,7 @@ Cet échec est dû à des conflits de noms pour le nom de domaine sur le réseau
 
 **Résolution :**
 
-Vérifiez s’il existe une application nommée *Azure AD Domain Services Sync* dans votre annuaire Azure AD. Si cette application existe, supprimez-la, puis essayez à nouveau d’activer Azure AD DS. Pour rechercher une application existante et la supprimer si nécessaire, effectuez les étapes suivantes :
+Vérifiez s’il existe une application nommée *Azure AD Domain Services Sync* dans votre annuaire Azure AD. Si cette application existe, supprimez-la, puis réessayez d’activer Azure AD DS. Pour rechercher une application existante et la supprimer si nécessaire, effectuez les étapes suivantes :
 
 1. Sur le portail Azure, sélectionnez **Azure Active Directory** dans le volet de navigation gauche.
 1. Sélectionnez **Applications d’entreprise**. Choisissez *Toutes les application* dans le menu déroulant **Type d’application**, puis sélectionnez **Appliquer**.
@@ -72,7 +72,7 @@ Vérifiez s’il existe une application nommée *Azure AD Domain Services Sync* 
 
 Vérifiez si votre annuaire Azure AD contient une application nommée *AzureActiveDirectoryDomainControllerServices* avec l’identificateur d’application *d87dcbc6-a371-462e-88e3-28ad15ec4e64*. Si cette application existe, supprimez-la, puis essayez à nouveau d’activer Azure AD DS.
 
-Utilisez le script PowerShell suivant pour rechercher une instance d’application existante et la supprimer si nécessaire.
+Utilisez le script PowerShell suivant pour rechercher une instance d’application existante et la supprimer si nécessaire :
 
 ```powershell
 $InformationPreference = "Continue"
@@ -124,7 +124,7 @@ Pour vérifier l’état de cette application existante et l’activer si néces
 1. Si **Activé pour que les utilisateurs se connectent** est défini sur *Non*, définissez la valeur sur *Oui*, puis sélectionnez **Enregistrer**.
 1. Une fois que vous avez activé l’application, essayez à nouveau d’activer Azure AD DS.
 
-## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Les utilisateurs sont incapables de se connecter aux services de domaine Azure AD gérés
+## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Les utilisateurs sont incapables de se connecter aux services de domaine Asure AD gérés
 
 Si des utilisateurs de votre locataire Azure AD ne peuvent pas se connecter au domaine managé Azure AD DS, effectuez les étapes de dépannage suivantes :
 
@@ -135,7 +135,7 @@ Si des utilisateurs de votre locataire Azure AD ne peuvent pas se connecter au d
 * **Synchronisation de mot de passe** – Veillez à activer la synchronisation de mot de passe pour les [utilisateurs cloud uniquement][cloud-only-passwords] ou pour les environnements hybrides [ utilisant Azure AD Connect][hybrid-phs].
     * **Comptes synchronisés hybrides :** si les comptes d’utilisateurs affectés sont synchronisés à partir d’un annuaire local, vérifiez les éléments suivants :
     
-      * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) ou procédé à une mise à jour vers cette version.
+      * Vous avez déployé la [dernière version recommandée d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) ou procédé à une mise à jour vers cette version.
       * Vous avez configuré Azure AD Connect pour [effectuer une synchronisation complète][hybrid-phs].
       * Selon la taille de votre annuaire, la mise à disposition des comptes d’utilisateurs et des hachages d’informations d’identification dans Azure AD DS peut prendre un certain temps. Veillez à attendre suffisamment longtemps avant d’essayer de vous authentifier pour le domaine managé.
       * Si le problème persiste après la vérification des étapes précédentes, essayez de redémarrer *Microsoft Azure Active Directory Sync Services*. À partir de votre [machine virtuelle de gestion][management-vm], ouvrez une invite de commandes et exécutez les commandes suivantes :
@@ -169,7 +169,7 @@ Pour supprimer entièrement un compte d’utilisateur d’un domaine managé Azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous rencontrez toujours des problèmes, [formulez une demande de support Azure][azure-support] pour bénéficier d’une aide supplémentaire.
+Si vous continuez à rencontrer des problèmes, [ouvrez une requête de support Azure][azure-support] pour obtenir un résolution des problèmes supplémentaire.
 
 <!-- INTERNAL LINKS -->
 [cloud-only-passwords]: tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds

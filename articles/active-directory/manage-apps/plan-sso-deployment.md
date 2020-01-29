@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779379"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512825"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planifier un déploiement de l’authentification unique
 
@@ -31,7 +31,7 @@ De nombreuses organisations s’appuient sur des applications SaaS, comme Offic
 
 La Place de marché Azure propose plus de 3 000 applications avec connexion SSO préintégrée, ce qui facilite leur intégration dans les locataires.
 
-## <a name="licensing"></a>Gestion des licences
+## <a name="licensing"></a>Licence
 
 - **Gestion des licences Azure AD** - Pour les applications SaaS pré-intégrées, l’authentification unique est gratuite. Toutefois, le nombre d’objets contenus dans votre annuaire et les fonctionnalités que vous souhaitez déployer peuvent nécessiter des licences supplémentaires. Pour obtenir la liste complète des conditions de licence, consultez la page [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licences d’application** - Le type de licence que vous choisissez pour vos applications SaaS doit répondre aux besoins de votre entreprise. Contactez le propriétaire de l’application pour déterminer si les utilisateurs affectés à l’application disposent de licences adaptées à leurs rôles dans l’application. Si Azure AD gère l’attribution automatique d’utilisateurs en fonction des rôles, les rôles attribués dans Azure AD doivent s’aligner sur le nombre de licences détenues au sein de l’application. Si le nombre de licences détenues dans l’application est incorrect, cela peut entraîner des erreurs pendant l’attribution ou la mise à jour des utilisateurs.
@@ -62,7 +62,7 @@ Il existe deux principales façons de permettre à vos utilisateurs d’utiliser
 L’utilisation d’Azure AD pour l’authentification basée sur les mots de passe nécessite le déploiement d’une extension de navigateur qui permettra de récupérer les informations d’identification de façon sécurisée et de renseigner les formulaires de connexion. Configurez un mécanisme permettant de déployer l’extension à grande échelle avec des [navigateurs pris en charge](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options disponibles :
 
 - [Stratégie de groupe pour Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) pour Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Configuration Manager pour Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Pour plus d’informations, consultez [Configurer l’authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
@@ -234,13 +234,13 @@ Cette section dresse la liste des exigences et des recommandations concernant la
 
 Utilisez toujours le rôle ayant le moins de privilèges possible pour accomplir une tâche dans Azure Active Directory. Microsoft recommande de [passer en revue les différents rôles disponibles](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) et de choisir celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
 
-| Utilisateur| contrôleur | Rôle Azure AD (si nécessaire) |
+| Utilisateur| Rôles | Rôle Azure AD (si nécessaire) |
 |--------|-------|-----------------------------|
-| Administrateur du support technique | Support de niveau 1 | Aucun |
+| Administrateur du support technique | Support de niveau 1 | None |
 | Administrateur d’identité | Configurer et déboguer quand des problèmes impactent Azure AD | Administrateur général |
-| Administrateur d’application | Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations | Aucun |
+| Administrateur d’application | Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations | None |
 | Administrateurs de l’infrastructure | Propriétaire de la substitution de certificat | Administrateur général |
-| Chef d’entreprise/Partie prenante | Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations | Aucun |
+| Chef d’entreprise/Partie prenante | Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations | None |
 
 Nous vous recommandons d’utiliser [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) pour gérer vos rôles dans le but de fournir aux utilisateurs qui disposent d’autorisations sur l’annuaire des fonctionnalités supplémentaires au niveau des audits, du contrôle et des révisions d’accès.
 
@@ -264,7 +264,7 @@ Ce sont les méthodes d’authentification qui sont disponibles dans votre appli
 
 - **Si votre application ne prend pas en charge plusieurs fournisseurs d’identité** mais permet aux utilisateurs de se connecter à l’aide de l’authentification basée sur les formulaires (nom d’utilisateur/mot de passe), assurez-vous que les utilisateurs pourront revenir à cette méthode en cas d’échec du déploiement de la nouvelle configuration SSO.
 
-### <a name="access-management"></a>gestion de l’accès
+### <a name="access-management"></a>Gestion de l’accès
 
 Nous vous recommandons de choisir une approche par étapes lorsque vous gérez l’accès aux ressources. Les approches les plus courantes sont notamment : l’utilisation de groupes locaux qui sont synchronisés via Azure AD Connect, la [création de groupes dynamiques dans Azure AD en fonction des attributs utilisateur](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) et la [création de groupes en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) gérés dans Azure AD par un propriétaire de ressources.
 
@@ -272,7 +272,7 @@ Nous vous recommandons de choisir une approche par étapes lorsque vous gérez l
 
 Nous vous recommandons de passer en revue les différents aspects de la sécurité des applications SaaS à une fréquence régulière et d’effectuer les actions correctives nécessaires.
 
-### <a name="troubleshooting"></a>Résolution de problèmes
+### <a name="troubleshooting"></a>Dépannage
 
 Les liens suivants présentent des scénarios de dépannage. Vous pouvez créer un guide contenant ces scénarios et ces résolutions pour l’équipe du support technique.
 

@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des API Node Azure Relay | Microsoft Docs
-description: Vue d’ensemble des API Node Relay
+description: Cet article fournit une vue d’ensemble de l’API node. js pour le service Azure Relay. Il montre également comment utiliser le package Hyco-WS node.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 794e797e504d6064c13ffe0a4ed131e668d86e97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2877284c419da4999e23490fc986e5da44e5d92e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699394"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514508"
 ---
 # <a name="relay-hybrid-connections-node-api-overview"></a>Vue d’ensemble des API Node pour les connexions hybrides Relay
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Le package Node [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pour les connexions hybrides Azure Relay repose sur le package NPM [« ws »](https://www.npmjs.com/package/ws) ainsi qu’il l’étend. Ce package réexporte toutes les exportations du package de base et ajoute de nouvelles exportations qui permettent l’intégration avec la fonctionnalité de connexions hybrides du service Azure Relay. 
+Le package Node [`hyco-ws`](https://www.npmjs.com/package/hyco-ws) pour les connexions hybrides Azure Relay repose sur le package NPM [« ws »](https://www.npmjs.com/package/ws) ainsi qu’il l’étend. Ce package réexporte toutes les exportations du package de base et ajoute de nouvelles exportations qui permettent l’intégration avec la fonctionnalité de connexions hybrides du service Azure Relay. 
 
 Les applications existantes de type `require('ws')` peuvent également utiliser ce package avec `require('hyco-ws')`. Cela permet des scénarios hybrides dans lesquels une application écoute les connexions WebSocket en local depuis « l’intérieur du pare-feu » en même temps que via des connexions hybrides.
   

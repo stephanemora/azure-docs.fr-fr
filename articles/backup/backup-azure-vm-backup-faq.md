@@ -4,12 +4,12 @@ description: Cet article fournit des réponses à des questions courantes sur la
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: d70f4832daba59739d6798517902e921927194d6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680526"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293978"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Forum aux questions - Sauvegarde de machines virtuelles Azure
 
@@ -92,6 +92,19 @@ La sauvegarde planifiée est déclenchée dans les 2 heures suivant l’heure de
 ### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Quelle est la plage de rétention autorisée minimale pour le point de sauvegarde quotidien ?
 
 La stratégie de sauvegarde de la machine virtuelle Azure prend en charge une plage de rétention minimale allant de 7 à 9 999 jours. Toute modification apportée à une stratégie de sauvegarde de machine virtuelle existante avec une plage de rétention inférieure à sept jours nécessitera une mise à jour pour répondre à la durée de rétention minimale de sept jours.
+
+### <a name="can-i-backup-or-restore-selective-disks-attached-to-a-vm"></a>Puis-je sauvegarder ou restaurer des disques sélectifs attachés à une machine virtuelle ?
+
+La sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l’aide de la solution de sauvegarde de machine virtuelle Azure.
+
+Aujourd’hui,la sauvegarde Azure prend en charge la sauvegarde de tous les disques (système d’exploitation et données) dans une machine virtuelle à l’aide de la solution de sauvegarde des machines virtuelles. Avec la fonctionnalité d’exclusion de disque, vous avez la possibilité de sauvegarder un seul ou plusieurs disques de données dans une machine virtuelle. Cette fonctionnalité offre une solution efficace et économique pour vos besoins en matière de sauvegarde et de restauration. Chaque point de récupération contient des données des disques inclus dans l’opération de sauvegarde, ce qui vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné au cours de l’opération de restauration. Cela s’applique à la restauration de la capture instantanée et du coffre.
+
+Cette solution se révèle particulièrement utile dans les scénarios suivants :
+  
+1. Vous avez des données critiques à sauvegarder sur un seul disque et vous ne voulez pas sauvegarder les autres disques attachés à une machine virtuelle. Cela réduit les coûts de stockage de sauvegarde.  
+2. Vous disposez d’autres solutions de sauvegarde pour une partie des données de vos machines virtuelles. Par exemple, vous sauvegardez vos bases de données ou vos données avec une autre solution de sauvegarde de charge de travail, et vous souhaitez utiliser la sauvegarde au niveau de la machine virtuelle Azure pour le reste de vos disques et données afin de générer un système efficace et robuste en utilisant les meilleures fonctionnalités offertes.
+
+Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
 
 ## <a name="restore"></a>Restaurer
 

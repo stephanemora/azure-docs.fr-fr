@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 26609bc95bf6fd49ded23d8f117911a02577405a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445897"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261617"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Échanger des messages dans le cloud en utilisant Azure Logic Apps et Azure Service Bus
 
@@ -154,7 +154,9 @@ Vérifiez que votre application logique dispose des autorisations pour accéder 
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
-Le connecteur Service Bus peut enregistrer jusqu’à 1 500 sessions uniques à la fois entre un bus de service et le cache du connecteur. Si le nombre de sessions dépasse cette limite, les anciennes sessions sont supprimées du cache. Pour obtenir d’autres détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/servicebus/).
+Le connecteur Service Bus peut enregistrer jusqu’à 1 500 sessions uniques à la fois entre un bus de service et le cache du connecteur. Si le nombre de sessions dépasse cette limite, les anciennes sessions sont supprimées du cache. Pour plus d’informations, consultez les [sessions de messages](../service-bus-messaging/message-sessions.md).
+
+Pour obtenir d’autres détails techniques sur les déclencheurs, les actions et les limites, qui sont décrits par la description OpenAPI du connecteur (anciennement Swagger), consultez la [page de référence du connecteur](/connectors/servicebus/). Pour plus d’informations sur la messagerie Azure Service Bus, consultez [qu’est-ce que Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) ?
 
 ## <a name="next-steps"></a>Étapes suivantes
 

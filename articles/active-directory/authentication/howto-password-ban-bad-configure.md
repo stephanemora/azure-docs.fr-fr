@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58371edffa4400c2c2b3efd37c3ce6d7c3cad95
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb47b9df51803c76662b5fb4ca1fe23740e7af9a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847913"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155053"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configuration de la liste de mots de passe interdits personnalisée
 
@@ -26,7 +26,7 @@ Nombre d’organisations estiment que leurs utilisateurs créent des mots de pas
 
 La configuration de la liste de mots de passe interdits personnalisée requiert une licence Azure Active Directory Premium P1 ou P2. Pour plus d’informations sur les licences Azure Active Directory, consultez la [page de tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d’authentification**, puis **Protection par mot de passe**.
+1. Connectez-vous à la [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory** > **Sécurité** > **Méthodes d’identification** > **Protection des mots de passe**.
 1. Définissez l’option **Enforce custom list** (Appliquer la liste personnalisée) sur **Oui**.
 1. Ajouter des chaînes à la **liste de mots de passe interdits personnalisée**, à raison d’une chaîne par ligne
    * La liste de mots de passe interdits personnalisée peut contenir jusqu’à 1 000 termes.

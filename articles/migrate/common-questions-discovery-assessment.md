@@ -3,24 +3,24 @@ title: Questions courantes sur la découverte, l’évaluation et l’analyse de
 description: Obtenez des réponses aux questions courantes sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 12/29/2019
-ms.openlocfilehash: 0b7bb425bff1d26c2a0d6feeaf70be826eab2b9a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 0132563072ed04a52e4937da7a8df69196f1a91f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563923"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513284"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>Questions courantes sur la découverte, l’évaluation et l’analyse des dépendances
 
-Cet article donne des réponses aux questions courantes sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate. Si, après avoir lu cet article, vous avez d’autres questions, posez-les sur le [forum Azure Migrate](https://aka.ms/AzureMigrateForum). Si vous avez d’autres questions, consultez les articles suivants :
+Cet article donne des réponses aux questions courantes sur la découverte, l’évaluation et l’analyse des dépendances dans Azure Migrate. Si, après avoir lu cet article, vous avez d’autres questions, posez-les sur le [forum Azure Migrate](https://aka.ms/AzureMigrateForum). Si vous avez d’autres questions, consultez ces articles :
 
 - [Questions générales](resources-faq.md) sur Azure Migrate.
 - [Questions](common-questions-appliance.md) sur l’appliance Azure Migrate.
 
 
-## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Combien de machines virtuelles puis-je découvrir avec une appliance ?
+## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Combien de machines virtuelles peut-on détecter avec une appliance ?
 
-Vous pouvez découvrir jusqu’à 10 000 machines virtuelles VMware et jusqu’à 5 000 machines virtuelles Hyper-V avec une seule appliance. Si vous avez plus de machines dans votre environnement local, découvrez comment adapter l’évaluation des machines [Hyper-V](scale-hyper-v-assessment.md) et [VMware](scale-vmware-assessment.md).
+Vous pouvez découvrir jusqu’à 10 000 machines virtuelles VMware, jusqu’à 5 000 machines virtuelles Hyper-V et jusqu’à 250 serveurs avec une seule appliance. Si vous avez plus de machines dans votre environnement local, découvrez comment adapter l’évaluation des machines [Hyper-V](scale-hyper-v-assessment.md) et [VMware](scale-vmware-assessment.md) ainsi que des évaluations [physiques](scale-physical-assessment.md).
 
 
 
@@ -99,7 +99,7 @@ Non, la visualisation des dépendances ne peut pas être exportée. Toutefois, A
 
 Utilisez ce [script pour installer l’agent de dépendances](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples). Suivez ces [instructions pour installer MMA](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) en utilisant la ligne de commande ou l’automation. Pour MMA, utilisez [ce script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 
-En plus des scripts, vous pouvez également utiliser des outils de déploiement tels que System Center Configuration Manager et [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) pour déployer les agents.
+Outre les scripts, vous pouvez également utiliser les outils de déploiement tels que Microsoft Endpoint Configuration Manager et [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) pour déployer les agents.
 
 
 ## <a name="what-operating-systems-does-mma-support"></a>Quels sont les systèmes d’exploitation pris en charge par MMA ?

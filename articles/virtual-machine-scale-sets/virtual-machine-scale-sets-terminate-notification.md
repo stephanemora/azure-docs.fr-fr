@@ -1,26 +1,18 @@
 ---
-title: Notification d’arrêt des instances de groupe de machines virtuelles identiques Azure | Microsoft Docs
+title: Notification d’arrêt des instances de groupe de machines virtuelles identiques Azure
 description: Découvrez comment activer la notification d’arrêt pour les instances de groupe de machines virtuelles identiques Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705921"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271749"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Notification d’arrêt des instances de groupe de machines virtuelles identiques Azure (préversion)
 Les instances de groupe identique peuvent choisir de recevoir des notifications d’arrêt de l’instance et de configurer un délai d’attente prédéfini pour l’opération d’arrêt. La notification d’arrêt est envoyée par le biais d’Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md), qui fournit des notifications et un report des opérations ayant un impact, telles que le redémarrage et le redéploiement. La solution en préversion ajoute un autre événement (Terminate) à la liste de Scheduled Events, et le délai associé à l’événement d’arrêt dépend de la limite de délai spécifiée par les utilisateurs dans leurs configurations de modèle de groupe identique.
@@ -160,7 +152,7 @@ Vous pouvez également vous reporter aux exemples de scripts pour l’interrogat
 -   Approbation de toutes les suppressions en attente : s’il existe sur VM_1 une suppression en attente qui n’est pas approuvée, et que vous avez approuvé un autre événement Terminate sur VM_2, VM_2 n’est pas supprimé tant que l’événement Terminate pour VM_1 n’a pas été approuvé ou que son délai d’attente ne s’est pas écoulé. Une fois que vous avez approuvé l’événement Terminate pour VM_1, VM_1 et VM_2 sont supprimées.
 -   Approbation de toutes les suppressions simultanées : si l’on poursuit avec l’exemple ci-dessus, si VM_1 et VM_2 ont le même délai *NotBefore*, les deux événements Terminate doivent être approuvés, sinon aucune des machines virtuelles n’est supprimée avant l’expiration du délai d’attente.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Impossible d’activer scheduledEventsProfile
 Si vous obtenez une erreur « BadRequest » avec un message d’erreur indiquant que le membre « scheduledEventsProfile » est introuvable sur l’objet de type « VirtualMachineProfile », vérifiez la version de l’API utilisée pour les opérations du groupe identique. L’API Compute de version **2019-03-01** ou ultérieure est requise pour cette préversion.
 

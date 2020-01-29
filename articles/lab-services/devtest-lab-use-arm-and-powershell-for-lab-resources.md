@@ -1,5 +1,5 @@
 ---
-title: Créer ou modifier des laboratoires automatiquement à l’aide de modèles Azure Resource Manager et PowerShell | Microsoft Docs
+title: Créer ou modifier des laboratoires à l’aide de modèles de Azure Resource Manager
 description: Découvrez comment utiliser des modèles Azure Resource Manager avec PowerShell pour créer ou modifier des laboratoires automatiquement dans un DevTest Lab
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: cb5a08730b47cb5df3116aa4a54554ef0ee6f260
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 180081829387afeb7e63defe7a22378aa8d417d6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622455"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170310"
 ---
 # <a name="create-or-modify-labs-automatically-using-azure-resource-manager-templates-and-powershell"></a>Créer ou modifier des laboratoires automatiquement à l’aide de modèles Azure Resource Manager et PowerShell
 
@@ -27,10 +27,10 @@ DevTest Labs fournit de nombreux modèles Azure Resource Manager et scripts Powe
 
 Cet article vous guide dans le processus d’utilisation de ces modèles et scripts pour automatiser la création, la modification et le déploiement de vos laboratoires. Il vous montre également où trouver des informations supplémentaires sur l’utilisation de PowerShell pour effectuer certaines tâches courantes dans DevTest Labs.
 
-## <a name="step-1-gather-your-templates-and-scripts"></a>Étape 1 : Rassembler vos modèles et scripts
+## <a name="step-1-gather-your-templates-and-scripts"></a>Étape 1 : Rassembler vos modèles et scripts
 Des [modèles Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) et [scripts PowerShell](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) prédéfinis sont à votre disposition dans notre [référentiel GitHub](https://github.com/Azure/azure-devtestlab) public. Utilisez-les tels quels ou adaptez-les à vos besoins et stockez-les dans votre propre [référentiel Git privé](devtest-lab-add-artifact-repo.md).
 
-## <a name="step-2-modify-your-azure-resource-manager-template"></a>Étape 2 : Modifier votre modèle Azure Resource Manager
+## <a name="step-2-modify-your-azure-resource-manager-template"></a>Étape 2 : Modifier votre modèle Azure Resource Manager
 Si vous n’avez jamais créé de modèle, reportez-vous à la procédure [Créer votre premier modèle Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
 
 En outre, les [Bonnes pratiques de création de modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-template-best-practices) contiennent de nombreuses directives et suggestions pour vous aider à créer des modèles Azure Resource Manager fiables et faciles à utiliser. En règle générale, vous utilisez l’une des variantes des approches ou exemples fournis et modifiez votre modèle en fonction de vos besoins.

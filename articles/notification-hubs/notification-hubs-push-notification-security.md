@@ -1,6 +1,6 @@
 ---
-title: Sécurité de Notification Hubs
-description: Cette rubrique décrit la sécurité d’Azure Notification Hubs.
+title: Modèle de sécurité des notification Hubs
+description: En savoir plus sur le modèle de sécurité pour Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,16 +16,16 @@ ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273631"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263759"
 ---
 # <a name="notification-hubs-security"></a>Sécurité de Notification Hubs
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cette rubrique décrit le modèle de sécurité d'Azure Notification Hubs.
 
@@ -50,7 +50,7 @@ Comme pour les autres entités, les opérations Notification Hubs sont autorisé
 
 | Revendication   | Description                                          | Opérations autorisées |
 | ------- | ---------------------------------------------------- | ------------------ |
-| Écouter  | Créer/mettre à jour, lire et supprimer des inscriptions uniques | Créer/mettre à jour une inscription<br><br>Lire une inscription<br><br>Lire toutes les inscriptions pour un handle<br><br>Supprimer une inscription |
+| Écouter  | Créer/mettre à jour, lire et supprimer des inscriptions uniques | Créer/mettre à jour une inscription<br><br>Lire une inscription<br><br>Lire toutes les inscriptions pour un handle<br><br>Supprimer l'inscription |
 | Envoyer    | Envoyer des messages au hub de notification                | Envoyer un message |
 | Gérer  | Opérations CRUD sur Notification Hubs (y compris la mise à jour des informations d'identification PNS et les clés de sécurité) et lecture des inscriptions en fonction des balises |Créer/mettre à jour/lire/supprimer des hubs<br><br>Lire des inscriptions par balise |
 

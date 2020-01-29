@@ -3,14 +3,14 @@ title: Gérer les mises à jour pour plusieurs machines virtuelles Azure
 description: Cet article décrit la gestion des mises à jour pour les machines virtuelles Azure et non-Azure.
 services: automation
 ms.subservice: update-management
-ms.date: 11/20/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9a5a4330a90bd376114f836250e290944f03860
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de7171d3807540ae7d5f09c3a877031631248e49
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75417823"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168045"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -147,6 +147,13 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
   - Mises à jour
 
 - **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Planifier un déploiement de mises à jour](automation-tutorial-update-management.md#schedule-an-update-deployment).
+
+> [!NOTE]
+> Il est important de se souvenir que les exclusions sont prioritaires sur les inclusions. Par exemple, si vous définissez une règle d’exclusion de `*`, aucun correctif ou package n’est installé puisque cette règle les exclut tous. Les correctifs exclus sont toujours affichés comme étant manquants sur l’ordinateur. Sur les machines Linux, si un package est inclus, mais qu’il a un package dépendant exclu, le package n’est pas installé.
+
+> [!NOTE]
+> Vous ne pouvez pas spécifier des mises à jour qui ont été remplacées pour être incluses dans le déploiement des mises à jour.
+>
 
 - **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut ; cette valeur est de 30 minutes après l’heure actuelle. Vous pouvez également spécifier une heure différente.
 

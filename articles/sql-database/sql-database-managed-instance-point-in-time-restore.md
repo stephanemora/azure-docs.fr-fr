@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707662"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515120"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Restaurer une base de données SQL dans une instance gérée à un point antérieur dans le temps
 
@@ -48,17 +48,17 @@ Le tableau suivant présente les scénarios de limite de restauration dans le te
 
 |           |Restaurer la base de données existante sur la même instance gérée| Restaurer la base de données existante sur une autre instance gérée|Restaurer la base de données déposée sur la même instance gérée|Restaurer la base de données déposée sur une autre instance gérée|
 |:----------|:----------|:----------|:----------|:----------|
-|**Portail Azure**| OUI|Non |Non|Non|
-|**Interface de ligne de commande Azure**|OUI |OUI |Non|Non|
-|**PowerShell**| OUI|OUI |OUI|OUI|
+|**Azure portal**| Oui|Non |Non|Non|
+|**Azure CLI**|Oui |Oui |Non|Non|
+|**PowerShell**| Oui|Oui |Oui|Oui|
 
 ## <a name="restore-an-existing-database"></a>Restaurer une base de données existante
 
 Restaurez une base de données existante sur la même instance à l’aide du portail Azure, de PowerShell ou d’Azure CLI. Pour restaurer une base de données sur une autre instance, utilisez PowerShell ou Azure CLI en spécifiant les propriétés du groupe de ressources et de l’instance gérée cibles. Si vous spécifiez pas ces paramètres, la base de données sera restaurée par défaut sur l’instance existante. Le portail Azure ne prend pas actuellement en charge la restauration vers une autre instance.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 2. Accédez à votre instance gérée et sélectionnez la base de données à restaurer.
 3. Sélectionnez **Restaurer** dans la page de la base de données :
 
@@ -110,7 +110,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 Pour plus d’informations, consultez [.Restore-AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Si Azure CLI n’est pas encore installé, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -134,9 +134,9 @@ Pour obtenir une explication détaillée des paramètres disponibles, consultez 
 
 ---
 
-## <a name="restore-a-deleted-database"></a>restauration d’une base de données supprimée.
+## <a name="restore-a-deleted-database"></a>La restauration d’une base de données supprimée
 
-La restauration d’une base de données supprimée ne peut être effectuée qu’en utilisant PowerShell. La base de données peut être restaurée sur la même instance ou sur une autre instance.
+Il est possible de restaurer une base de données supprimée à l’aide de PowerShell ou du portail Azure. Pour ce faire, veuillez utiliser ce document sur le [Portail Azure](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). La base de données peut être restaurée sur la même instance ou sur une autre instance.
 
 Pour restaurer la base de données supprimée à l’aide de PowerShell, spécifiez vos valeurs pour les paramètres de la commande suivante. Exécutez ensuite la commande :
 
@@ -197,7 +197,7 @@ Utilisez l’une des méthodes suivantes pour vous connecter à votre base de do
 - [Point à site](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [Point de terminaison public](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
 Dans le portail Azure, sélectionnez la base de données à partir de l’instance gérée et sélectionnez **Supprimer**.
 
@@ -215,7 +215,7 @@ $databaseName = "<Source database>"
 Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceName -ResourceGroupName $resourceGroupName
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Utilisez la commande Azure CLI suivante pour supprimer une base de données existante d’une instance managée :
 

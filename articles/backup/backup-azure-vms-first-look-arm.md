@@ -3,12 +3,12 @@ title: Sauvegarder une machine virtuelle Azure à partir des paramètres de la m
 description: Dans cet article, découvrez comment sauvegarder une ou plusieurs machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 1895f27370e6f928ce2183798dd892a2ff7225c3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bd75bdfb3fe9939c576fe289f6be38ebe875e020
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391430"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294063"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Sauvegarder une machine virtuelle Azure à partir des paramètres de la machine virtuelle
 
@@ -77,6 +77,18 @@ Pour sauvegarder des machines virtuelles Azure, Sauvegarde Azure installe une ex
 ## <a name="back-up-from-the-recovery-services-vault"></a>Sauvegarder à partir du coffre Recovery Services
 
 Suivez les instructions de cet article pour activer la sauvegarde des machines virtuelles Azure en configurant un coffre Recovery Services Sauvegarde Azure et en activant la sauvegarde dans le coffre.
+
+>[!NOTE]
+> La sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l’aide de la solution de sauvegarde de machine virtuelle Azure.
+>
+>Aujourd’hui, Azure Backup prend en charge la sauvegarde de tous les disques (système d’exploitation et données) dans une machine virtuelle à l’aide de la solution de sauvegarde des machines virtuelles. Avec la fonctionnalité d’exclusion de disque, vous avez la possibilité de sauvegarder un seul ou plusieurs disques de données dans une machine virtuelle. Cette fonctionnalité offre une solution efficace et économique pour vos besoins en matière de sauvegarde et de restauration. Chaque point de récupération contient des données des disques inclus dans l’opération de sauvegarde, ce qui vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné au cours de l’opération de restauration. Cela s’applique à la restauration de la capture instantanée et du coffre.
+>
+> Cette solution se révèle particulièrement utile dans les scénarios suivants :
+>  
+>1. Vous avez des données critiques à sauvegarder sur un seul disque et vous ne voulez pas sauvegarder les autres disques attachés à une machine virtuelle. Cela réduit les coûts de stockage de sauvegarde.  
+>2. Vous disposez d’autres solutions de sauvegarde pour une partie des données de vos machines virtuelles. Par exemple, vous sauvegardez vos bases de données ou vos données avec une autre solution de sauvegarde de charge de travail, et vous souhaitez utiliser la sauvegarde au niveau de la machine virtuelle Azure pour le reste de vos disques et données afin de générer un système efficace et robuste en utilisant les meilleures fonctionnalités offertes.
+>
+>Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Étapes suivantes
 

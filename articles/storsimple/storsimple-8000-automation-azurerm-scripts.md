@@ -1,25 +1,17 @@
 ---
-title: Utiliser des scripts Azure Resource Manager pour gérer les appareils StorSimple | Microsoft Docs
+title: Utiliser des scripts Azure Resource Manager pour gérer les appareils StorSimple
 description: Découvrez comment utiliser des scripts Azure Resource Manager pour automatiser des travaux StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 646b862733e8727c9c8729f1ac038fa88cfa0580
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1c98aa8c9b635f08bb14db2bde5485640a5d24d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60726415"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276642"
 ---
 # <a name="use-azure-resource-manager-sdk-based-scripts-to-manage-storsimple-devices"></a>Utiliser des scripts basés sur le kit de développement logiciel (SDK) Azure Resource Manager pour gérer les appareils StorSimple
 
@@ -57,7 +49,7 @@ Les exemples de scripts suivants sont disponibles pour automatiser divers travau
 
 Cette section utilise un exemple de script et décrit en détail les différentes étapes requises pour exécuter ce script.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 

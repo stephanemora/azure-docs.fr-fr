@@ -1,29 +1,21 @@
 ---
-title: PowerShell pour la gestion d’appareils StorSimple | Microsoft Docs
+title: PowerShell pour la gestion des appareils StorSimple
 description: Découvrez comment gérer votre appareil StorSimple à l’aide de Windows PowerShell for StorSimple.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7e488a1b2a63323361a597aaa6a438630fc09a05
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621631"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277107"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Utiliser Windows PowerShell pour StorSimple pour appliquer votre appareil
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Windows PowerShell pour StorSimple fournit une interface de ligne de commande que vous pouvez utiliser pour gérer votre appareil Microsoft Azure StorSimple. Comme son nom l’indique, il s’agit d’une interface de ligne de commande basée sur Windows PowerShell, qui est créée dans une instance d’exécution avec restriction. Du point de vue de l’utilisateur au niveau de la ligne de commande, une instance d’exécution avec restriction apparaît comme une version limitée de Windows PowerShell. Tout en conservant certaines fonctionnalités de base de Windows PowerShell, cette interface a des applets de commande dédiées supplémentaires orientées vers la gestion de votre appareil Microsoft Azure StorSimple.
 
@@ -150,7 +142,7 @@ Le tableau suivant récapitule toutes les tâches de gestion courantes et les fl
 | Configurer le proxy web</br>Afficher les paramètres de proxy web |[Configurer le proxy web pour votre appareil StorSimple](storsimple-8000-configure-web-proxy.md) |
 | Modifier les paramètres d’interface réseau DATA 0 sur votre appareil |[Modifier l’interface réseau DATA 0 pour votre appareil StorSimple](storsimple-8000-modify-data-0.md) |
 | Arrêter un contrôleur </br> Redémarrage ou arrêt d’un contrôleur </br> Arrêt d'un appareil</br>Rétablissement des paramètres d’usine de l’appareil |[Gérer les contrôleurs de l’appareil](storsimple-8000-manage-device-controller.md) |
-| Installer des mises à jour et des correctifs en mode maintenance |[Mettre à jour votre appareil](storsimple-update-device.md) |
+| Installer des mises à jour et des correctifs en mode maintenance |[Mise à jour de votre appareil](storsimple-update-device.md) |
 | Entrer en mode maintenance </br>Quitter le mode maintenance |[Modes de l’appareil StorSimple](storsimple-8000-device-modes.md) |
 | Créer un package de support</br>Déchiffrer et modifier un package de support |[Création et gestion d’un package de prise en charge](storsimple-8000-create-manage-support-package.md) |
 | Démarrer une session de support</br> |[Démarrage d’une session de support dans Windows PowerShell pour StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |

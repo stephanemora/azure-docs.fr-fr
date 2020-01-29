@@ -1,32 +1,26 @@
 ---
 title: Intégration d’Application Gateway à Azure Security Center | Microsoft Docs
 description: Cette page fournit des informations sur l’intégration d’Application Gateway à Azure Security Center.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
+ms.author: victorh
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: victorh
-ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122289"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277185"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Vue d’ensemble de l’intégration entre Application Gateway et Azure Security Center
 
 Découvrez comment Application Gateway et Azure Security Center protègent vos ressources d’application web. Le pare-feu d’applications web (WAF) de la passerelle d’application s’intègre à [Security Center](../security-center/security-center-intro.md) afin d’offrir une vision claire permettant de bloquer, détecter et traiter les menaces auxquelles les applications web non protégées de votre environnement sont confrontées.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le WAF d’Application Gateway est une recommandation du Security Center visant à protéger les applications web des failles de sécurité et des vulnérabilités. Les ressources web qui ne sont pas protégées par le WAF apparaissent dans le centre de sécurité sous la forme de recommandations à gravité élevée. Les recommandations relatives aux pare-feux d’applications web s’affichent sur la page **Vue d’ensemble** sous **Applications**.
 
@@ -50,7 +44,7 @@ Si vous ne disposez d’aucune passerelle Application Gateway ou que vous souhai
 
 S’il existe une passerelle d’application, vous pouvez la choisir sous **Utiliser la solution existante**
 
-![Page d’ajout de pare-feu d’applications web][4]
+![Page pour ajouter un pare-feu d’applications Web][4]
 
 L’ajout d’une application web à une passerelle d’application par le biais de Security Center n’ajoute pas la ressource en tant que membre du pool principal. Cette opération doit être effectuée directement sur la ressource de la passerelle d’application.
 
@@ -68,7 +62,7 @@ Cliquez sur **Associer l’application** pour ouvrir **Associer les applications
 
 Security Center effectue le suivi des applications ajoutées à une passerelle d’application sous forme de ressource protégée.  Il analyse l’état de cette ressource et permet de s’assurer qu’elle est protégée par une passerelle d’application. L’étape suivante consiste à ajouter l’adresse IP privée, l’adresse IP publique ou la carte réseau de votre machine virtuelle au pool principal de la passerelle d’application. Tant que cette opération n’est pas effectuée, une recommandation supplémentaire de **finalisation de la protection de l’application** s’affiche jusqu’à ce que la ressource soit ajoutée.
 
-![Page d’ajout de pare-feu d’applications web][5]
+![Page pour ajouter un pare-feu d’applications Web][5]
 
 ## <a name="security-alerts"></a>Alertes de sécurité
 
@@ -76,7 +70,7 @@ Dans Security Center, accédez à **DÉTECTION** > **Alertes de sécurité**.  V
 
 ![alertes de sécurité][8]
 
-Cliquez sur une règle pour fournir une liste des alertes relatives à cette règle WAF spécifique. Chaque alerte affiche des informations supplémentaires sur la recherche. Les informations comportent un lien vers la passerelle d’application.
+La sélection d’une règle fournit une liste d’alertes pour cette règle de WAF spécifique. Chaque alerte affiche des informations supplémentaires sur la recherche. Les informations comportent un lien vers la passerelle d’application.
  
 ![détails de l’alerte][9]
 

@@ -9,12 +9,12 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c42d13f4d2e00b67a2ef471a07c80e1ef61e9c07
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3adefbdf248deaec6170037521ab65890356d184
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666322"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510887"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Créer et approvisionner un appareil IoT Edge à l’aide de l’attestation de clé symétrique
 
@@ -28,7 +28,7 @@ Cet article vous montre comment créer une inscription individuelle au service D
 
 L’attestation de clé symétrique est une approche simple pour authentifier un appareil avec une instance du service Device Provisioning. Cette méthode d’attestation représente une expérience « Hello world » pour les développeurs qui découvrent le provisionnement d’appareils ou n’ont pas d’exigences de sécurité strictes. L’attestation d’appareil avec un [Module de plateforme sécurisée (TPM)](../iot-dps/concepts-tpm-attestation.md) ou un [certificat X.509](../iot-dps/concepts-security.md#x509-certificates) est plus sécurisée, et doit être utilisée lorsque les exigences de sécurité sont plus strictes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un IoT Hub actif
 * Un appareil physique ou virtuel
@@ -43,11 +43,7 @@ Après avoir lancé l’exécution du service Device Provisioning, copiez la val
 
 Un ID d’inscription unique doit être défini pour identifier chaque appareil. Vous pouvez utiliser l’adresse MAC, le numéro de série ou toute information unique provenant de l’appareil.
 
-Dans cet exemple, nous utilisons une combinaison d’une adresse MAC et du numéro de série, qui forment la chaîne suivante pour un ID d’inscription.
-
-```
-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-```
+Dans cet exemple, nous utilisons une combinaison d’une adresse MAC et d’un numéro de série, forment la chaîne suivante pour un identifiant d’inscription : `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`.
 
 Créez un ID d’inscription unique pour votre appareil. Les caractères valides sont les caractères alphanumériques minuscules et les tirets (« - »).
 
@@ -60,7 +56,7 @@ Lorsque vous créez une inscription auprès du service Device Provisioning, vous
 > [!TIP]
 > Les inscriptions de groupe sont également possibles lors de l’utilisation de l’attestation de clé symétrique et impliquent les mêmes décisions que les inscriptions individuelles.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à votre instance du service IoT Hub Device Provisioning.
+1. Dans le [Portail Microsoft Azure](https://portal.azure.com), accédez à votre instance du service IoT Hub Device Provisioning.
 
 1. Sous **Paramètres**, sélectionnez **Gérer les inscriptions**.
 
@@ -186,13 +182,13 @@ provisioning:
       symmetric_key: "{symmetric_key}"
 ```
 
-Remplacez les valeurs d’espace réservé pour `{scope_id}`, `{registration_id}` et `{symmetric_key}` par les données que vous avez collectées précédemment.
+Remplacez les valeurs d’espace réservé pour `{scope_id}`, `{registration_id}` et `{symmetric_key}` par les données que vous avez collectées précédemment. Assurez-vous que la ligne **d’approvisionnement :** n’est pas précédée d’une espace et que les éléments imbriqués sont en retrait de deux espaces.
 
 ### <a name="windows-device"></a>Appareil Windows
 
-Installez le runtime IoT Edge sur l’appareil pour lequel vous avez généré une clé d’appareil dérivée. Vous allez configurer le runtime IoT Edge pour un approvisionnement automatique plutôt que manuel.
+Installez le runtime IoT Edge sur l’appareil pour lequel vous avez généré une clé d’appareil dérivée. Vous allez configurer le runtime IoT Edge pour un provisionnement automatique et non manuel.
 
-Pour plus d’informations sur l’installation d’IoT Edge sous Windows, y compris les conditions préalables et instructions pour des tâches telles que la gestion de conteneurs et la mise à jour d’IoT Edge, voir [Installer le runtime Azure IoT Edge sous Windows](how-to-install-iot-edge-windows.md).
+Pour plus d'informations sur l'installation d'IoT Edge sous Windows, notamment sur les conditions préalables et les instructions relatives aux tâches telles que la gestion des conteneurs et la mise à jour d'IoT Edge, consultez [Installer le runtime Azure IoT Edge sous Windows](how-to-install-iot-edge-windows.md).
 
 1. Ouvrez une fenêtre PowerShell en mode administrateur. Veillez à utiliser une session AMD64 de PowerShell lors de l'installation d'IoT Edge, plutôt que PowerShell (x86).
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: dca271e745976f7797d3e911c2f1f6232fe5400d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f7a796408267fda08d765425a3c529895a251782
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898993"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281102"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-portal"></a>Créer et gérer le service Azure Private Link pour Azure Database pour PostgreSQL – Serveur unique (préversion) à l’aide du Portail Azure
 
@@ -129,7 +129,7 @@ Dans cette section, vous allez créer un serveur PostgreSQL et lui ajouter un po
 1. En haut à gauche de l’écran du portail Azure, sélectionnez **Créer une ressource** > **Mise en réseau** > **Centre de liaisons privées (préversion)** .
 2. Dans **Centre de liaisons privées - Vue d’ensemble**, dans l’option permettant de **générer une connexion privée à un service**, sélectionnez **Démarrer**.
 
-    ![Vue d’ensemble d’Azure Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
+    ![Présentation de Private Link](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
 1. Dans **Créer un point de terminaison privé (préversion) - Concepts de base**, entrez ou sélectionnez les informations suivantes :
 
@@ -163,13 +163,13 @@ Dans cette section, vous allez créer un serveur PostgreSQL et lui ajouter un po
     | Subnet | Sélectionnez *mySubnet*. |
     |**INTÉGRATION À DNS PRIVÉ**||
     |Intégrer à une zone DNS privée |Sélectionnez **Oui**. |
-    |Zone DNS privée |Sélectionnez *(New)privatelink.database.azure.com*. |
+    |Zone DNS privée |Sélectionnez *(New)privatelink.postgres.database.azure.com* |
     |||
 
 1. Sélectionnez **Revoir + créer**. Vous êtes redirigé vers la page **Vérifier + créer** où Azure valide votre configuration. 
 2. Lorsque le message **Validation passed** (Validation réussie) apparaît, sélectionnez **Créer**. 
 
-    ![Instance Azure Private Link créée](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
+    ![Instance Private Link créée](media/concepts-data-access-and-security-private-link/show-postgres-private-link.png)
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Se connecter à une machine virtuelle à l’aide du Bureau à distance (RDP)
 
@@ -201,14 +201,14 @@ Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à parti
 
 1. Dans le Bureau à distance de  *myVM*, ouvrez PowerShell.
 
-2. Entrez `nslookup mydemopostgresserver.database.azure.com`. 
+2. Entrez `nslookup mydemopostgresserver.privatelink.postgres.database.azure.com`. 
 
     Vous recevez un message similaire à celui ci :
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemopostgresserver.postgres.privatelink.database.azure.com
+    Name:    mydemopostgresserver.privatelink.postgres.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the PostgreSQL server using any available client. In the example below I have used [Azure Data studio](https://docs.microsoft.com/sql/azure-data-studio/download?view=sql-server-ver15) to do the operation.
@@ -218,7 +218,7 @@ Après avoir créé **myVm**, connectez-vous à cette machine virtuelle à parti
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **PostgreSQL**.|
-    | Server name| Select *mydemopostgresserver.postgres.privatelink.database.azure.com* |
+    | Server name| Select *mydemopostgresserver.privatelink.postgres.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the PostgreSQL server creation. |
     |Password |Enter a password provided during the PostgreSQL server creation. |
     |SSL|Select **Required**.|

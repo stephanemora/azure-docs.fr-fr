@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429475"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294097"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -96,6 +96,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |50072|L’utilisateur doit s’inscrire pour l’authentification à deux facteurs (interactive).|
 |50074|L’utilisateur n’a pas réussi la vérification de l’authentification multifacteur.|
 |50076|L’utilisateur n’a pas réussi le test de l’authentification multifacteur (non interactif).|
+|50078|L’authentification multifacteur présentée est arrivée à expiration. Vous devez actualiser votre authentification multifacteur pour y accéder.|
 |50079|L’utilisateur doit s’inscrire pour l’authentification à deux facteurs (connexions non interactives).|
 |50085|Le jeton d’actualisation a besoin d’une connexion IDP sociale. Demandez à l’utilisateur d’essayer à nouveau de se connecter avec son nom d’utilisateur et son mot de passe.|
 |50089|Échec du jeton de flux. L’authentification a échoué. Demandez à l’utilisateur d’essayer à nouveau de se connecter avec son nom d’utilisateur et son mot de passe|
@@ -184,7 +185,8 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |90014| Un champ obligatoire du message de protocole n’a pas été renseigné. Contactez le propriétaire de l’application. Si vous êtes le propriétaire de l’application, vérifiez que vous disposez de tous les paramètres nécessaires pour la requête de connexion. |
 |90051| Jeton de délégation non valide. L’ID cloud national non valide ({cloudId}) a été spécifié.|
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|
-|90094| L’accès nécessite des autorisations d’administrateur. Demandez à l’administrateur de votre locataire de donner son consentement pour cette application.|
+|90094| L’application a demandé des autorisations pour lesquelles l’utilisateur connecté n’est pas autorisé à donner son consentement, et celui-ci a été bloqué. |
+|90095| L’application a demandé des autorisations pour lesquelles l’utilisateur connecté n’est pas autorisé à donner son consentement, et l’utilisateur a affiché le formulaire de [demande de consentement d’administrateur](../manage-apps/configure-admin-consent-workflow.md). |
 |500011| Le principal de ressource nommé <site address> est introuvable dans le locataire nommé <tenant ID>. Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre demande d’authentification au locataire incorrect.|
 |500021| Le locataire est restreint par le proxy de l’entreprise. L’accès aux ressources est refusé.|
 |500121| Échec de l’authentification lors d’une requête d’authentification forte.|
@@ -193,6 +195,8 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |530032|Bloqué par la stratégie de sécurité.| 
 |700016|L’application associée à l’identificateur « {appIdentifier} » est introuvable dans le répertoire « {tenantName} ». Cela peut se produire si l’application n’a pas été installée par l’administrateur du locataire ni acceptée par un utilisateur dans le locataire. Vous avez peut-être envoyé votre requête d’authentification au locataire incorrect.|
 |900432|Le client confidentiel n’est pas pris en charge dans une requête intercloud.|
+|5000811|Impossible de vérifier la signature du jeton SAML. L’identificateur de clé de signature ne correspond à aucune clé inscrite valide.|
+|7000215|Une clé secrète client non valide a été fournie.|
 |7000218|Le corps de la requête doit contenir le paramètre « client_assertion » ou « client_secret ».|
 
 

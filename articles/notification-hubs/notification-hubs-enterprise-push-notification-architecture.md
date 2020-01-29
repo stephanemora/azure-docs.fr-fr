@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs - Architecture Push d’entreprise
-description: Aide sur l’utilisation d’Azure Notification Hubs dans un environnement d’entreprise
+title: Notification Hubs architecture Push d’entreprise
+description: En savoir plus sur l’utilisation d’Azur Notification Hubs dans un environnement d’entreprise
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5b65fe6acb1fdf7ba79b106c876527c9b6736c5f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0104547a432f7f78d74731e11926bcd82088cef7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211911"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264031"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guide architectural des notifications Push d’entreprise
 
@@ -58,7 +58,7 @@ L'élément clé de ce diagramme architectural est Azure Service Bus, qui fourni
 
 ## <a name="sample"></a>Exemple
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Complétez les tutoriels suivants pour vous familiariser avec les concepts et les étapes habituelles de création et de configuration :
 
@@ -234,7 +234,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
     ![][3]
 
-    g. Configurez le travail sur « Exécuter en continu ». Ainsi, quand vous vous connectez au [Portail Azure], vous devriez voir ce qui suit :
+    g. Configurez le travail sur « Exécuter en continu ». Ainsi, quand vous vous connectez au [Azure portal], vous devriez voir ce qui suit :
 
     ![][4]
 
@@ -272,7 +272,7 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 
     ![][5]
 
-4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux d’activité WebJob pour confirmer le traitement quand vous accédez au lien Journaux d’activité dans le [portail Azure] pour votre tâche Web :
+4. Les messages ont été envoyés aux rubriques Service Bus qui ont été analysées par les abonnements Service Bus dans votre tâche Web. Lors de la réception d’un message, une notification a été créée et envoyée à l’application mobile. Vous pouvez consulter les journaux d’activité WebJob pour confirmer le traitement quand vous accédez au lien Journaux d’activité dans le [Azure portal] pour votre tâche Web :
 
     ![][6]
 
@@ -291,4 +291,4 @@ L'exemple de code complet est disponible dans la page [Exemples de Notification 
 [Programmation Service Bus Pub/Sub]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [tâche web Azure]: ../app-service/webjobs-create.md
 [Notification Hubs : didacticiel Windows Universal]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Portail Azure]: https://portal.azure.com/
+[Azure portal]: https://portal.azure.com/

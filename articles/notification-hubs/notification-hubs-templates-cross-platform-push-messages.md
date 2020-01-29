@@ -1,6 +1,6 @@
 ---
-title: Modèles
-description: Cette rubrique décrit les modèles pour les hubs de notification Azure.
+title: Modèles de hubs de notifications Azure
+description: En savoir plus sur l’utilisation de modèles pour les hubs de notifications Azure.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212993"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263742"
 ---
 # <a name="templates"></a>Modèles
 
@@ -140,7 +140,7 @@ Le tableau suivant indique le langage autorisé dans les modèles :
 | .(prop, n)       | Comme ci-dessus, mais le texte est suivi de trois points lorsqu’il est coupé. La taille totale de la chaîne coupée et du suffixe ne dépasse pas n caractères. .(title, 20) avec une propriété d’entrée de « Ceci est la ligne du titre » donne **Ceci est la ligne...** |
 | %(prop)          | Similaire à $(name), sauf que la sortie est codée URI. |
 | #(prop)          | Utilisé dans les modèles JSON (par exemple, pour les modèles iOS et Android).<br><br>Cette fonction agit exactement comme l’expression $(prop) spécifiée précédemment, sauf lorsqu’elle est utilisée dans les modèles JSON (par exemple, les modèles Apple). Dans ce cas, si cette fonction n’est pas placée entre « {’,’} » (par exemple, ’myJsonProperty’ : ’#(name)’), et qu’elle retourne un nombre au format JavaScript, par exemple, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*))(\.&#91;0-9&#93;+)?((e&#124;E)(+&#124;-)?&#91;0-9&#93;+)?, la sortie JSON est un nombre.<br><br>Par exemple, ‘badge: ‘#(name)’ devient ‘badge’ : 40 (et non ‘40‘). |
-| ‘text’ ou « text » | Un littéral. Les littéraux contiennent du texte arbitraire placé entre guillemets simples ou doubles. |
+| ‘text’ ou « text » | Littéral. Les littéraux contiennent du texte arbitraire placé entre guillemets simples ou doubles. |
 | expr1 + expr2    | L’opérateur de concaténation joint deux expressions en une seule chaîne. |
 
 Les expressions peuvent avoir n’importe laquelle des formes précédentes.
@@ -170,3 +170,7 @@ Comme expliqué précédemment, lors de l’utilisation de la concaténation, le
   </visual>
 </tile>
 ```
+
+## <a name="next-steps"></a>Étapes suivantes
+
+[En savoir plus sur les hubs de notifications Azure](notification-hubs-push-notification-overview.md)

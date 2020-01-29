@@ -1,5 +1,5 @@
 ---
-title: Déployer des environnements de modèle Resource Manager imbriqués dans Azure DevTest Labs | Microsoft Docs
+title: Déployer des environnements de modèles imbriqués dans Azure DevTest Labs
 description: Découvrez comment déployer des modèles Azure Resource Manager imbriqués pour fournir des environnements avec Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e83bc4e77a44f20d55fa3b56bc81aefd1d25bb03
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976549"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168822"
 ---
 # <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Déployer des modèles Azure Resource Manager imbriqués pour les environnements de test
 Un déploiement imbriqué vous permet d’exécuter d’autres modèles Azure Resource Manager à partir d’un modèle Resource Manager principal. Il vous permet de décomposer votre déploiement en un ensemble de modèles ciblés et spécifiques. Il offre des avantages en termes de test, de réutilisation et de lisibilité. L’article [Utilisation de modèles liés lors du déploiement des ressources Azure](../azure-resource-manager/templates/linked-templates.md) fournit une bonne vue d’ensemble de cette solution avec plusieurs exemples de code. Cet article fournit un exemple spécifique d’Azure DevTest Labs. 

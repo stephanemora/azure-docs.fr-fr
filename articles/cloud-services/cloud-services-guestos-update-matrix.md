@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/8/2020
+ms.date: 1/15/2020
 ms.author: raiye
-ms.openlocfilehash: dd148a4dd454e2ebebcb6b9befc576570ecb0352
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778207"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122243"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -214,9 +214,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
-| WA-GUEST-OS-2.94_201912-01 | 8 janvier 2020 | Billet 2.95 |  
-| WA-GUEST-OS-2.93_201911-01 | 5 décembre 2019 | Billet 2.94 |  
-|~WA-GUEST-OS-2.91_201910-01~| 1er novembre 2019 | 8 janvier 2020 |  
+| WA-GUEST-OS-2.93_201912-01 | 8 janvier 2020 | Billet 2.95 |  
+| WA-GUEST-OS-2.92_201911-01 | 5 décembre 2019 | Billet 2.94 |  
+|~~WA-GUEST-OS-2.91_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-2.90_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
 |~~WA-GUEST-OS-2.89_201908-01~~| 4 août 2019 | 1er novembre 2019 |  
 |~~WA-GUEST-OS-2.88_201907-01~~| 26 juillet 2019 | 7 octobre 2019 |

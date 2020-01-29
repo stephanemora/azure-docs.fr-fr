@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848491"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512570"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Effectuer un déploiement d’authentification sans mot de passe
 
@@ -67,7 +67,7 @@ Les méthodes d’authentification sans mot de passe de Microsoft permettent dif
 
 **Inscription de l’appareil** - Pour utiliser l’application Authenticator dans l’authentification sans mot de passe, l’appareil doit être inscrit dans le locataire Azure AD et ne pas être un appareil partagé. Un appareil ne peut être inscrit que dans un seul locataire. Cette limite signifie que seulement un compte professionnel ou scolaire est pris en charge pour la connexion par téléphone avec l’application Authenticator.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les organisations doivent respecter les prérequis suivants avant d’initier un déploiement sans mot de passe.
 
@@ -108,7 +108,7 @@ L’activation de la connexion Windows 10 au moyen de clés de sécurité FIDO2
    - Le déploiement Intune est l’option recommandée.
 - [Activer le fournisseur d’informations d’identification avec un package d’approvisionnement](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Si le déploiement Intune n’est pas possible, les administrateurs doivent déployer un package sur chaque machine pour activer la fonctionnalité de fournisseur d’informations d’identification. L’installation du package peut être effectuée à l’aide de l’une des options suivantes :
-      - Stratégie de groupe ou System Center Configuration Manager (SCCM)
+      - Stratégie de groupe ou Configuration Manager
       - Installation locale sur une machine Windows 10
 
 ### <a name="register-security-keys"></a>Inscrire des clés de sécurité
@@ -141,7 +141,7 @@ Le tableau suivant présente les cas d’usage à implémenter au cours de ce pr
 
 ### <a name="engage-the-right-stakeholders"></a>Impliquer les parties prenantes appropriées
 
-Les échecs de projets technologiques, lorsqu’ils se produisent, proviennent généralement d’une disparité existant entre les attentes et l’impact, les responsabilités et les résultats vécus. Pour éviter ces écueils, [assurez-vous de faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders), et que les rôles des parties prenantes soient bien compris.
+Les échecs de projets informatiques, lorsqu’ils se produisent, proviennent généralement d’une disparité entre les attentes et l’impact, les responsabilités et les résultats. Pour éviter ces écueils, [assurez-vous de faire appel aux bonnes personnes](../fundamentals/active-directory-deployment-plans.md#include-the-right-stakeholders), et que les rôles des parties prenantes soient bien compris.
 
 ### <a name="organization-communications"></a>Communications de l’organisation
 

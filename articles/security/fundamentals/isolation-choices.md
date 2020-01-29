@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979271"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121945"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 Azure offre la possibilité d’exécuter des applications et des machines virtuelles sur une infrastructure physique partagée. L’une des principales motivations économiques pour exécuter des applications dans un environnement cloud est la possibilité de répartir le coût des ressources partagées entre plusieurs clients. Cette pratique de mutualisation améliore l’efficacité en multiplexant des ressources entre différents clients à faible coût. Malheureusement, elle présente également le risque de partager des serveurs physiques et d’autres ressources d’infrastructure pour exécuter vos machines virtuelles et applications sensibles appartenant peut-être à un utilisateur arbitraire et potentiellement malveillant.
@@ -179,7 +179,7 @@ La communication du VLAN du contrôleur de structure vers le VLAN principal est 
 ### <a name="logical-isolation-between-compute-and-storage"></a>Isolation logique entre le calcul et le stockage
 Dans le cadre de sa conception fondamentale, Microsoft Azure sépare le calcul basé sur les machines virtuelles du stockage. Cette séparation permet de mettre à l’échelle le calcul et le stockage de façon indépendante et ainsi de faciliter l’isolation et la mutualisation.
 
-Par conséquent, le stockage Azure s’exécute sur un matériel distinct sans connectivité réseau au calcul Azure, sauf sous forme logique. [Cela](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) signifie que lorsqu’un disque virtuel est créé, l’espace disque n’est pas alloué pour sa capacité totale. Au lieu de cela, une table est créée et mappe les adresses sur le disque virtuel aux zones du disque physique et cette table est initialement vide. **La première fois qu’un client écrit des données sur le disque virtuel, l’espace sur le disque physique est alloué, et un pointeur vers celui-ci est placé dans la table.**
+Par conséquent, le stockage Azure s’exécute sur un matériel distinct sans connectivité réseau au calcul Azure, sauf sous forme logique. Cela signifie que lorsqu’un disque virtuel est créé, l’espace disque n’est pas alloué pour sa capacité totale. Au lieu de cela, une table est créée et mappe les adresses sur le disque virtuel aux zones du disque physique et cette table est initialement vide. **La première fois qu’un client écrit des données sur le disque virtuel, l’espace sur le disque physique est alloué, et un pointeur vers celui-ci est placé dans la table.**
 ### <a name="isolation-using-storage-access-control"></a>Isolation à l’aide du contrôle d’accès de stockage
 Le **contrôle d’accès dans le stockage Azure** dispose d’un modèle de contrôle d’accès simple. Chaque abonnement Azure peut créer un ou plusieurs comptes de stockage. Chaque compte de stockage a une clé secrète unique qui est utilisée pour contrôler l’accès à toutes les données dans ce compte de stockage.
 
@@ -320,14 +320,6 @@ Le [sous-réseau](../../virtual-network/virtual-networks-overview.md) offre une 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Options d’isolation du réseau pour les machines dans les réseaux virtuels Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- En savoir plus sur les [options d’isolement réseau pour machines dans les réseaux virtuels Windows Azure](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Cela inclut le scénario classique front-end et back-end où les machines dans un réseau back-end particulier ou un sous-réseau peuvent autoriser uniquement certains clients ou d’autres ordinateurs à se connecter à un point de terminaison particulier en fonction d’une liste verte d’adresses IP.
 
-Cela inclut le scénario classique front-end et back-end où les machines dans un réseau back-end particulier ou un sous-réseau peuvent autoriser uniquement certains clients ou d’autres ordinateurs à se connecter à un point de terminaison particulier en fonction d’une liste verte d’adresses IP.
-
-- [Isolation du calcul](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure propose divers services informatiques cloud qui incluent une large sélection d’instances de calcul et de services pouvant être mis à l’échelle automatiquement pour répondre aux besoins de votre application ou de votre entreprise.
-
-- [Isolation du stockage](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure sépare le calcul basé sur les machines virtuelles du client du stockage. Cette séparation permet de mettre à l’échelle le calcul et le stockage de façon indépendante et ainsi de faciliter l’isolation et la mutualisation. Par conséquent, le stockage Azure s’exécute sur un matériel distinct sans connectivité réseau au calcul Azure, sauf sous forme logique. Toutes les demandes s’exécutent sur HTTP ou HTTPS en fonction du choix du client.
+- En savoir plus sur l’[isolation des machines virtuelles dans Azure](../../virtual-machines/windows/isolation.md). Azure Compute offre des tailles de machines virtuelles qui sont isolées dans un type de matériel spécifique et qui sont dédiées à un client unique.

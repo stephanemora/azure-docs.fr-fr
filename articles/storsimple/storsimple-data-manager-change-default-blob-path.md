@@ -1,31 +1,23 @@
 ---
-title: Modifier le chemin d’accès d’objet blob par défaut | Microsoft Docs
+title: Modifier le chemin d’accès d’objet BLOB par défaut
 description: Découvrez comment configurer une fonction Azure pour renommer un chemin d’accès de fichier d’objet blob
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: cdaf991c25c23dee4f87b44142c1482bf892bcf2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ba1709ae195631371e4ea72667ba9b2a4bf279e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60723664"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270627"
 ---
 # <a name="change-a-blob-path-from-the-default-path"></a>Modifier le chemin d’accès d’objet blob par défaut
 
 Lorsque le service StorSimple Data Manager transforme les données, par défaut il place les objets blob transformés dans un conteneur de stockage comme spécifié lors de la création du référentiel cible. À mesure que les objets blob arrivent à cet emplacement, vous voudrez déplacer ces objets blob vers un autre emplacement. Cet article décrit comment configurer une fonction Azure pour renommer un chemin d’accès de fichier d’objet blob par défaut, puis déplacer les objets blob vers un autre emplacement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Assurez-vous que vous avez une définition de travail correctement configurée dans votre service StorSimple Data Manager.
 

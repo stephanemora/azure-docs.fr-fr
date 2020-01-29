@@ -1,5 +1,5 @@
 ---
-title: Alertes courantes et résolutions dans Azure AD Domain Services | Microsoft Docs
+title: Alertes et résolutions courantes dans Azure AD Domain Services | Microsoft Docs
 description: Découvrez comment résoudre les alertes courantes générées dans le cadre de l’état d’intégrité d’Azure Active Directory Domain Services.
 services: active-directory-ds
 author: iainfoulds
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979907"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512662"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Problèmes connus : Alertes courantes et résolutions dans Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Cette erreur se produit généralement quand un abonnement Azure est déplacé v
 Cette erreur est irrécupérable. Pour résoudre l’alerte, [supprimez votre domaine managé Azure AD DS existant](delete-aadds.md) puis recréez-le dans votre nouvel annuaire. Si vous rencontrez des problèmes lors de la suppression du domaine Azure AD DS managé, [ouvrez une demande de support Azure][azure-support] pour obtenir une assistance supplémentaire.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101 : Azure AD B2C est en cours d’exécution dans cet annuaire
- 
+
 ### <a name="alert-message"></a>Message d’alerte
 
 *Les services de domaine Azure AD ne peuvent pas être activés dans un annuaire Azure AD B2C.*
@@ -78,7 +78,7 @@ Pour résoudre cette alerte, supprimez votre domaine managé Azure AD DS existan
 1. Sélectionnez **Sous-réseaux** dans la navigation de gauche.
 1. Choisissez le sous-réseau que vous souhaitez modifier ou créez un sous-réseau supplémentaire.
 1. Mettez à jour ou spécifiez une plage d’adresses IP privées, puis **Enregistrez** vos modifications.
-1. [Créez un domaine managé Azure AD DS de remplacement](tutorial-create-instance.md). Veillez à sélectionner un sous-réseau de réseau virtuel mis à jour avec une plage d’adresses IP privées.
+1. [Créez un domaine managé Azure AD DS de remplacement](tutorial-create-instance.md). Veillez à sélectionner le sous-réseau de réseau virtuel mis à jour avec une plage d’adresses IP privées.
 
 L’intégrité du domaine managé Azure AD DS se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
 
@@ -129,7 +129,7 @@ Azure AD DS nécessite un abonnement actif et ne peut pas être déplacé vers u
 
 ### <a name="resolution"></a>Résolution
 
-Azure AD DS crée des ressources spécifiques (telles que des adresses IP publiques, des cartes réseau et un équilibreur de charge) pour pouvoir fonctionner correctement. Si l’une de ces ressources est supprimée, le domaine managé est dans un état non pris en charge et il ne peut pas être géré. Pour plus d’informations sur ces ressources, consultez [Ressources réseau utilisées par Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+Azure AD DS crée des ressources supplémentaires pour fonctionner correctement, telles que des adresses IP publiques, des interfaces de réseau virtuel et un équilibreur de charge. Si l’une de ces ressources est supprimée, le domaine managé est dans un état non pris en charge et il ne peut pas être géré. Pour plus d’informations sur ces ressources, consultez [Ressources réseau utilisées par Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 Cette alerte est générée quand l’une de ces ressources requises est supprimée. Si la ressource a été supprimée il y a moins de quatre heures, il y a une chance que la plateforme Azure puisse recréer automatiquement la ressource supprimée. Les étapes suivantes décrivent comment vérifier l’état d’intégrité et l’horodatage pour la suppression des ressources :
 
@@ -160,7 +160,7 @@ Cette erreur est irrécupérable. Pour résoudre l’alerte, [supprimez votre do
 
 ### <a name="resolution"></a>Résolution
 
-Certains principaux de service générés automatiquement sont utilisés afin de gérer et de créer des ressources pour un domaine managé Azure AD DS. Si les autorisations d’accès pour l’un de ces principaux de service sont modifiées, il ne pourra pas gérer correctement les ressources. Les étapes suivantes montrent comment comprendre et accorder des autorisations d’accès à un principal de service :
+Certains principaux de service générés automatiquement sont utilisés afin de gérer et de créer des ressources pour un domaine managé Azure AD DS. Si les autorisations d’accès pour l’un de ces principaux de service sont modifiées, le domaine ne pourra pas gérer correctement les ressources. Les étapes suivantes montrent comment comprendre et accorder des autorisations d’accès à un principal de service :
 
 1. Apprenez-en davantage sur le [contrôle d’accès en fonction du rôle et sur la façon d’accorder un accès aux applications dans le portail Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Passez en revue l’accès dont dispose le principal de service avec l’ID *abba844e-bc0e-44b0-947a-dc74e5d09022* et accordez l’accès qui a été refusé précédemment.
@@ -173,18 +173,18 @@ Certains principaux de service générés automatiquement sont utilisés afin de
 
 ### <a name="resolution"></a>Résolution
 
-Le sous-réseau de réseau virtuel pour Azure AD DS nécessite suffisamment d’adresses IP pour les ressources créées automatiquement. Cet espace d’adressage IP inclut la nécessité de créer des ressources de remplacement en cas d’événement de maintenance. Pour réduire le risque de manquer d’adresses IP disponibles, ne déployez pas d’autres ressources, telles que vos propres machines virtuelles, sur le même sous-réseau de réseau virtuel qu’Azure AD DS.
+Le sous-réseau de réseau virtuel pour Azure AD DS nécessite suffisamment d’adresses IP pour les ressources créées automatiquement. Cet espace d’adressage IP inclut la nécessité de créer des ressources de remplacement en cas d’événement de maintenance. Pour réduire le risque de manquer d’adresses IP disponibles, ne déployez pas d’autres ressources, telles que vos propres machines virtuelles, sur le même sous-réseau de réseau virtuel qu’Azure AD DS.
 
 Pour résoudre cette alerte, supprimez votre domaine managé Azure AD DS existant et recréez-le sur un réseau virtuel avec une plage d’adresses IP suffisamment grande. Ce processus est perturbant, car le domaine managé Azure AD DS est indisponible et toutes les ressources personnalisées que vous avez créées, comme les unités d’organisation ou les comptes de service, sont perdues.
 
 1. [Supprimez le domaine managé Azure AD DS](delete-aadds.md) de votre annuaire.
-1. Pour mettre à jour la plage d’adresses IP du réseau virtuel, recherchez et sélectionnez *Réseau virtuel* dans le portail Azure. Sélectionnez le réseau virtuel pour Azure AD DS qui dispose de la petite plage d’adresses IP.
+1. Pour mettre à jour la plage d’adresses IP du réseau virtuel, recherchez et sélectionnez *Réseau virtuel* dans le portail Azure. Sélectionnez le réseau virtuel pour Azure AD DS qui a la petite plage d’adresses IP.
 1. Sous **Paramètres**, sélectionnez *Espace d’adressage*.
 1. Mettez à jour la plage d’adresses en choisissant la plage d’adresses existante et en la modifiant, ou en ajoutant une plage d’adresses supplémentaire. Vérifiez que la nouvelle plage d’adresses IP est suffisamment grande pour la plage de sous-réseau Azure AD DS. Quand vous êtes prêt, **Enregistrez** les modifications.
 1. Sélectionnez **Sous-réseaux** dans la navigation de gauche.
 1. Choisissez le sous-réseau que vous souhaitez modifier ou créez un sous-réseau supplémentaire.
 1. Mettez à jour ou spécifiez une plage d’adresses IP suffisamment grande, puis **Enregistrez** vos modifications.
-1. [Créez un domaine managé Azure AD DS de remplacement](tutorial-create-instance.md). Veillez à sélectionner un sous-réseau de réseau virtuel mis à jour avec une plage d’adresses IP suffisamment grande.
+1. [Créez un domaine managé Azure AD DS de remplacement](tutorial-create-instance.md). Veillez à sélectionner le sous-réseau de réseau virtuel mis à jour avec une plage d’adresses IP suffisamment importante.
 
 L’intégrité du domaine managé Azure AD DS se met automatiquement à jour dans les deux heures, et l’alerte est supprimée.
 
@@ -216,11 +216,11 @@ Cette erreur est irrécupérable. Pour résoudre l’alerte, [supprimez votre do
 
 ### <a name="resolution"></a>Résolution
 
-Des verrous de ressources peuvent être appliqués aux ressources et aux groupes de ressources Azure pour empêcher la modification ou la suppression. Azure AD DS étant un service managé, la plateforme Azure doit pouvoir apporter des modifications à la configuration. Si un verrou de ressource est appliqué à certains des composants Azure AD DS, la plateforme Azure ne peut pas effectuer ses tâches de gestion.
+Les verrous de ressources peuvent être appliqués aux ressources Azure pour en empêcher la modification ou la suppression. Azure AD DS étant un service managé, la plateforme Azure doit pouvoir apporter des modifications à la configuration. Si un verrou de ressource est appliqué à certains des composants Azure AD DS, la plateforme Azure ne peut pas effectuer ses tâches de gestion.
 
 Pour rechercher des verrous de ressources sur les composants Azure AD DS et les supprimer, effectuez les étapes suivantes :
 
-1. Pour chacun des composants réseau Azure AD DS de votre groupe de ressources, tels que réseau virtuel, carte réseau ou adresse IP publique, vérifiez les journaux des opérations dans le portail Azure. Ces journaux des opérations doivent indiquer la raison pour laquelle une opération échoue et où un verrou de ressource est appliqué.
+1. Pour chacun des composants réseau Azure AD DS de votre groupe de ressources, tels que réseau virtuel, carte réseau ou adresse IP publique, vérifiez les journaux d’activités dans le portail Azure. Ces journaux des opérations doivent indiquer la raison pour laquelle une opération échoue et où un verrou de ressource est appliqué.
 1. Sélectionnez la ressource où un verrou est appliqué puis, sous **Verrous**, sélectionnez et supprimez le ou les verrous.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116 : Des ressources sont inutilisables
@@ -231,7 +231,7 @@ Pour rechercher des verrous de ressources sur les composants Azure AD DS et les 
 
 ### <a name="resolution"></a>Résolution
 
-Des stratégies peuvent être appliquées aux ressources et aux groupes de ressources Azure pour contrôler les actions de configuration autorisées. Azure AD DS étant un service managé, la plateforme Azure doit pouvoir apporter des modifications à la configuration. Si une stratégie est appliquée à certains des composants Azure AD DS, la plateforme Azure risque de ne pas pouvoir effectuer ses tâches de gestion.
+Les stratégies sont appliquées aux ressources et aux groupes de ressources Azure qui contrôlent les actions de configuration autorisées. Azure AD DS étant un service managé, la plateforme Azure doit pouvoir apporter des modifications à la configuration. Si une stratégie est appliquée à certains des composants Azure AD DS, la plateforme Azure risque de ne pas pouvoir effectuer ses tâches de gestion.
 
 Pour rechercher les stratégies appliquées sur les composants Azure AD DS et les mettre à jour, effectuez les étapes suivantes :
 
@@ -246,7 +246,7 @@ Pour rechercher les stratégies appliquées sur les composants Azure AD DS et le
 
 ### <a name="resolution"></a>Résolution
 
-[Vérifiez l’intégrité d’Azure AD DS](check-health.md) pour toutes les alertes qui indiquent des problèmes au niveau de la configuration du domaine managé. Les problèmes de configuration réseau peuvent bloquer la synchronisation à partir d’Azure AD. Si vous êtes en mesure de résoudre les alertes qui indiquent un problème de configuration, patientez deux heures, puis revérifiez si la synchronisation est terminée.
+[Vérifiez l’intégrité d’Azure AD DS](check-health.md) pour toutes les alertes qui indiquent des problèmes au niveau de la configuration du domaine managé. Les problèmes de configuration réseau peuvent bloquer la synchronisation à partir d’Azure AD. Si vous êtes en mesure de résoudre les alertes qui indiquent un problème de configuration, attendez deux heures, puis vérifiez à nouveau si la synchronisation s’est terminée avec succès.
 
 Les raisons courantes suivantes provoquent l’arrêt de la synchronisation dans un domaine managé Azure AD DS :
 
@@ -261,7 +261,7 @@ Les raisons courantes suivantes provoquent l’arrêt de la synchronisation dans
 
 ### <a name="resolution"></a>Résolution
 
-[Vérifiez l’intégrité d’Azure AD DS](check-health.md) pour toutes les alertes qui indiquent des problèmes au niveau de la configuration du domaine managé. Les problèmes liés à la configuration réseau peuvent empêcher la plateforme Azure d’effectuer des sauvegardes. Si vous êtes en mesure de résoudre les alertes qui indiquent un problème de configuration, patientez deux heures, puis revérifiez si la synchronisation est terminée.
+[Vérifiez l’intégrité d’Azure AD DS](check-health.md) pour les alertes qui indiquent des problèmes avec la configuration du domaine géré. Les problèmes liés à la configuration réseau peuvent empêcher la plateforme Azure d’effectuer des sauvegardes. Si vous êtes en mesure de résoudre les alertes qui indiquent un problème de configuration, attendez deux heures, puis vérifiez à nouveau si la synchronisation s’est terminée avec succès.
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503 : Suspension en raison de l’abonnement désactivé
 
@@ -292,7 +292,7 @@ Quand le domaine managé est réactivé, l’intégrité du domaine managé Azur
 > [!WARNING]
 > Si un domaine managé Azure AD DS est suspendu pendant une période prolongée, il y a un risque qu’il soit supprimé. Résolvez le motif de suspension le plus rapidement possible. Pour plus d’informations, consultez [Présentation des états suspendus pour Azure AD DS](suspension.md).
 
-[Vérifiez l’intégrité d’Azure AD DS](check-health.md) pour toutes les alertes qui indiquent des problèmes au niveau de la configuration du domaine managé. Si vous êtes en mesure de résoudre les alertes qui indiquent un problème de configuration, patientez deux heures, puis revérifiez si la synchronisation est terminée. Quand vous êtes prêt, [ouvrez une demande de support Azure][azure-support] pour réactiver le domaine managé Azure AD DS.
+[Vérifiez l’intégrité d’Azure AD DS](check-health.md) pour les alertes qui indiquent des problèmes avec la configuration du domaine géré. Si vous êtes en mesure de résoudre les alertes qui indiquent un problème de configuration, attendez deux heures, puis vérifiez de nouveau que la synchronisation est terminée. Quand vous êtes prêt, [ouvrez une demande de support Azure][azure-support] pour réactiver le domaine managé Azure AD DS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

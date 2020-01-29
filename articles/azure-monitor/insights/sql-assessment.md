@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/28/2019
-ms.openlocfilehash: e3e399e99dca453a84c4daef782027b2b1ad6da1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23b1391033713fc8eeccf2d0872c49a4291b8292
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401031"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168891"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Optimiser votre environnement SQL avec la solution SQL Server Health Check dans Azure Monitor
 
@@ -196,6 +196,19 @@ Si vous souhaitez ignorer certaines recommandations, vous pouvez créer un fichi
 3. Si vous décidez ultérieurement d’afficher les recommandations ignorées, supprimez tous les fichiers IgnoreRecommendations.txt, ou supprimez les valeurs RecommendationID de ces fichiers.
 
 ## <a name="sql-health-check-solution-faq"></a>Questions fréquentes (FAQ) sur la solution SQL Health Check
+
+*Quelles sont les vérifications effectuées par la solution SQL Assessment ?*
+
+* La requête suivante comporte une description de tous les contrôles effectués actuellement :
+
+```Kusto
+SQLAssessmentRecommendation
+| distinct RecommendationId, FocusArea, ActionArea, Recommendation, Description
+| sort by FocusArea,ActionArea, Recommendation
+```
+Les résultats peuvent ensuite être exportés vers Excel pour être examinés.
+
+
 *Quelle est la fréquence d’exécution d’un contrôle d’intégrité ?*
 
 * Le contrôle s’exécute tous les sept jours.

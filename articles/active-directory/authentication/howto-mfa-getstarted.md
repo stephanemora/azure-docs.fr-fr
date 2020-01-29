@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848389"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155144"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planification d’un déploiement Azure Multi-Factor Authentication basé sur le cloud
 
@@ -24,7 +24,7 @@ Les personnes se connectent aux ressources d’organisation dans des scénarios 
 
 [Azure Multi-Factor Authentication (MFA)](concept-mfa-howitworks.md) permet de protéger l’accès aux données et aux applications. Il fournit une couche supplémentaire de sécurité à l’aide d’une deuxième forme d’authentification. Les organisations peuvent utiliser l’[accès conditionnel](../conditional-access/overview.md) pour que la solution réponde à leurs besoins spécifiques.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de lancer un déploiement d’Azure Multi-Factor Authentication, il existe des prérequis à prendre en compte.
 
@@ -85,18 +85,18 @@ Nous recommandons aux organisations d’utiliser l’accès conditionnel pour d�
 ### <a name="configuring-a-named-location"></a>Configuration d’un emplacement nommé
 
 1. Ouvrez **Azure Active Directory** dans le portail Azure.
-2. Cliquez sur **Accès conditionnel**.
-3. Cliquez sur **Emplacements nommés**.
-4. Cliquez sur **Nouvel emplacement**.
+2. Sélectionnez **Sécurité**
+3. Dans **Gérer**, choisissez **Emplacements nommés**
+4. Sélectionnez **Nouvel emplacement**
 5. Dans le champ **Nom**, indiquez un nom explicite.
-6. Indiquez si vous définissez l’emplacement à l’aide de plages d’adresses IP ou de pays/régions.
-   1. Si vous utilisez des plages d’adresses IP
-      1. Décidez s’il faut marquer l’emplacement comme approuvé. La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur. Marquez uniquement cet emplacement comme approuvé si vous savez que les plages d’adresses IP saisies sont établies et crédibles dans votre organisation.
+6. Indiquez si vous définissez l’emplacement à l’aide de *plages d’adresses IP* ou de *pays/régions*
+   1. Si vous utilisez des *plages d’adresses IP*
+      1. Décidez s’il faut *marquer l’emplacement comme approuvé*. La connexion à partir d’un emplacement approuvé réduit le risque de connexion d’un utilisateur. Marquez uniquement cet emplacement comme approuvé si vous savez que les plages d’adresses IP saisies sont établies et crédibles dans votre organisation.
       2. Spécifiez les plages d’adresses IP.
-   2. Si vous utilisez des pays/régions
+   2. Si vous utilisez des *pays/régions*
       1. Développez le menu déroulant et sélectionnez les pays ou régions que vous souhaitez définir pour cet emplacement nommé.
-      2. Décidez s’il faut inclure les zones inconnues. Les zones inconnues sont les adresses IP qui ne peuvent être mappées à aucun pays ou aucune région.
-7. Cliquez sur **Créer**
+      2. Décidez s’il faut inclure des *zones inconnues*. Les zones inconnues sont les adresses IP qui ne peuvent être mappées à aucun pays ou aucune région.
+7. Sélectionnez **Créer**
 
 ## <a name="plan-authentication-methods"></a>Planifier les méthodes d’authentification
 
@@ -169,7 +169,7 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Ob
 Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName | Sort-Object userprincipalname 
 ```
 
-### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Remplacer l’authentification multifacteur en fonction de l’utilisateur par l’authentification multifacteur en fonction de l’accès conditionnel
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convertir des utilisateurs de l’authentification multifacteur par utilisateur à l’authentification multifacteur basée sur l’accès conditionnel
 
 Si vos utilisateurs ont été activées l’authentification multifacteur appliquée par Azure ou reposant sur l’utilisateur, la commande PowerShell suivante peut vous aider à passer à une authentification multifacteur Azure en fonction de l’accès conditionnel.
 
@@ -221,7 +221,7 @@ Il est important que vous évitiez de perdre l’accès à votre locataire Azure
 ### <a name="create-conditional-access-policy"></a>Créer une stratégie d’accès conditionnel
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général.
-1. Accédez à **Azure Active Directory**, **Accès conditionnel**.
+1. Accédez à **Azure Active Directory** > **Sécurité** > **Accès conditionnel.**
 1. Sélectionnez **Nouvelle stratégie**.
    ![Créer une stratégie d’accès conditionnel pour activer l’authentification multifacteur pour les utilisateurs du portail Azure dans le groupe pilote](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Entrez un nom explicite pour votre stratégie.

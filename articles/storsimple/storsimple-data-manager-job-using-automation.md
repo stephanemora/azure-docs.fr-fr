@@ -1,25 +1,17 @@
 ---
-title: Utiliser Azure Automation pour lancer une tâche dans StorSimple Data Manager | Microsoft Docs
+title: Utilisez Azure Automation pour lancer un travail dans StorSimple Data Manager
 description: Découvrez comment utiliser Azure Automation pour déclencher des travaux StorSimple Data Manager
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634107"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273990"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Utiliser Azure Automation pour déclencher un travail
 
@@ -30,7 +22,7 @@ Cet article vous explique comment utiliser la fonctionnalité de transformation 
  
 Cet article explique comment créer un runbook Azure Automation, puis l’utiliser pour lancer un travail de transformation de données. Pour en savoir plus sur l’initialisation de la transformation des données via le kit de développement logiciel (SDK) .NET, accédez à [Utilisez le SDK .NET SDK pour déclencher des travaux de transformation des données](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 

@@ -1,5 +1,5 @@
 ---
-title: Créer et gérer des machines virtuelles dans DevTest Labs avec l’interface de ligne de commande Azure | Microsoft Docs
+title: Créer et gérer des machines virtuelles dans DevTest Labs avec Azure CLI
 description: Apprenez à utiliser Azure DevTest Labs pour créer et gérer des machines virtuelles avec Azure CLI
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d3cd104e36cb407e9b1b833335869cac2c69d0ec
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773098"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167054"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Créer et gérer des machines virtuelles avec DevTest Labs à l’aide de l’interface de ligne de commande Azure
 Ce guide de démarrage rapide vous montre pas à pas comment créer, démarrer, vous connecter à, mettre à jour et nettoyer une machine de développement dans votre lab. 
@@ -139,7 +139,7 @@ az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name 
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
 
-Exemple de sortie : 
+Exemple de sortie : 
 
 ```json
 [

@@ -1,18 +1,18 @@
 ---
 title: Contrôles de sécurité pour Azure Service Bus Relay
-description: Check-list des contrôles de sécurité utilisés pour l’évaluation d’Azure Service Bus Relay
+description: Cet article fournit une liste de contrôle des contrôles de sécurité intégrés pour l’évaluation de Azure Service Bus Relay.
 services: service-bus-relay
 ms.service: service-bus-relay
 author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 7f4e2a31673905a7e28d1dbb5520650aefc6f368
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 28d3ba14aa7769ac4f3fc22bd2b5bd7acd30557c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219988"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514015"
 ---
 # <a name="security-controls-for-azure-service-bus-relay"></a>Contrôles de sécurité pour Azure Service Bus Relay
 
@@ -32,33 +32,33 @@ Cet article décrit les contrôles de sécurité intégrés à Azure Service Bus
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| OUI | |   |
-| Journalisation et audit du plan de gestion et de contrôle| OUI | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
-| Journalisation et audit du plan de données| OUI | La réussite, l’échec et les erreurs de la connexion sont journalisés.  |   |
+| Prise en charge de la supervision Azure (Log analytics, App insights, etc.)| Oui | |   |
+| Journalisation et audit du plan de gestion et de contrôle| Oui | Via [Azure Resource Manager](../azure-resource-manager/index.yml). |   |
+| Journalisation et audit du plan de données| Oui | La réussite, l’échec et les erreurs de la connexion sont journalisés.  |   |
 
 ## <a name="identity"></a>Identité
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Authentication| OUI | Via SAS. | [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md) |
-| Authorization|  OUI | Via SAS. | [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md) |
+| Authentication| Oui | Via SAS. | [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md) |
+| Autorisation|  Oui | Via SAS. | [Authentification et autorisation Azure Relay](relay-authentication-and-authorization.md) |
 
-## <a name="data-protection"></a>Protection des données
+## <a name="data-protection"></a>Protection de données
 
 | Contrôle de sécurité | Oui/Non | Notes | Documentation |
 |---|---|--|--|
 | Chiffrement côté serveur au repos : Clés managées par Microsoft |  N/A | Le relais est un socket web et ne persiste pas dans les données. |   |
 | Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Non | Utilise uniquement les certificats Microsoft TLS.  |   |
 | Chiffrement au niveau des colonnes (Azure Data Services)| N/A | |   |
-| Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| OUI | Le service nécessite TLS. |   |
-| Appels d’API chiffrés| OUI | HTTPS. |
+| Chiffrement en transit (comme ExpressRoute, de réseau virtuel et de réseau virtuel à réseau virtuel)| Oui | Le service nécessite TLS. |   |
+| Appels d’API chiffrés| Oui | HTTPS. |
 
 
 ## <a name="configuration-management"></a>Gestion des configurations
 
 | Contrôle de sécurité | Oui/Non | Notes| Documentation |
 |---|---|--|--|
-| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| OUI | Via [Azure Resource Manager](../azure-resource-manager/index.yml).|   |
+| Prise en charge de la gestion de la configuration (gestion de version de la configuration, etc.)| Oui | Via [Azure Resource Manager](../azure-resource-manager/index.yml).|   |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -17,34 +17,34 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe727afcfdec204c92c82c3e695961707af90e65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a07a28837abf2fb6df3dd0583309ec1f3d278a58
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423810"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293485"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Application de bureau appelant des API web : passage en production
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Application de bureau qui appelle des API Web : Passer en production
 
-Cet article vous fournit des détails pour passer en production votre application de bureau qui appelle des API web.
+Dans cet article, vous allez apprendre à déplacer votre application de bureau qui appelle des API Web en production.
 
-## <a name="handling-errors-in-desktop-applications"></a>Gestion des erreurs dans les applications de bureau
+## <a name="handle-errors-in-desktop-applications"></a>Gérer les erreurs dans les applications de bureau
 
-Dans les différents flux, vous avez appris à gérer les erreurs des flux silencieux (comme montré dans les extraits de code). Nous avons également vu qu’il y a des cas où une interaction est nécessaire (consentement incrémentiel et accès conditionnel).
+Dans les différents flux, vous avez appris à gérer les erreurs pour les flux en mode silencieux, comme indiqué dans les extraits de code. Vous avez également vu qu’il existe des cas où l’interaction est nécessaire, comme par exemple le consentement incrémentiel et l’accès conditionnel.
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>Obtenir le consentement de l’utilisateur à l’avance pour plusieurs ressources
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>Demander le consentement préalable de l’utilisateur sur plusieurs ressources
 
 > [!NOTE]
-> L’obtention d’un consentement pour plusieurs ressources fonctionne pour la plateforme d’identités Microsoft, mais pas pour Azure Active Directory (Azure AD) B2C. Azure AD B2C prend en charge le consentement de l’administrateur uniquement, et pas le consentement de l’utilisateur.
+> L’obtention d’un consentement pour plusieurs ressources fonctionne pour la plateforme d’identités Microsoft, mais pas pour Azure Active Directory (Azure AD) B2C. Azure AD B2C prend en charge le consentement de l’administrateur uniquement, et pas le consentement de l’utilisateur.
 
-Le point de terminaison de la plateforme d’identités Microsoft (v2.0) ne vous permet pas d’obtenir un jeton pour plusieurs ressources à la fois. Par conséquent, le paramètre `scopes` ne peut contenir que les étendues d’une seule ressource. Vous pouvez veiller à ce que l’utilisateur consente d’avance plusieurs ressources via le paramètre `extraScopesToConsent`.
+Vous ne pouvez pas obtenir un jeton pour plusieurs ressources à la fois avec le point de terminaison de la plateforme d’identités Microsoft (v 2.0). Le paramètre `scopes` peut contenir des étendues pour une seule ressource. Vous pouvez veiller à ce que l’utilisateur consente d’avance plusieurs ressources via le paramètre `extraScopesToConsent`.
 
 Par exemple, si vous avez deux ressources, ayant chacune deux étendues :
 
-- `https://mytenant.onmicrosoft.com/customerapi` - avec 2 étendues `customer.read` et `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi` - avec 2 étendues `vendor.read` et `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` avec les étendues `customer.read` et `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` avec les étendues `vendor.read` et `vendor.write`
 
-Vous devez utiliser le modificateur `.WithAdditionalPromptToConsent` ayant le paramètre `extraScopesToConsent`.
+Dans cet exemple, utilisez le modificateur `.WithAdditionalPromptToConsent` qui dispose du paramètre `extraScopesToConsent`.
 
 Exemple :
 
@@ -99,17 +99,17 @@ interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
 ```
 
-Cet appel vous permet d’obtenir un jeton d’accès pour la première API web.
+Cet appel vous permet d’obtenir un jeton d’accès pour la première API Web.
 
-Lorsque vous avez besoin d’appeler la deuxième API web, vous pouvez appeler l’API `AcquireTokenSilent` :
+Lorsque vous avez besoin d’appeler la deuxième API Web, appelez l’API `AcquireTokenSilent`.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Le compte personnel Microsoft nécessite un nouveau consentement à chaque exécution de l’application
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>Le compte personnel Microsoft requiert de nouveau un consentement à chaque exécution de l’application
 
-Pour les utilisateurs de comptes personnels Microsoft, il est de rigueur de redemander le consentement sur chaque client natif (application mobile/de bureau) pour obtenir l’autorisation. L’identité d’un client natif n’est pas sécurisée par nature (contrairement à une application cliente confidentielle qui échange un secret avec la plateforme d’identité Microsoft pour prouver son identité). La plateforme d’identité Microsoft a choisi d’atténuer ce manque de sécurité pour les services de consommateur en invitant l’utilisateur à fournir son consentement à chaque fois que l’application est autorisée.
+Pour les utilisateurs de compte personnel Microsoft, il convient de demander de nouveau le consentement sur chaque client natif (ordinateur de bureau ou application mobile) pour autoriser est le comportement prévu. L’identité de client natif est fondamentalement non sécurisée, ce qui est contraire à l’identité de l’application cliente confidentielle. Les applications clientes confidentielles échangent un secret avec la plateforme d’identité Microsoft pour prouver leur identité. La plateforme d’identité Microsoft a choisi d’atténuer ce manque de sécurité pour les services aux consommateur en invitant l’utilisateur à donner son consentement à chaque fois que l’application est autorisée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

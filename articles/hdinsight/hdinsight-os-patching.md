@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/01/2019
-ms.openlocfilehash: a97a03f7ef20ae56cec04341fe76b79ee657547b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.custom: hdinsightactive
+ms.date: 01/21/2020
+ms.openlocfilehash: 102ae56bb9dce2898c14bdc710420759a527a9e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748482"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514695"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurer la planification de la mise à jour corrective du système d’exploitation pour les clusters HDInsight sous Linux
 
@@ -27,6 +27,19 @@ HDInsight prend en charge l’exécution des tâches courantes sur votre cluster
 
 > [!NOTE]  
 > Ces action de script n’appliquent pas automatiquement les mises à jour pour tous les cycles de mise à jour ultérieurs. Exécutez les scripts chaque fois que de nouvelles mises à jour doivent être appliquées pour installer les mises à jour et redémarrez la machine virtuelle.
+
+## <a name="preparation"></a>Préparation
+
+Correctif sur un environnement de non-production représentatif avant le déploiement en production. Élaborez un plan pour tester votre système de manière adéquate avant d’appliquer les correctifs.
+
+De temps en temps, lors d’une session ssh avec votre cluster, vous pouvez recevoir un message indiquant qu’une mise à niveau est proposée. Le message peut ressembler à ceci :
+
+```
+New release '18.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade it
+```
+
+L’application de correctifs est facultative et à votre convenance.
 
 ## <a name="restart-nodes"></a>Redémarrer des nœuds
   
@@ -56,5 +69,5 @@ Le script `install-updates-schedule-reboots` accepte deux paramètres numérique
 
 Pour connaître les étapes spécifiques à l’utilisation de l’action de script, consultez les sections suivantes de l’article [Personnalisation de clusters HDInsight basés sur Linux à l’aide d’une action de script](hdinsight-hadoop-customize-cluster-linux.md) :
 
-* [Utiliser une action de script lors de la création du cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-* [Appliquer une action de script sur un cluster en cours d’exécution](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [Utiliser une action de script lors de la création du cluster](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
+- [Appliquer une action de script sur un cluster en cours d’exécution](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)

@@ -4,15 +4,15 @@ description: Répliquer les serveurs Azure Analysis Services avec Scale-out. Les
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572634"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310184"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -20,7 +20,7 @@ La montée en charge permet de distribuer les requêtes des clients sur plusieur
 
 La montée en charge est disponible pour les serveurs du niveau tarifaire Standard. Chaque réplica de requête est facturé au même prix que votre serveur. Tous les réplicas de la requête sont créés dans la même région que votre serveur. Le nombre de réplicas de requête que vous pouvez configurer est limité par la région de votre serveur. Pour plus d’informations, consultez [Disponibilité par région](analysis-services-overview.md#availability-by-region). La montée en charge n’augmente pas la quantité de mémoire disponible pour votre serveur. Pour augmenter la mémoire, vous devez passer à un forfait supérieur. 
 
-## <a name="why-scale-out"></a>L’utilité de la montée en charge
+## <a name="why-scale-out"></a>Pourquoi monter en charge ?
 
 Dans un déploiement de serveur classique, un même serveur est utilisé comme serveur de traitement et comme serveur de requêtes. Si le nombre de requêtes de clients sur des modèles présents sur votre serveur dépasse les unités de traitement des requêtes du plan de votre serveur, ou que le traitement du modèle est effectué en même temps que des charges de travail de requêtes importantes, les performances peuvent diminuer. 
 
@@ -36,7 +36,7 @@ Lors de la première configuration de la montée en charge, les bases de donnée
 
 Si la synchronisation automatique ne se produit que lors de la première montée en charge du serveur, une synchronisation manuelle reste possible pour que les données des réplicas du pool de requêtes correspondent à celles du serveur principal. En cas de traitement (actualisation) des modèles sur le serveur principal, il est nécessaire d’effectuer une synchronisation *une fois* les opérations de traitement terminées. Elle copie dans le deuxième ensemble de fichiers les données mises à jour des fichiers du serveur principal dans le Stockage Blob. Les réplicas du pool de requêtes sont ensuite alimentés avec les données mises à jour issues du deuxième ensemble de fichiers dans le Stockage Blob. 
 
-Lors des opérations ultérieures de montée en charge (par exemple, augmentation de deux à cinq du nombre de réplicas dans le pool de requêtes), les nouveaux réplicas sont alimentés avec des données issues du deuxième ensemble de fichiers dans le Stockage Blob. Aucune synchronisation n’est effectuée. Si une synchronisation se produisait après la montée en charge, les nouveaux réplicas du pool de requêtes seraient alimentés deux fois, ce qui serait redondant. Lors des opérations ultérieures de montée en charge, il est important de garder à l’esprit plusieurs considérations :
+Lors des opérations ultérieures de montée en charge (par exemple, augmentation de deux à cinq du nombre de réplicas dans le pool de requêtes), les nouveaux réplicas sont alimentés avec des données issues du deuxième ensemble de fichiers dans le Stockage Blob. Aucune synchronisation n’est effectuée. Si vous effectuez ensuite une synchronisation après la montée en charge, les nouveaux réplicas dans le pool de requêtes seront alimentés deux fois, ce qui serait redondant. Lors des opérations ultérieures de montée en charge, il est important de garder à l’esprit plusieurs considérations :
 
 * Effectuez une synchronisation *avant l’opération de montée en charge* afin d’éviter une alimentation redondante des réplicas ajoutés. Les opérations simultanées de montée en charge et de synchronisation ne sont pas autorisées.
 
@@ -48,6 +48,26 @@ Lors des opérations ultérieures de montée en charge (par exemple, augmentatio
 
 * En cas de renommage d’une base de données sur le serveur principal, une étape supplémentaire est nécessaire pour que la base de données soit correctement synchronisée avec tous les réplicas. Après le renommage, effectuez une synchronisation avec la commande [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) en spécifiant le paramètre `-Database` avec l’ancien nom de la base de données. Cette synchronisation supprime de tous les réplicas la base de données et les fichiers portant l’ancien nom. Ensuite, effectuez une autre synchronisation en indiquant le paramètre `-Database` avec le nouveau nom de la base de données. La deuxième synchronisation copie la base de données portant le nouveau nom dans le deuxième ensemble de fichiers et alimente tous les réplicas. Il n’est pas possible d’effectuer ces synchronisations avec la commande Synchroniser le modèle du portail.
 
+### <a name="synchronization-mode"></a>Mode de synchronisation
+
+Par défaut, les réplicas de requête sont réalimentés intégralement, et non pas de façon incrémentielle. La réalimentation se produit par étapes. Ils sont détachés et attachés deux à la fois (en supposant qu’il existe au moins trois réplicas) pour garantir qu’au moins un réplica est conservé en ligne pour les requêtes à tout moment. Dans certains cas, les clients peuvent avoir besoin de se reconnecter à l’un des réplicas en ligne pendant que ce processus a lieu. En utilisant le paramètre (en préversion) **ReplicaSyncMode**, vous pouvez désormais spécifier la synchronisation du réplica de requête en parallèle. La synchronisation parallèle offre les avantages suivants : 
+
+- Réduction significative du temps de synchronisation. 
+- Les données des réplicas sont plus susceptibles d’être cohérentes au cours du processus de synchronisation. 
+- Étant donné que les bases de données sont conservées en ligne sur tous les réplicas tout au long du processus de synchronisation, les clients n’ont pas besoin de se reconnecter. 
+- Le cache en mémoire est mis à jour de façon incrémentielle avec uniquement les données modifiées, ce qui peut être plus rapide que la réalimentation complète du modèle. 
+
+#### <a name="setting-replicasyncmode"></a>Paramétrage de ReplicaSyncMode
+
+Utilisez SSMS pour définir ReplicaSyncMode dans les Propriétés avancées. Les valeurs possibles sont les suivantes : 
+
+- `1` (par défaut) : Réalimentation complète de la base de données des réplicas par étapes (incrémentielle). 
+- `2`: Synchronisation optimisée en parallèle. 
+
+![Paramètre RelicaSyncMode](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
+
+Lorsque vous définissez **ReplicaSyncMode = 2**, en fonction de la quantité de cache qui doit être mise à jour, la mémoire supplémentaire peut être utilisée par les réplicas de requête. Pour que la base de données reste en ligne et disponible pour les requêtes, en fonction de la quantité de données modifiée, l’opération peut nécessiter jusqu’à *doubler la mémoire* sur le réplica, car les segments anciens et nouveaux sont conservés simultanément en mémoire. Les nœuds de réplica ont la même allocation de mémoire que le nœud principal, et il y a généralement de la mémoire supplémentaire sur le nœud principal pour les opérations d’actualisation. Il est donc peu probable que les réplicas manquent de mémoire. En outre, le scénario commun est que la base de données est mise à jour de façon incrémentielle sur le nœud principal, et donc la nécessité de doubler la mémoire devrait être peu commune. Si l’opération de synchronisation rencontre une erreur de mémoire insuffisante, elle réessaie à l’aide de la technique par défaut (attacher/détacher deux à la fois). 
+
 ### <a name="separate-processing-from-query-pool"></a>Traitement distinct à partir du pool de requêtes
 
 Pour optimiser les performances des opérations de traitement et de requête, vous pouvez choisir de séparer votre serveur de traitement du pool de requêtes. Lorsqu’ils sont séparés, de nouvelles connexions client sont attribuées aux réplicas de requête dans le pool de requêtes uniquement. Si les opérations de traitement ne prennent qu’un court laps de temps, vous pouvez choisir de séparer votre serveur de traitement du pool de requêtes uniquement pendant le temps nécessaire à la réalisation des opérations de traitement et de synchronisation, puis de le réinclure dans le pool de requêtes. Les opérations de séparation du serveur de traitement du pool de requêtes et de rajout dans le pool de requêtes peuvent prendre jusqu'à cinq minutes.
@@ -56,7 +76,7 @@ Pour optimiser les performances des opérations de traitement et de requête, vo
 
 Pour déterminer si une montée en charge est nécessaire pour votre serveur, surveillez votre serveur dans le portail Azure en utilisant des métriques. Si vos unités de traitement des requêtes atteignent régulièrement le maximum, cela signifie que le nombre de requêtes sur vos modèles dépasse la limite d’unités de traitement des requêtes pour votre forfait. La métrique Longueur de la file d’attente des travaux du pool de requêtes augmente aussi quand le nombre de requêtes dans la file d’attente du pool de threads de requêtes dépasse les unités de traitement des requêtes disponibles. 
 
-L’indicateur de QPU moyen par ServerResourceType est également intéressant. Il compare le nombre moyen de QPU du serveur principal avec celui du pool de requêtes. 
+L’indicateur de QPU moyen par ServerResourceType est également intéressant. Cette mesure compare le nombre moyen de QPU pour le serveur principal et le pool de requêtes. 
 
 ![Indicateurs de montée en charge des requêtes](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
@@ -132,7 +152,7 @@ Pour séparer le serveur de traitement du pool de requêtes, utilisez [Set-AzAna
 
 Pour plus d’informations, voir [Utiliser un principal de service avec le module Az.AnalysisServices](analysis-services-service-principal.md#azmodule).
 
-## <a name="connections"></a>connexions
+## <a name="connections"></a>Connexions
 
 Dans la page Vue d’ensemble de votre serveur, vous voyez deux noms de serveur. Si vous n’avez pas encore configuré la montée en charge pour un serveur, les deux noms de serveur fonctionnent de la même façon. Une fois le scale-out configuré pour un serveur, vous devez spécifier le nom du serveur approprié en fonction du type de connexion. 
 
@@ -146,9 +166,9 @@ Pour SSMS, Visual Studio et les chaînes de connexion dans PowerShell, les appli
 
 Vous pouvez modifier le niveau tarifaire sur un serveur avec plusieurs réplicas. Le même niveau tarifaire s’applique à tous les réplicas. Une opération de mise à l’échelle entraînera d’abord la mise à niveau de tous les réplicas à la fois, puis affichera tous les réplicas sur le nouveau niveau tarifaire.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
-**Problème :** les utilisateurs obtiennent l’erreur **Cannot find server ’\<Name of the server>’ instance in connection mode ’ReadOnly’** (Impossible de trouver l’instance de serveur ’<Nom du serveur>’ en mode de connexion ’Lecture seule’).
+**Problème :** les utilisateurs obtiennent l’erreur **Cannot find server ’\<Name of the server>’ instance in connection mode ’ReadOnly’** (Impossible de trouver l’instance de serveur ’<Nom du serveur>’ en mode de connexion ’Lecture seule’).
 
 **Solution :** si l’option **Séparer le serveur de traitement du pool de requêtes** est sélectionnée, les connexions client utilisant la chaîne de connexion par défaut (sans `:rw`) sont redirigées vers les réplicas du pool de requêtes. Si les réplicas du pool de requêtes ne sont pas encore en ligne, car la synchronisation n’est pas terminée, les connexions client redirigées peuvent échouer. Pour empêcher l’échec des connexions, vous devez avoir au moins deux serveurs dans le pool de requêtes quand vous effectuez une synchronisation. Chaque serveur est synchronisé individuellement pendant que les autres serveurs restent en ligne. Si vous choisissez de ne pas mettre le serveur de traitement dans le pool de requêtes durant le traitement, vous pouvez l’enlever du pool avant le traitement, puis le réintégrer au pool une fois le traitement terminé, mais avant la synchronisation. Utilisez les métriques Mémoire et QPU pour superviser l’état de synchronisation.
 

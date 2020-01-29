@@ -1,5 +1,5 @@
 ---
-title: Diffusion en continu Widevine hors connexion pour Android avec Azure Media Services v3
+title: Diffusez en continu Widevine Android hors connexion avec Azure Media Services V3
 description: Cette rubrique montre comment configurer votre compte Azure Media Services pour la diffusion en continu hors connexion du contenu protégé de Widevine.
 services: media-services
 keywords: DASH, DRM, Widevine hors connexion, ExoPlayer, Android
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 17416fce887f5f5b952232e284873e539fd68337
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 7c7e1ca8c27ba9b5d7558a75106cf6d3f3e2172e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779907"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513097"
 ---
 # <a name="offline-widevine-streaming-for-android"></a>Widevine hors connexion pour Android
 

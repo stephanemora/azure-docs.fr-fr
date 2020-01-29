@@ -11,25 +11,25 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919339"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511890"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guide de référence des opérations de gestion de l’authentification Azure Active Directory
 
 Cette section du [Guide de référence des opérations Azure AD](active-directory-ops-guide-intro.md) décrit les vérifications et les actions à entreprendre pour sécuriser et gérer les informations d’identification, définir l’expérience d’authentification, déléguer l’affectation, mesurer l’utilisation et définir des stratégies d’accès basées sur l’attitude de l’entreprise en matière de sécurité.
 
 > [!NOTE]
-> Ces recommandations sont valables à la date de publication, mais elles peuvent évoluer au fil du temps. Les organisations doivent évaluer en permanence leurs pratiques de gestion des identités à mesure que les produits et services Microsoft évoluent.
+> Ces suggestions sont valables à la date de publication mais peuvent évoluer. Les organisations doivent évaluer en permanence leurs pratiques de gestion des identités à mesure que les produits et services Microsoft évoluent.
 
 ## <a name="key-operational-processes"></a>Processus opérationnels clés
 
-### <a name="assign-owners-to-key-tasks"></a>Affecter des propriétaires aux tâches clés
+### <a name="assign-owners-to-key-tasks"></a>Affecter les propriétaires à des tâches clés
 
-La gestion d’Azure Active Directory nécessite l’exécution continue de tâches et de processus opérationnels clés, qui peuvent ne pas faire partie d’un projet de déploiement. Il est cependant important de configurer ces tâches pour optimiser votre environnement. Les tâches clés et leurs propriétaires recommandés sont les suivantes :
+La gestion d’Azure Active Directory nécessite l’exécution continue de tâches et de processus opérationnels clés, qui peuvent ne pas faire partie d’un projet de déploiement. Il est cependant important de configurer ces tâches pour optimiser votre environnement. Les tâches clés et leurs propriétaires recommandés sont listés ci-après :
 
 | Tâche | Propriétaire |
 | :- | :- |
@@ -44,7 +44,7 @@ La gestion d’Azure Active Directory nécessite l’exécution continue de tâc
 > [!NOTE]
 > Azure AD Identity Protection nécessite une licence Azure AD Premium P2. Pour trouver la licence adaptée à vos besoins, consultez  [Comparaison des fonctionnalités généralement disponibles des éditions Azure AD Free et Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/).
 
-En passant votre liste en revue, vous pouvez constater qu’il est nécessaire d’affecter un propriétaire à des tâches qui n’en ont pas, ou d’ajuster la propriété des tâches avec des propriétaires qui ne sont pas alignés sur les recommandations ci-dessus.
+Quand vous passerez votre liste en revue, vous devrez peut-être affecter un propriétaire à des tâches qui en sont dépourvues, ou modifier la propriété des tâches avec propriétaires qui ne sont pas conformes aux suggestions ci-dessus.
 
 #### <a name="owner-recommended-reading"></a>Lectures recommandées pour les propriétaires
 
@@ -127,8 +127,8 @@ Comme n’importe quel utilisateur de votre organisation, un appareil est une id
 
 Pour atteindre cet objectif, vous devez intégrer et gérer les identités des appareils dans Azure AD en utilisant une des méthodes suivantes :
 
-- Les organisations peuvent utiliser [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) pour gérer l’appareil et appliquer des stratégies de conformité, attester l’intégrité de l’appareil et définir des stratégies d’accès conditionnel selon que l’appareil est ou non conforme. Microsoft Intune peut gérer des appareils iOS, des postes de travail Mac (via l’intégration JAMF), des postes de travail Windows (en mode natif avec MDM pour Windows 10 et la cogestion avec Microsoft Endpoint Manager/System Center Configuration Manager) et des appareils mobiles Android.
-- La [jonction Azure AD Hybride](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) fournit une gestion avec des stratégies de groupe, System Center Configuration Manager ou Microsoft Endpoint Manager dans un environnement avec des ordinateurs joints à un domaine Active Directory. Les organisations peuvent déployer un environnement managé via la synchronisation de hachage de mot de passe ou l’authentification directe avec l’authentification unique fluide. L’intégration de vos appareils à Azure AD optimise la productivité des utilisateurs via l’authentification unique pour vos ressources cloud et locales, tout en vous permettant de sécuriser en même temps l’accès à vos ressources cloud et locales avec l’ [accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) .
+- Les organisations peuvent utiliser [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) pour gérer l’appareil et appliquer des stratégies de conformité, attester l’intégrité de l’appareil et définir des stratégies d’accès conditionnel selon que l’appareil est ou non conforme. Microsoft Endpoint Configuration Manager peut gérer des appareils iOS, des bureaux Mac (via l’intégration JAMF), des bureaux Windows (en mode natif à l’aide de la gestion des appareils mobiles pour Windows 10, et la cogestion avec Microsoft Endpoint Configuration Manager) et les appareils mobiles Android.
+- [La jointure Azure AD Hybride](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) permet une gestion avec des stratégies de groupe ou de Microsoft Endpoint Configuration Manager dans un environnement avec des ordinateurs appartenant à un domaine Active Directory. Les organisations peuvent déployer un environnement managé via la synchronisation de hachage de mot de passe ou l’authentification directe avec l’authentification unique fluide. L’intégration de vos appareils à Azure AD optimise la productivité des utilisateurs via l’authentification unique pour vos ressources cloud et locales, tout en vous permettant de sécuriser en même temps l’accès à vos ressources cloud et locales avec l’ [accès conditionnel](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) .
 
 Si vous avez des appareils Windows joints à un domaine qui ne sont pas inscrits dans le cloud, ou des appareils Windows joints à un domaine qui sont inscrits dans le cloud mais sans stratégies d’accès conditionnel, vous devez inscrire les appareils non inscrits et, dans les deux cas, [utiliser la jonction Azure AD Hybride en tant que contrôle](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) dans vos stratégies d’accès conditionnel.
 
@@ -211,7 +211,7 @@ Selon vos priorités, utilisez le tableau ci-dessous pour trouver la solution re
 | 2 | Si vous êtes fédéré et que vous n’utilisez pas la revendication « insideCorporateNetwork » et que des emplacements nommés n’ont pas été définis | Définissez des emplacements nommés pour améliorer la détection des événements à risque |
 | 3 | Si vous n’utilisez pas d’emplacements nommés dans les stratégies d’accès conditionnel, et qu’il n’y a pas risque ou de contrôles des appareils dans les stratégies d’accès conditionnel | Configurez la stratégie d’accès conditionnel pour y inclure des emplacements nommés |
 | 4 | Si vous êtes fédéré et que vous utilisez la revendication « insideCorporateNetwork », et que des emplacements nommés n’ont pas été définis | Définissez des emplacements nommés pour améliorer la détection des événements à risque |
-| 5\. | Si vous utilisez des adresses IP approuvées avec MFA au lieu d’emplacements nommés et que vous les marquez comme approuvés | Définissez des emplacements nommés et marquez-les comme approuvés pour améliorer la détection des événements à risque |
+| 5 | Si vous utilisez des adresses IP approuvées avec MFA au lieu d’emplacements nommés et que vous les marquez comme approuvés | Définissez des emplacements nommés et marquez-les comme approuvés pour améliorer la détection des événements à risque |
 
 ### <a name="risk-based-access-policies"></a>Stratégies d’accès basées sur les risques
 

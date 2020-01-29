@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4af3aea7218ea8792bb66188e8df7baf9f460b0b
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 24ec4373bceb3cc3c9e5be2c7a0dab1f62197b3c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462545"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512196"
 ---
 # <a name="azure-ad-joined-devices"></a>Appareils joints Azure AD
 
@@ -27,7 +27,7 @@ La jonction Azure AD est destinée aux organisations axées en priorité ou uniq
 | **Définition** | Joint uniquement à Azure AD et nécessitant un compte professionnel pour se connecter à l’appareil |
 | **Public principal** | Approprié pour les organisations utilisant uniquement le cloud et pour les organisations hybrides. |
 |   | S’applique à tous les utilisateurs d’une organisation |
-| **Propriété de l’appareil** | Organisation |
+| **Appartenance de l’appareil** | Organization |
 | **Systèmes d’exploitation** | Tous les appareils Windows 10 |
 | **Approvisionnement** | Libre-service : Windows OOBE ou Paramètres |
 |   | Inscription en bloc |
@@ -37,7 +37,7 @@ La jonction Azure AD est destinée aux organisations axées en priorité ou uniq
 |   | Windows Hello Entreprise |
 |   | Clés de sécurité FIDO2.0 (préversion) |
 | **Gestion des appareils** | Gestion des périphériques mobiles (exemple : Microsoft Intune) |
-|   | Cogestion avec Microsoft Intune et System Center Configuration Manager |
+|   | Cogestion avec Microsoft Intune et Microsoft Endpoint Configuration Manager |
 | **Fonctionnalités clés** | Authentification unique vers les ressources de cloud et locales |
 |   | Accès conditionnel par le biais de l’inscription GPM et de l’évaluation de la conformité GPM |
 |   | Réinitialisation de mot de passe en libre-service et réinitialisation du code confidentiel Windows Hello sur l’écran de verrouillage |
@@ -45,7 +45,7 @@ La jonction Azure AD est destinée aux organisations axées en priorité ou uniq
 
 Les appareils joints Azure AD sont connectés au moyen d’un compte professionnel Azure AD. L’accès aux ressources de l’organisation peut être limité par ce compte Azure AD et les [stratégies d’accès conditionnel](../conditional-access/overview.md) appliquées à l’identité de l’appareil.
 
-Les administrateurs peuvent sécuriser et mieux contrôler les appareils joints Azure AD à l’aide d’outils de gestion des périphériques mobiles (GPM) tels que Microsoft Intune ou dans les scénarios de cogestion avec System Center Configuration Manager. Ces outils permettent d’appliquer les configurations requises par l’organisation, comme l’exigence du chiffrement du stockage, la complexité des mots de passe, les installations de logiciels et les mises à jour logicielles. Les administrateurs peuvent rendre des applications d’entreprise disponibles pour les appareils joints Azure AD à l’aide de [System Center Configuration Manager et du Microsoft Store pour Entreprises](https://docs.microsoft.com/sccm/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
+Les administrateurs peuvent sécuriser et mieux contrôler les appareils joints Azure AD à l’aide d’outils de gestion des périphériques mobiles (GPM), tels que Microsoft Intune ou dans des scénarios de cogestion à l’aide de Microsoft Endpoint Configuration Manager. Ces outils permettent d’appliquer les configurations requises par l’organisation, comme l’exigence du chiffrement du stockage, la complexité des mots de passe, les installations de logiciels et les mises à jour logicielles. Les administrateurs peuvent mettre des applications d’organisation à la disposition des appareils joints Azure AD des à l’aide de Configuration Manager pour [gérer des applications à partir des Microsoft Store pour les entreprises et l’enseignement](https://docs.microsoft.com/configmgr/apps/deploy-use/manage-apps-from-the-windows-store-for-business).
 
 La jonction Azure AD peut se faire à l’aide d’options libre-service telles que le mode OOBE (Out of Box Experience), l’inscription en bloc ou [Windows Autopilot](https://docs.microsoft.com/intune/enrollment-autopilot).
 
@@ -82,5 +82,5 @@ Il existe différentes manières de déployer Azure AD Join :
 
 - [Planifier votre implémentation de la jointure d’Azure AD](azureadjoin-plan.md)
 - [Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD](assign-local-admin.md)
-- [Gérer les identités de l’appareil à l’aide du portail Azure](device-management-azure-portal.md)
+- [Gérer les identités d’appareil à l’aide du portail Azure](device-management-azure-portal.md)
 - [Gérer les appareils obsolètes dans Azure AD](manage-stale-devices.md)
