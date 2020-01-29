@@ -1,5 +1,5 @@
 ---
-title: Continuité des activités et récupération d’urgence (BCDR) Video Indexer - Azure | Microsoft Docs
+title: Continuité et reprise d’activité Video Indexer - Azure
 description: Découvrez comment basculer vers un compte Video Indexer secondaire en cas de panne ou de défaillance d’un centre de données régional.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: ce788b4640f0a6c6f25b3280ce4f52fd018d1699
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 2f54c340226a9ea78643df8e0a984c8ed8475c94
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68668313"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513573"
 ---
 # <a name="handle-video-indexer-business-continuity-and-disaster-recovery"></a>Gérer la continuité et la reprise d’activité Video Indexer
 
@@ -26,7 +26,7 @@ Azure Media Services Video Indexer ne fournit pas de basculement instantané du 
 
 Nous vous recommandons de configurer la continuité d’activité et reprise d’activité (BCDR) dans les paires régionales pour tirer parti des stratégies d’isolation et de disponibilité Azure. Pour plus d’informations, consultez [Régions jumelées Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 
 Un abonnement Azure. Si vous n’avez pas encore d’abonnement Azure, [inscrivez-vous pour bénéficier d’un essai gratuit Azure](https://azure.microsoft.com/free/).
 

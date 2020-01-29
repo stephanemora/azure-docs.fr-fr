@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889521"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290391"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrer vers Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ Dans cet article, nous allons résumer les détails de la migration pour les poi
 > * Garantie de la validité des quotas
 > * Haute disponibilité et continuité de l’activité
 > * Considérations relatives aux applications sans état
-> * Considérations relatives aux applications avec état
+> * Points à prendre en compte sur les applications avec état
 > * Déploiement de la configuration du cluster
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>AKS avec Standard Load Balancer et Virtual Machine Scale Sets
@@ -111,7 +111,7 @@ Pour effectuer la migration, vous devez rediriger les clients vers les nouveaux 
 
 La migration des applications sans état est le cas de migration le plus simple. Appliquez vos définitions de ressources (YAML ou Helm) au nouveau cluster, vérifiez que tout fonctionne comme prévu et redirigez le trafic pour activer votre nouveau cluster.
 
-### <a name="considers-for-stateful-applications"></a>Considérations pour les applications avec état
+### <a name="considerations-for-stateful-applications"></a>Points à prendre en compte sur les applications avec état
 
 Planifiez soigneusement la migration des applications avec afin d’éviter la perte de données ou un temps d’arrêt imprévu.
 
@@ -161,7 +161,7 @@ Des outils open source vous aident à créer des disques managés et à migrer d
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Déploiement de la configuration du cluster
 
-Nous vous recommandons d’utiliser votre pipeline d’intégration continue (CI) et de déploiement continu (CD) existant pour déployer une configuration éprouvée sur AKS. Vous pouvez utiliser Azure Pipelines pour [créer et déployer vos applications dans AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clonez vos tâches de déploiement existantes et assurez-vous que `kubeconfig` pointe vers le nouveau cluster AKS.
+Nous vous recommandons d’utiliser votre pipeline d’intégration continue (CI) et de déploiement continu (CD) existant pour déployer une configuration éprouvée sur AKS. Vous pouvez utiliser Azure Pipelines pour [générer et déployer vos applications sur AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Clonez vos tâches de déploiement existantes et vérifiez que `kubeconfig` pointe vers le nouveau cluster AKS.
 
 Si ce n’est pas possible, exportez les définitions de ressources depuis votre cluster Kubernetes existant, puis appliquez-les à AKS. Vous pouvez utiliser `kubectl` pour exporter des objets.
 
@@ -177,5 +177,5 @@ Dans cet article, nous avons synthétisé les détails de la migration pour :
 > * Garantie de la validité des quotas
 > * Haute disponibilité et continuité de l’activité
 > * Considérations relatives aux applications sans état
-> * Considérations relatives aux applications avec état
+> * Points à prendre en compte sur les applications avec état
 > * Déploiement de la configuration du cluster

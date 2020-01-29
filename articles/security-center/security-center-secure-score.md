@@ -13,15 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 0a39fd1870ae803f2cf694e01c67d125fc96cac9
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200972"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156656"
 ---
-# <a name="improve-your-secure-score-in-azure-security-center"></a>Amélioration du degré de sécurisation dans Azure Security Center
+# <a name="improve-your-secure-score-in-azure-security-center"></a>Améliorer votre degré de sécurisation dans Azure Security Center
 
+> [!NOTE]
+> La préversion comprend une fonctionnalité améliorée de degré de sécurisation. À terme, cette version améliorée remplacera la version existante. Cependant, pour faciliter la transition, ces deux versions vont être exécutées côte à côte pendant une certaine période.
+>
+> Pour plus d’informations sur les avantages que présente la version améliorée du degré de sécurisation, [cliquez ici](secure-score-security-controls.md).
+>
+> Pour participer à la préversion, ouvrez le portail Azure, lancez Azure Security Center, puis sélectionnez Degré de sécurisation. Vous verrez alors une bannière située en haut de la page qui propose la nouvelle version de Degré de sécurisation. Vous pouvez également [cliquer ici](https://aka.ms/ascnewscore).
 
 Avec autant de services offrant des avantages en matière de sécurité, il est souvent difficile de connaître les étapes à suivre en premier lieu pour sécuriser et renforcer votre charge de travail. Le degré de sécurisation Azure examine vos recommandations de sécurité et les classe par priorité, afin que vous sachiez quelles recommandations appliquer en priorité. Cela vous permet de rechercher les vulnérabilités de sécurité les plus graves afin de définir les priorités d’investigation. Le degré de sécurisation est un outil qui vous aide à évaluer la sécurité de la charge de travail.
 
@@ -34,13 +40,12 @@ Security Center vous fournit également un **degré de sécurisation global**.
 
 Le **degré de sécurisation global** est l’accumulation de toutes vos recommandations. Vous pouvez afficher votre degré de sécurisation global dans vos abonnements ou groupes d’administration en fonction de votre sélection. Celui-ci varie en fonction de l’abonnement sélectionné et des recommandations actives correspondantes.
 
- 
 Pour vérifier les recommandations qui affectent le plus votre degré de sécurisation, vous pouvez afficher les trois principales recommandations ayant l’impact le plus fort dans le tableau de bord de Security Center. Vous pouvez également trier les recommandations contenues dans le panneau de la liste des recommandations à l’aide de la colonne **Impact du degré de sécurisation**.
-
 
 Pour afficher votre degré de sécurisation global :
 
 1. Dans le tableau de bord Azure, cliquez sur **Security Center**, puis sur **Degré de sécurisation**.
+
 2. En haut, vous pouvez voir la synthèse du degré de sécurisation :
    - Le **degré de sécurisation global** représente le degré par stratégie et par abonnement sélectionné.
    - Le **degré de sécurisation par catégorie** vous montre les ressources qui ont le plus besoin d’attention.

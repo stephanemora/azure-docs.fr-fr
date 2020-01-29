@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927477"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122642"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Utiliser Azure Data Factory pour migrer des données d’Amazon S3 vers le stockage Azure 
 
@@ -47,7 +47,7 @@ L’image ci-dessus montre comment vous pouvez obtenir des vitesses de déplacem
 
 Dans une exécution d’activité de copie unique, ADF intègre un mécanisme de nouvelle tentative qui permet de gérer un certain niveau d’échecs temporaires dans les magasins de données ou dans le réseau sous-jacent. 
 
-Lors de la copie binaire de S3 vers un objet Blob et de S3 vers ADLS Gen2, ADF effectue automatiquement des points de contrôle.  Si l’exécution d’une activité de copie a échoué ou a expiré, lors d’une nouvelle tentative (Assurez-vous que le nombre de nouvelles tentatives est > 1), la copie reprend à partir du dernier point d’échec au lieu de commencer depuis le début. 
+Lors de la copie binaire de S3 vers un objet Blob et de S3 vers ADLS Gen2, ADF effectue automatiquement des points de contrôle.  Si l’exécution d’une activité de copie a échoué ou a expiré, lors d’une nouvelle tentative, la copie reprend à partir du dernier point d’échec au lieu de commencer depuis le début. 
 
 ## <a name="network-security"></a>Sécurité du réseau 
 
@@ -86,7 +86,7 @@ Migrer des données via un lien privé :
 
 ### <a name="initial-snapshot-data-migration"></a>Migration initiale des données d’instantané 
 
-La partition de données est recommandée en particulier lors de la migration de plus de 10 To de données.  Pour partitionner les données, tirez parti du paramètre « Prefix » pour filtrer les dossiers et les fichiers d’Amazon S3 par nom, puis chaque travail de copie ADF peut copier une partition à la fois.  Vous pouvez exécuter plusieurs tâches de copie ADF simultanément pour un meilleur débit. 
+La partition de données est recommandée en particulier lors de la migration de plus de 100 To de données.  Pour partitionner les données, tirez parti du paramètre « Prefix » pour filtrer les dossiers et les fichiers d’Amazon S3 par nom, puis chaque travail de copie ADF peut copier une partition à la fois.  Vous pouvez exécuter plusieurs tâches de copie ADF simultanément pour un meilleur débit. 
 
 Si l’un des travaux de copie échoue en raison d’un problème temporaire de réseau ou de magasin de données, vous pouvez réexécuter la tâche de copie ayant échoué pour recharger à nouveau cette partition spécifique à partir de AWS S3.  Tous les autres travaux de copie qui chargent d’autres partitions ne seront pas affectés. 
 

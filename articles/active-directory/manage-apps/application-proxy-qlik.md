@@ -14,17 +14,17 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45bf71274d8eb1039254cafe48a34587199be724
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859540"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263504"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 Le reste de ce scénario suppose que vous avez effectué les opérations suivantes :
  
 - Vous avez configuré [Qlik sens](https://community.qlik.com/docs/DOC-19822). 
@@ -42,8 +42,8 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 3. Sélectionnez **Ajouter** en haut du panneau. 
 4. Sélectionnez **On-premises application (Application locale)** . 
 5. Saisissez les informations concernant votre nouvelle application dans les champs requis. Suivez les conseils ci-dessous pour les paramètres : 
-   - **URL interne** : Cette application doit avoir une URL interne qui est l’URL QlikSense proprement dite. Par exemple, **https&#58;//demo.qlikemm.com:4244** 
-   - **Méthode de pré-authentification** : Azure Active Directory (recommandée mais pas obligatoire) 
+   - **URL interne** : Cette application doit avoir une URL interne qui est l’URL QlikSense proprement dite. Par exemple, **https&#58;//demo.qlikemm.com:4244** 
+   - **Méthode de pré-authentification** : Azure Active Directory (recommandée mais pas obligatoire) 
 1. Sélectionnez **Ajouter** en bas du panneau. Votre application est ajoutée et le menu de démarrage rapide s’ouvre. 
 2. Dans le menu de démarrage rapide, sélectionnez **Assign a user for testing (Attribuer un utilisateur à des fins de test)** , et ajoutez au moins un utilisateur à l’application. Vérifiez que ce compte de test a accès à l’application locale. 
 3. Sélectionnez **Affecter** pour enregistrer l’affectation de l’utilisateur de test. 
@@ -52,7 +52,7 @@ Suivez ces étapes pour publier votre application. Pour obtenir plus de détails
 ### <a name="application-2"></a>2ème application : 
 Suivez les mêmes étapes que pour la 1ère application, avec les exceptions suivantes : 
 
-**Étape 5** : L’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et 4248 pour HTTP. Par exemple, **https&#58;//demo.qlik.com:4244**</br></br> 
+**Étape 5** : L’URL interne doit maintenant être l’URL QlikSense avec le port d’authentification utilisé par l’application. La valeur par défaut est **4244** pour HTTPS et **4248** pour HTTP pour les versions QlikSense antérieures à avril 2018. La valeur par défaut pour les versions QlikSense après avril 2018 est **443** pour HTTPS et **80** pour HTTP.  Par exemple, **https&#58;//demo.qlik.com:4244**</br></br> 
 **Étape 10 :** Ne configurez pas l’authentification unique et laissez **l’authentification unique désactivée**
  
  

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57ac23bbb0465be2f15e0a35bb4fd7c331e83988
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848712"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155127"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quand utiliser un fournisseur Azure Multi-Factor Authentication
 
@@ -48,11 +48,11 @@ Si votre fournisseur MFA n’est pas associé à un locataire Azure AD, ou si vo
 > [!CAUTION]
 > Il n’y pas de confirmation lors de la suppression d’un fournisseur d’authentification. La sélection de **Supprimer** est un processus qui a un effet définitif.
 
-Les fournisseurs d’authentification se trouvent dans le **portail Azure** > **Azure Active Directory** > **MFA** > **Fournisseurs**. Cliquez sur les fournisseurs listés pour voir les détails et les configurations associés à ce fournisseur.
+Les fournisseurs d'authentification se trouvent sous **Portail Azure** > **Azure Active Directory** > **Security** > **MFA** > **Fournisseurs**. Cliquez sur les fournisseurs listés pour voir les détails et les configurations associés à ce fournisseur.
 
 Avant de supprimer un fournisseur d’authentification, prenez note de tous les paramètres personnalisés configurés dans votre fournisseur. Déterminez les paramètres qui doivent être migrés vers les paramètres d’authentification multifacteur généraux à partir de votre fournisseur et effectuez la migration de ces paramètres. 
 
-Les serveurs Azure MFA liés aux fournisseurs doivent être réactivés avec les informations d’ identification générées sous **portail Azure** > **Azure Active Directory** > **MFA** > **Paramètres du serveur**. Avant la réactivation, les fichiers suivants doivent être supprimés du répertoire `\Program Files\Multi-Factor Authentication Server\Data\` sur les serveurs Azure MFA dans votre environnement :
+Les serveurs Azure MFA liés aux fournisseurs doivent être réactivés à l'aide des informations d'identification générées sous **Portail Azure** > **Azure Active Directory** > **Securité** > **MFA** > **Paramètres du serveur**. Avant la réactivation, les fichiers suivants doivent être supprimés du répertoire `\Program Files\Multi-Factor Authentication Server\Data\` sur les serveurs Azure MFA dans votre environnement :
 
 - caCert
 - cert
@@ -64,7 +64,7 @@ Les serveurs Azure MFA liés aux fournisseurs doivent être réactivés avec les
 
 ![Supprimer un fournisseur d’authentification du portail Azure](./media/concept-mfa-authprovider/authentication-provider-removal.png)
 
-Une fois que vous avez vérifié que tous les paramètres ont été migrés, vous pouvez accéder au **portail Azure** > **Azure Active Directory** > **MFA** > **Fournisseurs**, sélectionner les points de suspension **...** , puis sélectionner **Supprimer**.
+Après avoir vérifié que tous les paramètres ont été migrés, vous pouvez accéder à **Portail Azure** > **Azure Active Directory** > **Securité** > **MFA** > **Fournisseurs**, sélectionner les points de suspension **...** , puis sélectionner **Supprimer**.
 
 > [!WARNING]
 > La suppression d’un fournisseur d’authentification entraînera la suppression de toutes les informations des rapports associées à ce fournisseur. Vous pouvez enregistrer les rapports d’activité avant de supprimer votre fournisseur.

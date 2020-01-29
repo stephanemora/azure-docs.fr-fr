@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953091"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513607"
 ---
 # <a name="offline-evaluation"></a>Évaluation hors connexion
 
-L’évaluation hors connexion est une méthode qui vous permet de tester et d’évaluer l’efficacité du service Personalizer sans changer votre code ou affecter l’expérience utilisateur. L’évaluation hors connexion utilise des données du passé, envoyées depuis votre application vers l’API de classement, pour comparer les performances des différents classements.
+L’évaluation hors connexion est une méthode qui vous permet de tester et d’évaluer l’efficacité du service Personalizer sans changer votre code ou affecter l’expérience utilisateur. L’évaluation hors connexion utilise des données du passé, envoyées de votre application vers les API de classement et de récompense, pour comparer les performances des différents classements.
 
 L’évaluation hors connexion est effectuée sur une plage de dates. La plage peut se terminer au plus tard à la date/heure actuelle. Le début de la plage ne peut pas être supérieur au nombre de jours spécifié pour la [conservation des données](how-to-settings.md).
 
@@ -56,9 +56,9 @@ Quand vous exécutez une évaluation hors connexion, il est très important d’
 
 ## <a name="how-offline-evaluations-are-done"></a>Comment les évaluations hors connexion sont effectuées
 
-Les évaluations hors connexion sont effectuées selon une méthode appelée **évaluation contrefactuelle**. 
+Les évaluations hors connexion sont effectuées selon une méthode appelée **évaluation contrefactuelle**.
 
-Personalizer repose sur l’hypothèse que le comportement des utilisateurs (et donc les récompenses) sont impossibles à prédire rétrospectivement (Personalizer ne peut pas savoir ce qui se serait passé si quelque chose d’autre que ce que l’utilisateur a vu lui avait été montré) et seulement pour apprendre à partir de récompenses mesurées. 
+Personalizer repose sur l’hypothèse que le comportement des utilisateurs (et donc les récompenses) sont impossibles à prédire rétrospectivement (Personalizer ne peut pas savoir ce qui se serait passé si quelque chose d’autre que ce que l’utilisateur a vu lui avait été montré) et seulement pour apprendre à partir de récompenses mesurées.
 
 Voici le processus conceptuel utilisé pour les évaluations :
 
@@ -70,11 +70,11 @@ Voici le processus conceptuel utilisé pour les évaluations :
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.

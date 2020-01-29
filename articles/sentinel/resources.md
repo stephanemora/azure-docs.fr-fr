@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771289"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547997"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Ressources utiles lorsque vous travaillez avec Azure Sentinel
 
@@ -46,13 +46,13 @@ Parmi les opérations prises en charge, voici celles qui peuvent faire l’objet
 |Supprimer une recherche enregistrée    |Microsoft.OperationalInsights/workspaces/savedSearches|
 |Mettre à jour des règles d’alerte |Microsoft.SecurityInsights/alertRules|
 |Supprimer des règles d’alerte |Microsoft.SecurityInsights/alertRules|
-|Mettre à jour des actions de réponse aux règles d’alerte |Microsoft.SecurityInsights/alertRules|
-|Supprimer des actions de réponse aux règles d’alerte |Microsoft.SecurityInsights/alertRules|
+|Mettre à jour des actions de réponse aux règles d’alerte |Microsoft.SecurityInsights/alertRules/actions|
+|Supprimer des actions de réponse aux règles d’alerte |Microsoft.SecurityInsights/alertRules/actions|
 |Mettre à jour des signets   |Microsoft.SecurityInsights/bookmarks|
 |Supprimer des signets   |Microsoft.SecurityInsights/bookmarks|
 |Mettre à jour des cas   |Microsoft.SecurityInsights/Cases|
-|Mettre à jour une investigation de cas  |Microsoft.SecurityInsights/Cases|
-|Créer des commentaires de cas   |Microsoft.SecurityInsights/Cases|
+|Mettre à jour une investigation de cas  |Microsoft.SecurityInsights/Cases/investigations|
+|Créer des commentaires de cas   |Microsoft.SecurityInsights/Cases/comments|
 |Mettre à jour des connecteurs de données |Microsoft.SecurityInsights/dataConnectors|
 |Supprimer des connecteurs de données |Microsoft.SecurityInsights/dataConnectors|
 |Mettre à jour les paramètres    |Microsoft.SecurityInsights/settings|

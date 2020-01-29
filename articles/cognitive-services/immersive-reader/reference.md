@@ -1,7 +1,7 @@
 ---
 title: Référence du kit de développement logiciel (SDK) du lecteur immersif
 titleSuffix: Azure Cognitive Services
-description: Le kit de développement logiciel (SDK) du lecteur immersif est une bibliothèque JavaScript qui vous permet d’intégrer le lecteur immersif à votre application.
+description: Le kit SDK du Lecteur immersif contient une bibliothèque JavaScript qui vous permet d’intégrer le Lecteur immersif à votre application.
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945278"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156401"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Guide de référence du SDK du Lecteur immersif
 
-Le kit de développement logiciel (SDK) du lecteur immersif est une bibliothèque JavaScript qui vous permet d’intégrer le lecteur immersif à votre application.
+Le kit SDK du Lecteur immersif contient une bibliothèque JavaScript qui vous permet d’intégrer le Lecteur immersif à votre application.
 
 ## <a name="functions"></a>Fonctions
 
@@ -36,7 +36,7 @@ Le SDK expose les fonctions suivantes :
 Lance le lecteur immersif au sein d'un `iframe` de votre application web.
 
 ```typescript
-launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
 ### <a name="parameters"></a>Paramètres
@@ -50,7 +50,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="returns"></a>Retours
 
-Retourne un `Promise<HTMLDivElement>` qui se résout quand le Lecteur immersif est chargé. `Promise` se résout en élément `div` dont le seul enfant correspond à un élément `iframe` contenant la page du lecteur immersif.
+Retourne un `Promise<LaunchResponse>` qui se résout quand le Lecteur immersif est chargé. Le `Promise` est résolu en objet [`LaunchResponse`](#launchresponse).
 
 ### <a name="exceptions"></a>Exceptions
 
@@ -109,6 +109,17 @@ Bloc de données unique qui est passé dans le contenu du Lecteur immersif.
 }
 ```
 
+### <a name="launchresponse"></a>LaunchResponse
+
+Contient la réponse de l’appel à `ImmersiveReader.launchAsync`.
+
+```typescript
+{
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
+}
+```
+
 ### <a name="cookiepolicy-enum"></a>Énumération CookiePolicy
 
 Une énumération utilisée pour définir la stratégie pour l’utilisation des cookies du lecteur immersif. Voir les [options](#options).
@@ -127,6 +138,7 @@ enum CookiePolicy { Disable, Enable }
 | application/vnd.openxmlformats-officedocument.wordprocessingml.document | Document au format .docx Microsoft Word.
 
 ### <a name="html-support"></a>Prise en charge du langage HTML
+
 | HTML | Contenu pris en charge |
 | --------- | ----------- |
 | Styles de police | Gras, Italique, Souligné, Code, Barré, Exposant, Indice |
@@ -186,7 +198,7 @@ Contient des informations sur l'erreur.
 
 ## <a name="launching-the-immersive-reader"></a>Lancement du lecteur immersif
 
-Le kit de développement logiciel (SDK) fournit le style par défaut du bouton de lancement du lecteur immersif. Utilisez l'attribut de classe `immersive-reader-button` pour activer ce style.
+Le kit de développement logiciel (SDK) fournit le style par défaut du bouton de lancement du lecteur immersif. Utilisez l'attribut de classe `immersive-reader-button` pour activer ce style. Consultez [cet article](./how-to-customize-launch-button.md) pour plus de détails.
 
 ```html
 <div class='immersive-reader-button'></div>

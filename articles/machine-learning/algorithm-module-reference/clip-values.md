@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f695bf739a6e096083cd6d8271b6936f24c16da
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428585"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546824"
 ---
 # <a name="clip-values"></a>Limiter les valeurs
 
@@ -86,7 +86,7 @@ Si vous devez appliquer des méthodes de limitation ou des critères différents
   
 1.  Exécuter le pipeline.  
   
-    Cliquez avec le bouton droit sur la sortie du module **Limiter les valeurs**, puis sélectionnez **Visualiser** pour examiner les valeurs et vérifier que l’opération de limitation répond à vos attentes.  
+    Cliquez avec le bouton droit sur le module **Limiter les valeurs** et sélectionnez **Visualiser** ou sélectionnez le module et basculez vers l’onglet **Sorties** dans le panneau droit, cliquez sur l’icône d’histogramme dans **Port outputs** (Sorties de port) pour examiner les valeurs et vérifier que l’opération de limitation répond à vos attentes.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exemples de limitation à l’aide de centiles
 

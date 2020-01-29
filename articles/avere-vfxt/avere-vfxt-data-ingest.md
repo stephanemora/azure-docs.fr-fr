@@ -4,20 +4,20 @@ description: Comment ajouter des données à un nouveau volume de stockage pour 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480601"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153716"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Déplacement des données vers le cluster vFXT - ingestion parallèle des données
 
-Une fois que vous avez créé un cluster vFXT, votre première tâche peut être de déplacer des données vers son nouveau volume de stockage. Toutefois, si votre méthode habituelle de déplacement des données consiste à émettre une simple commande de copie à partir d’un client, les performances seront probablement lentes. La copie monothread n’est pas une bonne option pour copier des données vers le stockage back-end du cluster Avere vFXT.
+Une fois que vous avez créé un cluster vFXT, votre première tâche peut être de déplacer des données vers un nouveau volume de stockage dans Azure. Toutefois, si votre méthode habituelle de déplacement des données consiste à émettre une simple commande de copie à partir d’un client, les performances seront probablement lentes. La copie monothread n’est pas une bonne option pour copier des données vers le stockage back-end du cluster Avere vFXT.
 
-Comme le cluster Avere vFXT est un cache multiclient scalable, le moyen le plus rapide et efficace d’y copier des données consiste à utiliser plusieurs clients. Cette technique parallélise l’ingestion des fichiers et des objets.
+Comme le cluster Avere vFXT est un cache multiclient scalable, le moyen le plus rapide et le plus efficace d’y copier des données est d’utiliser plusieurs clients. Cette technique parallélise l’ingestion des fichiers et des objets.
 
 ![Diagramme illustrant le déplacement des données multithread et multiclient : en haut à gauche, plusieurs flèches partent d’une icône représentant le stockage matériel local. Les flèches pointent vers quatre ordinateurs clients. À partir de chaque ordinateur client, trois flèches pointent vers le système Avere vFXT. À partir du système Avere vFXT, plusieurs flèches pointent vers le stockage Blob Azure.](media/avere-vfxt-parallel-ingest.png)
 
@@ -44,12 +44,12 @@ La machine virtuelle d’ingestion de données fait partie d’un tutoriel où l
 
 ## <a name="strategic-planning"></a>Planification stratégique
 
-Quand vous créez une stratégie pour copier des données en parallèle, vous devez comprendre les compromis en termes de taille de fichier, nombre de fichiers et profondeur de répertoire.
+Quand vous concevez une stratégie pour copier des données en parallèle, vous devez bien comprendre les compromis nécessaires en termes de taille de fichier, de nombre de fichiers et de profondeur des répertoires.
 
 * Lorsque les fichiers sont petits, la métrique d’intérêt est fichiers par seconde.
 * Lorsque les fichiers sont volumineux (10 MiBi ou plus), la métrique d’intérêt est octets par seconde.
 
-Chaque processus de copie a un débit et un taux de transfert de fichiers qui peuvent être mesurés en minutant la longueur de la commande de copie et en tenant compte de la taille de fichier et du nombre de fichiers. L’explication de la mesure des débits et taux n’entre pas dans le cadre de ce document, mais il est impératif de comprendre si vous allez traiter des fichiers de petite ou grande taille.
+Chaque processus de copie a un débit et un taux de transfert de fichiers qui peuvent être mesurés en minutant la longueur de la commande de copie et en tenant compte de la taille de fichier et du nombre de fichiers. Les explications sur la façon de mesurer les débits n’entrent pas dans le cadre de ce document, mais il est important de comprendre si vous allez traiter des petits ou des grands fichiers.
 
 ## <a name="manual-copy-example"></a>Exemple de copie manuelle
 
@@ -146,7 +146,7 @@ Dans l’exemple ci-dessus, l’ensemble des trois points de montage de destinat
 
 Enfin, quand vous avez atteint la limite des capacités des clients, l’ajout d’autres threads de copie ou de points de montage supplémentaires ne génère pas d’autre augmentation de la métrique fichiers/seconde ni octets/seconde. Dans ce cas, vous pouvez déployer un autre client avec le même ensemble de points de montage qui exécutera ses propres ensembles de processus de copie de fichiers.
 
-Exemple :
+Exemple :
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
@@ -278,11 +278,11 @@ Cette méthode est simple et efficace pour les jeux de données du nombre de fic
 
 ## <a name="use-the-msrsync-utility"></a>Utiliser l’utilitaire msrsync
 
-L’outil ``msrsync`` peut également servir à déplacer des données vers un système de stockage principal back-end pour le cluster Avere. Cet outil est conçu pour optimiser l’utilisation de la bande passante en exécutant plusieurs processus ``rsync`` parallèles. Il est disponible à partir de GitHub sur <https://github.com/jbd/msrsync>.
+L’outil ``msrsync`` peut également être utilisé pour déplacer des données vers un système de stockage back-end pour le cluster Avere. Cet outil est conçu pour optimiser l’utilisation de la bande passante en exécutant plusieurs processus ``rsync`` parallèles. Il est disponible à partir de GitHub sur <https://github.com/jbd/msrsync>.
 
 ``msrsync`` divise le répertoire source en « compartiments » distincts, puis exécute des processus ``rsync`` individuels sur chaque compartiment.
 
-Des tests préliminaires à l’aide d’une machine virtuelle à quatre cœurs ont montré plus d’efficacité lors de l’utilisation de 64 processus. Utilisez l’option ``msrsync`` ``-p`` pour définir le nombre de processus sur 64.
+Des tests préliminaires à l’aide d’une machine virtuelle à quatre cœurs ont montré plus d’efficacité lors de l’utilisation de 64 processus. Utilisez l’option ``msrsync````-p`` pour définir le nombre de processus sur 64.
 
 Vous pouvez aussi utiliser l’argument ``--inplace`` avec les commandes ``msrsync``. Si vous utilisez cette option, pensez à exécuter une deuxième commande (comme avec [rsync](#use-a-two-phase-rsync-process), décrit ci-dessus) pour garantir l’intégrité des données.
 
@@ -323,7 +323,7 @@ Pour utiliser ``msrsync`` en vue de remplir un volume cloud Azure avec un cluste
 
 ## <a name="use-the-parallel-copy-script"></a>Utiliser le script de copie parallèle
 
-Le script ``parallelcp`` peut également être utile pour le déplacement des données vers le stockage back-end de votre cluster vFXT.
+Le script ``parallelcp`` peut également être utile pour le déplacement de données vers le stockage back-end de votre cluster vFXT.
 
 Le script ci-dessous ajoute le fichier exécutable `parallelcp`. (Ce script est conçu pour Ubuntu ; si vous utilisez une autre distribution, vous devez installer ``parallel`` séparément.)
 

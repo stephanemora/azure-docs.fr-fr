@@ -3,12 +3,12 @@ title: FAQ sur la sauvegarde des fichiers Azure
 description: Cet article fournit des réponses à des questions courantes sur la protection de vos partages de fichiers Azure avec le service Sauvegarde Microsoft Azure.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892565"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293995"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Questions sur la sauvegarde des fichiers Azure
 
@@ -36,7 +36,7 @@ Lorsque vous essayez de sauvegarder, le fait de sélectionner un compte de stock
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Puis-je modifier le coffre dans lequel je sauvegarde mes partages de fichiers ?
 
-Oui. Toutefois, vous devrez [arrêter la protection](backup-azure-files.md#stop-protecting-an-azure-file-share) du coffre connecté, [annuler l’enregistrement](troubleshoot-azure-files.md#configuring-backup) de ce compte de stockage, puis le protéger à partir d’un autre coffre.
+Oui. Toutefois, vous devrez [arrêter la protection sur un partage de fichiers](manage-afs-backup.md#stop-protection-on-a-file-share) à partir du coffre connecté, [désinscrire](troubleshoot-azure-files.md#configuring-backup) ce compte de stockage, puis le protéger à partir d’un autre coffre.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>Dans quelles zones géographiques puis-je sauvegarder des partages de fichiers Azure ?
 
@@ -93,7 +93,7 @@ Dans la préversion, vous pouvez protéger les partages de fichiers Azure d’un
 
 Non. Tous les partages de fichiers dans un compte de stockage peuvent uniquement être protégés par le même coffre.
 
-## <a name="backup"></a>Sauvegarde
+## <a name="backup"></a>Backup
 
 ### <a name="how-many-scheduled-backups-can-i-configure-per-file-share"></a>Combien de sauvegardes planifiées puis-je configurer pour chaque partage de fichiers ?
 
@@ -103,7 +103,7 @@ La sauvegarde Azure prend actuellement en charge la configuration de sauvegardes
 
 À tout moment, vous pouvez disposer de 200 instantanés pour un partage de fichiers. La limite inclut des instantanés pris par Azure Backup, comme défini dans votre stratégie. Si vos sauvegardes échouent une fois la limite atteinte, supprimez des points de restauration à la demande pour réussir les prochaines sauvegardes.
 
-## <a name="restore"></a>Restore
+## <a name="restore"></a>Restaurer
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>Puis-je effectuer une restauration d’un partage de fichiers Azure supprimé ?
 

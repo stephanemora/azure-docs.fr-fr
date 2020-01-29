@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c57180ba10322cb790c05b3f8f48043ca08b545
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 15cdaba7d63d72aab25757e7ba6f5eadc48e026a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67462525"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512247"
 ---
 # <a name="hybrid-azure-ad-joined-devices"></a>Appareils joints Azure AD hybrides
 
@@ -25,7 +25,7 @@ Pendant plus de dix ans, de nombreuses organisations ont utilisé la jonction de
 - Aux services informatiques de gérer les appareils professionnels à partir d’un emplacement central.
 - Aux utilisateurs de se connecter à leurs appareils à partir de leurs comptes Active Directory professionnels ou scolaires.
 
-En règle générale, les organisations disposant d’empreintes locales s’appuient sur des méthodes de création d’images pour approvisionner les appareils. Ils utilisent souvent **System Center Configuration Manager (SCCM)** ou les **stratégies de groupe** pour les gérer.
+En règle générale, les organisations disposant d’empreintes locales s’appuient sur des méthodes de création d’images pour approvisionner les appareils. Ils utilisent souvent **Configuration Manager** ou les **stratégies de groupe** pour les gérer.
 
 Si votre environnement comporte une empreinte locale AD et vous souhaitez également profiter des fonctionnalités proposées par Azure Active Directory, vous pouvez implémenter les appareils joints Azure AD hybrides. Il s’agit d’appareils joints à votre service Active Directory local et inscrits auprès d’Azure Active Directory.
 
@@ -34,7 +34,7 @@ Si votre environnement comporte une empreinte locale AD et vous souhaitez égale
 | **Définition** | Joint aux systèmes AD local et Azure AD nécessitant un compte professionnel pour se connecter à l’appareil |
 | **Public principal** | Convient aux organisations hybrides avec une infrastructure AD locale existante |
 |   | S’applique à tous les utilisateurs d’une organisation |
-| **Propriété de l’appareil** | Organisation |
+| **Appartenance de l’appareil** | Organization |
 | **Systèmes d’exploitation** | Windows 10, 8.1 et 7 |
 |   | Windows Server 2008/R2, 2012/R2, 2016 et 2019 |
 | **Approvisionnement** | Windows 10, Windows Server 2016/2019 |
@@ -45,8 +45,8 @@ Si votre environnement comporte une empreinte locale AD et vous souhaitez égale
 |   | Mot de passe |
 |   | Windows Hello Entreprise pour Win10 |
 | **Gestion des appareils** | Stratégie de groupe |
-|   | System Center Configuration Manager autonome ou cogestion avec Microsoft Intune |
-| **Fonctionnalités clés** | Authentification unique aux ressources de cloud et locales |
+|   | Configuration Manager autonome ou cogestion avec Microsoft Intune |
+| **Fonctionnalités clés** | Authentification unique vers les ressources de cloud et locales |
 |   | Accès conditionnel via la jonction de domaine ou via Intune si cogéré |
 |   | Réinitialisation de mot de passe en libre-service et réinitialisation du code confidentiel Windows Hello sur l’écran de verrouillage |
 |   | Enterprise State Roaming entre appareils |
@@ -65,5 +65,5 @@ Utilisez des appareils joints Azure AD hybrides si :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Planifier votre implémentation de la jointure d’Azure AD hybride](hybrid-azuread-join-plan.md)
-- [Gérer les identités de l’appareil à l’aide du Portail Azure](device-management-azure-portal.md)
+- [Gérer les identités d’appareil à l’aide du portail Azure](device-management-azure-portal.md)
 - [Gérer les appareils obsolètes dans Azure AD](manage-stale-devices.md)

@@ -3,12 +3,12 @@ title: Azure Service Fabric – Utilisation des références KeyVault de l'appli
 description: Cet article explique comment utiliser la prise en charge de Service Fabric KeyVaultReference pour des secrets d’application.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463036"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545481"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Prise en charge de KeyVaultReference pour les applications Service Fabric (préversion)
 
@@ -22,7 +22,7 @@ Un défi courant lors de la création d’applications Cloud est de savoir comme
 
 - Banque de secrets centrale (CSS, Central Secrets Store).
 
-    La Banque de secrets centrale (CSS) est un cache de secrets locaux chiffrés de Service Fabric, KeyVaultReference, qui une fois récupérés sont mis en cache dans CSS.
+    Central Secrets Store (CSS) est le cache de secrets local chiffré de Service Fabric. CSS est un magasin de secrets local qui garde chiffrées et en mémoire les données sensibles que sont notamment les mots de passe, les jetons et les clés. Les données KeyVaultReference, une fois récupérées, sont mises en cache dans CSS.
 
     Ajoutez le code ci-dessous à la configuration de votre cluster sous `fabricSettings` pour activer toutes les fonctionnalités requises pour la prise en charge de KeyVaultReference.
 
@@ -61,6 +61,7 @@ Un défi courant lors de la création d’applications Cloud est de savoir comme
 
     > [!NOTE] 
     > Il est recommandé d’utiliser un certificat de chiffrement distinct pour CSS. Vous pouvez l’ajouter dans la section « CentralSecretService ».
+    
 
     ```json
         {
@@ -68,7 +69,18 @@ Un défi courant lors de la création d’applications Cloud est de savoir comme
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+Pour que les modifications prennent effet, vous devez également modifier la stratégie de mise à niveau pour spécifier un redémarrage forcé du runtime Service Fabric sur chaque nœud à mesure que la mise à niveau progresse au sein du cluster. Ce redémarrage garantit que le service système qui vient d’être activé est démarré et en cours d’exécution sur chaque nœud. Dans l’extrait de code ci-dessous, forceRestart est le paramètre essentiel. Utilisez vos valeurs existantes pour les autres paramètres.
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - Accordez l’autorisation d’accès avec identité managée de l’application au coffre de clés
 
     Pour voir comment accorder un accès avec identité managée au coffre de clés, reportez-vous à ce [document](how-to-grant-access-other-resources.md). Notez également que, si vous utilisez une identité managée affectée par le système, l’identité managée est créée uniquement après le déploiement de l’application.

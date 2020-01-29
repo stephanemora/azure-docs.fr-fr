@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 30d1ba89f6a18ed3400868e6d9a5d17ceef5de04
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493841"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546807"
 ---
 # <a name="convert-to-csv-module"></a>Module Convertir au format CSV
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour convertir un jeu de données dans un fichier au format CSV qui peut être téléchargé, exporté ou partagé avec des modules de script R ou Python.
 
@@ -30,14 +30,14 @@ Même si vous effectuez la majeure partie de votre travail dans Azure Machine Le
 
 + Téléchargez le fichier CSV pour l’ouvrir avec Excel, ou importez-le dans une base de données relationnelle.  
 + Enregistrez le fichier CSV dans le stockage cloud et connectez-vous à celui-ci depuis Power BI pour créer des visualisations.  
-+ Utilisez le format CSV pour préparer des données pour une utilisation dans R et Python. Cliquez simplement avec le bouton droit sur la sortie du module pour générer le code nécessaire pour accéder aux données directement depuis Python ou un notebook Jupyter. 
++ Utilisez le format CSV pour préparer des données pour une utilisation dans R et Python. 
 
-Lorsque vous convertissez un jeu de données au format CSV, le fichier est enregistré dans votre espace de travail Azure ML. Vous pouvez utiliser un utilitaire de stockage Azure pour ouvrir et utiliser le fichier directement, ou vous pouvez cliquer avec le bouton droit sur la sortie du module et télécharger le fichier CSV sur votre ordinateur ou l’utiliser dans le code R ou Python.  
+Lorsque vous convertissez un jeu de données au format CSV, le fichier csv est enregistré dans votre espace de travail Azure ML. Vous pouvez utiliser un utilitaire de stockage Azure pour ouvrir et utiliser le fichier directement. Vous pouvez également accéder au fichier CSV dans le concepteur en sélectionnant le module **Convertir au format CSV**, puis l’icône d’histogramme sous l’onglet **Sorties** dans le panneau droit pour afficher la sortie. Vous pouvez télécharger le fichier CSV à partir du dossier de résultats dans un répertoire local.  
 
 ## <a name="how-to-configure-convert-to-csv"></a>Comment configurer Convertir au format CSV
 
 
-1.  Ajoutez le module [Convertir au format CSV](./convert-to-csv.md) à votre pipeline. Vous trouverez ce module dans le groupe **Conversion des formats de données** du concepteur. 
+1.  Ajoutez le module Convertir au format CSV à votre pipeline. Ce module se trouve dans le groupe **Transformation des données** dans le concepteur. 
 
 2. Connectez-le à n’importe quel module qui génère un jeu de données.   
   
@@ -46,14 +46,11 @@ Lorsque vous convertissez un jeu de données au format CSV, le fichier est enreg
 ### <a name="results"></a>Résultats
   
 
-Double-cliquez sur la sortie de [Convertir au format CSV](./convert-to-csv.md), puis sélectionnez une de ces options.  
+Sélectionnez l’onglet **Sorties** dans le panneau droit de **Convertir au format CSV**, puis l’une de ces icônes sous **Port outputs** (Sorties de port).  
 
- + **Jeu de données de résultat -> Télécharger** : Ouvre immédiatement une copie des données au format CSV que vous pouvez enregistrer dans un dossier local. Si vous ne spécifiez pas de dossier, un nom de fichier par défaut est appliqué et le fichier CSV est enregistré dans la bibliothèque **Téléchargements** locale.
++ **Inscrire le jeu de données** : Sélectionnez l’icône et réenregistrez le fichier CSV dans l’espace de travail Azure ML comme un autre jeu de données. Vous pouvez trouver le jeu de données sous la forme d’un module dans l’arborescence du module sous la section **Mes jeux de données**.
 
-
- + **Jeu de données de résultat -> Enregistrer comme jeu de données** : Enregistre le fichier CSV dans l’espace de travail Azure ML sous un autre jeu de données.
-
- + **Generate Data Access Code** (Générer le code d’accès aux données) : Azure ML génère deux jeux de code pour vous permettre d’accéder aux données, à l’aide de Python ou à l’aide de R. Pour accéder aux données, copiez l’extrait de code dans votre application. (*Generate Data Access Code [Générer le code d’accès aux données] sera bientôt disponible.* )
+ + **Voir la sortie** : Sélectionnez l’icône représentant un œil et suivez les instructions pour parcourir le dossier **Results_dataset**, puis téléchargez le fichier data.csv.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 57cf5bab2afe58ed802ef5ec03c316f1ebec6673
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ea247af871b06bd21c2733272b3d938c536d16ec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232587"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546450"
 ---
 # <a name="train-clustering-model"></a>Entraîner un modèle de clustering
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour entraîner un modèle de clustering.
 
@@ -49,10 +49,7 @@ Le module prend un modèle de clustering non entraîné que vous avez déjà con
 
 Une fois l’apprentissage terminé :
 
-
-+  Pour afficher les valeurs dans le jeu de données, cliquez sur le module avec le bouton droit de la souris, sélectionnez **Result datasets** (Jeux de données de résultats), puis cliquez sur **Visualiser**.
-
-+ Pour enregistrer le modèle formé en vue d’une réutilisation ultérieure, cliquez avec le bouton droit sur le module, sélectionnez **Modèle formé**, puis cliquez sur **Enregistrer en tant que modèle formé**.
++ Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties** dans le panneau droit du module **Entraîner le modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
 
 + Pour générer des scores à partir du modèle, utilisez l’option [Attribuer des données à des clusters](assign-data-to-clusters.md).
 

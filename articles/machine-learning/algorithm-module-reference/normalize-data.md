@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e74e80c7db7e624649494201d56fd82486e193d7
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466045"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546603"
 ---
 # <a name="normalize-data-module"></a>Module Normaliser des données
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour transformer un jeu de données par le biais de la *normalisation*.
 
@@ -98,11 +98,11 @@ Ce module ne vous permet d'appliquer qu'une seule méthode de normalisation à l
 
 Le module **Normaliser des données** génère deux sorties :
 
-- Pour afficher les valeurs transformées, cliquez avec le bouton droit sur le module, sélectionnez **Jeu de données transformé**, puis cliquez sur **Visualiser**.
+- Pour afficher les valeurs transformées, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**.
 
     Par défaut, les valeurs sont transformées sur place. Si vous souhaitez comparer les valeurs transformées avec les valeurs d'origine, utilisez le module [Ajouter des colonnes](./add-columns.md) pour recombiner les jeux de données et afficher les colonnes côte à côte.
 
-- Pour enregistrer la transformation afin de pouvoir appliquer la même méthode de normalisation à un autre jeu de données similaire, cliquez avec le bouton droit sur le module, sélectionnez **Fonction de transformation**, puis cliquez sur **Enregistrer en tant que transformation**.
+- Pour enregistrer la transformation afin de pouvoir appliquer la même méthode de normalisation à un autre jeu de données, sélectionnez le module, puis **Inscrire le jeu de données** sous l’onglet **Sorties** dans le panneau droit.
 
     Vous pouvez ensuite charger les transformations enregistrées à partir du groupe **Transformations** du volet de navigation de gauche et les appliquer à un jeu de données doté du même schéma à l'aide de [./Appliquer une transformation](apply-transformation.md).  
 

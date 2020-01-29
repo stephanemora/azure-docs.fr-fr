@@ -1,29 +1,21 @@
 ---
-title: Afficher et gérer les alertes pour les appareil StorSimple 8000 Series | Microsoft Docs
+title: Afficher et gérer les alertes pour les appareils StorSimple 8000 Series
 description: Décrit les conditions et la gravité des alertes StorSimple, comment configurer les notifications d’alerte et comment utiliser le service StorSimple Device Manager pour gérer les alertes.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320392"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270837"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Utiliser le service StorSimple Device Manager pour afficher et gérer les alertes StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le panneau **Alertes** dans le service StorSimple Device Manager offre la possibilité d’examiner et d’effacer en temps réel les alertes relatives aux appareils StorSimple. Dans ce panneau, vous pouvez surveiller de manière centralisée les problèmes d’intégrité de vos appareils StorSimple et l’ensemble de la solution Microsoft Azure StorSimple.
 
@@ -68,7 +60,7 @@ Après avoir activé la notification par e-mail pour un appareil, les membres de
    
    1. Dans le champ **Activer la notification par e-mail**, sélectionnez **OUI**.
    2. Dans le champ **Envoyer un e-mail aux administrateurs du service**, sélectionnez **OUI** si vous voulez que l’administrateur et tous les coadministrateurs du service reçoivent les notifications d’alerte.
-   3. Dans le champ **Autres destinataires du message** , entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *nom\@domaine.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil. 
+   3. Dans le champ **Autres destinataires du message** , entrez les adresses e-mail de tous les autres destinataires qui doivent recevoir les notifications d’alerte. Entrez les noms au format *personne\@lieu.com*. Utilisez des points-virgules pour séparer les adresses e-mail. Vous pouvez configurer un maximum de 20 adresses e-mail par appareil. 
       
 3. Pour envoyer un test de notification par e-mail, cliquez sur **Envoyer un e-mail de test**. Le service StorSimple Device Manager affiche des messages d’état lorsqu’il transfère la notification de test.
 

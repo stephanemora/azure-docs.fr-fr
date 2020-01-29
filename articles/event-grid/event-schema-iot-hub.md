@@ -1,6 +1,6 @@
 ---
 title: Schéma Azure Event Grid pour IoT Hub | Microsoft Docs
-description: Page de référence pour le format de schéma des événements et les propriétés d’IoT Hub
+description: Cet article fournit les propriétés et les schémas des événements IoT Hub. Il liste les types d’événements disponibles et les propriétés d’événement, et contient un exemple d’événement.
 services: iot-hub
 documentationcenter: ''
 author: kgremban
@@ -8,14 +8,14 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/17/2019
+ms.date: 01/21/2020
 ms.author: kgremban
-ms.openlocfilehash: 4e96276a862844cea1d0800eafb952d4a0df97ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cfbd46ad961bd1dc914bae98e761cd83d445ff88
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076351"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513029"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Schéma des événements Azure Event Grid pour IoT Hub
 
@@ -151,7 +151,7 @@ Tous les événements contiennent les mêmes données de niveau supérieur :
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | id | string | Identificateur unique de l’événement. |
-| rubrique | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
+| topic | string | Chemin d’accès complet à la source de l’événement. Ce champ n’est pas modifiable. Event Grid fournit cette valeur. |
 | subject | string | Chemin de l’objet de l’événement, défini par le serveur de publication. |
 | eventType | string | Un des types d’événements inscrits pour cette source d’événement. |
 | eventTime | string | L’heure à quelle l’événement est généré selon l’heure UTC du fournisseur. |
@@ -182,7 +182,7 @@ Pour l’événement IoT Hub **DeviceTelemetry**, l’objet de données contient
 | -------- | ---- | ----------- |
 | body | string | Contenu du message reçu de l’appareil. |
 | properties | string | Les propriétés de l’application sont des chaînes définies par l’utilisateur qui peuvent être ajoutées au message. Ces champs sont facultatifs. |
-| system properties | string | Les [propriétés système](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) permettent d’identifier le contenu et la source des messages. Le message de télémétrie d’appareil doit être dans un format JSON valide avec contentType défini sur JSON et contentEncoding défini sur UTF-8 dans les propriétés système du message. Si cela n’est pas défini, IoT Hub écrit les messages dans un format encodé en base 64.  |
+| system properties | string | Les [propriétés système](../iot-hub/iot-hub-devguide-routing-query-syntax.md#system-properties) permettent d’identifier le contenu et la source des messages. Le message de télémétrie d’appareil doit être dans un format JSON valide avec contentType défini sur JSON et contentEncoding défini sur UTF-8 dans les propriétés système du message. S’il n’est pas défini, IoT Hub écrit les messages dans un format codé base-64.  |
 
 Pour les événements IoT Hub **DeviceCreated** et **DeviDeleted**, l’objet de données contient les propriétés suivantes :
 
@@ -196,12 +196,12 @@ Pour les événements IoT Hub **DeviceCreated** et **DeviDeleted**, l’objet de
 | statusUpdateTime | string | Horodatage ISO8601 de la dernière mise à jour de l’état du jumeau d’appareil. |
 | connectionState | string | Indique si l’appareil est connecté ou déconnecté. | 
 | lastActivityTime | string | Horodatage ISO8601 de la dernière activité. | 
-| cloudToDeviceMessageCount | integer | Nombre de messages cloud-à-appareil envoyés à cet appareil. | 
+| cloudToDeviceMessageCount | entier | Nombre de messages cloud-à-appareil envoyés à cet appareil. | 
 | authenticationType | string | Type d’authentification utilisé pour cet appareil : `SAS`, `SelfSigned` ou `CertificateAuthority`. |
 | x509Thumbprint | string | L’empreinte numérique est une valeur unique pour le certificat x509, et sert généralement à rechercher un certificat particulier dans un magasin de certificats. L’empreinte numérique, générée dynamiquement à l’aide de l’algorithme SHA-1, n’existe pas physiquement dans le certificat. | 
 | primaryThumbprint | string | Empreinte numérique principale pour le certificat x509. |
 | secondaryThumbprint | string | Empreinte numérique secondaire pour le certificat x509. | 
-| version | integer | Entier qui est incrémenté chaque fois que le jumeau d’appareil est mis à jour. |
+| version | entier | Entier qui est incrémenté chaque fois que le jumeau d’appareil est mis à jour. |
 | desired | object | Une partie des propriétés qui peuvent être écrites uniquement par le backend d’application et lues par l’appareil. | 
 | reported | object | Une partie des propriétés qui peuvent être écrites uniquement par l’appareil et lues par le backend d’application. |
 | lastUpdated | string | Horodatage ISO8601 de la dernière mise à jour de la propriété du jumeau d’appareil. | 

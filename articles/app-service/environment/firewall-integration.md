@@ -4,28 +4,25 @@ description: Découvrez comment s’intégrer au pare-feu Azure pour sécuriser 
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 01/14/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687234"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513340"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
 L’environnement ASE (App Service Environment) présente des dépendances externes auxquelles il doit accéder pour fonctionner correctement. L’environnement ASE se trouve dans le réseau virtuel Azure (VNet) des clients. Les clients doivent autoriser le trafic des dépendances de l’environnement ASE, ce qui représente un problème pour ceux qui souhaitent verrouiller tous les sorties provenant de leur réseau virtuel.
 
-Un environnement ASE présente des dépendances entrantes. Le trafic de gestion entrant ne peut pas être envoyé via un dispositif de pare-feu. Les adresses sources de ce trafic sont connues et publiées dans le document [Adresses de gestion App Service Environment](https://docs.microsoft.com/azure/app-service/environment/management-addresses). Vous pouvez créer des règles de groupe de sécurité réseau avec ces informations pour sécuriser le trafic entrant.
+Un certain nombre de points de terminaison entrants sont utilisés pour gérer un environnement ASE. Le trafic de gestion entrant ne peut pas être envoyé via un dispositif de pare-feu. Les adresses sources de ce trafic sont connues et publiées dans le document [Adresses de gestion App Service Environment](https://docs.microsoft.com/azure/app-service/environment/management-addresses). Une balise de service nommée AppServiceManagement peut également être utilisée avec les groupes de sécurité réseau afin de sécuriser le trafic entrant.
 
-Les dépendances sortantes de l’environnement ASE sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses statiques derrière eux. L’absence d’adresses statiques signifie que les groupes de sécurité réseau (NSG) ne peuvent pas être utilisés pour verrouiller le trafic sortant d’un environnement ASE. Les adresses changent assez souvent et il n’est donc pas possible de définir des règles basées sur la résolution actuelle et de les utiliser pour créer des groupes NSG. 
+Les dépendances sortantes de l’environnement ASE sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses statiques derrière eux. L’absence d’adresses statiques signifie que les groupes de sécurité réseau ne peuvent pas être utilisés pour verrouiller le trafic sortant d’un environnement ASE. Les adresses changent assez souvent et il n’est donc pas possible de définir des règles basées sur la résolution actuelle et de les utiliser pour créer des groupes NSG. 
 
 La solution pour sécuriser les adresses sortantes réside dans l’utilisation d’un dispositif de pare-feu pouvant contrôler le trafic sortant en fonction des noms de domaine. Le Pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination.  
-
-> [!NOTE]
-> À ce stade, nous ne pouvons pas verrouiller entièrement la connexion sortante actuellement.
 
 ## <a name="system-architecture"></a>Architecture du système
 
@@ -42,6 +39,12 @@ Le trafic à destination et en provenance de l’environnement ASE doit être co
 
 ![Environnement ASE avec le flux de connexion du pare-feu Azure][5]
 
+## <a name="locking-down-inbound-management-traffic"></a>Verrouillage du trafic de gestion entrant
+
+Si votre sous-réseau ASE n’est pas déjà attribué à un groupe de sécurité réseau, créez-en un. Au sein du groupe de sécurité réseau, définissez la première règle pour autoriser le trafic à partir de la balise de service nommée AppServiceManagement sur les ports 454, 455. Ce sont là les conditions requises en termes d'adresses IP publiques pour gérer votre environnement ASE. Les adresses situées derrière cette balise de service sont uniquement utilisées pour gérer Azure App Service. Le trafic de gestion qui transite via ces connexions est chiffré et sécurisé moyennant des certificats d’authentification. Sur ce canal, le trafic type inclut des éléments tels que des commandes et sondes d'intégrité initiées par le client. 
+
+Les environnements ASE créés via le portail avec un nouveau sous-réseau s'accompagnent d'un groupe de sécurité réseau contenant la règle d’autorisation de la balise AppServiceManagement.  
+
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuration du pare-feu Azure avec votre environnement ASE 
 
 Les étapes pour verrouiller les sorties de votre environnement ASE existant avec le pare-feu Azure sont les suivantes :
@@ -51,14 +54,19 @@ Les étapes pour verrouiller les sorties de votre environnement ASE existant ave
    ![sélectionner les points de terminaison de service][2]
   
 1. Créez un sous-réseau nommé AzureFirewallSubnet dans le réseau virtuel où se trouve votre environnement ASE. Créez le pare-feu Azure en vous aidant des instructions fournies dans la [documentation sur le pare-feu Azure](https://docs.microsoft.com/azure/firewall/).
+
 1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles d’application, sélectionnez Ajouter une collection de règles d’application. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Balises FQDN, entrez un nom, définissez les adresses sources sur * et sélectionnez les balises FQDN App Service Environment et Windows Update. 
    
    ![Ajouter une règle d’application][1]
    
-1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, entrez un nom, sélectionnez **N’importe lequel**, définissez les adresses sources et de destination sur *, et définissez les ports sur 123. Cette règle permet au système de synchroniser l’horloge à l’aide de NTP. Créez une autre règle de la même manière en définissant cette fois le port 12000 pour faciliter l’identification des éventuels problèmes système.
+1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, sous Adresses IP, entrez un nom, sélectionnez **N’importe lequel**, définissez les adresses sources et de destination sur *, et définissez les ports sur 123. Cette règle permet au système de synchroniser l’horloge à l’aide de NTP. Créez une autre règle de la même manière en définissant cette fois le port 12000 pour faciliter l’identification des éventuels problèmes système. 
 
    ![Ajouter une règle de réseau NTP][3]
+   
+1. Dans Interface utilisateur du pare-feu Azure > Règles > Collection de règles de réseau, sélectionnez Ajouter une collection de règles de réseau. Choisissez un nom, une priorité et l’action Autoriser. Dans la section Règles, sous Balises de service, indiquez un nom, sélectionnez un protocole **Quelconque**, définissez * sur Adresses sources, sélectionnez une balise de service AzureMonitor et définissez les ports sur 80, 443. Cette règle permet au système de fournir à Azure Monitor des informations d'intégrité et des métriques.
 
+   ![Ajouter une règle de réseau de balise de service NTP][6]
+   
 1. Créez une table de routage avec les adresses de gestion provenant des [adresses de gestion App Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) avec un tronçon suivant Internet. Les entrées de la table de routage sont nécessaires pour éviter des problèmes de routage asymétrique. Ajoutez des routes pour les dépendances d’adresse IP indiquées ci-dessous dans les dépendances d’adresse IP avec un tronçon suivant Internet. Ajoutez une route d’appliance virtuelle à votre table de routage pour 0.0.0.0/0 avec comme tronçon suivant l’adresse IP privée de votre pare-feu Azure. 
 
    ![Créer une table de routage][4]
@@ -248,7 +256,25 @@ Avec un pare-feu Azure, tout ce qui suit est automatiquement configuré avec les
 
 ## <a name="us-gov-dependencies"></a>Dépendances du gouvernement des États-Unis
 
-Pour le gouvernement des États-Unis, vous devez toujours définir des points de terminaison de service pour le stockage, SQL et Event Hub.  Vous pouvez également utiliser le pare-feu Azure avec les instructions fournies plus haut dans ce document. Si vous devez utiliser votre propre pare-feu de sortie, les points de terminaison sont listés ci-dessous.
+Pour les environnements ASE des régions US Gov, suivez les instructions contenues à la section [Configuration du pare-feu Azure avec votre environnement ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) de ce document afin de configurer un Pare-feu Azure avec votre environnement ASE.
+
+Si vous souhaitez utiliser un appareil autre que Pare-feu Azure dans US Gov 
+
+* Les services compatibles avec les points de terminaison de service doivent être configurés avec des points de terminaison de service.
+* Les points de terminaison HTTP/HTTPS avec des noms FQDN peuvent être placés dans votre dispositif de pare-feu.
+* Les points de terminaison HTTP/HTTPS avec des caractères génériques sont des dépendances qui peuvent varier avec votre environnement ASE selon le nombre de qualificateurs.
+
+Linux n’est pas disponible dans les régions US Gov, et n'est dès lors pas répertorié en tant que configuration facultative.
+
+#### <a name="service-endpoint-capable-dependencies"></a>Dépendances compatibles avec les points de terminaison de service ####
+
+| Point de terminaison |
+|----------|
+| Azure SQL |
+| Stockage Azure |
+| Azure Event Hub |
+
+#### <a name="dependencies"></a>Les dépendances ####
 
 | Point de terminaison |
 |----------|
@@ -375,3 +401,4 @@ Pour le gouvernement des États-Unis, vous devez toujours définir des points de
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
 [5]: ./media/firewall-integration/firewall-topology.png
+[6]: ./media/firewall-integration/firewall-ntprule-monitor.png

@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176064"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512849"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planifier le déploiement d’un panneau d’accès Azure Active Directory
 
@@ -83,8 +83,8 @@ Le tableau suivant présente les principaux cas d’utilisation d’un déploiem
 
 | Domaine| Description |
 | - | - |
-| Access| Le portail du panneau d’accès est accessible depuis les appareils d’entreprise et personnels au sein du réseau d’entreprise. |
-|Access | Le portail du panneau d’accès est accessible depuis les appareils d’entreprise en dehors du réseau d’entreprise. |
+| Accès| Le portail du panneau d’accès est accessible depuis les appareils d’entreprise et personnels au sein du réseau d’entreprise. |
+|Accès | Le portail du panneau d’accès est accessible depuis les appareils d’entreprise en dehors du réseau d’entreprise. |
 | Audit| Les données d’utilisation sont téléchargées dans les systèmes de l’entreprise au moins tous les 29 jours. |
 | Gouvernance| Le cycle de vie des affectations d’utilisateurs aux applications et aux groupes connectés à Azure AD est défini et surveillé. |
 | Sécurité| L’accès aux ressources est contrôlé par le biais des attributions d’utilisateurs et de groupes. Seuls les utilisateurs autorisés peuvent gérer l’accès aux ressources. |
@@ -127,11 +127,11 @@ Le tableau suivant répertorie plusieurs configurations importantes du panneau d
 | Déterminer les groupes pilotes| Identifiez le groupe de sécurité Azure AD à utiliser et assurez-vous que tous les membres du pilote font partie du groupe. |
 | Déterminez le ou les groupes à activer pour la production.| Identifiez les groupes de sécurité Azure AD ou les groupes Active Directory synchronisés sur Azure AD à utiliser. Veillez à ce que tous les membres du pilote fassent partie du groupe. |
 | Permettre aux utilisateurs d’utiliser l’authentification unique pour certains types d’applications| SSO fédérée, OAuth, authentification unique par mot de passe, proxy d’application |
-| Autoriser les utilisateurs à utiliser la réinitialisation de mot de passe en libre-service | OUI |
-| Permettre aux utilisateurs d’utiliser Multi-Factor Authentication| OUI |
+| Autoriser les utilisateurs à utiliser la réinitialisation de mot de passe en libre-service | Oui |
+| Permettre aux utilisateurs d’utiliser Multi-Factor Authentication| Oui |
 | Permettre aux utilisateurs d’utiliser la gestion de groupes en libre-service pour certains types de groupes| Groupes de sécurité, groupes Office 365 |
-| Autoriser les utilisateurs à utiliser la gestion des applications en libre-service| OUI |
-| Autoriser les utilisateurs à utiliser des révisions d’accès| OUI |
+| Autoriser les utilisateurs à utiliser la gestion des applications en libre-service| Oui |
+| Autoriser les utilisateurs à utiliser des révisions d’accès| Oui |
 
 ### <a name="plan-consent-strategy"></a>Stratégie de consentement au plan
 
@@ -195,11 +195,11 @@ Lorsque des utilisateurs se connectent à des applications SSO basées sur un mo
 
 Si vous devez intégrer des applications SSO basées sur un mot de passe, vous devez définir un mécanisme de déploiement de l’extension à l’échelle avec les [navigateurs pris en charge](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Options disponibles :
 
-* [Stratégie de groupe pour Internet Explorer ](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
+* [Stratégie de groupe pour Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
-* [System Center Configuration Manager (SCCM) pour Internet Explorer ](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager pour Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
-* [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+* [Téléchargement et configuration pilotés par l’utilisateur pour Chrome, Firefox, Microsoft Edge ou Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 En savoir plus : [Configurer l’authentification unique par mot de passe](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery)
 
@@ -336,13 +336,13 @@ Il est important d’avoir un plan de repli en cas d’échec de votre déploiem
 
 Nous vous recommandons d’utiliser le rôle le moins privilégié pour accomplir une tâche requise dans Azure Active Directory. [Passez en revue les différents rôles disponibles](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) et choisissez celui qui répond le mieux aux besoins de chaque utilisateur de l’application. Certains rôles devront peut-être être appliqués temporairement, puis supprimés une fois le déploiement terminé.
 
-| Rôles| contrôleur| Rôle Azure AD  |
+| Rôles| Rôles| Rôle Azure AD  |
 | - | -| -|
-| Administrateur de support technique| Support de niveau 1| Aucun |
+| Administrateur de support technique| Support de niveau 1| None |
 | Administrateur d’identité| Configurer et déboguer quand des problèmes impactent Azure AD| Administrateur général |
-| Administrateur d’application| Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations| Aucun |
+| Administrateur d’application| Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations| None |
 | Administrateurs de l’infrastructure| Propriétaire de la substitution de certificat| Administrateur général |
-| Chef d’entreprise/Partie prenante| Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations| Aucun |
+| Chef d’entreprise/Partie prenante| Attestation de l’utilisateur dans l’application, configuration des utilisateurs disposant d’autorisations| None |
 
 Vous pouvez utiliser [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) pour gérer vos rôles dans le but de fournir aux utilisateurs qui disposent d’autorisations sur l’annuaire des fonctionnalités supplémentaires au niveau des audits, du contrôle et des révisions d’accès.
 

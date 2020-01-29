@@ -1,36 +1,34 @@
 ---
 title: Sauvegarder l’état du système Windows vers Azure
 description: Découvrez comment sauvegarder l’état du système des ordinateurs Windows Server et/ou Windows vers Azure.
-services: backup
-author: saurabhsensharma
-manager: shivamg
-keywords: procédure de sauvegarde ; comment sauvegarder ; sauvegarder des fichiers et des dossiers
-ms.service: backup
+ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.author: saurse
-ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 847ed8fc5a6c102284a03fa593587792767d7913
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60782539"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "76294012"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Sauvegarder l’état du système Windows dans un déploiement Resource Manager
-Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il s’agit d’un didacticiel destiné à vous présenter les notions de base.
+
+Cet article explique comment sauvegarder l’état du système Windows Server vers Azure. Il est destiné à vous présenter les notions de base.
 
 Si vous souhaitez en savoir plus sur Sauvegarde Azure, lisez cette [présentation](backup-overview.md).
 
 Si vous ne disposez pas d’un abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) pour accéder à n’importe quel service Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
+
 Pour sauvegarder l’état du système Windows Server, vous devez créer un archivage de Recovery Services dans la région où vous souhaitez stocker les données. Vous devez également spécifier le mode de réplication de votre stockage.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Pour créer un coffre Recovery Services
+
 1. Si ce n’est pas déjà fait, connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide de votre abonnement Azure.
 2. Dans le menu Hub, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Recovery Services** et cliquez sur **Coffres Recovery Services**.
 
-    ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
+    ![Créer un coffre Recovery Services - Étape 1](./media/backup-azure-system-state/open-rs-vault-list.png)
 
     Si l’abonnement inclut des coffres Recovery Services, ces derniers sont répertoriés.
 3. Dans le menu **Coffres Recovery Services**, cliquez sur **Ajouter**.
@@ -48,10 +46,10 @@ Pour sauvegarder l’état du système Windows Server, vous devez créer un arch
 6. Dans la section **Groupe de ressources** :
 
     * Sélectionnez **Créer** si vous voulez créer un groupe de ressources.
-    Ou
+    ou
     * sélectionnez **Utiliser existant** et cliquez sur le menu déroulant pour afficher la liste des groupes de ressources disponibles.
 
-   Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Pour plus d’informations sur les groupes de ressources, consultez [Vue d’ensemble d’Azure Resource Manager](../azure-resource-manager/management/overview.md).
 
 7. Cliquez sur **Emplacement** pour sélectionner la région géographique du coffre. Ce choix définit la région géographique où vos données de sauvegarde sont envoyées.
 
@@ -64,6 +62,7 @@ Pour sauvegarder l’état du système Windows Server, vous devez créer un arch
     Une fois que votre coffre apparaît dans la liste des coffres Recovery Services, vous êtes prêt à définir la redondance du stockage.
 
 ### <a name="set-storage-redundancy-for-the-vault"></a>Définir la redondance du stockage pour un coffre
+
 Lorsque vous créez un coffre Recovery Services, vérifiez que la redondance du stockage est configurée comme vous le souhaitez.
 
 1. Dans le panneau **Coffres Recovery Services**, cliquez sur le nouveau coffre.
@@ -87,6 +86,7 @@ Lorsque vous créez un coffre Recovery Services, vérifiez que la redondance du 
 Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l’état du système Windows.
 
 ## <a name="configure-the-vault"></a>configuration du coffre
+
 1. Dans le panneau du coffre Recovery Services que vous venez de créer, accédez à la section Prise en main, puis cliquez sur **Sauvegarde** ; dans le panneau **Prise en main de la sauvegarde**, sélectionnez **Objectif de la sauvegarde**.
 
     ![Ouvrir le panneau Objectif de sauvegarde](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
@@ -99,7 +99,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
     En effet, vous devez choisir l’option **Local**, car votre ordinateur Windows Server ou Windows est une machine physique, qui ne se trouve donc pas dans Azure.
 
-3. Dans le menu **Que voulez-vous sauvegarder ?** , sélectionnez **État du système** et cliquez sur **OK**.
+3. Dans le menu **Que voulez-vous sauvegarder ?** , sélectionnez **État du système**, puis cliquez sur **OK**.
 
     ![Configuration des fichiers et dossiers](./media/backup-azure-system-state/backup-goal-system-state.png)
 
@@ -127,7 +127,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 
     ![Télécharger les informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    Les informations d’identification du coffre sont téléchargées dans le dossier Téléchargements. Une fois cette opération terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez ouvrir ou enregistrer ces informations. Cliquez sur **Enregistrer**. Si vous cliquez sur **Ouvrir** par erreur, attendez que la boîte de dialogue qui s’affiche annonce l’échec de la tentative d’ouverture des informations d’identification du coffre. En effet, vous ne pouvez pas les ouvrir. Passez à l'étape suivante. Les informations d’identification du coffre se trouvent dans le dossier Téléchargements.   
+    Les informations d’identification du coffre sont téléchargées dans le dossier Téléchargements. Une fois cette opération terminée, une fenêtre contextuelle s’affiche, vous demandant si vous voulez ouvrir ou enregistrer ces informations. Cliquez sur **Enregistrer**. Si vous cliquez sur **Ouvrir** par erreur, attendez que la boîte de dialogue qui s’affiche annonce l’échec de la tentative d’ouverture des informations d’identification du coffre. En effet, vous ne pouvez pas les ouvrir. Passez à l'étape suivante. Les informations d’identification du coffre se trouvent dans le dossier Téléchargements.
 
     ![Fin du téléchargement des informations d’identification du coffre](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -164,6 +164,7 @@ Une fois votre coffre créé, vous devez le configurer pour la sauvegarde de l�
 L’agent est désormais installé et votre ordinateur est inscrit dans le coffre. Vous êtes prêt à configurer et à planifier votre sauvegarde.
 
 ## <a name="back-up-windows-server-system-state"></a>Sauvegarder l’état du système Windows Server
+
 La sauvegarde initiale comprend deux tâches :
 
 * Planifier la sauvegarde
@@ -178,7 +179,7 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
 ### <a name="to-schedule-the-backup-job"></a>Pour planifier un travail de sauvegarde
 
-1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure**sur votre ordinateur.
+1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure** sur votre ordinateur.
 
     ![Lancer l’agent Azure Recovery Services](./media/backup-try-azure-backup-in-10-mins/snap-in-search.png)
 
@@ -206,23 +207,27 @@ Pour effectuer la sauvegarde initiale, utilisez l’agent Microsoft Azure Reco
 
 2. Dans l’agent Recovery Services, cliquez sur **Sauvegarder maintenant** pour effectuer l’amorçage initial sur le réseau.
 
-    ![Sauvegarder Windows Server maintenant](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
+    ![Option Sauvegarder maintenant de Windows Server](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
 3. Sélectionnez **État du système** dans l’écran **Sélectionner l’élément de sauvegarde** qui s’affiche, puis cliquez sur **Suivant**.
 
 4. Sur la page Confirmation, vérifiez les paramètres utilisés par l’Assistant Sauvegarder maintenant pour sauvegarder les données de l’ordinateur, puis cliquez sur **Sauvegarder**.
 
-4. Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
-
+5. Cliquez sur **Fermer** pour fermer l’assistant. Si vous fermez l’Assistant avant la fin du processus de sauvegarde, celui-ci continuera de s’exécuter en arrière-plan.
+    > [!NOTE]
+    > L’Agent MARS déclenche la commande SFC /verifyonly dans le cadre des vérifications préalables à chaque sauvegarde de l’état du système. Cela permet de garantir que les fichiers sauvegardés dans le cadre de l’état du système disposent des versions appropriées correspondant à la version de Windows. Découvrez-en plus sur le vérificateur des fichiers système (SFC, System File Checker), consultez [cet article](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    >
 
 Une fois la sauvegarde initiale terminée, le statut **Tâche terminée** apparaît dans la console Backup.
 
   ![RI terminé](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## <a name="questions"></a>Des questions ?
+
 Si vous avez des questions ou si vous souhaitez que certaines fonctionnalités soient incluses, [envoyez-nous vos commentaires](https://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Approfondissez vos connaissances sur la [sauvegarde de machines Windows](backup-configure-vault.md).
 * L’état du système Windows Server étant sauvegardé, vous pouvez [gérer vos archivages et vos serveurs](backup-azure-manage-windows-server.md).
 * Si vous avez besoin de restaurer une sauvegarde, utilisez cet article pour [restaurer des fichiers sur un ordinateur Windows](backup-azure-restore-windows-server.md).

@@ -4,12 +4,12 @@ description: Découvrez comment utiliser Azure Application Insights avec Azure F
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978081"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292924"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -31,7 +31,7 @@ Pour qu’une application de fonction envoie des données à Application Insight
 
 ### <a name="new-function-app-in-the-portal"></a>Nouvelle application de fonction dans le portail
 
-Lorsque vous [créez votre application de fonction dans le portail Azure](functions-create-first-azure-function.md), l'intégration d’Application Insights est activée par défaut. La ressource Application Insights, qui porte le même nom que votre application de fonction, est créée dans la même région ou dans la région la plus proche.
+Lorsque vous [créez votre application de fonction dans le portail Azure](functions-create-first-azure-function.md), l'intégration d’Application Insights est activée par défaut. La ressource Application Insights, qui porte le même nom que votre application de fonction est créée dans la même région ou dans la région la plus proche.
 
 Pour examiner la ressource Application Insights en cours de création, sélectionnez-la de manière à développer la fenêtre **Application Insights**. Vous pouvez modifier le **Nouveau nom de ressource** ou choisir un autre **Emplacement** dans une [Zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) où vous souhaitez stocker vos données.
 
@@ -74,7 +74,7 @@ Comme vous pouvez le constater, les deux pages affichent un lien **Exécuter dan
 
 ![Exécuter dans Application Insights](media/functions-monitoring/run-in-ai.png)
 
-La requête suivante s’affiche. Comme vous pouvez le constater, la liste d'appels se limite aux 30 derniers jours. Cette liste affiche uniquement 20 lignes (`where timestamp > ago(30d) | take 20`). La liste des détails d'appels porte sur les 30 derniers jours, sans limite.
+La requête suivante s’affiche. Vous pouvez voir que les résultats de la requête sont limités aux 30 derniers jours (`where timestamp > ago(30d)`). De plus, les résultats ne montrent pas plus de 20 lignes (`take 20`). Par contre, la liste des détails des appels pour votre fonction porte sur les 30 derniers jours, sans limite.
 
 ![Liste d’appels Application Insights Analytics](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -92,13 +92,13 @@ Pour plus d’informations sur l’utilisation d’Application Insights, consult
 
 Les domaines d’Application Insights suivants peuvent s'avérer utiles lors de l'évaluation du comportement, du niveau de performance et des erreurs de vos fonctions :
 
-| Tab | Description |
+| Onglet | Description |
 | ---- | ----------- |
 | **[Échecs](../azure-monitor/app/asp-net-exceptions.md)** |  Créez des graphiques et des alertes basés sur les échecs de fonction et les exceptions de serveur. Le **Nom de l’opération** est le nom de la fonction. Les échecs de dépendances ne sont pas affichés, sauf si vous implémentez des données de télémétrie personnalisées pour les dépendances. |
 | **[Niveau de performance](../azure-monitor/app/performance-counters.md)** | Analysez les problèmes liés au niveau de performance. |
 | **Serveurs** | Affichez l’utilisation des ressources et le débit par serveur. Ces données peuvent être utiles pour déboguer les scénarios où les fonctions ralentissent vos ressources sous-jacentes. Les serveurs sont appelés **instances de rôle cloud**. |
 | **[Métriques](../azure-monitor/app/metrics-explorer.md)** | Créez des graphiques et des alertes basés sur des métriques. Les métriques incluent le nombre d’appels de fonction, le délai d’exécution ainsi que les taux de réussite. |
-| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Affichez les données de métriques en temps réel. |
+| **[Live Metrics Stream](../azure-monitor/app/live-stream.md)** | Visualisez les données des métriques au fil de leur création en quasi temps réel. |
 
 ## <a name="query-telemetry-data"></a>Interroger les données de télémétrie
 
@@ -119,7 +119,7 @@ requests
 
 Les tables disponibles sont affichées sous l’onglet **Schéma** situé à gauche. Les données générées par les appels de fonction sont disponibles dans les tables suivantes :
 
-| Table | Description |
+| Table de charge de travail | Description |
 | ----- | ----------- |
 | **traces** | Journaux d’activité créés par le runtime et le code de fonction. |
 | **requests** | Une demande par appel de fonction. |
@@ -158,12 +158,12 @@ L’enregistreur d’événements d’Azure Functions inclut également un *nive
 |LogLevel    |Code|
 |------------|---|
 |Trace       | 0 |
-|Déboguer       | 1 |
+|Débogage       | 1 |
 |Information | 2 |
 |Avertissement     | 3 |
 |Error       | 4 |
-|Critique    | 5\. |
-|Aucun        | 6 |
+|Critique    | 5 |
+|None        | 6 |
 
 Le niveau de journal `None` est expliqué dans la section suivante. 
 
@@ -171,7 +171,7 @@ Le niveau de journal `None` est expliqué dans la section suivante.
 
 Le fichier [host.json] configure la quantité de journalisation qu’une application de fonction envoie à Application Insights. Pour chaque catégorie, vous indiquez le niveau de journal minimal à envoyer. Il existe deux exemples : le premier exemple cible la [version 2.x et ultérieure](functions-versions.md#version-2x) du runtime Functions (avec .NET Core) et le second exemple concerne le runtime version 1.x.
 
-### <a name="version-2x-and-higher"></a>Version 2.x et ultérieure
+### <a name="version-2x-and-higher"></a>Versions 2.x et ultérieures
 
 La version 2.x et les versions ultérieures du runtime Functions utilisent la [hiérarchie du filtre de journalisation de .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
 
@@ -337,7 +337,7 @@ Vous pouvez écrire des journaux d’activité dans votre code de fonction qui a
 
 Utilisez un paramètre [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) dans vos fonctions au lieu d’un paramètre `TraceWriter`. Les journaux d’activité créés à l’aide de `TraceWriter` sont destinés à Application Insights, mais `ILogger` vous permet d’effectuer une [journalisation structurée](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-L’objet `ILogger` permet d’appeler les [méthodes d’extension `Log<level>` sur ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) pour créer des journaux d’activité. Le code suivant écrit des journaux d’activité `Information` ayant la catégorie « Function ».
+Avec un objet `ILogger`, vous appelez des [méthodes d’extension `Log<level>` sur ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) pour créer des journaux. Le code suivant écrit des journaux `Information` avec la catégorie « Function.<NOM_DE_VOTRE_FONCTION>.User ».
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -561,7 +561,7 @@ namespace functionapp0915
 
 N’appelez pas `TrackRequest` ou `StartOperation<RequestTelemetry>`, afin d’éviter les doublons de requêtes pour un appel de fonction.  Le runtime d’Azure Functions effectue automatiquement le suivi des demandes.
 
-Ne définissez pas `telemetryClient.Context.Operation.Id`. Ce paramètre global provoque une erreur de corrélation lorsqu’un grand nombre de fonctions s’exécutent en même temps. Au lieu de cela, créez une nouvelle instance de télémétrie (`DependencyTelemetry`, `EventTelemetry`) et modifiez sa propriété `Context`. Passez dans l’instance de télémétrie correspondant à la méthode `Track` sur `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). Cette méthode permet de s'assurer que les données de télémétrie comportent les bonnes informations de corrélation pour l’appel de fonction actuel.
+Ne définissez pas `telemetryClient.Context.Operation.Id`. Ce paramètre global provoque une erreur de corrélation lorsqu’un grand nombre de fonctions s’exécutent en même temps. Au lieu de cela, créez une nouvelle instance de télémétrie (`DependencyTelemetry`, `EventTelemetry`) et modifiez sa propriété `Context`. Passez ensuite l’instance de télémétrie à la méthode `Track` correspondante sur `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). Cette méthode permet de s'assurer que les données de télémétrie comportent les bonnes informations de corrélation pour l’appel de fonction actuel.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Journaliser des données de télémétrie personnalisées dans les fonctions JavaScript
 
@@ -590,7 +590,7 @@ Le paramètre `tagOverrides` définit `operation_Id` sur l’ID d'appel de la fo
 
 ## <a name="dependencies"></a>Les dépendances
 
-Functions v2 collecte automatiquement les dépendances pour les requêtes HTTP, ServiceBus et SQL.
+Functions v2 collecte automatiquement les dépendances pour les requêtes HTTP, ServiceBus, EventHub et SQL.
 
 Vous pouvez écrire du code personnalisé pour afficher les dépendances. Pour plus d'informations, consultez l'exemple de code dans la [section relative aux données de télémétrie personnalisées C#](#log-custom-telemetry-in-c-functions). L’exemple de code entraîne un *mappage d’application* dans Application Insights, qui se présente comme suit :
 
@@ -602,13 +602,13 @@ Pour signaler un problème avec l’intégration d’Application Insights dans A
 
 ## <a name="streaming-logs"></a>Journaux d’activité en continu
 
-Quand vous développez une application, vous souhaitez souvent voir ce qui est écrit dans les journaux quasiment en temps réel au moment de l’exécution dans Azure.
+Quand vous développez une application, vous voulez souvent voir ce qui est écrit dans les journaux en quasi temps réel lors de l’exécution dans Azure.
 
 Il existe deux façons d’afficher un flux des fichiers journaux générés par vos exécutions de fonction.
 
 * **Streaming des journaux intégré** : la plateforme App Service vous permet d’afficher un flux de vos fichiers journaux d’application. Cela équivaut à la sortie observée quand vous déboguez vos fonctions au cours du [développement local](functions-develop-local.md) et quand vous utilisez l’onglet **Test** dans le portail. Toutes les informations basées sur les journaux sont affichées. Pour plus d’informations, consultez [Diffuser les journaux d’activité en continu](../app-service/troubleshoot-diagnostic-logs.md#stream-logs). Cette méthode de streaming ne prend en charge qu’une seule instance et ne peut pas être utilisée avec une application exécutée sur Linux dans un plan Consommation.
 
-* **Flux de métriques temps réel** : quand votre application de fonction est [connectée à Application Insights](#enable-application-insights-integration), vous pouvez afficher les données des journaux et d’autres métriques en quasi temps réel dans le portail Azure à l’aide de [Flux de métriques temps réel](../azure-monitor/app/live-stream.md). Appliquez cette méthode lors de la supervision de fonctions s’exécutant sur plusieurs instances ou sur Linux dans un plan Consommation. Cette méthode utilise des [données échantillonnées](#configure-sampling).
+* **Flux de métriques temps réel** : quand votre application de fonction est [connectée à Application Insights](#enable-application-insights-integration), vous pouvez voir les données des journaux et d’autres métriques en quasi temps réel dans le portail Azure avec [Flux de métriques temps réel](../azure-monitor/app/live-stream.md). Appliquez cette méthode lors de la supervision de fonctions s’exécutant sur plusieurs instances ou sur Linux dans un plan Consommation. Cette méthode utilise des [données échantillonnées](#configure-sampling).
 
 Les flux de journaux peuvent être affichés à la fois dans le portail et dans la plupart des environnements de développement locaux. 
 
@@ -642,7 +642,7 @@ Dans Application Insights, sélectionnez **Flux de métriques temps réel**. Les
 
 [!INCLUDE [functions-streaming-logs-core-tools](../../includes/functions-streaming-logs-core-tools.md)]
 
-### <a name="azure-cli"></a>D’Azure CLI
+### <a name="azure-cli"></a>Azure CLI
 
 Vous pouvez activer les journaux de diffusion en continu en utilisant [Azure CLI](/cli/azure/install-azure-cli). Utilisez les commandes suivantes pour vous connecter, choisir votre abonnement et diffuser en continu les fichiers journaux :
 

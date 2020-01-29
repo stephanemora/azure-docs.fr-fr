@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: 72568be0cf87770e8878f95de4a9c82842b470df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/17/2020
+ms.openlocfilehash: 388f43fec9242f6a4b448483d9486aa4413d2612
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646844"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314791"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Diffuser en continu des données en tant qu’entrées dans Stream Analytics
 
@@ -55,6 +55,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Nom de l’Event Hub** | Nom du concentrateur Event Hub à utiliser comme entrée. |
 | **Nom de la stratégie du hub d’événements** | La stratégie d’accès partagé qui fournit l’accès au concentrateur Event Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres de l’Event Hub.|
 | **Groupe de consommateurs du hub d’événements** (recommandé) | Il est vivement recommandé d’utiliser un groupe de consommateurs différent pour chaque travail Stream Analytics. Cette chaîne identifie le groupe de consommateurs à utiliser pour ingérer les données du concentrateur Event Hub. Si aucun groupe de consommateurs n’est spécifié, le travail Stream Analytics utilise le groupe de consommateurs $Default.  |
+| **Clé de partition** | Si votre entrée est partitionnée par une propriété, vous pouvez ajouter le nom de cette propriété. Les clés de partition sont facultatives et sont utilisées pour améliorer les performances de votre requête si celle-ci comprend une clause PARTITION BY ou GROUP BY pour cette propriété. |
 | **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV, Avro ou [Autre (Protobuf, XML, propriétaire…)](custom-deserializer.md)) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
 | **Encodage** | Pour le moment, UTF-8 est le seul format d’encodage pris en charge. |
 | **Type de compression d’événement** | Le type de compression utilisé pour lire le flux de données entrant, tel que Aucune (valeur par défaut), GZip ou Deflate. |
@@ -104,6 +105,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Nom de la stratégie d’accès partagé** | La stratégie d’accès partagé qui fournit l’accès au concentrateur IoT Hub. Chaque stratégie d’accès partagé a un nom, les autorisations que vous définissez ainsi que des clés d’accès. |
 | **Clé de la stratégie d’accès partagé** | La clé d’accès partagé utilisée pour autoriser l’accès au concentrateur IoT Hub.  Cette option est automatiquement renseignée, sauf si vous sélectionnez l’option pour indiquer manuellement les paramètres du concentrateur IoT Hub. |
 | **Groupe de consommateurs** | Il est vivement recommandé d’utiliser un groupe de consommateurs différent pour chaque travail Stream Analytics. Le groupe de consommateurs à utiliser pour ingérer les données du concentrateur IoT Hub. Stream Analytics utilise le groupe de consommateurs $Default, sauf si vous spécifiez autre chose.  |
+| **Clé de partition** | Si votre entrée est partitionnée par une propriété, vous pouvez ajouter le nom de cette propriété. Les clés de partition sont facultatives et sont utilisées pour améliorer les performances de votre requête si celle-ci comprend une clause PARTITION BY ou GROUP BY pour cette propriété. |
 | **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV, Avro ou [Autre (Protobuf, XML, propriétaire…)](custom-deserializer.md)) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
 | **Encodage** | Pour le moment, UTF-8 est le seul format d’encodage pris en charge. |
 | **Type de compression d’événement** | Le type de compression utilisé pour lire le flux de données entrant, tel que Aucune (valeur par défaut), GZip ou Deflate. |
@@ -157,6 +159,7 @@ Le tableau suivant décrit chaque propriété de la page **Nouvelle entrée** du
 | **Modèle de chemin d’accès** (facultatif) | Chemin d’accès au fichier utilisé pour localiser les objets blob dans le conteneur spécifié. Si vous souhaitez lire des objets blob à partir de la racine du conteneur, ne définissez pas de modèle de chemin d’accès. Dans le chemin d’accès, vous pouvez spécifier une ou plusieurs instances de l’une des trois variables suivantes : `{date}`, `{time}` ou `{partition}`<br/><br/>Exemple 1 : `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemple 2 : `cluster1/logs/{date}`<br/><br/>Le caractère `*` n’est pas une valeur autorisée pour le préfixe du chemin d’accès. Seuls les <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">caractères d’objet blob Azure</a> valides sont autorisés. N’incluez pas de noms de conteneurs ou de fichiers. |
 | **Format de date** (facultatif) | Format de date suivant lequel les fichiers sont organisés si vous utilisez la variable de date dans le chemin d’accès. Exemple : `YYYY/MM/DD` |
 | **Format d’heure** (facultatif) |  Format d’heure suivant lequel les fichiers sont organisés si vous utilisez la variable d’heure dans le chemin d’accès. Actuellement, la seule valeur possible est `HH` pour les heures. |
+| **Clé de partition** | Si votre entrée est partitionnée par une propriété, vous pouvez ajouter le nom de cette propriété. Les clés de partition sont facultatives et sont utilisées pour améliorer les performances de votre requête si celle-ci comprend une clause PARTITION BY ou GROUP BY pour cette propriété. |
 | **Format de sérialisation de l’événement** | Format de sérialisation (JSON, CSV, Avro ou [Autre (Protobuf, XML, propriétaire…)](custom-deserializer.md)) du flux de données entrant.  Vérifiez que le format JSON est conforme à la spécification et n’inclut pas de 0 au début des nombres décimaux. |
 | **Encodage** | Pour CSV et JSON, UTF-8 est le seul format d’encodage actuellement pris en charge. |
 | **Compression** | Le type de compression utilisé pour lire le flux de données entrant, tel que Aucune (valeur par défaut), GZip ou Deflate. |

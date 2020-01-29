@@ -1,29 +1,21 @@
 ---
-title: Gérer des volumes StorSimple (Update 3) | Microsoft Docs
+title: Gérer des volumes StorSimple (Update 3)
 description: Explique comment ajouter, modifier, analyser et supprimer des volumes StorSimple et comment les mettre hors connexion si nécessaire.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: alkohli
-ms.openlocfilehash: f7bfe41b4cdc9989c6b949011bc240275886b6f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f32f8925bca33d90afa48071d0c0944ba63861cd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634816"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278845"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utiliser le service StorSimple Device Manager pour gérer des volumes (Update 3 ou versions ultérieures)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel explique comment utiliser le service StorSimple Device Manager pour créer et gérer des volumes sur les appareils de la gamme 8000 StorSimple exécutant Update 3 et versions ultérieures.
 
@@ -171,7 +163,7 @@ Modifiez un volume lorsque vous avez besoin d’en augmenter la taille ou de mod
 
 7. Si vous développez un volume, procédez comme suit sur votre ordinateur hôte Windows :
    
-   1. Accédez à **Gestion de l’ordinateur** -> **Gestion des disques**.
+   1. Accédez à **Gestion de l’ordinateur** ->**Gestion des disques**.
    2. Cliquez avec le bouton droit sur **Gestion des disques**, puis sélectionnez **Analyser les disques de nouveau**.
    3. Dans la liste des disques, sélectionnez le volume que vous avez mis à jour, cliquez avec le bouton droit, puis sélectionnez **Étendre le volume**. L’Assistant Étendre le volume démarre. Cliquez sur **Suivant**.
    4. Parcourez les étapes de l’Assistant en acceptant les valeurs par défaut. Une fois l’Assistant terminé, le volume doit afficher la taille augmentée.

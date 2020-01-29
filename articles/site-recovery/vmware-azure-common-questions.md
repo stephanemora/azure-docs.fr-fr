@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16892ec729f56f8c8e1713379285e07fbc0dd4d1
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: a078f1dc7d7aa3727f3f057f284c2ea5da923e07
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495424"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514848"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -101,7 +101,7 @@ Sur chaque machine virtuelle que vous souhaitez répliquer, installez le service
 
 - [Installation Push](vmware-physical-mobility-service-overview.md#push-installation)
 - [Installation manuelle](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) à partir de l’interface utilisateur ou de PowerShell
-- Déploiement à l’aide d’un outil de déploiement tel que [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
+- Déploiement à l’aide d’un outil de déploiement tel que [Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md)
 
 ## <a name="managed-disks"></a>Disques managés
 

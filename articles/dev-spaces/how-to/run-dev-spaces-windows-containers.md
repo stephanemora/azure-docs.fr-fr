@@ -1,20 +1,20 @@
 ---
 title: Interagir avec des conteneurs Windows
 services: azure-dev-spaces
-ms.date: 07/25/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 description: Découvrez comment exécuter Azure Dev Spaces sur un cluster existant avec des conteneurs Windows
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, conteneurs Windows
-ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 886f71dcaaca6a636b385ef6b101f0a893ff7035
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867304"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156996"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagir avec des conteneurs Windows à l’aide d’Azure Dev Spaces
 
-Vous pouvez activer Azure Dev Spaces sur des espaces de noms Kubernetes nouveaux et existants. Azure Dev Spaces exécute et instrumente des services qui s’exécutent sur des conteneurs Linux. Ces services peuvent également interagir avec les applications qui s’exécutent sur des conteneurs Windows dans le même espace de noms. Cet article explique comment utiliser Azure Dev Spaces pour exécuter des services dans un espace de noms avec des conteneurs Windows existants.
+Vous pouvez activer Azure Dev Spaces sur des espaces de noms Kubernetes nouveaux et existants. Azure Dev Spaces exécute et instrumente des services qui s’exécutent sur des conteneurs Linux. Ces services peuvent également interagir avec les applications qui s’exécutent sur des conteneurs Windows dans le même espace de noms. Cet article explique comment utiliser Azure Dev Spaces pour exécuter des services dans un espace de noms avec des conteneurs Windows existants. À l’heure actuelle, vous ne pouvez pas déboguer ou attacher des conteneurs Windows avec Azure Dev Spaces.
 
 ## <a name="set-up-your-cluster"></a>Configurer votre cluster
 
@@ -36,8 +36,9 @@ L’exemple de sortie suivant montre un cluster avec un nœud Windows et un nœu
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
-aksnpwin987654                      Ready    agent   108s   v1.14.1
+aks-nodepool1-12345678-vmss000000   Ready    agent   13m    v1.14.8
+aks-nodepool1-12345678-vmss000001   Ready    agent   13m    v1.14.8
+aksnpwin000000                      Ready    agent   108s   v1.14.8
 ```
 
 Appliquez une [teinte][using-taints] à vos nœuds Windows. La teinte sur vos nœuds Windows empêche Dev Spaces de planifier l’exécution de conteneurs Linux sur vos nœuds Windows. L’exemple de commande suivant applique une teinte au nœud Windows *aksnpwin987654* de l’exemple précédent.
@@ -60,20 +61,12 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-L’exemple d’application utilise [Helm 2][helm-installed] pour exécuter le service Windows sur votre cluster. Installez Helm sur votre cluster et accordez-lui les autorisations appropriées :
-
-```console
-helm init --wait
-kubectl create serviceaccount --namespace kube-system tiller
-kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-``` 
-
-Accédez au répertoire `charts` et exécutez le service Windows :
+L’exemple d’application utilise [Helm][helm-installed] pour exécuter le service Windows sur votre cluster. Accédez au répertoire `charts` et utilisez Helm pour exécuter le service Windows :
 
 ```console
 cd charts/
-helm install . --namespace dev
+kubectl create ns dev
+helm install windows-service . --namespace dev
 ```
 
 La commande ci-dessus utilise Helm pour exécuter votre service Windows dans l’espace de noms *dev*. Si vous n’avez pas d’espace de noms *dev*, celui-ci est créé.
@@ -122,16 +115,15 @@ spec:
 Utilisez `helm list` pour indiquer le déploiement de votre service Windows :
 
 ```cmd
-$ helm list
-NAME            REVISION    UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
-gilded-jackal   1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
+$ helm list --namespace dev
+NAME              REVISION  UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
+windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-Dans l’exemple ci-dessus, le nom de votre déploiement est *Gilded-Jackal*. Mettez à jour votre service Windows avec la nouvelle configuration en utilisant `helm upgrade` :
+Dans l’exemple ci-dessus, le nom de votre déploiement est *windows-service*. Mettez à jour votre service Windows avec la nouvelle configuration en utilisant `helm upgrade` :
 
 ```cmd
-$ helm upgrade gilded-jackal . --namespace dev
-Release "gilded-jackal" has been upgraded.
+helm upgrade windows-service . --namespace dev
 ```
 
 Comme vous avez mis à jour votre fichier `deployment.yaml`, Azure Dev Spaces n’essaie et n’instrumente pas votre service.
@@ -182,7 +174,7 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

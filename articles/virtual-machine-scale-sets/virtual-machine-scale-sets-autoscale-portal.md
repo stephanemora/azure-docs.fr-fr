@@ -1,26 +1,19 @@
 ---
-title: Mettre à l’échelle automatiquement des groupes de machines virtuelles identiques dans le portail Azure | Microsoft Docs
+title: Mettre à l’échelle automatiquement des groupes de machines virtuelles identiques dans le portail Azure
 description: Guide pratique pour créer des règles de mise à l’échelle automatique pour des groupes de machines virtuelles identiques dans le portail Azure
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: 88886cad-a2f0-46bc-8b58-32ac2189fc93
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ecd80f49f0161c8bbc6ab7309f2af89e2ded1fe9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618887"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278196"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Mettre à l’échelle automatiquement un groupe de machines virtuelles identiques dans le portail Azure
 Lorsque vous créez un groupe identique, vous définissez le nombre d’instances de machine virtuelle que vous souhaitez exécuter. À mesure que la demande de votre application change, vous pouvez augmenter ou diminuer automatiquement le nombre d’instances de machine virtuelle. La capacité de mise à l’échelle automatique vous permet de suivre la demande du client ou de répondre aux changements de performances de votre application tout au long de son cycle de vie.
@@ -28,7 +21,7 @@ Lorsque vous créez un groupe identique, vous définissez le nombre d’instance
 Cet article explique comment créer avec le portail Azure des règles de mise à l’échelle automatique qui analysent les performances des instances de machine virtuelle dans votre groupe identique. Ces règles de mise à l’échelle augmentent ou réduisent le nombre d’instances de machine virtuelle en réponse à ces métriques de performances. Vous pouvez aussi effectuer ces étapes avec [Azure PowerShell](tutorial-autoscale-powershell.md) ou [Azure CLI](tutorial-autoscale-cli.md).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour créer des règles de mise à l’échelle, vous avez besoin d’un groupe de machines virtuelles identiques. Vous pouvez créer un groupe identique avec le [portail Azure](quick-create-portal.md), [Azure PowerShell](quick-create-powershell.md) ou [Azure CLI](quick-create-cli.md).
 
 
@@ -49,9 +42,9 @@ Si la demande de votre application augmente, la charge sur les instances de mach
     
     | Paramètre              | Explication                                                                                                         | Valeur          |
     |------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Agrégation de temps*     | Définit la manière dont les métriques collectées doivent être agrégées à des fins d’analyse.                                                | Moyenne        |
+    | *Agrégation de temps*     | Définit la manière dont les métriques collectées doivent être agrégées à des fins d’analyse.                                                | Average        |
     | *Nom de métrique*          | Métrique de performances à surveiller et sur laquelle appliquer des actions de groupe identique.                                                   | Percentage CPU |
-    | *Statistiques de fragment de temps* | Définit la manière dont les métriques collectées dans chaque fragment de temps doivent être agrégées à des fins d’analyse.                             | Moyenne        |
+    | *Statistiques de fragment de temps* | Définit la manière dont les métriques collectées dans chaque fragment de temps doivent être agrégées à des fins d’analyse.                             | Average        |
     | *Opérateur*             | Opérateur utilisé pour comparer les données de métrique au seuil.                                                     | Supérieur à   |
     | *Seuil*            | Pourcentage qui amène la règle de mise à l’échelle automatique à déclencher une action.                                                 | 70             |
     | *Durée*             | Temps de surveillance avant que les valeurs de métrique et de seuil soient comparées.                                   | 10 minutes     |
@@ -89,7 +82,7 @@ Votre profil de mise à l’échelle automatique doit définir un nombre minimal
 
 1. Définissez les limites d’instance suivantes :
 
-    | Minimale | Maximale | Default|
+    | Minimum | Maximale | Default|
     |---------|---------|--------|
     | 2       | 10      | 2      |
 

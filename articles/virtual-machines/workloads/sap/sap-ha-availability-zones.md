@@ -4,7 +4,7 @@ description: Scénarios et architecture de haute disponibilité pour SAP NetWeav
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f5186f456003c341af41fc6067f3b5c08acb2b4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078882"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291496"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurations de la charge de travail SAP avec des zones de disponibilité Azure
 Les [zones de disponibilité Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) correspondent à l’une des fonctionnalités de haute disponibilité fournies par Azure. L’utilisation de zones de disponibilité améliore la disponibilité globale des charges de travail SAP dans Azure. Cette fonctionnalité est déjà disponible dans certaines [régions Azure](https://azure.microsoft.com/global-infrastructure/regions/). Elle le sera demain dans d’autres régions.
@@ -58,7 +58,7 @@ Quand vous déployez des machines virtuelles Azure sur des zones de disponibilit
 - Vous devez utiliser [Azure Disques managés](https://azure.microsoft.com/services/managed-disks/) pour un déploiement sur des zones de disponibilité Azure. 
 - Le mappage des énumérations de zones aux zones physiques est fixe sur la base d’un abonnement Azure. Si vous utilisez différents abonnements pour déployer vos systèmes SAP, vous devez définir les zones idéales pour chaque abonnement.
 - Vous ne pouvez pas déployer de groupes à haute disponibilité Azure au sein d’une zone de disponibilité Azure, sauf si vous utilisez un [groupe de placements de proximité Azure](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). La façon dont vous pouvez déployer la couche SGBD SAP et les services centraux entre les zones et, en même temps, déployer la couche d’application SAP à l’aide de groupes à haute disponibilité tout en continuant à proposer une proximité des machines virtuelles est décrite dans l’article [Groupes de placements de proximité Azure pour une latence réseau optimale avec les applications SAP](sap-proximity-placement-scenarios.md). Si vous ne tirez pas parti des groupes de placements de proximité Azure, vous devez choisir l’un ou l’autre comme framework de déploiement pour les machines virtuelles.
-- Vous ne pouvez pas utiliser un [équilibreur de charge de base Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) pour créer des solutions de cluster de basculement basées sur le clustering de basculement Windows Server ou Linux Pacemaker. Vous devez plutôt utiliser la [référence SKU Standard Load Balancer Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- Vous ne pouvez pas utiliser un [équilibreur de charge de base Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) pour créer des solutions de cluster de basculement basées sur le clustering de basculement Windows Server ou Linux Pacemaker. Vous devez plutôt utiliser la [référence SKU Standard Load Balancer Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
 
@@ -75,6 +75,8 @@ Pour déterminer la latence entre les différentes zones, vous avez besoin d’e
 - Déployer la référence (SKU) de la machine virtuelle à utiliser pour votre instance de SGBD dans les trois zones. Assurez-vous que l’[accélération réseau Azure](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) est activée quand vous prenez cette mesure.
 - Une fois que vous avez trouvé les deux zones avec la latence réseau la plus faible, déployez trois autres machines virtuelles de la référence SKU de machine virtuelle que vous voulez utiliser comme machine virtuelle de la couche Application sur les trois zones de disponibilité. Mesurez la latence réseau par rapport aux deux machines virtuelles SGBD dans les deux zones SGBD que vous avez sélectionnées. 
 - Utilisez **niping** en tant qu’outil de mesure. Cet outil, fourni par SAP, est décrit dans les notes de support SAP [#500235](https://launchpad.support.sap.com/#/notes/500235) et [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Concentrez-vous sur les commandes SAP documentées pour les mesures de latence. Étant donné que **ping** ne fonctionne pas par les chemins de code d’accélération réseau Azure, nous vous recommandons de ne pas l’utiliser.
+
+Vous n’avez pas besoin d’effectuer ces tests manuellement. La procédure PowerShell [Test de latence de la zone de disponibilité](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) permet d’automatiser les tests de latence décrits. 
 
 En fonction de vos mesures et de la disponibilité de vos références SKU de machine virtuelle dans les zones de disponibilité, vous devez prendre des décisions :
 

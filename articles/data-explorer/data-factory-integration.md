@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 01/20/2020
+ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819138"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293621"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Intégrer Azure Data Explorer avec Azure Data Factory
 
@@ -44,6 +44,14 @@ Pour obtenir une procédure détaillée de l’activité de commande, consultez 
 ### <a name="copy-in-bulk-from-a-database-template"></a>Copier en bloc à partir d’un modèle de base de données
 
 Le [pipeline Copier en bloc à partir d’une base de données vers Azure Data Explorer à l’aide du modèle Azure Data Factory](data-factory-template.md) est un pipeline Azure Data Factory prédéfini. Le modèle est utilisé pour créer un grand nombre de pipelines par base de données ou par table pour accélérer la copie de données. 
+
+### <a name="mapping-data-flows"></a>Mappage des flux de données 
+
+Les [flux de données de mappage Azure Data Factory](/azure/data-factory/concepts-data-flow-overview) sont des transformations de données visuellement conçues qui permettent aux ingénieurs de données de développer une logique de transformation de données graphique sans écrire de code. Pour créer un flux de données et ingérer des données dans Azure Data Explorer, appliquez la méthode suivante :
+
+1. Créez le [flux de données de mappage](/azure/data-factory/data-flow-create).
+1. [Exportez les données dans Objet blob Azure](/azure/data-factory/data-flow-sink). 
+1. Définissez [Event Grid](/azure/data-explorer/ingest-data-event-grid) ou l’[activité de copie ADF](/azure/data-explorer/data-factory-load-data) pour ingérer les données dans Azure Data Explorer.
 
 ## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Choisir entre les activités de copie et de commande Azure Data Explorer lors de la copie de données 
 
@@ -137,7 +145,7 @@ Les exigences sont les suivantes :
 
 Azure Data Factory autorise le la barre oblique inverse comme caractère d’échappement. Si vous générez un fichier CSV avec une barre oblique inverse avec Azure Data Factory, l’ingestion du fichier dans Azure Data Explorer échoue.
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Les valeurs de texte suivantes : Hello, "World"<br/>
 ABC   DEF<br/>

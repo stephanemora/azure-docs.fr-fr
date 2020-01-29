@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932374"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548014"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Affichez l’activité et l’historique d’audit des rôles de ressources Azure dans Privileged Identity Management
 
@@ -111,6 +111,9 @@ Mon audit vous permet d’afficher votre activité personnelle de rôle.
 1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
 
     ![Liste d’audits pour l’utilisateur actuel](media/azure-pim-resource-rbac/my-audit-time.png)
+    
+> [!NOTE]
+> Pour accéder à l’historique d’audit, vous devez avoir un rôle Administrateur général ou Administrateur de rôle privilégié.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

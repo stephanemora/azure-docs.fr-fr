@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6e5c1a1bfc82460ad7e53cc8444a4bb42aa4ef19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497688"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548388"
 ---
 # <a name="remove-duplicate-rows-module"></a>Module Supprimer les lignes en double
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Ce module permet de supprimer les doublons potentiels d’un jeu de données.
 
@@ -32,7 +32,7 @@ Par exemple, supposons que vos données se présentent comme suit et représente
 |3| F.M.| M| 24| Fév|
 |4| F.M.| M| 23| Fév|
 | | F.M.| M| 23| |
-|5\.| F.A.M.| M| 53| |
+|5| F.A.M.| M| 53| |
 |6| F.A.M.| M| NaN| |
 |7| F.A.M.| M| NaN| |
 
@@ -59,7 +59,7 @@ Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie
 
     Dans ce contexte, **clé** n’a pas le sens d’identificateur unique. Toutes les colonnes que vous sélectionnez à l’aide du sélecteur de colonnes sont désignées comme **colonnes de clés**, ce que ne sont pas toutes les colonnes non sélectionnées. La combinaison de colonnes choisies comme clés détermine l’unicité des enregistrements. (Considérez cela comme une instruction SQL qui utilise plusieurs jointures d’égalités.)
 
-    Exemples :
+    Exemples :
 
     + « Je veux m’assurer que les ID sont uniques » : choisissez uniquement la colonne ID.
     + « Je veux m’assurer que la combinaison de prénom, nom et ID est unique » : sélectionnez les trois colonnes.
@@ -71,7 +71,7 @@ Lorsque vous exécutez le module, il crée un jeu de données candidat et envoie
 
 5. Exécuter le pipeline.
 
-6. Pour passer en revue les résultats, cliquez sur le module avec le bouton droit de la souris, sélectionnez **Jeu de données de résultats**, puis cliquez sur **Visualiser**. 
+6. Pour examiner les résultats, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**. 
 
 > [!TIP]
 > Si les résultats sont difficiles à comprendre, ou si vous souhaitez exclure certaines colonnes, vous pouvez supprimer des colonnes à l’aide du module [Select Columns in Dataset](./select-columns-in-dataset.md) (Sélectionner des colonnes dans un jeu de données).

@@ -1,5 +1,5 @@
 ---
-title: Diffusion en continu PlayReady hors connexion avec Media Services v3 - Azure
+title: Configurer la diffusion en continu PlayReady hors connexion avec Azure Media Services v3
 description: Cet article vous montre comment configurer votre compte Azure Media Services pour la diffusion en continu hors connexion de PlayReady pour Windows 10.
 services: media-services
 keywords: DASH, DRM, Widevine hors connexion, ExoPlayer, Android
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 15a3e2f7fee6d130b1913ec4f74069a09d5aec53
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: ceb6de6556968385d88ac799c11bdb6393072864
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779785"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513114"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Diffusion en continu PlayReady hors connexion pour Windows 10 avec Media Services v3
 

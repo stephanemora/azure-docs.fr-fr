@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 83d5b7ffb49a08d02d5dd34ad561ce725ead7e0e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936204"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289133"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Connecter Azure aux outils ITSM à l’aide du connecteur de gestion des services informatiques
 
@@ -58,7 +58,7 @@ Avant de pouvoir créer une connexion, vous devez ajouter la solution de connect
 3. Dans la section **Espace de travail OMS**, sélectionnez l’espace de travail Azure Log Analytics où vous souhaitez installer la solution.
    >[!NOTE]
    > * Dans le cadre de la transition en cours depuis Microsoft Operations Management Suite (OMS) vers Azure Monitor, les espaces de travail OMS sont maintenant appelé espaces de travail Log Analytics.
-   > * Le connecteur ITSM peut uniquement être installé dans les espaces de travail Log Analytics des régions suivantes : USA Est, Europe Ouest, Asie Sud-Est, Australie Sud-Est, USA Centre-Ouest, Japon Est, Royaume-Uni Sud, Inde Centre, Canada Centre.
+   > * Le connecteur ITSM peut uniquement être installé dans les espaces de travail Log Analytics des régions suivantes : USA Est, USA Ouest 2, USA Centre Sud, USA Centre-Ouest, Canada Centre, Europe Ouest, Royaume-Uni Sud, Asie Sud-Est, Japon Est, Inde Centre, Australie Sud-Est.
 
 4. Dans la section **Paramètres de l’espace de travail OMS**, sélectionnez le groupe de ressources où vous souhaitez créer la ressource de la solution.
 
@@ -158,7 +158,7 @@ Si vous utilisez la solution Service Map, vous pouvez afficher les éléments de
 
 ![Écran Log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Plus d'informations : [Service Map](../../azure-monitor/insights/service-map.md)
+Plus d’informations : [Service Map](../../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Informations supplémentaires
@@ -175,7 +175,7 @@ Les informations suivantes présentent des exemples de données collectées par 
 **Élément de travail :** **Incidents**  
 ServiceDeskWorkItemType_s="Incident"
 
-**Champs**
+**Fields**
 
 - ServiceDeskConnectionName
 - ID du service d’assistance
@@ -203,7 +203,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 
-**Champs**
+**Fields**
 - ServiceDeskConnectionName
 - ID du service d’assistance
 - Créé par
@@ -247,7 +247,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Source_s| Type de contact |
 | AssignedTo_s | Affecté à  |
 | Category_s | Category |
-| Title_s|  Brève description |
+| Title_s|  Description courte |
 | Description_s|  Notes |
 | CreatedDate_t|  Ouvert |
 | ClosedDate_t| Fermé|
@@ -262,7 +262,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | CreatedBy_s | Demandé par |
 | ClosedBy_s | Fermé par |
 | AssignedTo_s | Affecté à  |
-| Title_s|  Brève description |
+| Title_s|  Description courte |
 | Type_s|  Type |
 | Category_s|  Category |
 | CRState_s|  State|

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b9060823c997391d02eae61911f8aa748f191657
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045618"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260852"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Créer des jeux de données Azure Machine Learning
 
@@ -49,7 +49,7 @@ Pour créer et utiliser des jeux de données, vous avez besoin des éléments su
 
 Il existe deux types de jeux de données, selon la façon dont les utilisateurs les consomment lors de l’entraînement :
 
-* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans un dataframe Pandas ou Spark. Vous pouvez créer un objet `TabularDataset` à partir de fichiers .csv, .tsv et Parquet, et à partir de résultats de requête SQL. Pour obtenir une liste complète, consultez [TabularDatasetFactory, classe](https://aka.ms/tabulardataset-api-reference)
+* [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) représente les données sous forme de tableau en analysant le fichier ou la liste de fichiers fournis. Cela vous permet de matérialiser les données dans un dataframe Pandas ou Spark. Vous pouvez créer un objet `TabularDataset` à partir de fichiers .csv, .tsv, .parquet et .jsonl, et à partir de résultats de requête SQL. Pour obtenir une liste complète, consultez [TabularDatasetFactory, classe](https://aka.ms/tabulardataset-api-reference)
 
 * La classe [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) référence des fichiers uniques ou multiples dans vos magasins de fichiers ou vos URL publiques. Par cette méthode, vous pouvez télécharger ou monter les fichiers sur votre capacité de calcul en tant qu’objet FileDataset. Les fichiers peuvent être de n’importe quel format, ce qui autorise un éventail plus large de scénarios de machine learning, notamment le deep learning.
 
@@ -74,7 +74,7 @@ Pour créer des jeux de données à partir d’un [magasin de données Azure](ho
 
 #### <a name="create-a-tabulardataset"></a>Créer un TabularDataset
 
-Vous pouvez créer des TabularDatasets via le SDK ou en utilisant Azure Machine Learning Studio. Vous pouvez spécifier un horodatage à partir d’une colonne dans les données ou du modèle de chemin où les données sont stockées pour activer une caractéristique de série chronologique. Cette spécification permet un filtrage chronologique facile et efficace.
+Vous pouvez créer des TabularDatasets via le SDK ou en utilisant Azure Machine Learning Studio. 
 
 Utilisez la méthode [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) sur la classe `TabularDatasetFactory` pour lire des fichiers au format .csv ou .tsv, puis créez un TabularDataset non inscrit. Si vous lisez à partir de plusieurs fichiers, les résultats sont agrégés dans une même représentation tabulaire.
 
@@ -244,7 +244,6 @@ titanic_ds = titanic_ds.register(workspace = workspace,
                                  description = 'new titanic training data',
                                  create_new_version = True)
 ```
-
 
 ## <a name="access-datasets-in-your-script"></a>Accéder aux jeux de données dans votre script
 

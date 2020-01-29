@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c903e3378e06734a8785531c1a16c695d4b6c21
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 9c4f0a72cb598a8e38fc69f23f62f0f456cccb04
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814934"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543917"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -98,9 +98,16 @@ Quand *EnforceCloudPasswordPolicyForPasswordSyncedUsers* est désactivée (ce qu
 `(Get-AzureADUser -objectID <User Object ID>).passwordpolicies`
 
 
-Pour activer la fonctionnalité EnforceCloudPasswordPolicyForPasswordSyncedUsers, exécutez la commande suivante à l’aide du module MSOnline PowerShell :
-
-`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers -Enable $true`
+Pour activer la fonctionnalité EnforceCloudPasswordPolicyForPasswordSyncedUsers, exécutez la commande suivante en utilisant le module MSOnline PowerShell, comme illustré ci-dessous. Vous devez taper Oui pour le paramètre Activer, comme illustré ci-dessous :
+```
+`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers`
+`cmdlet Set-MsolDirSyncFeature at command pipeline position 1`
+`Supply values for the following parameters:`
+`Enable: yes`
+`Confirm`
+`Continue with this operation?`
+`[Y] Yes [N] No [S] Suspend [?] Help (default is "Y"): y`
+```
 
 Une fois la fonctionnalité activée, Azure AD n’accède pas à chaque utilisateur synchronisé pour supprimer la valeur `DisablePasswordExpiration` de l’attribut PasswordPolicies. Au lieu de cela, la valeur est définie sur `None` lors de la synchronisation de mot de passe suivante pour chaque utilisateur la prochaine fois qu’il change son mot de passe dans l’annuaire Active Directory local.  
 
@@ -117,7 +124,7 @@ Inconvénient : si des comptes synchronisés doivent avoir des mots de passe sa
 > [!NOTE]
 > Cette fonctionnalité est actuellement en préversion publique.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon"></a>Préversion publique de la synchronisation des mots de passe temporaires et « Forcer la modification du mot de passe lors de la prochaine ouverture de session »
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>Préversion publique de la synchronisation des mots de passe temporaires et « Forcer la réinitialisation de mot de passe à la prochaine ouverture de session »
 
 Il est courant de forcer un utilisateur à modifier son mot de passe lors de sa première ouverture de session, en particulier après la réinitialisation d’un mot de passe d’administrateur.  Il s’agit généralement de définir un mot de passe « temporaire ». Vous devez pour cela sélectionner l’indicateur « L’utilisateur doit changer le mot de passe à la prochaine ouverture de session » sur un objet utilisateur dans Active Directory (AD).
   

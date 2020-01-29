@@ -16,22 +16,15 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295124"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512961"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Considérations relatives à la conception d'identités hybrides Azure Active Directory - Suite
 Maintenant que vous avez défini vos exigences et examiné toutes les options pour votre solution de gestion des périphériques mobiles, vous êtes prêt à passer aux étapes suivantes et à déployer l'infrastructure sous-jacente qui vous est adaptée ainsi qu'à votre organisation.
-
-## <a name="hybrid-identity-solutions"></a>Solutions d'identité hybride
-Utiliser des scénarios de solution précis qui répondent à vos besoins est un excellent moyen d'étudier et de planifier les détails du déploiement d'une infrastructure de gestion des périphériques mobiles. Les solutions suivantes décrivent plusieurs scénarios de gestion des périphériques mobiles parmi les plus courants :
-
-* La [solution de gestion des périphériques mobiles et ordinateurs dans des environnements d'entreprise](https://technet.microsoft.com/library/dn582037.aspx) vous permet de gérer les périphériques mobiles en étendant votre infrastructure locale System Center 2012 Configuration Manager dans le cloud avec Microsoft Intune. Cette infrastructure hybride permet aux professionnels de l'informatique des environnements de taille moyenne ou grande d'activer le BYOD et l'accès à distance tout en réduisant la complexité d'administration.
-* La [solution de gestion des périphériques mobiles pour Configuration Manager 2007](https://technet.microsoft.com/library/dn508400.aspx) vous permet de gérer les périphériques mobiles lorsque votre infrastructure se trouve sur un serveur System Center Configuration Manager 2007. Cette solution montre comment configurer un serveur unique sous System Center 2012 Configuration Manager pour pouvoir ensuite exécuter Microsoft Intune et tirer parti de ses capacités de GPM.
-* La [solution de gestion des périphériques mobiles dans de petits environnements](https://technet.microsoft.com/library/dn715906.aspx) est destinée aux petites entreprises qui doivent prendre en charge la GPM. Elle explique comment utiliser Microsoft Intune pour étendre votre infrastructure actuelle afin qu'elle prenne en charge la gestion des périphériques mobiles et le BYOD. Cette solution décrit le plus simple des scénarios pris en charge d'utilisation de Microsoft Intune dans une configuration cloud uniquement et autonome sans serveurs locaux.
 
 ## <a name="hybrid-identity-documentation"></a>Documentation des identités hybrides
 Les contenus relatifs à la planification conceptuelle et procédurale, au déploiement et à l'administration sont utiles lors de l'implémentation de votre solution de gestion des périphériques mobiles :
@@ -46,8 +39,7 @@ L'analyse des ressources suivantes fournit souvent les dernières actualités et
 * [Blog Microsoft Enterprise Mobility](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
 * [Blog Microsoft In The Cloud](https://blogs.technet.com/b/in_the_cloud/)
 * [Blog Microsoft Intune](https://blogs.technet.com/b/microsoftintune/)
-* [Blog Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configurationmgr/)
-* [Blog de l’équipe Microsoft System Center Configuration Manager](https://blogs.technet.com/b/configmgrteam/)
+* [Blog Microsoft Endpoint Configuration Manager](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>Voir aussi
 [Présentation des considérations relatives à la conception](plan-hybrid-identity-design-considerations-overview.md)

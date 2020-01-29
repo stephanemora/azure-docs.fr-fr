@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d1d94e07fc38ae5de62793666df5a73dbf8b79eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475163"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264014"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Tableau de bord Client dans l’analytique de la place de marché commerciale
 
@@ -72,7 +72,7 @@ Le graphique **Tendances clients** affiche le nombre total de clients, y compris
 
 Le graphe **Clients par commande/utilisation** comporte trois onglets : « Commandes », « Utilisation normalisée » et « Utilisation brute ». Le graphe **Premier centile de clients** est affiché le long de l’axe X, en fonction du nombre de commandes. L’axe y affiche le nombre de commandes du client. L’axe Y secondaire (graphique linéaire) présente le pourcentage cumulé du nombre total de commandes. Vous pouvez afficher les détails en déplaçant le curseur sur les points le long du graphique en courbes.
 
-À titre d’exemple, consultez le graphe ci-dessous pour l’utilisation normalisée : Le trentième centile de clients représente 87 % de l’utilisation normalisée cumulée. Le trentième centile de clients ne correspond qu’à 1 570 heures d’utilisation.
+À titre d’exemple, consultez le graphe ci-dessous pour l’utilisation normalisée : Le trentième centile de clients représente 87 % de l’utilisation normalisée cumulée. Le trentième centile de clients ne correspond qu’à 1,57 millions heures d’utilisation.
 
 ### <a name="customers-by-skus"></a>Clients par référence SKU
 

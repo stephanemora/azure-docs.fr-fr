@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966943"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169948"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utiliser votre modèle avec l’API de prédiction
 
@@ -135,7 +135,7 @@ Lorsque vous exécutez l’application, vous êtes invité à saisir un chemin d
 Dans ce guide, vous avez appris à envoyer des images sur votre détecteur/classifieur d’images personnalisé et recevoir une réponse par programmation avec le SDK C#. Nous allons maintenant apprendre à exécuter des scénarios de bout en bout avec C#, ou commencer à utiliser une autre langue de SDK.
 
 * [Démarrage rapide : SDK .NET](csharp-tutorial.md)
-* [Démarrage rapide : SDK Python](python-tutorial.md)
-* [Démarrage rapide : SDK Java](java-tutorial.md)
-* [Démarrage rapide : SDK Node](node-tutorial.md)
-* [Démarrage rapide : SDK Go](go-tutorial.md)
+* [Démarrage rapide : SDK Python](python-tutorial.md)
+* [Démarrage rapide : SDK Java](java-tutorial.md)
+* [Démarrage rapide : SDK Node](node-tutorial.md)
+* [Démarrage rapide : SDK Go](go-tutorial.md)

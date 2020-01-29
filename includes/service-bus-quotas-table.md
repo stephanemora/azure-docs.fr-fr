@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ab17d86251be6a0ef2452b258acf8d055b4605db
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: c8412a01f4a5056b352b1d985f36e5a51a25a649
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561514"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159149"
 ---
 Le tableau suivant répertorie les informations de quota propres à la messagerie Azure Service Bus. Pour plus d’informations sur la tarification et d’autres quotas pour Service Bus, voir la [Tarification Service Bus](https://azure.microsoft.com/pricing/details/service-bus/) .
 
@@ -32,7 +32,7 @@ Le tableau suivant répertorie les informations de quota propres à la messageri
 | Taille maximale de l’[ID de session](/dotnet/api/microsoft.azure.servicebus.message.sessionid) d’un message | Entité |- | 128 |
 | Taille de message d’une entité de file d’attente/rubrique/abonnement |Entité |Les messages entrants dont la taille dépasse ces quotas sont rejetés et le code appelant reçoit une exception. |Taille de message maximale : 256 Ko pour le [niveau Standard](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 Mo pour le [niveau Premium](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />En raison d’une surcharge du système, cette limite est inférieure à ces valeurs.<br /><br />Taille d’en-tête maximale : 64 Ko.<br /><br />Nombre maximal de propriétés d’en-tête dans le conteneur de propriétés : **byte/int.MaxValue**.<br /><br />Taille maximale d’une propriété dans le conteneur de propriétés : pas de limite explicite. Cette valeur est limitée par la taille d’en-tête maximale. |
 | Taille de propriété de message d’une entité de file d’attente/rubrique/abonnement |Entité | L’exception **SerializationException** est générée. |La taille de propriété de message maximale pour chaque propriété est de 32 000. La taille cumulée de toutes les propriétés ne peut pas dépasser 64 000. La limite s’applique à l’intégralité de l’en-tête du paramètre [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), qui inclut les propriétés de l’utilisateur ainsi que les propriétés système (telles que [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid), etc.). |
-| Nombre d’abonnements par rubrique |Entité |Les requêtes suivantes de création d’abonnements supplémentaires à la rubrique sont rejetées. Par conséquent, en cas de configuration via le portail, un message d’erreur est affiché. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |2 000 par rubrique pour le niveau De base ou Standard. |
+| Nombre d’abonnements par rubrique |Entité |Les requêtes suivantes de création d’abonnements supplémentaires à la rubrique sont rejetées. Par conséquent, en cas de configuration via le portail, un message d’erreur est affiché. Si elle est appelée à partir de l’API de gestion, une exception est reçue par le code appelant. |2 000 par rubrique pour le niveau Standard. |
 | Nombre de filtres SQL par rubrique |Entité |Les requêtes suivantes de création de filtres supplémentaires sur la rubrique sont rejetées et le code appelant reçoit une exception. |2 000 |
 | Nombre de filtres de corrélation par rubrique |Entité |Les requêtes suivantes de création de filtres supplémentaires sur la rubrique sont rejetées et le code appelant reçoit une exception. |100 000 |
 | Taille d’actions/filtres SQL |Espace de noms |Les requêtes suivantes de création de filtres supplémentaires sont rejetées et le code appelant reçoit une exception. |Longueur maximale de la chaîne de condition de filtre : 1 024 (1 Ko).<br /><br />Longueur maximale de la chaîne d’action de règle : 1 024 (1 Ko).<br /><br />Nombre maximal d’expressions par action de règle : 32. |

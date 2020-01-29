@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3661f435b5c2dd88aa8e17ca396f9af43aea5224
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614619"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293604"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans Azure Kubernetes Service (AKS)
 
@@ -80,7 +80,7 @@ Pour atténuer les perturbations involontaires, vous pouvez utiliser plusieurs r
 
 Si un cluster doit être mis à niveau ou qu’un modèle de déploiement doit être mis à jour, le planificateur Kubernetes fait en sorte que des pods supplémentaires sont planifiés sur d’autres nœuds avant que les événements perturbateurs volontaires ne se poursuivent. Avant le redémarrage d’un nœud, le planificateur attend que le nombre défini de pods soit correctement planifié sur d’autres nœuds du cluster.
 
-Examinons un exemple de jeu de réplicas avec cinq pods qui exécutent NGINX. Les pods dans le jeu de réplicas défini se voient affecter l’étiquette `app: nginx-frontend`. Durant un événement perturbateur volontaire comme une mise à niveau de cluster, vous devez veiller à ce qu’au moins trois pods s’exécutent. Le manifeste YAML suivant pour un objet *PodDisruptionBudget* définit ces exigences :
+Examinons un exemple de jeu de réplicas avec cinq pods qui exécutent NGINX. Les pods dans le jeu de réplicas se voient affecter l’étiquette `app: nginx-frontend`. Durant un événement perturbateur volontaire comme une mise à niveau de cluster, vous devez veiller à ce qu’au moins trois pods s’exécutent. Le manifeste YAML suivant pour un objet *PodDisruptionBudget* définit ces exigences :
 
 ```yaml
 apiVersion: policy/v1beta1

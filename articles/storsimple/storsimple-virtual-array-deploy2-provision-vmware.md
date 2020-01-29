@@ -1,31 +1,24 @@
 ---
-title: Approvisionner StorSimple Virtual Array dans VMware | Microsoft Docs
+title: Configurer StorSimple Virtual Array dans VMware
 description: Ce deuxième didacticiel de déploiement de StorSimple Virtual Array implique la configuration d'un appareil virtuel dans VMware.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab5ad8acc5d0769a19a4022c55e0461e7ce42762
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516827"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272093"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Déploiement de StorSimple Virtual Array - Configuration dans VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -65,7 +58,7 @@ Pour configurer et vous connecter à un appareil virtuel, vous devez effectuer l
 2. Configurez un appareil virtuel dans votre hyperviseur.
 3. Démarrez l’appareil virtuel et obtenez l'adresse IP.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Étape 1 : Vérifier que le système hôte répond à la configuration minimale requise de l'appareil virtuel
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Étape 1 : Vérifier que le système hôte répond à la configuration minimale requise de l'appareil virtuel
 Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
 
 * Un accès à un système hôte exécutant VMware ESXi Server 5.0, 5.5, 6.0 ou 6.5.
@@ -76,7 +69,7 @@ Pour créer un appareil virtuel, vous avez besoin des éléments suivants :
   * Une interface réseau connectée au réseau et capable d’acheminer le trafic vers Internet. La bande passante Internet minimale doit être de 5 Mbits/s pour une utilisation optimale de l'appareil.
   * Un disque virtuel de 500 Go pour les données.
 
-## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Étape 2 : Configurer un appareil virtuel dans l’hyperviseur
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Étape 2 : Configurer un appareil virtuel dans l’hyperviseur
 Procédez comme suit pour configurer un appareil virtuel dans votre hyperviseur.
 
 1. Copiez l'image de l’appareil virtuel sur votre système. Vous avez téléchargé cette image virtuelle via le portail Azure.

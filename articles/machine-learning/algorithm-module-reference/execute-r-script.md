@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: dce4fee57a6d712534ba265cc932e10e66fc9899
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0be7e1ac0f505f227c46e63a80a954a5dd176d66
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232631"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312275"
 ---
 # <a name="execute-r-script"></a>Exécuter un script R
 
-Cet article explique comment utiliser le module **Exécuter un script R** pour exécuter du code R dans votre pipeline de concepteur Azure Machine Learning (préversion).
+Cet article explique comment utiliser le module **Exécuter un script R** pour exécuter du code R dans votre pipeline de concepteur Azure Machine Learning.
 
 R vous permet d’exécuter des tâches qui ne sont actuellement pas prises en charge par les modules existants, telles que : 
 - Créer des transformations de données personnalisées

@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 01/21/2020
 ms.author: mlearned
-ms.openlocfilehash: 208ffaa4c78e00031e41b6e2b8c01edb667b54a6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: df8b4d7ea44f885ee0fed0479ba87a4bc9ba1a29
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481150"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310167"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Contrôler le trafic de sortie pour les nœuds de cluster dans Azure Kubernetes Service (AKS)
 
@@ -55,6 +55,7 @@ Les ports de sortie/règles de réseau suivants sont requis pour un cluster AKS 
 * Le port TCP [IPAddrOfYourAPIServer]:443 est requis si vous avez une application qui doit communiquer avec le serveur d’API.  Cette modification peut être définie après la création du cluster.
 * Port TCP *9000* et port TCP *22* pour que le pod avant de tunnel communique avec la fin du tunnel sur le serveur d’API.
     * Pour en savoir plus, reportez-vous aux adresses * *.hcp.\<location\>.azmk8s.io* et * *.tun.\<location\>.azmk8s.io* du tableau suivant.
+* Port UDP *123* pour la synchronisation temporelle NTP (Network Time Protocol) (nœuds Linux).
 * Le port UDP *53* pour DNS est également requis si vous avez des pods qui accèdent directement au serveur d’API.
 
 Les noms de domaine complets/règles d’application suivantes sont requis :
@@ -73,7 +74,7 @@ Les noms de domaine complets/règles d’application suivantes sont requis :
 | ntp.ubuntu.com             | UDP:123   | Cette adresse est requise pour la synchronisation temporelle NTP sur des nœuds Linux. |
 | packages.microsoft.com     | HTTPS:443 | Cette adresse est le référentiel de packages Microsoft utilisé pour les opérations *apt-get* mises en cache.  Moby, PowerShell et Azure CLI sont des exemples de packages. |
 | acs-mirror.azureedge.net   | HTTPS:443 | Cette adresse correspond au référentiel requis pour installer les fichiers binaires requis comme kubenet et Azure CNI. |
-- Azure China
+- Azure China 21Vianet
 
 | FQDN                       | Port      | Utilisation      |
 |----------------------------|-----------|----------|
@@ -142,7 +143,7 @@ Les règles de nom de domaine complet/d’application suivantes sont requises po
 | cloudflare.docker.com | HTTPS:443 | Cette adresse est utilisée pour extraire des images Linux Alpine et d’autres Azure Dev Spaces Alpine |
 | gcr.io | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
 | storage.googleapis.com | HTTP:443 | Cette adresse est utilisée pour extraire les images Helm/Tiller |
-| azds-<guid>.<location>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces de votre contrôleur. Le nom de domaine complet exact peut se trouver dans le « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json |
+| azds-<guid>.<location>.azds.io | HTTPS:443 | Pour communiquer avec les services back-end Azure Dev Spaces pour votre contrôleur. Le nom de domaine complet exact se trouve dans « dataplaneFqdn » dans %USERPROFILE%\.azds\settings.json |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Adresses et ports requis pour les clusters AKS avec Azure Policy (en préversion publique) activé
 

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: d4c8dd4b3a53d484d5240f3514d171231fc93ae0
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5b1daab724d979206983ee758760790967abc06d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968508"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513386"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 
@@ -50,15 +50,17 @@ Pour obtenir des informations sur l’historique des versions de l’API REST, c
 
 ### <a name="deprecation-of-media-processors"></a>Dépréciation des processeurs multimédias
 
-Nous annonçons la dépréciation d’*Azure Media Indexer* et d’*Azure Media Indexer 2 Preview*. Le processeur multimédia [Azure Media Indexer](media-services-index-content.md) sera mis hors service le 1e octobre 2020. Les processeurs multimédias [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) seront mis hors service le 1e janvier 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ces processeurs multimédias hérités.
+Nous annonçons la dépréciation d’*Azure Media Indexer* et d’*Azure Media Indexer 2 Preview*. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) remplace ces processeurs multimédias hérités.
 
-Pour plus d’informations, consultez [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
+Pour connaître les dates de mise hors service, consultez la rubrique [Composants hérités](legacy-components.md).
+
+Consultez également [Effectuer une migration depuis Azure Media Indexer et Azure Media Indexer 2 vers Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>Août 2019
 
 ### <a name="deprecation-of-media-processors"></a>Dépréciation des processeurs multimédias
 
-Nous annonçons la dépréciation des processeurs multimédias *Windows Azure Media Encoder* (WAME) et *Azure Media Encoder* (AME), qui seront mis hors service le 31 mars 2020.
+Nous annonçons la dépréciation des processeurs multimédias *Windows Azure Media Encoder* (WAME) et *Azure Media Encoder* (AME), qui seront mis hors service le 1er mars 2020.
 
 Pour plus d'informations, consultez [Migration de WAME vers Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) et [Migration d'AME vers Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
 
@@ -70,7 +72,7 @@ L’utilisation de la fonctionnalité d’évaluation Media Hyperlapse d’Azure
 
 La fonctionnalité d’évaluation Media Hyperlapse d’Azure Media Services a récemment été mise hors service. Depuis le 19 décembre 2018, Media Services n’apporte plus de changements ou d’améliorations à Media Hyperlapse. Le 29 mars 2019, elle sera mise hors service et ne sera plus disponible.
 
-## <a name="october-2018"></a>Octobre 2018
+## <a name="october-2018"></a>Octobre 2018
 
 ### <a name="cmaf-support"></a>Prise en charge de CMAF
 
@@ -84,7 +86,7 @@ Vous pouvez désormais utiliser Media Services pour générer des sprites de min
 
 La dernière version du service comprend des changements mineurs de mise en forme des messages d’erreur retournés par le service en cas d’échec d’un travail, du point de vue de sa décomposition en deux ou plusieurs lignes.
 
-## <a name="may-2018"></a>Mai 2018 
+## <a name="may-2018"></a>Mai 2018 
 
 À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
 
@@ -452,16 +454,16 @@ Les applets de commande PowerShell Media Services suivantes sont désormais incl
 
 * Get-AzureMediaServices 
 
-    Par exemple : `Get-AzureMediaServicesAccount`
+    Par exemple : `Get-AzureMediaServicesAccount`
 * New-AzureMediaServicesAccount 
   
-    Par exemple : `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
+    Par exemple : `New-AzureMediaServicesAccount -Name "MediaAccountName" -Location "Region" -StorageAccountName "StorageAccountName"`
 * New-AzureMediaServicesKey 
   
-    Par exemple : `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
+    Par exemple : `New-AzureMediaServicesKey -Name "MediaAccountName" -KeyType Secondary -Force`
 * Remove-AzureMediaServicesAccount 
   
-    Par exemple : `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
+    Par exemple : `Remove-AzureMediaServicesAccount -Name "MediaAccountName" -Force`
 
 ## <a id="june_changes_13"></a>Version de juin 2013
 ### <a name="june_13_general_changes"></a>Modifications apportées à Media Services
@@ -557,7 +559,7 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du SDK 
 
 ## <a name="additional-notes"></a>Remarques supplémentaires
 
-* Widevine est un service fourni par Google Inc. soumis aux conditions d’utilisation du service et à la politique de confidentialité de Google Inc.
+* Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

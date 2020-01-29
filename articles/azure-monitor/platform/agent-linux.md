@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/24/2019
-ms.openlocfilehash: c06a7551a5c0f14be94ed14072b81c189e359aa8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 01/21/2020
+ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75535773"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290323"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Connecter des ordinateurs Linux à Azure Monitor
 
@@ -74,9 +74,10 @@ Avant d’installer l’agent Log Analytics pour Linux, vous devez disposer de l
 
 L’agent Log Analytics pour Linux est fourni dans un groupe de scripts shell à extraction automatique et pouvant être installé. Ce groupe contient des packages Debian et RPM pour chacun des composants de l’agent et peut être installé directement ou être extrait pour récupérer les packages individuels. Un groupe est fourni pour les architectures x64 et un autre l’est pour les architectures x86. 
 
-Pour les machines virtuelles Azure, nous vous recommandons d'installer l'agent sur ces machines en utilisant l'[extension de machine virtuelle Azure Log Analytics](../../virtual-machines/extensions/oms-linux.md) pour Linux. 
+> [!NOTE]
+> Pour les machines virtuelles Azure, nous vous recommandons d'installer l'agent sur ces machines en utilisant l'[extension de machine virtuelle Azure Log Analytics](../../virtual-machines/extensions/oms-linux.md) pour Linux. 
 
-1. Transférez le groupe approprié (x86 ou x64) sur votre machine virtuelle ou votre ordinateur physique Linux à l’aide de scp/sftp.
+1. [Téléchargez](https://github.com/microsoft/OMS-Agent-for-Linux#azure-install-guide) et transférez le bundle approprié (x64 ou x86) sur votre machine virtuelle ou ordinateur physique Linux à l’aide de scp/sftp.
 
 2. Installez le groupe à l’aide de l’argument `--install`. Pour intégrer un espace de travail Log Analytics pendant l'installation, spécifiez les paramètres `-w <WorkspaceID>` et `-s <workspaceKey>` copiés précédemment.
 

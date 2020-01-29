@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: f8cf20743ee5420312ed751a26796a0859956ae7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b2511feefbe419223f355509ecb435518ce8382e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771442"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311045"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Formez et comparez plusieurs modèles de régression pour prédire un prix de voitures basé sur des fonctionnalités techniques avec un concepteur Azure Machine Learning.
 
-**Exemple 2 du concepteur (préversion)**
+**Exemple de concepteur 2**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Découvrez comment générer un pipeline Machine Learning complexe à l’aide du concepteur (préversion), sans écrire une seule ligne de code. Cet exemple effectue l’apprentissage de plusieurs modèles de régression et les compare pour prédire le prix d’une voiture en fonction de fonctionnalités techniques. Nous allons fournir la logique pour les choix effectués dans ce pipeline, pour que vous puissiez résoudre vos propres problèmes de Machine Learning.
+Découvrez comment générer un pipeline machine learning sans écrire une seule ligne de code à l’aide du concepteur. Cet exemple effectue l’apprentissage de plusieurs modèles de régression et les compare pour prédire le prix d’une voiture en fonction de fonctionnalités techniques. Nous allons fournir la logique pour les choix effectués dans ce pipeline, pour que vous puissiez résoudre vos propres problèmes de Machine Learning.
 
 Si vous êtes débutant en Machine Learning, commencez par examiner la [version de base](how-to-designer-sample-regression-automobile-price-basic.md) de ce pipeline.
 

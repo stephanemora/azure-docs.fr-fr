@@ -4,14 +4,14 @@ description: Prérequis pour Avere vFXT pour Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 0dafef7cf262153ccdb3b490aa0c7bd039b4a89b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889186"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547504"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Se préparer à la création du système Avere vFXT
 
@@ -19,48 +19,52 @@ Cet article décrit les tâches prérequises pour la création d’un cluster Av
 
 ## <a name="create-a-new-subscription"></a>Créer un abonnement
 
-Commencez par créer un abonnement Azure. Utilisez un abonnement distinct pour chaque projet Avere vFXT, afin de pouvoir suivre facilement toutes les ressources et dépenses des projets, protéger les autres projets d’une possible limitation des ressources lors du provisionnement et simplifier le nettoyage.
+Commencez par créer un abonnement Azure. Utilisez un abonnement distinct pour chaque projet Avere vFXT de façon à simplifier le suivi des dépenses et le nettoyage, et pour garantir que d’autres projets ne sont pas affectés par les quotas ou la limitation des ressources lors du provisionnement du workflow du cluster.
 
 Pour créer un abonnement Azure dans le portail Azure :
 
-* Accédez au [panneau Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-* Cliquez sur le bouton **+ Ajouter** situé en haut
-* Si vous y êtes invité, connectez-vous
-* Sélectionnez une offre, puis suivez les étapes permettant de créer un abonnement
+1. Accédez au [panneau Abonnements](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+1. Cliquez sur le bouton **+ Ajouter** situé en haut
+1. Si vous y êtes invité, connectez-vous
+1. Sélectionnez une offre, puis suivez les étapes permettant de créer un abonnement
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurer des autorisations de propriétaire d’abonnement
 
-Un utilisateur disposant d’autorisations de propriétaire pour l’abonnement doit créer le cluster vFXT. Des autorisations de propriétaire d’abonnement sont nécessaires pour accepter les conditions d’utilisation du logiciel et effectuer d’autres actions.
+Un utilisateur disposant d’autorisations de propriétaire pour l’abonnement doit créer le cluster vFXT. La création du cluster nécessite qu’un propriétaire accepte les conditions d’utilisation du logiciel et autorise les modifications des ressources réseau et de stockage.
 
-Il existe certains scénarios de contournement qui permettent à un non-propriétaire de créer un Avere vFTX pour un cluster Azure. Ces scénarios impliquent la restriction de ressources et l’affectation de rôles supplémentaires au créateur. Dans ces deux cas, un propriétaire d’abonnement doit également [accepter les conditions d’utilisation du logiciel Avere vFXT](#accept-software-terms) à l’avance.
+Certaines solutions de contournement permettent à un non-propriétaire de créer un cluster Avere vFXT pour Azure. Ces scénarios impliquent la restriction de ressources et l’affectation de rôles RBAC supplémentaires au créateur. Dans tous ces cas, un propriétaire d’abonnement doit aussi préalablement [accepter les conditions d’utilisation du logiciel Avere vFXT](#accept-software-terms).
 
 | Scénario | Restrictions | Rôles d’accès requis pour créer le cluster Avere vFXT |
 |----------|--------|-------|
-| Administrateur de groupe de ressources | Le réseau virtuel, le contrôleur de cluster et les nœuds de cluster doivent être créés dans le groupe de ressources | Les rôles [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor), étendus au groupe de ressources cible |
-| Réseau virtuel externe | Le contrôleur de cluster et les nœuds de cluster sont créés dans le groupe de ressources, mais un réseau virtuel existant dans un autre groupe de ressources est utilisé | (1) Rôles [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) étendus au groupe de ressources vFXT ; et (2) rôles [contributeur de machines virtuelles](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur Avere](../role-based-access-control/built-in-roles.md#avere-contributor) étendus au groupe de ressources du réseau virtuel. |
-
-Une alternative consiste à créer un contrôle d’accès en fonction du rôle (RBAC) à l’avance, et à affecter des privilèges à l’utilisateur, comme expliqué dans [cet article](avere-vfxt-non-owner.md). Cette méthode permet à ces utilisateurs de bénéficier d'autorisations importantes.
+| L’administrateur du groupe de ressources crée le vFXT | Le réseau virtuel, le contrôleur de cluster et les nœuds du cluster doivent être créés dans le groupe de ressources. | Les rôles [Administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [Contributeur](../role-based-access-control/built-in-roles.md#contributor), tous deux limités au groupe de ressources cible. |
+| Utiliser un réseau virtuel externe existant | Le contrôleur de cluster et les nœuds du cluster sont créés dans le groupe de ressources du vFXT, mais utilisent un réseau virtuel existant dans un autre groupe de ressources. | (1) Rôles [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur](../role-based-access-control/built-in-roles.md#contributor) étendus au groupe de ressources vFXT ; et (2) rôles [contributeur de machines virtuelles](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [administrateur de l’accès utilisateur](../role-based-access-control/built-in-roles.md#user-access-administrator) et [contributeur Avere](../role-based-access-control/built-in-roles.md#avere-contributor) étendus au groupe de ressources du réseau virtuel. |
+| Rôle personnalisé pour les créateurs de cluster | Aucune restriction de placement des ressources. Cette méthode confère des privilèges significatifs aux non-propriétaires. | Le propriétaire de l’abonnement crée un rôle RBAC personnalisé comme expliqué dans [cet article](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota pour le cluster vFXT
 
-Vous devez disposer d’un quota suffisant pour les composants Azure suivants. Si nécessaire, [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Veillez à disposer d’un quota suffisant pour les composants Azure suivants. Si nécessaire, [demandez une augmentation du quota](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 > [!NOTE]
-> Les machines virtuelles et les composants SSD répertoriés ici sont destinées au cluster vFXT proprement dit. Vous devez obtenir un quota supplémentaire pour les machines virtuelles et les disques SSD que vous prévoyez d’utiliser pour votre batterie de serveurs de calcul.  Vérifiez que le quota est activé pour la région dans laquelle vous envisagez d’exécuter le flux de travail.
+> Les machines virtuelles et les composants SSD répertoriés ici sont destinées au cluster vFXT proprement dit. N’oubliez pas que vous avez également besoin d’un quota pour les machines virtuelles et les disques SSD que vous allez utiliser pour votre batterie de serveurs de calcul.
+>
+> Vérifiez que le quota est activé pour la région dans laquelle vous envisagez d’exécuter le flux de travail.
 
 |Composant Azure|Quota|
 |----------|-----------|
-|Machines virtuelles|3 E32s_v3 ou plus|
+|Machines virtuelles|3 E32s_v3 ou plus (une par nœud de cluster) |
 |Stockage SSD Premium|200 Go d’espace de système d’exploitation, et de 1 To à 4 To d’espace de cache par nœud |
 |Compte de stockage (facultatif) |v2|
-|Stockage back-end de données (facultatif) |Un nouveau conteneur d’objets blob LRS |
+|Stockage back-end des données (facultatif) |Un nouveau conteneur d’objets blob LRS |
+<!-- this table also appears in the overview - update it there if updating here -->
 
 ## <a name="accept-software-terms"></a>Accepter les conditions d'utilisation du logiciel
 
-> [!NOTE]
-> Cette étape n’est pas nécessaire si un propriétaire d’abonnement crée le cluster Avere vFXT.
+> [!TIP]
+> Ignorez cette étape si un propriétaire d’abonnement crée le cluster Avere vFXT.
 
-Pendant la création du cluster, vous devez accepter les conditions d'utilisation du logiciel Avere vFXT. Si vous n’êtes pas propriétaire d’abonnement, demandez à un propriétaire d’abonnement d’accepter préalablement les conditions. Cette étape ne doit être effectuée qu’une fois par abonnement.
+Pendant la création du cluster, vous devez accepter les conditions d'utilisation du logiciel Avere vFXT. Si vous n’êtes pas propriétaire d’abonnement, demandez à un propriétaire d’abonnement d’accepter préalablement les conditions.
+
+Cette étape ne doit être effectuée qu’une fois par abonnement.
 
 Pour accepter les conditions du logiciel à l’avance :
 
@@ -68,7 +72,7 @@ Pour accepter les conditions du logiciel à l’avance :
 
    ```azurecli
     az login
-    az account set --subscription abc123de-f456-abc7-89de-f01234567890
+    az account set --subscription <subscription ID>
    ```
 
 1. Émettez la commande suivante pour accepter les conditions d’utilisation et activer l’accès programmatique du système Avere vFXT pour l’image de logiciels Azure :
@@ -81,14 +85,12 @@ Pour accepter les conditions du logiciel à l’avance :
 
 Ce [point de terminaison de service](../virtual-network/virtual-network-service-endpoints-overview.md) conserve le trafic d’objets blob Azure au niveau local au lieu de l’acheminer vers l’extérieur du réseau virtuel. Il est recommandé que tout cluster Avere vFXT pour Azure utilise le Stockage Blob Azure pour le stockage de données principal.
 
-Si vous fournissez un réseau virtuel et créez un conteneur blob Azure pour votre stockage principal dans le cadre de la création du cluster, vous devez disposer d’un point de terminaison de service dans le réseau virtuel pour le stockage Microsoft. Ce point de terminaison doit exister avant la création du cluster, sans quoi la création échoue.
-
-Un point de terminaison de service de stockage est recommandé pour tout Avere vFXT pour un cluster Azure utilisant le Stockage Blob Azure, même si vous ajoutez le stockage ultérieurement.
+Si vous créez un réseau virtuel lors de la création du cluster, un point de terminaison est créé automatiquement. Si vous fournissez un réseau virtuel existant, celui-ci doit disposer d’un point de terminaison de service de stockage Microsoft si vous voulez créer un conteneur de stockage d’objets blob lors de la création du cluster.<!-- if there is no endpoint in that situation, the cluster creation will fail -->
 
 > [!TIP]
 >
 >* Ignorez cette étape si vous créez un réseau virtuel dans le cadre de la création du cluster.
->* Cette étape est facultative si vous ne créez pas de stockage Blob lors de la création du cluster. Dans ce cas, vous pouvez créer le point de terminaison de service ultérieurement si vous décidez d’utiliser un Stockage Blob Azure.
+>* Un point de terminaison est facultatif si vous ne créez pas de stockage d’objets blob lors de la création du cluster. Dans ce cas, vous pouvez créer le point de terminaison de service ultérieurement si vous décidez d’utiliser un Stockage Blob Azure.
 
 Créer le point de terminaison de service de stockage à partir du portail Azure.
 
@@ -102,6 +104,6 @@ Créer le point de terminaison de service de stockage à partir du portail Azure
 
    ![Capture d’écran du portail Azure montrant les étapes de création du point de terminaison de service](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-step-create-the-vfxt-cluster"></a>Étape suivante : Créer le cluster vFXT
+## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir respecté ces prérequis, vous pouvez passer à la création du cluster proprement dit. Pour obtenir des instructions, lisez [Déployer le cluster vFXT](avere-vfxt-deploy.md).
+Une fois ces prérequis effectués, vous pouvez créer le cluster. Pour obtenir des instructions, lisez [Déployer le cluster vFXT](avere-vfxt-deploy.md).

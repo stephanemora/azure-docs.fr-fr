@@ -5,18 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 06/19/2019
-ms.openlocfilehash: a847e08f0249bd968060d10f7686b0e04ba037ca
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/19/2020
+ms.openlocfilehash: 6bb8dfc4b85da47a70ba768400341317462bafd8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790860"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543475"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guide de référence du schéma des types d’actions et de déclencheurs dans Azure Logic Apps
 
-Ce document de référence décrit les types généraux utilisés pour identifier les déclencheurs et les actions dans la définition de flux de travail sous-jacente de votre application logique, qui est décrite et validée par le [langage de définition du flux de travail](../logic-apps/logic-apps-workflow-definition-language.md).
-Pour rechercher des déclencheurs et des actions de connecteur spécifiques que vous pouvez utiliser dans vos applications logiques, consultez la liste figurant sous la [présentation des connecteurs](https://docs.microsoft.com/connectors/).
+Ce document de référence décrit les types généraux utilisés pour identifier les déclencheurs et les actions dans la définition de flux de travail sous-jacente de votre application logique, qui est décrite et validée par le [langage de définition du flux de travail](../logic-apps/logic-apps-workflow-definition-language.md). Pour rechercher des déclencheurs et des actions de connecteur spécifiques que vous pouvez utiliser dans vos applications logiques, consultez la liste figurant sous la [présentation des connecteurs](https://docs.microsoft.com/connectors/).
 
 <a name="triggers-overview"></a>
 
@@ -26,7 +25,7 @@ Tous les flux de travail incluent un déclencheur, qui définit les appels qui i
 
 * Déclencheur d’*interrogation*, qui vérifie le point de terminaison d’un service à intervalles réguliers
 
-* Déclencheur *push*, qui crée un abonnement à un point de terminaison et fournit une *URL de rappel* permettant au point de terminaison d’informer le déclencheur quand l’événement spécifié se produit ou quand des données sont disponibles. Le déclencheur attend ensuite la réponse du point de terminaison avant de s’activer 
+* Déclencheur *push*, qui crée un abonnement à un point de terminaison et fournit une *URL de rappel* permettant au point de terminaison d’informer le déclencheur quand l’événement spécifié se produit ou quand des données sont disponibles. Le déclencheur attend ensuite la réponse du point de terminaison avant de s’activer
 
 Les déclencheurs ont les éléments principaux suivants, bien que certains soient facultatifs :  
   
@@ -127,15 +126,15 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 
 *Obligatoire*
 
-| Valeur | Type | Description | 
-|-------|------|-------------| 
-| <*APIConnection_trigger_name*> | String | Nom du déclencheur | 
-| <*connection-name*> | String | Nom de la connexion à l’API managée utilisée par le workflow | 
-| <*method-type*> | String | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » | 
-| <*api-operation*> | String | Opération d’API à appeler | 
-| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" | 
-| <*number-of-time-units*> | Integer | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. | 
-|||| 
+| Valeur | Type | Description |
+|-------|------|-------------|
+| <*APIConnection_trigger_name*> | String | Nom du déclencheur |
+| <*connection-name*> | String | Nom de la connexion à l’API managée utilisée par le workflow |
+| <*method-type*> | String | Méthode HTTP pour communiquer avec l’API managée : « GET », « PUT », « POST », « PATCH », « DELETE » |
+| <*api-operation*> | String | Opération d’API à appeler |
+| <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" |
+| <*number-of-time-units*> | Integer | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. |
+||||
 
 *Facultatif*
 
@@ -143,7 +142,7 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 |-------|------|-------------| 
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec l’appel d’API. Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
-| <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
+| <*max-runs*> | Integer | Par défaut, les instances de workflow s’exécutent en même temps (simultanément ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Pour les déclencheurs qui retournent des tableaux, cette expression référence le tableau à utiliser pour que vous puissiez créer et exécuter une instance de workflow pour chaque élément du tableau, au lieu d’utiliser une boucle « for each ». <p>Par exemple, cette expression représente un élément dans le tableau retourné dans le contenu du corps du déclencheur : `@triggerbody()?['value']` |
 | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). |
@@ -160,7 +159,7 @@ Ce déclencheur vérifie ou *interroge* un point de terminaison à l’aide d’
 
 *Exemple*
 
-Cette définition de déclencheur vérifie tous les jours les e-mails dans la boîte de réception d’un compte Office 365 Outlook : 
+Cette définition de déclencheur vérifie tous les jours les e-mails dans la boîte de réception d’un compte Office 365 Outlook :
 
 ```json
 "When_a_new_email_arrives": {
@@ -233,7 +232,7 @@ Ce déclencheur envoie une demande d’abonnement à un point de terminaison à 
 |-------|------|-------------| 
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
 | <*query-parameters*> | Objet JSON | Paramètres de requête à inclure avec l’appel d’API <p>Par exemple, l’objet `"queries": { "api-version": "2018-01-01" }` ajoute `?api-version=2018-01-01` à l’appel. | 
-| <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
+| <*max-runs*> | Integer | Par défaut, les instances de workflow s’exécutent en même temps (simultanément ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*splitOn-expression*> | String | Pour les déclencheurs qui retournent des tableaux, cette expression référence le tableau à utiliser pour que vous puissiez créer et exécuter une instance de workflow pour chaque élément du tableau, au lieu d’utiliser une boucle « for each ». <p>Par exemple, cette expression représente un élément dans le tableau retourné dans le contenu du corps du déclencheur : `@triggerbody()?['value']` |
 | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
@@ -304,8 +303,8 @@ Ce déclencheur envoie une requête au point de terminaison HTTP ou HTTPS spéci
 
 | Propriété | Valeur | Type | Description |
 |----------|-------|------|-------------|
-| `method` | <*method-type*> | Chaîne | Méthode à utiliser pour envoyer la requête sortante : « GET », « PUT », « POST », « PATCH » ou « DELETE » |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | URL du point de terminaison HTTP ou HTTPS où vous voulez envoyer la requête sortante. Taille de chaîne maximale : 2 Ko <p>Pour un service ou une ressource Azure, cette syntaxe URI inclut l'ID de la ressource et le chemin vers la ressource à laquelle vous voulez accéder. |
+| `method` | <*method-type*> | String | Méthode à utiliser pour envoyer la requête sortante : « GET », « PUT », « POST », « PATCH » ou « DELETE » |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | URL du point de terminaison HTTP ou HTTPS où vous voulez envoyer la requête sortante. Taille de chaîne maximale : 2 Ko <p>Pour un service ou une ressource Azure, cette syntaxe URI inclut l'ID de la ressource et le chemin vers la ressource à laquelle vous voulez accéder. |
 | `frequency` | <*time-unit*> | String | Unité de temps qui décrit la fréquence d’activation du déclencheur : "Second", "Minute", "Hour", "Day", "Week", "Month" |
 | `interval` | <*number-of-time-units*> | Integer | Valeur qui spécifie la fréquence d’activation du déclencheur, qui correspond au nombre d’unités de temps à attendre avant que le déclencheur soit activé à nouveau <p>Les intervalles minimaux et maximaux sont les suivants : <p>- Mois : 1-16 mois </br>Jour : 1-500 jours </br>- Heure : 1-12 000 heures </br>- Minute : 1-72 000 minutes </br>- Seconde : 1-9 999 999 secondes<p>Par exemple, si l’intervalle est défini sur 6 et la fréquence sur « Month », la périodicité est tous les six mois. |
 |||||
@@ -319,7 +318,7 @@ Ce déclencheur envoie une requête au point de terminaison HTTP ou HTTPS spéci
 | `body` | <*body-content*> | Objet JSON | Contenu du message à envoyer en tant que charge utile avec la requête |
 | `authentication` | <*authentication-type-and-property-values*> | Objet JSON | Le modèle d'authentification que la requête utilise pour authentifier les requêtes sortantes. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). Au-delà de Scheduler, la propriété `authority` est prise en charge. Si vous ne spécifiez aucune valeur, la valeur par défaut est `https://management.azure.com/`, mais vous pouvez utiliser une autre valeur. |
 | `retryPolicy` > `type` | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). |
-| `runs` | <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). |
+| `runs` | <*max-runs*> | Integer | Par défaut, les instances de workflow s’exécutent en même temps (simultanément ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). |
 | `maximumWaitingRuns` | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). |
 | `operationOptions` | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). |
 |||||
@@ -339,7 +338,7 @@ Pour fonctionner correctement avec votre application logique, le point de termin
   
 | response | Obligatoire | Description | 
 |----------|----------|-------------| 
-| Code d’état | OUI | Le code d’état « 200 OK » démarre une exécution. Les autres codes d’état ne démarrent pas d’exécution. | 
+| Code d’état | Oui | Le code d’état « 200 OK » démarre une exécution. Les autres codes d’état ne démarrent pas d’exécution. | 
 | En-tête Retry-after | Non | Nombre de secondes au bout duquel l’application logique interroge à nouveau le point de terminaison | 
 | En-tête Location | Non | URL à appeler lors du prochain intervalle d’interrogation. Si aucune valeur n’est spécifiée, l’URL d’origine est utilisée. | 
 |||| 
@@ -361,8 +360,7 @@ Pour fonctionner correctement avec votre application logique, le point de termin
 
 Ce déclencheur permet à votre application logique de pouvoir être appelée en créant un point de terminaison capable d’inscrire un abonnement en appelant l’URL de point de terminaison spécifiée. Quand vous créez ce déclencheur dans votre workflow, une requête sortante effectue l’appel pour inscrire l’abonnement. De cette façon, le déclencheur peut commencer à écouter les événements. Quand une opération rend ce déclencheur non valide, une requête sortante effectue automatiquement l’appel afin d’annuler l’abonnement. Pour plus d’informations, consultez [Abonnements de point de terminaison](#subscribe-unsubscribe).
 
-Vous pouvez également spécifier des [limites asynchrones](#asynchronous-limits) sur un déclencheur **HTTPWebhook**.
-Le comportement du déclencheur varie en fonction des sections que vous incluez ou omettez. 
+Vous pouvez également spécifier des [limites asynchrones](#asynchronous-limits) sur un déclencheur **HTTPWebhook**. Le comportement du déclencheur varie en fonction des sections que vous incluez ou omettez.
 
 ```json
 "HTTP_Webhook": {
@@ -414,7 +412,7 @@ Certaines valeurs, telles que < *-method-type*>, sont disponibles pour les objet
 | <*body-content*> | String | Tout contenu de message à envoyer dans la requête d’abonnement ou d’annulation | 
 | <*authentication-type*> | Objet JSON | Le modèle d'authentification que la requête utilise pour authentifier les requêtes sortantes. Pour plus d’informations, voir [Ajouter l’authentification aux appels sortants](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-outbound). |
 | <*retry-behavior*> | Objet JSON | Personnalise le comportement de nouvelle tentative pour les défaillances intermittentes, qui présentent le code d’état 408, 429 et 5XX, ainsi que les éventuelles exceptions de connectivité. Pour plus d’informations, consultez [Stratégies de relance](../logic-apps/logic-apps-exception-handling.md#retry-policies). | 
-| <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent toutes en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
+| <*max-runs*> | Integer | Par défaut, les instances de workflow s’exécutent toutes en même temps (simultanément ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
@@ -462,7 +460,7 @@ Ce déclencheur crée un abonnement au point de terminaison spécifié, fournit 
 
 ### <a name="recurrence-trigger"></a>Déclencheur recurrence  
 
-Ce déclencheur s’active en fonction de la planification de périodicité que vous spécifiez. Il offre un moyen simple de créer un workflow à l’exécution régulière. 
+Ce déclencheur s’active en fonction de la planification de périodicité que vous spécifiez. Il offre un moyen simple de créer un workflow à l’exécution régulière.
 
 ```json
 "Recurrence": {
@@ -503,12 +501,12 @@ Ce déclencheur s’active en fonction de la planification de périodicité que 
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début ne peut pas dépasser 49 ans dans le futur, et doit être conforme à la [spécification de date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format de date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne se déclenche pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
+| <*start-date-time-with-format-YYYY-MM-DDThh:mm:ss*> | String | Date et heure de début au format suivant : <p>AAAA-MM-JJThh:mm:ss si vous spécifiez un fuseau horaire <p>-ou- <p>AAAA-MM-JJThh:mm:ssZ si vous ne spécifiez pas de fuseau horaire <p>Par exemple, si vous choisissez le 18 septembre 2017 à 14h, spécifiez « 2017-09-18T14:00:00 » et spécifiez un fuseau horaire tel que « Pacific Standard Time » (Heure standard du Pacifique), ou spécifiez « 2017-09-18T14:00:00Z » sans fuseau horaire. <p>**Remarque :** Cette heure de début ne peut pas dépasser 49 ans dans le futur, et doit être conforme à la [spécification de date/heure ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) au [format de date/heure UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time), mais sans [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Si vous ne spécifiez pas de fuseau horaire, vous devez ajouter la lettre « Z » à la fin, sans espace. Ce « Z » fait référence au [temps nautique](https://en.wikipedia.org/wiki/Nautical_time) équivalent. <p>Pour les planifications simples, l’heure de début est la première occurrence, tandis que pour les planifications complexes, le déclencheur ne s’active pas avant l’heure de début. Pour plus d’informations sur les dates et heures de début, consultez [Create and schedule regularly running tasks](../connectors/connectors-native-recurrence.md) (Créer et planifier des tâches à exécution régulière). | 
 | <*time-zone*> | String | S’applique uniquement quand vous spécifiez une heure de début, car ce déclencheur n’accepte pas le [décalage UTC](https://en.wikipedia.org/wiki/UTC_offset). Spécifiez le fuseau horaire à appliquer. | 
 | <*one-or-more-hour-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 23, séparés par des virgules, pour les heures de la journée durant lesquelles exécuter le workflow. <p>Par exemple, si vous spécifiez « 10 », « 12 » et « 14 », vous obtenez 10h00, 12h00 et 14h00 comme marques horaires. | 
 | <*one-or-more-minute-marks*> | Entier ou tableau d’entiers | Si vous spécifiez « Jour » ou « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs entiers compris entre 0 et 59, séparés par des virgules, pour les minutes de l’heure durant lesquelles exécuter le workflow. <p>Par exemple, vous pouvez spécifier « 30 » pour les minutes et à l’aide de l’exemple précédent des heures de la journée, vous obtenez 10h30, 12h30 et 14h30. | 
 | weekDays | Chaîne ou tableau de chaînes | Si vous spécifiez « Semaine » pour `frequency`, vous pouvez spécifier un ou plusieurs jours, séparés par des virgules, pour exécuter le workflow : « Monday », « Tuesday », « Wednesday », « Thursday », « Friday », « Saturday » et « Sunday » | 
-| <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent toutes en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
+| <*max-runs*> | Integer | Par défaut, les instances de workflow s’exécutent toutes en même temps (simultanément ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
@@ -569,7 +567,7 @@ Pour plus d’informations et pour obtenir des exemples pour ce déclencheur, co
 
 ### <a name="request-trigger"></a>Déclencheur de requête
 
-Ce déclencheur fait en sorte que votre application logique puisse être appelée en créant un point de terminaison qui peut accepter des requêtes entrantes. Pour ce déclencheur, fournit un schéma JSON qui décrit et valide la charge utile ou les entrées que le déclencheur reçoit de la requête entrante. Le schéma facilite également le référencement des propriétés de déclencheur à partir d’actions ultérieures dans le workflow. 
+Ce déclencheur fait en sorte que votre application logique puisse être appelée en créant un point de terminaison qui peut accepter des requêtes entrantes. Pour ce déclencheur, fournit un schéma JSON qui décrit et valide la charge utile ou les entrées que le déclencheur reçoit de la requête entrante. Le schéma facilite également le référencement des propriétés de déclencheur à partir d’actions ultérieures dans le workflow.
 
 Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui est décrite dans l’[API REST de service de workflow](https://docs.microsoft.com/rest/api/logic/workflows). Pour découvrir comment utiliser ce déclencheur en tant que point de terminaison HTTP, consultez [Appeler, déclencher ou imbriquer des workflows via des points de terminaison HTTP](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -615,14 +613,14 @@ Pour appeler ce déclencheur, vous devez utiliser l’API `listCallbackUrl`, qui
 | <*method-type*> | String | Méthode que les requêtes entrantes doivent utiliser pour appeler votre application logique : « GET », « PUT », « POST », « PATCH », « DELETE » |
 | <*relative-path-for-accepted-parameter*> | String | Chemin relatif pour le paramètre que l’URL de votre point de terminaison peut accepter | 
 | <*required-properties*> | Array | Une ou plusieurs propriétés qui nécessitent des valeurs. | 
-| <*max-runs*> | Integer | Par défaut, les instances de workflows s’exécutent toutes en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
+| <*max-runs*> | Integer | Par défaut, les instances de workflow s’exécutent toutes en même temps (simultanément ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Integer | Lorsque votre application logique exécute déjà le nombre maximal d’instances, que vous pouvez modifier en fonction de la propriété `runtimeConfiguration.concurrency.runs`, les nouvelles exécutions sont placées dans cette file d’attente jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | 
 | <*operation-option*> | String | Vous pouvez modifier le comportement par défaut en définissant la propriété `operationOptions`. Pour plus d’informations, consultez [Options d’opérations](#operation-options). | 
 |||| 
 
 *Exemple*
 
-Ce déclencheur spécifie qu’une requête entrante doit utiliser la méthode HTTP POST pour appeler le déclencheur, et inclut un schéma qui valide l’entrée de la requête entrante : 
+Ce déclencheur spécifie qu’une requête entrante doit utiliser la méthode HTTP POST pour appeler le déclencheur, et inclut un schéma qui valide l’entrée de la requête entrante :
 
 ```json
 "manual": {
@@ -674,7 +672,7 @@ Par exemple, vous pouvez spécifier qu’un déclencheur est activé uniquement 
 }
 ```
 
-Par défaut, un déclencheur s’active uniquement après avoir reçu une réponse « 200 OK ». Quand une expression référence le code d’état d’un déclencheur, le comportement par défaut du déclencheur est remplacé. Par conséquent, si vous souhaitez que le déclencheur s’active pour plusieurs codes d’état, par exemple les codes d’état « 200 » et « 201 », vous devez inclure cette expression comme condition : 
+Par défaut, un déclencheur s’active uniquement après avoir reçu une réponse « 200 OK ». Quand une expression référence le code d’état d’un déclencheur, le comportement par défaut du déclencheur est remplacé. Par conséquent, si vous souhaitez que le déclencheur s’active pour plusieurs codes d’état, par exemple les codes d’état « 200 » et « 201 », vous devez inclure cette expression comme condition :
 
 `@or(equals(triggers().code, 200),equals(triggers().code, 201))` 
 
@@ -682,15 +680,14 @@ Par défaut, un déclencheur s’active uniquement après avoir reçu une répon
 
 ## <a name="trigger-multiple-runs"></a>Déclencher plusieurs exécutions
 
-Si votre déclencheur renvoie un tableau à traiter pour votre application logique, il arrive qu’une boucle « for each » prenne trop de temps pour traiter chaque élément du tableau. Au lieu de cela, vous pouvez utiliser la propriété **SplitOn** dans votre déclencheur pour *décomposer* le tableau. La décomposition sépare les éléments de tableau et démarre une nouvelle instance de flux de travail qui s’exécute pour chaque élément du tableau. Par exemple, cette approche est utile lorsque vous souhaitez interroger un point de terminaison qui peut renvoyer plusieurs nouveaux éléments entre les intervalles d’interrogation.
-Pour connaître le nombre maximal d’éléments de tableau que **SplitOn** peut traiter en une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
+Si votre déclencheur renvoie un tableau à traiter pour votre application logique, il arrive qu’une boucle « for each » prenne trop de temps pour traiter chaque élément du tableau. Au lieu de cela, vous pouvez utiliser la propriété **SplitOn** dans votre déclencheur pour *décomposer* le tableau. La décomposition sépare les éléments de tableau et démarre une nouvelle instance de flux de travail qui s’exécute pour chaque élément du tableau. Par exemple, cette approche est utile lorsque vous souhaitez interroger un point de terminaison qui peut renvoyer plusieurs nouveaux éléments entre les intervalles d’interrogation. Pour connaître le nombre maximal d’éléments de tableau que **SplitOn** peut traiter en une seule exécution d’application logique, consultez [Limites et configurations](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). 
 
 > [!NOTE]
 > Vous ne pouvez pas utiliser **SplitOn** avec un modèle de réponse synchrone. Les workflows qui utilisent **SplitOn** et incluent une réponse action s’exécutent de façon asynchrone et envoient immédiatement une réponse `202 ACCEPTED`.
 >
 > Lorsque la concurrence du déclencheur est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite. Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
  
-Si le fichier Swagger de votre déclencheur décrit une charge utile sous forme de tableau, la propriété **SplitOn** est automatiquement ajoutée à votre déclencheur. Sinon, ajoutez cette propriété à l’intérieur de la charge utile de la réponse qui contient le tableau à décomposer. 
+Si le fichier Swagger de votre déclencheur décrit une charge utile sous forme de tableau, la propriété **SplitOn** est automatiquement ajoutée à votre déclencheur. Sinon, ajoutez cette propriété à l’intérieur de la charge utile de la réponse qui contient le tableau à décomposer.
 
 *Exemple*
 
@@ -711,7 +708,7 @@ Supposez que vous avez une API qui retourne la réponse suivante :
    ]
 }
 ```
- 
+
 Comme votre application logique a uniquement besoin du contenu du tableau dans `Rows`, vous pouvez créer votre déclencheur comme dans cet exemple :
 
 ``` json
@@ -758,9 +755,7 @@ Votre définition de workflow peut désormais utiliser `@triggerBody().name` pou
 
 ## <a name="actions-overview"></a>Vue d’ensemble des actions
 
-Azure Logic Apps fournit différents types d’actions, chacun avec des entrées différentes qui définissent le comportement unique d’une action. 
-
-Les actions ont les principaux éléments suivants, bien que certains soient facultatifs :
+Azure Logic Apps fournit différents types d’actions, chacun avec des entrées différentes qui définissent le comportement unique d’une action. Les actions ont les principaux éléments suivants, bien que certains soient facultatifs :
 
 ```json
 "<action-name>": {
@@ -805,7 +800,7 @@ Voici quelques types d’actions couramment utilisés :
 
   * [**Response**](#response-action) pour répondre aux requêtes
 
-  * [**Exécuter du code JavaScript** ](#run-javascript-code) pour l’exécution d’extraits de code JavaScript
+  * [**Exécuter du code JavaScript**](#run-javascript-code) pour l’exécution d’extraits de code JavaScript
 
   * [**Function**](#function-action) pour appeler Azure Functions
 
@@ -821,17 +816,17 @@ Voici quelques types d’actions couramment utilisés :
 
 ### <a name="built-in-actions"></a>Actions intégrées
 
-| Type d’action | Description | 
+| Type d'action | Description | 
 |-------------|-------------| 
 | [**Composer**](#compose-action) | Crée une sortie unique à partir des entrées, qui peuvent avoir différents types. | 
 | [**Exécuter du code JavaScript**](#run-javascript-code) | Exécutez des extraits de code JavaScript qui répondent à des critères spécifiques. Pour connaître les exigences relatives au code et d’autres informations, voir [Ajouter et exécuter des extraits de code avec du code inclus dans Azure Logic Apps](../logic-apps/logic-apps-add-run-inline-code.md). |
 | [**Function**](#function-action) | Appelle une fonction Azure. | 
 | [**HTTP**](#http-action) | Appelle un point de terminaison HTTP. | 
-| [**Join**](#join-action) | Crée une chaîne à partir de tous les éléments d’un tableau, et sépare ces éléments avec un caractère délimiteur spécifié. | 
-| [**Parse JSON**](#parse-json-action) | Crée des jetons conviviaux à partir de propriétés dans du contenu JSON. Vous pouvez ensuite référencer ces propriétés en incluant les jetons dans votre application logique. | 
+| [**Joindre**](#join-action) | Crée une chaîne à partir de tous les éléments d’un tableau, et sépare ces éléments avec un caractère délimiteur spécifié. | 
+| [**Analyser JSON**](#parse-json-action) | Crée des jetons conviviaux à partir de propriétés dans du contenu JSON. Vous pouvez ensuite référencer ces propriétés en incluant les jetons dans votre application logique. | 
 | [**Query**](#query-action) | Crée un tableau à partir des éléments d’un autre tableau en fonction d’une condition ou d’un filtre. | 
 | [**Response**](#response-action) | Crée une réponse à une requête ou un appel entrant. | 
-| [**Select**](#select-action) | Crée un tableau avec des objets JSON en transformant les éléments d’un autre tableau en fonction de la carte spécifiée. | 
+| [**Sélectionner**](#select-action) | Crée un tableau avec des objets JSON en transformant les éléments d’un autre tableau en fonction de la carte spécifiée. | 
 | [**Table**](#table-action) | Crée une table CSV ou HTML à partir d’un tableau. | 
 | [**Terminate**](#terminate-action) | Arrête un workflow en cours d’exécution. | 
 | [**Wait**](#wait-action) | Interrompt votre workflow pour une durée spécifiée ou jusqu’à la date et l’heure spécifiées. | 
@@ -842,7 +837,7 @@ Voici quelques types d’actions couramment utilisés :
 
 ### <a name="managed-api-actions"></a>Actions d’API managées
 
-| Type d’action | Description | 
+| Type d'action | Description | 
 |-------------|-------------|  
 | [**ApiConnection**](#apiconnection-action) | Appelle un point de terminaison HTTP à l’aide d’une [API managée par Microsoft](../connectors/apis-list.md). | 
 | [**ApiConnectionWebhook**](#apiconnectionwebhook-action) | Fonctionne comme HTTPWebhook, mais utilise une [API managée par Microsoft](../connectors/apis-list.md). | 
@@ -854,7 +849,7 @@ Voici quelques types d’actions couramment utilisés :
 
 Ces actions vous permettent de contrôler l’exécution du workflow et d’inclure d’autres actions. À partir de l’extérieur d’une action de workflow de contrôle, vous pouvez directement référencer des actions à l’intérieur de cette action de workflow de contrôle. Par exemple, si vous avez une action `Http` à l’intérieur d’une étendue, vous pouvez référencer l’expression `@body('Http')` à partir de n’importe où dans le workflow. Toutefois, les actions qui existent à l’intérieur d’une action de workflow de contrôle ne peuvent « s’exécuter qu’après d’autres actions » qui se trouvent dans la même structure de workflow de contrôle.
 
-| Type d’action | Description | 
+| Type d'action | Description | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Exécuter les mêmes actions dans une boucle pour chaque élément d’un tableau. | 
 | [**If**](#if-action) | Exécuter des actions selon que la condition spécifiée est true ou false. | 
@@ -1000,8 +995,7 @@ Vous pouvez aussi spécifier les limites sur une action **ApiConnectionWebhook**
 
 ### <a name="compose-action"></a>Action compose
 
-Cette action crée une sortie unique à partir de plusieurs entrées, y compris des expressions. La sortie et les entrées peuvent avoir n’importe quel type pris en charge nativement par Azure Logic Apps, tels que des tableaux, objets JSON, XML et binaires.
-Vous pouvez ensuite utiliser la sortie de l’action dans d’autres actions. 
+Cette action crée une sortie unique à partir de plusieurs entrées, y compris des expressions. La sortie et les entrées peuvent avoir n’importe quel type pris en charge nativement par Azure Logic Apps, tels que des tableaux, objets JSON, XML et binaires. Vous pouvez ensuite utiliser la sortie de l’action dans d’autres actions. 
 
 ```json
 "Compose": {
@@ -1076,7 +1070,7 @@ Cette action exécute un extrait de code JavaScript et renvoie les résultats vi
 
 | Valeur | Type | Description |
 |-------|------|-------------|
-| <*JavaScript-code-snippet*> | Varie | Code JavaScript que vous souhaitez exécuter. Pour connaître les exigences relatives au code et d’autres informations, voir [Ajouter et exécuter des extraits de code avec du code inclus dans Azure Logic Apps](../logic-apps/logic-apps-add-run-inline-code.md). <p>Dans l’attribut`code`, votre extrait de code peut utiliser l’objet `workflowContext`en lecture seule en tant qu’entrée. Cet objet possède des sous-propriétés qui permettent à votre code d’accéder aux résultats provenant du déclencheur, ainsi que les actions précédentes, dans votre flux de travail. Pour en savoir plus sur l’objet `workflowContext`, voir [Faire référence aux résultats des actions et du déclencheur dans votre code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
+| <*JavaScript-code-snippet*> | Variable | Code JavaScript que vous souhaitez exécuter. Pour connaître les exigences relatives au code et d’autres informations, voir [Ajouter et exécuter des extraits de code avec du code inclus dans Azure Logic Apps](../logic-apps/logic-apps-add-run-inline-code.md). <p>Dans l’attribut`code`, votre extrait de code peut utiliser l’objet `workflowContext`en lecture seule en tant qu’entrée. Cet objet possède des sous-propriétés qui permettent à votre code d’accéder aux résultats provenant du déclencheur, ainsi que les actions précédentes, dans votre flux de travail. Pour en savoir plus sur l’objet `workflowContext`, voir [Faire référence aux résultats des actions et du déclencheur dans votre code](../logic-apps/logic-apps-add-run-inline-code.md#workflowcontext). |
 ||||
 
 *Obligatoire dans certains cas*
@@ -1231,8 +1225,8 @@ Cette action envoie une requête au point de terminaison HTTP ou HTTPS spécifi�
 
 | Propriété | Valeur | Type | Description |
 |----------|-------|------|-------------|
-| `method` | <*method-type*> | Chaîne | Méthode à utiliser pour envoyer la requête sortante : « GET », « PUT », « POST », « PATCH » ou « DELETE » |
-| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | Chaîne | URL du point de terminaison HTTP ou HTTPS où vous voulez envoyer la requête sortante. Taille de chaîne maximale : 2 Ko <p>Pour un service ou une ressource Azure, cette syntaxe URI inclut l'ID de la ressource et le chemin vers la ressource à laquelle vous voulez accéder. |
+| `method` | <*method-type*> | String | Méthode à utiliser pour envoyer la requête sortante : « GET », « PUT », « POST », « PATCH » ou « DELETE » |
+| `uri` | <*HTTP-or-HTTPS-endpoint-URL*> | String | URL du point de terminaison HTTP ou HTTPS où vous voulez envoyer la requête sortante. Taille de chaîne maximale : 2 Ko <p>Pour un service ou une ressource Azure, cette syntaxe URI inclut l'ID de la ressource et le chemin vers la ressource à laquelle vous voulez accéder. |
 |||||
 
 *Facultatif*
@@ -1264,7 +1258,7 @@ Cette définition d’action obtient les informations les plus récentes en envo
 
 <a name="join-action"></a>
 
-### <a name="join-action"></a>Join action
+### <a name="join-action"></a>Action Joindre
 
 Cette action crée une chaîne à partir de tous les éléments d’un tableau, et sépare ces éléments avec le caractère délimiteur spécifié. 
 
@@ -1308,9 +1302,9 @@ Cette définition d’action obtient les valeurs de la variable en utilisant la 
 
 <a name="parse-json-action"></a>
 
-### <a name="parse-json-action"></a>Action Parse JSON
+### <a name="parse-json-action"></a>Action d’analyse de JSON
 
-Cette action crée des *jetons* ou champs conviviaux à partir des propriétés dans le contenu JSON. Vous pouvez ensuite accéder à ces propriétés dans votre application logique en utilisant les jetons à la place. Par exemple, quand vous souhaitez utiliser la sortie JSON de services tels qu’Azure Service Bus et Azure Cosmos DB, vous pouvez inclure cette action dans votre application logique afin de pouvoir référencer plus facilement les données dans cette sortie. 
+Cette action crée des *jetons* ou champs conviviaux à partir des propriétés dans le contenu JSON. Vous pouvez ensuite accéder à ces propriétés dans votre application logique en utilisant les jetons à la place. Par exemple, quand vous souhaitez utiliser la sortie JSON de services tels qu’Azure Service Bus et Azure Cosmos DB, vous pouvez inclure cette action dans votre application logique afin de pouvoir référencer plus facilement les données dans cette sortie.
 
 ```json
 "Parse_JSON": {
@@ -1333,7 +1327,7 @@ Cette action crée des *jetons* ou champs conviviaux à partir des propriétés 
 
 *Exemple*
 
-Cette définition d’action crée les jetons que vous pouvez utiliser dans votre flux de travail, mais uniquement dans les actions qui s’exécutent après l’action **Analyser JSON** : 
+Cette définition d’action crée les jetons que vous pouvez utiliser dans votre flux de travail, mais uniquement dans les actions qui s’exécutent après l’action **Analyser JSON** :
 
 `FirstName`, `LastName` et `Email`
 
@@ -1430,7 +1424,7 @@ Cette action crée un tableau à partir des éléments d’un autre tableau en f
 | Valeur | Type | Description | 
 |-------|------|-------------| 
 | <*array*> | Array | Tableau ou expression qui fournit les éléments sources. Si vous spécifiez une expression, placez l’expression entre guillemets doubles. |
-| <*condition-or-filter*> | String | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque**: Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
+| <*condition-or-filter*> | String | Condition utilisée pour le filtrage des éléments dans le tableau source <p>**Remarque** : Si aucune valeur ne remplit la condition, l’action crée un tableau vide. |
 |||| 
 
 *Exemple*
@@ -1525,7 +1519,7 @@ Contrairement à d’autres actions, l’action **Response** présente des restr
 
 ### <a name="select-action"></a>Action select
 
-Cette action crée un tableau avec des objets JSON en transformant les éléments d’un autre tableau en fonction de la carte spécifiée. Le tableau de sortie et le tableau source ont toujours le même nombre d’éléments. Bien que vous ne puissiez pas changer le nombre d’objets dans le tableau de sortie, vous pouvez ajouter ou supprimer des propriétés et leurs valeurs à ces objets. La propriété `select` spécifie au moins une paire clé-valeur qui définit le mappage pour transformer les éléments du tableau source. Une paire clé-valeur représente une propriété et sa valeur parmi tous les objets dans le tableau de sortie. 
+Cette action crée un tableau avec des objets JSON en transformant les éléments d’un autre tableau en fonction de la carte spécifiée. Le tableau de sortie et le tableau source ont toujours le même nombre d’éléments. Bien que vous ne puissiez pas changer le nombre d’objets dans le tableau de sortie, vous pouvez ajouter ou supprimer des propriétés et leurs valeurs à ces objets. La propriété `select` spécifie au moins une paire clé-valeur qui définit le mappage pour transformer les éléments du tableau source. Une paire clé-valeur représente une propriété et sa valeur parmi tous les objets dans le tableau de sortie.
 
 ```json
 "Select": {
@@ -1545,7 +1539,7 @@ Cette action crée un tableau avec des objets JSON en transformant les élément
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*array*> | Array | Tableau ou expression qui fournit les éléments sources. N’oubliez pas de placer une expression entre guillemets doubles. <p>**Remarque**: Si le tableau source est vide, l’action crée un tableau vide. | 
+| <*array*> | Array | Tableau ou expression qui fournit les éléments sources. N’oubliez pas de placer une expression entre guillemets doubles. <p>**Remarque** : Si le tableau source est vide, l’action crée un tableau vide. | 
 | <*key-name*> | String | Nom de la propriété attribué au résultat à partir de <*expression*> <p>Pour ajouter une nouvelle propriété à tous les objets dans le tableau de sortie, fournissez un <*key-name*> pour cette propriété et une <*expression*> pour la valeur de propriété. <p>Pour supprimer une propriété de tous les objets dans le tableau, omettez le <*key-name*> pour cette propriété. | 
 | <*expression*> | String | Expression qui transforme l’élément du tableau source et assigne le résultat à <*key-name*> | 
 |||| 
@@ -1554,7 +1548,7 @@ L’action **Select** crée un tableau en tant que sortie. Par conséquent, tout
 
 *Exemple*
 
-Cette définition d’action crée un tableau d’objets JSON à partir d’un tableau d’entiers. L’action itère au sein du tableau source, obtient chaque valeur entière à l’aide de l’expression `@item()`, et assigne chaque valeur à la propriété « `number` » dans chaque objet JSON : 
+Cette définition d’action crée un tableau d’objets JSON à partir d’un tableau d’entiers. L’action itère au sein du tableau source, obtient chaque valeur entière à l’aide de l’expression `@item()`, et assigne chaque valeur à la propriété « `number` » dans chaque objet JSON :
 
 ```json
 "Select": {
@@ -1643,8 +1637,8 @@ Cette action crée une table CSV ou HTML à partir d’un tableau. Pour les tabl
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| \<CSV *ou* HTML>| Chaîne | Format de la table que vous souhaitez créer | 
-| <*array*> | Array | Tableau ou expression qui fournit les éléments sources pour la table <p>**Remarque**: Si le tableau source est vide, l’action crée une table vide. | 
+| \<CSV *ou* HTML>| String | Format de la table que vous souhaitez créer | 
+| <*array*> | Array | Tableau ou expression qui fournit les éléments sources pour la table <p>**Remarque** : Si le tableau source est vide, l’action crée une table vide. | 
 |||| 
 
 *Facultatif*
@@ -1659,11 +1653,11 @@ Pour spécifier ou personnaliser des en-têtes de colonne et des valeurs, utilis
 
 *Exemple 1*
 
-Supposez que vous avez créé une variable « myItemArray » qui contenant actuellement ce tableau : 
+Supposez que vous avez créé une variable « myItemArray » qui contenant actuellement ce tableau :
 
 `[ {"ID": 0, "Product_Name": "Apples"}, {"ID": 1, "Product_Name": "Oranges"} ]`
 
-Cette définition d’action crée une table CSV à partir de la variable « myItemArray ». L’expression utilisée par la propriété `from` obtient le tableau à partir de « myItemArray » à l’aide de la fonction `variables()` : 
+Cette définition d’action crée une table CSV à partir de la variable « myItemArray ». L’expression utilisée par la propriété `from` obtient le tableau à partir de « myItemArray » à l’aide de la fonction `variables()` :
 
 ```json
 "Create_CSV_table": {
@@ -1686,7 +1680,7 @@ ID,Product_Name
 
 *Exemple 2*
 
-Cette définition d’action crée une table HTML à partir de la variable « myItemArray ». L’expression utilisée par la propriété `from` obtient le tableau à partir de « myItemArray » à l’aide de la fonction `variables()` : 
+Cette définition d’action crée une table HTML à partir de la variable « myItemArray ». L’expression utilisée par la propriété `from` obtient le tableau à partir de « myItemArray » à l’aide de la fonction `variables()` :
 
 ```json
 "Create_HTML_table": {
@@ -1736,7 +1730,7 @@ Voici la table HTML créée par cette action :
 
 ### <a name="terminate-action"></a>Action terminate
 
-Cette action arrête l’exécution de l’instance de flux de travail, annule toutes les actions en cours, ignore les actions restantes et renvoie l’état spécifié. Vous pouvez par exemple utiliser l’action **Terminate** quand votre application logique doit se fermer complètement suite à un état d’erreur. Cette action n’affecte pas les actions déjà terminées, et ne peut pas apparaître à l’intérieur de boucles **Foreach** et **Until**, y compris les boucles séquentielles. 
+Cette action arrête l’exécution de l’instance de flux de travail, annule toutes les actions en cours, ignore les actions restantes et renvoie l’état spécifié. Vous pouvez par exemple utiliser l’action **Terminate** quand votre application logique doit se fermer complètement suite à un état d’erreur. Cette action n’affecte pas les actions déjà terminées, et ne peut pas apparaître à l’intérieur de boucles **Foreach** et **Until**, y compris les boucles séquentielles.
 
 ```json
 "Terminate": {
@@ -1789,9 +1783,9 @@ Cette définition d’action arrête l’exécution d’un workflow, affecte la 
 
 <a name="wait-action"></a>
 
-### <a name="wait-action"></a>Action wait  
+### <a name="wait-action"></a>Action wait
 
-Cette action interrompt l’exécution du workflow pendant l’intervalle spécifié ou jusqu’à l’heure spécifiée, mais pas les deux. 
+Cette action interrompt l’exécution du workflow pendant l’intervalle spécifié ou jusqu’à l’heure spécifiée, mais pas les deux.
 
 *Intervalle spécifié*
 
@@ -1876,7 +1870,7 @@ Le moteur Logic Apps vérifie l’accès au déclencheur que vous souhaitez appe
 
 * Il s’agit du même abonnement Azure que votre application logique parente
 
-* Pour utiliser les sorties de l’application logique imbriquée dans votre application logique parente, l’application logique imbriquée doit avoir une action [Response](#response-action) 
+* Pour utiliser les sorties de l’application logique imbriquée dans votre application logique parente, l’application logique imbriquée doit avoir une action [Response](#response-action)
 
 ```json
 "<nested-logic-app-name>": {
@@ -1920,7 +1914,7 @@ Les sorties de cette action dépendent de l’action Response de l’application
 
 *Exemple*
 
-Une fois que l’action « Start_search » se termine correctement, cette définition d’action de workflow appelle une autre application logique nommée « Get_product_information », qui transmet les entrées spécifiées : 
+Une fois que l’action « Start_search » se termine correctement, cette définition d’action de workflow appelle une autre application logique nommée « Get_product_information », qui transmet les entrées spécifiées :
 
 ```json
 "actions": {
@@ -1985,7 +1979,7 @@ Cette action de bouclage effectue une itération au sein d’un tableau et exéc
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*count*> | Integer | Par défaut, les itérations de boucle « for each » s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence de boucle « for each »](#change-for-each-concurrency). | 
+| <*count*> | Integer | Par défaut, les itérations de boucle « for each » s’exécutent en même temps (simultanément ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer cette limite en définissant une nouvelle valeur <*count*>, consultez [Changer la concurrence de boucle « for each »](#change-for-each-concurrency). | 
 | <*operation-option*> | String | Pour exécuter une boucle « for each » séquentiellement plutôt qu’en parallèle, affectez la valeur `Sequential` à <*operation-option*> ou la valeur `1` à <*count*>, mais pas les deux. Pour plus d’informations, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | 
 |||| 
 
@@ -2103,7 +2097,7 @@ Cette condition spécifie que quand la variable entière a une valeur supérieur
 
 Voici des exemples illustrant comment utiliser des expressions dans des conditions :
   
-| JSON | Résultat | 
+| JSON | Résultats | 
 |------|--------| 
 | "expression": "@parameters(’<*a_condition_spéciale*>’)" | Pour les expressions booléennes, la condition est satisfaite pour toute valeur évaluée comme True. <p>Pour convertir d’autres types en valeurs booléennes, utilisez la fonction `empty()` ou `equals()`. | 
 | "expression": "@greater(actions(’<*action*>’).output.value, parameters(’<*seuil*>’))" | Pour les fonctions de comparaison, l’action s’exécute uniquement quand la sortie de <*action*> est supérieure à la valeur de <*seuil*>. | 
@@ -2180,10 +2174,10 @@ Cette action, également appelée *instruction switch*, organise d’autres acti
 
 | Valeur | Type | Description | 
 |-------|------|-------------| 
-| <*expression-object-or-token*> | Varie | Expression, objet JSON ou jeton à évaluer | 
+| <*expression-object-or-token*> | Variable | Expression, objet JSON ou jeton à évaluer | 
 | <*action-name*> | String | Nom de l’action à exécuter pour le cas correspondant | 
 | <*action-definition*> | Objet JSON | Définition de l’action à exécuter pour le cas correspondant | 
-| <*matching-value*> | Varie | Valeur à comparer au résultat évalué | 
+| <*matching-value*> | Variable | Valeur à comparer au résultat évalué | 
 |||| 
 
 *Facultatif*
@@ -2316,7 +2310,7 @@ Cette action de boucle contient des actions qui s’exécutent jusqu’à ce que
 
 *Exemple*
 
-Cette définition d’action de boucle envoie une requête HTTP à l’URL spécifiée jusqu’à ce que l’une des conditions suivantes soit remplie : 
+Cette définition d’action de boucle envoie une requête HTTP à l’URL spécifiée jusqu’à ce que l’une des conditions suivantes soit remplie :
 
 * La requête obtient une réponse avec le code d’état « 200 OK ».
 * La boucle s’est exécutée 60 fois.
@@ -2364,7 +2358,7 @@ Pour prendre en charge ces appels, l’expression `@listCallbackUrl()` retourne 
 
 ## <a name="change-asynchronous-duration"></a>Modifier la durée asynchrone
 
-Pour les déclencheurs et les actions, vous pouvez limiter la durée pour le modèle asynchrone à un intervalle de temps spécifique en ajoutant la propriété `limit.timeout`. De cette façon, si l’action n’est pas terminée à la fin de l’intervalle, l’état de l’action est marqué comme `Cancelled` avec le code `ActionTimedOut`. La propriété `timeout` utilise le [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). 
+Pour les déclencheurs et les actions, vous pouvez limiter la durée pour le modèle asynchrone à un intervalle de temps spécifique en ajoutant la propriété `limit.timeout`. De cette façon, si l’action n’est pas terminée à la fin de l’intervalle, l’état de l’action est marqué comme `Cancelled` avec le code `ActionTimedOut`. La propriété `timeout` utilise le [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
 
 ``` json
 "<trigger-or-action-name>": {
@@ -2381,13 +2375,13 @@ Pour les déclencheurs et les actions, vous pouvez limiter la durée pour le mod
 
 ## <a name="runtime-configuration-settings"></a>Paramètres de configuration d’exécution
 
-Vous pouvez changer le comportement d’exécution par défaut pour les déclencheurs et les actions avec ces propriétés `runtimeConfiguration` dans la définition de déclencheur ou d’action.
+Vous pouvez changer le comportement d’exécution par défaut pour les déclencheurs et les actions en ajoutant ces propriétés `runtimeConfiguration` à la définition de déclencheur ou d’action.
 
 | Propriété | Type | Description | Déclencheur ou action | 
 |----------|------|-------------|-------------------| 
-| `runtimeConfiguration.concurrency.runs` | Integer | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances de flux de travail qui peuvent s’exécuter en même temps ou en parallèle. Cette valeur peut aider à limiter le nombre de requêtes reçues par les systèmes backend. <p>L’affectation de la valeur `1` à la propriété `runs` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour modifier la limite par défaut, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
-| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances de flux de travail qui peuvent attendre avant de s’exécuter lorsque votre flux de travail exécute déjà le nombre maximal d’instances simultanées. Vous pouvez modifier la limite de concurrence dans la propriété `concurrency.runs`. <p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | Tous les déclencheurs | 
-| `runtimeConfiguration.concurrency.repetitions` | Integer | Modifier la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’itérations de boucles « for each » qui peuvent s’exécuter en même temps ou en parallèle. <p>L’affectation de la valeur `1` à la propriété `repetitions` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour changer la limite par défaut, consultez [Changer la concurrence « for each »](#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | Action : <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.concurrency.runs` | Integer | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances de workflow qui peuvent s’exécuter en même temps (simultanément ou en parallèle). L’ajustement de cette valeur peut aider à limiter le nombre de requêtes reçues par les systèmes back-end. <p>L’affectation de la valeur `1` à la propriété `runs` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour modifier la limite par défaut, consultez [Changer la concurrence du déclencheur](#change-trigger-concurrency) ou [Déclencher des instances séquentiellement](#sequential-trigger). | Tous les déclencheurs | 
+| `runtimeConfiguration.concurrency.maximumWaitingRuns` | Integer | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’instances de workflow qui doivent attendre de s’exécuter quand votre application logique exécute déjà le nombre maximal d’instances simultanées. <p>Pour changer la limite par défaut, consultez [Changer la limite d’exécutions en attente](#change-waiting-runs). | Tous les déclencheurs | 
+| `runtimeConfiguration.concurrency.repetitions` | Integer | Modifiez la [*limite par défaut*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) du nombre d’itérations de boucle « for each » qui peuvent s’exécuter en même temps (simultanément ou en parallèle). <p>L’affectation de la valeur `1` à la propriété `repetitions` fonctionne de la même façon que l’affectation de la valeur `SingleInstance` à la propriété `operationOptions`. Vous pouvez définir l’une ou l’autre propriété, mais pas les deux. <p>Pour changer la limite par défaut, consultez [Changer la concurrence « for each »](#change-for-each-concurrency) ou [Exécuter des boucles « for each » séquentiellement](#sequential-for-each). | Action : <p>[Foreach](#foreach-action) | 
 | `runtimeConfiguration.paginationPolicy.minimumItemCount` | Integer | Pour des actions spécifiques qui prennent en charge la pagination activée et pour laquelle cette dernière est activée, cette valeur spécifie le nombre *minimal* de résultats à récupérer. <p>Pour savoir comment activer la pagination, voir [Obtenir d’autres données, des articles ou des enregistrements à l’aide de la pagination dans Azure Logic Apps](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md) | Action : Différentes possibilités |
 | `runtimeConfiguration.secureData.properties` | Array | Sur de nombreux déclencheurs et actions, ces paramètres permettent de masquer les entrées et/ou les sorties dans l’historique d’exécution d’une application logique. <p>Pour sécuriser ces données, voir [Masquer les entrées et sorties de l'historique d'exécution](../logic-apps/logic-apps-securing-a-logic-app.md#secure-data-code-view). | La plupart des déclencheurs et des actions |
 | `runtimeConfiguration.staticResult` | Objet JSON | Pour les actions qui prennent en charge le paramètre [Résultat statique](../logic-apps/test-logic-apps-mock-data-static-results.md) et pour lesquelles ce dernier est activé, l’objet `staticResult` possède ces attributs : <p>- `name`, qui fait référence au nom de définition du résultat statique de l’action en cours, affiché dans l’attribut `staticResults` au sein de l’attribut `definition` du flux de travail. Pour en savoir plus, consultez le schéma de référence du langage de définition du flux de travail de la section [Résultats statiques](../logic-apps/logic-apps-workflow-definition-language.md#static-results). <p> - `staticResultOptions`, qui spécifie si les résultats statiques ont la valeur `Enabled` ou non pour l’action en cours. <p>Pour en savoir plus, voir [Tester des applications logiques avec des données fictives en configurant des résultats statiques](../logic-apps/test-logic-apps-mock-data-static-results.md). | Action : Différentes possibilités |
@@ -2411,11 +2405,11 @@ Vous pouvez changer le comportement par défaut pour les déclencheurs et les ac
 
 ### <a name="change-trigger-concurrency"></a>Changer la concurrence du déclencheur
 
-Par défaut, les instances d’applications logiques s’exécutent en même temps (de manière concurrentielle ou en parallèle) jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Ainsi, chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de flux de travail précédente. Cette limite aide à contrôler le nombre de requêtes reçues par les systèmes backend. 
+Par défaut, les instances de workflow d’application logique s’exécutent toutes en même temps (simultanément ou en parallèle). Ce comportement signifie que chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de workflow active précédente. Toutefois, le nombre d’instances exécutées simultanément a une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Lorsque le nombre d’instances de workflow exécutées simultanément atteint cette limite, toute autre nouvelle instance doit attendre de s’exécuter. Cette limite aide à contrôler le nombre de requêtes reçues par les systèmes backend.
 
 Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’instances de flux de travail qui peuvent s’exécuter en parallèle. Voici quelques considérations liées à l’activation du contrôle d’accès concurrentiel :
 
-* Lorsque la concurrence du déclencheur est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
+* Lorsque la concurrence est activée, la [limite SplitOn](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) est considérablement réduite pour la [décomposition des tableaux](#split-on-debatch). Si le nombre d'éléments dépasse cette limite, la fonction SplitOn est désactivée.
 
 * Quand la concurrence est activée, une instance d’application logique de longue durée peut amener de nouvelles instances d’application logique à entrer dans un état d’attente. Cet état empêche Azure Logic Apps de créer des instances et se produit même quand le nombre d’exécutions simultanées est inférieur au nombre maximal spécifié d’exécutions simultanées.
 
@@ -2428,7 +2422,7 @@ Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode co
        ![Sélectionner l’instance en cours d’exécution la plus ancienne](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
 
        > [!TIP]
-       > Pour voir uniquement les instances qui sont toujours en cours d’exécution, ouvrez la liste **Tous**, puis sélectionnez **En cours d’exécution**.    
+       > Pour voir uniquement les instances qui sont toujours en cours d’exécution, ouvrez la liste **Tous**, puis sélectionnez **En cours d’exécution**.
 
     1. Sous **Exécution d’application logique**, sélectionnez **Annuler l’exécution**.
 
@@ -2444,11 +2438,11 @@ Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode co
 
        ![Spécifier la durée du délai d’expiration](./media/logic-apps-workflow-actions-triggers/timeout.png)
 
-* Si vous souhaitez exécuter votre application logique séquentiellement, vous pouvez définir la concurrence du déclencheur sur `1` à l’aide de l’éditeur en mode code ou du concepteur. Toutefois, ne définissez pas également la propriété `operationOptions` du déclencheur sur `SingleInstance` dans l’éditeur en mode code. car vous obtiendriez une erreur de validation. Pour plus d’informations, consultez [Déclencher des instances séquentiellement](#sequential-trigger).
+* Pour exécuter votre application logique séquentiellement, définissez la concurrence du déclencheur sur `1` à l’aide de l’éditeur en mode code ou du concepteur. Veillez à ne pas définir également la propriété `operationOptions` du déclencheur sur `SingleInstance` dans l’éditeur en mode code. car vous obtiendriez une erreur de validation. Pour plus d’informations, consultez [Déclencher des instances séquentiellement](#sequential-trigger).
 
 #### <a name="edit-in-code-view"></a>Modifier en mode code 
 
-Dans la définition de déclencheur sous-jacente, ajoutez ou mettez à jour la propriété `runtimeConfiguration.concurrency.runs` en lui affectant une valeur comprise entre `1` et `50` (inclus).
+Dans la définition de déclencheur sous-jacente, ajoutez la propriété `runtimeConfiguration.concurrency.runs`, qui peut avoir une valeur comprise entre `1` et `50`.
 
 Voici un exemple qui limite les exécutions simultanées à 10 instances :
 
@@ -2467,26 +2461,30 @@ Voici un exemple qui limite les exécutions simultanées à 10 instances :
 }
 ```
 
+Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Modifier dans le Concepteur d’applications logiques
 
-1. Dans l’angle supérieur droit du déclencheur, sélectionnez le bouton représentant des points de suspension (...), puis **Paramètres**.
+1. Dans l’angle supérieur droit du déclencheur, sélectionnez le bouton représentant des points de suspension ( **...** ), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, définissez **Limite** sur **Activé**. 
+1. Sous **Contrôle d’accès concurrentiel**, définissez **Limite** sur **Activé**. 
 
-3. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. Pour exécuter votre application logique séquentiellement, faites glisser le curseur vers la valeur **1**.
+1. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. Pour exécuter votre application logique séquentiellement, faites glisser le curseur vers la valeur **1**.
 
 <a name="change-for-each-concurrency"></a>
 
 ### <a name="change-for-each-concurrency"></a>Changer la concurrence « for each »
 
-Par défaut, les itérations de boucle « for each » s’exécutent en même temps, ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.repetitions` dans la définition d’action « for each » sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’itérations qui peuvent s’exécuter en parallèle.
+Par défaut, les itérations de boucle « for each » s’exécutent toutes en même temps (simultanément ou en parallèle). Ce comportement signifie que chaque itération commence à s’exécuter avant la fin de l’exécution de l’itération précédente. Toutefois, le nombre d’itérations exécutées simultanément a une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Lorsque le nombre d’itérations exécutées simultanément atteint cette limite, toute autre itération doit attendre de s’exécuter.
+
+Pour changer la limite par défaut, vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met à jour la propriété `runtimeConfiguration.concurrency.repetitions` dans la définition d’action « for each » sous-jacente et vice versa. Cette propriété contrôle le nombre maximal d’itérations qui peuvent s’exécuter en parallèle.
 
 > [!NOTE] 
 > Si vous configurez l’action « for each » pour une exécution séquentielle à l’aide du concepteur ou de l’éditeur en mode code, n’affectez pas la valeur `Sequential` à la propriété `operationOptions` de l’action dans l’éditeur en mode code, car vous obtiendriez une erreur de validation. Pour plus d’informations, consultez [Exécuter des boucles « for each » séquentiellement](#sequential-for-each).
 
 #### <a name="edit-in-code-view"></a>Modifier en mode code 
 
-Dans la définition d’action « for each » sous-jacente, ajoutez ou mettez à jour la propriété `runtimeConfiguration.concurrency.repetitions` en lui affectant une valeur comprise entre `1` et `50` (inclus). 
+Dans la définition « for each » sous-jacente, ajoutez ou mettez à jour la propriété `runtimeConfiguration.concurrency.repetitions`, qui peut avoir une valeur comprise entre `1` et `50`.
 
 Voici un exemple qui limite les exécutions simultanées à 10 itérations :
 
@@ -2504,23 +2502,25 @@ Voici un exemple qui limite les exécutions simultanées à 10 itérations :
 }
 ```
 
+Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Modifier dans le Concepteur d’applications logiques
 
-1. Dans l’angle supérieur droit de l’action **For each**, choisissez le bouton représentant des points de suspension (...), puis **Paramètres**.
+1. Dans l’angle supérieur droit de l’action **For each**, sélectionnez le bouton représentant des points de suspension ( **...** ), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, définissez **Contrôle d’accès concurrentiel** sur **Activé**. 
+1. Sous **Contrôle d’accès concurrentiel**, définissez **Contrôle d’accès concurrentiel** sur **Activé**.
 
-3. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. Pour exécuter votre application logique séquentiellement, faites glisser le curseur vers la valeur **1**.
+1. Positionnez le curseur **Degré de parallélisme** sur la valeur souhaitée. Pour exécuter votre application logique séquentiellement, faites glisser le curseur vers la valeur **1**.
 
 <a name="change-waiting-runs"></a>
 
 ### <a name="change-waiting-runs-limit"></a>Modifier la limite d’exécutions en attente
 
-Par défaut, les instances de flux de travail s’exécutent en même temps, simultanément ou en parallèle jusqu’à la [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de flux de travail active précédente. Bien que vous puissiez [modifier cette limite par défaut](#change-trigger-concurrency), lorsque le nombre d’instances de flux de travail atteint la nouvelle limite de concurrence, les nouvelles instances doivent différer l’exécution. 
+Par défaut, les instances de workflow d’application logique s’exécutent toutes en même temps (simultanément ou en parallèle). Ce comportement signifie que chaque instance de déclencheur s’active avant la fin de l’exécution de l’instance de workflow active précédente. Toutefois, le nombre d’instances exécutées simultanément a une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Lorsque le nombre d’instances de workflow exécutées simultanément atteint cette limite, toute autre nouvelle instance doit attendre de s’exécuter.
 
-Le nombre d’exécutions qui peuvent attendre a également une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits), que vous pouvez modifier. Toutefois, une fois que votre application logique a atteint la limite du nombre d’exécutions en attente, le moteur Logic Apps n’accepte plus de nouvelles exécutions. Les requêtes et les déclencheurs webhook retournent des erreurs 429, et les déclencheurs récurrents commencent à ignorer les tentatives d’interrogation.
+Le nombre d’exécutions en attente a également une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Lorsque le nombre d’exécutions en attente atteint cette limite, le moteur Logic Apps n’accepte plus de nouvelles exécutions. Les requêtes et les déclencheurs webhook retournent des erreurs 429, et les déclencheurs récurrents commencent à ignorer les tentatives d’interrogation.
 
-Pour modifier la limite par défaut du nombre d’exécutions en attente, dans la définition de déclencheur sous-jacente, ajoutez la propriété `runtimeConfiguration.concurency.maximumWaitingRuns` et affectez-lui une valeur comprise entre `0` et `100`. 
+Non seulement vous pouvez [changer la limite par défaut de concurrence de déclencheur](#change-trigger-concurrency), mais vous pouvez aussi changer la limite par défaut des exécutions en attente. Dans la définition de déclencheur sous-jacente, ajoutez la propriété `runtimeConfiguration.concurrency.maximumWaitingRuns`, qui peut avoir une valeur comprise entre `1` et `100`.
 
 ```json
 "<trigger-name>": {
@@ -2537,11 +2537,13 @@ Pour modifier la limite par défaut du nombre d’exécutions en attente, dans l
 }
 ```
 
+Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options).
+
 <a name="sequential-trigger"></a>
 
 ### <a name="trigger-instances-sequentially"></a>Déclencher des instances séquentiellement
 
-Pour exécuter chaque instance de flux de travail de l’application logique uniquement après la fin de l’exécution de l’instance précédente, configurez le déclencheur pour qu’il s’exécute de manière séquentielle. Vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met également à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa. 
+Pour exécuter chaque instance de flux de travail de l’application logique uniquement après la fin de l’exécution de l’instance précédente, configurez le déclencheur pour qu’il s’exécute de manière séquentielle. Vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification du paramètre de concurrence par le biais du concepteur ajoute ou met également à jour la propriété `runtimeConfiguration.concurrency.runs` dans la définition de déclencheur sous-jacente et vice versa.
 
 > [!NOTE] 
 > Quand vous configurez un déclencheur pour une exécution séquentielle à l’aide du concepteur ou de l’éditeur en mode code, n’affectez pas la valeur `Sequential` à la propriété `operationOptions` du déclencheur dans l’éditeur en mode code, car vous obtiendriez une erreur de validation. 
@@ -2582,19 +2584,21 @@ Affectez la valeur `SingleInstance` à la propriété `operationOptions` :
 }
 ```
 
+Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options) et [Options d’opérations](#operation-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Modifier dans le Concepteur d’applications logiques
 
-1. Dans l’angle supérieur droit du déclencheur, sélectionnez le bouton représentant des points de suspension (...), puis **Paramètres**.
+1. En haut à droite du déclencheur, sélectionnez le bouton représentant des points de suspension ( **...** ), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, définissez **Limite** sur **Activé**. 
+1. Sous **Contrôle d’accès concurrentiel**, définissez **Limite** sur **Activé**. 
 
-3. Positionnez le curseur **Degré de parallélisme** sur le chiffre `1`. 
+1. Positionnez le curseur **Degré de parallélisme** sur le chiffre `1`. 
 
 <a name="sequential-for-each"></a>
 
 ### <a name="run-for-each-loops-sequentially"></a>Exécuter des boucles « for each » séquentiellement
 
-Pour exécuter une itération de boucle « for each » uniquement après la fin de l’exécution de l’itération précédente, configurez l’action « for each » pour qu’elle s’exécute de manière séquentielle. Vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification de la concurrence de l’action par le biais du concepteur ajoute ou met également à jour la propriété `runtimeConfiguration.concurrency.repetitions` dans la définition d’action sous-jacente et vice versa. 
+Pour exécuter une itération de boucle « for each » uniquement après la fin de l’exécution de l’itération précédente, configurez l’action « for each » pour qu’elle s’exécute de manière séquentielle. Vous pouvez utiliser l’éditeur en mode code ou le Concepteur d’applications logiques, car la modification de la concurrence de l’action par le biais du concepteur ajoute ou met également à jour la propriété `runtimeConfiguration.concurrency.repetitions` dans la définition d’action sous-jacente et vice versa.
 
 > [!NOTE] 
 > Quand vous configurez une action « for each » pour une exécution séquentielle à l’aide du concepteur ou de l’éditeur en mode code, n’affectez pas la valeur `Sequential` à la propriété `operationOptions` de l’action dans l’éditeur en mode code, car vous obtiendriez une erreur de validation. 
@@ -2633,13 +2637,15 @@ Affectez la valeur `Sequential` à la propriété `operationOptions` :
 }
 ```
 
+Pour plus d’informations, consultez [Paramètres de configuration d’exécution](#runtime-config-options) et [Options d’opérations](#operation-options).
+
 #### <a name="edit-in-logic-apps-designer"></a>Modifier dans le Concepteur d’applications logiques
 
-1. Dans l’angle supérieur droit de l’action **For each**, choisissez le bouton représentant des points de suspension (...), puis **Paramètres**.
+1. En haut à droite de l’action **For each**, sélectionnez le bouton représentant des points de suspension ( **...** ), puis **Paramètres**.
 
-2. Sous **Contrôle d’accès concurrentiel**, définissez **Contrôle d’accès concurrentiel** sur **Activé**. 
+1. Sous **Contrôle d’accès concurrentiel**, définissez **Contrôle d’accès concurrentiel** sur **Activé**.
 
-3. Positionnez le curseur **Degré de parallélisme** sur le chiffre `1`. 
+1. Positionnez le curseur **Degré de parallélisme** sur le chiffre `1`.
 
 <a name="asynchronous-patterns"></a>
 
@@ -2648,7 +2654,7 @@ Affectez la valeur `Sequential` à la propriété `operationOptions` :
 Par défaut, toutes les actions basées sur HTTP suivent le modèle d’opération asynchrone standard. Ce modèle spécifie que quand une action basée sur HTTP envoie une requête au point de terminaison spécifié, le serveur distant retourne une réponse « 202 ACCEPTED ». Cette réponse signifie que le serveur a accepté la requête pour le traitement. Le moteur Logic Apps continue à vérifier l’URL spécifiée par l’en-tête d’emplacement de la réponse jusqu’à l’arrêt du traitement, c’est-à-dire toute réponse autre que 202.
 
 Toutefois, les requêtes ayant un délai d’expiration, pour les actions de longue durée vous pouvez désactiver le comportement asynchrone en ajoutant la propriété `operationOptions` et en lui affectant la valeur `DisableAsyncPattern` sous les entrées de l’action.
-  
+
 ```json
 "<some-long-running-action>": {
    "type": "Http",
@@ -2658,11 +2664,13 @@ Toutefois, les requêtes ayant un délai d’expiration, pour les actions de lon
 }
 ```
 
+Pour plus d’informations, consultez [Options d’opérations](#operation-options).
+
 <a name="run-high-throughput-mode"></a>
 
 ### <a name="run-in-high-throughput-mode"></a>Exécuter en mode de débit élevé
 
-Pour une définition d’application logique unique, le nombre d’actions qui s’exécutent toutes les cinq minutes présente une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour augmenter cette limite à la valeur [maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possible, affectez la valeur `OptimizedForHighThroughput` à la propriété `operationOptions`. Ce paramètre met votre application logique en mode de « débit élevé ». 
+Pour une définition d’application logique unique, le nombre d’actions qui s’exécutent toutes les cinq minutes présente une [limite par défaut](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Pour augmenter cette limite à la valeur [maximale](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) possible, affectez la valeur `OptimizedForHighThroughput` à la propriété `operationOptions`. Ce paramètre met votre application logique en mode de « débit élevé ».
 
 > [!NOTE]
 > Le mode de débit élevé est en préversion. Vous pouvez également distribuer une charge de travail sur plusieurs applications logiques si nécessaire.

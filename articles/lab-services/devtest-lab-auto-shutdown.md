@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 01/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 1c13414bb252da1192f82675da5b134bf43a40f0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772633"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264783"
 ---
-# <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Gérer toutes les stratégies d’arrêt automatique d’un laboratoire dans Azure DevTest Labs
+# <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab et de calcul dans Azure DevTest Labs
+
+Cet article explique comment configurer des paramètres d’arrêt automatique pour des machines virtuelles lab dans DevTest Labs et des machines virtuelles de calcul. 
+
+## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Configurer l’arrêt automatique pour les machines virtuelles lab (DevTest Labs)
 Azure DevTest Labs vous permet de contrôler les coûts et de réduire le gaspillage dans vos laboratoires en gérant les stratégies (paramètres) de chacun d’entre eux. Cet article vous montre comment configurer la stratégie d’arrêt automatique pour un compte de laboratoire et configurer les paramètres d’arrêt automatique pour un laboratoire dans le compte de laboratoire. Pour savoir comment définir chaque stratégie de laboratoire, consultez [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-## <a name="set-auto-shutdown-policy-for-a-lab"></a>Définir la stratégie d’arrêt automatique pour un labo
+### <a name="set-auto-shut-down-policy-for-a-lab"></a>Définir la stratégie d’arrêt automatique pour un labo
 En tant que propriétaire d’un laboratoire, vous pouvez configurer une planification d’arrêt pour toutes les machines virtuelles de votre laboratoire. Ceci vous permet de réaliser des économies en stoppant l’exécution de machines inutilisées (inactives). Vous pouvez appliquer une stratégie d’arrêt centralisée à toutes les machines virtuelles de votre laboratoire et, également, épargner aux utilisateurs de votre laboratoire l’établissement d’une planification pour leurs machines individuelles. Cette fonctionnalité vous permet de définir la stratégie de planification de votre laboratoire, du contrôle inexistant au contrôle total, pour les utilisateurs de votre laboratoire. En tant que propriétaire de laboratoire, vous pouvez configurer cette stratégie en procédant comme suit :
 
 1. Sur la page d’accueil de votre laboratoire, sélectionnez **Configuration et stratégies**.
@@ -33,7 +37,7 @@ En tant que propriétaire d’un laboratoire, vous pouvez configurer une planifi
 
     ![Options de stratégie d’arrêt automatique](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-## <a name="configure-auto-shutdown-settings"></a>Configurer les paramètres d’arrêt automatique
+### <a name="configure-auto-shutdown-settings"></a>Configurer les paramètres d’arrêt automatique
 La stratégie d’arrêt automatique vous permet d’indiquer l’heure à laquelle les machines virtuelles du laboratoire doivent s’arrêter et contribue ainsi à réduire les pertes de laboratoire.
 
 Pour afficher (et modifier) les stratégies d’un laboratoire, procédez comme suit :
@@ -72,7 +76,7 @@ Si vous définissez cette stratégie pour votre laboratoire, les utilisateurs du
 
 ![Option de stratégie d’arrêt automatique – 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## <a name="notifications"></a>Notifications
+### <a name="notifications"></a>Notifications
 Une fois l’arrêt automatique configuré par le propriétaire du laboratoire, des notifications seront envoyées aux utilisateurs du laboratoire 30 minutes avant le déclenchement de l’arrêt automatique si l’une de leurs machines virtuelles est concernée. Cette option donne aux utilisateurs du laboratoire la possibilité d’enregistrer leur travail avant l’arrêt. La notification fournit également des liens de chaque machine virtuelle pour les actions suivantes :
 
 - Pour l’instant, ignorez l’arrêt automatique
@@ -82,7 +86,7 @@ La notification est envoyée par l’intermédiaire du point de terminaison du w
 
 Nous vous recommandons d’utiliser des webhooks car ils sont largement pris en charge par différentes applications (par exemple, Slack, Azure Logic Apps, etc.) et vous permettent d’implémenter votre propre méthode pour envoyer des notifications. À titre d’exemple, cet article vous explique comment obtenir une notification automatique de désactivation à partir d’e-mails en utilisant les applications Azure Logic Apps. Tout d’abord, passons rapidement en revue les étapes de base pour activer la notification d’arrêt automatique dans votre laboratoire.   
 
-## <a name="create-a-logic-app-that-receives-email-notifications"></a>Créer une application logique qui reçoit des notifications par e-mail
+### <a name="create-a-logic-app-that-receives-email-notifications"></a>Créer une application logique qui reçoit des notifications par e-mail
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) fournit de nombreux connecteurs prêts à l’emploi qui facilitent l’intégration d’un service dans d’autres clients, comme Office 365 et Twitter. Au niveau supérieur, les étapes de configuration d’une application Logic App pour la notification par e-mail peuvent être divisées en quatre phases : 
 
 - Créez une application logique. 
@@ -185,5 +189,16 @@ Pour commencer, créez une application logique dans votre abonnement Azure en pr
 
     ![URL du webhook](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
+## <a name="configure-autoshutdown-for-compute-vms"></a>Configurer l’arrêt automatique pour des machines virtuelles de calcul
+
+1. Dans la page **Machine virtuelle**, sélectionnez **Arrêt automatique** dans le menu de gauche. 
+2. Dans la page **Arrêt automatique**, Sélectionnez **Activer** ou **Désactiver** pour activer ou désactiver cette stratégie.
+3. Si vous activez cette stratégie, spécifiez l’**heure** (et le **fuseau horaire**) à laquelle la machine virtuelle doit être arrêtée.
+4. Sélectionnez **Oui** ou **Non** pour l’option d’envoi de notification 30 minutes avant l’heure d’arrêt automatique indiquée. Si vous choisissez **Oui**, saisissez un point de terminaison de l’URL de Webhook ou une adresse e-mail spécifiant où vous désirez publier ou envoyer la notification. L’utilisateur reçoit une notification et peut retarder l’arrêt. Pour en savoir plus, consultez la section [Notifications](#notifications). 
+9. Sélectionnez **Enregistrer**.
+
+    ![Configurer l’arrêt automatique pour une machine virtuelle de calcul](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
 ## <a name="next-steps"></a>Étapes suivantes
 Pour découvrir comment définir toutes les stratégies, consultez [Définir des stratégies de laboratoire dans Azure DevTest Labs](devtest-lab-set-lab-policy.md).
+

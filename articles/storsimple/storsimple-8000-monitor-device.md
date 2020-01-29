@@ -1,29 +1,21 @@
 ---
-title: Analyser un appareil de la gamme StorSimple 8000 | Microsoft Docs
+title: Superviser votre appareil StorSimple 8000 Series
 description: Décrit comment utiliser le service StorSimple Device Manager pour surveiller l’utilisation, les performances E/S et l’utilisation de la capacité de l’appareil.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: 602514df69977891167f341db0ab20913bcacc9f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b3b77024606c5cdb02ff7bdd357c2d14a2415efa
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634469"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277054"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Utilisation du service StorSimple Device Manager pour surveiller votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez utiliser le service StorSimple Device Manager pour surveiller des appareils spécifiques dans votre solution StorSimple. Vous pouvez créer des graphiques personnalisés basés sur les performances E/S, l’utilisation de la capacité, le débit du réseau et les mesures de performances de l’appareil, et les épingler au tableau de bord. Pour plus d’informations, consultez la section décrivant comment [personnaliser votre tableau de bord sur le portail](../azure-portal/azure-portal-dashboards.md).
 
 Pour afficher les informations de surveillance d’un appareil donné, sélectionnez le service StorSimple Device Manager dans le portail Azure. Sélectionnez votre appareil dans la listes des appareils et accédez à la zone **Moniteur**. Vous pouvez alors voir les graphiques de **capacité**, d’**utilisation** et de **performances** de l’appareil sélectionné.

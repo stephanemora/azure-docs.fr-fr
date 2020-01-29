@@ -1,6 +1,6 @@
 ---
 title: Intégrer Apache Spark - Azure Event Hubs | Microsoft Docs
-description: Intégrer Apache Spark pour activer la diffusion en continu de flux structuré avec Event Hubs
+description: Cet article montre comment intégrer Apache Spark pour activer Structured Streaming avec Event Hubs.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,12 +14,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 605669a740663040ab7a167bf266fe1940123afc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4c4fd74e9123e1310be297a15090433d365d24cf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60343390"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311680"
 ---
 # <a name="integrating-apache-spark-with-azure-event-hubs"></a>Intégration d’Apache Spark avec Azure Event Hubs
 
@@ -29,7 +29,7 @@ Cet article explique comment créer une application continue dans [Azure Databri
 
 L’exemple de cet article utilise deux blocs-notes Scala : un pour le streaming des événements à partir d’un hub d’événements et l’autre pour le renvoi d’événements vers celui-ci.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’en avez pas, [créez un compte gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Une instance Event Hubs. Si vous n’en avez pas, [créez-en une](event-hubs-create.md).

@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 514f98d95090f978395dd3f7decdcc0743a1628a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979743"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289150"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propriétés standard dans les journaux Azure Monitor
 Les données dans les journaux Azure Monitor sont [stockées sous la forme d’un jeu d’enregistrements dans un espace de travail Log Analytics ou dans une application Application Insights](../log-query/logs-structure.md), chacun ayant un type de données particulier associé à un ensemble unique de propriétés. De nombreux types de données comportent des propriétés standard qui sont communes à plusieurs types. Cet article décrit ces propriétés et fournit des exemples sur la façon dont vous pouvez les utiliser dans des requêtes.
 
 > [!NOTE]
-> Certaines des propriétés standard n'apparaîtront pas dans la vue schéma ou IntelliSense de Log Analytics, et n'apparaîtront pas dans les résultats des requêtes, à moins de spécifier explicitement la propriété dans la sortie.
+> Certaines des propriétés standard n’apparaîtront pas dans l’affichage de schéma ou IntelliSense dans Log Analytics, et n’apparaîtront pas dans les résultats des requêtes, à moins de spécifier explicitement la propriété dans la sortie.
 
 ## <a name="timegenerated-and-timestamp"></a>TimeGenerated et timestamp
 Les propriétés **TimeGenerated** (espace de travail Log Analytics) et **timestamp** (application Application Insights) contiennent la date et l’heure de création de l’enregistrement par la source de données. Pour plus d’informations, consultez [Durée d’ingestion de données de journal dans Azure Monitor](data-ingestion-time.md).

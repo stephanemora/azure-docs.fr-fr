@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462081"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121741"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Contrôle d’accès Service Bus avec des signatures d’accès partagé
 
@@ -82,7 +82,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** - URI de la ressource faisant l’objet de l’accès.
 * **`sig`** - Signature.
 
-La `signature-string` est le hachage SHA-256 calculé sur l’URI de ressource (**étendue** comme décrit dans la section précédente) et la représentation de chaîne du délai d’expiration du jeton, séparée par CRLF.
+La `signature-string` est le hachage SHA-256 calculé sur l’URI de ressource (**étendue** comme décrit dans la section précédente) et la représentation de chaîne du délai d’expiration du jeton, séparée par LF.
 
 Le calcul de hachage est similaire au code de pseudo suivant et retourne une valeur de hachage de 256 bits/32 octets.
 

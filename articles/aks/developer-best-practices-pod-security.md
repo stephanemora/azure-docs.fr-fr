@@ -7,25 +7,25 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: zarhoads
-ms.openlocfilehash: f9d49d143b31b0b9e73d8a147605935cd88d412b
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 17f281aeb2ef3f1f32f3e13fe66fe8b74b1d9116
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "65073963"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547674"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Meilleures pratiques pour la sécurité des pods dans Azure Kubernetes Service (AKS)
 
 Lorsque vous développez et exécutez des applications dans Azure Kubernetes Service (ACS), la sécurité de vos pods est primordiale. Vos applications doivent être conçues selon le principe du moindre privilège. La sécurité des données privées est la priorité des clients. Vous ne tenez pas à ce que les informations d’identification telles que les chaînes de connexion aux bases de données, les clés, les secrets ou les certificats, soient exposées au monde extérieur, avec le risque qu’un pirate puisse les exploiter à des fins malveillantes. Ne les ajoutez pas à votre code et évitez de les incorporer dans vos images de conteneur. Vos informations risqueraient d’être exposées et cela limiterait votre capacité à changer ces informations d’identification, puisque les images de conteneur devront être reconstruites.
 
-Cet article décrit les meilleures pratiques sur la sécurisation des pods dans AKS. Vous allez apprendre à effectuer les actions suivantes :
+Cet article décrit les bonnes pratiques de sécurisation des pods dans AKS. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Utiliser le contexte de sécurité des pods pour limiter l’accès aux processus et services ou l’élévation de privilèges
 > * S’authentifier avec d’autres ressources Azure à l’aide d’identités de pod managées
 > * Demander et récupérer des informations d’identification à partir d’un coffre numérique tel qu’Azure Key Vault
 
-Vous pouvez également consulter les meilleures pratiques relatives à la [sécurité des clusters][best-practices-cluster-security] et à la [gestion des images conteneur][best-practices-container-image-management].
+Vous pouvez également consulter les bonnes pratiques pour la [sécurité des clusters][best-practices-cluster-security] et la [gestion des images conteneur][best-practices-container-image-management].
 
 ## <a name="secure-pod-access-to-resources"></a>Sécuriser l’accès du pod aux ressources
 
@@ -38,8 +38,8 @@ Lorsque vous vous connectez en tant qu’utilisateur non root, les conteneurs ne
 Un contexte de sécurité de pod peut également permettre de définir des fonctionnalités ou autorisations supplémentaires pour accéder à des processus et services. Vous pouvez utiliser les définitions de contexte de sécurité courantes ci-dessous :
 
 * **allowPrivilegeEscalation** définit si le pod peut assumer les privilèges *racine*. Concevez vos applications afin que ce paramètre soit toujours défini sur *false*.
-* **Les fonctionnalités Linux** permettent au pod d’accéder aux processus de nœud sous-jacents. Soyez vigilant lorsque vous affectez ces fonctionnalités. Affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez la page [Linux capabilities][linux-capabilities] (Fonctionnalités Linux).
-* **SELinux Labels** est un module de sécurité du noyau Linux qui vous permet de définir des stratégies d’accès pour l’accès aux services, aux processus et au système de fichiers. Là encore, affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez les [options SELinux dans Kubernetes][selinux-labels]
+* **Les fonctionnalités Linux** permettent au pod d’accéder aux processus de nœud sous-jacents. Soyez vigilant lorsque vous affectez ces fonctionnalités. Affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez [Fonctionnalités de Linux][linux-capabilities].
+* **SELinux Labels** est un module de sécurité du noyau Linux qui vous permet de définir des stratégies d’accès pour l’accès aux services, aux processus et au système de fichiers. Là encore, affectez le nombre minimal de privilèges nécessaire. Pour plus d’informations, consultez [Options de SELinux dans Kubernetes][selinux-labels]
 
 L’exemple de manifeste YAML suivant définit les paramètres du contexte de sécurité pour indiquer :
 
@@ -64,7 +64,7 @@ spec:
         add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
-Consultez votre opérateur de cluster pour déterminer les paramètres de contexte de sécurité dont vous avez besoin. Essayez de concevoir vos applications de manière à réduire les autorisations et accès supplémentaires dont le pod a besoin. Il existe d’autres fonctionnalités de sécurité qui permettent de limiter l’accès en utilisant les paramètres AppArmor et seccomp (environnement informatique sécurisé) qui peuvent être implémentés par les opérateurs du cluster. Pour plus d’informations, consultez la page [Secure container access to resources][apparmor-seccomp] (Accès sécurisé du conteneur aux ressources).
+Consultez votre opérateur de cluster pour déterminer les paramètres de contexte de sécurité dont vous avez besoin. Essayez de concevoir vos applications de manière à réduire les autorisations et accès supplémentaires dont le pod a besoin. Il existe d’autres fonctionnalités de sécurité qui permettent de limiter l’accès en utilisant les paramètres AppArmor et seccomp (environnement informatique sécurisé) qui peuvent être implémentés par les opérateurs du cluster. Pour plus d’informations, consultez [Sécuriser l’accès du conteneur aux ressources][apparmor-seccomp].
 
 ## <a name="limit-credential-exposure"></a>Limiter l’exposition des informations d’identification
 
@@ -72,7 +72,7 @@ Consultez votre opérateur de cluster pour déterminer les paramètres de contex
 
 Pour limiter le risque d’exposition d’informations d’identification dans le code de votre application, évitez d’utiliser des informations d’identification fixes ou partagées. Vous ne devez inclure aucune information d’identification ou clé directement dans votre code. Si ces informations d’identification sont exposées, l’application doit être mise à jour et redéployée. Une meilleure approche consiste à attribuer aux pods leur propre identité ainsi qu’un moyen de s’authentifier d’eux-mêmes, ou de récupérer automatiquement les informations d’identification à partir d’un coffre numérique.
 
-Les [projets open source AKS associés][aks-associated-projects] suivants vous permettent d’authentifier automatiquement les pods ou informations d’identification de requête et clés issus d’un coffre numérique :
+Les [projets open source AKS associés][aks-associated-projects] suivants vous permettent d’authentifier automatiquement les pods, ou de demander des informations d’identification et des clés auprès d’un coffre numérique :
 
 * Identités managées pour les ressources Azure
 * Pilote Azure Key Vault FlexVol
@@ -81,13 +81,13 @@ Les projets open source AKS associés ne sont pas pris en charge par le support 
 
 ### <a name="use-pod-managed-identities"></a>Utiliser des identités de pod managées
 
-Une identité gérée pour les ressources Azure permet à un pod de s’authentifier dans Azure auprès d’un service qui le prend en charge, tel que le service Stockage ou SQL. Le pod se voit attribuer une identité Azure qui lui permet de s’authentifier auprès d’Azure Active Directory et de recevoir un jeton numérique. Ce jeton numérique peut être présenté à d’autres services Azure qui vérifient si le pod est autorisé à accéder au service et à effectuer les actions requises. Cette approche signifie par exemple qu’aucun secret n’est nécessaire pour les chaînes de connexion à la base de données. Le worflow simplifié du système d’identités de pod managées est représenté dans le schéma suivant :
+Une identité managée pour les ressources Azure permet à un pod de s’authentifier lui-même auprès de services Azure qui le prennent en charge, comme le service Stockage ou SQL. Le pod se voit attribuer une identité Azure qui lui permet de s’authentifier auprès d’Azure Active Directory et de recevoir un jeton numérique. Ce jeton numérique peut être présenté à d’autres services Azure qui vérifient si le pod est autorisé à accéder au service et à effectuer les actions requises. Cette approche signifie par exemple qu’aucun secret n’est nécessaire pour les chaînes de connexion à la base de données. Le worflow simplifié du système d’identités de pod managées est représenté dans le schéma suivant :
 
 ![Workflow simplifié du système d’identités de pod managées dans Azure](media/developer-best-practices-pod-security/basic-pod-identity.png)
 
 Avec une identité managée, il n’est pas nécessaire d’inclure des informations d’identification dans le code de votre application pour accéder à un service, tel que Stockage Azure. Puisque chaque pod s’authentifie avec sa propre identité, vous pouvez contrôler et réviser les accès. Si votre application se connecte auprès d’autres services Azure, utilisez des identités managées pour limiter la réutilisation d’informations d’identification et le risque d’exposition.
 
-Pour plus d’informations sur les identités de pod, consultez [Configure an AKS cluster to use pod managed identities][aad-pod-identity] (Configurer un cluster AKS pour utiliser des identités de pod managées)
+Pour plus d’informations sur les identités de pod, consultez [Configurer un cluster AKS pour utiliser des identités de pod managées et avec vos applications][aad-pod-identity]
 
 ### <a name="use-azure-key-vault-with-flexvol"></a>Utiliser Azure Key Vault avec FlexVol
 

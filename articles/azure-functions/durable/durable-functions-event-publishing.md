@@ -3,12 +3,12 @@ title: Publication de Fonctions durables sur Azure Event Grid (version prélimin
 description: Découvrez comment configurer la publication automatique de l’extension Fonctions durables sur Azure Event Grid.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 5d1960f0e8d249ac77f3c64e18b332a3d55d5180
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 768af2e89d6523f50bd9fcc3d13cc84b711cc6f0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613123"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547470"
 ---
 # <a name="durable-functions-publishing-to-azure-event-grid-preview"></a>Publication de Fonctions durables sur Azure Event Grid (version préliminaire)
 
@@ -277,7 +277,7 @@ La liste suivante explique le schéma des événements du cycle de vie :
 
 ## <a name="how-to-test-locally"></a>Procédure de test local
 
-Pour tester localement, utilisez [ngrok](../functions-bindings-event-grid.md#local-testing-with-ngrok).
+Pour tester localement, consultez [Débogage local des déclencheurs Event Grid des fonctions Azure](../functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

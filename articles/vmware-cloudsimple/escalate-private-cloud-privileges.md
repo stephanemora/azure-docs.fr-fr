@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ee722f88f766178dd658600893b4497bf611be9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372769"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544444"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Élever les privilèges de vCenter pour votre cloud privé à partir du portail CloudSimple
 
@@ -55,6 +55,9 @@ L’élévation de privilèges commence et dure jusqu'à la fin de l’intervall
 
 > [!IMPORTANT]
 > Un seul utilisateur peut avoir des privilèges élevés.  Vous devez retirer les privilèges élevés de l’utilisateur avant de pouvoir élever les privilèges d’un autre utilisateur.
+
+> [!CAUTION]
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls les comptes de service doivent être ajoutés au groupe *Administrateurs* et les comptes de service ne doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.
 
 ## <a name="extend-privilege-escalation"></a>Étendre l’élévation de privilèges
 

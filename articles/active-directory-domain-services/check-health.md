@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705411"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509136"
 ---
-# <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine géré par les services de domaine Azure Active Directory
+# <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Vérifier l’intégrité d’un domaine managé par les services de domaine Azure Active Directory
 
-Azure Active Directory Domain Services (Azure AD DS) exécute des tâches en arrière-plan pour assurer que le domaine géré est intègre et à jour. Ces tâches incluent la réalisation de sauvegardes, l’application de mises à jour de sécurité et la synchronisation des données à partir d’Azure AD. En cas de problème avec le domaine managé Azure AD DS, ces tâches peuvent ne pas s’exécuter correctement. Pour examiner et résoudre les problèmes éventuels, vous pouvez vérifier l’état d’intégrité d’un domaine managé Azure AD DS à l’aide du portail Azure.
+Azure Active Directory Domain Services (Azure AD DS) exécute des tâches en arrière-plan pour assurer que le domaine managé est sain et à jour. Ces tâches incluent la réalisation de sauvegardes, l’application de mises à jour de sécurité et la synchronisation des données à partir d’Azure AD. En cas de problème avec le domaine managé Azure AD DS, ces tâches peuvent ne pas s’effectuer correctement. Pour examiner et résoudre les problèmes éventuels, vous pouvez vérifier l’état d’intégrité d’un domaine managé Azure AD DS à l’aide du portail Azure.
 
-Cet article explique comment afficher l’état d’intégrité d’Azure AD DS et comprendre les informations ou les alertes affichées.
+Cet article vous montre comment consulter l’état d’intégrité d’Azure AD DS et comprendre les informations ou les alertes montrées.
 
 ## <a name="view-the-health-status"></a>Afficher l’état d’intégrité
 
@@ -40,20 +40,20 @@ L’état affiché dans le coin supérieur droit indique l’intégrité globale
 
 | Statut | Icône | Explication |
 | --- | :----: | --- |
-| Exécution | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Le domaine managé Azure AD DS fonctionne normalement et n’a pas d’alertes critiques ou d’avertissement. Le domaine peut avoir des alertes d’information. |
+| Exécution en cours | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Le domaine managé Azure AD DS fonctionne normalement et n’a pas d’alertes critiques ou d’avertissement. Le domaine peut avoir des alertes d’information. |
 | Doit être surveillé (avertissement) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Il n’existe aucune alerte critique sur le domaine managé Azure AD DS, mais il existe une ou plusieurs alertes d’avertissement qui doivent être traitées. |
 | Doit être surveillé (critique) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Il y a une ou plusieurs alertes critiques sur le domaine managé Azure AD DS qui doivent être traitées. Vous avez peut-être également des alertes d’avertissement et/ou d’information. |
 | Déploiement en cours | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Le domaine Azure AD DS est en cours de déploiement. |
 
 ## <a name="understand-monitors-and-alerts"></a>Comprendre les analyses et les alertes
 
-L’état d’intégrité d’un domaine managé Azure AD DS présente deux types d’informations : les analyses et les alertes. Les analyses indiquent l’heure à laquelle les tâches principales en arrière-plan se sont terminées. Les alertes fournissent des informations ou des suggestions pour améliorer la stabilité du domaine géré.
+L’état d’intégrité d’un domaine managé Azure AD DS présente deux types d’informations : les *analyses* et les *alertes*. Les analyses indiquent l’heure à laquelle les tâches principales en arrière-plan se sont terminées. Les alertes fournissent des informations ou des suggestions pour améliorer la stabilité du domaine managé.
 
 ### <a name="monitors"></a>Analyses
 
-Les analyses sont des zones d’un domaine managé Azure AD DS qui sont vérifiées régulièrement. S’il existe des alertes actives pour le domaine managé Azure AD DS, cela peut entraîner le signalement d’un problème par une des analyses. Azure AD Domain Services surveille actuellement les zones suivantes :
+Les analyses sont des zones d’un domaine managé Azure AD DS qui sont vérifiées régulièrement. S’il existe des alertes actives pour le domaine managé Azure AD DS, cela peut entraîner le signalement d’un problème par une des analyses. Azure AD Domain Services surveille actuellement les zones suivantes :
 
-* Sauvegarde
+* Backup
 * Synchronisation avec Azure AD
 
 #### <a name="backup-monitor"></a>Analyse de sauvegarde
@@ -68,7 +68,7 @@ L’analyse de sauvegarde vérifie que les sauvegardes régulières automatisée
 
 #### <a name="synchronization-with-azure-ad-monitor"></a>Synchronisation avec Azure AD Monitor
 
-Un domaine managé Azure AD DS se synchronise régulièrement avec Azure Active Directory. Le nombre d’utilisateurs et d’objets de groupe et le nombre de modifications effectuées dans l’annuaire Azure AD depuis la dernière synchronisation, affectent le temps nécessaire à la synchronisation. Si le domaine managé Azure AD DS a été synchronisé pour la dernière fois il y a plus de trois jours, recherchez et résolvez les alertes actives. Si l’analyse de synchronisation ne met pas à jour l’état pour afficher une synchronisation récente, [ouvrez une demande de support Azure][azure-support].
+Un domaine managé Azure AD DS se synchronise régulièrement avec Azure Active Directory. Le nombre d’utilisateurs et d’objets de groupe et le nombre de modifications effectuées dans l’annuaire Azure AD depuis la dernière synchronisation, affectent le temps nécessaire à la synchronisation. Si le domaine managé Azure AD DS a été synchronisé pour la dernière fois il y a plus de trois jours, recherchez et résolvez les alertes actives. Si l’analyse de synchronisation ne met pas à jour l’état pour afficher une synchronisation récente après avoir répondu aux alertes actives, [ouvrez une demande de support Azure][azure-support].
 
 ### <a name="alerts"></a>Alertes
 

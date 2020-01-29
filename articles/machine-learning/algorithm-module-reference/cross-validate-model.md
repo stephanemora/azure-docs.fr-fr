@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ac1f3e4bf629a2e12eb0461b932a5865228c79c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428562"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546705"
 ---
 # <a name="cross-validate-model"></a>Modèle de validation croisée
 
@@ -76,7 +76,7 @@ Dans ce scénario, vous entraînez et testez le modèle à l’aide du modèle d
 
 7. Pour obtenir une description des rapports, consultez la section [Résultats](#results).
 
-    Pour obtenir une copie du modèle en vue d’une réutilisation ultérieure, cliquez avec le bouton droit sur la sortie du module qui contient l’algorithme (par exemple, la **machine de point de Bayes à deux classes**). Sélectionnez ensuite **Save as Trained Model** (Enregistrer en tant que modèle entraîné).
+    Pour obtenir une copie du modèle en vue d’une réutilisation ultérieure, basculez vers l’onglet **Sorties** dans le panneau droit du module qui contient l’algorithme (par exemple, la **machine de point de Bayes à deux classes**). Sélectionnez ensuite l’icône **Inscrire le jeu de données** pour enregistrer une copie du modèle entraîné dans l’arborescence du module.
 
 ## <a name="results"></a>Résultats
 
@@ -86,7 +86,7 @@ Une fois toutes les itérations terminées, le modèle de validation croisée cr
 
 La première sortie du module fournit les données sources pour chaque ligne ainsi que des valeurs prédites et des probabilités associées. 
 
-Pour voir ces résultats, dans le pipeline, cliquez avec le bouton droit sur le module Modèle de validation croisée. Sélectionnez **Scored results** (Résultats notés), puis **Visualiser**.
+Pour voir les résultats, dans le pipeline, cliquez avec le bouton droit sur le module Modèle de validation croisée. Sélectionnez **Visualize Scored results** (Visualiser les résultats notés).
 
 | Nouveau nom de colonne      | Description                              |
 | -------------------- | ---------------------------------------- |
@@ -100,7 +100,7 @@ Le deuxième rapport est regroupé par échantillons. N’oubliez pas que, penda
 
 Dans ce rapport, les échantillons sont listés par valeur d’index, dans l’ordre croissant.  Pour effectuer un tri sur une autre colonne, vous pouvez enregistrer les résultats sous la forme d’un jeu de données.
 
-Pour voir ces résultats, dans le pipeline, cliquez avec le bouton droit sur le module Modèle de validation croisée. Sélectionnez **Evaluation results by fold** (Résultats de l’évaluation par repli), puis **Visualiser**.
+Pour voir les résultats, dans le pipeline, cliquez avec le bouton droit sur le module Modèle de validation croisée. Sélectionnez **Visualize Evaluation results by fold** (Visualiser les résultats de l’évaluation par échantillon).
 
 
 |Nom de la colonne| Description|

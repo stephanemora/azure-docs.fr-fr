@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b49ff44e898a78d865278df087aca75e4f8e50ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a1b14a4f004e9b6fe64d9095eeb63ebf78750387
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466036"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546535"
 ---
 # <a name="multiclass-neural-network-module"></a>Module Multiclass Neural Network (Réseau neuronal à multiclasse)
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un modèle de réseau neuronal qui peut être utilisé pour prédire une cible ayant plusieurs valeurs. 
 
@@ -44,7 +44,7 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
 
 2. **Create trainer mode** (Créer un mode d’apprentissage) : Utilisez cette option pour spécifier comment vous voulez que le modèle soit entraîné :
 
-    - **Single Parameter** (Paramètre unique) : choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.
+    - **Single Parameter** (Paramètre unique) : choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.
 
     
 
@@ -56,7 +56,7 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
         - La couche de sortie est entièrement connectée à la couche masquée.
         - La couche masquée est entièrement connectée à la couche d’entrée.
         - Le nombre de nœuds dans la couche d’entrée est déterminé par le nombre de caractéristiques dans les données de formation.
-        - Le nombre de nœuds dans la couche masquée peut être défini par l’utilisateur. La valeur par défaut est 100.
+        - Le nombre de nœuds dans la couche masquée peut être défini par l’utilisateur. La valeur par défaut est 100.
         - Le nombre de nœuds dans la couche de sortie dépend du nombre de classes.
   
    
@@ -84,13 +84,10 @@ Pour calculer la sortie du réseau pour une entrée donnée, une valeur est calc
 
 ## <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
-- Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation et d’autres paramètres du réseau neuronal, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.  
-
-- Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives du même pipeline.
-
+- Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties** dans le panneau droit du module **Entraîner le modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

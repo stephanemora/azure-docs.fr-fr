@@ -1,31 +1,24 @@
 ---
-title: Installer un appareil Microsoft Azure StorSimple 8100 | Microsoft Docs
+title: Installer un appareil Microsoft Azure StorSimple 8100
 description: Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8100 avant de déployer et de configurer le logiciel.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b2301c1c9b846e2ea005f049c5aadb3d4634a81
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 113b72ddf7e5d508c8a0b577d4004d4fbd83e8e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963585"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277080"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8100
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Votre appareil Microsoft Azure StorSimple 8100 doit être monté en rack sur un boîtier unique. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8100 avant de configurer et de déployer l’appareil StorSimple.
 
 ## <a name="unpack-your-storsimple-8100-device"></a>Déballage de votre appareil StorSimple 8100
@@ -34,7 +27,7 @@ La procédure suivante explique de façon claire et détaillée comment déballe
 ### <a name="prepare-to-unpack-your-device"></a>Préparation du déballage de votre appareil
 Avant de déballer l’appareil, lisez les informations suivantes.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
+![Icône d’avertissement](./media/storsimple-safety/IC740879.png)![Icône objet lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVERTISSEMENT !**
 
 1. Compte tenu du poids du boîtier, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
 2. Placez le carton sur une surface plane et droite.
@@ -55,7 +48,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    |   2 |Polystyrène de protection inférieur |
    |   3 |Appareil |
    |   4 |Polystyrène de protection supérieur |
-   |   5\. |Carton contenant les accessoires |
+   |   5 |Carton contenant les accessoires |
 3. Une fois le carton déballé, vous devez disposer des éléments suivants :
    
    * 1 appareil dans son boîtier
@@ -64,7 +57,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    * 2 câbles de console série
    * 1 convertisseur de série USB pour l’accès en série
    * 1 tournevis T10 inaltérable
-   * 4 adaptateurs QSFP-SFP+ à utiliser avec les interfaces réseau 10 GbE
+   * 4 adaptateurs QSFP-SFP+ à utiliser avec les interfaces réseau 10 Gigabit Ethernet
    * 1 kit de montage en rack (2 rails latéraux avec matériel de montage)
    * Documentation de mise en route
      
@@ -90,7 +83,7 @@ L’appareil doit être installé dans un rack standard de 19 pouces équipé d
 2. Vérifiez que le site où vous envisagez de monter l’appareil dispose d’une alimentation secteur standard provenant d’une source indépendante ou d’une unité de distribution de l’alimentation (PDU) en rack avec un onduleur (UPS).
 3. Assurez-vous qu’un emplacement de 2U est disponible sur le rack dans lequel vous avez l’intention de monter l’appareil.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
+![Icône d’avertissement](./media/storsimple-safety/IC740879.png)![Icône objet lourd](./media/storsimple-8100-hardware-installation/HCS_HeavyWeight_Icon.png) **AVERTISSEMENT !**
 
 Compte tenu du poids de l’appareil, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
 
@@ -131,7 +124,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    |   2 |Ouverture carrée pour vis du poteau avant du rack |
    |   3 |Ergots de positionnement avant du rail gauche |
    |   4 |Vis de serrage |
-   |   5\. |Ergots de positionnement arrière du rail gauche |
+   |   5 |Ergots de positionnement arrière du rail gauche |
 
 ### <a name="mounting-the-device-in-the-rack"></a>Montage de l’appareil dans le rack
 À l’aide des rails du rack qui viennent d’être installés, procédez comme suit pour monter l’appareil dans le rack.
@@ -160,7 +153,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 ## <a name="cable-your-storsimple-8100-device"></a>Branchement des câbles de votre appareil StorSimple 8100
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8100.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer le câblage de votre appareil, vous devez disposer des éléments suivants :
 
 * Votre appareil de stockage, complètement déballé et monté en rack.
@@ -204,7 +197,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
    |Étiquette | Description |
    |----- | ----------- |
-   | A    | LAN avec accès à Internet |
+   | Un    | LAN avec accès à Internet |
    | B    | Contrôleur 0 |
    | C    | PCM 0 |
    | D    | Contrôleur 1 |

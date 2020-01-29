@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805703"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277594"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Groupes de placement de proximité Azure pour une latence réseau optimale avec les applications SAP
 Les applications SAP basées sur l’architecture SAP NetWeaver ou SAP S/4HANA sont sensibles à la latence réseau entre la couche Application SAP et la couche Base de données SAP. Cette sensibilité est due au fait que la plupart de la logique métier s’exécute dans la couche Application. Étant donné que la couche Application SAP exécute la logique métier, elle émet des requêtes à la base de données à une fréquence élevée (plusieurs milliers ou dizaines de milliers par seconde). Dans la plupart des cas, la nature de ces requêtes est simple. Elles peuvent souvent être exécutées sur la couche Base de données en 500 microsecondes ou moins.
@@ -156,7 +156,7 @@ Le résultat de ce déploiement est le suivant :
 > Étant donné que vous déployez une machine virtuelle SGBD dans une zone et la seconde dans une autre zone pour créer une configuration de haute disponibilité, vous aurez besoin d’un groupe de placement de proximité différent pour chacune des zones. Il en va de même pour tout groupe à haute disponibilité que vous utilisez.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Déplacer un système existant dans des groupes de placement de proximité
-Si vous avez déjà des systèmes SAP déployés, vous souhaiterez peut-être optimiser la latence réseau de certains de vos systèmes critiques et localiser la couche Application et la couche SGBD dans le même centre de données. Pendant la préversion publique des groupes de placement de proximité, vous devez supprimer les machines virtuelles et en créer de nouvelles pour déplacer le système dans des groupes de placement de proximité. Pour le moment, vous ne pouvez pas simplement arrêter les machines virtuelles et les affecter à des groupes de placement de proximité.
+Si vous avez déjà des systèmes SAP déployés, vous souhaiterez peut-être optimiser la latence réseau de certains de vos systèmes critiques et localiser la couche Application et la couche SGBD dans le même centre de données. Pour déplacer les machines virtuelles d’un groupe à haute disponibilité Azure complet vers un groupe de placements de proximité existant dont l’étendue est déjà définie, vous devez arrêter toutes les machines virtuelles du groupe et affecter celui-ci au groupe de placements de proximité existant via le portail Azure, PowerShell ou CLI. Si vous souhaitez déplacer une machine virtuelle qui ne fait pas partie d’un groupe à haute disponibilité vers un groupe de placements de proximité existant, il vous suffit d’arrêter la machine virtuelle et de l’affecter au groupe de placements de proximité existant souhaité. 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

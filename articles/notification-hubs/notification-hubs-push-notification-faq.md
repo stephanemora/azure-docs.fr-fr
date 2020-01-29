@@ -1,6 +1,6 @@
 ---
-title: 'Azure Notification Hubs : Questions fréquentes (FAQ) | Microsoft Docs'
-description: FAQ sur la conception et l'implémentation de solutions sur Notification Hubs
+title: Forum aux questions (FAQ) à propos d’Azure Notification Hubs | Microsoft Docs
+description: Forum aux questions à propos de la conception et l’implémentation de solutions sur Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,16 +17,16 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066872"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263827"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Questions fréquentes (FAQ)
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notifications Push avec Azure Notification Hubs : Forum aux questions
 
-## <a name="general"></a>Généralités
+## <a name="general"></a>Général
 
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Quelle est la structure des ressources des Notification Hubs ?
 
@@ -56,7 +56,7 @@ Pour les niveaux De base et Standard de Notification Hubs, les applications corr
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Comment mettre à niveau ou rétrograder mon concentrateur ou mon espace de noms pour modifier son niveau ?
 
-Accédez au **[portail Azure]**  > **Espaces de noms Notification Hubs** ou **Notification Hubs**. Sélectionnez la ressource que vous souhaitez mettre à jour et accédez au **Niveau de tarification**. Notez les exigences suivantes :
+Accédez au **[Azure portal]**  > **Espaces de noms Notification Hubs** ou **Notification Hubs**. Sélectionnez la ressource que vous souhaitez mettre à jour et accédez au **Niveau de tarification**. Notez les exigences suivantes :
 
 * Le nouveau niveau de tarification s’applique à *tous* les concentrateurs de l’espace de noms que vous utilisez.
 * Si votre nombre d’appareils dépasse la limite du niveau inférieur vers lequel vous basculez, vous devez supprimer des appareils avant de procéder à cette opération.
@@ -181,7 +181,7 @@ Azure Notification Hubs chiffre toutes les données client au repos à l’excep
 
 ### <a name="is-there-audit-log-capability"></a>Existe-t-il une fonctionnalité de journal d’audit ?
 
-Oui. Toutes les opérations de gestion de Notification Hubs mettent à jour le journal d’activité Azure dans les journaux des opérations qui est exposé dans le [portail Azure]. Le journal d’activité Azure fournit des insights sur les opérations effectuées sur des ressources de vos abonnements. Avec le journal d’activité, vous pouvez déterminer qui, quand et quoi pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur les ressources de votre abonnement. Vous pouvez également comprendre l’état des opérations et d’autres propriétés pertinentes. Toutefois, le journal d’activité n’inclut pas l’opération de lecture (GET).
+Oui. Toutes les opérations de gestion de Notification Hubs mettent à jour le journal d’activité Azure dans les journaux des opérations qui est exposé dans le [Azure portal]. Le journal d’activité Azure fournit des insights sur les opérations effectuées sur des ressources de vos abonnements. Avec le journal d’activité, vous pouvez déterminer qui, quand et quoi pour toutes les opérations d’écriture (PUT, POST, DELETE) effectuées sur les ressources de votre abonnement. Vous pouvez également comprendre l’état des opérations et d’autres propriétés pertinentes. Toutefois, le journal d’activité n’inclut pas l’opération de lecture (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Surveillance et dépannage
 
@@ -191,7 +191,7 @@ Azure Notification Hubs fournit plusieurs fonctionnalités de dépannage, en par
 
 ### <a name="what-telemetry-features-are-available"></a>Quelles sont les fonctionnalités de télémétrie proposées ?
 
-Azure Notification Hubs permet d’afficher des données de télémétrie sur le [Portail Azure]. Pour plus de détails sur les mesures disponibles, voir la page [Mesures de Notification Hubs].
+Azure Notification Hubs permet d’afficher des données de télémétrie sur le [Azure portal]. Pour plus de détails sur les mesures disponibles, voir la page [Mesures de Notification Hubs].
 
 Vous pouvez également accéder aux mesures de manière programmatique. Pour plus d’informations, consultez les articles suivants :
 
@@ -202,7 +202,7 @@ Vous pouvez également accéder aux mesures de manière programmatique. Pour plu
 > [!NOTE]
 > Les notifications réussies signifient simplement que les notifications Push ont été remises au PNS externe (par exemple, APNs pour iOS et macOS ou FCM pour les appareils Android). Il est de la responsabilité du service de notification Push d’envoyer des notifications aux appareils cibles. En règle générale, le PNS n’expose pas les métriques de remise aux tiers.  
 
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Tarification de Concentrateurs de notification]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [API REST de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
@@ -215,6 +215,6 @@ Vous pouvez également accéder aux mesures de manière programmatique. Pour plu
 [Dépannage de Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Mesures de Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Exportation et modification d’inscriptions en bloc]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

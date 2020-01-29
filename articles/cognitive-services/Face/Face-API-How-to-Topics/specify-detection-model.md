@@ -1,7 +1,7 @@
 ---
-title: Guide pratique pour spécifier un modèle détection - API Visage
+title: Guide pratique pour spécifier un modèle de détection – Visage
 titleSuffix: Azure Cognitive Services
-description: Cet article vous montrera comment choisir le modèle de détection des visages à utiliser avec votre application API Visage Azure.
+description: Cet article vous montre comment choisir le modèle de détection de visages à utiliser avec votre application Azure Visage.
 services: cognitive-services
 author: yluiu
 manager: nitinme
@@ -10,24 +10,24 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: 4306a918d56240bfe038100124b3c2b94964cebc
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f5b524ca6156dab7c0d1e38ad320b721f40a49ef
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306680"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169752"
 ---
 # <a name="specify-a-face-detection-model"></a>Spécifier un modèle de détection des visages
 
-Ce guide vous montre comment spécifier un modèle de détection de visage pour l’API Visage d’Azure.
+Ce guide vous montre comment spécifier un modèle de détection de visages pour le service Visage d’Azure.
 
-L’API Visage utilise des modèles d’apprentissage automatique pour effectuer des opérations sur les visages humains dans des images. Nous continuons d’améliorer la précision de nos modèles en fonction des commentaires de nos clients et des progrès de la recherche, et nous intégrons ces améliorations sous forme de mises à jour de modèles. Les développeurs peuvent spécifier la version du modèle de détection des visages qu'ils souhaitent utiliser ; ils peuvent choisir le modèle qui correspond le mieux à leur cas d'utilisation.
+Le service Visage utilise des modèles Machine Learning pour effectuer des opérations sur les visages présents dans les images. Nous continuons d’améliorer la précision de nos modèles en fonction des commentaires de nos clients et des progrès de la recherche, et nous intégrons ces améliorations sous forme de mises à jour de modèles. Les développeurs peuvent spécifier la version du modèle de détection des visages qu'ils souhaitent utiliser ; ils peuvent choisir le modèle qui correspond le mieux à leur cas d'utilisation.
 
-Poursuivez votre lecture pour savoir comment spécifier le modèle de détection de visage dans certaines opérations de visage. L’API Visage utilise la détection de visage chaque fois qu’elle convertit une image d’un visage en une autre forme de données.
+Poursuivez votre lecture pour savoir comment spécifier le modèle de détection de visage dans certaines opérations de visage. Le service Visage utilise la détection des visages chaque fois qu’elle convertit l’image d’un visage dans une autre forme de données.
 
 Si vous hésitez à utiliser le modèle le plus récent, passez à la section [Évaluer des modèles différents](#evaluate-different-models) pour évaluer le nouveau modèle et comparer les résultats en utilisant votre ensemble de données actuel.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez maîtriser les concepts de la détection de visages par intelligence artificielle (AI). Si ce n’est pas le cas, consultez le guide conceptuel ou le guide pratique pour la détection de visage :
 
@@ -56,7 +56,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, false, false, rec
 
 ## <a name="add-face-to-person-with-specified-model"></a>Ajouter un visage à une personne avec le modèle spécifié
 
-L’API Visage peut extraire des données de visage à partir d’une image et les associer à une **personne** via l’API [PersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b). Dans cet appel d’API, vous pouvez spécifier le modèle de détection de la même façon que dans [Face - Detect].
+Le service Visage peut extraire les données de visage d’une image et les associer à un objet **Person** via l’API [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b). Dans cet appel d’API, vous pouvez spécifier le modèle de détection de la même façon que dans [Face - Detect].
 
 Consultez l'exemple de code suivant pour la bibliothèque cliente .NET.
 

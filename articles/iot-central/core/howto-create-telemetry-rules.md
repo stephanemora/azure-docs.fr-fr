@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0b24c064424b00fa9acb96b03c0a3c5ca69f67f2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930183"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264356"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle de télémétrie et configurer des notifications dans votre application Azure IoT Central
 
@@ -21,13 +21,13 @@ ms.locfileid: "73930183"
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Vous pouvez utiliser Azure IoT Central pour surveiller à distance vos appareils connectés. Les règles d’Azure IoT Central vous permettent de surveiller vos appareils quasiment en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail ou le déclenchement de Microsoft Flow. En quelques clics seulement, vous pouvez définir la condition pour surveiller les données de votre appareil et configurer l’action correspondante. Cet article explique comment créer des règles pour surveiller les données de télémétrie envoyées par l’appareil.
+Vous pouvez utiliser Azure IoT Central pour surveiller à distance vos appareils connectés. Les règles d’Azure IoT Central vous permettent de surveiller vos appareils quasiment en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail ou le déclenchement de Microsoft Flow. En quelques clics seulement, vous pouvez définir la condition pour surveiller les données de vos appareils et configurer l’action correspondante. Cet article explique comment créer des règles pour surveiller les données de télémétrie envoyées par l’appareil.
 
 Les appareils peuvent utiliser des mesures de télémétrie pour envoyer des données numériques. Une règle de télémétrie se déclenche quand la télémétrie de l’appareil sélectionné dépasse un seuil spécifié.
 
 ## <a name="create-a-telemetry-rule"></a>Créer une règle de télémétrie
 
-Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au moins une mesure de télémétrie définie. Cet exemple utilise un distributeur automatique réfrigéré qui envoie les données de télémétrie de la température et de l’humidité. La règle surveille la température signalée par l’appareil et envoie un e-mail quand elle dépasse 80 degrés.
+Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au moins une mesure de télémétrie définie. Cet exemple utilise un distributeur automatique réfrigéré qui envoie les données de télémétrie de la température et de l’humidité. La règle supervise la température signalée par l’appareil et envoie un e-mail quand elle dépasse 70&deg; F.
 
 1. À l’aide de la page **Modèles d’appareil**, accédez au modèle d’appareil pour lequel vous ajoutez la règle.
 
@@ -41,7 +41,7 @@ Pour créer une règle de télémétrie, le modèle d’appareil doit avoir au m
 
     ![Types de règles](media/howto-create-telemetry-rules/rule_types1.png)
 
-1. Entrez un nom qui vous aide à identifier la règle dans ce modèle d’appareil.
+1. Entrez un nom facilitant l’identification de la règle dans ce modèle d’appareil.
 
 1. Pour activer immédiatement la règle sur tous les appareils créés pour ce modèle, choisissez **Activer la règle pour tous les appareils de ce modèle**.
 
@@ -58,8 +58,8 @@ La condition définit les critères qui sont surveillés par la règle.
 1. Sélectionnez les données de télémétrie que vous souhaitez analyser dans la liste déroulante **Mesure**.
 
 1. Choisissez **Agrégation**, **Opérateur** et spécifiez une valeur **Seuil**.
-   - L’agrégation est facultative. Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température dépasse 80, la règle se déclenche presque instantanément lorsque l’appareil affiche température > 80.
-   - Si une fonction d’agrégation comme Average, Min, Max, Count est sélectionnée, l’utilisateur doit spécifier la **fenêtre de temps d’agrégation** pendant laquelle la condition sera évaluée. Par exemple, si vous définissez la fenêtre sur « 5 minutes » et que votre règle recherche une température moyenne supérieure à 80, la règle se déclenche lorsque la température moyenne est au-dessus de 80 pendant au moins 5 minutes. La fréquence d’évaluation de la règle est la même que la **fenêtre de temps d’agrégation**, ce qui signifie que, dans cet exemple, la règle est évaluée toutes les 5 minutes.
+   - L’agrégation est facultative. Sans agrégation, la règle se déclenche pour chaque point de données de télémétrie qui répond à la condition. Par exemple, si la règle est configurée pour se déclencher quand la température dépasse 70&deg; F, elle se déclenche presque instantanément quand l’appareil affiche une température supérieure à 70.
+   - Si une fonction d’agrégation comme Average, Min, Max, Count est sélectionnée, l’utilisateur doit spécifier la **fenêtre de temps d’agrégation** pendant laquelle la condition sera évaluée. Par exemple, si vous définissez la fenêtre sur « 5 minutes » et que votre règle recherche une température moyenne supérieure à 70, la règle se déclenche quand la température moyenne est au-dessus de 70&deg; F pendant au moins cinq minutes. La fréquence d’évaluation de la règle est la même que la **fenêtre de temps d’agrégation**, ce qui signifie que, dans cet exemple, la règle est évaluée toutes les 5 minutes.
 
      ![Condition](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
@@ -90,7 +90,7 @@ Vous pouvez ajouter d’autres actions à la règle, par exemple Microsoft Flow 
 
 ## <a name="parameterize-the-rule"></a>Paramétrer la règle
 
-Les règles peuvent dériver certaines valeurs des **Propriétés de l’appareil** en tant que paramètres. L’utilisation de paramètres est pratique dans les scénarios où les seuils de télémétrie varient sur les différents appareils. Quand vous créez la règle, choisissez une propriété d’appareil qui spécifie le seuil, comme **Seuil maximal idéal**, au lieu de fournir une valeur absolue, par exemple 80 degrés. Quand la règle s’exécute, elle correspond à la télémétrie de l’appareil avec la valeur définie dans la propriété de l’appareil.
+Les règles peuvent dériver certaines valeurs des **Propriétés de l’appareil** en tant que paramètres. L’utilisation de paramètres est pratique dans les scénarios où les seuils de télémétrie varient sur les différents appareils. Quand vous créez la règle, choisissez une propriété d’appareil qui spécifie le seuil, comme **Seuil maximal idéal**, au lieu de fournir une valeur absolue, par exemple 70&deg; F. Quand la règle s’exécute, elle établit une correspondance entre la télémétrie de l’appareil et la valeur définie dans la propriété de l’appareil.
 
 L’utilisation de paramètres est un moyen efficace pour réduire le nombre de règles à gérer par modèle d’appareil.
 

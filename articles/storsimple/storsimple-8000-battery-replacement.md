@@ -1,29 +1,21 @@
 ---
-title: Remplacer la batterie d’un appareil de la gamme Microsoft Azure StorSimple 8000 | Microsoft Docs
+title: Remplacer la batterie d’un appareil de la gamme Microsoft Azure StorSimple 8000
 description: Décrit comment retirer, remplacer et entretenir le module de batterie de secours sur votre appareil StorSimple.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 4ebf3f28d40e0461d140a3fe74fb940720f26db6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f21bbf4777aa74e84ffb8c1af903f90608d5551f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64693749"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276901"
 ---
 # <a name="replace-the-backup-battery-module-on-your-storsimple-device"></a>Remplacer le module de batterie de secours sur votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le module d’alimentation et de refroidissement (PCM) du boîtier principal de votre appareil Microsoft Azure StorSimple dispose d’une batterie supplémentaire. Celle-ci fournit l’alimentation pour que l’appareil StorSimple puisse enregistrer des données en cas de perte d’alimentation au niveau du boîtier principal. Cette batterie est appelée *module de batterie de secours*. Le module de batterie de secours existe uniquement pour le boîtier principal de votre appareil StorSimple (le boîtier EBOD ne contient pas de module de batterie de secours).
 
 Ce didacticiel explique comment :
@@ -66,7 +58,7 @@ Le module de batterie de secours pour votre appareil StorSimple est une unité r
    | 2 |Panne de ventilateur |
    | 3 |Panne de batterie |
    | 4 |PCM OK |
-   | 5\. |Panne d’alimentation secteur |
+   | 5 |Panne d’alimentation secteur |
    | 6 |Batterie saine |
 3. Pour retirer le PCM dont la batterie est défectueuse, suivez les étapes de la procédure [Retrait d’un PCM](storsimple-8000-power-cooling-module-replacement.md#remove-a-pcm).
 4. Une fois le PCM retiré, soulevez la poignée du module de batterie et faites-la pivoter vers le haut, comme l’illustre la figure ci-après, puis tirez dessus pour extraire la batterie.

@@ -1,6 +1,6 @@
 ---
 title: Vue d’ensemble des API Azure Event Hubs .NET Framework | Microsoft Docs
-description: Résumé de certaines des principales API clientes Event Hubs .NET Framework.
+description: Cet article fournit un récapitulatif de certaines des principales API clientes Event Hubs .NET Framework (gestion et exécution).
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: f56882d2d73c85434c6f81972a06e5ea9ccdff99
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f67351fa38543504d63dbf8d86c9537feea24a4f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822045"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312615"
 ---
 # <a name="event-hubs-net-framework-api-overview"></a>Vue d’ensemble de l’API Event Hubs .NET Framework
 
@@ -35,7 +35,7 @@ ehd.PartitionCount = SampleManager.numPartitions;
 await namespaceManager.CreateEventHubAsync(ehd);
 ```
 
-### <a name="update"></a>Mettre à jour
+### <a name="update"></a>Update
 
 ```csharp
 var ehd = await namespaceManager.GetEventHubAsync(eventHubName);
@@ -48,7 +48,7 @@ ehd.Authorization.Add(new SharedAccessAuthorizationRule(ruleName, ruleKey, new A
 await namespaceManager.UpdateEventHubAsync(ehd);
 ```
 
-### <a name="delete"></a>Supprimer
+### <a name="delete"></a>DELETE
 
 ```csharp
 await namespaceManager.DeleteEventHubAsync("event hub name");
@@ -179,7 +179,7 @@ public class SimpleEventProcessor : IEventProcessor
 Pour en savoir plus sur les scénarios des concentrateurs d’événements, consultez ces liens :
 
 * [Nouveautés des concentrateurs d’événements Azure ?](event-hubs-what-is-event-hubs.md)
-* [Guide de programmation de concentrateurs d’événements](event-hubs-programming-guide.md)
+* [Guide de programmation Event Hubs](event-hubs-programming-guide.md)
 
 Les informations de référence de l'API .NET se trouvent ici :
 

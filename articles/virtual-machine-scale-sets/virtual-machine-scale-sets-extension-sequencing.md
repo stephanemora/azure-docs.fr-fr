@@ -1,26 +1,18 @@
 ---
-title: Utiliser le séquencement d’extensions avec des groupes de machines virtuelles identiques Azure | Microsoft Docs
+title: Utiliser le séquencement d’extensions avec des groupes de machines virtuelles identiques Azure
 description: Découvrez comment séquencer le provisionnement des extensions quand vous déployez plusieurs extensions dans des groupes de machines virtuelles identiques.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60620170"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278054"
 ---
 # <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Séquencer le provisionnement des extensions dans des groupes de machines virtuelles identiques
 Les extensions de machine virtuelle Azure apportent diverses fonctionnalités, telles que la configuration et la gestion après le déploiement, la supervision, la sécurité, et bien plus encore. Les déploiements de production utilisent généralement une combinaison de plusieurs extensions configurées pour les instances de machine virtuelle afin d’obtenir les résultats souhaités.
@@ -29,7 +21,7 @@ Si vous utilisez plusieurs extensions sur une machine virtuelle, il est importan
 
 Cet article explique comment séquencer les extensions configurées pour les instances de machine virtuelle dans les groupes de machines virtuelles identiques.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose de connaître :
 -   Les [extensions](../virtual-machines/extensions/overview.md) de machine virtuelle Azure
 -   La [modification](virtual-machine-scale-sets-upgrade-scale-set.md) des groupes de machines virtuelles identiques
@@ -245,7 +237,7 @@ az vmss extension set \
 ```
 
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 ### <a name="not-able-to-add-extension-with-dependencies"></a>Vous ne pouvez pas ajouter d’extension avec des dépendances ?
 1. Assurez-vous que les extensions spécifiées dans provisionAfterExtensions sont définies dans le modèle de groupe identique.

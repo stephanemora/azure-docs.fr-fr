@@ -8,14 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 01/15/2020
 ms.author: qiohu
-ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+zone_pivot_groups: programming-languages-set-seven
+ms.openlocfilehash: bc438c3e606fefc10e9ffbb64c79f7167d9af062
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110182"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122047"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>Détection automatique de la langue pour la reconnaissance vocale
 
@@ -24,7 +25,7 @@ La détection automatique de la langue est utilisée pour déterminer la corresp
 Dans cet article, vous allez apprendre à utiliser `AutoDetectSourceLanguageConfig` pour construire un objet `SpeechRecognizer` et récupérer la langue détectée.
 
 > [!IMPORTANT]
-> Cette fonctionnalité est disponible uniquement pour le Kit de développement logiciel (SDK) Speech pour C++ et pour Java.
+> Cette fonctionnalité est disponible uniquement pour le kit SDK Speech pour C#, C++ et Java.
 
 ## <a name="automatic-language-detection-with-the-speech-sdk"></a>Détection automatique de la langue avec le Kit de développement logiciel (SDK) Speech
 
@@ -35,6 +36,22 @@ La détection automatique de la langue a actuellement une limite côté services
 
 Les extraits de code suivants montrent comment utiliser la détection automatique de la langue dans vos applications :
 
+::: zone pivot="programming-language-csharp"
+
+```csharp
+var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromLanguages(new string[] { "en-US", "de-DE" });
+using (var recognizer = new SpeechRecognizer(speechConfig, autoDetectSourceLanguageConfig, audioConfig))
+{
+    var speechRecognitionResult = await recognizer.RecognizeOnceAsync();
+    var autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult.FromResult(speechRecognitionResult);
+    var detectedLanguage = autoDetectSourceLanguageResult.Language;
+}
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
 ```C++
 auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromLanguages({ "en-US", "de-DE" });
 auto recognizer = SpeechRecognizer::FromConfig(speechConfig, autoDetectSourceLanguageConfig, audioConfig);
@@ -42,6 +59,10 @@ speechRecognitionResult = recognizer->RecognizeOnceAsync().get();
 auto autoDetectSourceLanguageResult = AutoDetectSourceLanguageResult::FromResult(speechRecognitionResult);
 auto detectedLanguage = autoDetectSourceLanguageResult->Language;
 ```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
 
 ```Java
 AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.fromLanguages(Arrays.asList("en-US", "de-DE"));
@@ -58,11 +79,28 @@ audioConfig.close();
 result.close();
 ```
 
+::: zone-end
+
 ## <a name="use-a-custom-model-for-automatic-language-detection"></a>Utiliser un modèle personnalisé pour la détection automatique de la langue
 
 En plus de la détection de la langue à l’aide de modèles de service Speech, vous pouvez spécifier un modèle personnalisé pour une reconnaissance améliorée. À défaut de modèle personnalisé, le service utilise le modèle de langue par défaut.
 
 Les extraits de code ci-dessous montrent comment spécifier un modèle personnalisé dans votre appel au service Speech. Si la langue détectée est `en-US`, le modèle par défaut est utilisé. Si la langue détectée est `fr-FR`, le point de terminaison du modèle personnalisé est utilisé :
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+var sourceLanguageConfigs = new SourceLanguageConfig[]
+{
+    SourceLanguageConfig.FromLanguage("en-US"),
+    SourceLanguageConfig.FromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR")
+};
+var autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.FromSourceLanguageConfigs(sourceLanguageConfigs);
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
 
 ```C++
 std::vector<std::shared_ptr<SourceLanguageConfig>> sourceLanguageConfigs;
@@ -71,12 +109,18 @@ sourceLanguageConfigs.push_back(SourceLanguageConfig::FromLanguage("fr-FR", "The
 auto autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig::FromSourceLanguageConfigs(sourceLanguageConfigs);
 ```
 
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
 ```Java
 List sourceLanguageConfigs = new ArrayList<SourceLanguageConfig>();
 sourceLanguageConfigs.add(SourceLanguageConfig.fromLanguage("en-US"));
 sourceLanguageConfigs.add(SourceLanguageConfig.fromLanguage("fr-FR", "The Endpoint Id for custom model of fr-FR"));
 AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSourceLanguageConfig.fromSourceLanguageConfigs(sourceLanguageConfigs);
 ```
+
+::: zone-end
 
 ## <a name="next-steps"></a>Étapes suivantes
 

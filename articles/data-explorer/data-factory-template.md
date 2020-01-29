@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300444"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293553"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Copier en bloc à partir d’une base de données vers Azure Data Explorer à l’aide du modèle Azure Data Factory 
 
 Azure Data Explorer est un service d’analyse de données rapide et complètement managé. Il effectue une analyse en temps réel de grands volumes de données diffusées en continu à partir de nombreuses sources, telles que des applications, des sites web et des appareils IoT. 
 
-Azure Data Factory est un service informatique d’intégration de données informatique intégralement managé. Vous pouvez l’utiliser pour remplir votre base de données Azure Data Explorer avec les données de votre système existant. Et cela peut vous aider à gagner du temps lorsque vous créez des solutions d’analyse. 
+Pour copier des données à partir d’une base de données dans Oracle Server, Netezza, Teradata ou SQL Server vers Azure Data Explorer, vous devez charger de grandes quantités de données à partir de plusieurs tables. Généralement, les données doivent être partitionnées dans chaque table pour que vous puissiez charger des lignes avec plusieurs threads en parallèle à partir d’une seule table. Cet article décrit un modèle à utiliser dans ces scénarios.
 
 Les [modèles Azure Data Factory](/azure/data-factory/solution-templates-introduction) sont des pipelines Data Factory prédéfinis. Ces modèles peuvent vous aider à commencer rapidement à utiliser Data Factory et à réduire le temps de développement de projets d’intégration de données. 
 
@@ -30,7 +30,7 @@ Vous créez le modèle *Copie en bloc à partir d’une base de données vers Az
 > * Utilisez le modèle *Copie en bloc à partir d’une base de données vers Azure Data Explorer* pour copier de grandes quantités de données à partir de bases de données comme SQL Server et Google BigQuery vers Azure Data Explorer. 
 > * Servez-vous de l’outil de [*copie de données Data Factory*](data-factory-load-data.md) pour copier quelques tables contenant des quantités de données faibles ou modérées dans Azure Data Explorer. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * [Un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md).
@@ -53,7 +53,7 @@ ADXTableName varchar(255)
 
 Les éléments de code sont décrits dans le tableau suivant :
 
-|Propriété  |Description  | Exemples
+|Propriété  |Description  | Exemple
 |---------|---------| ---------|
 |PartitionId   |  Ordre de copie | 1  |  
 |SourceQuery   |  Requête indiquant les données qui seront copiées pendant l’exécution du pipeline | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    

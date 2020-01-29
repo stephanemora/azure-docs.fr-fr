@@ -1,31 +1,24 @@
 ---
-title: Installer un appareil Microsoft Azure StorSimple 8600 | Microsoft Docs
+title: Installer un appareil Microsoft Azure StorSimple 8600
 description: Explique comment déballer, monter en rack et câbler votre appareil StorSimple 8600 avant de déployer et de configurer le logiciel.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965265"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277125"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Déballer, monter en rack et câbler votre appareil StorSimple 8600
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Microsoft Azure StorSimple 8600 est un appareil composé d’un boîtier principal et d’un boîtier EBOD. Ce didacticiel explique comment déballer, monter en rack et brancher les câbles de votre appareil StorSimple 8600 avant de configurer son logiciel.
 
 ## <a name="unpack-your-storsimple-8600-device"></a>Déballage de votre appareil StorSimple 8600
@@ -34,7 +27,7 @@ La procédure suivante explique de façon claire et détaillée comment déballe
 ### <a name="prepare-to-unpack-your-device"></a>Préparation du déballage de votre appareil
 Avant de déballer l’appareil, lisez les informations suivantes.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
+![Icône d’avertissement](./media/storsimple-safety/IC740879.png)![Icône objet lourd](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVERTISSEMENT !**
 
 1. Compte tenu du poids de l’appareil, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
 2. Placez le carton sur une surface plane et droite.
@@ -42,7 +35,7 @@ Avant de déballer l’appareil, lisez les informations suivantes.
 Ensuite, procédez comme suit pour déballer votre appareil.
 
 #### <a name="to-unpack-your-device"></a>Pour déballer votre appareil
-1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. Contactez le [support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour savoir si l’appareil est en état de marche.
+1. Vérifiez que le carton et le polystyrène ne comportent pas de trace d’impacts, de coupures, d’infiltrations d’eau ou tout autre type de dégâts. Si le carton ou le reste de l’emballage vous semble trop endommagé, ne l’ouvrez pas. [Contactez le support technique Microsoft](storsimple-8000-contact-microsoft-support.md) pour savoir si l’appareil est en état de marche.
 2. Ouvrez la boîte externe, puis sortez les deux emballages correspondant aux boîtiers principal et EBOD. Vous pouvez maintenant déballer le boîtier principal et le boîtier EBOD. L’illustration suivante représente la vue de l’un des boîtiers déballé.
    
     ![Déballage de votre appareil de stockage](./media/storsimple-8600-hardware-installation/HCSUnpackyour4Udevice.png)
@@ -55,7 +48,7 @@ Ensuite, procédez comme suit pour déballer votre appareil.
    |   2 |Câbles SAS (dans le carton des accessoires et des câbles) |
    |   3 |Polystyrène de protection inférieur |
    |   4 |Appareil |
-   |   5\. |Polystyrène de protection supérieur |
+   |   5 |Polystyrène de protection supérieur |
    |   6 |Carton contenant les accessoires |
 3. Une fois les cartons déballés, vérifiez que vous disposez des éléments suivants :
    
@@ -92,7 +85,7 @@ Les boîtiers doivent être installés dans un rack standard de 19 pouces équi
 2. Vérifiez que le site où vous envisagez de monter l’appareil dispose d’une alimentation secteur standard provenant d’une source indépendante ou d’une unité de distribution de l’alimentation (PDU) en rack avec un onduleur (UPS).
 3. Assurez-vous qu’un emplacement de 4U (2 x 2U) est disponible sur le rack dans lequel vous avez l’intention de monter les boîtiers.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![icône de poids lourd](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png)**AVERTISSEMENT !**
+![Icône d’avertissement](./media/storsimple-safety/IC740879.png)![Icône objet lourd](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **AVERTISSEMENT !**
 
  Compte tenu du poids de l’appareil, deux personnes doivent être disponibles pour vous aider à le porter et à le manipuler. En effet, un boîtier complet peut peser jusqu’à 32 kg.
 
@@ -132,7 +125,7 @@ Un ensemble de rails de montage compatible avec l’armoire à rack de 19 pouce
    |   2 |Ouverture carrée pour vis du poteau avant du rack |
    |   3 |Ergots de positionnement du rail avant gauche |
    |   4 |Vis de serrage |
-   |   5\. |Ergots de positionnement du rail arrière gauche |
+   |   5 |Ergots de positionnement du rail arrière gauche |
 
 ### <a name="mounting-the-ebod-enclosure-in-the-rack"></a>Montage du boîtier EBOD dans le rack
 À l’aide des rails du rack qui viennent d’être installés, procédez comme suit pour monter le boîtier EBOD dans le rack.
@@ -171,7 +164,7 @@ L’étape suivante consiste à brancher l’alimentation, le réseau et l’acc
 ## <a name="cable-your-storsimple-8600-device"></a>Branchement des câbles de votre appareil StorSimple 8600
 Les procédures suivantes expliquent comment brancher les câbles d’alimentation, de réseau et d’accès en série sur votre appareil StorSimple 8600.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer à raccorder votre appareil, vous devez disposer des éléments suivants :
 
 * Votre boîtier principal et votre boîtier EBOD, totalement déballés
@@ -218,7 +211,7 @@ Pour prendre en charge ce basculement de contrôleur redondant, vous devez branc
 
 | Étiquette | Description |
 | --- | --- |
-| A |LAN avec accès à Internet |
+| Un |LAN avec accès à Internet |
 | B |Contrôleur 0 |
 | C |PCM 0 |
 | D |Contrôleur 1 |

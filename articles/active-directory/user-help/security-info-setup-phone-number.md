@@ -12,25 +12,38 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c120c9092d9cf0e4029cadea1b412a73e858fa75
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278964"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156146"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Configurer un numéro de téléphone comme méthode de vérification
 
 Suivez ces étapes pour ajouter vos méthodes de réinitialisation de mot de passe et de vérification en deux étapes. Au terme de la configuration initiale, vous pouvez revenir à la page **Informations de sécurité** pour ajouter, mettre à jour ou supprimer vos informations de sécurité.
 
-Si vous êtes invité à les configurer immédiatement après vous être connecté à votre compte professionnel ou scolaire, reportez-vous aux étapes détaillées de l'article [Configurer vos informations de sécurité à partir de l'invite de la page de connexion](security-info-setup-signin.md).
+Si vous êtes invité à les configurer immédiatement après vous être connecté à votre compte professionnel ou scolaire, reportez-vous aux étapes détaillées de l’article [Configurer vos informations de sécurité à partir de l’invite de la page de connexion](security-info-setup-signin.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 > [!Note]
 > Les informations de sécurité ne prennent pas en charge les numéros de poste. Même si vous ajoutez le bon format, +33 4 25 55 51 23-12345, les numéros de poste sont supprimés avant l’appel.
 >
-> Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser un numéro de téléphone à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l'aide.
+> Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser cette option à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l'aide.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Vérification de la sécurité ou authentification avec réinitialisation du mot de passe
+
+Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation du mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
+
+| Méthode | Utilisé pour |
+| ------ | -------- |
+| Application Authenticator | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| SMS | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Appels téléphoniques | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Clé de sécurité | Vérification à deux facteurs et réinitialisation de mot de passe. |
+| Compte e-mail | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
+| Questions de sécurité | Authentification par réinitialisation de mot de passe uniquement. Vous devez choisir une autre méthode pour la vérification à deux facteurs. |
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Configurer la méthode de l'appel téléphonique à partir de la page Informations de sécurité
 
@@ -47,15 +60,15 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser l'
 
 2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** dans la page **Informations de sécurité**.
 
-    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Page Informations de sécurité, avec l'option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Sur la page **Ajouter une méthode**, choisissez **Téléphone** dans la liste déroulante, puis sélectionnez **Ajouter**.
 
-    ![Zone Ajouter une méthode, avec l'option Téléphone sélectionnée](media/security-info/securityinfo-myprofile-addphonetext.png)
+    ![Zone Ajouter une méthode, avec l’option Téléphone sélectionnée](media/security-info/securityinfo-myprofile-addphonetext.png)
 
 4. Sur la page **Téléphone**, entrez le numéro de téléphone de votre appareil mobile, choisissez **M'appeler**, puis sélectionnez **Suivant**.
 
-    ![Ajouter le numéro de téléphone et choisir la méthode de l'appel téléphonique](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
+    ![Ajouter le numéro de téléphone et choisir la méthode de l’appel téléphonique](media/security-info/securityinfo-myprofile-phonecall-addnumber.png)
 
 5. Répondez à l'appel téléphonique de vérification envoyé au numéro de téléphone que vous avez entré, puis suivez les instructions.
 
@@ -74,17 +87,17 @@ Si vous ne souhaitez plus utiliser l'appel téléphonique comme méthode d'infor
 
 ### <a name="to-delete-phone-calls"></a>Pour supprimer la méthode de l'appel téléphonique
 
-1. Sur la page **Informations de sécurité**, sélectionnez le lien **Supprimer** en regard de l'option **Téléphone**.
+1. Sur la page **Informations de sécurité**, sélectionnez le lien **Supprimer** en regard de l’option **Téléphone**.
 
     ![Lien permettant de supprimer la méthode Téléphone sur la page Informations de sécurité](media/security-info/securityinfo-myprofile-phonetext-delete.png)
 
 2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer le numéro de **téléphone**. Une fois votre numéro de téléphone supprimé, celui-ci disparaît de vos informations de sécurité et de la page **Informations de sécurité**. Si **Téléphone** est votre méthode par défaut, celle-ci est remplacée par une autre méthode disponible.
 
-## <a name="change-your-default-security-info-method"></a>Changer de méthode d'informations de sécurité par défaut
+## <a name="change-your-default-security-info-method"></a>Changer de méthode d’informations de sécurité par défaut
 
 Pour utiliser l'appel téléphonique comme méthode par défaut lorsque vous vous connectez à votre compte professionnel ou scolaire à l'aide de la vérification en deux étapes ou pour les demandes de réinitialisation de mot de passe, il vous suffit de définir cette méthode sur la page **Informations de sécurité**.
 
-### <a name="to-change-your-default-security-info-method"></a>Pour changer de méthode d'informations de sécurité par défaut
+### <a name="to-change-your-default-security-info-method"></a>Pour changer de méthode d’informations de sécurité par défaut
 
 1. Dans la page **Informations de sécurité**, sélectionnez le lien **Changer** en regard des informations relatives à la **Méthode de connexion par défaut**.
 
@@ -96,7 +109,7 @@ Pour utiliser l'appel téléphonique comme méthode par défaut lorsque vous vou
 
     La méthode par défaut utilisée pour la connexion devient **Téléphone - Appeler ( *_votre_numéro_de_téléphone_* )** .
 
-## <a name="additional-security-info-methods"></a>Autres méthodes d'informations de sécurité
+## <a name="additional-security-info-methods"></a>Autres méthodes d’informations de sécurité
 
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :
 

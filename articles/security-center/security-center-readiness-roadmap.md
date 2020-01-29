@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520758"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281289"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Feuille de route de préparation de Azure Security Center
 Ce document fournit une feuille de route de préparation qui vous aidera à prendre en main Azure Security Center.
@@ -85,7 +85,7 @@ Videos
 
 Articles    
 * [Utilisation d’Azure Security Center pour la réponse aux incidents](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatiser la réponse avec le playbook de sécurité](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+* [Automatiser la réponse avec l’automatisation des worflows](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Défense de cloud avancée
 

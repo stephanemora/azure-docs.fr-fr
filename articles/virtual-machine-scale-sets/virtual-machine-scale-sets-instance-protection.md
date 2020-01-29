@@ -1,26 +1,18 @@
 ---
-title: Protection des instances pour les groupes de machines virtuelles identiques Azure | Microsoft Docs
+title: Protection des instances pour les groupes de machines virtuelles identiques Azure
 description: Découvrez comment protéger les instances de groupes de machines virtuelles identiques des opérations scale-in et scale-set.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: manayar
-ms.openlocfilehash: 61430f5a43a04fa0e5b2f0c79ff03419c73aaf28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 071ea79f4d288e86cc5b9347f8607b4ff7190bc1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66416553"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275790"
 ---
 # <a name="instance-protection-for-azure-virtual-machine-scale-set-instances-preview"></a>Protection des instances pour les groupes de machines virtuelles identiques Azure (préversion)
 Les groupes de machines virtuelles identiques Azure offrent une meilleure élasticité en termes de charge de travail via la [mise à l’échelle automatique](virtual-machine-scale-sets-autoscale-overview.md) pour vous permettre de configurer la mise à l'échelle de votre infrastructure. En outre, les groupes identiques vous permettent de gérer, configurer et mettre à jour un grand nombre de machines virtuelles de manière centralisée à l'aide de différents paramètres de [stratégie de mise à niveau](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model). Vous pouvez configurer une mise à jour sur le modèle de groupe identique, et la nouvelle configuration s'applique automatiquement à chaque instance de groupe identique si vous avez défini la stratégie de mise à niveau sur Automatique ou Continue.
@@ -164,7 +156,7 @@ az vmss update \
   --protect-from-scale-set-actions true
 ```
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 ### <a name="no-protectionpolicy-on-scale-set-model"></a>protectionPolicy ne s'applique pas au modèle de groupe identique
 La protection des instances s'applique uniquement aux instances de groupe identique, et pas au modèle de groupe identique.
 

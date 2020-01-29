@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: ''
-ms.openlocfilehash: 938d93b1df077914323c7b5f4ee1d42276aeff04
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c102e7ffde7faab5d864c1d9acaafe141664ebf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434908"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119548"
 ---
 # <a name="stay-connected-with-azure-iot-central-preview-features"></a>Rester connecté à Azure IoT Central (fonctionnalités en préversion)
 
@@ -21,7 +21,7 @@ ms.locfileid: "75434908"
 
 Cet article fournit une vue d’ensemble sur la façon dont Azure IoT Central vous aide à maintenir la connexion et l’intégrité de vos appareils.
 
-Pour toute solution IoT conçue pour fonctionner à grande échelle, il est important de disposer d’une approche bien structurée de la gestion des appareils. Il ne suffit pas de connecter les appareils avec la puissance suffisante, il faut une approche pour les maintenir connectés et en bon état au fur et à mesure que votre solution évolue, grandit et vieillit. Azure IoT Central fournit les fonctionnalités nécessaires pour garantir que les appareils de votre solution IoT sont bien traités pendant tout le cycle de vie de l’application.
+Pour toute solution IoT conçue pour fonctionner à grande échelle, il est important de disposer d’une approche bien structurée de la gestion des appareils. Il ne suffit pas de connecter les appareils au cloud, il faut une approche pour les maintenir connectés et sains à mesure que votre solution évolue, grandit et vieillit. Azure IoT Central fournit les fonctionnalités nécessaires pour garantir que les appareils de votre solution IoT sont bien traités pendant tout le cycle de vie de l’application.
 
 ## <a name="dashboards"></a>Tableaux de bord 
 Les [tableaux de bord](howto-manage-devices.md#import-devices) intégrés fournissent une surface d’exposition personnalisable pour superviser la télémétrie et l’intégrité des appareils. Commencez avec un tableau de bord prédéfini provenant d’un [modèle d’application](howto-use-app-templates.md) ou créez vos propres tableaux de bord adaptés aux besoins de votre application. Les tableaux de bord peuvent être partagés avec tous les utilisateurs de votre application, ou gardés privés.

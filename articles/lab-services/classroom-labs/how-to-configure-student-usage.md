@@ -1,5 +1,5 @@
 ---
-title: Configurer des paramètres d’utilisation dans les labos de classe Azure Lab Services | Microsoft Docs
+title: Configurer des paramètres d’utilisation dans les labos de classe Azure Lab Services
 description: Découvrez comment configurer le nombre d’utilisateurs d’un labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore.
 services: lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584095"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169222"
 ---
 # <a name="add-and-manage-lab-users"></a>Ajouter et gérer des utilisateurs lab
 Cet article explique comment ajouter des utilisateurs au labo, comment les inscrire au labo, comment contrôler le nombre d’heures qu’ils peuvent utiliser la machine virtuelle, et bien plus encore. 
@@ -38,7 +38,7 @@ Cet article explique comment ajouter des utilisateurs au labo, comment les inscr
     ![Liste des utilisateurs](../media/how-to-configure-student-usage/users-list-new.png)
 
     > [!NOTE]
-    > Les noms des utilisateurs s’affichent dans la liste une fois qu’ils sont inscrits auprès du labo. Le nom affiché dans la liste est construit en utilisant le prénom et le nom de l’utilisateur dans Azure Active Directory. 
+    > Les noms des utilisateurs s’affichent dans la liste après leur inscription au laboratoire. Le nom affiché dans la liste est construit en utilisant le prénom et le nom de l’utilisateur dans Azure Active Directory. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Ajouter des utilisateurs en chargeant un fichier CSV
 Vous pouvez également ajouter des utilisateurs en chargeant un fichier CSV avec les adresses e-mail des utilisateurs.
@@ -72,7 +72,7 @@ Si l’option **Restreindre l’accès** est activée pour le labo, seuls les ut
     ![Envoyer un lien d’inscription par e-mail](../media/tutorial-setup-classroom-lab/send-email.png)
 4. L’état de l’**invitation**  est indiqué dans la liste **Utilisateurs**. L’état doit passer à **Envoi**, puis à **Envoyée le \<date**. 
 
-    Pour plus d’informations sur l’ajout d’étudiants à une classe et sur la gestion de leur utilisation du labo, consultez [Comment configurer l’utilisation des étudiants](how-to-configure-student-usage.md).
+    Pour plus d’informations sur l’ajout d’élèves à une classe et sur la gestion de leur utilisation du laboratoire, consultez [Comment configurer l’utilisation des étudiants](how-to-configure-student-usage.md).
 
 ### <a name="invite-selected-users"></a>Inviter les utilisateurs sélectionnés
 
@@ -139,7 +139,7 @@ Pour ce faire, procédez comme suit :
     ![Nouvelle utilisation pour l’utilisateur](../media/how-to-configure-student-usage/new-usage-hours.png)
 
 ## <a name="student-accounts"></a>Comptes étudiants
-Pour ajouter des étudiants à un labo de classe, vous utilisez leurs comptes de messagerie. Les types suivants de comptes de messagerie peuvent être utilisés :
+Pour ajouter des étudiants à un labo de classe, vous utilisez leurs comptes de messagerie. Les types de comptes de messagerie suivants peuvent être utilisés :
 
 - Un compte de messagerie étudiant fourni par l’Office 365 Azure Active Directory (AAD) de votre université. 
 - Un compte de messagerie Microsoft, tel que `@outlook.com`, `@hotmail.com`, `@msn.com` ou `@live.com`.
@@ -161,7 +161,7 @@ Pour vous inscrire à un compte Microsoft, les étudiants doivent accéder à la
 > Quand les étudiants se connectent à un labo de classe, ils n’ont pas la possibilité de créer un compte Microsoft. Par conséquent, nous vous recommandons d’inclure ce lien d’inscription dans l’e-mail d’inscription au labo de classe que vous envoyez aux étudiants qui utilisent des comptes non Microsoft.
 
 ### <a name="using-a-github-account"></a>Utiliser un compte GitHub
-Les étudiants peuvent également utiliser un compte GitHub existant pour s’inscrire et se connecter à un labo de classe. Si l’étudiant a déjà un compte Microsoft lié à son compte GitHub, il peut se connecter et fournir son mot de passe, comme indiqué dans la section précédente. S’il n’a pas encore lié son compte GitHub à un compte Microsoft, il doit sélectionner **Options de connexion** :
+Les étudiants peuvent également utiliser un compte GitHub existant pour s’inscrire et se connecter à un labo de classe. Si l’étudiant a déjà un compte Microsoft lié à son compte GitHub, il peut se connecter et fournir son mot de passe, comme indiqué dans la section précédente. S’il n’a pas encore lié son compte GitHub à un compte Microsoft, il doit sélectionner **Options de connexion** :
 
 ![Lien Options de connexion](../media/how-to-configure-student-usage/signin-options.png)
 
@@ -172,7 +172,7 @@ Dans la page **Options de connexion**, sélectionnez **Se connecter avec GitHub*
 Enfin, il est invité à créer un compte Microsoft qui est lié à son compte GitHub. Cela se produit automatiquement lorsque l’étudiant sélectionne **Suivant**.  L’étudiant est alors immédiatement inscrit et connecté au labo de classe.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [En tant qu’administrateur, créer et gérer des comptes de labo](how-to-manage-lab-accounts.md)
 - [En tant que propriétaire de labo, créer et gérer des labos](how-to-manage-classroom-labs.md)

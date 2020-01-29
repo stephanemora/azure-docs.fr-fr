@@ -1,20 +1,17 @@
 ---
-title: Intégration d’Azure Active Directory pour Azure Red Hat OpenShift | Microsoft Docs
+title: Intégration d’Azure Active Directory pour Azure Red Hat OpenShift
 description: Apprenez comment créer un groupe de sécurité et un utilisateur Azure AD pour tester des applications sur votre cluster Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: conceptual
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 05/13/2019
-ms.openlocfilehash: 00609905d09f8d414660c21805c6efca5eb30843
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669398"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545617"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Intégration d’Azure Active Directory pour Azure Red Hat OpenShift
 
@@ -59,6 +56,9 @@ Pour accorder l’accès à l’administrateur du cluster, les membres d’un gr
 9. Lorsque le groupe est créé, vous le verrez dans la liste de tous les groupes. Cliquez sur le nouveau groupe.
 10. Dans la page qui s’affiche, notez l’**ID d’objet**. Nous nous référerons à cette valeur en tant que `GROUPID` dans le didacticiel [Créer un cluster Azure Red Hat OpenShift](tutorial-create-cluster.md).
 
+> [!IMPORTANT]
+> Pour synchroniser ce groupe avec le groupe OpenShift osa-customer-admins, créez le cluster en utilisant Azure CLI. Le portail Azure ne dispose pas pour l’instant d’un champ pour définir ce groupe.
+
 ## <a name="create-an-azure-ad-app-registration"></a>Créer une inscription d’application Azure AD
 
 Vous pouvez créer automatiquement un client d’inscription d’application Azure Active Directory (Azure AD) dans le cadre de la création du cluster en omettant l’indicateur `--aad-client-app-id` de la commande `az openshift create`. Ce didacticiel vous montre comment créer l’inscription d’application Azure AD par souci d’exhaustivité.
@@ -93,13 +93,13 @@ Pour plus d’informations sur la création d’une application Azure AD, consul
 ## <a name="add-api-permissions"></a>Ajouter des autorisations d’API
 
 1. Dans la **Gérer**, cliquez sur **Autorisations des API**.
-2. Cliquez sur **Ajouter une autorisation**, sélectionnez **Azure Active Directory Graph**, puis **Autorisations déléguées**
-3. Développez **Utilisateur** dans la liste ci-dessous et vérifiez que **User.Read** est activé.
+2. Cliquez sur **Ajouter une autorisation**, sélectionnez **Azure Active Directory Graph**, puis **Autorisations déléguées**. 
+3. Développez **Utilisateur** dans la liste ci-dessous et activez l’autorisation **User.Read**. Si l’autorisation **User.Read** est activée par défaut, vérifiez qu’il s’agit de l’autorisation **User.Read** **Azure Active Directory Graph**, *non* de l’autorisation **User.Read** **Microsoft Graph**.
 4. Faites défiler la fenêtre vers le haut, puis sélectionnez **Autorisations de l’application**.
 5. Développez **Directory** (Répertoire) dans la liste ci-dessous et activez **Directory.ReadAll**
 6. Cliquez sur **Ajouter des autorisations** pour accepter les modifications.
 7. Le panneau Autorisations des API doit désormais afficher *User.Read* et *Directory.ReadAll*. Veuillez noter l’avertissement dans la colonne **consentement administrateur requis** en regard de *Directory.ReadAll*.
-8. Si vous êtes l’*administrateur d’abonnement Azure*, cliquez sur **Accorder le consentement administrateur pour *Nom de l’abonnement***  ci-dessous. Si vous n’êtes pas l’*administrateur d’abonnement Azure*, veuillez demander le consentement à votre administrateur.
+8. Si vous êtes l’*administrateur d’abonnement Azure*, cliquez sur **Accorder le consentement administrateur pour *Nom de l’abonnement*** ci-dessous. Si vous n’êtes pas l’*administrateur d’abonnement Azure*, veuillez demander le consentement à votre administrateur.
 ![Capture d’écran du panneau Autorisations des API. Les autorisations User.Read et Directory.ReadAll sont ajoutées, le consentement de l’administrateur est requis pour Directory.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 
 > [!IMPORTANT]
@@ -110,7 +110,7 @@ Pour plus d’informations sur la gestion des administrateurs et d’autres rôl
 ## <a name="resources"></a>Ressources
 
 * [Objets d’applications et principal du service dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Démarrage rapide : Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Démarrage rapide : Inscrire une application auprès du point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

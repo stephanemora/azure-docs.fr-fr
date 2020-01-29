@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: b07bde671be73af2a351353d9794907972a022e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0d24a0d90671935cb7224f17ffad368d4305020c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232618"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548507"
 ---
 # <a name="join-data"></a>Joindre des données
 
@@ -62,9 +62,9 @@ Pour joindre deux jeux de données, ces derniers doivent être liés par une col
     * Sélectionnez cette option pour afficher les clés des deux tables d’entrée.
     * Désélectionnez-la pour retourner uniquement les colonnes clés issues de l’entrée de gauche.
 
-1. Exécutez e pipeline ou sélectionnez le module Joindre des données, puis sélectionnez **Exécuter la sélection** pour effectuer la jointure.
+1. Exécuter le pipeline.
 
-1. Pour afficher les résultats, cliquez avec le bouton droit sur **Joindre des données** > **Jeu de données des résultats** > **Visualiser**.
+1. Pour afficher les résultats, cliquez avec le bouton droit sur **Joindre des données**, puis sélectionnez **Visualiser**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

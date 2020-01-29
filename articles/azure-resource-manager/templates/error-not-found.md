@@ -1,14 +1,14 @@
 ---
 title: Erreurs liées à des ressources introuvables
-description: Décrit comment résoudre les erreurs liées à des ressources introuvables quand vous déployez des ressources avec un modèle Azure Resource Manager.
+description: Explique comment résoudre les erreurs liées à des ressources introuvables lors d'un déploiement à l'aide d'un modèle Azure Resource Manager.
 ms.topic: troubleshooting
-ms.date: 06/06/2018
-ms.openlocfilehash: 832dc15f81c0fd815072b9e95920a4388a94cb0b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/21/2020
+ms.openlocfilehash: c3e19af24fa7fb850eadf3deb346180476943241
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75474299"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310660"
 ---
 # <a name="resolve-not-found-errors-for-azure-resources"></a>Résoudre les erreurs de ressources Azure introuvables
 
@@ -41,8 +41,8 @@ Si vous souhaitez déployer la ressource manquante dans le modèle, vérifiez si
 
 ```json
 {
-  "apiVersion": "2015-08-01",
   "type": "Microsoft.Web/sites",
+  "apiVersion": "2015-08-01",
   "dependsOn": [
     "[variables('hostingPlanName')]"
   ],
@@ -76,8 +76,8 @@ Lorsque la ressource existe dans un groupe de ressources différent de celui dan
 
 ```json
 "properties": {
-    "name": "[parameters('siteName')]",
-    "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+  "name": "[parameters('siteName')]",
+  "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
 }
 ```
 
@@ -87,4 +87,16 @@ Recherchez une expression qui inclut la fonction [reference](template-functions-
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"
+```
+
+## <a name="solution-4---get-managed-identity-from-resource"></a>Solution 4 : Obtenir une identité managée à partir d'une ressource
+
+Si vous déployez une ressource qui crée implicitement une [identité managée](../../active-directory/managed-identities-azure-resources/overview.md), vous devez attendre que cette ressource soit déployée avant de récupérer des valeurs sur l'identité managée. Si vous transmettez le nom de l'identité managée à la fonction [reference](template-functions-resource.md#reference), Resource Manager tente de résoudre la référence avant que la ressource et l'identité ne soient déployées. Transmettez plutôt le nom de la ressource à laquelle l'identité est appliquée. Cette approche garantit que la ressource et l'identité gérée seront déployées avant que Resource Manager ne résolve la fonction reference.
+
+Dans la fonction reference, utilisez `Full` pour obtenir toutes les propriétés, y compris l'identité managée.
+
+Par exemple, pour obtenir l'ID de locataire d'une identité managée appliquée à un groupe de machines virtuelles identiques, utilisez :
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
 ```

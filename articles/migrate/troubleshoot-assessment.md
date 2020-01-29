@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 3098e85fd21b6185defc4bbcf0a71d412846ab25
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: fb1e32d9f67febb09eadfb5d31221db33504eb05
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75722130"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289473"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Résoudre les problèmes de l’évaluation/la visualisation des dépendances
 
@@ -92,6 +92,7 @@ Server Assessment signale « PercentageOfCoresUtilizedMissing » ou « Percen
 - Cela peut se produire si les machines virtuelles sont désactivées pendant la durée de l’évaluation. L’appliance ne peut pas collecter les données de performances d’une machine virtuelle lorsque celle-ci est désactivée.
 - S’il manque uniquement les compteurs de mémoire et si vous tentez d’évaluer des machines virtuelles Hyper-V, vérifiez si la mémoire dynamique est activée sur ces machines. Il existe un problème connu pour les machines virtuelles Hyper-V qui empêche l’appliance Azure Migrate de collecter les données d’utilisation de la mémoire pour les machines virtuelles sur lesquelles la mémoire dynamique n’est pas activée.
 - Si l’un des compteurs de performances est manquant, Azure Migrate Server Assessment a recours aux cœurs et à la mémoire alloués, et recommande une taille de machine virtuelle adaptée.
+- En l'absence de tous les compteurs de performances, assurez-vous que les exigences d’accès aux ports à des fins d'évaluation sont respectées. Apprenez-en plus sur les conditions d’accès aux ports à des fins d'évaluation de [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) et du [serveur physique](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access).
 
 ## <a name="is-the-operating-system-license-included"></a>La licence du système d’exploitation est-elle incluse ?
 
@@ -121,7 +122,7 @@ Pour les machines virtuelles Linux, vérifiez que tout s’est bien passé pour 
 
 ## <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
 
-- **Agent MMS** : Passez en revue les systèmes d’exploitation Windows et [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) pris en charge.
+- **Agent MMS** : Passez en revue les systèmes d’exploitation [Windows](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) et [Linux](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) pris en charge.
 - **Agent des dépendances** : les systèmes d’exploitation [Windows et Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) pris en charge.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualiser les dépendances pendant > heure

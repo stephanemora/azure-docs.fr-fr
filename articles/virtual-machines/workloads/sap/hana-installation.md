@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c08036f16cd30a1c10963accd8d486d77c9683ee
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750357"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264167"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Guide pratique d’installation et de configuration de SAP HANA (grandes instances) sur Azure
 
@@ -29,10 +29,7 @@ L’installation de SAP HANA est de votre responsabilité. Vous pouvez démarrer
 > [!Note]
 > Conformément à la stratégie de SAP, l’installation de SAP HANA doit être effectuée par une personne qui a passé la certification Certified SAP Technology Associate – SAP HANA Installation, ou par un intégrateur système certifié SAP.
 
-Avant d'installer HANA 2.0, consultez la [note de support #2235581 relative à SAP HANA : systèmes d'exploitation pris en charge](https://launchpad.support.sap.com/#/notes/2235581/E) afin de vous assurer que le système d'exploitation utilisé est pris en charge par la version de SAP HANA que vous installez. Le nombre de systèmes d’exploitation pris en charge par HANA 2.0 est plus limité que celui des systèmes pris en charge par HANA 1.0. 
-
-> [!IMPORTANT] 
-> Pour les unités de Type II, seule la version SLES 12 SP2 du système d’exploitation est actuellement prise en charge. 
+Avant d'installer HANA 2.0, consultez la [note de support #2235581 relative à SAP HANA : systèmes d'exploitation pris en charge](https://launchpad.support.sap.com/#/notes/2235581/E) afin de vous assurer que le système d'exploitation utilisé est pris en charge par la version de SAP HANA que vous installez. Le nombre de systèmes d’exploitation pris en charge par HANA 2.0 est plus limité que celui des systèmes pris en charge par HANA 1.0. Vous devez également vérifier si la version du système d’exploitation qui vous intéresse est listée comme étant prise en charge pour l’unité HLI qui est indiquée dans [cette liste](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) publiée. Cliquez sur l’unité pour accéder à tous les détails, y compris à la liste des systèmes d’exploitation pris en charge par cette unité. 
 
 Avant de commencer l’installation de HANA, validez les éléments suivants :
 - [Unité(s) HLI](#validate-the-hana-large-instance-units)
@@ -84,9 +81,6 @@ La **sixième étape** consiste à vérifier le fichier etc/hosts. À la récept
 
 ## <a name="operating-system"></a>Système d’exploitation
 
-> [!IMPORTANT] 
-> Pour les unités de Type II, seule la version SLES 12 SP2 du système d’exploitation est actuellement prise en charge. 
-
 La taille de l'espace d'échange de l'image du système d'exploitation livré est définie sur 2 Go, conformément à la [note de support #1999997 relative à la FAQ : mémoire SAP HANA](https://launchpad.support.sap.com/#/notes/1999997/E). En tant que client, si vous souhaitez un autre paramètre, vous devez le définir vous-même.
 
 [SUSE Linux Enterprise Server 12 SP1 for SAP Applications](https://www.suse.com/products/sles-for-sap/download/) est la distribution de Linux installée pour SAP HANA sur Azure (grandes instances). Cette distribution spéciale fournit des fonctionnalités propres à SAP « prêtes à l’emploi » (y compris des paramètres prédéfinis pour une exécution efficace de SAP sur SLES).
@@ -107,7 +101,7 @@ Les notes de support SAP suivantes concernent l’implémentation de SAP HANA su
 - [Note de support SAP #171356 - Logiciels SAP sur Linux :  Informations générales](https://launchpad.support.sap.com/#/notes/1984787)
 - [Note de support SAP #1391070 relative aux solutions Linux UUID](https://launchpad.support.sap.com/#/notes/1391070)
 
-[Red Hat Enterprise Linux pour SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) est une autre offre permettant l’exécution de SAP HANA sur les grandes instances HANA. RHEL 6.7 et 7.2 sont disponibles. Notez que, contrairement aux machines virtuelles Azure natives, où seuls RHEL 7.2 et les versions plus récentes sont pris en charge, les grandes instances HANA prennent également en charge RHEL 6.7. Toutefois, nous vous recommandons d’utiliser une version 7.x de RHEL.
+[Red Hat Enterprise Linux pour SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) est une autre offre permettant l’exécution de SAP HANA sur les grandes instances HANA. Les versions 7.2 et 7.3 de RHEL sont disponibles et prises en charge. 
 
 Voici d’autres liens SAP utiles relatifs à Red Hat :
 - [Site de SAP HANA sur Red Hat Linux](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -116,11 +110,9 @@ Les notes de support SAP suivantes concernent l’implémentation de SAP HANA su
 
 - [Note de support SAP #2009879 relative aux instructions SAP HANA pour les systèmes d’exploitation Red Hat Enterprise Linux (RHEL)](https://launchpad.support.sap.com/#/notes/2009879/E)
 - [Note de support SAP #2292690 - SAP HANA DB : Paramètres de système d’exploitation recommandés pour RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-- [Note de support SAP #2247020 - SAP HANA DB : Paramètres de système d'exploitation recommandés pour RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020)
 - [Note de support SAP #1391070 relative aux solutions Linux UUID](https://launchpad.support.sap.com/#/notes/1391070)
 - [Note de support SAP #2228351 - Linux : SAP HANA Database SPS 110 révision 11 (ou plus) sur RHEL 6 ou SLES 11](https://launchpad.support.sap.com/#/notes/2228351)
 - [Note de support SAP #2397039 - FAQ : SAP sur RHEL](https://launchpad.support.sap.com/#/notes/2397039)
-- [Note de support SAP #1496410 - Red Hat Enterprise Linux 6.x : installation et mise à niveau](https://launchpad.support.sap.com/#/notes/1496410)
 - [Note de support SAP #2002167 - Red Hat Enterprise Linux 7.x : installation et mise à niveau](https://launchpad.support.sap.com/#/notes/2002167)
 
 ### <a name="time-synchronization"></a>Synchronisation temporelle

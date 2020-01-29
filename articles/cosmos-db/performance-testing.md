@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 0ac257d4eb9fb9e26739f1a63049751f9298efb5
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: fb510c5628913fb3fa37b572c4409aee5d1028ab
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616784"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313745"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test des performances et de la mise à l’échelle avec Azure Cosmos DB
 
@@ -37,16 +37,16 @@ Si vous recherchez des options de configuration côté client pour améliorer le
 ## <a name="run-the-performance-testing-application"></a>Exécution de l’application de test des performances
 Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .NET, comme décrit dans la procédure ci-dessous. Vous pouvez aussi examiner le code source et implémenter des configurations similaires dans vos propres applications clientes.
 
-**Étape 1 :** téléchargez le projet à partir de l’[exemple de test de performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou dupliquez (fork) le dépôt GitHub.
+**Étape 1 :** téléchargez le projet à partir de l’[exemple de test de performances Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) ou dupliquez (fork) le dépôt GitHub.
 
-**Étape 2 :** modifiez les paramètres pour EndpointUrl, AuthorizationKey, CollectionThroughput et DocumentTemplate (facultatif) dans App.config.
+**Étape 2 :** modifiez les paramètres pour EndpointUrl, AuthorizationKey, CollectionThroughput et DocumentTemplate (facultatif) dans App.config.
 
 > [!NOTE]
 > Avant d’approvisionner des collections avec un débit élevé, reportez-vous à la [page des tarifs](https://azure.microsoft.com/pricing/details/cosmos-db/) pour estimer les coûts par collection. Azure Cosmos DB facture le stockage et le débit de façon indépendante sur une base horaire. Vous pouvez faire des économies en soustrayant ou diminuant le débit de vos conteneurs Azure Cosmos après les tests.
 > 
 > 
 
-**Étape 3 :** compilez et exécutez l’application console à partir de la ligne de commande. Un résultat similaire à ce qui suit s’affiche normalement :
+**Étape 3 :** compilez et exécutez l’application console à partir de la ligne de commande. Un résultat similaire à ce qui suit s’affiche normalement :
 
     C:\Users\cosmosdb\Desktop\Benchmark>DocumentDBBenchmark.exe
     Summary:
@@ -89,7 +89,7 @@ Le moyen le plus rapide de commencer est de compiler et exécuter l’exemple .N
     Press any key to exit...
 
 
-**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit provisionné de la collection ou d’un ensemble de collections. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, démarrez plusieurs instances de l’application sur d’autres ordinateurs clients. Si vous avez besoin d’aide pour cette étape, envoyez un e-mail à askcosmosdb@microsoft.com ou remplissez un ticket de support à partir du [portail Azure](https://portal.azure.com).
+**Étape 4 (si nécessaire) :** le débit signalé (RU/s) à partir de l’outil doit être identique ou supérieur au débit provisionné de la collection ou d’un ensemble de collections. Dans le cas contraire, le fait d’augmenter la valeur de DegreeOfParallelism par petits incréments peut vous aider à atteindre la limite. Si le débit de votre application cliente se stabilise, démarrez plusieurs instances de l’application sur d’autres ordinateurs clients. Si vous avez besoin d’aide pour cette étape, remplissez un ticket de support à partir du [portail Azure](https://portal.azure.com).
 
 Une fois l’application exécutée, vous pouvez tester des [stratégies d’indexation](index-policy.md) et des [niveaux de cohérence](consistency-levels.md) différents pour comprendre leur impact sur le débit et la latence. Vous pouvez également examiner le code source et implémenter des configurations similaires dans vos propres suites de test ou applications de production.
 

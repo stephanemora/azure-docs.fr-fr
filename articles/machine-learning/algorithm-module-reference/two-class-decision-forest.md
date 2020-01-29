@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: ebe9a0368f2111fa6787b7fa4f4432d7ad4106c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 60ea2633ce09b828d1e3576cadf73ecb5c26c1bd
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485944"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546365"
 ---
 # <a name="two-class-decision-forest-module"></a>Module Forêt d’arbres décisionnels à deux classes
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un modèle Machine Learning basé sur l’algorithme de forêt d’arbres décisionnels.  
 
@@ -65,7 +65,7 @@ Pour plus d’informations, voir [Arbres de décision](https://go.microsoft.com/
   
 3.  Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.  
   
-    -   **Paramètre unique** : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.
+    -   **Single Parameter** (Paramètre unique) : si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments.
   
 4.  Dans le champ **Nombre d’arbres de décision**, saisissez le nombre maximal d’arbres de décision qui peuvent être créés dans l’ensemble. Plus il y en a, meilleure peut être la couverture, mais plus le temps d’apprentissage augmente.  
   
@@ -78,7 +78,7 @@ Pour plus d’informations, voir [Arbres de décision](https://go.microsoft.com/
   
 7.  Dans le champ **Nombre minimal d’échantillons par nœud terminal**, indiquez le nombre minimal de cas requis pour la création d’un nœud terminal dans un arbre.
   
-     Plus cette valeur est grande, plus le seuil de création de règles augmente. Par exemple, avec la valeur par défaut, 1, un seul cas suffit à entraîner la création d’une règle. Si la valeur passe à 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.  
+     Plus cette valeur est grande, plus le seuil de création de règles augmente. Par exemple, la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si la valeur passe à 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.  
   
 8.  Sélectionnez l’option **Autoriser les valeurs inconnues pour les fonctionnalités catégorielles** afin de créer un groupe pour les valeurs inconnues des jeux d’apprentissage ou de validation. Le modèle risque d’être moins précis pour les valeurs connues, mais il pourra fournir de meilleures prédictions pour les nouvelles valeurs (inconnues). 
 
@@ -87,17 +87,12 @@ Pour plus d’informations, voir [Arbres de décision](https://go.microsoft.com/
 9. Joignez un jeu de données étiqueté et l’un des [modules d’apprentissage](module-reference.md) :  
   
     -   Si vous définissez **Créer un mode d’apprentissage** sur **Paramètre unique**, utilisez le module [Entraîner le du modèle](./train-model.md).  
-  
     
 ## <a name="results"></a>Résultats
 
 Une fois l’apprentissage terminé :
 
-+ Pour afficher l’arbre créé pour chaque itération, cliquez avec le bouton droit sur la sortie du module [Entraîner le modèle](./train-model.md) et sélectionnez **Visualiser**.
-  
-    Cliquez sur chaque arbre pour explorer les fractionnements et afficher les règles de chaque nœud.
-
-+ Pour enregistrer un instantané du modèle, cliquez avec le bouton droit sur la sortie **Modèle entraîné** et sélectionnez **Enregistrer le modèle**. Le modèle enregistré n’est pas mis à jour lors des différentes exécutions du pipeline.
++ Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties** dans le panneau droit du module **Entraîner le modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
 
 + Pour utiliser le modèle à des fins de scoring, ajoutez le module **Modèle de scoring** à un pipeline.
 

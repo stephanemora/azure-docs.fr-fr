@@ -1,5 +1,5 @@
 ---
-title: Démarrer des machines avec des runbooks Automation dans Azure DevTest Labs | Microsoft Docs
+title: Démarrer des machines avec des runbooks Automation dans Azure DevTest Labs
 description: Découvrez comment démarrer des machines virtuelles dans un labo dans Azure DevTest Labs en utilisant des runbooks Azure Automation.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8d3885ba25e479316f97ecbb0681a1680650fc09
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9bb97a73b7ca570ca122323e8e9c5a70c9348b15
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083616"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166309"
 ---
 # <a name="start-virtual-machines-in-a-lab-in-order-by-using-azure-automation-runbooks"></a>Démarrer des machines virtuelles dans un labo dans un certain ordre en utilisant des runbooks Azure Automation
 La fonctionnalité de [démarrage automatique](devtest-lab-set-lab-policy.md#set-autostart) de DevTest Labs vous permet configurer des machines virtuelles pour qu’elles démarrent automatiquement à une heure spécifiée. Cependant, cette fonctionnalité ne prend pas en charge le démarrage des machines dans un ordre spécifique. Il existe plusieurs scénarios où ce type d’automatisation peut être utile.  Voici un de ces scénarios : une machine virtuelle Jumpbox dans un labo doit être démarrée en premier, avant les autres machines virtuelles, car la machine Jumpbox est utilisée comme point d’accès aux autres machines virtuelles.  Cet article vous montre comment configurer un compte Azure Automation avec un runbook PowerShell qui exécute un script. Le script utilise des étiquettes sur les machines virtuelles du labo pour vous permettre de contrôler l’ordre de démarrage sans devoir modifier le script.
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 Dans cet exemple, l’étiquette **StartupOrder** avec la valeur appropriée (0, 1, 2, etc.) doit être ajoutée aux machines virtuelles du labo. Désignez les machines qui n’ont pas besoin d’être démarrée en affectant la valeur -1 à l’étiquette.
 
 ## <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation

@@ -4,12 +4,12 @@ description: Fournit une liste des abonnements Azure et des limites, quotas et c
 tags: billing
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: 4a6d5664d76df5401a2bb5c55f42d86b48e99017
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: ebfa1139ba0649280634bc0fd18627ba74f0c3cc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75662908"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294114"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 
@@ -48,6 +48,7 @@ Dans la liste des limites ci-dessous, une nouvelle table reflète les différenc
 * [Recherche cognitive Azure](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Explorateur de données Azure](#azure-data-explorer-limits)
 * [Azure Database pour MySQL](#azure-database-for-mysql)
 * [Base de données Azure pour PostgreSQL](#azure-database-for-postgresql)
 * [DNS Azure](#azure-dns-limits)
@@ -299,6 +300,10 @@ Le tableau suivant indique les limites d’Azure BizTalk Services.
 ### <a name="azure-cosmos-db-limits"></a>Limites d’Azure Cosmos DB
 
 Pour les limites d’Azure Cosmos DB, consultez [Limites dans Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
+
+### <a name="azure-data-explorer-limits"></a>Limites d'Azure Data Explorer
+
+[!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
 ### <a name="azure-database-for-mysql"></a>Azure Database pour MySQL
 

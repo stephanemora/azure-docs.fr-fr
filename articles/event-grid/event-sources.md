@@ -1,18 +1,18 @@
 ---
 title: Sources d’événements Azure Event Grid
-description: Décrit les sources d’événements pris en charge pour Azure Event Grid
+description: Cet article décrit les sources d’événements prises en charge pour Azure Event Grid. La source d’un événement désigne l’endroit où l’événement se produit.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 63cd7cea65515488649507cb7d3c52877211ca04
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3a87475146e2b23c4a824e568ea3da33e1f4abf0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531443"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512944"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
 

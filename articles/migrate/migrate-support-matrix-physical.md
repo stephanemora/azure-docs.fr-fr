@@ -3,12 +3,12 @@ title: Prise en charge pour l’évaluation de serveurs physiques à l’aide d�
 description: Découvrez la prise en charge pour l’évaluation de serveurs physiques à l’aide d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 32080605217cde78bd648ca6192f73d1025dea4c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 057d384c14328deca2853e891f23250aa1d61702
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028765"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154786"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
 
@@ -58,6 +58,19 @@ Le tableau suivant résume les exigences du port pour l’évaluation.
 **Appliance** | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ``` https://<appliance-ip-or-name>:44368 ```<br/> Connexions sortantes sur les ports 443, 5671 et 5672 pour envoyer les métadonnées de découverte et de performances à Azure Migrate.
 **Serveurs physiques** | **Windows :** Connexions entrantes sur le port 443, les ports WinRM 5985 (HTTP) et 5986 (HTTPS) pour extraire les métadonnées de configuration et de performance des serveurs Windows. <br/> **Linux :**  Connexions entrantes sur le port 22 (UDP) pour extraire les métadonnées de configuration et de performance des serveurs Linux. |
 
+## <a name="agent-based-dependency-visualization"></a>Visualisation des dépendances basée sur les agents
+
+La [visualisation des dépendances](concepts-dependency-visualization.md) vous permet de visualiser les dépendances entre les machines que vous voulez évaluer et migrer. Pour la visualisation basée sur les agents, les exigences et les limitations sont résumées dans le tableau suivant.
+
+
+**Prérequis** | **Détails**
+--- | ---
+**Déploiement** | Avant de déployer la visualisation des dépendances, vous devez disposer d’un projet Azure Migrate, avec l'outil Azure Migrate : Server Assessment ajouté au projet. Vous déployez la visualisation des dépendances après avoir configuré une appliance Azure Migrate pour découvrir vos machines locales.<br/><br/> La visualisation des dépendances n’est pas disponible dans Azure Government.
+**Service Map** | La visualisation des dépendances basée sur les agents utilise la solution [Service Map](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) dans les [journaux Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> Pour déployer, vous associez un espace de travail Log Analytics nouveau ou existant à un projet Azure Migrate.
+**Espace de travail Log Analytics** | L’espace de travail doit se trouver dans le même abonnement que le projet Azure Migrate.<br/><br/> Azure Migrate prend en charge les espaces de travail résidant dans les régions USA Est, Asie Sud-Est et Europe Ouest.<br/><br/>  L’espace de travail doit se trouver au sein d’une région dans laquelle [Service Map est pris en charge](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> L’espace de travail d’un projet Azure Migrate ne peut pas être modifié une fois qu’il a été ajouté.
+**Frais** | La solution Service Map n’entraîne pas de frais pendant les 180 premiers jours (à compter du jour où vous associez l’espace de travail Log Analytics au projet Azure Migrate).<br/><br/> Au bout de 180 jours, des frais Log Analytics standard s’appliquent.<br/><br/> L’utilisation de solutions autres que Service Map dans l’espace de travail Log Analytics associé entraîne des frais Log Analytics standard.<br/><br/> Si vous supprimez le projet Azure Migrate, l’espace de travail n’est pas supprimé avec celui-ci. Une fois le projet supprimé, l’utilisation de Service Map n’est pas gratuite et chaque nœud est facturé en fonction du niveau payant de l’espace de travail Log Analytics.
+**Agents** | La visualisation des dépendances basée sur les agents nécessite l’installation de deux agents sur chaque ordinateur à analyser.<br/><br/> - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [Dependency Agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+**Connectivité Internet** | Si les ordinateurs ne sont pas connectés à Internet, vous devez installer la passerelle Log Analytics sur ceux-ci.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

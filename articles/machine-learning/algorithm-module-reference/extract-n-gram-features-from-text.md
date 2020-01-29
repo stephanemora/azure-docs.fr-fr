@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 71c1afd294b880f68849b283ea1a4b058d744801
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f64ac9b276c71a037f96766b38a2574b89441c8
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497841"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312224"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informations de référence sur le module d’extraction des caractéristiques de N-grammes du texte
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion). Utilisez le module Extract N-Gram Features from Text (Extraire les caractéristiques de N-grammes du texte) pour *caractériser* des données texte non structurées. 
+Cet article décrit un module dans le concepteur Azure Machine Learning. Utilisez le module Extract N-Gram Features from Text (Extraire les caractéristiques de N-grammes du texte) pour *caractériser* des données texte non structurées. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configuration du module Extract N-Gram Features from Text
 
@@ -120,7 +120,7 @@ Le module Extract N-Gram Features from Text crée deux types de sortie :
 
 Le vocabulaire contient le dictionnaire de N-grammes, ainsi que les notes de fréquence de termes qui sont générées dans le cadre de l’analyse. Les scores DF et IDF sont générés indépendamment des autres options.
 
-+ **ID** : Identificateur généré pour chaque N-grammes.
++ **ID** : Identificateur généré pour chaque N-grammes.
 + **nGram** (N-grammes) : le N-grammes. Les espaces ou autres séparateurs de mots sont remplacés par le caractère de soulignement.
 + **DF** : Note de fréquence de terme pour le N-grammes dans le corpus d’origine.
 + **IDF** : Note de fréquence de document inverse pour le N-grammes dans le corpus d’origine.
@@ -137,4 +137,4 @@ Vous pouvez mettre à jour ce jeu de données manuellement, mais vous risquez d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning.

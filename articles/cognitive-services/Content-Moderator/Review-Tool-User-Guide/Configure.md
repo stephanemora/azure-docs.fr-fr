@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757430"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169588"
 ---
 # <a name="configure-the-review-tool"></a>Configurer l’outil de révision
 
@@ -75,8 +75,8 @@ L’onglet **Tags** permet de définir des tags de modération personnalisés en
 Pour créer un nouveau tag, il faut entrer un code court, un nom et une description dans leurs champs respectifs.
 
 - **Code court** : code à deux lettres du tag. Exemple : **cb**.
-- **Nom** : nom court et descriptif du tag en minuscules, sans espaces. Exemple : **isbullying**.
-- **Description** : (facultatif) description du type de contenu ciblé par votre tag. Exemple : **Description de cas de cyberharcèlement**.
+- **Name** : nom court et descriptif du tag en minuscules, sans espaces. Exemple : **isbullying**.
+- **Description** : (facultatif) description du type de contenu ciblé par votre tag. Exemple : **Description de cas de cyberharcèlement**.
 
 Cliquez sur **Ajouter** pour ajouter un tag, puis sur **Enregistrer** lorsque vous avez terminé la création de tags.
 
@@ -90,14 +90,14 @@ Pour supprimer des tags personnalisés, sélectionnez l’icône de corbeille à
 
 L’onglet **Connecteurs** permet de gérer les connecteurs, c’est-à-dire des plug-ins propres au service capables de traiter le contenu de différentes manières dans le cadre de [flux de travail](../review-api.md#workflows) de contenu.
 
-Le connecteur par défaut lors de la création d’un flux de travail est le connecteur Content Moderator, qui peut marquer le contenu comme **adult** ou **racy**, recherchez des grossièretés, etc. Il est également possible d’utiliser d’autres connecteurs (listés ci-dessous) à condition de disposer des informations d’identification de leurs services respectifs (par exemple, une clé d’abonnement [API Face](https://docs.microsoft.com/azure/cognitive-services/face/overview) est nécessaire pour pouvoir utiliser le connecteur de l’API Face).
+Le connecteur par défaut lors de la création d’un flux de travail est le connecteur Content Moderator, qui peut marquer le contenu comme **adult** ou **racy**, recherchez des grossièretés, etc. Cependant, vous pouvez utiliser d’autres connecteurs (listés ci-dessous) du moment que vous disposez d’informations d’identification pour leurs services respectifs (par exemple, une clé d’abonnement [Visage](https://docs.microsoft.com/azure/cognitive-services/face/overview) est nécessaire pour pouvoir utiliser le connecteur Visage).
 
 [L’Outil de révision](./human-in-the-loop.md) comprend les connecteurs suivants :
 
-- API Émotion
-- API Visage
+- Emotion
+- Face
 - Service cloud PhotoDNA
-- API Analyse de texte
+- Analyse de texte
 
 ### <a name="add-a-connector"></a>Ajouter un connecteur
 

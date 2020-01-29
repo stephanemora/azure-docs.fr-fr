@@ -1,31 +1,23 @@
 ---
-title: Disponibilité dans la région StorSimple | Microsoft Docs
+title: Disponibilité de StorSimple par région
 description: Décrit les régions Azure dans lesquelles les différents modèles d’appareil StorSimple sont disponibles.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965142"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275108"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Régions disponibles pour votre appareil StorSimple
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les centres de données Azure fonctionnent dans différentes zones géographiques du monde pour répondre aux besoins de performances, aux obligations et aux préférences des clients pour ce qui est de l’emplacement des données. Une zone géographique Azure est une zone définie du monde contenant au moins une région Azure. Une région Azure est une zone géographique contenant un ou plusieurs centres de données.
 
@@ -75,14 +67,14 @@ Si vous utilisez un appareils physique StorSimple 8100 ou 8600, il est disponibl
 | 2  | Autriche               | 17 | Hongrie            | 32 | Nigeria             | 47 | Corée du Sud                |
 | 3  | Bahreïn               | 18 | Islande            | 33 | Norvège              | 48 | Espagne                      |
 | 4  | Belgique               | 19 | Inde              | 34 | Pérou                | 49 | Sri Lanka                  |
-| 5\.  | Brésil                | 20 | Indonésie          | 35 | Philippines         | 50 | Suède                     |
+| 5  | Brésil                | 20 | Indonésie          | 35 | Philippines         | 50 | Suède                     |
 | 6  | Canada                | 21 | Irlande            | 36 | Pologne              | 51 | Suisse                |
 | 7  | Chili                 | 22 | Israël             | 37 | Portugal            | 52 | Taïwan                     |
 | 8  | Colombie              | 23 | Italie              | 38 | Porto Rico         | 53 | Thaïlande                   |
 | 9  | République tchèque        | 24 | Japon              | 39 | Qatar               | 54 | Turquie                     |
 | 10 | Danemark               | 25 | Kenya              | 40 | Roumanie             | 55 | Ukraine                    |
 | 11 | Égypte                 | 26 | Koweït             | 41 | Russie              | 56 | Émirats Arabes Unis       |
-| 12 | Finlande               | 27 | Macao R.A.S.          | 42 | Arabie Saoudite        | 57 | Royaume-Uni             |
+| 12 | Finlande               | 27 | Macao R.A.S.          | 42 | Arabie Saoudite        | 57 | United Kingdom             |
 | 13 | France                | 28 | Malaisie           | 43 | Singapour           | 58 | États-Unis              |
 | 14 | Allemagne               | 29 | Mexique             | 44 | Slovaquie            | 59 | Vietnam                    |
 | 15 | Grèce                | 30 | Pays-bas        | 45 | Slovénie            | 60 | Croatie                    |

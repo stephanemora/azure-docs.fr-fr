@@ -1,110 +1,146 @@
 ---
-title: Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning (préversion)
+title: Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 titleSuffix: Azure Machine Learning
 description: Découvrez comment entraîner un modèle et configurer un pipeline de prédiction par lots à l’aide du concepteur. Déployez le pipeline en tant que service web paramétrable, pouvant être déclenché à partir de n’importe quelle bibliothèque HTTP.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
-ms.reviewer: trbye
-ms.author: trbye
-author: trevorbye
-ms.date: 11/19/2019
+ms.topic: how-to
+ms.author: peterlu
+author: peterclu
+ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 8d80282044adfa723940aa6f68efc1e719e713c0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: d2653699a69cb468e8490c2cba579b73e526d1ed
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532052"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311884"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Exécuter des prédictions par lots à l’aide du concepteur Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Dans cette procédure, vous allez apprendre à utiliser le concepteur pour entraîner un modèle, puis configurer un pipeline de prédiction par lots et un service web. La prédiction par lots permet un scoring continu et à la demande des modèles entraînés sur des jeux de données volumineux. Il est possible de la configurer comme un service web pouvant être déclenché à partir de n’importe quelle bibliothèque HTTP. 
+Dans cet article, vous allez apprendre à utiliser le concepteur pour créer un pipeline de prédiction par lots. La prédiction par lots vous permet de noter en continu et à la demande des jeux de données volumineux via un service web qui peut être déclenché à partir de n'importe quelle bibliothèque HTTP.
 
-Pour configurer les services de scoring par lots à l’aide du SDK, consultez la [procédure](how-to-run-batch-predictions.md) associée.
-
-Dans cette procédure, vous allez apprendre à effectuer les tâches suivantes :
+Au cours de cette procédure, vous allez apprendre à effectuer les tâches suivantes :
 
 > [!div class="checklist"]
-> * Créer une expérience Machine Learning de base dans un pipeline
-> * Créer un pipeline d’inférence par lots paramétrable
-> * Gérer et exécuter des pipelines manuellement ou à partir d’un point de terminaison REST
+> * Créer et publier un pipeline d'inférence par lots
+> * Utiliser un point de terminaison de pipeline
+> * Gérer les versions d'un point de terminaison
+
+Pour configurer les services de scoring par lots à l'aide du kit de développement logiciel (SDK), consultez cette [procédure](how-to-run-batch-predictions.md).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-1. Si vous n’avez pas d’abonnement Azure, créez un compte gratuit avant de commencer. Essayez la [version gratuite ou payante d’Azure Machine Learning](https://aka.ms/AMLFree).
-
-1. Créez un [espace de travail](tutorial-1st-experiment-sdk-setup.md).
-
-1. Connectez-vous à [Azure Machine Learning Studio](https://ml.azure.com/).
-
-Ce guide suppose des connaissances de base relatives à la création d’un pipeline simple dans le concepteur. Pour une présentation guidée du concepteur, suivez le [tutoriel](tutorial-designer-automobile-price-train-score.md). 
-
-## <a name="create-a-pipeline"></a>Créer un pipeline
-
-Pour créer un pipeline d’inférence par lots, vous avez d’abord besoin d’une expérience Machine Learning. Pour en créer un, accédez à l’onglet **Designer** (Concepteur) dans votre espace de travail, puis créez un pipeline en sélectionnant l’option **Easy-to-use prebuilt modules** (Modules prégénérés faciles à utiliser).
-
-![Page d’accueil du concepteur](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-1.png)
-
-Nous allons utiliser ce modèle de Machine Learning simple à des fins de démonstration. Les données proviennent d’un jeu de données inscrit, créé à partir des données sur le diabète provenant d’Azure Open Datasets. Pour savoir comment inscrire des jeux de données provenant d’Azure Open Datasets, consultez la [procédure](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets). Ces données sont réparties entre des jeux de données servant à l’entraînement et d’autres servant à la validation. En outre, un arbre de décision optimisé est entraîné et son score est calculé. Le pipeline doit être exécuté au moins une fois pour créer un pipeline d’inférence. Cliquez sur le bouton **Run** (Exécuter) pour exécuter le pipeline.
-
-![Créer une expérience simple](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-2.png)
+Cette procédure suppose que vous disposez déjà d'un pipeline de formation. Pour accéder à une présentation guidée du concepteur, suivez la [première partie du tutoriel du concepteur](tutorial-designer-automobile-price-train-score.md). 
 
 ## <a name="create-a-batch-inference-pipeline"></a>Créer un pipeline d’inférence par lots
 
-Maintenant que le pipeline a été exécuté, une nouvelle option nommée **Create inference pipeline** (Créer un pipeline d’inférence) est disponible en regard des options **Run** (Exécuter) et **Publish** (Publier). Cliquez sur la liste déroulante et sélectionnez **Batch inference pipeline** (Pipeline d’inférence par lots).
+Votre pipeline de formation doit être exécuté au moins une fois pour créer un pipeline d'inférence.
 
-![Créer un pipeline d’inférence par lots](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-5.png)
+1. Accédez à l'onglet **Concepteur** de votre espace de travail.
 
-Le résultat est un pipeline d’inférence par lots par défaut. Celui-ci comprend un nœud pour la configuration d’expérience de pipeline d’origine, un nœud pour les données brutes destinées au scoring et un nœud pour calculer le score des données brutes par rapport au pipeline d’origine.
+1. Sélectionnez le pipeline de formation qui forme le modèle que vous souhaitez utiliser pour effectuer des prévisions.
 
-![Pipeline d’inférence par lots par défaut](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-6.png)
+1. **Exécutez** le pipeline.
 
-Vous pouvez ajouter d’autres nœuds pour modifier le comportement du processus d’inférence par lots. Dans cet exemple, vous allez ajouter un nœud pour l’échantillonnage aléatoire à partir des données entrées avant le scoring. Créez un nœud **Partition and Sample** (Partition et exemple) et placez-le entre le nœud des données brutes et le nœud du scoring. Ensuite, cliquez sur le nœud **Partition and Sample** (Partition et exemple) pour accéder aux paramètres.
+    ![Exécuter le pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
-![Nouveau nœud](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-7.png)
+Maintenant que le pipeline de formation a été exécuté, vous pouvez créer un pipeline d'inférence par lots.
 
-Le paramètre *Rate of sampling* (Taux d’échantillonnage) détermine le pourcentage du jeu de données d’origine qui doit être extrait pour l’échantillon aléatoire. Il s’agit d’un paramètre qu’il sera utile d’ajuster fréquemment. Vous devez donc l’activer en tant que paramètre de pipeline. Les paramètres de pipeline peuvent être modifiés au moment de l’exécution et peuvent être spécifiés dans un objet de charge utile lors de la réexécution du pipeline à partir d’un point de terminaison REST. 
+1. En regard de **Exécuter**, sélectionnez le nouveau menu déroulant **Créer un pipeline d'inférence**.
 
-Pour activer ce champ en tant que paramètre de pipeline, cliquez sur les trois points situés au-dessus du champ, puis cliquez sur **Add to pipeline parameter** (Ajouter au paramètre de pipeline). 
+1. Sélectionnez **Pipeline d'inférence par lots**.
 
-![Paramètres de l’exemple](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-8.png)
+    ![Créer un pipeline d’inférence par lots](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
+    
+Le résultat est un pipeline d’inférence par lots par défaut. 
 
-Ensuite, attribuez un nom et une valeur par défaut au paramètre. Le nom sera utilisé pour identifier le paramètre et le spécifier dans un appel REST.
+### <a name="add-a-pipeline-parameter"></a>Ajouter un paramètre de pipeline
 
-![Paramètre de pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-9.png)
+Pour créer des prédictions sur de nouvelles données, vous pouvez connecter manuellement un autre jeu de données dans le mode Brouillon de ce pipeline ou créer un paramètre pour votre jeu de données. Les paramètres vous permettent de modifier le comportement du processus d'inférence par lots lors de l'exécution.
 
-## <a name="deploy-batch-inferencing-pipeline"></a>Déployer un pipeline d’inférence par lots
+Dans cette section, vous allez créer un paramètre de jeu de données afin de spécifier un autre jeu de données pour les prédictions.
 
-Vous êtes maintenant prêt à déployer le pipeline. Cliquez sur le bouton **Deploy** (Déployer) pour ouvrir l’interface permettant de configurer un point de terminaison. Cliquez sur la liste déroulante, puis sélectionnez **New PipelineEndpoint** (Nouveau point de terminaison de pipeline).
+1. Sélectionnez le module de jeu de données.
 
-![Déploiement du pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-10.png)
+1. Un volet s'affiche à droite du canevas. En bas du volet, sélectionnez **Définir en tant que paramètre de pipeline**.
+   
+    Entrez un nom pour le paramètre, ou acceptez la valeur par défaut.
 
-Attribuez un nom et une description (facultative) au point de terminaison. Dans la partie inférieure, vous voyez le paramètre `sample-rate` que vous avez configuré avec une valeur par défaut de 0,8. Quand vous êtes prêt, cliquez sur **Deploy** (Déployer).
+## <a name="publish-your-batch-inferencing-pipeline"></a>Publier votre pipeline d'inférence par lots
 
-![Configurer le point de terminaison](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-11.png)
+Vous êtes maintenant prêt à déployer le pipeline d'inférence. Cela permettra de déployer le pipeline et de le mettre à la disposition d'autres utilisateurs.
 
-## <a name="manage-endpoints"></a>Gérer les points de terminaison 
+1. Cliquez sur le bouton **Publier**.
 
-Une fois le déploiement terminé, accédez à l’onglet **Endpoints** (Points de terminaison), puis cliquez sur le nom du point de terminaison que vous venez de créer.
+1. Dans la boîte de dialogue qui s'affiche, développez la liste déroulante **Point de terminaison de pipeline** et sélectionnez **Nouveau point de terminaison de pipeline**.
 
-![Lien du point de terminaison](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-12.png)
+1. Attribuez un nom et une description (facultative) au point de terminaison.
 
-Cet écran affiche tous les pipelines publiés sous le point de terminaison. Cliquez sur votre pipeline d’inférence.
+    Dans la partie inférieure de la boîte de dialogue, vous pouvez voir le paramètre que vous avez configuré avec une valeur par défaut de l'ID du jeu de données utilisé lors de la formation.
 
-![Pipeline d’inférence](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-13.png)
+1. Sélectionnez **Publier**.
 
-La page Pipeline Details (Détails du pipeline) affiche l’historique détaillé des exécutions, ainsi que des informations sur les chaînes de connexion de votre pipeline. Cliquez sur le bouton **Run** (Exécuter) pour lancer une exécution manuelle du pipeline.
+![Publier un pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
-![Détails du pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-14.png)
 
-Dans la configuration de l’exécution, vous pouvez fournir une description de l’exécution et modifier la valeur de tous les paramètres de pipeline. Cette fois-ci, réexécutez le pipeline d’inférence avec un taux d’échantillonnage de 0,9. Cliquez sur **Run** pour exécuter le pipeline.
+## <a name="consume-an-endpoint"></a>Utiliser un point de terminaison
 
-![Exécution du pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-15.png)
+Vous disposez maintenant d'un pipeline publié avec un paramètre de jeu de données. Le pipeline utilisera le modèle formé créé dans le pipeline de formation pour noter le jeu de données que vous fournissez en tant que paramètre.
 
-L’onglet **Consume** (Consommation) contient le point de terminaison REST pour la réexécution de votre pipeline. Pour effectuer un appel REST, vous aurez besoin d’un en-tête d’authentification de type porteur OAuth 2.0. Pour plus d’informations sur la configuration de l’authentification dans votre espace de travail et sur l’exécution d’un appel REST paramétrable, consultez [ce tutoriel](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
+### <a name="submit-a-pipeline-run"></a>Envoyer une exécution de pipeline 
+
+Dans cette section, vous allez configurer une exécution manuelle du pipeline et modifier le paramètre du pipeline pour noter les nouvelles données. 
+
+1. Au terme du déploiement, accédez à la section **Points de terminaison**.
+
+1. Sélectionnez **Points de terminaison de pipeline**.
+
+1. Sélectionnez le nom du point de terminaison que vous avez créé.
+
+![Lien du point de terminaison](./media/how-to-run-batch-predictions-designer/manage-endpoints.png)
+
+1. Sélectionnez **Pipelines publiés**.
+
+    Cet écran affiche tous les pipelines publiés sous ce point de terminaison.
+
+1. Sélectionnez le pipeline que vous avez publié.
+
+    La page Détails du pipeline affiche l'historique détaillé des exécutions ainsi que des informations sur les chaînes de connexion de votre pipeline. 
+    
+1. Sélectionnez **Exécuter** pour lancer une exécution manuelle du pipeline.
+
+    ![Détails du pipeline](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
+    
+1. Modifiez le paramètre pour utiliser un autre jeu de données.
+    
+1. Sélectionnez **Exécuter** pour exécuter le pipeline.
+
+### <a name="use-the-rest-endpoint"></a>Utiliser le point de terminaison REST
+
+Pour plus d'informations sur l'utilisation des points de terminaison de pipeline et sur le pipeline publié, consultez la section **Points de terminaison**.
+
+Vous trouverez le point de terminaison REST d'un point de terminaison de pipeline dans le panneau Vue d'ensemble de l'exécution. En appelant le point de terminaison, vous utilisez son pipeline publié par défaut.
+
+Vous pouvez également utiliser un pipeline publié sur la page **Pipelines publiés**. Sélectionnez un pipeline publié et recherchez le point de terminaison REST de celui-ci. 
+
+![Détails du point de terminaison REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+
+Pour procéder à un appel REST, vous devez disposer d'un en-tête d'authentification de type porteur OAuth 2.0. Pour plus d’informations sur la configuration de l’authentification dans votre espace de travail et sur l’exécution d’un appel REST paramétrable, consultez [ce tutoriel](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint).
+
+## <a name="versioning-endpoints"></a>Contrôle de version des points de terminaison
+
+Le concepteur attribue une version à chacun des pipelines ultérieurs que vous publiez sur un point de terminaison. Vous pouvez spécifier la version du pipeline que vous souhaitez exécuter en tant que paramètre dans votre appel REST. Si vous ne spécifiez aucun numéro de version, le concepteur utilisera le pipeline par défaut.
+
+Lorsque vous publiez un pipeline, vous pouvez choisir de le définir comme nouveau pipeline par défaut du point de terminaison.
+
+![Définir le pipeline par défaut](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
+
+Vous pouvez également définir un nouveau pipeline par défaut sous l'onglet **Pipelines publiés** de votre point de terminaison.
+
+![Définir le pipeline par défaut](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

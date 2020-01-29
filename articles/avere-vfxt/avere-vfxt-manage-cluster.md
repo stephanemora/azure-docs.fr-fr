@@ -4,20 +4,22 @@ description: Découvrez comment gérer le cluster Avere vFXT, notamment comment 
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/29/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d963c951d2202b3f60f0dd93c440b36fabf6478d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 94db4a93025b6e3d633368d924e3e0c518d108ca
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415297"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153477"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gérer le cluster Avere vFXT
 
-Après avoir créé le cluster, vous devrez peut-être y ajouter des nœuds, ou l’arrêter ou le redémarrer. À la fin de votre projet, vous aurez également besoin d’arrêter le cluster et de le supprimer de façon définitive.
+À un moment donné du cycle de vie de votre cluster Avere vFXT pour Azure, il peut être nécessaire d’ajouter des nœuds de cluster, ou de démarrer ou redémarrer le cluster. Une fois votre projet terminé, vous devez savoir comment arrêter le cluster et comment le supprimer de façon définitive.
 
-Selon la tâche de gestion du cluster à effectuer, vous utiliserez le Panneau de configuration Avere, le script de création de cluster de lignes de commande vfxt.py ou le portail Azure.
+Cet article explique comment ajouter ou supprimer des nœuds de cluster, et d’autres opérations de base sur le cluster. Si vous avez besoin de changer les paramètres du cluster ou de superviser son fonctionnement, utilisez le [Panneau de configuration Avere](avere-vfxt-cluster-gui.md).
+
+Selon la tâche de gestion à effectuer, vous pouvez être amené à utiliser un des trois outils suivants : le panneau de configuration Avere, le script de gestion de cluster de la ligne de commande vfxt.py et le portail Azure.
 
 Ce tableau récapitule les outils disponibles pour les différentes tâches.
 
@@ -38,7 +40,7 @@ Vous trouverez ci-dessous des instructions détaillées pour chaque outil.
 
 Quand vous fermez ou arrêtez une machine virtuelle Azure, les frais de calcul ne vous sont plus facturés, mais vous continuez à payer le stockage pour cette machine virtuelle. Si vous fermez définitivement un nœud vFXT ou le cluster vFXT entier, vous devez supprimer les machines virtuelles associées à l’aide du portail Azure.
 
-Dans le portail Azure, un nœud *arrêté* (pouvant être redémarré) affiche l’état **arrêté** ; un nœud *supprimé* affiche l’état **arrêté (libéré)** et il n’occasionne plus de frais de calcul ou de stockage.
+Dans le portail Azure, un nœud *arrêté* (qui peut être redémarré) apparaît avec l’état **Arrêté** dans le portail Azure. Un nœud *supprimé* apparaît avec l’état **Arrêté (désalloué)** , et n’entraîne plus de frais de calcul ou de stockage.
 
 Avant de supprimer une machine virtuelle, assurez-vous que toutes les données modifiées du cache ont été écrites dans un stockage back-end. Utilisez le Panneau de configuration Avere ou le script vfxt.py pour arrêter ou fermer le cluster.
 
@@ -50,7 +52,7 @@ Vous pouvez utiliser le Panneau de configuration Avere pour effectuer les tâche
 * Supprimer un nœud du cluster
 * Arrêter ou redémarrer le cluster entier
 
-Le Panneau de configuration Avere donne la priorité à l’intégrité des données. Il tente donc d’écrire les données modifiées dans le stockage back-end avant toute opération de destruction potentielle. Cette méthode est plus sûre que d’utiliser le portail Avere.
+Le Panneau de configuration Avere donne la priorité à l’intégrité des données : il tente donc d’écrire les données modifiées dans le stockage back-end avant une opération destructive potentielle. Ceci en fait une option plus sûre que le portail Azure.
 
 Accédez au Panneau de configuration Avere à partir d’un navigateur web. Au besoin, aidez-vous des instructions fournies dans [Accéder au cluster vFXT](avere-vfxt-cluster-gui.md).
 
@@ -69,7 +71,7 @@ Pour plus d’informations, consultez [Cluster > FXT Nodes](<https://azure.githu
 
 La page de paramètres **System Maintenance** (Maintenance système) comporte des commandes permettant de redémarrer des services du cluster, de redémarrer le cluster entier ou de mettre le cluster hors tension en toute sécurité. Pour plus d’informations, consultez [Administration > System Maintenance](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) dans le guide des paramètres du cluster Avere.
 
-Quand un cluster est en cours de fermeture, il publie d’abord des messages d’état dans l’onglet **Dashboard** (Tableau de bord). Après quelques instants, la session du Panneau de configuration Avere cesse de répondre, ce qui signifie que le cluster est fermé.
+Quand un cluster commence son processus d’arrêt, il publie des messages d’état sous l’onglet **Tableau de bord**. Après quelques instants, les messages cessent et la session du Panneau de configuration Avere cesse finalement de répondre, ce qui signifie que le cluster est fermé.
 
 ## <a name="manage-the-cluster-with-vfxtpy"></a>Gérer le cluster à l’aide du script vfxt.py
 
@@ -83,7 +85,7 @@ Vous pouvez utiliser le script vfxt.py pour effectuer les tâches de gestion du 
 * Arrêter ou démarrer le cluster  
 * Détruire le cluster
 
-Comme le Panneau de configuration Avere, vfxt.py tente de s’assurer que les données modifiées sont enregistrées dans le stockage back-end permanent avant de fermer ou détruire le cluster ou le nœud. Cette méthode est plus sûre que d’utiliser le portail Avere.
+Comme le Panneau de configuration Avere, vfxt.py tente de s’assurer que les données modifiées sont enregistrées dans le stockage back-end permanent avant de fermer ou détruire le cluster ou le nœud. Ceci en fait une option plus sûre que le portail Azure.
 
 Un guide d’utilisation de vfxt.py complet est disponible sur GitHub : [Gestion des clusters cloud avec vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
@@ -95,7 +97,7 @@ Le cluster doit avoir été démarré pour utiliser cette commande.
 
 Indiquez les valeurs suivantes :
 
-* Nom du groupe de ressources pour le cluster, mais aussi pour les ressources réseau et de stockage si elles ne sont pas les mêmes que le cluster
+* Nom du groupe de ressources pour le cluster, mais aussi pour les ressources réseau et de stockage si elles ne sont pas dans le même groupe de ressources que le cluster
 * Emplacement du cluster
 * Réseau et sous-réseau du cluster
 * Rôle d'accès aux nœuds du cluster (utiliser le rôle intégré [Opérateur Avere](../role-based-access-control/built-in-roles.md#avere-operator))
@@ -139,7 +141,7 @@ vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-Vous pouvez utiliser l’option ``--quick-destroy`` si vous ne souhaitez pas écrire les données modifiées du cache du cluster.
+Vous pouvez utiliser l’option ``--quick-destroy`` si vous ne voulez pas enregistrer les données modifiées du cache du cluster.
 
 Pour plus d’informations, consultez le [guide d’utilisation de vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>).
 
@@ -195,7 +197,7 @@ Outre la suppression des nœuds du cluster, vous pouvez supprimer ces composants
 * Les disques de données associés aux nœuds du cluster
 * Les interfaces réseau et adresses IP publiques associées aux composants du cluster
 * Réseaux virtuels
-* Les comptes de stockage (**uniquement** s’ils ne contiennent pas de données importantes)
+* Conteneurs de stockage et comptes de stockage (**seulement** s’ils ne contiennent pas de données importantes)
 * Groupe à haute disponibilité
 
 ![Liste de toutes les ressources dans le portail Azure, répertoriant les ressources créées pour un cluster de test](media/avere-vfxt-all-resources-list.png)

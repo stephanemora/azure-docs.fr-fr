@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: sgilley
 ms.date: 12/25/2019
-ms.openlocfilehash: 9e0bae722430662ddbe252e82c5108eb820ce352
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 88f688608a0ae3d435699362f9326c7c02d494a4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660104"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311114"
 ---
 # <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>Utiliser l’arbre de décision boosté pour prédire l’attrition avec le concepteur Azure Machine Learning
 
-**Exemple 5 du concepteur (préversion)**
+**Exemple de concepteur 5**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Découvrez comment générer un pipeline de machine learning complexe à l’aide du concepteur (préversion), sans écrire une seule ligne de code.
+Apprenez à générer un pipeline d'apprentissage automatique complexe à l'aide du concepteur, sans écrire la moindre ligne de code.
 
 Ce pipeline entraîne 2 classifieurs **Arbre de décision optimisé à deux classes** pour prédire les tâches courantes pour les systèmes de gestion de la relation client (CRM) : l’attrition clients. Les valeurs de données et les étiquettes sont réparties entre plusieurs sources de données et cryptées pour rendre anonymes les informations client. Toutefois, nous pouvons toujours utiliser le concepteur pour combiner les jeux de données et entraîner un modèle à l’aide des valeurs masquées.
 

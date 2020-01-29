@@ -1,5 +1,5 @@
 ---
-title: Créer une machine virtuelle dans DevTest Labs avec Azure PowerShell | Microsoft Docs
+title: Créer une machine virtuelle dans DevTest Labs avec Azure PowerShell
 description: Découvrez comment utiliser Azure DevTest Labs pour créer et gérer des machines virtuelles avec Azure PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 1a6938bd541e316dbe9f333c670c382faab6ad21
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 13014c39641203bddadf858c34cff67462b3a4b3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67854264"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167109"
 ---
 # <a name="create-a-virtual-machine-with-devtest-labs-using-azure-powershell"></a>Créer une machine virtuelle avec DevTest Labs en utilisant Azure PowerShell
 Cet article vous montre comment créer une machine virtuelle dans Azure DevTest Labs avec Azure PowerShell. Vous pouvez utiliser des scripts PowerShell pour automatiser la création de machines virtuelles dans un labo dans Azure DevTest Labs. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Avant de commencer :
 
 - [Créez un labo](devtest-lab-create-lab.md) si vous ne voulez pas utiliser un labo existant pour tester le script ou les commandes de cet article. 
@@ -189,7 +189,7 @@ La procédure suivante vous indique les étapes permettant d’obtenir les propr
 5. Sélectionnez **Exécuter**.
 6. Vous voyez les **propriétés de l’image** à partir de laquelle la machine virtuelle a été créée. 
 
-## <a name="set-expiration-date"></a>Définir une date d’expiration
+## <a name="set-expiration-date"></a>Définir la date d’expiration
 Dans des scénarios tels que la formation, les démonstrations et les essais, vous pouvez créer des machines virtuelles et les supprimer automatiquement après une durée fixe, afin de ne pas occasionner de coûts inutiles. Vous pouvez définir une date d’expiration pour une machine virtuelle lors de sa création à l’aide de PowerShell, comme indiqué dans la section [Script PowerShell](#powershell-script) de l’exemple.
 
 Voici un exemple de script PowerShell qui définit la date d’expiration de toutes les machines virtuelles existantes dans un laboratoire :
@@ -225,4 +225,4 @@ Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Examinez le contenu suivant : [Documentation Azure PowerShell pour Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+Consultez la [Documentation Azure PowerShell pour Azure DevTest Labs](/powershell/module/az.devtestlabs/)

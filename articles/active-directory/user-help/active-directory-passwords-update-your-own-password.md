@@ -9,23 +9,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 01/15/2020
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: ad4831cfb5b09083b4ee76b6badf3936b2256138
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160789"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263487"
 ---
-# <a name="reset-your-work-or-school-password"></a>Réinitialiser votre mot de passe professionnel ou scolaire
+# <a name="reset-your-work-or-school-password-using-security-info"></a>Réinitialiser votre mot de passe professionnel ou scolaire avec des informations de sécurité
 
-Si vous avez oublié votre mot de passe, que vous n’en avez jamais reçu de la part du support de votre entreprise, ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour réinitialiser votre mot de passe.
+Si vous avez oublié votre mot de passe professionnel ou scolaire, que votre organisation ne vous en a jamais envoyé un ou que votre compte a été verrouillé, vous pouvez utiliser vos informations de sécurité et votre appareil mobile pour le réinitialiser. Votre administrateur doit activer cette fonctionnalité pour vous permettre de configurer vos informations et réinitialiser votre propre mot de passe.
 
->[!NOTE]
->Si vous connaissez votre mot de passe et que vous souhaitez simplement modifier, consultez la procédure décrite au paragraphe [Modifier votre mot de passe](#how-to-change-your-password) de cet article.<br><br>
->Si vous tentez de récupérer un compte personnel comme Xbox, hotmail.com ou outlook.com, essayez les suggestions fournies dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+Si vous connaissez votre mot de passe mais que vous voulez le changer, consultez les sections [Comment modifier votre mot de passe](https://docs.microsoft.com/azure/active-directory/user-help/active-directory-passwords-update-your-own-password#how-to-change-your-password) de cet article.
+
+>[!Important]
+>Cet article s’adresse aux utilisateurs qui tentent de réinitialiser un mot de passe inconnu ou oublié d’un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la façon d’activer la réinitialisation de mot de passe en libre-service pour vos employés ou d’autres utilisateurs, consultez [Déployer la réinitialisation de mot de passe en libre-service Azure AD et autres articles](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-deployment).
 
 ## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>Comment réinitialiser ou déverrouiller le mot de passe d’un compte professionnel ou scolaire
 
@@ -58,7 +58,7 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
     1. Sélectionnez **Envoyer un e-mail sur mon adresse de messagerie de secours**, puis sélectionnez **E-mail**.
 
     2. Saisissez le code de vérification obtenu par e-mail dans la zone de texte, puis sélectionnez **Suivant**.
-    
+
     3. Saisissez et confirmez votre nouveau mot de passe, puis sélectionnez **Terminer**.
 
 - **Réinitialiser votre mot de passe par SMS.** Envoie un SMS au numéro de téléphone précédemment configuré dans les informations de sécurité. Si votre administrateur a activé l’expérience informations de sécurité, vous trouverez plus d’informations sur la configuration de l’envoie de SMS dans l’article [Set up security info to use text messaging (preview)](security-info-setup-text-msg.md) (Configurer les informations de sécurité pour utiliser les SMS [préversion]). Si vous n’utilisez pas encore les informations de sécurité, vous trouverez plus d’informations sur la configuration de l’envoi de SMS dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
@@ -100,7 +100,7 @@ Vous n’avez peut-être pas accès à votre compte Azure Active Directory (Azur
   3. Saisissez et confirmez votre nouveau mot de passe, puis sélectionnez **Terminer**.
 
   4. Une fois que vous obtenez le message indiquant que votre mot de passe a été réinitialisé, connectez-vous à votre compte à l’aide de votre nouveau mot de passe.
-        
+
      Si vous ne pouvez toujours pas accéder à votre compte, contactez l’administrateur de votre organisation pour obtenir de l’aide.
 
 Après la réinitialisation du mot de passe, vous recevrez peut-être un courrier de confirmation provenant d’un compte tel que « Microsoft de la part de \<*votre entreprise*> ». Si vous recevez un e-mail de ce type sans avoir récemment réinitialisé votre mot de passe, contactez immédiatement l’administrateur de votre organisation.
@@ -163,10 +163,7 @@ Voici quelques cas d'erreur courants et leurs solutions :
 |Après avoir saisi mon identifiant utilisateur, j’obtiens une erreur indiquant « Nous n’avons pas pu vérifier votre compte ».|Le processus d’authentification n’a pas pu vérifier les informations liées à votre compte.|Si vous obtenez ce message, deux raisons possibles :<br><br>1. Votre administrateur a activé la réinitialisation de mot de passe pour votre organisation, mais vous n’êtes pas inscrit pour utiliser le service. Pour vous inscrire à la réinitialisation du mot de passe, consultez l’un des articles suivants, selon votre méthode de vérification : [Configurer les informations de sécurité pour utiliser une application d’authentification (préversion) ](security-info-setup-auth-app.md), [Configurer les informations de sécurité pour utiliser un appel téléphonique (préversion)](security-info-setup-phone-number.md), [Configurer les informations de sécurité pour utiliser l’envoi de SMS (préversion)](security-info-setup-text-msg.md), [Configurer les informations de sécurité pour utiliser les e-mails (préversion)](security-info-setup-email.md) ou [Configurer les informations de sécurité pour utiliser les questions de sécurité (préversion)](security-info-setup-questions.md).<br><br>2. Votre administrateur n’a pas activé la réinitialisation de mot de passe pour votre organisation. Dans ce cas, sélectionnez le lien « Contacter un administrateur » afin d’envoyer un e-mail au service informatique de votre entreprise demandant de réinitialiser votre mot de passe.|
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 - Découvrez les informations de sécurité avec l’article [Security info (preview) overview](user-help-security-info-overview.md) (Vue d’ensemble des informations de sécurité [préversion]).
 
-- Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Two-step verification overview](user-help-two-step-verification-overview.md) (Vue d’ensemble de la vérification en deux étapes). 
-
-- En cas de perte ou d’oubli de votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
-
-- Suivez les conseils de dépannage et obtenez de l’aide en cas de problème de connexion dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+- Si vous tentez de récupérer un compte personnel comme Xbox, hotmail.com ou outlook.com, essayez les suggestions fournies dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

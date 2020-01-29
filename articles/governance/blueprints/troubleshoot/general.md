@@ -1,18 +1,18 @@
 ---
 title: Résolution des erreurs courantes
 description: Découvrez comment détecter un problème lié à la création, à l’attribution et à la suppression de blueprints tels que les violations de stratégie et les fonctions de paramètres blueprint.
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982492"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157081"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Résoudre les erreurs à l’aide de blueprints Azure
 
-Vous pouvez rencontrer des erreurs lors de la création ou de l’affectation des blueprints. Cet article décrit différentes erreurs qui peuvent se produire et explique comment les résoudre.
+Vous pouvez rencontrer des erreurs lors de la création, de l’affectation ou de la suppression des blueprints. Cet article décrit différentes erreurs qui peuvent se produire et explique comment les résoudre.
 
 ## <a name="finding-error-details"></a>Recherche des détails de l’erreur
 
@@ -60,6 +60,22 @@ En passant un paramètre de blueprint qui utilise une fonction, comme `[resource
 #### <a name="resolution"></a>Résolution
 
 Pour passer une fonction en tant que paramètre, ajoutez un caractère d’échappement devant toute la chaîne avec `[` pour que le paramètre de blueprint se présente sous la forme `[[resourceGroup().tags.myTag]`. Le caractère d’échappement fait que les blueprints traitent la valeur comme une chaîne lors du traitement du blueprint. Le blueprint place ensuite la fonction sur l’artefact, ce qui lui permet d’être dynamique comme prévu. Pour plus d’informations, voir [Syntaxe et expressions dans les modèles Azure Resource Manager](../../../azure-resource-manager/templates/template-expressions.md).
+
+## <a name="delete-errors"></a>Supprimer les erreurs
+
+### <a name="assign-delete-timeout"></a>Scénario : Expiration du délai de suppression de l’attribution
+
+#### <a name="issue"></a>Problème
+
+La suppression d’une attribution de blueprint ne se termine pas.
+
+#### <a name="cause"></a>Cause :
+
+Une attribution de blueprint peut être bloquée dans un état non terminal lors de sa suppression. Cet état est dû au fait que les ressources créées par l’attribution de blueprint sont toujours en attente de suppression ou ne retournent pas de code d’état à Azure Blueprints.
+
+#### <a name="resolution"></a>Résolution
+
+Les attributions de blueprint dans un état non terminal sont automatiquement marquées **Échec** après un délai d’expiration de _six heures_. Une fois que le délai d’expiration a ajusté l’état de l’attribution de blueprint, la suppression peut être retentée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

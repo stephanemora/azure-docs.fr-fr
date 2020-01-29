@@ -4,14 +4,14 @@ description: Découvrez une solution de contournement pour permettre aux utilisa
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: d50c07d78c15d26a191b982d24da8a4808a31ecd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b411fe465a67f8ea5421ac0dc93348b4e92e8ec
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415052"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153273"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Autoriser les utilisateurs non propriétaires à déployer Avere vFXT
 
@@ -72,7 +72,7 @@ Le propriétaire d’abonnement doit également [accepter les conditions d’uti
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Une fois cette procédure terminée, tout utilisateur qui reçoit ce rôle a les autorisations suivantes sur l’abonnement :
+Une fois ce processus terminé, tout utilisateur qui reçoit ce rôle a les autorisations suivantes sur l’abonnement :
 
 * Créer et configurer l’infrastructure réseau
 * Créer le contrôleur de cluster

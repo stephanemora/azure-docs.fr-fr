@@ -1,19 +1,17 @@
 ---
 title: Forum aux questions sur Azure Kubernetes Service (AKS)
 description: Recherchez des réponses à certaines des questions les plus fréquemment posées sur Azure Kubernetes Service (AKS).
-services: container-service
 author: mlearned
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: ff44409180d61828c25980704c71b72965f6bd5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58b372e1f80386c4e02339f67f4c5aeaa686a662
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967441"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549221"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Forum aux questions sur Azure Kubernetes Service (AKS)
 
@@ -187,7 +185,7 @@ Bien qu'AKS dispose de mécanismes de résilience capable de gérer une telle co
 
 ## <a name="can-i-use-custom-vm-extensions"></a>Puis-je utiliser des extensions de machine virtuelle personnalisées ?
 
-Non, AKS est un service géré et la manipulation des ressources IaaS n'est pas prise en charge. Pour installer des composants personnalisés, etc. veuillez utiliser les API et les mécanismes Kubernetes. Par exemple, utilisez DaemonSets pour installer les composants nécessaires.
+Non, AKS est un service géré et la manipulation des ressources IaaS n'est pas prise en charge. Pour installer des composants personnalisés, etc. utilisez les API et les mécanismes Kubernetes. Par exemple, utilisez DaemonSets pour installer les composants nécessaires.
 
 <!-- LINKS - internal -->
 

@@ -1,5 +1,5 @@
 ---
-title: Installer et exécuter des conteneurs - API VISAGE
+title: Installer et exécuter des conteneurs – Visage
 titleSuffix: Azure Cognitive Services
 description: Cet article décrit la procédure pas à pas pour télécharger, installer et exécuter des conteneurs pour Visage.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 574f6bead9cac384c72d2d0cd35353eb571a9490
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327037"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165992"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installer et exécuter des conteneurs Visage (préversion)
 
@@ -24,15 +24,15 @@ L’API Visage d’Azure Cognitive Services fournit un conteneur Linux standardi
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs de l’API Visage.
+Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs du service Visage.
 
 |Obligatoire|Objectif|
 |--|--|
 |Moteur Docker| Le moteur Docker doit être installé sur un [ordinateur hôte](#the-host-computer). Docker fournit des packages qui configurent l’environnement Docker sur [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) et [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Pour apprendre les principes de base de Docker et des conteneurs, consultez la [vue d’ensemble de Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Vous devez configurer Docker pour permettre aux conteneurs de se connecter à Azure et de lui envoyer des données de facturation. <br><br> Sur Windows, vous devez également configurer Docker pour prendre en charge les conteneurs Linux.<br><br>|
 |Bonne connaissance de Docker | Vous avez besoin de connaissances de base des concepts Docker, telles que les registres, les référentiels, les conteneurs et les images conteneur. Vous devez également connaître les commandes `docker` de base.| 
-|Ressource visage |Pour utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Visage** Azure, la clé API associée et l’URI de point de terminaison. Les deux valeurs sont disponibles sur les pages **Vue d’ensemble** et **Clés** de la ressource. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : le point de terminaison tel qu'il est fourni à la page **Vue d’ensemble**
+|Ressource visage |Pour utiliser le conteneur, vous devez disposer des éléments suivants :<br><br>Une ressource **Visage** Azure, la clé API associée et l’URI de point de terminaison. Les deux valeurs sont disponibles sur les pages **Vue d’ensemble** et **Clés** de la ressource. Elles sont nécessaires au démarrage du conteneur.<br><br>**{API_KEY}**  : L’une des deux clés de ressource disponibles à la page **Clés**<br><br>**{ENDPOINT_URI}**  : Le point de terminaison tel qu'il est fourni à la page**Vue d’ensemble**
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -46,9 +46,9 @@ Vous devez respecter les prérequis suivants avant d’utiliser les conteneurs d
 
 ### <a name="container-requirements-and-recommendations"></a>Exigences et suggestions relatives au conteneur
 
-Le tableau suivant décrit la quantité minimale et recommandée de cœurs de processeur et de mémoire à allouer pour chaque conteneur de l’API Visage.
+Le tableau suivant décrit la quantité minimale et la quantité recommandée de cœurs de processeur et de mémoire à allouer pour chaque conteneur du service Visage.
 
-| Conteneur | Minimale | Recommandé | Transactions par seconde<br>(Minimum, maximum)|
+| Conteneur | Minimum | Recommandé | Transactions par seconde<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
 |Face | 1 cœur, 2 Go de mémoire | 1 cœur, 4 Go de mémoire |10, 20|
 
@@ -59,7 +59,7 @@ Le nombre de cœurs et la quantité de mémoire correspondent aux paramètres `-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Obtenir l’image conteneur avec docker pull
 
-Des images conteneur sont disponibles pour l’API Visage. 
+Des images conteneur sont disponibles pour le service Visage. 
 
 | Conteneur | Référentiel |
 |-----------|------------|
@@ -75,7 +75,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 ## <a name="use-the-container"></a>Utiliser le conteneur
 
-Une fois que le conteneur est sur [l’ordinateur hôte](#the-host-computer), appliquez la procédure suivante pour utiliser le conteneur.
+Une fois que le conteneur se trouve sur l’[ordinateur hôte](#the-host-computer), procédez comme suit pour utiliser le conteneur.
 
 1. [Exécutez le conteneur](#run-the-container-with-docker-run) avec les paramètres de facturation requis. D’autres [exemples](./face-resource-container-config.md#example-docker-run-commands) de commande `docker run` sont disponibles. 
 1. [Interrogez le point de terminaison de prédiction du conteneur](#query-the-containers-prediction-endpoint). 
@@ -124,7 +124,7 @@ Utilisez l’hôte, `http://localhost:5000`, pour les API de conteneur.
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous exécutez le conteneur avec un [montage](./face-resource-container-config.md#mount-settings) de sortie et que la journalisation est activée, il génère des fichiers journaux utiles pour résoudre les problèmes qui se produisent lors du démarrage ou de l’exécution du conteneur.
 
@@ -132,7 +132,7 @@ Si vous exécutez le conteneur avec un [montage](./face-resource-container-confi
 
 ## <a name="billing"></a>Facturation
 
-Les conteneurs de l’API Visage envoient des informations de facturation à Azure à l’aide d’une ressource API Visage sur votre compte Azure. 
+Les conteneurs du service Visage envoient des informations de facturation à Azure en utilisant une ressource Visage de votre compte Azure. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -144,11 +144,11 @@ Pour plus d’informations sur ces options, consultez [Configurer des conteneurs
 
 ## <a name="summary"></a>Résumé
 
-Dans cet article, vous avez découvert des concepts et le flux de travail pour le téléchargement, l’installation et l’exécution des conteneurs de l’API Visage. En résumé :
+Dans cet article, vous avez découvert les concepts et le workflow de téléchargement, d’installation et d’exécution des conteneurs du service Visage. En résumé :
 
 * Des images conteneur sont téléchargées à partir d’Azure Container Registry.
 * Les images conteneurs s’exécutent dans Docker.
-* Vous pouvez utiliser l’API REST ou le Kit de développement logiciel (SDK) pour appeler des opérations dans les conteneurs de l’API Visage en spécifiant l’URI hôte du conteneur.
+* Vous pouvez utiliser l’API REST ou le kit SDK pour appeler des opérations dans les conteneurs du service Visage en spécifiant l’URI hôte du conteneur.
 * Vous devez spécifier les informations de facturation lors de l’instanciation d’un conteneur.
 
 > [!IMPORTANT]

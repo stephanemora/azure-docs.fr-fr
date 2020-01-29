@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fe8610d7551b63ed613153ba1ee0e6f8e73b5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6e8e8b20fc9b8e19b2f7c5f9c1b9e926580c9dbb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278924"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156061"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Configurer l’envoi de SMS comme méthode de vérification
 
@@ -28,7 +28,7 @@ Si vous êtes invité à les configurer immédiatement après vous être connect
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Si vous ne voyez pas l’option de téléphone, il est possible que votre organisation ne vous autorise pas à utiliser un numéro de téléphone à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode, ou contacter votre administrateur pour obtenir de l’aide.
+>Si vous ne voyez pas d'option téléphonique, cela peut indiquer que votre organisation ne vous autorise pas à utiliser cette option à des fins de vérification. Dans ce cas, vous devez choisir une autre méthode ou contacter le support technique de votre organisation pour obtenir de l’aide.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>Configurer les informations de sécurité pour utiliser les SMS
 
@@ -45,7 +45,7 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser la
 
 2. Sélectionnez **Informations de sécurité** à partir du volet de navigation de gauche ou du lien du bloc **Informations de sécurité**, puis sélectionnez **Ajouter une méthode** dans la page **Informations de sécurité**.
 
-    ![Page Informations de sécurité, avec l’option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![Page Informations de sécurité, avec l'option Ajouter une méthode en surbrillance](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. Sur la page **Ajouter une méthode**, choisissez **Téléphone** dans la liste déroulante, puis sélectionnez **Ajouter**.
 
@@ -53,11 +53,11 @@ Selon les paramètres de votre organisation, vous pourrez peut-être utiliser la
 
 4. Sur la page **Téléphone**, entrez le numéro de téléphone de votre appareil mobile, choisissez **M’envoyer un code par SMS**, puis sélectionnez **Suivant**.
 
-    ![Ajouter le numéro de téléphone et choisir la méthode de l’envoi de SMS](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
+    ![Ajouter le numéro de téléphone et choisir la méthode de l'envoi de SMS](media/security-info/securityinfo-myprofile-phonetext-addnumber.png)
 
 5. Entrez le code qui vous a été envoyé par SMS sur votre appareil mobile, puis sélectionnez **Suivant**.
 
-    ![Ajouter le numéro de téléphone et choisir la méthode de l’envoi de SMS](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
+    ![Ajouter le numéro de téléphone et choisir la méthode de l'envoi de SMS](media/security-info/securityinfo-myprofile-phonetext-entercode.png)
 
     La page change pour indiquer que vous avez réussi.
 
@@ -100,9 +100,9 @@ Pour utiliser la messagerie texte comme méthode par défaut lorsque vous vous c
 
 Vous avez la possibilité de choisir la façon d’être contacté par votre organisation pour la vérification de votre identité, en fonction de ce que vous essayez de faire. Ces options sont les suivantes :
 
-- **Application d’authentification.** Téléchargez et utilisez une application d’authentification pour obtenir une notification d’approbation ou un code d’approbation généré de manière aléatoire pour la réinitialisation du mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la configuration et l’utilisation de l’application Microsoft Authenticator, consultez [Set up security info to use an authenticator app](security-info-setup-auth-app.md) (Configurer des informations de sécurité pour utiliser une application d’authentification).
+- **Application d’authentification.** Téléchargez et utilisez une application d’authentification pour obtenir une notification d’approbation ou un code d’approbation généré de manière aléatoire pour la réinitialisation du mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la configuration et l’utilisation de l’application Microsoft Authenticator, consultez [Configurer les informations de sécurité pour utiliser une application d’authentification](security-info-setup-auth-app.md).
 
-- **Appel sur un appareil mobile ou un téléphone professionnel.** Entrez votre numéro de téléphone mobile et recevez un appel pour la réinitialisation de mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la vérification de votre identité au moyen d’un numéro de téléphone, consultez [Configurer les informations de sécurité pour utiliser un appel téléphonique](security-info-setup-phone-number.md).
+- **Appel sur téléphone mobile ou téléphone professionnel.** Entrez votre numéro de téléphone mobile et recevez un appel pour la réinitialisation de mot de passe ou la vérification en deux étapes. Pour obtenir des instructions détaillées sur la vérification de votre identité au moyen d’un numéro de téléphone, consultez [Configurer les informations de sécurité pour utiliser un appel téléphonique](security-info-setup-phone-number.md).
 
 - **Clé de sécurité.** Enregistrez votre clé de sécurité compatible Microsoft et utilisez-la avec un code PIN pour la vérification en deux étapes ou la réinitialisation du mot de passe. Pour obtenir des instructions détaillées sur la vérification de votre identité au moyen d’une clé de sécurité, consultez [Configurer des informations de sécurité pour utiliser une clé de sécurité](security-info-setup-security-key.md).
 

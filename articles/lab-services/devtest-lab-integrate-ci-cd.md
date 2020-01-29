@@ -1,5 +1,5 @@
 ---
-title: Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue d’Azure Pipelines | Microsoft Docs
+title: Intégrer Azure DevTest Labs à Azure Pipelines
 description: Découvrez comment intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue d’Azure Pipelines.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 20ba297d22e26aa8c7e20db300173f12582d257e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9604da5252254120ac7bd3fca3f0cc97324aef92
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224481"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293213"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Intégrer Azure DevTest Labs dans votre pipeline CI/CD Azure Pipelines
 
@@ -35,7 +35,7 @@ Cet article explique comment utiliser des tâches Azure DevTest Labs pour créer
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Inscrivez-vous ou connectez-vous à votre organisation [Azure DevOps](https://dev.azure.com), puis [créez un projet](/vsts/organizations/projects/create-project) dans l’organisation. 
   
@@ -63,7 +63,7 @@ Cette section décrit comment créer le modèle Azure Resource Manager que vous 
 
 ## <a name="create-a-script-to-get-vm-properties"></a>Créer un script pour obtenir les propriétés d’une machine virtuelle
 
-Quand vous exécutez des étapes de tâche telles que la copie de fichiers Azure ou PowerShell sur des ordinateurs cibles dans le pipeline de mise en production, le script suivant collecte les valeurs dont vous avez besoin pour déployer une application sur une machine virtuelle. Normalement, vous utilisez ces tâches pour déployer votre application sur une machine virtuelle Azure. Les tâches requièrent des valeurs telles que le nom du groupe de ressources de la machine virtuelle, une adresse IP et un nom de domaine complet.
+Lorsque vous exécutez des étapes de tâche telles que la *copie de fichiers Azure* ou *PowerShell sur des machines cibles* dans le pipeline de mise en production, le script suivant collecte les valeurs dont vous avez besoin pour déployer une application sur une machine virtuelle. Normalement, vous utilisez ces tâches pour déployer votre application sur une machine virtuelle Azure. Les tâches requièrent des valeurs telles que le nom du groupe de ressources de la machine virtuelle, une adresse IP et un nom de domaine complet.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -120,7 +120,7 @@ Pour ajouter des variables pour les valeurs :
    
 1. Pour chaque variable, sélectionnez **Ajouter**, puis entrez le nom et la valeur :
    
-   |Nom|Valeur|
+   |Name|Valeur|
    |---|---|
    |*vmName*|Nom de la machine virtuelle que vous avez assigné dans le modèle Resource Manager|
    |*userName*|Nom d’utilisateur pour accéder à la machine virtuelle|
@@ -130,9 +130,9 @@ Pour ajouter des variables pour les valeurs :
 
 L'étape suivante consiste à créer la machine virtuelle avec l'image de référence à utiliser pour les futurs déploiements. Vous créez la machine virtuelle au sein de votre instance Azure DevTest Labs à l’aide de la tâche *Créer une machine virtuelle Azure DevTest Labs*.
 
-1. Dans l’onglet Pipeline du pipeline de mise en production, sélectionnez le texte hyperlien à l’étape 1 d’Afficher les tâches d’index, puis sélectionnez le signe plus en regard du travail Agent. 
+1. Dans l’onglet **Pipeline** du pipeline de mise en production, sélectionnez le lien hypertexte à l’**étape 1** d’**Afficher les tâches d’index**, puis sélectionnez le signe plus **+** en regard du **travail Agent**. 
    
-1. Sous Ajouter des tâches, sélectionnez Créer une machine virtuelle Azure DevTest Labs, puis sélectionnez Ajouter. 
+1. Sous **Ajouter des tâches**, sélectionnez **Créer une machine virtuelle Azure DevTest Labs**, puis sélectionnez **Ajouter**. 
    
 1. Sélectionnez **Créer une machine virtuelle Azure DevTest Labs** dans le volet gauche. 
 
@@ -140,7 +140,7 @@ L'étape suivante consiste à créer la machine virtuelle avec l'image de réfé
    
    |Champ|Valeur|
    |---|---|
-   |**Abonnement Azure RM**|Sélectionnez une connexion ou un abonnement au service dans la liste déroulante Connexions au service Azure disponibles ou Abonnements Azure disponibles, puis sélectionnez Autoriser si nécessaire.<br /><br />**Remarque :** Pour plus d’informations sur la création d’une connexion d’autorisations plus restreinte à votre abonnement Azure, consultez Point de terminaison de service Azure Resource Manager.|
+   |**Abonnement Azure RM**|Sélectionnez une connexion ou un abonnement au service dans la liste déroulante **Connexions au service Azure disponibles** ou **Abonnements Azure disponibles**, puis sélectionnez **Autoriser** si nécessaire.<br /><br />**Remarque :** Pour plus d’informations sur la création d’une connexion d’autorisations plus restreinte à votre abonnement Azure, consultez [Point de terminaison de service Azure Resource Manager](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager).|
    |**Nom du labo**|Sélectionnez le nom d’un labo existant dans lequel la machine virtuelle de labo sera créée.|
    |**Nom du modèle**|Entrez le chemin complet et le nom du fichier de modèle que vous avez enregistré dans votre dépôt de code source. Vous pouvez utiliser les propriétés intégrées pour simplifier le chemin, par exemple :<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Paramètres du modèle**|Entrez les paramètres des variables que vous avez définies précédemment :<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
@@ -154,7 +154,7 @@ Exécutez le script que vous avez créé pour collecter les détails de la machi
    
 1. Sous **Ajouter des tâches**, sélectionnez **Azure PowerShell**, puis **Ajouter**. 
    
-1. Sélectionnez **Script Azure PowerShell : FilePath dans le volet gauche. 
+1. Sélectionnez **Script Azure PowerShell : FilePath** dans le volet gauche. 
    
 1. Dans le volet de droite, remplissez le formulaire comme suit :
    

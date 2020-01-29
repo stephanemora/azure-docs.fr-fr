@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ac99b95e3cece09c5bdeb0986a11a999603707e6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214552"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548524"
 ---
 # <a name="module-assign-data-to-clusters"></a>Module : Attribuer des données à des clusters
 
@@ -47,5 +47,5 @@ Le module Attribuer des données à des clusters retourne un jeu de données con
   
 ### <a name="results"></a>Résultats
 
-+  Pour afficher les valeurs dans le jeu de données, cliquez sur le module avec le bouton droit de la souris, sélectionnez **Result datasets** (Jeux de données de résultats), puis sélectionnez **Visualiser**.
++  Pour afficher les valeurs dans le jeu de données, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**. Vous pouvez aussi sélectionner le module et basculer vers l’onglet **Sorties** dans le panneau droit, cliquer sur l’icône d’histogramme dans **Port outputs** (Sorties de port) pour visualiser le résultat.
 

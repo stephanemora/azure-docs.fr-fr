@@ -1,29 +1,21 @@
 ---
-title: Utiliser le kit SDK .NET pour les travaux Microsoft Azure StorSimple Data Manager | Microsoft Docs
+title: Utiliser le kit SDK .NET pour les travaux Microsoft Azure StorSimple Data Manager
 description: Découvrez comment utiliser le kit SDK .NET pour lancer les tâches StorSimple Data Manager
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632358"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270721"
 ---
 # <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Utiliser le kit SDK .NET pour lancer la transformation de données
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Cet article vous explique comment utiliser la fonctionnalité de transformation des données au sein du service StorSimple Data Manager afin de transformer les données de l’appareil StorSimple. Les données transformées sont ensuite utilisées par d’autres services Azure dans le cloud.
 
@@ -34,7 +26,7 @@ Vous pouvez lancer une tâche de transformation de données de deux manières :
  
   Cet article décrit en détail comment créer un exemple d’application console .NET pour lancer une tâche de transformation de données et effectuer son suivi. Pour en savoir plus sur le lancement de la transformation de données via Automation, accédez à [Utiliser le runbook Azure Automation pour déclencher les tâches de transformation de données](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 *   Un ordinateur exécutant :

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704523"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512757"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Stratégies de mot de passe et de verrouillage de compte sur les domaines managés
 
@@ -57,15 +57,15 @@ Les stratégies de mot de passe se comportent un peu différemment en fonction d
 Quelle que soit la méthode de création de compte d’utilisateur choisie, les stratégies de verrouillage de compte suivantes sont appliquées à tous les utilisateurs par la stratégie de mot de passe par défaut dans Azure AD DS :
 
 * **Durée de verrouillage de compte :** 30
-* **Nombre d’échecs d’ouverture de session autorisés :** 5.
+* **Nombre d’échecs d’ouverture de session autorisés :** 5
 * **Réinitialisation du nombre d’échecs d’ouverture de session après :** 30 minutes
-* **Âge maximal du mot de passe (durée de vie) :** 90 jours
+* **Âge maximal du mot de passe (durée de vie) :** 90 jours
 
 Avec ces paramètres par défaut, les comptes d’utilisateurs sont verrouillés pendant 30 minutes si cinq mots de passe non valides sont utilisés en l’espace de 2 minutes. Les comptes sont déverrouillés automatiquement après 30 minutes.
 
 Les verrouillages de comptes se produisent uniquement dans le domaine managé. Les comptes d’utilisateur sont verrouillés uniquement dans Azure AD DS et seulement en cas d’échec des tentatives de connexion au domaine managé. Les comptes d’utilisateur qui ont été synchronisés à partir d’Azure AD ou localement ne sont pas verrouillés dans leurs répertoires sources, mais uniquement dans Azure AD DS.
 
-Si vous utilisez une stratégie de mot de passe Azure AD qui spécifie un âge maximal du mot de passe supérieur à 90 jours, ce paramètre d’âge est appliqué à la stratégie par défaut dans Azure AD DS. Vous pouvez configurer une stratégie de mot de passe personnalisée pour définir un âge maximal du mot de passe différent dans Azure AD DS. Soyez vigilant si l’âge maximal du mot de passe configuré dans une stratégie de mot de passe Azure AD DS est inférieur à celui défini dans Azure AD ou dans un environnement AD DS local. Dans ce scénario, le mot de passe d’un utilisateur peut expirer dans Azure AD DS avant que l’utilisateur ne soit invité à le changer dans Azure AD ou dans l’environnement AD DS local.
+Si vous utilisez une stratégie de mot de passe Azure AD qui spécifie un âge maximal du mot de passe supérieur à 90 jours, ce paramètre d’âge est appliqué à la stratégie par défaut dans Azure AD DS. Vous pouvez configurer une stratégie de mot de passe personnalisée pour définir un âge maximal du mot de passe différent dans Azure AD DS. Soyez vigilant si l’âge maximal du mot de passe configuré dans une stratégie de mot de passe Azure AD DS est inférieur à celui défini dans Azure AD ou dans un environnement AD DS local. Dans ce scénario, le mot de passe d’un utilisateur peut expirer dans Azure AD DS avant que l’utilisateur ne soit invité à le changer dans Azure AD ou dans un environnement AD DS local.
 
 Pour les comptes d’utilisateur créés manuellement dans un domaine managé Azure AD DS, les paramètres de mot de passe supplémentaires suivants sont également appliqués à partir de la stratégie par défaut. Ces paramètres ne s’appliquent pas aux comptes d’utilisateur synchronisés à partir d’Azure AD, car un utilisateur ne peut pas mettre à jour son mot de passe directement dans Azure AD DS.
 
@@ -103,12 +103,12 @@ Pour créer une stratégie de mot de passe personnalisée, utilisez les outils d
 1. Modifiez les autres paramètres de la stratégie de mot de passe comme vous le souhaitez. Souvenez-vous des points clés suivants :
 
     * Les paramètres tels que la complexité, l’âge ou le délai d’expiration du mot de passe s’appliquent uniquement aux utilisateurs ayant été créés manuellement dans un domaine managé Azure AD DS.
-    * Les paramètres de verrouillage de compte s’appliquent à tous les utilisateurs, mais prennent effet uniquement dans le domaine managé.
+    * Les paramètres de verrouillage de compte s’appliquent à tous les utilisateurs, mais prennent effet uniquement dans le domaine managé et non dans Azure AD lui-même.
 
     ![Créer une stratégie de mot de passe affinée personnalisée](./media/how-to/custom-fgpp.png)
 
 1. Décochez **Protéger contre la suppression accidentelle**. Si cette option est sélectionnée, vous ne pouvez pas enregistrer la SMPA.
-1. Dans la section **S’applique directement à**, cliquez sur le bouton **Ajouter**. Dans la boîte de dialogue **Select Users or Groups (Sélectionner des utilisateurs ou des groupes)** , cliquez sur le bouton **Emplacements**.
+1. Dans la section **S’applique directement à**, cliquez sur le bouton **Ajouter**. Dans la boîte de dialogue **Sélectionner Utilisateurs ou Groupes**, sélectionnez le bouton **Emplacements**.
 
     ![Sélectionner les utilisateurs et les groupes auxquels appliquer la stratégie de mot de passe](./media/how-to/fgpp-applies-to.png)
 

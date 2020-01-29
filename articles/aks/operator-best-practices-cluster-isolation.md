@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: cb15f637337df05c61eeac611286b49e23b6adac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348790"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549187"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Bonnes pratiques relatives à l’isolation de clusters dans Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Cet article traite des bonnes pratiques d’isolation pour les opérateurs de cl
 
 ## <a name="design-clusters-for-multi-tenancy"></a>Concevoir des clusters pour la multilocation
 
-Kubernetes fournit des fonctionnalités qui vous permettent d’isoler logiquement les équipes et les charges de travail dans le même cluster. L’objectif est de fournir le moins de privilèges et de les limiter aux ressources dont chaque équipe a besoin. Un [espace de noms][k8s-namespaces] dans Kubernetes crée une limite d’isolation logique. Parmi les autres fonctionnalités et considérations liées à l’isolation et à la multilocation dans Kubernetes, citons les suivantes :
+Kubernetes fournit des fonctionnalités qui vous permettent d’isoler logiquement les équipes et les charges de travail dans le même cluster. L’objectif est de fournir le moins de privilèges et de les limiter aux ressources dont chaque équipe a besoin. Un [espace de noms][k8s-namespaces] dans Kubernetes crée une limite d’isolation logique. Voici d’autres fonctionnalités et considérations liées à l’isolation et à la multilocation dans Kubernetes :
 
 * **Planification** : inclut l’utilisation de fonctionnalités de base telles que les quotas de ressources et les budgets de perturbation de pod. Pour plus d’informations sur ces fonctionnalités, consultez [Bonnes pratiques relatives aux fonctionnalités de base du planificateur dans AKS][aks-best-practices-scheduler].
   * Le planificateur comprend également des fonctionnalités plus avancées, notamment les teintes (taints) et tolérances (tolerations), les sélecteurs de nœud ainsi que l’affinité ou l’anti-affinité des nœuds et des pods. Pour plus d’informations sur ces fonctionnalités, consultez [Bonnes pratiques relatives aux fonctionnalités avancées du planificateur dans AKS][aks-best-practices-advanced-scheduler].
@@ -44,7 +44,7 @@ Grâce à l’isolation logique, un même cluster AKS peut être utilisé pour p
 
 La séparation logique de clusters fournit généralement une densité de pods supérieure à celle résultant de l’isolation physique. L’excédent de capacité de calcul en état d’inactivité dans le cluster est moins important. En combinant cette approche à l’outil Kubernetes de mise à l’échelle automatique de cluster (« autoscaler »), vous pouvez effectuer un scale-up ou un scale-down des nœuds pour répondre aux demandes. Cette bonne pratique concernant la mise à l’échelle automatique vous permet d’exécuter uniquement le nombre de nœuds nécessaires et de réduire les coûts.
 
-Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas totalement sûrs pour une utilisation multi-locataire hostile. Dans un environnement multilocataire, plusieurs locataires travaillent sur une infrastructure partagée commune. Par conséquent, si aucun locataire ne peut être approuvé, vous devez effectuer une planification supplémentaire pour éviter qu’un locataire n’affecte la sécurité et le service d’un autre. Des fonctionnalités de sécurité supplémentaires, telles que la *stratégie de sécurité Pod*, et des contrôles d'accès en fonction du rôle (RBAC) plus détaillés pour les nœuds rendent les attaques plus difficiles. Mais lors de l'exécution de charges de travail multi-locataires hostiles, seul un hyperviseur garantira véritablement la sécurité. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés.
+Les environnements Kubernetes, dans AKS ou ailleurs, ne sont pas totalement sûrs pour une utilisation multi-locataire hostile. Dans un environnement multilocataire, plusieurs locataires travaillent sur une infrastructure partagée commune. Par conséquent, si aucun locataire ne peut être approuvé, vous devez effectuer une planification supplémentaire pour éviter qu’un locataire n’affecte la sécurité et le service d’un autre. Des fonctionnalités de sécurité supplémentaires, telles que la *stratégie de sécurité Pod*, et des contrôles d'accès en fonction du rôle (RBAC) plus détaillés pour les nœuds rendent les attaques plus difficiles. Mais lors de l’exécution de charges de travail multi-locataires hostiles, seul un hyperviseur garantira véritablement la sécurité. Le domaine de sécurité de Kubernetes devient le cluster, et non un nœud individuel. Pour ces types de charges de travail multi-locataires hostiles, vous devez utiliser des clusters physiquement isolés.
 
 ## <a name="physically-isolate-clusters"></a>Isoler physiquement des clusters
 
@@ -54,7 +54,7 @@ Une approche courante en matière d’isolation de cluster consiste à utiliser 
 
 ![Isolation physique de clusters Kubernetes individuels dans AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Les clusters séparés physiquement offrent généralement une faible densité de pods. Du fait que chaque équipe ou charge de travail a son propre cluster AKS, le cluster est fréquemment surprovisionné avec des ressources de calcul. Souvent, un petit nombre de pods est planifié sur ces nœuds. Toute capacité inutilisée sur les nœuds ne peut pas être exploitée par d’autres équipes pour des applications ou des services en cours de développement. Cet excédent de ressources engendre des frais supplémentaires pour les clusters séparés physiquement.
+Les clusters séparés physiquement offrent généralement une faible densité de pods. Du fait que chaque équipe ou charge de travail a son propre cluster AKS, le cluster est fréquemment surprovisionné avec des ressources de calcul. Souvent, un petit nombre de pods sont planifiés sur ces nœuds. Toute capacité inutilisée sur les nœuds ne peut pas être exploitée par d’autres équipes pour des applications ou des services en cours de développement. Cet excédent de ressources engendre des frais supplémentaires pour les clusters séparés physiquement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

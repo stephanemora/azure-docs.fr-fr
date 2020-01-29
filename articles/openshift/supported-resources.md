@@ -1,19 +1,17 @@
 ---
-title: Ressources prises en charge pour Azure Red Hat OpenShift | Microsoft Docs
+title: Ressources prises en charge pour Azure Red Hat OpenShift
 description: Découvrez les régions Azure et les tailles de machine virtuelle qui sont prises en charge par Microsoft Azure Red Hat OpenShift.
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2019
-ms.openlocfilehash: c226227797802ab58d1bcbaadb7e97e780b30560
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b794852390141d31a3218a1a434c21133db914c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306217"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274916"
 ---
 # <a name="azure-red-hat-openshift-resources"></a>Ressources Azure Red Hat OpenShift
 
@@ -36,30 +34,30 @@ Voici les tailles de machine virtuelle prises en charge que vous pouvez spécifi
 
 Les tailles de nœud de calcul suivantes sont prises en charge par l’API REST Azure Red Hat OpenShift :
 
-|Taille|Processeurs virtuels|RAM|
+|Size|Processeurs virtuels|RAM|
 |-|-|-|
-|Standard D4s v3|4|16 Go|
-|Standard D8s v3|8|32 Go|
+|Standard D4s v3|4|16 Go|
+|Standard D8s v3|8|32 Go|
 |Standard D16s v3|16|64 Go|
 |Standard D32s v3|32|128 Go|
 |-|-|-|
-|Standard E4s v3|4|32 Go|
+|Standard E4s v3|4|32 Go|
 |Standard E8s v3|8|64 Go|
 |Standard E16s v3|16|128 Go|
 |Standard E32s v3|32|256 Go|
 |-|-|-|
-|Standard F8s v2|8|16 Go|
-|Standard F16s v2|16|32 Go|
+|Standard F8s v2|8|16 Go|
+|Standard F16s v2|16|32 Go|
 |Standard F32s v2|32|64 Go|
 
 ## <a name="master-node-sizes"></a>Tailles de nœud principal
 
 Les tailles de nœud principal/d’infrastructure suivantes sont prises en charge par l’API REST Azure Red Hat OpenShift :
 
-|Taille|Processeurs virtuels|RAM|
+|Size|Processeurs virtuels|RAM|
 |-|-|-|
-|Standard D4s v3|4|16 Go|
-|Standard D8s v3|8|32 Go|
+|Standard D4s v3|4|16 Go|
+|Standard D8s v3|8|32 Go|
 |Standard D16s v3|16|64 Go|
 |Standard D32s v3|32|128 Go|
 

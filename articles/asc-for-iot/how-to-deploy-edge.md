@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991443"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543883"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Déployer un module de sécurité sur votre appareil IoT Edge
 
@@ -35,7 +35,7 @@ Dans ce article, vous apprendrez à déployer un module de sécurité sur votre 
 
 Procédez comme suit pour déployer un module de sécurité Azure Security Center pour IoT sur IoT Edge.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 1. Dans votre instance d’IoT Hub, assurez-vous que votre appareil est [inscrit en tant qu’appareil IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal).
 
@@ -66,15 +66,15 @@ Procédez comme suit pour déployer un module de sécurité Azure Security Cen
     >[!Note] 
     >Si vous avez sélectionné **Déployer à l’échelle**, ajoutez le nom de l’appareil et d’autres informations avant d’accéder à l’onglet **Ajouter des modules** dans les instructions suivantes.     
 
-La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s’effectue en trois étapes. Les sections suivantes les décrivent en détail. 
+Effectuez chaque étape pour réaliser votre déploiement IoT Edge pour Azure Security Center pour IoT. 
 
-#### <a name="step-1-add-modules"></a>Étape 1 : Ajouter des modules
+#### <a name="step-1-modules"></a>Étape 1 : Modules
 
-1. À partir de l’onglet **Ajouter des modules**, dans la zone **Modules de déploiement**, cliquez sur l’option **Configurer** pour **AzureSecurityCenterforIoT**. 
-   
-1. Remplacez **nom** par **azureiotsecurity**.
-1. Remplacez **URI d’Image** par **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
-1. Vérifiez que la valeur du champ **Options de création de conteneur** est définie sur :      
+1. Sélectionnez le module **AzureSecurityCenterforIoT**.
+1. Sous l’onglet **Paramètres du module**, remplacez le **nom** par **azureiotsecurity**.
+1. Sous l’onglet **Variables d’environnement**, ajoutez une variable si nécessaire (par exemple niveau de débogage).
+1. Sous l’onglet **Options de création de conteneur**, ajoutez la configuration suivante :
+
     ``` json
     {
         "NetworkingConfig": {
@@ -92,24 +92,20 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
         }
     }    
     ```
-1. Vérifiez que l’option **Définir les propriétés souhaitées du jumeau de module** est activée, puis remplacez l’objet de configuration par :
+    
+1. Sous l’onglet **Paramètres de jumeau de module**, ajoutez la configuration suivante :
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. Cliquez sur **Enregistrer**.
-1. Faites défiler l’écran vers le bas de l’onglet, puis sélectionnez **Configurer les paramètres avancés du runtime Edge**. 
-   
-1. Remplacez **Image** sous **Edge Hub** par **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+1. Sélectionnez **Update**.
 
-1. Vérifiez que la valeur du champ **Options de création** est définie sur : 
+#### <a name="step-2-runtime-settings"></a>Étape 2 : Paramètres du runtime
+
+1. Sélectionnez **Paramètres du runtime**.
+1. Sous **Edge Hub**, remplacez **Image** par **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**.
+1. Vérifiez que **Options de création** est défini sur la configuration suivante : 
          
     ``` json
     { 
@@ -134,25 +130,30 @@ La création d’un déploiement IoT Edge pour Azure Security Center pour IoT s�
        }
     }
     ```
-1. Cliquez sur **Enregistrer**.
+    
+1. Sélectionnez **Enregistrer**.
    
-1. Cliquez sur **Suivant**.
+1. Sélectionnez **Suivant**.
 
-#### <a name="step-2-specify-routes"></a>Étape 2 : Spécifier des routes 
+#### <a name="step-3-specify-routes"></a>Étape 3 : Spécifier des routes 
 
-1. Sous l’onglet **Spécifier des routes**, vérifiez que vous avez une route (explicite ou implicite) qui va transférer les messages depuis le module **azureiotsecurity** vers **$upstream** conformément aux exemples suivants, ensuite seulement cliquez sur **Suivant**. 
+1. Sous l’onglet **Spécifier des routes**, vérifiez que vous avez une route (explicite ou implicite) qui va transférer les messages depuis le module **azureiotsecurity** vers **$upstream** conformément aux exemples suivants. Quand la route est en place, sélectionnez **Suivant**.
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   Exemples de routes :
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>Étape 3 : Vérifier le déploiement
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-- Sous l’onglet **Vérifier le déploiement**, examinez les informations sur votre déploiement, puis sélectionnez **Envoyer** pour procéder au déploiement.
+1. Sélectionnez **Suivant**.
+
+#### <a name="step-4-review-deployment"></a>Étape 4 : Vérifier le déploiement
+
+- Sous l’onglet **Passer en revue le déploiement**, examinez les informations de votre déploiement, puis sélectionnez **Créer** pour procéder au déploiement.
 
 ## <a name="diagnostic-steps"></a>Étapes de diagnostic
 
@@ -166,7 +167,7 @@ Si vous rencontrez un problème, les journaux de conteneur sont la meilleure fa�
    
 1. Vérifiez que les conteneurs suivants sont en cours d’exécution :
    
-   | Nom | IMAGE |
+   | Name | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

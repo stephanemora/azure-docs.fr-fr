@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 8e0fcdc97475053dcf285b562b28784deffff28c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552727"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548932"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Utiliser les fonctionnalités étendues du serveur d’historique Apache Spark pour déboguer et diagnostiquer des applications Spark
 
@@ -163,7 +163,7 @@ Sélectionnez l’onglet **Data Skew** (Asymétrie des données). Les tâches as
 
 #### <a name="specify-parameters"></a>Spécifier les paramètres
 
-La section **Specify Parameters** (Spécifier les paramètres) affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. La règle par défaut est : Les données lues de tâche sont supérieures au triple de la moyenne des données lues de tâche, et les données lues de tâche sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos paramètres. Les sections **Skewed Stage**(Phase asymétrique) et **Skew Chart** (Graphe d’asymétrie) sont mises à jour en conséquence.
+La section **Specify Parameters** (Spécifier les paramètres) affiche les paramètres qui sont utilisés pour détecter l’asymétrie des données. La règle par défaut est : Les données lues de tâche sont supérieures au triple de la moyenne des données lues de tâche, et les données lues de tâche sont supérieures à 10 Mo. Si vous souhaitez définir votre propre règle pour les tâches asymétriques, vous pouvez choisir vos paramètres. Les sections **Phase asymétrique** et **Graphique d’asymétrie** sont mises à jour en conséquence.
 
 #### <a name="skewed-stage"></a>Phase asymétrique
 

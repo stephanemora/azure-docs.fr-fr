@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497638"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152355"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Modélisation des données dans Azure Time Series Insights (préversion)
 
@@ -64,9 +64,9 @@ Pour commencer, sélectionnez l’affichage **Modèle** dans l’affichage **Ana
 
 ### <a name="delete-an-instance"></a>Supprimer une instance
 
-1. Sélectionnez le type, puis **Supprimer** ou l’**icône Corbeille**.
+1. Sélectionnez l'instance, puis **Supprimer** ou l’**icône Corbeille**.
 
-   [![Supprimer un type en sélectionnant Supprimer.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+   [![Supprimez une instance en sélectionnant Supprimer.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
 1. Confirmez la suppression en sélectionnant **Supprimer**.
 

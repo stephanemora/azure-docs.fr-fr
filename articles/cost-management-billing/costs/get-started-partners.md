@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: a320a446bf6a2ff5d5d923961b2614970ffa70f9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984553"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293910"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -120,7 +120,7 @@ Quelle que soit la stratégie appliquée, les partenaires peuvent également voi
 
 Les partenaires utilisent les informations suivantes pour activer la stratégie de visualisation des frais d’utilisation d’Azure pour leurs clients.
 
-Dans le portail Azure, connectez-vous au locataire partenaire, puis sélectionnez **Gestion des coûts + facturation**. Sélectionnez un compte de facturation, puis sélectionnez **Clients**. La liste des clients est associée au compte de facturation.
+Dans le portail Azure, connectez-vous au locataire partenaire, puis sélectionnez **Gestion des coûts + facturation**. Sélectionnez le compte de facturation Contrat Partenaire Microsoft approprié, puis sélectionnez **Clients**. La liste des clients est associée au compte de facturation.
 
 Dans la liste des clients, sélectionnez le client auquel vous souhaitez donner l’autorisation de voir les coûts.
 
@@ -137,7 +137,7 @@ Quand la stratégie de coût est définie sur **Oui**, les utilisateurs d’abon
 
 Quand la stratégie de visualisation des coûts est activée, tous les services associés à l’utilisation d’abonnements indiquent les coûts selon les tarifs de paiement à l’utilisation. L’utilisation de réservations apparaît avec des frais nuls pour les coûts réels et amortis. Les achats et les droits ne sont pas associés à un abonnement spécifique. Ainsi, les achats ne sont pas affichés dans l’étendue d’abonnement.
 
-Pour voir les coûts relatifs au locataire client, ouvrez la vue Gestion des coûts + facturation, puis sélectionnez Comptes de facturation. Sélectionnez un compte de facturation dans la liste des comptes de facturation.
+Pour voir les coûts relatifs au locataire client, ouvrez **Gestion des coûts + facturation** et sélectionnez le compte de facturation Contrat Partenaire Microsoft approprié.
 
 ![Sélectionner un compte de facturation](./media/get-started-partners/select-billing-account.png)
 
@@ -213,7 +213,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | Location | Emplacement normalisé de la ressource. | N/A |
 | effectivePrice | Prix unitaire effectif du service, dans la devise de tarification. Il est unique pour un produit, une famille de services, un compteur et une offre. Utilisé avec la tarification dans la grille tarifaire associée au compte de facturation. Lorsque la tarification est hiérarchisée ou qu’une quantité est incluse, cette option affiche le prix de consommation combiné. | Prix unitaire une fois les ajustements effectués. |
 | Quantité | Quantité mesurée achetée ou consommée. Quantité du compteur utilisée au cours de la période de facturation. | Nombre d’unités. Assurez-vous que cela correspond aux informations de votre système de facturation au cours du rapprochement. |
-| unitOfMeasure | Identifie l’unité dans laquelle le service est facturé. Par exemple, des Go et des heures. | Identifie l’unité dans laquelle le service est facturé. Par exemple, Go, heures, 10 000 s. |
+| unitOfMeasure | Identifie l’unité dans laquelle le service est facturé. Par exemple, des Go et des heures. | Identifie l’unité dans laquelle le service est facturé. Par exemple, Go, heures et 10 000 s. |
 | pricingCurrency | Devise définissant le prix unitaire. | Devise utilisée dans la liste de prix.|
 | billingCurrency | Devise définissant le coût facturé. | Devise de la région du client. |
 | chargeType | Définit le type de frais représenté par le coût dans Azure Cost Management, comme un achat et un remboursement. | Type de frais ou d’ajustement. Non disponible pour l’activité en cours. |
@@ -263,9 +263,13 @@ Les utilisateurs disposant d’un accès RBAC à l’abonnement peuvent égaleme
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Créer une exportation dans un locataire partenaire ou un locataire client
 
-Dans le Portail Azure, connectez-vous au locataire partenaire ou au locataire client, puis sélectionnez **Gestion des coûts + facturation**. Sélectionnez une étendue appropriée, telle qu’un compte de facturation, puis sélectionnez **Analyse des coûts**. Lorsque la page se charge, sélectionnez **Exporter**. Sélectionnez **Afficher toutes les exportations** sous Planifier l’exportation.
+Dans le Portail Azure, connectez-vous au locataire partenaire ou au locataire client, puis sélectionnez **Gestion des coûts + facturation**. Sélectionnez une étendue appropriée, telle qu’un compte de facturation Contrat Partenaire Microsoft, puis sélectionnez **Analyse des coûts**. Lorsque la page se charge, sélectionnez **Exporter**. Sélectionnez **Afficher toutes les exportations** sous Planifier l’exportation.
+
+![Sélectionnez Exporter et Afficher toutes les exportations](./media/get-started-partners/export01.png)
 
 Ensuite, sélectionnez **Ajouter**, tapez le nom et sélectionnez un type d’exportation. Sélectionnez l’onglet **Stockage** et entrez les informations requises.
+
+![Ajoutez une nouvelle exportation et sélectionnez l’onglet Stockage](./media/get-started-partners/export02.png)
 
 Lorsque vous créez une exportation dans le locataire partenaire, sélectionnez l’abonnement avec paiement à l’utilisation dans le locataire partenaire. Créez un compte de stockage Azure à l’aide de cet abonnement.
 
@@ -274,6 +278,8 @@ Pour les utilisateurs RBAC dans le locataire client, sélectionnez un abonnement
 Passez en revue le contenu, puis sélectionnez **Créer** pour planifier une exportation.
 
 Pour vérifier les données, dans la liste des exportations, sélectionnez le nom du compte de stockage. Dans la page du compte de stockage, sélectionnez **Conteneurs**, puis sélectionnez le conteneur. Accédez au dossier correspondant et sélectionnez le fichier CSV. Sélectionnez **Télécharger** pour récupérer le fichier CSV et l’ouvrir. Les données exportées ressemblent aux données de coût similaires aux détails d’utilisation provenant du Portail Azure.
+
+![Exemple de données exportées](./media/get-started-partners/example-export-data.png)
 
 ## <a name="cost-management-rest-apis"></a>API REST Cost Management
 
@@ -400,7 +406,7 @@ PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{bi
 #### <a name="delete-a-budget"></a>Supprimer un budget
 
 ```
-PUT
+DELETE
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
 ```
 

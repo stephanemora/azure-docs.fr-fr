@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 55981279cb1902424d1a0f77af097dc379d7222f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b882e6fb697d272ddc06e8d263f4c2144ebd017
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493963"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546926"
 ---
 # <a name="add-columns-module"></a>Module Ajouter des colonnes
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour concaténer 2 jeux de données. Vous combinez toutes les colonnes à partir de 2 jeux de données que vous spécifiez en tant qu’entrées pour créer un jeu de données unique. Si vous devez concaténer plus de 2 jeux de données, utilisez plusieurs instances du module **Ajouter des colonnes**.
 
@@ -38,7 +38,7 @@ Utilisez ce module pour concaténer 2 jeux de données. Vous combinez toutes le
 ### <a name="results"></a>Résultats
 Une fois le pipeline exécuté :
 
-- Pour afficher les premières lignes du nouveau jeu de données, cliquez sur la sortie du module **Ajouter des colonnes**, puis sélectionnez Visualiser.
+- Pour afficher les premières lignes du nouveau jeu de données, cliquez avec le bouton droit sur le module **Ajouter des colonnes**, puis sélectionnez Visualiser. Vous pouvez aussi sélectionner le module et basculer vers l’onglet **Sorties** dans le panneau droit, cliquer sur l’icône d’histogramme dans **Port outputs** (Sorties de port) pour visualiser le résultat.
 
 Le nombre de colonnes du nouveau jeu de données est égal à la somme des colonnes des 2 jeux de données d’entrée.
 
@@ -46,4 +46,4 @@ Si 2 colonnes portent le même nom dans les jeux de données d’entrée, le mo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

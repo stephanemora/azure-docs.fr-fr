@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3680de5d8e0e761047e1263c2679da87b1fa2d0b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ea213921c736bc3b6bf88c0bdd81a96656ecbe5b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769453"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547283"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -21,7 +21,7 @@ Cet article explique comment utiliser les liaisons Stockage File d’attente Azu
 
 ## <a name="packages---functions-1x"></a>Packages - Functions 1.x
 
-Les liaisons du Stockage File d’attente sont fournies dans le package NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), version 2.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue).
+Les liaisons de Stockage File d’attente sont fournies dans le package NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs), version 2.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.Storage/Queue).
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
@@ -29,7 +29,7 @@ Les liaisons du Stockage File d’attente sont fournies dans le package NuGet [M
 
 ## <a name="packages---functions-2x-and-higher"></a>Packages – Functions 2.x et versions ultérieures
 
-Les liaisons du Stockage File d’attente sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues).
+Les liaisons de Stockage File d’attente sont fournies dans le package NuGet [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage), version 3.x. Le code source du package se trouve dans le référentiel GitHub [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues).
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -40,17 +40,7 @@ Les fonctions attendent une chaîne codée en *base64*. Tout ajustement du type 
 
 Utilisez le déclencheur de file d’attente pour démarrer une fonction lorsqu’un nouvel élément est reçu sur une file d’attente. Le message de file d’attente est fourni comme entrée pour la fonction.
 
-## <a name="trigger---example"></a>Déclencheur - exemple
-
-Consultez l’exemple propre à un langage particulier :
-
-* [C#](#trigger---c-example)
-* [Script C# (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Déclencheur - exemple C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 L’exemple suivant montre un code de [fonction C#](functions-dotnet-class-library.md) qui interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
 
@@ -67,7 +57,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant montre une liaison de déclencheur de file d’attente dans un fichier *function.json*, ainsi que le code du [script C# (.csx)](functions-reference-csharp.md) qui utilise cette liaison. La fonction interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
 
@@ -122,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 La section [utilisation](#trigger---usage) explique `myQueueItem`, qui est nommé par la propriété `name` dans function.json.  La [section sur les métadonnées de message](#trigger---message-metadata) détaille toutes les autres variables indiquées.
 
-### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de déclencheur de file d’attente dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction interroge la file d’attente `myqueue-items` et écrit un journal chaque fois qu’un élément de la file d’attente est traité.
 
@@ -167,23 +157,7 @@ module.exports = async function (context, message) {
 
 La section [utilisation](#trigger---usage) explique `myQueueItem`, qui est nommé par la propriété `name` dans function.json.  La [section sur les métadonnées de message](#trigger---message-metadata) détaille toutes les autres variables indiquées.
 
-### <a name="trigger---java-example"></a>Déclencheur - exemple Java
-
-L’exemple Java ci-après présente une fonction de déclencheur de file d’attente de stockage qui enregistre le message déclenché placé dans la file d’attente `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
-
-### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 L’exemple suivant montre comment lire un message de file d’attente passé à une fonction via un déclencheur.
 
@@ -231,7 +205,27 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>Déclencheur - attributs
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’exemple Java suivant montre une fonction de déclencheur de file d’attente de stockage, qui consigne le message déclenché placé dans la file d’attente `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+ ---
+
+## <a name="trigger---attributes-and-annotations"></a>Déclencheur - Attributs et annotations
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez les attributs suivants pour configurer un déclencheur de file d’attente :
 
@@ -249,7 +243,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
   }
   ```
 
-  Vous pouvez définir la propriété `Connection` pour spécifier le compte de stockage à utiliser, comme indiqué dans l’exemple suivant :
+  Vous pouvez définir la propriété `Connection` pour spécifier le paramètre d’application qui contient la chaîne de connexion du compte de stockage à utiliser, comme illustré dans l’exemple suivant :
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -261,7 +255,7 @@ Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), util
   }
   ```
 
-  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
+  Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -287,6 +281,47 @@ Le compte de stockage à utiliser est déterminé dans l’ordre suivant :
 * L’attribut `StorageAccount` appliqué à la classe.
 * Le paramètre d’application « AzureWebJobsStorage ».
 
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Les attributs ne sont pas pris en charge par le script C#.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Les attributs ne sont pas pris en charge par JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Les attributs ne sont pas pris en charge par Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’annotation `QueueTrigger` vous donne accès à la file d’attente qui déclenche la fonction. L’exemple suivant rend le message de file d’attente disponible pour la fonction via le paramètre `message`.
+
+```java
+package com.function;
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Queue message: " + message);
+    }
+}
+```
+
+| Propriété    | Description |
+|-------------|-----------------------------|
+|`name`       | Déclare le nom du paramètre dans la signature de la fonction. Quand la fonction est déclenchée, la valeur de ce paramètre a le contenu du message de la file d’attente. |
+|`queueName`  | Déclare le nom de la file d’attente dans le compte de stockage. |
+|`connection` | Pointe vers la chaîne de connexion du compte de stockage. |
+
+---
+
 ## <a name="trigger---configuration"></a>Déclencheur - configuration
 
 Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json* et l’attribut `QueueTrigger`.
@@ -303,7 +338,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
-Dans du code C# ou un script C#, accédez aux données du message en utilisant un paramètre de méthode comme `string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Accédez aux données du message en utilisant un paramètre de méthode comme `string paramName`. Vous pouvez lier aux types suivants :
 
 * Objet : le runtime Functions désérialise une charge utile JSON dans une instance d’une classe arbitraire définie dans votre code. 
 * `string`
@@ -312,7 +349,30 @@ Dans du code C# ou un script C#, accédez aux données du message en utilisant u
 
 Si vous essayez de lier à `CloudQueueMessage` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
 
-Dans JavaScript, utilisez `context.bindings.<name>` pour accéder à la charge utile de l’élément de file d’attente. Si la charge utile est JSON, elle est désérialisée en objet.
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Accédez aux données du message en utilisant un paramètre de méthode comme `string paramName`. `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez lier aux types suivants :
+
+* Objet : le runtime Functions désérialise une charge utile JSON dans une instance d’une classe arbitraire définie dans votre code. 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+Si vous essayez de lier à `CloudQueueMessage` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+La charge utile de l’élément de la file d’attente est disponible via `context.bindings.<NAME>`, où `<NAME>` correspond au nom défini dans *function.json*. Si la charge utile est JSON, la valeur est désérialisée en objet.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Accédez au message de la file d’attente via le paramètre typé en [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’annotation [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) vous donne accès au message de la file d’attente qui a déclenché la fonction.
+
+---
 
 ## <a name="trigger---message-metadata"></a>Déclencheur - métadonnées de message
 
@@ -320,7 +380,7 @@ Le déclencheur de file d’attente fournit plusieurs [propriétés de métadonn
 
 |Propriété|Type|Description|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Charge utile de file d’attente (s’il s’agit d’une chaîne valide). Si la charge utile du message de file d’attente est une chaîne, `QueueTrigger` a la même valeur que la variable nommée par la propriété `name` dans *function.json*.|
+|`QueueTrigger`|`string`|Charge utile de file d’attente (s’il s’agit d’une chaîne valide). Si la charge utile du message de la file d’attente est une chaîne, `QueueTrigger` a la même valeur que la variable nommée par la propriété `name` dans *function.json*.|
 |`DequeueCount`|`int`|Nombre de fois que ce message a été enlevé de la file d’attente.|
 |`ExpirationTime`|`DateTimeOffset`|Heure à laquelle le message expire.|
 |`Id`|`string`|ID de message de la file d’attente.|
@@ -365,22 +425,12 @@ Le fichier [host.json](functions-host-json.md#queues) contient les paramètres q
 
 Utilisez la liaison de sortie Stockage File d’attente Azure pour écrire des messages dans une file d’attente.
 
-## <a name="output---example"></a>Sortie - exemple
-
-Consultez l’exemple propre à un langage particulier :
-
-* [C#](#output---c-example)
-* [Script C# (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
-* [Java](#output---java-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>Sortie - exemple C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 L’exemple suivant montre un code [de fonction C#](functions-dotnet-class-library.md) qui crée un message de file d’attente pour chaque requête HTTP reçue.
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
+[StorageAccount("MyStorageConnectionAppSetting")]
 public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
@@ -393,7 +443,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="output---c-script-example"></a>Sortie - exemple Script C#
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant montre une liaison de déclencheur HTTP dans un fichier *function.json*, ainsi que le code du [script C# (.csx)](functions-reference-csharp.md) qui utilise cette liaison. La fonction crée un élément de file d’attente avec une charge utile d’objet **CustomQueueMessage** pour chaque requête HTTP reçue.
 
@@ -411,7 +461,7 @@ Voici le fichier *function.json* :
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -454,7 +504,7 @@ public static void Run(
 }
 ```
 
-### <a name="output---javascript-example"></a>Sortie - exemple JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant montre une liaison de déclencheur HTTP dans un fichier *function.json*, et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. La fonction crée un élément de file d’attente pour chaque requête HTTP reçue.
 
@@ -472,7 +522,7 @@ Voici le fichier *function.json* :
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -504,25 +554,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Sortie : exemple Java
-
- L’exemple ci-après présente une fonction Java qui crée un message de file d’attente en cas de déclenchement par une requête HTTP.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-Dans la [bibliothèque runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres dont la valeur serait écrite dans Stockage File d’attente.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne n’importe quel type Java natif d’un POJO.
-
-### <a name="output---python-example"></a>Sortie - Exemple Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 L’exemple suivant montre comment sortir des valeurs uniques et multiples dans les files d’attente de stockage. La configuration requise pour *function.json* est la même dans les deux sens.
 
@@ -558,7 +590,7 @@ Une liaison de file d’attente de stockage est définie dans *function.json*, o
 }
 ```
 
-Pour définir un message individuel dans la file d’attente, vous transmettez une valeur `set` unique à la méthode.
+Pour définir un message individuel sur la file d’attente, vous passez une valeur unique à la méthode `set`.
 
 ```python
 import azure.functions as func
@@ -585,7 +617,29 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>Sortie - attributs
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+ L’exemple ci-après montre une fonction Java qui crée un message de file d’attente en cas de déclenchement par une requête HTTP.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+Dans la [bibliothèque runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@QueueOutput` sur les paramètres dont la valeur serait écrite dans Stockage File d’attente.  Le type de paramètre doit être `OutputBinding<T>`, où `T` est n’importe quel type Java natif d’un POJO.
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Sortie - Attributs et annotations
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](functions-dotnet-class-library.md), utilisez l’attribut [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs).
 
@@ -611,9 +665,54 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output).
 
 Vous pouvez utiliser l’attribut `StorageAccount` pour spécifier le compte de stockage au niveau de la classe, de la méthode ou du paramètre. Pour plus d’informations, consultez Déclencheur - attributs.
+
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Les attributs ne sont pas pris en charge par le script C#.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Les attributs ne sont pas pris en charge par JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Les attributs ne sont pas pris en charge par Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+L’annotation `QueueOutput` vous donne l’accès nécessaire pour écrire un message de sortie d’une fonction. L’exemple suivant montre une fonction déclenchée par HTTP qui crée un message de file d’attente.
+
+```java
+package com.function;
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerQueueOutput {
+    @FunctionName("HttpTriggerQueueOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") OutputBinding<String> message,
+            final ExecutionContext context) {
+
+        message.setValue(request.getQueryParameters().get("name"));
+        return request.createResponseBuilder(HttpStatus.OK).body("Done").build();
+    }
+}
+```
+
+| Propriété    | Description |
+|-------------|-----------------------------|
+|`name`       | Déclare le nom du paramètre dans la signature de la fonction. Quand la fonction est déclenchée, la valeur de ce paramètre a le contenu du message de la file d’attente. |
+|`queueName`  | Déclare le nom de la file d’attente dans le compte de stockage. |
+|`connection` | Pointe vers la chaîne de connexion du compte de stockage. |
+
+Le paramètre associé à l’annotation `QueueOutput` est typée en tant qu’instance [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java).
+
+---
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -631,7 +730,9 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
-En C# et Script C#, écrivez un message de file d’attente unique en utilisant un paramètre de méthode tel que `out T paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez utiliser le type de retour de la méthode au lieu d’un paramètre `out`, et `T` peut être un des types suivants :
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Écrivez un message de file d’attente unique en utilisant un paramètre de méthode comme `out T paramName`. Vous pouvez utiliser le type de retour de la méthode au lieu d’un paramètre `out`, et `T` peut être un des types suivants :
 
 * Un objet sérialisable au format JSON
 * `string`
@@ -645,8 +746,43 @@ En C# et Script C#, écrivez plusieurs messages de file d’attente à l’aide 
 * `ICollector<T>` ou `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-Dans les fonctions JavaScript, utilisez `context.bindings.<name>` pour accéder au message de file d’attente de sortie. Vous pouvez utiliser une chaîne ou un objet sérialisable JSON pour la charge utile de l’élément de file d’attente.
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
+Écrivez un message de file d’attente unique en utilisant un paramètre de méthode comme `out T paramName`. `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Vous pouvez utiliser le type de retour de la méthode au lieu d’un paramètre `out`, et `T` peut être un des types suivants :
+
+* Un objet sérialisable au format JSON
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+Si vous essayez de lier à `CloudQueueMessage` et obtenez un message d’erreur, vérifiez que vous avez une référence à [la bonne version du SDK Stockage](#azure-storage-sdk-version-in-functions-1x).
+
+En C# et Script C#, écrivez plusieurs messages de file d’attente à l’aide d’un des types suivants : 
+
+* `ICollector<T>` ou `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+L’élément de la file d’attente en sortie est disponible via `context.bindings.<NAME>`, où `<NAME>` correspond au nom défini dans *function.json*. Vous pouvez utiliser une chaîne ou un objet sérialisable JSON pour la charge utile de l’élément de file d’attente.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Il existe deux options pour produire en sortie un message Event Hub à partir d’une fonction :
+
+- **Valeur de retour** : Définissez la propriété `name` dans *function.json* sur `$return`. Avec cette configuration, la valeur de retour de la fonction est conservée sous la forme d’un message de Stockage File d’attente.
+
+- **Impératif** : Passez une valeur à la méthode [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) du paramètre déclaré en tant que type [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). La valeur passée à `set` est conservée en tant que message de Stockage File d’attente.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Il existe deux options pour produire en sortie un message Event hub à partir d’une fonction en utilisant l’annotation [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) :
+
+- **Valeur de retour** : En appliquant l’annotation à la fonction elle-même, la valeur de retour de la fonction est conservée sous la forme d’un message Event Hub.
+
+- **Impératif** : Pour définir explicitement la valeur du message, appliquez l’annotation à un paramètre spécifique du type [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), où `T` est un POJO ou n’importe quel type Java natif. Avec cette configuration, le passage d’une valeur à la méthode `setValue` rend la valeur persistante en tant que message Event Hub.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
@@ -679,7 +815,6 @@ Cette section décrit les paramètres de configuration globaux disponibles pour 
     }
 }
 ```
-
 
 |Propriété  |Default | Description |
 |---------|---------|---------|

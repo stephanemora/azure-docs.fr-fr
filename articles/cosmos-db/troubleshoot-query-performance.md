@@ -4,172 +4,394 @@ description: Apprenez à identifier, diagnostiquer et résoudre les problèmes d
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 1859fa8f71b5c4c44d6e5da1b6a36ca9d9399516
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444725"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264269"
 ---
-# <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Résoudre les problèmes de performance des requêtes pour Azure Cosmos DB
-Cet article explique comment identifier, diagnostiquer et résoudre les problèmes de requête SQL Azure Cosmos DB. Afin d'obtenir des performances optimales pour les requêtes Azure Cosmos DB, suivez les étapes de dépannage ci-dessous. 
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Résoudre des problèmes de requête lors de l’utilisation d’Azure Cosmos DB
 
-## <a name="collocate-clients-in-same-azure-region"></a>Colocaliser des clients dans la même région Azure 
-Pour obtenir la latence la plus faible possible, l’application appelante doit être située dans la même région Azure que le point de terminaison Azure Cosmos DB configuré. Pour obtenir la liste des régions disponibles, consultez l’article [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/#services).
+Cet article décrit une approche générale recommandée pour le dépannage des requêtes dans Azure Cosmos DB. Bien que les étapes décrites dans ce document ne doivent pas être considérées comme une solution universelle à tous les problèmes de requête potentiels, nous avons inclus ici les conseils les plus courants en matière de performances. Vous devez utiliser ce document comme point de départ pour le dépannage des requêtes lentes ou coûteuses dans l’API Core (SQL) d’Azure Cosmos DB. Vous pouvez également utiliser des [journaux de diagnostic](cosmosdb-monitor-resource-logs.md) pour identifier les requêtes qui sont lentes ou qui consomment un débit significatif.
 
-## <a name="check-consistency-level"></a>Vérifier le niveau de cohérence
-Le [niveau de cohérence](consistency-levels.md) peut avoir un impact sur les performances et les frais. Assurez-vous que votre niveau de cohérence est adapté au scénario donné. Pour en savoir plus, consultez [Choisir le niveau de cohérence](consistency-levels-choosing.md).
+Vous pouvez grosso modo classer les optimisations de requêtes dans Azure Cosmos DB en deux catégories : celles qui réduisent les frais en unités de requête (RU) de la requête et celles qui réduisent simplement la latence. En réduisant les frais en RU d’une requête, vous diminuez presque certainement aussi la latence.
 
-## <a name="log-the-executed-sql-query"></a>Journaliser la requête SQL exécutée 
+Ce document utilise des exemples qui peuvent être recréés à l’aide du jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
-Vous pouvez journaliser la requête SQL exécutée dans un compte de stockage ou dans la table du journal de diagnostics. Les [journaux de requête SQL via des journaux de diagnostics](cosmosdb-monitor-resource-logs.md) vous permettent de journaliser la requête obfusquée dans le compte de stockage de votre choix. Cela vous permet d’examiner les journaux et de trouver la requête qui utilise le plus grand nombre d’unités de requête. Plus tard, vous pouvez utiliser l’ID d’activité pour faire correspondre la requête réelle dans QueryRuntimeStatistics. La requête est obfusquée pour des raisons de sécurité et les noms des paramètres de requête et leurs valeurs dans les clauses WHERE sont différents des noms et valeurs réels. Vous pouvez utiliser la journalisation dans le compte de stockage pour garder la conservation à long terme des requêtes exécutées.  
+### <a name="obtaining-query-metrics"></a>Obtention de métriques de requête
 
-## <a name="log-query-metrics"></a>Métriques de requête de journal
+Lors de l’optimisation d’une requête dans Azure Cosmos DB, la première étape consiste toujours à [obtenir les métriques de requête](profile-sql-api-query.md) pour votre requête. Elles sont également disponibles par le biais du portail Azure comme indiqué ci-dessous :
 
-Utilisez `QueryMetrics` pour corriger les requêtes lentes ou coûteuses. 
+[ ![Obtention de métriques de requête](./media/troubleshoot-query-performance/obtain-query-metrics.png) ](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-  * Définissez `FeedOptions.PopulateQueryMetrics = true` pour inclure `QueryMetrics` dans la réponse.
-  * La classe `QueryMetrics` comporte une fonction `.ToString()` surchargée qui peut être invoquée pour obtenir la représentation sous forme de chaîne de `QueryMetrics`. 
-  * Les métriques peuvent être utilisées, entre autres, pour obtenir les informations suivantes : 
-  
-      * si l’exécution d’un composant spécifique du pipeline de requête a pris un temps anormalement long (de l'ordre de quelques centaines de millisecondes ou plus). 
+Après avoir obtenu les métriques de requête, comparez le nombre de documents récupérés au nombre de documents de sortie pour votre requête. Utilisez cette comparaison pour identifier les sections pertinentes à consulter ci-dessous.
 
-          * Observez `TotalExecutionTime`.
-          * Si la valeur `TotalExecutionTime` de la requête est inférieure au temps d'exécution de bout en bout, alors le temps est passé côté client ou sur le réseau. Vérifiez que le client et la région Azure sont colocalisés.
-      
-      * En cas de faux positifs dans les documents analysés (si le nombre de documents en sortie est beaucoup moins élevé que le nombre de documents récupérés).  
+Le nombre de documents récupérés correspond au nombre de documents que la requête a dû charger. Le nombre de documents de sortie correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le nombre de documents récupérés est beaucoup plus élevé que le nombre de documents de sortie, il y a au moins une partie de votre requête qui n’a pas pu utiliser l’index et qui a dû effectuer une analyse.
 
-          * Observez `Index Utilization`.
-          * `Index Utilization` = (Nombre de documents retournés / Nombre de documents chargés)
-          * Si le nombre de documents retournés est très inférieur au nombre de documents chargés, les faux positifs sont analysés.
-          * Limitez le nombre de documents récupérés à l'aide de filtres plus spécifiques.  
+Vous pouvez vous référer à la section ci-dessous pour comprendre les optimisations de requête pertinentes pour votre scénario :
 
-      * La façon dont les allers-retours individuels sont facturés (voir la valeur `Partition Execution Timeline` dans la représentation sous forme de chaîne de `QueryMetrics`). 
-      * Si la requête a entraîné des frais de demande élevés. 
+### <a name="querys-ru-charge-is-too-high"></a>Les frais en RU de la requête sont trop élevés
 
-Pour plus de détails, lisez l’article [How to get SQL query execution metrics](profile-sql-api-query.md) (Comment obtenir les métriques d'exécution de requêtes SQL).
-      
-## <a name="tune-query-feed-options-parameters"></a>Optimiser les requêtes via les paramètres Options de flux 
-Les performances des requêtes peuvent être optimisées via les paramètres [Options de flux](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) des requêtes. Essayez de définir les options ci-dessous :
+#### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>Le nombre de documents récupérés est beaucoup plus élevé que le nombre de documents de sortie
 
-  * Définissez d’abord `MaxDegreeOfParallelism` sur -1, puis comparez les performances avec différentes valeurs. 
-  * Définissez d’abord `MaxBufferedItemCount` sur -1, puis comparez les performances avec différentes valeurs. 
-  * Définissez `MaxItemCount` sur -1.
+- [Inclure les chemins nécessaires dans la stratégie d’indexation](#include-necessary-paths-in-the-indexing-policy)
 
-Lorsque vous comparez les performances de différentes valeurs, essayez des valeurs telles que 2, 4, 8 ou 16.
- 
-## <a name="read-all-results-from-continuations"></a>Lire tous les résultats des continuations
-Si vous pensez que vous n’avez pas obtenu tous les résultats, videz complètement la continuation. En d’autres termes, continuez la lecture des résultats pendant que le jeton de continuation interrompt plusieurs documents.
+- [Comprendre quelles fonctions système utilisent l’index](#understand-which-system-functions-utilize-the-index)
 
-Le vidage complet peut être effectué à l’aide de l’un des modèles suivants :
+- [Requêtes avec un filtre et une clause ORDER BY](#queries-with-both-a-filter-and-an-order-by-clause)
 
-  * Continuer le traitement des résultats alors que la continuation n’est pas vide.
-  * Continuer le traitement alors que la requête génère des résultats. 
+- [Optimiser les expressions JOIN à l’aide d’une sous-requête](#optimize-join-expressions-by-using-a-subquery)
 
-    ```csharp
-    // using AsDocumentQuery you get access to whether or not the query HasMoreResults
-    // If it does, just call ExecuteNextAsync until there are no more results
-    // No need to supply a continuation token here as the server keeps track of progress
-    var query = client.CreateDocumentQuery<Family>(collectionLink, options).AsDocumentQuery();
-    while (query.HasMoreResults)
-    {
-        foreach (Family family in await query.ExecuteNextAsync())
+<br>
+
+#### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Le nombre de documents récupérés est à peu près égal au nombre de documents de sortie
+
+- [Éviter les requêtes entre les partitions](#avoid-cross-partition-queries)
+
+- [Filtres sur plusieurs propriétés](#filters-on-multiple-properties)
+
+- [Requêtes avec un filtre et une clause ORDER BY](#queries-with-both-a-filter-and-an-order-by-clause)
+
+<br>
+
+### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>Les frais en RU de la requête sont acceptables, mais la latence est encore trop élevée
+
+- [Améliorer la proximité](#improve-proximity)
+
+- [Augmenter le débit provisionné](#increase-provisioned-throughput)
+
+- [Augmenter MaxConcurrency](#increase-maxconcurrency)
+
+- [Augmenter la MaxBufferedItemCount](#increase-maxbuffereditemcount)
+
+## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Requêtes où le nombre de documents récupérés dépasse le nombre de documents de sortie
+
+ Le nombre de documents récupérés correspond au nombre de documents que la requête a dû charger. Le nombre de documents de sortie correspond au nombre de documents qui ont été nécessaires pour les résultats de la requête. Si le nombre de documents récupérés est beaucoup plus élevé que le nombre de documents de sortie, il y a au moins une partie de votre requête qui n’a pas pu utiliser l’index et qui a dû effectuer une analyse.
+
+ Voici un exemple de requête d’analyse qui n’a pas été entièrement servie par l’index.
+
+Requête :
+
+ ```sql
+SELECT VALUE c.description
+FROM c
+WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
+ ```
+
+Métriques de requête :
+
+```
+Retrieved Document Count                 :          60,951
+Retrieved Document Size                  :     399,998,938 bytes
+Output Document Count                    :               7
+Output Document Size                     :             510 bytes
+Index Utilization                        :            0.00 %
+Total Query Execution Time               :        4,500.34 milliseconds
+  Query Preparation Times
+    Query Compilation Time               :            0.09 milliseconds
+    Logical Plan Build Time              :            0.05 milliseconds
+    Physical Plan Build Time             :            0.04 milliseconds
+    Query Optimization Time              :            0.01 milliseconds
+  Index Lookup Time                      :            0.01 milliseconds
+  Document Load Time                     :        4,177.66 milliseconds
+  Runtime Execution Times
+    Query Engine Times                   :          322.16 milliseconds
+    System Function Execution Time       :           85.74 milliseconds
+    User-defined Function Execution Time :            0.00 milliseconds
+  Document Write Time                    :            0.01 milliseconds
+Client Side Metrics
+  Retry Count                            :               0
+  Request Charge                         :        4,059.95 RUs
+```
+
+Le nombre de documents récupérés (60 951) est beaucoup plus élevé que le nombre de documents de sortie (7). Cela signifie que cette requête a dû effectuer une analyse. Dans ce cas, la fonction système [UPPER ()](sql-query-upper.md) n’utilise pas l’index.
+
+## <a name="include-necessary-paths-in-the-indexing-policy"></a>Inclure les chemins nécessaires dans la stratégie d’indexation
+
+Votre stratégie d’indexation doit couvrir toutes les propriétés incluses dans les clauses `WHERE`, les clauses `ORDER BY`, `JOIN` et la plupart des fonctions système. Le chemin spécifié dans la stratégie d’index doit correspondre (en respectant la casse) à la propriété dans les documents JSON.
+
+Si nous exécutons une requête simple sur le jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json), nous constatons que les frais en RU sont plus faibles quand la propriété de la clause `WHERE` est indexée.
+
+### <a name="original"></a>Originale
+
+Requête :
+
+```sql
+SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
+```
+
+Stratégie d’indexation :
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
         {
-            families.Add(family);
+            "path": "/*"
         }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/description/*"
+        }
+    ]
+}
+```
+
+**Frais en RU :** 409,51 RU/s
+
+### <a name="optimized"></a>Optimisée
+
+Stratégie d’indexation mise à jour :
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+**Frais en RU :** 2,98 RU/s
+
+Vous pouvez ajouter des propriétés supplémentaires à la stratégie d’indexation à tout moment, sans impact sur les performances ou la disponibilité en écriture. Si vous ajoutez une nouvelle propriété à l’index, les requêtes qui utilisent cette propriété utiliseront immédiatement le nouvel index disponible. La requête utilisera le nouvel index pendant sa construction. Par conséquent, les résultats de la requête peuvent être incohérents pendant que la reconstruction de l’index est en cours. Si une nouvelle propriété est indexée, les requêtes qui utilisent uniquement des index existants ne seront pas affectées lors de la reconstruction de l’index. Vous pouvez [suivre la progression de la transformation d’index](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+
+## <a name="understand-which-system-functions-utilize-the-index"></a>Comprendre quelles fonctions système utilisent l’index
+
+Si l’expression peut être convertie en une plage de valeurs de chaîne, elle peut utiliser l’index.
+
+Voici la liste des fonctions de chaîne qui peuvent utiliser l’index :
+
+- STARTSWITH(str_expr, str_expr)
+- LEFT(str_expr, num_expr) = str_expr
+- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0
+
+Voici quelques fonctions système courantes qui n’utilisent pas l’index et doivent charger chaque document :
+
+| **Fonction système**                     | **Idées pour l’optimisation**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| CONTAINS                                | Utiliser Recherche Azure pour la recherche en texte intégral                        |
+| UPPER/LOWER                             | Au lieu d’utiliser la fonction système pour normaliser les données à chaque fois pour les comparaisons, normalisez la casse lors de l’insertion. Alors, une requête telle que ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` devient simplement ```SELECT * FROM c WHERE c.name = 'BOB'```. |
+| Fonctions mathématiques (non-agrégations) | Si vous devez calculer fréquemment une valeur dans votre requête, stockez cette valeur en tant que propriété dans votre document JSON. |
+
+------
+
+D’autres parties de la requête peuvent toujours utiliser l’index, même si les fonctions système ne l’utilisent pas.
+
+## <a name="queries-with-both-a-filter-and-an-order-by-clause"></a>Requêtes avec un filtre et une clause ORDER BY
+
+Les requêtes avec un filtre et une clause `ORDER BY` utilisent normalement un index de plage, mais elles sont plus efficaces si elles peuvent être servies à partir d’un index composite. En plus de modifier la stratégie d’indexation, vous devez ajouter toutes les propriétés de l’index composite à la clause `ORDER BY`. Cette modification de requête permet de s’assurer qu’elle utilise l’index composite.  Vous pouvez observer l’impact en exécutant une requête sur le jeu de données [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+
+### <a name="original"></a>Originale
+
+Requête :
+
+```sql
+SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” ORDER BY c._ts ASC
+```
+
+Stratégie d’indexation :
+
+```json
+{
+
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[]
+}
+```
+
+**Frais en RU :** 44,28 RU/s
+
+### <a name="optimized"></a>Optimisée
+
+Requête mise à jour (comprend les deux propriétés dans la clause `ORDER BY`) :
+
+```sql
+SELECT * FROM c 
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+ORDER BY c.foodGroup, c._ts ASC
+```
+
+Stratégie d’indexation mise à jour :
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/foodGroup",
+                    "order":"ascending"
+        },
+                {  
+                    "path":"/_ts",
+                    "order":"ascending"
+                }
+            ]
+        ]
     }
-    ```
 
-## <a name="choose-system-functions-that-utilize-index"></a>Choisir les fonctions système qui utilisent l’index
-Si l’expression peut être convertie en une plage de valeurs de chaîne, elle peut utiliser l’index. 
+```
 
-Voici la liste des fonctions de chaîne qui peuvent utiliser l’index : 
-    
-  * STARTSWITH(str_expr, str_expr) 
-  * LEFT(str_expr, num_expr) = str_expr 
-  * SUBSTRING(str_expr, num_expr, num_expr) = str_expr, but only if first num_expr is 0 
-    
-    Voici quelques exemples de requêtes : 
-    
-    ```sql
+**Frais en RU :** 8,86 RU/s
 
-    -- If there is a range index on r.name, STARTSWITH will utilize the index while ENDSWITH won't 
-    SELECT * 
-    FROM c 
-    WHERE STARTSWITH(c.name, 'J') AND ENDSWITH(c.name, 'n')
+## <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimiser les expressions JOIN à l’aide d’une sous-requête
+Les sous-requêtes multivaleurs peuvent optimiser des expressions `JOIN` en envoyant les prédicats après chaque expression de sélection multiple, plutôt qu’après toutes les jointures croisées dans la clause `WHERE`.
 
-    ```
-    
-    ```sql
+Considérez la requête suivante :
 
-    -- LEFT will utilize the index while RIGHT won't 
-    SELECT * 
-    FROM c 
-    WHERE LEFT(c.name, 2) = 'Jo' AND RIGHT(c.name, 2) = 'hn'
+```sql
+SELECT Count(1) AS Count
+FROM c
+JOIN t IN c.tags
+JOIN n IN c.nutrients
+JOIN s IN c.servings
+WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
+AND n.nutritionValue < 10) AND s.amount > 1
+```
 
-    ```
+**Frais en RU :** 167,62 RU/s
 
-  * Évitez les fonctions système dans le filtre (ou la clause WHERE) qui ne sont pas desservies par l'index. Contains, Upper et Lower sont exemples de fonctions système.
-  * Dans la mesure du possible, écrivez les requêtes pour utiliser un filtre sur la clé de partition.
-  * Pour obtenir des requêtes performantes, évitez d'appeler UPPER/LOWER dans le filtre. Normalisez plutôt la casse des valeurs lors de l'insertion. Pour chacune des valeurs, insérez la valeur avec la casse souhaitée, ou insérez à la fois la valeur originale et la valeur avec la casse souhaitée. 
+Pour cette requête, l’index établit une correspondance avec n’importe quel document qui a une étiquette portant le nom « infant formula », nutritionValue supérieur à 0 et une dose supérieure à 1. Dans ce cas, l’expression `JOIN` effectue le produit croisé de tous les éléments des tableaux tags, nutrients et servings pour chaque document correspondant avant l’application de tout filtre. Ensuite, la clause `WHERE` applique le prédicat de filtre sur chaque tuple `<c, t, n, s>`.
 
-    Par exemple :
-    
-    ```sql
+Par exemple, si un document correspondant comporte 10 éléments dans chacun des trois tableaux, l’opération aboutit à 1 x 10 x 10 x 10 (autrement dit, 1 000) tuples. L’utilisation de sous-requêtes ici peut aider à filtrer des éléments de tableaux joints avant d’effectuer une jointure avec l’expression suivante.
 
-    SELECT * FROM c WHERE UPPER(c.name) = "JOE"
+Cette requête est équivalente à la précédente, mais utilise des sous-requêtes :
 
-    ```
-    
-    Dans ce cas, enregistrez « JOE » en majuscules ou à la fois la valeur d’origine « Joe » et « JOE ». 
-    
-    Si la casse des données JSON est normalisée, la requête devient :
-    
-    ```sql
+```sql
+SELECT Count(1) AS Count
+FROM c
+JOIN (SELECT VALUE t FROM t IN c.tags WHERE t.name = 'infant formula')
+JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutritionValue < 10)
+JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
+```
 
-    SELECT * FROM c WHERE c.name = "JOE"
+**Frais en RU :** 22,17 RU/s
 
-    ```
+Supposons qu’un seul élément du tableau tags correspond au filtre, et qu’il existe cinq éléments pour les tableaux nutrients et servings. Les expressions `JOIN` aboutissent à 1 x 1 x 5 x 5 = 25 éléments, au lieu de 1000 éléments dans la première requête.
 
-    La seconde requête sera plus performante car elle ne nécessite aucune transformation sur chacune des valeurs afin de comparer les valeurs à « JOE ».
+## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Requêtes où le nombre de documents récupérés est égal au nombre de documents de sortie
 
-Pour plus d’informations sur les fonctions système, lisez l’article [Fonctions système](sql-query-system-functions.md).
+Si le nombre de documents récupérés est à peu près égal au nombre de documents de sortie, cela signifie que la requête n’a pas eu à analyser de nombreux documents inutiles. Pour de nombreuses requêtes, telles que celles qui utilisent le mot clé TOP, le nombre de documents récupérés peut dépasser le nombre de documents de sortie de 1. Cela ne doit pas être une cause de préoccupation.
 
-## <a name="check-indexing-policy"></a>Vérifier la stratégie d’indexation
-Pour vérifier que la [stratégie d’indexation](index-policy.md) actuelle est optimale :
+## <a name="avoid-cross-partition-queries"></a>Éviter les requêtes entre les partitions
 
-  * Pour garantir une lecture plus rapide, vérifiez que tous les chemins JSON utilisés dans les requêtes sont inclus dans la stratégie d’indexation.
-  * Pour des écritures plus performantes, n’incluez pas les chemins non utilisés dans les requêtes.
+Azure Cosmos DB utilise le [partitionnement](partitioning-overview.md) pour mettre à l’échelle des conteneurs en fonction de l’augmentation des besoins en unités de requête et en stockage des données. Chaque partition physique a un index distinct et indépendant. Si votre requête a un filtre d’égalité qui correspond à la clé de partition de votre conteneur, vous devrez uniquement vérifier l’index de la partition pertinente. Cette optimisation réduit le nombre total de RU requis par la requête.
 
-Pour plus de détails, lisez l’article [Guide pratique pour gérer la stratégie d’indexation](how-to-manage-indexing-policy.md).
+Si vous disposez d’un grand nombre d’unités de requête provisionnées (plus de 30 000) ou d’une grande quantité de données stockées (plus de 100 Go), vous disposez probablement d’un conteneur suffisamment grand pour constater une réduction significative des frais en RU liés aux requêtes.
 
-## <a name="spatial-data-check-ordering-of-points"></a>Données spatiales : Vérifier l'ordre des points
-Les points dans un polygone doivent être spécifiés dans le sens antihoraire. Un polygone spécifié dans le sens horaire représente l’inverse de la région qu’il contient.
+Par exemple, si nous créons un conteneur avec la clé de partition foodGroup, les requêtes suivantes ne devront vérifier qu’une seule partition physique :
 
-## <a name="optimize-join-expressions"></a>Optimiser les expressions JOIN
-Les expressions `JOIN` peuvent être développées en produits croisés de grande taille. Dans la mesure du possible, utilisez un filtre plus spécifique pour effectuer une recherche sur un espace de recherche plus restreint.
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+```
 
-Les sous-requêtes multivaleurs peuvent optimiser des expressions `JOIN` en envoyant les prédicats après chaque expression de sélection multiple, plutôt qu’après toutes les jointures croisées dans la clause `WHERE`. Pour obtenir un exemple détaillé, lisez l’article [Optimiser les expressions JOIN](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions).
+Ces requêtes sont également optimisées en incluant la clé de partition dans la requête :
 
-## <a name="optimize-order-by-expressions"></a>Optimiser les expressions ORDER BY 
-Les performances de la requête `ORDER BY` peuvent baisser si les champs sont partiellement alloués ou exclus de la stratégie d'indexation.
+```sql
+SELECT * FROM c
+WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+```
 
-  * Pour les champs partiellement alloués comme le temps, réduisez l'espace de recherche autant que possible à l’aide de filtres. 
-  * Pour une seule propriété `ORDER BY`, incluez la propriété dans la stratégie d'indexation. 
-  * Pour les expressions `ORDER BY` à plusieurs propriétés, définissez un [index composite](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) sur les champs triés.  
+Les requêtes qui ont des filtres de plage sur la clé de partition ou qui n’ont aucun filtre sur la clé de partition devront vérifier l’index de chaque partition physique pour obtenir les résultats.
 
-## <a name="many-large-documents-being-loaded-and-processed"></a>Nombreux documents volumineux en cours de chargement et de traitement
-Le temps et les unités de requête requis par une requête dépendent non seulement de la taille de la réponse, mais aussi du travail effectué par le pipeline de traitement des requêtes. Le temps et les unités de requête augmentent proportionnellement avec la quantité de travail effectué par l'ensemble du pipeline de traitement des requêtes. Les documents volumineux nécessitant plus de travail, leur chargement et leur traitement requièrent plus de temps et d’unités de requête.
+```sql
+SELECT * FROM c
+WHERE c.description = "Mushroom, oyster, raw"
+```
 
-## <a name="low-provisioned-throughput"></a>Faible débit approvisionné
-Vérifiez que le débit provisionné est capable de gérer la charge de travail. Augmentez le budget en unités de requête pour les collections impactées.
+```sql
+SELECT * FROM c
+WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+```
 
-## <a name="try-upgrading-to-the-latest-sdk-version"></a>Tentative de mise à niveau vers la dernière version du Kit de développement logiciel (SDK)
-Pour déterminer la dernière version du SDK, consultez l’article [SDK Download and release notes](sql-api-sdk-dotnet.md) (Téléchargement du SDK et notes de publication).
+## <a name="filters-on-multiple-properties"></a>Filtres sur plusieurs propriétés
+
+Les requêtes avec des filtres sur plusieurs propriétés utilisent normalement un index de plage, mais elles sont plus efficaces si elles peuvent être servies à partir d’un index composite. Pour les petites quantités de données, cette optimisation n’aura pas d’impact significatif. Toutefois, elle peut s’avérer utile pour les grandes quantités de données. Vous pouvez uniquement optimiser, au plus, un filtre de non-égalité par index composite. Si votre requête comporte plusieurs filtres de non-égalité, vous devez choisir l’un d’entre eux qui utilisera l’index composite. Les autres continueront à utiliser des index de plage. Le filtre de non-égalité doit être défini en dernier dans l’index composite. [En savoir plus sur les index composites](index-policy.md#composite-indexes)
+
+Voici quelques exemples de requêtes qui peuvent être optimisées avec un index composite :
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
+```
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
+```
+
+Voici l’index composite approprié :
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/foodGroup",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/_ts",
+                    "order":"ascending"
+                }
+            ]
+        ]
+}
+```
+
+## <a name="optimizations-that-reduce-query-latency"></a>Optimisations qui réduisent la latence des requêtes :
+
+Dans de nombreux cas, les frais en RU peuvent être acceptables, mais la latence des requêtes est encore trop élevée. Les sections ci-dessous présentent différents conseils pour réduire la latence des requêtes. Si vous exécutez la même requête plusieurs fois sur le même jeu de données, elle aura les mêmes frais en RU à chaque fois. Toutefois, la latence des requêtes peut varier d’une exécution de requête à une autre.
+
+## <a name="improve-proximity"></a>Améliorer la proximité
+
+Les requêtes exécutées à partir d’une région différente de celle du compte Azure Cosmos DB auront une latence plus élevée que si elles étaient exécutées dans la même région. Par exemple, si vous exécutez du code sur votre ordinateur de bureau, vous devez vous attendre à une latence supérieure de quelques dizaines ou centaines (voire plus) de millisecondes à la même requête provenant d’une machine virtuelle située dans la même région Azure qu’Azure Cosmos DB. Il est facile de [distribuer les données globalement dans Azure Cosmos DB](distribute-data-globally.md) pour vous assurer de pouvoir rapprocher vos données de votre application.
+
+## <a name="increase-provisioned-throughput"></a>Augmenter le débit provisionné
+
+Dans Azure Cosmos DB, votre débit provisionné est mesuré en unités de requête (RU). Supposez que vous avez une requête qui consomme 5 RU de débit. Par exemple, si vous provisionnez 1 000 RU, vous pouvez exécuter cette requête 200 fois par seconde. Si vous tentez d’exécuter la requête alors que le débit disponible est insuffisant, Azure Cosmos DB retourne une erreur HTTP 429. Les kits SDK actuels de l’API Core (SQL) réessaient automatiquement d’exécuter cette requête après un bref délai. Les requêtes limitées prennent plus de temps ; par conséquent, l’augmentation du débit provisionné peut améliorer la latence des requêtes. Vous pouvez observer le [nombre total de requêtes limitées](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) dans le panneau Métriques du portail Azure.
+
+## <a name="increase-maxconcurrency"></a>Augmenter MaxConcurrency
+
+Les requêtes parallèles interrogent plusieurs partitions en parallèle. Les données d’une collection partitionnée individuelle sont toutefois extraites en série dans le cadre de la requête. Par conséquent, le réglage de MaxConcurrency sur le nombre de partitions augmente les chances de résultats de la requête, sous réserve que toutes les autres conditions système restent inchangées. Si vous ne connaissez pas le nombre de partitions, vous pouvez affecter un nombre élevé au paramètre MaxConcurrency (ou MaxDegreesOfParallelism dans les versions plus anciennes du SDK), et le système sélectionne le minimum (nombre de partitions, entrée fournie par l’utilisateur) comme degré maximal de parallélisme.
+
+## <a name="increase-maxbuffereditemcount"></a>Augmenter MaxBufferedItemCount
+
+Les requêtes sont conçues pour pré-extraire les résultats pendant que le lot de résultats actuel est en cours de traitement par le client. La pré-extraction permet d’améliorer la latence globale d’une requête. La définition de setMaxBufferedItemCount limite le nombre de résultats pré-extraits. Pour que la requête tire le maximum de bénéfices de la pré-extraction, affectez à cette valeur le nombre de résultats attendus (ou un nombre plus élevé). Si vous lui affectez la valeur -1, le système détermine automatiquement le nombre d’éléments à mettre en mémoire tampon.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Reportez-vous aux documents ci-dessous sur la mesure des unités de requête par requête et pour obtenir des statistiques d’exécution afin d’optimiser vos requêtes, entre autres :

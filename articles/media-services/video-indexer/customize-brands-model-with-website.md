@@ -1,5 +1,5 @@
 ---
-title: Utiliser le site web Video Indexer pour personnaliser un modèle de marques - Azure
+title: Utiliser le site web Video Indexer pour personnaliser des modèles de marques - Azure
 titleSuffix: Azure Media Services
 description: Cet article explique comment personnaliser un modèle de marques avec le site web Video Indexer.
 services: media-services
@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: f4b2f7a8b43c1723beb0dd8da82814f74cd7b135
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 956ca7af055768398392045ecf9b383d2eb1060f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838346"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513896"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Personnaliser un modèle de marques avec le site web Video Indexer
 
-Video Indexer prend en charge la détection de marques dans les messages vocaux et visuels lors de l'indexation et de la réindexation de contenu vidéo et audio. La fonctionnalité de détection de marques identifie les noms de produits, services et entreprises suggérés par la base de données de marques Bing. Par exemple, si le nom de Microsoft est mentionné dans du contenu vidéo ou audio, ou s'il apparaît sous forme de texte visuel dans une vidéo, Video Indexer le détecte et l'interprète comme un nom de marque dans le contenu. Un modèle de marques personnalisé vous permet de choisir si votre instance de Video Indexer doit détecter ou non les marques répertoriées dans la base de données de marques Bing, ne pas détecter certaines marques (création d'une liste rouge de marques) et inclure d'autres marques en plus de celles répertoriées dans la base de données de marques Bing (création d'une liste verte de marques).
+Video Indexer prend en charge la détection de marques dans les messages vocaux et visuels lors de l’indexation et de la réindexation de contenu vidéo et audio. La fonctionnalité de détection de marques identifie les noms de produits, services et entreprises suggérés par la base de données de marques Bing. Par exemple, si le nom de Microsoft est mentionné dans du contenu vidéo ou audio, ou s’il apparaît sous forme de texte visuel dans une vidéo, Video Indexer le détecte et l’interprète comme un nom de marque dans le contenu. Un modèle de marques personnalisé vous permet de choisir si votre instance de Video Indexer doit détecter ou non les marques répertoriées dans la base de données de marques Bing, ne pas détecter certaines marques (création d'une liste rouge de marques) et inclure d'autres marques en plus de celles répertoriées dans la base de données de marques Bing (création d'une liste verte de marques).
 
-Pour un aperçu détaillé, consultez [Vue d'ensemble](customize-brands-model-overview.md).
+Pour un aperçu détaillé, consultez [Vue d’ensemble](customize-brands-model-overview.md).
 
 Vous pouvez utiliser le site web Video Indexer pour créer, utiliser et modifier des modèles personnalisés de marques détectées dans une vidéo, comme décrit dans cette rubrique. Vous pouvez également utiliser l'API, comme décrit dans [Personnaliser le modèle de marques à l'aide des API](customize-brands-model-with-api.md).
 
@@ -49,7 +49,7 @@ La section **Inclure des marques** représente les marques personnalisées que v
     ![Personnaliser un modèle de marques](./media/customize-brand-model/add-brand.png)
 
     Indiquez un nom (obligatoire), une catégorie (facultatif), une description (facultatif) et une URL de référence (facultatif).
-    Le champ Catégorie a pour but de vous aider à étiqueter vos marques. Ce champ apparaît sous la forme d'*étiquettes* de la marque lors de l'utilisation des API Video Indexer. Par exemple, la marque « Azure » peut être étiquetée ou classée dans la catégorie « Cloud ».
+    Le champ Catégorie a pour but de vous aider à étiqueter vos marques. Ce champ apparaît sous la forme d'*étiquettes* de la marque lors de l'utilisation des API Video Indexer. Par exemple, la marque « Azure » peut être étiquetée ou classée dans la catégorie « Cloud ».
 
     Le champ URL de référence peut correspondre à n'importe quel site web de référence de la marque, comme un lien vers sa page Wikipédia.
 2. Cliquez sur « Ajouter une marque ». La marque est alors ajoutée à la liste **Inclure des marques**.
@@ -91,4 +91,4 @@ La section **Exclure des marques** représente les marques que vous souhaitez qu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Personnaliser le modèle de marques à l'aide des API](customize-brands-model-with-api.md)
+[Personnaliser le modèle de marques à l’aide des API](customize-brands-model-with-api.md)

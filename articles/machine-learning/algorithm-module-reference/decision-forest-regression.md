@@ -9,20 +9,20 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c1b61d43fde00c435b83071015246bf990e873e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497962"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546671"
 ---
 # <a name="decision-forest-regression-module"></a>Module Régression de forêt d’arbres de décision
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un modèle de régression basé sur un ensemble d’arbres de décision.
 
-Une fois que vous avez configuré le modèle, vous devez le former à l’aide d’un jeu de données étiqueté et du module [Entraîner un modèle](./train-model.md). Le modèle ainsi entraîné permet ensuite d’effectuer des prédictions. 
+Une fois que vous avez configuré le modèle, vous devez le former à l’aide d’un jeu de données étiqueté et du module [Entraîner un modèle](./train-model.md). Le modèle ainsi formé permet ensuite d’effectuer des prédictions. 
 
 ## <a name="how-it-works"></a>Fonctionnement
 
@@ -44,36 +44,36 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
 
 1. Ajoutez le module **Régression de forêt de décision** au pipeline. Vous pouvez rechercher le module dans le concepteur sous **Machine Learning**, **Initialiser le modèle** et **Régression**.
 
-2. Ouvrez les propriétés du module et, pour **Méthode de rééchantillonnage**, choisissez la méthode utilisée pour créer des arbres individuels.  Vous pouvez choisir **l’ensachage** ou la **réplication**.
+2. Ouvrez les propriétés du module et, pour **Méthode de rééchantillonnage**, choisissez la méthode utilisée pour créer des arbres individuels.  **Bagging** ou **Réplication**.
 
-    - **Bagging** : l’ensachage est aussi appelé bagging ou *bootstrap aggregating* en anglais. Chaque arbre d’une forêt de décision de régression génère une distribution gaussienne, sous la forme d’une prédiction. L’agrégation consiste à trouver une distribution gaussienne dont les deux premiers moments correspondent à des moments du mélange de distributions gaussiennes obtenu via la combinaison de toutes les distributions gaussiennes retournées par des arbres individuels.
+    - **Bagging** : le bagging, également appelé *agrégation boostrap*, Chaque arbre d’une forêt de décision de régression génère une distribution gaussienne, sous la forme d’une prédiction. L’agrégation consiste à trouver une distribution gaussienne dont les deux premiers moments correspondent à des moments du mélange de distributions gaussiennes obtenu via la combinaison de toutes les distributions gaussiennes retournées par des arbres individuels.
 
          Pour en savoir plus, consultez l’entrée Wikipedia relative au [Bootstrap Aggregating](https://wikipedia.org/wiki/Bootstrap_aggregating).
 
-    - **Réplication** : avec la réplication, l’apprentissage de chacun des arbres est effectué sur les mêmes données d’entrée. Le prédicat fractionné utilisé pour chaque nœud d’arbre est toujours déterminé de manière aléatoire, et les arbres sont variés.
+    - **Réplication** : avec la réplication, l’apprentissage de chacun des arbres est effectué sur les mêmes données d’entrée. Le prédicat fractionné utilisé pour chaque nœud d’arbre est toujours déterminé de manière aléatoire ; les arbres sont variés.
 
          Pour en savoir plus sur le processus d’apprentissage avec l’option **Répliquer**, voir [Decision Forests for Computer Vision and Medical Image Analysis (Forêts de décision pour la vision par ordinateur et l’analyse des images médicales) Criminisi and J. Shotton. Springer 2013](https://research.microsoft.com/projects/decisionforests/).
 
-3. Spécifiez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).
+3. Spécifiez le mode d’apprentissage du modèle en définissant l’option **Créer un mode d’apprentissage**.
 
     - **Single Parameter** (Paramètre unique)
 
-      Si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs en tant qu’arguments. Vous l’avez peut-être découvert ces valeurs par expérimentation, ou vous les avez reçues à titre de guide.
+      si vous savez comment vous voulez configurer le modèle, vous pouvez fournir un ensemble spécifique de valeurs comme arguments. Vous l’avez peut-être découvert ces valeurs par expérimentation, ou vous les avez reçues à titre de guide.
 
 
 
 4. Dans le champ **Number of trees constructed** (Nombre d’arbres construits), indiquez le nombre total d’arbres de décision à créer dans l’ensemble. En créant plusieurs arbres de décision, vous pouvez obtenir une meilleure couverture, mais cette opération augmente la durée d’apprentissage.
 
     > [!TIP]
-    > Cette valeur contrôle également le nombre d’arbres affichés lorsque vous visualisez le modèle formé. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, cela signifie qu’un seul arbre est généré (celui qui inclut le jeu de paramètres initial) et qu’aucune autre itération n’est effectuée.
+    > Cette valeur contrôle également le nombre d’arbres qui s’affichent dans la visualisation du modèle entraîné. Si vous souhaitez afficher ou imprimer un arbre unique, vous pouvez définir la valeur sur 1. Toutefois, cela signifie qu’un seul arbre est généré (celui qui inclut le jeu de paramètres initial) et qu’aucune autre itération n’est effectuée.
 
-5. Dans le champ **Maximum depth of the decision trees** (Profondeur maximale des arbres de décision), saisissez un nombre pour limiter la profondeur maximale de n’importe quel arbre de décision. Le fait d’augmenter la profondeur de l’arbre est susceptible d’améliorer la précision, au prix d’un risque de surajustement et d’augmentation du temps d’apprentissage.
+5. Dans le champ **Profondeur maximale des arbres de décision**, tapez un nombre pour limiter la profondeur de chacun des arbres de décision. Le fait d’augmenter la profondeur de l’arbre est susceptible d’améliorer la précision, au prix d’un risque de surajustement et d’augmentation du temps d’apprentissage.
 
 6. Dans le champ **Nombre de fractionnements aléatoires par nœud**, tapez le nombre de fractionnements à utiliser pour créer chacun des nœuds de l’arbre. Le *fractionnement* consiste à diviser de manière aléatoire les fonctionnalités à chaque niveau de l’arbre (nœud).
 
 7. Dans le champ **Nombre minimal d’échantillons par nœud terminal**, indiquez le nombre minimal de cas requis pour la création d’un nœud terminal dans un arbre.
 
-     Plus cette valeur est grande, plus le seuil de création de règles augmente. Par exemple, avec la valeur par défaut, 1, un seul cas suffit à entraîner la création d’une règle. Si vous définissez la valeur de ce champ sur 5, les données de formation doivent contenir au moins cinq cas remplissant les mêmes conditions.
+     Plus cette valeur est grande, plus le seuil de création de règles augmente. Par exemple, la valeur par défaut de 1, un seul cas suffit à entraîner la création d’une règle. Si la valeur passe à 5, les données d’apprentissage doivent contenir au moins cinq cas remplissant les mêmes conditions.
 
 
 9. Connectez un jeu de données étiqueté, sélectionnez une colonne d’étiquette unique contenant deux résultats maximum et connectez-vous à [Entraîner un modèle](./train-model.md).
@@ -86,14 +86,10 @@ Pour en savoir plus sur l’infrastructure théorique de cet algorithme et son i
 
 ### <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
-+ Pour voir l’arbre créé pour chaque itération, cliquez avec le bouton droit de la souris sur la sortie du module de formation et sélectionnez**Visualiser**.
-
-+ Pour afficher les règles de chaque nœud, cliquez sur chaque arbre et descendez dans la hiérarchie des fractionnements.
-
-+ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit de la souris sur la sortie du module de formation et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Cette copie du modèle n’est pas mise à jour lors des exécutions consécutives du pipeline. 
++ Pour enregistrer un instantané du modèle entraîné, sélectionnez le module d’entraînement, puis basculez vers l’onglet **Sorties** dans le panneau droit. Cliquez sur l’icône **Inscrire le modèle**.  Vous pouvez trouver le modèle enregistré sous la forme d’un module dans l’arborescence du module. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez l’[ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 
+Consultez [l’ensemble des modules disponibles](module-reference.md) pour Azure Machine Learning. 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913879"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547963"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Concepts de réseau pour les applications dans AKS (Azure Kubernetes Service)
 
@@ -45,7 +45,7 @@ Pour simplifier la configuration du réseau pour les charges de travail d’appl
 
     ![Diagramme montrant le flux de trafic NodePort dans un cluster AKS][aks-nodeport]
 
-- **LoadBalancer** : crée une ressource d’équilibreur de charge Azure, configure une adresse IP externe et connecte les pods demandés au pool back-end d’équilibreurs de charge. Pour que le trafic des clients puisse atteindre l’application, des règles d’équilibrage de charge sont créées sur les ports de votre choix. 
+- **LoadBalancer** : crée une ressource d’équilibreur de charge Azure, configure une adresse IP externe et connecte les pods demandés au pool back-end d’équilibreurs de charge. Pour que le trafic des clients puisse atteindre l’application, des règles d’équilibrage de charge sont créées sur les ports souhaités. 
 
     ![Diagramme montrant le flux de trafic LoadBalancer dans un cluster AKS][aks-loadbalancer]
 
@@ -99,14 +99,14 @@ Les différences de comportement suivantes existent entre kubenet et Azure CNI :
 
 | Fonctionnalité                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
-| Déployer un cluster dans un réseau virtuel nouveau ou existant                                            | Pris en charge : UDR appliqués manuellement | Pris en charge |
-| Connectivité pod-pod                                                                         | Pris en charge | Pris en charge |
+| Déployer un cluster dans un réseau virtuel nouveau ou existant                                            | Pris en charge : UDR appliqués manuellement | Prise en charge |
+| Connectivité pod-pod                                                                         | Prise en charge | Prise en charge |
 | Connectivité pod-machine virtuelle ; la machine virtuelle se trouve dans le même réseau virtuel                                          | S’applique si initié par le pod | S’applique dans les deux sens |
 | Connectivité pod-machine virtuelle ; la machine virtuelle se trouve dans un réseau virtuel homologué                                            | S’applique si initié par le pod | S’applique dans les deux sens |
 | Accès local à l’aide de VPN ou d’Express Route                                                | S’applique si initié par le pod | S’applique dans les deux sens |
-| Accès à des ressources sécurisées par des points de terminaison de service                                             | Pris en charge | Pris en charge |
-| Exposer des services Kubernetes à l’aide d’un service d’équilibreur de charge, App Gateway ou d’un contrôleur d’entrée | Pris en charge | Pris en charge |
-| Azure DNS et zones privées par défaut                                                          | Pris en charge | Pris en charge |
+| Accès à des ressources sécurisées par des points de terminaison de service                                             | Prise en charge | Prise en charge |
+| Exposer des services Kubernetes à l’aide d’un service d’équilibreur de charge, App Gateway ou d’un contrôleur d’entrée | Prise en charge | Prise en charge |
+| Azure DNS et zones privées par défaut                                                          | Prise en charge | Prise en charge |
 
 ### <a name="support-scope-between-network-models"></a>Étendue du support entre des modèles de réseaux
 
@@ -132,7 +132,7 @@ Dans AKS, vous pouvez créer une ressource d’entrée à l’aide de NGINX, ou 
 
 Une autre fonctionnalité d’entrée courante est l’arrêt SSL/TLS. Sur les grandes applications web accessibles via HTTPS, l’arrêt TLS peut être géré par la ressource d’entrée plutôt que dans l’application proprement dite. Pour fournir la configuration et la génération automatiques de la certification TLS, vous pouvez configurer la ressource d’entrée pour utiliser des fournisseurs tels que Let's Encrypt. Pour plus d’informations sur la configuration d’un contrôleur d’entrée NGINX avec Let’s Encrypt, consultez [Entrée et TLS][aks-ingress-tls].
 
-Vous pouvez également configurer votre contrôleur d’entrée pour qu’il conserve l’adresse IP source de client dans les requêtes de conteneurs dans votre cluster AKS. Lorsqu’une requête de client est acheminée vers un conteneur dans votre cluster AKS via votre contrôleur d’entrée, l’adresse IP source d’origine ne sera pas disponible pour le conteneur cible. Lorsque vous activez la *conservation de l’adresse IP source de client*, l’adresse IP source du client est disponible dans l’en-tête de requête sous *X-Forwarded-For*. Si vous utilisez la conservation de l’adresse d’IP source de client sur votre contrôleur d’entrée, vous ne pouvez pas utiliser le protocole SSL direct. La conservation de l’adresse IP source de client et le protocole SSL direct peuvent être utilisés avec d’autres services, tels que le type *LoadBalancer*.
+Vous pouvez également configurer votre contrôleur d’entrée pour qu’il conserve l’adresse IP source de client dans les requêtes de conteneurs dans votre cluster AKS. Quand une requête d’un client est routée vers un conteneur dans votre cluster AKS via votre contrôleur d’entrée, l’adresse IP source d’origine ne sera pas disponible pour le conteneur cible. Lorsque vous activez la *conservation de l’adresse IP source de client*, l’adresse IP source du client est disponible dans l’en-tête de requête sous *X-Forwarded-For*. Si vous utilisez la conservation de l’adresse d’IP source de client sur votre contrôleur d’entrée, vous ne pouvez pas utiliser le protocole SSL direct. La conservation de l’adresse IP source de client et le protocole SSL direct peuvent être utilisés avec d’autres services, tels que le type *LoadBalancer*.
 
 ## <a name="network-security-groups"></a>Groupes de sécurité réseau
 
@@ -140,7 +140,7 @@ Un groupe de sécurité réseau filtre le trafic pour des machines virtuelles, p
 
 ## <a name="network-policies"></a>Stratégies réseau
 
-Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans limitations. Pour une sécurité accrue, vous pouvez définir des règles qui contrôlent le flux de trafic. Les applications principales sont souvent exposées uniquement aux services frontaux obligatoires, ou les composants de base de données sont uniquement accessibles aux couches d’application qui s’y connectent.
+Par défaut, tous les pods d’un cluster AKS peuvent envoyer et recevoir du trafic sans aucune limite. Pour une sécurité accrue, vous pouvez définir des règles qui contrôlent le flux de trafic. Les applications principales sont souvent exposées uniquement aux services frontaux obligatoires, ou les composants de base de données sont uniquement accessibles aux couches d’application qui s’y connectent.
 
 L’utilisation de stratégies réseau est une fonctionnalité Kubernetes disponible dans AKS qui vous permet de contrôler le flux de trafic entre les pods. Vous pouvez choisir d’autoriser ou de refuser un trafic en fonction de paramètres, tels que des étiquettes attribuées, un espace de noms ou un port de trafic. Les groupes de sécurité réseau sont plus adaptés aux nœuds AKS qu’aux pods. L’utilisation de stratégies réseau est un moyen plus adapté et natif du cloud de contrôler le flux de trafic. Les pods étant créés de façon dynamique dans un cluster AKS, les stratégies réseau nécessaires peuvent être appliquées automatiquement.
 

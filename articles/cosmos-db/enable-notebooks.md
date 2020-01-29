@@ -1,17 +1,17 @@
 ---
-title: Activer les notebooks dans un compte Azure Cosmos
+title: Activer les notebooks dans un compte Azure Cosmos DB (préversion)
 description: Les notebooks intégrés d’Azure Cosmos DB vous permettent d’analyser et de visualiser vos données sur le portail. Cet article explique comment activer cette fonctionnalité pour des comptes Cosmos.
 author: deborahc
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8c65b7d010e521ec78322de9807f741c856a2381
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677146"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264846"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Activer les notebooks pour un compte Azure Cosmos
 

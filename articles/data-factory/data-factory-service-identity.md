@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928451"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121775"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identité managée pour Data Factory
 
@@ -23,7 +23,7 @@ Cet article vous permet de mieux comprendre ce qu’est l’identité managée p
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Lors de la création d’une fabrique de données, une identité managée est créée en même temps que la fabrique. L’identité managée est une application managée qui est inscrite auprès d’Azure Active Directory et qui représente cette fabrique de données.
 
@@ -155,17 +155,19 @@ Vous pouvez récupérer l’identité managée à partir du portail Azure ou par
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Récupérer l’identité managée à l’aide du portail Azure
 
-Les informations sur l’identité managée se trouvent sur le portail Azure sous : votre fabrique de données -> Propriétés :
+Les informations relatives à l'identité managée sont disponibles sur le portail Azure sous : votre fabrique de données -> Propriétés.
 
 - ID d’objet de l’identité managée
 - Locataire de l’identité managée
-- **ID d’application de l’identité managée** : copiez cette valeur
+- ID d'application de l'identité managée
 
-![Récupérer une identité managée](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+Les informations relatives à l'identité managée apparaissent également lorsque vous créez un service lié qui prend en charge l'authentification de l'identité managée, comme Azure Blob, Azure Data Lake Storage, Azure Key Vault, etc.
+
+Lors de l'octroi de l'autorisation, utilisez l'ID d'objet ou le nom de la fabrique de données (comme nom d'identité managée) pour trouver cette identité.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Récupérer l’identité managée à l’aide de PowerShell
 
-L’ID principal et l’ID locataire de l’identité managée seront retournés quand vous aurez obtenu une fabrique de données spécifique comme suit :
+L'ID de principal et l'ID de locataire de l'identité managée seront renvoyés lorsque vous aurez obtenu une fabrique de données spécifique, comme illustré ci-dessous. Utilisez le paramètre **PrincipalId** pour octroyer l'accès :
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -175,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Copiez l’ID principal, puis exécutez la commande Azure Active Directory ci-dessous avec l’ID principal comme paramètre pour obtenir **l’ID d’application**, que vous allez utiliser pour obtenir l’accès :
+Pour obtenir l'ID de l'application, copiez l'ID du principal, puis exécutez la commande Azure Active Directory ci-dessous avec l'ID du principal comme paramètre.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

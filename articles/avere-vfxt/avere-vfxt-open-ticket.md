@@ -4,18 +4,18 @@ description: Explique comment ouvrir un ticket de support au sujet d’Avere vFX
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 27f32a922a1b063096b0ccf28a01a78d442e0271
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889280"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153305"
 ---
 # <a name="get-help-with-your-system"></a>Obtenir de l’aide avec votre système
 
-Si vous avez besoin d’aide concernant l’utilisation d’Avere vFXT pour Azure, voici les différentes méthodes disponibles :
+Si vous avez besoin d’aide sur Avere vFXT pour Azure, voici les différents moyens d’obtenir du support :
 
 * **Problème avec Avere vFXT** : utilisez le portail Azure afin d’ouvrir un ticket de support pour Avere vFXT, comme expliqué [ci-dessous](#open-a-support-ticket-for-your-avere-vfxt).
 * **Quota** : si vous avez un problème lié aux quotas, [faite une demande d’augmentation de quota](#request-a-quota-increase).
@@ -27,27 +27,33 @@ Si vous rencontrez des problèmes lors du déploiement ou de l’utilisation d�
 
 Suivez ces étapes pour que votre ticket de support soit étiqueté avec une ressource du cluster. L’étiquetage du ticket nous permet de l’acheminer vers la ressource de support adaptée.
 
-1. Dans [https://portal.azure.com](https://portal.azure.com), sélectionnez **Groupes de ressources**.
-
-   ![Capture d’écran du menu de gauche du portail Azure, avec l’option « Groupes de ressources » entourée](media/avere-vfxt-ticket-rg.png)
-
-1. Accédez au groupe de ressources qui contient le cluster vFXT où le problème s’est produit, puis cliquez sur l’une des machines virtuelles Avere.
+1. Dans [https://portal.azure.com](https://portal.azure.com), sélectionnez **Groupes de ressources**. Accédez au groupe de ressources qui contient le cluster vFXT où le problème s’est produit, puis cliquez sur une des machines virtuelles du cluster Avere.
 
     ![Capture d’écran du panneau « Vue d’ensemble » du groupe de ressources dans le portail Azure, avec une machine virtuelle entourée](media/avere-vfxt-ticket-vm.png)
 
 1. Dans la page de la machine virtuelle, accédez au bas du panneau gauche, puis cliquez sur **Nouvelle demande de support**.
 
-    ![Capture d’écran de la page de la machine virtuelle de la capture d’écran précédente. Au bas du menu de gauche, l’option « Nouvelle demande de support » est entourée.](media/avere-vfxt-ticket-request.png)
+    ![Capture d’écran de la page de la machine virtuelle de la capture d’écran précédente. Dans le bas du menu de gauche, l’option « Nouvelle demande de support » est entourée.](media/avere-vfxt-ticket-request.png)
 
-1. Dans la première page de la demande de support, cliquez sur **Tous les services**, puis, sous **Stockage**, choisissez **Avere vFXT**.
+1. Sur la première page de la demande de support, choisissez le type de problème et vérifiez que l’abonnement approprié est sélectionné.
 
-    ![Capture d’écran de la nouvelle demande de support dans le portail Azure, sous l’en-tête « Bases », et avec l’élément « Service » entouré. Le bouton « Tous les services » est sélectionné, et la valeur « Avere vFXT » est sélectionnée dans la liste déroulante.](media/avere-vfxt-ticket-service.png)
+   Sous **Service**, cliquez sur **Tous les services** puis, sous **Stockage**, choisissez **Avere vFXT**.
 
-1. Dans la deuxième page, choisissez le type et la catégorie qui correspondent le mieux à votre problème. Ajoutez un titre court et une description comprenant le moment où s’est produit le problème.
+   Ajoutez un court résumé, puis sélectionnez le type de problème.
 
-   ![Capture d’écran de la nouvelle demande de support sous l’en-tête « Problème », où de nombreux champs doivent être renseignés.](media/avere-vfxt-ticket-problem.png)
+    ![Capture d’écran d’une nouvelle demande de support dans le portail Azure L’onglet Informations de base est sélectionné. Les éléments affichés à l’écran sont Type de problème, Abonnement, Service, Résumé et Type de problème.](media/ticket-basics.png)
 
-1. Dans la troisième page, entrez vos informations de contact, puis cliquez sur **Créer**. Une confirmation et un numéro de ticket seront envoyés à votre adresse e-mail, et un membre de l’équipe du support vous contactera.
+   Cliquez sur **Suivant** pour continuer.
+
+1. La deuxième page du formulaire de support contient des suggestions pour résoudre le problème en fonction de votre description résumée. Si vous avez néanmoins encore besoin de créer un ticket de support, cliquez sur le bouton **Suivant** dans le bas.
+
+   ![Capture d’écran de la nouvelle demande de support avec l’onglet Solutions sélectionné. Un champ texte au milieu a le titre « Solution recommandée » et explique les solutions possibles.](media/ticket-solutions.png)
+
+1. Dans la troisième page, spécifiez différents détails : des informations sur votre cluster, le moment auquel le problème s’est produit, la gravité et comment vous contacter. Renseignez les informations et cliquez sur le bouton **Suivant** dans le bas.
+
+   ![Capture d’écran de la nouvelle demande de support avec l’onglet Détails sélectionné. Les champs d’information sont organisés selon les catégories suivantes : « Détails du problème », « Méthode de support » et « Informations de contact ».](media/ticket-details.png)
+
+1. Passez en revue les informations de la page finale, puis cliquez sur **Créer**. Une confirmation et un numéro de ticket seront envoyés à votre adresse e-mail, et un membre de l’équipe du support vous contactera.
 
 ## <a name="request-a-quota-increase"></a>Demander une augmentation de quota
 

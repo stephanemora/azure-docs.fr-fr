@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c9d02490a5627ead502429ead06608b4fb621058
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490369"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548405"
 ---
 # <a name="train-model-module"></a>Module de formation de modèle
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour effectuer l’apprentissage d’un modèle de classification ou de régression. La formation a lieu une fois que vous avez défini un modèle et ses paramètres et nécessite des données avec balises. Vous pouvez également utiliser le module **Train Model** (Entraîner le modèle) pour effectuer l’apprentissage d’un modèle existant avec de nouvelles données. 
 
@@ -68,10 +68,9 @@ Dans Azure Machine Learning, la création et l’utilisation d’un modèle Mach
 
 Une fois le modèle formé :
 
-+ Pour afficher les paramètres et pondérations de fonctionnalités du modèle, cliquez avec le bouton droit sur la sortie, puis sélectionnez **Visualiser**.
-+ Pour utiliser le modèle dans d’autres Pipelines, cliquez avec le bouton de droite sur le modèle et sélectionnez **Enregistrer le modèle**. Tapez le nom du modèle. 
 
-    Le modèle est enregistré en tant qu’instantané non mis à jour par les exécutions répétées du pipeline.
++ Pour utiliser le modèle dans d’autres pipelines, sélectionnez le module et l’icône **Inscrire le jeu de données** sous l’onglet **Sorties** dans le panneau droit. Vous pouvez accéder aux modèles enregistrés dans la palette de modules sous **Jeux de données**.
+
 + Afin d’utiliser le modèle pour la prédiction de nouvelles valeurs, connectez-le au module [Score Model](./score-model.md) (Noter le modèle) avec les nouvelles données d’entrée.
 
 

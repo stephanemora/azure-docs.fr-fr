@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ae9c678d9dfca895ec74ed92bcb1b541db6b134e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930029"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545498"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Contrôle de sécurité : Journalisation et supervision
 
@@ -77,7 +77,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6.2, 6.3 | Customer |
 
-Si la ressource de calcul appartient à Microsoft, alors Microsoft est responsable de sa supervision. Si la ressource de calcul appartient à votre organisation, il vous incombe de la superviser. Vous pouvez utiliser Azure Security Center pour superviser le système d’exploitation. Les données collectées par Security Center auprès du système d’exploitation incluent le type et la version du système d’exploitation, le système d’exploitation (journaux des événements Windows), les processus en cours d’exécution, le nom de l’ordinateur, les adresses IP et l’utilisateur connecté. L’agent Log Analytics collecte également les fichiers de vidage sur incident.
+Si la ressource de calcul appartient à Microsoft, alors Microsoft est responsable de sa supervision. Si la ressource de calcul appartient à votre organisation, il vous incombe de la superviser. Vous pouvez utiliser Azure Security Center pour superviser le système d’exploitation. Les données collectées par Security Center auprès du système d’exploitation incluent le type et la version du système d’exploitation, les journaux du système d’exploitation (journaux des événements Windows), les processus en cours d’exécution, le nom de l’ordinateur, les adresses IP et l’utilisateur connecté. L’agent Log Analytics collecte également les fichiers de vidage sur incident.
 
 Comment collecter les journaux des hôtes internes des machines virtuelles Azure avec Azure Monitor :
 

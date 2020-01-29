@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8602a9c5b69c47c2f663dab461394ef5e1a9bed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2440d373b726b4f97cd5d9ba162daaa0714f79e0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762856"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155042"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Protection par mot de passe Azure AD - Procédures opérationnelles
 
@@ -28,7 +28,7 @@ Suivez les instructions dans l’article [Configurer la liste des mots de passe 
 
 ## <a name="enable-password-protection"></a>Activer la Protection par mot de passe
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Sécurité**, **Méthodes d'authentification**, puis **Protection par mot de passe**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory** >  **Sécurité** > **Méthodes d’authentification** > **Protection par mot de passe**.
 1. Définissez **Activer la Protection par mot de passe sur Windows Server Active Directory** sur**Oui**
 1. Comme mentionné dans le [Guide de déploiement](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), il est recommandé de régler de base le **Mode** sur **Audit**
    * Une fois que vous êtes familiarisé avec la fonctionnalité, vous pouvez basculer le **Mode** sur **Appliqué**

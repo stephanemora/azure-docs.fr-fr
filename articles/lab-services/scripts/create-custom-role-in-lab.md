@@ -1,5 +1,5 @@
 ---
-title: 'Script PowerShell : Créer un rôle personnalisé dans un lab dans Azure DevTest Labs | Microsoft Docs'
+title: PowerShell - Créer un rôle personnalisé dans un lab dans Azure DevTest Labs
 description: Ce script PowerShell ajoute un utilisateur externe à un lab dans Azure DevTest Labs.
 services: lab-services
 author: spelluru
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 4d0c795dffb40ab7efec9005660439f9baef9f3f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bcad4e02105bff2dc78a4adc3ca614f997794d52
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160584"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166422"
 ---
 # <a name="use-powershell-to-create-a-custom-role-in-a-lab-in-azure-devtest-labs"></a>Utiliser PowerShell pour créer un rôle personnalisé dans un lab dans Azure DevTest Labs
 
@@ -27,7 +27,7 @@ Cet exemple de script PowerShell crée un rôle personnalisé pouvant être util
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * **Un lab**. Le script vous demande d’avoir un lab. 
 
 ## <a name="sample-script"></a>Exemple de script

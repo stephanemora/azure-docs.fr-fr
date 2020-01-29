@@ -3,12 +3,12 @@ title: Questions courantes sur l’appliance Azure Migrate
 description: Retrouvez les réponses à des questions courantes sur l’appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c8bcebeee58401cb3d2b65ae82e51d31ab4dad0b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029126"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292330"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate : Questions courantes
 
@@ -83,9 +83,9 @@ Oui, les deux.
 
 Non. Il existe un mappage un-à-un entre une appliance et le serveur vCenter Server. Pour découvrir des machines virtuelles sur plusieurs instances vCenter Server, vous devez déployer plusieurs appliances.
 
-### <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Combien de machines virtuelles peut-on détecter avec une appliance ?
+### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Combien de machines virtuelles ou de serveurs puis-je découvrir avec une appliance ?
 
-Il est possible de détecter jusqu’à 10 000 machines virtuelles VMware et 5 000 machines virtuelles Hyper-V avec une seule appliance. Si vous avez plus de machines dans votre environnement local, découvrez comment adapter l’évaluation des machines [Hyper-V](scale-hyper-v-assessment.md) et [VMware](scale-vmware-assessment.md).
+Il est possible de découvrir jusqu’à 10 000 machines virtuelles VMware, 5 000 machines virtuelles Hyper-V et 250 serveurs avec une seule appliance. Si vous avez plus de machines dans votre environnement local, découvrez comment adapter l’évaluation des machines [Hyper-V](scale-hyper-v-assessment.md) et [VMware](scale-vmware-assessment.md) ainsi que des [serveurs physiques](scale-physical-assessment.md).
 
 ## <a name="can-i-delete-an-appliance"></a>Peut-on supprimer une appliance ?
 

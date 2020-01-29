@@ -4,14 +4,14 @@ description: Comment ajouter un système de stockage back-end à votre cluster A
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416486"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153987"
 ---
 # <a name="configure-storage"></a>Configurer le stockage
 
@@ -32,7 +32,7 @@ Vous effectuez ces étapes à l’aide du panneau de configuration Avere. Lisez 
 
 ## <a name="create-a-core-filer"></a>Créer un système de stockage principal
 
-« Core filer » est le terme vFXT qui désigne un système de stockage principal. Le stockage peut être une appliance NAS matérielle telle que NetApp ou Isilon, ou peut être un magasin d’objets cloud. Vous trouverez plus d’informations sur les systèmes de stockage principaux dans le [guide des paramètres de cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
+« Core filer » est un terme de vFXT qui désigne un système de stockage back-end. Le stockage peut être une appliance NAS matérielle telle que NetApp ou Isilon, ou peut être un magasin d’objets cloud. Vous trouverez plus d’informations sur les systèmes de stockage principaux dans le [guide des paramètres de cluster Avere](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#managing-core-filers).
 
 Pour ajouter un système de stockage principal, choisissez l’un des deux types de système de stockage principal suivants :
 
@@ -69,7 +69,7 @@ Ensuite, passez à la section [Créer une jonction](#create-a-junction).
 
 ### <a name="azure-blob-storage-cloud-core-filer"></a>Système de stockage principal cloud avec le stockage Blob Azure
 
-Pour utiliser le stockage Blob Azure en tant que stockage back-end de votre cluster vFXT, vous devez ajouter un conteneur vide en tant que système de stockage principal.
+Pour utiliser le stockage Blob Azure comme stockage back-end de votre cluster vFXT, vous avez besoin d’un conteneur vide à ajouter comme système de stockage back-end.
 
 Pour ajouter un stockage d’objets blob à votre cluster, vous devez effectuer les tâches suivantes :
 

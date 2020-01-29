@@ -6,16 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: b13ad375adf20a606b48755a6d57851abf89e549
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454653"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288951"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Configurer la visualisation des dépendances sans agent pour l’évaluation
 
-Cet article explique comment configurer le mappage de dépendances sans agent dans Azure Migrate : Server Assessment. Cette fonctionnalité est actuellement disponible en préversion pour les machines VMware découvertes à l’aide d’une appliance Azure Migrate. 
+Cet article explique comment configurer le mappage de dépendances sans agent dans Azure Migrate : Server Assessment. 
 
 > [!IMPORTANT]
 > La visualisation des dépendances sans agent est actuellement en préversion pour les machines virtuelles VMware Azure détectées à l’aide d’une appliance Azure Migrate.
@@ -54,17 +54,8 @@ La visualisation des dépendances sans agent ne nécessite pas d’installation 
 - L’analyse des dépendances sans agent est actuellement disponible uniquement pour les machines VMware.
 - Si vous avez déjà créé un projet, assurez-vous que vous avez [ajouté](how-to-assess.md) Azure Migrate : Server Assessment.
 - Assurez-vous d’avoir découvert vos machines VMware dans Azure Migrate. Pour ce faire, configurez une appliance Azure Migrate pour [VMware](how-to-set-up-appliance-vmware.md). L’appliance découvre les machines locales et envoie les métadonnées et les données de performances à Azure Migrate : Server Assessment. [Plus d’informations](migrate-appliance.md)
-- Assurez-vous que les machines virtuelles VMware sont prises en charge pour la visualisation des dépendances sans agent, comme résumé dans le tableau ci-dessous.
+- [Consultez les conditions requises](migrate-support-matrix-vmware.md#agentless-dependency-visualization) pour configurer la visualisation des dépendances sans agent.
 
-
-### <a name="supported-operating-systems"></a>Systèmes d’exploitation pris en charge
-
-Les systèmes d’exploitation pris en charge pour la visualisation des dépendances sans agent sont les suivants.
-
-**Type** | **Systèmes d’exploitation pris en charge**
---- | ---
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 bits)
-**Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
 ## <a name="create-a-user-account-for-discovery"></a>Créer un compte d’utilisateur pour la découverte
@@ -96,10 +87,10 @@ Choisissez les machines sur lesquelles vous souhaitez activer la découverte de 
 
 1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
 2. Cliquez sur l’icône **Analyse des dépendances**.
-3. Cliquez sur **Démarrer la découverte de dépendance**.
-3. Dans la page **Démarrer la détection de dépendance**, choisissez l’appliance qui découvre les machines appropriées.
+3. Cliquez sur **Ajouter des serveurs**.
+3. Dans la page **Ajouter des serveurs**, choisissez l’appliance qui découvre les machines appropriées.
 4. Dans la liste des machines, opérez votre sélection.
-5. Cliquez sur **Démarrer la découverte de dépendance**.
+5. Cliquez sur **Ajouter des serveurs**.
 
     ![Démarrer la découverte de dépendance](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -132,10 +123,10 @@ Choisissez les machines sur lesquelles vous souhaitez arrêter la découverte de
 
 1. Dans **Azure Migrate : Server Assessment**, cliquez sur **Serveurs découverts**.
 2. Cliquez sur l’icône **Analyse des dépendances**.
-3. Cliquez sur **Arrêter la découverte de dépendance**.
-3. Dans la page **Arrêter la découverte de dépendance**, choisissez l’**appliance** qui découvre les machines virtuelles sur lesquelles vous souhaitez arrêter la découverte de dépendance.
+3. Cliquez sur **Supprimer des serveurs**.
+3. Dans la page **Supprimer des serveurs**, choisissez l’**appliance** qui découvre les machines virtuelles sur lesquelles vous souhaitez arrêter la découverte de dépendance.
 4. Dans la liste des machines, opérez votre sélection.
-5. Cliquez sur **Arrêter la découverte de dépendance**
+5. Cliquez sur **Supprimer des serveurs**.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

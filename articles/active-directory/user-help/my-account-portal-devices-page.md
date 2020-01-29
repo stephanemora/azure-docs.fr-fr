@@ -12,24 +12,27 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b0b22997c9b8fc95c89503f06a99e29653c8aead
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233219"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293281"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Gérer les appareils connectés à votre compte professionnel ou scolaire dans la page Appareils
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>Gérer vos appareils connectés à partir de la page Appareils
 
-Dans la page **Appareils** du portail **Mon compte**, vous pouvez :
+La page **Appareils** du portail **Mon compte** vous permet de gérer les appareils connectés à votre compte professionnel ou scolaire. Dans la page **Appareils**, vous pouvez :
 
 - Afficher les appareils connectés à votre compte professionnel ou scolaire.
 
 - Désactiver les appareils que vous ne possédez plus, que vous avez perdus ou qui ont été volés.
 
+>[!Important]
+>Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations des appareils connectés à un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la gestion des appareils pour vos employés et d’autres utilisations, consultez la [documentation sur les identités des appareils](https://docs.microsoft.com/azure/active-directory/devices/index).
+
 ## <a name="view-your-connected-devices"></a>Afficher vos appareils connectés
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page **Mon compte** (https://myprofile.microsoft.com/) ).
 
 2. Sélectionnez **Appareils** dans le volet de navigation gauche ou sélectionnez le lien **Gérer les appareils** à partir du bloc **Appareils**.
 
@@ -73,3 +76,13 @@ Après avoir affiché vos appareils connectés, vous pouvez :
 - Afficher votre [activité de connexion](my-account-portal-sign-ins-page.md).
 
 - Afficher la façon dont votre organisation [utilise vos données relatives à la confidentialité](my-account-portal-privacy-page.md).
+
+## <a name="related-office-content"></a>Contenu Office associé
+
+- [Se connecter pour gérer votre produit Office](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Accéder à la page **Mon compte** Office](https://portal.office.com/account/)
+
+- [Accéder à la page **Mes installations** Office](https://portal.office.com/account/#installs)
+
+- [Accéder à la page **Abonnements** Office](https://portal.office.com/account/#subscriptions)

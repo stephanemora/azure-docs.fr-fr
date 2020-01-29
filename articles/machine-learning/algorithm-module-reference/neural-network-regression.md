@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7ff4303a923e50a36ca36bd625581f11f7a9b491
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465995"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548490"
 ---
 # <a name="neural-network-regression-module"></a>Module Régression de réseau neuronal
 
@@ -24,7 +24,7 @@ ms.locfileid: "73465995"
   
 ## <a name="module-overview"></a>Vue d’ensemble du module  
 
-Cet article décrit un module dans le concepteur Azure Machine Learning (préversion).
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour créer un modèle de régression à l’aide d’un algorithme de réseau neuronal personnalisable.
   
@@ -56,7 +56,7 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
   
 2. Indiquez le mode d’apprentissage du modèle en définissant l’option **Create trainer mode** (Créer un mode d’apprentissage).  
   
-    -   **Single Parameter** (Paramètre unique) : choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.  
+    -   **Single Parameter** (Paramètre unique) : choisissez cette option si vous savez déjà comment vous souhaitez configurer le modèle.  
 
 3.  Dans **Hidden layer specification** (Spécification de couche masquée), sélectionnez **Fully connected case** (Cas entièrement connecté). Cette option crée un modèle à l’aide de l’architecture réseau neuronal par défaut qui, pour un modèle de régression de réseau neuronal, comporte les attributs suivants :  
   
@@ -66,7 +66,7 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
   
     Étant donné que le nombre de nœuds dans la couche d’entrée est déterminé par le nombre de fonctionnalités dans les données d’apprentissage, un modèle de régression ne peut comporter qu’un seul nœud dans la couche de sortie.  
   
-4. Pour **Number of hidden nodes** (Nombre de nœuds masqués), saisissez le nombre de nœuds masqués. La valeur par défaut est une couche masquée avec 100 nœuds. (Cette option n’est pas disponible si vous définissez une architecture personnalisée à l’aide de Net#.)
+4. Pour **Number of hidden nodes** (Nombre de nœuds masqués), saisissez le nombre de nœuds masqués. La valeur par défaut est une couche masquée avec 100 nœuds. (Cette option n’est pas disponible si vous définissez une architecture personnalisée à l’aide de Net#.)
   
 5.  Pour **Learning rate** (Taux d’apprentissage), saisissez une valeur qui définit l’étape effectuée à chaque itération, avant correction. Avec une valeur de taux d’apprentissage supérieure, le modèle convergera peut-être plus rapidement, mais cette valeur peut dépasser les minima locaux.
 
@@ -89,12 +89,9 @@ Les réseaux neuronaux peuvent être hautement personnalisés. Cette section dé
 
 ## <a name="results"></a>Résultats
 
-Une fois la formation terminée :
+Une fois l’apprentissage terminé :
 
-+ Pour afficher un résumé des paramètres du modèle avec les pondérations de caractéristiques tirées de la formation et d’autres paramètres du réseau neuronal, cliquez avec le bouton droit sur la sortie du module [Train Model](./train-model.md) (Entraîner le modèle), puis sélectionnez **Visualiser**.  
-
-+ Pour enregistrer un instantané du modèle formé, cliquez avec le bouton droit sur la sortie du **modèle formé** et sélectionnez **Save As Trained Model** (Enregistrer en tant que modèle formé). Ce modèle n’est pas mis à jour lors des exécutions consécutives du même pipeline.
-
+- Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties** dans le panneau droit du module **Entraîner le modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

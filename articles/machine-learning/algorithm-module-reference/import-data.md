@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 161c6816bbef31142c576f52fd122d9dd8af7883
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529607"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546654"
 ---
 # <a name="import-data-module"></a>Module Importer des données
 
@@ -27,7 +27,7 @@ Utilisez ce module pour charger des données dans un pipeline de Machine Learnin
 > Une fois que vous avez inscrit un jeu de données, vous pouvez le trouver dans la catégorie **Jeux de données** -> **Mes jeux de données** dans l’interface du concepteur. Ce module est réservé aux utilisateurs Studio (classique) pour une expérience familière. 
 >
 
-Tout d’abord, choisissez la source à partir de laquelle vous effectuez la lecture et terminez les paramétrages supplémentaires. Le module **Importer des données** prend en charge les données lues à partir des sources suivantes :
+Le module **Importer des données** prend en charge les données lues à partir des sources suivantes :
 
 - URL via HTTP
 - Stockages cloud Azure via les [**magasin de données**](../how-to-access-data.md))
@@ -78,7 +78,7 @@ Si votre source de données change, vous pouvez actualiser le jeu de données et
 
 Lorsque l’importation est terminée, cliquez sur le jeu de données de sortie et sélectionnez **Visualiser** pour voir si les données ont bien été importées.
 
-Si vous souhaitez enregistrer les données pour les réutiliser, plutôt que d’importer un nouveau jeu de données à chaque exécution du pipeline, cliquez avec le bouton droit sur la sortie et sélectionnez **Enregistrer comme jeu de données**. Choisissez un nom pour le jeu de données. Le jeu de données enregistré préserve les données au moment de l’enregistrement et les données ne sont pas mises à jour au moment de la ré-exécution du pipeline, même si le jeu de données dans le pipeline est modifié. Cela peut être pratique pour prendre des captures instantanées de données.
+Si vous souhaitez enregistrer les données pour les réutiliser, plutôt que d’importer un nouveau jeu de données à chaque exécution du pipeline, sélectionnez l’icône **Inscrire le jeu de données** sous l’onglet **Sorties** dans le panneau droit du module. Choisissez un nom pour le jeu de données. Le jeu de données enregistré préserve les données au moment de l’enregistrement et il n’est pas mis à jour au moment de la réexécution du pipeline, même si le jeu de données dans le pipeline est modifié. Cela peut être utile pour prendre des instantanés de données.
 
 Après l’importation des données, d’autres préparations seront peut-être nécessaires pour modélisation et l’analyse :
 

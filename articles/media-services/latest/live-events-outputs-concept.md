@@ -1,7 +1,7 @@
 ---
-title: Événements en direct et sorties en direct dans Media Services
+title: Concepts relatifs aux événements en direct et sorties en direct dans Azure Media Services v3
 titleSuffix: Azure Media Services
-description: Vue d’ensemble des événements en direct et des sorties en direct dans Azure Media Services V3.
+description: Cette rubrique fournit une vue d’ensemble des événements en direct et des sorties en direct dans Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: d2f0689dd1f1b5fbe349478ad885b76eb79d91a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569672"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546042"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Événements en direct et sorties en direct dans Media Services
 
@@ -36,7 +36,7 @@ Les [événements en direct](https://docs.microsoft.com/rest/api/media/liveevent
 
 Un [événement en direct](https://docs.microsoft.com/rest/api/media/liveevents) peut être de deux types : transfert direct ou encodage en temps réel. Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) :
 
-* **LiveEventEncodingType.None** : Un encodeur live local envoie un flux à débit binaire multiple. Le flux reçu transite par l’événement en direct sans traitement supplémentaire. 
+* **LiveEventEncodingType.None** : Un encodeur live local envoie un flux à débit binaire multiple. Le flux reçu transite par l’événement en direct sans traitement supplémentaire. Également appelé le mode pass-through.
 * **LiveEventEncodingType.Standard** : Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. Si la résolution du flux de contribution est de 720p ou plus, la présélection **Default720p** encode un jeu de 6 paires résolution/débits.
 * **LiveEventEncodingType.Premium1080p** : Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. La présélection Default1080p spécifie le jeu de sortie des paires résolution/débits.
 
@@ -81,6 +81,8 @@ Quand vous créez un événement en direct, vous pouvez spécifier les options s
 * Restictions IP sur l’ingestion et la préversion. Vous pouvez définir les adresses IP autorisées à recevoir du contenu vidéo sur cet événement en direct. Les adresses IP autorisées peuvent être définies sous forme d’adresse IP unique (par exemple, « 10.0.0.1 »), de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau CIDR (par exemple, « 10.0.0.1/22 ») ou de plage d’adresses IP constituée d’une adresse IP et d’un masque de sous-réseau au format décimal séparé par des points (par exemple, « 10.0.0.1(255.255.252.0) »).<br/>Si aucune adresse IP n’est spécifiée et qu’il n’existe pas de définition de règle, alors aucune adresse IP ne sera autorisée. Pour autoriser toutes les adresses IP, créez une règle et définissez la valeur 0.0.0.0/0.<br/>Les adresses IP doivent utiliser un des formats suivants : adresses IPv4 à quatre chiffres ou plage d’adresses CIDR.
 
     Si vous souhaitez activer certaines adresses IP sur vos propres pare-feu ou si vous souhaitez limiter les entrées à vos événements en direct à des adresses IP Azure, téléchargez un fichier JSON à partir de [Plages d’adresses IP du centre de données Azure ](https://www.microsoft.com/download/details.aspx?id=41653). Pour plus d’informations sur ce fichier, sélectionnez la section **Détails** de la page.
+    
+* Lors de la création de l’événement, vous pouvez choisir d’activer les transcriptions en direct. <br/> Par défaut, la transcription en direct est désactivée. Vous ne pouvez pas changer cette propriété pendant l’exécution de l’événement en direct ou des sorties en direct qui lui sont associées. 
 
 ### <a name="naming-rules"></a>Règles d’affectation des noms
 

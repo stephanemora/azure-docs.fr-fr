@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 6b23ae21366699162b900ae420afae640aa20613
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4c2985f35621ff3120217cbe38705ad2c228d6f7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921471"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122098"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
@@ -88,18 +88,13 @@ Les paramètres de configuration sont fournis au format JSON :
 Utilisez les propriétés facultatives suivantes pour configurer la transcription :
 
 | Paramètre | Description |
-|-----------|------------|
-|`ProfanityFilterMode`|Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance
-||**`Masked`** - Par défaut. Remplace les termes vulgaires par des astérisques<br>`None` - Désactive le filtrage des termes vulgaires<br>`Removed` - Supprime tous les termes vulgaires des résultats<br>`Tags` - Ajoute des balises signalant un terme vulgaire
-|`PunctuationMode`|Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance
-||`Automatic` - Le service insère des signes de ponctuation<br>`Dictated` - Ponctuation dictée (énoncée)<br>**`DictatedAndAutomatic`** - Par défaut. Ponctuation dictée et automatique<br>`None` - Supprime les signes de ponctuation
-|`AddWordLevelTimestamps`|Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie
-||`True` - Active les timestamps au niveau des mots<br>**`False`** - Par défaut. Désactive les timestamps au niveau des mots
-|`AddSentiment`|Spécifie si l’analyse des sentiments est ajoutée à l’énoncé
-||`True` - Active les sentiments par énoncé<br>**`False`** - Par défaut. Désactive les sentiments
-|`AddDiarization`|Spécifie si l’analyse de diarisation est exécutée. Si `true`, l’entrée est supposée être un canal audio mono contenant au maximum deux voix. `AddWordLevelTimestamps` doit être défini sur `true`
-||`True` - Active la diarisation<br>**`False`** - Par défaut. Désactive la diarisation
-|`TranscriptionResultsContainerUrl`|Jeton SAS facultatif vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur
+|-----------|-------------|
+| `ProfanityFilterMode` | Spécifie comment traiter la vulgarité dans les résultats de la reconnaissance. Les valeurs acceptées sont `None` qui désactive le d’obscénités, `Masked` qui remplace les obscénités par des astérisques, `Removed` qui supprime tous les obscénités du résultat ou `Tags` qui ajoute les balises « obscénité ». La valeur par défaut est `Masked`. |
+| `PunctuationMode` | Spécifie comment traiter la ponctuation dans les résultats de la reconnaissance. Les valeurs acceptées sont `None` qui désactive la ponctuation, `Dictated` qui implique une ponctuation explicite, `Automatic` qui permet au décodeur de gérer la ponctuation, ou `DictatedAndAutomatic` qui implique des marques de ponctuation dictées ou automatiques. |
+| `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. |
+| `AddSentiment` | Spécifie le sentiment devant être ajouté à l’énoncé. Les valeurs acceptées sont `true` pour activer un sentiment par énoncé et `false` (valeur par défaut) pour désactiver celui-ci. |
+| `AddDiarization` | Spécifie que l’analyse de diarisation doit être effectuée sur l’entrée qui est censée être un canal unique contenant deux voix. Les valeurs acceptées sont `true` qui active la diarisation et `false` (valeur par défaut) qui désactive cette dernière. De plus, cela nécessite également que `AddWordLevelTimestamps` soit défini sur True.|
+|`TranscriptionResultsContainerUrl`|Jeton SAS facultatif vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur.
 
 ### <a name="storage"></a>Stockage
 

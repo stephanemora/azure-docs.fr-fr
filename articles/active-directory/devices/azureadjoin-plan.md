@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43e50f8787516b1877f7867419b6edfd819ad158
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 67c42de09c75b7dd6737b80071f1f6eba094b132
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746045"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512417"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procédure : Planifier votre implémentation de la jointure d’Azure AD
 
@@ -129,7 +129,7 @@ Passez en revue les stratégies prises en charge ou non pour déterminer si vous
 
 Si votre solution MDM n’est pas disponible via la galerie d’applications Azure AD, vous pouvez l’ajouter en suivant la procédure décrite dans [Intégration d’Azure Active Directory à MDM](https://docs.microsoft.com/windows/client-management/mdm/azure-active-directory-integration-with-mdm). 
 
-Via la cogestion, vous pouvez utiliser SCCM pour gérer certains aspects de vos appareils, les stratégies étant délivrées via votre plateforme MDM. Microsoft Intune permet la cogestion avec SCCM. Pour plus d’informations, consultez [Cogestion pour les appareils Windows 10](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). Si vous utilisez un produit MDM autre qu’Intune, vérifiez auprès de votre fournisseur MDM les scénarios de cogestion applicables.
+Via la cogestion, vous pouvez utiliser SCCM pour gérer certains aspects de vos appareils, les stratégies étant délivrées via votre plateforme MDM. Microsoft Intune permet la cogestion avec SCCM. Pour plus d’informations sur la cogestion des appareils Windows 10, consultez [Présentation de la cogestion](https://docs.microsoft.com/configmgr/core/clients/manage/co-management-overview). Si vous utilisez un produit MDM autre qu’Intune, vérifiez auprès de votre fournisseur MDM les scénarios de cogestion applicables.
 
 **Recommandation :** Envisagez la gestion uniquement MDM pour les appareils joints à Azure AD.
 

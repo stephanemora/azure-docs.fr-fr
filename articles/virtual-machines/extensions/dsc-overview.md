@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b6b9d0f146fd98fd90aa8858e522449be571842c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497281"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293162"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Présentation du gestionnaire d’extensions de configuration d’état souhaité Microsoft Azure
 
@@ -59,7 +59,7 @@ Lorsque l’extension est appelée pour la première fois, elle installe une ver
 - Si la propriété **wmfVersion** est spécifiée, cette version de WMF est installée, sauf si elle est incompatible avec le système d’exploitation de la machine virtuelle.
 - Si aucune propriété **wmfVersion** n’est spécifiée, la dernière version applicable de WMF est installée.
 
-L’installation de WMF nécessite un redémarrage. Après le redémarrage, l’extension télécharge le fichier .zip spécifié dans la propriété **modulesUrl**, s’il est fourni. Si cet emplacement figure dans le stockage Blob Azure, vous pouvez spécifier un jeton SAP dans la propriété **sasToken** pour l’accès au fichier. Une fois le fichier ZIP téléchargé et décompressé, la fonction de configuration définie dans **configurationFunction** est exécutée pour générer un fichier .mof. Ensuite, l’extension exécute la commande `Start-DscConfiguration -Force` en utilisant le fichier .mof généré. L’extension capture la sortie et l’écrit dans le canal d’état Azure.
+L’installation de WMF nécessite un redémarrage. Après le redémarrage, l’extension télécharge le fichier .zip spécifié dans la propriété **modulesUrl**, s’il est fourni. Si cet emplacement figure dans le stockage Blob Azure, vous pouvez spécifier un jeton SAP dans la propriété **sasToken** pour l’accès au fichier. Une fois le fichier .zip téléchargé et décompressé, la fonction de configuration définie dans **configurationFunction** est exécutée pour générer un fichier .mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Ensuite, l’extension exécute la commande `Start-DscConfiguration -Force` en utilisant le fichier .mof généré. L’extension capture la sortie et l’écrit dans le canal d’état Azure.
 
 ### <a name="default-configuration-script"></a>Script de configuration par défaut
 

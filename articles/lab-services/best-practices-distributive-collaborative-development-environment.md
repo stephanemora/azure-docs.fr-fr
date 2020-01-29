@@ -1,5 +1,5 @@
 ---
-title: Développement distribué et collaboratif de ressources Azure DevTest Labs | Microsoft Docs
+title: Développement distribué et collaboratif de ressources Azure DevTest Labs
 description: Présente les meilleures pratiques à adopter pour configurer un environnement de développement distribué et collaboratif afin de développer des ressources DevTest Labs.
 services: devtest-lab,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 9469591b1945adaffca973828d619d5d06655262
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543767"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170120"
 ---
 # <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Meilleures pratiques pour le développement distribué et collaboratif de ressources Azure DevTest Labs
 Un développement distribué et collaboratif permet à différentes équipes ou personnes de développer et de gérer une base de code. Pour aboutir, le processus de développement repose sur la possibilité de créer, de partager et d'intégrer des informations. Ce principe de développement clé peut être utilisé dans Azure DevTest Labs. Plusieurs types de ressources sont couramment distribués entre différents laboratoires au sein d’une entreprise. Les différents types de ressources portent sur les deux zones suivantes :
@@ -58,7 +58,7 @@ Le diagramme suivant illustre deux référentiels : un référentiel d'entrepri
 Cette structure multiniveau permet un développement tout en maintenant une qualité élevée au niveau de la branche principale et en disposant de plusieurs référentiels connectés à un laboratoire pour une plus grande flexibilité.
 
 ## <a name="next-steps"></a>Étapes suivantes    
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - Ajouter un référentiel à un laboratoire à l’aide du [portail Azure](devtest-lab-add-artifact-repo.md) ou par le biais d'un [modèle de gestion des ressources Azure](add-artifact-repository.md)
 - [Artefacts DevTest Labs](devtest-lab-artifact-author.md)

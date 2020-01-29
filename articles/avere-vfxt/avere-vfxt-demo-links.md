@@ -4,14 +4,14 @@ description: liens vers des tutoriels de démonstration de code pour Avere vFXT
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 406262be5f70ed891f657d184acff98331b6b7a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b01bcb743e4ffc110f0182e50630baea288f16d2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415394"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153698"
 ---
 # <a name="avere-vfxt-demo-projects"></a>Projets de démonstration AVERE vFXT
 
@@ -19,13 +19,13 @@ Des exemples de tutoriels sont fournis sur [GitHub](https://github.com/Azure/Ave
 
 ## <a name="video-rendering"></a>Rendu vidéo
 
-* [Rendu à l’aide d’Azure Batch et d’Avere vFXT](https://github.com/Azure/Avere/blob/master/docs/maya_azure_batch_avere_vfxt_demo.md) : démonstration de 60 minutes qui illustre l’utilisation d’Autodesk Maya avec Azure Batch et un cluster Avere vFXT pour générer une vidéo animée
+* [Rendu avec Azure Batch et Avere vFXT](https://github.com/Azure/Avere/blob/master/docs/maya_azure_batch_avere_vfxt_demo.md) : projet de 60 minutes qui illustre l’utilisation d’Autodesk Maya avec Azure Batch et un cluster Avere vFXT pour générer une vidéo animée
 
-* [Pourquoi utiliser Avere vFXT pour le rendu ?](https://github.com/Azure/Avere/blob/master/docs/why_avere_for_rendering.md) : démonstration qui compare le temps de rendu à partir d’un dispositif de stockage NAS avec et sans cluster Avere vFXT
+* [Pourquoi utiliser Avere vFXT pour le rendu ?](https://github.com/Azure/Avere/blob/master/docs/why_avere_for_rendering.md) - Une démonstration qui compare le temps du rendu à partir d’un dispositif de stockage NAS avec et sans cluster Avere vFXT
 
 ## <a name="high-performance-computing"></a>Calcul haute performance
 
-* [Bonnes pratiques pour améliorer le temps de démarrage des machines virtuelles Azure](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) : test reproductible consistant à utiliser vFXT Avere pour Azure afin d’améliorer le temps de démarrage quand vous faites tourner des milliers de clients de calcul rapidement
+* [Bonnes pratiques pour améliorer le temps de démarrage des machines virtuelles Azure](https://github.com/Azure/Avere/blob/master/docs/azure_vm_provision_best_practices.md) : un test reproductible qui utilise Avere vFXT pour Azure pour améliorer le temps de démarrage quand vous faites tourner des milliers de clients de calcul rapidement
 
 ## <a name="vfxt-performance"></a>Performances de vFXT
 

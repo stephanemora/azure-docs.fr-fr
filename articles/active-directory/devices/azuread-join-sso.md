@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e7a4389c192dde8d086a69a35114f3b8b33e96
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 15ccbc568a2986fbb2a547eb958b5e853c8c9f77
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562192"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154820"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Fonctionnement de l’authentification unique auprès de ressources locales sur des appareils joints à Azure AD
 
@@ -24,12 +24,17 @@ Ce n’est probablement pas une surprise qu’un appareil joint à Azure Active 
 
 Cet article explique comment cela fonctionne.
 
+## <a name="prerequisites"></a>Conditions préalables requises
+
+ Si les machines jointes à Azure AD ne sont pas connectées au réseau de votre organisation, un VPN ou une autre infrastructure réseau est nécessaire. L’authentification unique locale exige une communication à visibilité directe avec vos contrôleurs de domaine AD DS locaux.
+
 ## <a name="how-it-works"></a>Fonctionnement 
 
 Comme vous ne devez mémoriser qu’un seul nom d’utilisateur et un seul mot de passe, l’authentification unique simplifie l’accès à vos ressources et améliore la sécurité de votre environnement. Avec un appareil joint à Azure AD, vos utilisateurs ont déjà une expérience de l’authentification unique après des applications cloud de votre environnement. Si votre environnement comporte un annuaire Azure AD et un annuaire AD local, vous voudrez probablement élargir l’étendue de votre expérience de l’authentification unique à vos applications métier locales, aux partages de fichiers et aux imprimantes.  
 
 Les appareils joints à AD Azure n’ont pas connaissance de votre environnement AD local, car ils n’y sont pas joints. Cependant, vous pouvez fournir à ces appareils des informations supplémentaires sur votre annuaire AD local avec Azure AD Connect.
-Un environnement qui a à la fois un annuaire Azure AD et un annuaire AD local est également appelé « environnement hybride ». Si vous avez un environnement hybride, il est probable que vous avez déjà déployé Azure AD Connect pour synchroniser vos informations d’identité locales vers le cloud. Dans le cadre du processus de synchronisation, Azure AD Connect synchronise les informations du domaine local avec Azure AD. Quand un utilisateur se connecte à un appareil joint à Azure AD dans un environnement hybride :
+
+Un environnement qui a à la fois un annuaire Azure AD et un annuaire AD local est également appelé « environnement hybride ». Si vous avez un environnement hybride, il est probable que vous avez déjà déployé Azure AD Connect pour synchroniser vos informations d’identité locales vers le cloud. Dans le cadre du processus de synchronisation, Azure AD Connect synchronise les informations d’utilisateurs locaux sur Azure AD. Quand un utilisateur se connecte à un appareil joint à Azure AD dans un environnement hybride :
 
 1. Azure AD renvoie le nom du domaine local dont l’utilisateur est membre à l’appareil. 
 1. Le service de l’autorité de sécurité locale active l’authentification Kerberos sur l’appareil.

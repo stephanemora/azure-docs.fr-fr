@@ -1,25 +1,17 @@
 ---
-title: Conditions du support StorSimple | Microsoft Docs
+title: Conditions de support StorSimple
 description: Décrit les options de support pour les clients des solutions de stockage d’entreprise de la série StorSimple 8000.
-services: storsimple
-documentationcenter: NA
 author: GabiSocoteanu
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: 046558007f1a2f2c86f80af610be56b77fa63da1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d9a75cde58062061149fa4304eace587b1480dd1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990388"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277034"
 ---
 # <a name="storsimple-solution-support"></a>Support de la solution StorSimple
 
@@ -89,8 +81,8 @@ Le support des problèmes liés à la gestion de la facturation et des abonnemen
 
 | **GRAVITÉ** |**SITUATION DU CLIENT**                                                                                                                                | RÉPONSE DE MICROSOFT PRÉVUE <sup>2                                                                                       | RÉPONSE DE MICROSOFT PRÉVUE                                                                                                                                                       |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| A        | Impact critique sur l’activité : <ul> <br> <li> L’activité du client subit une perte ou une dégradation importante des services. <sup>1</sup> <br> <li> Requiert une attention immédiate.                          | Réponse initiale : <sup>1</sup> <ul><br> <li>1 heure maximum pour l’édition premium. <br> <li> 2 heures maximum pour l’édition standard. <br> <li> Effort continu toute la journée, tous les jours. | <ul><li> Affectation des ressources appropriées pour soutenir l’effort continu toute la journée, tous les jours. <br> <li> Informations de contact précises pour la personne en charge du cas.                                                |
-| b        | Impact modéré sur l’activité : <ul><br> <li> L’activité du client subit une perte ou une dégradation modérées des services, mais le travail peut malgré tout continuer en mode réduit. | Réponse initiale : <sup>1</sup><ul><br> <li> 2 heures maximum pour l’édition premium. <br> <li> 4 heures maximum pour l’édition standard.                                      | <ul><li> Affectation de ressources appropriées pour soutenir un effort continu durant les œuvres ouvrées, sauf si le client demande à se désinscrire du support permanent. <br> <li> Informations de contact précises pour la personne en charge du cas. |
+| Un        | Impact critique sur l’activité : <ul> <br> <li> L’activité du client subit une perte ou une dégradation importante des services. <sup>1</sup> <br> <li> Requiert une attention immédiate.                          | Réponse initiale : <sup>1</sup> <ul><br> <li>1 heure maximum pour l’édition premium. <br> <li> 2 heures maximum pour l’édition standard. <br> <li> Effort continu toute la journée, tous les jours. | <ul><li> Affectation des ressources appropriées pour soutenir l’effort continu toute la journée, tous les jours. <br> <li> Informations de contact précises pour la personne en charge du cas.                                                |
+| B        | Impact modéré sur l’activité : <ul><br> <li> L’activité du client subit une perte ou une dégradation modérées des services, mais le travail peut malgré tout continuer en mode réduit. | Réponse initiale : <sup>1</sup><ul><br> <li> 2 heures maximum pour l’édition premium. <br> <li> 4 heures maximum pour l’édition standard.                                      | <ul><li> Affectation de ressources appropriées pour soutenir un effort continu durant les œuvres ouvrées, sauf si le client demande à se désinscrire du support permanent. <br> <li> Informations de contact précises pour la personne en charge du cas. |
 | C        | Impact minime sur l’activité : <ul><br> <li> L’activité du client fonctionne en grande partie sans ou pratiquement sans entrave aux services.                                 | Réponse initiale : <sup>1</sup><ul> <br> <li> 4 heures maximum pour l’édition premium. <br> <li> 8 heures maximum pour l’édition standard.                                      | <ul><li>Informations de contact précises pour la personne en charge du cas                                                                                                                                    |
  
 <sup>1</sup> Microsoft peut rétrograder le niveau de gravité si le client n’est pas en mesure de fournir les ressources ou les réponses adéquates permettant à Microsoft de poursuivre ses efforts de résolution du problème.

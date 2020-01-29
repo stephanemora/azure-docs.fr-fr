@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4c451c62a16a70d85d75ee00c3e08758e27425f6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 107bbed8aea692a76f6d5bf6bbf1da26277b2c85
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749978"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156571"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Connecter des données à partir du journal d’activité Azure
 
@@ -31,7 +31,7 @@ Vous pouvez diffuser des journaux dans Azure Sentinel en un seul clic à partir
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-- Utilisateur, doté d’autorisations d’administrateur général ou d’administrateur de la sécurité
+- Utilisateur disposant d’autorisations de contributeur pour l’espace de travail Log Analytics 
 
 
 ## <a name="connect-to-azure-activity-log"></a>Connexion au journal d’activité Azure

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfaf3cc9b113ff10766f7a17bd7bf09ffa619a8e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227421"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548864"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Synchronisation d’Azure AD Connect : Présentation de la configuration par défaut
 Cet article présente les règles de configuration out-of-box. Il décrit les règles et l’impact que celles-ci ont sur la configuration. Il vous guide également tout au long de la configuration par défaut de la synchronisation Azure AD Connect. L’objectif est que le lecteur comprenne comment fonctionne le modèle de configuration, nommé approvisionnement déclaratif, dans un exemple réel. Cet article suppose que vous avez déjà installé et configuré la synchronisation Azure AD Connect à l’aide de l’Assistant d’installation.
@@ -138,7 +138,7 @@ Le SRE est un outil du kit de ressources installé avec la synchronisation Azure
 Dans ce volet, vous voyez toutes les règles de synchronisation créées pour votre configuration. Chaque ligne du tableau correspond à une règle de synchronisation. À gauche, sous Types de règles, deux types sont présentés : Entrante et Sortante. Les termes entrante et sortante sont à prendre du point de vue du métaverse. Vous allez principalement vous concentrer sur les règles de trafic entrant dans cette vue d’ensemble. La liste actuelle des règles de synchronisation dépend du schéma détecté dans Active Directory. Dans l’image ci-dessus, la forêt de comptes (fabrikamonline.com) ne dispose d’aucun service (par exemple, Exchange ou Lync), et aucune règle de synchronisation n’a été créée pour ces services. Toutefois, dans la forêt de ressources (res.fabrikamonline.com), vous trouvez des règles de synchronisation pour ces services. Le contenu des règles diffère selon la version détectée. Par exemple, dans un déploiement avec Exchange 2013, plus de flux d’attributs sont configurés que dans Exchange 2010/2007.
 
 ### <a name="synchronization-rule"></a>Règle de synchronisation
-Une règle de synchronisation est un objet de configuration avec un jeu d’attributs qui circule quand une condition est remplie. Elle sert aussi à décrire la relation entre un objet dans un espace de connecteur et un objet dans le métaverse, relation appelée **jointure** ou **correspondance**. Les règles de synchronisation ont une valeur de précédence qui indique leurs relations les unes par rapport aux autres. Une règle de synchronisation avec une valeur plus basse possède une précédence plus élevée et, dans un conflit de flux d’attributs, c’est la précédence la plus élevée qui l’emporte.
+Une règle de synchronisation est un objet de configuration avec un jeu d’attributs qui circule quand une condition est remplie. Elle sert aussi à décrire la relation entre un objet dans un espace de connecteur et un objet dans le métaverse, relation appelée **jonction** ou **correspondance**. Les règles de synchronisation ont une valeur de précédence qui indique leurs relations les unes par rapport aux autres. Une règle de synchronisation avec une valeur plus basse possède une précédence plus élevée et, dans un conflit de flux d’attributs, c’est la précédence la plus élevée qui l’emporte.
 
 En guise d’exemple, examinez la règle de synchronisation **Entrant depuis AD – Utilisateur AccountEnabled**. Marquez cette ligne dans l’outil SRE et sélectionnez **Modifier**.
 
@@ -146,14 +146,14 @@ Dans la mesure où il s’agit d’une règle out-of-box, vous recevez un averti
 
 ![Avertissement de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-Une règle de synchronisation comporte quatre sections de configuration : Description, Filtre d’étendue, Règles de jointure et Transformations.
+Une règle de synchronisation comporte quatre sections de configuration : Description, Filtre d’étendue, Règles de jonction et Transformations.
 
 #### <a name="description"></a>Description
 La première section fournit des informations de base telles que le nom et la description.
 
 ![Onglet Description dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
-Vous y trouverez également des informations concernant le système connecté associé à cette règle, le type d’objet dans le système connecté auquel il s’applique et le type d’objet de métaverse. Le type d’objet du métaverse est toujours « person », que le type d’objet source soit un utilisateur, iNetOrgPerson ou un contact. Comme il ne doit jamais changer, il est créé en tant que type générique. Le type de lien peut être Join, StickyJoin ou Provision. Ce paramètre fonctionne avec la section Règles de jointure et il est traité plus loin dans ce document.
+Vous y trouverez également des informations concernant le système connecté associé à cette règle, le type d’objet dans le système connecté auquel il s’applique et le type d’objet de métaverse. Le type d’objet du métaverse est toujours « person », que le type d’objet source soit un utilisateur, iNetOrgPerson ou un contact. Comme il ne doit jamais changer, il est créé en tant que type générique. Le type de lien peut être Join, StickyJoin ou Provision. Ce paramètre fonctionne avec la section Règles de jonction et il est traité plus loin dans ce document.
 
 Vous pouvez également voir que cette règle de synchronisation est utilisée pour la synchronisation de mot de passe. Si un utilisateur est dans la portée pour cette règle de synchronisation, le mot de passe est synchronisé du local vers le cloud (en supposant que vous avez activé la fonctionnalité de synchronisation de mot de passe).
 
@@ -168,16 +168,16 @@ Le filtre d’étendue possède des groupes et des clauses qui peuvent être imb
 
 Cette règle sert à définir les groupes qui doivent être approvisionnés dans Azure AD. Les groupes de distribution doivent être activés pour la messagerie électronique pour pouvoir être synchronisés avec Azure AD, mais pour les groupes de sécurité aucune adresse de messagerie n’est nécessaire.
 
-#### <a name="join-rules"></a>Règles de jointure
+#### <a name="join-rules"></a>Règles de jonction
 La troisième section sert à configurer la relation entre les objets dans l’espace de connecteur et les objets dans le métaverse. La règle que vous avez examinée plus haut n’ayant aucune configuration pour Join Rules, vous allez plutôt examiner **Entrant depuis AD – User Join**.
 
-![Onglet Règles de jointure dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Onglet Règles de jonction dans l’Éditeur de règles de synchronisation](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
-Le contenu de la règle de jointure dépend de l’option de correspondance sélectionnée dans l’Assistant Installation. Pour une règle entrante, l’évaluation commence avec un objet dans l’espace de connecteur source et chaque groupe dans les règles de jointure est évalué de manière séquentielle. Si un objet source évalué correspond exactement à un objet dans le métaverse selon l’une des règles de jointure, les deux objets sont joints. Si toutes les règles ont été évaluées et qu’il n’existe aucune correspondance, le type de lien indiqué dans la page de description est utilisé. Si cette configuration a la valeur **Provision**, un nouvel objet est créé dans la cible, le métaverse. L’approvisionnement d’un nouvel objet dans le métaverse porte également le nom de **projection** .
+Le contenu de la règle de jonction dépend de l’option de correspondance sélectionnée dans l’Assistant Installation. Pour une règle entrante, l’évaluation commence avec un objet dans l’espace de connecteur source et chaque groupe dans les règles de jonction est évalué de manière séquentielle. Si un objet source évalué correspond exactement à un objet dans le métaverse selon l’une des règles de jonction, les deux objets sont joints. Si toutes les règles ont été évaluées et qu’il n’existe aucune correspondance, le type de lien indiqué dans la page de description est utilisé. Si cette configuration est définie sur **Provisionner**, un nouvel objet est créé dans la cible, le métaverse, si au moins un attribut dans les critères de jonction est présent (a une valeur). L’approvisionnement d’un nouvel objet dans le métaverse porte également le nom de **projection** .
 
-Les règles de jointure ne sont évaluées qu’une seule fois. Quand un objet d’espace de connecteur et un objet de métaverse sont joints, ils le restent tant que l’étendue de la règle de synchronisation est encore satisfaite.
+Les règles de jonction ne sont évaluées qu’une seule fois. Quand un objet d’espace de connecteur et un objet de métaverse sont joints, ils le restent tant que l’étendue de la règle de synchronisation est encore satisfaite.
 
-Lors de l’évaluation de plusieurs règles de synchronisation, une seule d’entre elles avec des règles de jointure définies doit être dans l’étendue. Si plusieurs règles de synchronisation avec des règles de jointure sont détectées pour un objet, une erreur est levée. Pour cette raison, la meilleure pratique consiste à n’avoir qu’une seule règle de synchronisation avec jointure définie quand plusieurs règles de synchronisation sont dans l’étendue pour un objet. Dans la configuration par défaut de la synchronisation d’Azure AD Connect, vous pouvez identifier facilement ces règles, car leur nom se termine par le mot **Join** . Une règle de synchronisation sans aucune règle de jointure définie applique les flux d’attributs lorsqu’une autre règle de synchronisation a joint les objets ensemble ou a approvisionné un nouvel objet dans la cible.
+Lors de l’évaluation de plusieurs règles de synchronisation, une seule d’entre elles avec des règles de jonction définies doit être dans l’étendue. Si plusieurs règles de synchronisation avec des règles de jonction sont détectées pour un objet, une erreur est levée. Pour cette raison, la meilleure pratique consiste à n’avoir qu’une seule règle de synchronisation avec jonction définie quand plusieurs règles de synchronisation sont dans l’étendue pour un objet. Dans la configuration par défaut de la synchronisation d’Azure AD Connect, vous pouvez identifier facilement ces règles, car leur nom se termine par le mot **Join** . Une règle de synchronisation sans aucune règle de jonction définie applique les flux d’attributs lorsqu’une autre règle de synchronisation a joint les objets ensemble ou a approvisionné un nouvel objet dans la cible.
 
 Si vous examinez l’illustration ci-dessus, vous pouvez voir que la règle essaie de joindre **objectSID** avec **msExchMasterAccountSid** (Exchange) et **msRTCSIP-OriginatorSid** (Lync), ce qui est le résultat que nous attendons dans une topologie de forêt de comptes/ressources. Vous trouverez la même règle sur toutes les forêts. L’hypothèse est que chaque forêt peut être une forêt de comptes ou de ressources. Cette configuration fonctionne également si vous disposez de comptes qui résident dans une forêt unique et n’ont pas à être joints.
 
@@ -210,7 +210,7 @@ NULL
 
 Pour plus d’informations sur le langage d’expression pour les flux d’attributs, consultez [Présentation des expressions de l’approvisionnement déclaratif](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) .
 
-### <a name="precedence"></a>Précédence
+### <a name="precedence"></a>Priorité
 Vous avez maintenant vu certaines règles de synchronisation individuelles, mais les règles fonctionnent de concert dans la configuration. Dans certains cas, une valeur d’attribut est partagée à partir de plusieurs règles de synchronisation vers le même attribut cible. Dans ce cas, la précédence d’attribut est utilisée pour déterminer quel attribut l’emporte. Par exemple, examinez l’attribut sourceAnchor. Cet attribut est important pour pouvoir se connecter à Azure AD. Vous pouvez trouver un flux d’attributs pour cet attribut dans deux règles de synchronisation différentes : **Entrant depuis AD – Utilisateur AccountEnabled** et **Entrant depuis AD – Utilisateur Common**. En raison de la précédence de la règle de synchronisation, l’attribut sourceAnchor est partagé à partir de la forêt avec un compte activé en premier lieu lorsqu’il existe plusieurs objets joints à l’objet métaverse. S’il n’y a aucun compte activé, le moteur de synchronisation utilise la règle de synchronisation fourre-tout **Entrant depuis AD – Utilisateur Common**. Cette configuration garantit que même pour les comptes qui sont désactivés, il existe toujours un sourceAnchor.
 
 ![Règles de synchronisation entrante](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
@@ -220,7 +220,7 @@ La précédence des règles de synchronisation est définie dans les groupes par
 ### <a name="putting-it-all-together"></a>Exemple complet
 Nous en savons maintenant assez sur les règles de synchronisation pour comprendre le fonctionnement de la configuration avec les différentes règles de synchronisation. Si vous regardez un utilisateur et les attributs qui sont partagés avec le métaverse, les règles sont appliquées dans l’ordre suivant :
 
-| Nom | Commentaire |
+| Name | Commentaire |
 |:--- |:--- |
 | Entrant depuis AD – User Join |Règle pour joindre les objets de l’espace de connecteur avec métaverse. |
 | Entrant depuis AD – Utilisateur AccountEnabled |Attributs requis pour la connexion à Azure AD et Office 365. Nous voulons ces attributs à partir du compte activé. |

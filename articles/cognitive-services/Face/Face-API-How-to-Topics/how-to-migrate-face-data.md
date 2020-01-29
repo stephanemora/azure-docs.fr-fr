@@ -1,7 +1,7 @@
 ---
-title: Migrer vos données de visage d’un abonnement à un autre - API Visage
+title: Migrer vos données de visage d’un abonnement à un autre – Visage
 titleSuffix: Azure Cognitive Services
-description: Ce guide vous montre comment migrer vos données de visage stockées d’un abonnement API Visage à un autre.
+description: Ce guide vous montre comment migrer vos données de visage stockées d’un abonnement Visage à un autre.
 services: cognitive-services
 author: lewlu
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: lewlu
-ms.openlocfilehash: 49b92037fed6436d28f777761b18cf5f66e03025
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: e5ca51da7322e4eab4ea364ec5da086a1068fa9a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859160"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169811"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrer vos données de visage vers un autre abonnement API Visage
 
-Ce guide vous montre comment déplacer des données de visage, comme un objet PersonGroup enregistré avec des visages, vers un autre abonnement API Visage d’Azure Cognitive Services. Pour déplacer les données, vous utilisez la fonctionnalité de capture instantanée. Cela vous évite d’avoir à créer et entraîner à plusieurs reprises un objet PersonGroup ou FaceList quand vous déplacez ou développez vos opérations. Par exemple, vous avez peut-être créé un objet PersonGroup à l’aide d’un abonnement d’essai gratuit et vous souhaitez à présent migrer cet objet vers votre abonnement payant. Ou vous avez besoin de synchroniser les données de visage entre des abonnements dans différentes régions en vue d’une opération à grande échelle.
+Ce guide vous montre comment déplacer des données de visage, comme un objet PersonGroup enregistré avec des visages, vers un autre abonnement Visage d’Azure Cognitive Services. Pour déplacer les données, vous utilisez la fonctionnalité de capture instantanée. Cela vous évite d’avoir à créer et entraîner à plusieurs reprises un objet PersonGroup ou FaceList quand vous déplacez ou développez vos opérations. Par exemple, vous avez peut-être créé un objet PersonGroup à l’aide d’un abonnement d’essai gratuit et vous souhaitez à présent migrer cet objet vers votre abonnement payant. Ou vous avez besoin de synchroniser les données de visage entre des abonnements dans différentes régions en vue d’une opération à grande échelle.
 
-Cette même stratégie de migration s’applique également aux objets LargePersonGroup et LargeFaceList. Si vous ne connaissez pas bien les concepts utilisés dans ce guide, lisez les définitions correspondantes dans le guide [Concepts de reconnaissance faciale](../concepts/face-recognition.md). Ce guide utilise la bibliothèque cliente .NET de l’API Visage en C#.
+Cette même stratégie de migration s’applique également aux objets LargePersonGroup et LargeFaceList. Si vous ne connaissez pas bien les concepts utilisés dans ce guide, lisez les définitions correspondantes dans le guide [Concepts de reconnaissance faciale](../concepts/face-recognition.md). Ce guide utilise la bibliothèque cliente .NET de Visage avec C#.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez disposer des éléments suivants :
 
-- Deux clés d’abonnement API Visage, une avec les données existantes et l’autre pour les données migrées. Pour vous abonner au service API Visage et obtenir votre clé, suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
-- La chaîne d’ID d’abonnement API Visage qui correspond à l’abonnement cible. Pour la rechercher, sélectionnez **Vue d’ensemble** dans le portail Azure. 
+- Deux clés d’abonnement Visage, une avec les données existantes et l’autre pour les données migrées. Pour vous abonner au service Visage et obtenir votre clé, suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+- La chaîne d’ID d’abonnement Visage qui correspond à l’abonnement cible. Pour la rechercher, sélectionnez **Vue d’ensemble** dans le portail Azure. 
 - N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 
-Ce guide utilise une application console simple pour exécuter la migration des données de visage. Pour une implémentation complète, consultez l’[exemple d’instantané de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) sur GitHub.
+Ce guide utilise une application console simple pour exécuter la migration des données de visage. Pour une implémentation complète, consultez l’[exemple d’instantané Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample) sur GitHub.
 
 1. Dans Visual Studio, créez un nouveau projet Application de console (.NET Framework). Nommez-le **FaceApiSnapshotSample**.
 1. Récupérez les packages NuGet requis. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis sélectionnez **Gérer les packages NuGet**. Sélectionnez l’onglet **Parcourir**, puis **Inclure la préversion**. Recherchez et installez le package suivant :
@@ -220,7 +220,7 @@ Maintenant, vous pouvez utiliser le nouvel objet PersonGroup dans l’abonnement
 
 Pour remettre à jour l’objet PersonGroup cible à l’avenir, créez un nouvel objet PersonGroup pour recevoir l’instantané. Pour cela, suivez les étapes décrites dans ce guide. Un instantané ne peut être appliqué qu’une seule fois à un objet PersonGroup individuel.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Après avoir terminé la migration des données de visage, supprimez manuellement l’objet instantané.
 
@@ -233,7 +233,7 @@ await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 Ensuite, consultez la documentation de référence d’API appropriée, explorez un exemple d’application qui utilise la fonctionnalité de capture instantanée ou suivez un guide pratique pour commencer à utiliser les autres opérations d’API mentionnées ici :
 
 - [Documentation de référence sur les instantanés (SDK .NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)
-- [Exemple d’instantané de l’API Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
+- [Exemple d’instantané Visage](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Ajouter des visages](how-to-add-faces.md)
 - [Détecter des visages sur une image](HowtoDetectFacesinImage.md)
 - [Identifier des visages sur une image](HowtoIdentifyFacesinImage.md)

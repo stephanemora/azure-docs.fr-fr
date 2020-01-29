@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: 0671843b09cd90123b856b94db2618bac617dd5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a673dc7949d5ce05aa1a701cc8b939a766fd99
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986821"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313924"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Description de l’application de remises de réservation à Azure SQL Data Warehouse
 
@@ -31,9 +31,9 @@ Pour les entrepôts qui ne s’exécutent pas pendant une heure complète, la r�
 
 Les exemples suivants montrent comment la remise de capacité réservée SQL Data Warehouse s’applique en fonction des déploiements.
 
-- **Exemple 1** : vous achetez 5 unités de capacité réservée de 100 cDWU. Vous exécutez une instance SQL Data Warehouse DW1500c pendant une heure. Dans ce cas, l’utilisation émise correspond à 15 unités de 100 cDWU. La remise de réservation s’applique aux 5 unités que vous avez utilisées. Vous êtes facturé au tarif de paiement à l’utilisation pour les 10 unités restantes de 100 cDWU que vous avez utilisées.
+- **Exemple 1** : vous achetez 5 unités de capacité réservée de 100 cDWU. Vous exécutez une instance SQL Data Warehouse DW1500c pendant une heure. Dans ce cas, l’utilisation émise correspond à 15 unités de 100 cDWU. La remise de réservation s’applique aux 5 unités que vous avez utilisées. Vous êtes facturé au tarif de paiement à l’utilisation pour les 10 unités restantes de 100 cDWU que vous avez utilisées. En d'autres termes, une couverture partielle est possible pour les réservations multiples.
 
-- **Exemple 2 :** vous achetez 5 unités de capacité réservée de 100 cDWU. Vous exécutez deux instances SQL Data Warehouse DW100c pendant une heure. Dans ce cas, deux événements d’utilisation sont émis pour 1 unité de 100 cDWU. Les deux événements d’utilisation bénéficient de remises de capacité réservée. Les 3 unités restantes de capacité réservée de 100 cDWU sont perdues et ne sont pas reconduites.
+- **Exemple 2 :** vous achetez 5 unités de capacité réservée de 100 cDWU. Vous exécutez deux instances SQL Data Warehouse DW100c pendant une heure. Dans ce cas, deux événements d’utilisation sont émis pour 1 unité de 100 cDWU. Les deux événements d’utilisation bénéficient de remises de capacité réservée. Les 3 unités restantes de capacité réservée de 100 cDWU sont perdues et ne sont pas reconduites. En d'autres termes, une seule réservation peut être mise en correspondance avec plusieurs instances de SQL Data Warehouse.
 
 - **Exemple 3** : vous achetez 1 unité de capacité réservée de 100 cDWU. Vous exécutez deux instances SQL Data Warehouse DW100c. Chacune s’exécute pendant 30 minutes. Dans ce cas, les deux événements d’utilisation bénéficient de remises de capacité réservée. Aucune utilisation n’est facturée au tarif de paiement à l’utilisation.
 

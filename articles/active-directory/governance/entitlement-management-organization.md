@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608735"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548898"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Ajouter une organisation connectée dans la gestion des droits d’utilisation Azure AD
 
@@ -31,9 +31,12 @@ La gestion des droits d’utilisation Azure vous permet de collaborer avec des p
 
 Une organisation connectée est un domaine ou un annuaire Azure AD externe avec lequel vous collaborez.
 
-Par exemple, supposons que vous travaillez à la Woodgrove Bank et que vous souhaitez collaborer avec deux organisations externes : Graphic Design Institute et Contoso. Votre contact chez Graphic Design Institute vous a indiqué qu’il utilisait Azure AD et que les utilisateurs de Graphics Design Institute possédaient un nom d’utilisateur principal qui se termine par `graphicdesigninstitute.com`. Vous avez été informé par votre contact chez Contoso qu’il n’utilise pas encore Azure AD, mais que les utilisateurs de Contoso ont un nom d’utilisateur principal qui se termine par `contoso.com`.
+Par exemple, supposons que vous travaillez chez Woodgrove Bank et que vous souhaitez collaborer avec deux organisations externes. Ces deux organisations ont des configurations différentes :
 
-Vous pouvez configurer deux organisations connectées, une pour Graphic Design Institute avec le domaine `graphicdesigninstitute.com`, et une pour Contoso avec le domaine `contoso.com`. Si vous ajoutez ensuite ces deux organisations connectées à une stratégie, les utilisateurs de chaque organisation qui ont un nom d’utilisateur principal correspondant à la stratégie peuvent demander des packages d’accès. En outre, comme Graphic Design Institute a été identifié comme utilisant Azure AD, si Graphic Design Institute a en plus des sous-domaines, comme `graphicdesigninstitute.example`, les utilisateurs avec ce nom d’utilisateur principal pourront également demander des packages d’accès à l’aide de la même stratégie.
+- Graphic Design Institute utilise Azure AD et ses utilisateurs ont un nom d’utilisateur principal qui se termine par `graphicdesigninstitute.com`
+- Contoso n’utilise pas encore Azure AD. Les utilisateurs Contoso ont un nom d’utilisateur principal qui se termine par `contoso.com`.
+
+Dans ce cas, vous pouvez configurer deux organisations connectées. Vous créez une organisation connectée pour Graphic Design Institute et une autre pour Contoso. Si vous ajoutez ensuite ces deux organisations connectées à une stratégie, les utilisateurs de chaque organisation avec un nom d’utilisateur principal qui correspond à la stratégie peuvent demander des packages d’accès. Les utilisateurs qui ont un nom d’utilisateur principal avec le domaine graphicdesigninstitute.com correspondent à l’organisation connectée Graphical Design Institute et sont autorisés à envoyer des demandes, et les utilisateurs qui ont un nom d’utilisateur principal avec le domaine contoso.com correspondent à l’organisation connectée Contoso et sont aussi autorisés à demander des packages. De plus, étant donné que Graphic Design Institute utilise Azure AD, tous les utilisateurs avec un nom principal correspondant à un [domaine vérifié](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) ajouté à leur locataire, par exemple graphicdesigninstitute.exemple, peuvent également demander des packages d’accès à l’aide de la même stratégie.
 
 ![Exemple d’organisation connectée](./media/entitlement-management-organization/connected-organization-example.png)
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888391"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543050"
 ---
 # <a name="live-event-types-comparison"></a>Comparaison des types d’événements en direct
 
@@ -28,19 +28,19 @@ Dans Azure Media Services, un [événement en direct](https://docs.microsoft.com
 
 Le tableau suivant compare les fonctionnalités des types d’événements en direct. Durant la création, les types sont définis à l’aide de [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype) :
 
-* **LiveEventEncodingType.None** - Un encodeur live local envoie un flux à débits multiples. Les flux reçus transitent par l’Événement en temps réel sans traitement supplémentaire. 
+* **LiveEventEncodingType.None** - Un encodeur live local envoie un flux à débits multiples. Les flux reçus transitent par l’Événement en temps réel sans traitement supplémentaire. Également appelé événement en direct pass-through.
 * **LiveEventEncodingType.Standard** - Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. Si la résolution du flux de contribution est de 720p ou plus, la présélection **Default720p** encode un jeu de 6 paires résolution/débits (plus d’informations plus loin dans cet article).
 * **LiveEventEncodingType.Premium1080p** - Un encodeur live local envoie un flux à débit unique à l’Événement en direct, puis Media Services crée des flux à débits multiples. La présélection Default1080p spécifie le jeu de sortie des paires résolution/débits (plus d’informations plus loin dans cet article). 
 
 | Fonctionnalité | Événement en direct pass-through | Événement en direct 1080p standard ou premium |
 | --- | --- | --- |
-| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non |OUI |
+| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non |Oui |
 | Résolution vidéo maximale pour les flux de contribution |4K (4096x2160 à 60 images/s) |1080p (1920 x 1088 à 30 images/s)|
 | Couches maximales recommandées dans le flux de contribution|Jusqu’à 12|1 audio|
 | Couches maximales dans la sortie| Comme dans l’entrée|Jusqu’à 6 (voir les présélections système ci-dessous)|
 | Bande passante agrégée maximale du flux de contribution|60 Mbits/s|N/A|
 | Débit binaire maximal pour une seule couche dans la contribution |20 Mbits/s|20 Mbits/s|
-| Prise en charge de pistes audio multilingues|OUI|Non|
+| Prise en charge de pistes audio multilingues|Oui|Non|
 | Codecs vidéo d’entrée pris en charge |H.264/AVC et H.265/HEVC|H.264/AVC|
 | Codecs vidéo de sortie pris en charge|Comme dans l’entrée|H.264/AVC|
 | Profondeur de bit de la vidéo, entrée et sortie, prises en charge|Jusqu’à 10 bits notamment HDR 10/HLG|8 bits|
@@ -49,15 +49,16 @@ Le tableau suivant compare les fonctionnalités des types d’événements en di
 | Résolution vidéo maximale de la vidéo de sortie|Comme dans l’entrée|Standard - 720p, Premium1080p - 1080p|
 | Fréquence d’images maximale de la vidéo d’entrée|60 images/seconde|Standard ou Premium1080p - 30 images/seconde|
 | Protocoles d’entrée|RTMP, MP4 fragmenté (Smooth Streaming)|RTMP, MP4 fragmenté (Smooth Streaming)|
-| Prix|Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct »|Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct »|
+| Price|Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct »|Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct »|
 | Durée maximale| 24 hrs x 365 jours, direct linéaire | 24 heures x 365 jours, linéaire en direct (préversion)|
-| Capacité à transmettre directement les données des sous-titres CEA 608/708 intégrées|OUI|OUI|
+| Capacité à transmettre directement les données des sous-titres CEA 608/708 intégrées|Oui|Oui|
+| Possibilité d’activer la transcription en direct|Oui|Oui|
 | Prise en charge de l’insertion d’ardoises|Non|Non|
 | Prise en charge de la signalisation des annonces via l’API| Non|Non|
-| Prise en charge de la signalisation des annonces via des messages SCTE-35 intrabande|OUI|OUI|
-| Capacité de récupération suite à de brèves interruptions du flux de contribution|OUI|Partiel|
-| Prise en charge des groupes d’images d’entrée non uniformes|OUI|Non – l’entrée doit avoir une durée GOP fixe|
-| Prise en charge de l’entrée à fréquence d’images variable|OUI|Non. L’entrée doit avoir une fréquence d’images fixe. Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Mais le flux de contribution ne peut pas faire baisser la fréquence d’images (par exemple, à 15 images par seconde).|
+| Prise en charge de la signalisation des annonces via des messages SCTE-35 intrabande|Oui|Oui|
+| Capacité de récupération suite à de brèves interruptions du flux de contribution|Oui|Partiel|
+| Prise en charge des groupes d’images d’entrée non uniformes|Oui|Non – l’entrée doit avoir une durée GOP fixe|
+| Prise en charge de l’entrée à fréquence d’images variable|Oui|Non. L’entrée doit avoir une fréquence d’images fixe. Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Mais le flux de contribution ne peut pas faire baisser la fréquence d’images (par exemple, à 15 images par seconde).|
 | Auto-fermeture de l’événement en direct en cas de perte du flux d’entrée|Non|Après 12 heures si aucune sortie en temps réel n’est en cours d’exécution|
 
 ## <a name="system-presets"></a>Présélections système

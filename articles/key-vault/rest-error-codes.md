@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 9ea77a6822a851951ea7363b9cf496fa0df534ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8c9390ea498647d34e8643ed4be596372ffb8696
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982090"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293383"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Codes d’erreur d’API REST Azure Key Vault
  
@@ -54,7 +54,7 @@ L’en-tête « Authorization » correspond au jeton d’accès requis avec chaq
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>La ressource appropriée n’est pas associée au jeton. 
 
-Un paramètre appelé « resource » est obligatoire lors d’une demande de jeton d’accès à partir du point de terminaison Azure OAUTH. La valeur est importante pour le fournisseur de jetons, car elle limite le jeton à son utilisation prévue. La ressource pour les jetons **all* afin d’accéder à un Key Vault est <https:\//vault.keyvault.net> (sans barre oblique de fin).
+Un paramètre appelé « resource » est obligatoire lors d’une demande de jeton d’accès à partir du point de terminaison Azure OAUTH. La valeur est importante pour le fournisseur de jetons, car elle limite le jeton à son utilisation prévue. La ressource des jetons **all** permettant d'accéder à un coffre de clés Key Vault est *https:\//vault.keyvault.net* (sans barre oblique de fin).
 
 ### <a name="the-token-is-expired"></a>Le jeton a expiré
 

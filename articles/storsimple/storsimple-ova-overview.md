@@ -1,31 +1,24 @@
 ---
-title: Présentation de Microsoft Azure StorSimple Virtual Array | Microsoft Docs
+title: Présentation de Microsoft Azure StorSimple Virtual Array
 description: Décrit StorSimple Virtual Array, une solution de stockage intégrée qui gère les tâches de stockage entre un groupe virtuel local et un stockage cloud Microsoft Azure.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516705"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273866"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Présentation de StorSimple Virtual Array
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Microsoft Azure StorSimple Virtual Array est une solution de stockage intégrée qui gère les tâches de stockage entre un groupe virtuel local exécuté dans un hyperviseur et le stockage cloud Microsoft Azure. Le groupe virtuel est un serveur de fichiers ou une solution de serveur iSCSI efficace, abordable et facile à gérer qui élimine la plupart des problèmes et des frais liés à la protection des données et du stockage d’entreprise. Le groupe virtuel est particulièrement bien adapté pour le stockage des données d’archivage rarement utilisées.
 
@@ -76,10 +69,10 @@ Le tableau suivant décrit certains des principaux avantages offerts par la solu
 
 Voici un tableau résumant les charges de travail StorSimple prises en charge.
 
-|Scénario     |Charge de travail     |Pris en charge      |Restrictions               | Versions applicables|
+|Scénario     |Charge de travail     |Prise en charge      |Restrictions               | Versions applicables|
 |-------------|-------------|---------------|---------------------------|--------------------|
-|Bureau à distance/Succusale  |Partage de fichiers     |OUI      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
-|Archivage cloud  |Partage de fichiers d’archivage     |OUI      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
+|Bureau à distance/Succusale  |Partage de fichiers     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
+|Archivage cloud  |Partage de fichiers d’archivage     |Oui      |Consultez les [limites maximales pour le serveur de fichiers](storsimple-ova-limits.md).<br></br>Consultez la [configuration système requise pour les versions SMB prises en charge](storsimple-ova-system-requirements.md).| Toutes les versions     |
 
 Le groupe virtuel StorSimple Virtual Array est particulièrement bien adapté pour les données rarement utilisées. Le groupe virtuel a un cache local pour optimiser les performances, mais les utilisateurs doivent prendre en compte que l’appareil traite les fichiers au niveau inférieur du stockage (le cloud). Chaque groupe virtuel peut écrire et lire des données dans le stockage Azure à une vitesse d’environ 100 Mbits/s. Ce lien est partagé entre toutes les demandes entrantes sur l’appareil et peut devenir un goulot d’étranglement comme illustré dans le diagramme ci-dessous.
 

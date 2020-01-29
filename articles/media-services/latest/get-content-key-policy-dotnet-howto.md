@@ -1,5 +1,5 @@
 ---
-title: Obtenir une clé de signature à partir de la stratégie existante à l'aide du kit SDK .NET de Media Services v3 - Azure | Microsoft Docs
+title: Obtenir une clé de signature à partir d’une stratégie à l’aide du kit SDK .NET d’Azure Media Services v3
 description: Cette rubrique explique comment obtenir une clé de signature à partir de la stratégie existante à l'aide du kit SDK .NET de Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322632"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515069"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obtenir une clé de signature à partir de la stratégie existante
 

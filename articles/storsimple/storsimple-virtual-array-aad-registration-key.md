@@ -1,29 +1,21 @@
 ---
-title: Nouvelle authentification pour StorSimple Virtual Arrays | Microsoft Docs
+title: Nouvelle authentification pour StorSimple Virtual Arrays
 description: Explique comment utiliser l’authentification AAD pour votre service, générer la nouvelle clé d’inscription et effectuer l’inscription manuelle des appareils.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 723d5e969ba2f635724ffa50d562a7abaf936dcf
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517133"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273801"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [!INCLUDE [storsimple-virtual-array-eol-banner](../../includes/storsimple-virtual-array-eol-banner.md)]
 
@@ -33,7 +25,7 @@ Les informations contenues dans cet article s’appliquent uniquement à la gamm
 
 L’authentification AAD s’effectue dans StorSimple Virtual Arrays (modèle 1200) exécutant Update 1 ou version ultérieure.
 
-En raison de l’introduction de l’authentification AAD, les modifications surviennent dans les éléments suivants :
+L’introduction de l’authentification AAD a des répercussions sur les éléments suivants :
 
 - Modèles d’URL pour règles de pare-feu.
 - Clé d’inscription du service.
@@ -62,15 +54,15 @@ Avec un StorSimple Virtual Array, utilisez le tableau suivant pour déterminer l
 | Si votre appareil exécute  | Procédez comme suit                                    |
 |----------------------------|--------------------------------------------------------------|
 | Update 1.0 ou une version ultérieure et que l’appareil est hors connexion. <br> Vous voyez une alerte indiquant que l’URL n’est pas dans la liste verte.| 1. Modifiez les règles de pare-feu et incluez-y l’URL d’authentification. Consultez la section [URL d’authentification](#url-changes-for-aad-authentication). <br> 2. [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys). <br> 3. Suivez les étapes 1 à 5 pour [vous connecter à l’interface Windows PowerShell du tableau virtuel](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Utilisez la cmdlet `Invoke-HcsReRegister` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
-| Update 1.0 ou une version ultérieure et que l’appareil est en ligne.| Aucune action n’est requise.                                       |
+| Update 1.0 ou une version ultérieure et que l’appareil est en ligne.| Aucune action n'est requise.                                       |
 | Update 0.6 ou une version antérieure et que l’appareil est hors ligne. | 1. [Téléchargez Update 1.0 via le serveur de catalogue](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Appliquez Update 1.0 via l’interface utilisateur web locale](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Obtenez la clé d’inscription AAD auprès du service](#aad-based-registration-keys). <br>4. Suivez les étapes 1 à 5 pour [vous connecter à l’interface Windows PowerShell du tableau virtuel](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Utilisez la cmdlet `Invoke-HcsReRegister` pour inscrire l’appareil via Windows PowerShell. Indiquez la clé que vous avez obtenue à l’étape précédente.|
 | Update 0.6 ou une version antérieure et que l’appareil est en ligne | Modifiez les règles de pare-feu et incluez-y l’URL d’authentification.<br> Installez Update 1.0 à l’aide du portail Azure. |
 
 ## <a name="aad-based-registration-keys"></a>Clés d’inscription AAD
 
-À partir d’Update 1.0 pour StorSimple Virtual Arrays, les nouvelles clés d’inscription AAD sont utilisées. Vous utilisez les clés d’inscription pour inscrire votre service StorSimple Device Manager avec l’appareil.
+À partir d’Update 1.0 pour StorSimple Virtual Arrays, les nouvelles clés d’inscription AAD sont utilisées. Vous utilisez les clés d’inscription pour inscrire votre service Gestionnaire de périphériques Microsoft Azure StorSimple à l’appareil.
 
-Vous ne pouvez pas utiliser les nouvelles clés d’inscription au service AAD si vous utilisez StorSimple Virtual Arrays exécutant Update 0.6 ou une version antérieure. Vous devez régénérer la clé d’inscription au service. Lorsque vous régénérez la clé, la nouvelle clé permet d’inscrire tous les appareils suivants. L’ancienne clé n’est plus valide.
+Vous ne pouvez pas utiliser les nouvelles clés d’inscription au service AAD si vous utilisez StorSimple Virtual Arrays exécutant Update 0.6 ou une version antérieure. Vous devez régénérer la clé d’inscription au service. Lorsque vous régénérez la clé, celle-ci permet d’inscrire tous les appareils suivants. L’ancienne clé n’est plus valide.
 
 - La nouvelle clé d’inscription AAD expire au bout de 3 jours.
 - Les clés d’inscription AAD ne fonctionnent qu’avec les tableaux virtuels de la gamme StorSimple 1200 exécutant Update 1 ou une version ultérieure. La clé d’inscription AAD d’un appareil de la gamme StorSimple 8000 ne fonctionnera pas.
@@ -80,7 +72,7 @@ Procédez comme suit pour générer une clé d’inscription au service AAD.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Pour régénérer la clé d’inscription du service AAD
 
-1. Dans **StorSimple Device Manager**, accédez à **Gestion &gt;** **Clés**.
+1. Dans **Gestionnaire de périphériques StorSimple**, accédez à **Gestion &gt;** **Clés**.
     
     ![Accéder aux clés](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 

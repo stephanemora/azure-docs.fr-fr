@@ -3,16 +3,16 @@ title: Comment cibler des versions du runtime Azure Functions
 description: Azure Functions prend en charge plusieurs versions du runtime. Découvrez comment spécifier la version du runtime d’une application de fonction hébergée dans Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 60953d10aeb92083b0aad3432921c7c55bc77e39
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942271"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294165"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Comment cibler des versions du runtime Azure Functions
 
-Une application de fonction s’exécute sur une version spécifique du runtime Azure Functions. Deux versions majeures sont disponibles : [1.x et 2.x](functions-versions.md), avec la version 3.x en préversion. Par défaut, les applications de fonction sont créées avec version 2.x du runtime. Cet article explique comment configurer une application de fonction dans Azure pour qu’elle s’exécute sur la version de votre choix. Pour plus d’informations sur la façon de configurer un environnement de développement local pour une version spécifique, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
+Une application de fonction s’exécute sur une version spécifique du runtime Azure Functions. Trois versions majeures sont disponibles : [1.x, 2.x et 3.x](functions-versions.md). Par défaut, les applications de fonction sont créées dans la version 2.x du runtime. Cet article explique comment configurer une application de fonction dans Azure pour qu’elle s’exécute sur la version de votre choix. Pour plus d’informations sur la façon de configurer un environnement de développement local pour une version spécifique, consultez [Coder et tester Azure Functions localement](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Mises à jour de versions automatiques et manuelles
 

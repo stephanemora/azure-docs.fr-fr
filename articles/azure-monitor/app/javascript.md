@@ -4,15 +4,15 @@ description: Obtenir les nombres de sessions et d’affichage de page, les donn�
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045837"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276777"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 
@@ -20,7 +20,7 @@ Apprenez-en plus sur les performances et l’utilisation de votre page web ou de
 
 Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous suffit pour cela d’ajouter un court extrait de code JavaScript. Si votre service web est [Java](java-get-started.md) ou [ASP.NET](asp-net.md), vous pouvez utiliser les kits SDK côté serveur conjointement au kit SDK JavaScript côté client pour acquérir une compréhension de bout en bout des performances de votre application.
 
-## <a name="adding-the-javascript-sdk"></a>Ajout du kit SDK JavaScript
+## <a name="adding-the-javascript-sdk"></a>Ajout du SDK JavaScript
 
 1. Tout d’abord, vous avez besoin d’une ressource Application Insights. Si vous ne disposez pas encore d’une ressource ni d’une clé d’instrumentation, suivez les [instructions permettant de créer une ressource](create-new-resource.md).
 2. Copiez la clé d’instrumentation de la ressource à laquelle vous souhaitez envoyer vos données de télémétrie JavaScript.
@@ -29,7 +29,10 @@ Vous pouvez utiliser Application Insights avec toutes les pages web ; il vous s
     * [Extrait de code JavaScript](#snippet-based-setup)
 
 > [!IMPORTANT]
-> Vous devez uniquement utiliser l’une des méthodes ci-dessous pour ajouter le kit SDK JavaScript Application Insights à votre application. Si vous utilisez la configuration basée sur npm, n’utilisez pas celle basée sur un extrait de code. Il en va de même pour le scénario inverse lorsque vous utilisez l’approche basée sur un extrait, n’utilisez pas également la configuration basée sur npm. 
+> N’utilisez qu’une seule méthode pour ajouter le SDK JavaScript à votre application. Si vous utilisez l’installation NPM, n’utilisez pas l’extrait de code, et inversement.
+
+> [!NOTE]
+> Le programme d’installation de NPM installe le SDK JavaScript en tant que dépendance à votre projet, en activant IntelliSense, tandis que l’extrait de code extrait le SDK au moment de l’exécution. Les deux prennent en charge les mêmes fonctionnalités. Cependant, les développeurs qui souhaitent des événements et une configuration plus personnalisés choisissent généralement l’installation NPM, tandis que les utilisateurs recherchant une activation rapide de l’analytique web prête à l’emploi choisissent l’extrait de code.
 
 ### <a name="npm-based-setup"></a>Configuration basée sur npm
 
@@ -208,7 +211,7 @@ Cette version fournit un strict minimum de fonctionnalités et vous laisse la co
 
 ## <a name="examples"></a>Exemples
 
-Pour obtenir des exemples exécutables, consultez [Exemples du kit SDK JavaScript Application Insights](https://github.com/topics/applicationinsights-js-demo)
+Pour obtenir des exemples exécutables, consultez [Exemples du SDK JavaScript Application Insights](https://github.com/topics/applicationinsights-js-demo)
 
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Mise à niveau de l’ancienne version d’Application Insights
 
@@ -261,4 +264,3 @@ Le kit SDK JavaScript Application Insights est proposé en open source. Pour aff
 * [Suivi de l'utilisation](usage-overview.md)
 * [Mesures et événements personnalisés](api-custom-events-metrics.md)
 * [Développer-mesurer-apprendre](usage-overview.md)
-

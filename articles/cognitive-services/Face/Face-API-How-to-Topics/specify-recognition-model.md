@@ -1,7 +1,7 @@
 ---
-title: Guide pratique pour spécifier un modèle de reconnaissance - API Visage
+title: Guide pratique pour spécifier un modèle de reconnaissance – Visage
 titleSuffix: Azure Cognitive Services
-description: Cet article vous montrera comment choisir le modèle de reconnaissance à utiliser avec votre application API Visage Azure.
+description: Cet article vous montre comment choisir le modèle de reconnaissance à utiliser avec votre application Azure Visage.
 services: cognitive-services
 author: longli0
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 44392b807659ff8f13511b48d0afd33db080e4f6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771017"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166455"
 ---
 # <a name="specify-a-face-recognition-model"></a>Spécifier un modèle de reconnaissance faciale
 
-Ce guide vous montre comment spécifier un modèle de reconnaissance faciale pour la détection de visages, l'identification et la recherche de similarités en utilisant l'API Visage Azure.
+Ce guide vous montre comment spécifier un modèle de reconnaissance faciale pour la détection des visages, l’identification et la recherche de similarités à l’aide du service Azure Visage.
 
-L’API Visage utilise des modèles d’apprentissage automatique pour effectuer des opérations sur les visages humains dans des images. Nous continuons d’améliorer la précision de nos modèles en fonction des commentaires de nos clients et des progrès de la recherche, et nous intégrons ces améliorations sous forme de mises à jour de modèles. Les développeurs peuvent spécifier la version du modèle de reconnaissance faciale qu'ils souhaitent utiliser ; ils peuvent choisir le modèle qui correspond le mieux à leur cas d'utilisation.
+Le service Visage utilise des modèles Machine Learning pour effectuer des opérations sur les visages humains présents dans les images. Nous continuons d’améliorer la précision de nos modèles en fonction des commentaires de nos clients et des progrès de la recherche, et nous intégrons ces améliorations sous forme de mises à jour de modèles. Les développeurs peuvent spécifier la version du modèle de reconnaissance faciale qu'ils souhaitent utiliser ; ils peuvent choisir le modèle qui correspond le mieux à leur cas d'utilisation.
 
 Si vous êtes un nouvel utilisateur, nous vous recommandons d'utiliser le dernier modèle. Poursuivez la lecture pour découvrir comment spécifier ce modèle dans différentes opérations de détection de visages, tout en évitant les conflits de modèles. Si vous êtes un utilisateur avancé et hésitez à passer au modèle le plus récent, passez à la section [Évaluer des modèles différents](#evaluate-different-models) pour évaluer le nouveau modèle et comparer les résultats en utilisant votre ensemble de données actuel.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez maîtriser les concepts de la détection et de l'identification de visages par intelligence artificielle (AI). Si ce n’est pas les cas, consultez d’abord ces guides pratiques :
 
@@ -57,7 +57,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>Identifier des visages avec le modèle spécifié
 
-L'API Visage peut extraire des données de visage d’une image et les associer à un objet **Person** (via l'appel d’API [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b), par exemple), et plusieurs objets **Personne** peuvent être stockés ensemble dans un objet **PersonGroup**. Ensuite, un nouveau visage peut être comparé à un objet **PersonGroup** (avec l'appel [Visage - Identifier]), et la personne correspondante dans ce groupe peut être identifiée.
+Le service Visage peut extraire les données de visage d’une image et les associer à un objet **Person** (via l’appel d’API [Add face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b), par exemple), et plusieurs objets **Person** peuvent être stockés ensemble dans un objet **PersonGroup**. Ensuite, un nouveau visage peut être comparé à un objet **PersonGroup** (avec l'appel [Visage - Identifier]), et la personne correspondante dans ce groupe peut être identifiée.
 
 Un objet **PersonGroup** doit avoir un modèle de reconnaissance unique pour toutes les **personnes**, et vous pouvez le spécifier en utilisant le paramètre `recognitionModel` lorsque vous créez le groupe ([PersonGroup - Créer] ou [LargePersonGroup - Créer]). Si vous ne spécifiez pas ce paramètre, le modèle original `recognition_01` est utilisé. Un groupe utilisera toujours le modèle de reconnaissance avec lequel il a été créé, et de nouveaux visages seront associés à ce modèle lorsqu'ils y seront ajoutés ; ceci ne peut pas être modifié après la création d’un groupe. Pour voir avec quel modèle un objet **PersonGroup** est configuré, utilisez l'API [PersonGroup - Get] avec le jeu de paramètres _returnRecognitionModel_ défini sur **true**.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428407"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548371"
 ---
 # <a name="tune-model-hyperparameters"></a>Optimiser les hyperparamètres du modèle
 
@@ -81,11 +81,11 @@ Cette section décrit comment effectuer un balayage de paramètres de base, qui 
 
 Quand l’entraînement est terminé :
 
-+ Pour voir un ensemble de métriques de justesse pour le meilleur modèle, cliquez avec le bouton droit sur le module, sélectionnez **Résultats du balayage**, puis sélectionnez **visualiser**.
++ Pour voir un ensemble de métriques de précision pour le meilleur modèle, cliquez avec le bouton droit sur le module, puis sélectionnez **Visualiser**.
 
     La sortie inclut toutes les métriques de justesse qui s’appliquent au type de modèle, mais la métrique que vous avez sélectionnée pour le classement détermine le modèle considéré « optimal ».
 
-+ Pour utiliser ce modèle pour le scoring dans d’autres pipelines sans avoir à répéter le processus d’optimisation, cliquez avec le bouton droit sur la sortie du modèle et sélectionnez **Save as Trained Model** (Enregistrer en tant que modèle entraîné). 
++ Pour enregistrer un instantané du modèle entraîné, sélectionnez l’onglet **Sorties** dans le panneau droit du module **Entraîner le modèle**. Sélectionnez l’icône **Inscrire le jeu de données** pour enregistrer le modèle en tant que module réutilisable.
 
 
 ## <a name="technical-notes"></a>Notes techniques

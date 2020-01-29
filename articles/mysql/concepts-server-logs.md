@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 9b661a7fa6a7b9f079a3b24d1b83f27118c4bd23
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/21/2020
+ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745857"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514678"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Journaux des requêtes lentes dans Azure Database for MySQL
 Dans Azure Database pour MySQL, le journal des requêtes lentes est disponible pour les utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -43,8 +43,9 @@ Les autres paramètres que vous pouvez ajuster incluent :
 - **log_throttle_queries_not_using_indexes** : Ce paramètre limite le nombre de requêtes hors index qui peuvent être écrites dans le journal des requêtes lentes. Ce paramètre prend effet lorsque log_queries_not_using_indexes est défini sur ON.
 - **log_output** : si défini sur « File », permet au journal des requêtes lentes d’être écrit dans le stockage du serveur local et dans les journaux de diagnostic Azure Monitor. S’il est défini sur « None », le journal des requêtes lentes est uniquement écrit dans les journaux de diagnostics Azure Monitor. 
 
-> [!Note]
-> Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.
+> [!IMPORTANT]
+> Si vos tables ne sont pas indexées, la définition des paramètres `log_queries_not_using_indexes` et `log_throttle_queries_not_using_indexes` sur ON peut affecter les performances de MySQL, car toutes les requêtes exécutées sur ces tables non indexées sont écrites dans le journal des requêtes lentes.<br><br>
+> Si vous envisagez de journaliser les requêtes lentes pendant une période prolongée, il est recommandé de définir `log_output` sur « None ». Si la valeur est « File », ces journaux sont écrits dans le stockage du serveur local, ce qui peut affecter les performances de MySQL. 
 
 Consultez [la documentation MySQL consacrée au journal des requêtes lentes](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) pour obtenir une description complète des paramètres du journal des requêtes lentes.
 
@@ -84,5 +85,64 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction de la mé
 | `thread_id_s` | ID du thread |
 | `\_ResourceId` | URI de ressource |
 
+> [!Note]
+> Pour `sql_text`, le journal est tronqué s’il dépasse 2 048 caractères.
+
+## <a name="analyze-logs-in-azure-monitor-logs"></a>Analyser les journaux dans Azure Monitor
+
+Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Monitor via des journaux de diagnostic, vous pouvez effectuer une analyse plus poussée de vos requêtes lentes. Voici quelques exemples de requêtes pour vous aider à commencer. Veillez à mettre à jour les exemples ci-dessous avec le nom de votre serveur.
+
+- Requêtes de plus de 10 secondes sur un serveur particulier
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```
+
+- Lister les 5 requêtes les plus longues sur un serveur particulier
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | order by query_time_d desc
+    | take 5
+    ```
+
+- Résumer les requêtes lentes par temps de requête minimal, maximal, moyen et d’écart type sur un serveur particulier
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count(), min(query_time_d), max(query_time_d), avg(query_time_d), stdev(query_time_d), percentile(query_time_d, 95) by LogicalServerName_s
+    ```
+
+- Représenter sous forme de graphique la distribution de requête lente sur un serveur particulier
+
+    ```Kusto
+    AzureDiagnostics
+    | where LogicalServerName_s == '<your server name>'
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | summarize count() by LogicalServerName_s, bin(TimeGenerated, 5m)
+    | render timechart
+    ```
+
+- Afficher les requêtes de plus de 10 secondes sur tous les serveurs MySQL avec les journaux de diagnostic activés
+
+    ```Kusto
+    AzureDiagnostics
+    | where Category == 'MySqlSlowLogs'
+    | project TimeGenerated, LogicalServerName_s, event_class_s, start_time_t , query_time_d, sql_text_s 
+    | where query_time_d > 10
+    ```    
+    
 ## <a name="next-steps"></a>Étapes suivantes
-- [Comment configurer et accéder aux journaux d’activité des serveurs à l’aide de l’interface de ligne de commande Azure](howto-configure-server-logs-in-cli.md).
+- [Configurer les journaux des requêtes lentes à partir du portail Azure](howto-configure-server-logs-in-portal.md)
+- [Configurer les journaux des requêtes lentes à partir d’Azure CLI](howto-configure-server-logs-in-cli.md).

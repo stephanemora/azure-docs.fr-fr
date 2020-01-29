@@ -1,14 +1,14 @@
 ---
 title: Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 description: Découvrez les concepts d’Azure Active Directory pour les locataires, les utilisateurs et les rôles, ainsi que la façon dont ils peuvent être utilisés dans les scénarios Azure Lighthouse.
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 77a247c86765f25539833a6ba70f80e737c6846d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 344e104201a83b3589dae6dbd3b02e49e4575e00
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453569"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156333"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Locataires, rôles et utilisateurs dans les scénarios Azure Lighthouse
 
@@ -29,6 +29,9 @@ Tous les [rôles intégrés](../../role-based-access-control/built-in-roles.md) 
 - Le rôle [propriétaire](../../role-based-access-control/built-in-roles.md#owner) n’est pas pris en charge.
 - Les rôles intégrés disposant d’une autorisation [DataActions](../../role-based-access-control/role-definitions.md#dataactions) ne sont pas pris en charge.
 - Le rôle intégré [Administrateur de l’accès utilisateur](../../role-based-access-control/built-in-roles.md#user-access-administrator) est pris en charge, mais uniquement pour les besoins limités [d’affectation de rôles à une identité gérée dans le locataire client](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant). Aucune autre autorisation généralement accordée par ce rôle ne s’applique. Si vous définissez un utilisateur avec ce rôle, vous devez également spécifier le ou les rôles intégrés que cet utilisateur peut affecter aux identités gérées.
+
+> [!NOTE]
+> Une fois qu'un nouveau rôle intégré applicable a été ajouté à Azure, il peut être attribué lors de l'[intégration d'un client à l'aide des modèles Azure Resource Manager](../how-to/onboard-customer.md). Un certain temps peut s'écouler avant que le nouveau rôle ne soit disponible sur le Portail Cloud Partner lors de la [publication d'une offre de services gérés](../how-to/publish-managed-services-offers.md).
 
 ## <a name="best-practices-for-defining-users-and-roles"></a>Meilleures pratiques pour la définition des utilisateurs et des rôles
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services - Signalisation de métadonnées chronométrées dans une vidéo en streaming en direct | Documents Microsoft
+title: Azure Media Services - Signalisation de métadonnées chronométrées dans le streaming en direct
 description: Cette spécification décrit les méthodes de signalisation des métadonnées chronométrées lors de la réception et de la diffusion en continu vers Azure Media Services. Cela inclut la prise en charge de signaux génériques de métadonnées chronométrées (ID3), ainsi que la signalisation SCTE-35 pour l'insertion de jointures publicitaires et la signalisation des conditions de la jointure.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: fd8533ff310e307604e5ce25a4285cc90f3ea4ab
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933982"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514236"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
 

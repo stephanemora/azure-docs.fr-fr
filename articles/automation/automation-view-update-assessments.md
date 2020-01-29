@@ -3,14 +3,14 @@ title: Afficher les évaluations des mises à jour Azure Update Management
 description: Cet article explique comment voir les évaluations des mises à jour pour Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419884"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310082"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Afficher les évaluations des mises à jour Azure Update Management
 
@@ -30,7 +30,7 @@ Sélectionnez **Mises à jour manquantes** pour afficher la liste des mises à j
 
 ## <a name="update-classifications"></a>Classifications des mises à jour
 
-Les tableaux suivants répertorient les classifications des mises à jour dans Update Management, avec une définition de chaque classification.
+Les tableaux suivants répertorient les classifications des mises à jour prises en charge dans Update Management, avec une définition de chaque classification.
 
 ### <a name="windows"></a>Windows
 
@@ -59,6 +59,8 @@ sudo yum -q --security check-update
 ```
 
 Il n’existe actuellement aucune méthode prise en charge permettant d’activer la disponibilité des données de classification natives sur CentOS. Pour le moment, seule une prise en charge optimale est proposée aux clients qui ont activé eux-mêmes cette fonctionnalité.
+
+Pour classifier les mises à jour sur Red Hat Enterprise version 6, vous devez installer le plug-in yum-security. Sur Red Hat Enterprise Linux 7, le plug-in faisant déjà partie de yum lui-même, il est inutile d'installer quoi que ce soit. Pour plus d'informations, consultez l'[article de base de connaissances](https://access.redhat.com/solutions/10021) Red Hat suivant.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

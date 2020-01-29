@@ -1,5 +1,5 @@
 ---
-title: Solution Azure VMware de CloudSimple – Élever les privilèges CloudSimple
+title: Azure VMware Solution by CloudSimple – Élever les privilèges CloudSimple
 description: Indique comment élever les autorisations CloudSimple pour effectuer des fonctions d’administration dans le vCenter de cloud privé
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 524772578ad724e969bbeab0be0a3edcf32a845f
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 36c6969ed89d0bb9222f52aa81de0d4128b9e533
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619482"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76542846"
 ---
 # <a name="escalate-cloudsimple-privileges-to-perform-administrative-functions-in-private-cloud-vcenter"></a>Élevez les privilèges CloudSimple pour effectuer des fonctions d’administration dans le cloud privé vCenter
 
@@ -33,5 +33,8 @@ Les privilèges peuvent être élevés pour les raison suivantes :
 À partir du portail CloudSimple, [élevez les privilèges](escalate-private-cloud-privileges.md) de l’utilisateur local CloudOwner sur le SSO vCenter.  Vous pouvez élever les privilèges de l’utilisateur distant uniquement si un fournisseur d’identité supplémentaire est configuré sur vCenter.  L’escalade des privilèges implique l’ajout de l’utilisateur sélectionné au groupe Administrateurs intégré vSphere.  Un seul utilisateur peut avoir des privilèges élevés.  Si vous avez besoin d’élever les privilèges d’un autre utilisateur, annulez d’abord les privilèges des utilisateurs actuels.
 
 Les utilisateurs de sources d’identité supplémentaires doivent être ajoutés en tant que membres du groupe CloudOwner.
+
+> [!CAUTION]
+> Les nouveaux utilisateurs doivent être ajoutés uniquement à *Cloud-Owner-Group*, à *Cloud-Global-Cluster-Admin-Group*, à *Cloud-Global-Storage-Admin-Group*, à *Cloud-Global-Network-Admin-Group* ou à *Cloud-Global-VM-Admin-Group*.  Les utilisateurs ajoutés au groupe *Administrateurs* seront automatiquement supprimés.  Seuls les comptes de service doivent être ajoutés au groupe *Administrateurs* et les comptes de service ne doivent pas être utilisés pour se connecter à l’interface utilisateur web de vSphere.
 
 Pendant la période d’escalade, CloudSimple utilise la surveillance automatisée avec les notifications d’alerte associées pour détecter toute modification accidentelle de l’environnement.

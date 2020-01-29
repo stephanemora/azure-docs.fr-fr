@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: 32c4b9b8e6268aa648e3414b337e8b2b908589e8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1418205843fefc76db4e73832736b308d0cc79a3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928721"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122608"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
@@ -23,7 +23,7 @@ Vous pouvez stocker les informations d’identification des magasins de données
 
 Actuellement, tous les types d’activité, à l’exception des activités personnalisées, prennent en charge cette fonctionnalité. Particulièrement pour la configuration du connecteur, vérifiez la section « Propriétés du service lié » dans [chaque rubrique de connecteur](copy-activity-overview.md#supported-data-stores-and-formats) pour obtenir des informations.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette fonctionnalité repose sur l’identité managée de la fabrique de données. Découvrez comment cela fonctionne dans [Identité managée pour Data Factory](data-factory-service-identity.md) et vérifiez que votre fabrique de données est bien associée à une identité managée.
 
@@ -31,8 +31,8 @@ Cette fonctionnalité repose sur l’identité managée de la fabrique de donné
 
 Pour référencer des informations d’identification stockées dans Azure Key Vault, vous devez :
 
-1. **Récupérez l’identité managée de la fabrique de données** en copiant la valeur « ID d’application de l’identité managée » générée en même temps que votre fabrique. Si vous utilisez l’interface de création d’Azure Data Factory, l’ID d’application de l’identité managée est indiqué dans la fenêtre de création du service lié Azure Key Vault. Vous pouvez également obtenir cet ID à partir du portail Azure (consultez [Récupérer l’identité managée de la fabrique de données](data-factory-service-identity.md#retrieve-managed-identity)).
-2. **Autorisez l’identité managée à accéder à votre coffre de clés Azure Key Vault.** Dans votre coffre de clés -> Stratégies d’accès -> Ajouter nouveau -> recherchez cet ID d’application de l’identité managée pour accorder l’autorisation **Get** dans la liste déroulante Autorisations du secret. Cela permet à la fabrique désignée d’accéder au secret du coffre de clés.
+1. **Récupérez l’identité managée de la fabrique de données** en copiant la valeur « ID d’objet de l’identité managée » générée en même temps que votre fabrique. Si vous utilisez l’interface de création d’Azure Data Factory, l’ID d’objet de l’identité managée est indiqué dans la fenêtre de création du service lié Azure Key Vault. Vous pouvez également obtenir cet ID à partir du portail Azure (consultez [Récupérer l’identité managée de la fabrique de données](data-factory-service-identity.md#retrieve-managed-identity)).
+2. **Autorisez l’identité managée à accéder à votre coffre de clés Azure Key Vault.** Dans votre coffre de clés -> Stratégies d’accès -> Ajouter nouveau -> recherchez cette identité managée pour accorder l’autorisation **Get** dans la liste déroulante Autorisations du secret. Cela permet à la fabrique désignée d’accéder au secret du coffre de clés.
 3. **Créez un service lié pointant vers votre coffre de clés Azure Key Vault.** Reportez-vous à la section [Service lié Azure Key Vault](#azure-key-vault-linked-service).
 4. **Créez un service lié de magasin de données, dans lequel référencer le secret correspondant qui est stocké dans le coffre de clés.** Reportez-vous à la section [Référencer le secret stocké dans le coffre de clés](#reference-secret-stored-in-key-vault).
 
@@ -42,8 +42,8 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Key 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| type | La propriété type doit être définie sur : **AzureKeyVault**. | OUI |
-| baseUrl | Spécifiez l’URL d’Azure Key Vault. | OUI |
+| type | La propriété type doit être définie sur : **AzureKeyVault**. | Oui |
+| baseUrl | Spécifiez l’URL d’Azure Key Vault. | Oui |
 
 **Utilisation de l’interface utilisateur de création :**
 
@@ -75,10 +75,10 @@ Les propriétés suivantes sont prises en charge lorsque vous configurez un cham
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type du champ doit être définie sur : **AzureKeyVaultSecret**. | OUI |
-| secretName | Nom du secret dans Azure Key Vault. | OUI |
+| type | La propriété type du champ doit être définie sur : **AzureKeyVaultSecret**. | Oui |
+| secretName | Nom du secret dans Azure Key Vault. | Oui |
 | secretVersion | Version du secret dans Azure Key Vault.<br/>Si elle n’est pas spécifiée, la version la plus récente du secret est utilisée.<br/>Si elle est spécifiée, elle utilise la version spécifiée.| Non |
-| store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | OUI |
+| store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | Oui |
 
 **Utilisation de l’interface utilisateur de création :**
 

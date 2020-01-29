@@ -1,25 +1,17 @@
 ---
-title: Utiliser Runbook Azure Automation pour gérer des appareils StorSimple | Microsoft Docs
+title: Utiliser un runbook Azure Automation pour gérer des appareils StorSimple
 description: Découvrez comment utiliser Runbook Azure Automation pour automatiser des tâches StorSimple
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 727bebe0c190ed4dff4408884c45fe166ad541a9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310157"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276974"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Utiliser des runbooks Azure Automation pour gérer des appareils StorSimple
 
@@ -30,7 +22,7 @@ Cet article décrit comment des runbooks Azure Automation vous permettent de gé
 
 Cette section prend un exemple de script Windows PowerShell pour StorSimple, et décrit en détail les différentes étapes requises pour importer le script dans un runbook, puis publier et exécuter celui-ci.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eedf04a2168c67449f97d8e462d4ff82653a22b3
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932659"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513697"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Groupes d’ordinateurs dans les requêtes de journal Azure Monitor
 Les groupes d’ordinateurs d’Azure Monitor permettent de formuler des [requêtes de journal](../log-query/log-query-overview.md) portant sur un ensemble spécifique d’ordinateurs.  Vous peuplez chaque groupe d’ordinateurs soit à l’aide d’une requête que vous définissez, soit en important des groupes à partir de différentes sources.  Quand le groupe est inclus dans une requête de journal, les résultats sont limités aux enregistrements correspondant aux ordinateurs du groupe.
@@ -27,7 +27,7 @@ Pour créer un groupe d’ordinateurs dans Azure Monitor, vous pouvez suivre les
 | Requête de journal |Créer une requête de journal qui retourne une liste d’ordinateurs. |
 | API Recherche de journal |Utiliser l’API Recherche dans les journaux pour créer un groupe d’ordinateurs programmatiquement à partir des résultats d’une requête de journal. |
 | Active Directory |Analyser automatiquement l’appartenance de groupe de tous les ordinateurs agents membres d’un domaine Active Directory et créer un groupe pour chaque groupe de sécurité dans Azure Monitor. (Ordinateurs Windows uniquement)|
-| Gestionnaire de configuration | Importer des regroupements de System Center Configuration Manager et créer un groupe pour chacun dans Azure Monitor. |
+| Gestionnaire de configuration | Importer des regroupements depuis Microsoft Endpoint Configuration Manager et créer un groupe pour chacun dans Azure Monitor. |
 | Windows Server Update Services |Analyser automatiquement les clients ou serveurs WSUS pour détecter les groupes de ciblage et créer un groupe pour chacun dans Azure Monitor. |
 
 ### <a name="log-query"></a>Requête de journal
@@ -49,7 +49,7 @@ Le tableau suivant décrit les propriétés qui définissent un groupe d’ordin
 
 | Propriété | Description |
 |:---|:---|
-| Nom   | Nom de la requête à afficher sur le portail. |
+| Name   | Nom de la requête à afficher sur le portail. |
 | Alias de fonction | Alias unique utilisé pour identifier le groupe d’ordinateurs dans une requête. |
 | Category       | Catégorie servant à organiser les requêtes sur le portail. |
 
@@ -75,7 +75,7 @@ Pour configurer Azure Monitor de façon à importer des groupes WSUS, accédez �
 
 Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
 
-### <a name="system-center-configuration-manager"></a>System Center Configuration Manager
+### <a name="configuration-manager"></a>Gestionnaire de configuration
 Si Azure Monitor est configuré de façon à importer les adhésions aux regroupements Configuration Manager, il crée un groupe d’ordinateurs pour chaque regroupement.  Les informations d’appartenance au regroupement sont récupérées toutes les 3 heures pour tenir les groupes d’ordinateurs à jour. 
 
 Pour pouvoir importer des regroupements Configuration Manager, vous devez [connecter Configuration Manager à Azure Monitor](collect-sccm.md).  

@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 730436c7437d2ed77f9066f486d9716ec6d5681f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771834"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156350"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Configurer et utiliser des cibles de calcul pour effectuer l’apprentissage du modèle 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Pour en savoir plus, voir [Envoi d’expériences](#submit) à la fin de cet art
 
 ## <a name="whats-an-estimator"></a>Est-ce qu’un estimateur ?
 
-Pour faciliter une formation de modèles à l’aide d’infrastructures populaires, le kit de développement logiciel (SDK) Python d’Azure Machine Learning fournit une alternative d’abstraction de plus haut niveau, la classe d’estimateur.  Cette classe vous permet de construire facilement des configurations de série de tests. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) générique pour envoyer des scripts d’apprentissage qui utilisent toute infrastructure de formation que vous choisissez (comme scikit-Learn). Nous vous recommandons d’utiliser un estimateur pour l’entraînement, car celui-ci crée automatiquement des objets incorporés, tels que des objets Environment ou RunConfiguration. Si vous souhaitez mieux contrôler la façon dont ces objets sont créés et spécifier les packages à installer pour l’exécution de votre expérience, suivez [ces étapes](#amlcompute) pour envoyer vos expériences d’entraînement à l’aide d’un objet RunConfiguration sur un calcul Azure Machine Learning.
+Pour faciliter une formation de modèles à l’aide d’infrastructures populaires, le kit de développement logiciel (SDK) Python d’Azure Machine Learning fournit une alternative d’abstraction de plus haut niveau, la classe d’estimateur.  Cette classe vous permet de construire facilement des configurations de série de tests. Vous pouvez créer et utiliser un [estimateur](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) générique pour envoyer des scripts d’apprentissage qui utilisent toute infrastructure de formation que vous choisissez (comme scikit-Learn). Nous vous recommandons d’utiliser un estimateur pour l’apprentissage, car celui-ci crée automatiquement des objets incorporés, tels que des objets Environment ou RunConfiguration. Si vous souhaitez mieux contrôler la façon dont ces objets sont créés et spécifier les packages à installer pour l’exécution de votre expérience, suivez [ces étapes](#amlcompute) pour envoyer vos expériences d’apprentissage à l’aide d’un objet RunConfiguration sur une capacité de calcul Azure Machine Learning.
 
 Pour les tâches PyTorch, TensorFlow et Chainer, Azure Machine Learning fournit également les estimateurs [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) et [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py), respectivement, qui simplifient l’utilisation de ces infrastructures.
 
@@ -364,7 +364,7 @@ Pour plus d’informations, voir [Gestion des ressources](reference-azure-machin
 
 ## <a name="set-up-with-vs-code"></a>Configurer avec VS Code
 
-Vous pouvez accéder, créer et gérer les cibles de calcul associées à votre espace de travail en utilisant l’[extension VS Code](how-to-vscode-tools.md#create-and-manage-compute-targets) pour Azure Machine Learning.
+Vous pouvez accéder, créer et gérer les cibles de calcul associées à votre espace de travail en utilisant l’[extension VS Code](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) pour Azure Machine Learning.
 
 ## <a id="submit"></a>Envoyer une série de tests d’apprentissage à l’aide du Kit de développement logiciel (SDK) Azure Machine Learning
 
@@ -414,7 +414,7 @@ Vous pouvez également :
 
 * Soumettre l’expérience avec un objet `Estimator`, comme indiqué dans [Former des modèles ML avec des estimateurs](how-to-train-ml-models.md).
 * Soumettre une série de tests HyperDrive pour un [réglage d’hyperparamètre](how-to-tune-hyperparameters.md).
-* Soumettre une expérience via l’[extension VS Code](how-to-vscode-tools.md#train-and-tune-models).
+* Soumettre une expérience via l’[extension VS Code](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
 Pour plus d’informations, consultez la documentation sur [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) et [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py).
 

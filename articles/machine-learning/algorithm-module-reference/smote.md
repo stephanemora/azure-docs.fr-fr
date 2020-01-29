@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428433"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311408"
 ---
 # <a name="smote"></a>SMOTE
 
-Cet article explique comment utiliser le module SMOTE dans le concepteur Azure Machine Learning (préversion) pour augmenter le nombre de cas sous-représentés dans un jeu de données utilisé pour le Machine Learning. SMOTE représente un meilleur moyen d’augmenter le nombre de cas rares que la simple duplication de cas existants.  
+Cet article explique comment utiliser le module SMOTE dans le concepteur Azure Machine Learning pour augmenter le nombre de cas sous-représentés dans un jeu de données utilisé pour le machine learning. SMOTE représente un meilleur moyen d’augmenter le nombre de cas rares que la simple duplication de cas existants.  
 
 Le module SMOTE doit être connecté à un jeu de données *déséquilibré*. Il existe de nombreuses raisons pour lesquelles un jeu de données peut être déséquilibré. Par exemple, la catégorie ciblée est rare dans la population ou les données sont difficiles à collecter. En général, SMOTE doit être utilisé lorsque la *classe* à analyser est sous-représentée. 
   

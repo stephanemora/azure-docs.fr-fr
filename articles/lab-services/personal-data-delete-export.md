@@ -1,5 +1,5 @@
 ---
-title: Comment supprimer et exporter des données personnelles à partir d’Azure DevTest Labs | Microsoft Docs
+title: Supprimer et exporter des données personnelles à partir d’Azure DevTest Labs
 description: Découvrez comment supprimer et exporter des données personnelles à partir du service Azure DevLast Labs pour prendre en charge vos obligations dans le cadre du Règlement général sur la protection des données (RGPD).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371174"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169700"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exporter ou supprimer des données personnelles à partir d’Azure DevTest Labs
 Cet article fournit des étapes pour supprimer et exporter des données personnelles à partir du service Azure DevTest Labs. 
@@ -169,7 +169,7 @@ Le fichier **virtualmachines.csv** contient les colonnes de données suivantes 
 | ResourceGroupName | Nom du groupe de ressources qui contient la machine virtuelle | 
 | ResourceId | ID de ressource complet pour la machine virtuelle. |
 | ResourceUId | GUID pour la machine virtuelle |
-| Nom | Nom de la machine virtuelle. |
+| Name | Nom de la machine virtuelle. |
 | CreatedTime | Date-heure à laquelle la machine virtuelle a été créée. |
 | DeletedDate | Date-heure à laquelle la machine virtuelle a été supprimée. Si la valeur est vide, la suppression n’a pas encore eu lieu. |
 | ResourceOwner | Propriétaire de la machine virtuelle. Si la valeur est vide, il s’agit d’une machine virtuelle qui peut être revendiquée ou créée par un principal de service. |
@@ -197,7 +197,7 @@ Les colonnes de données contenues dans **Disks. csv** sont répertoriées ci-de
 | ResourceGroupName | Nom du groupe de ressources qui contient le laboratoire | 
 | ResourceId | ID de ressource complet pour la machine virtuelle. |
 | ResourceUId | GUID pour la machine virtuelle |
- |Nom | Nom du disque attaché |
+ |Name | Nom du disque attaché |
 | CreatedTime |La date et l'heure de création du disque de données. |
 | DeletedDate | La date et l’heure de suppression du disque de données. |
 | ResourceStatus | État de la ressource. Actif, si la ressource existe. Inactif, en cas de suppression. |
@@ -213,7 +213,7 @@ Les colonnes de données contenues dans **Disks. csv** sont répertoriées ci-de
 Les données exportées peuvent être manipulées et visualisées à l’aide d’outils, comme SQL Server, Power BI, etc. Cette fonctionnalité est particulièrement utile lorsque vous souhaitez signaler l’utilisation de votre laboratoire à votre équipe de gestion qui n’utilise peut-être pas le même abonnement Azure que vous.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants : 
+Voir les articles suivants : 
 
 - [Définir des stratégies pour un laboratoire](devtest-lab-get-started-with-lab-policies.md)
-- [Forum Aux Questions](devtest-lab-faq.md)
+- [Forum Aux Questions (FAQ)](devtest-lab-faq.md)

@@ -1,14 +1,14 @@
 ---
 title: Gestion des ressources déléguées Azure
 description: Les offres de services managés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
-ms.date: 07/11/2019
+ms.date: 01/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3d95b1becccc014afeb4621d17770a03e38a4
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453643"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263912"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
@@ -38,6 +38,9 @@ De façon générale, voici comment fonctionne la gestion des ressources délég
    - [Publier une offre de services managés (privé ou publics) sur la Place de marché Azure](../how-to/publish-managed-services-offers.md), que le client acceptera.
    - [Déployer un modèle Azure Resource Manager sur le locataire du client](../how-to/onboard-customer.md) pour un ou plusieurs abonnements ou groupes de ressources spécifiques.
 3. Une fois le client intégré, les utilisateurs autorisés peuvent se connecter au locataire de votre fournisseur de services et effectuer des tâches de gestion dans l’étendue du client, en fonction de l’accès que vous avez défini.
+
+> [!NOTE]
+> La délégation d’un abonnement entre deux locataires sur des clouds distincts n’est pas prise en charge.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Support pour la gestion des ressources déléguées Azure
 

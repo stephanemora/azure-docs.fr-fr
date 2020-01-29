@@ -1,5 +1,5 @@
 ---
-title: Solution Azure VMware de CloudSimple - Utiliser le site du cloud privé pour héberger une infrastructure de bureau virtuel à l'aide de VMware Horizon
+title: Azure VMware Solution by CloudSimple - Utiliser le site du cloud privé pour héberger une infrastructure de bureau virtuel à l'aide de VMware Horizon
 description: Vous explique comment utiliser le site de votre cloud privé CloudSimple pour héberger une infrastructure de bureau virtuel à l'aide de VMware Horizon.
 author: sharaths-cs
 ms.author: b-shsury
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 723821a78ecae308443c93567402e3b232c036f0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206554"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314706"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Utiliser le site du cloud privé CloudSimple pour héberger une infrastructure de bureau virtuel à l'aide de VMware Horizon
 
@@ -47,7 +47,7 @@ Les sections suivantes expliquent comment déployer une solution VDI à l'aide d
 ### <a name="estimate-the-size-of-your-desktop-environment"></a>Estimer la taille de votre environnement de bureau
 
 * Vérifiez que votre configuration se situe dans les limites opérationnelles de VMware.
-* Estimez les ressources dont votre site de récupération d'urgence a besoin pour protéger votre environnement local.
+* Estimez les ressources nécessaires pour tous vos postes de travail et composants de gestion Horizon.
 
 ### <a name="create-a-private-cloud-for-your-environment"></a>Créer un cloud privé pour votre environnement
 

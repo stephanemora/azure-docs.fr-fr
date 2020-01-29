@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763162"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314723"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -168,9 +168,26 @@ Dans tous ces cas, consultez les [types de données pris en charge ](https://doc
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
 
+## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Erreur : Impossible d’utiliser la stratégie de suivi des modifications intégré car la table contient une clé primaire composite
+
+Cela s’applique aux tables SQL, et se produit généralement lorsque la clé est définie en tant que clé composite ou, lorsque la table a défini un index cluster unique (comme avec l’index SQL, mais pas l’index Azure Search). Ceci est principalement dû au fait que l’attribut de clé est transformé en une clé primaire composite dans le cas d’un [index cluster unique](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). Dans ce cas, vérifiez que votre table SQL n’a pas d’index cluster unique, ou que vous mappez le champ clé à un champ pour lequel les valeurs en double sont impossibles.
+
+
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Erreur : Impossible de traiter le document en respectant le temps d’exécution max. de l’indexeur
 
 Cette erreur se produit lorsque l’indexeur ne peut pas terminer le traitement d’un document unique à partir de la source de données en respectant le temps d’exécution autorisé. [Le temps d’exécution maximal](search-limits-quotas-capacity.md#indexer-limits) est plus court quand des ensembles de compétences sont utilisés. Lorsque cette erreur se produit, si maxFailedItems est défini sur une valeur autre que 0, l’indexeur ignore le document pour les prochaines exécutions, de façon que l’indexation puisse progresser. Si vous ne pouvez pas vous permettre d’ignorer un document, ou si vous voyez cette erreur en permanence, pensez à diviser les documents en documents plus petits pour qu’une seule exécution de l’indexeur puisse traiter une partie de ces derniers.
+
+<a name="could-not-project-document"/>
+
+## <a name="error-could-not-project-document"></a>Erreur : Impossible de projeter le document
+
+Cette erreur se produit lorsque l’indexeur tente de [projeter des données dans une base de connaissances](knowledge-store-projection-overview.md) et échoue.  Cet échec peut être systématique et réparable, ou il peut s’agir d’un échec temporaire au niveau du récepteur de sortie de projection. Dans ce cas, vous devrez attendre un peu avant de réessayer.  Voici certains états d’échecs connus et des solutions possibles.
+
+| Motif | Détails/Exemple | Résolution |
+| --- | --- | --- |
+| Impossible de mettre à jour l’objet blob de projection `'blobUri'` dans le conteneur `'containerName'` |Le conteneur spécifié n’existe pas. | L’indexeur vérifie si le conteneur spécifié a déjà été créé et le crée si nécessaire, mais il n’effectue cette vérification qu’une seule fois par exécution de l’indexeur. Cette erreur signifie que quelque chose a supprimé le conteneur après cette étape.  Pour résoudre cette erreur, essayez ceci : ne modifiez pas les informations de votre compte de stockage, attendez que l’exécution de l’indexeur se termine, puis réexécutez-le. |
+| Impossible de mettre à jour l’objet blob de projection `'blobUri'` dans le conteneur `'containerName'` |Impossible d’écrire les données dans la connexion de transport : une connexion existante a dû être fermée par l’hôte distant. | Il s’agit d’un échec temporaire au niveau du stockage Azure. Pour résoudre le problème, vous devez réexécuter l’indexeur. Si vous rencontrez cette erreur de manière systématique, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) afin que nous examinions le problème plus en détail.  |
+| Impossible de mettre à jour la ligne `'projectionRow'` dans la table `'tableName'` | Le serveur est occupé. | Il s’agit d’un échec temporaire au niveau du stockage Azure. Pour résoudre le problème, vous devez réexécuter l’indexeur. Si vous rencontrez cette erreur de manière systématique, créez un [ticket de support](https://ms.portal.azure.com/#create/Microsoft.Support) afin que nous examinions le problème plus en détail.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 

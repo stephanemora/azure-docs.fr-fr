@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606344"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264829"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gérer des laboratoires de classe dans Azure Lab Services 
 Cet article décrit comment créer et supprimer un laboratoire de classe. Il montre également comment afficher tous les laboratoires de classe dans un compte de laboratoire. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour configurer un laboratoire de classe dans un compte de laboratoire, vous devez être membre du rôle **Créateur de laboratoire** dans le compte de laboratoire. Le compte utilisé pour créer un compte de laboratoire est ajouté automatiquement à ce rôle. Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle Créateur de laboratoire à l’aide des étapes fournies dans l’article suivant : [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Créer un laboratoire de classe
@@ -41,7 +41,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     6. Sélectionnez **Enregistrer**.
 
         ![Fenêtre Nouveau labo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. Sur la page **Informations d'identification de la machine virtuelle**, spécifiez les informations d’identification par défaut pour toutes les VM dans le laboratoire.
+4. Dans la page **Informations d’identification de machine virtuelle**, spécifiez les informations d’identification par défaut pour toutes les machines virtuelles du labo.
     1. Spécifiez le **nom d’utilisateur** pour toutes les VM du laboratoire.
     2. Spécifiez le **mot de passe** de l’utilisateur. 
 
@@ -55,7 +55,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
         > [!IMPORTANT]
         > Notez le nom d'utilisateur et le mot de passe que vous créez. Ils ne s’afficheront plus.    
     4. Ensuite, sélectionnez **Suivant** dans la page **Informations d’identification de la machine virtuelle**. 
-5. Dans la page **Stratégies du labo**, entrez le nombre d’heures alloué à chaque utilisateur (le **quota pour chaque utilisateur**) en dehors des heures planifiées pour le laboratoire, puis sélectionnez **Terminer**. 
+5. Dans la page **Stratégies du labo**, entrez le nombre d’heures allouées à chaque utilisateur (**quota pour chaque utilisateur**) en dehors des heures planifiées pour le labo, puis sélectionnez **Terminer**. 
 
     ![Quota pour chaque utilisateur](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
 5. Vous devez voir l’écran suivant qui indique l’état de la création du modèle de machine virtuelle. La création du modèle dans le laboratoire prend jusqu'à 20 minutes. 
@@ -88,7 +88,7 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
     
     1. Pour changer la capacité du labo (nombre de machines virtuelles dans le labo), sélectionnez **Capacité du labo** dans la barre d’outils.
     2. Pour démarrer toutes les machines virtuelles en même temps, sélectionnez **Démarrer tout** dans la barre d’outils. 
-    3. Pour démarrer une machine virtuelle spécifique, sélectionnez la flèche vers le bas sous **État**, puis sélectionnez **Démarrer**. Vous pouvez également démarrer une machine virtuelle en sélectionnant une machine virtuelle dans la première colonne, puis en sélectionnant **Démarrer** dans la barre d’outils.                
+    3. Pour démarrer une machine virtuelle spécifique, sélectionnez la flèche vers le bas sous **État**, puis sélectionnez **Démarrer**. Vous pouvez également démarrer une machine virtuelle en la sélectionnant dans la première colonne, puis en sélectionnant **Démarrer** dans la barre d’outils.                
 
 ### <a name="vm-sizes"></a>Tailles de machine virtuelle  
 
@@ -96,11 +96,14 @@ Pour configurer un laboratoire de classe dans un compte de laboratoire, vous dev
 | ---- | ----- | --- | ----------- | 
 | Petite | 2 | 3,5 Go | Cette taille est idéale pour la ligne de commande, l’ouverture d’un navigateur web, les serveurs web à faible trafic et les bases de données de petite et moyenne taille. |
 | Moyenne | 4 | 7 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse | 
-| Moyenne (virtualisation imbriquée) | 4 | 16 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. Cette taille prend également en charge la virtualisation imbriquée. <p>Cette taille peut être utilisée dans des scénarios où chaque étudiant a besoin de plusieurs machines virtuelles. Les enseignants peuvent utiliser la virtualisation imbriquée pour configurer quelques machines virtuelles imbriquées de petite taille dans la machine virtuelle. </p> |
-| grand | 8 | 32 Go | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. Cette taille prend également en charge la virtualisation imbriquée |  
+| Moyenne (virtualisation imbriquée) | 4 | 16 Go | Cette taille est idéale pour les bases de données relationnelles, le caching en mémoire et l’analyse. Cette taille prend également en charge la virtualisation imbriquée. <p>Cette taille peut être utilisée dans des scénarios où chaque étudiant a besoin de plusieurs machines virtuelles. Les enseignants peuvent utiliser la virtualisation imbriquée pour configurer quelques machines virtuelles imbriquées de petite taille dans la machine virtuelle. </p> |
+| grand | 8 | 32 Go | Cette taille est idéale pour les applications nécessitant des UC plus rapides, de meilleures performances du disque local, des bases de données volumineuses et des caches mémoire volumineux. Cette taille prend également en charge la virtualisation imbriquée |  
 | GPU de petite taille (visualisation) | 6 | 56 Go | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. | 
 | GPU de petite taille (calcul) | 6 | 56 Go | Cette taille est optimisée pour les applications nécessitant beaucoup de ressources système et de ressources réseau, notamment l'intelligence artificielle et les applications d'apprentissage approfondi (Deep Learning). | 
 | GPU de taille moyenne (visualisation) | 12 | 112 Go | Cette taille est optimisée pour la visualisation à distance, la diffusion en continu, les jeux et l’encodage avec des infrastructures comme OpenGL ou DirectX. | 
+
+> [!NOTE]
+> Azure Lab Services installe et configure automatiquement les pilotes GPU nécessaires quand vous créez un laboratoire avec des images GPU.  
 
 ## <a name="view-all-classroom-labs"></a>Afficher tous les laboratoires de classe
 1. Accédez au [portail Azure Lab Services](https://labs.azure.com).
@@ -129,7 +132,7 @@ Vous pouvez également créer un labo à l’aide de **Nouveau labo** dans cette
 Pour basculer vers un autre compte Lab, sélectionnez la liste déroulante en regard du compte lab et sélectionnez l’autre compte lab. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [En tant que propriétaire de labo, configurer et publier des modèles](how-to-create-manage-template.md)
 - [En tant que propriétaire de labo, configurer et contrôler l’utilisation d’un labo](how-to-configure-student-usage.md)

@@ -1,5 +1,5 @@
 ---
-title: Créer un environnement avec un cluster Service Fabric dans Azure DevTest Labs | Microsoft Docs
+title: Créer un environnement de cluster Service Fabric dans Azure DevTest Labs
 description: Découvrez comment créer un environnement avec un cluster Service Fabric autonome et comment démarrer et arrêter ce cluster à l’aide de planifications.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,19 +12,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 01/16/2020
 ms.author: enewman
-ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325252"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170338"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Créer un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs
 Cet article fournit des informations sur la création d’un environnement avec un cluster Service Fabric autonome dans Azure DevTest Labs. 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 DevTest Labs peut créer des environnements de test autonomes tels que définis par les modèles Azure Resource Manager. Ces environnements contiennent les deux ressources IaaS, comme les machines virtuelles et les ressources PaaS, comme Service Fabric. DevTest Labs vous permet de gérer des machines virtuelles dans un environnement avec des commandes permettant de contrôler ces machines virtuelles. Ces commandes vous permettent de démarrer ou d’arrêter une machine virtuelle en fonction d’une planification. De même, DevTest Labs peut aussi vous aider à gérer les clusters Service Fabric dans un environnement. Vous pouvez démarrer ou arrêter un cluster Service Fabric dans un environnement manuellement ou via une planification.
 
 ## <a name="create-a-service-fabric-cluster"></a>Créer un cluster Service Fabric
@@ -128,7 +128,7 @@ La page du cluster Service Fabric que vous avez vue précédemment dans la proc�
     ![Page d’accueil du cluster Service Fabric](./media/create-environment-service-fabric-cluster/service-fabric-cluster-page.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir des instructions détaillées sur les environnements, consultez les articles suivants : 
+Pour plus d'informations sur les environnements, consultez les articles suivants : 
 
 - [Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md)
 - [Configurer et utiliser des environnements publics dans Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)

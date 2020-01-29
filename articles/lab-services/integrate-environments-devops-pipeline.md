@@ -1,5 +1,5 @@
 ---
-title: Intégrer des environnements à Azure Pipelines dans Azure DevTest Labs | Microsoft Docs
+title: Intégrer des environnements à Azure Pipelines dans Azure DevTest Labs
 description: Découvrez comment intégrer des environnements Azure DevTest Labs à vos pipelines d’intégration continue et de livraison continue (CI/CD) Azure DevOps.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163914"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169426"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Intégrer des environnements à vos pipelines CI/CD Azure DevOps
 Vous pouvez utiliser l’extension Azure DevTest Labs Tasks installée dans Azure DevOps Services (anciennement Visual Studio Team Services) pour intégrer facilement votre pipeline de build et mise en production d’intégration continue (CI) et de livraison continue (CD) dans Azure DevTest Labs. Ces extensions facilitent le déploiement rapide d’un [environnement](devtest-lab-test-env.md) pour une tâche de test spécifique, ainsi que la suppression du déploiement une fois le test terminé. 
@@ -77,7 +77,7 @@ Dans la définition de mise en production, sélectionnez **Ajouter des tâches**
 2. Entrez un nom pour la définition de mise en production, puis enregistrez-le.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants : 
+Voir les articles suivants : 
 - [Créer des environnements de plusieurs machines virtuelles avec les modèles Azure Resource Manager](devtest-lab-create-environment-from-arm.md).
 - Modèles Resource Manager de démarrage rapide pour l’automatisation de DevTest Labs, disponibles dans le [dépôt DevTest Labs sur GitHub](https://github.com/Azure/azure-quickstart-templates).
 - [Page sur la résolution des problèmes avec VSTS](/azure/devops/pipelines/troubleshooting)

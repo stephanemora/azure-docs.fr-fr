@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931886"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513556"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>À propos du service Mobilité pour serveurs physiques et machines virtuelles VMware
 
-Lorsque vous configurez la reprise d’activité des serveurs physiques et des machines virtuelles VMware à l'aide d'[Azure Site Recovery](site-recovery-overview.md), vous installez le service Mobilité de Site Recovery sur l'ensemble des serveurs physiques et des machines virtuelles VMware locaux.  Le service Mobilité enregistre les écritures de données sur la machine et les transmet au serveur de processus Site Recovery. Vous pouvez déployer le service Mobilité à l’aide des méthodes suivantes :
+Lorsque vous configurez la reprise d’activité des serveurs physiques et des machines virtuelles VMware à l'aide d'[Azure Site Recovery](site-recovery-overview.md), vous installez le service Mobilité de Site Recovery sur l'ensemble des serveurs physiques et des machines virtuelles VMware locaux.  Le service Mobilité enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery. Vous pouvez déployer le service Mobilité à l’aide des méthodes suivantes :
 
 - [Installation Push](#push-installation) : Site Recovery installe l’agent de mobilité sur le serveur lorsque la protection est activée par le biais du portail Azure.
 - Installation manuelle : vous pouvez installer le service Mobilité manuellement sur chaque machine par le biais de l’[interface utilisateur](#install-mobility-agent-through-ui) ou d’une [invite de commandes](#install-mobility-agent-through-command-prompt).
-- [Déploiement automatisé](vmware-azure-mobility-install-configuration-mgr.md) : vous pouvez automatiser l’installation à l’aide d’outils de déploiement de logiciels tels que System Center Configuration Manager.
+- [Déploiement automatisé](vmware-azure-mobility-install-configuration-mgr.md) : Vous pouvez automatiser l’installation avec des outils de déploiement de logiciels tels que Configuration Manager.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Protection antivirus sur les machines répliquées
 
@@ -119,7 +119,7 @@ Usage | UnifiedAgent.exe /Role \<MS/MT> /InstallLocation \<Install Location> /Pl
 Fichiers journaux d’activité d’installation | Sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Paramètre d’installation obligatoire. Spécifie si le service Mobilité (MS) ou Master Target(MT) doit être installé.
 /InstallLocation| Paramètre facultatif. Spécifie l’emplacement d’installation du service Mobilité (n’importe quel dossier).
-/Platform | Obligatoire. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles VMware ; **Azure** pour les machines virtuelles Azure.<br/><br/> Si vous traitez des machines virtuelles Azure comme des machines physiques, spécifiez **VMware**.
+/Platform | Mandatory. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles VMware ; **Azure** pour les machines virtuelles Azure.<br/><br/> Si vous traitez des machines virtuelles Azure comme des machines physiques, spécifiez **VMware**.
 /Silent| facultatif. Indique si le programme d’installation doit être exécuté en mode silencieux.
 
 #### <a name="registration-settings"></a>Paramètres d’inscription
@@ -128,7 +128,7 @@ Fichiers journaux d’activité d’installation | Sous %ProgramData%\ASRSetupLo
 Usage | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
 Journaux d’activité de configuration de l’agent | Sous %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log.
 /CSEndPoint | Paramètre obligatoire. Spécifie l’adresse IP du serveur de configuration. Utilisez une adresse IP valide.
-/PassphraseFilePath |  Obligatoire. Emplacement de la phrase secrète. Utilisez n’importe quel chemin d’accès UNC ou local valide.
+/PassphraseFilePath |  Mandatory. Emplacement de la phrase secrète. Utilisez n’importe quel chemin d’accès UNC ou local valide.
 
 ### <a name="on-a-linux-machine"></a>Sur une machine Linux
 
@@ -157,7 +157,7 @@ Journaux d’activité de configuration de l’agent | Sous %ProgramData%\ASRSet
 Usage | ./install -d \<Install Location> -r \<MS/MT> -v VmWare -q
 -r | Paramètre d’installation obligatoire. Spécifie si le service Mobilité (MS) ou Master Target(MT) doit être installé.
 -d | Paramètre facultatif. Spécifie l’emplacement d’installation du service Mobilité : /usr/local/ASR.
--v | Obligatoire. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles VMware ; **Azure** pour les machines virtuelles Azure.
+-v | Mandatory. Spécifie la plateforme sur laquelle le service Mobilité est installé. **VMware** pour les serveurs physiques/machines virtuelles VMware ; **Azure** pour les machines virtuelles Azure.
 -q | facultatif. Indique si le programme d’installation doit être exécuté en mode silencieux.
 
 #### <a name="registration-settings"></a>Paramètres d’inscription
@@ -165,7 +165,7 @@ Usage | ./install -d \<Install Location> -r \<MS/MT> -v VmWare -q
 --- | ---
 Usage | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
 -i | Paramètre obligatoire. Spécifie l’adresse IP du serveur de configuration. Utilisez une adresse IP valide.
--P |  Obligatoire. Chemin d’accès complet du fichier dans lequel la phrase secrète est enregistrée. Utilisez n’importe quel dossier valide.
+-P |  Mandatory. Chemin d’accès complet du fichier dans lequel la phrase secrète est enregistrée. Utilisez n’importe quel dossier valide.
 
 ## <a name="azure-virtual-machine-agent"></a>Agent de machine virtuelle Azure
 
@@ -188,7 +188,7 @@ Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6.4, 6.5
 Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz | Ubuntu Linux 14.04
 Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Serveur Ubuntu Linux 16.04 LTS
 Microsoft-ASR_UA\*DEBIAN7 64\*release.tar.gz | Debian 7
-Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
+Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442066"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513490"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
@@ -93,7 +93,7 @@ Vous devez créer les ressources Azure requises par la solution : Azure Cosmos D
 
 Vous allez à présent créer une collection destinée à stocker les événements du site d’e-commerce. Chaque fois qu’un utilisateur consultera un article, ajoutera un article à son panier ou achètera un article, la collection recevra un enregistrement incluant l’action (« Affiché », « Ajouté » ou « Acheté »), le nom et le prix de l’article concerné, ainsi que le numéro d’identification du panier utilisateur impliqué.
 
-1. Accédez au [Portail Azure](https://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
+1. Accédez au [portail Azure](https://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
 
 2. Dans le volet **Explorateur de données**, sélectionnez **Nouvelle collection**, puis renseignez le formulaire avec les informations suivantes :  
 
@@ -117,7 +117,7 @@ Vous allez à présent créer une collection destinée à stocker les événemen
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Obtenir la chaîne de connexion Azure Cosmos DB
 
-1. Accédez au [Portail Azure](https://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
+1. Accédez au [portail Azure](https://portal.azure.com/) et recherchez le **Compte Azure Cosmos DB** créé par le déploiement du modèle.  
 
 2. Accédez au volet **Clés**, puis copiez la CHAÎNE DE CONNEXION PRINCIPALE dans un Bloc-notes ou dans un autre document auquel vous aurez accès tout au long du labo. Vous devez lui attribuer l’étiquette **Chaîne de connexion Cosmos DB**. Vous devrez copier cette chaîne dans votre code par la suite ; par conséquent, notez-la dans un endroit facile à mémoriser.
 
@@ -177,7 +177,7 @@ Pour voir la manière dont le flux de modification traite les nouvelles actions 
  
 6. Attendez que le programme s’exécute. L’apparition d’étoiles signifie que les données affluent. Laissez le programme s’exécuter, car il est important que vous collectiez un maximum de données.  
 
-7. Si vous accédez au [Portail Azure](https://portal.azure.com/), puis au compte Cosmos DB dans votre groupe de ressources, et enfin à **l’Explorateur de données**, vous verrez les données aléatoires importées dans votre collection **changefeedlabcollection** .
+7. Si vous accédez au [portail Azure](https://portal.azure.com/), puis au compte Cosmos DB dans votre groupe de ressources, et enfin à **Data Explorer**, vous verrez les données aléatoires importées dans votre collection **changefeedlabcollection** .
  
    ![Données générées dans le portail](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Pour voir la manière dont le flux de modification traite les nouvelles actions 
 
 Azure Stream Analytics est un service cloud entièrement géré pour le traitement en temps réel des données de streaming. Dans le cadre de ce labo, vous allez utiliser Stream Analytics pour traiter les nouveaux événements à partir de l’Event Hub (par exemple, article consulté, ajouté à un panier ou acheté), pour incorporer ces événements dans l’Analytique données en temps réel, puis pour les envoyer dans Power BI à des fins de visualisation.
 
-1. À partir du [Portail Azure](https://portal.azure.com/), accédez à votre groupe de ressources, puis à **streamjob1** (travail Stream Analytics que vous avez créé dans le cadre du labo préalable).  
+1. À partir du [portail Azure](https://portal.azure.com/), accédez à votre groupe de ressources, puis à **streamjob1** (travail Stream Analytics que vous avez créé dans le cadre du labo préalable).  
 
 2. Sélectionnez **Entrées** comme illustré ci-dessous.  
 
@@ -320,7 +320,7 @@ Power BI est une suite d’outils d’analyse métier permettant d’analyser de
 
 Vous allez à présent découvrir comment utiliser votre nouvel outil d’Analytique données pour vous connecter à un véritable site d’e-commerce. Pour générer le site d’e-commerce, utilisez une base de données Azure Cosmos afin de stocker la liste des catégories de produits (Pour femmes, Pour hommes, Unisexe), le catalogue de produits et la liste des articles les plus populaires.
 
-1. Réaccédez au [Portail Azure](https://portal.azure.com/), à votre **Compte Cosmos DB**, puis à **l’Explorateur de données**.  
+1. Revenez au [portail Azure](https://portal.azure.com/), à votre **Compte Cosmos DB**, puis à **Explorateur de données**.  
 
    Sous **changefeedlabdatabase**, ajoutez deux collections - **products** et **categories** avec une capacité de stockage Fixe.
 
@@ -390,9 +390,8 @@ Vous allez à présent découvrir comment utiliser votre nouvel outil d’Analyt
 
 ## <a name="delete-the-resources"></a>Supprimer les ressources
 
-Pour supprimer les ressources que vous avez créées dans le cadre de ce labo, accédez au groupe de ressources dans le [Portail Azure](https://portal.azure.com/), puis sélectionnez **Supprimer le groupe de ressources** dans le menu situé en haut de la page et suivez les instructions fournies.
+Pour supprimer les ressources que vous avez créées dans le cadre de ce labo, accédez au groupe de ressources dans le [portail Azure](https://portal.azure.com/), puis sélectionnez **Supprimer le groupe de ressources** dans le menu situé en haut de la page et suivez les instructions fournies.
 
 ## <a name="next-steps"></a>Étapes suivantes 
   
 * Pour plus d’informations sur le flux de modification, consultez l’article [Utilisation du support de flux de modification dans Azure Cosmos DB](change-feed.md). 
-* Consultez l’article présentant la [solution de notification du flux de modification](change-feed-hl7-fhir-logic-apps.md) créée pour un établissement de santé à l’aide d’Azure Cosmos DB.

@@ -5,24 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/25/2019
+ms.date: 01/15/2020
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: f3b9f6c27fb8d423350eac5d286c9859ad6fbd37
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a0a4a10797109cb3363027e2445259d06d9aa071
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104249"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76118115"
 ---
-## <a name="about-the-user-delegation-sas-preview"></a>À propos de la SAP de délégation d’utilisateur (préversion)
+## <a name="about-the-user-delegation-sas"></a>À propos de la SAS de délégation d’utilisateur
 
 Un jeton SAP pour l’accès à un conteneur ou à un objet blob peut être sécurisé à l’aide d’informations d’identification Azure AD ou d’une clé de compte. Une SAP sécurisée avec des informations d’identification Azure AD est appelée une SAP de délégation d’utilisateur, car le jeton OAuth 2.0 utilisé pour signer la SAP est demandé au nom de l’utilisateur.
 
 Comme meilleure pratique de sécurité, Microsoft vous recommande d’utiliser si possible les informations d’identification Azure AD plutôt que d’utiliser la clé de compte qui peut être plus facilement compromise. Lorsque la conception de votre application nécessite des signatures d’accès partagé, utilisez les informations d’identification Azure AD pour créer une SAP de délégation d’utilisateur pour profiter d’une sécurité supérieure. Pour plus d’informations sur la SAP de délégation d’utilisateur, consultez [Créer une SAP de délégation d’utilisateur](/rest/api/storageservices/create-user-delegation-sas).
-
-> [!NOTE]
-> La préversion de la SAP de délégation d’utilisateur est destinée uniquement à une utilisation hors production.
 
 > [!CAUTION]
 > Tout client disposant d’une SAP valide peut accéder aux données de votre compte de stockage tel qu’autorisé par cette SAP. Il est important de protéger une SAP contre toute utilisation malveillante ou involontaire. Faites preuve de discrétion lors de la distribution d’une SAP et mettez en place un plan de révocation d’une SAS compromis.

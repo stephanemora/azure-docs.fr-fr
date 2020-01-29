@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 69ae6766414dbe533500860b01852ee8d25c3a1e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510614"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291377"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Vue d’ensemble des diagnostics Azure Kubernetes Service (AKS)
 
@@ -24,13 +24,13 @@ Pour accéder à AKS Diagnostics :
 
 - Accédez à votre cluster Kubernetes dans le [portail Azure](https://portal.azure.com).
 - Dans le volet de navigation de gauche, cliquez sur **Diagnostiquer et résoudre les problèmes** pour ouvrir AKS Diagnostics.
-- Choisissez la catégorie la plus adapté au problème de votre cluster à l'aide de mots clés dans la vignette de page d’accueil OU entrez un mot clé décrivant votre problème dans la barre de recherche, par exemple _Problèmes de nœud de cluster_.
+- Choisissez la catégorie la plus adaptée au problème de votre cluster en utilisant les mots clés dans la vignette de la page d’accueil ou entrez un mot clé décrivant votre problème dans la barre de recherche, par exemple _Problèmes de nœud de cluster_.
 
 ![Page d’accueil](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
 ## <a name="view-a-diagnostic-report"></a>Afficher un rapport de diagnostic
 
-Après avoir cliqué sur une catégorie, vous pouvez afficher un rapport de diagnostic spécifique à votre cluster. Le rapport de diagnostic détaille intelligemment tout problème éventuel dans votre cluster à l'aide d'icônes d'état. Vous pouvez accéder à chaque rubrique en cliquant sur **Informations supplémentaires** afin d'obtenir une description détaillée du problème, des actions recommandées, des liens vers des documents utiles, des métriques liées, ainsi que des données de journalisation. Les rapports de diagnostic sont générés intelligemment en fonction de l’état actuel de votre cluster après exécution de nombreuses vérifications. En outre, les rapports de diagnostic permettent d'identifier le problème de votre cluster et de trouver la procédure à suivre pour y remédier.
+Après avoir cliqué sur une catégorie, vous pouvez afficher un rapport de diagnostic spécifique à votre cluster. Le rapport de diagnostic détaille intelligemment tout problème éventuel dans votre cluster à l'aide d'icônes d'état. Vous pouvez accéder à chaque rubrique en cliquant sur **Informations supplémentaires** afin d'obtenir une description détaillée du problème, des actions recommandées, des liens vers des documents utiles, des métriques liées, ainsi que des données de journalisation. Les rapports de diagnostic sont générés de façon intelligente en fonction de l’état actuel de votre cluster après exécution de nombreuses vérifications. En outre, les rapports de diagnostic permettent d'identifier le problème de votre cluster et de trouver la procédure à suivre pour y remédier.
 
 ![Rapport de diagnostic](./media/concepts-diagnostics/diagnostic-report.png)
 
@@ -72,7 +72,7 @@ CRUD Operations vérifie les opérations CRUD susceptibles d'entraîner des prob
 
 ### <a name="identity-and-security-management"></a>Gestion de la sécurité et identité
 
-Identity and Security Management (Gestion de la sécurité et identité) détecte les erreurs d’authentification et d’autorisation susceptibles d’empêcher la communication avec votre cluster.
+La gestion de la sécurité et des identités détecte les erreurs d’authentification et d’autorisation susceptibles d’empêcher la communication avec votre cluster.
 
 - Échecs d'autorisation de nœud
 - Erreurs 401

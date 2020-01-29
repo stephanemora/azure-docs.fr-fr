@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893057"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544155"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>Préversion - Migrer Azure Active Directory Domain Services depuis le modèle de réseau virtuel classique vers Resource Manager
 
-Azure Active Directory Domain Services (AD DS) prend en charge un unique déplacement des clients utilisant actuellement le modèle de réseau virtuel classique vers le modèle de réseau virtuel Resource Manager.
+Azure Active Directory Domain Services (AD DS) prend en charge un unique déplacement des clients utilisant actuellement le modèle de réseau virtuel classique vers le modèle de réseau virtuel Resource Manager. Les domaines managés Azure AD DS qui utilisent le modèle de déploiement Resource Manager offrent des fonctionnalités supplémentaires telles que la stratégie de mot de passe affinée, les journaux d’audit et la protection par verrouillage de compte.
 
-Cet article décrit les avantages et les considérations à prendre en compte pour la migration, ainsi que les étapes nécessaires pour réussir la migration d’une instance Azure AD DS existante. Actuellement, cette fonctionnalité est uniquement disponible en tant que version préliminaire.
+Cet article décrit les avantages et les considérations à prendre en compte pour la migration, ainsi que les étapes nécessaires pour réussir la migration d’une instance Azure AD DS existante. Cette fonctionnalité de migration est actuellement en préversion.
 
 ## <a name="overview-of-the-migration-process"></a>Vue d’ensemble du processus de migration
 
@@ -106,7 +106,7 @@ Certaines considérations relatives à la disponibilité des services d’authen
 
 ### <a name="ip-addresses"></a>Adresses IP
 
-Les adresses IP des contrôleurs de domaine d’un domaine managé Azure AD DS changent après une migration. C’est le cas, par exemple, de l’adresse IP publique du point de terminaison LDAP sécurisé. Les nouvelles adresses IP se trouvent dans la plage d’adresses du nouveau sous-réseau du réseau virtuel Resource Manager.
+Les adresses IP des contrôleurs de domaine d’un domaine managé Azure AD DS changent après une migration. Ce changement comprend l’adresse IP publique du point de terminaison LDAP sécurisé. Les nouvelles adresses IP se trouvent dans la plage d’adresses du nouveau sous-réseau du réseau virtuel Resource Manager.
 
 En cas d’annulation, les adresses IP peuvent changer après le retour à un état antérieur à la migration.
 
@@ -122,13 +122,13 @@ Les domaines managés Azure AD DS qui s’exécutent sur les réseaux virtuels c
 
 Par défaut, 5 tentatives de mot de passe incorrect en 2 minutes verrouillent un compte pendant 30 minutes.
 
-Il est impossible de se connecter à compte verrouillé, ce qui peut interférer avec la possibilité de gérer le domaine managé Azure AD DS ou les applications administrées par le compte. Après la migration d’un domaine managé Azure AD DS, les comptes peuvent être confrontés à ce qui ressemble à un verrouillage permanent, suite à des tentatives de connexion répétées qui ont échoué. Voici deux scénarios fréquents survenant après la migration :
+Il est impossible d’utiliser un compte verrouillé pour se connecter, ce qui peut interférer avec la possibilité de gérer le domaine managé Azure AD DS ou les applications administrées par le compte. Après la migration d’un domaine managé Azure AD DS, les comptes peuvent être confrontés à ce qui ressemble à un verrouillage permanent, suite à des tentatives de connexion répétées qui ont échoué. Voici deux scénarios fréquents survenant après la migration :
 
 * Un compte de service qui utilise un mot de passe expiré.
     * Le compte de service tente à plusieurs reprises de se connecter avec un mot de passe arrivé à expiration, ce qui verrouille le compte. Pour résoudre ce problème, localisez l’application ou la machine virtuelle dotée des informations d’identification expirées et mettez à jour le mot de passe.
 * Une entité malveillante utilise des tentatives de connexion par force brute sur des comptes.
     * Lorsque des machines virtuelles sont exposées à Internet, les attaquants essaient souvent des combinaisons courantes de nom d’utilisateur et de mot de passe lorsqu’ils tentent de se connecter. Ces tentatives de connexion répétées qui ont échoué peuvent verrouiller les comptes. Il est déconseillé d’utiliser des comptes administrateur avec des noms génériques, tels que *admin* ou *administrateur* par exemple, si l’on veut réduire le risque de verrouillage des comptes d’administration.
-    * Réduisez au minimum le nombre de machines virtuelles exposées à Internet. Vous pouvez utiliser [Azure Bastion (actuellement en préversion)][azure-bastion] pour vous connecter en toute sécurité aux machines virtuelles par le biais du portail Azure.
+    * Réduisez au minimum le nombre de machines virtuelles exposées à Internet. Vous pouvez utiliser [Azure Bastion][azure-bastion] pour vous connecter de façon sécurisée aux machines virtuelles par le biais du portail Azure.
 
 Si vous pensez que certains comptes puissent être verrouillés après la migration, les étapes finales de la migration expliquent en détail comment activer l’audit ou modifier les paramètres de la stratégie de mot de passe affinée.
 
@@ -164,11 +164,11 @@ La migration vers le réseau virtuel et le modèle de déploiement Resource Mana
 
 ## <a name="update-and-verify-virtual-network-settings"></a>Mettre à jour et vérifier les paramètres de réseau virtuel
 
-Avant de commencer la migration, procédez aux vérifications et mises à jour initiales suivantes. Ces étapes peuvent s’effectuer à tout moment avant la migration, elles n’affectent pas le fonctionnement du domaine managé Azure AD DS.
+Avant de commencer le processus de migration, effectuez les vérifications et mises à jour initiales suivantes. Ces étapes peuvent s’effectuer à tout moment avant la migration, elles n’affectent pas le fonctionnement du domaine managé Azure AD DS.
 
 1. Mettez à jour votre environnement Azure PowerShell local avec la toute dernière version. Pour réaliser les étapes de migration, vous avez besoin de la version *2.3.2*, au minimum.
 
-    Pour plus d’informations sur la vérification et la mise à jour, consultez [Vue d’ensemble d’Azure PowerShell][azure-powershell].
+    Pour plus d’informations sur la vérification et la mise à jour de votre version PowerShell, consultez [Vue d’ensemble d’Azure PowerShell][azure-powershell].
 
 1. Créez ou choisissez un réseau virtuel Resource Manager existant.
 
@@ -210,7 +210,8 @@ Pour préparer le domaine managé Azure AD DS à la migration, effectuez les ét
 
     ```powershell
     Migrate-Aadds `
-        -Prepare -ManagedDomainFqdn contoso.com `
+        -Prepare `
+        -ManagedDomainFqdn contoso.com `
         -Credentials $creds
     ```
 
@@ -273,27 +274,27 @@ Le deuxième contrôleur de domaine doit normalement être disponible 1 à 2 h
 
 Une fois le processus de migration terminé, il reste quelques étapes facultatives de configuration, dont l’activation des journaux d’audit ou des notifications par e-mail, et la mise à jour de la stratégie de mot de passe affinée.
 
-#### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>S’abonner aux journaux d’audit avec Azure Monitor
+### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>S’abonner aux journaux d’audit avec Azure Monitor
 
 Azure AD DS expose les journaux d’audit pour vous aider à résoudre des problèmes et à afficher les événements sur les contrôleurs de domaine. Pour plus d’informations, consultez [Activer et utiliser les journaux d’audit][security-audits].
 
 Vous pouvez utiliser des modèles pour superviser les informations importantes qui sont exposées dans les journaux. Par exemple, le modèle de classeur du journal d’audit peut superviser les éventuels verrouillages de compte sur le domaine managé Azure AD DS.
 
-#### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configurer les notifications par e-mail pour Azure Active Directory Domain Services
+### <a name="configure-azure-ad-domain-services-email-notifications"></a>Configurer les notifications par e-mail pour Azure Active Directory Domain Services
 
 Afin d’être averti lorsqu’un problème est détecté sur le domaine managé Azure AD DS, mettez à jour les paramètres de notification par e-mail dans le portail Azure. Pour plus d’informations, consultez [Configurer les paramètres de notification][notifications].
 
-#### <a name="update-fine-grained-password-policy"></a>Mettre à jour la stratégie de mot de passe affinée
+### <a name="update-fine-grained-password-policy"></a>Mettre à jour la stratégie de mot de passe affinée
 
 Au besoin, vous pouvez mettre à jour la stratégie de mot de passe affinée pour qu’elle soit moins restrictive que la configuration par défaut. Vous pouvez utiliser les journaux d’audit pour déterminer si un paramètre moins restrictif est pertinent, et configurer ensuite la stratégie si nécessaire. Utilisez les étapes principales suivantes pour examiner et mettre à jour les paramètres de stratégie des comptes qui sont verrouillés de façon répétée après la migration :
 
 1. [Configurez la stratégie de mot de passe][password-policy] pour imposer moins de restrictions sur le domaine managé Azure AD DS, puis observez les événements dans les journaux d’audit.
 1. Si des comptes de service utilisent des mots de passe arrivés à expiration, tels qu’ils sont identifiés dans les journaux d’audit, mettez à jour ces comptes avec le mot de passe correct.
-1. Si la machine virtuelle est exposée à Internet, passez en revue les noms de comptes génériques, comme *administrateur*, *utilisateur* ou *invité*, qui présentent des tentatives de connexion à risque élevé. Dans la mesure du possible, mettez à jour ces machines virtuelles afin d’utiliser des noms de compte moins génériques.
-1. Utilisez un suivi réseau sur la machine virtuelle pour localiser la source des attaques et bloquer ces adresses IP capables de tenter des connexions.
+1. Si une machine virtuelle est exposée à Internet, passez en revue les noms de comptes génériques, comme *administrateur*, *utilisateur* ou *invité*, qui présentent des tentatives de connexion à risque élevé. Dans la mesure du possible, mettez à jour ces machines virtuelles afin d’utiliser des noms de compte moins génériques.
+1. Utilisez un suivi réseau sur la machine virtuelle pour localiser la source des attaques et empêcher ces adresses IP de tenter des connexions.
 1. En cas de problème de verrouillage minime, mettez à jour la stratégie de mot de passe affinée pour qu’elle soit aussi restrictive que nécessaire.
 
-#### <a name="creating-a-network-security-group"></a>Création d’un groupe de sécurité réseau
+### <a name="creating-a-network-security-group"></a>Création d’un groupe de sécurité réseau
 
 Azure AD DS a besoin d’un groupe de sécurité réseau pour sécuriser les ports nécessaires au domaine managé et bloquer tout autre trafic entrant. Ce groupe de sécurité réseau agit comme une couche de protection supplémentaire pour verrouiller l’accès au domaine managé ; il n’est pas créé automatiquement. Pour créer le groupe de sécurité réseau et ouvrir les ports nécessaires, conformez-vous aux étapes suivantes :
 
@@ -301,6 +302,8 @@ Azure AD DS a besoin d’un groupe de sécurité réseau pour sécuriser les por
 1. Si vous utilisez le protocole LDAP sécurisé, ajoutez une règle au groupe de sécurité réseau afin d’autoriser le trafic entrant pour le port *TCP* *636*. Pour plus d’informations, consultez [Configurer le protocole LDAP sécurisé][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Annuler et restaurer à partir de la migration
+
+Jusqu’à un certain point du processus de migration, vous pouvez choisir de revenir en arrière ou de restaurer le domaine managé Azure AD DS.
 
 ### <a name="roll-back"></a>Annuler l’opération
 
@@ -316,13 +319,13 @@ Migrate-Aadds `
     -Credentials $creds
 ```
 
-### <a name="restore"></a>Restore
+### <a name="restore"></a>Restaurer
 
 En dernier recours, Azure Active Directory Domain Services peut être restauré à partir de la dernière sauvegarde disponible. Une sauvegarde est effectuée à l’étape 1 de la migration, pour s’assurer que la sauvegarde la plus récente est disponible. Cette sauvegarde est stockée pendant 30 jours.
 
 Pour restaurer le domaine managé Azure AD DS à partir d’une sauvegarde, [ouvrez un ticket de cas de support par l’intermédiaire du portail Azure][azure-support]. Indiquez votre ID d’annuaire, le nom de domaine et la raison de la restauration. Le processus de prise en charge et de restauration peut demander plusieurs jours pour s’accomplir.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous rencontrez des problèmes après avoir effectué la migration vers le modèle de déploiement Resource Manager, consultez ces quelques rubriques de la résolution des problèmes courants :
 

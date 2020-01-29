@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77e24fa41c5f716460d82e1079659e6aee5e9a9b
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561148"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293451"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -49,6 +49,9 @@ Les distributions Windows suivantes sont actuellement prises en charge pendant l
 - Windows Server 2019 Datacenter
 - Windows 10 1809 et versions ultérieures
 
+> [!IMPORTANT]
+> La connexion à distance aux machines virtuelles jointes à Azure AD est autorisée uniquement à partir des PC Windows 10 qui sont joints à Azure AD ou hybrides joints à Azure AD au **même** répertoire que la machine virtuelle. 
+
 Les régions Azure suivantes sont actuellement prises en charge dans la préversion de cette fonctionnalité :
 
 - Toutes les régions globales Azure
@@ -60,10 +63,10 @@ Les régions Azure suivantes sont actuellement prises en charge dans la prévers
 
 Pour activer l’authentification Azure AD pour vos machines virtuelles Windows dans Azure, vous devez vous assurer que la configuration de votre réseau de machines virtuelles autorise un accès sortant aux points de terminaison suivants sur le port TCP 443 :
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
-- https://pas.windows.net
+- https:\//enterpriseregistration.windows.net
+- https:\//login.microsoftonline.com
+- https:\//device.login.microsoftonline.com
+- https:\//pas.windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Activation de la connexion Azure AD dans pour les machines virtuelles Windows dans Azure
 
@@ -236,24 +239,24 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
 
    | Commande à exécuter | Sortie attendue |
    | --- | --- |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Informations correctes sur la machine virtuelle Azure |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | ID de locataire valide associé à l’abonnement Azure |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | Jeton d’accès valide émis par Azure Active Directory pour l’identité managée qui est attribuée à cette machine virtuelle |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Informations correctes sur la machine virtuelle Azure |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | ID de locataire valide associé à l’abonnement Azure |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Jeton d’accès valide émis par Azure Active Directory pour l’identité managée qui est attribuée à cette machine virtuelle |
 
    > [!NOTE]
    > Le jeton d’accès peut être décodé à l’aide d’un outil tel que [http://calebb.net/](http://calebb.net/). Vérifiez que l’« appid » dans le jeton d’accès correspond à l’identité managée attribuée à la machine virtuelle.
 
 1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de la ligne de commande :
    
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>` / -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
 
    > [!NOTE]
    > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. L’état de l’appareil peut être affiché en exécutant `dsregcmd /status`. L’objectif est que l’état de l’appareil s’affiche comme `AzureAdJoined : YES`.
 
@@ -280,15 +283,15 @@ Ce code de sortie se traduit par DSREG_AUTOJOIN_DISC_FAILED, car l’extension n
 
 1. Vérifiez que les points de terminaison requis sont accessibles à partir de la machine virtuelle à l’aide de la ligne de commande :
 
-   - curl https://login.microsoftonline.com/ -D –
-   - curl https://login.microsoftonline.com/`<TenantID>` / -D –
+   - curl https:\//login.microsoftonline.com/ -D –
+   - curl https:\//login.microsoftonline.com/`<TenantID>`/ -D –
    
    > [!NOTE]
    > Remplacez `<TenantID>` par l’ID de locataire Azure AD associé à l’abonnement Azure. Si vous devez trouver l’ID de locataire, vous pouvez pointer sur le nom de votre compte pour obtenir l’ID de locataire/répertoire, ou sélectionnez Azure Active Directory > Propriétés > ID de répertoire dans le Portail Azure.
 
-   - curl https://enterpriseregistration.windows.net/ -D -
-   - curl https://device.login.microsoftonline.com/ -D -
-   - curl https://pas.windows.net/ -D -
+   - curl https:\//enterpriseregistration.windows.net/ -D -
+   - curl https:\//device.login.microsoftonline.com/ -D -
+   - curl https:\//pas.windows.net/ -D -
 
 1. Si l’une des commandes échoue avec le message « Impossible de résoudre `<URL>` hôte », essayez d’exécuter cette commande pour déterminer le serveur DNS utilisé par la machine virtuelle.
    

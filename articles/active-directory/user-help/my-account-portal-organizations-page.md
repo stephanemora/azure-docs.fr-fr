@@ -12,29 +12,30 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1ab01f5427401bd129fa84f9a5dd1a4d3f8dc77d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231859"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156197"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Gérer les organisations connectées à votre compte professionnel ou scolaire dans la page Organisations
+# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gérer vos organisations connectées à partir de la page Organisations
 
-Vous pouvez gérer vos organisations sur la page **Organisations** du portail **Mon compte**.
-
-Il existe deux types d’organisations, indiqués à la page **Organisations** :
+La page **Organisations** du portail **Mon compte** vous permet de gérer les organisations (en général, le nom de votre organisation) connectées à votre compte professionnel ou scolaire. Il existe deux types d’organisations, indiqués à la page **Organisations** :
 
 - **Organisation d'origine.** Votre organisation d’origine est l’organisation propriétaire de votre compte professionnel ou scolaire. Vous ne pouvez pas quitter votre organisation d’origine.
-
-- **Autres organisations.** Les autres organisations sont n’importe quel groupe auquel vous vous êtes connecté précédemment à l’aide de votre compte professionnel ou scolaire. Vous pouvez quitter ces organisations à tout moment.
 
     >[!NOTE]
     > Si aucune organisation d’origine ne vous a été attribuée, seul un en-tête indiquant Organisations et comportant la liste de vos organisations apparaît.
 
+- **Autres organisations.** Les autres organisations sont n’importe quel groupe auquel vous vous êtes connecté précédemment à l’aide de votre compte professionnel ou scolaire. Vous pouvez quitter ces organisations à tout moment.
+
+>[!Important]
+>Cet article s’adresse aux utilisateurs qui tentent de mettre à jour les informations d'organisation connectées à un compte professionnel ou scolaire. Si vous êtes administrateur et que vous recherchez des informations sur la gestion des groupes et utilisateurs pour vos employés et d’autres utilisations, consultez la [documentation Gestion des utilisateurs en entreprise](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+
 ## <a name="view-your-organizations"></a>Afficher vos organisations
 
-1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page https://myprofile.microsoft.com/.
+1. Connectez-vous à votre compte professionnel ou scolaire, puis accédez à votre page **Mon compte** (https://myprofile.microsoft.com/) ).
 
 2. Sélectionnez **Organisations** à partir du volet de navigation gauche, ou sélectionnez le lien **Gérer les organisations** à partir du bloc **Organisations**.
 
@@ -53,7 +54,7 @@ Vous pouvez quitter toute organisation qui n’est pas votre organisation d’or
 >[!Important]
 >Si vous quittez une organisation par erreur, il n’existe aucun moyen d’annuler la suppression. Vous devrez attendre que l’administrateur de cette organisation vous invite à nouveau.
 
-1. Sélectionnez **Quitter l’organisation** à côté de l’organisation que vous souhaitez quitter, puis **Quitter** pour confirmer que vous souhaitez la quitter.
+- Sélectionnez **Quitter l’organisation** à côté de l’organisation que vous souhaitez quitter, puis **Quitter** pour confirmer que vous souhaitez la quitter.
 
     ![Page Organisations avec un lien permettant de quitter l’organisation en surbrillance](media/my-account-portal/my-account-portal-organizations-leave.png)
 

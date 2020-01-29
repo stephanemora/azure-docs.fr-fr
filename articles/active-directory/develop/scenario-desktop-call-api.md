@@ -15,18 +15,18 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75bb919b73791b78084e82351d7d6b7d93edc322
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 36aa220b49b8b71c79e4fe6f63afedee6db76a68
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423862"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293332"
 ---
-# <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>Application de bureau qui appelle des API web - Appeler une API web
+# <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Application de bureau qui appelle des API web : Appeler une API web
 
 Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
 
-## <a name="calling-a-web-api"></a>Appel d’une API web
+## <a name="call-a-web-api"></a>Appeler une API web
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -66,9 +66,9 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 # <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
-## <a name="calling-a-web-api-in-msal-for-ios-and-macos"></a>Appeler une API web dans MSAL pour iOS et macOS
+## <a name="call-a-web-api-in-msal-for-ios-and-macos"></a>Appeler une API web dans MSAL pour iOS et macOS
 
-Les méthodes d'acquisition de jetons renvoient un objet `MSALResult`. `MSALResult` expose une propriété `accessToken` qui peut être utilisée pour appeler une API web. Le jeton d'accès doit être ajouté à l'en-tête d'autorisation HTTP avant de passer l'appel pour accéder à l'API web protégée.
+Les méthodes d'acquisition de jetons renvoient un objet `MSALResult`. `MSALResult` expose une propriété `accessToken` qui peut être utilisée pour appeler une API web. Ajoutez un jeton d’accès à l’en-tête d’autorisation HTTP avant de passer l’appel pour accéder à l’API web protégée.
 
 Objective-C :
 
@@ -96,9 +96,9 @@ let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: D
 task.resume()
 ```
 
-## <a name="calling-several-apis---incremental-consent-and-conditional-access"></a>Appel de plusieurs API - Consentement incrémentiel et accès conditionnel
+## <a name="call-several-apis-incremental-consent-and-conditional-access"></a>Appeler plusieurs API : Consentement incrémentiel et accès conditionnel
 
-Si vous avez besoin d’appeler plusieurs API pour le même utilisateur, une fois que vous avez obtenu un jeton pour la première API, vous pouvez simplement appeler `AcquireTokenSilent` ; vous obtiendrez un jeton pour les autres API en mode silencieux la plupart du temps.
+Si vous souhaitez appeler plusieurs API pour le même utilisateur, appelez `AcquireTokenSilent` après avoir obtenu un jeton pour la première API. La plupart du temps, vous obtenez un jeton en mode silencieux pour les autres API.
 
 ```csharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -108,9 +108,9 @@ result = await app.AcquireTokenSilent("scopeApi2")
                   .ExecuteAsync();
 ```
 
-L’interaction est requise dans les cas suivants :
+Une interaction est obligatoire quand :
 
-- L’utilisateur a donné son consentement pour la première API, mais doit également le donner pour davantage d’étendues (consentement incrémentiel).
+- L’utilisateur a donné son consentement pour la première API, mais doit également le donner pour d’autres d’étendues Ce type de consentement est connu sous le nom de consentement incrémentiel.
 - La première API ne nécessitait aucune authentification multifacteur, contrairement à celle qui suit.
 
 ```csharp

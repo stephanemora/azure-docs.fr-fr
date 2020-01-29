@@ -7,24 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/22/2020
+ms.openlocfilehash: a8176cc07296b7de7b6aba5356485280ef5ebde1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979119"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548813"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Créer un cluster Apache Hadoop à l’aide de comptes de stockage avec transfert sécurisé dans Azure HDInsight
 
 La fonctionnalité [Transfert sécurisé requis](../storage/common/storage-require-secure-transfer.md) améliore la sécurité de votre compte de stockage Azure en appliquant toutes les demandes à votre compte via une connexion sécurisée. Cette fonctionnalité et le schéma wasbs sont uniquement pris en charge par les clusters HDInsight 3.6 ou version ultérieure.
+
+**L’activation du transfert de stockage sécurisé après la création d’un cluster peut entraîner des erreurs lors de l’utilisation de votre compte de stockage, et n’est donc pas recommandée. Il est préférable de créer un nouveau cluster avec la propriété activée.**
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * Abonnement Azure : Pour créer un compte d’essai gratuit d’une durée d’un mois, accédez à [azure.microsoft.com/free](https://azure.microsoft.com/free).
-* Un compte de stockage Azure doté du transfert sécurisé. Pour obtenir des instructions, consultez [Créez un compte de stockage.](../storage/common/storage-account-create.md) et [Exiger un transfert sécurisé](../storage/common/storage-require-secure-transfer.md). L’activation du transfert de stockage sécurisé après la création d’un cluster nécessite des étapes supplémentaires qui ne sont pas décrites dans cet article.
+* Un compte de stockage Azure doté du transfert sécurisé. Pour obtenir des instructions, consultez [Créez un compte de stockage.](../storage/common/storage-account-create.md) et [Exiger un transfert sécurisé](../storage/common/storage-require-secure-transfer.md). 
 * Un conteneur d’objets blob dans le compte de stockage.
 
 ## <a name="create-cluster"></a>Créer un cluster

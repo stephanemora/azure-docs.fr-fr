@@ -1,5 +1,5 @@
 ---
-title: Configurer des conteneurs - API VISAGE
+title: Configurer des conteneurs – Visage
 titleSuffix: Azure Cognitive Services
 description: L’environnement d’exécution de conteneur Visage est configuré à l’aide des arguments de la commande `docker run`. Il s'agit de paramètres obligatoires et facultatifs.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 78fd2aa977062d2f0d6b981140f3db5b263e4651
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 3c78c9eb85c3a8be236be5c3a24bd877db204b6c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795029"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167976"
 ---
 # <a name="configure-face-docker-containers"></a>Configurer des conteneurs Docker Visage
 
@@ -51,9 +51,9 @@ Vous trouverez ce paramètre à l’emplacement suivant :
 
 Pensez à ajouter le routage _Visage_ à l’URI de point de terminaison, comme dans l’exemple suivant. 
 
-|Obligatoire| Nom | Type de données | Description |
+|Obligatoire| Name | Type de données | Description |
 |--|------|-----------|-------------|
-|OUI| `Billing` | Chaîne | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](face-how-to-install-containers.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
+|Oui| `Billing` | String | URI de point de terminaison de facturation. Pour plus d’informations sur la façon d’obtenir l’URI de facturation, consultez [Collecte des paramètres requis](face-how-to-install-containers.md#gathering-required-parameters). Pour obtenir plus d’informations et une liste complète des points de terminaison régionaux, consultez [Noms de sous-domaines personnalisés pour Cognitive Services](../cognitive-services-custom-subdomains.md). |
 
 <!-- specific to face only -->
 
@@ -61,7 +61,7 @@ Pensez à ajouter le routage _Visage_ à l’URI de point de terminaison, comme 
 
 Les paramètres de configuration de la section `CloudAI` fournissent des options de conteneur propres à votre conteneur. Les paramètres et les objets suivants sont pris en charge pour le conteneur Visage dans la section `CloudAI`
 
-| Nom | Type de données | Description |
+| Name | Type de données | Description |
 |------|-----------|-------------|
 | `Storage` | Object | Scénario de stockage utilisé par le conteneur Visage. Pour plus d’informations sur les scénarios de stockage et les paramètres associés pour les objets `Storage`, consultez [Paramètres de scénario de stockage](#storage-scenario-settings). |
 
@@ -80,11 +80,11 @@ Le conteneur Visage stocke des données d’objet blob, de cache, de métadonné
 
 Les scénarios de stockage et les paramètres de configuration associés sont gérés par l’objet `Storage`, sous la section de configuration `CloudAI`. Les paramètres de configuration suivants sont disponibles dans l’objet `Storage` :
 
-| Nom | Type de données | Description |
+| Name | Type de données | Description |
 |------|-----------|-------------|
-| `StorageScenario` | Chaîne | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` - Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` - Le conteneur utilise des ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
-| `ConnectionStringOfAzureStorage` | Chaîne | Chaîne de connexion de la ressource Stockage Azure utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
-| `ConnectionStringOfCosmosMongo` | Chaîne | Chaîne de connexion MongoDB de la ressource Azure Cosmos DB utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
+| `StorageScenario` | String | Scénario de stockage pris en charge par le conteneur. Les valeurs disponibles sont les suivantes :<br/>`Memory` - Valeur par défaut. Le conteneur utilise un stockage non persistant, non réparti et en mémoire pour une utilisation temporaire sur un nœud unique. Si le conteneur est arrêté ou supprimé, son stockage est détruit.<br/>`Azure` - Le conteneur utilise des ressources Azure pour le stockage. Si le conteneur est arrêté ou supprimé, son stockage est conservé.|
+| `ConnectionStringOfAzureStorage` | String | Chaîne de connexion de la ressource Stockage Azure utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
+| `ConnectionStringOfCosmosMongo` | String | Chaîne de connexion MongoDB de la ressource Azure Cosmos DB utilisée par le conteneur.<br/>Ce paramètre s’applique uniquement si `Azure` est spécifié pour le paramètre de configuration `StorageScenario`. |
 
 Par exemple, la commande suivante spécifie le scénario de stockage Azure et fournit des exemples de chaîne de connexion pour les ressources Stockage Azure et Cosmos DB utilisées pour stocker les données du conteneur Visage.
 
@@ -122,10 +122,10 @@ Les conteneurs Visage n’utilisent pas de montage d’entrée ou de sortie pour
 
 La syntaxe exacte de l’emplacement de montage d’hôte varie en fonction du système d’exploitation hôte. De plus, l’emplacement de montage de l’[ordinateur hôte](face-how-to-install-containers.md#the-host-computer) peut ne pas être accessible en raison d’un conflit entre les autorisations utilisées par le compte de service Docker et les autorisations de l’emplacement de montage de l’hôte. 
 
-|Facultatif| Nom | Type de données | Description |
+|Facultatif| Name | Type de données | Description |
 |-------|------|-----------|-------------|
-|Non autorisé| `Input` | Chaîne | Les conteneurs Visage n’utilisent pas cet élément.|
-|Facultatif| `Output` | Chaîne | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
+|Non autorisé| `Input` | String | Les conteneurs Visage n’utilisent pas cet élément.|
+|Facultatif| `Output` | String | Cible du montage de sortie. La valeur par défaut est `/output`. Il s’agit de l’emplacement des journaux d’activité. Les journaux d’activité de conteneur sont inclus. <br><br>Exemple :<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemples de commandes docker run 
 
@@ -136,7 +136,7 @@ Les exemples suivants utilisent les paramètres de configuration pour illustrer 
 
 Remplacez {_argument_name_} par vos propres valeurs :
 
-| Placeholder | Valeur | Format ou exemple |
+| Espace réservé | Valeur | Format ou exemple |
 |-------------|-------|---|
 | **{API_KEY}** | Clé de point de terminaison de la ressource `Face` dans la page Clés Azure `Face`. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
 | **{ENDPOINT_URI}** | La valeur de point de terminaison de facturation est disponible dans la page Vue d’ensemble Azure `Face`.| Pour obtenir des exemples explicites, consultez [Collecte des paramètres requis](face-how-to-install-containers.md#gathering-required-parameters). |

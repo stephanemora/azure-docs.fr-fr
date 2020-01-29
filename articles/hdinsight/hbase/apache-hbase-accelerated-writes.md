@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179091"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156928"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans Azure HDInsight
 
@@ -37,11 +37,11 @@ La fonctionnalité Écritures accélérées résout le problème des latences en
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Comment activer la fonctionnalité Écritures accélérées pour HBase dans HDInsight
 
-Pour créer un nouveau cluster HBase avec la fonctionnalité Écritures accélérées, suivez les étapes de [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) jusqu’à l’**étape 3 relative au stockage**. Sous **Paramètres de Metastore**, cochez la case en regard de **Activer les écritures accélérées HBase (préversion)** . Puis, passez aux étapes restantes pour la création du cluster.
+Pour créer un nouveau cluster HBase avec la fonctionnalité Écritures accélérées, suivez les étapes de [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) jusqu’à l’**étape 3 relative au stockage**. Sous **Paramètres de metastore**, cochez la case située en regard de **Activer les écritures accélérées**. Puis, passez aux étapes restantes pour la création du cluster.
 
 ![Activez l’option Écritures accélérées pour HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 
-## <a name="other-considerations"></a>Autres points à considérer
+## <a name="other-considerations"></a>Autres considérations
 
 Pour préserver la durabilité des données, créez un cluster comportant au moins trois nœuds Worker. Une fois créé, vous ne pourrez plus réduire ne nombre de nœuds Worker du cluster.
 

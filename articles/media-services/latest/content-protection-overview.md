@@ -1,5 +1,5 @@
 ---
-title: Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
+title: Protéger votre contenu à l’aide du chiffrement dynamique Media Services v3
 titleSuffix: Azure Media Services
 description: En savoir plus sur la protection du contenu avec le chiffrement dynamique, les protocoles de diffusion en continu et les types de chiffrement dans Azure Media Services.
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1ae8645f3e782305ed5e1b7847b019a978e48dde
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 18e80383bfcbebc6a442663c141100faa56fd061
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977775"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313804"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protéger votre contenu à l’aide du chiffrement dynamique de Media Services
 
@@ -184,7 +184,7 @@ Quand vous configurez la stratégie de restriction par jeton, vous devez défini
 
 ### <a name="token-replay-prevention"></a>Prévention de réexécution de jeton
 
-La fonctionnalité de *prévention de réexécution de jeton* permet aux clients de Media Services de limiter le nombre de fois qu’un même jeton peut être utilisé pour demander une clé ou une licence. Le client peut ajouter une revendication de type `urn:microsoft:azure:mediaservices:maxuses` dans le jeton, sont la valeur indique le nombre de fois que le jeton peut être utilisé pour acquérir une licence ou une clé. Toutes les demandes suivantes de remise de clé effectuées à l’aide du même jeton renvoient une réponse Non autorisé. Découvrez comment ajouter la revendication dans l’[exemple DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
+La fonctionnalité de *prévention de relecture de jeton* permet aux clients de Media Services de limiter le nombre de fois qu’un même jeton peut être utilisé pour demander une clé ou une licence. Le client peut ajouter une revendication de type `urn:microsoft:azure:mediaservices:maxuses` dans le jeton, sont la valeur indique le nombre de fois que le jeton peut être utilisé pour acquérir une licence ou une clé. Toutes les demandes suivantes de remise de clé effectuées à l’aide du même jeton renvoient une réponse Non autorisé. Découvrez comment ajouter la revendication dans l’[exemple DRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601).
  
 #### <a name="considerations"></a>Considérations
 
@@ -249,11 +249,11 @@ Pour accéder à des exemples REST qui utilisent des URL d’acquisition de clé
 > [!NOTE]
 > Widevine est un service fourni par Google Inc. soumis aux conditions de service et à la politique de confidentialité de Google, Inc.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 
 Si vous obtenez l’erreur `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, veillez à spécifier la stratégie de diffusion en continu appropriée.
 
-Si vous obtenez des erreurs qui se terminent par `_NOT_SPECIFIED_IN_URL`, vérifiez que vous avez spécifié le format de chiffrement dans l’URL. Par exemple `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Voir [Types de protocoles de diffusion en continu et de chiffrement](#streaming-protocols-and-encryption-types).
+Si vous obtenez des erreurs qui se terminent par `_NOT_SPECIFIED_IN_URL`, vérifiez que vous avez spécifié le format de chiffrement dans l’URL. par exemple `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Voir [Types de protocoles de diffusion en continu et de chiffrement](#streaming-protocols-and-encryption-types).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Poser des questions, envoyer des commentaires, obtenir des mises à jour
 
@@ -265,5 +265,5 @@ Découvrez l’article [Communauté Azure Media Services](media-services-communi
 * [Protéger avec DRM](protect-with-drm.md)
 * [Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès](design-multi-drm-system-with-access-control.md)
 * [Chiffrement côté stockage](storage-account-concept.md#storage-side-encryption)
-* [Forum Aux Questions](frequently-asked-questions.md)
+* [Forum Aux Questions (FAQ)](frequently-asked-questions.md)
 * [JSON Web Token Handler](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

@@ -1,5 +1,5 @@
 ---
-title: Détecter les visages dans une image - API Visage
+title: Détecter les visages dans une image – Visage
 titleSuffix: Azure Cognitive Services
 description: Ce guide explique comment utiliser la détection des visages pour extraire des attributs tels que le sexe, l’âge ou la posture à partir d’une image donnée.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744286"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169875"
 ---
 # <a name="get-face-detection-data"></a>Obtenir des données de détection des visages
 
-Ce guide explique comment utiliser la détection des visages pour extraire des attributs tels que le sexe, l’âge ou la posture à partir d’une image donnée. Les extraits de code de ce guide sont écrits en C# à l’aide de la bibliothèque cliente de l’API Visage d’Azure Cognitive Services. La même fonctionnalité est disponible via l’[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Ce guide explique comment utiliser la détection des visages pour extraire des attributs tels que le sexe, l’âge ou la posture à partir d’une image donnée. Les extraits de code de ce guide sont écrits en C# en utilisant la bibliothèque cliente Visage d’Azure Cognitive Services. La même fonctionnalité est disponible via l’[API REST](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 Ce guide vous montre comment :
 
@@ -27,7 +27,7 @@ Ce guide vous montre comment :
 - Obtenir les emplacements des différents points de repère du visage, tels que les pupilles, le nez et la bouche, dans une image.
 - Deviner le sexe, l’âge, l’émotion et d’autres attributs d’un visage détecté.
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 Ce guide suppose que vous avez déjà construit un objet [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet), nommé `faceClient`, avec une URL de point de terminaison et une clé d’abonnement Visage. À ce stade, vous pouvez utiliser la fonctionnalité de détection des visages en appelant [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), qui est utilisé dans ce guide, ou [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Pour obtenir des instructions sur la configuration de cette fonctionnalité, suivez un des guides de démarrage rapide.
 
@@ -144,8 +144,8 @@ Pour en savoir plus sur les différents attributs, consultez le guide conceptuel
 
 Dans ce guide, vous avez appris à utiliser les différentes fonctionnalités de détection des visages. Ensuite, intégrez ces fonctionnalités dans votre application en suivant un tutoriel approfondi.
 
-- [Tutoriel : Créer une application WPF pour afficher les données des visages dans une image](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [Tutoriel : Créer une application Android pour détecter et encadrer les visages dans une image](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+- [Tutoriel : Créer une application WPF pour afficher les données des visages dans une image](../Tutorials/FaceAPIinCSharpTutorial.md)
+- [Tutoriel : Créer une application Android pour détecter et encadrer les visages dans une image](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
 ## <a name="related-topics"></a>Rubriques connexes
 

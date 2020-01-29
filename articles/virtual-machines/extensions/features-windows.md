@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073078"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544750"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -42,13 +42,13 @@ Plusieurs extensions de machine virtuelle Azure sont disponibles, chacune impliq
 
 En plus des extensions propres à des processus, une extension de script personnalisé est disponible pour les machines virtuelles Windows et Linux. L’extension de script personnalisé (CustomScript) pour Windows permet d’exécuter n’importe quel script PowerShell sur une machine virtuelle. Les scripts personnalisés s’avèrent utile pour concevoir des déploiements Azure qui nécessitent une configuration plus avancée que celle fournie par les outils Azure natifs. Pour plus d’informations sur l’extension de script personnalisé pour les machines virtuelles Windows, consultez [cet article](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour gérer l’extension de la machine virtuelle, vous devez installer l’agent Windows Azure. Certaines extensions spécifiques présentent des prérequis, tels que l’accès à des ressources ou dépendances.
 
 ### <a name="azure-vm-agent"></a>Agent de machine virtuelle Azure
 
-L’agent de machine virtuelle Azure gère les interactions entre une machine virtuelle Azure et le contrôleur de structure Microsoft Azure. L’agent de machine virtuelle est responsable de nombreux aspects fonctionnels liés au déploiement et à la gestion des machines virtuelles Azure, notamment l’exécution des extensions de machine virtuelle. L’agent de machine virtuelle Azure est préinstallé sur des images de la Place de marché Azure et peut être installé manuellement sur les systèmes d’exploitation pris en charge. L’agent de machine virtuelle Azure pour Windows est connu sous le terme d’agent invité Windows.
+L’agent de machine virtuelle Azure gère les interactions entre une machine virtuelle Azure et le contrôleur de structure Microsoft Azure. L’agent de machine virtuelle est responsable de nombreux aspects fonctionnels liés au déploiement et à la gestion des machines virtuelles Azure, notamment l’exécution des extensions de machine virtuelle. L’agent de machine virtuelle Azure est préinstallé sur des images de Place de marché Azure et peut être installé manuellement sur les systèmes d’exploitation pris en charge. L’agent de machine virtuelle Azure pour Windows est connu sous le terme d’agent invité Windows.
 
 Pour plus d’informations sur les systèmes d’exploitation pris en charge et sur la procédure d’installation, consultez l’article [Agent de machine virtuelle et extensions Azure](agent-windows.md).
 
@@ -252,6 +252,10 @@ Pour sécuriser la chaîne d’exécution, déplacez la propriété **commandToE
 }
 ```
 
+Sur une machine virtuelle Azure IaaS qui utilise des extensions, dans la console des certificats, vous pouvez voir des certificats dont le nom de sujet est **_Windows Azure CRP Certificate Generator_** Sur une machine virtuelle RDFE classique, ces certificats ont comme nom de sujet **_Windows Azure Service Management for Extensions_** .
+
+Ces certificats sécurisent la communication entre la machine virtuelle et son hôte pendant le transfert des paramètres protégés (mot de passe, autres informations d’identification) qui sont utilisés par les extensions. Les certificats sont générés par le contrôleur de structure Azure et sont passés à l’agent de machine virtuelle. Si vous arrêtez et démarrez la machine virtuelle tous les jours, un nouveau certificat peut être créé par le contrôleur de structure. Le certificat est stocké dans le magasin de certificats Personnel de l’ordinateur. Ces certificats peuvent être supprimés. L’agent de machine virtuelle recrée les certificats si nécessaire.
+
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Comment les agents et les extensions sont-ils mis à jour ?
 
 Les agents et les extensions partagent le même mécanisme de mise à jour. Certaines mises à jour ne nécessitent pas de règles de pare-feu supplémentaires.
@@ -284,11 +288,11 @@ Microsoft.Compute     CustomScriptExtension                1.9
 
 L’agent invité Windows contient uniquement le *code de gestion des extensions* ; le *code d’approvisionnement Windows* est fourni séparément. Vous pouvez désinstaller l’agent invité Windows. Vous ne pouvez pas désactiver la mise à jour automatique de l’agent invité Windows.
 
-Le *code de gestion des extensions* assure la communication avec la structure Azure, ainsi que la gestion des opérations d’extension, telles que les installations, le signalement d’état, la mise à jour des différentes extensions et la suppression de ces dernières. Les mises à jour comprennent les correctifs de sécurité, les corrections de bogues et les améliorations du *code de gestion des extensions*.
+Le *code de gestion des extensions* assure la communication avec la structure Azure, ainsi que la gestion des opérations des extensions de machine virtuelle, telles que les installations, le signalement d’état, la mise à jour des différentes extensions et la suppression de ces dernières. Les mises à jour comprennent les correctifs de sécurité, les corrections de bogues et les améliorations du *code de gestion des extensions*.
 
 Si vous souhaitez vérifier la version que vous exécutez, consultez la section [Detecting installed Windows Guest Agent](agent-windows.md#detect-the-vm-agent) (Détection de l’agent invité Windows installé).
 
-#### <a name="extension-updates"></a>Mises à jour d’extension
+#### <a name="extension-updates"></a>Mises à jour des extensions
 
 Lorsqu’une mise à jour d’extension devient disponible, l’agent invité Windows la télécharge et met à niveau l’extension. Les mises à jour d’extension automatiques sont soit de type *Minor* (mise à jour mineure), soit de type *Hotfix* (correctif logiciel). Vous pouvez accepter ou refuser les mises à jour d’extension *Minor* quand vous provisionnez l’extension. L’exemple ci-après indique comment mettre à niveau automatiquement les versions mineures dans un modèle Resource Manager avec la commande *"autoUpgradeMinorVersion": true,* :
 
@@ -328,7 +332,7 @@ TypeHandlerVersion          : 1.9
 AutoUpgradeMinorVersion     : True
 ```
 
-#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Vérification si une mise à jour de type autoUpgradeMinorVersion a été effectuée
+#### <a name="identifying-when-an-autoupgrademinorversion-occurred"></a>Identification du moment d’exécution d’une mise à jour de type autoUpgradeMinorVersion
 
 Pour déterminer le moment où une extension a fait l’objet d’une mise à jour, consultez les journaux d’activité d’agent sur la machine virtuelle à l’emplacement *C:\WindowsAzure\Logs\WaAppAgent.log*.
 
@@ -417,7 +421,7 @@ Vous pouvez également supprimer une extension dans le portail Azure en procéda
 4. Choisissez **Désinstaller**.
 
 ## <a name="common-vm-extensions-reference"></a>Informations de référence sur les extensions de machine virtuelle courantes
-| Nom de l’extension | Description | Plus d’informations |
+| Nom de l’extension | Description | Informations complémentaires |
 | --- | --- | --- |
 | Extension de script personnalisé pour Windows |Exécuter des scripts sur une machine virtuelle Azure |[Extension de script personnalisé pour Windows](custom-script-windows.md) |
 | Extension DSC pour Windows |Extension PowerShell DSC (Desired State Configuration, configuration d’état souhaité) |[Extension DSC pour Windows](dsc-overview.md) |
