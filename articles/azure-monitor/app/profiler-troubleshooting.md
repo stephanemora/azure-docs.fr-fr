@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9817205a419e2b61af66dba16d09620e2c1dec9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432380"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310864"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -47,6 +47,7 @@ Profiler écrit les messages de trace et les événements personnalisés dans vo
 * Si votre application web est une application ASP.NET Core, elle doit exécuter au moins ASP.NET Core 2.0.
 * Si les données que vous essayez de voir datent de plus de deux semaines, essayez de limiter votre filtre de temps et réessayez. Les traces sont supprimées après sept jours.
 * Vérifiez que des proxys ou un pare-feu ne bloquent pas l’accès à https://gateway.azureserviceprofiler.net.
+* Le profileur n’est pas pris en charge sur les plans App Service gratuits ou partagés. Si vous utilisez un de ces plans, essayez en passant à un des plans de base : le profileur doit normalement commencer à fonctionner.
 
 ### <a id="double-counting"></a>Double comptage dans des threads parallèles
 

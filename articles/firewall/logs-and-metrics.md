@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/22/2020
 ms.author: victorh
-ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974504"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315029"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Journaux et métriques du pare-feu Azure
 
@@ -103,17 +103,19 @@ Les métriques suivantes sont disponibles pour le pare-feu Azure :
 
     Unité : octets
 
-- **État d’intégrité du pare-feu** : indique l’intégrité du pare-feu.
+- **État d'intégrité du pare-feu** : indique l'intégrité du pare-feu en fonction de la disponibilité du port SNAT.
 
     Unité : pourcentage
 
    Cette métrique a deux dimensions :
-  - **État** : les valeurs possibles sont *Sain*, *Détérioré*, *Non sain*.
-  - **Motif** : indique la raison de l’état correspondant du pare-feu. Par exemple, il peut indiquer des *ports SNAT* si l’état du pare-feu est Détérioré ou Non sain.
+  - État : les valeurs possibles sont *Sain*, *Détérioré*, *Non sain*.
+  - Motif : indique la raison de l’état correspondant du pare-feu. 
 
+     Si les ports SNAT sont utilisés à plus de 95 %, ils sont considérés comme épuisés et l'intégrité affichée est à 50 % avec : état=**Détérioré** et motif=**port SNAT**. Le pare-feu continue de traiter le trafic et les connexions existantes ne sont pas affectées. Toutefois, les nouvelles connexions peuvent ne pas être établies par intermittence.
 
+     Si les ports SNAT sont utilisés à moins de 95 %, le pare-feu est considéré comme sain et l'intégrité est affichée à 100 %.
 
-
+     Si aucune utilisation des ports SNAT n'est signalée, l'intégrité est affichée à 0 %. 
 
 - **Utilisation des ports SNAT** : pourcentage de ports SNAT qui ont été utilisés par le pare-feu.
 
