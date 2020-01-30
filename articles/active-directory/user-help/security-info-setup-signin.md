@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f75cea566a09a1f4e147b999ad7d2c2d7ea80f29
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 965943937a5cbc24f3c4dbe5bc85a6f5b4338fe2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156112"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704984"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Configurer vos informations de sécurité (préversion) à partir d’une invite de connexion
 
@@ -29,7 +28,7 @@ Cette invite apparaît uniquement si vous n’avez pas configuré les informatio
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>Authentification avec vérification de la sécurité ou réinitialisation de mot de passe
 
-Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation de mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
+Les méthodes relatives aux informations de sécurité sont utilisées pour la vérification de la sécurité à deux facteurs et la réinitialisation du mot de passe. Toutefois, ces techniques d’authentification ne prennent pas en charge toutes les méthodes.
 
 | Méthode | Utilisé pour |
 | ------ | -------- |

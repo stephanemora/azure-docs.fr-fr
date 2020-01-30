@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 82d366b3f807e21e3531da00da78520fed90bc66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645258"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720025"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Intégration du contrôle de code source pour Azure SQL Data Warehouse
 
@@ -37,7 +37,7 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
    ![Gérer les connexions](media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gérer les connexions")
 
-   ![Connexion](media/sql-data-warehouse-source-control-integration/3-connect.png "Connecter")
+   ![Connexion](media/sql-data-warehouse-source-control-integration/3-connect.png "Se connecter")
 
 3. Clonez votre dépôt Azure à partir de votre projet sur votre ordinateur local.
 
@@ -55,7 +55,7 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 
 3. Dans Team Explorer dans Visual Studio, validez tous les changements apportés à votre dépôt Git local. 
 
-   ![Commiter](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Validation")  
+   ![Commiter](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 
 4. Les changements étant validés localement dans le dépôt cloné, synchronisez-les et envoyez-les (push) à votre dépôt Azure dans votre projet Azure DevOps.
 
@@ -82,13 +82,3 @@ Ce tutoriel explique comment intégrer votre projet de base de données SSDT (SQ
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Développement pour Azure SQL Data Warehouse](sql-data-warehouse-overview-develop.md)
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-

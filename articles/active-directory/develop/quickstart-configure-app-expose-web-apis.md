@@ -12,13 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966110"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704219"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Démarrage rapide : Configurer une application pour exposer des API web
 
@@ -26,7 +25,7 @@ Vous pouvez développer une API web et la mettre à disposition des applications
 
 Dans ce démarrage rapide, vous découvrirez comment configurer une application pour exposer une nouvelle étendue pour la rendre disponible sur les applications clientes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, assurez-vous de remplir ces conditions préalables :
 
@@ -64,15 +63,15 @@ Pour exposer une nouvelle étendue via l’interface utilisateur vous devez...
     |-------|-------------|
     | **Nom de l'étendue** | Entrez un nom explicite pour votre étendue.<br><br>Par exemple : `Employees.Read.All`. |
     | **Qui peut donner son consentement** | Choisissez si cette étendue peut être consentie par des utilisateurs, ou si le consentement d’un administrateur est requis. Sélectionnez **administrateurs uniquement** pour des autorisations à privilèges élevés. |
-    | **Nom d'affichage du consentement administrateur** | Entrez une description explicite pour votre étendue. Elle sera visible par les administrateurs.<br><br>Par exemple, `Read-only access to Employee records` |
-    | **Description du consentement de l'administrateur** | Entrez une description explicite pour votre étendue. Elle sera visible par les administrateurs.<br><br>Par exemple, `Allow the application to have read-only access to all Employee data.` |
+    | **Nom d'affichage du consentement administrateur** | Entrez une description explicite pour votre étendue. Elle sera visible par les administrateurs.<br><br>Par exemple : `Read-only access to Employee records` |
+    | **Description du consentement de l'administrateur** | Entrez une description explicite pour votre étendue. Elle sera visible par les administrateurs.<br><br>Par exemple : `Allow the application to have read-only access to all Employee data.` |
 
     Si les utilisateurs peuvent donner leur consentement à votre étendue, ajoutez également des valeurs pour les champs suivants :
 
     | Champ | Description |
     |-------|-------------|
-    | **Nom d'affichage du consentement de l'utilisateur** | Entrez un nom explicite pour votre étendue. Il sera visible par les utilisateurs.<br><br>Par exemple, `Read-only access to your Employee records` |
-    | **Description du consentement de l'utilisateur** | Entrez une description explicite pour votre étendue. Elle sera visible par les utilisateurs.<br><br>Par exemple, `Allow the application to have read-only access to your Employee data.` |
+    | **Nom d'affichage du consentement de l'utilisateur** | Entrez un nom explicite pour votre étendue. Il sera visible par les utilisateurs.<br><br>Par exemple : `Read-only access to your Employee records` |
+    | **Description du consentement de l'utilisateur** | Entrez une description explicite pour votre étendue. Elle sera visible par les utilisateurs.<br><br>Par exemple : `Allow the application to have read-only access to your Employee data.` |
 
 1. Définissez l’**État** et sélectionnez **Ajouter une étendue** lorsque vous avez terminé.
 
@@ -129,7 +128,7 @@ Pour des informations plus générales sur les concepts de manifeste d’applica
 
 Découvrez les autres démarrages rapides relatifs à la gestion des applications pour les applications :
 
-* [Inscrire une application à l’aide de la plateforme d’identité Microsoft](quickstart-register-app.md)
+* [Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
 * [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md)
 * [Modifier les comptes pris en charge par une application](quickstart-modify-supported-accounts.md)
 * [Supprimer une application inscrite à l’aide de la plateforme d’identité Microsoft](quickstart-remove-app.md)

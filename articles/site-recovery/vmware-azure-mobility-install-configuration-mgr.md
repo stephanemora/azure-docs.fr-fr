@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 50f8b5b4412e02692bf2b5d57b7f0dee27c2a25a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514807"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842697"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatiser l’installation du service mobilité
 
@@ -19,7 +19,7 @@ Cet article explique comment automatiser l’installation et les mises à jour d
 Lorsque vous déployez Site Recovery pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques locaux sur Azure, vous installez l’agent de service Mobility sur chaque ordinateur que vous souhaitez répliquer. Le service Mobility enregistre les écritures de données sur la machine et les transmet au serveur de traitement Site Recovery à des fins de réplication. Vous pouvez déployer le service Mobility de deux manières :
 
 - **Installation Push** : Laissez Site Recovery installer l’agent du service Mobility lorsque vous activez la réplication pour un ordinateur dans le Portail Azure.
-- **Installation manuelle** : Installez le service Mobility manuellement sur chaque ordinateur. [En savoir plus](/vmware-physical-mobility-service-overview.md) sur l’installation Push et manuelle.
+- **Installation manuelle** : Installez le service Mobility manuellement sur chaque ordinateur. [En savoir plus](vmware-physical-mobility-service-overview.md) sur l’installation Push et manuelle.
 - **Déploiement automatisé** : Automatisez l’installation avec des outils de déploiement de logiciels tels que Microsoft Endpoint Configuration Manager ou des outils tiers tels que Intigua JetPatch.
 
 L’installation et la mise à jour automatisées fournissent une solution dans les cas suivants :

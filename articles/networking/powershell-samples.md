@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/24/2017
 ms.author: gwallace
-ms.openlocfilehash: fb4b63d8329f0a175252b819653e192c746489b6
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d1e6027a0dc71f0962293143ca9bd3de67a659e6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092036"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844902"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>Exemples Azure PowerShell pour la mise en réseau
 
@@ -35,6 +35,5 @@ Le tableau suivant contient des liens vers des scripts créés à l’aide d’A
 | [Filtrer le trafic réseau de machine virtuelle entrant et sortant](./scripts/virtual-network-powershell-filter-network-traffic.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crée un réseau virtuel avec des sous-réseaux frontaux et principaux. Le trafic réseau entrant vers le sous-réseau frontal est limité à HTTP et HTTPS. Le trafic sortant vers Internet à partir du sous-réseau principal n’est pas autorisé. |
 |**Équilibrage de charge et direction de trafic**||
 | [Équilibrer le trafic sur les machines virtuelles pour la haute disponibilité](./scripts/load-balancer-windows-powershell-sample-nlb.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crée plusieurs machines virtuelles dans une configuration haute disponibilité avec équilibrage de charge. |
-| [Équilibrer la charge de plusieurs sites web sur des machines virtuelles](./scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md?toc=%2fazure%2fnetworking%2ftoc.json) | Crée deux machines virtuelles avec plusieurs configurations IP, jointes à un groupe à haute disponibilité Azure, accessible via Azure Load Balancer. |
 | [Diriger le trafic dans plusieurs régions pour une haute disponibilité des applications](./scripts/traffic-manager-powershell-websites-high-availability.md?toc=%2fazure%2fnetworking%2ftoc.json) |  Crée deux plans App Service, deux applications web, un profil Traffic Manager et deux points de terminaison Traffic Manager. |
 | | |

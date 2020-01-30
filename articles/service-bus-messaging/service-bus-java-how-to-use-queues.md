@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Utiliser des files d’attente Service Bus avec Java'
-description: "Démarrage rapide : Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Java."
+title: Utiliser des files d’attente Service Bus avec Java
+description: Dans ce tutoriel, vous allez apprendre à créer des applications Java afin d’envoyer des messages à une file d’attente Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 5a32d92dd8a44602034d84262f2e502a60ac23a9
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721704"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760638"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Démarrage rapide : Utiliser des files d’attente Azure Service Bus avec Java pour envoyer et recevoir des messages
 
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à créer des applications Java afin d’
 > [!NOTE]
 > Vous trouverez des exemples Java sur GitHub dans le [référentiel azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente.
     1. Consultez la **vue d’ensemble** rapide des **files d’attente** Service Bus. 

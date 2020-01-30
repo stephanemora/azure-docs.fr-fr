@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/04/2020
-ms.openlocfilehash: eb73d614ca94bc1fa007a14f3705e50c74ab9e4f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 940ada83aeabf4bf8746ad5f90592e0917f7b403
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922473"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844443"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Version API REST du service Recherche Azure 2019-05-06-préversion
 
@@ -30,10 +30,6 @@ Cet article décrit la version `api-version=2019-05-06-Preview` de l’API REST 
 + L’[indexeur Cosmos DB](search-howto-index-cosmosdb.md) prend en charge l’API MongoDB (préversion), l’API Gremlin (préversion) et l’API Cassandra (préversion).
 
 + L’[indexeur Azure Data Lake Storage Gen2 (préversion)](search-howto-index-azure-data-lake-storage.md) peut indexer du contenu et des métadonnées à partir de Data Lake Storage Gen2.
-
-+ L’[Extraction de document (préversion)](cognitive-search-skill-document-extraction.md) est une compétence cognitive utilisée lors de l’indexation, qui vous permet d’extraire le contenu d’un fichier à partir d’un ensemble de compétences. Auparavant, le craquage de document avait exclusivement lieu avant l’exécution de l’ensemble de compétences. Avec l’ajout de cette compétence, vous pouvez également effectuer cette opération dans le cadre de l’exécution de l’ensemble de compétences.
-
-+ La [Traduction de texte (préversion)](cognitive-search-skill-text-translation.md) est une compétence cognitive utilisée lors de l’indexation, qui évalue le texte et qui, pour chaque enregistrement, retourne le texte traduit dans la langue cible spécifiée.
 
 + La [Base de connaissances](knowledge-store-concept-intro.md) est une nouvelle destination d’un pipeline d’enrichissement par IA. La structure des données physique existe dans Stockage Blob Azure et dans Stockage Table Azure, et elle est créée et remplie quand vous exécutez un indexeur auquel un ensemble de compétences cognitives est attaché. La définition d’une base de connaissances elle-même est spécifiée dans une définition d’ensemble de compétences. Dans la définition de la base de connaissances, vous contrôlez les structures physiques de vos données via des éléments de *projection* qui déterminent la façon dont les données sont mises en forme, si les données sont stockées dans Stockage Table ou dans Stockage Blob, et s’il existe plusieurs vues.
 

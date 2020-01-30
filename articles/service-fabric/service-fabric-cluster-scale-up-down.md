@@ -3,12 +3,12 @@ title: Effectuer un scale-in ou un scale-out d’un cluster Service Fabric
 description: Augmentez ou diminuez la taille des instances d’un cluster Service Fabric pour répondre à la demande en définissant des règles de mise à l’échelle automatique pour chaque type de nœud/groupe de machines virtuelles identiques. Ajouter ou supprimer des nœuds d’un cluster Service Fabric
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: ef7d4c3d3d48bed790851834d848f05060243636
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 42193ee06eda3f1d8c56b4db3251763b9dc52076
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451942"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774463"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>Mettre à l’échelle un cluster
 
@@ -101,7 +101,7 @@ Les étapes pour supprimer manuellement un état de nœud s’appliquent uniquem
 Pour que les nœuds du cluster soient toujours répartis uniformément entre les domaines d’erreur et de mise à jour, et ainsi permettre leur utilisation homogène, le dernier nœud créé doit être supprimé en premier. En d’autres termes, les nœuds doivent être supprimés dans l’ordre inverse de leur création. Le dernier nœud créé est celui contenant la plus grande valeur de propriété `virtual machine scale set InstanceId`. Les exemples de code ci-dessous renvoient le dernier nœud créé.
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
 ```azurecli

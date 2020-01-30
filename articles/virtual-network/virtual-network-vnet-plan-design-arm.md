@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646487"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845589"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -39,7 +39,7 @@ Toutes les ressources Azure sont créées dans une région Azure et un abonnemen
 
 ## <a name="subscriptions"></a>Abonnements
 
-Vous pouvez déployer autant de réseaux virtuels que nécessaire dans chaque abonnement, jusqu’à la [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Par exemple, certaines organisations disposent d’abonnements distincts pour différents services. Pour plus d’informations et des remarques relatives aux abonnements, consultez [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy) (Gouvernance de l’abonnement).
+Vous pouvez déployer autant de réseaux virtuels que nécessaire dans chaque abonnement, jusqu’à la [limite](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Par exemple, certaines organisations disposent d’abonnements distincts pour différents services. Pour plus d’informations et des remarques relatives aux abonnements, consultez [Subscription governance](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy) (Gouvernance de l’abonnement).
 
 ## <a name="segmentation"></a>Segmentation
 

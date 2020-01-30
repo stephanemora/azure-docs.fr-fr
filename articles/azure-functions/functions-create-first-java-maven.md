@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 813e65eadf9f54f7a0ac148681b25988ed6950b9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562032"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845450"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>Démarrage rapide : Utiliser Java et Maven pour créer et publier une fonction sur Azure
 
@@ -29,9 +29,8 @@ Pour développer des fonctions avec Java, les éléments suivants doivent être 
 - [Apache Maven](https://maven.apache.org), version 3.0 ou ultérieure
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 ou ultérieure
-- Un abonnement Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+Vous avez également besoin d’un abonnement Azure actif. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 > [!IMPORTANT]

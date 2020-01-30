@@ -1,19 +1,18 @@
 ---
 title: Effectuer des opérations sur Stockage Table Azure avec PowerShell | Microsoft Docs
 description: Découvrir comment exécuter des tâches courantes telles que la création, l’interrogation et la suppression de données depuis un compte de stockage de table Azure à l’aide de PowerShell.
-services: cosmos-db
 author: roygara
-ms.service: cosmos-db
+ms.service: storage
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
-ms.subservice: cosmosdb-table
-ms.openlocfilehash: 4591cded820bbefb741d55a22d10a91bd4fff383
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.subservice: tables
+ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868505"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721470"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Effectuer des opérations sur Stockage Table Azure avec Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -23,9 +22,9 @@ Le stockage Table Azure est une banque de données NoSQL que vous pouvez utilise
 Cet article sur les procédures décrit les opérations courantes liées à Stockage Table Azure. Vous allez apprendre à effectuer les actions suivantes : 
 
 > [!div class="checklist"]
-> * Création d’une table
+> * Créer une table
 > * Récupération d’une table
-> * Ajout d’entités de table
+> * Ajouter des entités de table
 > * Interrogation d’une table
 > * Suppression d’entités de table
 > * Suppression d’une table
@@ -57,7 +56,7 @@ Add-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Récupérer la liste des régions
 
-Si vous ne savez pas quelle région utiliser, listez celles qui sont disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Ces exemples utilisent **eastus**. Stockez cette valeur dans la variable **location** pour une utilisation ultérieure.
+Si vous ne savez pas quelle localisation utiliser, affichez la liste des localisations disponibles. Dans la liste, trouvez celle que vous souhaitez utiliser. Ces exemples utilisent **eastus**. Stockez cette valeur dans la variable **location** pour une utilisation ultérieure.
 
 ```powershell
 Get-AzLocation | select Location
@@ -139,7 +138,7 @@ Remove-AzStorageTable –Name $tableName –Context $ctx
 Get-AzStorageTable –Context $Ctx | select Name
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez créé un groupe de ressources et un compte de stockage au début de cet article sur les procédures, vous pouvez supprimer toutes les ressources que vous avez créées dans cet exercice en supprimant le groupe de ressources. Cette commande supprime toutes les ressources contenues dans le groupe de ressources, ainsi que le groupe lui-même.
 
@@ -152,9 +151,9 @@ Remove-AzResourceGroup -Name $resourceGroup
 Cet article sur les procédures vous a présenté des opérations Stockage Table Azure courantes réalisables avec PowerShell. Vous avez notamment appris à effectuer les tâches suivantes : 
 
 > [!div class="checklist"]
-> * Création d’une table
+> * Créer une table
 > * Récupération d’une table
-> * Ajout d’entités de table
+> * Ajouter des entités de table
 > * Interrogation d’une table
 > * Suppression d’entités de table
 > * Suppression d’une table

@@ -159,8 +159,6 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
-    - name: 'Redémarrage, fermeture ou arrêt des services'
-      href: boot-error-troubleshoot-windows.md
 - name: Les noms d’appareil changent
   href: troubleshoot-device-names-problems.md
 - name: Accès à la récupération d’une machine virtuelle
@@ -199,6 +197,8 @@
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Boucle de redémarrage
       href: troubleshoot-reboot-loop.md
+    - name: 'Redémarrage, fermeture ou arrêt des services'
+      href: boot-error-troubleshoot-windows.md
     - name: Bloqué dans Windows Update
       href: troubleshoot-stuck-updating-boot-error.md
 - name: Erreurs de limitation

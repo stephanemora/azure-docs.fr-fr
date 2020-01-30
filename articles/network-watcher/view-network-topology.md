@@ -3,23 +3,20 @@ title: Afficher la topologie de réseau virtuel Azure | Microsoft Docs
 description: Découvrez comment afficher les ressources d’un réseau virtuel et les relations entre ces ressources.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
-ms.author: kumud
-ms.openlocfilehash: a67f1cca54c89ead9ae7fc46ef0c9fc8c5217c74
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 675919db55932d3ccc04fd5397f6f673832b4900
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64682056"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840568"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Afficher la topologie d’un réseau virtuel Azure
 
@@ -131,21 +128,21 @@ Le compte que vous utilisez doit disposer des [autorisations](required-rbac-perm
 
 Toutes les ressources renvoyées dans une topologie présentent l’un des types de relation suivants avec une autre ressource :
 
-| Type de relation | Exemples                                                                                                |
+| Type de relation | Exemple                                                                                                |
 | ---               | ---                                                                                                    |
-| Relation contenant-contenu       | Un réseau virtuel contient un sous-réseau. Un sous-réseau contient une interface réseau.                            |
+| Containment       | Un réseau virtuel contient un sous-réseau. Un sous-réseau contient une interface réseau.                            |
 | Associé        | Une interface réseau est associée à une machine virtuelle. Une adresse IP publique est associée à une interface réseau. |
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Propriétés
 
 Toutes les ressources renvoyées dans une topologie ont les propriétés suivantes :
 
-- **Nom** : nom de la ressource.
+- **Name** : nom de la ressource.
 - **Id** : URI de la ressource.
 - **Emplacement** : région Azure dans laquelle se trouve la ressource.
 - **Associations** : liste des associations réalisées vis-à-vis de l’objet référencé. Chaque association présente les propriétés suivantes :
     - **AssociationType** : référence la relation entre l’objet enfant et le parent. Les valeurs valides sont *Contains* et *Associated*.
-    - **Nom** : nom de la ressource référencée.
+    - **Name** : nom de la ressource référencée.
     - **ResourceId** : URI de la ressource référencée dans l’association.
 
 ## <a name="next-steps"></a>Étapes suivantes

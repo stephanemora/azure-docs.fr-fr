@@ -4,30 +4,27 @@ titleSuffix: Azure Network Watcher
 description: Cette page explique comment gérer la fonctionnalité de capture de paquets de Network Watcher à l’aide de PowerShell
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 04d82085-c9ea-4ea1-b050-a3dd4960f3aa
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3be68f6ef87ba37bcfaf418225ce7f460aed53a1
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: e76193a635ee723e13ea4a8a23f668b6e3d1cbb0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277878"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840874"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gérer les captures de paquets avec Azure Network Watcher à l’aide de PowerShell
 
 > [!div class="op_single_selector"]
-> - [Portail Azure](network-watcher-packet-capture-manage-portal.md)
+> - [Azure portal](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-packet-capture-manage-cli.md)
+> - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
 > - [API REST Azure](network-watcher-packet-capture-manage-rest.md)
 
 La fonctionnalité de capture des paquets Network Watcher vous permet de créer des sessions de capture afin d’effectuer le suivi du trafic en direction et en provenance d’une machine virtuelle. Les filtres sont fournis pour la session de capture afin de vous garantir que vous capturez uniquement le trafic souhaité. La capture des paquets permet de diagnostiquer les anomalies réseau de manière proactive et réactive. Elle permet aussi de collecter des statistiques réseau, d’obtenir des informations sur les intrusions, de déboguer des communications client-serveur, etc. En déclenchant à distance des captures de paquets, cette fonctionnalité simplifie l’exécution manuelle de la capture de paquets sur l’ordinateur souhaité, ce qui permet d’économiser un temps précieux.
@@ -46,7 +43,7 @@ Cet article passe en revue les différentes tâches de gestion actuellement disp
 
 Cet article part du principe que vous disposez des ressources suivantes :
 
-* Une instance de Network Watcher dans la région où vous souhaitez créer une capture de paquets
+* Une instance de Network Watcher dans la région où vous souhaitez créer une capture de paquets.
 
 * Une machine virtuelle avec l’extension de capture de paquets activée.
 

@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6f95107960cf11ab15cb5a8294a5432498956a7a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168494"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775313"
 ---
 # <a name="virtual-wan-partners"></a>Partenaires Virtual WAN
 
@@ -81,15 +81,15 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
 * **vpnSiteConfiguration -** Cette section indique les détails de l’appareil configuré comme un site se connectant au réseau virtuel étendu. Cela inclut le nom et l’adresse IP publique de l’appareil de branche.
 * **vpnSiteConnections -** Cette section fournit des informations sur les éléments suivants :
 
-    * **Espace d’adressage** du réseau virtuel du/des hub(s).<br>Exemple :
+    * **Espace d’adressage** du réseau virtuel du/des hub(s).<br>Exemple :
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub.<br>Exemple :
+    * **Espace d’adressage** des réseaux virtuels qui sont connectés au hub.<br>Exemple :
 
          ```
-        "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
+        "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
     * **Adresses IP** de la passerelle VPN virtuelle. Étant donné que la passerelle VPN a chaque connexion avec 2 tunnels en configuration actif-actif, vous verrez les deux adresses IP répertoriées dans ce fichier. Dans cet exemple, vous voyez « Instance0 » et « Instance1 » pour chaque site.<br>Exemple :
 
@@ -118,7 +118,7 @@ Le fichier de configuration de périphérique contient les paramètres à utilis
                "Region":"West Europe",
                "ConnectedSubnets":[ 
                   "10.2.0.0/16",
-                  "10.30.0.0/16"
+                  "10.3.0.0/16"
                ]
             },
             "gatewayConfiguration":{ 

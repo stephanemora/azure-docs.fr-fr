@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9a4f5094837b0c642c4de75180039064de4e40c2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 76219ec454fd105ed4bbf1a2fa0e922475d8dd1f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513981"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834975"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Développer des applications sécurisées sur Azure
 Cet article présente les activités et contrôles de sécurité à prendre en compte lorsque vous développez des applications pour le cloud. Les questions et concepts de sécurité à prendre en compte pendant les phases d’implémentation et de vérification du [Microsoft Security Development Lifecycle](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) y sont abordées. L’objectif est de vous aider à définir les activités et services Azure que vous pouvez utiliser pour développer une application plus sécurisée.
@@ -90,7 +90,7 @@ En d’autres termes, moins de personnes ont accès à vos données réelles, pl
 
 Pour se défendre contre les attaques en force brute et les vols basés sur le dictionnaire, vous devez implémenter une stratégie de mot de passe fort pour garantir que les utilisateurs créent des mots de passe complexes (par exemple, longueur minimale de 12 caractères, caractères spéciaux et alphanumériques).
 
-Vous pouvez utiliser une infrastructure d’identité pour créer et appliquer des stratégies de mot de passe. Azure AD B2C permet de gérer les mots de passe en proposant des [stratégies intégrées](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), la [réinitialisation de mot de passe en libre-service](../../active-directory-b2c/active-directory-b2c-reference-sspr.md) et bien plus encore.
+Vous pouvez utiliser une infrastructure d’identité pour créer et appliquer des stratégies de mot de passe. Azure AD B2C permet de gérer les mots de passe en proposant des [stratégies intégrées](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), la [réinitialisation de mot de passe en libre-service](../../active-directory-b2c/user-flow-self-service-password-reset.md) et bien plus encore.
 
 Pour se défendre contre les attaques sur les comptes par défaut, vérifiez que toutes les clés et que tous les mots de passe sont remplaçables et qu’ils sont générés ou remplacés après l’installation des ressources.
 

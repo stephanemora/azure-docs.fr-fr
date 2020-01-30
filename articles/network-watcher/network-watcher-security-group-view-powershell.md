@@ -4,30 +4,27 @@ titleSuffix: Azure Network Watcher
 description: Cet article décrit comment utiliser PowerShell pour analyser la sécurité des machines virtuelles par le biais de la vue Groupe de sécurité.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3127d60263437a18e0c8d9a98ebdfad31049c58d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 4cba2c7e25b5f76b0638da1c551514f102247ae0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277911"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840789"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans PowerShell
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-security-group-view-cli.md)
-> - [API REST](network-watcher-security-group-view-rest.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
 La vue Groupe de sécurité renvoie des règles de sécurité de réseau configurées et efficaces, appliquées à une machine virtuelle. Cette fonctionnalité permet d’auditer et de diagnostiquer les groupes de sécurité réseau ainsi que les règles configurées sur une machine virtuelle afin de garantir l’autorisation ou le refus appropriés du trafic. Dans cet article, nous vous montrons comment récupérer des règles de sécurité configurées et efficaces pour une machine virtuelle à l’aide de PowerShell
 

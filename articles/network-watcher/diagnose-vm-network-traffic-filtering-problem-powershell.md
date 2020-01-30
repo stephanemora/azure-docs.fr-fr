@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Dans ce guide de démarrage rapide, vous allez apprendre à diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle à l’aide de la fonctionnalité de vérification de flux IP d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 756c8d4d7e227d477c3031aab0d0a478454c35bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5438cc07670393cab69344544ea1b68c46c42bd6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276067"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844022"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>Démarrage rapide : Diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle - Azure PowerShell
 
@@ -178,7 +177,7 @@ La sortie renvoyée contient le texte suivant pour la règle **AllowInternetOutb
   },
 ```
 
-Vous pouvez voir dans la sortie que **DestinationAddressPrefix** est **Internet**. Pourtant, 13.107.21.200, l’adresse que vous avez testée sous [Utiliser la vérification de flux IP](#use-ip-flow-verify), n’est pas clairement liée à **Internet**. Plusieurs préfixes d’adresse sont répertoriés sous **ExpandedDestinationAddressPrefix**. L’n des préfixes de la liste est **12.0.0.0/6**, ce qui englobe la plage d’adresses IP 12.0.0.1-15.255.255.254. Étant donné que l’adresse 13.107.21.200 est comprise dans cette plage d’adresses, la règle **AllowInternetOutBound** autorise le trafic sortant. En outre, il n’y a aucune règle de **priorité** supérieure (numéro inférieur) indiquée dans la sortie retournée par `Get-AzEffectiveNetworkSecurityGroup`, qui remplace cette règle. Pour refuser les communications sortantes vers 13.107.21.200, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui empêche la sortie du port 80 vers l’adresse IP.
+Vous pouvez voir dans la sortie que **DestinationAddressPrefix** est **Internet**. Pourtant, 13.107.21.200, l’adresse que vous avez testée sous [Utiliser la vérification de flux IP](#use-ip-flow-verify), n’est pas clairement liée à **Internet**. Plusieurs préfixes d’adresse sont répertoriés sous **ExpandedDestinationAddressPrefix**. L’un des préfixes de la liste est **12.0.0.0/6**, ce qui englobe la plage d’adresses IP 12.0.0.1-15.255.255.254. Étant donné que l’adresse 13.107.21.200 se trouve dans cette plage d’adresses, la règle **AllowInternetOutBound** autorise le trafic sortant. En outre, il n’y a aucune règle de **priorité** supérieure (numéro inférieur) indiquée dans la sortie retournée par `Get-AzEffectiveNetworkSecurityGroup`, qui remplace cette règle. Pour refuser les communications sortantes vers 13.107.21.200, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui empêche la sortie du port 80 vers l’adresse IP.
 
 Lorsque vous avez exécuté la commande `Test-AzNetworkWatcherIPFlow` pour tester la communication sortante vers l’adresse 172.131.0.100 dans [Utiliser la vérification des flux IP](#use-ip-flow-verify), la sortie vous a informé que la règle **DefaultOutboundDenyAll** a refusé la communication. La règle **DefaultOutboundDenyAll** équivaut à la règle **DenyAllOutBound** répertoriée dans la sortie suivante de la commande `Get-AzEffectiveNetworkSecurityGroup` :
 
@@ -206,7 +205,7 @@ Lorsque vous avez exécuté la commande `Test-AzNetworkWatcherIPFlow` pour teste
 }
 ```
 
-La règle répertorie **0.0.0.0/0** comme **DestinationAddressPrefix**. La règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DestinationAddressPrefix** que toutes les autres règles de trafic sortant dans la sortie de la commande `Get-AzEffectiveNetworkSecurityGroup`. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic sortant vers le port 80 à l’adresse 172.131.0.100.
+La règle répertorie **0.0.0.0/0** comme **DestinationAddressPrefix**. La règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DestinationAddressPrefix** que toutes les autres règles de trafic sortant dans la sortie de la commande `Get-AzEffectiveNetworkSecurityGroup`. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, afin d’autoriser le trafic sortant vers le port 80 à l’adresse 172.131.0.100.
 
 Lorsque vous avez exécuté la commande `Test-AzNetworkWatcherIPFlow` pour tester la communication entrante à partir l’adresse 172.131.0.100 dans [Utiliser la vérification des flux IP](#use-ip-flow-verify), la sortie vous a informé que la règle **DefaultInboundDenyAll** a refusé la communication. La règle **DefaultInboundDenyAll** équivaut à la règle **DenyAllInBound** répertoriée dans la sortie suivante de la commande `Get-AzEffectiveNetworkSecurityGroup` :
 
@@ -238,7 +237,7 @@ La règle **DenyAllInBound** est appliquée, car comme indiqué dans la sortie, 
 
 Les vérifications de ce guide de démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer ainsi que toutes les ressources qu’il contient :
 

@@ -4,30 +4,27 @@ titleSuffix: Azure Network Watcher
 description: Cet article décrit comment utiliser l’interface de ligne de commande Azure pour analyser la sécurité des machines virtuelles par le biais de la vue Groupe de sécurité.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: a986ff4f-7e0c-4994-95e1-4ac824986500
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 70460d3b46baa094f227f96733f8ac98fae9285b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 73f1efc512bf031021791da8cc55bc4e7d98a812
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277846"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840773"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Analyser la sécurité de votre machine virtuelle par le biais de la vue Groupe de sécurité dans l’interface de ligne de commande Azure
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-security-group-view-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-security-group-view-cli.md)
-> - [API REST](network-watcher-security-group-view-rest.md)
+> - [Azure CLI](network-watcher-security-group-view-cli.md)
+> - [REST API](network-watcher-security-group-view-rest.md)
 
 La vue Groupe de sécurité renvoie des règles de sécurité de réseau configurées et efficaces, appliquées à une machine virtuelle. Cette fonctionnalité permet d’auditer et de diagnostiquer les groupes de sécurité réseau ainsi que les règles configurées sur une machine virtuelle afin de garantir l’autorisation ou le refus appropriés du trafic. Dans cet article, nous vous montrons comment récupérer des règles de sécurité configurées et efficaces pour une machine virtuelle à l’aide de l’interface de ligne de commande Azure
 

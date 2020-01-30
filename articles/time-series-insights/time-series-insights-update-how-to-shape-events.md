@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861657"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846140"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Mettre en forme avec Azure Time Series Insights (préversion)
 
@@ -156,5 +156,4 @@ Dans l’exemple ci-dessus, la propriété `data_flow` aplatie présenterait une
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour mettre ces instructions en pratique, consultez [Syntaxe des requêtes Azure Time Series Insights Preview](./time-series-insights-query-data-csharp.md). Vous en apprendrez davantage sur la syntaxe de requête pour l’API REST Time Series Insights (préversion) pour l’accès aux données.
-- Pour en savoir plus sur les structures JSON prises en charge, consultez [Structures JSON prises en charge](./time-series-insights-send-events.md#supported-json-shapes).
+Pour mettre ces instructions en pratique, consultez [Syntaxe des requêtes Azure Time Series Insights Preview](./time-series-insights-query-data-csharp.md). Vous en apprendrez davantage sur la syntaxe de requête pour l’API REST Time Series Insights (préversion) pour l’accès aux données.

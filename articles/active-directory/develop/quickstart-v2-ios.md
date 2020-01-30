@@ -12,13 +12,12 @@ ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10225efb1dcd870f5922a6521b0bd6ec44965152
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 25e37d27805adb47fae19bdcc0e94253f8c4ccf2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920682"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703454"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Démarrage rapide : Connecter des utilisateurs et appeler l’API Microsoft Graph à partir d’une application iOS ou macOS
 
@@ -40,14 +39,14 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 > * [Express] [Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code](#option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample)
 > * [Manuel] [Option 2 : Inscrire et configurer manuellement vos application et exemple de code](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger l’exemple de code
-> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-the-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger l’exemple de code
+> #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application :
 > 1. Accédez au nouveau volet [Portail Azure - Inscriptions des applications](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/IosQuickstartPage/sourceType/docs).
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application en un seul clic.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option 2 : Inscrire et configurer manuellement vos application et exemple de code
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option n°2 : Inscrire et configurer manuellement vos application et exemple de code
 >
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 > Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
@@ -64,7 +63,7 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 > 1. Sélectionnez `Configure` et enregistrez les détails de la ***Configuration MSAL*** pour une utilisation ultérieure dans ce guide de démarrage rapide.
 > [!div renderon="portal" class="sxs-lookup"]
 >
-> #### <a name="step-1-configure-your-application"></a>Étape 1 : Configuration de votre application
+> #### <a name="step-1-configure-your-application"></a>Étape 1 : Configuration de votre application
 > Pour que l'exemple de code de ce guide de démarrage rapide fonctionne, vous devez ajouter un URI de redirection compatible avec le répartiteur d'authentification.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporter cette modification pour moi]()
@@ -72,7 +71,7 @@ Ce guide de démarrage rapide s’applique aux applications iOS et macOS. Certai
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-ios/green-check.png) Votre application est configurée avec ces attributs
 
-#### <a name="step-2-download-the-sample-project"></a>Étape 2 : Téléchargement de l’exemple de projet
+#### <a name="step-2-download-the-sample-project"></a>Étape 2 : Téléchargement de l’exemple de projet
 
 - [Télécharger l’exemple de code pour iOS](https://github.com/Azure-Samples/active-directory-ios-swift-native-v2/archive/master.zip)
 - [Télécharger l’exemple de code pour macOS](https://github.com/Azure-Samples/active-directory-macOS-swift-native-v2/archive/master.zip)

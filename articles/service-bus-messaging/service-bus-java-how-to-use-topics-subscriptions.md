@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Utiliser des rubriques et abonnements Azure Service Bus avec Java'
-description: 'Démarrage rapide : Utilisez les rubriques et abonnements Service Bus dans Azure.'
+title: Utiliser des rubriques et abonnements Azure Service Bus avec Java
+description: Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevez les messages des abonnements à cette rubrique.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8a721d929ff89fd644c78296ae54cee757bf9610
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b75b5cd5e674020f41897309a3c69b9371cc768
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720007"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759293"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>Démarrage rapide : Utiliser des rubriques et des abonnements Service Bus avec Java
 
@@ -28,10 +28,10 @@ ms.locfileid: "73720007"
 
 Dans ce guide de démarrage rapide, vous écrivez du code Java pour envoyer des messages à une rubrique Azure Service Bus, puis vous recevez les messages des abonnements à cette rubrique. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour créer un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-2. Suivez les étapes du document [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
+2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour effectuer les tâches suivantes :
     1. Créez un **espace de noms** Service Bus.
     2. Obtenez la **chaîne de connexion**.
     3. Créez une **rubrique** dans l’espace de noms.

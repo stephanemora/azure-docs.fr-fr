@@ -4,31 +4,28 @@ titleSuffix: Azure Network Watcher
 description: Cette page explique comment utiliser Azure Network Watcher pour résoudre les problèmes liés à l’interface de ligne de commande Azure
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: ca61486ce58ccd3385518c2d22e0690c1fb34d16
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: dc0aa8e6099a7ec017aead2fe0f16e9712e17936
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277814"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840721"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Résoudre les problèmes liés à la passerelle de réseau virtuel et aux connexions Azure par le biais de l’interface de ligne de commande Azure d’Azure Network Watcher
 
 > [!div class="op_single_selector"]
-> - [Portal](diagnose-communication-problem-between-networks.md)
+> - [Portail](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-troubleshoot-manage-cli.md)
-> - [API REST](network-watcher-troubleshoot-manage-rest.md)
+> - [Azure CLI](network-watcher-troubleshoot-manage-cli.md)
+> - [REST API](network-watcher-troubleshoot-manage-rest.md)
 
 Le service Network Watcher offre de nombreuses fonctionnalités en lien avec la bonne compréhension de vos ressources réseau dans Azure. Il permet notamment de résoudre les problèmes liés aux ressources. Vous pouvez appeler la solution de résolution des problèmes de ressources par le biais du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Lorsque cette fonctionnalité est appelée, Network Watcher inspecte l’intégrité d’une passerelle de réseau virtuel ou d’une connexion et renvoie ses résultats.
 
@@ -40,7 +37,7 @@ Ce scénario suppose que vous ayez déjà suivi la procédure décrite dans [Cre
 
 Vous trouverez la liste des types de passerelles pris en charge sur la page [Types de passerelles pris en charge](network-watcher-troubleshoot-overview.md#supported-gateway-types).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La résolution des problèmes liés aux ressources offre la possibilité de résoudre les problèmes qui surviennent avec les passerelles de réseau virtuel et les connexions. Lorsqu’une demande de résolution des problèmes liés aux ressources est faite, les journaux d’activité sont interrogés et inspectés. Lorsque l’inspection est terminée, les résultats sont renvoyés. Les demandes de résolution des problèmes liés aux ressources sont longues : vous devrez peut-être patienter plusieurs minutes avant d’obtenir un résultat. Les journaux d’activité de dépannage sont stockés dans un conteneur sur un compte de stockage spécifié.
 

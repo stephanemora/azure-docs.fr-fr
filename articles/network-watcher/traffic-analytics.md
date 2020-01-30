@@ -3,23 +3,21 @@ title: Azure Traffic Analytics | Microsoft Docs
 description: Découvrez comment analyser les journaux de flux du groupe de sécurité réseau Azure avec Traffic Analytics.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907142"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840585"
 ---
 # <a name="traffic-analytics"></a>Traffic Analytics
 
@@ -117,7 +115,7 @@ L’espace de travail Log Analytics doit exister dans les régions suivantes :
 * Gouvernement américain - Virginie
 * Chine orientale 2
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 ### <a name="user-access-requirements"></a>Conditions requises pour l’accès utilisateur
 
@@ -212,7 +210,7 @@ Dans la partie gauche du portail, sélectionnez **All services** (Tous les servi
 
 La première fois, le tableau de bord peut s’afficher au bout de 30 minutes maximum, car Traffic Analytics doit d’abord agréger suffisamment de données pour générer des informations utiles, avant de pouvoir créer des rapports.
 
-## <a name="usage-scenarios"></a>Scénarios d’utilisation
+## <a name="usage-scenarios"></a>Scénarios d’usage
 
 Certaines des informations que vous souhaitez obtenir une fois Traffic Analytics entièrement configuré sont les suivantes :
 
@@ -382,7 +380,7 @@ Avez-vous détecté la présence de trafic malveillant dans votre environnement 
 
     ![Détails des statistiques des principales règles de groupe de sécurité réseau](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 Pour obtenir des réponses aux questions fréquemment posées, consultez [Traffic Analytics FAQ](traffic-analytics-faq.md) (Forum aux questions sur Traffic Analytics).
 

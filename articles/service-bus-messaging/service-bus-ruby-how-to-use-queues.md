@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Guide pratique pour utiliser les files d’attente Azure Service Bus avec Ruby'
-description: "Démarrage rapide : Découvrez comment utiliser les files d'attente Service Bus dans Azure. Exemples de code écrits en Ruby."
+title: Guide pratique pour utiliser les files d’attente Azure Service Bus avec Ruby
+description: Dans ce tutoriel, vous allez apprendre à créer des applications Ruby afin d’envoyer des messages à une file d’attente Service Bus.
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 09fdc58254d260b6ffeff958b6bbda50332adfac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a699543bb442e7c57d57e72acb2cdf6ac40159c1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718760"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760587"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>Démarrage rapide : Utilisation des files d’attente Service Bus avec Ruby
 
@@ -27,10 +27,10 @@ ms.locfileid: "73718760"
 
 Dans ce tutoriel, vous allez apprendre à créer des applications Ruby afin d’envoyer des messages à une file d’attente Service Bus. Les exemples sont écrits en Ruby et utilisent le module Azure gem.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md).
-    1. Consultez la **vue d’ensemble** rapide des **files d’attente Service Bus**. 
+    1. Consultez la **vue d’ensemble** rapide des **files d’attente** Service Bus. 
     2. Créez un **espace de noms** Service Bus. 
     3. Obtenez la **chaîne de connexion**. 
 

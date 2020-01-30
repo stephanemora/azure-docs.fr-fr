@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Dans cet article, découvrez comment diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide de la fonctionnalité de tronçon suivant d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,14 +15,14 @@ ms.topic: article
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 81e2af329661d485b2d189e9a1f70b50bd6d4b7d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: b5a636471eab188dc8648761afedd81694331953
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276113"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834703"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostiquer un problème de routage réseau d’une machine virtuelle - Azure PowerShell
 
@@ -134,7 +133,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
 
 Comme vous pouvez le voir dans la sortie précédente, la route avec **AddressPrefix** défini sur **0.0.0.0/0** achemine tout le trafic non destiné aux adresses dans les préfixes d’adresses d’une autre route avec un tronçon suivant défini sur **Internet**. Comme vous pouvez le voir aussi dans la sortie, même s’il existe un itinéraire par défaut pour le préfixe 172.16.0.0/12, qui inclut l’adresse 172.31.0.100, **NextHopType** est défini sur **Aucun**. Azure crée un itinéraire par défaut pour 172.16.0.0/12, mais ne spécifie pas de type de tronçon suivant tant qu’aucune raison ne motive cette spécification. Si, par exemple, vous avez ajouté la plage d’adresses 172.16.0.0/12 à l’espace d’adressage du réseau virtuel, Azure modifie **NextHopType** pour le définir sur **Réseau virtuel** pour l’itinéraire. Une vérification permet ensuite d’afficher **Réseau virtuel** en tant que **NextHopType**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin d’un groupe de ressources, vous pouvez utiliser [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) pour le supprimer ainsi que toutes les ressources qu’il contient :
 

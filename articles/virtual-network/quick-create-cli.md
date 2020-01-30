@@ -11,14 +11,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.openlocfilehash: 6306d893f491f93cc31b7e478afe5632e997285c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3cbfee90997c6b7cd9df1ec76543d77a4402100f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692647"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774533"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Démarrage rapide : Créer un réseau virtuel à l’aide d’Azure CLI
 
@@ -116,7 +116,7 @@ Vous recevrez quatre réponses de *10.0.0.4*.
 
 Fermez la session SSH avec la machine virtuelle *myVm2*.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n'en avez plus besoin, vous pouvez utiliser [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, ainsi que toutes les ressources qu’il contient :
 

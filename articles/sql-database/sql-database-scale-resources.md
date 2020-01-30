@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462612"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835910"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Mettre à l’échelle de façon dynamique les ressources de base de données moyennant un temps d’arrêt minimal
 
@@ -55,7 +55,8 @@ Ces trois possibilités d’Azure SQL Database offrent des capacités à mettre 
 - Une instance [Managed Instance](sql-database-managed-instance.md) utilise le modèle [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) et vous permet de définir la quantité maximale de cœurs de processeur et de stockage allouée à votre instance. Toutes les bases de données au sein de l’instance partageront les ressources allouées à l’instance.
 - Les [pools élastiques](sql-database-elastic-pool-scale.md) vous permettent de définir la limite de ressources maximale par groupe de bases de données dans le pool.
 
-Quelle que soit la version, une action de mise à l’échelle (scale up ou scale down) aurait pour effet de redémarrer le processus du moteur de base de données et de le déplacer si nécessaire vers une autre machine virtuelle. Le déplacement du processus du moteur de base de données vers une nouvelle machine virtuelle est un **processus en ligne**, ce qui vous permet de continuer à utiliser votre service Azure SQL Database existant pendant sa progression. Une fois le moteur de base de données cible entièrement initialisé et prêt à traiter les requêtes, les connexions sont [basculées du moteur de base de données source vers le moteur de base de données cible](sql-database-single-database-scale.md#impact-of-changing-service-tier-or-rescaling-compute-size).
+Quelle que soit la version, une action de mise à l’échelle (scale up ou scale down) aurait pour effet de redémarrer le processus du moteur de base de données et de le déplacer si nécessaire vers une autre machine virtuelle. Le déplacement du processus du moteur de base de données vers une nouvelle machine virtuelle est un **processus en ligne**, ce qui vous permet de continuer à utiliser votre service Azure SQL Database existant pendant sa progression. Une fois le moteur de base de données cible entièrement initialisé et prêt à traiter les requêtes, les connexions sont [basculées du moteur de base de données source vers le moteur de base de données cible](sql-database-single-database-scale.md#impact). 
+
 
 > [!NOTE]
 > Une courte interruption de la connexion risque de se produire à la fin du processus de mise à l’échelle. Si vous avez implémenté une [Logique de nouvelles tentatives pour les erreurs temporaires standard](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), vous ne remarquerez pas le basculement.

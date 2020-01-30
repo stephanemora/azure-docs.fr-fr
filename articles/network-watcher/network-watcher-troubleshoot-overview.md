@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Cette page fournit une vue d’ensemble des fonctionnalités de résolution des problèmes des ressources de Network Watcher
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277770"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840687"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduction à la résolution des problèmes des ressources dans Azure Network Watcher
 
@@ -52,7 +49,7 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée |OUI|
+| NoFault | Quand aucune erreur n’est détectée |Oui|
 | GatewayNotFound | Passerelle introuvable ou non approvisionnée |Non|
 | PlannedMaintenance |  Instance de la passerelle en maintenance  |Non|
 | UserDrivenUpdate | Cette défaillance se produit lorsqu’une mise à jour utilisateur est en cours. La mise à jour peut être d’une opération de redimensionnement. | Non |
@@ -60,26 +57,26 @@ Les tableaux suivants présentent les différents types d’erreur (« id » dan
 | PlatformInActive | Il existe un problème avec la plateforme. | Non|
 | ServiceNotRunning | Le service sous-jacent ne fonctionne pas. | Non|
 | NoConnectionsFoundForGateway | Aucune connexion n’existe sur la passerelle. Cette défaillance est simplement un avertissement.| Non|
-| ConnectionsNotConnected | Aucune connexion n’est établie. Cette défaillance est simplement un avertissement.| OUI|
-| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | OUI |
+| ConnectionsNotConnected | Aucune connexion n’est établie. Cette défaillance est simplement un avertissement.| Oui|
+| GatewayCPUUsageExceeded | L’utilisation du processeur par la passerelle est actuellement supérieure à 95 %. | Oui |
 
 ### <a name="connection"></a>Connexion
 
 | Type d’erreur | Motif | Journal|
 |---|---|---|
-| NoFault | Quand aucune erreur n’est détectée |OUI|
+| NoFault | Quand aucune erreur n’est détectée |Oui|
 | GatewayNotFound | Passerelle introuvable ou non approvisionnée |Non|
 | PlannedMaintenance | Instance de la passerelle en maintenance  |Non|
 | UserDrivenUpdate | Cette défaillance se produit lorsqu’une mise à jour utilisateur est en cours. La mise à jour peut être d’une opération de redimensionnement.  | Non |
 | VipUnResponsive | Cette défaillance se produit lorsque l’instance principale de la passerelle ne peut pas être atteinte en raison d’un échec de la sonde d’intégrité. | Non |
 | ConnectionEntityNotFound | La configuration de la connexion est manquante | Non |
 | ConnectionIsMarkedDisconnected | La connexion est identifiée comme étant « déconnectée » |Non|
-| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | OUI |
-| ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| OUI|
-| Authentication | Incompatibilité des clés prépartagées | OUI|
-| PeerReachability | La passerelle homologue n’est pas accessible. | OUI|
-| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | OUI|
-| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |OUI|
+| ConnectionNotConfiguredOnGateway | Le service sous-jacent n’a pas la connexion configurée. | Oui |
+| ConnectionMarkedStandby | Le service sous-jacent est identifié comme étant en veille.| Oui|
+| Authentication | Incompatibilité des clés prépartagées | Oui|
+| PeerReachability | La passerelle homologue n’est pas accessible. | Oui|
+| IkePolicyMismatch | Les stratégies IKE de la passerelle homologue ne sont pas prises en charge par Azure. | Oui|
+| WfpParse Error | Une erreur s’est produite lors de l’analyse du journal de protection des fichiers Windows. |Oui|
 
 ## <a name="supported-gateway-types"></a>Types de passerelles pris en charge
 
@@ -88,14 +85,14 @@ La table suivante répertorie quelles passerelles et quelles connexions sont pri
 |  |  |
 |---------|---------|
 |**Types de passerelles**   |         |
-|VPN      | Pris en charge        |
+|VPN      | Prise en charge        |
 |ExpressRoute | Non pris en charge |
 |**Types de VPN** | |
-|Route-based | Pris en charge|
+|Route-based | Prise en charge|
 |Policy-based | Non pris en charge|
 |**Types de connexions**||
-|IPsec| Pris en charge|
-|Vnet2Vnet| Pris en charge|
+|IPsec| Prise en charge|
+|Vnet2Vnet| Prise en charge|
 |ExpressRoute| Non pris en charge|
 |VPNClient| Non pris en charge|
 

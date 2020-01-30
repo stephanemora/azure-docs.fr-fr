@@ -11,16 +11,16 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 72825a709ec55bf5879e15287eb8b258dc4c8e94
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 87a9db7d320a7d5b35234899c59884bcf2bf4b60
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965794"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721674"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell et CLI : Activer Transparent Data Encryption à l’aide d'une clé gérée par le client à partir d'Azure Key Vault
 
-Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur une entité SQL Database ou Data Warehouse. Pour en savoir plus sur TDE avec intégration Azure Key Vault - Prise en charge de BYOK (Bring Your Own Key), consultez [TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
+Cet article explique comment utiliser une clé Azure Key Vault pour Transparent Data Encryption (TDE) sur une entité SQL Database ou Data Warehouse. Pour en savoir plus sur TDE avec intégration Azure Key Vault - Prise en charge de BYOK (Bring Your Own Key), consultez [TDE avec clés managées dans Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
 
 ## <a name="prerequisites-for-powershell"></a>Prérequis pour PowerShell
 

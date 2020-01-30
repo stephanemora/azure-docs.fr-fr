@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f005266b6e2e12a13f79b3f2007b1bbbafb4acef
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1b5ebbcd3a891149a72b3dbe8cb19b3c8de528a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311558"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773762"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Démarrage rapide : Définir et récupérer un secret depuis Azure Key Vault à l’aide d’Azure CLI
 
@@ -73,7 +73,7 @@ Tapez les commandes ci-après pour créer dans Key Vault un secret appelé **Exa
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté à Azure Key Vault à l’aide de son URI. Utilisez **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** pour obtenir la version actuelle. 
+Vous pouvez maintenant référencer ce mot de passe que vous avez ajouté à Azure Key Vault à l’aide de son URI. Utilisez **https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword** pour obtenir la version actuelle. 
 
 Pour afficher sous forme de texte brut la valeur contenue dans le secret :
 
@@ -83,7 +83,7 @@ az keyvault secret show --name "ExamplePassword" --vault-name "Contoso-Vault2"
 
 Vous venez de créer un coffre de clés, d’y stocker un secret et de récupérer ce dernier.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 D’autres guides de démarrage rapide et didacticiels de cette collection reposent sur ce guide. Si vous prévoyez d’utiliser d’autres démarrages rapides et didacticiels, il peut être utile de conserver ces ressources.
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group) pour supprimer le groupe de ressources, ainsi que toutes les ressources associées. Vous pouvez supprimer les ressources comme suit :

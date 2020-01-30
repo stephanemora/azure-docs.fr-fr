@@ -3,9 +3,7 @@ title: Créer une instance d’Azure Network Watcher | Microsoft Docs
 description: Découvrez comment activer Network Watcher dans une région Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: fd293c2815721295715c5e02846c55d4cdb74a32
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.author: damendo
+ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693485"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845122"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Créer une instance d’Azure Network Watcher
 

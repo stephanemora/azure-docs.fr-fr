@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide d’Azure CLI.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 ms.service: network-watcher
 ms.devlang: na
@@ -13,19 +12,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 07358d5d77e91f0b4eebffa068ff72fc83c74893
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 842e58de8dbc06d3f045b0e9d0dc6b99e6b1e2fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276025"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842884"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-cli"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide d’Azure CLI
 
 > [!div class="op_single_selector"]
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [API REST Azure](network-watcher-connectivity-rest.md)
 
 Découvrez comment utiliser la résolution des problèmes associés aux connexions pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison donné peut être établie.
@@ -44,7 +43,7 @@ Cet article part du principe que vous disposez des ressources suivantes :
 
 Cet exemple vérifie la connectivité à une machine virtuelle de destination sur le port 80.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-resource Database0 --dest-port 80
@@ -125,7 +124,7 @@ Nic0/ipConfigurations/ipconfig1",
 
 Cet exemple vérifie la connectivité entre une machine virtuelle et un point de terminaison distant.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address 13.107.21.200 --dest-port 80
@@ -183,7 +182,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 L’exemple suivant vérifie la connectivité à un site Web.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://bing.com --dest-port 80
@@ -229,7 +228,7 @@ pNic0/ipConfigurations/ipconfig1",
 
 L’exemple suivant vérifie la connectivité entre une machine virtuelle et un compte de stockage blob.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```azurecli
 az network watcher test-connectivity --resource-group ContosoRG --source-resource MultiTierApp0 --dest-address https://contosoexamplesa.blob.core.windows.net/

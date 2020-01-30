@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Cet article explique comment utiliser Azure Network Watcher et des outils open source pour détecter les intrusions dans un réseau
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275932"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845021"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Détecter les intrusions dans un réseau avec Azure Network Watcher et des outils open source
 
@@ -76,7 +74,7 @@ Pour consulter les alertes générées, parcourez le fichier fast.log :
 tail -f /var/log/suricata/fast.log
 ```
 
-### <a name="set-up-the-elastic-stack"></a>Configurer la pile élastique
+### <a name="set-up-the-elastic-stack"></a>Configurer la Suite Elastic
 
 Même si les journaux d’activité créés par Suricata contiennent des informations importantes sur l’activité de notre réseau, ceux-ci ne sont pas les plus faciles à lire et à comprendre. En connectant Suricata à la pile élastique, nous pouvons générer un tableau de bord Kibana qui nous permet de rechercher, de créer des graphiques, d’analyser et d’obtenir des informations à partir de nos journaux d’activité.
 
@@ -235,7 +233,7 @@ Pour plus d’informations sur l’installation de Logstash, reportez-vous à la
     ./bin/kibana
     ```
 
-1. Pour afficher votre interface web Kibana, accédez à `http://localhost:5601`.
+1. Pour afficher votre interface web Kibana, accédez à `http://localhost:5601`
 1. Dans ce scénario, le modèle d’index utilisé pour les journaux d’activité Suricata est « logstash-* ».
 
 1. Si vous souhaitez afficher le tableau de bord Kibana à distance, créez une règle de groupe de sécurité réseau entrante autorisant l’accès au **port 5601**.
@@ -248,7 +246,7 @@ Dans le cadre de cet article, nous proposons un exemple de tableau de bord pour 
 
 1. Dans l’onglet **Gestion** de Kibana, accédez à **Saved Objects** (Objets enregistrés) et importez les trois fichiers. Puis, à partir de l’onglet **Tableau de bord**, vous pouvez ouvrir et charger l’exemple de tableau de bord.
 
-Vous avez également la possibilité de créer vos propres visualisations et tableaux de bord en fonction des mesures qui vous intéressent. Reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/kibana/current/visualize.html) de Kibana pour en savoir plus sur la création de visualisations Kibana.
+Vous avez également la possibilité de créer vos propres visualisations et tableaux de bord en fonction des mesures qui vous intéressent. Reportez-vous à la [documentation officielle](https://www.elastic.co/guide/en/kibana/current/visualize.html) de Kibana pour en savoir plus sur la création de visualisation Kibana.
 
 ![tableau de bord Kibana][2]
 

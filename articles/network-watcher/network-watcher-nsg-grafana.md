@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Gérez et analysez les journaux de flux des groupes de sécurité réseau à l’aide de Network Watcher et de Grafana.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
+author: damendo
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
@@ -15,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: mareat
-ms.openlocfilehash: e92f4db575e4b318af8dc7bf3ba2eb4b69a3a2d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277953"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840908"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Gérer les journaux de flux des groupes de sécurité réseau avec Network Watcher et Grafana
 
@@ -52,7 +50,7 @@ Dans cet exemple, Grafana, ElasticSearch et Logstash sont configurés sur un ser
 
 Logstash vous permet d’aplatir les journaux de flux au format JSON à un niveau de tuple de flux.
 
-1. Pour installer Logstash, exécutez les commandes suivantes :
+1. Pour installer Logstash, exécutez les commandes suivantes :
 
     ```bash
     curl -L -O https://artifacts.elastic.co/downloads/logstash/logstash-5.2.0.deb
@@ -65,7 +63,7 @@ Logstash vous permet d’aplatir les journaux de flux au format JSON à un nivea
     sudo touch /etc/logstash/conf.d/logstash.conf
     ```
 
-3. Ajoutez le contenu suivant au fichier : Ajoutez le nom du compte de stockage et la clé d’accès correspondant à votre compte de stockage :
+3. Ajoutez le contenu suivant au fichier. Ajoutez le nom du compte de stockage et la clé d’accès correspondant à votre compte de stockage :
 
    ```bash
     input {

@@ -9,16 +9,16 @@ ms.devlang: ''
 ms.topic: conceptual
 f1_keywords:
 - mi.azure.sqlaudit.general.f1
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 41d632b145a7187dd0aeaab740cd8546a3955e7f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 9b96969027431f289e366b150fbfc6a62ee6a908
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819009"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719906"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Prendre en main l’audit d’Azure SQL Database Managed Instance
 
@@ -73,7 +73,7 @@ La section suivante décrit la configuration de l’audit à l’aide de votre i
 
         - Configurez la signature d’accès partagé comme suit :
 
-          - **Services autorisés** : Blob
+          - **Services autorisés** : Objet blob
 
           - **Date de début** : pour éviter tout problème lié au fuseau horaire, il est recommandé d’utiliser la date de la veille.
 
@@ -233,7 +233,7 @@ Les principales différences de syntaxe `CREATE AUDIT` pour l’audit du Stockag
 
 - Une nouvelle syntaxe `TO URL` est fournie et vous permet de spécifier l’URL du conteneur du Stockage Blob Azure où les fichiers `.xel` sont placés.
 - Une nouvelle syntaxe `TO EXTERNAL MONITOR` est fournie pour activer les cibles Event Hub et des journaux Azure Monitor.
-- La syntaxe `TO FILE` **n’est pas prise en charge**, car SQL Database ne peut pas accéder aux partages de fichiers Windows.
+- La syntaxe `TO FILE`**n’est pas prise en charge**, car SQL Database ne peut pas accéder aux partages de fichiers Windows.
 - L’option d’arrêt n’est **pas prise en charge**.
 - La valeur 0 du paramètre `queue_delay` n’est **pas prise en charge**.
 

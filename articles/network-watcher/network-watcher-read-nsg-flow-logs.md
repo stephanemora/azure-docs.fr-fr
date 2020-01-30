@@ -3,22 +3,20 @@ title: Lire les journaux de flux de groupe de sécurité réseau | Documents Mic
 description: Cet article explique comment analyser les journaux de flux de groupe de sécurité réseau
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: kumud
-ms.openlocfilehash: cdfcf6b379feb5cc71c173275601ce9c55d57d12
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.author: damendo
+ms.openlocfilehash: ee44dda7a7ca2f7e1ad386498798191fe792cef0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539259"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840840"
 ---
 # <a name="read-nsg-flow-logs"></a>Lire des journaux de flux NSG
 
@@ -33,7 +31,7 @@ Les journaux de flux de groupe de sécurité réseau sont stockés dans un compt
 
 Dans le scénario suivant, vous disposez d’un exemple de journal de flux stocké dans un compte de stockage. Vous découvrirez comment lire de manière sélective les derniers événements dans les journaux de flux de groupe de sécurité réseau. Vous utilisez PowerShell dans cet article, toutefois, les concepts abordés dans l’article ne sont pas limités au langage de programmation et sont applicables à tous les langages pris en charge par les API de stockage Azure.
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 Avant de commencer, la journalisation des flux de groupe de sécurité réseau doit être activée sur un ou plusieurs groupes de sécurité réseau de votre compte. Pour obtenir des instructions sur l’activation des journaux de flux de sécurité réseau, consultez l’article suivant : [Introduction à la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
 

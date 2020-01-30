@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 35d568afa0c45529b33b7918fd453213f432ba06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/23/2020
+ms.openlocfilehash: fd6d3e24adfc22d2f6ea17f09b8dea4638a054b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792308"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769037"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Réplicas en lecture dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -59,8 +59,6 @@ Il existe quelques limitations à prendre en compte :
 
 
 ## <a name="create-a-replica"></a>Créer un réplica
-Le serveur maître doit comporter le paramètre `azure.replication_support` avec la valeur **REPLICA**. Quand vous changez ce paramètre, un redémarrage du serveur est nécessaire pour que la modification soit prise en compte. (Le paramètre `azure.replication_support` s’applique uniquement aux niveaux à usage général et à mémoire optimisée).
-
 Quand vous démarrez le workflow de création de réplica, un serveur Azure Database pour PostgreSQL vide est créé. Le nouveau serveur est rempli avec les données qui se trouvaient sur le serveur maître. Le temps de création dépend de la quantité de données présentes sur le serveur maître et du temps écoulé depuis la dernière sauvegarde complète hebdomadaire. Le temps nécessaire peut aller de quelques minutes à plusieurs heures.
 
 Chaque réplica est activé pour la [croissance automatique](concepts-pricing-tiers.md#storage-auto-grow) du stockage. La fonctionnalité de croissance automatique permet au réplica de suivre les données qui sont répliquées sur lui et d’empêcher toute interruption à cause d’une erreur de saturation du stockage.
@@ -148,7 +146,7 @@ Lorsque votre application est en mesure de traiter les lectures et les écriture
 
 Cette section résume les considérations relatives à la fonctionnalité de réplica en lecture.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 Avant de créer un réplica en lecture, vous devez affecter au paramètre `azure.replication_support` la valeur **REPLICA** sur le serveur maître. Quand vous changez ce paramètre, un redémarrage du serveur est nécessaire pour que la modification soit prise en compte. Le paramètre `azure.replication_support` s’applique uniquement aux niveaux à usage général et à mémoire optimisée.
 
 ### <a name="new-replicas"></a>Nouveaux réplicas

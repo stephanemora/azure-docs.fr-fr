@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2869333fe0e9103724b9b1075270a5c3301c472
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0d69f762cea53f2a4c022ad6dddb52faeced1adf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968015"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703335"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Démarrage rapide : Ajouter la connexion à l’aide d’OpenID Connect à une application web node.js
 
@@ -25,7 +24,7 @@ ms.locfileid: "74968015"
 
 Dans ce guide de démarrage rapide, vous allez apprendre à configurer l'authentification OpenID Connect dans une application web créée à l'aide de Node.js avec Express. L'exemple est conçu pour fonctionner sur n'importe quelle plateforme.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 
@@ -65,7 +64,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
     - Sélectionnez une durée pour la clé : **Dans 1 an, Dans 2 ans** ou **N'expire jamais**.
     - Lorsque vous cliquez sur le bouton **Ajouter**, la valeur de la clé s'affiche. Copiez la valeur de la clé et enregistrez-la dans un endroit sûr.
 
-    Vous aurez besoin de cette clé plus tard pour configurer l'application. Cette valeur de clé ne sera plus jamais affichée et aucun autre moyen ne permettra de la récupérer. Par conséquent, enregistrez-la dès qu'elle apparaît sur le portail Azure.
+    Vous aurez besoin de cette clé plus tard pour configurer l'application. Cette valeur de clé ne sera plus jamais affichée et aucun autre moyen ne permettra de la récupérer. Par conséquent, enregistrez-la dès qu’elle apparaît sur le portail Azure.
 
 ## <a name="download-the-sample-application-and-modules"></a>Télécharger l'exemple d'application et les modules
 

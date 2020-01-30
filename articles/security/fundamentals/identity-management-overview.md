@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 021767aa20dc35459c68fead674ff00510af2538
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cdf07c6a4cb98f17a9bc15934a7be42ba70810f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129356"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840449"
 ---
 # <a name="azure-identity-management-security-overview"></a>Vue d’ensemble de la sécurité et de la gestion des identités Azure
 
@@ -125,8 +125,8 @@ Lorsque vous utilisez Azure AD B2C, vos consommateurs peuvent s’inscrire aupr�
 En savoir plus :
 
 * [Qu’est-ce qu’Azure Active Directory B2C ?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C (préversion) : inscription et connexion de consommateurs à vos applications](../../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C (préversion) : types d’applications](../../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C (préversion) : inscription et connexion de consommateurs à vos applications](../../active-directory-b2c/overview.md)
+* [Azure Active Directory B2C (préversion) : types d’applications](../../active-directory-b2c/application-types.md)
 
 ## <a name="device-registration"></a>Enregistrement de l’appareil
 
@@ -171,7 +171,7 @@ En savoir plus :
 
 Les solutions d'identité de Microsoft regroupent des fonctionnalités, locales et cloud, de création d'une identité d'utilisateur unique pour l'authentification et l'autorisation d'accès à toutes les ressources, indépendamment de l'emplacement. Nous appelons cette identité « identité hybride ». L’outil Microsoft Azure AD Connect a été conçu pour vous permettre d’atteindre et de remplir vos objectifs en matière d’identité hybride. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. Elle fournit les fonctionnalités suivantes :
 
-* Synchronisation
+* Synchronization
 * Intégration AD FS et de fédération
 * Authentification directe
 * Surveillance de l’intégrité

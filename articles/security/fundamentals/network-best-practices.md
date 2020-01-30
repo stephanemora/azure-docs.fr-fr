@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 85e1ebc05ad4ebe1d58716981c0688df0126efb0
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 6d4d8ac1eb001f03e7615eeabdaca6967223f40b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937242"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772002"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Meilleures pratiques Azure pour la sécurité réseau
 Cet article présente l’ensemble des meilleures pratiques Azure pour améliorer votre sécurité réseau. Ces meilleures pratiques sont issues de notre expérience dans le domaine de la mise en réseau Azure, mais également de celle des clients, comme vous.
@@ -28,7 +28,7 @@ Cet article détaille les points suivants pour chaque bonne pratique :
 
 * Nature de la bonne pratique
 * Raison pour laquelle activer cette bonne pratique
-* Conséquence possible en cas de non-utilisation de la meilleure pratique
+* Conséquence possible en cas de non-utilisation de la bonne pratique
 * Alternatives possibles à la meilleure pratique
 * Comment apprendre à utiliser la bonne pratique
 
@@ -160,10 +160,10 @@ Nous vous recommandons de tirer parti aussi souvent que possible de l’équilib
 - Disposez d’applications sans état qui acceptent les demandes entrantes provenant d’Internet.
 - N’exigez pas de sessions permanentes ni de déchargement SSL. Ces sessions correspondent à une méthode utilisée avec l’équilibrage de charge des applications pour obtenir l’affinité de serveur.
 
-**Option d’équilibrage de charge** : Utilisez le portail Azure pour [créer un équilibreur de charge externe](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
+**Option d’équilibrage de charge** : Utilisez le portail Azure pour [créer un équilibreur de charge externe](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
 
 **Scénario** : Vous devez équilibrer la charge des connexions des machines virtuelles qui ne sont pas sur Internet. Dans la plupart des cas, les connexions qui sont acceptées pour l’équilibrage de charge sont initiées par les appareils figurant sur un réseau virtuel Azure, par exemple des instances SQL Server ou des serveurs web internes.   
-**Option d’équilibrage de charge** : Utilisez le portail Azure pour [créer un équilibreur de charge interne](../../load-balancer/quickstart-create-basic-load-balancer-powershell.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
+**Option d’équilibrage de charge** : Utilisez le portail Azure pour [créer un équilibreur de charge interne](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) qui répartit les demandes entrantes sur plusieurs machines virtuelles afin de fournir un niveau de disponibilité plus élevé.
 
 **Scénario** : Vous recherchez un équilibrage de charge global, car vous :
 

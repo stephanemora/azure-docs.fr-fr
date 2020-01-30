@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311554"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716900"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Utiliser Docker Compose pour déployer plusieurs conteneurs
 
@@ -25,7 +25,7 @@ Cet article vous montre comment déployer plusieurs conteneurs Azure Cognitive S
 
 Il peut être utile d’orchestrer plusieurs images conteneur sur un même ordinateur hôte. Dans cet article, nous allons regrouper les conteneurs Reconnaître le texte et Form Recognizer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette procédure nécessite plusieurs outils qui doivent être installés et exécutés localement :
 

@@ -40,8 +40,6 @@
           href: role-definitions.md
         - name: Lister les définitions de rôles
           href: role-definitions-list.md
-        - name: Rôles intégrés
-          href: built-in-roles.md
     - name: Répertorier les attributions de rôles
       items:
         - name: Portail
@@ -96,6 +94,8 @@
       href: troubleshooting.md
 - name: Informations de référence
   items:
+    - name: Rôles intégrés
+      href: built-in-roles.md
     - name: Opérations de fournisseur de ressources
       href: resource-provider-operations.md
     - name: Limites de la fonction RBAC

@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: 1741510c7398ce74da81f006cb4109d9a33f8f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cbfa6f8b85814f0f77234e014ade0ff757a4c4b8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431604"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720076"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Analyser des données JSON et Avro dans Azure Stream Analytics
 
@@ -78,7 +78,7 @@ Le résultat est le suivant :
 
 
 ### <a name="access-nested-fields-when-property-name-is-a-variable"></a>Accéder aux champs imbriqués lorsque le nom de la propriété est une variable
-Utilisez la fonction [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue) si le nom de la propriété est une variable. 
+Utilisez la fonction [GetRecordPropertyValue](https://docs.microsoft.com/stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics) si le nom de la propriété est une variable. 
 
 Par exemple, imaginez qu’un exemple de flux de données doive être joint à des données de référence contenant des seuils pour chaque capteur d’appareil. Un extrait de ce type de données de référence est reproduit ci-dessous.
 

@@ -3,22 +3,20 @@ title: Présentation de la résolution des problèmes de connexion d’Azure Net
 description: Cette page fournit une vue d’ensemble de la fonctionnalité de résolution des problèmes de connexion de Network Watcher
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705820"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842867"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Présentation de la résolution des problèmes de connexion dans Azure Network Watcher
 

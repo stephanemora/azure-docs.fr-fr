@@ -8,17 +8,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: a79b0476fccbd2e2b9d3cf47ecfdc99c17c2862d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0f67caad03c4ebd1cf8f3721f377d8362219016a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113336"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837729"
 ---
 # <a name="document-extraction-cognitive-skill"></a>Compétence cognitive Extraction de document
 
 > [!IMPORTANT] 
-> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). L’[API REST version 2019-05-06-Preview](search-api-preview.md) fournit des fonctionnalités en préversion. Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
+> Cette compétence est actuellement en préversion publique. Les fonctionnalités en préversion sont fournies sans contrat de niveau de service et ne sont pas recommandées pour les charges de travail de production. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Il n’y a actuellement pas de prise en charge du portail ou du SDK .NET.
 
 La compétence **Extraction de document** extrait le contenu d’un fichier dans le pipeline d’enrichissement. Cela vous permet de tirer parti de l’étape d’extraction de document qui se produit normalement avant l’exécution des compétences avec des fichiers qui peuvent être générés par d’autres compétences.
 
@@ -74,7 +74,7 @@ Cet objet de référence de fichier peut être généré de 3 manières :
 
 | Nom de sortie    | Description |
 |--------------|-------------|
-| Contenu | Contenu textuel du document. |
+| content | Contenu textuel du document. |
 | normalized_images | Si la propriété `imageAction` est définie sur une autre valeur que `none`, le nouveau champ *normalized_images* contiendra un tableau d’images. Si vous souhaitez en savoir plus sur le format de sortie de chaque image, veuillez consulter la [documentation relative à l’extraction d’images](cognitive-search-concept-image-scenarios.md). |
 
 ##  <a name="sample-definition"></a>Exemple de définition

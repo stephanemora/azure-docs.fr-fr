@@ -12,13 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 439d2c06f05aa8824afa4a4aec3990ecba1aa8da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921346"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704117"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Démarrage rapide : Modifier les comptes pris en charge par une application
 
@@ -26,7 +25,7 @@ Lorsque vous inscrivez une application dans la plateforme d’identité Microsof
 
 Dans ce démarrage rapide, vous allez apprendre à modifier la configuration de votre application afin de modifier les utilisateurs ou les comptes pouvant accéder à l’application.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, assurez-vous de remplir ces conditions préalables :
 
@@ -79,7 +78,7 @@ Par défaut, l’accord implicite OAuth 2.0 est désactivé pour les applicatio
 
 Découvrez les autres démarrages rapides relatifs à la gestion des applications pour les applications :
 
-* [Inscrire une application à l’aide de la plateforme d’identité Microsoft](quickstart-register-app.md)
+* [Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md)
 * [Configurer une application cliente pour accéder aux API web](quickstart-configure-app-access-web-apis.md)
 * [Configurer une application pour exposer les API web](quickstart-configure-app-expose-web-apis.md)
 * [Supprimer une application inscrite à l’aide de la plateforme d’identité Microsoft](quickstart-remove-app.md)

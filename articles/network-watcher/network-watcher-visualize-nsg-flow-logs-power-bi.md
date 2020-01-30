@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Cette page explique comment utiliser Power BI pour visualiser les journaux de flux NSG.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 05378799dd77a17b69adbcf492af2e1cb1030375
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277729"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840602"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisation des journaux de flux des groupes de sécurité réseau Azure avec Power BI
 
@@ -45,7 +42,7 @@ Grâce aux représentations visuelles fournies dans le modèle, vous pouvez exam
 
 Le modèle fourni est modifiable afin de vous permettre d’ajouter de nouvelles données ou de nouveaux graphiques, ou encore d’adapter vos requêtes à vos besoins.
 
-## <a name="setup"></a>Paramétrage
+## <a name="setup"></a>Programme d’installation
 
 Avant de commencer, la journalisation des flux de groupe de sécurité réseau doit être activée sur un ou plusieurs groupes de sécurité réseau de votre compte. Pour obtenir des instructions sur l’activation des journaux de flux de sécurité réseau, consultez l’article suivant : [Introduction à la journalisation des flux pour les groupes de sécurité réseau](network-watcher-nsg-flow-logging-overview.md).
 

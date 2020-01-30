@@ -3,23 +3,20 @@ title: Présentation de la capture de paquets dans Azure Network Watcher | Micro
 description: Cette page fournit une vue d’ensemble de la fonctionnalité de capture de paquets de Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: damendo
+ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061595"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840806"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Présentation de la capture de paquets variable dans Azure Network Watcher
 
@@ -28,7 +25,7 @@ La fonctionnalité de capture de paquets variable de Network Watcher vous permet
 La capture de paquets est une extension de machine virtuelle qui est démarrée à distance par le biais de Network Watcher. Cette fonctionnalité allège la tâche d’exécution manuelle d’une capture de paquets sur la machine virtuelle souhaitée et permet ainsi d’économiser un temps précieux. La capture de paquets peut être déclenchée par l’intermédiaire du portail, de PowerShell, de l’interface de ligne de commande ou de l’API REST. Les alertes de machine virtuelle constituent un exemple de mode de déclenchement de la capture de paquets. Des filtres sont fournis pour la session de capture afin de vous permettre de capturer uniquement le trafic que vous souhaitez analyser. Ces filtres reposent sur des informations à 5 tuples (protocole, adresse IP locale, adresse IP distante, port local et port distant). Les données capturées sont stockées dans le disque local ou dans un objet blob de stockage. Il existe une limite de 10 sessions de capture de paquets par région par abonnement. Cette limite s’applique uniquement aux sessions, mais pas aux fichiers de capture de paquets enregistrés localement sur la machine virtuelle ou dans un compte de stockage.
 
 > [!IMPORTANT]
-> La capture de paquets requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) (Extension de machine virtuelle Azure Network Watcher Agent pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) (Extension de machine virtuelle Azure Network Watcher Agent pour Linux).
+> La capture de paquets requiert une extension de machine virtuelle `AzureNetworkWatcherExtension`. Pour installer l’extension sur une machine virtuelle Windows, consultez la page [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/windows/extensions-nwa.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Windows). Pour une machine virtuelle Linux, consultez la page [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/linux/extensions-nwa.md) (Extension de machine virtuelle d’agent Azure Network Watcher pour Linux).
 
 Pour capturer uniquement les informations qui vous intéressent, vous disposez des options ci-après dans le cadre d’une session de capture de paquets :
 

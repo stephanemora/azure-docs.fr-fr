@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Découvrez comment utiliser la fonctionnalité de résolution des problèmes associés aux connexions d’Azure Network Watcher à l’aide de l’API REST Azure.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
@@ -14,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 792556a63b5ca9ef53a33960e8284354972b3895
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f1d4b02731f9e0f22fb1eaba03e55e49f84cd87a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275959"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845099"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Résoudre les problèmes associés aux connexions avec Azure Network Watcher à l’aide de l’API REST Azure.
 
 > [!div class="op_single_selector"]
-> - [Portal](network-watcher-connectivity-portal.md)
+> - [Portail](network-watcher-connectivity-portal.md)
 > - [PowerShell](network-watcher-connectivity-powershell.md)
-> - [Interface de ligne de commande Azure](network-watcher-connectivity-cli.md)
+> - [Azure CLI](network-watcher-connectivity-cli.md)
 > - [API REST Azure](network-watcher-connectivity-rest.md)
 
 Découvrez comment utiliser la résolution des problèmes associés aux connexions pour vérifier si une connexion TCP directe entre une machine virtuelle et un point de terminaison donné peut être établie.
@@ -84,7 +82,7 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 
 Cet exemple vérifie la connectivité à une machine virtuelle de destination sur le port 80.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -200,7 +198,7 @@ La réponse suivante est tirée de l’exemple précédent.  Dans cette réponse
 
 Cet exemple vérifie la connectivité entre une machine virtuelle et un point de terminaison distant.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -296,7 +294,7 @@ Dans l’exemple suivant, `connectionStatus` est **Inaccessible**. Dans les info
 
 L’exemple suivant vérifie la connectivité à un site Web.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -383,7 +381,7 @@ Dans la réponse suivante, vous pouvez constater que `connectionStatus` apparaî
 
 L’exemple suivant vérifie la connectivité entre une machine virtuelle et un compte de stockage blob.
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
