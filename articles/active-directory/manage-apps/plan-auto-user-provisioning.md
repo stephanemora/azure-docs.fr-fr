@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 44ed85ac8171484cccf39c0b048a5c7a026a657d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732448"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711595"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planifier un déploiement d’attribution automatique d’utilisateurs
 
@@ -25,7 +25,7 @@ De nombreuses organisations s’appuient sur des applications SaaS, comme Servi
 
 L’attribution automatique d’utilisateurs Azure Active Directory (Azure AD) simplifie ce processus en automatisant de façon sécurisée la création, la maintenance et la suppression des identités utilisateur dans les applications SaaS, selon les règles métier. Cette automatisation vous permet de mettre à l’échelle efficacement vos systèmes de gestion des identités dans les environnements cloud uniquement et hybrides, au fur et à mesure que vous étendez leur dépendance aux solutions cloud.
 
-Consultez [Automatisation du provisionnement et déprovisionnement d’utilisateurs sur les applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) pour mieux comprendre la fonctionnalité.
+Consultez [Automatisation du provisionnement et déprovisionnement d’utilisateurs sur les applications SaaS avec Azure Active Directory](user-provisioning.md) pour mieux comprendre la fonctionnalité.
 
 ## <a name="learn"></a>Découvrir
 
@@ -59,7 +59,7 @@ Cet article utilise les termes suivants :
 
 * Authentification unique (SSO) - Possibilité pour un utilisateur de se connecter une seule fois et d’accéder à toutes les applications activées pour l’authentification unique. Dans le contexte de l’attribution d’utilisateurs, l’authentification unique se matérialise par le fait que les utilisateurs disposent d’un seul compte pour accéder à tous les systèmes qui utilisent l’attribution automatique d’utilisateurs.
 
-* Système source - Référentiel d’utilisateurs à partir duquel Azure AD provisionne. Azure AD représente le système source pour la plupart des connecteurs de provisionnement préintégrés. Toutefois, il existe quelques exceptions pour les applications cloud, telles que SAP, Workday et AWS. Par exemple, consultez [Attribution d’utilisateurs à partir de Workday vers AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+* Système source - Référentiel d’utilisateurs à partir duquel Azure AD provisionne. Azure AD représente le système source pour la plupart des connecteurs de provisionnement préintégrés. Toutefois, il existe quelques exceptions pour les applications cloud, telles que SAP, Workday et AWS. Par exemple, consultez [Attribution d’utilisateurs à partir de Workday vers AD](../saas-apps/workday-inbound-tutorial.md).
 
 * Système cible - Référentiel d’utilisateurs vers lequel Azure AD provisionne. Le système cible est généralement une application SaaS, telle que ServiceNow, Zscaler et Slack. Le système cible peut également être un système local, comme AD.
 
@@ -73,8 +73,8 @@ Cet article utilise les termes suivants :
 | Videos| [Présentation de l’attribution d’utilisateurs dans Azure Active Directory](https://youtu.be/_ZjARPpI6NI) <br> [Comment déployer l’attribution d’utilisateurs dans Azure Active Directory](https://youtu.be/pKzyts6kfrw) <br> [Intégration de Salesforce à Azure AD : Comment automatiser l’attribution d’utilisateurs](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Cours en ligne| Développez vos compétences en ligne :  [Gestion des identités](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Apprenez à intégrer Azure AD à de nombreuses applications SaaS et à sécuriser l’accès utilisateur à ces applications. |
 | Livres| [Modern Authentication with Azure Active Directory for Web Applications (Developer Reference) 1st Edition](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Il s’agit d’un guide détaillé faisant autorité en matière d’élaboration de solutions d’authentification Active Directory pour ces nouveaux environnements. |
-| Tutoriels| Consultez la [Liste de tutoriels sur l’intégration d’applications SaaS à Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
-| Questions fréquentes (FAQ)| [Questions fréquentes (FAQ)](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur l’attribution automatique d’utilisateurs |
+| Tutoriels| Consultez la [Liste de tutoriels sur l’intégration d’applications SaaS à Azure AD](../saas-apps/tutorial-list.md). |
+| Questions fréquentes (FAQ)| [Questions fréquentes (FAQ)](user-provisioning.md) sur l’attribution automatique d’utilisateurs |
 
 ### <a name="solution-architectures"></a>Architectures de solution
 
@@ -92,9 +92,9 @@ Dans cet exemple, les utilisateurs et/ou les groupes sont créés dans une base 
 
 1. L’**agent Azure AD Connect** effectue des synchronisations planifiées d’identités (utilisateurs et groupes) de l’annuaire Active Directory local vers Azure AD.
 
-1. Le **service de provisionnement Azure AD** démarre un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur le système source et le système cible. 
+1. Le **service de provisionnement Azure AD** démarre un [cycle initial](user-provisioning.md) sur le système source et le système cible. 
 
-1. Le **service de provisionnement** Azure AD interroge le système source à la recherche d’utilisateurs et de groupes ayant changé depuis le cycle initial, puis envoie (push) les modifications apportées par [cycles incrémentiels](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. Le **service de provisionnement** Azure AD interroge le système source à la recherche d’utilisateurs et de groupes ayant changé depuis le cycle initial, puis envoie (push) les modifications apportées par [cycles incrémentiels](user-provisioning.md).
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Attribution automatique d’utilisateurs pour les entreprises sur cloud uniquement
 
@@ -106,9 +106,9 @@ Dans cet exemple, la création d’utilisateurs a lieu dans Azure AD tandis que 
 
 1. Les utilisateurs/groupes sont créés dans Azure AD.
 
-1. Le **service de provisionnement Azure AD** démarre un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) sur le système source et le système cible. 
+1. Le **service de provisionnement Azure AD** démarre un [cycle initial](user-provisioning.md) sur le système source et le système cible. 
 
-1. Le **service de provisionnement Azure AD** interroge le système source à la recherche d’utilisateurs et de groupes ayant été mis à jour depuis le cycle initial, puis effectue des [cycles incrémentiels](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. Le **service de provisionnement Azure AD** interroge le système source à la recherche d’utilisateurs et de groupes ayant été mis à jour depuis le cycle initial, puis effectue des [cycles incrémentiels](user-provisioning.md).
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Attribution automatique d’utilisateurs pour les applications RH dans le cloud 
 
@@ -138,7 +138,7 @@ La communication est essentielle à la réussite de tout nouveau service. Commun
 
 ### <a name="plan-a-pilot"></a>Prévoir un pilote
 
-Nous recommandons de procéder à la configuration initiale de l’attribution automatique d’utilisateurs dans un environnement de test avec une petite partie des utilisateurs avant de l’appliquer à tous les utilisateurs en production. Consultez les [meilleures pratiques](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) pour l’exécution d’un pilote.
+Nous recommandons de procéder à la configuration initiale de l’attribution automatique d’utilisateurs dans un environnement de test avec une petite partie des utilisateurs avant de l’appliquer à tous les utilisateurs en production. Consultez les [meilleures pratiques](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) pour l’exécution d’un pilote.
 
 #### <a name="best-practices-for-a-pilot"></a>Bonnes pratiques pour un pilote  
 
@@ -146,29 +146,29 @@ Un pilote vous permet de tester une fonctionnalité sur un petit groupe avant de
 
 Dans votre première vague, ciblez le service informatique, la convivialité et d’autres utilisateurs appropriés qui peuvent tester et fournir des commentaires. Utilisez ces commentaires pour enrichir les communications et les instructions que vous envoyez à vos utilisateurs, et pour donner également des insights sur les types de problèmes que le personnel de votre support technique peut rencontrer.
 
-Élargissez le déploiement à des groupes d’utilisateurs plus importants en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership) ou ajouter manuellement des utilisateurs aux groupes ciblés.
+Élargissez le déploiement à des groupes d’utilisateurs plus importants en augmentant l’étendue du ou des groupes ciblés. Pour ce faire, vous pouvez utiliser l’[appartenance de groupe dynamique](../users-groups-roles/groups-dynamic-membership.md) ou ajouter manuellement des utilisateurs aux groupes ciblés.
 
 ## <a name="plan-application-connections-and-administration"></a>Planifier l’administration et les connexions des applications
 
-Utilisez le portail Azure AD pour voir et gérer toutes les applications qui prennent en charge le provisionnement. Consultez [Recherche de vos applications dans le portail](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal).
+Utilisez le portail Azure AD pour voir et gérer toutes les applications qui prennent en charge le provisionnement. Consultez [Recherche de vos applications dans le portail](configure-automatic-user-provisioning-portal.md).
 
 ### <a name="determine-the-type-of-connector-to-use"></a>Déterminer le type de connecteur à utiliser
 
-Les étapes nécessaires pour activer et configurer l’approvisionnement automatique varient selon l’application. Si l’application que vous souhaitez provisionner automatiquement est indiquée dans la [galerie d’applications SaaS Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), vous devez sélectionner le [tutoriel d’intégration propre à l’application](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) pour configurer son connecteur d’attribution d’utilisateurs préintégré.
+Les étapes nécessaires pour activer et configurer l’approvisionnement automatique varient selon l’application. Si l’application que vous souhaitez provisionner automatiquement est indiquée dans la [galerie d’applications SaaS Azure AD](../saas-apps/tutorial-list.md), vous devez sélectionner le [tutoriel d’intégration propre à l’application](../saas-apps/tutorial-list.md) pour configurer son connecteur d’attribution d’utilisateurs préintégré.
 
 Sinon, suivez ces étapes ci-dessous :
 
-1. [Créez une requête](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) pour un connecteur d’attribution d’utilisateurs préintégré. Notre équipe travaille avec vous et avec le développeur de l’application pour intégrer votre application à notre plateforme, si elle prend en charge SCIM.
+1. [Créez une requête](../develop/howto-app-gallery-listing.md) pour un connecteur d’attribution d’utilisateurs préintégré. Notre équipe travaille avec vous et avec le développeur de l’application pour intégrer votre application à notre plateforme, si elle prend en charge SCIM.
 
-1. Utilisez la prise en charge de l’attribution d’utilisateurs générique [BYOA SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) (Apportez votre propre application avec SCIM) pour l’application. Il s’agit d’une condition nécessaire à Azure AD pour attribuer des utilisateurs à l’application sans connecteur de provisionnement préintégré.
+1. Utilisez la prise en charge de l’attribution d’utilisateurs générique [BYOA SCIM](use-scim-to-provision-users-and-groups.md) (Apportez votre propre application avec SCIM) pour l’application. Il s’agit d’une condition nécessaire à Azure AD pour attribuer des utilisateurs à l’application sans connecteur de provisionnement préintégré.
 
-1. Si l’application est en mesure d’utiliser le connecteur BYOA SCIM, reportez-vous au [Tutoriel sur l’intégration de BYOA SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) afin de configurer ce connecteur pour l’application.
+1. Si l’application est en mesure d’utiliser le connecteur BYOA SCIM, reportez-vous au [Tutoriel sur l’intégration de BYOA SCIM](use-scim-to-provision-users-and-groups.md) afin de configurer ce connecteur pour l’application.
 
-Pour plus d’informations, consultez [Quelles applications et quels systèmes puis-je utiliser avec l’attribution automatique d’utilisateurs d’Azure AD ?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+Pour plus d’informations, consultez [Quelles applications et quels systèmes puis-je utiliser avec l’attribution automatique d’utilisateurs d’Azure AD ?](user-provisioning.md)
 
 ### <a name="collect-information-to-authorize-application-access"></a>Collecter des informations pour autoriser l’accès aux applications
 
-La configuration de l’attribution automatique d’utilisateurs est un processus propre à chaque application. Vous devez fournir pour chacune d’elles des [informations d’identification administrateur](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) afin de vous connecter au point de terminaison de gestion des utilisateurs du système cible.
+La configuration de l’attribution automatique d’utilisateurs est un processus propre à chaque application. Vous devez fournir pour chacune d’elles des [informations d’identification administrateur](configure-automatic-user-provisioning-portal.md) afin de vous connecter au point de terminaison de gestion des utilisateurs du système cible.
 
 L’image ci-dessous montre un exemple d’informations d’identification administrateur exigées :
 
@@ -198,17 +198,17 @@ Pour chaque application, réunissez les informations suivantes :
 
 Avant d’implémenter l’attribution automatique d’utilisateurs, vous devez déterminer les utilisateurs et les groupes à provisionner dans votre application.
 
-* Utilisez les [filtres d’étendue](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters) pour définir les règles basées sur des attributs qui précisent quels utilisateurs sont provisionnés dans une application.
+* Utilisez les [filtres d’étendue](define-conditional-rules-for-provisioning-user-accounts.md) pour définir les règles basées sur des attributs qui précisent quels utilisateurs sont provisionnés dans une application.
 
-* Ensuite, utilisez les [attributions d’utilisateurs et de groupes](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) en fonction des besoins pour un filtrage supplémentaire.
+* Ensuite, utilisez les [attributions d’utilisateurs et de groupes](assign-user-or-group-access-portal.md) en fonction des besoins pour un filtrage supplémentaire.
 
 ### <a name="define-user-and-group-attribute-mapping"></a>Définir le mappage des attributs d’utilisateur et de groupe
 
-Pour implémenter l’attribution automatique d’utilisateurs, vous devez définir les attributs d’utilisateur et de groupe qui sont nécessaires à l’application. Il existe un ensemble préconfiguré d’attributs et de [mappages d’attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications SaaS n’autorisent pas les attributs de groupe.
+Pour implémenter l’attribution automatique d’utilisateurs, vous devez définir les attributs d’utilisateur et de groupe qui sont nécessaires à l’application. Il existe un ensemble préconfiguré d’attributs et de [mappages d’attributs](configure-automatic-user-provisioning-portal.md) entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications SaaS n’autorisent pas les attributs de groupe.
 
-Azure AD prend en charge par mappage direct d’attribut à attribut, en fournissant des valeurs constantes ou [en écrivant des expressions pour les mappages d’attributs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings). Cette flexibilité vous permet de contrôler précisément ce qui sera renseigné dans l’attribut du système ciblé. Vous pouvez utiliser l’[API Microsoft Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration) et l’Afficheur Graph pour exporter vos mappages d’attributs et votre schéma d’attribution d’utilisateurs dans un fichier JSON, et le réimporter dans Azure AD.
+Azure AD prend en charge par mappage direct d’attribut à attribut, en fournissant des valeurs constantes ou [en écrivant des expressions pour les mappages d’attributs](functions-for-customizing-application-data.md). Cette flexibilité vous permet de contrôler précisément ce qui sera renseigné dans l’attribut du système ciblé. Vous pouvez utiliser l’[API Microsoft Graph](export-import-provisioning-configuration.md) et l’Afficheur Graph pour exporter vos mappages d’attributs et votre schéma d’attribution d’utilisateurs dans un fichier JSON, et le réimporter dans Azure AD.
 
-Pour plus de détails, consultez [Personnalisation des mappages d’attributs de l’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+Pour plus de détails, consultez [Personnalisation des mappages d’attributs de l’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory](customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Considérations spéciales relatives à l’attribution d’utilisateurs
 
@@ -216,9 +216,9 @@ Tenez compte des éléments suivants pour réduire les problèmes postérieurs a
 
 * Assurez-vous que les attributs utilisés pour mapper les objets utilisateur/groupe entre les applications source et cible sont résilients. Ils ne doivent pas être à l’origine d’une attribution d’utilisateurs/de groupes incorrecte si les attributs changent (par exemple, lorsqu’un utilisateur est transféré dans un autre département de la société).
 
-* Les applications peuvent avoir des restrictions et/ou des exigences particulières à respecter pour que l’attribution d’utilisateurs fonctionne correctement. Par exemple, Slack tronque les valeurs de certains attributs. Reportez-vous aux [tutoriels d’attribution automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) propres à chaque application.
+* Les applications peuvent avoir des restrictions et/ou des exigences particulières à respecter pour que l’attribution d’utilisateurs fonctionne correctement. Par exemple, Slack tronque les valeurs de certains attributs. Reportez-vous aux [tutoriels d’attribution automatique d’utilisateurs](../saas-apps/tutorial-list.md) propres à chaque application.
 
-* Vérifiez la cohérence du schéma entre les systèmes source et cible. Les problèmes courants incluent des attributs, tels que UPN ou mail, qui n’ont pas de correspondance. Par exemple, dans Azure AD, UPN est défini selon le format *john_smith@contoso.com* , et dans l’application, il s’agit de *jsmith@contoso.com* . Pour plus d’informations, consultez la [documentation de référence du schéma des utilisateurs et des groupes](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups).
+* Vérifiez la cohérence du schéma entre les systèmes source et cible. Les problèmes courants incluent des attributs, tels que UPN ou mail, qui n’ont pas de correspondance. Par exemple, dans Azure AD, UPN est défini selon le format *john_smith@contoso.com* , et dans l’application, il s’agit de *jsmith@contoso.com* . Pour plus d’informations, consultez la [documentation de référence du schéma des utilisateurs et des groupes](use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Planifier les tests et la sécurité
 
@@ -233,7 +233,7 @@ Une fois que vous avez configuré l’attribution automatique d’utilisateurs p
 | L’utilisateur est ajouté à un groupe affecté au système cible | L’objet utilisateur est provisionné dans le système cible. <br>L’utilisateur peut se connecter au système cible et effectuer les actions souhaitées. |
 | L’utilisateur est supprimé d’un groupe affecté au système cible | L’objet utilisateur est déprovisionné dans le système cible.<br>L’utilisateur ne peut pas se connecter au système cible. |
 | Les informations utilisateur sont mises à jour dans Azure AD par une méthode quelconque | Les attributs utilisateur mis à jour sont pris en compte dans le système cible après un cycle incrémentiel |
-| L’utilisateur est hors de portée | L’objet utilisateur est désactivé ou supprimé. <br>Remarque : Ce comportement est substitué pour le [provisionnement de Workday](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions). |
+| L’utilisateur est hors de portée | L’objet utilisateur est désactivé ou supprimé. <br>Remarque : Ce comportement est substitué pour le [provisionnement de Workday](skip-out-of-scope-deletions.md). |
 
 ### <a name="plan-security"></a>Planifier la sécurité
 
@@ -243,7 +243,7 @@ Il est fréquent qu’une révision de sécurité soit nécessaire dans le cadre
 
 Si l’implémentation de l’attribution automatique d’utilisateurs ne fonctionne pas comme vous le souhaitez dans l’environnement de production, les étapes de restauration ci-dessous peuvent vous aider à revenir à un état précédent connu pour être correct :
 
-1. Consultez le [rapport de synthèse sur le provisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) et les [journaux de provisionnement](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) pour déterminer les opérations incorrectes qui se sont produites sur les utilisateurs et/ou les groupes concernés.
+1. Consultez le [rapport de synthèse sur le provisionnement](check-status-user-account-provisioning.md) et les [journaux de provisionnement](check-status-user-account-provisioning.md#provisioning-logs-preview) pour déterminer les opérations incorrectes qui se sont produites sur les utilisateurs et/ou les groupes concernés.
 
 1. Utilisez les journaux d’audit de provisionnement pour déterminer le dernier état correct connu des utilisateurs et/ou des groupes concernés. Examinez également les systèmes sources (Azure AD ou AD).
 
@@ -257,13 +257,13 @@ Choisissez les étapes qui correspondent aux besoins de votre solution.
 
 Lorsque le service de provisionnement Azure AD s’exécute pour la première fois, le cycle initial, utilisant le système source et les systèmes cibles, crée un instantané de tous les objets utilisateur pour chaque système cible.
 
-Lors de l’activation du provisionnement automatique d’une application, le cycle initial peut demander entre 20 minutes et plusieurs heures pour s’accomplir. La durée dépend de la taille de l’annuaire Azure AD et du nombre d’utilisateurs dans l’étendue du provisionnement. Consultez [Comment améliorer les performances du provisionnement](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish).
+Lors de l’activation du provisionnement automatique d’une application, le cycle initial peut demander entre 20 minutes et plusieurs heures pour s’accomplir. La durée dépend de la taille de l’annuaire Azure AD et du nombre d’utilisateurs dans l’étendue du provisionnement. Consultez [Comment améliorer les performances du provisionnement](application-provisioning-when-will-provisioning-finish.md).
 
 Le service de provisionnement stocke l’état des deux systèmes après le cycle initial, ce qui améliore les performances des cycles incrémentiels suivants.
 
 ### <a name="configure-automatic-user-provisioning"></a>Configurer le provisionnement d’utilisateurs automatique
 
-Utilisez le [portail Azure](https://portal.azure.com/) pour gérer le provisionnement et le déprovisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge. Suivez les étapes dans [Comment configurer le provisionnement automatique pour une application ?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+Utilisez le [portail Azure](https://portal.azure.com/) pour gérer le provisionnement et le déprovisionnement automatiques de comptes d’utilisateur pour les applications qui les prennent en charge. Suivez les étapes dans [Comment configurer le provisionnement automatique pour une application ?](user-provisioning.md)
 
 Le service d’approvisionnement des utilisateurs Azure AD peut également être configuré et géré à l’aide de [l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
@@ -273,7 +273,7 @@ Maintenant que vous avez déployé, vous devez gérer la solution.
 
 ### <a name="monitor-user-provisioning-operation-health"></a>Superviser l’intégrité de l’opération d’attribution d’utilisateurs
 
-Après l’exécution d’un [cycle initial](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) réussi, le service de provisionnement Azure AD exécute indéfiniment des mises à jour incrémentielles, à des intervalles propres à chaque application, jusqu’à ce que l’un des événements suivants se produise :
+Après l’exécution d’un [cycle initial](user-provisioning.md) réussi, le service de provisionnement Azure AD exécute indéfiniment des mises à jour incrémentielles, à des intervalles propres à chaque application, jusqu’à ce que l’un des événements suivants se produise :
 
 * Le service est arrêté manuellement, et un nouveau cycle initial est déclenché à l’aide du [portail Azure](https://portal.azure.com/) ou de la commande [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) appropriée.
 
@@ -281,15 +281,15 @@ Après l’exécution d’un [cycle initial](https://docs.microsoft.com/azure/ac
 
 * Le processus de provisionnement est mis en quarantaine en raison d’un taux d’erreur élevé, et reste en quarantaine pendant plus de quatre semaines à l’issue desquelles il sera automatiquement désactivé.
 
-Pour passer en revue ces événements, et toutes les autres activités effectuées par le service de provisionnement, reportez-vous aux [journaux de provisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD.
+Pour passer en revue ces événements, et toutes les autres activités effectuées par le service de provisionnement, reportez-vous aux [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context) Azure AD.
 
-Pour comprendre la durée des cycles d’approvisionnement et surveiller la progression du travail d’approvisionnement, vous pouvez [consulter l’état de l’approvisionnement d’utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+Pour comprendre la durée des cycles d’approvisionnement et surveiller la progression du travail d’approvisionnement, vous pouvez [consulter l’état de l’approvisionnement d’utilisateurs](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="gain-insights-from-reports"></a>Mieux exploiter les rapports
 
-Azure AD peut fournir des [insights supplémentaires](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) sur l’exploitation de l’attribution d’utilisateurs et son intégrité opérationnelle au sein de votre organisation, par le biais des journaux d’audit et des rapports.
+Azure AD peut fournir des [insights supplémentaires](application-provisioning-when-will-provisioning-finish-specific-user.md) sur l’exploitation de l’attribution d’utilisateurs et son intégrité opérationnelle au sein de votre organisation, par le biais des journaux d’audit et des rapports.
 
-Les administrateurs doivent consulter le rapport de synthèse du provisionnement pour superviser l’intégrité opérationnelle de la tâche de provisionnement. Toutes les activités effectuées par le service de provisionnement sont enregistrées dans les journaux d’audit Azure AD. Voir le [tutoriel : Création de rapports sur le provisionnement automatique de comptes d’utilisateur](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
+Les administrateurs doivent consulter le rapport de synthèse du provisionnement pour superviser l’intégrité opérationnelle de la tâche de provisionnement. Toutes les activités effectuées par le service de provisionnement sont enregistrées dans les journaux d’audit Azure AD. Voir le [tutoriel : Création de rapports sur le provisionnement automatique de comptes d’utilisateur](check-status-user-account-provisioning.md).
 
 Nous vous recommandons de vous attribuer la propriété de ces rapports et de les consommer à une cadence qui satisfait aux exigences de votre organisation. Azure AD conserve la plupart des données d’audit pendant 30 jours.
 
@@ -297,27 +297,27 @@ Nous vous recommandons de vous attribuer la propriété de ces rapports et de le
 
 Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de survenir au cours du provisionnement :
 
-* [Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
+* [Problèmes lors de la configuration de l’approvisionnement des utilisateurs pour une application relevant de la galerie Azure AD](application-provisioning-config-problem.md)
 
-* [Synchroniser un attribut entre votre instance Active Directory local et Azure AD pour le provisionnement d’une application](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping)
+* [Synchroniser un attribut entre votre instance Active Directory local et Azure AD pour le provisionnement d’une application](user-provisioning-sync-attributes-for-mapping.md)
 
-* [L’attribution d’utilisateurs dans une application de la galerie Azure AD prend des heures](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish)
+* [L’attribution d’utilisateurs dans une application de la galerie Azure AD prend des heures](application-provisioning-when-will-provisioning-finish.md)
 
-* [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit)
+* [Problème d’enregistrement des informations d’identification d’administrateur lors de la configuration de l’approvisionnement des utilisateurs pour une application de galerie Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
 
-* [Aucun utilisateur n’est attribué à une application de la galerie Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+* [Aucun utilisateur n’est attribué à une application de la galerie Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Un mauvais ensemble d’utilisateurs est attribué à une application de la galerie Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned)
+* [Un mauvais ensemble d’utilisateurs est attribué à une application de la galerie Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)
 
 ### <a name="helpful-documentation"></a>Documentation utile
 
-* [Écriture d’expressions pour les mappages d’attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)
 
 * [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) (Vue d’ensemble de l’API de synchronisation Azure AD)
 
-* [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions)
+* [Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue](skip-out-of-scope-deletions.md)
 
-* [Agent de provisionnement Azure AD Connect : Historique de publication des versions](https://docs.microsoft.com/azure/active-directory/manage-apps/provisioning-agent-release-version-history)
+* [Agent de provisionnement Azure AD Connect : Historique de publication des versions](provisioning-agent-release-version-history.md)
 
 #### <a name="resources"></a>Ressources
 
@@ -328,8 +328,8 @@ Reportez-vous aux liens suivants pour résoudre les problèmes susceptibles de s
 * [Forum Stack Overflow Azure AD](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Configurer l’attribution automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)
+* [Configurer l’attribution automatique d’utilisateurs](configure-automatic-user-provisioning-portal.md)
 
-* [Exporter ou importer votre configuration de provisionnement à l’aide de l’API Microsoft Graph](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration)
+* [Exporter ou importer votre configuration de provisionnement à l’aide de l’API Microsoft Graph](export-import-provisioning-configuration.md)
 
-* [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory](functions-for-customizing-application-data.md)

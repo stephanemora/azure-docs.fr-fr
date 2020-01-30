@@ -13,18 +13,17 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f4baee8186894e985143b7d68d3c4a9ec34b55b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f32d9832f0bad81ca29ab7553d956b593531d1bd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845125"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698932"
 ---
-# <a name="how-to-use-the-azure-ad-graph-api"></a>Activation Utiliser l’API Azure AD Graph
+# <a name="how-to-use-the-azure-ad-graph-api"></a>Procédure : Utiliser l’API Azure AD Graph
 
 > [!IMPORTANT]
-> Nous vous recommandons fortement d’utiliser [Microsoft Graph](https://developer.microsoft.com/graph) au lieu de l’API Graph Azure AD pour accéder aux ressources Azure Active Directory (Azure AD). Nos efforts de développement sont maintenant axés sur Microsoft Graph et aucune autre amélioration n’est prévue pour l’API Azure AD Graph. Il existe un nombre très limité de scénarios pour lesquels l’API Graph Azure AD peut être appropriée. Pour plus d’informations, consultez le billet de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) et [Migrer des applications Azure AD Graph vers Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
+> Nous vous recommandons vivement d’utiliser [Microsoft Graph](https://developer.microsoft.com/graph) au lieu de l’API Azure AD Graph pour accéder aux ressources Azure Active Directory (Azure AD). Nos efforts de développement sont maintenant axés sur Microsoft Graph et aucune autre amélioration n’est prévue pour l’API Azure AD Graph. Il existe un nombre très limité de scénarios pour lesquels l’API Graph Azure AD peut être appropriée. Pour plus d’informations, consultez le billet de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) et [Migrer des applications Azure AD Graph vers Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
 
 L’API Graph Azure AD fournit un accès programmatique à Azure AD via des points de terminaison API REST OData. Les applications peuvent utiliser l’API Azure AD Graph pour des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur des données et objets du répertoire. Par exemple, vous pouvez utiliser l’API Graph Azure AD pour créer un utilisateur, afficher ou mettre à jour ses propriétés, modifier son mot de passe, vérifier que l’appartenance à un groupe offre un accès en fonction du rôle et désactiver ou supprimer l’utilisateur. Pour plus d’informations sur les fonctionnalités de l’API Graph Azure AD et les scénarios d’application, consultez [API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) et [Prérequis de l’API Graph Azure AD](https://msdn.microsoft.com/library/hh974476.aspx). L’API Graph Azure AD fonctionne uniquement avec des comptes professionnels ou scolaires/d’organisation.
 
@@ -84,7 +83,7 @@ Dans l'exemple ci-dessous, vous utilisez le débogueur web Fiddler pour créer u
 
 **Obtenir un jeton d’accès** : Pour accéder à Azure AD Graph, les clients doivent tout d’abord s’authentifier auprès d’Azure AD. Pour plus d’informations, consultez [Scénarios d’authentification pour Azure AD](v1-authentication-scenarios.md).
 
-**Composer et exécuter une requête** : Effectuez ensuite les tâches suivantes :
+**Composer et exécuter une requête** : Suivez les étapes ci-dessous :
 
 1. Ouvrez le débogueur Web Fiddler et basculez vers l’onglet **Composer** .
 2. Dans la mesure où vous souhaitez créer un groupe de sécurité, sélectionnez **Publier** comme méthode HTTP dans le menu déroulant. Pour plus d’informations sur les opérations et les autorisations relatives à un objet de groupe, consultez [Groupe](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#group-entity) dans les [informations de référence sur l’API REST Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).

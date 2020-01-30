@@ -14,19 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a53f88a97cdba8626c9d6c421093e4ec327e19
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 403f589702fd7142f0515a3b6f19ee1b9bbb6420
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961605"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701550"
 ---
-# <a name="scenario-web-app-that-signs-in-users"></a>Scénario : Application web qui connecte les utilisateurs
+# <a name="scenario-web-app-that-signs-in-users"></a>Scénario : Application web qui connecte les utilisateurs
 
 Découvrez comment créer une application web qui utilise la plateforme d’identités Microsoft pour connecter les utilisateurs.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -37,32 +36,32 @@ Découvrez comment créer une application web qui utilise la plateforme d’iden
 Si vous souhaitez créer votre première application web (ASP.NET Core) portable qui connecte les utilisateurs, suivez ce guide de démarrage rapide :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : application web ASP.NET Core qui connecte les utilisateurs](quickstart-v2-aspnet-core-webapp.md)
+> [Démarrage rapide : application web ASP.NET Core qui connecte les utilisateurs](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 Si vous souhaitez savoir comment ajouter la connexion à une application web ASP.NET existante, essayez le démarrage rapide suivant :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Application web ASP.NET qui connecte les utilisateurs](quickstart-v2-aspnet-webapp.md)
+> [Démarrage rapide : Application web ASP.NET qui connecte les utilisateurs](quickstart-v2-aspnet-webapp.md)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 Si vous êtes développeur Java, essayez le démarrage rapide suivant :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ajouter la connexion à Microsoft sur une application web Java](quickstart-v2-java-webapp.md)
+> [Démarrage rapide : Ajouter la connexion à Microsoft sur une application web Java](quickstart-v2-java-webapp.md)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 Si vous développez avec Python, essayez le démarrage rapide suivant :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ajouter la connexion à Microsoft sur une application web Python](quickstart-v2-python-webapp.md)
+> [Démarrage rapide : Ajouter la connexion à Microsoft sur une application web Python](quickstart-v2-python-webapp.md)
 
 ---
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Vous allez ajouter l’authentification à votre application web afin qu’elle puisse connecter des utilisateurs. L’ajout de l’authentification permet à votre application web d’accéder aux informations de profil limitées afin de personnaliser l’expérience des utilisateurs. 
 

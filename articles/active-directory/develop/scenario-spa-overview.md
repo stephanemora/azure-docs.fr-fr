@@ -14,19 +14,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab7b0f1e59504eae64422fd4bbaf6f9e0804ed4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b430778bed811656b5c8aadc75ba3cf35917f737
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919815"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701873"
 ---
-# <a name="scenario-single-page-application"></a>Scénario : Application monopage
+# <a name="scenario-single-page-application"></a>Scénario : Application monopage
 
 Découvrez tout ce que vous devez savoir pour créer une application monopage.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -35,9 +34,9 @@ Découvrez tout ce que vous devez savoir pour créer une application monopage.
 Vous pouvez créer votre première application en suivant le démarrage rapide sur les applications monopages JavaScript :
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : application monopage](./quickstart-v2-javascript.md)
+> [Démarrage rapide : application monopage](./quickstart-v2-javascript.md)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 De nombreuses applications web modernes sont créées en tant qu’applications monopages côté client. Les développeurs les écrivent à l’aide de JavaScript ou d’un framework SPA, comme Angular, Vue.js et React.js. Ces applications s’exécutent sur un navigateur web et présentent des caractéristiques d’authentification différentes de celles des applications web classiques côté serveur. 
 

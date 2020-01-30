@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14546a63db952119303428140c65ee402010816
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 549e36099e06d665ecab879ceb3c38987d000852
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921792"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695090"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>Considérations relatives à la plateforme Windows universelle avec MSAL.NET
 Sur UWP, il existe plusieurs considérations à prendre en compte lors de l’utilisation de MSAL.NET.
@@ -43,7 +42,7 @@ L’implémentation sous-jacente sur la plateforme UWP (WAB) ne fonctionne pas c
 
 Une solution de contournement consiste à utiliser une autre méthode (nom d’utilisateur/mot de passe + authentification par téléphone), mais l’expérience n’est pas satisfaisante.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Certains clients ont signalé que dans certains environnements d’entreprise spécifiques, l’erreur de connexion suivante s’est produite :
 

@@ -13,13 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14b97677f5aa9624ba70696114ac34fcd9f46182
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 20a053369149dc29d6485c49bb091a75bb9fb591
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918030"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698014"
 ---
 # <a name="national-clouds"></a>Clouds nationaux
 
@@ -64,7 +63,7 @@ Vous pouvez former des requêtes pour les points de terminaison de jeton ou d’
   - Le point de terminaison d’autorisation commun est `https://login.microsoftonline.de/common/oauth2/authorize`.
   - Le point de terminaison de jeton commun est `https://login.microsoftonline.de/common/oauth2/token`.
 
-Pour les applications à client unique, remplacez « common » dans les URL ci-dessus par l’ID ou le nom de votre locataire. Par exemple `https://login.microsoftonline.de/contoso.com`.
+Pour les applications à client unique, remplacez « common » dans les URL ci-dessus par l’ID ou le nom de votre locataire. par exemple `https://login.microsoftonline.de/contoso.com`.
 
 ## <a name="microsoft-graph-api"></a>API Microsoft Graph
 

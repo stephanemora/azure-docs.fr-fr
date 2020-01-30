@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Créer un projet de détection d’objets à l’aide du SDK Custom Vision pour Node.js'
 titleSuffix: Azure Cognitive Services
-description: Créez un projet, ajoutez des étiquettes, chargez des images, entraînez votre projet et détectez des objets avec le SDK Node.js.
+description: Créez un projet, ajoutez des balises, chargez des images, entraînez votre projet et détectez des objets avec le SDK Node.js.
 services: cognitive-services
 author: areddish
 manager: daauld
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: areddish
-ms.openlocfilehash: 944c3f8fcf440ce71cbb059aff21b7c8b63e74ab
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 94013b735f70358d0c49512e6d90cd1d03e78d5f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166904"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705715"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-nodejs-sdk"></a>Démarrage rapide : Créer un projet de détection d’objets avec le SDK Custom Vision pour Node.js
 
@@ -68,6 +68,15 @@ const publishIterationName = "detectModel";
 
 const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
 
+/* Helper function to let us use await inside a forEach loop.
+ * This lets us insert delays between image uploads to accommodate the rate limit.
+ */
+async function asyncForEach (array, callback) {
+    for (let i = 0; i < array.length; i++) {
+        await callback(array[i], i, array);
+    }
+}
+
 (async () => {
     console.log("Creating project...");
     const domains = await trainer.getDomains()
@@ -75,9 +84,9 @@ const trainer = new TrainingApi.TrainingAPIClient(trainingKey, endPoint);
     const sampleProject = await trainer.createProject("Sample Obj Detection Project", { domainId: objDetectDomain.id });
 ```
 
-### <a name="create-tags-in-the-project"></a>Créer des étiquettes dans un projet
+### <a name="create-tags-in-the-project"></a>Créer des balises dans un projet
 
-Pour créer des étiquettes de classification dans votre projet, ajoutez le code suivant à la fin du fichier *sample.js* :
+Pour créer des balises de classification dans votre projet, ajoutez le code suivant à la fin du fichier *sample.js* :
 
 ```javascript
     const forkTag = await trainer.createTag(sampleProject.id, "Fork");
@@ -86,12 +95,12 @@ Pour créer des étiquettes de classification dans votre projet, ajoutez le code
 
 ### <a name="upload-and-tag-images"></a>Charger et étiqueter des images
 
-Lorsque vous appliquez des étiquettes à des images dans des projets de détection d’objet, vous devez préciser la région de chaque objet étiqueté avec des coordonnées normalisées. 
+Lorsque vous appliquez des balises à des images dans des projets de détection d’objet, vous devez préciser la région de chaque objet balisé avec des coordonnées normalisées. 
 
 > [!NOTE]
-> Si vous ne disposez pas d’un utilitaire permettant d’effectuer des opérations de glisser-déplacer pour marquer les coordonnées des régions, vous pouvez utiliser l’IU web sur [Customvision.ai](https://www.customvision.ai/). Dans cet exemple, les coordonnées sont déjà fournies.
+> Si vous n’avez pas d’utilitaire permettant d’effectuer des opérations de glisser-déposer pour marquer les coordonnées des régions, vous pouvez utiliser l’IU web sur [Customvision.ai](https://www.customvision.ai/). Dans cet exemple, les coordonnées sont déjà fournies.
 
-Pour ajouter les images, les régions et les étiquettes au projet, insérez le code suivant après la création de l’étiquette. Notez que pour ce didacticiel, les régions sont codées en dur avec le code. Les régions spécifient le niveau du bit dans des coordonnées normalisées, et ces dernières sont données dans l’ordre : gauche, haut, largeur et hauteur. Vous pouvez charger jusqu’à 64 images dans un même lot.
+Pour ajouter les images, les régions et les balises au projet, insérez le code suivant après la création de la balise. Notez que pour ce didacticiel, les régions sont codées en dur avec le code. Les régions spécifient le niveau du bit dans des coordonnées normalisées, et ces dernières sont données dans l’ordre : gauche, haut, largeur et hauteur. Vous pouvez charger jusqu’à 64 images dans un même lot.
 
 ```javascript
 const forkImageRegions = {
@@ -145,43 +154,25 @@ let fileUploadPromises = [];
 
 const forkDir = `${sampleDataRoot}/Fork`;
 const forkFiles = fs.readdirSync(forkDir);
-forkFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = forkTag.id;
-    region.left = forkImageRegions[file][0];
-    region.top = forkImageRegions[file][1];
-    region.width = forkImageRegions[file][2];
-    region.height = forkImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${forkDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(forkFiles, async (file) => {
+    const region = { tagId : forkTag.id, left : forkImageRegions[file][0], top : forkImageRegions[file][1], width : forkImageRegions[file][2], height : forkImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${forkDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 
 const scissorsDir = `${sampleDataRoot}/Scissors`;
 const scissorsFiles = fs.readdirSync(scissorsDir);
-scissorsFiles.forEach(file => {
-    const region = new TrainingApi.TrainingAPIModels.Region();
-    region.tagId = scissorsTag.id;
-    region.left = scissorsImageRegions[file][0];
-    region.top = scissorsImageRegions[file][1];
-    region.width = scissorsImageRegions[file][2];
-    region.height = scissorsImageRegions[file][3];
 
-    const entry = new TrainingApi.TrainingAPIModels.ImageFileCreateEntry();
-    entry.name = file;
-    entry.contents = fs.readFileSync(`${scissorsDir}/${file}`);
-    entry.regions = [region];
-
-    const batch = new TrainingApi.TrainingAPIModels.ImageFileCreateBatch();
-    batch.images = [entry];
-
+await asyncForEach(scissorsFiles, async (file) => {
+    const region = { tagId : scissorsTag.id, left : scissorsImageRegions[file][0], top : scissorsImageRegions[file][1], width : scissorsImageRegions[file][2], height : scissorsImageRegions[file][3] };
+    const entry = { name : file, contents : fs.readFileSync(`${scissorsDir}/${file}`), regions : [region] };
+    const batch = { images : [entry] };
+    // Wait one second to accommodate rate limit.
+    await setTimeoutPromise(1000, null);
     fileUploadPromises.push(trainer.createImagesFromFiles(sampleProject.id, batch));
 });
 

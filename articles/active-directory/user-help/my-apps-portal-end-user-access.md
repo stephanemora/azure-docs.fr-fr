@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74fa1caad629e6f7f745f84787b6f415876bbae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c15580481c153a58122db593f678998be485b57d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233175"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705001"
 ---
 # <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Localiser et utiliser les applications informatiques de votre organisation sur le portail Mes applications
 
@@ -81,7 +80,7 @@ Vous pouvez choisir le nombre d’applications à afficher dans la section **Uti
 ## <a name="access-and-use-the-my-apps-portal-by-device"></a>Accéder au portail Mes applications et l’utiliser sur un appareil mobile
 Vous pouvez accéder et utiliser le portail Mes applications sur votre ordinateur, via un navigateur Intune managé ou sur un appareil iOS ou Android mobile.
 
-![Page des applications dans le portail Mes applications](media/my-apps-portal/my-apps-portal-apps-page.png)
+![Page Applications du portail Mes applications](media/my-apps-portal/my-apps-portal-apps-page.png)
 
 ### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Accéder au portail Mes applications et l’utiliser sur votre ordinateur
 Si vous êtes autorisé à accéder à et utiliser les applications cloud de votre organisation, vous pouvez y accéder via le portail **Mes applications**.
@@ -90,7 +89,7 @@ Si vous êtes autorisé à accéder à et utiliser les applications cloud de vot
 
 2. Ouvrez votre navigateur web et accédez à https://myapps.microsoft.com, ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
+    La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
 3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
 
@@ -102,9 +101,9 @@ Consultez et utilisez les applications de votre organisation dans Intune Managed
 
 1. Sur votre appareil mobile, téléchargez et installez l’application Intune Managed Browser dans l’[Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Ouvrez Intune Managed Browser, accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Ouvrez Intune Managed Browser, accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
+    La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
 3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
 
@@ -116,9 +115,9 @@ Accédez au portail **Mes applications** et utilisez-le sur un iPhone ou un iPad
 
 1. Sur votre appareil mobile, démarrez un navigateur web, par exemple Safari.
 
-2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
+    La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
 3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
 
@@ -130,9 +129,9 @@ Vous pouvez accéder au portail **Mes applications** et le consulter sur un app
 
 1. Sur votre appareil mobile, démarrez un navigateur web, par exemple Google Chrome.
 
-2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
-    La page **Applications** s’affiche, avec toutes les applications cloud de votre organisation et que vous pouvez utiliser.
+    La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
 3. Dans la page **Applications**, sélectionnez l’application que vous souhaitez recommencer à utiliser.
 

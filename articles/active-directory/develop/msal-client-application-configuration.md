@@ -13,13 +13,12 @@ ms.date: 09/27/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3fd70757fe5ce8761fd3444f3f0dd31e2bfcc3b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 5388dc101dbc4e06ce26f12bfd40645455e8dae8
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917061"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696480"
 ---
 # <a name="application-configuration-options"></a>Options de configuration d’application
 
@@ -90,7 +89,7 @@ Si vous ne spécifiez pas d’audience, votre application cible Azure AD et les 
 
 ### <a name="effective-audience"></a>Audience effective
 
-L’audience effective pour votre application sera la valeur minimale (s’il existe une intersection) de l’audience que vous définissez dans votre application et de l’audience spécifiée dans l’inscription d’application. En fait, l’expérience [inscriptions d’applications](https://aka.ms/appregistrations) vous permet de spécifier l’audience (les types de comptes pris en charge) pour l’application. Pour plus d’informations, consultez [Démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft](quickstart-register-app.md).
+L’audience effective pour votre application sera la valeur minimale (s’il existe une intersection) de l’audience que vous définissez dans votre application et de l’audience spécifiée dans l’inscription d’application. En fait, l’expérience [inscriptions d’applications](https://aka.ms/appregistrations) vous permet de spécifier l’audience (les types de comptes pris en charge) pour l’application. Pour plus d’informations, consultez [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](quickstart-register-app.md).
 
 Actuellement, la seule façon d’obtenir qu’une application connecte des utilisateurs disposant uniquement de comptes Microsoft personnels consiste à configurer ces deux paramètres :
 - Définissez l’audience d’inscription d’application sur `Work and school accounts and personal accounts`.

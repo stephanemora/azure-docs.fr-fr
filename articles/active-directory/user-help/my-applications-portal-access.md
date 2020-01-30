@@ -12,13 +12,12 @@ ms.date: 10/30/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dee6973a638a2cabc0ccc2138ed9db8b798f4d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820397"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705120"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>Accéder à des applications et les démarrer à partir du portail Mes applications (préversion)
 
@@ -63,7 +62,7 @@ Consultez et utilisez les applications de votre organisation à partir de l’ap
 
 1. Sur votre appareil mobile, téléchargez et installez l’application Intune Managed Browser dans l’[Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Ouvrez Intune Managed Browser, accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Ouvrez Intune Managed Browser, accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
     La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
@@ -73,7 +72,7 @@ Accédez au portail **Mes applications** et utilisez-le sur un iPhone ou un iPad
 
 1. Sur votre appareil mobile, démarrez un navigateur web, par exemple Safari.
 
-2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
     La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 
@@ -83,7 +82,7 @@ Vous pouvez accéder au portail **Mes applications** et le consulter sur un app
 
 1. Sur votre appareil mobile, démarrez un navigateur web, par exemple Google Chrome.
 
-2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée pour votre organisation, comme https://myapps.microsoft.com/contoso.com.
+2. Accédez à https://myapps.microsoft.com ou utilisez le lien fourni par votre organisation. Par exemple, vous pouvez être dirigé vers une page personnalisée de votre organisation, comme https://myapps.microsoft.com/contoso.com.
 
     La page **Applications** s'affiche, avec toutes les applications cloud de votre organisation que vous pouvez utiliser.
 

@@ -1,18 +1,18 @@
 ---
 title: Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 description: Découvrez comment utiliser le portail Azure ou l’interface CLI pour créer, afficher et gérer des règles d’alerte de métrique.
-author: snehithm
+author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f5f37591ed2ed250cb756c686ea15136921512
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712983"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705528"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de métrique à l’aide d’Azure Monitor
 
@@ -41,7 +41,7 @@ La procédure suivante décrit comment créer une règle d’alerte de métrique
 
 7. Si vous le souhaitez, affinez la métrique en ajustant la **Période** et **l’Agrégation**. Si la métrique a des dimensions, une table **Dimensions** s’affiche. Sélectionnez une ou plusieurs valeurs par dimension. L’alerte de métrique évaluera la condition pour toutes les combinaisons de valeurs sélectionnées. [En savoir plus sur le fonctionnement de la génération d’alertes sur les métriques multidimensionnelles](alerts-metric-overview.md). Vous pouvez également **sélectionner \*** pour les dimensions. **Sélectionner \*** mettra à l’échelle la sélection de manière dynamique en fonction de toutes les valeurs actuelles et futures pour une dimension.
 
-8. Vous verrez un graphique de la métrique pendant les 6 dernières heures. Définissez les paramètres de l’alerte : le **type de condition**, la **fréquence**, **l’opérateur** et le **seuil** ou la **sensibilité** afin de déterminer la logique que la règle d’alerte de métrique évaluera. [En savoir plus sur le type de condition Seuils dynamiques et les options de sensibilité](alerts-dynamic-thresholds.md).
+8. Vous verrez un graphique de la métrique pendant les 6 dernières heures. Définissez les paramètres de l’alerte : le **type de condition**, la **fréquence**, **l’opérateur** et le **seuil** ou la **sensibilité** afin de déterminer la logique que la règle d’alerte de métrique évaluera. [Découvrez-en plus sur le type de condition des seuils dynamiques et les options de sensibilité](alerts-dynamic-thresholds.md).
 
 9. Si vous utilisez un seuil statique, le graphique de métriques peut vous aider à déterminer ce qui pourrait être un seuil raisonnable. Si vous utilisez des seuils dynamiques, le graphique de métriques affiche les seuils calculés en fonction des données récentes.
 

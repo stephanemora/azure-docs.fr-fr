@@ -13,13 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916051"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695736"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Utiliser MSAL dans un environnement de cloud national
 
@@ -35,7 +34,7 @@ Outre le cloud global, Azure Active Directory (Azure AD) est déployé dans les 
 
 Ce guide montre comment se connecter à des comptes professionnels et scolaires, obtenir un jeton accès et appeler l’API Microsoft Graph dans l’environnement [cloud Azure Government](https://azure.microsoft.com/global-infrastructure/government/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que vous répondez aux exigences suivantes.
 
@@ -69,9 +68,9 @@ Les didacticiels suivants montrent comment créer une application Web MVC .NET C
 
 Pour activer votre application MSAL.js pour les clouds souverains :
 
-### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
+### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.us/).
+1. Connectez-vous au [portail Azure](https://portal.azure.us/).
     
    Pour rechercher des points de terminaison de portail Azure pour d’autres clouds nationaux, consultez [Points de terminaison d’inscription d’application](authentication-national-cloud.md#app-registration-endpoints).
 
@@ -86,7 +85,7 @@ Pour activer votre application MSAL.js pour les clouds souverains :
 1. Dans **Paramètres avancés**, sous **Octroi implicite**, cochez les cases **Jetons d’ID** et **Jetons d’accès**. Les jetons d’ID et les jetons d’accès sont nécessaires, car cette application doit connecter des utilisateurs et appeler une API.
 1. Sélectionnez **Enregistrer**.
 
-### <a name="step-2--set-up-your-web-server-or-project"></a>Étape 2 :  Configurer le serveur web ou projet
+### <a name="step-2--set-up-your-web-server-or-project"></a>Étape 2 :  Configurer le serveur web ou projet
 
 - [Télécharger les fichiers de projet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) pour un serveur web local, tel que Node.
 

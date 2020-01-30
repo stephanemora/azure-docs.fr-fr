@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 11548ba180a2dd6541240431d670812448c502b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d7ab79d49aade7dd6e98cf33ce538174d176c784
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981583"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705341"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Envoyer ou recevoir des événements d’Event Hubs à l’aide de Python
 
@@ -42,7 +42,7 @@ Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
     Installez ce package pour recevoir les événements utilisant un stockage blob Azure comme magasin de points de contrôle.
 
     ```cmd
-    pip install azure-eventhub-checkpointstoreblobaio
+    pip install azure-eventhub-checkpointstoreblob-aio
     ```
 
 ## <a name="send-events"></a>Envoyer des événements

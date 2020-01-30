@@ -13,13 +13,12 @@ ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a71093ee05e032a5df89bb0560b6daa82e2fbf2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: cba213824cba86b4ea54e852b7e2f1ede83abfea
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916143"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695804"
 ---
 # <a name="logging-in-msal-applications"></a>Journalisation dans les applications MSAL
 
@@ -29,7 +28,7 @@ Les applications Microsoft Authentication Library (MSAL) génèrent des messages
 
 MSAL fournit plusieurs niveaux de détail de journalisation :
 
-- Error: indique qu’un problème est survenu et qu’une erreur a été générée. À utiliser pour le débogage et l’identification des problèmes.
+- Erreur : indique qu’un problème est survenu et qu’une erreur a été générée. À utiliser pour le débogage et l’identification des problèmes.
 - Avertissement : Il n’y a pas nécessairement eu une erreur ou une défaillance, mais l’objectif est d’effectuer un diagnostic et de mettre en avant des problèmes éventuels.
 - Information : MSAL enregistrera des événements destinés à fournir des informations et pas nécessairement destinés à être débogués.
 - Verbose : Par défaut. MSAL enregistre les détails complets du comportement de la bibliothèque.
@@ -211,7 +210,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 Pour définir le niveau de journalisation lorsque vous utilisez MSAL pour iOS et macOS, optez pour l’une des valeurs suivantes :
 
-|Niveau  |Description |
+|Level  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Désactiver la journalisation |
 | `MSALLogLevelError` | Niveau par défaut, affiche uniquement les informations lorsque des erreurs se produisent |
@@ -288,7 +287,7 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 Pour définir le niveau de journalisation lorsque vous utilisez MSAL pour iOS et macOS, optez pour l’une des valeurs suivantes :
 
-|Niveau  |Description |
+|Level  |Description |
 |---------|---------|
 | `MSALLogLevelNothing`| Désactiver la journalisation |
 | `MSALLogLevelError` | Niveau par défaut, affiche uniquement les informations lorsque des erreurs se produisent |

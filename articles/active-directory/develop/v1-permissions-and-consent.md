@@ -17,13 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c13f4cabfbd996c1d811a8a3e35e69893c51154f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042330"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700921"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0
 
@@ -61,7 +60,7 @@ Les autorisations dans Azure AD ont plusieurs propriétés qui aident les utilis
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| Nom de la propriété | Description | Exemples |
+| Nom de la propriété | Description | Exemple |
 | --- | --- | --- |
 | `ID` | Valeur GUID qui identifie cette autorisation de façon unique. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | Indique si cette autorisation est disponible à l’utilisation. | true |
@@ -86,7 +85,7 @@ Les applications dans Azure AD reposent sur un consentement pour obtenir l’acc
   
 * **Consentement de l’administrateur** : nécessaire quand votre application a besoin d’accéder à certaines autorisations à privilèges élevés. Le consentement de l’administrateur garantit que les administrateurs disposent de contrôles supplémentaires avant d’autoriser des applications ou des utilisateurs à accéder aux données à privilèges élevés de l’organisation. [Découvrez-en plus sur la manière d’accorder un consentement de l’administrateur](/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint).
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 ### <a name="client-best-practices"></a>Meilleures pratiques clientes
 

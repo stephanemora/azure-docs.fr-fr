@@ -16,13 +16,12 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ad58f9b135056ef273f612abc80262a55a7a1f5e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373904"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700989"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Présentation d’Azure Active Directory pour les développeurs (v1.0)
 
@@ -37,7 +36,7 @@ Azure Active Directory (Azure AD) est un service d’identité cloud qui permet 
 |[Types d’applications](app-types.md) | Vue d’ensemble des scénarios d’authentification pris en charge par Azure AD. |
 | | |
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
 Les didacticiels et démarrages rapides dédiés à la version v1.0 vous guident pas à pas dans les différentes étapes de création d’une application sur votre plateforme préférée à l’aide du Kit de développement logiciel (SDK) de la Bibliothèque d’authentification Active Directory (ADAL). Consultez les **démarrages rapides dédiés à la version v1.0** et les **didacticiels dédiés à la version v1.0** dans [Plateforme d’identités Microsoft (Azure Active Directory pour développeurs)](index.yml) pour commencer.
 

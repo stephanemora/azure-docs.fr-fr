@@ -1,19 +1,19 @@
 ---
 title: Appeler un webhook avec une alerte de métrique classique dans Azure Monitor
 description: Découvrez comment rediriger des alertes de métrique Azure vers d’autres systèmes que Azure.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286158"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705511"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Appeler un webhook avec une alerte de métrique classique dans Azure Monitor
 Les Webhooks permettent de rediriger une notification d’alerte Azure vers d’autres systèmes pour effectuer un post-traitement ou des actions personnalisées. Vous pouvez utiliser un Webhook sur une alerte pour rediriger cette dernière vers des services qui envoient des SMS, consignent des bogues, avertissent une équipe dans des services de conversation instantanée/messagerie ou effectuent d’autres actions. 
@@ -30,7 +30,7 @@ Pour ajouter ou mettre à jour l’URI du Webhook, dans le [portail Azure](https
 Vous pouvez également configurer une alerte à publier vers un URI de Webhook à l’aide des [applets de commande Azure PowerShell](../../azure-monitor/platform/powershell-quickstart-samples.md#create-metric-alerts), de [l’interface de ligne de commande multiplateforme](../../azure-monitor/platform/cli-samples.md#work-with-alerts) ou des [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
 
 ## <a name="authenticate-the-webhook"></a>Authentifier le Webhook
-Le Webhook peut s’authentifier à l’aide de l’autorisation basée sur un jeton. L’URI du Webhook est enregistré avec un ID de jeton. Par exemple : `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
+Le Webhook peut s’authentifier à l’aide de l’autorisation basée sur un jeton. L’URI du Webhook est enregistré avec un ID de jeton. Par exemple : `https://mysamplealert/webcallback?tokenid=sometokenid&someparameter=somevalue`
 
 ## <a name="payload-schema"></a>Schéma de la charge utile
 L’opération POST contient le schéma et la charge utile JSON ci-après pour toutes les alertes basées sur des métriques :
@@ -69,10 +69,10 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 ```
 
 
-| Champ | Mandatory | Ensemble fixe de valeurs | Notes |
+| Champ | Obligatoire | Ensemble fixe de valeurs | Notes |
 |:--- |:--- |:--- |:--- |
 | status |O |Activated, Resolved |État de l’alerte en fonction des conditions que vous avez définies. |
-| context |O | |Contexte de l’alerte. |
+| contexte |O | |Contexte de l’alerte. |
 | timestamp |O | |Heure à laquelle l’alerte a été déclenchée. |
 | id |O | |Chaque règle d’alerte possède un ID unique. |
 | name |O | |Nom de l’alerte. |

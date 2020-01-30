@@ -17,13 +17,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66c509b1b901889241d6837611a2c373750fdb3a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 95d3deff73ce357f012b15a7fc1cfa3decdb4bda
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834797"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701363"
 ---
 # <a name="single-sign-out-saml-protocol"></a>Protocole SAML de déconnexion unique
 
@@ -47,7 +46,7 @@ Le service cloud envoie un message `LogoutRequest` à Azure AD pour indiquer qu�
 L’élément `LogoutRequest` envoyé à Azure AD requiert les attributs suivants :
 
 * `ID` : identifie la demande de déconnexion. La valeur `ID` ne doit pas commencer par un chiffre. La méthode classique consiste à ajouter **id** à la représentation sous forme de chaîne d’un GUID.
-* `Version` : définissez la valeur de cet élément sur **2.0**. Cette valeur est obligatoire.
+* `Version` : définissez la valeur de cet élément sur **2.0**. Cette valeur est requise.
 * `IssueInstant` : chaîne `DateTime` associée à une valeur UTC (temps universel coordonné) et au [format aller-retour (« o »)](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD attend une valeur de ce type, mais ne l’applique pas.
 
 ### <a name="issuer"></a>Émetteur

@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36aa220b49b8b71c79e4fe6f63afedee6db76a68
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2b3d9fdc163d0661670f3d0cf6e6a276c8b691bd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293332"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702162"
 ---
 # <a name="desktop-app-that-calls-web-apis-call-a-web-api"></a>Application de bureau qui appelle des API web : Appeler une API web
 

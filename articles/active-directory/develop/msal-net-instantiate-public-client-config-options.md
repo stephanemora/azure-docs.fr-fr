@@ -13,13 +13,12 @@ ms.date: 04/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4052c67b019b5ca6d3936e34ec8a5b2b1aff89b1
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c07ffb77a838a91bd7eed4b9e40b39050450981c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915840"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695498"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>Instancier une application cliente publique avec des options de configuration à l’aide de MSAL.NET
 
@@ -29,8 +28,8 @@ Avant d’initialiser une application, vous devez d’abord [l’inscrire](quick
 
 - L’ID client (une chaîne représentant un GUID)
 - L’URL du fournisseur d’identité (l’instance) et l’audience de connexion pour votre application. Ces deux paramètres représentent collectivement l’autorité.
-- L’ID locataire, si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
-- Pour les applications web et parfois pour les applications clientes publiques (en particulier lorsque votre application doit utiliser un répartiteur), vous devez avoir également défini l’URI de redirection auquel le fournisseur d’identité recontactera votre application avec les jetons de sécurité.
+- L’ID locataire si vous écrivez une application métier uniquement pour votre organisation (également nommée application à locataire unique).
+- Pour les applications web et parfois pour les applications clientes publiques (en particulier lorsque votre application doit utiliser un répartiteur), vous devez également avoir défini l’URI de redirection auquel le fournisseur d’identité recontactera votre application avec les jetons de sécurité.
 
 
 Une application de console .NET Core peut avoir le fichier de configuration *appsettings.json* suivant :

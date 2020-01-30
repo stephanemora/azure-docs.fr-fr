@@ -17,13 +17,12 @@ ms.date: 07/19/2017
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf512f802e0e4944e6ce949830719b87301adfc4
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: cecb78a82eb2925813bdc7f6df2503fae94b6437
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834812"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701397"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocole SAML d’authentification unique
 
@@ -243,7 +242,7 @@ Les attributs `NotBefore` et `NotOnOrAfter` spécifient l’intervalle pendant l
 * La valeur de l’attribut `NotBefore` est égale à la valeur de l’attribut `IssueInstant` de l’élément `Assertion`, ou légèrement supérieure (moins d’une seconde). Azure AD ne tient pas compte des différences de temps entre sa propre horloge et celle du service cloud (fournisseur de services) et n’ajoute pas de mémoire tampon à cette durée.
 * La valeur de l’attribut `NotOnOrAfter` est de 70 minutes de plus que la valeur de l’attribut `NotBefore`.
 
-#### <a name="audience"></a>Audience
+#### <a name="audience"></a>Public visé
 
 Contient un URI qui identifie une audience visée. Azure AD définit la valeur de cet élément sur la valeur de l’élément `Issuer` de l’attribut `AuthnRequest` qui a lancé la session. Pour évaluer la valeur `Audience`, utilisez la valeur de `App ID URI` spécifiée lors de l’inscription de l’application.
 

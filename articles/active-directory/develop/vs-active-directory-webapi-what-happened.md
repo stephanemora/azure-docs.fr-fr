@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0cf375902281817ecc002f8fb76be32eed149d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9858fdb7da80fe03498392ea93bf3c83b8a7e4dd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966314"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699867"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Qu’est-il arrivé à mon projet WebApi (service connecté Azure Active Directory de Visual Studio)
 
@@ -27,7 +26,7 @@ ms.locfileid: "74966314"
 
 Cet article identifie les modifications exactes apportées aux projets ASP.NET Azure API, Application monopage ASP.NET et ASP.NET Azure API lors de l’ajout du [service connecté Azure Active Directory à l’aide de Visual Studio](vs-active-directory-add-connected-service.md). S’applique également aux projets ASP.NET Azure Mobile Service dans Visual Studio 2015.
 
-Pour plus d’informations sur l’utilisation du service connecté, consultez [Mise en route](vs-active-directory-webapi-getting-started.md).
+Pour plus d’informations sur l’utilisation du service connecté, consultez la page [Bien démarrer](vs-active-directory-webapi-getting-started.md).
 
 ## <a name="added-references"></a>Références ajoutées
 
@@ -100,13 +99,13 @@ Les références suivantes sont supprimées (projets ASP.NET 4 uniquement, comme
 
 ## <a name="code-changes-and-additions"></a>Ajouts et modifications de code
 
-- Vous avez ajouté l’attribut `[Authorize]` à `Controllers/ValueController.cs` et tous les autres contrôleurs existants.
+- Ajout de l’attribut `[Authorize]` à `Controllers/ValueController.cs` et tous les autres contrôleurs existants.
 
-- Vous avez ajouté une classe de démarrage de l’authentification, `App_Start/Startup.Auth.cs`, qui contient la logique de démarrage pour l’authentification Azure AD ou modifié en conséquence. Si vous avez sélectionné l’option **Lire les données de l’annuaire**, ce fichier contient également le code pour recevoir un code OAuth et l’échanger contre un jeton d’accès.
+- Vous avez ajouté une classe de démarrage de l’authentification, `App_Start/Startup.Auth.cs`, qui contient la logique de démarrage pour l’authentification Azure AD ou modifié en conséquence. Si l’option **Lire les données d’annuaire** est sélectionnée, ce fichier contient également le code permettant de recevoir un code OAuth et de l’échanger contre un jeton d’accès.
 
 - (Visual Studio 2015 avec l’application ASP.NET 4 uniquement) Vous avez supprimé `App_Start/IdentityConfig.cs` et ajouté `Controllers/AccountController.cs`, `Models/IdentityModel.cs` et `Providers/ApplicationAuthProvider.cs`.
 
-- Vous avez ajouté `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contenant des informations que Visual Studio utilise pour effectuer le suivi de l’ajout d’un service connecté.
+- Ajout de `Connected Services/AzureAD/ConnectedService.json` (Visual Studio 2017) ou de `Service References/Azure AD/ConnectedService.json` (Visual Studio 2015), contenant des informations dont Visual Studio se sert pour suivre l’ajout du service connecté.
 
 ### <a name="file-backup-visual-studio-2015"></a>Sauvegarde de fichiers (Visual Studio 2015)
 

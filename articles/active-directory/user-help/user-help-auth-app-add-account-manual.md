@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dd38eee8ebc12ed01874611ec5e532a4d78ede2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616096"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704797"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Ajout manuel d’un compte à l’application
 
@@ -44,7 +43,7 @@ Les codes fournis pour vos comptes ne respectent pas la casse et ne nécessitent
 
     ![Écran pour saisir le code et de l’URL](./media/user-help-auth-app-add-account-manual/auth-app-code-url.png)
 
-    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour renforcer la sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
+    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour des raisons de sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
 
 ## <a name="add-your-google-account"></a>Ajout de votre compte Google
 
@@ -58,10 +57,10 @@ Les codes fournis pour vos comptes ne respectent pas la casse et ne nécessitent
 
 4. Dans la page **Set up Authenticator** (Configurer Authenticator) de votre ordinateur, entrez le code de vérification à six chiffres fourni dans l’application pour votre compte Google, puis sélectionnez **Vérifier**.
 
-    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour renforcer la sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
+    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour des raisons de sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
 
     >[!NOTE]
-    >Pour plus d’informations sur la vérification en deux étapes et votre compte Google, consultez [Activer la vérification en 2 étapes](https://support.google.com/accounts/answer/185839) et [En savoir plus sur la vérification en 2 étapes](https://www.google.com/landing/2step/help.html).
+    >Pour plus d’informations sur la vérification en deux étapes et votre compte Google, consultez [Activer la vérification en deux étapes](https://support.google.com/accounts/answer/185839) et [En savoir plus sur la vérification en deux étapes](https://www.google.com/landing/2step/help.html).
 
 ## <a name="add-your-facebook-account"></a>Ajout de votre compte Facebook
 
@@ -73,12 +72,12 @@ Les codes fournis pour vos comptes ne respectent pas la casse et ne nécessitent
 
 4. Dans la page **Authentification à deux facteurs** de votre ordinateur, entrez le code de vérification à six chiffres fourni dans l’application pour votre compte Facebook, puis sélectionnez **Vérifier**.
 
-    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour renforcer la sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
+    L’écran **Comptes** de l’application affiche votre nom de compte et un code de vérification à six chiffres. Pour des raisons de sécurité, le code de vérification change toutes les 30 secondes, ce qui empêche quiconque d’utiliser plusieurs fois un même code.
 
     >[!NOTE]
     >Pour plus d’informations sur la vérification en deux étapes et votre compte Facebook, consultez [Présentation et fonctionnement de l’authentification à deux facteurs](https://www.facebook.com/help/148233965247823).
 
-## <a name="add-your-amazon-account"></a>Ajout de votre compte Amazon
+## <a name="add-your-amazon-account"></a>Ajouter votre compte Amazon
 
 Vous pouvez ajouter votre compte Amazon en activant la vérification en deux étapes, puis en ajoutant le compte à l’application.
 
@@ -105,6 +104,6 @@ Vous pouvez ajouter votre compte Amazon en activant la vérification en deux ét
 
 - Après avoir ajouté vos comptes à l’application, vous pouvez vous connecter à l’aide de l’application Microsoft Authenticator sur votre appareil. Pour plus d’informations, consultez l’article [Se connecter à l’aide de l’application Microsoft Authenticator](user-help-auth-app-sign-in.md).
 
-- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, voir la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
+- Si vous ne parvenez pas à obtenir le code de vérification de votre compte Microsoft personnel, consultez la section **Résolution des problèmes de code de vérification** de l’article [Informations de sécurité et codes de vérification des comptes Microsoft](https://support.microsoft.com/help/12428/microsoft-account-security-info-verification-codes).
 
 - Pour les appareils exécutant iOS, vous pouvez également sauvegarder les informations d’identification de votre compte et les paramètres de l’application associée, comme l’ordre de vos comptes, dans le cloud. Pour plus d’informations, consultez l’article [Sauvegarder et récupérer des informations d’authentification de compte avec l’application Microsoft Authenticator](user-help-auth-app-backup-recovery.md).

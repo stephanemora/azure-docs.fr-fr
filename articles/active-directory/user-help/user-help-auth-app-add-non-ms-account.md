@@ -11,20 +11,19 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da5e2f60334148be1206ce61a9c6397a3acf85e3
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278877"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704763"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Ajouter vos comptes non-Microsoft à l’application Microsoft Authenticator
 
 Ajoutez vos comptes non-Microsoft, tels que Google, Facebook ou GitHub, à l'application Microsoft Authenticator pour la vérification en deux étapes. L'application Microsoft Authenticator fonctionne avec n'importe quelle application qui utilise la vérification en deux étapes et n'importe quel compte qui prend en charge les mots de passe à usage unique et durée définie (normes TOTP).
 
 >[!Important]
->Avant de pouvoir ajouter votre compte, vous devez télécharger et installer l’application Microsoft Authenticator. Si ce n'est pas encore le cas, suivez la procédure décrite dans l'article [Télécharger et installer l’application](user-help-auth-app-download-install.md).
+>Avant de pouvoir ajouter votre compte, vous devez télécharger et installer l’application Microsoft Authenticator. Si ce n’est pas déjà fait, suivez la procédure décrite dans l’article [Télécharger et installer l’application](user-help-auth-app-download-install.md).
 
 ## <a name="add-personal-accounts"></a>Ajouter des comptes personnels
 
@@ -39,7 +38,7 @@ En règle générale, pour tous vos comptes personnels, vous devez :
 
 Nous vous présentons ici le processus correspondant aux comptes Facebook, Google, GitHub et Amazon, mais ce processus est identique pour les autres applications, telles que Netflix, Instagram ou Adobe.
 
-## <a name="add-your-google-account"></a>Ajouter votre compte Google
+## <a name="add-your-google-account"></a>Ajout de votre compte Google
 
 Ajoutez votre compte Google en activant la vérification en deux étapes, puis en ajoutant le compte à l’application.
 
@@ -75,7 +74,7 @@ Ajoutez votre compte Google en activant la vérification en deux étapes, puis e
     >[!NOTE]
     >Pour plus d’informations sur la vérification en deux étapes et votre compte Google, consultez [Activer la vérification en deux étapes](https://support.google.com/accounts/answer/185839) et [En savoir plus sur la vérification en deux étapes](https://www.google.com/landing/2step/help.html).
 
-## <a name="add-your-facebook-account"></a>Ajouter votre compte Facebook
+## <a name="add-your-facebook-account"></a>Ajout de votre compte Facebook
 
 Ajoutez votre compte Facebook en activant la vérification en deux étapes, puis en ajoutant le compte à l’application.
 
@@ -113,7 +112,7 @@ Ajoutez votre compte Facebook en activant la vérification en deux étapes, puis
     Votre compte est vérifié, et vous pouvez dès à présent utiliser l’application pour vérifier votre compte.
 
     >[!NOTE]
-    >Pour plus d’informations sur la vérification en deux étapes et votre compte Facebook, consultez [Présentation et fonctionnement de l'authentification à deux facteurs](https://www.facebook.com/help/148233965247823).
+    >Pour plus d’informations sur la vérification en deux étapes et votre compte Facebook, consultez [Présentation et fonctionnement de l’authentification à deux facteurs](https://www.facebook.com/help/148233965247823).
 
 ## <a name="add-your-github-account"></a>Ajouter votre compte GitHub
 

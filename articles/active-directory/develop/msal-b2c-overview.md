@@ -13,13 +13,12 @@ ms.date: 09/16/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f080c14cd0aa20bd312b4be8d9eacd8d901b7cef
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e25564e64410701754390024a5bcfd39321343e2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917027"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696450"
 ---
 # <a name="use-microsoft-authentication-library-to-interoperate-with-azure-active-directory-b2c"></a>Utiliser Microsoft Authentication Library pour interagir avec Azure Active Directory B2C
 
@@ -29,7 +28,7 @@ Azure AD B2C vous permet également de personnaliser l’interface utilisateur d
 
 Ce didacticiel montre comment utiliser MSAL pour interagir avec Azure AD B2C.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-create-tenant), créez-en un. Vous pouvez également utiliser un locataire Azure AD B2C existant.
 
@@ -37,11 +36,11 @@ Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](https:/
 
 Les étapes suivantes montrent comment une application monopage peut utiliser Azure AD B2C pour s’inscrire, se connecter et appeler une API web protégée.
 
-### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
+### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 
 Pour implémenter l’authentification, vous devez d’abord inscrire votre application. Pour des instructions détaillées, voir [Inscrire votre application](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp#step-4-register-your-own-web-application-with-azure-ad-b2c).
 
-### <a name="step-2-download-the-sample-application"></a>Étape 2 : Téléchargement de l'exemple d'application
+### <a name="step-2-download-the-sample-application"></a>Étape 2 : Téléchargement de l'exemple d'application
 
 Téléchargez l’exemple en tant que fichier zip ou clonez-le à partir de GitHub :
 

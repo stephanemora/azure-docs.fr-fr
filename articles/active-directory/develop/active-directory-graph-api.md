@@ -13,13 +13,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c74c02d8a82c27c71ce01cd122082010487b453e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ef042b9eb625a0d0de5d5dcb883b823c3a499aa9
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845040"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698915"
 ---
 # <a name="azure-active-directory-graph-api"></a>API Graph Azure Active Directory
 
@@ -40,7 +39,7 @@ De plus, vous pouvez effectuer des opérations similaires sur d’autres objets,
 
 Pour commencer à utiliser l’API Azure Active Directory Graph, consultez le [Guide de démarrage rapide de l’API Graph Azure AD](active-directory-graph-api-quickstart.md) ou la [documentation interactive de référence de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 L’API Azure AD Graph fournit les fonctionnalités suivantes :
 

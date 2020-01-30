@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: c0664cbc8097f18ec9722e789ad40d5925781637
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997069"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711678"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Ignorer la suppression des comptes d’utilisateurs qui sortent de l’étendue
 
@@ -32,19 +32,19 @@ Ce guide explique comment utiliser l’API Microsoft Graph et son Afficheur pour
 
 Comme cette configuration est largement utilisée avec l’application de *provisionnement d’utilisateurs de Workday vers Active Directory*, les étapes ci-dessous incluent des captures d’écran de l’application Workday. Cependant, elles peuvent aussi être utilisées pour **toutes les autres applications**, comme ServiceNow, Salesforce, Dropbox, etc.
 
-## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Étape 1 : Récupérer l’ID de principal du service de l’application de provisionnement (ID d’objet)
+## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>Étape 1 : Récupérer l’ID de principal du service de l’application de provisionnement (ID d’objet)
 
 1. Lancez le [portail Azure](https://portal.azure.com) et accédez à la section Propriétés de votre application de provisionnement. Par exemple, si vous souhaitez exporter votre mappage d’*application de provisionnement de Workday vers AD*, accédez à la section Propriétés de cette application. 
 1. Dans la section Propriétés de votre application d'approvisionnement, copiez la valeur GUID associée au champ *ID de l'objet*. Cette valeur, également appelée **ServicePrincipalId** de votre application, sera utilisée dans les opérations de l'Afficheur Graph.
 
-   ![ID du principal de service de l'application Workday](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![ID du principal de service de l'application Workday](media/skip-out-of-scope-deletions/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Étape 2 : Se connecter à l'Afficheur Microsoft Graph
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>Étape 2 : Se connecter à l'Afficheur Microsoft Graph
 
 1. Lancez l'[Afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer).
 1. Cliquez sur le bouton « Se connecter avec Microsoft » et connectez-vous à l'aide des informations d'identification d'administrateur de l'application ou d'administrateur global d'Azure AD.
 
-    ![Connexion à Graph](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Connexion à Graph](media/skip-out-of-scope-deletions/wd_export_02.png)
 
 1. Une fois connecté, les détails du compte d'utilisateur apparaissent dans le volet de gauche.
 
@@ -56,11 +56,11 @@ Dans l'Afficheur Microsoft Graph, exécutez la requête GET suivante en remplaç
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
-   ![Requête de tâche GET](./media/skip-out-of-scope-deletions/skip-03.png)
+   ![Requête de tâche GET](media/skip-out-of-scope-deletions/skip-03.png)
 
 Copiez la réponse dans un fichier texte. Elle ressemble au texte JSON présenté ci-dessous, à la différence près que les valeurs surlignées en jaune sont remplacées par celles propres à votre déploiement. Ajoutez les lignes surlignées en vert situées à la fin et mettez à jour le mot de passe de connexion Workday surligné en bleu. 
 
-   ![Réponse de tâche GET](./media/skip-out-of-scope-deletions/skip-04.png)
+   ![Réponse de tâche GET](media/skip-out-of-scope-deletions/skip-04.png)
 
 Voici le bloc JSON à ajouter au mappage. 
 
@@ -82,22 +82,22 @@ Dans l’URL ci-dessous, remplacez [servicePrincipalId] par la valeur **ServiceP
 ```
 Copiez le texte mis à jour de l’étape 3 dans « Corps de la demande » et définissez l’en-tête « Content-Type » sur « application/json » dans « En-têtes de demande ». 
 
-   ![Demande PUT](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![Demande PUT](media/skip-out-of-scope-deletions/skip-05.png)
 
 Cliquer sur « Exécuter la requête ». 
 
 Vous devez obtenir la sortie « Réussite – Code d’État 204 ». 
 
-   ![Réponse PUT](./media/skip-out-of-scope-deletions/skip-06.png)
+   ![Réponse PUT](media/skip-out-of-scope-deletions/skip-06.png)
 
 ## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>Étape 5 : Vérifier que les utilisateurs hors étendue ne sont pas désactivés
 
 Vous pouvez vérifier que cet indicateur produit un comportement attendu en mettant à jour vos règles d’étendue pour ignorer un utilisateur spécifique. Dans l’exemple ci-dessous, nous excluons l’employé dont l’ID est 21173 (qui se trouvait auparavant dans l’étendue) en ajoutant une nouvelle règle d’étendue : 
 
-   ![Exemple d’étendue](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![Exemple d’étendue](media/skip-out-of-scope-deletions/skip-07.png)
 
 Dans le prochain cycle de provisionnement, le service de provisionnement d’Azure AD déterminera que l’utilisateur 21173 est sorti de l’étendue si la propriété SkipOutOfScopeDeletions est activée, et la règle de synchronisation pour cet utilisateur affichera un message comme indiqué ci-dessous : 
 
-   ![Exemple d’étendue](./media/skip-out-of-scope-deletions/skip-08.png)
+   ![Exemple d’étendue](media/skip-out-of-scope-deletions/skip-08.png)
 
 

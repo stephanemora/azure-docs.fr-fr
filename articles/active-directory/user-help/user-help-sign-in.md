@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f595013d5404f0cbcb17a0d24d6395a84fa5b607
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c7dea5acfce9ad964b050b6787f29e5d116a306b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266981"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704593"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Se connecter à l’aide de la vérification en deux étapes ou des informations de sécurité
 
@@ -27,7 +26,7 @@ Une fois que vous aurez configuré la vérification en deux étapes ou les infor
 > [!Note]
 > Si vous utilisez toujours la vérification en deux étapes, vous devrez configurer vos méthodes de vérification en suivant les instructions données dans l’article [Configurer mon compte pour la vérification en deux étapes](multi-factor-authentication-end-user-first-time.md).
 >
-> Si votre administrateur a activé les informations de sécurité, vous devrez définir vos méthodes de vérification en suivant ces articles pas à pas :<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification)</li><li>[Configurer les informations de sécurité pour utiliser la messagerie texte](security-info-setup-text-msg.md)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique)</li><li>[Configurer les informations de sécurité pour utiliser une clé de sécurité](security-info-setup-security-key.md)</li></ul>
+> Si votre administrateur a activé les informations de sécurité, vous devrez définir vos méthodes de vérification en suivant ces articles pas à pas :<ul><li>[Set up security info to use an authentication app](security-info-setup-auth-app.md) (Configurer les informations de sécurité pour utiliser une application d’authentification)</li><li>[Set up security info to use text messaging](security-info-setup-text-msg.md) (Configurer les informations de sécurité pour utiliser la messagerie texte)</li><li>[Set up security info to use a phone call](security-info-setup-phone-number.md) (Configurer les informations de sécurité pour utiliser un appel téléphonique)</li><li>[Configurer les informations de sécurité pour utiliser une clé de sécurité](security-info-setup-security-key.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Se connecter à partir d’une notification de l’application d’authentification sur votre appareil mobile
 
@@ -93,8 +92,8 @@ Si, pour une raison quelconque, vous ne parvenez pas à utiliser votre méthode 
 
 - Découvrez les informations de sécurité avec l’article [Security info (preview) overview](user-help-security-info-overview.md) (Vue d’ensemble des informations de sécurité [préversion]).
 
-- Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Two-step verification overview](user-help-two-step-verification-overview.md) (Vue d’ensemble de la vérification en deux étapes).
+- Pour plus d’informations sur la vérification en deux étapes, consultez l’article [Vue d’ensemble de la vérification en deux étapes](user-help-two-step-verification-overview.md).
 
 - En cas de perte ou d’oubli de votre mot de passe, réinitialisez-le à partir du [portail de réinitialisation de mot de passe](https://passwordreset.microsoftonline.com/).
 
-- Suivez les conseils de dépannage et obtenez de l’aide en cas de problème de connexion dans l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+- Obtenez des conseils de dépannage et de l’aide pour les problèmes de connexion en consultant l’article [Quand vous ne pouvez pas vous connecter à votre compte Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).

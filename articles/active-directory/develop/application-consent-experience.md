@@ -14,13 +14,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f16278304b4d536b1ef2cf46291b481bf319b6c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 82d64895f4bf2ef6eb1fdb248f470f981d1cb426
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918149"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698167"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Comprendre les expériences de consentement de l’application Azure AD
 
@@ -49,7 +48,7 @@ Le diagramme et le tableau suivants fournissent des informations sur les blocs d
 | 2 | Intitulé | L’intitulé change selon que les utilisateurs suivent le flux de consentement utilisateur ou administrateur. Dans le flux de consentement utilisateur, l’intitulé sera « Permissions requested » (Autorisations demandées), tandis que dans le flux de consentement administrateur, l’intitulé aura une ligne supplémentaire « Accept for your organization » (Accepter pour votre organisation). |
 | 3 | Logo de l’application | Cette image donne aux utilisateurs un indice visuel pour déterminer si cette application est bien celle à laquelle ils souhaitaient accéder. Cette image est fournie par les développeurs d’application et la propriété de cette image n’est pas validée. |
 | 4 | Nom de l’application | Cette valeur indique aux utilisateurs quelle application demande à accéder à leurs données. Ce nom est fourni par les développeurs et la propriété de ce nom d’application n’est pas validée. |
-| 5\. | Domaine de l’éditeur | Cette valeur fournit aux utilisateurs un nom de domaine dont ils peuvent évaluer la fiabilité. Ce domaine est fourni par les développeurs et la propriété de ce domaine d’éditeur est validée. |
+| 5 | Domaine de l’éditeur | Cette valeur fournit aux utilisateurs un nom de domaine dont ils peuvent évaluer la fiabilité. Ce domaine est fourni par les développeurs et la propriété de ce domaine d’éditeur est validée. |
 | 6 | Autorisations | Cette liste contient les autorisations demandées par l’application cliente. Les utilisateurs doivent systématiquement évaluer les types d’autorisations demandées pour savoir à quelles données l’application cliente aura accès en leur nom s’ils donnent leur consentement. En tant que développeur d’application, nous vous recommandons de demander des autorisations d’accès avec le niveau de privilège minimum. |
 | 7 | Description de l’autorisation | Cette valeur est fournie par le service exposant les autorisations. Pour afficher les descriptions d’autorisation, vous devez cliquer sur la flèche de développement en regard de l’autorisation. |
 | 8 | Conditions générales de l’application | Ces conditions contiennent des liens vers les conditions d’utilisation du service et la déclaration de confidentialité de l’application. L’éditeur est chargé de mentionner ses règles dans les conditions d’utilisation du service. L’éditeur doit également indiquer de quelle manière il utilise et partage les données des utilisateurs dans sa déclaration de confidentialité. Si l’éditeur ne fournit pas de liens vers ces valeurs pour les applications mutualisées, un message d’avertissement s’affiche en gras dans l’invite de consentement. |

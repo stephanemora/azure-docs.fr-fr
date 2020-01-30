@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee9f6bc1986cb31b1e21a0678e59bf8269988426
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d4076e379755518421ef79eca542ebdc99294a11
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231808"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704882"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>Créer des mots de passe d’application à partir de la page Informations de sécurité (préversion)
 
@@ -83,6 +82,6 @@ Si vous n’avez plus besoin d’utiliser une application qui requiert un mot de
 
 2. Sélectionnez **Oui** dans la zone de confirmation pour supprimer le **Mot de passe d’application**. Une fois le mot de passe d’application supprimé, celui-ci disparaît de vos informations de sécurité et de la page **Informations de sécurité**.
 
-## <a name="for-more-information"></a>Pour plus d’informations
+## <a name="for-more-information"></a>Informations supplémentaires
 
 - Pour plus d’informations sur la page **Informations de sécurité** et sur sa configuration, consultez [Vue d’ensemble des informations de sécurité](user-help-security-info-overview.md)

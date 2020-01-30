@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a26d6228fd2d0383f22d4f286cc84e263facfe6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e72e100bcb3d06403af1514dea13de59c623310
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999102"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713076"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -44,7 +44,7 @@ L’élément **ClaimType** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Id | OUI | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
+| Id | Oui | Identificateur utilisé pour le type de revendication. D’autres éléments peuvent utiliser cet identificateur dans la stratégie. |
 
 L’élément **ClaimType** contient les éléments suivants :
 
@@ -71,8 +71,8 @@ L’élément **Protocol** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Name | OUI | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| PartnerClaimType | OUI | Nom du type de revendication à utiliser. |
+| Name | Oui | Nom d’un protocole valide pris en charge par Azure AD B2C. Les valeurs possibles sont les suivantes :  OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | Oui | Nom du type de revendication à utiliser. |
 
 Dans l’exemple suivant, quand l’Infrastructure d’expérience d’identité interagit avec un fournisseur d’identité SAML2 ou une application de confiance, la revendication **surname** est mappée à `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`. Avec OpenIdConnect et OAuth2, la revendication est mappée à `family_name`.
 
@@ -106,7 +106,7 @@ L’élément **Mask** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Type` | OUI | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
+| `Type` | Oui | Type du masque de revendication. Valeurs possibles : `Simple` ou `Regex`. La valeur `Simple` indique qu’un masque de texte simple est appliqué à la partie gauche d’une revendication de chaîne. La valeur `Regex` indique qu’une expression régulière est appliquée à la revendication de chaîne dans son ensemble.  Si la valeur `Regex` est spécifiée, un attribut facultatif doit également être défini avec l’expression régulière à utiliser. |
 | `Regex` | Non | Si **`Type`** a la valeur `Regex`, spécifiez l’expression régulière à utiliser.
 
 L’exemple suivant configure une revendication **PhoneNumber** avec le masque `Simple` :
@@ -161,8 +161,8 @@ L’élément **Enumeration** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Texte | OUI | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
-|Valeur | OUI | Valeur de revendication associée à la sélection de cette option. |
+| Texte | Oui | Chaîne d’affichage présentée à l’utilisateur dans l’interface utilisateur pour cette option. |
+|Valeur | Oui | Valeur de revendication associée à la sélection de cette option. |
 | SelectByDefault | Non | Indique si cette option doit être sélectionnée par défaut dans l’interface utilisateur. Valeurs possibles : True ou False. |
 
 L’exemple suivant configure une revendication de liste déroulante **city** avec une valeur par défaut définie sur `New York` :
@@ -190,7 +190,7 @@ L’élément **Pattern** peut contenir les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| RegularExpression | OUI | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
+| RegularExpression | Oui | Expression régulière auxquelles les revendications de ce type doivent correspondre pour être valides. |
 | HelpText | Non | Modèle ou expression régulière pour cette revendication. |
 
 L’exemple suivant configure une revendication **email** avec validation de l’entrée d’expression régulière et texte d’aide :
@@ -218,7 +218,7 @@ L’Infrastructure d’expérience d’identité affiche la revendication d’ad
 
 Azure AD B2C prend en charge toute une gamme de types d’entrée d’utilisateur, telles qu’une zone de texte, un mot de passe et une liste déroulante pouvant être utilisées lors de l’entrée manuelle de données de revendications pour le type de revendication. Vous devez spécifier le **UserInputType** quand vous recueillez des informations à partir de l’utilisateur à l’aide d’un [profil technique autodéclaré](self-asserted-technical-profile.md).
 
-### <a name="textbox"></a>Zone de texte
+### <a name="textbox"></a>TextBox
 
 Le type d’entrée d’utilisateur **TextBox** sert à fournir une zone de texte sur une seule ligne.
 
@@ -368,7 +368,7 @@ Le type d’entrée d’utilisateur **Paragraph** sert à fournir un champ qui a
   <UserHelpText>A claim responsible for holding response messages to send to the relying party</UserHelpText>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>

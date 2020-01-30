@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d21ebabb34b828624c196922f88380f02234dc05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940904"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711866"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personnalisation des mappages d’attributs d’attribution d’utilisateurs pour les applications SaaS dans Azure Active Directory
 
@@ -39,17 +39,17 @@ Pour accéder à la fonctionnalité **Mappages** de l’approvisionnement d’ut
 1. Sélectionnez **Approvisionnement** pour gérer les paramètres d’approvisionnement du compte utilisateur de l’application sélectionnée.
 1. Développez **Mappages** pour afficher et modifier les attributs utilisateur qui circulent entre Azure AD et l’application cible. Cette section permet également de configurer l’approvisionnement de groupes et de comptes d’utilisateurs si l’application prend en charge cette fonctionnalité.
 
-   ![Utilisez des mappages pour afficher et modifier les attributs utilisateur](./media/customize-application-attributes/21.png)
+   ![Utilisez des mappages pour afficher et modifier les attributs utilisateur](media/customize-application-attributes/21.png)
 
 1. Sélectionnez une configuration **Mappages** pour ouvrir l’écran **Mappage d’attributs** associé. Une application SaaS nécessitent certains mappages d’attributs pour fonctionner correctement. Pour les attributs requis, la fonctionnalité **Supprimer** n’est pas disponible.
 
-   ![Utilisez le mappage d’attributs pour les configurer pour les applications](./media/customize-application-attributes/22.png)
+   ![Utilisez le mappage d’attributs pour les configurer pour les applications](media/customize-application-attributes/22.png)
 
    Dans cette capture d’écran, vous pouvez voir que l’attribut **Nom d’utilisateur** d’un objet géré dans Salesforce est renseigné avec la valeur **userPrincipalName** de l’objet Azure Active Directory lié.
 
 1. Sélectionnez un **Mappage d’attributs** pour ouvrir l’écran **Modifier l’attribut**. Ici, vous pouvez modifier les attributs utilisateur qui circulent entre Azure AD et l’application cible.
 
-   ![Utilisez Modifier l’attribut pour modifier les attributs utilisateur](./media/customize-application-attributes/23.png)
+   ![Utilisez Modifier l’attribut pour modifier les attributs utilisateur](media/customize-application-attributes/23.png)
 
 ### <a name="understanding-attribute-mapping-types"></a>Présentation des types de mappages d’attributs
 
@@ -71,7 +71,7 @@ Outre cette propriété, les mappages d’attributs prennent en charge les attri
 
 - **Attribut source** : attribut utilisateur du système source (par exemple, Azure Active Directory).
 - **Attribut cible** : attribut utilisateur dans le système cible (par exemple, ServiceNow).
-- **Valeur par défaut si null (facultatif)**  : la valeur qui sera passée au système cible si l’attribut source est null. Cette valeur sera configurée uniquement lors de la création d’un utilisateur. La « valeur par défaut si null » ne sera pas configurée lors de la mise à jour d’un utilisateur existant. Si, par exemple, vous souhaitez configurer tous les utilisateurs existants dans le système cible avec un poste particulier (lorsque la valeur est null dans le système source), vous pouvez utiliser [l’expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)suivante : Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Veillez à remplacer la « valeur par défaut » par ce que vous souhaitez configurer lorsque la valeur est null dans le système source. 
+- **Valeur par défaut si null (facultatif)**  : la valeur qui sera passée au système cible si l’attribut source est null. Cette valeur sera configurée uniquement lors de la création d’un utilisateur. La « valeur par défaut si null » ne sera pas configurée lors de la mise à jour d’un utilisateur existant. Si, par exemple, vous souhaitez configurer tous les utilisateurs existants dans le système cible avec un poste particulier (lorsque la valeur est null dans le système source), vous pouvez utiliser [l’expression](functions-for-customizing-application-data.md)suivante : Switch(IsPresent([jobTitle]), "DefaultValue", "True", [jobTitle]). Veillez à remplacer la « valeur par défaut » par ce que vous souhaitez configurer lorsque la valeur est null dans le système source. 
 - **Trouver les objets utilisant cet attribut** : indique si ce mappage doit être utilisé ou pas pour identifier les utilisateurs de manière unique entre les systèmes source et cible. Ce champ est généralement défini sur l’attribut userPrincipalName ou mail dans Azure AD, qui est généralement mappé à un champ de nom d’utilisateur dans une application cible.
 - **Priorité des correspondances** : plusieurs attributs de correspondance peuvent être définis. S’il en existe plusieurs, ils sont évalués dans l’ordre défini par ce champ. Dès qu’une correspondance est trouvée, aucun autre attribut correspondant n’est évalué.
 - **Appliquer ce mappage**
@@ -92,7 +92,7 @@ Le service de provisionnement Azure AD peut être déployé aussi bien dans les
 
 Un certain nombre d’applications, telles que ServiceNow, Box et G Suite, prennent en charge la possibilité d’approvisionner des objets Groupe et Utilisateur. Les objets Groupe peuvent contenir des propriétés de groupe telles que des noms d’affichage et des alias d’e-mail en plus des membres du groupe.
 
-![L’exemple montre ServiceNow avec des objets de groupe et d’utilisateur approvisionnés](./media/customize-application-attributes/24.png)
+![L’exemple montre ServiceNow avec des objets de groupe et d’utilisateur approvisionnés](media/customize-application-attributes/24.png)
 
 Vous pouvez activer ou désactiver l’approvisionnement de groupe en sélectionnant le mappage de groupe sous **Mappages**, puis en définissant le paramètre **Activé** sur l’option souhaitée dans l’écran **Mappage d’attributs**.
 
@@ -193,13 +193,13 @@ Les attributs personnalisés ne peuvent pas être des attributs référentiels o
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Approvisionnement d’un rôle sur une application SCIM
 Utilisez les étapes ci-dessous pour approvisionner des rôles pour un utilisateur dans votre application. Notez que la description ci-dessous est spécifique aux applications SCIM personnalisées. Pour les applications de la galerie telles que Salesforce et ServiceNow, utilisez les mappages de rôles prédéfinis. Les puces ci-dessous décrivent comment convertir l’attribut AppRoleAssignments au format attendu par votre application.
 
-- Le mappage de l’attribut appRoleAssignment dans Azure AD à un rôle dans votre application nécessite que vous transformiez l’attribut à l’aide d’une [expression](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). L’attribut appRoleAssignment **ne doit pas être mappé directement** à un attribut de rôle sans utiliser d’expression pour analyser les détails du rôle. 
+- Le mappage de l’attribut appRoleAssignment dans Azure AD à un rôle dans votre application nécessite que vous transformiez l’attribut à l’aide d’une [expression](functions-for-customizing-application-data.md). L’attribut appRoleAssignment **ne doit pas être mappé directement** à un attribut de rôle sans utiliser d’expression pour analyser les détails du rôle. 
 
 - **SingleAppRoleAssignment** 
   - **Quand l’utiliser** : utilisez l’expression SingleAppRoleAssignment pour approvisionner un rôle unique pour un utilisateur et spécifier le rôle principal. 
   - **Comment configurer :** utilisez les étapes décrites ci-dessus pour accéder à la page mappages d’attributs et utilisez l’expression SingleAppRoleAssignment pour mapper à l’attribut de rôles. Vous avez le choix entre trois attributs de rôle : (roles[primary eq "True"].display, roles[primary eq "True].type, et roles[primary eq "True"].value). Vous pouvez choisir d’inclure tout ou partie des attributs de rôle dans vos mappages. Si vous souhaitez en inclure plus d’un, ajoutez simplement un nouveau mappage et incluez-le en tant qu’attribut cible.  
   
-  ![Ajouter SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![Ajouter SingleAppRoleAssignment](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Points importants à prendre en compte**
     - Assurez-vous que plusieurs rôles ne sont pas attribués à un utilisateur. Nous ne pouvons pas garantir le rôle qui sera approvisionné.
     
@@ -231,11 +231,11 @@ Utilisez les étapes ci-dessous pour approvisionner des rôles pour un utilisate
   - **Quand l’utiliser** : Utilisez l’expression AppRoleAssignmentsComplex pour approvisionner plusieurs rôles pour un utilisateur. 
   - **Comment configurer :** Modifiez la liste des attributs pris en charge comme décrit ci-dessus pour inclure un nouvel attribut pour les rôles : 
   
-    ![Ajouter des rôles](./media/customize-application-attributes/add-roles.png)<br>
+    ![Ajouter des rôles](media/customize-application-attributes/add-roles.png)<br>
 
     Utilisez ensuite l’expression AppRoleAssignmentsComplex pour mapper à l’attribut de rôle personnalisé comme indiqué dans l’image ci-dessous :
 
-    ![Ajouter AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![Ajouter AppRoleAssignmentsComplex](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Points importants à prendre en compte**
     - Tous les rôles seront approvisionnés en tant que principal = faux.
     - La requête POST contient le type de rôle. La requête PATCH ne contient pas de type. Nous travaillons à l’envoi du type dans les requêtes POST et PATCH.

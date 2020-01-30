@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275814"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712354"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problèmes et solutions connus relatifs à la conformité au protocole SCIM 2.0 du service de provisionnement des utilisateurs Azure AD
 
@@ -38,10 +38,10 @@ Cet article décrit les problèmes actuels et passés concernant le respect du s
 
 | **Problèmes de conformité à SCIM 2.0** |  **Résolution ?** | **Date du correctif**  |  
 |---|---|---|
-| Azure AD nécessite que « /scim » soit à la racine de l’URL du point de terminaison SCIM de l’application  | OUI  |  18 décembre 2018 | 
-| Les attributs d’extension utilisent la notation point « . » avant les noms d’attribut, et non pas la notation deux-points « : » |  OUI  | 18 décembre 2018  | 
-|  Les demandes de correctif pour les attributs multivaleurs contiennent une syntaxe de filtre de chemin d’accès non valide | OUI  |  18 décembre 2018  | 
-|  Les demandes de création de groupe contiennent une URI de schéma non valide | OUI  |  18 décembre 2018  |  
+| Azure AD nécessite que « /scim » soit à la racine de l’URL du point de terminaison SCIM de l’application  | Oui  |  18 décembre 2018 | 
+| Les attributs d’extension utilisent la notation point « . » avant les noms d’attribut, et non pas la notation deux-points « : » |  Oui  | 18 décembre 2018  | 
+|  Les demandes de correctif pour les attributs multivaleurs contiennent une syntaxe de filtre de chemin d’accès non valide | Oui  |  18 décembre 2018  | 
+|  Les demandes de création de groupe contiennent une URI de schéma non valide | Oui  |  18 décembre 2018  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>Les corrections de services décrites ont-elles été automatiquement appliquées à mon application SCIM préexistante ?
 
@@ -66,7 +66,7 @@ Oui. Si vous utilisez déjà cette instance d’application pour l’authentific
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Obtenir les travaux](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obtenir les travaux") 
+   ![Obtenir les travaux](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Obtenir les travaux") 
 
 
 6. Dans les résultats, copiez la chaîne « ID » complète qui commence par « customappsso » ou « scim ».
@@ -74,7 +74,7 @@ Oui. Si vous utilisez déjà cette instance d’application pour l’authentific
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Obtenir le schéma](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obtenir le schéma") 
+   ![Obtenir le schéma](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Obtenir le schéma") 
 
 8. Copiez la sortie JSON de la dernière étape et enregistrez-la dans un fichier texte. Ce code JSON de quelques milliers de lignes contient tous les mappages d’attributs personnalisés que vous avez ajoutés à votre ancienne application.
 9. Exécutez la commande ci-dessous pour supprimer le travail d’approvisionnement :

@@ -13,15 +13,14 @@ ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2739f5db8c50449e3481ccdfb495b30edba54ce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68040c8ee22454c300296493b6c840eabbca98aa
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966977"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697130"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain"></a>Activation Configurer un domaine d’éditeur d’application
+# <a name="how-to-configure-an-applications-publisher-domain"></a>Procédure : Configurer un domaine d’éditeur d’application
 
 Un domaine d’éditeur d’application est présenté aux utilisateurs à l’[invite de consentement de l’application](application-consent-experience.md) et leur permet de savoir où leurs informations sont envoyées. Les applications multilocataires inscrites après le 21 mai 2019 n’ont pas de domaine d’éditeur qui s’affiche comme **non vérifié**. Les applications multilocataires sont des applications qui prennent en charge des comptes en dehors d’un annuaire d’organisation unique, et qui prennent en charge, par exemple, tous les comptes Azure AD ou tous les comptes Azure AD et comptes Microsoft personnels.
 

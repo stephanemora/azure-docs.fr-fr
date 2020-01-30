@@ -16,19 +16,18 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6ebeed4a7806c013205d01621107ef65655e753
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0a33b5bb4fc7220a9cf66f40e9805d3fde9fccef
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965464"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702043"
 ---
-# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scénario : Application mobile appelant des API web
+# <a name="scenario-mobile-application-that-calls-web-apis"></a>Scénario : Application mobile appelant des API web
 
 Découvrez comment générer une application mobile qui appelle des API web.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
@@ -37,13 +36,13 @@ Découvrez comment générer une application mobile qui appelle des API web.
 Créez votre première application mobile et essayez un démarrage rapide.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application Android](./quickstart-v2-android.md)
+> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application Android](./quickstart-v2-android.md)
 >
-> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application iOS](./quickstart-v2-ios.md)
+> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application iOS](./quickstart-v2-ios.md)
 >
-> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application Xamarin iOS et Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
+> [Démarrage rapide : Acquérir un jeton et appeler l’API Microsoft Graph à partir d’une application Xamarin iOS et Android](https://github.com/Azure-Samples/active-directory-xamarin-native-v2)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Une expérience utilisateur transparente et personnalisée est essentielle pour les applications mobiles.  La Plateforme d’identité Microsoft permet aux développeurs mobiles de créer cette expérience pour les utilisateurs iOS et Android. Votre application peut se connecter à des utilisateurs Azure Active Directory (Azure AD), des utilisateurs de compte Microsoft personnels et des utilisateurs Azure AD B2C et acquérir des jetons pour appeler une API web en leur nom. Pour implémenter ces flux, nous allons utiliser la Bibliothèque d’authentification Microsoft (MSAL), qui met en œuvre le [flux de code d’autorisation OAuth2.0](v2-oauth2-auth-code-flow.md) qui est la norme du secteur.
 

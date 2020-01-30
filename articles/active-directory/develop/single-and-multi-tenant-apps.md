@@ -17,13 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0cef2ed24eb242629aa5547391c0d2a27344d8b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 364395a05737f6dc6333b922f54376a9d5149fe6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919478"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701448"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Location dans Azure Active Directory
 
@@ -37,7 +36,7 @@ Lorsqu’il s’agit de développer des applications, les développeurs peuvent 
 
 Dans le portail Azure, vous pouvez configurer votre application pour être mono-locataire ou multi-locataire en définissant l’audience comme suit.
 
-| Audience | Mono/Multi-locataire | Qui peut se connecter | 
+| Public visé | Mono/Multi-locataire | Qui peut se connecter | 
 |----------|--------| ---------|
 | Comptes dans cet annuaire uniquement | Locataire unique | Tous les comptes d’utilisateur et d’invité dans votre annuaire peuvent utiliser votre application ou API.<br>*Utilisez cette option si votre audience cible est interne à votre organisation.* |
 | Comptes dans n’importe quel annuaire Azure AD | Multi-locataire | Tous les utilisateurs et invités avec un compte professionnel ou scolaire Microsoft peuvent utiliser votre application ou API. Ceci inclut les établissements scolaires et les entreprises qui utilisent Office 365.<br>*Utilisez cette option si votre audience cible est constituée de clients d’entreprise ou du secteur éducatif.* |

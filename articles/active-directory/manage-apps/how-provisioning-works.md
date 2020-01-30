@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5238f8ca9258e4f7907d9d9755b7252e60f40de8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719968"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711551"
 ---
 # <a name="how-provisioning-works"></a>Comment fonctionne le provisionnement
 
@@ -29,13 +29,13 @@ Le provisionnement automatique correspond à la création d’identités utilisa
 Le **service de provisionnement Azure AD** attribue des utilisateurs aux applications SaaS et aux autres systèmes en se connectant au point de terminaison d’API de gestion des utilisateurs SCIM 2.0 qui est fourni par chaque fournisseur d’application. Le point de terminaison SCIM permet à Azure AD de créer, de mettre à jour et de supprimer des utilisateurs programmatiquement. Pour les applications sélectionnées, le service d’approvisionnement peut également créer, mettre à jour et supprimer d’autres objets liés à l’identité, tels que les groupes et les rôles. Le canal utilisé pour le provisionnement entre Azure AD et l’application est chiffré à l’aide du chiffrement HTTPS SSL.
 
 
-![Service de provisionnement Azure AD](./media/user-provisioning/provisioning0.PNG)
+![Service de provisionnement Azure AD](media/how-provisioning-works/provisioning0.PNG)
 *Figure 1 : Le service d’approvisionnement Azure AD*
 
-![Workflow de provisionnement des utilisateurs sortant](./media/user-provisioning/provisioning1.PNG)
+![Workflow de provisionnement des utilisateurs sortant](media/how-provisioning-works/provisioning1.PNG)
 *Figure 2 : Workflow d’approvisionnement d’utilisateurs « sortant » entre Azure AD et des applications SaaS populaires*
 
-![Workflow de provisionnement des utilisateurs entrant](./media/user-provisioning/provisioning2.PNG)
+![Workflow de provisionnement des utilisateurs entrant](media/how-provisioning-works/provisioning2.PNG)
 *Figure 3 : Workflow d’approvisionnement d’utilisateurs « entrant » entre des applications de gestion du capital humain populaires, et Azure Active Directory et Windows Server Active Directory*
 
 ## <a name="provisioning-using-scim-20"></a>Provisionnement à l’aide de SCIM 2.0
@@ -73,11 +73,11 @@ Pour le provisionnement sortant entre Azure AD et une application SaaS, les [a
 
   * Les groupes dynamiques peuvent impacter les performances du provisionnement de bout en bout entre Azure AD et les applications SaaS.
 
-  * La rapidité à laquelle un utilisateur est provisionné ou déprovisionné dans une application SaaS dépend de la vitesse à laquelle le groupe dynamique auquel il appartient réussit à analyser les changements d’appartenance. Pour plus d’informations sur la vérification de l’état de traitement d’un groupe dynamique, consultez [Vérifier l’état de traitement d’une règle d’appartenance](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+  * La rapidité à laquelle un utilisateur est provisionné ou déprovisionné dans une application SaaS dépend de la vitesse à laquelle le groupe dynamique auquel il appartient réussit à analyser les changements d’appartenance. Pour plus d’informations sur la vérification de l’état de traitement d’un groupe dynamique, consultez [Vérifier l’état de traitement d’une règle d’appartenance](../users-groups-roles/groups-create-rule.md).
 
   * Lorsqu’un utilisateur perd son appartenance à un groupe dynamique, on parle d’événement de déprovisionnement. Envisagez ce scénario lorsque vous créez des règles pour les groupes dynamiques.
 
-* **Groupes imbriqués.** Le service d’attribution d’utilisateurs Azure AD ne peut pas lire ni attribuer des utilisateurs dans des groupes imbriqués. Le service peut uniquement lire et attribuer les utilisateurs qui se trouvent directement dans un groupe attribué explicitement. Cette limitation concernant les « attributions basées sur les groupes à des applications » affecte également l’authentification unique (voir [Utilisation d’un groupe pour gérer l’accès aux applications SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). Vous devez attribuer explicitement les groupes qui contiennent les utilisateurs à attribuer ou les [inclure dans l’étendue](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+* **Groupes imbriqués.** Le service d’attribution d’utilisateurs Azure AD ne peut pas lire ni attribuer des utilisateurs dans des groupes imbriqués. Le service peut uniquement lire et attribuer les utilisateurs qui se trouvent directement dans un groupe attribué explicitement. Cette limitation concernant les « attributions basées sur les groupes à des applications » affecte également l’authentification unique (voir [Utilisation d’un groupe pour gérer l’accès aux applications SaaS](../users-groups-roles/groups-saasapps.md)). Vous devez attribuer explicitement les groupes qui contiennent les utilisateurs à attribuer ou les [inclure dans l’étendue](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ### <a name="attribute-based-scoping"></a>Étendue basée sur les attributs 
 
@@ -85,7 +85,7 @@ Vous pouvez utiliser les filtres d’étendue pour définir les règles basées 
 
 ### <a name="b2b-guest-users"></a>Utilisateurs B2B invités
 
-Il est possible d’utiliser le service d’attribution d’utilisateurs Azure AD pour attribuer des utilisateurs B2B (ou invités) Azure AD dans des applications SaaS. Toutefois, pour permettre aux utilisateurs B2B de se connecter à l’application SaaS à l’aide d’Azure AD, vous devez configurer la fonctionnalité d’authentification unique basée sur SAML de l’application SaaS d’une manière particulière. Pour plus d’informations sur la configuration des applications SaaS afin d’autoriser les connexions d’utilisateurs B2B, consultez [Configurer des applications SaaS pour B2B Collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+Il est possible d’utiliser le service d’attribution d’utilisateurs Azure AD pour attribuer des utilisateurs B2B (ou invités) Azure AD dans des applications SaaS. Toutefois, pour permettre aux utilisateurs B2B de se connecter à l’application SaaS à l’aide d’Azure AD, vous devez configurer la fonctionnalité d’authentification unique basée sur SAML de l’application SaaS d’une manière particulière. Pour plus d’informations sur la configuration des applications SaaS afin d’autoriser les connexions d’utilisateurs B2B, consultez [Configurer des applications SaaS pour B2B Collaboration](../b2b/configure-saas-apps.md).
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Cycles de provisionnement : cycle initial et cycle incrémentiel
 
@@ -160,7 +160,7 @@ Si la plupart ou la totalité des appels effectués sur le système cible échou
 
 Lors de la mise en quarantaine, la fréquence des cycles incrémentiels est progressivement réduite à une fois par jour.
 
-Le travail de provisionnement sort de quarantaine lorsque toutes les erreurs ont été corrigées et que le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé. Pour en savoir plus sur l’état de quarantaine, [cliquez ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+Le travail de provisionnement sort de quarantaine lorsque toutes les erreurs ont été corrigées et que le prochain cycle de synchronisation démarre. Si le travail d’approvisionnement reste en quarantaine pendant plus de quatre semaines, celui-ci est désactivé. Pour en savoir plus sur l’état de quarantaine, [cliquez ici](application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Durée du provisionnement
 
@@ -184,7 +184,7 @@ Le service de provisionnement Azure AD supprime de manière réversible un util
 
 Si l’un des quatre événements ci-dessus se produit et si l’application cible ne prend pas en charge les suppressions réversibles, le service de provisionnement envoie une demande de suppression afin de supprimer définitivement l’utilisateur de l’application. 
 
-30 jours après sa suppression d’Azure AD, l’utilisateur est définitivement supprimé du locataire. À ce stade, le service de provisionnement envoie une demande de suppression afin de supprimer définitivement l’utilisateur de l’application. Pendant cette période de 30 jours, vous pouvez à tout moment [supprimer manuellement un utilisateur]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), ce qui a pour effet d’envoyer une demande de suppression à l’application.
+30 jours après sa suppression d’Azure AD, l’utilisateur est définitivement supprimé du locataire. À ce stade, le service de provisionnement envoie une demande de suppression afin de supprimer définitivement l’utilisateur de l’application. Pendant cette période de 30 jours, vous pouvez à tout moment [supprimer manuellement un utilisateur](../fundamentals/active-directory-users-restore.md), ce qui a pour effet d’envoyer une demande de suppression à l’application.
 
 Si vous voyez un attribut IsSoftDeleted dans vos mappages d’attributs, sachez qu’il sera utilisé pour déterminer l’état de l’utilisateur et s’il faut envoyer une demande de mise à jour avec active = false pour supprimer l’utilisateur de manière réversible. 
 

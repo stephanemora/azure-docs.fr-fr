@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e97a6e1adff02001e36a43d9fb4a917b7e133257
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 11f5c07305fa9192097dbcb1386c13707c0d46f7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922437"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711141"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
@@ -825,7 +825,7 @@ La clé peut être incluse dans une variable de chaîne de requête nommée `cod
 Vous pouvez autoriser les requêtes anonymes, qui ne nécessitent pas de clés. Vous pouvez également exiger que la clé principale soit utilisée. Pour modifier le niveau d’autorisation par défaut, utilisez la propriété `authLevel` dans le JSON de liaison. Pour plus d’informations, consultez [Déclencheur - configuration](#trigger---configuration).
 
 > [!NOTE]
-> Lors de l’exécution de fonctions localement, l’autorisation est désactivée, quel que soit le paramètre de niveau d’autorisation spécifié. Après la publication sur Azure, le paramètre `authLevel` de votre déclencheur est appliqué. Les clés sont quand même exigées lors d’une exécution [locale dans un conteneur](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> Lors de l’exécution de fonctions localement, l’autorisation est désactivée, quel que soit le paramètre de niveau d’autorisation spécifié. Après la publication sur Azure, le paramètre `authLevel` de votre déclencheur est appliqué. Les clés sont quand même exigées lors d’une exécution [locale dans un conteneur](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Sécuriser un point de terminaison HTTP en production

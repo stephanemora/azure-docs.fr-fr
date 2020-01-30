@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca26c7277f69a817a48884acce116e3a66608ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a891f87c3d03cf95c8051ee684916bb55441cb0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275713"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712215"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Configurer l’approvisionnement à l’aide des API Microsoft Graph
 
-Le portail Azure constitue un moyen pratique pour configurer séparément l’approvisionnement d’applications individuelles. Toutefois, si vous créez plusieurs instances d’une application, voire des centaines, il peut être plus simple d’automatiser la création et la configuration d’applications avec des API Microsoft Graph. Cet article explique comment automatiser la configuration de l’approvisionnement à l’aide d’API. Cette méthode est couramment utilisée pour les applications telles que [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
+Le portail Azure constitue un moyen pratique pour configurer séparément l’approvisionnement d’applications individuelles. Toutefois, si vous créez plusieurs instances d’une application, voire des centaines, il peut être plus simple d’automatiser la création et la configuration d’applications avec des API Microsoft Graph. Cet article explique comment automatiser la configuration de l’approvisionnement à l’aide d’API. Cette méthode est couramment utilisée pour les applications telles que [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Vue d’ensemble de la procédure d’automatisation de la configuration de l’approvisionnement à l’aide des API Microsoft Graph**
 
@@ -41,14 +41,14 @@ Le portail Azure constitue un moyen pratique pour configurer séparément l’ap
 > [!NOTE]
 > Les objets de réponse présentés dans cet article peuvent être raccourcis afin d’améliorer la lisibilité. Toutes les propriétés seront retournées à partir d’un appel réel.
 
-## <a name="step-1-create-the-gallery-application"></a>Étape 1 : Créer l’application de galerie
+## <a name="step-1-create-the-gallery-application"></a>Étape 1 : Créer l’application de galerie
 
 ### <a name="sign-in-to-microsoft-graph-explorer-recommended-postman-or-any-other-api-client-you-use"></a>Se connecter à l’afficheur Microsoft Graph (recommandé), à Postman ou à tout autre client d’API que vous utilisez
 
 1. Lancer l’[afficheur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)
 1. Cliquez sur le bouton « Se connecter avec Microsoft » et connectez-vous à l’aide des informations d’identification d’administrateur de l’application ou d’administrateur global d’Azure AD.
 
-    ![Connexion à Graph](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Connexion à Graph](media/application-provisioning-configure-api/wd_export_02.png)
 
 1. Une fois connecté, les détails du compte d’utilisateur apparaissent dans le volet de gauche.
 
@@ -170,7 +170,7 @@ Content-type: application/json
 }
 ```
 
-## <a name="step-2-create-the-provisioning-job-based-on-the-template"></a>Étape 2 : Créer un travail d’approvisionnement à partir d’un modèle
+## <a name="step-2-create-the-provisioning-job-based-on-the-template"></a>Étape 2 : Créer un travail d’approvisionnement à partir d’un modèle
 
 ### <a name="retrieve-the-template-for-the-provisioning-connector"></a>Récupérer le modèle pour le connecteur d’approvisionnement
 
