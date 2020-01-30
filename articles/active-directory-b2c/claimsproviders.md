@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a20f40c893c36823906d5cecadd9be21b8a4fd2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511521"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836012"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -51,8 +51,8 @@ L’élément **ClaimsProvider** contient les éléments enfant suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ---------- | ----------- |
-| Domaine | 0:1 | Une chaîne qui contient le nom de domaine pour le fournisseur de revendications. Par exemple, si votre fournisseur de revendications inclut le profil technique de Facebook, le nom de domaine est Facebook.com. Ce nom de domaine est utilisé pour tous les profils techniques définis dans le fournisseur de revendications, sauf substitution par le profil technique. Le nom de domaine peut également être référencé dans un **domain_hint**. Pour plus d’informations, consultez la section **Rediriger la connexion vers un fournisseur social** dans [Configurer une connexion directe à l’aide d’Azure Active Directory B2C](direct-signin.md). |
-| DisplayName | 0:1 | Une chaîne qui contient le nom du fournisseur de revendications pouvant être présentée aux utilisateurs. |
+| Domain | 0:1 | Une chaîne qui contient le nom de domaine pour le fournisseur de revendications. Par exemple, si votre fournisseur de revendications inclut le profil technique de Facebook, le nom de domaine est Facebook.com. Ce nom de domaine est utilisé pour tous les profils techniques définis dans le fournisseur de revendications, sauf substitution par le profil technique. Le nom de domaine peut également être référencé dans un **domain_hint**. Pour plus d’informations, consultez la section **Rediriger la connexion vers un fournisseur social** dans [Configurer une connexion directe à l’aide d’Azure Active Directory B2C](direct-signin.md). |
+| DisplayName | 1:1 | Une chaîne qui contient le nom du fournisseur de revendications pouvant être présentée aux utilisateurs. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | Un ensemble de profils techniques pris en charge par le fournisseur de revendications |
 
 **ClaimsProvider** organise le rapport entre vos profils techniques et le fournisseur de revendications. L’exemple suivant montre le fournisseur de revendications Azure Active Directory avec les profils techniques Azure Active Directory :

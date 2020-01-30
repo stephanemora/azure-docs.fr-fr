@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046047"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760888"
 ---
 # <a name="create-an-azure-application-offer"></a>Créer une offre d’application Azure
 
@@ -156,19 +156,9 @@ La page **Propriétés** est l’emplacement où vous définissez les catégorie
 
 Sélectionnez un minimum d’une catégorie et un maximum de trois catégories qui permettent de placer votre offre dans les zones de recherche appropriées sur la Place de marché. Veillez à expliquer dans la description comment votre offre prend en charge ces catégories dans la description de l’offre. 
 
-### <a name="standard-marketplace-terms-and-conditions"></a>Conditions générales standard de la Place de marché
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Contrat standard pour la place de marché commerciale de Microsoft
 
-Pour simplifier le processus d’approvisionnement pour les clients et réduire la complexité juridique pour les éditeurs de logiciels, Microsoft propose un modèle de contrat Standard afin de faciliter les transactions sur la place de marché.
-
-Plutôt que d’élaborer des conditions générales personnalisées, vous pouvez choisir de proposer votre logiciel dans le cadre du contrat Standard, que les clients ne doivent accepter qu’une seule fois.
-
-Le contrat Standard est disponible ici : https://go.microsoft.com/fwlink/?linkid=2041178
-
-Pour utiliser le contrat standard, cochez la case **Utiliser le contrat standard ?** .
-
-#### <a name="terms-of-use"></a>Conditions d’utilisation
-
-Si vous ne cochez pas la case **Utiliser le contrat standard ?** , vous devrez fournir vos propres conditions d’utilisation dans le champ **Conditions d’utilisation**. Entrez jusqu’à 10 000 caractères de texte ou, si vos conditions d’utilisation requièrent une description plus longue, indiquez l’URL où se trouvent les conditions supplémentaires du contrat de licence. Les clients doivent accepter ces conditions avant de pouvoir essayer de votre application.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## <a name="offer-listing"></a>Annonce de l’offre
 

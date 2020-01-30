@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c75eae72b94c807897d74e365ec9f4ef74c83dd9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6147dc64833f44f24afe14cd1da34432a3735519
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063668"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840228"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurer le comportement de session dans Azure Active Directory B2C
 
-Cette fonctionnalité vous donne un contrôle précis, [par flux d’utilisateur](active-directory-b2c-reference-policies.md), de ce qui suit :
+Cette fonctionnalité vous donne un contrôle précis, [par flux d’utilisateur](user-flow-overview.md), de ce qui suit :
 
 - Durées de vie des sessions d’applications web gérées par Azure AD B2C.
 - Comportement de l’authentification unique (SSO) entre plusieurs applications et flux d’utilisateur dans votre locataire Azure AD B2C.
 
 Ces paramètres ne sont pas disponibles pour les flux d’utilisateur de réinitialisation de mot de passe.
 
-Azure AD B2C prend en charge le [protocole d’authentification OpenID Connect](active-directory-b2c-reference-oidc.md) pour activer l’authentification sécurisée dans les applications web. Vous pouvez utiliser les propriétés suivantes pour gérer les sessions d’application web :
+Azure AD B2C prend en charge le [protocole d’authentification OpenID Connect](openid-connect.md) pour activer l’authentification sécurisée dans les applications web. Vous pouvez utiliser les propriétés suivantes pour gérer les sessions d’application web :
 
 ## <a name="session-behavior-properties"></a>Propriétés de comportement de session
 
@@ -48,7 +48,7 @@ Les cas d’usage suivants sont activés à l’aide de ces propriétés :
 
 ## <a name="configure-the-properties"></a>Configurer les propriétés
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en sélectionnant le filtre **Annuaire et abonnement** dans le menu supérieur et en choisissant l’annuaire qui contient votre locataire Azure AD B2C.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Flux utilisateur (stratégies)** .

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer et exécuter une image personnalisée'
+title: 'Tutoriel : Créer et exécuter une image personnalisée'
 description: Découvrez comment créer une image Linux personnalisée qui peut s’exécuter sur Azure App Service, la déployer dans des registres de conteneurs Azure et l’exécuter dans App Service.
 keywords: azure app service, application web, linux, docker, conteneur
 author: msangapu-msft
@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d960af01eed9fae0fec2566772799e4972053d7b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687496"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767099"
 ---
-# <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Didacticiel : Créer une image personnalisée et l’exécuter dans App Service à partir d’un Registre privé
+# <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>Tutoriel : Créer une image personnalisée et l’exécuter dans App Service à partir d’un Registre privé
 
 [App Service](app-service-linux-intro.md) fournit des images Docker intégrées sur Linux avec prise en charge de versions spécifiques, telles que PHP 7.3 et Node.js 10.14. App Services utilise la technologie de conteneur Docker pour héberger à la fois des images intégrées et des images personnalisées en tant que service PaaS (platform as a service). Dans ce tutoriel, vous allez apprendre à créer une image personnalisée et à l’exécuter dans App Service. Ce modèle est utile quand les images intégrées n’incluent pas la langue de votre choix ou quand votre application nécessite une configuration spécifique qui n’est pas fournie dans les images intégrées.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Déployer une image personnalisée dans un Registre de conteneurs privé
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -122,7 +122,7 @@ az acr credential show --name <azure-container-registry-name>
 La sortie indique deux mots de passe ainsi que le nom d’utilisateur.
 
 ```json
-<
+{
   "passwords": [
     {
       "name": "password",
@@ -339,7 +339,7 @@ Vous avez appris à effectuer les opérations suivantes :
 Passez au didacticiel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
+> [Tutoriel : Mappage d’un nom DNS personnalisé à une application](../app-service-web-tutorial-custom-domain.md)
 
 Ou consultez les autres ressources :
 
@@ -347,4 +347,4 @@ Ou consultez les autres ressources :
 > [Configurer un conteneur personnalisé](configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)
+> [Tutoriel : Application WordPress avec plusieurs conteneurs](tutorial-multi-container-app.md)

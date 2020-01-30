@@ -12,12 +12,12 @@ ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043533"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836658"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Inscrire une application SAML dans Azure AD B2C
 
@@ -41,11 +41,11 @@ Résumé des deux scénarios de base non exclusifs avec SAML :
 | Scénario | Rôle Azure AD B2C | Procédures |
 | -------- | ----------------- | ------- |
 | Mon application attend une assertion SAML pour effectuer une authentification. | **Azure AD B2C agit en tant que fournisseur d’identité (IdP)**<br />Azure AD B2C agit comme un IdP SAML pour les applications. | Cet article. |
-| Mes utilisateurs ont besoin d’une authentification unique avec un fournisseur d’identité conforme à SAML comme ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C agit en tant que fournisseur de services (SP)**<br />Azure AD B2C agit en tant que fournisseur de services lors de la connexion au fournisseur d’identité SAML. Il s’agit d’un proxy de fédération entre votre application et le fournisseur d’identité SAML.  | <ul><li>[Configurer la connexion avec ADFS comme fournisseur d’identité SAML à l’aide de stratégies personnalisées](active-directory-b2c-custom-setup-adfs2016-idp.md)</li><li>[Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées](active-directory-b2c-setup-sf-app-custom.md)</li></ul> |
+| Mes utilisateurs ont besoin d’une authentification unique avec un fournisseur d’identité conforme à SAML comme ADFS, Salesforce ou Shibboleth.  | **Azure AD B2C agit en tant que fournisseur de services (SP)**<br />Azure AD B2C agit en tant que fournisseur de services lors de la connexion au fournisseur d’identité SAML. Il s’agit d’un proxy de fédération entre votre application et le fournisseur d’identité SAML.  | <ul><li>[Configurer la connexion avec ADFS comme fournisseur d’identité SAML à l’aide de stratégies personnalisées](identity-provider-adfs2016-custom.md)</li><li>[Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées](identity-provider-salesforce-custom.md)</li></ul> |
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](active-directory-b2c-get-started-custom.md). Vous avez besoin de la stratégie personnalisée *SocialAndLocalAccounts* à partir du Pack de démarrage de stratégie personnalisée abordé dans l’article.
+* Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure AD B2C](custom-policy-get-started.md). Vous avez besoin de la stratégie personnalisée *SocialAndLocalAccounts* à partir du Pack de démarrage de stratégie personnalisée abordé dans l’article.
 * Notions de base sur le protocole SAML (Security Assertion Markup Language).
 * Une application web configurée en tant que fournisseur de services SAML (SP). Pour ce didacticiel, vous pouvez utiliser une [application de test SAML][samltest] que nous fournissons.
 

@@ -9,12 +9,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: e1ee616adadcabb2deb3fa08a5f3d4f768fddfd5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045655"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719889"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Tutoriel : Configurer la réplication transactionnelle entre deux instances managées et SQL Server
 
@@ -385,7 +385,7 @@ Solutions possibles :
 
 Lorsque vous ajoutez un nouvel abonnement à l’aide de l’Assistant **Nouvel abonnement**, la page **Publication** peut ne contenir aucune base de données ou publication, et le message d’erreur suivant peut s’afficher :
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 Il est possible que ce message d’erreur soit réellement dû au fait qu’il n’existe aucune publication sur le serveur de publication auquel vous êtes connecté ou au fait que vous ne disposez pas d’autorisations suffisantes. Toutefois, cette erreur peut également être causée par une ancienne version de SQL Server Management Studio. Essayez d’effectuer une mise à niveau vers SQL Server Management Studio 18.0 ou vers une version ultérieure pour être sûr que la cause racine n’est pas liée à la version utilisée. 
 

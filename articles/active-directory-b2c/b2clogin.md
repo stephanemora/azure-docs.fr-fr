@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: db222515dae51fa5e0334430a3578816b1e8813d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 5c9054daea76675ed621caf1630c509b16743f4e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75367652"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836340"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Paramétrer les URL de redirection sur b2clogin.com pour Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Vous pouvez être amené à apporter plusieurs modifications avant de migrer vos
 
 * Modifiez l’URL de redirection dans les applications de votre fournisseur d’identité pour faire référence à *b2clogin.com*.
 * Mettez à jour vos applications Azure AD B2C pour qu’elles utilisent *b2clogin.com* dans leurs références de flux utilisateur et de point de terminaison de jeton.
-* Mettez à jour les **origines autorisées** que vous avez définies dans les paramètres CORS de [personnalisation de l’interface utilisateur](active-directory-b2c-ui-customization-custom-dynamic.md).
+* Mettez à jour les **origines autorisées** que vous avez définies dans les paramètres CORS de [personnalisation de l’interface utilisateur](custom-policy-ui-customization-dynamic.md).
 
 ## <a name="change-identity-provider-redirect-urls"></a>Modifier les URL de redirection des fournisseurs d’identité
 

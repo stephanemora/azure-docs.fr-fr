@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1ac4d12f58977497642cdb0706ab7e85e9a4db64
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: d06afb3670b1c3af3f1acf0bd690c1e3e266a11c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913091"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771789"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Contrôles de sécurité pour Azure Cosmos DB
 
@@ -52,7 +52,7 @@ Cet article décrit les contrôles de sécurité intégrés à Azure Cosmos DB.
 | Chiffrement côté serveur au repos : clés gérées par le client (BYOK) | Oui | Consultez [Configurer des clés gérées par le client pour votre compte Azure Cosmos DB](how-to-setup-cmk.md)  |
 | Chiffrement au niveau des colonnes (Azure Data Services)| Oui | Uniquement dans l’API Table Premium. Certaines API ne prennent pas en charge cette fonctionnalité. Voir [Présentation d’Azure Cosmos DB : API Table](table-introduction.md). |
 | Le chiffrement en transit (tel que le chiffrement ExpressRoute, le chiffrement dans un réseau virtuel, et le chiffrement de réseau virtuel à réseau virtuel)| Oui | Toutes les données Azure Cosmos DB sont chiffrées en transit. |
-| Appels d’API chiffrés| Oui | Toutes les connexions à Azure Cosmos DB prennent en charge le protocole HTTPS. Azure Cosmos DB prend également en charge le protocole TLS 1.2.<br>Il est possible d’appliquer une version TLS minimale côté serveur. Pour ce faire, veuillez contacter [cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com]). |
+| Appels d’API chiffrés| Oui | Toutes les connexions à Azure Cosmos DB prennent en charge le protocole HTTPS. Azure Cosmos DB prend également en charge le protocole TLS 1.2.<br>Il est possible d’appliquer une version TLS minimale côté serveur. Pour ce faire, veuillez contacter [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com). |
 
 ## <a name="configuration-management"></a>Gestion des configurations
 

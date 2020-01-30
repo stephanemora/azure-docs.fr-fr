@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 74bd22de81e385a4fbd9129a70616e24b594b0b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441317"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771515"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guide de conception de table de stockage Table Azure : tables scalables et performantes
 
@@ -243,7 +243,7 @@ De nombreuses conceptions doivent répondre aux conditions requises pour permett
 
 * [Modèle d’index secondaire intra-partition](#intra-partition-secondary-index-pattern) : stocker plusieurs copies de chaque entité en utilisant différentes valeurs de `RowKey` (dans la même partition). Cela permet d’effectuer des recherches rapides et efficaces, ainsi que d’autres ordres de tri à l’aide de différentes valeurs de `RowKey`.  
 * [Modèle d’index secondaire entre les partitions](#inter-partition-secondary-index-pattern) : stocker plusieurs copies de chaque entité en utilisant différentes valeurs de `RowKey` dans des partitions ou des tables distinctes. Cela permet d’effectuer des recherches rapides et efficaces, ainsi que d’autres ordres de tri à l’aide de différentes valeurs de `RowKey`.  
-* [Modèle d’entités d’index](#index-entities-pattern) : permet de mettre à jour des entités d'index pour mener des recherches efficaces renvoyant des listes d'entités.  
+* [Modèle d’entités d’index](#index-entities-pattern) : Permet de mettre à jour des entités d'index pour mener des recherches efficaces renvoyant des listes d'entités.  
 
 ### <a name="sort-data-in-table-storage"></a>Trier des données dans le stockage Table
 
@@ -269,9 +269,9 @@ Pour mettre à jour ou supprimer une entité, vous devez être en mesure de l’
 Les modèles suivants de la section [Modèles de conception de table](#table-design-patterns) permettent d’optimiser les performances de vos opérations d’insertion, de mise à jour et de suppression :  
 
 * [Modèle de suppression de volume élevé](#high-volume-delete-pattern) : activer la suppression d’un volume élevé d’entités en stockant toutes les entités pour les supprimer simultanément dans leur propre table distincte. Vous supprimez les entités en supprimant la table.  
-* [Modèle de série de données](#data-series-pattern) : stocker des séries de données complètes dans une entité unique pour réduire votre nombre de demandes.  
-* [Modèle d’entités larges](#wide-entities-pattern) : utiliser plusieurs entités physiques pour stocker des entités logiques ayant plus de 252 propriétés.  
-* [Modèle d’entités volumineuses](#large-entities-pattern) : utiliser le stockage d'objets blob pour stocker des valeurs de propriétés volumineuses.  
+* [Modèle de série de données](#data-series-pattern) : Stockez des séries de données complètes dans une entité unique pour réduire votre nombre de demandes.  
+* [Modèle d’entités larges](#wide-entities-pattern) : Utilisez plusieurs entités physiques pour stocker des entités logiques ayant plus de 252 propriétés.  
+* [Modèle d’entités volumineuses](#large-entities-pattern) : Utilisez le stockage d'objets blob pour stocker des valeurs de propriétés volumineuses.  
 
 ### <a name="ensure-consistency-in-your-stored-entities"></a>Assurer la cohérence de vos entités stockées
 L'autre facteur déterminant pour votre choix de clés en vue de l'optimisation des modifications de données consiste à assurer la cohérence à l'aide de transactions atomiques. Vous pouvez uniquement utiliser une EGT pour mener des opérations sur des entités stockées dans la même partition.  
@@ -280,8 +280,8 @@ Les modèles suivants de la section [Modèles de conception de table](#table-des
 
 * [Modèle d’index secondaire intra-partition](#intra-partition-secondary-index-pattern) : stocker plusieurs copies de chaque entité en utilisant différentes valeurs de `RowKey` (dans la même partition). Cela permet d’effectuer des recherches rapides et efficaces, ainsi que d’autres ordres de tri à l’aide de différentes valeurs de `RowKey`.  
 * [Modèle d’index secondaire entre les partitions](#inter-partition-secondary-index-pattern) : stocker plusieurs copies de chaque entité en utilisant différentes valeurs de `RowKey` dans des partitions ou des tables distinctes. Cela permet d’effectuer des recherches rapides et efficaces, ainsi que d’autres ordres de tri à l’aide de différentes valeurs de `RowKey`.  
-* [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern) : conserver un comportement cohérent entre les limites de partition ou les limites du système de stockage à l'aide des files d'attente Azure.
-* [Modèle d’entités d’index](#index-entities-pattern) : tenir à jour des entités d'index pour mener des recherches efficaces renvoyant des listes d'entités.  
+* [Modèle de transactions cohérentes](#eventually-consistent-transactions-pattern) : Permet de conserver un comportement cohérent entre les limites de partition ou les limites du système de stockage à l'aide des files d'attente Azure.
+* [Modèle d’entités d’index](#index-entities-pattern) : Permet de mettre à jour des entités d'index pour mener des recherches efficaces renvoyant des listes d'entités.  
 * [Modèle de dénormalisation](#denormalization-pattern) : combiner des données connexes dans une entité unique pour pouvoir récupérer toutes les données dont vous avez besoin avec une seule requête de pointage.  
 * [Modèle de série de données](#data-series-pattern) : stocker des séries de données complètes dans une entité unique pour réduire le nombre de requêtes effectuées.  
 
@@ -381,7 +381,7 @@ Le tableau suivant récapitule les avantages et les inconvénients de chacune de
 
 Votre choix parmi ces options, ainsi que la détermination des avantages et des inconvénients les plus significatifs, dépendent de votre scénario d’application. Par exemple, à quelle fréquence modifiez-vous les entités de service ? Toutes les requêtes de vos employés ont-elles besoin des informations supplémentaires sur les services ? Êtes-vous proche de vos limites de scalabilité sur vos partitions ou votre compte de stockage ?  
 
-### <a name="one-to-one-relationships"></a>Relations un-à-un
+### <a name="one-to-one-relationships"></a>Relations un à un
 Les modèles de domaines peuvent inclure des relations un-à-un entre les entités. Si vous devez implémenter une relation un-à-un dans le stockage Table, vous devez également choisir comment lier les deux entités associées quand vous avez besoin de récupérer les deux. Ce lien peut être implicite (basé sur une convention dans les valeurs de clé) ou explicite (si l’on stocke un lien sous forme de valeurs de `PartitionKey` et `RowKey` dans chaque entité et son entité associée). Pour savoir quand stocker les entités associées dans la même partition, consultez la section [Relations un à plusieurs](#one-to-many-relationships).  
 
 Certaines considérations sur l’implémentation peuvent vous conduire à implémenter des relations un-à-un dans le stockage Table :  

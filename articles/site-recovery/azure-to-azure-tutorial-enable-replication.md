@@ -2,20 +2,21 @@
 title: Configurer la reprise d’activité après sinistre des machines virtuelles Azure à l’aide d’Azure Site Recovery
 description: Découvrez comment configurer la récupération d’urgence pour des machines virtuelles Azure vers une autre région Azure avec le service Azure Site Recovery.
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 1/24/2020
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7d78064285057f6abd91c3ca95e01ec86f1a1a39
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169331"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759787"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configurer la récupération d’urgence pour les machines virtuelles Azure
 
 Le service [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de reprise d’activité après sinistre en gérant et en coordonnant la réplication, le basculement et la restauration automatique des machines locales et des machines virtuelles Azure.
 
-Ce tutoriel vous montre comment configurer la reprise d’activité après sinistre pour des machines virtuelles Azure en les répliquant d’une région Azure dans une autre. Dans ce tutoriel, vous allez apprendre à :
+Ce didacticiel vous montre comment configurer la récupération d’urgence pour des machines virtuelles Azure en les répliquant d’une région Azure vers un autre. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un coffre Recovery Services
@@ -75,17 +76,6 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
 Si vous utilisez un groupe de sécurité réseau, créez des règles de groupe de sécurité réseau basées sur des balises de service pour l’accès à Stockage Azure, à Azure Active Directory, au service Site Recovery et à la supervision Site Recovery. [Plus d’informations](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges)
-
-> [!NOTE]
-> Nous vous recommandons de toujours configurer des règles de groupe de sécurité réseau avec des balises de service pour l’accès sortant.
-
-Pour contrôler la connectivité sortante à l’aide d’adresses IP, autorisez ces adresses pour les règles de pare-feu, de proxy ou de groupe de sécurité réseau basées sur les adresses IP :
-
-- [Plages IP de centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)
-- [Plages IP de centres de données Microsoft Azure en Allemagne](https://www.microsoft.com/download/details.aspx?id=54770)
-- [Plages IP de centres de données Microsoft Azure en Chine](https://www.microsoft.com/download/details.aspx?id=42064)
-- [URL et plages d’adresses IP Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-- [Adresses IP de points de terminaison du service Site Recovery](https://aka.ms/site-recovery-public-ips)
 
 ## <a name="verify-azure-vm-certificates"></a>Vérifier les certificats des machines virtuelles Azure
 
@@ -177,7 +167,7 @@ Si Azure Disk Encryption est activé sur machine virtuelle source, vérifiez les
 
 1. Vérifiez les paramètres :
    1. **Coffres de clés de chiffrement de disque** : Par défaut, Site Recovery crée un coffre de clés basé sur les clés de chiffrement de disque de machine virtuelle sources, avec un suffixe `asr`. Si le coffre de clés existe déjà, il est réutilisé.
-   1. **Coffres de clés pour le chiffrement de clé** : Par défaut, Site Recovery crée un coffre de clés dans la région cible. Le nom comporte un suffixe `asr` et est basé sur les clés de chiffrement principales de machine virtuelle sources. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
+   1. **Coffres de clés de chiffrement de clé** : Par défaut, Site Recovery crée un coffre de clés dans la région cible. Le nom comporte un suffixe `asr` et est basé sur les clés de chiffrement principales de machine virtuelle sources. Si le coffre de clés créé par Azure Site Recovery existe déjà, il est réutilisé.
 1. Pour sélectionner des coffres de clés personnalisés, sélectionnez **Personnaliser**.
 
 > [!NOTE]
@@ -194,7 +184,7 @@ Une fois la réplication activée, vous pouvez suivre l’état du travail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré la reprise d’activité après sinistre pour une machine virtuelle Azure. Vous pouvez maintenant effectuer une simulation de reprise d’activité après sinistre afin de vérifier que le basculement fonctionne comme prévu.
+Dans ce didacticiel, vous avez configuré la récupération d’urgence pour une machine virtuelle Azure. Vous pouvez maintenant effectuer une simulation de reprise d’activité après sinistre afin de vérifier que le basculement fonctionne comme prévu.
 
 > [!div class="nextstepaction"]
 > [Effectuer un test de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md)

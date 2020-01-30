@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746149"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760213"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Paramétrage de flux de données de mappage
 
@@ -23,9 +23,6 @@ Les flux de données de mappage dans Azure Data Factory prennent en charge l’u
 * Utiliser un langage d’expression pour définir une valeur littérale statique
 
 Utilisez cette fonctionnalité pour rendre vos flux de données polyvalents, flexibles et réutilisables. Vous pouvez définir les paramètres de flux de données et les expressions à l’aide de ces paramètres.
-
-> [!NOTE]
-> Pour utiliser des expressions de flux de contrôle de pipeline, votre paramètre de flux de données doit être de type chaîne.
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Créer des paramètres dans un flux de données de mappage
 

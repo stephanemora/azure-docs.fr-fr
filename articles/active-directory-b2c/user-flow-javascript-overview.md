@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92925dc32d7f26b224811aa852112a275f112b35
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f6d4849b02f320c7479469b4ee56be50e4f8dee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950831"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840092"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Versions de mise en page et JavaScript dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C fournit un ensemble de contenu packagé contenant des données HTML, CSS et JavaScript pour les éléments d’interface utilisateur dans vos flux d’utilisateurs et stratégies personnalisées. Pour activer JavaScript pour vos applications, vous devez ajouter un élément à votre [stratégie personnalisée](active-directory-b2c-overview-custom.md) ou l’activer dans le portail des flux d’utilisateurs, puis sélectionner une mise en page et utiliser le paramètre [b2clogin.com](b2clogin.md) dans vos requêtes.
+Azure AD B2C fournit un ensemble de contenu packagé contenant des données HTML, CSS et JavaScript pour les éléments d’interface utilisateur dans vos flux d’utilisateurs et stratégies personnalisées. Pour activer JavaScript pour vos applications, vous devez ajouter un élément à votre [stratégie personnalisée](custom-policy-overview.md) ou l’activer dans le portail des flux d’utilisateurs, puis sélectionner une mise en page et utiliser le paramètre [b2clogin.com](b2clogin.md) dans vos requêtes.
 
 Si vous prévoyez d’activer du code [JavaScript](javascript-samples.md) côté client, vérifiez que les éléments sur lesquels il s’appuie sont immuables. Dans le cas contraire, la moindre modification pourrait provoquer un comportement inattendu sur vos pages d’utilisateurs. Pour éviter ces problèmes, vous pouvez imposer l’utilisation d’une mise en page et spécifier une version de mise en page. Toutes les définitions de contenu sur lesquelles se basent votre code JavaScript seront ainsi immuables. Même si vous ne souhaitez pas activer JavaScript, vous pouvez spécifier une version de mise en page pour vos pages.
 

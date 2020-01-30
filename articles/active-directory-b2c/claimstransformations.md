@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511529"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836692"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-L’élément **ClaimsTransformations** contient une liste des fonctions de transformation de revendication utilisables dans des parcours utilisateur dans le cadre d’une [stratégie personnalisée](active-directory-b2c-overview-custom.md). Une transformation de revendication convertit une revendication donnée en une autre. Dans la transformation de revendication, vous spécifiez la méthode de transformation, par exemple l’ajout d’un élément à une collection de chaînes ou le changement de la casse d’une chaîne.
+L’élément **ClaimsTransformations** contient une liste des fonctions de transformation de revendication utilisables dans des parcours utilisateur dans le cadre d’une [stratégie personnalisée](custom-policy-overview.md). Une transformation de revendication convertit une revendication donnée en une autre. Dans la transformation de revendication, vous spécifiez la méthode de transformation, par exemple l’ajout d’un élément à une collection de chaînes ou le changement de la casse d’une chaîne.
 
 Pour inclure la liste des fonctions de transformation de revendication pouvant être utilisées dans les parcours utilisateur, vous devez déclarer un élément XML ClaimsTransformations sous la section BuildingBlocks de la stratégie.
 
@@ -37,8 +37,8 @@ L’élément **ClaimsTransformation** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- |-------- | ----------- |
-| ID |OUI | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
-| Méthode de transformation | OUI | Méthode de transformation à utiliser dans la transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| Id |Oui | Identificateur servant à identifier de façon unique la transformation de revendication. L’identificateur est référencé à partir d’autres éléments XML dans la stratégie. |
+| Méthode de transformation | Oui | Méthode de transformation à utiliser dans la transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -79,8 +79,8 @@ L’élément **InputClaim** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- | ----------- | ----------- |
-| ClaimTypeReferenceId |OUI | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie. |
-| TransformationClaimType |OUI | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| ClaimTypeReferenceId |Oui | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie. |
+| TransformationClaimType |Oui | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -94,9 +94,9 @@ L’élément **InputParameters** contient l’élément suivant :
 
 | Attribut | Obligatoire |Description |
 | --------- | ----------- |----------- |
-| ID | OUI | Identificateur qui est une référence à un paramètre de la méthode de transformation de revendication. Chaque méthode de transformation de revendication a ses propres valeurs. Pour obtenir une liste complète des valeurs disponibles, consultez le tableau de transformations de revendications. |
-| DataType | OUI | Type de données du paramètre, tel que String, Boolean, Int ou DateTime conformément à l’énumération DataType dans le schéma XML de stratégie personnalisée. Ce type est utilisé pour effectuer des opérations arithmétiques correctement. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
-| Valeur | OUI | Valeur passée telle quelle à la transformation. Certaines valeurs sont arbitraires, et vous en sélectionnez certaines à partir de la méthode de transformation de revendication. |
+| Id | Oui | Identificateur qui est une référence à un paramètre de la méthode de transformation de revendication. Chaque méthode de transformation de revendication a ses propres valeurs. Pour obtenir une liste complète des valeurs disponibles, consultez le tableau de transformations de revendications. |
+| DataType | Oui | Type de données du paramètre, tel que String, Boolean, Int ou DateTime conformément à l’énumération DataType dans le schéma XML de stratégie personnalisée. Ce type est utilisé pour effectuer des opérations arithmétiques correctement. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| Valeur | Oui | Valeur passée telle quelle à la transformation. Certaines valeurs sont arbitraires, et vous en sélectionnez certaines à partir de la méthode de transformation de revendication. |
 
 ### <a name="outputclaims"></a>OutputClaims
 
@@ -112,12 +112,12 @@ L’élément **OutputClaim** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- | ----------- |----------- |
-| ClaimTypeReferenceId | OUI | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie.
-| TransformationClaimType | OUI | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
+| ClaimTypeReferenceId | Oui | Référence à un ClaimType déjà défini dans la section ClaimsSchema de la stratégie.
+| TransformationClaimType | Oui | Identificateur servant à référencer un type de transformation de revendication. Chaque transformation de revendication a ses propres valeurs. Pour obtenir la liste complète des valeurs disponibles, consultez la [référence des transformations de revendications](#claims-transformations-reference). |
  
 Si la revendication d’entrée et la revendication de sortie sont du même type (chaîne ou booléen), vous pouvez utiliser la même revendication d’entrée que la revendication de sortie. Dans ce cas, la transformation de revendication change la revendication d’entrée avec la valeur de sortie.
 
-## <a name="example"></a>Exemples
+## <a name="example"></a>Exemple
 
 Par exemple, vous pouvez stocker la dernière version de vos conditions d’utilisation du service que l’utilisateur a acceptée. Quand vous mettez à jour les conditions d’utilisation du service, vous pouvez demander à l’utilisateur d’accepter la nouvelle version. Dans l’exemple suivant, la transformation de revendication **HasTOSVersionChanged** compare la valeur de la revendication **TOSVersion** à la valeur de la revendication **LastTOSAcceptedVersion**, puis retourne la revendication **TOSVersionChanged** booléenne.
 

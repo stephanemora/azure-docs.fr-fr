@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471684"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773202"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Tutoriel : Ajouter des paramètres à votre modèle Resource Manager
 
@@ -26,7 +26,7 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 À la fin du précédent tutoriel, votre modèle présentait le code JSON suivant :
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
 Vous avez peut-être remarqué d’ailleurs que ce modèle a un problème. Le nom du compte de stockage est codé en dur. Vous pouvez utiliser ce modèle uniquement pour déployer le même compte de stockage à chaque fois. Pour déployer un compte de stockage avec un nom différent, vous devez créer un nouveau modèle, ce qui n’est évidemment pas un moyen pratique d’automatiser vos déploiements.
 
@@ -36,7 +36,7 @@ Vous pouvez réutiliser votre modèle en ajoutant un paramètre que vous défini
 
 Copiez l’intégralité du fichier et remplacez votre modèle par son contenu.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Déployer un modèle
 
@@ -80,7 +80,7 @@ Les paramètres vous permettent de personnaliser le déploiement grâce à des v
 
 Le modèle précédent a toujours déployé un compte de stockage Standard_LRS. Vous pouvez souhaiter avoir le choix de déployer différentes références SKU en fonction de l’environnement. L’exemple suivant montre les modifications apportées pour ajouter un paramètre de référence (SKU). Copiez l’intégralité du fichier et collez-le à la place de votre modèle.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
 Le paramètre **storageSKU** possède une valeur par défaut. Cette valeur est utilisée quand aucune valeur n’est spécifiée pendant le déploiement. Il présente également une liste de valeurs autorisées. Ces valeurs correspondent aux valeurs nécessaires à la création d’un compte de stockage. Vous ne souhaitez pas que les utilisateurs de votre modèle transmettent des références SKU qui ne fonctionnent pas.
 

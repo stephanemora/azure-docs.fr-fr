@@ -11,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2019
+ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 21fc494f52b168f92da6972ee44be33b4e227a66
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046062"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843920"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 Cette page contient des informations de résolution des problèmes liés aux questions courantes relatives à Azure Load Balancer. Lorsque la connectivité de l’équilibreur de charge n’est pas disponible, les symptômes les plus courants sont les suivants : 
 - Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas aux sondes d’intégrité 

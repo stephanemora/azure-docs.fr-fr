@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96bf088e6db29817d1ae4276c254a84723e5d03d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75475047"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840330"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurer l’inscription et la connexion par téléphone avec des stratégies personnalisées dans Azure AD B2C
 
@@ -30,7 +30,7 @@ Suivez les étapes de cet article pour utiliser des stratégies personnalisées 
 
 * [Locataire Azure AD B2C](tutorial-create-tenant.md)
 * [Application web inscrite](tutorial-register-applications.md) dans votre locataire
-* [Stratégies personnalisées](active-directory-b2c-get-started-custom.md) téléchargées sur votre locataire
+* [Stratégies personnalisées](custom-policy-get-started.md) téléchargées sur votre locataire
 
 ## <a name="get-the-phone-sign-up--sign-in-starter-pack"></a>Obtenir le pack de démarrage pour l’inscription et la connexion par téléphone
 
@@ -44,7 +44,7 @@ Les étapes suivantes supposent que vous avez défini les [préférences](#prere
 
 1. Dans chaque fichier, remplacez la chaîne `yourtenant` par le nom de votre locataire Azure AD B2C. Par exemple, si le nom de votre locataire B2C est *contosob2c*, toutes les instances de `yourtenant.onmicrosoft.com` deviennent `contosob2c.onmicrosoft.com`.
 
-1. Effectuez les étapes décrites dans la section [Ajouter des ID d’applications à la stratégie personnalisée](active-directory-b2c-get-started-custom.md#add-application-ids-to-the-custom-policy) de la rubrique [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). Dans ce cas, mettez à jour `/phone-number-passwordless/` **`Phone_Email_Base.xml`** avec les **ID d’application (client)** des deux applications que vous avez enregistrées en remplissant les conditions préalables, *IdentityExperienceFramework* et *ProxyIdentityExperienceFramework*.
+1. Effectuez les étapes décrites dans la section [Ajouter des ID d’applications à la stratégie personnalisée](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de la rubrique [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md). Dans ce cas, mettez à jour `/phone-number-passwordless/` **`Phone_Email_Base.xml`** avec les **ID d’application (client)** des deux applications que vous avez enregistrées en remplissant les conditions préalables, *IdentityExperienceFramework* et *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Télécharger les fichiers de stratégie
 

@@ -4,12 +4,12 @@ description: Découvrez comment développer des fonctions à l’aide de JavaScr
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: a34efe20e796570358771ec53fbfb797daa15b93
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ee6b886c6ed18aad54092005d800b4087280190b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921999"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714785"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -232,7 +232,7 @@ Vous pouvez choisir de définir les données de liaison de sortie à l’aide de
 context.bindingData
 ```
 
-Retourne un objet nommé qui contient les métadonnées de déclencheur et les données d’appel de fonction (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Pour obtenir un exemple de métadonnées de déclencheur, consultez cet [exemple de hubs d’événement](functions-bindings-event-hubs.md#trigger---javascript-example).
+Retourne un objet nommé qui contient les métadonnées de déclencheur et les données d’appel de fonction (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Pour obtenir un exemple de métadonnées de déclencheur, consultez cet [exemple de hubs d’événement](functions-bindings-event-hubs.md#trigger).
 
 ### <a name="contextdone-method"></a>Méthode context.done
 

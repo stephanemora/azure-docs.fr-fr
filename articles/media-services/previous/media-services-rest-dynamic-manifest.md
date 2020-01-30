@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 29fef3bec90819b252b43491c08e7a5bc2b3d454
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b778ad8c59cf51f92584cd3590f7d99244f37b2c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69014903"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774953"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Création de filtres avec l’API REST Media Services Azure 
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Pour savoir comment vous connecter à l’API AMS, consultez [Accéder à l’A
 Pour créer un filtre global, utilisez les requêtes HTTP suivantes :  
 
 #### <a name="http-request"></a>Demande HTTP
-En-têtes de demande
+En-têtes de requête
 
     POST https://media.windows.net/API/Filters HTTP/1.1 
     DataServiceVersion:3.0 
@@ -65,7 +65,7 @@ En-têtes de demande
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host:media.windows.net 
 
@@ -109,7 +109,7 @@ Corps de la demande
 Pour créer un AssetFilter local, utilisez les requêtes HTTP suivantes :  
 
 #### <a name="http-request"></a>Demande HTTP
-En-têtes de demande
+En-têtes de requête
 
     POST https://media.windows.net/API/AssetFilters HTTP/1.1 
     DataServiceVersion: 3.0 
@@ -118,7 +118,7 @@ En-têtes de demande
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net  
 
@@ -168,7 +168,7 @@ Pour répertorier les filtres, utilisez les requêtes HTTP suivantes :
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     Host: media.windows.net 
 
 ### <a name="get-assetfilters-associated-with-an-asset"></a>Obtention des **AssetFilter**s associés à un élément multimédia
@@ -179,7 +179,7 @@ Pour répertorier les filtres, utilisez les requêtes HTTP suivantes :
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -191,7 +191,7 @@ Pour répertorier les filtres, utilisez les requêtes HTTP suivantes :
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     x-ms-client-request-id: 00000000
 
 
@@ -213,7 +213,7 @@ En-têtes de requête :
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
     Content-Length: 384
@@ -253,7 +253,7 @@ En-têtes de requête :
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000 
     Host: media.windows.net 
 
@@ -291,7 +291,7 @@ Pour supprimer un filtre global, utilisez les requêtes HTTP suivantes :
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN>  
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     Host: media.windows.net 
 
 
@@ -305,7 +305,7 @@ Pour supprimer un AssetFilter local, utilisez les requêtes HTTP suivantes :
     Accept: application/json 
     Accept-Charset: UTF-8 
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17 
+    x-ms-version: 2.19 
     Host: media.windows.net 
 
 ## <a name="build-streaming-urls-that-use-filters"></a>Création d'URL de diffusion qui utilisent des filtres

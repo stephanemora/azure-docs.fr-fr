@@ -3,12 +3,12 @@ title: Découvrir les applications, rôles et fonctionnalités sur des serveurs 
 description: Apprenez à découvrir les applications, rôles et fonctionnalités sur des serveurs locaux à l’aide d’Azure Migrate Server Assessment.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7c3a6360e051b8cb694393695e75578ce2c135ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280762"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846318"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Détection des applications, des rôles et des fonctionnalités de la machine
 
@@ -28,7 +28,7 @@ La découverte d’applications à l’aide de l’évaluation de serveur d’Az
 2. Vérifiez que vous avez [ajouté](how-to-assess.md) l’outil d’évaluation de serveur Azure Migrate à un projet.
 4. Vérifiez la [configuration requise pour VMware](migrate-support-matrix-vmware.md#vmware-requirements) pour découvrir et évaluer les machines virtuelles VMware avec l’appliance Azure Migrate.
 5. Vérifiez la [configuration requise](migrate-appliance.md) pour le déploiement de l’appliance Azure Migrate.
-6. [Vérifiez la prise en charge et les exigences](/migrate-support-matrix-vmware.md#application-discovery) pour la découverte des applications.
+6. [Vérifiez la prise en charge et les exigences](migrate-support-matrix-vmware.md#application-discovery) pour la découverte des applications.
 
 ## <a name="prepare-for-app-discovery"></a>Préparer la détection d’applications
 

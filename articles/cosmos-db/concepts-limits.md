@@ -1,17 +1,17 @@
 ---
 title: Quotas du service Azure Cosmos DB
 description: Quotas et limites par défaut du service Azure Cosmos DB sur différents types de ressources.
-author: arramac
-ms.author: arramac
+author: abhijitpai
+ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d6b66c4a4924f8455b58b930621d6a7b93901a2a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 2cce9cbe20121376ad77692773df1d58fcf5257f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887612"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759770"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas du service Azure Cosmos DB
 

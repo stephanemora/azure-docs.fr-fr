@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 43a842c3b6d6d421eca4196c7f3facc7876318cd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786943"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768001"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Utiliser des bases de données, des conteneurs et des éléments dans Azure Cosmos DB
 
@@ -37,12 +37,12 @@ Vous pouvez créer une ou plusieurs bases de données Azure Cosmos dans votre co
 
 Vous pouvez interagir avec une base de données Azure Cosmos à l’aide des API Azure Cosmos comme décrit dans le tableau suivant :
 
-| Opération | D’Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
+| Opération | Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- |
-|Énumérer toutes les bases de données| OUI | OUI | Oui (la base de données est mappée sur un espace de clés) | OUI | N/D | N/D |
-|Lire le contenu de la base de données| OUI | OUI | Oui (la base de données est mappée sur un espace de clés) | OUI | N/D | N/D |
-|Create new database| OUI | OUI | Oui (la base de données est mappée sur un espace de clés) | OUI | N/D | N/D |
-|Mettre à jour la base de données| OUI | OUI | Oui (la base de données est mappée sur un espace de clés) | OUI | N/D | N/D |
+|Énumérer toutes les bases de données| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
+|Lire le contenu de la base de données| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
+|Create new database| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
+|Mettre à jour la base de données| Oui | Oui | Oui (la base de données est mappée sur un espace de clés) | Oui | N/D | N/D |
 
 
 ## <a name="azure-cosmos-containers"></a>Conteneurs Cosmos Azure
@@ -74,7 +74,7 @@ Un conteneur Azure Cosmos est spécialisé dans les entités d’API, comme l’
 
 | Entité Azure Cosmos | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- |
-|Conteneur Azure Cosmos | Conteneur | Table | Collection | Graph | Table |
+|Conteneur Azure Cosmos | Conteneur | Table de charge de travail | Collection | Graph | Table de charge de travail |
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Propriétés d’un conteneur Azure Cosmos
 
@@ -82,27 +82,27 @@ Un conteneur Azure Cosmos comprend un ensemble de propriétés définies par le 
 
 | Propriété définie par le système | Générée par le système ou configurable par l’utilisateur | Objectif | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_rid | Générée par le système | Identificateur unique du conteneur | OUI | Non | Non | Non | Non |
-|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | OUI | Non | Non | Non | Non |
-|\_ts | Générée par le système | Dernière mise à jour de l’horodatage du conteneur | OUI | Non | Non | Non | Non |
-|\_self | Générée par le système | URI adressable du conteneur | OUI | Non | Non | Non | Non |
-|id | Configurable par l’utilisateur | Nom unique du conteneur défini par l’utilisateur | OUI | OUI | OUI | OUI | OUI |
-|indexingPolicy | Configurable par l’utilisateur | Permet de modifier le chemin d’accès de l’index, le type d’index et le mode d’indexation | OUI | Non | Non | Non | OUI |
-|timeToLive | Configurable par l’utilisateur | Permet de supprimer automatiquement les éléments d’un conteneur après une période donnée. Pour plus d’informations, consultez [Durée de vie](time-to-live.md). | OUI | Non | Non | Non | OUI |
-|changeFeedPolicy | Configurable par l’utilisateur | Utilisé pour lire les modifications apportées aux éléments d’un conteneur. Pour plus d’informations, consultez [Flux de modification](change-feed.md). | OUI | Non | Non | Non | OUI |
-|uniqueKeyPolicy | Configurable par l’utilisateur | Utilisée pour garantir l’unicité d’une ou plusieurs valeurs au sein d’une partition logique. Pour plus d’informations, consultez [Contraintes de clé unique](unique-keys.md). | OUI | Non | Non | Non | OUI |
+|\_rid | Générée par le système | Identificateur unique du conteneur | Oui | Non | Non | Non | Non |
+|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non | Non | Non | Non |
+|\_ts | Générée par le système | Dernière mise à jour de l’horodatage du conteneur | Oui | Non | Non | Non | Non |
+|\_self | Générée par le système | URI adressable du conteneur | Oui | Non | Non | Non | Non |
+|id | Configurable par l’utilisateur | Nom unique du conteneur défini par l’utilisateur | Oui | Oui | Oui | Oui | Oui |
+|indexingPolicy | Configurable par l’utilisateur | Permet de modifier le chemin d’accès de l’index, le type d’index et le mode d’indexation | Oui | Non | Non | Non | Oui |
+|timeToLive | Configurable par l’utilisateur | Permet de supprimer automatiquement les éléments d’un conteneur après une période donnée. Pour plus d’informations, consultez [Durée de vie](time-to-live.md). | Oui | Non | Non | Non | Oui |
+|changeFeedPolicy | Configurable par l’utilisateur | Utilisé pour lire les modifications apportées aux éléments d’un conteneur. Pour plus d’informations, consultez [Flux de modification](change-feed.md). | Oui | Non | Non | Non | Oui |
+|uniqueKeyPolicy | Configurable par l’utilisateur | Utilisée pour garantir l’unicité d’une ou plusieurs valeurs au sein d’une partition logique. Pour plus d’informations, consultez [Contraintes de clé unique](unique-keys.md). | Oui | Non | Non | Non | Oui |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Actions effectuées sur un conteneur Azure Cosmos
 
 Un conteneur Azure Cosmos prend en charge les opérations suivantes, qui peuvent être effectuées lorsque vous utilisez l’une des API Azure Cosmos :
 
-| Opération | D’Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
+| Opération | Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- |
-| Énumérer les conteneurs d’une base de données | OUI | OUI | OUI | OUI | N/D | N/D |
-| Lire le contenu d’un conteneur | OUI | OUI | OUI | OUI | N/D | N/D |
-| Créer un conteneur | OUI | OUI | OUI | OUI | N/D | N/D |
-| Mettre à jour un conteneur | OUI | OUI | OUI | OUI | N/D | N/D |
-| Supprimer un conteneur | OUI | OUI | OUI | OUI | N/D | N/D |
+| Énumérer les conteneurs d’une base de données | Oui | Oui | Oui | Oui | N/D | N/D |
+| Lire le contenu d’un conteneur | Oui | Oui | Oui | Oui | N/D | N/D |
+| Créer un conteneur | Oui | Oui | Oui | Oui | N/D | N/D |
+| Mettre à jour un conteneur | Oui | Oui | Oui | Oui | N/D | N/D |
+| Supprimer un conteneur | Oui | Oui | Oui | Oui | N/D | N/D |
 
 ## <a name="azure-cosmos-items"></a>Éléments Azure Cosmos
 
@@ -110,7 +110,7 @@ En fonction de l’API que vous utilisez, un élément Azure Cosmos peut représ
 
 | Entité Cosmos | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- |
-|Élément Azure Cosmos | Document | Ligne | Document | Nœud ou arête | Item |
+|Élément Azure Cosmos | Document | Ligne | Document | Nœud ou arête | Élément |
 
 ### <a name="properties-of-an-item"></a>Propriétés d’un élément
 
@@ -118,12 +118,12 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 
 | Propriété définie par le système | Générée par le système ou configurable par l’utilisateur| Objectif | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | Générée par le système | Identificateur unique de l’élément | OUI | Non | Non | Non | Non |
-|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | OUI | Non | Non | Non | Non |
-|\_ts | Générée par le système | Horodatage de la dernière mise à jour de l’élément | OUI | Non | Non | Non | Non |
-|\_self | Générée par le système | URI adressable de l’élément | OUI | Non | Non | Non | Non |
-|id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur dans une partition logique. | OUI | OUI | OUI | OUI | OUI |
-|Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées sous forme d’API native (notamment JSON, BSON et CQL) | OUI | OUI | OUI | OUI | OUI |
+|\_rid | Générée par le système | Identificateur unique de l’élément | Oui | Non | Non | Non | Non |
+|\_etag | Générée par le système | Étiquette d’entité utilisée pour le contrôle de l’accès concurrentiel optimiste | Oui | Non | Non | Non | Non |
+|\_ts | Générée par le système | Horodatage de la dernière mise à jour de l’élément | Oui | Non | Non | Non | Non |
+|\_self | Générée par le système | URI adressable de l’élément | Oui | Non | Non | Non | Non |
+|id | Vous pouvez soit utiliser | Nom unique défini par l’utilisateur dans une partition logique. | Oui | Oui | Oui | Oui | Oui |
+|Propriétés arbitraires définies par l’utilisateur | Défini par l’utilisateur | Propriétés définies par l’utilisateur représentées sous forme d’API native (notamment JSON, BSON et CQL) | Oui | Oui | Oui | Oui | Oui |
 
 > [!NOTE]
 > L’unicité de la `id`propriété est appliqué dans chaque partition logique. Plusieurs documents peuvent avoir la même `id` propriété avec des valeurs de clé de partition différentes.
@@ -132,9 +132,9 @@ Chaque élément Azure Cosmos comprend des propriétés définies par le systèm
 
 Les éléments Azure Cosmos prennent en charge les opérations suivantes. Vous pouvez utiliser n’importe laquelle des API Azure Cosmos pour effectuer ces opérations.
 
-| Opération | D’Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
+| Opération | Azure CLI | API SQL | API Cassandra | API Azure Cosmos DB pour MongoDB | API Gremlin | API de table |
 | --- | --- | --- | --- | --- | --- | --- |
-| Insérer, remplacer, supprimer, upsert, lire | Non | OUI | OUI | OUI | OUI | OUI |
+| Insérer, remplacer, supprimer, upsert, lire | Non | Oui | Oui | Oui | Oui | Oui |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

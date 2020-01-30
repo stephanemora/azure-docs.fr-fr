@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/25/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382053"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774289"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>Démarrage rapide : Bibliothèque de client Content Moderator pour .NET
 
@@ -274,7 +274,6 @@ Si vous souhaitez nettoyer et supprimer un abonnement Cognitive Services, vous p
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>Étapes suivantes
-
 
 Dans ce guide de démarrage rapide, vous avez appris à utiliser la bibliothèque .NET Content Moderator pour effectuer des tâches de modération. Pour plus d’informations sur la modération des images ou d’autres éléments multimédias, consultez le guide conceptuel.
 

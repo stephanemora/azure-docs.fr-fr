@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 100f059f7c9f18ab6920f50c850b3b8d5a617908
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951035"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840194"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -38,7 +38,7 @@ Un profil technique permet les types de scénarios suivants :
 - [Fournisseur RESTful](restful-technical-profile.md) : appel aux services d'API REST, comme la validation de l'entrée utilisateur, l'enrichissement des données utilisateur ou l'intégration avec les applications métier.
 - [SAML2](saml-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
 - [Autodéclaré](self-asserted-technical-profile.md) : interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, afficher la page d’inscription ou la réinitialisation du mot de passe.
-- [Gestion des sessions](active-directory-b2c-reference-sso-custom.md) : gère différents types de sessions.
+- [Gestion des sessions](custom-policy-reference-sso.md) : gère différents types de sessions.
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Flux du profil technique
@@ -57,7 +57,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
 4. **ValidationTechnicalProfiles** : pour un [profil technique autodéclaré](self-asserted-technical-profile.md), vous pouvez appeler une entrée [profil technique de validation](validation-technical-profile.md). Le profil technique de validation valide les données profilées par l’utilisateur et renvoie un message d’erreur ou OK, avec ou sans revendications de sortie. Par exemple, avant qu’Azure AD B2C ne crée un nouveau compte, il vérifie si l’utilisateur existe déjà dans les services d’annuaire. Vous pouvez appeler un profil technique d’API REST pour ajouter votre propre logique métier.<p>La portée des revendications de sortie d’un profil technique de validation se limite au profil technique qui invoque le profil technique de validation et aux autres profils techniques de validation sous le même profil technique. Si vous souhaitez utiliser les revendications de sortie à l’étape d’orchestration suivante, vous devez ajouter les revendications de sortie sur le profil technique qui invoque le profil technique de validation.
 5. **OutputClaims** : les revendications sont renvoyées au conteneur de revendications. Vous pouvez utiliser ces revendications dans la prochaine étape d’orchestration, ou dans les transformations de revendications de sortie.
 6. **OutputClaimsTransformations** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) de sortie sont récupérées auprès du conteneur de revendications. Les revendications de sortie du profil technique des étapes précédentes peuvent être des revendications d’entrée d’une transformation de revendications de sortie. Après l’exécution, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation de revendications d’entrée peuvent également être des revendications d’entrée d’une transformation de revendications de sortie ultérieure.
-7. La **gestion de session d’authentification unique** - [gestion de session SSO](active-directory-b2c-reference-sso-custom.md) contrôle l’interaction avec l’utilisateur une fois qu’il a été authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau.
+7. La **gestion de session d’authentification unique** - [gestion de session SSO](custom-policy-reference-sso.md) contrôle l’interaction avec l’utilisateur une fois qu’il a été authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau.
 
 Un profil technique peut hériter d’un autre profil technique pour modifier des paramètres ou ajouter de nouvelles fonctionnalités.  L’élément **IncludeTechnicalProfile** est une référence au profil technique de base dont découle un profil technique.
 

@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb2af6283e5c9d8a41e74152a94b85efdae1866
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 983699dfbfe3e8fa332da4810d1514a11029077f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243503"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768171"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Synchronisation d’Azure AD Connect : Configurer le filtrage
 L’utilisation du filtrage vous permet de contrôler les objets de votre annuaire local qui doivent apparaître dans Azure Active Directory (Azure AD). La configuration par défaut concerne l’ensemble des objets présents dans tous les domaines des forêts configurées. En général, il s’agit de la configuration recommandée. Les utilisateurs qui utilisent les charges de travail Office 365, telles qu’Exchange Online et Skype Entreprise, peuvent tirer parti d’une liste d’adresses globale complète pour envoyer des courriers électroniques et appeler tout le monde. La configuration par défaut leur offre la même expérience qu’une implémentation locale d’Exchange ou de Lync.
@@ -70,7 +70,7 @@ Pour désactiver la tâche planifiée qui déclenche un cycle de synchronisation
 
 1. Lancez **Planificateur de tâches** à partir du menu **Démarrer**.
 2. Directement sous **Bibliothèque du Planificateur de tâches**, trouvez la tâche **Azure AD Sync Scheduler**, cliquez dessus avec le bouton droit, puis sélectionnez **Désactiver**.  
-   ![Planificateur de tâche](./media/how-to-connect-sync-configure-filtering/taskscheduler.png)  
+   ![Planificateur de tâches](./media/how-to-connect-sync-configure-filtering/taskscheduler.png)  
 3. Vous pouvez désormais apporter des modifications à la configuration et exécuter le moteur de synchronisation manuellement à partir de la console **Synchronization Service Manager**.
 
 Une fois toutes vos modifications de filtrage terminées, n’oubliez pas de revenir et de réactiver la tâche en cliquant sur **Activer**.
@@ -140,7 +140,7 @@ Si vous avez mis à jour votre filtre de domaine, vous devez également procéde
     * Synchronisation complète
     * Importation d’écart
     * Synchronisation d’écart
-    * Exportation
+    * Exporter
 3. Pour chaque profil, ajustez les domaines **ajoutés** et **supprimés**.
     1. Pour chacun des cinq profils, procédez comme suit pour chaque domaine **ajouté** :
         1. Sélectionnez le profil d’exécution, puis cliquez sur **Nouvelle étape**.
@@ -278,7 +278,7 @@ Dans cet exemple, vous modifiez le filtrage afin que seuls les utilisateurs dont
 4. Selon la version de Connect que vous utilisez, trouvez la règle nommée **Out to AAD – User Join** ou **Out to AAD - User Join SOAInAD**, puis cliquez sur **Modifier**.
 5. Dans la fenêtre contextuelle, sélectionnez **Oui** pour créer une copie de la règle.
 6. Sur la page **Description**, redéfinissez la zone **Précédence** sur une valeur inutilisée, telle que 50.
-7. Dans la barre de navigation gauche, cliquez sur **Filtre d’étendue**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **mail**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez  **\@contoso.com**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **userPrincipalName**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez  **\@contoso.com**.
+7. Dans la barre de navigation gauche, cliquez sur **Filtre d’étendue**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **mail**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez **\@contoso.com**, puis cliquez sur **Ajouter une clause**. Dans la zone **Attribut**, sélectionnez **userPrincipalName**. Dans la zone **Opérateur**, sélectionnez **ENDSWITH**. Dans **valeur**, tapez **\@contoso.com**.
 8. Cliquez sur **Enregistrer**.
 9. Pour terminer la configuration, vous devez exécuter une **synchronisation complète**. Poursuivez votre lecture de la section [Appliquer et vérifier les modifications](#apply-and-verify-changes).
 
@@ -289,7 +289,7 @@ Si vous avez modifié la configuration à l’aide d’un filtrage par **domaine
 
 Si vous avez modifié la configuration en utilisant un filtrage par **attribut**, vous devez exécuter une **synchronisation complète**.
 
-Effectuez également les étapes suivantes :
+Procédez comme suit :
 
 1. Lancez **Service de synchronisation** à partir du menu **Démarrer**.
 2. Sélectionnez **Connecteurs**. Dans la liste **Connecteurs**, sélectionnez le connecteur dont vous avez modifié la configuration précédemment. Dans **Actions**, sélectionnez **Exécuter**.  
@@ -298,7 +298,7 @@ Effectuez également les étapes suivantes :
 
 Après la synchronisation, toutes les modifications sont indexées pour l’exportation. Avant d’apporter les modifications dans Azure AD, il est préférable de vérifier qu’elles sont toutes correctes.
 
-1. Démarrez une invite de commandes, puis accédez à `%Program Files%\Microsoft Azure AD Sync\bin`.
+1. Démarrez une invite de commandes, puis accédez à `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Exécutez `csexport "Name of Connector" %temp%\export.xml /f:x`.  
    Le nom du connecteur figure dans le service de synchronisation. Le nom est similaire à « contoso.com – AAD » pour Azure AD.
 3. Exécutez `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.

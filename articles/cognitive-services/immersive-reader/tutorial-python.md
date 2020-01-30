@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 08/02/2019
+ms.date: 01/14/2020
 ms.author: dylankil
-ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a252afae0a007ee0b791b56d19ffb0685848d30a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945223"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844358"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Tutoriel : Lancer le lecteur immersif à l’aide de l’exemple de projet Python
 
@@ -30,7 +30,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* Une ressource de lecteur immersif configurée pour l’authentification Azure Active Directory. Suivez [ces instructions](./how-to-create-immersive-reader.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’environnement. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.
+* Une ressource Lecteur immersif configurée pour l’authentification Azure Active Directory. Suivez [ces instructions](./how-to-create-immersive-reader.md) pour la configurer. Vous aurez besoin de certaines des valeurs créées ici lors de la configuration des propriétés de l’environnement. Enregistrez la sortie de votre session dans un fichier texte pour référence ultérieure.
 * [Git](https://git-scm.com/)
 * [Kit SDK Lecteur immersif](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) et [pip](https://docs.python.org/3/installing/index.html). À compter de Python 3.4, pip est inclus par défaut avec les programmes d’installation binaires Python.

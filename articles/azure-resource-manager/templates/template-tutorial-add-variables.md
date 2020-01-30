@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a27022f8c06449d8b05f90f78055b983bc88c01c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471524"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765502"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Tutoriel : Ajouter des variables à votre modèle Resource Manager
 
@@ -26,7 +26,7 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 À la fin du précédent tutoriel, votre modèle présentait le code JSON suivant :
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
 Le paramètre pour le nom de compte de stockage est difficile à utiliser, car vous devez fournir un nom unique. Si vous avez suivi les tutoriels précédents de cette série, vous êtes probablement fatigué de chercher un nom unique. Pour résoudre ce problème, ajoutez une variable qui élabore un nom unique pour le compte de stockage.
 
@@ -34,7 +34,7 @@ Le paramètre pour le nom de compte de stockage est difficile à utiliser, car v
 
 L’exemple suivant met en évidence les modifications à apporter pour ajouter une variable à votre modèle qui crée un nom de compte de stockage unique. Copiez l’intégralité du fichier et remplacez votre modèle par son contenu.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
 Notez qu’elle comprend une variable nommée **uniqueStorageName**. Cette variable utilise quatre fonctions pour composer une valeur de chaîne.
 

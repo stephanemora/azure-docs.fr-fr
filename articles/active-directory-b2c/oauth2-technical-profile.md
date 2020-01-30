@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33bad4982d54eb18e91be28511fb9137223f4a91
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 53190eda66347c23b981c5d6e0631630e9989deb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950967"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840364"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth2 dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -79,11 +79,11 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_id | OUI | Identificateur d’application du fournisseur d’identité. |
+| client_id | Oui | Identificateur d’application du fournisseur d’identité. |
 | IdTokenAudience | Non | Audience du jeton id_token. Si la valeur est spécifiée, Azure AD B2C vérifie si le jeton figure dans une revendication retournée par le fournisseur d’identité, et est identique à celui spécifié. |
-| authorization_endpoint | OUI | URL du point de terminaison d’autorisation conformément à la norme RFC 6749. |
-| AccessTokenEndpoint | OUI | URL du point de terminaison de jeton conformément à la norme RFC 6749. |
-| ClaimsEndpoint | OUI | URL du point de terminaison d’informations utilisateur conformément à la norme RFC 6749. |
+| authorization_endpoint | Oui | URL du point de terminaison d’autorisation conformément à la norme RFC 6749. |
+| AccessTokenEndpoint | Oui | URL du point de terminaison de jeton conformément à la norme RFC 6749. |
+| ClaimsEndpoint | Oui | URL du point de terminaison d’informations utilisateur conformément à la norme RFC 6749. |
 | AccessTokenResponseFormat | Non | Format de l’appel de point de terminaison du jeton d’accès. Par exemple, Facebook nécessite une méthode HTTP GET, mais la réponse de jeton d’accès est au format JSON. |
 | AdditionalRequestQueryParameters | Non | Paramètres de requête de demande supplémentaire. Par exemple, vous pouvez envoyer des paramètres supplémentaires à votre fournisseur d’identité. Vous pouvez inclure plusieurs paramètres en utilisant un séparateur virgule. |
 | ClaimsEndpointAccessTokenName | Non | Nom du paramètre de chaîne de requête du jeton accès. Les points de terminaison de revendications de certains fournisseurs d’identité prennent en charge les requêtes HTTP GET. Dans ce cas, le jeton du porteur est envoyé à l’aide d’un paramètre de chaîne de requête au lieu de l’en-tête d’autorisation. |
@@ -103,7 +103,7 @@ L’élément **CryptographicKeys** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies sur `id_token`, vous pouvez omettre la clé de chiffrement. |
+| client_secret | Oui | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies sur `id_token`, vous pouvez omettre la clé de chiffrement. |
 
 ## <a name="redirect-uri"></a>URI de redirection
 
@@ -111,9 +111,9 @@ Lorsque vous configurez l’URL de redirection de votre fournisseur d’identit�
 
 Si vous utilisez le domaine **b2clogin.com** à la place de **login.microsoftonline.com**, veillez à utiliser b2clogin.com au lieu de login.microsoftonline.com.
 
-Exemples :
+Exemples :
 
-- [Ajouter Google+ en tant que fournisseur d’identités OAuth2 en utilisant des stratégies personnalisées](active-directory-b2c-custom-setup-goog-idp.md)
+- [Ajouter Google+ en tant que fournisseur d’identités OAuth2 en utilisant des stratégies personnalisées](identity-provider-google-custom.md)
 
 
 

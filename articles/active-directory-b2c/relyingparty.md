@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2b74830463702e7de02d00bcfe88521fce2c803
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: caa7cbed7c56b63bcbf5ad8f287ab6cf32575c15
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932046"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840296"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -125,7 +125,7 @@ L’élément **SingleSignOn** contient l’attribut suivant :
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
 | Étendue | Oui | Étendue du comportement d’authentification unique. Valeurs possibles : `Suppressed`, `Tenant`, `Application` ou `Policy`. La valeur `Suppressed` indique que le comportement est supprimé. Par exemple, dans le cas d’une session d’authentification unique, aucune session n’est conservée pour l’utilisateur et celui-ci est toujours invité à sélectionner un fournisseur d’identité. La valeur `TrustFramework` indique que le comportement est appliqué pour toutes les stratégies dans l’infrastructure de confiance. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Tenant` indique que le comportement est appliqué à toutes les stratégies dans le locataire. Par exemple, un utilisateur suivant deux parcours de stratégie pour un locataire n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Application` indique que le comportement est appliqué à toutes les stratégies pour l’application qui effectue la requête. Par exemple, un utilisateur suivant deux parcours de stratégie pour une application n’est pas invité à sélectionner un fournisseur d’identité. La valeur `Policy` indique que le comportement s’applique uniquement à une stratégie. Par exemple, un utilisateur suivant deux parcours de stratégie pour une infrastructure de confiance est invité à sélectionner un fournisseur d’identité en cas de basculement d’une stratégie à une autre. |
-| KeepAliveInDays | Oui | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](active-directory-b2c-reference-kmsi-custom.md). |
+| KeepAliveInDays | Oui | Contrôle la durée pendant laquelle l’utilisateur reste connecté. Affecter la valeur 0 désactive la fonctionnalité KMSI. Pour plus d’informations, consultez [Maintenir la connexion](custom-policy-keep-me-signed-in.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -140,7 +140,7 @@ L’élément **JourneyInsights** contient les attributs suivants :
 | ServerEnabled | Oui | Valeurs possibles : `true` ou `false`. Si `true`, envoie le JSON UserJourneyRecorder existant en tant qu’événement personnalisé à Application Insights. |
 | TelemetryVersion | Oui | La valeur doit être `1.0.0`. |
 
-Pour plus d’informations, consultez [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md).
+Pour plus d’informations, consultez [Collecte de journaux d’activité](troubleshoot-with-application-insights.md).
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
@@ -162,7 +162,7 @@ L’élément **ContentDefinitionParameter** contient l’attribut suivant :
 | --------- | -------- | ----------- |
 | Name | Oui | Nom de la paire clé/valeur. |
 
-Pour plus d’informations, consultez [Configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées](active-directory-b2c-ui-customization-custom-dynamic.md).
+Pour plus d’informations, consultez [Configurer l’interface utilisateur avec du contenu dynamique à l’aide de stratégies personnalisées](custom-policy-ui-customization-dynamic.md).
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 

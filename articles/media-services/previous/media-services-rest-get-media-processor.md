@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d342cff6d322195ee88a74215f814be7d702aa5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d7b3922c9bb7eb79cd6436ba1b265714678fcc8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761960"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774904"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Obtention d’une instance de processeur multimédia
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "60761960"
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les processeurs multimédias sont un composant qui gère une tâche de traitement vidéo ou audio spécifique, telle que l’encodage, la conversion de format, le chiffrement ou le déchiffrement de contenu multimédia. Toutes les tâches envoyées à Media Services ont besoin d’un processeur multimédia pour encoder, chiffrer ou convertir le contenu vidéo ou audio. 
 
 ## <a name="azure-media-processors"></a>Processeurs multimédias Azure 
@@ -59,7 +59,7 @@ Demande :
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Réponse :

@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8bf44893bf23502aaf8c446d9e6d7c9022bfce3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 452687f3886a85bea796e3899410667ee1d592fa
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425657"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840313"
 ---
 # <a name="select-a-page-layout-in-azure-active-directory-b2c-using-custom-policies"></a>Sélectionner une mise en page dans Azure Active Directory B2C à l’aide de stratégies personnalisées
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Vous pouvez activer le code JavaScript côté client dans vos stratégies Azure Active Directory B2C (Azure AD B2C) que vous utilisiez des flux d’utilisateurs ou des stratégies personnalisées. Pour activer JavaScript pour vos applications, vous devez ajouter un élément à votre [stratégie personnalisée](active-directory-b2c-overview-custom.md), puis sélectionner une mise en page et utiliser le paramètre [b2clogin.com](b2clogin.md) dans vos requêtes.
+Vous pouvez activer le code JavaScript côté client dans vos stratégies Azure Active Directory B2C (Azure AD B2C) que vous utilisiez des flux d’utilisateurs ou des stratégies personnalisées. Pour activer JavaScript pour vos applications, vous devez ajouter un élément à votre [stratégie personnalisée](custom-policy-overview.md), puis sélectionner une mise en page et utiliser le paramètre [b2clogin.com](b2clogin.md) dans vos requêtes.
 
 Une mise en page désigne une association d’éléments qu’Azure AD B2C fournit et du contenu que vous fournissez.
 
@@ -113,4 +113,4 @@ Les packages de mise en page sont régulièrement mis à jour afin d’ajouter d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour savoir comment personnaliser l’interface utilisateur de vos applications, consultez [Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+Pour savoir comment personnaliser l’interface utilisateur de vos applications, consultez [Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C](custom-policy-ui-customization.md).

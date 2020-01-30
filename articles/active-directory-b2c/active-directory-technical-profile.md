@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e27288f95f07c481ab98a112ed9f02a34046600a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949556"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835791"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique Azure Active Directory dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -153,7 +153,7 @@ Le profil technique suivant lit les données d’un compte d’utilisateur à l�
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Écrire
+### <a name="write"></a>Write
 
 L’opération **Write** crée ou met à jour un seul compte d’utilisateur. Pour écrire un compte d’utilisateur, vous devez fournir une clé en tant que revendication d’entrée, telle que **objectId**, **userPrincipalName**, **signInNames.emailAddress** ou  **alternativeSecurityId**.
 
@@ -255,13 +255,13 @@ Le profil technique suivant supprime un compte d’utilisateur social en utilisa
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| Opération | OUI | Opération à effectuer. Valeurs possibles : `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
+| Opération | Oui | Opération à effectuer. Valeurs possibles : `Read`, `Write`, `DeleteClaims` ou `DeleteClaimsPrincipal`. |
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Non | Génère une erreur si l’objet utilisateur n’existe pas dans le répertoire. Valeurs possibles : `true` ou `false`. |
 | UserMessageIfClaimsPrincipalDoesNotExist | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalDoesNotExist), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur n’existe pas. La valeur peut être [localisée](localization.md).|
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Non | Génère une erreur si l’objet utilisateur existe déjà. Valeurs possibles : `true` ou `false`.|
 | UserMessageIfClaimsPrincipalAlreadyExists | Non | Si une erreur doit être déclenchée (voir la description de l’attribut RaiseErrorIfClaimsPrincipalAlreadyExists), spécifiez le message à afficher à l’utilisateur si l’objet utilisateur existe déjà. La valeur peut être [localisée](localization.md).|
-| ApplicationObjectId | Non | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
-| ClientId | Non | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). |
+| ApplicationObjectId | Non | Identificateur d’objet d’application pour les attributs d’extension. Valeur : ObjectId d'une application. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](custom-policy-custom-attributes.md). |
+| ClientId | Non | Identificateur client pour accéder au locataire en tant que tiers. Pour plus d’informations, voir [Utiliser des attributs personnalisés dans une stratégie personnalisée de modification de profil](custom-policy-custom-attributes.md). |
 
 
 

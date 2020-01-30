@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: abafa00febe0431acf5c678cc179c6c114fa9179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470834"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773149"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Tutoriel : Utiliser les fichiers de paramètres pour déployer votre modèle Resource Manager
 
@@ -26,7 +26,7 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 Votre modèle contient de nombreux paramètres que vous pouvez fournir pendant le déploiement. À la fin du tutoriel précédent, votre modèle ressemblait à ceci :
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json":::
 
 Ce modèle fonctionne bien, mais vous souhaitez maintenant gérer sans peine les paramètres que vous transmettez pour le modèle.
 
@@ -36,13 +36,13 @@ Les fichiers de paramètres sont des fichiers JSON dont la structure est similai
 
 Dans VS Code, créez un fichier avec le contenu suivant. Enregistrez le fichier sous le nom **azuredeploy.parameters.dev.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 Il s’agit de votre fichier de paramètres pour l’environnement de développement. Notez qu’il utilise Standard_LRS pour le compte de stockage, nomme les ressources avec un préfixe **dev** et définit l’étiquette **Environment** sur **Dev**.
 
 Encore une fois, créez un fichier avec le contenu suivant. Enregistrez le fichier sous le nom **azuredeploy.parameters.prod.json**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
 Il s’agit de votre fichier de paramètres pour l’environnement de production. Notez qu’il utilise Standard_GRS pour le compte de stockage, nomme les ressources avec un préfixe **contoso** et définit l’étiquette **Environment** sur **Production**. Dans un environnement de production réel, vous pouvez également avoir envie d’utiliser un service d’application avec une référence SKU payante, cependant, pour les besoins de ce tutoriel, nous allons continuer à utiliser cette référence.
 

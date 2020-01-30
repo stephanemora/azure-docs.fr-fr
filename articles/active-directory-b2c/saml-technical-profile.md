@@ -11,18 +11,18 @@ ms.topic: reference
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 74666b1dc2ba4fac25aff0a56a52d048d746d465
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: a0a6581e0eed74725a7186e528618da5d8a4f890
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950933"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840245"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory B2C (Azure AD B2C) prend en charge le fournisseur d’identité SAML 2.0. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Un profil technique SAML vous permet d’opérer une fédération avec un fournisseur d’identité basée sur SAML, tel que [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) et [Salesforce](active-directory-b2c-setup-sf-app-custom.md). Une telle fédération permet à vos utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
+Azure Active Directory B2C (Azure AD B2C) prend en charge le fournisseur d’identité SAML 2.0. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Un profil technique SAML vous permet d’opérer une fédération avec un fournisseur d’identité basée sur SAML, tel que [ADFS](identity-provider-adfs2016-custom.md) et [Salesforce](identity-provider-salesforce-custom.md). Une telle fédération permet à vos utilisateurs de se connecter avec leurs identités existantes de réseaux sociaux ou d’entreprise.
 
 ## <a name="metadata-exchange"></a>Échange de métadonnées
 
@@ -123,7 +123,7 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| PartnerEntity | OUI | URL des métadonnées du fournisseur d’identité SAML. Copiez les métadonnées du fournisseur d’identité et ajoutez-les à l’intérieur de l’élément CDATA `<![CDATA[Your IDP metadata]]>` |
+| PartnerEntity | Oui | URL des métadonnées du fournisseur d’identité SAML. Copiez les métadonnées du fournisseur d’identité et ajoutez-les à l’intérieur de l’élément CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | Non | Indique si le profil technique exige que toutes les demandes d’authentification sortantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Quand la valeur est `true`, la clé de chiffrement **SamlMessageSigning** doit être spécifiée et toutes les demandes d’authentification sortantes sont signées. Si la valeur est `false`, les paramètres **SigAlg** et **Signature** (chaîne de requête ou paramètre d’envoi) sont omis de la demande. Ces métadonnées contrôlent également l’attribut **AuthnRequestsSigned** des métadonnées, qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Azure AD B2C ne signe pas la demande si la valeur de **WantsSignedRequests** dans les métadonnées du profil technique est définie sur `false` et si les métadonnées du fournisseur identité **WantAuthnRequestsSigned** sont définies sur `false` ou ne sont pas spécifiées. |
 | XmlSignatureAlgorithm | Non | Méthode utilisée par Azure AD B2C pour signer la demande SAML. Ces métadonnées contrôlent la valeur du paramètre **SigAlg** (chaîne de requête ou paramètre d’envoi) dans la demande SAML. Valeurs possibles : `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Veillez à configurer l’algorithme de signature des deux côtés avec la même valeur. Utilisez uniquement l’algorithme pris en charge par votre certificat. |
 | WantsSignedAssertions | Non | Indique si le profil technique exige que toutes les assertions entrantes soient signées. Valeurs possibles : `true` ou `false`. La valeur par défaut est `true`. Si la valeur est `true`, toutes les sections d’assertions `saml:Assertion` envoyées par le fournisseur d’identité à Azure AD B2C doivent être signées. Si la valeur est `false`, le fournisseur d’identité ne doit pas signer les assertions, mais même s’il le fait, Azure AD B2C ne validera pas la signature. Ces métadonnées contrôlent également l’indicateur de métadonnées **WantsAssertionsSigned**, qui est généré dans les métadonnées du profil technique Azure AD B2C partagées avec le fournisseur d’identité. Si vous désactivez la validation des assertions, vous pouvez également désactiver la validation de signature de réponse (pour plus d’informations, consultez **ResponsesSigned**). |
@@ -142,13 +142,13 @@ L’élément **CryptographicKeys** contient les attributs suivants :
 
 | Attribut |Obligatoire | Description |
 | --------- | ----------- | ----------- |
-| SamlMessageSigning |OUI | Certificat X509 (jeu de clés RSA) à utiliser pour signer les messages SAML. Azure AD B2C utilise cette clé pour signer les demandes et les envoyer au fournisseur d’identité. |
-| SamlAssertionDecryption |OUI | Certificat X509 (jeu de clés RSA) à utiliser pour déchiffrer les messages SAML. Ce certificat doit être fourni par le fournisseur d’identité. Azure AD B2C utilise ce certificat pour déchiffrer les données envoyées par le fournisseur d’identité. |
+| SamlMessageSigning |Oui | Certificat X509 (jeu de clés RSA) à utiliser pour signer les messages SAML. Azure AD B2C utilise cette clé pour signer les demandes et les envoyer au fournisseur d’identité. |
+| SamlAssertionDecryption |Oui | Certificat X509 (jeu de clés RSA) à utiliser pour déchiffrer les messages SAML. Ce certificat doit être fourni par le fournisseur d’identité. Azure AD B2C utilise ce certificat pour déchiffrer les données envoyées par le fournisseur d’identité. |
 | MetadataSigning |Non | Certificat X509 (jeu de clés RSA) à utiliser pour signer les métadonnées SAML. Azure AD B2C utilise cette clé pour signer les métadonnées.  |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Consultez les articles suivants pour obtenir des exemples d’utilisation des fournisseurs d’identité SAML dans Azure AD B2C :
 
-- [Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-custom-setup-adfs2016-idp.md)
-- [Se connecter à l’aide de comptes Salesforce via SAML](active-directory-b2c-setup-sf-app-custom.md)
+- [Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C](identity-provider-adfs2016-custom.md)
+- [Se connecter à l’aide de comptes Salesforce via SAML](identity-provider-salesforce-custom.md)

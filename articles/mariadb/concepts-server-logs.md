@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: b38838c20e4ab18b64cabcb2749ec39163f1b52d
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/28/2020
+ms.openlocfilehash: 3f82a061f276aaf786bc0a9bae15b60e8bdda009
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515052"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846326"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Journaux des requêtes lentes dans Azure Database for MariaDB
 Dans Azure Database for MariaDB, le journal des requêtes lentes est accessible aux utilisateurs. L’accès aux journaux des transactions n’est pas pris en charge. Le journal des requêtes lentes peut être utilisé pour identifier les goulots d’étranglement en matière de performances, afin de les faire disparaître.
@@ -52,9 +52,6 @@ Consultez la [documentation MariaDB consacrée au journal des requêtes lentes](
 ## <a name="diagnostic-logs"></a>Journaux de diagnostic
 Azure Database for MariaDB est intégré aux journaux de diagnostic Azure Monitor. Une fois que vous avez activé les journaux des requêtes lentes sur votre serveur MariaDB, vous pouvez choisir qu’ils soient transmis vers des journaux Azure Monitor, des hubs d’événements et le Stockage Azure. Pour en savoir plus sur l’activation des journaux de diagnostic, consultez la section des procédures de la [documentation des journaux de diagnostic](../azure-monitor/platform/platform-logs-overview.md).
 
-> [!IMPORTANT]
-> Cette fonctionnalité de diagnostic des journaux de serveur n’est disponible que dans les [niveaux tarifaires](concepts-pricing-tiers.md) Usage général et Mémoire optimisée.
-
 Le tableau suivant décrit ce que contient chaque journal. En fonction de la méthode de sortie, les champs inclus et l’ordre dans lequel ils apparaissent peuvent varier.
 
 | **Propriété** | **Description** |
@@ -87,7 +84,7 @@ Le tableau suivant décrit ce que contient chaque journal. En fonction de la mé
 
 ## <a name="analyze-logs-in-azure-monitor-logs"></a>Analyser les journaux Azure Monitor
 
-Une fois vos journaux de requêtes lentes canalisés vers des journaux Azure Monitor via des journaux de diagnostic, vous pouvez effectuer une analyse plus poussée de vos requêtes lentes. Voici quelques exemples de requêtes pour vous aider à commencer. Veillez à mettre à jour les exemples ci-dessous avec le nom de votre serveur.
+Une fois vos journaux des requêtes lentes canalisés vers des journaux Azure Monitor via des journaux de diagnostic, vous pouvez effectuer une analyse plus poussée de vos requêtes lentes. Voici quelques exemples de requêtes pour vous aider à commencer. Veillez à mettre à jour les exemples ci-dessous avec le nom de votre serveur.
 
 - Requêtes de plus de 10 secondes sur un serveur particulier
 
@@ -99,7 +96,7 @@ Une fois vos journaux de requêtes lentes canalisés vers des journaux Azure Mon
     | where query_time_d > 10
     ```
 
-- Répertorier les 5 requêtes les plus longues sur un serveur particulier
+- Lister les 5 requêtes les plus longues sur un serveur particulier
 
     ```Kusto
     AzureDiagnostics

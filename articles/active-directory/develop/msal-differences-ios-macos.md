@@ -12,14 +12,13 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: oldalton
-ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 199334eb0feb809111159fbc8ce860cbb0da35e2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: aaddev
+ms.openlocfilehash: cdc06ee2aceae4bf8c689d4ef6db0609b8d71c8f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424379"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834210"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>Différences entre les bibliothèques MSAL pour iOS et macOS
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951062"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840262"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurer le flux des informations d’identification par mot de passe de propriétaire de ressource dans Azure Active Directory B2C en utilisant un stratégie personnalisée
 
@@ -36,9 +36,9 @@ Les flux suivants ne sont pas pris en charge :
 - **Application monopage** : application frontale principalement écrite en JavaScript. Souvent, l’application est écrite en utilisant une infrastructure comme AngularJS, Ember.js ou Durandal.js.
 - **Flux client confidentiel** : l’ID du client d’application est validé, mais le secret d’application ne l’est pas.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## <a name="register-an-application"></a>Inscrire une application
 
@@ -342,4 +342,4 @@ Azure AD B2C respecte les normes OAuth 2.0 ou les informations d’identificatio
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Consulter un exemple complet de ce scénario dans le [pack de démarrage de stratégie personnalisée Azure Active Directory B2C](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Apprenez-en davantage sur les jetons utilisés par Azure Active Directory B2C dans la [Documentation de référence sur les jetons](active-directory-b2c-reference-tokens.md).
+- Apprenez-en davantage sur les jetons utilisés par Azure Active Directory B2C dans la [Documentation de référence sur les jetons](tokens-overview.md).

@@ -8,19 +8,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 57bae42eb44c174657e59fa8b017da2931ae681b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814598"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721623"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Onglet Place de marché d’un module IoT Edge
 
-L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce formulaire long est divisé en quatre sections : **Vue d’ensemble**, **Artefacts marketing**, **Gestion des prospects** et **Informations juridiques**.
+L’onglet **Place de marché** de la page **Nouvelle offre** vous permet de proposer à vos clients potentiels des accords et informations juridiques, commerciaux et marketing, ainsi que de gérer des prospects depuis la Place de marché. Ce formulaire long est divisé en quatre sections : **Overview** (Vue d’ensemble), **Marketing Artifacts** (Artefacts marketing), **Lead Management** (Gestion des prospects) et **Legal** (Informations juridiques).
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Dans cette section, vous entrez les informations générales sur votre offre de la Place de marché Microsoft Azure.  Si un astérisque (*) se trouve en regard du nom du champ, cela signifie que ce champ est obligatoire.
 
@@ -32,9 +32,9 @@ Le tableau suivant décrit l’objectif et le contenu de ces champs. Les champs 
 |  ---------                |     ---------------                                                          |
 | **Titre\***                 | Titre de l’offre. Il est affiché de façon visible dans la Place de marché.  Longueur maximale de 50 caractères. <!--ADD PICTURE IN ACTION-->|
 | **Résumé\***               | Court résumé de l’offre. Longueur maximale de 100 caractères. <!--ADD PICTURE IN ACTION-->|
-| **Résumé long\***          | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ **Résumé**).  Longueur maximale de 256 caractères. <!--ADD PICTURE IN ACTION-->|
-| **Description\***           | Description de l’offre.  Longueur maximale de 3 000 caractères, prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Conditions matérielles minimales requises :</u> Système d’exploitation Linux x64 ry arm32, 1 Go de RAM, 500 Mo de stockage</p>
-| **Identificateur marketing\***  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple : <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Long Summary (Résumé long)\***          | Résumé plus détaillé de l’offre (il peut être identique au contenu du champ **Résumé**).  Longueur maximale de 256 caractères. <!--ADD PICTURE IN ACTION-->|
+| **Description\***           | Description de l’offre.  Longueur maximale de 3 000 caractères ; prend en charge la mise en forme HTML simple.<br/> Un paragraphe *Conditions matérielles minimales requises* doit être inclus dans la partie inférieure. Par exemple : <br/> <p><u>Conditions matérielles minimales requises :</u> Système d’exploitation Linux x64 ry arm32, 1 Go de RAM, 500 Mo de stockage</p>
+| **Marketing Identifier\*** (Identificateur marketing)  | URL unique à associer à cette offre. Elle inclut généralement le nom de votre solution et de votre organisation, avec une longueur maximale de 50 caractères.  Par exemple : <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **ID d’abonnement pour préversion** | Ajoutez entre 1 et 100 identificateurs d’abonnement d’utilisateurs de la préversion. Ces abonnements autorisés ont accès à l’offre dès sa publication, avant sa mise en service. |
 | **Liens utiles**          | Sélection multiple de catégories commerciales et techniques auxquelles l’offre s’associe le mieux.  Un maximum de 10 est autorisé. Veillez à ajouter au moins un lien vers votre documentation et un lien vers les appareils IoT Edge compatibles du [catalogue d’appareils Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Catégories suggérées\*** | Choisissez cinq catégories maximum. Elles sont affichées sur la page des détails de votre produit. Sur les pages de navigation, tous les modules IoT Edge sont répertoriés dans la catégorie *Internet of Things \> Module IoT Edge*.|
@@ -97,7 +97,7 @@ Cette section comporte les sous-sections suivantes : **Logos**, **Capture d’é
 | *Vidéos*  | Les vidéos sont affichées sur la page de détails de votre produit. Il s’agit d’un excellent moyen de communiquer visuellement sur les actions et le mode de fonctionnement de votre module IoT Edge. |
 | **Nom**                  | Nom ou titre. Longueur maximale de 100 caractères.                             |
 | **Lien**                  | URL de la vidéo, hébergée sur YouTube ou Vimeo                                        |
-| **Miniature**             | Format PNG 533 x 324 pixels                                                     |
+| **Vidéo miniature**             | Format PNG 533 x 324 pixels                                                     |
 |  |  |
 
 
@@ -111,7 +111,7 @@ Tous les logos chargés sur le Portail Cloud Partner doivent respecter ces instr
 *  Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
 *  Les couleurs de thème du Portail Azure sont le blanc et le noir. Évitez d’utiliser ces couleurs comme couleur d’arrière-plan pour vos logos. Utilisez des couleurs qui font ressortir vos logos sur le Portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples. Si vous utilisez un arrière-plan transparent, assurez-vous que les logos/le texte ne sont pas blanc, noir ou bleu.
 *  N’utilisez pas d’arrière-plan dégradé sur votre logo.
-*  Évitez de placer du texte, même s’il s’agit du nom de votre société ou de votre marque, sur le logo. L’apparence de votre logo doit être « plate » et l’utilisation de dégradés évitée.
+*  Évitez de placer du texte, même s’il s’agit du nom de votre société ou de votre marque, sur le logo. L’apparence de votre logo doit être « plate » et éviter les dégradés.
 *  N’étirez pas le logo.
 
 
@@ -129,7 +129,7 @@ Pour un logo de bannière, suivez les instructions ci-après :
 *  Évitez d’utiliser du texte quand vous créez le logo. Le nom de l’éditeur, le titre du plan, le résumé long de l’offre et un bouton Créer sont incorporés par programmation à l’intérieur du logo quand l’offre est répertoriée. 
 * Ajoutez un espace rectangulaire non utilisé sur le côté droit de votre logo de bannière. Cet espace vide est de 415 x 100 pixels, et le décalage à partir de la gauche de 370 pixels.  
 
-<!-- P2: woudl be nice to also have an picture int he context of iot edge of the hero image
+<!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)
@@ -140,12 +140,12 @@ As an example, the following hero icon is for the Azure Container Service.
 
 Cette section vous permet de configurer les options de collecte des prospects générés à partir de vos offres de la Place de marché Microsoft Azure. Vous pouvez sélectionner les options de stockage suivantes à partir d’une liste déroulante.
 
-* **Aucun** - la valeur par défaut, les informations relatives aux prospects ne sont pas collectées.
+* **Aucun** : valeur par défaut. Les informations relatives aux prospects ne sont pas collectées.
 * Table Azure : les informations sont écrites dans la table Azure spécifiée par une chaîne de connexion.
 * Dynamics CRM Online : les informations sont écrites dans l’instance [Microsoft Dynamics 365 Online](https://dynamics.microsoft.com/) spécifiée par une URL et des informations d’identification d’authentification.
 * Point de terminaison HTTPS : les informations sont écrites dans le point de terminaison HTTPS spécifié en tant que charge utile JSON.
 * Marketo : les informations sont écrites dans l’instance [Marketo](https://www.marketo.com/) spécifiée par l’ID du serveur, l’ID munchkin et l’ID de formulaire.
-* Salesforce - les informations sont écrites dans une base de données [Salesforce](https://www.salesforce.com/), spécifiée par un identificateur d’objet.
+* Salesforce : les informations sont écrites dans une base de données [Salesforce](https://www.salesforce.com/), spécifiée par un identificateur d’objet.
 
 Après avoir publié votre offre, la connexion de prospect est vérifiée et un prospect test est automatiquement envoyé vers la destination que vous avez configurée. 
 

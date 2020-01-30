@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895814"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773656"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Vue d’ensemble de l’API REST Media Services Operations 
 
 > [!NOTE]
-> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md)
+> Aucune nouvelle fonctionnalité ni fonction n’est ajoutée à Media Services v2. <br/>Découvrez la dernière version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consultez aussi [Conseils de migration de v2 vers v3](../latest/migrate-from-v2-to-v3.md).
 
 L’API **REST Media Services Operations** est utilisée pour créer des tâches, des éléments multimédias, des canaux directs et d’autres ressources dans un compte Media Services. Pour plus d’informations, consultez [Référence de l’API REST Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
@@ -45,7 +45,7 @@ Les considérations suivantes s'appliquent lors de l'utilisation de REST.
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.17
+        x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
@@ -60,7 +60,7 @@ Pour chaque appel dans Media Services, il existe un ensemble d’en-têtes requi
 
 | En-tête | Type | Valeur |
 | --- | --- | --- |
-| Authorization |Support |Le support est le seul mécanisme d’autorisation accepté. La valeur doit également inclure le jeton d’accès fourni par Azure Active Directory. |
+| Autorisation |Support |Le support est le seul mécanisme d’autorisation accepté. La valeur doit également inclure le jeton d’accès fourni par Azure Active Directory. |
 | x-ms-version |Decimal |2.17 (ou version plus récente)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
@@ -81,18 +81,18 @@ Voici un ensemble d’en-têtes facultatifs :
 | Accept-Charset |Type de jeu de caractères comme « UTF-8 » |La valeur par défaut est UTF-8. |
 | X-HTTP-Method |Méthode HTTP |Permet aux clients ou pare-feu ne prenant pas en charge les méthodes HTTP comme PUT ou DELETE d’utiliser ces méthodes, acheminées via un appel GET. |
 | Content-Type |Type de contenu |Le type de contenu du corps de la requête dans les demandes PUT ou POST. |
-| client-request-id |Chaîne |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p>Les valeurs doivent être limitées à 2096 b (2k). |
+| client-request-id |String |Une valeur définie par l’appelant qui identifie la requête donnée. Si spécifiée, cette valeur sera incluse dans le message de réponse comme une méthode de mappage de la requête. <p><p>**Important**<p>Les valeurs doivent être limitées à 2096 b (2k). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>En-têtes de réponse HTTP standard pris en charge par Media Services
 Voici un ensemble d’en-têtes pouvant être renvoyés, en fonction de la ressource demandée et de l’action à entreprendre.
 
 | En-tête | Type | Valeur |
 | --- | --- | --- |
-| request-id |Chaîne |Un identificateur unique pour l’opération actuelle, généré par le service. |
-| client-request-id |Chaîne |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
+| request-id |String |Un identificateur unique pour l’opération actuelle, généré par le service. |
+| client-request-id |String |Un identificateur spécifié par l’appelant dans la requête d’origine, le cas échéant. |
 | Date |Date RFC 1123 |Les date et heure auxquelles la requête a été traitée. |
-| Content-Type |Varie |Le type de contenu du corps de la réponse. |
-| Content-Encoding |Varie |Gzip ou deflate, le cas échéant. |
+| Content-Type |Variable |Le type de contenu du corps de la réponse. |
+| Content-Encoding |Variable |Gzip ou deflate, le cas échéant. |
 
 ## <a name="standard-http-verbs-supported-by-media-services"></a>Verbes HTTP standard pris en charge par Media Services
 Voici une liste complète des verbes HTTP pouvant être utilisés lors de requêtes HTTP :
@@ -102,7 +102,7 @@ Voici une liste complète des verbes HTTP pouvant être utilisés lors de requê
 | GET |Retourne la valeur actuelle d’un objet. |
 | POST |Crée un objet, selon les données fournies, ou envoie une commande. |
 | PUT |Remplace un objet ou crée un objet nommé (le cas échéant). |
-| SUPPRIMER |Supprime un objet. |
+| Suppression |Supprime un objet. |
 | MERGE |Met à jour un objet existant avec des modifications de propriété nommées. |
 | HEAD |Retourne les métadonnées d’un objet d’une réponse GET. |
 

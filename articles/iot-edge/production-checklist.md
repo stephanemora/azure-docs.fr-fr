@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 58959310a0daec3835585f64c53f2b8853eb553e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: bb31a10623bd5e8ea9a406b37acf84995774045c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548592"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772303"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Préparer le déploiement en production d’une solution IoT Edge
 
@@ -39,7 +39,7 @@ Un certificat d’autorité de certification doit être installé sur chaque app
 
 Pour comprendre le rôle du certificat d’autorité de certification d’appareil, voir [Comment Azure IoT Edge utilise les certificats](iot-edge-certs.md).
 
-Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Installer des certificats de production sur un appareil IoT Edge](how-to-create-transparent-gateway.md).
+Pour savoir comment installer des certificats sur un appareil IoT Edge et y faire référence dans le fichier config.yaml, consultez [Installer des certificats de production sur un appareil IoT Edge](how-to-install-production-certificates.md).
 
 ### <a name="have-a-device-management-plan"></a>Élaborer un plan de gestion des appareils
 

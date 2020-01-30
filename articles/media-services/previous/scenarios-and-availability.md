@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978166"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843937"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -31,13 +31,13 @@ AMS fonctionne dans plusieurs centres de données à travers le monde. Ces centr
 
 Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en direct](#live_scenarios) ou à la demande. Cette rubrique présente également des informations sur la disponibilité des fonctionnalités et services dans les centres de données.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer à utiliser Azure Media Services, vous devez disposer des éléments suivants :
 
-* Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com).
+* Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d’informations, consultez [Essai gratuit Azure](https://azure.microsoft.com).
 * Un compte Azure Media Services. Pour plus d’informations, consultez [Créer un compte](media-services-portal-create-account.md).
 * Le point de terminaison à partir duquel vous souhaitez diffuser du contenu doit se trouver dans l’état **En cours d’exécution**.
 
@@ -177,7 +177,7 @@ En fonction de leurs besoins, les clients Media Services peuvent choisir un poin
 
 #### <a name="availability"></a>Disponibilité
 
-|Nom|Statut|Centres de données
+|Name|Statut|Centres de données
 |---|---|---|
 |standard|GA|Tous|
 |Premium|GA|Tous|
@@ -211,9 +211,8 @@ Media Analytics est une collection de composants visuels et vocaux qui aident le
 |Azure Media Indexer|GA|Tous|
 |Détecteur de mouvement Azure Media|PRÉVERSION|Tous|
 |Azure Media OCR|PRÉVERSION|Tous|
-|Azure Media Redactor|PRÉVERSION|Tous|
+|Azure Media Redactor|GA|Tous|
 |Miniatures vidéo Azure Media|PRÉVERSION|Tous|
-|Azure Media Indexer 2|PRÉVERSION|Tout sauf la région de Chine et du gouvernement fédéral|
 
 ### <a name="protection"></a>Protection
 

@@ -1,19 +1,19 @@
 ---
 title: Ressources et kit SDK de l’API .NET Table Azure Cosmos DB
 description: Découvrez l’API Table Azure Cosmos DB, notamment les dates de publication, les dates de retrait et les modifications apportées à chaque version.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 5e98c40384207c77b4ea7e9557a7d1ebebd95e47
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058582"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771627"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET Table Azure Cosmos DB : Téléchargement et notes de publication
 
@@ -66,7 +66,7 @@ ms.locfileid: "71058582"
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 
 * Ajouter TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism et TableQueryContinuationTokenLimitInKb à TableRequestOptions
-* Résolution des bogues
+* Correctifs de bogues
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
 
@@ -74,7 +74,7 @@ ms.locfileid: "71058582"
 
 ### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0 - préversion
 
-* Préversion initiale
+* Version préliminaire initiale
 
 ## <a name="release-and-retirement-dates"></a>Dates de publication et de retrait
 
@@ -87,7 +87,7 @@ Le package de préversion [WindowsAzure.Storage-PremiumTable](https://www.nuget.
 Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développement logiciel (SDK) supprimé est rejetée par le service.
 <br/>
 
-| Version | Date de lancement | Date de suppression |
+| Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |16 septembre 2019| |
 | [2.1.0](#2.1.0) |22 janvier 2019|01 avril 2020 |
@@ -98,7 +98,7 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 | [1.0.0](#1.0.0) |15 novembre 2017|15 novembre 2019 |
 | 0.9.0 - préversion |11 novembre 2017 |11 novembre 2019 |
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous obtenez l’erreur 
 
@@ -118,7 +118,7 @@ lorsque vous tentez d’utiliser le package Microsoft.Azure.CosmosDB.Table, vous
     
 * À l’aide de votre outil de gestion de packages NuGet préféré, installez le package NuGet de Microsoft.Azure.Storage.Common Nuget package avant d’installer Microsoft.Azure.CosmosDB.Table.
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

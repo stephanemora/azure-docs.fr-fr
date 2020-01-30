@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547300"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773289"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connecter des ordinateurs sans accès Internet en utilisant la passerelle Log Analytics dans Azure Monitor
 
@@ -204,13 +204,13 @@ Pour apprendre à concevoir et déployer un cluster d’équilibrage de charge r
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Pour apprendre à concevoir et déployer une instance d’Azure Load Balancer, veuillez consulter l’article [Qu’est-ce qu’Azure Load Balancer ?](../../load-balancer/load-balancer-overview.md). Pour déployer un équilibreur de charge de base, veuillez suivre les étapes décrites dans ce [guide de démarrage rapide](../../load-balancer/quickstart-create-basic-load-balancer-portal.md), excepté la procédure décrite dans la section **Créer des serveurs principaux**.   
+Pour apprendre à concevoir et déployer une instance d’Azure Load Balancer, veuillez consulter l’article [Qu’est-ce qu’Azure Load Balancer ?](../../load-balancer/load-balancer-overview.md). Pour déployer un équilibreur de charge de base, veuillez suivre les étapes décrites dans ce [guide de démarrage rapide](../../load-balancer/quickstart-load-balancer-standard-public-portal.md), excepté la procédure décrite dans la section **Créer des serveurs principaux**.   
 
 > [!NOTE]
 > Si vous souhaitez configurer Azure Load Balancer à l’aide de la **référence SKU De base**, vos machines virtuelles doivent appartenir à un groupe à haute disponibilité. Pour en savoir plus sur les groupes à haute disponibilité, veuillez consulter l’article [Gestion de la disponibilité des machines virtuelles Windows dans Azure](../../virtual-machines/windows/manage-availability.md). Pour ajouter des ordinateurs virtuels existants à un groupe à haute disponibilité, veuillez consulter l’article [Définir une machine virtuelle Azure Resource Manager dans un groupe à haute disponibilité](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4).
 > 
 
-Après avoir créé l’équilibreur de charge, vous devez créer un pool principal. Ce dernier distribuera le trafic vers un ou plusieurs serveurs de passerelle. Pour cela, veuillez suivre la procédure décrite dans la section du guide de démarrage rapide [Créer des ressources pour l’équilibreur de charge](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
+Après avoir créé l’équilibreur de charge, vous devez créer un pool principal. Ce dernier distribuera le trafic vers un ou plusieurs serveurs de passerelle. Pour cela, veuillez suivre la procédure décrite dans la section du guide de démarrage rapide [Créer des ressources pour l’équilibreur de charge](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 >[!NOTE]
 >La sonde d’intégrité doit être configurée pour utiliser le port TCP du serveur de passerelle. La sonde d’intégrité ajoute ou supprime de façon dynamique des serveurs de passerelle dans la rotation de l’équilibreur de charge en fonction de leur réponse aux contrôles d’intégrité. 

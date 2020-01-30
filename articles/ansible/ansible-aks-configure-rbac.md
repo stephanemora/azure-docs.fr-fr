@@ -4,14 +4,14 @@ description: Découvrez comment utiliser Ansible pour configurer RBAC dans un cl
 keywords: ansible, azure, devops, bash, cloudshell, manuel, aks, conteneur, aks, kubernetes, azure AD, rbac
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156874"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836964"
 ---
-# <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Didacticiel : Configurer les rôles de contrôle d’accès en fonction du rôle (RBAC) dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
+# <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Tutoriel : Configurer les rôles de contrôle d’accès en fonction du rôle (RBAC) dans Azure Kubernetes Service (AKS) à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -26,7 +26,7 @@ AKS peut être configuré pour utiliser [Azure Active Directory (AD)](/azure/act
 > * Créer un cluster AKS compatible Azure AD
 > * Configurer un rôle RBAC dans le cluster
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -46,7 +46,7 @@ Lorsque vous configurez Azure AD pour l’authentification AKS, deux application
 
 Ces valeurs sont nécessaires pour exécuter l’exemple de playbook.  
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Dans cette section, vous créez un service AKS avec l’[application Azure AD](#configure-azure-ad-for-aks-authentication).
 
@@ -119,7 +119,7 @@ Enregistrez le playbook suivant en tant que `aks-create.yml` :
 
 Pour créer une liaison RBAC, vous devez d’abord obtenir l’ID d’objet Azure Active Directory. 
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Dans le champ de recherche en haut de la page, entrez `Azure Active Directory`. 
 
@@ -156,7 +156,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Remplacez l’espace réservé `&lt;your-aad-account>` par votre locataire Azure AD [ID d’objet](#get-the-azure-ad-object-id).
+Remplacez l’espace réservé `<your-aad-account>` par votre locataire Azure AD [ID d’objet](#get-the-azure-ad-object-id).
 
 Enregistrez le manifeste suivant – qui déploie votre nouveau rôle dans AKS – en tant que `aks-kube-deploy.yml` :
 
@@ -233,7 +233,7 @@ aks-nodepool1-33413200-1   Ready    agent   49m   v1.12.6
 aks-nodepool1-33413200-2   Ready    agent   49m   v1.12.6
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 

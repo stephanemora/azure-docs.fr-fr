@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 9b390806e678c7900b166a07316d7f8ac32a5153
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153018"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716189"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Tutoriel : Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
-Ce tutoriel montre comment configurer un compte avec Azure Maps, puis utiliser les API Maps pour rechercher un point d’intérêt. Dans ce tutoriel, vous allez apprendre à :
+Ce didacticiel montre comment configurer un compte avec Azure Maps, puis utiliser les API Maps pour rechercher un point d’intérêt. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un compte Azure Maps
@@ -59,7 +59,7 @@ Une fois le compte Maps créé, récupérez la clé qui vous permet d’interrog
 
 1. Ouvrez votre compte Maps dans le portail.
 2. Dans la section des paramètres, sélectionnez **Authentification**.
-3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce tutoriel.
+3. Copiez la **Clé primaire** dans le Presse-papiers. Enregistrez-la localement, vous l’utiliserez plus tard dans ce didacticiel.
 
 ![Obtenir la clé primaire dans le portail Azure](./media/tutorial-search-location/get-key.png)
 
@@ -169,7 +169,7 @@ L’API Map Control est une bibliothèque de client pratique. Elle vous permet d
 
 ## <a name="add-search-capabilities"></a>Ajouter les fonctionnalités de recherche
 
-Cette section montre comment utiliser l’[API de recherche](https://docs.microsoft.com/rest/api/maps/search) de Maps pour rechercher un point d’intérêt sur votre carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un lieu avec l’API Maps Search.
+Cette section montre comment utiliser l’[API de recherche](https://docs.microsoft.com/rest/api/maps/search) de Maps pour rechercher un point d’intérêt sur votre carte. Il s’agit d’une API RESTful destinée aux développeurs souhaitant mettre en place des fonctionnalités de recherche d’adresses, de points d’intérêt et d’autres informations d’ordre géographique. Search Service affecte une latitude et une longitude à une adresse spécifiée. Le **module de service** expliqué ci-dessous peut être utilisé pour rechercher un emplacement à l’aide de l’API Maps Search.
 
 ### <a name="service-module"></a>Module de service
 
@@ -225,7 +225,7 @@ Cette section montre comment utiliser l’[API de recherche](https://docs.micros
    https://atlas.microsoft.com/search/poi/json?api-version=1.0&query=gasoline%20station&subscription-key=<subscription-key>&lat=47.6292&lon=-122.2337&radius=100000
    ```
 
-À ce stade, la page MapSearch peut afficher la localisation des points d’intérêt retournés d’une requête de recherche approximative. Ajoutons quelques fonctionnalités interactives et des informations supplémentaires sur les localisations.
+À ce stade, la page MapSearch peut afficher les emplacements des points d’intérêt renvoyés d’une requête de recherche approximative. Ajoutons quelques fonctionnalités interactives et des informations supplémentaires sur les emplacements.
 
 ## <a name="add-interactive-data"></a>Ajouter des données interactives
 
@@ -247,7 +247,7 @@ La carte développée jusqu’à présent produit des résultats de recherche co
 
     ```JavaScript
     function showPopup(e) {
-        //Get the properties and coordinates of the first shape that the event occured on.
+        //Get the properties and coordinates of the first shape that the event occurred on.
 
         var p = e.shapes[0].getProperties();
         var position = e.shapes[0].getCoordinates();
@@ -277,7 +277,7 @@ La carte développée jusqu’à présent produit des résultats de recherche co
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un compte avec Azure Maps
@@ -291,7 +291,7 @@ Dans ce tutoriel, vous avez appris à :
 > [!div class="nextstepaction"]
 > [Afficher un exemple en direct](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20for%20points%20of%20interest)
 
-Le prochain tutoriel vous explique comment afficher un itinéraire entre deux lieux.
+Le prochain didacticiel vous explique comment afficher un itinéraire entre deux emplacements.
 
 > [!div class="nextstepaction"]
 > [Itinéraire vers une destination](./tutorial-route-location.md)

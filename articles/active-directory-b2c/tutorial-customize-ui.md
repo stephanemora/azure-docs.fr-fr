@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Personnaliser l’interface utilisateur'
+title: 'Tutoriel : Personnaliser l’interface utilisateur'
 titleSuffix: Azure AD B2C
 description: Découvrez comment personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
 services: B2C
@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eba9919b7a1d89e6aea8fb93ef8c4b3e92960368
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 1b0ad7049375cb20d2daa0e6f920b680d03530a5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950865"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840126"
 ---
-# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Didacticiel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
+# <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Tutoriel : Personnaliser l'interface des expériences utilisateur dans Azure Active Directory B2C
 
-Pour des expériences utilisateur plus courantes telles que l’inscription, la connexion et la modification du profil, vous pouvez utiliser des [flux d’utilisateur](active-directory-b2c-reference-policies.md) dans Azure Active Directory B2C (Azure AD B2C). Les informations contenues dans ce tutoriel vous aideront à découvrir comment [personnaliser l’interface utilisateur](customize-ui-overview.md) de ces expériences à l’aide de vos propres fichiers HTML et CSS.
+Pour des expériences utilisateur plus courantes telles que l’inscription, la connexion et la modification du profil, vous pouvez utiliser des [flux d’utilisateur](user-flow-overview.md) dans Azure Active Directory B2C (Azure AD B2C). Les informations contenues dans ce tutoriel vous aideront à découvrir comment [personnaliser l’interface utilisateur](customize-ui-overview.md) de ces expériences à l’aide de vos propres fichiers HTML et CSS.
 
 Dans cet article, vous apprendrez comment :
 
@@ -31,7 +31,7 @@ Dans cet article, vous apprendrez comment :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
 
@@ -43,7 +43,7 @@ Vous créez un conteneur et un compte de stockage Azure, puis vous placez les fi
 
 Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoins de ce tutoriel vous allez les stocker dans le [stockage d’objets blob Azure](../storage/blobs/storage-blobs-introduction.md).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Veillez à bien utiliser l’annuaire qui contient votre abonnement Azure. Sélectionnez le filtre **Annuaire + abonnement** dans le menu supérieur et sélectionnez l’annuaire qui contient votre abonnement. Cet annuaire est différent de celui qui contient votre locataire Azure B2C.
 3. Choisissez Tous les services dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Comptes de stockage**.
 4. Sélectionnez **Ajouter**.
@@ -166,4 +166,4 @@ Dans cet article, vous avez appris à effectuer les opérations suivantes :
 > * Tester l’interface utilisateur personnalisée
 
 > [!div class="nextstepaction"]
-> [Personnalisation de la langue dans Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md)
+> [Personnalisation de la langue dans Azure Active Directory B2C](user-flow-language-customization.md)

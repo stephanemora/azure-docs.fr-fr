@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063370"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840177"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -40,13 +40,13 @@ L’élément **TrustFrameworkPolicy** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 |---------- | -------- | ----------- |
-| PolicySchemaVersion | OUI | Version du schéma à utiliser pour exécuter la stratégie. La valeur doit être `0.3.0.0`. |
+| PolicySchemaVersion | Oui | Version du schéma à utiliser pour exécuter la stratégie. La valeur doit être `0.3.0.0`. |
 | TenantObjectId | Non | Identificateur d’objet unique du locataire Azure Active Directory B2C (Azure AD B2C). |
-| TenantId | OUI | Identificateur unique du locataire auquel appartient cette stratégie. |
-| PolicyId | OUI | Identificateur unique de la stratégie. Cet identificateur doit avoir le préfixe *B2C_1A_* . |
-| PublicPolicyUri | OUI | URI de la stratégie, qui est une combinaison de l’ID de locataire et de l’ID de stratégie. |
-| DeploymentMode | Non | Valeurs possibles : `Production`, `Debugging` ou `Development`. `Production` est la valeur par défaut. Cette propriété permet de déboguer votre stratégie. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Non | Point de terminaison utilisé quand **DeploymentMode** est défini sur `Development`. La valeur doit être `urn:journeyrecorder:applicationinsights`. Pour plus d’informations, voir [Collecte de journaux d’activité](active-directory-b2c-troubleshoot-custom.md). |
+| TenantId | Oui | Identificateur unique du locataire auquel appartient cette stratégie. |
+| PolicyId | Oui | Identificateur unique de la stratégie. Cet identificateur doit avoir le préfixe *B2C_1A_* . |
+| PublicPolicyUri | Oui | URI de la stratégie, qui est une combinaison de l’ID de locataire et de l’ID de stratégie. |
+| DeploymentMode | Non | Valeurs possibles : `Production`, `Debugging` ou `Development`. `Production` est la valeur par défaut. Cette propriété permet de déboguer votre stratégie. Pour plus d’informations, voir [Collecte de journaux d’activité](troubleshoot-with-application-insights.md). |
+| UserJourneyRecorderEndpoint | Non | Point de terminaison utilisé quand **DeploymentMode** est défini sur `Development`. La valeur doit être `urn:journeyrecorder:applicationinsights`. Pour plus d’informations, voir [Collecte de journaux d’activité](troubleshoot-with-application-insights.md). |
 
 
 L’exemple suivant montre comment spécifier l’élément **TrustFrameworkPolicy** :
@@ -80,7 +80,7 @@ Le modèle d’héritage est le suivant :
 - La stratégie enfant peut hériter, à tous les niveaux, de la stratégie parente et l’étendre en ajoutant de nouveaux éléments.
 - Le nombre de niveaux n’est pas limité.
 
-Pour plus d’informations, consultez [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md).
+Pour plus d’informations, consultez [Bien démarrer avec les stratégies personnalisées](custom-policy-get-started.md).
 
 ## <a name="base-policy"></a>Stratégie de base
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase ou B2C_1A_TrustFrameworkExtensionPolicy :
 
 Un parcours utilisateur définit la logique métier des étapes qu’un utilisateur suit. Chaque parcours utilisateur est un ensemble d’étapes d’orchestration qui effectuent une série d’actions, de façon séquentielle, en termes d’authentification et de collecte d’informations.
 
-Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter des parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse e-mail ou l’association et la dissociation d’un compte de réseau social.
+Le fichier de stratégie **SocialAndLocalAccounts** dans le [pack de démarrage](custom-policy-get-started.md#custom-policy-starter-pack) contient les parcours utilisateur SignUpOrSignIn, ProfileEdit et PasswordReset. Vous pouvez ajouter des parcours utilisateur pour d’autres scénarios, tels que la modification d’une adresse e-mail ou l’association et la dissociation d’un compte de réseau social.
 
 Les étapes d’orchestration peuvent appeler un [profil technique](technicalprofiles.md). Un profil technique fournit une infrastructure avec un mécanisme intégré pour communiquer avec différents types de parties. Par exemple, un profil technique peut effectuer, entre autres, les actions suivantes :
 

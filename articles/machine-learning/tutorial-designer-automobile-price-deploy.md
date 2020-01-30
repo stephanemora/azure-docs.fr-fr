@@ -1,7 +1,7 @@
 ---
 title: 'Tutoriel : Déployer un modèle Machine Learning avec le concepteur'
 titleSuffix: Azure Machine Learning
-description: Ce tutoriel montre comment créer une solution d’analytique prédictive dans le concepteur Azure Machine Learning. Entraînez, évaluez à l’aide d’un score et déployez un modèle Machine Learning à l’aide de modules fonctionnant par glisser-déposer.
+description: Ce tutoriel vous montre comment créer une solution d’analyse prédictive dans le concepteur Azure Machine Learning (préversion). Entraînez, évaluez à l’aide d’un score et déployez un modèle Machine Learning à l’aide de modules fonctionnant par glisser-déposer.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 89fdac5e59b59c60d7e20b94799d78b029d236d6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 470e633b2c64283db9b6a5b1cd777a6a054dad16
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314995"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719787"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Tutoriel : Déployer un modèle Machine Learning avec le concepteur (préversion)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Vous pouvez déployer le modèle prédictif développé dans la [première partie de ce tutoriel](tutorial-designer-automobile-price-train-score.md) pour donner l’occasion à d’autres personnes de l’utiliser. Dans la première partie, vous avez entraîné votre modèle. À présent, il est temps de générer de nouvelles prédictions basées sur des entrées utilisateur. Dans cette partie du didacticiel, vous allez :
@@ -55,10 +55,6 @@ Pour déployer votre pipeline, vous devez d’abord convertir le pipeline d’en
     >
 
 1. Sélectionnez **Exécuter**, puis utilisez la même cible de calcul et la même expérience que durant la première partie.
-
-1. Sélectionnez le module **Scorer le modèle**.
-
-1. Dans le volet Propriétés, sélectionnez **Sorties** > **Visualiser** pour vérifier que le modèle fonctionne toujours. Vous pouvez voir que les données d’origine sont affichées ainsi que le prix prédit (« Étiquettes scorées »).
 
 1. Sélectionnez **Déployer**.
 

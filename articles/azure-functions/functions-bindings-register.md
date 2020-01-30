@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 599becae0225bea623c383ead49cd9abcea6fff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35df4c6c20345053bcc39a267a90a7bb1b227241
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231108"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766229"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Inscrire des extensions de liaison Azure Functions
 
@@ -62,9 +62,6 @@ Remplacez `<TARGET_VERSION>` dans l’exemple par une version spécifique du pac
 Si vous utilisez `Install-Package` pour faire référence à une liaison, vous n’avez pas besoin d’utiliser des [offres groupées d’extensions](#extension-bundles). Cette approche est spécifique aux bibliothèques de classes générées dans Visual Studio.
 
 ## <a name="vs-code"></a> Bibliothèque de classes C# avec Visual Studio Code
-
-> [!NOTE]
-> Nous vous recommandons d’utiliser des [offres groupées d’extension](#extension-bundles) pour que Functions installe automatiquement un ensemble de packages d’extension de liaison compatible. 
 
 Dans **Visual Studio Code**, installez des packages pour un projet de bibliothèque de classes C# à partir de l’invite de commandes avec la commande [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) dans CLI .NET Core. L’exemple suivant montre comment ajouter une liaison :
 

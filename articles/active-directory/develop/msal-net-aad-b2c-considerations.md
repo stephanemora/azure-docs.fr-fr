@@ -13,13 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921923"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834193"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Utiliser MSAL.NET pour connecter les utilisateurs avec des identités sociales
 
@@ -177,7 +176,7 @@ La solution de contournement suggérée consiste à utiliser la [Mise en cache p
 Vous pouvez également utiliser la revendication `tid`, si vous utilisez les [stratégies personnalisées B2C](https://aka.ms/ief), car la possibilité est ainsi donnée de retourner des revendications supplémentaires à l’application. Pour en savoir plus sur [Transformation des revendications](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Atténuation pour « Absent de la réponse de jeton »
-Une option consiste à utiliser la revendication « name » (nom) comme nom d’utilisateur par défaut. Le processus est mentionné dans cette [documentation B2C](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> « Dans la colonne Revendication de retour, choisissez les revendications à renvoyer à votre application dans les jetons d’authentification, après une expérience de modification de profil réussie. Par exemple, sélectionnez Nom d’affichage, Code postal ».
+Une option consiste à utiliser la revendication « name » (nom) comme nom d’utilisateur par défaut. Le processus est mentionné dans cette [documentation B2C](../../active-directory-b2c/user-flow-overview.md) -> « Dans la colonne Revendication de retour, choisissez les revendications à renvoyer à votre application dans les jetons d’authentification, après une expérience de modification de profil réussie. Par exemple, sélectionnez Nom d’affichage, Code postal ».
 
 ## <a name="next-steps"></a>Étapes suivantes 
 

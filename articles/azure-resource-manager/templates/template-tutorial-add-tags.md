@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ed5e5c63bed90136e498491a6735cbaa127cf1f9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689681"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773193"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Tutoriel : Ajouter des étiquettes à votre modèle Resource Manager
 
@@ -26,7 +26,7 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 Votre modèle précédent a déployé un compte de stockage, un plan App Service et une application web.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 Après avoir déployé ces ressources, vous pouvez avoir besoin d’effectuer un suivi des coûts, et de rechercher les ressources qui appartiennent à une catégorie. La possibilité d’ajouter des étiquettes vous permet de résoudre ces problèmes.
 
@@ -36,7 +36,7 @@ Vous étiquetez des ressources pour ajouter des valeurs qui vous aident à ident
 
 L’exemple suivant met en évidence les modifications apportées au modèle. Copiez l’intégralité du fichier et remplacez votre modèle par son contenu.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## <a name="deploy-template"></a>Déployer un modèle
 

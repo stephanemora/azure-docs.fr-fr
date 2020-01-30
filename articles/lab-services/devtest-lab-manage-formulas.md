@@ -1,6 +1,6 @@
 ---
 title: Gérer les formules dans Azure DevTest Labs pour créer des machines virtuelles | Microsoft Docs
-description: Découvrez comment mettre à jour et supprimer des formules Azure DevTest Labs
+description: Cet article explique comment créer une formule à partir d’une base (une image personnalisée, une image Place de marché ou une autre formule) ou d’une machine virtuelle existante.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a668c1f7cf401c109c1041232d7f28dd2accd750
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60562529"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760400"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gérer les formules Azure DevTest Labs
 
@@ -38,7 +38,7 @@ Pour plus d’informations sur l’ajout des utilisateurs et des autorisations, 
 ### <a name="create-a-formula-from-a-base"></a>Créer une formule à partir d’une base
 Les étapes suivantes vous guideront tout au long du processus de création d’une formule à partir d’une image personnalisée, image Marketplace ou autre formule.
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
@@ -82,7 +82,7 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 > 
 > 
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 4. Dans la page **Vue d’ensemble** du laboratoire, sélectionnez la machine virtuelle à partir de laquelle vous souhaitez créer la formule.
@@ -99,7 +99,7 @@ Les étapes suivantes vous guident dans le processus de création d’une formul
 ## <a name="modify-a-formula"></a>Modifier une formule
 Pour modifier une formule, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 4. Dans la page du laboratoire, sélectionnez **Formules (bases réutilisables)** .
@@ -111,7 +111,7 @@ Pour modifier une formule, procédez comme suit :
 ## <a name="delete-a-formula"></a>Supprimer une formule
 Pour supprimer une formule, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 3. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.  
 4. Dans la page **Paramètres** du laboratoire, sélectionnez **Formules**.

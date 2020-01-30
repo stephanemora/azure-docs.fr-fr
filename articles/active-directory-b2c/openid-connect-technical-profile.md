@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fdb925f820cad79fe68e7082f4ed63292a7d9444
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8bda1d3bcce37cbb7b5306d460bddd4652349fe9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951086"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840347"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OpenID Connect dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -76,9 +76,9 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_id | OUI | Identificateur d’application du fournisseur d’identité. |
+| client_id | Oui | Identificateur d’application du fournisseur d’identité. |
 | IdTokenAudience | Non | Audience du jeton id_token. Si la valeur est spécifiée, Azure AD B2C vérifie si le jeton figure dans une revendication retournée par le fournisseur d’identité, et est identique à celui spécifié. |
-| METADATA | OUI | URL qui pointe vers un document de configuration JSON mis en forme conformément à la spécification OpenID Connect Discovery, qui est un point de terminaison de configuration openid bien connu. |
+| METADATA | Oui | URL qui pointe vers un document de configuration JSON mis en forme conformément à la spécification OpenID Connect Discovery, qui est un point de terminaison de configuration openid bien connu. |
 | ProviderName | Non | Nom du fournisseur d'identité. |
 | response_types | Non | Type de réponse conformément à la spécification OpenID Connect Core 1.0. Valeurs possibles : `id_token`, `code` ou `token`. |
 | response_mode | Non | Méthode que le fournisseur d’identité utilise pour renvoyer le résultat à Azure AD B2C. Valeurs possibles : `query`, `form_post` (par défaut) ou `fragment`. |
@@ -95,14 +95,14 @@ L’élément **CryptographicKeys** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies sur `id_token`, vous pouvez omettre la clé de chiffrement.  |
+| client_secret | Oui | Clé secrète client de l’application du fournisseur d’identité. La clé de chiffrement est requise uniquement si les métadonnées **response_types** sont définies sur `code`. Dans ce cas, Azure AD B2C émet un autre appel pour échanger le code d’autorisation pour un jeton d’accès. Si les métadonnées sont définies sur `id_token`, vous pouvez omettre la clé de chiffrement.  |
 
 ## <a name="redirect-uri"></a>URI de redirection
 
 Lorsque vous configurez l’URI de redirection de votre fournisseur d’identité, entrez `https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp`. Veillez à remplacer `{your-tenant-name}` par le nom de votre locataire. L’URI de redirection doit être en minuscules.
 
-Exemples :
+Exemples :
 
-- [Ajouter Compte Microsoft (MSA) comme fournisseur d’identité utilisant des stratégies personnalisées](active-directory-b2c-custom-setup-msa-idp.md)
-- [Se connecter à l’aide de comptes Azure AD](active-directory-b2c-setup-aad-custom.md)
-- [Autoriser la connexion d’utilisateurs à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées](active-directory-b2c-setup-commonaad-custom.md)
+- [Ajouter Compte Microsoft (MSA) comme fournisseur d’identité utilisant des stratégies personnalisées](identity-provider-microsoft-account-custom.md)
+- [Se connecter à l’aide de comptes Azure AD](identity-provider-azure-ad-single-tenant-custom.md)
+- [Autoriser la connexion d’utilisateurs à un fournisseur d’identité Azure AD mutualisé à l’aide de stratégies personnalisées](identity-provider-azure-ad-multi-tenant-custom.md)

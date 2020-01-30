@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: a4f26f180e34ee9c7a0222b0d7f6be95c78de1b4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951103"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840381"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique OAuth1 dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -70,11 +70,11 @@ Le profil technique retourne également des revendications qui ne sont pas retou
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_id | OUI | Identificateur d’application du fournisseur d’identité. |
+| client_id | Oui | Identificateur d’application du fournisseur d’identité. |
 | ProviderName | Non | Nom du fournisseur d'identité. |
-| request_token_endpoint | OUI | URL du point de terminaison de jeton de requête conformément à la norme RFC 5849. |
-| authorization_endpoint | OUI | URL du point de terminaison d’autorisation conformément à la norme RFC 5849. |
-| access_token_endpoint | OUI | URL du point de terminaison de jeton conformément à la norme RFC 5849. |
+| request_token_endpoint | Oui | URL du point de terminaison de jeton de requête conformément à la norme RFC 5849. |
+| authorization_endpoint | Oui | URL du point de terminaison d’autorisation conformément à la norme RFC 5849. |
+| access_token_endpoint | Oui | URL du point de terminaison de jeton conformément à la norme RFC 5849. |
 | ClaimsEndpoint | Non | URL du point de terminaison d’informations utilisateur. |
 | ClaimsResponseFormat | Non | Format de réponse des revendications.|
 
@@ -84,7 +84,7 @@ L’élément **CryptographicKeys** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| client_secret | OUI | Clé secrète client de l’application du fournisseur d’identité.   |
+| client_secret | Oui | Clé secrète client de l’application du fournisseur d’identité.   |
 
 ## <a name="redirect-uri"></a>URI de redirection
 
@@ -92,9 +92,9 @@ Lorsque vous configurez l’URL de redirection de votre fournisseur d’identit�
 
 Si vous utilisez le domaine **b2clogin.com** à la place de **login.microsoftonline.com**, veillez à utiliser b2clogin.com au lieu de login.microsoftonline.com.
 
-Exemples :
+Exemples :
 
-- [Ajouter Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Ajouter Twitter en tant que fournisseur d’identité OAuth1 à l’aide de stratégies personnalisées](identity-provider-twitter-custom.md)
 
 
 

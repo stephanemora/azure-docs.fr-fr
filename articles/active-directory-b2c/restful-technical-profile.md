@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 00d5ba6fd86ea722270dfbe73324323bd831a529
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263368"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840279"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique RESTful dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -260,7 +260,7 @@ public class ResponseContent
 
 Consultez les articles suivants pour obtenir des exemples d’utilisation d’un profil technique RESTful :
 
-- [Intégrer les échanges de revendications d’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-custom-rest-api-netfw.md)
-- [Sécuriser vos services RESTful à l’aide d’une authentification HTTP de base](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Sécuriser votre service RESTful à l’aide de certificats clients](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](active-directory-b2c-rest-api-validation-custom.md)
+- [Intégrer les échanges de revendications d’API REST dans votre parcours utilisateur Azure Active Directory B2C comme validation d’une entrée de l’utilisateur](rest-api-claims-exchange-dotnet.md)
+- [Sécuriser vos services RESTful à l’aide d’une authentification HTTP de base](secure-rest-api-dotnet-basic-auth.md)
+- [Sécuriser votre service RESTful à l’aide de certificats clients](secure-rest-api-dotnet-certificate-auth.md)
+- [Procédure pas à pas : Intégrer les échanges de revendications de l’API REST dans votre parcours utilisateur Azure AD B2C comme validation d’une entrée de l’utilisateur](custom-policy-rest-api-claims-validation.md)

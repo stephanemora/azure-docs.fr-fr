@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: cc8f01d5608b36521185695cd5f7be531ba7aeaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73505858"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748808"
 ---
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Une clé de démarrage.
 * Importez l’application [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) à partir du dépôt GitHub cognitive-services-language-understanding.
@@ -33,7 +33,7 @@ ms.locfileid: "73505858"
 
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
-## <a name="change-model-programmatically"></a>Modifier le modèle par programmation
+## <a name="change-model-programmatically"></a>Changer le modèle programmatiquement
 
 Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v3-authoring) d’entité issue du Machine Learning. 
 
@@ -89,8 +89,8 @@ Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v
             body: utterances
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     const train = async (verb) => {
     
@@ -104,8 +104,8 @@ Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v
             body: null // The body can be empty for a training request
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     
     // MAIN
@@ -127,11 +127,11 @@ Utilisez Go pour ajouter à l’application une [API](https://aka.ms/luis-apim-v
 
 [!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Lorsque vous aurez terminé ce guide de démarrage rapide, supprimez le fichier du système de fichiers. 
+Lorsque vous aurez fini de suivre ce guide de démarrage rapide, supprimez le fichier du système de fichiers. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Bonnes pratiques pour une application](../luis-concept-best-practices.md)
+> [Meilleures pratiques pour une application](../luis-concept-best-practices.md)

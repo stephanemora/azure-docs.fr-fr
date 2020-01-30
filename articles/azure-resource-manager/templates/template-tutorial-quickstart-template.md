@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99eb1581c03732691af5eaf9f482ca4ba0605863
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0feb0a1a682328f1e23a7d800eb4f5653a6acdd1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471134"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765418"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Tutoriel : Utiliser les modèles de démarrage rapide Azure
 
@@ -26,7 +26,7 @@ Vous devez disposer de Visual Studio Code avec l’extension Outils Resource Man
 
 À la fin du précédent tutoriel, votre modèle présentait le code JSON suivant :
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json":::
 
 Ce modèle fonctionne pour le déploiement de comptes de stockage et de plans App Service, mais vous aimeriez peut-être y ajouter un site web. Vous pouvez utiliser des modèles prédéfinis pour découvrir rapidement le code JSON nécessaire au déploiement d’une ressource.
 
@@ -45,7 +45,7 @@ Ce modèle fonctionne pour le déploiement de comptes de stockage et de plans Ap
 
 Fusionnez le modèle de démarrage rapide avec le modèle existant :
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
 Le nom de l’application web doit être unique dans Azure. Pour éviter d’avoir des noms en double, la variable **webAppPortalName** a été mise à jour en passant de **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** à **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** .
 

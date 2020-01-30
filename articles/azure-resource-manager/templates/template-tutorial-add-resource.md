@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471674"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765585"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Tutoriel : Ajouter une ressource à votre modèle Resource Manager
 
@@ -28,7 +28,7 @@ Pour ajouter une définition de compte de stockage au modèle existant, examinez
 
 Remplacez **{provide-unique-name}** par un nom de compte de stockage unique. Le nom du compte de stockage doit être unique dans Azure. Le nom ne doit contenir que des lettres minuscules ou des chiffres. Il ne doit pas compter plus de 24 caractères. Vous pouvez essayer un modèle de nommage, par exemple en utilisant **store1** comme préfixe et le faisant suivre de vos initiales et de la date du jour. Ainsi, le nom que vous utilisez peut ressembler à **store1abc09092019**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json?range=1-19&highlight=5-17)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
 Trouver un nom unique pour un compte de stockage n’est pas facile, et ne fonctionne pas bien dans l’automatisation des déploiements à grande échelle. Plus loin dans cette série de tutoriels, vous utiliserez des fonctionnalités de modèle qui aident à la création d’un nom unique.
 

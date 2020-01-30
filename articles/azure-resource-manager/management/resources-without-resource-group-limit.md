@@ -2,13 +2,13 @@
 title: Ressources sans limite du nombre à 800
 description: Répertorie les types de ressources Azure qui peuvent avoir plus de 800 instances dans un groupe de ressources.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: c4f452a13c2059c02bf675ca4fe80243257183d5
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 01/23/2020
+ms.openlocfilehash: 42e8ddeebcd1dda4fc67e4e7be137c5e01decdf4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659319"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715629"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Ressources non limitées à 800 instances par groupe de ressources
 
@@ -26,6 +26,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
+* verificationKeys
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -82,6 +83,7 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
+* autoManagedVmConfigurationProfiles
 * configurationProfileAssignments
 * guestConfigurationAssignments
 * software
@@ -178,6 +180,10 @@ Pour certains types de ressources, vous devez contacter le support pour que la l
 * apiManagementAccounts/apis
 * sites
 
+## <a name="microsoftinsights"></a>microsoft.insights
+
+* metricalerts
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour une liste complète des quotas et des limites, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+Pour une liste complète des quotas et des limites, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](azure-subscription-service-limits.md).

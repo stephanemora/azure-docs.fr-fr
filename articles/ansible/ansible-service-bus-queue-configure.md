@@ -4,14 +4,14 @@ description: Découvrez comment créer une file d’attente Azure Service Bus à
 keywords: ansible, azure, devops, bash, playbook, service bus, file d’attente
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 9903419a52be61cd7ec74214858bce81df7e727e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8ba4c2296d903c4f35aa36eb92dfbc3b56ec4b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155810"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713223"
 ---
-# <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Didacticiel : Configurer des files d’attente dans Azure Service Bus à l’aide d’Ansible
+# <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Tutoriel : Configurer des files d’attente dans Azure Service Bus à l’aide d’Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -23,18 +23,18 @@ ms.locfileid: "74155810"
 >
 > * Créer une file d’attente
 > * Créer une stratégie SAS
-> * Récupérer des informations d’espace de noms
+> * Récupérer les informations de l’espace de noms
 > * Récupérer des informations de file d’attente
-> * Révoquer la stratégie SAS de file d’attente
+> * Révoquer la stratégie SAP de file d’attente
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-the-service-bus-queue"></a>Créer la file d’attente Service Bus
 
-L’exemple de code de playbook crée les ressources suivantes :
+Le code de l’exemple de playbook crée les ressources suivantes :
 - Groupe de ressources Azure
 - Espace de noms Service Bus dans le groupe de ressources
 - File d’attente Service Bus avec l’espace de noms
@@ -68,7 +68,7 @@ Enregistrez le playbook suivant en tant que `servicebus_queue.yml` :
           var: queue
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_queue.yml
@@ -90,7 +90,7 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_policy.yml` :
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -102,7 +102,7 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_policy.yml` :
           var: policy
 ```
 
-Avant d’exécuter le playbook, reportez-vous aux notes suivantes :
+Avant d’exécuter le playbook, consultez les notes suivantes :
 - La valeur `rights` représente le privilège dont dispose un utilisateur avec la file d’attente. Spécifiez l’une des valeurs suivantes : `manage`, `listen`, `send` ou `listen_send`.
 
 Exécutez le playbook à l’aide de la commande `ansible-playbook` :
@@ -173,7 +173,7 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_info.yml` :
 Avant d’exécuter le playbook, consultez les notes suivantes :
 - La valeur `show_sas_policies` indique s’il faut afficher les stratégies SAP sous la file d’attente spécifiée. Par défaut, cette valeur est `False` afin d’éviter toute surcharge réseau supplémentaire.
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
@@ -193,7 +193,7 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_policy_delete.yml`
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -202,13 +202,13 @@ Enregistrez le playbook suivant en tant que `servicebus_queue_policy_delete.yml`
           state: absent
 ```
 
-Exécutez le playbook avec la commande `ansible-playbook` :
+Exécutez le playbook à l’aide de la commande `ansible-playbook` :
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, supprimez les ressources créées dans cet article. 
 
@@ -248,4 +248,4 @@ ansible-playbook cleanup.yml
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"] 
-> [Tutoriel : Configurer une rubrique dans Azure Service Bus à l’aide d’Ansible](ansible-service-bus-topic-configure.md)
+> [Tutoriel : Configurer une rubrique dans Azure Service Bus à l’aide d’Ansible](ansible-service-bus-topic-configure.md)

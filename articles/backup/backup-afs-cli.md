@@ -3,12 +3,12 @@ title: Sauvegarder des partages de fichiers Azure à l'aide d'Azure CLI
 description: Apprenez à utiliser l'interface de ligne de commande Azure (Azure CLI) pour sauvegarder des partages de fichiers Azure dans le coffre Recovery Services
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 10ae6d88e8a40ba4175e664ed338f0a02be7a7ca
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294871"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844039"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Sauvegarder des partages de fichiers Azure à l'aide de l'interface de ligne de commande
 
@@ -104,7 +104,7 @@ Si vous souhaitez déclencher une sauvegarde à la demande de votre partage de f
 
 Pour déclencher une sauvegarde à la demande, vous devez définir les paramètres suivants :
 
-* **--container-name** est le nom du compte de stockage hébergeant le partage de fichiers. Pour récupérer le **nom** ou **nom convivial** de votre conteneur, utilisez la commande [az backup container list](https://docs.microsoft.com/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
+* **--container-name** est le nom du compte de stockage hébergeant le partage de fichiers. Pour récupérer le **nom** ou **nom convivial** de votre conteneur, utilisez la commande [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list).
 * **--item-name** est le nom du partage de fichiers pour lequel vous souhaitez déclencher une sauvegarde à la demande. Pour récupérer le **nom** ou **nom convivial** de votre élément sauvegardé, utilisez la commande [az backup item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list).
 * **--retain-until** permet de spécifier la date jusqu'à laquelle vous souhaitez conserver le point de récupération. La valeur doit être définie au format UTC (jj-mm-aaaa).
 

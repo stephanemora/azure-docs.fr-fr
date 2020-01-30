@@ -4,12 +4,12 @@ description: Découvrez comment Azure App Service met à jour le système d’ex
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688570"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846243"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Système d’exploitation et mise à jour corrective du runtime dans Azure App Service
 
@@ -83,13 +83,14 @@ Le tableau suivant indique comment afficher les versions de Windows et du runtim
 | Version PHP | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `php --version` |
 | Version Node.js par défaut | Dans le [Cloud Shell](../cloud-shell/overview.md), exécutez la commande suivante : <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Version Python | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `python --version` |  
+| Version de Java | Dans `https://<appname>.scm.azurewebsites.net/DebugConsole`, exécutez la commande suivante dans l’invite de commandes : <br> `java -version` |  
 
 > [!NOTE]  
 > L’accès à l’emplacement de registre `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, où sont stockées les informations sur les [correctifs KB](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), est verrouillé.
 >
 >
 
-## <a name="more-resources"></a>Autres ressources
+## <a name="more-resources"></a>Plus de ressources
 
 [Centre de gestion de la confidentialité : Sécurité](https://www.microsoft.com/en-us/trustcenter/security)  
 [ASP.NET Core 64 bits sur Azure App Service](https://gist.github.com/glennc/e705cd85c9680d6a8f1bdb62099c7ac7)

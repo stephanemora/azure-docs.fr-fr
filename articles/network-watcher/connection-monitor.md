@@ -3,8 +3,7 @@ title: 'Tutoriel : Superviser la communication réseau à l’aide du portail A
 description: Dans ce tutoriel, découvrez comment superviser la communication réseau entre deux machines virtuelles avec la fonctionnalité de supervision de connexion d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419695"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834652"
 ---
-# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Didacticiel : Superviser la communication réseau entre deux machines virtuelles à l’aide du portail Azure
+# <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : Superviser la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
-Il peut être essentiel pour votre organisation que la communication soit efficace entre une machine virtuelle et un point de terminaison comme une autre machine virtuelle. Parfois, des modifications de configuration sont introduites et mettent en péril cette communication. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Il peut être essentiel pour votre organisation que la communication soit efficace entre une machine virtuelle et un point de terminaison comme une autre machine virtuelle. Parfois, des modifications de configuration sont introduites et mettent en péril cette communication. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer deux machines virtuelles
@@ -37,7 +36,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-vms"></a>Créer des machines virtuelles
 
@@ -51,11 +50,11 @@ Créez deux machines virtuelles.
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVm1|
+    |Name|myVm1|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Sélectionnez votre abonnement.|
-    |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
+    |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
@@ -74,7 +73,7 @@ Réeffectuez les étapes indiquées dans [Créer la première machine virtuelle]
 |Étape|Paramètre|Valeur|
 |---|---|---|
 | 1 | Sélectionner une version de **Ubuntu Server** |                                                                         |
-| 3 | Nom                                  | myVm2                                                                   |
+| 3 | Name                                  | myVm2                                                                   |
 | 3 | Type d'authentification                   | Collez votre clé publique SSH ou sélectionnez **Mot de passe**, puis entrez un mot de passe. |
 | 3 | Resource group                        | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**.                 |
 | 6 | Extensions                            | **Agent Network Watcher pour Linux**                                             |
@@ -93,7 +92,7 @@ Créez un moniteur de connexion pour surveiller la communication sur le port TCP
 
     | Paramètre                  | Valeur               |
     | ---------                | ---------           |
-    | Nom                     | myVm1-myVm2(22)     |
+    | Name                     | myVm1-myVm2(22)     |
     | Source                   |                     |
     | Machine virtuelle          | myVm1               |
     | Destination              |                     |
@@ -115,7 +114,7 @@ Créez un moniteur de connexion pour surveiller la communication sur le port TCP
 
     Notez les informations suivantes :
 
-    | Item                     | Valeur                      | Détails                                                     |
+    | Élément                     | Valeur                      | Détails                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Statut                   | Accessible                  | Vous permet de savoir si le point de terminaison est accessible ou non.|
     | DURÉE MOY. DES BOUCLES          | Vous indique la durée des boucles pour établir la connexion, en millisecondes. Le moniteur de connexion sonde la connexion toutes les 60 secondes, pour que vous puissiez surveiller la latence au fil du temps.                                         |
@@ -152,7 +151,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
     | Plages de ports de destination | 22             |
     | Action                  | Deny           |
     | Priority                | 100            |
-    | Nom                    | DenySshInbound |
+    | Name                    | DenySshInbound |
 
 5. Étant donné que le moniteur de connexion effectue un sondage toutes les 60 secondes, patientez quelques minutes, puis dans la partie gauche du portail, sélectionnez **Network Watcher**, puis **Moniteur de connexion**, puis resélectionnez le moniteur **myVm1-myVm2(22)** . Les résultats sont à présent différents, comme l’illustre l’image suivante :
 
@@ -164,7 +163,7 @@ Par défaut, Azure permet la communication sur tous les ports entre les machines
 
     Si vous ne saviez pas que quelqu’un avait implémenté la règle de sécurité que vous avez créée à l’étape 4, vous apprendriez du moniteur de connexion que cette règle est la cause du problème de communication. Vous pourriez alors la modifier, la remplacer ou la supprimer pour rétablir la communication entre les machines virtuelles.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que toutes les ressources qu’il contient :
 

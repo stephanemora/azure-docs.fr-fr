@@ -1,20 +1,20 @@
 ---
-title: 'Didacticiel : Ingérer des données de supervision dans Azure Data Explorer sans une seule ligne de code'
+title: 'Tutoriel : Ingérer des données de supervision dans Azure Data Explorer sans une seule ligne de code'
 description: Dans ce tutoriel, vous allez apprendre à ingérer des données de supervision dans Azure Data Explorer sans une seule ligne de code et découvrir comment interroger ces données.
 author: orspod
 ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 11/17/2019
-ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 01/29/2020
+ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995930"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836557"
 ---
-# <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Didacticiel : Ingérer et interroger des données de supervision dans Azure Data Explorer 
+# <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutoriel : Ingérer et interroger des données de supervision dans Azure Data Explorer 
 
 Ce tutoriel va vous apprendre à ingérer des données de journaux de diagnostic et d’activité dans un cluster Azure Data Explorer sans écrire de code. Avec cette méthode d’ingestion simple, vous pouvez commencer rapidement à interroger Azure Data Explorer pour l’analyse de données.
 
@@ -30,7 +30,7 @@ Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!NOTE]
 > Créez toutes les ressources dans le même emplacement ou la même région Azure. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 * [Un cluster et une base de données Azure Data Explorer](create-cluster-database-portal.md). Dans ce tutoriel, le nom de la base de données est *TestDatabase*.
@@ -44,7 +44,7 @@ Visualisez et interprétez les données fournies par les métriques de diagnosti
 Les métriques et journaux de diagnostic Azure sont émis par un service Azure et fournissent des données sur le fonctionnement de ce service. 
 
 # <a name="diagnostic-metricstabdiagnostic-metrics"></a>[Métriques de diagnostic](#tab/diagnostic-metrics)
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Les métriques de diagnostic sont agrégées avec un fragment de temps de 1 minute. Voici un exemple de schéma d’événement de métrique Azure Data Explorer pour la durée d’une requête :
 
@@ -78,7 +78,7 @@ Les métriques de diagnostic sont agrégées avec un fragment de temps de 1 min
 ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[Journaux de diagnostic](#tab/diagnostic-logs)
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Voici un exemple de [journal d’ingestion des diagnostics](using-diagnostic-logs.md#diagnostic-logs-schema) Azure Data Explorer :
 
@@ -134,7 +134,7 @@ Voici un exemple de [journal d’ingestion des diagnostics](using-diagnostic-log
 }
 ```
 # <a name="activity-logstabactivity-logs"></a>[Journaux d’activité](#tab/activity-logs)
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Les journaux d’activité Azure sont des journaux de niveau d’abonnement qui fournissent un insight des opérations effectuées sur les ressources de votre abonnement. Voici un exemple d’événement de journal d’activité pour une opération de vérification d’accès :
 
@@ -330,7 +330,7 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
 2. Ajoutez la [stratégie de mise à jour](/azure/kusto/concepts/updatepolicy) à la table cible. Cette stratégie exécute automatiquement la requête sur toutes les nouvelles données ingérées dans la table de données intermédiaire *DiagnosticRawRecords*, et ingère ses résultats dans la table *DiagnosticMetrics* :
 
     ```kusto
-    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[Journaux de diagnostic](#tab/diagnostic-logs)
@@ -344,7 +344,7 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
         | mv-expand events = Records
         | where isnotempty(events.operationName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Result = tostring(events.resultType),
@@ -363,7 +363,7 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
 2. Ajoutez la [stratégie de mise à jour](/azure/kusto/concepts/updatepolicy) à la table cible. Cette stratégie exécute automatiquement la requête sur toutes les nouvelles données ingérées dans la table de données intermédiaire *DiagnosticRawRecords*, et ingère ses résultats dans la table *DiagnosticLogs* :
 
     ```kusto
-    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="activity-logstabactivity-logs"></a>[Journaux d’activité](#tab/activity-logs)
@@ -376,7 +376,7 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Category = tostring(events.category),
@@ -393,7 +393,7 @@ Pour mapper les données des journaux d’activité à la table, utilisez la req
 2. Ajoutez la [stratégie de mise à jour](/azure/kusto/concepts/updatepolicy) à la table cible. Cette stratégie exécute automatiquement la requête sur toutes les données récemment ingérées dans la table de données intermédiaire *ActivityLogsRawRecords*, et ingère ses résultats dans la table *ActivityLogs* :
 
     ```kusto
-    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 ---
 

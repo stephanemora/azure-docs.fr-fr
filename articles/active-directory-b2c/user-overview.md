@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: f9573f4d226df4eb6068af679f2eb45dc87c7e40
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620454"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840058"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Vue d’ensemble des comptes d’utilisateur dans Azure Active Directory B2C
 
@@ -49,21 +49,21 @@ Lorsque vous ajoutez un nouveau compte professionnel, vous devez prendre en comp
 
 Vous pouvez utiliser les informations suivantes pour créer un nouveau compte professionnel :
 
-- [Portail Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Mettre à jour un profil utilisateur
 
 Vous pouvez utiliser les informations suivantes pour mettre à jour le profil d’un utilisateur :
 
-- [Portail Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Réinitialiser un mot de passe pour un utilisateur
 
 Vous pouvez utiliser les informations suivantes pour réinitialiser le mot de passe d’un utilisateur :
 
-- [Portail Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Utilisateur invité
@@ -76,12 +76,12 @@ Vous pouvez également utiliser l’[API Microsoft Graph](https://docs.microsoft
 
 ## <a name="consumer-user"></a>Utilisateur consommateur
 
-L’utilisateur consommateur peut se connecter aux applications sécurisées par Azure AD B2C, mais il ne peut pas accéder aux ressources Azure telles que le portail Azure. L’utilisateur consommateur peut utiliser un compte local ou des comptes fédérés, tels que Facebook ou Twitter. Pour créer un compte de consommateur, on peut utiliser un [flux utilisateur d’inscription ou de connexion](../active-directory-b2c/active-directory-b2c-reference-policies.md), l’API Graph Azure AD ou le Portail Azure.
+L’utilisateur consommateur peut se connecter aux applications sécurisées par Azure AD B2C, mais il ne peut pas accéder aux ressources Azure telles que le portail Azure. L’utilisateur consommateur peut utiliser un compte local ou des comptes fédérés, tels que Facebook ou Twitter. Pour créer un compte de consommateur, on peut utiliser un [flux utilisateur d’inscription ou de connexion](user-flow-overview.md), l’API Graph Azure AD ou le Portail Azure.
 
-Vous pouvez spécifier les données qui sont collectées lorsqu’un compte d’utilisateur consommateur est créé à l’aide des attributs d’utilisateur personnalisés. Pour plus d’informations, consultez [Définir des attributs personnalisés dans Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
+Vous pouvez spécifier les données qui sont collectées lorsqu’un compte d’utilisateur consommateur est créé à l’aide des attributs d’utilisateur personnalisés. Pour plus d’informations, consultez [Définir des attributs personnalisés dans Azure Active Directory B2C](user-flow-custom-attributes.md).
 
-Vous pouvez utiliser les informations contenues dans la section **Créer des comptes d’utilisateurs consommateurs** de la rubrique [Utiliser l’API Azure AD Graph](active-directory-b2c-devquickstarts-graph-dotnet.md) pour créer un compte de consommateur Azure AD B2C. Vous pouvez également utiliser les informations contenues dans la section **Mettre à jour les comptes d’utilisateurs consommateurs** du même article, pour gérer les propriétés du compte.
+Vous pouvez utiliser les informations contenues dans la section **Créer des comptes d’utilisateurs consommateurs** de la rubrique [Utiliser l’API Azure AD Graph](manage-user-accounts-graph-api.md) pour créer un compte de consommateur Azure AD B2C. Vous pouvez également utiliser les informations contenues dans la section **Mettre à jour les comptes d’utilisateurs consommateurs** du même article, pour gérer les propriétés du compte.
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrer des comptes d’utilisateurs consommateurs
 
-Vous pouvez avoir besoin de migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. Pour plus d’informations, consultez [Migration utilisateur](active-directory-b2c-user-migration.md) ou [Migrer des utilisateurs avec des identités de réseaux sociaux](active-directory-b2c-social-migration.md).
+Vous pouvez avoir besoin de migrer des comptes d’utilisateur existants de n’importe quel fournisseur d’identité vers Azure AD B2C. Pour plus d’informations, consultez [Migration utilisateur](user-migration.md) ou [Migrer des utilisateurs avec des identités de réseaux sociaux](migrate-social-identities.md).

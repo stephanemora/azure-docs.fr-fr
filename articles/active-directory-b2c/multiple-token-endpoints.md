@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950984"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840398"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrer une API web OWIN vers b2clogin.com
 
@@ -29,11 +29,11 @@ Les sections suivantes présentent un exemple d’activation de plusieurs émett
 > [!NOTE]
 > Cet article s’adresse aux clients Azure AD B2C ayant actuellement des API et des applications déployées qui font référence à `login.microsoftonline.com` et qui souhaitent migrer vers le point de terminaison `b2clogin.com` recommandé. Si vous configurez une nouvelle application, utilisez [b2clogin.com](b2clogin.md) comme indiqué.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de poursuivre les étapes de cet article, vous devez disposer des ressources Azure AD B2C suivantes :
 
-* [Flux d’utilisateurs](tutorial-create-user-flows.md) ou [stratégies personnalisées](active-directory-b2c-get-started-custom.md) créées dans votre locataire
+* [Flux d’utilisateurs](tutorial-create-user-flows.md) ou [stratégies personnalisées](custom-policy-get-started.md) créées dans votre locataire
 
 ## <a name="get-token-issuer-endpoints"></a>Obtenir les points de terminaison d’émetteur de jeton
 
@@ -127,7 +127,7 @@ Par exemple, vous pouvez configurer l’exemple d’application Web pour utilise
 
 Modifiez la valeur `ida:AadInstance` dans le fichier *Web.config* de TaskWebApp afin qu’elle fasse référence à `{your-b2c-tenant-name}.b2clogin.com` à la place de `login.microsoftonline.com`.
 
-Avant :
+Avant :
 
 ```xml
 <!-- Old value -->
@@ -147,7 +147,7 @@ Lorsque les chaînes de point de terminaison sont construites lors de l’exécu
 
 Cet article a présenté une méthode de configuration d’une API web qui implémente l’intergiciel Microsoft OWIN (Katana) afin d’accepter des jetons de plusieurs points de terminaison d’émetteur. Comme vous pouvez le constater, il existe plusieurs autres chaînes dans les fichiers *Web.Config* des projets TaskService et TaskWebApp qui doivent être modifiés si vous souhaitez générer et exécuter ces projets sur votre propre locataire. Vous êtes invité à modifier les projets de manière appropriée si vous souhaitez les voir en action. Toutefois, une procédure pas à pas complète n’entre pas dans le cadre de cet article.
 
-Pour plus d’informations sur les différents types de jetons de sécurité émis par Azure AD B2C, consultez [Vue d’ensemble des jetons dans Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Pour plus d’informations sur les différents types de jetons de sécurité émis par Azure AD B2C, consultez [Vue d’ensemble des jetons dans Azure Active Directory B2C](tokens-overview.md).
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip

@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f7122035f8d70cb91f4ec4f64e1dd4f7b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949838"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76839089"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passer un jeton d’accès par le biais d’une stratégie personnalisée à une application dans Azure Active Directory B2C
 
-Une [stratégie personnalisée](active-directory-b2c-get-started-custom.md) dans Azure AD B2C (Azure Active Directory B2C) permet aux utilisateurs de votre application de s’inscrire ou de se connecter à un fournisseur d’identité. Quand cela se produit, Azure AD B2C reçoit un [jeton d’accès](active-directory-b2c-reference-tokens.md) du fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous ajoutez un type de revendication et une revendication de sortie à votre stratégie personnalisée pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C.
+Une [stratégie personnalisée](custom-policy-get-started.md) dans Azure AD B2C (Azure Active Directory B2C) permet aux utilisateurs de votre application de s’inscrire ou de se connecter à un fournisseur d’identité. Quand cela se produit, Azure AD B2C reçoit un [jeton d’accès](tokens-overview.md) du fournisseur d’identité. Azure AD B2C utilise ce jeton pour récupérer des informations sur l’utilisateur. Vous ajoutez un type de revendication et une revendication de sortie à votre stratégie personnalisée pour passer le jeton aux applications que vous inscrivez dans Azure AD B2C.
 
-Azure AD B2C prend en charge la transmission du jeton d'accès des fournisseurs d'identité [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) et [OpenID Connect](active-directory-b2c-reference-oidc.md). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
+Azure AD B2C prend en charge la transmission du jeton d'accès des fournisseurs d'identité [OAuth 2.0](authorization-code-flow.md) et [OpenID Connect](openid-connect.md). Pour tous les autres fournisseurs d’identité, la revendication est retournée vide.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Votre stratégie personnalisée est configurée avec un fournisseur d’identité OAuth 2.0 ou Open ID Connect.
 
@@ -84,7 +84,7 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
 
 ### <a name="upload-the-files"></a>Téléchargement des fichiers
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le filtre **Répertoire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Infrastructure d’expérience d’identité**.
@@ -105,4 +105,4 @@ Quand vous testez vos applications dans Azure AD B2C, il peut être utile de re
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez plus en détail les jetons dans les [informations de référence sur les jetons Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Découvrez plus en détail les jetons dans les [informations de référence sur les jetons Azure Active Directory B2C](tokens-overview.md).

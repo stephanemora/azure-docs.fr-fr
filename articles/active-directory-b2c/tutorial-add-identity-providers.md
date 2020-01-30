@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Ajouter des fournisseurs d’identité à vos applications'
+title: 'Tutoriel : Ajouter des fournisseurs d’identité à vos applications'
 titleSuffix: Azure AD B2C
 description: Découvrez comment ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C à l’aide du portail Azure.
 services: active-directory-b2c
@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a49eae95628645f6586a637c103433b122b5d287
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 2bc02433be9ee7955b0e10ac659ee40e315e5a5e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950950"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840160"
 ---
-# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Didacticiel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
+# <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutoriel : Ajouter des fournisseurs d’identité à vos applications dans Azure Active Directory B2C
 
-Dans vos applications, vous souhaiterez peut-être permettre aux utilisateurs de se connecter avec différents fournisseurs d’identité. Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Vous pouvez ajouter des fournisseurs d’identité qui sont pris en charge par Azure Active Directory B2C (Azure AD B2C) à votre [flux d’utilisateurs](active-directory-b2c-reference-policies.md) à l’aide du portail Azure.
+Dans vos applications, vous souhaiterez peut-être permettre aux utilisateurs de se connecter avec différents fournisseurs d’identité. Un *fournisseur d’identité* crée, entretient et gère les informations d’identité tout en fournissant des services d’authentification pour les applications. Vous pouvez ajouter des fournisseurs d’identité qui sont pris en charge par Azure Active Directory B2C (Azure AD B2C) à votre [flux d’utilisateurs](user-flow-overview.md) à l’aide du portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
@@ -29,13 +29,13 @@ Dans cet article, vous apprendrez comment :
 > * Ajouter les fournisseurs d’identité dans votre locataire
 > * Ajouter les fournisseurs d’identité à votre flux d’utilisateur
 
-Vous utilisez généralement un seul fournisseur d’identité dans vos applications, mais vous pouvez en ajouter d’autres. Ce tutoriel vous montre comment ajouter un fournisseur d’identité Azure AD et un fournisseur d’identité Facebook à votre application. L’ajout de ces deux fournisseurs d’identité à votre application est facultatif. Vous pouvez également ajouter d’autres fournisseurs d’identité, comme [Amazon](active-directory-b2c-setup-amzn-app.md), [GitHub](active-directory-b2c-setup-github-app.md), [Google](active-directory-b2c-setup-goog-app.md), [LinkedIn](active-directory-b2c-setup-li-app.md), [Microsoft](active-directory-b2c-setup-msa-app.md) ou [Twitter](active-directory-b2c-setup-twitter-app.md).
+Vous utilisez généralement un seul fournisseur d’identité dans vos applications, mais vous pouvez en ajouter d’autres. Ce tutoriel vous montre comment ajouter un fournisseur d’identité Azure AD et un fournisseur d’identité Facebook à votre application. L’ajout de ces deux fournisseurs d’identité à votre application est facultatif. Vous pouvez également ajouter d’autres fournisseurs d’identité, comme [Amazon](identity-provider-amazon.md), [GitHub](identity-provider-github.md), [Google](identity-provider-google.md), [LinkedIn](identity-provider-linkedin.md), [Microsoft](identity-provider-microsoft-account.md) ou [Twitter](identity-provider-twitter.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-[Créez un flux d’utilisateur](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s’inscrire et de se connecter à votre application.
+[Créez un flux d'utilisateurs](tutorial-create-user-flows.md) pour permettre aux utilisateurs de s'inscrire et de se connecter à votre application.
 
 ## <a name="create-applications"></a>Créer des applications
 
@@ -45,7 +45,7 @@ Les applications de fournisseurs d’identité offrent l’identificateur et la 
 
 Pour autoriser la connexion des utilisateurs à partir d’Azure AD, vous devez inscrire une application au sein du locataire Azure AD. Le locataire Azure AD n’est pas identique à votre locataire Azure AD B2C.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD en sélectionnant le filtre **Annuaire + abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire Azure AD.
 1. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 1. Sélectionnez **Nouvelle inscription**.
@@ -133,7 +133,7 @@ Après avoir créé l’application pour le fournisseur d’identité que vous s
 
 Dans le tutoriel que vous avez suivi dans le cadre des prérequis, vous avez créé un flux d’utilisateur pour l’inscription et la connexion nommé *B2C_1_signupsignin1*. Dans cette section, vous ajoutez les fournisseurs d’identité au flux d’utilisateur *B2C_1_signupsignin1*.
 
-1. Sélectionnez **Flux d’utilisateurs (stratégies)** , puis sélectionnez le flux utilisateur *B2C_1_signupsignin1*.
+1. Sélectionnez **Flux d'utilisateurs (stratégies)** , puis choisissez le flux d'utilisateurs *B2C_1_signupsignin1*.
 2. Sélectionnez **Fournisseurs d’identité**, sélectionnez les fournisseurs d’identité **Facebook** et **Contoso Azure AD** que vous avez ajoutés.
 3. Sélectionnez **Enregistrer**.
 

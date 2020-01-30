@@ -9,20 +9,21 @@ ms.date: 11/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 39793d65600ad57689ffac17ef83823f5d19b591
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 4236b7ad3b15d1bb58a146f5905d226e0c3833d5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561069"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760945"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Didacticiel : Développer un module IoT Edge en C pour appareils Linux
+# <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>Tutoriel : Développer un module IoT Edge en C pour appareils Linux
 
-Utilisez Visual Studio Code pour écrire du code C et le déployer sur un appareil Linux exécutant Azure IoT Edge. 
+Utilisez Visual Studio Code pour écrire du code C et le déployer sur un appareil Linux exécutant Azure IoT Edge.
 
-Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Vous pouvez utiliser des modules IoT Edge pour déployer du code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
+>
 > * Utiliser Visual Studio Code pour créer un module IoT Edge en C
 > * Utiliser Visual Studio Code et Docker pour créer une image Docker et la publier dans un registre de conteneurs
 > * Déployer le module sur votre appareil IoT Edge
@@ -36,16 +37,16 @@ Le module IoT Edge que vous créez dans ce tutoriel filtre les données de temp�
 
 Ce didacticiel montre comment développer un module en **C** à l’aide de **Visual Studio Code**, et comment le déployer sur un **appareil Linux**. Si vous développez des modules pour appareils Windows, voir [Développer un module IoT Edge en C pour appareils Windows](tutorial-c-module-windows.md).
 
-Le tableau suivant présente les options dont vous disposez pour développer et déployer des modules C pour Linux : 
+Le tableau suivant présente les options dont vous disposez pour développer et déployer des modules C pour Linux :
 
-| C | Visual Studio Code | Visual Studio | 
+| C | Visual Studio Code | Visual Studio |
 | - | ------------------ | ------------- |
 | **Linux AMD64** | ![Utiliser VS Code pour les modules C sur Linux AMD64](./media/tutorial-c-module/green-check.png) | ![Utiliser Visual Studio pour les modules C sur Linux AMD64](./media/tutorial-c-module/green-check.png) |
 | **Linux ARM32** | ![Utiliser VS Code pour les modules C sur Linux AMD32](./media/tutorial-c-module/green-check.png) | ![Utiliser Visual Studio pour les modules C sur Linux ARM32](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies : 
+Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède pour configurer votre environnement de développement pour le développement de conteneur Linux : [Développer des modules IoT Edge pour les appareils Linux](tutorial-develop-for-linux.md). En suivant ce tutoriel, les conditions préalables suivantes doivent être remplies :
 
 * Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure.
 * Un [appareil Linux exécutant Azure IoT Edge](quickstart-linux.md).
@@ -53,13 +54,13 @@ Avant de commencer ce tutoriel, vous devez avoir effectué celui qui précède p
 * [Visual Studio Code](https://code.visualstudio.com/) configuré avec [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) configuré pour exécuter des conteneurs Linux.
 
-Pour développer un module IoT Edge en C, installez les configurations requises supplémentaires suivantes sur votre machine de développement : 
+Pour développer un module IoT Edge en C, installez les configurations requises supplémentaires suivantes sur votre machine de développement :
 
 * [Extension C/C++](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) pour Visual Studio Code.
 
 ## <a name="create-a-module-project"></a>Créer un projet de module
 
-Les étapes suivantes permettent de créer un projet de module IoT Edge en C à l’aide de Visual Studio Code et de l’extension Azure IoT Tools. Une fois le modèle de projet créé, ajoutez le nouveau code afin que le module filtre les messages sur la base des propriétés signalées. 
+Les étapes suivantes permettent de créer un projet de module IoT Edge en C à l’aide de Visual Studio Code et de l’extension Azure IoT Tools. Une fois le modèle de projet créé, ajoutez le nouveau code afin que le module filtre les messages sur la base des propriétés signalées.
 
 ### <a name="create-a-new-project"></a>Création d'un projet
 
@@ -67,9 +68,9 @@ Créez un modèle de solution C que vous pouvez personnaliser avec votre propre 
 
 1. Sélectionnez **Affichage** > **Palette de commandes** pour ouvrir la palette de commandes VS Code.
 
-2. Dans la palette de commandes, tapez et exécutez la commande **Azure: Sign in** (Azure : Se connecter) et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
+2. Dans la palette de commandes, tapez et exécutez la commande **Azure: Sign in** et suivez les instructions pour vous connecter à votre compte Azure. Si vous êtes déjà connecté, vous pouvez ignorer cette étape.
 
-3. Dans la palette de commandes, saisissez et exécutez la commande **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge : Nouvelle solution IoT Edge). Suivez les invites de la palette de commandes pour créer votre solution.
+3. Dans la palette de commandes, saisissez et exécutez la commande **Azure IoT Edge: New IoT Edge solution**. Suivez les invites de la palette de commandes pour créer votre solution.
 
    | Champ | Valeur |
    | ----- | ----- |
@@ -78,7 +79,7 @@ Créez un modèle de solution C que vous pouvez personnaliser avec votre propre 
    | Select module template (Sélectionner un modèle de module) | Choisissez **Module C**. |
    | Provide a module name (Nommer le module) | Nommez votre module **CModule**. |
    | Provide Docker image repository for the module (Indiquer le référentiel d’images Docker pour le module) | Un référentiel d’images comprend le nom de votre registre de conteneurs et celui de votre image conteneur. L’image conteneur est préremplie avec le nom que vous avez indiqué à la dernière étape. Remplacez **localhost:5000** par la valeur de serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer le serveur de connexion à partir de la page Vue d’ensemble de votre registre de conteneurs dans le Portail Azure. <br><br> Le référentiel d’images final ressemble à ceci : \<nom_registre\>.azurecr.io/cmodule. |
- 
+
    ![Fourniture du référentiel d’images Docker](./media/tutorial-c-module/repository.png)
 
 ### <a name="add-your-registry-credentials"></a>Ajouter les informations d’identification de votre registre
@@ -91,15 +92,15 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
 ### <a name="select-your-target-architecture"></a>Sélectionner votre architecture cible
 
-Visual Studio Code peut développer des modules C pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut. 
+Visual Studio Code peut développer des modules C pour les appareils Linux AMD64 et Linux ARM32v7. Vous devez sélectionner l’architecture que vous ciblez avec chaque solution, car le conteneur est généré et s’exécute différemment pour chaque type d’architecture. Linux AMD64 est la valeur par défaut.
 
-1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge: Définir la plateforme cible par défaut pour la solution Edge**, ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre. 
+1. Ouvrez la palette de commandes et recherchez **Azure IoT Edge: Set Default Target Platform for Edge Solution** (Azure IoT Edge : définir la plateforme cible par défaut pour la solution Edge), ou sélectionnez l’icône de raccourci dans la barre latérale en bas de la fenêtre.
 
-2. Dans la palette de commandes, sélectionnez l’architecture cible dans la liste des options. Pour ce tutoriel, comme nous utilisons une machine virtuelle Ubuntu en tant qu’appareil IoT Edge, ce dernier conservera la valeur par défaut **amd64**. 
+2. Dans la palette de commandes, sélectionnez l’architecture cible dans la liste des options. Pour ce tutoriel, comme nous utilisons une machine virtuelle Ubuntu en tant qu’appareil IoT Edge, nous allons conserver la valeur par défaut **amd64**.
 
 ### <a name="update-the-module-with-custom-code"></a>Mettre à jour le module avec du code personnalisé
 
-Le code du module par défaut reçoit des messages dans une file d’attente d’entrée, puis les transmet à une file d’attente de sortie. Nous allons ajouter du code supplémentaire afin que le module traite les messages en périphérie avant leur transfert vers IoT Hub. Mettez à jour le module afin qu’il analyse les données de température dans chaque message et n’envoie le message à IoT Hub que si la température dépasse un certain seuil. 
+Le code du module par défaut reçoit des messages dans une file d’attente d’entrée, puis les transmet à une file d’attente de sortie. Nous allons ajouter du code supplémentaire afin que le module traite les messages en périphérie avant leur transfert vers IoT Hub. Mettez à jour le module afin qu’il analyse les données de température dans chaque message et n’envoie le message à IoT Hub que si la température dépasse un certain seuil.
 
 1. Dans ce scénario, les données du capteur sont fournies au format JSON. Pour filtrer les messages au format JSON, importez une bibliothèque JSON pour C. Ce didacticiel utilise Parson.
 
@@ -107,7 +108,7 @@ Le code du module par défaut reçoit des messages dans une file d’attente d�
 
    2. Ouvrez **modules** > **CModule** > **CMakeLists.txt**. Au début du fichier, importez les fichiers Parson sous la forme d’une bibliothèque appelée **my_parson**.
 
-      ```
+      ```txt
       add_library(my_parson
           parson.c
           parson.h
@@ -130,7 +131,7 @@ Le code du module par défaut reçoit des messages dans une file d’attente d�
     static double temperatureThreshold = 25;
     ```
 
-1. Recherchez la fonction `CreateMessageInstance` dans le fichier main.c. Remplacez l’instruction if-else interne par le code suivant qui ajoute quelques lignes de fonctionnalités : 
+1. Recherchez la fonction `CreateMessageInstance` dans le fichier main.c. Remplacez l’instruction if-else interne par le code suivant qui ajoute quelques lignes de fonctionnalités :
 
    ```c
        if ((messageInstance->messageHandle = IoTHubMessage_Clone(message)) == NULL)
@@ -149,9 +150,9 @@ Le code du module par défaut reçoit des messages dans une file d’attente d�
        }
    ```
 
-   Les nouvelles lignes de code de l’instruction else ajoutent une propriété au message qui lui attribue une étiquette d’alerte. Ce code attribue une étiquette d’alerte à tous les messages, car nous allons ajouter une fonctionnalité qui n’envoie des messages à IoT Hub que si ceux-ci signalent des températures élevées. 
+   Les nouvelles lignes de code de l’instruction else ajoutent une propriété au message qui lui attribue une étiquette d’alerte. Ce code attribue une étiquette d’alerte à tous les messages, car nous allons ajouter une fonctionnalité qui n’envoie des messages à IoT Hub que si ceux-ci signalent des températures élevées.
 
-1. Remplacez la totalité de la fonction `InputQueue1Callback` par le code suivant. Cette fonction implémente le filtre de messagerie réel. Lorsqu’un message est reçu, il vérifie si la température signalée dépasse le seuil défini. Si c’est le cas, il transfère le message vers sa file d’attente de sortie. Si ce n’est pas le cas, il ignore le message. 
+1. Remplacez la totalité de la fonction `InputQueue1Callback` par le code suivant. Cette fonction implémente le filtre de messagerie réel. Lorsqu’un message est reçu, il vérifie si la température signalée dépasse le seuil défini. Si c’est le cas, il transfère le message vers sa file d’attente de sortie. Si ce n’est pas le cas, il ignore le message.
 
     ```c
     static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
@@ -271,7 +272,7 @@ Le code du module par défaut reçoit des messages dans une file d’attente d�
 
 1. Enregistrez le fichier main.c.
 
-1. Dans l’Explorateur VS Code, ouvrez le fichier **deployment.template.json** dans votre espace de travail de solution IoT Edge. 
+1. Dans l’Explorateur VS Code, ouvrez le fichier **deployment.template.json** dans votre espace de travail de solution IoT Edge.
 
 1. Ajoutez le jumeau de module CModule au manifeste de déploiement. Insérez le contenu JSON suivant en bas de la section `moduleContent`, après le jumeau de module `$edgeHub` :
 
@@ -294,22 +295,22 @@ Dans la section précédente, vous avez créé une solution IoT Edge et ajouté 
 1. Ouvrez le terminal VS Code en sélectionnant **Affichage** > **Terminal**.
 
 1. Connectez-vous à Docker en entrant la commande suivante dans le terminal. Connectez-vous avec le nom d’utilisateur, le mot de passe et le serveur de connexion de votre registre de conteneurs Azure. Vous pouvez récupérer ces valeurs dans la section **Clés d’accès** de votre registre dans le portail Azure.
-     
+
    ```bash
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Il se peut que vous receviez un avertissement de sécurité recommandant d’utiliser `--password-stdin`. Bien qu’il s’agisse de la bonne pratique recommandée pour les scénarios de production, elle n’est pas pertinente pour ce tutoriel. Pour plus d’informations, consultez la documentation de référence [Connexion docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
+   Il se peut que vous receviez un avertissement de sécurité recommandant d’utiliser `--password-stdin`. Bien qu’il s’agisse de la bonne pratique recommandée pour les scénarios de production, elle n’est pas pertinente pour ce tutoriel. Pour plus d’informations, consultez les informations de référence sur [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin).
 
-2. Dans l’Explorateur VS Code, cliquez avec le bouton droit sur le fichier **deployment.template.json** et sélectionnez **Build and Push IoT Edge solution** (Générer et envoyer (push) la solution IoT Edge).
+1. Dans l’Explorateur VS Code, cliquez avec le bouton droit sur le fichier **deployment.template.json** et sélectionnez **Build and Push IoT Edge solution** (Générer et envoyer (push) la solution IoT Edge).
 
-   La commande de génération et d’envoi (push) déclenche trois opérations. Tout d’abord, elle crée un dossier dans la solution appelé **config** contenant les manifestes de déploiement en entier. Il est généré à partir des informations dans le modèle de déploiement et d’autres fichiers de solution. Ensuite, elle exécute `docker build` pour générer l’image de conteneur basée sur le fichier docker correspondant à votre architecture cible. Puis, elle exécute `docker push` pour envoyer (push) le dépot d’images vers votre registre de conteneurs.
+   La commande de génération et d’envoi (push) déclenche trois opérations. Tout d’abord, elle crée un dossier dans la solution appelé **config** contenant les manifestes de déploiement en entier. Il est généré à partir des informations dans le modèle de déploiement et d’autres fichiers de solution. Ensuite, elle exécute `docker build` pour générer l’image de conteneur basée sur le fichier docker correspondant à votre architecture cible. Puis, elle exécute `docker push` pour envoyer (push) le dépôt d’images vers votre registre de conteneurs.
 
-## <a name="deploy-modules-to-device"></a>Déployer des modules vers un appareil
+## <a name="deploy-modules-to-device"></a>Déployer des modules sur un appareil
 
 Utilisez l’Explorateur de Visual Studio Code et l’extension Azure IoT Tools pour déployer le projet de module sur votre appareil IoT Edge. Vous disposez déjà d’un manifeste de déploiement préparé pour votre scénario. C ’est le fichier **deployment.json** dans le dossier config. Il vous suffit alors de sélectionner l’appareil qui recevra le déploiement.
 
-Vérifiez que votre appareil IoT Edge est opérationnel. 
+Vérifiez que votre appareil IoT Edge est opérationnel.
 
 1. Dans l’Explorateur Visual Studio Code, développez la section **Appareils Azure IoT Hub** pour accéder à votre liste d’appareil IoT.
 
@@ -327,7 +328,7 @@ Vous pouvez afficher l’état de votre appareil IoT Edge dans la section **Appa
 
 1. Dans l’explorateur Visual Studio Code, cliquez avec le bouton droit sur le nom de votre appareil IoT Edge, puis sélectionnez **Démarrer la supervision du point de terminaison d’événements intégré**.
 
-2. Affichez les messages reçus dans votre hub IoT. Les messages peuvent mettre un certain temps à arriver, car l’appareil IoT Edge doit recevoir son nouveau déploiement et démarrer tous les modules. Ensuite, les modifications que nous avons apportées au code du module CModule attendent que la température de la machine atteigne 25 degrés avant d’envoyer les messages. Le type de message **Alerte** est également ajouté à chaque message qui atteint ce seuil de température. 
+2. Affichez les messages reçus dans votre hub IoT. Les messages peuvent mettre un certain temps à arriver, car l’appareil IoT Edge doit recevoir son nouveau déploiement et démarrer tous les modules. Ensuite, les modifications que nous avons apportées au code du module CModule attendent que la température de la machine atteigne 25 degrés avant d’envoyer les messages. Le type de message **Alerte** est également ajouté à chaque message qui atteint ce seuil de température.
 
    ![Afficher les messages reçus sur IoT Hub](./media/tutorial-c-module/view-d2c-message.png)
 
@@ -335,19 +336,19 @@ Vous pouvez afficher l’état de votre appareil IoT Edge dans la section **Appa
 
 Nous avons utilisé le module CModule dans le manifeste de déploiement pour définir le seuil de température sur 25 degrés. Vous pouvez utiliser le jumeau de module pour changer cette fonctionnalité sans devoir mettre à jour le code du module.
 
-1. Dans Visual Studio Code, développez les détails de votre appareil IoT Edge pour afficher les modules Cours d’exécution. 
+1. Dans Visual Studio Code, développez les détails de votre appareil IoT Edge pour afficher les modules Cours d’exécution.
 
-2. Cliquez avec le bouton droit sur **CModule**, puis sélectionnez **Modifier le jumeau de module**. 
+2. Cliquez avec le bouton droit sur **CModule**, puis sélectionnez **Modifier le jumeau de module**.
 
-3. Recherchez **TemperatureThreshold** dans les propriétés souhaitées. Définissez sa valeur sur une nouvelle température supérieure de 5 à 10 degrés à la dernière température indiquée. 
+3. Recherchez **TemperatureThreshold** dans les propriétés souhaitées. Définissez sa valeur sur une nouvelle température supérieure de 5 à 10 degrés à la dernière température indiquée.
 
 4. Enregistrez le jumeau de module.
 
-5. Cliquez avec le bouton droit sur le volet d’édition du jumeau de module et sélectionnez **Mettre à jour le jumeau de module**. 
+5. Cliquez avec le bouton droit sur le volet d’édition du jumeau de module et sélectionnez **Mettre à jour le jumeau de module**.
 
-5. Supervisez les messages appareil-à-cloud entrants. Vous devriez voir les messages s’arrêter jusqu’à ce que le nouveau seuil de température soit atteint. 
+6. Supervisez les messages appareil-à-cloud entrants. Vous devriez voir les messages s’arrêter jusqu’à ce que le nouveau seuil de température soit atteint.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de passer à l’article recommandé suivant, vous pouvez conserver les ressources et configurations que vous avez créées afin de les réutiliser. Vous pouvez également continuer à utiliser le même appareil IoT Edge comme appareil de test.
 
@@ -355,10 +356,9 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez créé un module IoT Edge qui contient le code pour filtrer les données brutes générées par votre appareil IoT Edge. Quand vous êtes prêt à créer vos propres modules, vous pouvez en apprendre plus sur le [développement de vos propres modules IoT Edge](module-development.md) et sur le [développement de modules avec Visual Studio Code](how-to-vs-code-develop-module.md). Pour obtenir des exemples de modules IoT Edge, y compris le module de température simulé, consultez les [exemples de modules IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) et les [exemples du SDK IoT C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples). 
+Dans ce tutoriel, vous avez créé un module IoT Edge qui contient le code pour filtrer les données brutes générées par votre appareil IoT Edge. Quand vous êtes prêt à créer vos propres modules, vous pouvez en apprendre plus sur le [développement de vos propres modules IoT Edge](module-development.md) et sur le [développement de modules avec Visual Studio Code](how-to-vs-code-develop-module.md). Pour obtenir des exemples de modules IoT Edge, notamment le module de température simulé, consultez les [exemples de modules IoT Edge](https://github.com/Azure/iotedge/tree/master/edge-modules) et les [exemples du SDK IoT C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples).
 
 Vous pouvez passer aux tutoriels suivants afin de découvrir comment Azure IoT Edge peut vous aider à déployer des services cloud Azure pour traiter et analyser des données en périphérie.
 
@@ -367,4 +367,3 @@ Vous pouvez passer aux tutoriels suivants afin de découvrir comment Azure IoT E
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
 > [Service Custom Vision](tutorial-deploy-custom-vision.md)
-

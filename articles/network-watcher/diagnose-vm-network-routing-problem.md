@@ -1,11 +1,10 @@
 ---
-title: 'Didacticiel : Diagnostiquer un problème de routage réseau de machine virtuelle – portail Azure'
+title: 'Tutoriel : Diagnostiquer un problème de routage réseau de machine virtuelle – portail Azure'
 titleSuffix: Azure Network Watcher
 description: Dans ce didacticiel, vous allez découvrir comment diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide de la fonctionnalité de tronçon suivant d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,18 +15,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276043"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845205"
 ---
-# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Didacticiel : Diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
+# <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Tutoriel : Diagnostiquer un problème de routage réseau d’une machine virtuelle à l’aide du portail Azure
 
-Lorsque vous déployez une machine virtuelle (VM), Azure crée à cet effet plusieurs itinéraires par défaut. Vous pouvez créer des itinéraires personnalisés pour remplacer les itinéraires par défaut d’Azure. Il arrive qu’une machine virtuelle ne puisse pas communiquer avec d’autres ressources à cause d’un itinéraire personnalisé. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Lorsque vous déployez une machine virtuelle (VM), Azure crée à cet effet plusieurs itinéraires par défaut. Vous pouvez créer des itinéraires personnalisés pour remplacer les itinéraires par défaut d’Azure. Il arrive qu’une machine virtuelle ne puisse pas communiquer avec d’autres ressources à cause d’un itinéraire personnalisé. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle
@@ -51,11 +50,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVm|
+    |Name|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Sélectionnez votre abonnement.|
-    |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
+    |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
@@ -109,7 +108,7 @@ Azure crée automatiquement des itinéraires vers les destinations par défaut. 
 
     Toutefois, lorsque vous avez exécuté le test à l’aide de 172.31.0.100, le résultat vous a informé de l’absence de type de tronçon suivant. Comme vous pouvez le voir dans l’image précédente, même s’il existe un itinéraire par défaut pour le préfixe 172.16.0.0/12, qui inclut l’adresse 172.31.0.100, la zone **TYPE DE TRONÇON SUIVANT** est définie sur **Aucun**. Azure crée un itinéraire par défaut pour 172.16.0.0/12, mais ne spécifie pas de type de tronçon suivant tant qu’aucune raison ne motive cette spécification. Si, par exemple, vous avez ajouté la plage d’adresses 172.16.0.0/12 à l’espace d’adressage du réseau virtuel, Azure modifie la zone **TYPE DE TRONÇON SUIVANT** pour la définir sur **Réseau virtuel** pour l’itinéraire. Une vérification permet ensuite d’afficher **Réseau virtuel** comme le **TYPE DE TRONÇON SUIVANT**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que toutes les ressources qu’il contient :
 

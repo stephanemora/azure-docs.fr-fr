@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: ae5e3481d51a27b05afdb334e6e04c785a68c01a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447675"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843037"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Démarrage rapide : Ajouter des questions et des réponses à l’aide du portail QnA Maker
 
@@ -86,7 +86,7 @@ Dans cette procédure, ajoutez des questions supplémentaires.
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Ajouter des métadonnées pour filtrer les réponses
 
-L’ajout de métadonnées à une série de questions et réponses permet à votre application cliente de demander des réponses filtrées. Ce filtre est appliqué avant celui des [premier et deuxième outils de classement](../concepts/knowledge-base.md#ranker-process).
+L’ajout de métadonnées à une série de questions et réponses permet à votre application cliente de demander des réponses filtrées. Ce filtre est appliqué avant celui des [premier et deuxième outils de classement](../concepts/query-knowledge-base.md#ranker-process).
 
 1. Ajoutez la deuxième série de questions et réponses, sans les métadonnées, à partir du [premier tableau de ce guide de démarrage rapide](#qna-table), puis continuez en effectuant les étapes suivantes.
 

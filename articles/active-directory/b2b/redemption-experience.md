@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 01/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e85b0ae298589c0e0e051a24e5db89eae81db62
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f0a71da025b8b2bb571dc9b00e23bc691ecdd44c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272137"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758278"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Utilisation d'invitations Azure Active Directory B2B Collaboration
 
@@ -46,7 +46,7 @@ Comme alternative à l’e-mail d’invitation, vous pouvez donner à un invité
 
 Il existe certains cas où l’e-mail d’invitation est recommandé par rapport à un lien direct. Si ces cas particuliers sont importants pour votre organisation, nous vous conseillons d’inviter les utilisateurs par l’intermédiaire de méthodes qui envoient toujours l’e-mail d’invitation :
  - L’utilisateur n’a pas de compte Azure AD, de MSA ni de compte d’e-mail dans une organisation fédérée. À moins d’utiliser la fonctionnalité de code secret à usage unique, l’invité doit accepter l’e-mail d’invitation pour être guidé à travers les étapes de la création d’un MSA.
- - Parfois, l’objet utilisateur invité n’a pas d’adresse e-mail en raison d’un conflit avec un objet contact (par exemple, un objet contact Outlook). Dans ce cas, l’utilisateur doit cliquer sur l’URL d’échange dans l’e-mail d’invitation.
+ - Parfois, l’objet utilisateur invité n’a pas d’adresse e-mail en raison d’un conflit avec un objet contact (par exemple, un objet contact Outlook). Dans ce cas, l’utilisateur doit cliquer sur l’URL d’acceptation de l’e-mail d’invitation.
  - L’utilisateur peut se connecter avec un alias de l’adresse e-mail via laquelle il a été invité (un alias est une adresse e-mail supplémentaire associée à un compte de courrier). Dans ce cas, l’utilisateur doit cliquer sur l’URL d’acceptation de l’e-mail d’invitation.
 
 ## <a name="consent-experience-for-the-guest"></a>Expérience de consentement de l’invité

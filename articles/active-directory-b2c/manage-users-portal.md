@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 259ce2b1881c31c2558539fed34513575d193a48
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73962028"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840415"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Utiliser le portail Azure pour créer et supprimer des utilisateurs consommateurs dans Azure AD B2C
 
@@ -37,7 +37,7 @@ Cet article se concentre l’utilisation de **comptes consommateurs** sur le por
 
 ## <a name="create-a-consumer-user"></a>Créer un utilisateur consommateur
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le menu de gauche, sélectionnez **Azure AD B2C**. Ou sélectionnez **Tous les services**, puis recherchez et sélectionnez **Azure AD B2C**.
 1. Sous **Gérer**, sélectionnez **Utilisateurs**.
@@ -61,4 +61,4 @@ Pour plus de détails sur la restauration d'un utilisateur dans les 30 premiers
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour consulter des scénarios de gestion automatisée des utilisateurs, par exemple la migration d'utilisateurs d'un autre fournisseur d'identité vers votre répertoire Azure AD B2C, voir [Azure AD B2C : Migration utilisateur](active-directory-b2c-user-migration.md).
+Pour consulter des scénarios de gestion automatisée des utilisateurs, par exemple la migration d'utilisateurs d'un autre fournisseur d'identité vers votre répertoire Azure AD B2C, voir [Azure AD B2C : Migration utilisateur](user-migration.md).

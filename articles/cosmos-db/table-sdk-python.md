@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: a26e69d756c0f5b8bb26d85d2901e686aba50771
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480155"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771284"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Kit SDK d’API Table Azure Cosmos DB pour Python : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -51,13 +51,13 @@ Les nouvelles fonctionnalités et fonctions, et les optimisations sont uniquemen
 
 <br/>
 
-| Version | Date de lancement | Date de suppression |
+| Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 novembre 2017 |--- |
 | [0.37.1](#0.37.1) |05 octobre 2017 |--- |
 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Voir aussi

@@ -3,17 +3,17 @@ title: 'Tutoriel : Application Linux Python avec Postgre'
 description: Découvrez comment faire fonctionner une application Linux Python dans Azure App Service en établissant une connexion à une base de données PostgreSQL dans Azure. Django est utilisé dans ce tutoriel.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/14/2019
+ms.date: 01/23/2020
 ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: e0880cd1c16a8a0080551bbeaefe04f2f8dd705b
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 3aa5b5085a6120ca513f0aeba344e7f541f0fd72
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681022"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713415"
 ---
 # <a name="tutorial-run-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Tutoriel : Exécuter une application web Python (Django) avec PostgreSQL dans Azure App Service
 
@@ -26,7 +26,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Créer une base de données Azure Database pour PostgreSQL et y connecter une application web.
 > * Déployer l’application web sur Azure App Service.
-> * Afficher les journaux de diagnostic.
+> * Afficher les journaux de diagnostic
 > * Gérer l’application web dans le portail Azure.
 
 Vous pouvez suivre les étapes de cet article sur macOS, Linux ou Windows. Les étapes sont similaires dans la plupart des cas, bien que les différences ne soient pas détaillées dans ce tutoriel. La plupart des exemples ci-dessous utilisent une fenêtre de terminal `bash` sur Linux. 
@@ -47,6 +47,11 @@ Tout d’abord, connectez-vous à votre serveur PostgreSQL local et créez une b
 Dans une fenêtre de terminal locale, exécutez `psql` pour vous connecter à votre serveur PostgreSQL local en tant qu’utilisateur intégré `postgres`.
 
 ```bash
+sudo su - postgres
+psql
+```
+or
+```PowerShell
 psql -U postgres
 ```
 
@@ -69,7 +74,7 @@ Ensuite, configurez et exécutez l’exemple d’application web Python Django.
 
 L’exemple de dépôt [djangoapp](https://github.com/Azure-Samples/djangoapp) contient l’application de sondage [Django](https://www.djangoproject.com/) pilotée par les données que vous obtenez en suivant les étapes de l’article sur l’[écriture de votre première application Django](https://docs.djangoproject.com/en/2.1/intro/tutorial01/) dans la documentation Django.
 
-### <a name="clone-the-sample-app"></a>Cloner l’exemple d’application
+### <a name="clone-the-sample-app"></a>Clonage de l’exemple d’application
 
 Dans une fenêtre de terminal, exécutez les commandes suivantes pour cloner le dépôt de l’exemple d’application, puis accédez au nouveau répertoire de travail :
 
@@ -86,7 +91,7 @@ Créez et activez un environnement virtuel Python pour exécuter votre applicati
 python3 -m venv venv
 source venv/bin/activate
 ```
-ou
+or
 ```PowerShell
 py -3 -m venv venv
 venv\scripts\activate
@@ -97,7 +102,7 @@ Dans l’environnement `venv`, exécutez *env.sh* ou *env.ps1* pour définir les
 ```bash
 source ./env.sh
 ```
-ou
+or
 ```PowerShell
 .\env.ps1
 ```
@@ -166,7 +171,7 @@ Dans la commande suivante, remplacez *\<postgresql-name>* par un nom de serveur 
 Remplacez *\<resourcegroup-name>* et *\<region>* par le nom et la région du groupe de ressources que vous souhaitez utiliser. Pour *\<admin-username>* et *\<admin-password>* , créez les informations d’identification de l’utilisateur pour le compte administrateur de la base de données. Mémorisez *\<admin-username>* et *\<admin-password>* , car vous devrez les utiliser ultérieurement pour vous connecter aux bases de données et au serveur PostgreSQL.
 
 ```azurecli-interactive
-az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
+az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen5_1
 ```
 
 Quand le serveur Azure Database pour PostgreSQL est créé, Azure CLI retourne du code JSON semblable à l’exemple suivant :
@@ -174,15 +179,19 @@ Quand le serveur Azure Database pour PostgreSQL est créé, Azure CLI retourne 
 ```json
 {
   "administratorLogin": "myusername",
+  "earliestRestoreDate": "2020-01-22T19:02:15.727000+00:00",
   "fullyQualifiedDomainName": "myservername.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myservername",
-  "location": "westus",
+  "location": "westeurope",
+  "masterServerId": "",
   "name": "myservername",
+  "replicaCapacity": 5,
+  "replicationRole": "None",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 1,
-    "family": "Gen4",
-    "name": "B_Gen4_1",
+    "family": "Gen5",
+    "name": "B_Gen5_1",
     "size": null,
     "tier": "Basic"
   },
@@ -238,7 +247,7 @@ export DBUSER="manager@<postgresql-name>"
 export DBNAME="pollsdb"
 export DBPASS="supersecretpass"
 ```
-ou
+or
 ```powershell
 $Env:DBHOST = "<postgresql-name>.postgres.database.azure.com"
 $Env:DBUSER = "manager@<postgresql-name>"
@@ -250,7 +259,7 @@ Dans l’environnement `venv` dans votre fenêtre de terminal local, exécutez l
 ```bash
 source ./env.sh
 ```
-ou
+or
 ```PowerShell
 .\env.ps1
 ```
@@ -276,11 +285,13 @@ Accédez à *http:\//localhost:8000/admin*, connectez-vous à l’aide de l’ut
 
 Accédez à nouveau à *http:\//localhost:8000*, et observez que la question de sondage est affichée. Votre application écrit à présent des données dans la base de données Azure Database pour PostgreSQL.
 
+Pour arrêter le serveur Django, tapez Ctrl+C dans le terminal.
+
 ## <a name="deploy-the-web-app-to-azure-app-service"></a>Déployer l’application web sur Azure App Service.
 
 Lors de cette étape, vous allez déployer l’application Python connectée à la base de données Azure Database pour PostgreSQL sur Azure App Service.
 
-### <a name="configure-repository"></a>Configurer le dépôt
+### <a name="configure-repository"></a>Configurer le référentiel
 
 Étant donné que ce tutoriel utilise un exemple Django, vous devez modifier et ajouter certains paramètres dans votre fichier *djangoapp/azuresite/settings.py* pour qu’il fonctionne avec Azure App Service. 
 
@@ -353,25 +364,29 @@ Pour plus d’informations sur la façon dont votre code accède à ces paramèt
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 7, done.
+Counting objects: 60, done.
 Delta compression using up to 8 threads.
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
-Total 7 (delta 4), reused 0 (delta 0)
+Compressing objects: 100% (51/51), done.
+Writing objects: 100% (60/60), 15.37 KiB | 749.00 KiB/s, done.
+Total 60 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '6520eeafcc'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Python deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Preparing deployment for commit id '06f3f7c0cb'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
 . 
 . 
 . 
+remote: Done in 100 sec(s).
+remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
+remote: Deployment Logs : 'https://<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/06f3f7c0cb52ce3b4aff85c2b5099fbacb65ab94/log'
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git 
-   06b6df4..6520eea  master -> master
+ * [new branch]      master -> master
 ```  
 
 Le serveur de déploiement App Service voit *requirements.txt* dans la racine du dépôt et exécute automatiquement la gestion des packages Python après `git push`.

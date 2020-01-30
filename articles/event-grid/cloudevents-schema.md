@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: e7cddf95a6537e5799acc523effb484c2249453d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548048"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844732"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Utiliser le schéma CloudEvents v1.0 avec Event Grid
 
@@ -73,7 +73,6 @@ Vous pouvez utiliser Event Grid pour l’entrée et la sortie des événements d
 |--------------------|---------------------
 | Format CloudEvents | Format CloudEvents
 | Format Event Grid  | Format CloudEvents
-| Format CloudEvents | Format Event Grid
 | Format Event Grid  | Format Event Grid
 
 Pour tous les schémas d’événement, Event Grid requiert une validation au moment de la publication sur une rubrique de grille d’événement et de la création d’un abonnement aux événements. Pour en savoir plus, consultez la page [Sécurité et authentification pour Event Grid](security-authentication.md).
@@ -109,8 +108,6 @@ New-AzureRmEventGridTopic `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-La version actuelle de CloudEvents ne prend pas en charge le traitement par lots des événements. Pour publier des événements avec le schéma CloudEvents sur une rubrique, publiez chaque événement individuellement.
 
 ### <a name="output-schema"></a>Schéma de sortie
 

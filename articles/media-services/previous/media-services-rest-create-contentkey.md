@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9927de3ab3fb68cea17095d7255fd8a68f66c9a8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: d256f417fb3bacbf3f363fc2a9f8701a1bb49d71
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901471"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773623"
 ---
 # <a name="create-content-keys-with-rest"></a>Création de clés de contenu avec REST
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ Voici les étapes générales pour la génération de clés de contenu que vous 
              Array.Copy(array, array2, 8);
              return Convert.ToBase64String(array2);
          }
-5. Créez la clé de contenu avec les valeurs **EncryptedContentKey** (convertie en chaîne codée en Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** et **Checksum** que vous avez obtenues pendant les étapes précédentes.
+5. Créez la clé de contenu avec les valeurs **EncryptedContentKey** (convertie en chaîne codée en Base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** et **Checksum** que vous avez obtenues lors des étapes précédentes.
 6. Associez l’entité **ContentKey** avec votre entité **Asset** par le biais de l’opération $links.
 
 Cet article n’explique pas comment générer une clé AES, chiffrer la clé puis calculer la somme de contrôle. 
@@ -90,7 +90,7 @@ Demande :
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 
@@ -122,7 +122,7 @@ Demande :
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -189,7 +189,7 @@ Requête
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -239,7 +239,7 @@ Demande :
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 

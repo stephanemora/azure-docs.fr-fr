@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Dans ce tutoriel, découvrez comment diagnostiquer un problème de communication entre un réseau virtuel Azure connecté à un réseau local ou à un autre réseau virtuel, via une passerelle de réseau virtuel Azure, à l’aide de la fonctionnalité de diagnostic VPN de Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
 ms.devlang: na
@@ -14,18 +12,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419739"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834679"
 ---
-# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Didacticiel : Diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
+# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Tutoriel : Diagnostiquer un problème de communication existant entre des réseaux à l’aide du portail Azure
 
-Une passerelle de réseau virtuel connecte un réseau virtuel Azure à un réseau local ou à un autre réseau virtuel. Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Une passerelle de réseau virtuel connecte un réseau virtuel Azure à un réseau local ou à un autre réseau virtuel. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Diagnostiquer un problème lié à une passerelle de réseau virtuel avec la fonctionnalité de diagnostics VPN de Network Watcher
@@ -37,7 +35,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour utiliser la fonctionnalité de diagnostics VPN, vous devez disposer d’une passerelle VPN existante en cours d’exécution. Si ce n’est pas le cas, vous pouvez en déployer une à l’aide d’un [script PowerShell](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Vous pouvez exécuter le script PowerShell à partir :
 - **Une installation PowerShell locale**. Le script nécessite le module `Az` Azure PowerShell. Exécutez `Get-Module -ListAvailable Az` pour rechercher la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer Azure PowerShell](/powershell/azure/install-Az-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Connect-AzAccount` pour créer une connexion avec Azure.
@@ -47,7 +45,7 @@ La création d’une passerelle VPN par le script prend environ une heure. Pour 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Activer Network Watcher
 
@@ -103,7 +101,7 @@ Une passerelle est connectée à d’autres réseaux via une connexion de passer
 
     Pour résoudre ce problème, vous devez vous assurer que votre passerelle VPN locale est [correctement configurée](../vpn-gateway/vpn-gateway-about-vpn-devices.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json), puis modifier l’adresse IP configurée par le script pour la passerelle de réseau local pour la définir sur l’adresse publique réelle de votre passerelle VPN locale.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez créé une passerelle VPN à l’aide du script de la section [Prérequis](#prerequisites) uniquement pour effectuer ce didacticiel et que vous n’en avez plus besoin, supprimez le groupe de ressources et toutes les ressources qu’il contient :
 

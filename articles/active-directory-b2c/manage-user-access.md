@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90be5b407708f6cca3748dd6d6fa09c28ab7fcdc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367108"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840432"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gérer l’accès utilisateur dans Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ Voici un exemple de flux utilisateur pour le recueil du consentement parental :
 
 5. Lorsqu’un mineur ou un adulte révoque le consentement, l’API Graph Azure AD peut servir à modifier la valeur de **consentProvidedForMinor** afin d’afficher **denied**. L’application peut également supprimer un mineur dont le consentement a été révoqué. Il est possible de personnaliser le flux utilisateur de façon à ce que le mineur authentifié (ou le parent utilisant le compte du mineur) puisse révoquer le consentement. Azure AD B2C enregistre **consentProvidedForMinor** avec la valeur **denied**.
 
-Pour plus d’informations sur **legalAgeGroupClassification**, **consentProvidedForMinor** et **ageGroup**, consultez [Type de ressource utilisateur](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Pour plus d’informations sur les attributs personnalisés, consultez [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](active-directory-b2c-reference-custom-attr.md). Lorsque vous traitez des attributs étendus à l’aide de l’API Graph Azure AD, vous devez utiliser la version longue de l’attribut, par exemple *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth* : *2011-01-01T00:00:00Z*.
+Pour plus d’informations sur **legalAgeGroupClassification**, **consentProvidedForMinor** et **ageGroup**, consultez [Type de ressource utilisateur](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Pour plus d’informations sur les attributs personnalisés, consultez [Utiliser des attributs personnalisés pour recueillir des informations sur vos consommateurs](user-flow-custom-attributes.md). Lorsque vous traitez des attributs étendus à l’aide de l’API Graph Azure AD, vous devez utiliser la version longue de l’attribut, par exemple *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth* : *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Recueillir des données sur la date de naissance et le pays/région
 

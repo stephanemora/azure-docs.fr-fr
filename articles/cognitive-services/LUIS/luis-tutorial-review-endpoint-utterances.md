@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447816"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843971"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>Tutoriel : Corriger les prédictions incertaines en révisant les énoncés de point de terminaison
 Dans ce tutoriel, améliorez les prédictions de l’application en vérifiant ou corrigeant les énoncés reçus via le point de terminaison HTTPS de LUIS dont ce dernier n’est pas sûr. Vous devez examiner les énoncés de point de terminaison régulièrement dans le cadre de la maintenance LUIS planifiée.
@@ -46,7 +46,7 @@ Utilisez les étapes suivantes pour importer une application.
 
 1.  Téléchargez et enregistrez le [fichier JSON de l’application](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
 
-1. Dans le [portail LUIS en préversion](https://preview.luis-ai), importez le fichier .json dans une nouvelle application.
+1. Dans le [portail LUIS en préversion](https://preview.luis.ai), importez le fichier .json dans une nouvelle application.
 
 1. À partir de la section **Manage (Gérer)** , sous l’onglet **Versions**, clonez la version et nommez-la `review`.
 

@@ -1,19 +1,19 @@
 ---
 title: Ressources et kit SDK .NET Standard de l’API Table Azure Cosmos DB
 description: Découvrez plus d’informations sur l’API Table d’Azure Cosmos DB et le SDK .NET Standard , notamment les dates de publication, les dates de mise hors service et les modifications effectuées entre chaque version.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996218"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771589"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>API .NET Standard Table Azure Cosmos DB : Téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -88,14 +88,14 @@ Microsoft envoie une notification au moins **12 mois** avant le retrait d’un 
 Cette bibliothèque .NET Standard multiplateforme [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) remplacera la bibliothèque .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
 ### <a name="200-series"></a>Série 2.0.0
-| Version | Date de lancement | Date de suppression |
+| Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
 | [2.0.0-preview](#2.0.0-preview) |22 août 2019 |--- |
 
 ### <a name="100-series"></a>Série 1.0.0
-| Version | Date de lancement | Date de suppression |
+| Version | Date de sortie | Date de suppression |
 | --- | --- | --- |
-| [1.0.5](#1.0.5) |13 septembre 2019 |--- |
+| [1.0.5](#1.0.5) |13 septembre 2019 |--- |
 | [1.0.5-preview](#1.0.5-preview) |20 août 2019 |--- |
 | [1.0.4](#1.0.4) |12 août 2019 |--- |
 | [1.0.4-preview](#1.0.4-preview) |26 juillet 2019 |--- |
@@ -104,11 +104,11 @@ Cette bibliothèque .NET Standard multiplateforme [Microsoft.Azure.Cosmos.Table]
 | [1.0.0](#1.0.0) |13 mars 2019 |--- |
 | [0.11.0-preview](#0.11.0-preview) |5 mars 2019 |--- |
 | [0.10.1-preview](#0.10.1-preview) |22 janvier 2019 |--- |
-| [0.10.0-preview](#0.10.0-preview) |18 décembre 2018 |--- |
+| [0.10.0-preview](#0.10.0-preview) |18 décembre 2018 |--- |
 | [0.9.1-preview](#0.9.1-preview) |18 octobre 2018 |--- |
 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

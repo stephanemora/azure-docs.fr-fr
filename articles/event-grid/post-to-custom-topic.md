@@ -1,19 +1,19 @@
 ---
 title: Publier un événement dans une rubrique Azure Event Grid personnalisée
-description: Explique comment publier un événement dans une rubrique personnalisée pour Azure Event Grid
+description: Cet article explique comment publier un événement dans une rubrique personnalisée. Il montre le format des données de publication et d’événement.
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/17/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 14ae5f2a0b6a950889d8587cd4d03ff4fc9a171b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0afad249f71a36bf7552da499e985b68d48ee7a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304213"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721555"
 ---
 # <a name="post-to-custom-topic-for-azure-event-grid"></a>Publier dans une rubrique personnalisée pour Azure Event Grid
 
@@ -101,7 +101,7 @@ Par exemple, un schéma de données d’événement valide est :
 
 Après la validation pour le point de terminaison de la rubrique, vous recevez une réponse. La réponse est un code de réponse HTTP standard. Certaines réponses courantes sont :
 
-|Résultat  |response  |
+|Résultats  |response  |
 |---------|---------|
 |Succès  | 200 OK  |
 |Les données d’événement ont un format incorrect | 400 Demande incorrecte |

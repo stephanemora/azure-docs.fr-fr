@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100710"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841710"
 ---
 # <a name="delivery-and-retry"></a>Livraison et nouvelle tentative
 
@@ -27,9 +27,9 @@ Event Grid assure une distribution fiable. Il tente de livrer chaque message au 
 
 Event Grid attend une réponse pendant jusqu’à 60 secondes après la livraison d’un message. Si le point de terminaison de l’abonné n’accuse pas réception de la réponse, le message est placé dans l’une de nos files d’attente d’interruption en vue de nouvelles tentatives.
 
-Il existe deux files d’attente d’interruption préconfigurées qui déterminent la planification d’une nouvelle tentative. Les voici :
+Il existe deux files d’attente d’interruption préconfigurées qui déterminent la planification d’une nouvelle tentative. Il s'agit de :
 
-| Planification | Description |
+| Planifier | Description |
 | ---------| ------------ |
 | 1 minute | La livraison des messages qui se terminent ici est tentée à chaque minute.
 | 10 minutes | La livraison des messages qui se terminent ici est tentée toutes les 10 minutes.
@@ -43,7 +43,7 @@ Il existe deux files d’attente d’interruption préconfigurées qui détermin
 
 ## <a name="retry-policy-limits"></a>Limites de stratégie de nouvelles tentatives
 
-Deux configurations déterminent la stratégie de nouvelles tentatives. Les voici :
+Deux configurations déterminent la stratégie de nouvelles tentatives. Il s'agit de :
 
 * Nombre maximal de tentatives
 * Durée de vie (TTL) de l’événement
@@ -52,12 +52,12 @@ Un événement est abandonné si l’une des limites de la stratégie de nouvell
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>Configuration des valeurs par défaut pour tous les abonnés
 
-Il existe deux propriétés, `brokers:defaultMaxDeliveryAttempts` et `broker:defaultEventTimeToLiveInSeconds`, qui peuvent être configurées dans le cadre du déploiement d’Event Grid, qui contrôlent les valeurs par défaut de la stratégie de nouvelles tentatives pour tous les abonnés.
+Il existe deux propriétés, `brokers__defaultMaxDeliveryAttempts` et `broker__defaultEventTimeToLiveInSeconds`, qui peuvent être configurées dans le cadre du déploiement d’Event Grid, qui contrôlent les valeurs par défaut de la stratégie de nouvelles tentatives pour tous les abonnés.
 
 | Nom de la propriété | Description |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Nombre maximal de tentatives de livraison d’un événement. Valeur par défaut : 30.
-| `broker:defaultEventTimeToLiveInSeconds` | Durée de vie de l’événement exprimée en secondes, après laquelle un événement est supprimé s’il n’a pas été livré. Valeur par défaut : **7 200** secondes
+| `broker__defaultMaxDeliveryAttempts` | Nombre maximal de tentatives de livraison d’un événement. Valeur par défaut : 30.
+| `broker__defaultEventTimeToLiveInSeconds` | Durée de vie de l’événement exprimée en secondes, après laquelle un événement est supprimé s’il n’a pas été livré. Valeur par défaut : **7 200** secondes
 
 ## <a name="configuring-defaults-per-subscriber"></a>Configuration des valeurs par défaut par abonné
 
@@ -71,8 +71,8 @@ L’exemple suivant configure une stratégie de nouvelles tentatives dans le mod
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {
