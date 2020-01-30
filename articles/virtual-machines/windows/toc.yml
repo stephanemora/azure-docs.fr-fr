@@ -232,6 +232,8 @@
           href: disks-types.md
         - name: Chiffrement
           href: disk-encryption.md
+        - name: Réservations de stockage sur disque
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Conception pour de hautes performances
           href: premium-storage-performance.md
         - name: Mode rafale des disques
@@ -551,6 +553,8 @@
           href: disks-use-storage-explorer-managed-disks.md
         - name: Effectuer la capture instantanée d’un disque
           href: snapshot-copy-managed-disk.md
+        - name: Réserver du stockage sur disque
+          href: disks-reserved-capacity.md
         - name: Créer un instantané incrémentiel
           href: disks-incremental-snapshots.md
         - name: Sauvegarder des disques non managés

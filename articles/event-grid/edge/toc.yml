@@ -2,7 +2,7 @@
   href: index.yml
 - name: Basculer vers la documentation Azure Event Grid
   href: ../overview.md
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Event Grid sur IoT Edge\_?"
       href: overview.md
@@ -24,6 +24,8 @@
   items:
     - name: Concepts d’Event Grid
       href: concepts.md
+    - name: Gestionnaires d'événements et destinations
+      href: event-handlers.md
     - name: Sécurité et authentification
       href: security-authentication.md
     - name: Schémas d’événement
@@ -42,6 +44,8 @@
           href: persist-state-linux.md
         - name: Windows
           href: persist-state-windows.md
+    - name: Superviser les rubriques et les abonnements
+      href: monitor-topics-subscriptions.md
     - name: Configurer des protocoles d’API
       href: configure-api-protocol.md
     - name: Configurer une authentification de client
@@ -50,7 +54,7 @@
       href: configure-webhook-subscriber-auth.md
     - name: Configurer une authentification d’identité
       href: configure-identity-auth.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       href: troubleshoot.md
 - name: Informations de référence
   items:
@@ -60,3 +64,5 @@
       href: configure-event-grid.md
     - name: Schéma de configuration de jumeau de module
       href: twin-json.md
+    - name: Notes de publication
+      href: release-notes.md

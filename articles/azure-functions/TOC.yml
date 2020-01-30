@@ -1,6 +1,6 @@
 - name: Documentation des fonctions
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos d’Azure Functions
       href: functions-overview.md
@@ -13,26 +13,25 @@
 - name: Démarrages rapides
   expanded: true
   items:
-    - name: 'Créer une fonction - C#'
-      href: functions-create-your-first-function-visual-studio.md
-    - name: Créer une fonction - Java
-      href: functions-create-first-java-maven.md
-    - name: Créer une fonction - JavaScript
-      href: functions-create-first-function-vs-code.md
-    - name: Créer une fonction - PowerShell
-      href: functions-create-first-function-powershell.md
-    - name: Créer une fonction - Python
-      href: functions-create-first-function-python.md
-    - name: Se connecter à des services
+    - name: Créer une fonction
+      expanded: true
       items:
-        - name: 'Stockage - C#'
-          href: functions-add-output-binding-storage-queue-vs.md
-        - name: Stockage - Java
-          href: functions-add-output-binding-storage-queue-java.md
-        - name: Storage - JavaScript
+        - name: Visual Studio Code
+          href: /azure/azure-functions/functions-create-first-function-vs-code
+        - name: Visual Studio
+          href: functions-create-your-first-function-visual-studio.md
+        - name: Ligne de commande
+          href: functions-create-first-azure-function-azure-cli.md
+        - name: Maven (Java)
+          href: functions-create-first-java-maven.md
+    - name: Se connecter au stockage
+      items:
+        - name: Visual Studio Code
           href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: Stockage - Python
-          href: functions-add-output-binding-storage-queue-python.md
+        - name: Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Maven (Java)
+          href: functions-add-output-binding-storage-queue-java.md
 - name: Tutoriels
   items:
     - name: Fonctions avec Logic Apps
@@ -73,7 +72,7 @@
           href: /samples/browse/?products=azure-functions&languages=python
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: functions-cli-samples.md
 - name: Concepts
   items:
@@ -139,7 +138,7 @@
       href: ip-addresses.md
 - name: Guides pratiques
   items:
-    - name: Développement
+    - name: Développer
       items:
         - name: Guide du développeur
           href: functions-reference.md
@@ -160,7 +159,7 @@
                 - name: Portail Azure
                   href: functions-create-first-azure-function.md
                 - name: Ligne de commande
-                  href: functions-create-first-azure-function-azure-cli.md
+                  href: create-cli.md
                 - name: Visual Studio
                   href: create-visual-studio.md
                 - name: Visual Studio Code
@@ -236,7 +235,7 @@
         - name: Déployer avec le plug-in Jenkins
           href: /azure/jenkins/jenkins-azure-functions-deploy
           maintainContext: true
-    - name: Configuration
+    - name: Configurer
       items:
         - name: Gérer une application de fonction
           href: functions-how-to-use-azure-function-app-settings.md
@@ -249,7 +248,7 @@
           href: disable-function.md
         - name: Géorécupération d’urgence
           href: functions-geo-disaster-recovery.md
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Surveiller des fonctions
           href: functions-monitoring.md
@@ -308,7 +307,7 @@
           href: functions-create-serverless-api.md
         - name: Gérer les ressources locales
           href: functions-hybrid-powershell.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Résoudre les problèmes de stockage
           href: functions-recover-storage-account.md
@@ -358,7 +357,7 @@
           href: functions-bindings-signalr-service.md
         - name: Stockage de tables
           href: functions-bindings-storage-table.md
-        - name: Minuteur
+        - name: Minuterie
           href: functions-bindings-timer.md
         - name: Twilio
           href: functions-bindings-twilio.md

@@ -1,4 +1,4 @@
-- name: Documentation relative à QnA Maker
+- name: Documentation QnA Maker
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -54,7 +54,7 @@
               href: Quickstarts/get-answer-from-knowledge-base-nodejs.md
             - name: Python
               href: Quickstarts/get-answer-from-knowledge-base-python.md
-    - name: Utiliser le kit de développement logiciel (SDK)
+    - name: Utiliser le kit SDK
       href: ./Quickstarts/quickstart-sdk.md
 - name: Tutoriels
   items:
@@ -67,23 +67,37 @@
       href: Tutorials/create-qna-bot.md
 - name: Concepts
   items:
-    - name: Base de connaissances
-      href: Concepts/knowledge-base.md
-      displayName: 'metadata, pair'
-    - name: Utilisation de LUIS et de QnA Maker
-      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
-    - name: Cycle de vie du développement d’une base de connaissances
-      href: Concepts/development-lifecycle-knowledge-base.md
-      displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Ressources Azure
+      href: Concepts/azure-resources.md
+    - name: Concevoir une base de connaissances
+      items:
+        - name: Pour les langages
+          href: Concepts/design-language-culture.md
+        - name: Pour les applications clientes
+          href: Concepts/integration-with-other-applications.md
+    - name: Sources de données et contenu
+      items:
+        - name: Importation depuis des sources de données
+          href: Concepts/knowledge-base.md
+        - name: Types de contenu importés
+          href: Concepts/content-types.md
+        - name: Séries de questions-réponses
+          href: Concepts/question-answer-set.md
+    - name: Cycle de vie d’une base de connaissances
+      items:
+        - name: Cycle de vie de développement
+          href: Concepts/development-lifecycle-knowledge-base.md
+          displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Interroger une base de connaissances
+      items:
+        - name: Obtenir une réponse
+          displayName: 'DefaultAnswer, Default answer'
+          href: Concepts/query-knowledge-base.md
+        - name: Score de confiance
+          href: Concepts/confidence-score.md
     - name: Meilleures pratiques
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
-    - name: Score de confiance
-      displayName: 'DefaultAnswer, Default answer'
-      href: Concepts/confidence-score.md
-    - name: Sources de données prises en charge
-      href: Concepts/data-sources-supported.md
-      displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: Guides pratiques
   items:
     - name: Modifier la base de connaissances
@@ -106,6 +120,8 @@
         - name: Obtenir des réponses à l’aide de métadonnées
           href: How-To/metadata-generateanswer-usage.md
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+        - name: Définir une réponse par défaut
+          href: How-to/change-default-answer.md
         - name: Créer un bot avec QnA Maker et LUIS
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Sélection du langage
