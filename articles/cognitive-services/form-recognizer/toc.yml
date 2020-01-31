@@ -17,36 +17,20 @@
       items:
         - name: Entraîner et utiliser un modèle personnalisé sans étiquette
           items:
-            - name: v2.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-train-extract.md
-                - name: Python
-                  href: quickstarts/python-train-extract.md
-            - name: v1.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-train-extract-v1.md
-                - name: Python
-                  href: quickstarts/python-train-extract-v1.md
+            - name: cURL
+              href: quickstarts/curl-train-extract.md
+            - name: Python
+              href: quickstarts/python-train-extract.md
         - name: Entraîner et utiliser un modèle personnalisé avec des étiquettes
           items:
             - name: Python
               href: quickstarts/python-labeled-data.md
         - name: Utiliser le modèle de reçu prédéfini
           items:
-            - name: v2.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-receipts.md
-                - name: Python
-                  href: quickstarts/python-receipts.md
-            - name: v1.0
-              items:
-                - name: cURL
-                  href: quickstarts/curl-receipts-v1.md
-                - name: Python
-                  href: quickstarts/python-receipts-v1.md
+            - name: cURL
+              href: quickstarts/curl-receipts.md
+            - name: Python
+              href: quickstarts/python-receipts.md
         - name: Obtenir des informations de disposition du texte
           items:
             - name: Python

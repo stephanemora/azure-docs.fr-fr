@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 6ef7736a50783388b5ec0b32c698a0e747a7fd42
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0af19ec740e96cd572ffe37285d7e58ead83b25
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458435"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774860"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architecture de connectivité dans Azure Database pour PostgreSQL
 Cet article présente l’architecture de connectivité d’Azure Database pour PostgreSQL, ainsi que la façon dont le trafic est redirigé vers votre instance de base de données Azure Database pour PostgreSQL à partir de clients au sein d’Azure et en dehors.
@@ -42,7 +42,7 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Chine Nord 2 | 40.73.50.0     |
 | Asie Est | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
 | USA Est | 40.121.158.30, 191.238.6.43  |
-| USA Est 2 |40.79.84.180, 191.239.224.107, 52.167.104.0     |
+| USA Est 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | France Centre | 40.79.137.0, 40.79.129.1  |
 | Centre de l’Allemagne | 51.4.144.100     |
 | Nord-Est de l’Allemagne | 51.5.144.179  |
@@ -50,14 +50,14 @@ Le tableau suivant répertorie les adresses IP principales et secondaires de la 
 | Sud de l’Inde | 104.211.224.146  |
 | Inde Ouest | 104.211.160.80    |
 | Japon Est | 13.78.61.196, 191.237.240.43  |
-| OuJapon Est | 104.214.148.156, 191.238.68.11    |
+| OuJapon Est | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | Centre de la Corée | 52.231.32.42   |
 | Corée du Sud | 52.231.200.86    |
 | Centre-Nord des États-Unis | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europe Nord | 40.113.93.91, 191.235.193.75    |
 | Afrique du Sud Nord  | 102.133.152.0    |
 | Afrique du Sud Ouest | 102.133.24.0   |
-| États-Unis - partie centrale méridionale |13.66.62.124, 23.98.162.75   |
+| États-Unis - partie centrale méridionale |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Asie Sud-Est | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Émirats arabes unis Centre | 20.37.72.64  |
 | Émirats arabes unis Nord | 65.52.248.0    |

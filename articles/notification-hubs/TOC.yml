@@ -1,6 +1,6 @@
 - name: Documentation Notification Hubs
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos de Notification Hubs
       href: notification-hubs-push-notification-overview.md
@@ -79,6 +79,8 @@
       href: samples-powershell.md
 - name: Concepts
   items:
+    - name: TLS (Transport Layer Security)
+      href: notification-hubs-tls12.md
     - name: Guide architectural des notifications Push d’entreprise
       href: notification-hubs-enterprise-push-notification-architecture.md
     - name: Inscriptions d’appareil
@@ -150,7 +152,7 @@
       href: /azure/templates/microsoft.notificationhubs/allversions
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: notification-hubs-push-notification-faq.md
     - name: Migration de Google GCM vers FCM
       href: notification-hubs-gcm-to-fcm.md
