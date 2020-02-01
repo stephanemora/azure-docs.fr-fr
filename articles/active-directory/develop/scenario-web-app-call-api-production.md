@@ -1,6 +1,6 @@
 ---
-title: Passer en production une application web appelant des API web - Plateforme d’identités Microsoft | Azure
-description: Découvrez comment passer en production une application web qui appelle des API web.
+title: Déplacer en production une application web appelant des API web – Plateforme d’identités Microsoft | Azure
+description: Découvrez comment déplacer en production une application web appelant des API web.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,29 +14,28 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b1307df8f6dfb0457719b13c9e5cd0bf28660caa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964954"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758941"
 ---
-# <a name="web-app-that-calls-web-apis---move-to-production"></a>Application web appelant des API web - passage en production
+# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>Application web appelant des API web : Passer en production
 
 Maintenant que vous savez comment acquérir un jeton pour appeler des API web, découvrez comment passer en production.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Apprenez-en plus en essayant le didacticiel progressif complet sur les applications web ASP.NET Core, qui explique :
+Apprenez-en davantage en suivant le tutoriel progressif complet sur les applications web ASP.NET Core. Le tutoriel :
 
-- Comment connecter des utilisateurs avec plusieurs audiences, des clouds nationaux ou des identités sociales
-- Appelle Microsoft Graph
-- Les appels à plusieurs API Microsoft
-- Le traitement du consentement incrémentiel
-- Les appels à votre propre API web
+- Montre comment connecter des utilisateurs à plusieurs audiences ou à des clouds nationaux, ou en utilisant des identités sociales.
+- Appelle Microsoft Graph.
+- Appelle plusieurs API Microsoft.
+- Traite le consentement incrémentiel.
+- Appelle votre propre API web.
 
 > [!div class="nextstepaction"]
 > [Tutoriel sur les applications web ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)

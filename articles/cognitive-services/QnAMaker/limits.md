@@ -1,22 +1,14 @@
 ---
 title: Limites et frontières - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker présente des limites de métadonnées pour certaines parties de la base de connaissances et du service. Il est important de maintenir votre base de connaissances à l’intérieur de ces limites pour les tests et la publication.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/10/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: ddf2cb5730f123038c5dbde7ab07b4022f021ced
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/23/2020
+ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381118"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760230"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limites de la base de connaissances QnA Maker
 
@@ -33,6 +25,15 @@ Le nombre maximal de bases de connaissances est basé sur les [limites de niveau
  Par exemple, si votre niveau comporte 15 index autorisés, vous pouvez publier 14 bases de connaissances (1 index par base de connaissances publiée). Le quinzième index, `testkb`, est utilisé pour toutes les bases de connaissances à des fins de création et de test.
 
 ## <a name="extraction-limits"></a>Limites d’extraction
+
+### <a name="file-naming-constraints"></a>Contraintes d’affectation de noms de fichiers
+
+Les noms de fichiers ne peuvent pas inclure les caractères suivants :
+
+|Ne pas utiliser le caractère|
+|--|
+|Apostrophe `'`|
+|Guillemet `"`|
 
 ### <a name="maximum-file-size"></a>Taille maximale du fichier
 

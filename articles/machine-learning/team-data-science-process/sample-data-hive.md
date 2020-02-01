@@ -3,23 +3,23 @@ title: Échantillonner des données dans des tables Hive Azure HDInsight - Team 
 description: Sous-échantillonnez des données stockées dans des tables Hive Azure HDInsight à l’aide de requêtes Hive pour les réduire à une taille plus gérable à des fins d’analyse.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042881"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719991"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Échantillonner des données dans des tables Hive Azure HDInsight
-Cet article décrit la procédure de sous-échantillonnage des données stockées dans des tables Hive Azure HDInsight à l'aide de requêtes Hive pour les réduire à une taille plus gérable à des fins d’analyse. Nous y abordons trois méthodes d’échantillonnage communément utilisées :
+Cet article décrit la procédure de sous-échantillonnage des données stockées dans des tables Hive Azure HDInsight à l'aide de requêtes Hive pour les réduire à une taille plus gérable à des fins d’analyse. Il présente trois méthodes d’échantillonnage communément utilisées :
 
 * Échantillonnage aléatoire uniforme
 * Échantillonnage aléatoire par groupe
@@ -31,7 +31,7 @@ Si vous prévoyez d’analyser un jeu de données volumineux, il est généralem
 Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Envoi de requêtes Hive
-Les requêtes Hive peuvent être envoyées à partir de console de ligne de commande Hadoop, sur le nœud principal du cluster Hadoop. Pour effectuer cette opération, connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis soumettez les requêtes Hive à cet emplacement. Pour plus d’informations sur la soumission de requêtes Hive dans la console de ligne de commande Hadoop, voir [Envoi de requêtes Hive](move-hive-tables.md#submit).
+Les requêtes Hive peuvent être envoyées à partir de console de ligne de commande Hadoop, sur le nœud principal du cluster Hadoop.  Connectez-vous au nœud principal du cluster Hadoop, ouvrez la console de ligne de commande Hadoop, puis émettez les requêtes Hive à partir de là. Pour plus d’informations sur la soumission de requêtes Hive dans la console de ligne de commande Hadoop, voir [Envoi de requêtes Hive](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Échantillonnage aléatoire uniforme
 Le terme « échantillonnage aléatoire uniforme » signifie que chaque ligne du jeu de données a la même chance d’être échantillonnée que les autres. Vous pouvez l’implémenter en ajoutant un champ supplémentaire rand() au jeu de données dans la requête « select » interne et dans la requête « select » externe conditionnant ce champ aléatoire.

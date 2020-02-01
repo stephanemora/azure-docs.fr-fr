@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3f9a1cfa92ffa454758849f52cc1977cef6df63a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981829"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768391"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimiser les coûts de stockage d’objets blob avec une capacité réservée
 
@@ -54,7 +54,7 @@ Pour acheter une capacité de réserve :
 
 - Vous devez disposer du rôle **Propriétaire** sur au moins un abonnement Entreprise ou individuel avec des tarifs de paiement à l’utilisation.
 - Pour les abonnements Entreprise, **Ajouter des instances réservées** doit être activé dans le portal EA. Si ce paramètre est désactivé, vous devez être administrateur EA de l’abonnement.
-- Pour le programme Fournisseur de solutions cloud, seuls les agents d’administration ou les agents commerciaux peuvent acheter une capacité réservée Azure Cosmos DB.
+- Pour le programme Fournisseur de solutions cloud, seuls des agents d’administration ou des agents commerciaux peuvent acheter une capacité réservée de Stockage Blob Azure.
 
 ## <a name="determine-required-capacity-before-purchase"></a>Déterminer la capacité requise avant l’achat
 

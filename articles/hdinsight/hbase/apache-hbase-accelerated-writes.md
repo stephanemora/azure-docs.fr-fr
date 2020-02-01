@@ -1,19 +1,18 @@
 ---
 title: Écritures accélérées pour Apache HBase dans Azure HDInsight
 description: Offre une vue d’ensemble de la fonctionnalité Écritures accélérées dans Azure HDInsight, qui utilise des disques managés Premium pour améliorer les performances du journal WAL (write-ahead log) Apache HBase.
-services: hdinsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/24/2020
+ms.openlocfilehash: 7165bab96d037f6782bc9aa6767cadd9b35f058c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156928"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764585"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Écritures accélérées pour Apache HBase dans Azure HDInsight
 
@@ -33,13 +32,13 @@ Si un **RegionServer** se bloque ou devient indisponible avant que MemStore ne s
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Fonctionnalité Écritures accélérées pour Apache HBase dans Azure HDInsight
 
-La fonctionnalité Écritures accélérées résout le problème des latences en écriture plus élevées en raison de l’utilisation des journaux WAL (write-ahead log) stockés dans le cloud.  La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker). Les journaux WAL (write-ahead log) sont ensuite écrits sur le système de fichiers DFS hadoop montés sur ces disques SSD managés Premium et non pas dans le stockage cloud.  Les disques managés Premium utilisent des disques SSD et offrent d’excellentes performances d’E/S, ainsi qu’une tolérance de panne.  Contrairement aux disques non managés, si une unité de stockage tombe en panne, elle n’affecte pas les autres unités de stockage du même groupe à haute disponibilité.  Par conséquent, les disques managés offrent une faible latence en écriture et une meilleure résilience pour vos applications. Pour en savoir plus sur les disques managés Azure, consultez [Présentation des disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md). 
+La fonctionnalité Écritures accélérées résout le problème des latences en écriture plus élevées en raison de l’utilisation des journaux WAL (write-ahead log) stockés dans le cloud.  La fonctionnalité Écritures accélérées pour les clusters HDInsight Apache HBase associe des disques SSD managés Premium à chaque serveur de région (nœud Worker). Les journaux WAL (write-ahead log) sont ensuite écrits sur le système de fichiers DFS hadoop montés sur ces disques SSD managés Premium et non pas dans le stockage cloud.  Les disques managés Premium utilisent des disques SSD et offrent d’excellentes performances d’E/S, ainsi qu’une tolérance de panne.  Contrairement aux disques non managés, si une unité de stockage tombe en panne, elle n’affecte pas les autres unités de stockage du même groupe à haute disponibilité.  Par conséquent, les disques managés offrent une faible latence en écriture et une meilleure résilience pour vos applications. Pour en savoir plus sur les disques managés Azure, consultez [Présentation des disques managés Azure](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Comment activer la fonctionnalité Écritures accélérées pour HBase dans HDInsight
 
-Pour créer un nouveau cluster HBase avec la fonctionnalité Écritures accélérées, suivez les étapes de [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) jusqu’à l’**étape 3 relative au stockage**. Sous **Paramètres de metastore**, cochez la case située en regard de **Activer les écritures accélérées**. Puis, passez aux étapes restantes pour la création du cluster.
+Pour créer un nouveau cluster HBase avec la fonctionnalité Écritures accélérées, suivez les étapes de [Configurer des clusters dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) jusqu’à l’**étape 3 relative au stockage**. Sous **Paramètres de metastore**, activez la case à cocher située en regard de **Activer les écritures accélérées HBase**. Puis, passez aux étapes restantes pour la création du cluster.
 
-![Activez l’option Écritures accélérées pour HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
+![Activez l’option Écritures accélérées pour HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
 
 ## <a name="other-considerations"></a>Autres considérations
 
@@ -55,7 +54,7 @@ flush 'mytable'
 disable 'mytable'
 ```
 
-Suivez des étapes similaires lors de réduction d’échelle de votre cluster : videz vos tables et désactivez-les pour arrêter les données entrantes. Vous ne pouvez pas réduire l’échelle votre cluster à moins de trois nœuds.
+Suivez des étapes similaires lors de réduction d’échelle de votre cluster : videz vos tables et désactivez-les pour arrêter les données entrantes. Vous ne pouvez pas faire descendre en puissance votre cluster à moins de trois nœuds.
 
 Ces étapes garantissent la réussite de la réduction d’échelle et évitent la possibilité qu’un namenode passe en mode sans échec en raison de la présence de fichiers temporaires ou sous-répliqués.
 

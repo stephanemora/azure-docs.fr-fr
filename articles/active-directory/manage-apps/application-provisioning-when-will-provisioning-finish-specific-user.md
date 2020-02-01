@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8238d2b417dbe03ad0623e472f1a239940c1bc8
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: e7296c63a467b2f53550b3e609cf1146244cf933
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681376"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712124"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Vérifier l’état de l’approvisionnement d’utilisateurs
 
@@ -60,7 +60,7 @@ Les journaux de provisionnement enregistrent toutes les opérations effectuées 
 Pour plus d’informations sur la lecture des journaux de provisionnement dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](check-status-user-account-provisioning.md).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Combien de temps faut-il pour approvisionner des utilisateurs ?
-Lorsque vous utilisez le provisionnement automatique des utilisateurs avec une application, Azure AD provisionne et met à jour automatiquement les comptes d’utilisateur dans une application selon différents éléments comme l’[affectation d’utilisateurs et de groupes](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) et selon un intervalle régulier planifié (généralement toutes les 40 minutes).
+Lorsque vous utilisez le provisionnement automatique des utilisateurs avec une application, Azure AD provisionne et met à jour automatiquement les comptes d’utilisateur dans une application selon différents éléments comme l’[affectation d’utilisateurs et de groupes](assign-user-or-group-access-portal.md) et selon un intervalle régulier planifié (généralement toutes les 40 minutes).
 
 Le temps de provisionnement d’un utilisateur donné dépend principalement de votre tâche de provisionnement, si elle est en cours d’exécution d’un cycle initial ou incrémentiel.
 
@@ -102,7 +102,7 @@ Récapitulatif des facteurs ayant une incidence sur le temps nécessaire à l’
 
 - Le nombre et la taille des groupes affectés. La synchronisation des groupes affectés prend plus de temps que la synchronisation des utilisateurs. Le nombre et la taille des groupes affectés ont un impact sur les performances. Si une application comporte des [mappages activés pour la synchronisation des objets de groupe](customize-application-attributes.md#editing-group-attribute-mappings), les propriétés de groupe, telles que les noms de groupe et les appartenances, sont synchronisées en plus des utilisateurs. Ces synchronisations supplémentaires prendront plus temps que la seule synchronisation des objets utilisateur.
 
-- Si les performances deviennent un problème et que vous essayez de provisionner la majorité des utilisateurs et des groupes dans votre locataire, utilisez des filtres d’étendue. Les filtres d’étendue vous permettent d’affiner les données que le service d’approvisionnement extrait d’Azure AD en filtrant les utilisateurs en fonction d’attributs spécifiques. Pour plus d’informations sur les filtres d’étendue, consultez [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+- Si les performances deviennent un problème et que vous essayez de provisionner la majorité des utilisateurs et des groupes dans votre locataire, utilisez des filtres d’étendue. Les filtres d’étendue vous permettent d’affiner les données que le service d’approvisionnement extrait d’Azure AD en filtrant les utilisateurs en fonction d’attributs spécifiques. Pour plus d’informations sur les filtres d’étendue, consultez [Approvisionnement d’applications basé sur les attributs avec filtres d’étendue](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
+[Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](user-provisioning.md)

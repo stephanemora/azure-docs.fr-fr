@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 283bd56b9d9cbe412e9c28127dd9dab7decc2d7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848304"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712524"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -43,7 +43,7 @@ Vous pouvez créer autant de serveurs NPS compatibles avec Azure MFA que vous le
 
 Comme les serveurs VPN acheminent les demandes d’authentification, ils doivent connaître les nouveaux serveurs NPS compatibles avec Azure MFA.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 L’extension NPS est conçue pour fonctionner avec votre infrastructure existante. Vérifiez que les conditions préalables suivantes sont remplies avant de commencer.
 
@@ -229,7 +229,7 @@ L’objectif de ce paramètre est de déterminer l’action à exécuter lorsqu�
 
 Vous pouvez choisir de créer cette clé et de lui affecter la valeur FALSE pour vos utilisateurs qui sont en cours d’intégration et ne sont peut-être pas encore inscrits pour l’authentification Azure MFA. Toutefois, étant donné que la définition de la clé permet aux utilisateurs qui ne sont pas inscrits pour l’authentification MFA de se connecter, vous devez supprimer cette clé avant de passer en production.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 ### <a name="nps-extension-health-check-script"></a>Script de vérification de l’intégrité de l’extension NPS
 
@@ -273,7 +273,7 @@ Les horodatages Valid-From (Valide à partir de) et Valid-Until (Valide jusqu’
 
 ---
 
-### <a name="why-cant-i-sign-in"></a>Pourquoi je ne peux pas me connecter ?
+### <a name="why-cannot-i-sign-in"></a>Pourquoi ne puis-je pas me connecter ?
 
 Vérifiez que votre mot de passe n’a pas expiré. L’Extension NPS ne prend pas en charge la variation des mots de passe dans le cadre du flux de travail de connexion. Contactez le service informatique de votre entreprise pour obtenir de l’aide.
 

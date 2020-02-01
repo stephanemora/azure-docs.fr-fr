@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 4891ec0ae87f0d7b0cd7e5d5d550f955a8fde1db
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d013fc257bc03d7961a4f2d5ae52d0fde12c83bb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312377"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844073"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -49,7 +49,7 @@ Vous pouvez interagir avec votre espace de travail comme suit :
 
 + Sur le web :
     + [Azure Machine Learning studio ](https://ml.azure.com) 
-    + [Concepteur Azure Machine Learning](concept-designer.md) - Uniquement disponible dans les espaces de travail [Édition Entreprise](overview-what-is-azure-ml.md#sku).
+    + [Le concepteur Azure Machine Learning (préversion)](concept-designer.md) - disponible uniquement dans les espaces de travail [édition Enterprise](overview-what-is-azure-ml.md#sku).
 + Dans un environnement Python avec le [kit de développement logiciel (SDK) Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Dans un environnement R avec le [kit de développement logiciel (SDK) Azure Machine Learning pour R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + Sur la ligne de commande avec l’[extension CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning :
@@ -79,7 +79,7 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 | Créer une machine virtuelle de notebooks |   | **&check;** | |     |
 
 > [!NOTE]
-> Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
+> Des instances de calcul ne sont disponibles que pour des espaces de travail dans les régions **USA Centre Nord**, ** USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**.
 >Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place.
 
 ## <a name='create-workspace'></a> Créer un espace de travail

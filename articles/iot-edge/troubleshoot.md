@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 98d75f75a985fca3448becab216ad6570d948468
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514253"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772231"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -21,7 +21,7 @@ Si vous rencontrez des problèmes lors de l’exécution d’Azure IoT Edge dans
 
 ## <a name="run-the-iotedge-check-command"></a>Exécuter la commande iotedge « check »
 
-La première étape dans la résolution des problèmes relatifs à IoT Edge consiste à utiliser la commande `check`, qui effectue une collection de tests de configuration et de connectivité à la recherche de problèmes courants. La commande `check` est disponible dans la [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) et supérieure.
+La première étape dans la résolution des problèmes relatifs à IoT Edge consiste à utiliser la commande `check` qui exécute une collection de tests de configuration et de connectivité à la recherche de problèmes courants. La commande `check` est disponible dans la [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) et supérieure.
 
 Vous pouvez exécuter la commande `check` comme suit, ou inclure l’indicateur `--help` pour afficher une liste complète des options :
 
@@ -265,7 +265,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 **Cause racine**
 
-Le runtime IoT Edge peut prendre uniquement en charge les noms d’hôte avec moins de 64 caractères. Les machines physiques n’ont généralement pas de noms d’hôte longs, mais le problème est plus courant sur une machine virtuelle. Les noms d’hôtes générés automatiquement pour les machines virtuelles Windows hébergées dans Azure, en particulier, sont généralement longs. 
+Le runtime IoT Edge peut prendre uniquement en charge les noms d’hôte avec moins de 64 caractères. Les machines physiques n’ont généralement pas de noms d’hôte longs, mais le problème est plus courant sur une machine virtuelle. Les noms d’hôtes générés automatiquement pour les machines virtuelles Windows hébergées dans Azure, en particulier, sont généralement longs.
 
 **Résolution :**
 
@@ -302,7 +302,7 @@ Le hub IoT Edge, qui fait partie du runtime IoT Edge, est optimisé pour les per
 
 **Résolution :**
 
-Pour le hub IoT Edge, affectez la valeur **false** à une variable d’environnement **OptimizeForPerformance**. Il existe deux façons d'effectuer cette opération :
+Pour le hub IoT Edge, affectez la valeur **false** à une variable d’environnement **OptimizeForPerformance**. Il existe deux façons de définir des variables d’environnement :
 
 Dans le portail Azure :
 
@@ -340,7 +340,7 @@ La commande PowerShell `Get-WinEvent` repose sur la présence d’une entrée de
 
 Définissez une entrée de Registre pour le démon IoT Edge. Créez un fichier **iotedge.reg** avec le contenu suivant, puis importez-le dans le Registre Windows en double-cliquant dessus ou en utilisant la commande `reg import iotedge.reg` :
 
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
@@ -351,10 +351,10 @@ Windows Registry Editor Version 5.00
 
 ## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Le module IoT Edge ne parvient pas à envoyer de message à l’edgeHub avec l’erreur 404
 
-Un module IoT Edge personnalisé ne parvient pas à envoyer de message à l’edgeHub avec l’erreur `Module not found` 404. Le démon IoT Edge imprime le message suivant dans les journaux d’activité : 
+Un module IoT Edge personnalisé ne parvient pas à envoyer de message à l’edgeHub avec l’erreur `Module not found` 404. Le démon IoT Edge imprime le message suivant dans les journaux d’activité :
 
 ```output
-Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
 ```
 
 **Cause racine**
@@ -391,7 +391,7 @@ Par défaut, IoT Edge démarre les modules dans leur réseau de conteneur isolé
 
 **Option n°1 : Définissez le serveur DNS dans les paramètres du moteur de conteneur**
 
-Spécifiez le serveur DNS de votre environnement dans les paramètres du moteur de conteneur à appliquer à tous les modules de conteneur démarrés par le moteur. Créez un fichier nommé `daemon.json` en spécifiant le serveur DNS à utiliser. Par exemple :
+Spécifiez le serveur DNS de votre environnement dans les paramètres du moteur de conteneur qui s’appliquent à tous les modules de conteneur démarrés par le moteur. Créez un fichier nommé `daemon.json` en spécifiant le serveur DNS à utiliser. Par exemple :
 
 ```json
 {
@@ -401,7 +401,7 @@ Spécifiez le serveur DNS de votre environnement dans les paramètres du moteur 
 
 L’exemple ci-dessus définit le serveur DNS sur un service DNS accessible publiquement. Si l’appareil edge ne peut accéder à cette adresse IP depuis son environnement, remplacez-la par l’adresse du serveur DNS qui accessible.
 
-Placez `daemon.json` au bon emplacement de votre plateforme : 
+Placez `daemon.json` au bon emplacement de votre plateforme :
 
 | Plateforme | Location |
 | --------- | -------- |
@@ -410,7 +410,7 @@ Placez `daemon.json` au bon emplacement de votre plateforme :
 
 Si l’emplacement contient déjà le fichier `daemon.json`, ajoutez la clé **dns** et enregistrez-le.
 
-*Redémarrez le moteur de conteneur pour que les mises à jour prennent effet*
+Redémarrez le moteur de conteneur pour que les mises à jour prennent effet.
 
 | Plateforme | Commande |
 | --------- | -------- |
@@ -431,7 +431,7 @@ Vous pouvez définir le serveur DNS pour *createOptions* de chaque module dans l
 }
 ```
 
-Veillez à le définir aussi pour les modules *edgeAgent* et *edgeHub*.
+Veillez à définir cette configuration également pour les modules *edgeAgent* et *edgeHub*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

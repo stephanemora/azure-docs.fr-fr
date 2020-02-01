@@ -1,6 +1,6 @@
 ---
 title: Sessions de messagerie Azure Service Bus | Microsoft Docs
-description: Traitez les séquences de messages Azure Service Bus à l’aide de sessions.
+description: Cet article explique comment utiliser des sessions pour permettre un traitement conjoint et ordonné de séquences illimitées de messages associés.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0338663046c21adad358e8fddec12a3cc8151c79
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091826"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759327"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Sessions de messagerie : premier entré, premier sorti (FIFO) 
 
@@ -82,11 +82,11 @@ L’état de session stocké dans une file d’attente ou dans un abonnement est
 
 ## <a name="impact-of-delivery-count"></a>Impact du nombre de livraisons
 
-La définition du nombre de livraisons par message dans le contexte des sessions varie légèrement de la définition dans l’absence de sessions. Voici une table résumant le moment où le nombre de livraisons est incrémenté.
+La définition du nombre de livraisons par message dans le contexte de sessions diffère légèrement de la définition en l’absence de sessions. Voici une table résumant le moment où le nombre de livraisons est incrémenté.
 
 | Scénario | Le nombre de livraisons du message est-il incrémenté |
 |----------|---------------------------------------------|
-| La session est acceptée, mais le verrouillage de session expire (en raison du délai d’expiration) | OUI |
+| La session est acceptée, mais le verrouillage de session expire (en raison du délai d’expiration) | Oui |
 | La session est acceptée, les messages de la session ne sont pas terminés (même s’ils sont verrouillés) et la session est fermée | Non |
 | La session est acceptée, les messages sont terminés, puis la session est explicitement fermée | S.O. (il s'agit du flux standard. Ici, les messages sont supprimés de la session) |
 

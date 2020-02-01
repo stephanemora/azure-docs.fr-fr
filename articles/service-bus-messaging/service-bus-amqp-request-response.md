@@ -1,6 +1,6 @@
 ---
 title: Opérations de demande/réponse AMQP 1.0 dans Azure Service Bus
-description: Liste des opérations basées sur les requêtes-réponses de Microsoft Azure Service Bus.
+description: Cet article énumère les opérations basées sur une requête-réponse AMQP dans le service Microsoft Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/23/2020
 ms.author: aschhab
-ms.openlocfilehash: b549aee197f35df29a982a1a86644c46b9061c63
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 338b411eade35fa357f64131c64b8ef2034c92b0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785272"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761081"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
 
@@ -115,10 +115,10 @@ properties: {
 
 Les entités Service Bus doivent être traitées comme suit :  
   
-|Type d’entité|Adresse|Exemples|  
+|Type d'entité|Adresse|Exemple|  
 |-----------------|-------------|-------------|  
-|file d'attente|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
-|rubrique|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
+|queue|`<queue_name>`|`“myQueue”`<br /><br /> `“site1/myQueue”`|  
+|topic|`<topic_name>`|`“myTopic”`<br /><br /> `“site2/page1/myQueue”`|  
 |subscription|`<topic_name>/Subscriptions/<subscription_name>`|`“myTopic/Subscriptions/MySub”`|  
   
 ## <a name="message-operations"></a>Opérations de message  
@@ -133,14 +133,14 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:renew-lock`|  
+|opération|string|Oui|`com.microsoft:renew-lock`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
  Le corps du message de requête doit contenir une section amqp-value comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|`lock-tokens`|tableau d’uuid|OUI|Jetons de verrouillage de message à renouveler.|  
+|`lock-tokens`|tableau d’uuid|Oui|Jetons de verrouillage de message à renouveler.|  
 
 > [!NOTE]
 > Les jetons de verrouillage sont la propriété `DeliveryTag` sur des messages reçus. Regardez l’exemple suivant dans le [Kit de développement logiciel (SDK) .NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) qui les récupère. Le jeton peut également apparaître dans « DeliveryAnnotations » en tant que « x-opt-lock-token ». Toutefois, cela n’est pas garanti et il faut préférer `DeliveryTag`. 
@@ -152,14 +152,14 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section amqp-value comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|expirations|tableau d’horodatage|OUI|La nouvelle expiration du jeton de verrouillage de message correspond désormais aux jetons de verrouillage des demandes.|  
+|expirations|tableau d’horodatage|Oui|La nouvelle expiration du jeton de verrouillage de message correspond désormais aux jetons de verrouillage des demandes.|  
   
 ### <a name="peek-message"></a>Lire furtivement un message  
 
@@ -171,15 +171,15 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:peek-message`|  
+|opération|string|Oui|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|`from-sequence-number`|long|OUI|Numéro de séquence à partir duquel commencer la lecture furtive.|  
-|`message-count`|int|OUI|Nombre maximal de messages à lire furtivement.|  
+|`from-sequence-number`|long|Oui|Numéro de séquence à partir duquel commencer la lecture furtive.|  
+|`message-count`|int|Oui|Nombre maximal de messages à lire furtivement.|  
   
 #### <a name="response"></a>response  
 
@@ -187,20 +187,20 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|Cloud vers appareil|liste des mappages|OUI|Liste de messages dans laquelle chaque mappage représente un message.|  
+|Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
 Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|Message|tableau d’octets|OUI|Message codé en filaire AMPQ 1.0.|  
+|message|tableau d’octets|Oui|Message codé en filaire AMPQ 1.0.|  
   
 ### <a name="schedule-message"></a>Message de planification  
 
@@ -212,24 +212,24 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:schedule-message`|  
+|opération|string|Oui|`com.microsoft:schedule-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|Cloud vers appareil|liste des mappages|OUI|Liste de messages dans laquelle chaque mappage représente un message.|  
+|Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
 Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|message-id|chaîne|OUI|`amqpMessage.Properties.MessageId` comme chaîne|  
-|session-id|chaîne|Non|`amqpMessage.Properties.GroupId as string`|  
-|partition-key|chaîne|Non|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
-|via-partition-key|chaîne|Non|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
-|Message|tableau d’octets|OUI|Message codé en filaire AMPQ 1.0.|  
+|message-id|string|Oui|`amqpMessage.Properties.MessageId` comme chaîne|  
+|session-id|string|Non|`amqpMessage.Properties.GroupId as string`|  
+|partition-key|string|Non|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
+|via-partition-key|string|Non|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
+|message|tableau d’octets|Oui|Message codé en filaire AMPQ 1.0.|  
   
 #### <a name="response"></a>response  
 
@@ -237,14 +237,14 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|tableau de type long|OUI|Numéro de séquence des messages planifiés. Le numéro de séquence est utilisé pour annuler.|  
+|sequence-numbers|tableau de type long|Oui|Numéro de séquence des messages planifiés. Le numéro de séquence est utilisé pour annuler.|  
   
 ### <a name="cancel-scheduled-message"></a>Annuler le message planifié  
 
@@ -256,14 +256,14 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:cancel-scheduled-message`|  
+|opération|string|Oui|`com.microsoft:cancel-scheduled-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|tableau de type long|OUI|Numéros de séquence des messages planifiés pour annuler.|  
+|sequence-numbers|tableau de type long|Oui|Numéros de séquence des messages planifiés pour annuler.|  
   
 #### <a name="response"></a>response  
 
@@ -271,8 +271,8 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|   
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|   
   
 ## <a name="session-operations"></a>Opérations de session  
   
@@ -286,14 +286,14 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:renew-session-lock`|  
+|opération|string|Oui|`com.microsoft:renew-session-lock`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|session-id|chaîne|OUI|ID de la session.|  
+|session-id|string|Oui|ID de la session.|  
   
 #### <a name="response"></a>response  
 
@@ -301,14 +301,14 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|expiration|timestamp|OUI|Nouvelle expiration.|  
+|expiration|timestamp|Oui|Nouvelle expiration.|  
   
 ### <a name="peek-session-message"></a>Message de session de lecture furtive  
 
@@ -320,16 +320,16 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:peek-message`|  
+|opération|string|Oui|`com.microsoft:peek-message`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|from-sequence-number|long|OUI|Numéro de séquence à partir duquel commencer la lecture furtive.|  
-|message-count|int|OUI|Nombre maximal de messages à lire furtivement.|  
-|session-id|chaîne|OUI|ID de la session.|  
+|from-sequence-number|long|Oui|Numéro de séquence à partir duquel commencer la lecture furtive.|  
+|message-count|int|Oui|Nombre maximal de messages à lire furtivement.|  
+|session-id|string|Oui|ID de la session.|  
   
 #### <a name="response"></a>response  
 
@@ -337,20 +337,20 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un mappage avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|Cloud vers appareil|liste des mappages|OUI|Liste de messages dans laquelle chaque mappage représente un message.|  
+|Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
  Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|Message|tableau d’octets|OUI|Message codé en filaire AMPQ 1.0.|  
+|message|tableau d’octets|Oui|Message codé en filaire AMPQ 1.0.|  
   
 ### <a name="set-session-state"></a>Définir l’état d’une session  
 
@@ -362,15 +362,15 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:set-session-state`|  
+|opération|string|Oui|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|session-id|chaîne|OUI|ID de la session.|  
-|session-state|tableau d’octets|OUI|Données binaires opaques.|  
+|session-id|string|Oui|ID de la session.|  
+|session-state|tableau d’octets|Oui|Données binaires opaques.|  
   
 #### <a name="response"></a>response  
 
@@ -378,8 +378,8 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 ### <a name="get-session-state"></a>Obtenir l’état d’une session  
 
@@ -391,14 +391,14 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:get-session-state`|  
+|opération|string|Oui|`com.microsoft:get-session-state`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|session-id|chaîne|OUI|ID de la session.|  
+|session-id|string|Oui|ID de la session.|  
   
 #### <a name="response"></a>response  
 
@@ -406,14 +406,14 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|session-state|tableau d’octets|OUI|Données binaires opaques.|  
+|session-state|tableau d’octets|Oui|Données binaires opaques.|  
   
 ### <a name="enumerate-sessions"></a>Énumérer les sessions  
 
@@ -425,16 +425,16 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:get-message-sessions`|  
+|opération|string|Oui|`com.microsoft:get-message-sessions`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|last-updated-time|timestamp|OUI|Filtre permettant d’inclure uniquement les sessions mises à jour après une durée donnée.|  
-|skip|int|OUI|Ignore un certain nombre de sessions.|  
-|top|int|OUI|Nombre maximal de sessions.|  
+|last-updated-time|timestamp|Oui|Filtre permettant d’inclure uniquement les sessions mises à jour après une durée donnée.|  
+|skip|int|Oui|Ignore un certain nombre de sessions.|  
+|top|int|Oui|Nombre maximal de sessions.|  
   
 #### <a name="response"></a>response  
 
@@ -442,15 +442,15 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – messages restants.<br /><br /> 204 : Pas de contenu – plus de messages.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|skip|int|OUI|Nombre de sessions ignorées si le code d’état est 200.|  
-|sessions-ids|tableau de chaînes|OUI|Tableau d’ID de session si le code d’état est 200.|  
+|skip|int|Oui|Nombre de sessions ignorées si le code d’état est 200.|  
+|sessions-ids|tableau de chaînes|Oui|Tableau d’ID de session si le code d’état est 200.|  
   
 ## <a name="rule-operations"></a>Opérations relatives aux règles  
   
@@ -462,49 +462,49 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:add-rule`|  
+|opération|string|Oui|`com.microsoft:add-rule`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|rule-name|chaîne|OUI|Nom de règle, à l’exception des noms d’abonnement et de rubrique.|  
-|rule-description|map|OUI|Description de la règle comme indiqué dans la section suivante.|  
+|rule-name|string|Oui|Nom de règle, à l’exception des noms d’abonnement et de rubrique.|  
+|rule-description|map|Oui|Description de la règle comme indiqué dans la section suivante.|  
   
 Le mappage **rule-description** doit inclure les entrées suivantes, où **sql-filter** et **correlation-filter** s’excluent mutuellement :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|sql-filter|map|OUI|`sql-filter`, comme indiqué dans la section suivante.|  
-|correlation-filter|map|OUI|`correlation-filter`, comme indiqué dans la section suivante.|  
-|sql-rule-action|map|OUI|`sql-rule-action`, comme indiqué dans la section suivante.|  
+|sql-filter|map|Oui|`sql-filter`, comme indiqué dans la section suivante.|  
+|correlation-filter|map|Oui|`correlation-filter`, comme indiqué dans la section suivante.|  
+|sql-rule-action|map|Oui|`sql-rule-action`, comme indiqué dans la section suivante.|  
   
 Le mappage sql-filter doit inclure les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|expression|chaîne|OUI|Expression de filtre Sql.|  
+|expression|string|Oui|Expression de filtre Sql.|  
   
 Le mappage **correlation-filter** doit inclure au moins l’une des entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|correlation-id|chaîne|Non||  
-|message-id|chaîne|Non||  
-|to|chaîne|Non||  
-|reply-to|chaîne|Non||  
-|label|chaîne|Non||  
-|session-id|chaîne|Non||  
-|reply-to-session-id|chaîne|Non||  
-|content-type|chaîne|Non||  
+|correlation-id|string|Non||  
+|message-id|string|Non||  
+|to|string|Non||  
+|reply-to|string|Non||  
+|label|string|Non||  
+|session-id|string|Non||  
+|reply-to-session-id|string|Non||  
+|content-type|string|Non||  
 |properties|map|Non|Mappage sur [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) de Service Bus.|  
   
 Le mappage **sql-rule-action** doit inclure les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|expression|chaîne|OUI|Expression d’action SQL.|  
+|expression|string|Oui|Expression d’action SQL.|  
   
 #### <a name="response"></a>response  
 
@@ -512,8 +512,8 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 ### <a name="remove-rule"></a>Supprimer la règle  
   
@@ -523,14 +523,14 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:remove-rule`|  
+|opération|string|Oui|`com.microsoft:remove-rule`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|rule-name|chaîne|OUI|Nom de règle, à l’exception des noms d’abonnement et de rubrique.|  
+|rule-name|string|Oui|Nom de règle, à l’exception des noms d’abonnement et de rubrique.|  
   
 #### <a name="response"></a>response  
 
@@ -538,8 +538,8 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 ### <a name="get-rules"></a>Obtenir les règles
 
@@ -549,15 +549,15 @@ Le message de requête doit inclure les propriétés d’application suivantes 
 
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:enumerate-rules`|  
+|opération|string|Oui|`com.microsoft:enumerate-rules`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
 
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|top|int|OUI|Le nombre de règles à extraire dans la page.|  
-|skip|int|OUI|Le nombre de règles à ignorer. Définit l’index de départ (+1) dans la liste des règles. | 
+|top|int|Oui|Le nombre de règles à extraire dans la page.|  
+|skip|int|Oui|Le nombre de règles à ignorer. Définit l’index de départ (+1) dans la liste des règles. | 
 
 #### <a name="response"></a>response
 
@@ -565,22 +565,22 @@ Le message de réponse inclut les propriétés suivantes :
 
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|rules| tableau de mappage|OUI|Tableau de règles. Chaque règle est représentée par un mappage.|
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|rules| tableau de mappage|Oui|Tableau de règles. Chaque règle est représentée par un mappage.|
 
 Chaque entrée de mappage dans le tableau inclut les propriétés suivantes :
 
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|rule-description|tableau d’objets décrits|OUI|`com.microsoft:rule-description:list` avec le code AMQP décrit 0x0000013700000004| 
+|rule-description|tableau d’objets décrits|Oui|`com.microsoft:rule-description:list` avec le code AMQP décrit 0x0000013700000004| 
 
 `com.microsoft.rule-description:list` est un tableau d’objets décrits. Le tableau inclut les éléments suivants :
 
 |Index|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-| 0 | tableau d’objets décrits | OUI | `filter` comme indiqué ci-dessous. |
-| 1 | tableau d’objet décrit | OUI | `ruleAction` comme indiqué ci-dessous. |
-| 2 | chaîne | OUI | nom de la règle. |
+| 0 | tableau d’objets décrits | Oui | `filter` comme indiqué ci-dessous. |
+| 1 | tableau d’objet décrit | Oui | `ruleAction` comme indiqué ci-dessous. |
+| 2 | string | Oui | nom de la règle. |
 
 `filter` peut être d’un des types suivants :
 
@@ -595,20 +595,20 @@ Chaque entrée de mappage dans le tableau inclut les propriétés suivantes :
 
 |Index|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-| 0 | chaîne | OUI | Expression de filtre SQL |
+| 0 | string | Oui | Expression de filtre SQL |
 
 `com.microsoft:correlation-filter:list` est un tableau décrit qui inclut :
 
 |Index (s’il existe)|Type de valeur|Contenu de la valeur|  
 |---------|----------------|--------------|
-| 0 | chaîne | ID de corrélation : |
-| 1 | chaîne | ID de message |
-| 2 | chaîne | À |
-| 3 | chaîne | Adresse de réponse |
-| 4 | chaîne | Étiquette |
-| 5\. | chaîne | ID de la session |
-| 6\. | chaîne | ID de session de réponse|
-| 7 | chaîne | Type de contenu |
+| 0 | string | ID de corrélation : |
+| 1 | string | ID de message |
+| 2 | string | À |
+| 3 | string | Adresse de réponse |
+| 4 | string | Étiquette |
+| 5 | string | ID de la session |
+| 6 | string | ID de session de réponse|
+| 7 | string | Type de contenu |
 | 8 | Mappage | Mappage des propriétés définies de l’application |
 
 `ruleAction` peut être d’un des types suivants :
@@ -632,15 +632,15 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:receive-by-sequence-number`|  
+|opération|string|Oui|`com.microsoft:receive-by-sequence-number`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|sequence-numbers|tableau de type long|OUI|Numéros de séquence.|  
-|receiver-settle-mode|ubyte|OUI|Mode de **réglage du récepteur** tel que spécifié dans AMQP core v1.0.|  
+|sequence-numbers|tableau de type long|Oui|Numéros de séquence.|  
+|receiver-settle-mode|ubyte|Oui|Mode de **réglage du récepteur** tel que spécifié dans AMQP core v1.0.|  
   
 #### <a name="response"></a>response  
 
@@ -648,21 +648,21 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|  
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|  
   
 Le corps du message de réponse doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|Cloud vers appareil|liste des mappages|OUI|Liste de messages dans laquelle chaque mappage représente un message.|  
+|Cloud vers appareil|liste des mappages|Oui|Liste de messages dans laquelle chaque mappage représente un message.|  
   
 Le mappage représentant un message doit contenir les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|lock-token|uuid|OUI|Jeton de verrouillage si `receiver-settle-mode` est 1.|  
-|Message|tableau d’octets|OUI|Message codé en filaire AMPQ 1.0.|  
+|lock-token|uuid|Oui|Jeton de verrouillage si `receiver-settle-mode` est 1.|  
+|message|tableau d’octets|Oui|Message codé en filaire AMPQ 1.0.|  
   
 ### <a name="update-disposition-status"></a>Mettre à jour le statut de disposition  
 
@@ -674,17 +674,17 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:update-disposition`|  
+|opération|string|Oui|`com.microsoft:update-disposition`|  
 |`com.microsoft:server-timeout`|uint|Non|Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|disposition-status|chaîne|OUI|Terminé<br /><br /> abandonné<br /><br /> interrompu|  
-|lock-tokens|tableau d’uuid|OUI|Jetons de verrouillage de message pour mettre à jour le statut de disposition.|  
-|deadletter-reason|chaîne|Non|Peut être défini si le statut de disposition est défini sur **interrompu**.|  
-|deadletter-description|chaîne|Non|Peut être défini si le statut de disposition est défini sur **interrompu**.|  
+|disposition-status|string|Oui|Terminé<br /><br /> abandonné<br /><br /> interrompu|  
+|lock-tokens|tableau d’uuid|Oui|Jetons de verrouillage de message pour mettre à jour le statut de disposition.|  
+|deadletter-reason|string|Non|Peut être défini si le statut de disposition est défini sur **interrompu**.|  
+|deadletter-description|string|Non|Peut être défini si le statut de disposition est défini sur **interrompu**.|  
 |properties-to-modify|map|Non|Liste des propriétés de message réparti Service Bus à modifier.|  
   
 #### <a name="response"></a>response  
@@ -693,8 +693,8 @@ Le message de réponse doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|OUI|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
-|statusDescription|chaîne|Non|Description de l’état.|
+|statusCode|int|Oui|Code de réponse HTTP [RFC2616]<br /><br /> 200 : OK – réussite, sinon échec.|  
+|statusDescription|string|Non|Description de l’état.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -702,8 +702,8 @@ Pour en savoir plus sur AMQP et Service Bus, consultez les liens suivants :
 
 * [Vue d’ensemble du protocole AMQP de Service Bus]
 * [Guide du protocole AMQP 1.0]
-* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]
 
 [Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
 [Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
-[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server)]: https://docs.microsoft.com/previous-versions/service-bus-archive/dn282144(v=azure.100)

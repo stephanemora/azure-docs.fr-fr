@@ -16,24 +16,24 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228165"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774884"
 ---
-# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Didacticiel : notifications Push vers des appareils iOS spécifiques à l’aide d’Azure Notification Hubs
+# <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutoriel : notifications Push vers des appareils iOS spécifiques à l’aide d’Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel vous montre comment utiliser Azure Notification Hubs pour diffuser des notifications relatives aux dernières nouvelles vers une application iOS. Lorsque vous avez terminé, vous pouvez vous inscrire aux catégories de dernières nouvelles qui vous intéressent et recevoir uniquement des notifications Push pour ces catégories. Ce scénario est un modèle courant pour de nombreuses applications pour lesquelles des notifications doivent être envoyées à des groupes d’utilisateurs qui ont signalé antérieurement un intérêt, par exemple, lecteur RSS, applications pour fans de musique, etc.
 
 Les scénarios de diffusion sont activés en incluant une ou plusieurs *balises* durant la création d’une inscription dans le hub de notification. Lorsque des notifications sont envoyées à une balise, les appareils qui se sont inscrits à cette balise reçoivent la notification. Les balises étant de simples chaînes, il n’est pas nécessaire de les mettre en service à l’avance. Pour plus d’informations sur les balises, consultez [Routage et expressions de balise Notification Hubs](notification-hubs-tags-segment-push-message.md).
 
-Dans ce didacticiel, vous effectuez les étapes suivantes :
+Dans ce tutoriel, vous effectuez les étapes suivantes :
 
 > [!div class="checklist"]
 > * Ajouter une sélection de catégories à l’application
@@ -41,7 +41,7 @@ Dans ce didacticiel, vous effectuez les étapes suivantes :
 > * Envoyer des notifications à partir de l’appareil
 > * Exécution de l’application et génération de notifications
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Cette rubrique s’appuie sur l’application que vous avez créée dans le [Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs][get-started]. Avant de commencer ce tutoriel, vous devez suivre le [Tutoriel : Notifications Push vers des applications iOS avec Azure Notification Hubs][get-started].
 
@@ -159,7 +159,7 @@ La première étape consiste à ajouter à votre storyboard existant les éléme
 9. Dans la méthode `didRegisterForRemoteNotificationsWithDeviceToken` du fichier `AppDelegate.m`, remplacez le code de la méthode par le code suivant pour transmettre le jeton d’appareil à la classe `notifications`. La classe `notifications` effectue l’enregistrement pour les notifications avec les catégories. Si l’utilisateur modifie les sélections de catégorie, appelez la méthode `subscribeWithCategories` en réponse au bouton **S’abonner** pour mettre à jour les sections.
 
     > [!NOTE]
-    > Étant donné que le jeton d'appareil attribué par le service de notification Push Apple (APN, Apple Push Notification) peut être modifié à tout moment, vous devez vous inscrire aux notifications à intervalles réguliers pour éviter les défaillances de notification. Cet exemple s’inscrit aux notifications chaque fois que l’application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
+    > Étant donné que le jeton d’appareil attribué par Apple Push Notification Service (APN) peut être modifié à tout moment, vous devez vous inscrire fréquemment aux notifications pour éviter les échecs de notification. Cet exemple s’inscrit aux notifications chaque fois que l’application démarre. Pour les applications exécutées fréquemment, plus d'une fois par jour, vous pouvez probablement ignorer l'inscription afin de préserver la bande passante si moins d'un jour s'est écoulé depuis l'inscription précédente.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -247,7 +247,7 @@ L’application peut désormais stocker un ensemble de catégories dans le stock
 
 ## <a name="optional-send-tagged-notifications"></a>(Facultatif) Envoyer des notifications avec balises
 
-Si vous n’avez pas accès à Visual Studio, vous pouvez passer à la section suivante et envoyer des notifications à partir de l’application elle-même. Vous pouvez également envoyer la notification de modèle concernée sur le [Portail Azure], dans l’onglet Débogage de votre centre Notification Hubs.
+Si vous n’avez pas accès à Visual Studio, vous pouvez passer à la section suivante et envoyer des notifications à partir de l’application elle-même. Vous pouvez également envoyer la notification de modèle concernée sur le [Azure portal], dans l’onglet Débogage de votre centre Notification Hubs.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -337,7 +337,7 @@ Normalement, les notifications doivent être envoyées par un service principal.
 
 3. Régénérez votre projet et vérifiez qu’il n’existe aucune erreur de génération.
 
-## <a name="run-the-app-and-generate-notifications"></a>Exécution de l'application et génération de notifications
+## <a name="run-the-app-and-generate-notifications"></a>Exécution de l’application et génération de notifications
 
 1. Cliquez sur le bouton Exécuter pour générer le projet et démarrer l’application. Sélectionnez certaines options de dernières nouvelles pour vous y abonner, puis appuyez sur le bouton **S’abonner** . Vous devez voir une boîte de dialogue indiquant les notifications auxquelles vous êtes abonné.
 
@@ -371,4 +371,4 @@ Dans ce didacticiel, vous avez envoyé des notifications de diffusion à des app
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Portail Azure]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com

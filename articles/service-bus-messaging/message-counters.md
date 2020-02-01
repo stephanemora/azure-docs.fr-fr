@@ -1,6 +1,6 @@
 ---
-title: Nombre de messages Azure Service Bus | Microsoft Docs
-description: Récupérez le nombre de messages Azure Service Bus.
+title: Azure Service Bus – Nombre de messages
+description: Récupérez le nombre de messages contenus dans les files d’attente et les abonnements à l’aide d’Azure Resource Manager et des API NamespaceManager d’Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: adfd8c5849cfee69805715378a3f56ec9f685b00
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3a4fca0b3b60fcb76bcdc4f5f2d53df816c5053b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60403956"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756372"
 ---
 # <a name="message-counters"></a>Compteurs de messages
 

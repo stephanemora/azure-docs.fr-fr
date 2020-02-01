@@ -1,22 +1,15 @@
 ---
 title: Extraction des données : LUIS
-titleSuffix: Azure Cognitive Services
 description: Extraire des données d’un texte d’énoncé avec des intentions et des entités. Découvrez quel type de données il est possible d’extraire à partir de Language Understanding (LUIS).
-services: cognitive-services
 author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: ff0a9838d1fcc9db3b6cc25b47c840e01056e6cd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.date: 01/23/2020
+ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703152"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716294"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraire des données d’un texte d’énoncé avec des intentions et des entités
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -36,7 +29,7 @@ LUIS fournit les données à partir du [point de terminaison](luis-glossary.md#e
 
 Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 La valeur `appID` est disponible dans la page **Paramètres** de l’application LUIS ; elle fait également partie de l’URL (après `/apps/`) dans la page de modification de l’application. La clé `subscription-key` est la clé du point de terminaison utilisée pour interroger l’application. Vous pouvez utiliser votre clé gratuite de démarrage/création tant que vous apprenez à vous servir de LUIS, mais il est important de remplacer la clé de point de terminaison par une clé qui prend en charge votre [utilisation attendue de LUIS](luis-boundaries.md#key-limits). L’unité `timezoneOffset` est exprimée en minutes.
 
@@ -78,11 +71,11 @@ La principale donnée est le **nom de l’intention** qui a obtenu le meilleur s
 
 Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 |Objet de données|Type de données|Emplacement des données|Valeur|
 |--|--|--|--|
-|Intention|Chaîne|topScoringIntent.intent|"GetStoreInfo"|
+|Intentionnel|String|topScoringIntent.intent|"GetStoreInfo"|
 
 Si votre chatbot ou votre application d’appel à LUIS prend une décision sur la base du score de plusieurs intentions, retournez le score de toutes les intentions.
 
@@ -138,14 +131,14 @@ Définissez le paramètre de chaîne de requête, `show-all-intents=true`. La r�
 
 Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 Les intentions sont triées du score le plus élevé au score le plus faible.
 
 |Objet de données|Type de données|Emplacement des données|Valeur|Score|
 |--|--|--|--|:--|
-|Intention|Chaîne|intents[0].intent|"GetStoreInfo"|0.984749258|
-|Intention|Chaîne|intents[1].intent|"None"|0.0168218873|
+|Intentionnel|String|intents[0].intent|"GetStoreInfo"|0.984749258|
+|Intentionnel|String|intents[1].intent|"None"|0.0168218873|
 
 Si vous ajoutez des domaines prédéfinis, le nom de l’intention indique le domaine, par exemple `Utilties` ou `Communication`, ainsi que l’intention :
 
@@ -201,13 +194,13 @@ Si vous ajoutez des domaines prédéfinis, le nom de l’intention indique le do
 
 Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 |Domain|Objet de données|Type de données|Emplacement des données|Valeur|
 |--|--|--|--|--|
-|Services|Intention|Chaîne|intents[0].intent|"<b>Utilities</b>.ShowNext"|
-|Communication|Intention|Chaîne|intents[1].intent|<b>Communication</b>.StartOver"|
-||Intention|Chaîne|intents[2].intent|"None"|
+|Services|Intentionnel|String|intents[0].intent|"<b>Utilities</b>.ShowNext"|
+|Communication|Intentionnel|String|intents[1].intent|<b>Communication</b>.StartOver"|
+||Intentionnel|String|intents[2].intent|"None"|
 
 
 ## <a name="data-from-entities"></a>Données issues des entités
@@ -250,12 +243,11 @@ Toutes les entités sont retournées dans le tableau **entities** de la réponse
 ```
 Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 ## <a name="tokenized-entity-returned"></a>Entité retournée segmentée en unités lexicales
-Plusieurs [cultures](luis-language-support.md#tokenization) retournent l’objet entité avec la valeur `entity` [segmentée en unités lexicales (tokenization)](luis-glossary.md#token). Les index startIndex et endIndex retournés par LUIS dans l’objet entité ne correspondent pas à la nouvelle valeur segmentée, mais à la requête d’origine, ce qui permet d’extraire l’entité brute par programme. 
 
-Par exemple, en allemand, le mot `das Bauernbrot` a comme unités lexicales `das bauern brot`. La valeur segmentée, `das bauern brot`, est retournée ; la valeur d’origine peut être déterminée par programme à partir des index startIndex et endIndex de la requête d’origine, ce qui donne `das Bauernbrot`.
+Examinez la [prise en charge des jetons](luis-language-support.md#tokenization) dans LUIS.
 
 ## <a name="simple-entity-data"></a>Données d’entité simple
 
@@ -263,11 +255,11 @@ Une [entité simple](reference-entity-simple.md) est une valeur issue du Machine
 
 ## <a name="composite-entity-data"></a>Données d’entité composite
 
-Une [entité composite](reference-entity-composite.md) est constituée d’autres entités (prédéfinies, simples, expressions régulières et listes). Les entités distinctes forment une entité entière. 
+Une [entité composite](reference-entity-composite.md) est constituée d’autres entités (prédéfinies, simples, expressions régulières et listes). Les entités distinctes forment une entité entière.
 
 ## <a name="list-entity-data"></a>Données d’entité de liste
 
-Les [entités de liste](reference-entity-list.md) représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle. S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison. 
+Les [entités de liste](reference-entity-list.md) représentent un ensemble fixe, fermé de mots associés, ainsi que leurs synonymes. LUIS ne détecte pas les valeurs supplémentaires pour les entités de liste. Utilisez la fonctionnalité **Recommander** pour trouver des suggestions de nouveaux mots à partir de la liste actuelle. S’il existe plusieurs entités de liste avec la même valeur, chaque entité est retournée dans la requête du point de terminaison.
 
 ## <a name="prebuilt-entity-data"></a>Données d’entité prédéfinie
 Les entités [prédéfinies](luis-concept-entity-types.md) sont découvertes par correspondance avec une expression régulière à l’aide du projet [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) open source. Elles sont retournées dans le tableau entities et utilisent le nom de type avec le préfixe `builtin::`. Le texte suivant est un exemple d’énoncé avec les entités prédéfinies retournées :
@@ -534,7 +526,7 @@ Avec le paramètre de chaîne de requête, `verbose=true` :
 
 Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migration-api-v3.md).
 
-* * * 
+* * *
 ## <a name="regular-expression-entity-data"></a>Données d’entité d’expression régulière
 
 Une [entité d’expression régulière](reference-entity-regular-expression.md) extrait une entité en fonction du modèle d’expression régulière que vous fournissez.
@@ -544,11 +536,11 @@ Il est difficile d’extraire des noms d’un énoncé, car un nom peut être pr
 
 ### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Ajouter des entités PersonName et GeographyV2 prédéfinies
 
-Les entités [PersonName](luis-reference-prebuilt-person.md) et [GeographyV2](luis-reference-prebuilt-geographyV2.md) sont disponibles dans certaines [cultures de langue](luis-reference-prebuilt-entities.md). 
+Les entités [PersonName](luis-reference-prebuilt-person.md) et [GeographyV2](luis-reference-prebuilt-geographyV2.md) sont disponibles dans certaines [cultures de langue](luis-reference-prebuilt-entities.md).
 
 ### <a name="names-of-people"></a>Noms de personnes
 
-Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez une entité **[personName](luis-reference-prebuilt-person.md)** prédéfinie ou une **[entité simple](luis-concept-entity-types.md#simple-entity)** avec les [rôles](luis-concept-roles.md) du prénom et du nom. 
+Les noms de personnes peuvent avoir un format légèrement en fonction de la langue et de la culture. Utilisez une entité **[personName](luis-reference-prebuilt-person.md)** prédéfinie ou une **[entité simple](luis-concept-entity-types.md#simple-entity)** avec les [rôles](luis-concept-roles.md) du prénom et du nom.
 
 Si vous utilisez l’entité simple, veillez à donner des exemples qui utilisent le prénom et le nom à différents endroits de l’énoncé, dans des énoncés de longueurs différentes et pour toutes les intentions, y compris l’intention None. [Vérifiez](luis-how-to-review-endoint-utt.md) régulièrement les énoncés du point de terminaison pour étiqueter les noms qui n’ont pas été prédits correctement.
 
@@ -599,7 +591,7 @@ Le nom de l’entité est `Location`, avec deux rôles, `Origin` et `Destination
 
 #### <a name="v3-prediction-endpoint-responsetabv3"></a>[Réponse de point de terminaison de prédiction V3](#tab/V3)
 
-Dans V3, le **nom du rôle** correspond au nom de l’objet. 
+Dans V3, le **nom du rôle** correspond au nom de l’objet.
 
 Le nom de l’entité est `Location`, avec deux rôles, `Origin` et `Destination`.
 
@@ -687,7 +679,7 @@ Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migratio
 
 ## <a name="patternany-entity-data"></a>Données d’entité Pattern.any
 
-[Pattern.any](reference-entity-pattern-any.md) est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.  
+[Pattern.any](reference-entity-pattern-any.md) est un espace réservé à longueur variable utilisé uniquement dans le gabarit d’énoncé d’un modèle pour marquer où l’entité commence et se termine.
 
 ## <a name="sentiment-analysis"></a>analyse de sentiments
 Si l’analyse des sentiments est configurée, la réponse JSON de LUIS l’intègre. Pour plus d’informations sur l’analyse des sentiments, consultez la documentation [Analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/).
@@ -1141,7 +1133,7 @@ Découvrez-en plus sur le [point de terminaison de prédiction V3](luis-migratio
 
 Si un mot ou une phrase correspond à plusieurs entités Liste, la requête du point de terminaison retourne chaque entité Liste.
 
-Pour la requête `when is the best time to go to red rock?`, et si l’application contient le mot `red` dans plusieurs listes, LUIS reconnaît toutes les entités et retourne un tableau d’entités dans le cadre de la réponse du point de terminaison JSON : 
+Pour la requête `when is the best time to go to red rock?`, et si l’application contient le mot `red` dans plusieurs listes, LUIS reconnaît toutes les entités et retourne un tableau d’entités dans le cadre de la réponse du point de terminaison JSON :
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Réponse de point de terminaison de prédiction V2](#tab/V2)
 

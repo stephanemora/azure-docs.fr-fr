@@ -1,6 +1,6 @@
 ---
-title: Interruption d’entités de messagerie Azure Service Bus | Microsoft Docs
-description: Interrompre et réactiver des entités de messagerie Azure Service Bus.
+title: Azure Service Bus – Interruption d’entités de messagerie
+description: Cet article explique comment suspendre temporairement et réactiver des entités de message Azure Service Bus (files d’attente, rubriques et abonnements).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: e2ffda3141462d19557af3af26c117ee505c40ab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7386932f19eee064926184eb17f5e92e30add98e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66170814"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760383"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Interrompre et réactiver des entités de messagerie (désactiver)
 
@@ -40,8 +40,8 @@ Le portail vous permet uniquement de désactiver complètement les files d’att
 
 Les états pouvant être définis pour une file d’attente sont :
 
--   **Active** : la file d’attente est active.
--   **Désactivé** : la file d’attente est suspendue.
+-   **Actif** : la file d’attente est active.
+-   **Disabled** : la file d’attente est suspendue.
 -   **SendDisabled** : la file d’attente est partiellement suspendue, mais les réceptions sont autorisées.
 -   **ReceiveDisabled** : la file d’attente est partiellement suspendue, mais les envois sont autorisés.
 

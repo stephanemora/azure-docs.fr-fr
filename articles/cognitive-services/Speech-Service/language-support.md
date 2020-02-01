@@ -3,20 +3,20 @@ title: Prise en charge des langues – Service Speech
 titleSuffix: Azure Cognitive Services
 description: Le service Speech prend en charge de nombreuses langues, que ce soit pour la reconnaissance vocale, la synthèse vocale ou la traduction vocale. Cet article fournit une liste complète des langues prise en charge, par fonctionnalité de service.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
+ms.date: 01/28/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381050"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845335"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Prise en charge des langues et des régions pour le service Speech
 
@@ -24,49 +24,58 @@ La prise en charge des langues varie selon les fonctionnalités du service Speec
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
-Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge les langages suivants (paramètres régionaux). Afin d'améliorer la précision, la personnalisation est proposée pour un sous-ensemble de langues en téléchargeant des transcriptions audio + étiquetées à la main ou des textes associés : Phrases.  La personnalisation de la prononciation est actuellement disponible uniquement pour `en-US` et `de-DE`. Pour en savoir plus sur la personnalisation, cliquez [ici](how-to-custom-speech.md).
+Le Kit de développement logiciel (SDK) et l’API REST Speech de Microsoft prennent en charge les langages suivants (paramètres régionaux). Afin d'améliorer la précision, la personnalisation est proposée pour un sous-ensemble de langues en téléchargeant des transcriptions audio + étiquetées à la main ou des textes associés : Phrases. La personnalisation de la prononciation est actuellement disponible uniquement pour `en-US` et `de-DE`. Pour en savoir plus sur la personnalisation, cliquez [ici](how-to-custom-speech.md).
 
- Paramètres régionaux | Langage | Prise en charge | Personnalisable
+<!--
+To get the AM and ML bits:
+https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+
+To get pronunciation bits:
+https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
+-->
+
+ Paramètres régionaux | Langage | Prise en charge | Personnalisations
 ------|------------|-----------|-------------
-`ar-EG` | Arabe (Égypte), standard moderne | Oui | Oui
-`ar-SA` | Arabe (Arabie saoudite) | Oui | Oui
-`ar-AE` | Arabe (Émirats arabes unis) | Oui | Oui
-`ar-KW` | Arabe (Koweït) | Oui | Oui
-`ar-QA` | Arabe (Qatar) | Oui | Oui
-`ca-ES` | Catalan | Oui | Non
-`da-DK` | Danois (Danemark) | Oui | Non
-`de-DE` | Allemand (Allemagne) | Oui | Oui
-`en-AU` | Anglais (Australie) | Oui | Oui
-`en-CA` | Anglais (Canada) | Oui | Oui
-`en-GB` | Anglais (Royaume-Uni) | Oui | Oui
-`en-IN` | Anglais (Inde) | Oui | Oui
-`en-NZ` | Anglais (Nouvelle-Zélande) | Oui | Oui
-`en-US` | Anglais (États-Unis) | Oui | Oui
-`es-ES` | Espagnol (Espagne) | Oui | Oui
-`es-MX` | Espagnol (Mexique) | Oui | Oui
-`fi-FI` | Finnois (Finlande) | Oui | Non
-`fr-CA` | Français (Canada) | Oui | Oui
-`fr-FR` | Français (France) | Oui | Oui
-`gu-IN` | Goudjrati (Inde) | Oui | Oui
-`hi-IN` | Hindi (Inde) | Oui | Oui
-`it-IT` | Italien (Italie) | Oui | Oui
-`ja-JP` | Japonais (Japon) | Oui | Oui
-`ko-KR` | Coréen (Corée) | Oui | Oui
-`mr-IN` | Marathi (Inde) | Oui | Oui
-`nb-NO` | Norvégien( Bokmål) (Norvège) | Oui | Non
-`nl-NL` | Néerlandais (Pays-Bas) | Oui | Oui
-`pl-PL` | Polonais (Pologne) | Oui | Non
-`pt-BR` | Portugais (Brésil) | Oui | Oui
-`pt-PT` | Portugais (Portugal) | Oui | Oui
-`ru-RU` | Russe (Russie) | Oui | Oui
-`sv-SE` | Suédois (Suède) | Oui | Non
-`ta-IN` | Tamoul (Inde) | Oui | Oui
-`te-IN` | Télougou (Inde) | Oui | Oui
-`zh-CN` | Chinois (mandarin, simplifié) | Oui | Oui
-`zh-HK` | Chinois (cantonais, traditionnel) | Oui | Oui
-`zh-TW` | Chinois (mandarin, taïwanais) | Oui | Oui
+`ar-AE` | Arabe (Émirats arabes unis) | Oui | Non
+`ar-BH` | Arabe (Bahreïn) | Oui | Modèle de langage
+`ar-EG` | Arabe (Égypte), standard moderne | Oui | Modèle de langage
+`ar-KW` | Arabe (Koweït) | Oui | Non
+`ar-QA` | Arabe (Qatar) | Oui | Non
+`ar-SA` | Arabe (Arabie saoudite) | Oui | Non
+`ca-ES` | Catalan | Oui | Modèle de langage
+`da-DK` | Danois (Danemark) | Oui | Modèle de langage
+`de-DE` | Allemand (Allemagne) | Oui | Modèle acoustique<br>Modèle de langage<br>Prononcer
+`en-AU` | Anglais (Australie) | Oui | Modèle acoustique<br>Modèle de langage
+`en-CA` | Anglais (Canada) | Oui | Modèle acoustique<br>Modèle de langage
+`en-GB` | Anglais (Royaume-Uni) | Oui | Modèle acoustique<br>Modèle de langage<br>Prononcer
+`en-IN` | Anglais (Inde) | Oui | Modèle acoustique<br>Modèle de langage
+`en-NZ` | Anglais (Nouvelle-Zélande) | Oui | Modèle acoustique<br>Modèle de langage
+`en-US` | Anglais (États-Unis) | Oui | Modèle acoustique<br>Modèle de langage<br>Prononcer
+`es-ES` | Espagnol (Espagne) | Oui | Modèle acoustique<br>Modèle de langage
+`es-MX` | Espagnol (Mexique) | Oui | Modèle acoustique<br>Modèle de langage
+`fi-FI` | Finnois (Finlande) | Oui | Modèle de langage
+`fr-CA` | Français (Canada) | Oui | Modèle acoustique<br>Modèle de langage
+`fr-FR` | Français (France) | Oui | Modèle acoustique<br>Modèle de langage<br>Prononcer
+`gu-IN` | Goudjrati (Inde) | Oui | Modèle de langage
+`hi-IN` | Hindi (Inde) | Oui | Modèle acoustique<br>Modèle de langage
+`it-IT` | Italien (Italie) | Oui | Modèle acoustique<br>Modèle de langage<br>Prononcer
+`ja-JP` | Japonais (Japon) | Oui | Modèle de langage
+`ko-KR` | Coréen (Corée) | Oui | Modèle de langage
+`mr-IN` | Marathi (Inde) | Oui | Modèle de langage
+`nb-NO` | Norvégien( Bokmål) (Norvège) | Oui | Modèle de langage
+`nl-NL` | Néerlandais (Pays-Bas) | Oui | Modèle de langage
+`pl-PL` | Polonais (Pologne) | Oui | Modèle de langage
+`pt-BR` | Portugais (Brésil) | Oui | Modèle acoustique<br>Modèle de langage<br>Prononcer
+`pt-PT` | Portugais (Portugal) | Oui | Modèle de langage
+`ru-RU` | Russe (Russie) | Oui | Modèle acoustique<br>Modèle de langage
+`sv-SE` | Suédois (Suède) | Oui | Modèle de langage
+`ta-IN` | Tamoul (Inde) | Oui | Modèle de langage
+`te-IN` | Télougou (Inde) | Oui | Non
 `th-TH` | Thaï (Thaïlande) | Oui | Non
-`tr-TR` | Turquie | Oui | Oui
+`tr-TR` | Turc (Turquie) | Oui | Non
+`zh-CN` | Chinois (mandarin, simplifié) | Oui | Modèle acoustique<br>Modèle de langage
+`zh-HK` | Chinois (cantonais, traditionnel) | Oui | Modèle de langage
+`zh-TW` | Chinois (mandarin, taïwanais) | Oui | Modèle de langage
 
 ## <a name="text-to-speech"></a>Synthèse vocale
 
@@ -102,7 +111,7 @@ Plus de 75 voix standard sont disponibles dans plus de 45 langues et paramètr
 
 Paramètres régionaux | Langage | Sexe | Mappage du nom complet du service | Nom court
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | Arabe (Égypte) | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-EG, Hoda) » | « ar-EG-Hoda »
+<sup>1</sup>`ar-EG` | Arabe (Égypte) | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-EG, Hoda) » | « ar-EG-Hoda »
 `ar-SA` | Arabe (Arabie saoudite) | Male | « Voix de synthèse vocale pour le service Speech Microsoft Server (ar-SA, Naayf) » | « ar-SA-Naayf »
 `bg-BG` | Bulgare | Male | « Voix de synthèse vocale pour le service Speech Microsoft Server (bg-BG, Ivan) » | « bg-BG-Ivan »
 `ca-ES` | Catalan (Espagne) | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (ca-ES, HerenaRUS) » | « ca-ES-HerenaRUS »
@@ -172,7 +181,7 @@ Paramètres régionaux | Langage | Sexe | Mappage du nom complet du service | No
 `ta-IN` | Tamoul (Inde) | Male | « Voix de synthèse vocale pour le service Speech Microsoft Server (ta-IN, Valluvar) » | « ta-IN-Valluvar »
 `te-IN` | Télougou (Inde) | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (te-IN, Chitra) » | « te-IN-Chitra »
 `th-TH` | Thaï | Male | « Voix de synthèse vocale pour le service Speech Microsoft Server (th-TH, Pattara) » | « th-TH-Pattara »
-`tr-TR` | Turc | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (tr-TR, SedaRUS) » | « tr-TR-SedaRUS »
+`tr-TR` | Turc (Turquie) | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (tr-TR, SedaRUS) » | « tr-TR-SedaRUS »
 `vi-VN` | Vietnamien | Male | « Voix de synthèse vocale pour le service Speech Microsoft Server (vi-VN, An) » | « vi-VN-An »
 `zh-CN` | Chinois (continent) | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, HuihuiRUS) » | « zh-CN-HuihuiRUS »
 | | | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-CN, Yaoyao, Apollo) » | « zh-CN-Yaoyao-Apollo »
@@ -184,7 +193,7 @@ Paramètres régionaux | Langage | Sexe | Mappage du nom complet du service | No
 | | | Female | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, HanHanRUS) » | « zh-TW-HanHanRUS »
 | | | Male | « Voix de synthèse vocale pour le service Speech Microsoft Server (zh-TW, Zhiwei, Apollo) » | « zh-TW-Zhiwei-Apollo »
 
-&dagger; *ar-EG prend en charge l’arabe standard moderne (MSA).*
+**1** *ar-EG prend en charge l’arabe standard moderne (MSA).*
 
 > [!NOTE]
 > Il est possible d’utiliser le mappage du nom complet du service ou le nom court de la voix dans les demandes de synthèse vocale.

@@ -1,6 +1,6 @@
 ---
 title: Messages, charges utiles et sérialisation Azure Service Bus | Microsoft Docs
-description: Présentation des charges utiles de messages Service Bus
+description: Cet article fournit une vue d’ensemble des messages, des charges utiles, du routage des messages et de la sérialisation Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 26256fe968eff5f7570885278620fded5673b5a0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 11e56ae2483a254fb00e3593da7841f3f3d844f3
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249970"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759395"
 ---
 # <a name="messages-payloads-and-serialization"></a>Messages, charges utiles et sérialisation
 
@@ -50,7 +50,7 @@ Les noms équivalents utilisés au niveau du protocole AMQP sont répertoriés e
 | [ReplyTo](/dotnet/api/microsoft.azure.servicebus.message.replyto) (reply-to)                    | Cette valeur facultative et définie par l’application est un moyen standard d’exprimer un chemin d’accès de réponse à l’intention du destinataire du message. Lorsqu’un expéditeur attend une réponse, cette propriété définit cette valeur sur le chemin d’accès absolu ou relatif de la file d’attente ou de la rubrique auxquelles la réponse doit être envoyée.                                                                                                                                           |
 | [ReplyToSessionId](/dotnet/api/microsoft.azure.servicebus.message.replytosessionid) (reply-to-group-id)  | Cette valeur incrémente l’information **ReplyTo** et spécifie la valeur **SessionId** qui doit être définie pour la réponse lors de son envoi à l’entité de réponse.                                                                                                                                                                                                                                                                            |
 | [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc)               | Dans le cas des messages qui ne deviennent récupérables qu’après un délai spécifique, cette propriété définit l’heure UTC à laquelle le message sera logiquement empilé, séquencé et rendu récupérable.                                                                                                                                                                                                                 |
-| [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber)                        | Le numéro de séquence est un entier 64 bits unique attribué à un message lorsque celui-ci est accepté et stocké par le répartiteur, et fait office de véritable identificateur du message. Dans le cas des entités partitionnées, les 16 premiers bits reflètent l’identificateur de partition. Les numéros de séquence augmentent de façon monotone et ininterrompue. Ils repassent à 0 lorsque la plage 48 à 64 bits est épuisée. Cette propriété est en lecture seule.                                                                |
+| [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber)                        | Le numéro de séquence est un entier 64 bits unique attribué à un message lorsque celui-ci est accepté et stocké par le répartiteur, et fait office de véritable identificateur du message. Pour les entités partitionnées, les 16 premiers bits correspondent à l’identificateur de la partition. Les numéros de séquence augmentent de façon monotone et ininterrompue. Ils repassent à 0 lorsque la plage 48 à 64 bits est épuisée. Cette propriété est en lecture seule.                                                                |
 | [SessionId](/dotnet/api/microsoft.azure.servicebus.message.sessionid) (group-id)                  | Dans le cas des entités prenant en charge la session, cette valeur définie par l’application spécifie l’affiliation de session du message. Les messages dotés du même identificateur de session sont soumis à un verrouillage du résumé et permettent un traitement et un démultiplexage chronologiques. Pour les entités qui ne prennent pas en charge la session, cette valeur est ignorée.                                                                                                                                     |
 | [Taille](/dotnet/api/microsoft.azure.servicebus.message.size)                                  | Cette propriété reflète la taille stockée du message dans le journal du répartiteur sous la forme d’un nombre d’octets, car cette valeur est prise en compte dans le quota de stockage. Cette propriété est en lecture seule.                                                                                                                                                                                                                                                                                                       |
 | [State](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.state)                                 | Cette propriété indique l’état du message dans le journal. Elle est uniquement pertinente lors du parcours (« aperçu ») des messages afin de déterminer si un message est « actif » et récupérable puisqu’il a atteint le sommet de la file d’attente, si le message est différé ou s’il est en attente de planification. Cette propriété est en lecture seule.                                                                                                                                           |

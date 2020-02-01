@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 88e11adadcc06875964146ad2046828267258038
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389367"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694615"
 ---
 ## <a name="lifecycle"></a>Cycle de vie
 
@@ -33,7 +33,7 @@ Dans l’onglet **Cycle de vie**, vous spécifiez l’expiration de l’attribut
 
 1. Pour autoriser un utilisateur à étendre son attribution, définissez **Autoriser un utilisateur à étendre son accès** sur **Oui**.
 
-    Si les extensions sont autorisées dans la stratégie, l’utilisateur recevra un e-mail 14 jours ainsi qu’un jour avant l’expiration de son attribution l’invitant à étendre l’attribution.
+    Si les extensions sont autorisées dans la stratégie, l’utilisateur recevra un e-mail 14 jours ainsi qu’un jour avant l’expiration de son attribution l’invitant à étendre l’attribution. Si l’utilisateur envoie une demande d’extension de l’accès, la date de l’extension doit être au plus tard la date d’expiration des affectations définie dans la stratégie utilisée pour accorder à l’utilisateur l’accès au package d’accès. Par exemple, si la stratégie indique que les affectations sont configurées pour expirer le 30 juin, l’extension maximale qu’un utilisateur peut demander est le 30 juin.
 
     Si l’accès d’un utilisateur est étendu, il ne pourra pas demander le package d’accès après la date d’extension spécifiée (date définie dans le fuseau horaire de l’utilisateur qui a créé la stratégie).
 

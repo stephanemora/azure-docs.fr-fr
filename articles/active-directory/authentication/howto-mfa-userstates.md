@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7fadd974fdc572dddb403c25e90246fd92b1989
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 61d7227c57422cfe2228002750ec29bffa385d44
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763230"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756762"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Comment exiger la vérification en deux étapes pour un utilisateur
 
@@ -63,8 +63,7 @@ Pour accéder à la page où vous pouvez afficher et gérer les états des utili
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 2. Recherchez et sélectionnez *Azure Active Directory*. Sélectionnez **Utilisateurs** > **Tous les utilisateurs**.
-3. Sélectionnez **Multi-Factor Authentication**.
-   ![Sélectionnez Multi-Factor Authentication](./media/howto-mfa-userstates/selectmfa.png)
+3. Sélectionnez **Multi-Factor Authentication**. Il se peut que vous deviez faire défiler vers la droite pour afficher cette option de menu. Sélectionnez l’exemple de capture d’écran ci-dessous pour afficher entièrement la fenêtre du portail Azure et l’emplacement du menu : [![](media/howto-mfa-userstates/selectmfa-cropped.png "Sélectionnez Authentification multifacteur dans la fenêtre Utilisateurs d’Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
 4. Une nouvelle page, qui affiche les états utilisateurs, s’ouvre.
    ![État utilisateur pour l’authentification multifacteur - capture d’écran](./media/howto-mfa-userstates/userstate1.png)
 

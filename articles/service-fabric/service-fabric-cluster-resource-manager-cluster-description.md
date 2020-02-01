@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452124"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774472"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Décrire un cluster Service Fabric à l’aide de Cluster Resource Manager
 La fonctionnalité Cluster Resource Manager d’Azure Service Fabric fournit plusieurs mécanismes permettant de décrire un cluster :
@@ -472,7 +472,7 @@ En premier lieu, il peut s’agir de veiller à ce que les machines ne soient pa
 
 En second lieu, il peut s’agir d’équilibrer et d’optimiser, opérations qui sont essentielles au bon fonctionnement des services. Les offres de services sensibles aux coûts ou aux performances ne peuvent pas s’accommoder de la présence simultanée de nœuds à chaud et de nœuds à froid. Les nœuds à chaud entraînent des conflits de ressources et une dégradation des performances. Les nœuds à froid représentent un gaspillage de ressources et des coûts accrus. 
 
-Service Fabric représente les ressources en tant que *métriques*. Les métriques correspondent à n’importe quelle ressource logique ou physique que vous souhaitez décrire pour Service Fabric. Par exemple, « WorkQueueDepth » et « MemoryInMb » sont des métriques. Pour plus d’informations sur les ressources physiques que Service Fabric peut régir sur les nœuds, consultez [Gouvernance des ressources](service-fabric-resource-governance.md). Pour plus d’informations sur la configuration de métriques personnalisées et sur leur utilisation, consultez [cet article](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric représente les ressources en tant que *métriques*. Les métriques correspondent à n’importe quelle ressource logique ou physique que vous souhaitez décrire pour Service Fabric. Par exemple, « WorkQueueDepth » et « MemoryInMb » sont des métriques. Pour plus d’informations sur les ressources physiques que Service Fabric peut régir sur les nœuds, consultez [Gouvernance des ressources](service-fabric-resource-governance.md). Pour plus d’informations sur les métriques par défaut qu’utilise le Gestionnaire des ressources clusters et leur personnalisation, voir [cet article](service-fabric-cluster-resource-manager-metrics.md).
 
 Les métriques sont différentes des contraintes de placement et des propriétés de nœud. Les propriétés de nœud sont des descripteurs statiques des nœuds proprement dits. Les métriques décrivent les ressources à la disposition des nœuds et que les services consomment quand ils s’exécutent sur un nœud. La propriété d’un nœud pourrait être **HasSSD** et avoir la valeur true ou false. La quantité d’espace disponible sur ce disque SSD et la quantité consommée par les services pourrait correspondre à une métrique nommée « DriveSpaceInMb ». 
 

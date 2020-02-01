@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790885"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760791"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Concepts et composition des ensembles de compétences dans Recherche cognitive Azure
 
@@ -37,7 +37,7 @@ Les ensembles de compétences sont créés dans JSON. Vous pouvez créer des ens
 ### <a name="enrichment-tree"></a>Arborescence d’enrichissements
 
 Pour comprendre de quelle manière un ensemble de compétences enrichit progressivement un document, commençons par regarder à quoi le document ressemble avant tout enrichissement. La sortie du craquage du document varie selon la source de données et le mode d’analyse spécifique qui ont été sélectionnés. C’est également l’état du document à partir duquel les [mappages de champs](search-indexer-field-mappings.md) peuvent extraire le contenu lors de l’ajout de données à l’index de recherche.
-![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "KDiagramme de base de connaissances au sein d’un pipeline")
+![Diagramme de base de connaissances au sein d’un pipeline](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Diagramme de base de connaissances au sein d’un pipeline")
 
 Une fois qu’un document se trouve dans le pipeline d’enrichissement, il est représenté sous la forme d’une arborescence du contenu et des enrichissements associés. Cette arborescence est instanciée en tant que sortie du craquage du document. Le format de l’arborescence d’enrichissements permet au pipeline d’enrichissement d’attacher des métadonnées même à des types de données primitifs ; ce n’est pas un objet JSON valide, mais il peut être projeté dans un format JSON valide. Le tableau suivant indique l’état d’un document qui entre dans le pipeline d’enrichissement :
 
@@ -56,7 +56,7 @@ Dans la suite de ce document, nous faisons référence à l’[exemple des avis 
 Chaque compétence demande un contexte. Un contexte détermine :
 +   Le nombre de fois que la compétence est exécutée, en fonction des nœuds sélectionnés. Pour les valeurs de contexte d’une collection, l’ajout de ```/*``` à la fin spécifie que la compétence est appelée une fois pour chaque instance dans la collection. 
 +   L’endroit dans l’arborescence d’enrichissements où les sorties de la compétence sont ajoutées. Les sorties sont toujours ajoutées à l’arborescence en tant qu’enfants du nœud de contexte. 
-+   La forme des entrées. Pour les collections à plusieurs niveaux, la définition du contexte sur la collection parente détermine la forme des entrées de la compétence. Par exemple, dans une arborescence d’enrichissements avec une liste de pays, chaque entrée est enrichie avec une liste d’états contenant elle-même une liste de codes postaux.
++   La forme des entrées. Pour les collections à plusieurs niveaux, la définition du contexte sur la collection parente détermine la forme de l’entrée de la compétence. Par exemple, dans une arborescence d’enrichissements avec une liste de pays, chaque entrée est enrichie avec une liste d’états contenant elle-même une liste de codes postaux.
 
 |Context|Entrée|Forme de l’entrée|Appel de compétence|
 |---|---|---|---|
@@ -65,7 +65,7 @@ Chaque compétence demande un contexte. Un contexte détermine :
 
 ### <a name="sourcecontext"></a>SourceContext
 
-`sourceContext` s’utilise uniquement dans les entrées de compétence et les [projections](knowledge-store-projection-overview.md). Il permet de construire des objets imbriqués à plusieurs niveaux. Vous devrez peut-être créer un objet pour le transmettre en tant qu’entrée à une compétence ou un projet dans la base de connaissances. Comme les nœuds d’enrichissement peuvent ne pas être un objet JSON valide dans l’arborescence d’enrichissement et que le référencement d’un nœud dans l’arborescence retourne uniquement cet état du nœud lors de sa création, l’utilisation des enrichissements comme des entrées de compétence ou des projections vous oblige à créer un objet JSON bien formé. Avec `sourceContext`, vous pouvez construire un objet hiérarchique de type anonyme, ce qui nécessiterait plusieurs compétences si vous utilisiez uniquement le contexte. L’utilisation de `sourceContext` est expliquée dans la section suivante. Examinez la sortie de compétence qui a généré un enrichissement afin de déterminer s’il s’agit d’un objet JSON valide et non d’un type primitif.
+`sourceContext` s’utilise uniquement dans les entrées de compétence et les [projections](knowledge-store-projection-overview.md). Il permet de construire des objets imbriqués à plusieurs niveaux. Vous devrez peut-être créer un objet pour le transmettre en tant qu’entrée à une compétence ou à un projet dans la base de connaissances. Étant donné que des nœuds d’enrichissement peuvent ne pas être des objets JSON valides dans l’arborescence d’enrichissement et que le référencement d’un nœud dans l’arborescence retourne uniquement cet état du nœud lors de sa création, l’utilisation d’enrichissements en guise d’entrées ou projections de compétence vous oblige à créer un objet JSON bien formé. Avec `sourceContext`, vous pouvez construire un objet hiérarchique de type anonyme, ce qui nécessiterait plusieurs compétences si vous utilisiez uniquement le contexte. L’utilisation de `sourceContext` est expliquée dans la section suivante. Examinez la sortie de compétence qui a généré un enrichissement afin de déterminer s’il s’agit d’un objet JSON valide et non d’un type primitif.
 
 ### <a name="projections"></a>Projections
 
@@ -96,11 +96,11 @@ L’arborescence d’enrichissements comporte maintenant un nouveau nœud, situ�
 
 Le nœud racine de tous les enrichissements est `"/document"`. Quand vous utilisez des indexeurs d’objets blob, le nœud `"/document"` contient les nœuds enfants `"/document/content"` et `"/document/normalized_images"`. Si vous utilisez des données CSV, comme dans cet exemple, les noms de colonne sont mappés aux nœuds figurant sous `"/document"`. Pour accéder à un enrichissement qui a été ajouté à un nœud par une compétence, vous devez indiquer le chemin complet de l’enrichissement. Par exemple, si vous souhaitez utiliser le texte du nœud ```pages``` comme entrée dans une autre compétence, vous devez spécifier le chemin de cette façon : ```"/document/reviews_text/pages/*"```.
  
- ![arborescence d’enrichissement après la compétence n° 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "L’arborescence d’enrichissement après la compétence n° 1 s’exécute")
+ ![arborescence d’enrichissement après la compétence n° 1](media/cognitive-search-working-with-skillsets/enrichment-tree-skill1.png "Arborescence d’enrichissement après exécution de la compétence n°1")
 
 ### <a name="skill-2-language-detection"></a>Compétence n° 2 : Détection de la langue
  La compétence de détection de la langue est la troisième compétence (compétence n° 3) définie dans l’ensemble de compétences, mais c’est la compétence suivante à exécuter. Comme elle n’est pas bloquée dans l’attente d’entrées, elle s’exécute parallèlement à la compétence précédente. À l’instar de la compétence de division qui l’a précédée, la compétence de détection de la langue est également appelée une fois pour chaque document. L’arborescence d’enrichissements comporte désormais un nouveau nœud pour la langue.
- ![arborescence d’enrichissement après la compétence n° 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enarborescence de plus grande richesse après l’exécution de la #2 de compétence")
+ ![arborescence d’enrichissement après la compétence n° 2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Arborescence d’enrichissement après exécution de la compétence n°2")
  
  ### <a name="skill-3-key-phrases-skill"></a>Compétence n° 3 : Expressions clés 
 
@@ -108,13 +108,13 @@ Avec le contexte ```/document/reviews_text/pages/*```, la compétence des expres
 
  Vous pouvez maintenant examiner le reste des compétences dans l’ensemble de compétences et regarder comment l’arborescence des enrichissements continue de croître à l’exécution de chaque compétence. Certaines compétences, telles que la compétence de fusion et la compétence de modélisation, créent également des nœuds, mais utilisent uniquement les données de nœuds existants et ne créent pas d’enrichissements supplémentaires.
 
-![arborescence d’enrichissement après toutes les compétences](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Arborescence d’enrichissement après toutes les compétences")
+![arborescence d’enrichissement après toutes les compétences](media/cognitive-search-working-with-skillsets/enrichment-tree-final.png "Arborescence d’enrichissement après exécution de toutes les compétences")
 
 Les couleurs des connecteurs dans l’arborescence ci-dessus indiquent que les enrichissements ont été créés par différentes compétences, c’est-à-dire que les nœuds devront être traités individuellement et qu’ils ne feront pas partie de l’objet retourné lors de la sélection du nœud parent.
 
 ## <a name="save-enrichments-in-a-knowledge-store"></a>Enregistrer les enrichissements dans une base de connaissances 
 
-Les ensembles de compétences définissent également une base de connaissances dans laquelle vos documents enrichis peuvent être projetés sous forme de tables ou d’objets. Pour enregistrer les données enrichies dans la base de connaissances, vous définissez un ensemble de projections du document enrichi. Pour en savoir plus sur la base de connaissances, consultez [Vue d’ensemble de la base de connaissances](knowledge-store-concept-intro.md)
+Les ensembles de compétences définissent également une base de connaissances dans laquelle vos documents enrichis peuvent être projetés sous forme de tables ou d’objets. Pour enregistrer les données enrichies dans la base de connaissances, vous définissez un ensemble de projections pour votre document enrichi. Pour en savoir plus sur la base de connaissances, consultez [Vue d’ensemble de la base de connaissances](knowledge-store-concept-intro.md)
 
 ### <a name="slicing-projections"></a>Découpage de projections
 

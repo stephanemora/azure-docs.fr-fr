@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8d5377f7ec8de14f3d7d55bc109f6be731991051
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543033"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775267"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel 
 <a name="network-service-tags"></a>
@@ -64,7 +64,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport à la balise **AzureActiveDirectory** et **AzureFrontDoor.Frontend**. Veuillez également supprimer les adresses IP suivantes de la liste verte (cette dépendance sera bientôt supprimée) : 13.107.6.181 et 13.107.9.181 | Règle de trafic sortant | Non | Non |
 | **AzureIoTHub** | Azure IoT Hub. | Règle de trafic sortant | Non | Non |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Remarque :* Cette balise est dotée d’une dépendance par rapport à la balise **AzureActiveDirectory**. | Règle de trafic sortant | Oui | Oui |
-| **AzureLoadBalancer** | Équilibrage de charge de l’infrastructure Azure. Elle est translatée vers l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) (168.63.129.16) d’où proviennent les sondes d’intégrité d’Azure. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure. | Les deux | Non | Non |
+| **AzureLoadBalancer** | Équilibrage de charge de l’infrastructure Azure. Elle est translatée vers l’[adresse IP virtuelle de l’hôte](security-overview.md#azure-platform-considerations) (168.63.129.16) d’où proviennent les sondes d’intégrité d’Azure. Cela n’inclut pas le trafic vers votre ressource Azure Load Balancer. Vous pouvez remplacer cette règle si vous n’utilisez pas l’équilibreur de charge Azure. | Les deux | Non | Non |
 | **AzureMachineLearning** | Azure Machine Learning. | Les deux | Non | Oui |
 | **AzureMonitor** | Métriques Log Analytics, Application Insights, AzMon et métriques personnalisées (points de terminaison GiG).<br/><br/>*Remarque :* Pour Log Analytics, cette balise est dotée une dépendance par rapport à la balise **Storage**. | Règle de trafic sortant | Non | Oui |
 | **AzurePlatformDNS** | Service DNS de l’infrastructure de base (par défaut).<br/><br>Vous pouvez utiliser cette balise pour désactiver le DNS par défaut. Utilisez cette balise avec prudence. Nous vous recommandons de lire les [considérations sur la plateforme Azure](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Nous vous recommandons également d’effectuer des tests avant d’utiliser cette balise. | Règle de trafic sortant | Non | Non |
@@ -79,11 +79,11 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | **ElasticAFD** | Azure Front Door élastique. | Les deux | Non | Non |
 | **EventHub** | Azure Event Hubs. | Règle de trafic sortant | Oui | Oui |
 | **GatewayManager** | Trafic de gestion pour les déploiements dédiés à la passerelle VPN Azure et Application Gateway. | Trafic entrant | Non | Non |
-| **GuestAndHybridManagement** | Azure Automation et Guest Configuration. | Les deux | Non | Oui |
+| **GuestAndHybridManagement** | Azure Automation et Guest Configuration. | Règle de trafic sortant | Non | Oui |
 | **HDInsight** | Azure HDInsight | Trafic entrant | Oui | Non |
 | **Internet** | Espace d’adresse IP qui se trouve en dehors du réseau virtuel et est accessible sur les réseaux Internet publics.<br/><br/>La plage d’adresse inclut l’[espace de l’adresse IP public d’Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Les deux | Non | Non |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Règle de trafic sortant | Non | Non |
-| **MicrosoftContainerRegistry** | Azure Container Registry. | Règle de trafic sortant | Oui | Oui |
+| **MicrosoftContainerRegistry** | Registre de conteneurs pour les images de conteneur Microsoft. <br/><br/>*Remarque :* Veuillez également mettre en liste verte les adresses IP suivantes (cette dépendance sera bientôt supprimée) : 204.79.197.219. | Règle de trafic sortant | Oui | Oui |
 | **ServiceBus** | Trafic Azure Service Bus qui utilise le niveau de service Premium. | Règle de trafic sortant | Oui | Oui |
 | **ServiceFabric** | Azure Service Fabric. | Règle de trafic sortant | Non | Non |
 | **Sql** | Azure SQL Database, Azure Database pour MySQL, Azure Database pour PostgreSQL et Azure SQL Data Warehouse.<br/><br/>*Remarque :* Cette balise représente le service, mais pas des instances spécifiques du service. Par exemple, la balise représente le service Azure SQL Database, mais pas une base de données ou un serveur SQL spécifique. | Règle de trafic sortant | Oui | Oui |
