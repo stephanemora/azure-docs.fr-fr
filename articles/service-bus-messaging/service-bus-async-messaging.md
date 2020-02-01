@@ -1,6 +1,6 @@
 ---
 title: Messagerie asynchrone Service Bus | Microsoft Docs
-description: Description de la messagerie asynchrone Azure Service Bus.
+description: Découvrez comment Azure Service Bus prend en charge l’asynchronisme en utilisant un mécanisme d’envoi en différé avec des files d’attente, des rubriques et des abonnements.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531114"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761030"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Modèles de messagerie asynchrone et haute disponibilité
 
@@ -52,7 +52,7 @@ Il existe plusieurs méthodes permettant de gérer les problèmes de messagerie 
 Service Bus propose un certain nombre de mesures d’atténuation des problèmes mentionnés ci-dessus. Les sections suivantes décrivent chaque problème et les actions correctives correspondantes.
 
 ### <a name="throttling"></a>Limitation
-Avec Service Bus, la limitation permet une gestion coopérative de la vitesse des messages. Chaque nœud Service Bus héberge de nombreuses entités. Chacune de ces entités effectue des demandes sur le système en termes de processeur, de mémoire, de stockage et autres. Lorsqu’une de ces facettes détecte une utilisation dépassant les seuils définis, Service Bus peut refuser une demande donnée. L’appelant reçoit alors une exception [ServerBusyException][ServerBusyException] et refait une tentative après 10 secondes.
+Avec Service Bus, la limitation permet une gestion coopérative de la vitesse des messages. Chaque nœud Service Bus héberge de nombreuses entités. Chacune de ces entités effectue des demandes sur le système en termes de processeur, de mémoire, de stockage et autres. Lorsqu’une de ces facettes détecte une utilisation dépassant les seuils définis, Service Bus peut refuser une demande donnée. L’appelant reçoit alors une exception [ServerBusyException][ServerBusyException] et refait une tentative après 10 secondes.
 
 Pour remédier au problème, le code doit lire l’erreur et stopper toute nouvelle tentative du message pendant au moins 10 secondes. Dans la mesure où l’erreur peut se produire sur différents éléments de l’application client, chaque élément doit exécuter la nouvelle tentative de manière indépendante. Le code peut réduire la probabilité de limitation en activant le partitionnement sur une file d’attente ou une rubrique.
 
@@ -62,10 +62,10 @@ D’autres composants dans Azure peuvent parfois rencontrer des problèmes de se
 ### <a name="service-bus-failure-on-a-single-subsystem"></a>Défaillance Service Bus dans un sous-système unique
 Quelle que soit l’application, les circonstances peuvent générer une défaillance chez un composant interne de Service Bus. Lorsque Service Bus détecte cela, il rassemble les données de l’application pour vous aider à diagnostiquer ce qui est arrivé. Une fois les données collectées, l’application est redémarrée afin de revenir à un état cohérent. Ce processus est assez rapidement et peut faire en sorte qu’une entité semble indisponible pendant quelques minutes, bien que les interruptions de service par défaut soient beaucoup plus courtes.
 
-Dans ce cas, l’application cliente génère une exception [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. Service Bus contient un correctif pour ce problème sous la forme d’un programme de nouvelle tentative cliente automatisée. Une fois la période de nouvelle tentative épuisée, si le message n’est pas remis, vous pouvez entamer des recherches à l’aide d’autres fonctionnalités mentionnées dans l'article [Gestion des urgences et des pannes][handling outages and disasters].
+Dans ce cas, l’application cliente génère une exception [System.TimeoutException][System.TimeoutException] ou [MessagingException][MessagingException]. Service Bus contient un correctif pour ce problème sous la forme d’un programme de nouvelle tentative cliente automatisée. Une fois la période de nouvelle tentative écoulée, si le message n’est pas remis, vous pouvez entamer des recherches à l’aide d’autres fonctionnalités mentionnées dans l’article [Gestion des urgences et des pannes][handling outages and disasters].
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous avez appris les principes fondamentaux de la messagerie asynchrone dans Service Bus, approfondissez le sujet sur la [gestion des urgences et des pannes][handling outages and disasters].
+Maintenant que vous avez appris les principes fondamentaux de la messagerie asynchrone dans Service Bus, apprenez-en davantage sur la [gestion des urgences et des pannes][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

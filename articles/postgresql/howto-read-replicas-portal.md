@@ -5,20 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/24/2020
+ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770218"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768960"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Créer et gérer les réplicas en lecture dans Azure Database pour PostgreSQL (serveur unique) à partir du portail Azure
 
 Dans cet article, vous allez apprendre à créer et gérer des réplicas en lecture dans Azure Database pour PostgreSQL à partir du portail Azure. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-database-portal.md) qui représente le serveur maître.
 
 ## <a name="prepare-the-master-server"></a>Préparer le serveur maître
@@ -27,6 +27,9 @@ Ces étapes permettent de préparer un serveur maître pour les niveaux à usage
 1. Dans le portail Azure, sélectionnez le serveur Azure Database pour PostgreSQL existant à utiliser en tant que serveur maître.
 
 2. Dans la barre latérale du serveur, sous **PARAMÈTRES**, sélectionnez **Réplication**.
+
+> [!NOTE] 
+> Si l’option **Désactiver la prise en charge de la réplication** est grisée, les paramètres de réplication sont déjà définis sur votre serveur par défaut. Vous pouvez ignorer les étapes suivantes et passer à la création d’un réplica en lecture. 
 
 3. Sélectionnez **Activer la prise en charge de la réplication**. 
 

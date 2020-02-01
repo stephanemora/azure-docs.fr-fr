@@ -3,28 +3,28 @@ title: Traiter des données d’objets blob Azure avec une analytique avancée -
 description: Explorez des données et générez des caractéristiques à partir de données stockées dans Stockage Blob Azure avec une analytique avancée.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d056226ce8ade93e63d7bca49b975a6983dc126a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4c47dfb8b221b6cb4b6237669ecd17c1637107a2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492425"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721096"
 ---
 # <a name="heading"></a>Traitement des données d’objets blob Azure avec des analyses de données avancées
 Ce document concerne l’exploration des données et la génération de fonctionnalités à partir de données stockées dans le stockage d’objets blob. 
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Chargement des données dans une trame de données Pandas
-Pour explorer et manipuler un jeu de données, celui-ci doit être téléchargé depuis la source Blob vers un fichier local qui peut ensuite être chargé dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
+Pour qu’il soit possible d’explorer et de manipuler un jeu de données, celui-ci doit être téléchargé de la source Blob vers un fichier local qui peut ensuite être chargé dans une trame de données Pandas. Voici les étapes à suivre pour cette procédure :
 
-1. Téléchargez les données à partir du blob Azure avec l’exemple de code Python à l’aide du service du blob. Remplacez la variable dans le code ci-dessous par vos propres valeurs : 
+1. Téléchargez les données à partir de l’objet blob Azure avec l’exemple suivant de code Python utilisant le service BLOB. Remplacez la variable dans le code ci-dessous par vos propres valeurs : 
    
         from azure.storage.blob import BlobService
         import tables
@@ -131,7 +131,7 @@ Pour générer des fonctionnalités compartimentées, procédez comme suit :
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>Réécriture de données dans l’objet blob Azure et exploitation dans Azure Machine Learning
-Après avoir exploré les données et créé les caractéristiques nécessaires, vous pouvez charger les données (échantillonnées ou caractérisées) dans un objet blob Azure et les utiliser dans Azure Machine Learning en effectuant les étapes suivantes : Notez que vous pouvez aussi créer d’autres caractéristiques dans Azure Machine Learning Studio (classique). 
+Après avoir exploré les données et créé les fonctionnalités nécessaires, vous pouvez charger les données (échantillonnées ou caractérisées) dans un objet blob Azure et les utiliser dans Azure Machine Learning en effectuant les étapes suivantes : Vous pouvez aussi créer d’autres fonctionnalités dans Azure Machine Learning Studio (classique). 
 
 1. Écrivez le bloc de données dans le fichier local.
    
