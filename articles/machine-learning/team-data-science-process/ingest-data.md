@@ -1,34 +1,34 @@
 ---
-title: Charger des données dans des environnements de Stockage Azure - Team Data Science Process
+title: Charger des données dans des environnements de Stockage Azure – Processus TDSP (Team Data Science Process)
 description: Découvrez comment ingérer des données dans divers environnements cibles où les données sont stockées et traitées.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 515decfafe46ad0c1b5b90743688abc26a975903
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053259"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720535"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Charger des données dans des environnements de stockage à des fins d’analyse
 
-Le processus Team Data Science nécessite que les données soient reçues ou chargées dans différents environnements de stockage pour y être traitées ou analysées de la façon la plus appropriée à chaque étape du processus. Les destinations de données couramment utilisées pour le traitement sont le stockage d’objets blob Azure, les bases de données SQL Azure, SQL Server sur machine virtuelle Azure, HDInsight (Hadoop) et Azure Machine Learning. 
+Le processus TDSP (Team Data Science Process) exige que les données soient ingérées ou chargées de la manière la plus appropriée à chaque étape. Les destinations de données peuvent inclure le Stockage Blob Azure, les bases de données SQL Azure, SQL Server sur une machine virtuelle Azure, HDInsight (Hadoop), Synapse Analytics et Azure Machine Learning. 
 
-Les articles suivantes expliquent comment recevoir les données dans les environnements cibles où les données sont stockées et traitées.
+Les articles suivants expliquent comment recevoir les données dans les environnements cibles où les données sont stockées et traitées.
 
 * Vers/À partir d’[Azure Blob Storage](move-azure-blob.md)
 * Vers [SQL Server dans les machines virtuelles Azure](move-sql-server-virtual-machine.md)
-* Vers la [base de données Azure SQL](move-sql-azure.md)
+* Vers [Azure SQL Database](move-sql-azure.md)
 * Vers les [tables Hive](move-hive-tables.md)
 * Vers les [tables partitionnées SQL](parallel-load-sql-partitioned-tables.md)
 * À partir du [Serveur SQL Server local](move-sql-azure-adf.md)
 
-Les besoins techniques et ceux de l’entreprise, ainsi que l’emplacement initial, le format et la taille de vos données déterminent l’environnement cible dans lequel les données doivent être reçues pour atteindre les objectifs de votre analyse. Il n’est pas rare pour un scénario d’exiger le déplacement des données entre plusieurs environnements pour arriver à effectuer les différentes tâches nécessaires pour construire un modèle prédictif. Cette suite de tâches peut par exemple inclure l’exploration des données, leur prétraitement, leur nettoyage, l’échantillonnage et l’apprentissage du modèle.
+Les besoins techniques et métier, ainsi que l’emplacement initial, le format et la taille de vos données, déterminent le meilleur plan d’ingestion des données. Il n’est pas rare qu’un plan optimal comporte plusieurs étapes. Cette suite de tâches peut par exemple inclure l’exploration des données, leur prétraitement, leur nettoyage, l’échantillonnage et l’apprentissage du modèle.  Azure Data Factory est une ressource Azure recommandée pour orchestrer le déplacement et la transformation des données.

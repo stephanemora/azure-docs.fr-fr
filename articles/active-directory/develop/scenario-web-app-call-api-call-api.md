@@ -1,6 +1,6 @@
 ---
 title: Appeler une API web à partir d’une application web - Plateforme d’identités Microsoft | Azure
-description: Apprendre à générer une application web qui appelle des API web (appel d’une API web)
+description: Apprendre à générer une application web qui appelle des API web (appelant une API web protégée)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,21 +14,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68d62101c9b2c8055374f8fd0fcf694441081b4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423558"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758969"
 ---
-# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>Application web qui appelle des API web - Appeler une API web
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>Application web appelant des API web : Appeler une API web
 
 Maintenant que vous avez un jeton, vous pouvez appeler une API web protégée.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Voici un code simplifié de l’action de `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Ce code de temps a été ajouté, montrant comment appeler Microsoft Graph comme une API REST. L’URL de l’API Graph est fournie dans le fichier `appsettings.json` et lit une variable nommée `webOptions` :
+Voici le code simplifié pour l’action du `HomeController`. Ce code obtient un jeton pour appeler Microsoft Graph. Du code a été ajouté pour montrer comment appeler Microsoft Graph en tant qu’API REST. L’URL de l’API Microsoft Graph est fournie dans le fichier appsettings.json et lue dans une variable nommée `webOptions` :
 
 ```JSon
 {
@@ -48,10 +47,10 @@ public async Task<IActionResult> Profile()
  string accountIdentifier = claimsPrincipal.GetMsalAccountId();
  string loginHint = claimsPrincipal.GetLoginHint();
 
- // Get the account
+ // Get the account.
  IAccount account = await application.GetAccountAsync(accountIdentifier);
 
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
+ // Special case for guest users, because the guest ID / tenant ID are not surfaced.
  if (account == null)
  {
   var accounts = await application.GetAccountsAsync();
@@ -63,7 +62,7 @@ public async Task<IActionResult> Profile()
                             .ExecuteAsync();
  var accessToken = result.AccessToken;
 
- // Calls the web API (here the graph)
+ // Calls the web API (Microsoft Graph in this case).
  HttpClient httpClient = new HttpClient();
  httpClient.DefaultRequestHeaders.Authorization =
      new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
@@ -85,7 +84,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > Vous pouvez utiliser le même principe pour appeler une API web.
 >
-> La plupart des API web fournissent un Kit de développement logiciel (SDK) qui simplifie leur appel. C’est également le cas de Microsoft Graph. Dans l’article suivant, vous découvrirez où rechercher un didacticiel illustrant ces aspects.
+> La plupart des API web fournissent un Kit de développement logiciel (SDK) qui simplifie l’appel de l’API. C’est également le cas de Microsoft Graph. Dans l’article suivant, vous allez apprendre où trouver un tutoriel illustrant l’utilisation de l’API.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -121,7 +120,7 @@ def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
     if not token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service
+    graph_data = requests.get(  # Use token to call downstream service.
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()

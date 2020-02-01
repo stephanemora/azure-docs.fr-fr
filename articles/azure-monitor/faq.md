@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/30/2019
-ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/23/2020
+ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290340"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715937"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -95,6 +95,18 @@ Toutes les données de journal collectées par Azure Monitor sont stockées dans
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Est-il possible de déplacer un espace de travail Log Analytics existant vers un autre abonnement Azure ?
 Vous pouvez déplacer un espace de travail entre groupes de ressources ou abonnements, mais pas vers une autre région. Consultez [Déplacer un espace de travail Log Analytics vers un autre abonnement ou groupe de ressources](platform/move-workspace.md).
+
+### <a name="why-cant-i-see-query-explorer-and-save-buttons-in-log-analytics"></a>Pourquoi ne puis-je pas voir les boutons Explorateur de requêtes et Enregistrer dans Log Analytics ?
+
+Les boutons **Explorateur de requêtes**, **Enregistrer** et **Nouvelle règle d’alerte** ne sont pas disponibles lorsque l’[étendue de la requête](log-query/scope.md) est définie sur une ressource spécifique. Pour créer des alertes, ainsi qu’enregistrer ou charger une requête, Log Analytics doit avoir une étendue définie sur un espace de travail. Pour ouvrir Log Analytics dans le contexte d’un espace de travail, sélectionnez **Journaux** dans le menu **Azure Monitor**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. Voir [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](log-query/scope.md)
+
+### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Pourquoi l’erreur « Inscrivez le fournisseur de ressources ’Microsoft.Insights’ pour cet abonnement afin d’activer cette requête » s’affiche-t-elle lors de l’ouverture de Log Analytics à partir d’une machine virtuelle ? 
+De nombreux fournisseurs de ressources sont inscrits automatiquement, mais il se peut que vous deviez en inscrire certains manuellement. L’étendue pour l’inscription est toujours l’abonnement. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+
+### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Pourquoi un message d’erreur indiquant une absence d’accès s’affiche-t-il lors de l’ouverture de Log Analytics à partir d’une machine virtuelle ? 
+Pour voir les journaux d’activité de machine virtuelle, vous devez disposer de l’autorisation de lecture sur les espaces de travail qui les stockent. Dans ce cas, votre administrateur doit vous accorder des autorisations dans Azure.
+
+
 
 
 ## <a name="alerts"></a>Alertes
@@ -180,6 +192,12 @@ Spécifiez un [groupe d’actions](platform/action-groups.md) nouveau ou existan
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Quelles sont les exigences en matière de pare-feu des agents Azure Monitor ?
 Pour plus d'informations sur les exigences liées au pare-feu, consultez [Configuration requise du pare-feu réseau](platform/log-analytics-agent.md#network-firewall-requirements).
 
+
+## <a name="visualizations"></a>Visualisations
+
+### <a name="why-cant-i-cant-see-view-designer"></a>Pourquoi ne puis-je pas voir le Concepteur de vues ?
+
+Le Concepteur de vues n’est disponible que pour des utilisateurs disposant d’autorisations de niveau Contributeur ou supérieur dans l’espace de travail Log Analytics.
 
 
 ## <a name="application-insights"></a>Application Insights

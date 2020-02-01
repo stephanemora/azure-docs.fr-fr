@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 01/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ca4b9fe3c40b7bf49d86464858747642e3cb5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685387"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768832"
 ---
 # <a name="azure-sql-data-warehouse-workload-classification"></a>Classification de charge de travail Azure SQL Data Warehouse
 
@@ -36,14 +36,24 @@ Toutes les instructions ne sont pas classées car elles n’exigent pas de resso
 
 ## <a name="classification-process"></a>Processus de classification
 
-La classification dans SQL Data Warehouse s’effectue aujourd’hui en assignant des utilisateurs à un rôle disposant d’une classe de ressource correspondante, assignée à l’aide de [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilité de caractériser des demandes au-delà d’une connexion à une classe de ressource est limitée avec cette fonctionnalité. Une méthode plus riche pour la classification est désormais disponible avec la syntaxe [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/create-workload-classifier-transact-sql).  Avec cette syntaxe, les utilisateurs SQL Data Warehouse peuvent assigner une importance et une classe de ressources aux requêtes.  
+La classification dans SQL Data Warehouse s’effectue aujourd’hui en assignant des utilisateurs à un rôle disposant d’une classe de ressource correspondante, assignée à l’aide de [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). La possibilité de caractériser des demandes au-delà d’une connexion à une classe de ressource est limitée avec cette fonctionnalité. Une méthode plus riche pour la classification est désormais disponible avec la syntaxe [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL](/sql/t-sql/statements/create-workload-classifier-transact-sql).  Avec cette syntaxe, les utilisateurs de SQL Data Warehouse peuvent affecter l’importance et la quantité des ressources système affectées à une demande via le paramètre `workload_group`. 
 
 > [!NOTE]
 > La classification est évaluée à chaque requête. Plusieurs demandes dans une seule session peuvent être classées différemment.
 
-## <a name="classification-precedence"></a>Priorité de classification
+## <a name="classification-weighting"></a>Pondération de la classification
 
-Dans le cadre du processus de classification, la priorité est en place pour déterminer la classe de ressource affectée. La classification basée sur un utilisateur de base de données est prioritaire sur l’appartenance au rôle. Si vous créez un classifieur qui mappe l’utilisateur A de base de données à la classe de ressources mediumrc. Ensuite, mappez le rôle A de base de données (dont l’utilisateur A est membre) à la classe de ressources largerc. Le classifieur qui mappe l’utilisateur de base de données à la classe de ressources mediumrc a priorité sur le classifieur mappant le rôle A de base de données à la classe de ressources largerc.
+Dans le cadre du processus de classification, une pondération est en place pour déterminer le groupe de charge de travail affecté.  La pondération se présente comme suit :
+
+|Paramètre du classifieur |Poids   |
+|---------------------|---------|
+|MEMBERNAME:USER      |64       |
+|MEMBERNAME:ROLE      |32       |
+|WLM_LABEL            |16       |
+|WLM_CONTEXT          |8        |
+|START_TIME/END_TIME  |4        |
+
+Le paramètre `membername` est obligatoire.  Toutefois, si le membername spécifié est un utilisateur de base de données au lieu d’un rôle de base de données, la pondération de l’utilisateur est plus élevée, de sorte que le classifieur est choisi.
 
 Si un utilisateur est membre de plusieurs rôles avec différentes classes de ressources affectées ou mises en correspondance dans plusieurs classifieurs, l’utilisateur bénéficie de l’attribution de la classe de ressource la plus élevée.  Ce comportement est cohérent avec le comportement d’attribution de la classe ressource existante.
 
@@ -59,7 +69,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 Les classifieurs système créés en votre nom offrent un accès facile pour migrer vers une classification de charge de travail. L’utilisation de mappages de rôle de classe de ressources avec une priorité de classification peut entraîner une mauvaise classification lorsque vous commencez à créer de nouveaux classifieurs avec une importance.
 
-Examinez le scénario suivant :
+Examinez le cas suivant :
 
 - Un entrepôt de données existant possède un utilisateur de base de données DBAUser attribué au rôle de classe de ressources largerc. L’attribution de classe de ressources a été effectuée avec sp_addrolemember.
 - L’entrepôt de données est maintenant mis à jour avec la gestion des charges de travail.
@@ -82,7 +92,7 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur la création d’un classifieur, consultez l’article [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
+- Pour plus d’informations sur la création d’un classifieur, consultez [CRÉER UN CLASSIFIEUR DE CHARGE DE TRAVAIL (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
 - Consultez le guide de démarrage rapide sur la création d’un classifieur de charge de travail [Créer un classifieur de charge de travail](quickstart-create-a-workload-classifier-tsql.md).
 - Consultez les articles qui expliquent comment [configurer l’importance de la charge de travail](sql-data-warehouse-how-to-configure-workload-importance.md) et comment [gérer et surveiller la charge de travail](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 - Consultez [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) pour voir les requêtes et l’importance attribuée.

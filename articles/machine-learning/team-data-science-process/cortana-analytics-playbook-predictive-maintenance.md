@@ -3,20 +3,20 @@ title: Guide Azure AI pour les solutions de maintenance prédictive - Team Data 
 description: Une description complète de la science des données qui alimente les solutions de maintenance prédictive dans plusieurs secteurs d’activité.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5cd16280ba942404ffb23fd1c9d0e1a20af8c7c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977129"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721810"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guide Azure AI pour les solutions de maintenance prédictive
 
@@ -37,13 +37,13 @@ La première moitié de ce guide décrit des problèmes classiques des entrepris
 | [Ressources de formation pour la maintenance prédictive](#training-resources-for-predictive-maintenance) | s’adresse à l’ensemble des acteurs ci-dessus qui souhaitent apprendre les notions de base derrière la science des données, les outils et les techniques.
 
 ### <a name="prerequisite-knowledge"></a>Connaissances requises
-Le contenu BDM ne part pas du principe que le lecteur dispose de connaissances préalables en science des données. Pour le contenu TDM, des connaissances de base en statistique et en science des données sont utiles. Des connaissances sont recommandées dans les domaines suivants : services Azure Data et AI, Python, R, XML et JSON. Les techniques d’IA sont implémentées dans les packages Python et R. Les modèles de solutions sont implémentés à l’aide des services Azure, des outils de développement et des kits de développement logiciel (SDK).
+Le contenu BDM ne part pas du principe que le lecteur dispose de connaissances préalables en science des données. Pour le contenu TDM, des connaissances de base en statistique et en science des données sont utiles. Des connaissances sont recommandées dans les domaines suivants : services Azure Data et AI, Python, R, XML et JSON. Les techniques d’IA sont implémentées dans les packages Python et R. Les modèles de solution sont implémentés à l’aide de services Azure, d’outils de développement et de SDK.
 
 ## <a name="business-case-for-predictive-maintenance"></a>Analyse de rentabilité de la maintenance prédictive
 
 Les entreprises ont besoin d’équipements critiques pour fonctionner avec un maximum d’efficacité et d’utilisation afin de réaliser leur retour sur les investissements en capitaux. Ces équipements peuvent être des moteurs d’avions, des turbines, des ascenseurs ou des refroidisseurs industriels, qui coûtent des millions, ou des appareils courants tels que les photocopieurs, les machines à café ou les refroidisseurs d’eau.
 - Par défaut, certaines entreprises font confiance à la _maintenance corrective_, où les pièces sont remplacées lorsqu’elles sont défectueuses. La maintenance corrective garantit une utilisation complète des pièces (sans perte de durée de vie du composant), mais génère pour l’entreprise des interruptions du fonctionnement et du travail ainsi que des maintenances nécessaires non programmées (heures d’arrêt ou emplacements inopportuns).
-- Au niveau suivant, les entreprises pratiquent la _maintenance préventive_ en déterminant la durée de vie utile d’une pièce et en l’entretenant ou en la remplaçant avant qu’une défaillance ne survienne. La maintenance préventive permet d’éviter des défaillances non programmées et catastrophiques. Mais les coûts élevés des arrêts programmés, de la non-exploitation du composant pendant sa durée de vie complète et du travail effectué demeurent.
+- Au niveau suivant, les entreprises pratiquent la _maintenance préventive_ en déterminant la durée de vie utile d’une pièce et en l’entretenant ou en la remplaçant avant qu’une défaillance ne survienne. La maintenance préventive permet d’éviter des défaillances non programmées et catastrophiques. Mais les coûts élevés des temps d’arrêt planifiée, de la sous-exploitation du composant pendant sa durée de vie utile et de la main-d’œuvre demeurent.
 - L’objectif de la _maintenance prédictive_ est d’optimiser l’équilibre entre les maintenances corrective et prédictive en permettant un remplacement _juste à temps_ des composants. Cette approche ne prévoit le remplacement de ces composants que juste avant leur défaillance. En étendant la durée des composants (par rapport à la maintenance préventive) et en réduisant la maintenance non programmée et les coûts du travail (en plus de la maintenance corrective), les entreprises peuvent réaliser des économies et avoir des avantages concurrentiels.
 
 ## <a name="business-problems-in-pdm"></a>Problèmes des entreprises liés à la PdM
@@ -92,7 +92,7 @@ Cette section est axée sur une collection de cas d’usage de PdM dans divers s
 |**Finances** |                         |
 |La _défaillance des distributeurs automatiques de billets_ (DAB) est un problème courant dans le secteur bancaire. Ici, le problème consiste à indiquer la probabilité qu’une transaction de retrait de billets à un distributeur soit interrompue en raison d’un bourrage papier ou de la défaillance d’une pièce du distributeur. Sur la base des prédictions de défaillances au cours des transactions, les DAB peuvent faire l’objet d’opérations d’entretien proactives afin de prévenir les défaillances.| Plutôt que de risquer que la machine ne tombe en panne pendant une transaction, il est préférable de la programmer de manière à ce qu’elle se mette hors service en fonction de la prédiction|
 |**Énergie** |                          |
-|_Défaillance d’éoliennes_ : les éoliennes sont la principale source d’énergie dans les pays/régions soucieux de l’environnement, mais elles impliquent des coûts d’investissement élevés. Un composant essentiel des éoliennes est le moteur du générateur. S’il tombe en panne, la turbine sera inefficace. De plus, sa réparation coûte très cher.|Les KPI de prédiction tels que MTTF (temps moyen de fonctionnement avant panne) peuvent aider les fournisseurs d’énergie à empêcher des pannes de turbine et à garantir des temps d’arrêt minimaux. Les probabilités de défaillance informeront les techniciens qu’il faut surveiller les turbines susceptibles de tomber en panne sous peu et permettront de programmer des régimes de maintenance dans le temps. Des modèles prédictifs fournissent des informations sur différents facteurs qui contribuent à la défaillance, ce qui permet aux techniciens de mieux comprendre les causes racines des problèmes.|
+|_Défaillance d’éoliennes_ : les éoliennes sont la principale source d’énergie dans les pays/régions soucieux de l’environnement, mais elles impliquent des coûts d’investissement élevés. Un composant clé des éoliennes est la génératrice moteur dont toute défaillance rend la turbine inefficace. De plus, sa réparation coûte très cher.|Les KPI de prédiction tels que MTTF (temps moyen de fonctionnement avant panne) peuvent aider les fournisseurs d’énergie à empêcher des pannes de turbine et à garantir des temps d’arrêt minimaux. Les probabilités de défaillance informeront les techniciens qu’il faut surveiller les turbines susceptibles de tomber en panne sous peu et permettront de programmer des régimes de maintenance dans le temps. Des modèles prédictifs fournissent des informations sur différents facteurs qui contribuent à la défaillance, ce qui permet aux techniciens de mieux comprendre les causes racines des problèmes.|
 |_Défaillances de disjoncteurs_ : l’alimentation en électricité d’habitations et d’entreprises nécessite des lignes électriques constamment opérationnelles afin de garantir la livraison d’énergie. Les disjoncteurs aident à limiter ou à éviter des dommages des lignes électriques dus à des surcharges ou à de mauvaises conditions météorologiques. Ici, le problème de l’entreprise est de prédire les défaillances des disjoncteurs.| Les solutions de PdM aident à réduire les coûts de réparation et à augmenter la durée de vie d’équipements tels que les disjoncteurs. Elles permettent d’améliorer la qualité du réseau électrique en réduisant les défaillances inattendues et les interruptions de service.|
 |**Transport et logistique** |    |
 |_Défaillances de portes d’ascenseurs_ : les grandes sociétés fournissant des ascenseurs proposent une gamme complète de services pour des millions d’ascenseurs en fonctionnement dans le monde. La sécurité des ascenseurs, leur fiabilité et leur temps de fonctionnement sont les principales préoccupations de leurs clients. Ces sociétés surveillent ces attributs, ainsi que différents autres, pour faciliter la gestion de la maintenance préventive et corrective. Dans un ascenseur, le problème le plus souvent rencontré par les clients est le dysfonctionnement des portes. Le problème de l’entreprise est de fournir une application prédictive de base de connaissances qui prédit les causes potentielles des défaillances des portes.| Les ascenseurs représentent des investissements en capital pour une durée potentielle de 20 à 30 ans: Par conséquent, chaque vente potentielle peut être très concurrentielle. Les attentes en matière de service et de support sont donc à l’avenant. La maintenance prédictive peut procurer à ces sociétés un avantage sur leurs concurrents, au-delà des produits et des services proposés.|
@@ -135,7 +135,7 @@ La qualité des données est cruciale : chaque valeur d’attribut de prédicti
 
 Les sources de données pertinentes pour la maintenance prédictive incluent, sans s’y limiter :
 - L’historique des défaillances
-- L’historique des maintenances/des réparations
+- Historique des maintenances/des réparations
 - Les conditions de fonctionnement de la machine
 - Les métadonnées de l’équipement
 
@@ -145,7 +145,7 @@ Les événements de défaillance sont rares dans les applications de PdM. Toutef
 #### <a name="maintenancerepair-history"></a>Historique des maintenances/des réparations
 L’historique de maintenance d’un élément contient des détails sur les composants remplacés, les réparations effectuées, etc. Ces événements enregistrent les modèles de dégradation. L’absence de ces informations cruciales dans les données d’apprentissage peut fausser les résultats des modèles. L’historique des défaillances peut également se trouver dans l’historique de maintenance sous la forme de codes d’erreur spéciaux ou de dates de commandes de pièces. Des sources de données supplémentaires qui influencent les modèles de défaillance doivent être étudiées et fournies par des experts du domaine.
 
-#### <a name="machine-operating-conditions"></a>Conditions de fonctionnement de la machine
+#### <a name="machine-operating-conditions"></a>Les conditions de fonctionnement de la machine
 Les données de diffusion en continu issues de capteurs (ou d’autres dispositifs) de l’équipement en fonctionnement sont une source de données importantes. Une hypothèse clé dans la PdM est que l’état d’intégrité d’une machine se dégrade au fil du temps pendant son fonctionnement de routine. Nous prévoyons que les données contiendront des caractéristiques variant avec le temps qui capturent ce modèle de vieillissement et toute anomalie entraînant une dégradation. L’aspect temporel des données est requis pour que l’algorithme apprenne les modèles de défaillance et de non-défaillance au fil du temps. En fonction de ces points de données, l’algorithme apprend à prédire pendant combien d’unités de temps en plus une machine peut continuer à fonctionner avant de présenter une défaillance.
 
 #### <a name="static-feature-data"></a>Données de fonctionnalité statique
@@ -203,9 +203,9 @@ Les exigences métier définissent jusqu’où le modèle doit prédire dans le 
 #### <a name="rolling-aggregates"></a>Agrégats cumulatifs
 Pour chaque enregistrement d’un équipement, une fenêtre propagée de taille « W » est choisie comme nombre d’unités de temps pour calculer les agrégats. Nous calculons ensuite les caractéristiques antérieures correspondantes en utilisant les périodes W _antérieures à la date_ de cet enregistrement. Dans la Figure 1, les lignes bleues indiquent les valeurs de capteur enregistrées sur un équipement pour chaque unité de temps. Elles indiquent une moyenne propagée des valeurs de fonctionnalité sur une fenêtre de taille W = 3. La moyenne propagée est calculée sur tous les enregistrements dont les horodatages se situent dans la plage de t<sub>1</sub> (en orange) à t<sub>2</sub> (en vert). La valeur de W est généralement exprimée en minutes ou en heures, en fonction de la nature des données. Mais, pour certains problèmes, la sélection d’une grande fenêtre de taille W (par exemple, 12 mois) peut fournir tout l’historique d’un équipement jusqu’au moment de l’enregistrement.
 
-![Figure 1. Caractéristiques des agrégats cumulatifs](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
+![Figure 1. Caractéristiques des agrégats cumulatifs](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png)
 
-Figure 1. Caractéristiques des agrégats cumulatifs
+Figure 1. Caractéristiques des agrégats cumulatifs
 
 Des exemples d’agrégats cumulatifs sur une fenêtre de temps sont le nombre, la moyenne, les mesures CUMESUM (somme cumulée) et les valeurs mini/maxi. La variance, l’écart standard et le nombre de valeurs aberrantes au-delà des écarts standard N sont également souvent utilisés. Les exemples d’agrégats qui peuvent être appliqués aux [cas d’usage](#sample-pdm-use-cases) de ce guide sont répertoriés ci-dessous. 
 - _Retard de vol_ : nombre de codes d’erreurs le jour précédent/la semaine précédente.
@@ -217,7 +217,7 @@ Des exemples d’agrégats cumulatifs sur une fenêtre de temps sont le nombre, 
 Une autre technique utile dans la PdM consiste à capturer les changements de tendance, les pics et les changements de niveau en utilisant des algorithmes qui détectent des anomalies dans les données.
 
 #### <a name="tumbling-aggregates"></a>Agrégats bascules
-Pour chaque intitulé enregistrement d’un équipement, une fenêtre de taille _W -<sub>k</sub>_  est définie, où _k_ est le nombre de fenêtres de taille _W_. Les agrégats sont ensuite créés sur _k_ _fenêtres bascules_ _W-k, W -<sub>(k-1)</sub>,..., W -<sub>2</sub>, W -<sub>1</sub>_  pour les périodes précédant l’horodatage d’un enregistrement. _k_ peut être un petit nombre pour capturer des effets à court terme, ou un grand nombre pour capturer des modèles de dégradation à long terme. (voir Figure 2).
+Pour chaque intitulé enregistrement d’un équipement, une fenêtre de taille _W -<sub>k</sub>_ est définie, où _k_ est le nombre de fenêtres de taille _W_. Les agrégats sont ensuite créés sur _k_ _fenêtres bascules_ _W-k, W-<sub>(k-1)</sub>, ..., W-<sub>2</sub>, W-<sub>1</sub>_ pour les périodes précédant l’horodatage d’un enregistrement. _k_ peut être un petit nombre pour capturer des effets à court terme, ou un grand nombre pour capturer des modèles de dégradation à long terme. (voir Figure 2).
 
 ![Figure 2 : Caractéristiques des agrégats bascules](./media/cortana-analytics-playbook-predictive-maintenance/tumbling-aggregate-features.png)
 
@@ -425,11 +425,11 @@ La dernière section de ce guide fournit une liste de modèles de solutions de P
 
 | # | Intitulé | Description |
 |--:|:------|-------------|
-| 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Un modèle de solution open source qui illustre la modélisation Azure ML et une infrastructure Azure complète pouvant prendre en charge des scénarios de maintenance prédictive dans le contexte de la supervision à distance IoT. |
+| 2 | [Échantillon de solution de maintenance prédictive Azure](https://github.com/Azure/AI-PredictiveMaintenance) | Modèle de solution open source illustrant la modélisation Azure Machine Learning et une infrastructure Azure complète pouvant prendre en charge des scénarios de maintenance prédictive dans le contexte de la supervision à distance de l’IoT. |
 | 3 | [Apprentissage profond pour la maintenance prédictive](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook avec une solution de démonstration de l’utilisation des réseaux LSTM (Long Short-Term Memory) (une classe de réseaux de neurones récurrents) pour une maintenance prédictive, avec un [billet de blog sur cet échantillon](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guide de modélisation de maintenance prédictive dans R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide de modélisation de PdM avec scripts dans R.|
-| 5\. | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |
-| 6\. | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge avec TensorFlow ; le kit d’outils réunit des modèles Deep Learning dans des conteneurs Docker compatibles Azure IoT Edge et les présente sous forme d’API REST.
+| 5 | [Maintenance prédictive Azure pour l’aérospatiale](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | Un des premiers modèles de solution de PdM basés sur Azure ML v1.0 pour la maintenance des avions. Ce guide résulte de ce projet. |
+| 6 | [Kit d’outils d’IA Azure pour IoT Edge](https://github.com/Azure/ai-toolkit-iot-edge) | IA dans IoT Edge avec TensorFlow ; le kit d’outils réunit des modèles Deep Learning dans des conteneurs Docker compatibles Azure IoT Edge et les présente sous forme d’API REST.
 | 7 | [Microsoft Azure IoT – Maintenance prédictive](https://github.com/Azure/azure-iot-predictive-maintenance) | Azure IoT Suite PCS – Solution préconfigurée Modèle de PdM d’avions avec IoT Suite. [Un autre document](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-overview) et [une procédure pas à pas](https://docs.microsoft.com/azure/iot-suite/iot-suite-predictive-walkthrough) associés au même projet. |
 | 8 | [Modèle de maintenance prédictive avec les services SQL Server R](https://gallery.azure.ai/Tutorial/Predictive-Maintenance-Template-with-SQL-Server-R-Services-1) | Démonstration du scénario de durée de vie utile résiduelle basée sur les services de R. |
 | 9 | [Guide de modélisation de maintenance prédictive](https://gallery.azure.ai/Collection/Predictive-Maintenance-Modelling-Guide-1) | Caractéristique de jeu de données de maintenance d’avions conçue à l’aide de R avec [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Experiment-1) et [jeux de données](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Modelling-Guide-Data-Sets-1) et [bloc-notes Azure](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) et [expériences](https://gallery.azure.ai/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2)dans AzureML v1.0|

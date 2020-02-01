@@ -7,20 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 01/24/2020
+ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793448"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721572"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Guide pratique pour utiliser les résultats de recherche dans Recherche cognitive Azure
 Cet article explique comment implémenter les éléments standard d’une page de résultats de recherche, comme les totaux, l’extraction de documents, les ordres de tri et la navigation. Les options de page qui fournissent des données ou des informations aux résultats de recherche sont spécifiées par le biais des demandes [Recherche de documents](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) envoyées au service Recherche cognitive Azure. 
 
 Dans l’API REST, les demandes incluent une commande GET, un chemin d’accès et des paramètres de requête informant le service de la nature de la demande et de la formulation de la réponse. Dans le kit SDK .NET, l’API équivalente est la classe [DocumentSearchResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1).
 
-Plusieurs exemples de code comportent une interface frontale web, qui se trouve ici : [Application de démonstration New York City Jobs](https://azjobsdemo.azurewebsites.net/) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
+Pour générer rapidement une page de recherche pour votre client, explorez les options suivantes :
+
++ Utilisez le [générateur d’applications](search-create-app-portal.md) du portail pour créer une page HTML avec barre de recherche, navigation par facettes et zone de résultats.
++ Pour créer un client fonctionnel, suivez le tutoriel [Créer votre première application en C#](tutorial-csharp-create-first-app.md).
+
+Plusieurs exemples de code comportent une interface frontale web qui se trouve ici : [Application de démonstration New York City Jobs](https://azjobsdemo.azurewebsites.net/), [exemple de code JavaScript avec un site de démonstration en direct](https://github.com/liamca/azure-search-javascript-samples) et [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
 > Une demande valide inclut plusieurs éléments, parmi lesquels une URL de service et un chemin d’accès, un verbe HTTP, `api-version`, etc. Par souci de concision, nous avons tronqué les exemples afin de mettre en évidence la syntaxe se rapportant à la pagination uniquement. Pour plus d’informations sur la syntaxe des demandes, consultez [API REST de Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice).
@@ -87,6 +92,22 @@ Vous pouvez créer la méthode qui accepte l’option de tri sélectionnée comm
 > [!NOTE]
 > Si le score par défaut suffit dans de nombreuses situations, nous vous recommandons tout de même de baser la pertinence sur un profil de score personnalisé. Un profil de score personnalisé accorde plus d’importance aux éléments qui avantagent votre entreprise. Pour plus d’informations, voir [Ajout de profils de score](index-add-scoring-profiles.md) .
 >
+
+## <a name="hit-highlighting"></a>Mise en surbrillance des correspondances
+
+Vous pouvez appliquer une mise en forme aux termes correspondants dans les résultats de recherche, ce qui facilite la recherche de correspondance. Des instructions pour la mise en surbrillance des correspondances sont fournies dans la [demande de requête](https://docs.microsoft.com/rest/api/searchservice/search-documents). 
+
+La mise en forme est appliquée aux requêtes de termes entières. Les requêtes portant sur des termes partiels, telles que des recherches approximatives ou des recherches par caractères génériques entraînant une extension de requête dans le moteur, ne peuvent pas utiliser la mise en surbrillance des correspondances.
+
+```http
+POST /indexes/hotels/docs/search?api-version=2019-05-06 
+    {  
+      "search": "something",  
+      "highlight": "Description"  
+    }
+```
+
+
 
 ## <a name="faceted-navigation"></a>Navigation à facettes
 

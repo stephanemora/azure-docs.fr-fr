@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289524"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772034"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -131,7 +131,7 @@ Si cela ne fonctionne pas et que vous découvrez des serveurs VMware :
 
 ## <a name="vm-data-not-in-portal"></a>Données de machine virtuelle absentes du portail
 
-Si les machines virtuelles découvertes n’apparaissent pas dans le portail, patientez quelques minutes. L’affichage des données découvertes dans le portail peut prendre jusqu’à 30 minutes. Si aucune donnée n’apparaît après 30 minutes, essayez d’actualiser, comme suit :
+Si des machines virtuelles découvertes n’apparaissent pas dans le portail ou si des données de machine virtuelle sont obsolètes, patientez quelques minutes. L’affichage sur le portail des modifications de données de configuration de machine virtuelle découverte prend jusqu’à 30 minutes. L’affichage de modifications de données d’application peut prendre plusieurs heures. Si aucune donnée n’apparaît après ce délai, essayez d’actualiser comme suit.
 
 1. Dans **Serveurs** > **Évaluation de serveur Azure Migrate**, sélectionnez **Vue d’ensemble**.
 2. Sous **Gérer**, sélectionnez **Agent Health**.
@@ -166,7 +166,8 @@ Les erreurs classiques de découverte d’application sont résumées dans le ta
 9009 : « Impossible de récupérer les applications installées sur le serveur. » | Peut se produire si les paramètres de contrôle de compte d’utilisateur (UAC) Windows sur le serveur sont restrictifs et empêchent la découverte des applications installées. | Recherchez les paramètres « Contrôle de compte d’utilisateur » sur le serveur, et configurez le paramètre UAC du serveur sur l’un des deux niveaux inférieurs.
 9010 : « Impossible de récupérer les applications installées sur le serveur. » | Il s'agit peut-être d'une erreur interne.  | Si le problème ne se résout pas de lui-même dans les 24 heures, contactez le support technique.
 8084 : « Impossible de découvrir les applications en raison d'une erreur VMware :  <Exception from VMware> » | L’appliance Azure Migrate utilise des API VMware pour découvrir des applications. Ce problème peut se produire si une exception est déclenchée par vCenter Server pendant la tentative de découverte des applications. Le message de défaillance de VMware apparaît dans le message d’erreur affiché dans le portail. | Recherchez le message dans la [documentation VMware](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html) et suivez les étapes permettant de le résoudre. Si vous ne pouvez pas résoudre ce problème, contactez le support technique de Microsoft.
-
+9012 : « Impossible de découvrir les applications installées sur le serveur » | Ce problème peut se produire en raison d’une erreur interne.  | Si le problème ne se résout pas de lui-même dans les 24 heures, contactez le support technique.
+9013 : « Impossible de découvrir les applications installées sur le serveur » | Un nouveau profil temporaire est créé à chaque connexion à la machine virtuelle.  | Assurez-vous qu’aucun profil temporaire n’est créé pour l’utilisateur invité fourni.
 
 
 
