@@ -8,15 +8,15 @@ metadata:
   ms.service: traffic-manager
   ms.topic: landing-page
   ms.collection: collection
-  author: asudbring
-  ms.author: allensu
+  author: rohinkoul
+  ms.author: rohink
   ms.date: 08/19/2019
-  ms.openlocfilehash: e0990e15a10d18d836daddc1d5fba83af95948d8
-  ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+  ms.openlocfilehash: eb0172894a1cc03e465ada78575c9b7b1f76141a
+  ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 08/27/2019
-  ms.locfileid: "70051964"
+  ms.lasthandoff: 02/01/2020
+  ms.locfileid: "76937999"
 landingContent:
 - title: À propos de Traffic Manager
   linkLists:
@@ -32,7 +32,7 @@ landingContent:
     links:
     - text: Améliorer la disponibilité de vos services et la localisation des données
       url: https://docs.microsoft.com/learn/modules/distribute-load-with-traffic-manager/
-- title: Prise en main
+- title: Bien démarrer
   linkLists:
   - linkListType: quickstart
     links:
@@ -50,7 +50,7 @@ landingContent:
       url: traffic-manager-configure-priority-routing-method.md
     - text: Diriger le trafic vers des points de terminaison spécifiques en fonction du sous-réseau de l’utilisateur
       url: tutorial-traffic-manager-subnet-routing.md
-- title: gérer
+- title: Gérer
   linkLists:
   - linkListType: concept
     links:
@@ -72,7 +72,7 @@ landingContent:
       url: traffic-manager-point-internet-domain.md
     - text: Considérations relatives aux performances
       url: traffic-manager-performance-considerations.md
-- title: Résolution des problèmes
+- title: Dépanner
   linkLists:
   - linkListType: how-to-guide
     links:

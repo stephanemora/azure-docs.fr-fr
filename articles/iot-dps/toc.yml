@@ -21,6 +21,8 @@
           items:
             - name: C
               href: quick-create-simulated-device-symm-key.md
+            - name: Java
+              href: quick-create-simulated-device-symmetric-key-java.md
         - name: Attestation de certificat X.509
           items:
             - name: C
@@ -107,7 +109,7 @@
       items:
         - name: Gérer les inscriptions - Portail
           href: how-to-manage-enrollments.md
-        - name: Gérer les inscriptions - Kits Service SDK
+        - name: Gérer les inscriptions - Kits de développement logiciel (SDK) du service
           href: how-to-manage-enrollments-sdks.md
         - name: Configurer des certificats d’autorité de certification vérifiés
           href: how-to-verify-certificates.md
@@ -133,7 +135,7 @@
         - name: Windows
           href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
           maintainContext: true
-    - name: Utiliser des mécanismes d’attestation avec un kit SDK
+    - name: Utiliser des mécanismes d’attestation avec un Kit de développement logiciel (SDK)
       href: use-hsm-with-sdk.md
     - name: Approvisionner pour multilocation
       href: how-to-provision-multitenant.md
@@ -141,7 +143,7 @@
       href: how-to-use-custom-allocation-policies.md
     - name: Utiliser des clés symétriques avec des appareils hérités
       href: how-to-legacy-device-symm-key.md
-    - name: Utiliser les outils de SDK pour le développement
+    - name: Utilisez les outils du Kit de développement logiciel pour le développement
       href: how-to-use-sdk-tools.md
     - name: Guide pratique pour envoyer des données supplémentaires depuis les appareils
       href: how-to-send-additional-data.md
@@ -181,7 +183,7 @@
           href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits IoT Service SDK
+        - name: Kits de développement logiciel (SDK) IoT Service
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Cartes
           href: /azure/azure-maps
@@ -191,7 +193,7 @@
       items:
         - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
-        - name: Kits IoT Device SDK
+        - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:

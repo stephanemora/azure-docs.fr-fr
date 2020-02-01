@@ -13,6 +13,8 @@
           href: Quickstarts/csharp-sdk.md
         - name: Kit de développement logiciel (SDK) Python
           href: QuickStarts/python-sdk.md
+        - name: Kit de développement logiciel (SDK) Go
+          href: QuickStarts/go-sdk.md
     - name: Utilisation de l’API REST
       items:
         - name: Détecter des visages dans une image
