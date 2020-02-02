@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 89b7dc639a3140f17a62087c5ba0d05fb6df4d7f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883137"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845799"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Vue d’ensemble de la suppression réversible d’Azure Key Vault
 
@@ -36,13 +36,21 @@ Les coffres Azure Key Vault désignent des ressources suivies, gérées par Az
 
 Avec cette fonctionnalité, l’opération SUPPRIMER effectuée sur un coffre de clés ou un objet de coffre de clés constitue une suppression réversible, qui conserve efficacement les ressources pendant une période de conservation donnée (90 jours), tout en donnant l’impression que l’objet est supprimé. Le service fournit en outre un mécanisme de récupération de l’objet supprimé, qui a essentiellement pour effet d’annuler la suppression. 
 
-La suppression réversible est un comportement facultatif de Key Vault et **n’est pas activée par défaut** dans cette version. Elle peut être activée via [CLI](key-vault-soft-delete-cli.md) ou [Powershell](key-vault-soft-delete-powershell.md).
+La suppression réversible est désormais activée par défaut pour les coffres de clés nouvellement créés. Vous pouvez la désactiver via [Azure CLI](key-vault-soft-delete-cli.md) ou [Azure PowerShell](key-vault-soft-delete-powershell.md).
+
+La durée de rétention par défaut est de 90 jours, mais il est possible de définir l’intervalle de la stratégie de rétention sur une valeur comprise entre 7 et 90 jours via le portail Azure. La stratégie de rétention pour la protection contre le vidage utilise le même intervalle. 
+
+Une fois la suppression réversible définie sur un coffre de clés, il n’est plus possible de la désactiver ou de modifier l’intervalle de la stratégie de rétention. 
+
+Vous ne pouvez pas réutiliser le nom d’un coffre de clés ayant fait l’objet d’une suppression réversible tant que la période de rétention n’est pas écoulée. 
 
 ### <a name="purge-protection"></a>Protection contre le vidage 
 
-Lorsque la protection contre le vidage est activée, un coffre ou un objet dans un état Supprimé ne peut pas être supprimé définitivement tant que la période de rétention de 90 jours ne s’est pas écoulée. Ces coffres et objets peuvent être récupérés, ce qui garantit aux clients le suivi de la stratégie de rétention. 
-
 La protection contre le vidage est un comportement facultatif de Key Vault et **n’est pas activée par défaut**. Elle peut être activée via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) ou [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
+
+Lorsque la protection contre le vidage est activée, il n’est pas possible de purger un coffre ou un objet à l’état supprimé avant la fin de la période de rétention de 90 jours. Après une suppression réversible, les coffres et objets restent récupérables pour garantir le respect de la stratégie de rétention. 
+
+La durée de rétention par défaut est de 90 jours, mais il est possible de définir l’intervalle de la stratégie de rétention sur une valeur comprise entre 7 et 90 jours via le portail Azure. Une fois l’intervalle de la stratégie de rétention défini et enregistré, il n’est plus possible de le modifier pour ce coffre. 
 
 ### <a name="permitted-purge"></a>Vidage autorisé
 
@@ -86,6 +94,6 @@ En général, lorsqu’un objet (un coffre de clés, une clé ou un secret) est 
 
 Les deux guides ci-après présentent les principaux scénarios d’usage de la suppression réversible.
 
-- [Utilisation de la suppression réversible Key Vault avec l’interface CLI](key-vault-soft-delete-powershell.md) 
-- [Utilisation de la suppression réversible Key Vault avec l’interface CLI](key-vault-soft-delete-cli.md)
+- [Guide pratique pour utiliser la suppression réversible Key Vault avec Azure Power​Shell](key-vault-soft-delete-powershell.md) 
+- [Guide pratique pour utiliser la suppression réversible Key Vault avec l’interface CLI](key-vault-soft-delete-cli.md)
 

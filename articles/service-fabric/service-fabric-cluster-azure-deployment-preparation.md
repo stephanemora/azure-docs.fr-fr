@@ -3,12 +3,12 @@ title: Planifier un déploiement de cluster Azure Service Fabric
 description: Découvrez-en plus sur la planification et la préparation d'un déploiement de cluster de production Service Fabric sur Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463323"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834448"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planifier et préparer un déploiement de cluster
 
@@ -37,9 +37,59 @@ La taille minimale des machines virtuelles pour chaque type de nœud est déterm
 
 Le nombre minimal de machines virtuelles pour le type de nœud principal est déterminé par le [niveau de fiabilité][reliability] que vous choisissez.
 
-Consultez les recommandations minimales en matière de [types de nœuds principaux](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [charges de travail avec état sur les types de nœuds non principaux](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads) et [charges de travail sans état sur les types de nœuds non principaux](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads). 
+Consultez les recommandations minimales en matière de [types de nœuds principaux](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [charges de travail avec état sur les types de nœuds non principaux](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads) et [charges de travail sans état sur les types de nœuds non principaux](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
 
 Tout nombre supérieur au nombre minimal de nœuds doit dépendre du nombre de réplicas des applications/services que vous souhaitez exécuter dans ce type de nœud.  [Planifier la capacité pour les applications Service Fabric](service-fabric-capacity-planning.md) vous aide à estimer les ressources requises pour exécuter vos applications. Vous pourrez ensuite mettre à l'échelle le cluster pour l'ajuster à l'évolution de la charge de travail. 
+
+#### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>Disques de système d’exploitation éphémères pour groupes de machines virtuelles identiques
+
+Les *disques de système d’exploitation éphémères* sont des dispositifs de stockage créés sur la machine virtuelle locale, qui ne sont pas enregistrés sur le Stockage Azure à distance. Ils sont recommandés pour tous les types de nœuds Service Fabric (principaux et secondaires) car, par rapport aux disques de système d’exploitation permanents traditionnels, les disques de système d’exploitation éphémères :
+
+* réduisent la latence de lecture/écriture sur le disque du système d’exploitation ;
+* permettent des opérations plus rapides de gestion de réinitialisation/réimagerie de nœuds ;
+* réduisent les coûts globaux (les disques sont gratuits et n’impliquent aucun coût de stockage supplémentaire).
+
+Les disques de système d’exploitation éphémères ne sont pas spécifiques de Service Fabric mais des *groupes de machines virtuelles identiques* Azure mappées à des types de nœuds Service Fabric. Pour les utiliser avec Service Fabric, vous devez disposer des éléments suivants dans votre modèle Azure Resource Manager de cluster :
+
+1. Vérifiez que les types de nœuds spécifient les [tailles de machines virtuelles Azure prises en charge](../virtual-machines/windows/ephemeral-os-disks.md) pour les disques de système d’exploitation éphémères, et que la taille de machine virtuelle offre une taille de cache suffisante pour prendre en charge la taille de son disque de système d’exploitation (voir *Note* ci-dessous). Par exemple :
+
+    ```xml
+    "vmNodeType1Size": {
+        "type": "string",
+        "defaultValue": "Standard_DS3_v2"
+    ```
+
+    > [!NOTE]
+    > Veillez à sélectionner une taille de machine virtuelle avec une taille de cache égale ou supérieure à la taille du disque de système d’exploitation de la machine virtuelle elle-même. Autrement, votre déploiement Azure risque d’entraîner une erreur (même s’il est initialement accepté).
+
+2. Spécifiez la version de groupe de machines virtuelles identiques (`vmssApiVersion`) `2018-06-01` ou une version ultérieure :
+
+    ```xml
+    "variables": {
+        "vmssApiVersion": "2018-06-01",
+    ```
+
+3. Dans la section Groupe de machines virtuelles identiques de votre modèle de déploiement, spécifiez l’option `Local` pour `diffDiskSettings` :
+
+    ```xml
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "virtualMachineProfile": {
+            "storageProfile": {
+                "osDisk": {
+                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
+                        "caching": "ReadOnly",
+                        "createOption": "FromImage",
+                        "diffDiskSettings": {
+                            "option": "Local"
+                        },
+                }
+            }
+        }
+    ```
+
+Pour plus d’informations et d’autres options de configuration, voir [Disques de système d’exploitation éphémères pour machines virtuelles Azure](../virtual-machines/windows/ephemeral-os-disks.md) 
+
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Sélectionner les niveaux de durabilité et de fiabilité du cluster
 Le niveau de durabilité est utilisé pour indiquer au système les privilèges dont disposent vos machines virtuelles avec l’infrastructure Azure sous-jacente. Dans le type de nœud principal, ce privilège permet à Service Fabric de suspendre toute demande de l’infrastructure au niveau de la machine virtuelle (par exemple, un redémarrage de la machine virtuelle, une réinitialisation de la machine virtuelle ou une migration de machine virtuelle) qui influe sur la configuration requise du quorum pour les services système et vos services avec état. Dans les types de nœuds non principaux, ce privilège permet à Service Fabric de suspendre toute demande de l’infrastructure au niveau de la machine virtuelle (comme le redémarrage de la machine virtuelle, la réinitialisation de la machine virtuelle, la migration de machine virtuelle, etc.) qui influe sur la configuration requise du quorum pour vos services avec état.  Pour connaître les avantages liés aux différents niveaux et savoir quel niveau utiliser et quand, consultez [Caractéristiques de durabilité du cluster][durability].
