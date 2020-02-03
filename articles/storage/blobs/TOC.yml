@@ -2,7 +2,7 @@
   href: /azure/storage/blobs/
 - name: Vue d’ensemble
   items:
-    - name: "Qu’est-ce que le stockage Blob Azure\_?"
+    - name: "Qu’est-ce que le stockage d’objets blob Azure\_?"
       href: storage-blobs-overview.md
   expanded: true
 - name: Stockage d'objets blob
@@ -82,11 +82,7 @@
             - name: 4 - Vérifier les métriques de débit et de latence
               href: storage-blob-scalable-app-verify-metrics.md
         - name: Héberger un site web statique
-          items:
-            - name: 1 - Créer un site web statique
-              href: storage-blob-static-website-host.md
-            - name: 2 - Activer un domaine personnalisé avec SSL
-              href: storage-blob-static-website-custom-domain.md
+          href: storage-blob-static-website-host.md
         - name: Concevoir des applications à des fins de haute disponibilité
           items:
             - name: 1 - Rendre votre application hautement disponible
@@ -383,10 +379,12 @@
             - name: Utiliser l’émulateur Stockage Azure
               href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Héberger un site web statique
-          href: storage-blob-static-website-how-to.md
-        - name: Mapper Azure CDN à un domaine personnalisé pour l’accès via HTTPS
-          href: storage-https-custom-domain-cdn.md
-        - name: Configuration d’un domaine personnalisé
+          items:
+            - name: Héberger un site web statique
+              href: storage-blob-static-website-how-to.md
+            - name: Intégrer à Azure CDN
+              href: static-website-content-delivery-network.md
+        - name: Utiliser un domaine personnalisé
           href: storage-custom-domain-name.md
         - name: Acheminer des événements vers un point de terminaison personnalisé
           href: storage-blob-event-quickstart.md
@@ -643,7 +641,7 @@
           href: ../blobs/data-lake-storage-introduction-abfs-uri.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: À propos des espaces de noms hiérarchiques
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Bonnes pratiques
+        - name: Meilleures pratiques
           href: data-lake-storage-best-practices.md
         - name: Contrôle d’accès (répertoires et fichiers)
           href: data-lake-storage-access-control.md

@@ -1,6 +1,6 @@
 - name: Provisionnement cloud
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce que le provisionnement d’identités\_?"
       href: what-is-provisioning.md
@@ -34,21 +34,23 @@
           href: how-to-install.md
         - name: Configuration du provisionnement cloud
           href: how-to-configure.md
+        - name: Utiliser l’authentification unique
+          href: how-to-sso.md
     - name: Planifier et concevoir
       items:
         - name: Topologies et scénarios pour le provisionnement cloud Azure AD Connect
           href: plan-cloud-provisioning-topologies.md
-    - name: gérer
+    - name: Gérer
       items:
         - name: Mise à niveau automatique de l’agent
           href: how-to-automatic-upgrade.md
-    - name: Développement
+    - name: Développer
       items:
         - name: Transformations
           href: how-to-transformation.md
         - name: API de synchronisation Azure AD
           href: 'https://docs.microsoft.com/graph/api/resources/synchronization-overview'
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
         - name: Résoudre les problèmes de provisionnement cloud
           href: how-to-troubleshoot.md

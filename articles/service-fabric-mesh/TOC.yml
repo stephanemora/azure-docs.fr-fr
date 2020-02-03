@@ -1,6 +1,6 @@
 - name: Documentation Service Fabric Mesh
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: À propos de Service Fabric Mesh
@@ -53,7 +53,7 @@
       href: service-fabric-mesh-secrets-overview.md
 - name: Guides pratiques
   items:
-    - name: Configuration de l'environnement de développement
+    - name: Configurer l''environnement de développement
       href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
     - name: Configurer l’interface de ligne de commande Service Fabric Mesh
       href: service-fabric-mesh-howto-setup-cli.md
@@ -71,6 +71,8 @@
       href: service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md
     - name: Gérer les secrets
       href: service-fabric-mesh-howto-manage-secrets.md
+    - name: Déplacer une application vers une autre région Azure
+      href: move-across-regions.md
     - name: Trouver des exemples
       href: service-fabric-mesh-howto-find-samples.md
 - name: Informations de référence

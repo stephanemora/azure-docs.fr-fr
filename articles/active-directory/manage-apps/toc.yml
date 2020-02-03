@@ -151,8 +151,8 @@
               href: methods-for-assigning-users-and-groups.md
             - name: Affecter un utilisateur à une application
               href: assign-user-or-group-access-portal.md
-            - name: Créer des espaces de travail sur Mes applications (préversion)
-              href: access-panel-workspaces.md
+            - name: Créer des collections sur Mes applications
+              href: access-panel-collections.md
             - name: Utiliser l’accès aux applications en libre-service
               href: access-panel-manage-self-service-access.md
             - name: Méthodes de suppression d’un accès utilisateur à une application

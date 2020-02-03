@@ -411,7 +411,7 @@
                 - name: Transformer des types de données complexes
                   href: /azure/databricks/delta/data-transformation/complex-types
                   maintainContext: true
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               href: /azure/databricks/delta/best-practices
               maintainContext: true
             - name: Gestion des versions des tables
@@ -888,13 +888,19 @@
             - name: Accès au suivi en externe
               href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
+        - name: Créer des tableaux de bord avec l’API de recherche MLflow
+          href: /azure/databricks/applications/mlflow/build-dashboards
+          maintainContext: true
         - name: 'Enregistrer, charger et déployer des modèles'
           items:
             - name: 'Vue d’ensemble de l’enregistrement, du chargement et du déploiement'
               href: /azure/databricks/applications/mlflow/models
               maintainContext: true
-            - name: Exemples de modèles MLflow
-              href: /azure/databricks/applications/mlflow/  model-examples
+            - name: Exemple de modèle MLflow
+              href: /azure/databricks/applications/mlflow/model-example
+              maintainContext: true
+            - name: Déploiement de modèle scikit learn sur Azure
+              href: /azure/databricks/applications/mlflow/scikit-learn-model-deployment-on-azure-ml
               maintainContext: true
         - name: Reproduire des exécutions avec des projets MLflow
           href: /azure/databricks/applications/mlflow/projects
@@ -1411,7 +1417,7 @@
               maintainContext: true
         - name: Python
           items:
-            - name: Créer un cluster avec Anaconda
+            - name: Créer un cluster avec Conda
               href: /azure/databricks/kb/python/anaconda-environment
               maintainContext: true
             - name: Installer et compiler Cython
@@ -1466,6 +1472,9 @@
             - name: Exécuter du code C++ dans Scala
               href: /azure/databricks/kb/scala/running-c-plus-plus-code-scala
               maintainContext: true
+            - name: Échec des travaux JAR Spark simultanés
+              href: /azure/databricks/kb/scala/spark-jar-job-error
+              maintainContext: true
         - name: SQL
           items:
             - name: Table ou vue introuvable
@@ -1519,7 +1528,7 @@
             - name: API Pools d’instances
               href: /azure/databricks/dev-tools/api/latest/instance-pools
               maintainContext: true
-            - name: travaux
+            - name: Travaux
               href: /azure/databricks/dev-tools/api/latest/jobs
               maintainContext: true
             - name: Bibliothèques
