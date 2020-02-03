@@ -3,22 +3,22 @@ title: Activer le protocole SSL dans un groupe de conteneurs
 description: Créer un point de terminaison SSL ou TLS pour un groupe de conteneurs exécuté sur Azure Container Instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 7578ad6f8c451694a90dde00b74bf2e8c6c61109
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 541d53a9a9530f7ac80227dbae598b3da2691301
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483486"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773074"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Activer un point de terminaison SSL dans un groupe de conteneurs
 
 Cet article montre comment créer un [groupe de conteneurs](container-instances-container-groups.md) avec un conteneur d’application et un conteneur side-car exécutant un fournisseur SSL. En configurant un groupe de conteneurs avec un point de terminaison SSL distinct, vous activez les connexions SSL pour votre application sans modifier votre code d’application.
 
-Vous configurez un groupe de conteneurs composé de deux conteneurs :
+Vous configurez un exemple de groupe de conteneurs composé de deux conteneurs :
 * Un conteneur d’applications qui exécute une application web simple à l’aide de l’image [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) Microsoft publique. 
 * Un conteneur side-car exécutant l’image [Nginx](https://hub.docker.com/_/nginx) publique, configuré pour utiliser SSL. 
 
-Dans cet exemple, le groupe de conteneurs expose uniquement le port 443 pour Nginx avec son adresse IP publique. Nginx achemine les requêtes HTTPS vers l’application web, qui écoute en interne sur le port 80. Vous pouvez adapter l’exemple pour les applications de conteneur qui écoutent sur les autres ports.
+Dans cet exemple, le groupe de conteneurs expose uniquement le port 443 pour Nginx avec son adresse IP publique. Nginx achemine les requêtes HTTPS vers l’application web, qui écoute en interne sur le port 80. Vous pouvez adapter l’exemple pour les applications de conteneur qui écoutent sur les autres ports. Reportez-vous à la section [Étapes suivantes](#next-steps) pour découvrir d'autres approches d'activation du protocole SSL dans un groupe de conteneurs.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -50,7 +50,7 @@ Vous devriez maintenant voir trois fichiers dans le répertoire : la demande de
 
 ### <a name="create-nginx-configuration-file"></a>Créer un fichier de configuration Nginx
 
-Dans cette section, vous créez un fichier de configuration afin que Nginx utilise SSL. Commencez par copier le texte suivant dans un nouveau fichier nommé `nginx.conf`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
+Dans cette section, vous créez un fichier de configuration afin que Nginx utilise SSL. Commencez par copier le texte suivant dans un nouveau fichier nommé `nginx.conf`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
 
 ```console
 code nginx.conf
@@ -136,7 +136,7 @@ Déployez maintenant le groupe de conteneurs en spécifiant les configurations d
 
 ### <a name="create-yaml-file"></a>Créer un fichier YAML
 
-Copiez le fichier YAML suivant dans un nouveau fichier nommé `deploy-aci.yaml`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
+Copiez le fichier YAML suivant dans un nouveau fichier nommé `deploy-aci.yaml`. Dans Azure Cloud Shell, vous pouvez utiliser Visual Studio Code pour créer le fichier dans votre répertoire de travail :
 
 ```console
 code deploy-aci.yaml
@@ -235,4 +235,10 @@ Cet article vous a montré comment configurer un conteneur Nginx pour activer le
 
 Bien que cet article utilise Nginx pour le conteneur side-car, vous pouvez utiliser un autre fournisseur SSL comme [Caddy](https://caddyserver.com/).
 
-Une autre approche pour l’activation SSL dans un groupe de conteneurs consiste à déployer le groupe dans un [réseau virtuel Azure](container-instances-vnet.md) avec une [passerelle d’application Azure](../application-gateway/overview.md). La passerelle peut être configurée comme point de terminaison SSL. Consultez un exemple de [modèle de déploiement](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) que vous pouvez adapter pour activer le point de terminaison SSL sur la passerelle.
+Si vous déployez votre groupe de conteneurs dans un [réseau virtuel Azure](container-instances-vnet.md), vous pouvez envisager d'autres options afin d'activer un point de terminaison SSL pour une instance de conteneur principal, notamment :
+
+* [Azure Functions Proxies](../azure-functions/functions-proxies.md)
+* [Gestion des API Azure](../api-management/api-management-key-concepts.md)
+* [Application Gateway Azure](../application-gateway/overview.md)
+
+Pour utiliser une passerelle d'application, consultez un exemple de [modèle de déploiement](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

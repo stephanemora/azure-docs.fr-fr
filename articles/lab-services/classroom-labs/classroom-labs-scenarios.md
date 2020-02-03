@@ -1,6 +1,6 @@
 ---
-title: Utiliser des laboratoires de classe pour les formations | Microsoft Docs
-description: Découvrez comment utiliser Azure DevTest Labs pour les scénarios de formation.
+title: Utiliser des laboratoires de classe à des fins d'apprentissage - Azure Lab Services
+description: Cet article explique comment utiliser Azure DevTest Labs afin de créer des laboratoires sur Azure pour les scénarios d'apprentissage.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 4d2ba11181977f1976b5ae933e8b93a92424fa96
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 155806222f9e11fec177487b7147d81054ac06ed
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60695277"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717987"
 ---
 # <a name="use-classroom-labs-for-trainings"></a>Utiliser des laboratoires de classe pour les formations
 Vous pouvez configurer un laboratoire pour des formations. Les laboratoires de classe d’Azure Lab Services vous permettent de créer un laboratoire pour votre formation où chaque participant utilise des environnements identiques et isolés à des fins d’apprentissage. Vous pouvez appliquer des stratégies pour vous assurer que les environnements de formation sont à la disposition des participants uniquement lorsque ces derniers en ont besoin et qu’ils contiennent suffisamment de ressources (telles que des machines virtuelles) pour la formation. 
@@ -55,4 +55,4 @@ Le modèle de laboratoire est une image de machine virtuelle de base, à partir 
 Un étudiant ou un participant à une formation s’inscrit au laboratoire et se connecte à la machine virtuelle pour effectuer les exercices du cours. Pour plus d’informations, consultez [Accéder à un laboratoire de classe](how-to-use-classroom-lab.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Commencez par créer un compte de laboratoire dans Laboratoires de classe en suivant les instructions de l’article suivant : [Tutoriel : Configurer un compte de laboratoire avec Azure Lab Services](tutorial-setup-lab-account.md).
+Commencez par créer un compte de laboratoire dans Laboratoires de classe en suivant les instructions de l’article suivant : [Tutoriel : Configurer un compte de laboratoire avec Azure Lab Services](tutorial-setup-lab-account.md).

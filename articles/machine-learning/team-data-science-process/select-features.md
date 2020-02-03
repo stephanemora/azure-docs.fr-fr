@@ -3,36 +3,36 @@ title: Sélection de fonctionnalités dans le processus TDSP (Team Data Science 
 description: Explique la finalité de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: da5da64538ceaf906388c49963c0d5115e1b5ab9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480219"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716680"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Sélection de fonctionnalités dans le processus TDSP (Team Data Science Process)
 Cet article explique les finalités de la sélection de fonctionnalités et fournit des exemples de son rôle dans le processus d’amélioration des données de l’apprentissage automatique. Ces exemples sont tirés d’Azure Machine Learning Studio.
 
 La conception et la sélection de fonctionnalités constituent une partie du processus TDSP présenté dans l’article [Qu’est ce que le processus TDSP (Team Data Science Process) ?](overview.md). La conception et la sélection de fonctionnalités sont des parties de l’étape de **développement de fonctionnalités** du processus TDSP.
 
-* **Ingénierie de caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
+* **Ingénierie des caractéristiques** : ce processus tente de créer des caractéristiques supplémentaires pertinentes à partir de caractéristiques brutes existantes dans les données et d’augmenter la performance de prédiction de l’algorithme d’apprentissage.
 * **Sélection de caractéristiques** : ce processus sélectionne le sous-ensemble clé des caractéristiques de données d’origine afin de réduire la dimensionnalité du problème d’apprentissage.
 
 En général, l’**ingénierie de caractéristiques** s’applique d’abord à la génération de caractéristiques supplémentaires. L’étape de **sélection de caractéristiques** est alors effectuée pour éliminer les caractéristiques inutiles, redondantes ou fortement corrélées.
 
 ## <a name="filter-features-from-your-data---feature-selection"></a>Filtrage des caractéristiques à partir de vos données : sélection de caractéristiques
-La sélection de caractéristiques est un processus qui s'applique en général à la construction de jeux de données d'apprentissage pour les tâches de modélisation prédictives telles que les tâches de classification ou de régression. L'objectif est de sélectionner un sous-ensemble des caractéristiques du jeu de données d'origine qui réduit ses dimensions à l'aide d'un ensemble minimal de caractéristiques pour représenter l'écart de quantité maximum dans les données. Ce sous-ensemble de caractéristiques est utilisé pour l’apprentissage du modèle. La sélection de caractéristiques a deux principaux objectifs.
+La sélection de caractéristiques peut être utilisée pour les tâches de classification ou de régression. L'objectif est de sélectionner un sous-ensemble des caractéristiques du jeu de données d'origine qui réduit ses dimensions à l'aide d'un ensemble minimal de caractéristiques pour représenter l'écart de quantité maximum dans les données. Ce sous-ensemble de caractéristiques est utilisé pour l’apprentissage du modèle. La sélection de caractéristiques a deux principaux objectifs.
 
 * Tout d'abord, la sélection des caractéristiques augmente souvent la précision de classification en éliminant les caractéristiques non pertinentes, redondantes ou fortement liées.
-* De plus, elle réduit le nombre de caractéristiques qui rendent le processus d’apprentissage du modèle plus efficace. L’efficacité est particulièrement importante pour les apprenants dont l’apprentissage est coûteux tels que les machines à vecteurs de support.
+* De plus, elle réduit le nombre de caractéristiques qui rendent le processus d’apprentissage du modèle plus efficace. L'efficacité est importante pour les apprenants dont l'apprentissage coûte cher, comme les machines à vecteurs de support.
 
 Bien que la sélection des caractéristiques ait pour objet de réduire le nombre de caractéristiques dans le jeu de données utilisé pour l’apprentissage du modèle, celle-ci ne correspond pas au terme de « réduction de la dimensionnalité ». Les méthodes de sélection de caractéristiques extraient un sous-ensemble des caractéristiques d'origine dans les données sans les modifier.  Les méthodes de réduction de la dimensionnalité utilisent l'ingénierie des caractéristiques qui peuvent transformer les caractéristiques d'origine et donc les modifier. Parmi les exemples de méthodes de réduction de la dimensionnalité, on peut noter l'analyse du composant principal, l'analyse canonique des corrélations et la décomposition en valeurs uniques.
 
@@ -44,7 +44,7 @@ Dans Azure Machine Learning Studio, des modules sont fournis pour la sélectio
 
 Prenons l’exemple de l’utilisation du module de [sélection de caractéristiques par filtrage][filter-based-feature-selection]. Pour plus de commodité, continuez à utiliser l’exemple d’exploration de texte. Supposons que nous voulons créer un modèle de régression après avoir créé un ensemble de 256 caractéristiques via le module de [hachage de caractéristiques][feature-hashing] et que la variable de réponse est le « Col1 » contenant une critique de livre notée de 1 à 5. La « Méthode de notation des caractéristiques » doit être définie en tant que « corrélation de Pearson », la « Colonne cible » en tant que « Col1 » et le « nombre de caractéristiques souhaitées » à 50. Le module de [sélection de caractéristiques par filtrage][filter-based-feature-selection] produit ensuite un jeu de données contenant 50 caractéristiques avec l’attribut cible « Col1 ». La figure suivante montre le flux de cette expérimentation et les paramètres d’entrée :
 
-![Propriétés du module de sélection de caractéristiques par filtrage](./media/select-features/feature-Selection1.png)
+![Propriétés du module Sélection de caractéristiques par filtrage](./media/select-features/feature-Selection1.png)
 
 La figure suivante montre les jeux de données qui en résultent :
 
@@ -59,7 +59,7 @@ Les scores correspondants des caractéristiques sélectionnées sont indiqués d
 En appliquant ce module de [sélection de caractéristiques par filtrage][filter-based-feature-selection], 50 des 256 caractéristiques sont sélectionnées, car elles présentent la corrélation la plus importante avec la variable cible « Col1 » selon la méthode de notation « corrélation de Pearson ».
 
 ## <a name="conclusion"></a>Conclusion
-La conception et la sélection de fonctionnalités augmentent toutes deux l’efficacité du processus d’apprentissage qui tend à extraire les informations essentielles contenues dans les données. Ces processus améliorent également les performances de ces modèles pour classifier les données d'entrée avec précision et prédire les résultats pertinents de façon plus consistante. L'ingénierie et la sélection de caractéristiques peuvent également être combinées afin de rendre l'apprentissage plus souple d'un point de vue informatique. Cela se fait grâce à l'amélioration puis à la réduction du nombre de caractéristiques nécessaires à l'étalonnage ou l'apprentissage d'un modèle. D'un point de vue mathématique, les caractéristiques sélectionnées pour effectuer l'apprentissage du modèle sont un ensemble minimum de variables indépendantes qui expliquent les modèles des données puis prédisent correctement les résultats.
+La conception et la sélection de fonctionnalités augmentent toutes deux l'efficacité du processus d'apprentissage qui tend à extraire les informations essentielles contenues dans les données. Ces processus améliorent également les performances de ces modèles pour classifier les données d'entrée avec précision et prédire les résultats pertinents de façon plus consistante. L'ingénierie et la sélection de caractéristiques peuvent également être combinées afin de rendre l'apprentissage plus souple d'un point de vue informatique. Cela se fait grâce à l'amélioration puis à la réduction du nombre de caractéristiques nécessaires à l'étalonnage ou l'apprentissage d'un modèle. D'un point de vue mathématique, les caractéristiques sélectionnées pour effectuer l'apprentissage du modèle sont un ensemble minimum de variables indépendantes qui expliquent les modèles des données puis prédisent correctement les résultats.
 
 Il n’est pas toujours nécessaire d’effectuer l’ingénierie de caractéristiques ou la sélection des caractéristiques. Que cela soit nécessaire ou non dépend des données collectées, de l’algorithme sélectionné et des objectifs de l’expérience.
 

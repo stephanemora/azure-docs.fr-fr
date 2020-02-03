@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4111945d11fd9b42ae8a7daba9ec993a875a5fd0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 229f49255fbc72f74f07b1e7098417d136f35c27
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423709"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775176"
 ---
 # <a name="protected-web-api---move-to-production"></a>API web protégée - déplacement en production
 
@@ -31,20 +30,18 @@ Maintenant que vous savez comment protéger votre API web, voici comment vous po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment appeler des API en aval :
+Apprenez à appeler des API en aval :
 
 > [!div class="nextstepaction"]
-> [Scénario : API web qui appelle des API web](scenario-web-api-call-api-overview.md)
+> [Scénario : API web qui appelle des API en aval](scenario-web-api-call-api-overview.md)
 
-
-En apprendre davantage avec des didacticiels et exemples :
-
+Apprenez-en plus à l'aide des tutoriels et des exemples.
 
 > [!div class="nextstepaction"]
-> [Appel d’une API protégée à l’aide d’un démon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+> [Appel d'une API protégée à l'aide d'un démon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
-> [Tutoriel sur l’API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
+> [Tutoriel sur l'API web ASP.NET Core](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)
 
 > [!div class="nextstepaction"]
 > [Exemple d’API web ASP.NET](https://github.com/azureadquickstarts/appmodelv2-nativeclient-dotnet)

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 27243f47df7da22ab4adda088bdf631c1030dd6c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771817"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845188"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Déboguer de manière interactive sur une instance de calcul Azure Machine Learning avec VS Code Remote
 
 Dans cet article, vous allez apprendre à configurer Visual Studio Code Remote sur une instance de calcul Azure Machine Learning afin de pouvoir **déboguer de manière interactive votre code** à partir de VS Code. 
 
 > [!NOTE]
-> Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
+> Les instances de calcul ne sont disponibles que pour les espaces de travail associés aux régions **USA Centre Nord**, ** USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**.
 
 + Une [Instance de calcul Azure Machine Learning](concept-compute-instance.md) est une station de travail Cloud complètement managée pour les scientifiques des données qui fournit des fonctionnalités de gestion et de préparation de l’entreprise pour les administrateurs informatiques. 
 

@@ -15,21 +15,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46f1676ab1bdcf2b23907824bb9bf543b5f28ce6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 338b638d6b33bcbbb5cf377643a96c71b0d314bd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962608"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775189"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Application démon appelant des API web - appeler une API web à partir de l’application
 
-Une application démon peut appeler une API web à partir d’une application démon .NET ou appeler plusieurs API web pré-approuvées.
+Les applications démon .NET peuvent appeler une API web. Les applications démon .NET peuvent également appeler plusieurs API web pré-approuvées.
 
-## <a name="calling-a-web-api-daemon-application"></a>Appel une application démon d’API web
+## <a name="calling-a-web-api-from-a-daemon-application"></a>Appeler une API web à partir d'une application démon
 
-Voici comment utiliser le jeton pour appeler une API :
+Pour appeler une API à l'aide du jeton, procédez comme suit :
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -68,7 +67,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Appels de plusieurs API
 
-Pour les applications de démon, les API web que vous appelez doivent être pré-approuvées. Il n’y aura pas de consentement incrémentiel avec des applications démons (il n’y a aucune interaction utilisateur). L’administrateur locataire doit approuver l’application et toutes les autorisations d’API au préalable. Si vous souhaitez appeler plusieurs API, vous aurez besoin d’acquérir un jeton pour chaque ressource, en appelant `AcquireTokenForClient` à chaque fois. MSAL utilisera le cache de jetons d’application afin d’éviter les appels de service inutiles.
+Pour les applications de démon, les API web que vous appelez doivent être pré-approuvées. Il n'y a pas de consentement incrémentiel avec les applications démon. (Il n'y a aucune interaction avec l'utilisateur.) L'administrateur client doit donner son consentement à l'avance pour l'application et toutes les autorisations d'API. Si vous souhaitez appeler plusieurs API, vous devez acquérir un jeton pour chaque ressource, en appelant `AcquireTokenForClient` à chaque fois. MSAL utilisera le cache de jetons d’application afin d’éviter les appels de service inutiles.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

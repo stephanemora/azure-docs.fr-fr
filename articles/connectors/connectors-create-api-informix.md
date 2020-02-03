@@ -9,12 +9,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: ebedb68f8826642437f53e5c5fa8cd0843e7c20e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665832"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757966"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Gérer des ressources de base de données IBM Informix à l’aide d’Azure Logic Apps
 
@@ -60,7 +60,7 @@ Cette rubrique décrit comment utiliser le connecteur dans une application logiq
 
    | Action | Description | Propriétés et descriptions |
    |--------|-------------|-----------------------------|
-   | **Obtenir les tables** | Lister les tables de base de données en exécutant une instruction CALL Informix. | Aucune |
+   | **Obtenir les tables** | Lister les tables de base de données en exécutant une instruction CALL Informix. | None |
    | **Obtenir les lignes** | Récupérer toutes les lignes de la table spécifiée en exécutant une instruction `SELECT *` Informix. | **Nom de la table** : nom de la table Informix souhaitée <p><p>Pour ajouter d’autres propriétés à cette action, sélectionnez-les dans la liste **Ajouter un nouveau paramètre**. Pour plus d’informations, consultez la [rubrique de référence du connecteur](/connectors/informix/). |
    | **Obtenir la ligne** | Récupérer une ligne de la table spécifiée en exécutant une instruction `SELECT WHERE` Informix. | - **Nom de la table** : nom de la table Informix souhaitée <br>- **ID de ligne** : ID unique de la ligne, par exemple `9999` |
    | **Insérer une ligne** | Ajouter une ligne à la table Informix spécifiée en exécutant une instruction `INSERT` Informix. | - **Nom de la table** : nom de la table Informix souhaitée <br>- **élément** : ligne avec les valeurs à ajouter |
