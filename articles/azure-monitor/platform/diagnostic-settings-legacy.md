@@ -6,16 +6,16 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 12/20/2019
-ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/21/2020
+ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977568"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715847"
 ---
-# <a name="collect-azure-activity-log-with-legacy-settings"></a>Collecter le journal d’activité Azure avec des paramètres hérités
-Le [journal d’activité Azure](platform-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. Jusqu’à récemment, vous avez créé un profil de journal pour envoyer des entrées de journal d’activité à un [hub d’événements ou à un compte de stockage](activity-log-export.md) et utilisé un connecteur pour les collecter dans un [espace de travail Log Analytics](activity-log-collect.md). Cet article compare les méthodes, et explique comment utiliser les paramètres hérités existants et comment effacer les paramètres hérités dans la préparation des paramètres de diagnostic.
+# <a name="update-to-azure-activity-log-collection-and-export"></a>Mettre à jour la collecte et l'exportation du journal d'activité Azure
+Le [journal d’activité Azure](platform-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. La méthode d'envoi des entrées du journal d'activité vers [un hub d'événements ou un compte de stockage](activity-log-export.md) ou vers un [espace de travail Log Analytics](activity-log-collect.md) a changé pour utiliser les [paramètres de diagnostic](diagnostic-settings.md). Cet article compare les méthodes, et explique comment effacer les paramètres hérités en vue de passer aux paramètres de diagnostic.
 
 
 ## <a name="differences-between-methods"></a>Différences entre les méthodes
@@ -39,14 +39,16 @@ Avant d’activer cette fonctionnalité, tenez compte des détails suivants de l
 ### <a name="differences-in-data"></a>Différences de données
 Les paramètres de diagnostic collectent les mêmes données que les méthodes précédentes utilisées pour collecter le journal d’activité, avec les différences actuelles suivantes :
 
-Les propriétés suivantes ont été supprimées :
+Les colonnes suivantes ont été supprimées. Le remplacement de ces colonnes se fait dans un format différent. Par conséquent, vous devrez peut-être modifier les requêtes de journal qui les utilisent. Les colonnes supprimées dans le schéma seront peut-être encore visibles, mais elles ne contiendront pas de données.
 
-- ActivityStatus
-- ActivitySubstatus
-- NomOpération
-- ResourceProvider
+| Colonne supprimée | Colonne de remplacement |
+|:---|:---|
+| ActivityStatus    | ActivityStatusValue    |
+| ActivitySubstatus | ActivitySubstatusValue |
+| NomOpération     | OperationNameValue     |
+| ResourceProvider  | ResourceProviderValue  |
 
-Les propriétés suivantes ont été ajoutées :
+La colonne suivante a été ajoutée :
 
 - Authorization_d
 - Claims_d

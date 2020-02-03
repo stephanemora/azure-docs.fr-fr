@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/15/2020
+ms.date: 1/24/2020
 ms.author: raiye
-ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122243"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765310"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -41,6 +41,9 @@ Fournit des informations récentes sur les dernières publications du SE (systè
 Vous ne savez pas comment mettre à jour votre système d’exploitation invité ? Consultez [cet article][cloud updates].
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
+
+###### <a name="january-24-2020"></a>**24 janvier 2020**
+Le SE invité de janvier a publié. 
 
 ###### <a name="january-8-2020"></a>**8 janvier 2020**
 Le système d’exploitation invité de décembre a été publié.
@@ -115,8 +118,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-6.15_202001-01  |  24 janvier 2020  |  Billet 6.17  |  
 | WA-GUEST-OS-6.14_201912-01 | 8 janvier 2020 | Billet 6.16 |  
-| WA-GUEST-OS-6.13_201911-01 | 5 décembre 2019 | Billet 6.15 |  
+|~~WA-GUEST-OS-6.13_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-6.12_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-6.11_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
 |~~WA-GUEST-OS-6.10_201908-01~~| 4 août 2019 | 1er novembre 2019  |  
@@ -142,8 +146,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-5.39_202001-01  |  24 janvier 2020  |  Billet 5.41  |  
 | WA-GUEST-OS-5.38_201912-01 | 8 janvier 2020 | Billet 5.40 |  
-| WA-GUEST-OS-5.37_201911-01 | 5 décembre 2019 | Billet 5.39 |  
+|~~WA-GUEST-OS-5.37_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-5.36_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-5.35_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
 |~~WA-GUEST-OS-5.34_201908-01~~|  4 août 2019  | 1er novembre 2019 |  
@@ -166,8 +171,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-4.74_202001-01  |  24 janvier 2020  |  Billet 4.76  |  
 | WA-GUEST-OS-4.73_201912-01 | 8 janvier 2020 | Billet 4.75 |  
-| WA-GUEST-OS-4.72_201911-01 | 5 décembre 2019 | Billet 4.74 |  
+|~~WA-GUEST-OS-4.72_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-4.71_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-4.70_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
 |~~WA-GUEST-OS-4.69_201908-01~~| 4 août 2019 | 1er novembre 2019 |  
@@ -190,8 +196,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-3.81_202001-01  |  24 janvier 2020  |  Billet 3.83  |  
 | WA-GUEST-OS-3.80_201912-01 | 8 janvier 2020 | Billet 3.82 |  
-| WA-GUEST-OS-3.79_201911-01 | 5 décembre 2019 | Billet 3.81 |  
+|~~WA-GUEST-OS-3.79_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-3.78_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-3.77_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
 |~~WA-GUEST-OS-3.76_201908-01~~|  4 août 2019  |  1er novembre 2019  |  
@@ -214,8 +221,9 @@ Publication du système d’exploitation invité du mois de septembre.
 
 | Chaîne de configuration | Date de publication | Date de désactivation |
 | --- | --- | --- |
+|  WA-GUEST-OS-2.94_202001-01  |  24 janvier 2020  |  Billet 2.96  |  
 | WA-GUEST-OS-2.93_201912-01 | 8 janvier 2020 | Billet 2.95 |  
-| WA-GUEST-OS-2.92_201911-01 | 5 décembre 2019 | Billet 2.94 |  
+|~~WA-GUEST-OS-2.92_201911-01~~| 5 décembre 2019 | 24 janvier 2020 |  
 |~~WA-GUEST-OS-2.91_201910-01~~| 1er novembre 2019 | 8 janvier 2020 |  
 |~~WA-GUEST-OS-2.90_201909-01~~| 7 octobre 2019 | 5 décembre 2019 |  
 |~~WA-GUEST-OS-2.89_201908-01~~| 4 août 2019 | 1er novembre 2019 |  

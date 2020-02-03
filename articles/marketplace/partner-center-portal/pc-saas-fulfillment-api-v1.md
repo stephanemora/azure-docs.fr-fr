@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/23/2019
 ms.author: evansma
 ROBOTS: NOINDEX
-ms.openlocfilehash: 99dd6db7003e0358ddde2438f6897cd767932227
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f56e9b4f6c3db6fb47452c7478f5a27445955e87
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73816570"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715386"
 ---
 # <a name="saas-fulfillment-apis-version-1-deprecated"></a>API de traitement SaaS version 1 (obsolète)
 
 Cet article explique comment créer une offre SaaS avec des API. Les API, composées de méthodes et de points de terminaison REST, sont nécessaires pour permettre les abonnements à votre offre SaaS si vous avez sélectionné Vente via Azure.  
 
 > [!WARNING]
-> Cette version initiale de l’API de traitement SaaS est obsolète ; nous vous recommandons d’utiliser plutôt l’[API de traitement SaaS V2](./pc-saas-fulfillment-api-v2.md).  Cette version initiale de l’API est actuellement maintenue uniquement pour servir les serveurs de publication existants. 
+> Cette version initiale de l’API de traitement SaaS est obsolète ; nous vous recommandons d’utiliser plutôt l’[API de traitement SaaS V2](./pc-saas-fulfillment-api-v2.md).  Cette version initiale de l'API est actuellement uniquement maintenue pour servir les serveurs de publication existants. 
 
 Les API suivantes sont fournies pour vous aider à intégrer votre service SaaS auprès d’Azure :
 
@@ -67,9 +67,9 @@ Lorsqu’un utilisateur est redirigé vers le site web d’un éditeur de logici
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Non           | Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
 | x-ms-correlationid | Non           | Valeur de chaîne unique pour l’opération sur le client. Ce champ sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-| Content-Type       | OUI          | `application/json`                                        |
-| autorisation      | OUI          | Jeton du porteur Web JSON (JWT).                    |
-| x-ms-marketplace-token| OUI| Paramètre de requête de jeton présent dans l’URL lorsque l’utilisateur est redirigé d’Azure vers le site web de l’éditeur de logiciels indépendant SaaS. **Remarque :** Ce jeton n’est valide que pendant 1 heure. De plus, une URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.|
+| Content-Type       | Oui          | `application/json`                                        |
+| autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                    |
+| x-ms-marketplace-token| Oui| Paramètre de requête de jeton présent dans l’URL lorsque l’utilisateur est redirigé d’Azure vers le site web de l’éditeur de logiciels indépendant SaaS. **Remarque :** Ce jeton n’est valide que pendant 1 heure. De plus, une URL décode la valeur du jeton à partir du navigateur avant de l’utiliser.|
 |  |  |  |
   
 
@@ -86,10 +86,10 @@ Lorsqu’un utilisateur est redirigé vers le site web d’un éditeur de logici
 
 | **Nom du paramètre** | **Type de données** | **Description**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | Chaîne        | ID de l’abonnement SaaS.          |
-| subscriptionName| Chaîne| Nom de l’abonnement SaaS défini par l’utilisateur dans Azure lors de son abonnement au service SaaS.|
-| OfferId            | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné. |
-| planId             | Chaîne        | ID du plan auquel l’utilisateur s’est abonné.  |
+| id                 | String        | ID de l’abonnement SaaS.          |
+| subscriptionName| String| Nom de l’abonnement SaaS défini par l’utilisateur dans Azure lors de son abonnement au service SaaS.|
+| OfferId            | String        | ID de l’offre à laquelle l’utilisateur s’est abonné. |
+| planId             | String        | ID du plan auquel l’utilisateur s’est abonné.  |
 |  |  |  |
 
 
@@ -109,9 +109,9 @@ Lorsqu’un utilisateur est redirigé vers le site web d’un éditeur de logici
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | OUI          | ID de requête reçu de la part du client.                                                                   |
-| x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon cette valeur est l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Cet ID est utilisé pour tous les rapprochements. |
+| x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
+| x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon cette valeur est l’ID de corrélation du serveur.                   |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Cet ID est utilisé pour tous les rapprochements. |
 | Retry-After        | Non           | Cette valeur est définie uniquement pour une réponse 429.                                                                   |
 |  |  |  |
 
@@ -137,8 +137,8 @@ Le point de terminaison d’abonnement permet aux utilisateurs de s’abonner à
 | x-ms-requestid         |   Non         | Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | x-ms-correlationid     |   Non         | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | If-Match/If-None-Match |   Non         |   Valeur forte d’ETag de validateur.                                                          |
-| content-type           |   OUI        |    `application/json`                                                                   |
-|  autorisation         |   OUI        |    Jeton du porteur Web JSON (JWT).                                               |
+| content-type           |   Oui        |    `application/json`                                                                   |
+|  autorisation         |   Oui        |    Jeton du porteur Web JSON (JWT).                                               |
 | x-ms-marketplace-session-mode| Non | Drapeau pour activer le mode marche à vide lors de l’abonnement à une offre SaaS. S’il est défini, l’abonnement n’est pas facturé. Cela est utile pour les scénarios de test des éditeurs de logiciels indépendants. Définissez-le sur **« dryrun »** .|
 |  |  |  |
 
@@ -174,11 +174,11 @@ Pour une réponse 202, suivez le statut de l’opération de requête dans l’
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | OUI          | ID de requête reçu de la part du client.                                                                   |
-| x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon cette valeur est l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Cette valeur est utilisée pour tous les rapprochements. |
-| Retry-After        | OUI          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
-| Operation-Location | OUI          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
+| x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
+| x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon cette valeur est l’ID de corrélation du serveur.                   |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Cette valeur est utilisée pour tous les rapprochements. |
+| Retry-After        | Oui          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
+| Operation-Location | Oui          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
 |  |  |  |
 
 ### <a name="change-plan-endpoint"></a>Changer de point de terminaison pour le plan
@@ -202,8 +202,8 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 | x-ms-requestid          | Non           | Valeur de chaîne unique pour le suivi de la requête du client. Recommandez un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.   |
 | x-ms-correlationid      | Non           | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
 | If-Match /If-None-Match | Non           | Valeur forte d’ETag de validateur.                              |
-| content-type            | OUI          | `application/json`                                        |
-| autorisation           | OUI          | Jeton du porteur Web JSON (JWT).                    |
+| content-type            | Oui          | `application/json`                                        |
+| autorisation           | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
 
 *Corps*
@@ -236,11 +236,11 @@ Le point de terminaison de changement permet à l’utilisateur de convertir son
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | OUI          | ID de requête reçu de la part du client.                                                                   |
-| x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon cette valeur est l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Cette valeur est utilisée pour tous les rapprochements. |
-| Retry-After        | OUI          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
-| Operation-Location | OUI          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
+| x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
+| x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon cette valeur est l’ID de corrélation du serveur.                   |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Cette valeur est utilisée pour tous les rapprochements. |
+| Retry-After        | Oui          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
+| Operation-Location | Oui          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
 |  |  |  |
 
 ### <a name="delete-subscription"></a>Supprimer l’abonnement
@@ -265,7 +265,7 @@ L’action Delete sur le point de terminaison d’abonnement permet à un utilis
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Non           | Valeur de chaîne unique pour le suivi de la requête du client. Recommandez un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.                                                           |
 | x-ms-correlationid | Non           | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-| autorisation      | OUI          | Jeton du porteur Web JSON (JWT).                    |
+| autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
 
 *Codes de réponse*
@@ -286,11 +286,11 @@ Pour une réponse 202, suivez le statut de l’opération de requête dans l’
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | OUI          | ID de requête reçu de la part du client.                                                                   |
-| x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
-| Retry-After        | OUI          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
-| Operation-Location | OUI          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
+| x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
+| x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
+| Retry-After        | Oui          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
+| Operation-Location | Oui          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
 |   |  |  |
 
 ### <a name="get-operation-status"></a>Obtenir l’état d’une opération Get
@@ -315,7 +315,7 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Non           | Valeur de chaîne unique pour le suivi de la requête du client. Recommandez un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.   |
 | x-ms-correlationid | Non           | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.  |
-| autorisation      | OUI          | Jeton du porteur Web JSON (JWT).                    |
+| autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  | 
 
 *Corps de réponse*
@@ -332,9 +332,9 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 
 | **Nom du paramètre** | **Type de données** | **Description**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | Chaîne        | ID de l’opération.                                                                      |
+| id                 | String        | ID de l'opération.                                                                      |
 | status             | Enum          | État de l’opération, une des valeurs suivantes : `In Progress`, `Succeeded` ou `Failed`.          |
-| resourceLocation   | Chaîne        | Lien vers l’abonnement qui a été créé ou modifié. Cela permet au client d’obtenir une mise à jour de l’état après l’opération. Cette valeur n’est pas définie pour `Unsubscribe` opérations. |
+| resourceLocation   | String        | Lien vers l’abonnement qui a été créé ou modifié. Cela permet au client d’obtenir une mise à jour de l’état après l’opération. Cette valeur n’est pas définie pour `Unsubscribe` opérations. |
 | created            | DateTime      | Heure de création de l’opération en UTC.                                                           |
 | lastModified       | DateTime      | Dernière mise à jour de l’opération en heure UTC.                                                      |
 |  |  |  |
@@ -355,10 +355,10 @@ Ce terminal permet à l’utilisateur de suivre l’état d’une opération asy
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | OUI          | ID de requête reçu de la part du client.                                                                   |
-| x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
-| Retry-After        | OUI          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
+| x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
+| x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
+| Retry-After        | Oui          | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
 |  |  |  |
 
 ### <a name="get-subscription"></a>S’abonner
@@ -383,7 +383,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Non           | Valeur de chaîne unique pour le suivi de la requête du client, de préférence un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.                                                           |
 | x-ms-correlationid | Non           | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-| autorisation      | OUI          | Jeton du porteur Web JSON (JWT).                                                                    |
+| autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                                                                    |
 |  |  |  |
 
 *Corps de réponse*
@@ -402,10 +402,10 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Chaîne        | ID de la ressource d’abonnement SaaS dans Azure.    |
-| offerId                | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné.         |
-| planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné.          |
-| saasSubscriptionName   | Chaîne        | Nom de l’abonnement SaaS.                |
+| id                     | String        | ID de la ressource d’abonnement SaaS dans Azure.    |
+| offerId                | String        | ID de l’offre à laquelle l’utilisateur s’est abonné.         |
+| planId                 | String        | ID du plan auquel l’utilisateur s’est abonné.          |
+| saasSubscriptionName   | String        | Nom de l’abonnement SaaS.                |
 | saasSubscriptionStatus | Enum          | État de l’opération.  Celui-ci peut avoir l'une des valeurs suivantes :  <br/> - `Subscribed` : l’abonnement est actif.  <br/> - `Pending` : l’utilisateur crée la ressource mais elle n’est pas activée par l’ISV.   <br/> - `Unsubscribed` : l’utilisateur a annulé son abonnement.   <br/> - `Suspended` : l’utilisateur a suspendu l’abonnement.   <br/> - `Deactivated` :  l’abonnement Azure est suspendu.  |
 | created                | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
 | lastModified           | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC. |
@@ -427,11 +427,11 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | OUI          | ID de requête reçu de la part du client.                                                                   |
-| x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
+| x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
+| x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
 | Retry-After        | Non           | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
-| eTag               | OUI          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
+| eTag               | Oui          | Lien vers une ressource pour obtenir le statut de l’opération.                                                        |
 |  |  |  |
 
 ### <a name="get-subscriptions"></a>Obtenir des abonnements
@@ -455,7 +455,7 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Non           | Valeur de chaîne unique pour le suivi de la requête du client. Recommandez un GUID. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse.             |
 | x-ms-correlationid | Non           | Valeur de chaîne unique pour l’opération sur le client. Cette valeur sert à corréler tous les événements de l’opération client avec les événements côté serveur. Si cette valeur n’est pas fournie, une valeur sera générée et fournie dans les en-têtes de réponse. |
-| autorisation      | OUI          | Jeton du porteur Web JSON (JWT).                    |
+| autorisation      | Oui          | Jeton du porteur Web JSON (JWT).                    |
 |  |  |  |
 
 *Corps de réponse*
@@ -474,10 +474,10 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | Chaîne        | ID de la ressource d’abonnement SaaS dans Azure    |
-| offerId                | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné         |
-| planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné          |
-| saasSubscriptionName   | Chaîne        | Nom de l’abonnement SaaS                |
+| id                     | String        | ID de la ressource d’abonnement SaaS dans Azure    |
+| offerId                | String        | ID de l’offre à laquelle l’utilisateur s’est abonné         |
+| planId                 | String        | ID du plan auquel l’utilisateur s’est abonné          |
+| saasSubscriptionName   | String        | Nom de l’abonnement SaaS                |
 | saasSubscriptionStatus | Enum          | État de l’opération.  Celui-ci peut avoir l'une des valeurs suivantes :  <br/> - `Subscribed` : l’abonnement est actif.  <br/> - `Pending` : l’utilisateur crée la ressource mais elle n’est pas activée par l’ISV.   <br/> - `Unsubscribed` : l’utilisateur a annulé son abonnement.   <br/> - `Suspended` : l’utilisateur a suspendu l’abonnement.   <br/> - `Deactivated` :  l’abonnement Azure est suspendu.  |
 | created                | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC |
 | lastModified           | DateTime      | Valeur d’horodatage de création de l’abonnement au format UTC |
@@ -499,9 +499,9 @@ L’action Get sur le point de terminaison d’abonnement permet à un utilisate
 
 | **Clé d’en-tête**     | **Obligatoire** | **Description**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | OUI          | ID de requête reçu de la part du client.                                                                   |
-| x-ms-correlationid | OUI          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
-| x-ms-activityid    | OUI          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
+| x-ms-requestid     | Oui          | ID de requête reçu de la part du client.                                                                   |
+| x-ms-correlationid | Oui          | ID de corrélation si transmis par le client, sinon il s’agit de l’ID de corrélation du serveur.                   |
+| x-ms-activityid    | Oui          | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements. |
 | Retry-After        | Non           | Intervalle avec lequel le client qui peut vérifier l’état.                                                       |
 |  |  |  |
 
@@ -524,14 +524,14 @@ Un Webhook SaaS est utilisé pour notifier les modifications de manière proacti
 
 | **Nom du paramètre**     | **Type de données** | **Description**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | Chaîne       | ID unique pour l’opération déclenchée.                |
-| activityId   | Chaîne        | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements.               |
-| subscriptionId                     | Chaîne        | ID de la ressource d’abonnement SaaS dans Azure.    |
-| offerId                | Chaîne        | ID de l’offre à laquelle l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».        |
-| publisherId                | Chaîne        | ID de l’éditeur de l’offre SaaS         |
-| planId                 | Chaîne        | ID du plan auquel l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».          |
-| action                 | Chaîne        | Action qui déclenche cette notification. Valeurs possibles : Activate, Delete, Suspend, Reinstate, Update          |
-| timeStamp                 | Chaîne        | Valeur d’horodatage UTC correspondant au moment où cette notification a été déclenchée.          |
+| id  | String       | ID unique pour l’opération déclenchée.                |
+| activityId   | String        | Valeur de chaîne unique pour le suivi de la requête du service. Ceci est utilisé pour tous les rapprochements.               |
+| subscriptionId                     | String        | ID de la ressource d’abonnement SaaS dans Azure.    |
+| offerId                | String        | ID de l’offre à laquelle l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».        |
+| publisherId                | String        | ID de l’éditeur de l’offre SaaS         |
+| planId                 | String        | ID du plan auquel l’utilisateur s’est abonné. Fourni uniquement avec l’action « Update ».          |
+| action                 | String        | Action qui déclenche cette notification. Valeurs possibles : Activate, Delete, Suspend, Reinstate, Update          |
+| timeStamp                 | String        | Valeur d’horodatage UTC correspondant au moment où cette notification a été déclenchée.          |
 |  |  |  |
 
 

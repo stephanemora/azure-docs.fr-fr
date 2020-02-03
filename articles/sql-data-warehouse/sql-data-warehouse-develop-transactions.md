@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a4a2eccc3c46b7f982836c73d3144f1793e5034b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903073"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846200"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>Utilisation de transactions dans SQL Data Warehouse
 Conseils relatifs à l’implémentation de transactions dans Microsoft Azure SQL Data Warehouse, dans le cadre du développement de solutions.
@@ -25,7 +25,7 @@ Conseils relatifs à l’implémentation de transactions dans Microsoft Azure 
 Comme vous le savez, SQL Data Warehouse prend en charge les transactions dans le cadre de la charge de travail de l’entrepôt de données. Toutefois, pour garantir que les performances de SQL Data Warehouse sont maintenues à l’échelle, certaines fonctionnalités sont limitées, par rapport à SQL Server. Cet article identifie les différences et répertorie les autres éléments disponibles. 
 
 ## <a name="transaction-isolation-levels"></a>Niveaux d’isolation des transactions
-SQL Data Warehouse implémente les transactions ACID. Toutefois, le niveau d’isolation de la prise en charge transactionnelle est limité à READ UNCOMMITTED ; ce niveau ne peut pas être changé. Si READ UNCOMMITTED pose un problème, vous pouvez implémenter plusieurs méthodes de codage pour éviter les lectures erronées des données. Les méthodes les plus répandues utilisent la commande CTAS et le basculement des partitions de table (souvent appelé « modèle de fenêtre glissante ») afin d’empêcher les utilisateurs d’interroger les données en cours de préparation. Les vues qui appliquent un préfiltre aux données sont une autre approche répandue.  
+SQL Data Warehouse implémente les transactions ACID. Par défaut, le niveau d'isolation de la prise en charge transactionnelle est READ UNCOMMITTED.  Vous pouvez le remplacer par READ COMMITTED SNAPSHOT ISOLATION en activant l'option de base de données READ_COMMITTED_SNAPSHOT pour une base de données utilisateur lorsqu'elle est connectée à la base de données MASTER.  Une fois activée, toutes les transactions de cette base de données sont exécutées sous READ COMMITTED SNAPSHOT ISOLATION et la définition de READ UNCOMMITTED au niveau de la session n'est pas honorée. Pour plus d'informations, consultez [Options ALTER DATABASE SET (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).
 
 ## <a name="transaction-size"></a>Taille de la transaction
 Une transaction de modification de données unique est limitée en taille. La limite est appliquée par distribution. Par conséquent, l’allocation totale peut être calculée en multipliant la limite par le nombre de distributions. Pour évaluer approximativement le nombre maximal de lignes dans la transaction, divisez la limite de la distribution par la taille totale de chaque ligne. Pour les colonnes de longueur variable, pensez à prendre une longueur de colonne moyenne au lieu d’utiliser la taille maximale.
@@ -49,7 +49,7 @@ Dans le tableau ci-dessous, les hypothèses suivantes ont été formulées :
 | DW2000c |15 |60 |900 |60 000 000 |3 600 000 000 |
 | DW2500c |18,75 |60 |1 125 |75 000 000 |4 500 000 000 |
 | DW3000c |22,5 |60 |1 350 |90 000 000 |5 400 000 000 |
-| DW5000c |37,5 |60 |2 250 |150 000 000 |9 000 000 000 |
+| DW5000c |37.5 |60 |2 250 |150 000 000 |9 000 000 000 |
 | DW6000c |45 |60 |2 700 |180 000 000 |10 800 000 000 |
 | DW7500c |56,25 |60 |3 375 |225 000 000 |13 500 000 000 |
 | DW10000c |75 |60 |4 500 |300 000 000 |18 000 000 000 |
@@ -199,5 +199,5 @@ Les voici :
 * Aucune prise en charge de DDL comme CREATE TABLE dans une transaction définie par l’utilisateur
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur l’optimisation des transactions, consultez les [bonnes pratiques relatives aux transactions](sql-data-warehouse-develop-best-practices-transactions.md). Pour plus d’informations sur les bonnes pratiques relatives à SQL Data Warehouse, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Pour plus d’informations sur l’optimisation des transactions, consultez [Bonnes pratiques relatives aux transactions](sql-data-warehouse-develop-best-practices-transactions.md). Pour plus d’informations sur les bonnes pratiques relatives à SQL Data Warehouse, consultez [Bonnes pratiques relatives à SQL Data Warehouse](sql-data-warehouse-best-practices.md).
 

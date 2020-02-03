@@ -9,26 +9,26 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100649"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844715"
 ---
-# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Didacticiel : Transférer des événements vers le cloud Event Grid
+# <a name="tutorial-forward-events-to-event-grid-cloud"></a>Tutoriel : Transférer des événements vers le cloud Event Grid
 
 Cet article vous guide tout au long des étapes nécessaires pour transférer des événements de périphérie vers Event Grid dans le cloud Azure. Vous pouvez le faire pour les raisons suivantes :
 
 * Réagissez aux événements de périphérie dans le cloud.
 * Transférez les événements à Event Grid dans le cloud et utilisez Azure Event Hubs ou des files d’attente de Stockage Azure pour mettre en mémoire tampon les événements avant de les traiter dans le cloud.
 
-Pour suivre ce didacticiel, vous devez comprendre les concepts d’Event Grid à la [périphérie](concepts.md) et dans [Azure](../concepts.md).
+ Pour suivre ce didacticiel, vous devez comprendre les concepts d’Event Grid à la [périphérie](concepts.md) et dans [Azure](../concepts.md). Pour accéder à d'autres types de destinations, consultez [Gestionnaires d'événements](event-handlers.md). 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* **Abonnement Azure** : créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
+* **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
 * **Appareil Azure IoT Hub et IoT Edge** : suivez les étapes du guide de démarrage rapide pour les appareils [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) si vous n’en avez pas encore.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)] 
@@ -65,7 +65,7 @@ Par exemple, si vous avez créé une rubrique nommée `testegcloudtopic` dans la
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3?api-version=2019-01-01-preview
     ```
 
-   Exemple de sortie :
+   Exemple de sortie :
 
    ```json
         [
@@ -83,6 +83,7 @@ Par exemple, si vous avez créé une rubrique nommée `testegcloudtopic` dans la
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>Créer un abonnement Event Grid à la périphérie
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Créez subscription3.json avec le contenu suivant. Pour plus d’informations sur la charge utile, voir la [documentation sur l’API](api.md).
 
@@ -133,7 +134,7 @@ Par exemple, si vous avez créé une rubrique nommée `testegcloudtopic` dans la
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic3/eventSubscriptions/sampleSubscription3?api-version=2019-01-01-preview
     ```
 
-    Exemple de sortie :
+    Exemple de sortie :
 
     ```json
          {
@@ -201,3 +202,4 @@ Dans ce didacticiel, vous avez publié un événement à la périphérie et l’
 * Pour résoudre les problèmes liés à l’utilisation d’Azure Event Grid sur IoT Edge, voir le [Guide de dépannage](troubleshoot.md).
 * Transférer des événements à IoTHub en suivant ce [didacticiel](forward-events-iothub.md)
 * Transférer des événements à Webhook dans le cloud en suivant ce [didacticiel](pub-sub-events-webhook-cloud.md)
+* [Superviser les rubriques et les abonnements à la périphérie](monitor-topics-subscriptions.md)

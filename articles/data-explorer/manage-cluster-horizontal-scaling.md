@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942237"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833292"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Gérer la mise à l'échelle horizontale d'un cluster (montée en puissance) dans Azure Data Explorer pour prendre en compte les fluctuations de la demande
 
@@ -58,9 +58,10 @@ La mise à l’échelle automatique optimisée commence. Ses actions sont désor
 Si votre cluster approche un état de surutilisation, montez-le en charge pour qu’il conserve des performances optimales. La montée en charge se produit dans les cas suivants :
 * Le nombre d’instances de cluster est inférieur au nombre maximal d’instances défini par l’utilisateur.
 * L’utilisation du cache est élevée pendant plus d’une heure.
+* L'UC reste élevée pendant plus d'une heure.
 
 > [!NOTE]
-> La logique de montée en charge ne prend pas actuellement en compte l’utilisation de l’ingestion et les mesures UC. Si ces mesures sont importantes pour votre cas d’usage, utilisez la [mise à l’échelle automatique personnalisée](#custom-autoscale).
+> La logique de montée en charge ne prend actuellement pas en compte la mesure de l'utilisation de l'ingestion. Si cette mesure est importante pour votre cas d'usage, utilisez la [mise à l'échelle automatique personnalisée](#custom-autoscale).
 
 **Diminuer la taille des instances**
 

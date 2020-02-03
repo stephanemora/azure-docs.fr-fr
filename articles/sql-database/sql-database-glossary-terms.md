@@ -1,5 +1,5 @@
 ---
-title: Glossaire
+title: Glossaire des termes
 description: Lexique Azure SQL Database
 services: sql-database
 ms.service: sql-database
@@ -10,45 +10,29 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 04/26/2019
-ms.openlocfilehash: 86da4ecab387da80954c2267ddeabe32a723474c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/22/2020
+ms.openlocfilehash: 733901d38703e02ab7dbe811b0f80a1dfedf03d5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802739"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705783"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Lexique Azure SQL Database
 
-|Context|Terme|Plus d’informations|
+|Context|Terme|Informations complémentaires|
 |:---|:---|:---|
-|Nom du service Azure|Azure SQL Database ou SQL Database|[Le service Azure SQL Database](sql-database-technical-overview.md)|
-|Niveau de calcul|Sans serveur |[Couche de calcul serverless](sql-database-serverless.md)
-||approvisionné|[Couche de calcul serverless](sql-database-serverless.md)
-|Options de déploiement |Base de données unique|[Bases de données uniques](sql-database-single-database.md)|
+|Service Azure|Azure SQL Database ou SQL Database|[Le service Azure SQL Database](sql-database-technical-overview.md)|
+|Modèle d'achat|Modèle d’achat DTU|[Modèle d’achat DTU](sql-database-service-tiers-dtu.md)|
+||Modèle d’achat vCore|[Modèle d’achat vCore](sql-database-service-tiers-vcore.md)|
+|Option de déploiement |Base de données unique|[Bases de données uniques](sql-database-single-database.md)|
 ||Pool élastique|[Pool élastique](sql-database-elastic-pool.md)|
 ||Instance gérée|[instance gérée](sql-database-managed-instance.md)|
-|Objets serveur|Serveur Azure SQL Database ou serveur de base de données|[Serveur de base de données](sql-database-servers.md)|
+|Niveau de service|De base, Standard, Premium, Usage général, Hyperscale, Critique pour l'entreprise|Pour les niveaux de service du modèle vCore, consultez [Base de données unique et pool élastique](sql-database-service-tiers-vcore.md#service-tiers) et [Instance gérée](sql-database-managed-instance.md#managed-instance-service-tiers). Pour les niveaux de service du modèle DTU, consultez [Modèle DTU](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Niveau de calcul|Calcul serverless|[Calcul serverless](sql-database-service-tiers-vcore.md#compute-tiers)
+||Calcul provisionné|[Calcul provisionné](sql-database-service-tiers-vcore.md#compute-tiers)
+|Génération de calcul|Gen5, Série M, Série Fsv2|[Génération du matériel](sql-database-service-tiers-vcore.md#hardware-generations)
+|Entité serveur|Serveur Azure SQL Database ou serveur de base de données|[Serveur de base de données](sql-database-servers.md)|
 ||Serveur SQL Database Managed Instance, serveur Managed Instance ou instance de serveur|[instance gérée](sql-database-managed-instance.md)|
-Objets de base de données|Base de données Azure SQL|Toute base de données dans Azure SQL Database|
-||Base de données unique|Base de données créée à l’aide de l’option de déploiement de base de données unique|
-||Base de données mise en pool|Base de données créée au sein d’un pool élastique ou déplacée vers un tel pool|
-||Base de données d’instance|Base de données créée dans une instance gérée|
-||Base de données de base|Base de données créée au niveau de service de base du modèle d’achat DTU ou déplacée vers ce niveau|
-||Base de données standard|Base de données créée au niveau de service standard du modèle d’achat DTU ou déplacée vers ce niveau|
-||Base de données premium|Base de données créée au niveau de service premium du modèle d’achat DTU ou déplacée vers ce niveau|
-||Base de données à usage général|Base de données créée au niveau de service Usage général du modèle d’achat vCore ou déplacée vers ce niveau|
-||Base de données Hyperscale|Base de données créée au niveau de service Hyperscale du modèle d’achat vCore ou déplacée vers ce niveau|
-||Base de données critique pour l’entreprise|Base de données créée au niveau de service Critique pour l’entreprise du modèle d’achat vCore ou déplacée vers ce niveau|
-||Base de données configurée|Base de données configurée dans le niveau de calcul provisionné|
-|[Modèles et ressources d’achat](sql-database-purchase-models.md)|Modèle d’achat DTU|[Modèle d’achat DTU](sql-database-service-tiers-dtu.md)|
-||Modèle d’achat vCore|[Modèle d’achat vCore](sql-database-service-tiers-vcore.md)|
-||vCore|Cœur fourni pour le système d’exploitation invité par l’hyperviseur|
-||Niveau de service|Niveau de service au sein d’un modèle d’achat|
-||Taille de calcul|Quantité de ressources de calcul pour une base de données unique, un pool élastique ou une instance gérée à l’intérieur d’un niveau de service|
-||Quantité de stockage|Quantité de stockage disponible pour une base de données unique, un pool élastique ou une instance gérée|
-||Génération de calcul|Génération de processeur à l’intérieur d’un niveau de service|
-|Règles de pare-feu IP du serveur de base de données|Règles de pare-feu IP|[Règles de pare-feu IP](sql-database-firewall-configure.md)|
-||Règles de pare-feu IP au niveau du serveur|[Règles de pare-feu IP au niveau du serveur](sql-database-firewall-configure.md)|
-|| Règles de pare-feu IP au niveau de la base de données|[Règles de pare-feu IP au niveau de la base de données](sql-database-firewall-configure.md)|
-||Règles et points de terminaison du réseau virtuel|[Règles et points de terminaison du réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md)|
+|Type de ressource|vCore|Cœur de processeur fourni à la ressource de calcul pour une base de données unique, un pool élastique ou une instance gérée.|
+||Taille de calcul et quantité de stockage|La taille de calcul correspond à la quantité maximale d'UC, de mémoire et d'autres ressources non liées au stockage disponibles pour une base de données unique, un pool élastique ou une instance gérée.  La taille de stockage est la quantité maximale de stockage disponible pour une base de données unique, un pool élastique ou une instance gérée.  Pour plus d'informations sur les options de dimensionnement du modèle vCore, consultez [Bases de données uniques vCore](sql-database-vcore-resource-limits-single-databases.md), [Pools élastiques vCore](sql-database-vcore-resource-limits-elastic-pools.md) et [Instances gérées](sql-database-managed-instance-resource-limits.md).  Pour plus d'informations sur les options de dimensionnement du modèle DTU, consultez [Bases de données uniques DTU](sql-database-dtu-resource-limits-single-databases.md) et [Pools élastiques DTU](sql-database-dtu-resource-limits-elastic-pools.md).

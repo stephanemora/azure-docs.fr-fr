@@ -1,6 +1,6 @@
 ---
-title: Report des messages Azure Service Bus | Microsoft Docs
-description: Reporter la remise de messages Service Bus
+title: Azure Service Bus - Report des messages
+description: Cet article explique comment reporter la remise des messages Azure Service Bus. Le message reste dans la file d’attente ou l’abonnement, mais il est mis de côté.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: fc7e40661ae345412eb0336322599616dc89d6c4
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 249cf7414143f59540d198bb460d8b215f6a7664
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122183"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756349"
 ---
 # <a name="message-deferral"></a>Report de message
 

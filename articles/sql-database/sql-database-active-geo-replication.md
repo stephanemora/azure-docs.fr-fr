@@ -1,5 +1,5 @@
 ---
-title: Géoréplication active
+title: La géoréplication active
 description: Utilisez la géoréplication active pour créer des bases de données secondaires de bases de données individuelles accessibles en lecture dans un centre de données identique ou différent (région).
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822654"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842651"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Création et utilisation de la géoréplication active
 
-La géoréplication active est une fonctionnalité Azure SQL Database qui vous permet de créer des bases de données secondaires lisibles à partir de bases de données individuelles sur un serveur SQL Database dans le même centre de données (région) ou dans un centre de données distinct.
+La géoréplication active est une fonctionnalité Azure SQL Database qui vous permet de créer des bases de données secondaires lisibles à partir de bases de données individuelles sur un serveur SQL Database situé dans le même centre de données (région) ou dans un centre de données distinct.
 
 > [!NOTE]
 > La géoréplication active n’est pas prise en charge par Managed Instance. Pour le basculement géographique d’instances gérées, utilisez des [groupes de basculement automatique](sql-database-auto-failover-group.md).
@@ -39,7 +39,7 @@ Vous pouvez gérer la réplication et le basculement d’une base de données in
 - [Portail Azure](sql-database-geo-replication-portal.md)
 - [PowerShell : base de données unique](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
 - [PowerShell : pool élastique](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md)
-- [Transact-SQL : base de données unique ou pool élastique](/sql/t-sql/statements/alter-database-azure-sql-database)
+- [Transact-SQL : base de données unique ou pool élastique](/sql/t-sql/statements/alter-database-azure-sql-database)
 - [API REST : base de données unique](https://docs.microsoft.com/rest/api/sql/replicationlinks)
 
 
@@ -124,6 +124,79 @@ Si vous décidez de créer une base de données secondaire avec une taille de ca
 
 Pour plus d’informations sur les tailles de calcul SQL Database, consultez [Présentation des niveaux de service SQL Database](sql-database-purchase-models.md).
 
+## <a name="cross-subscription-geo-replication"></a>Géoréplication entre abonnements
+
+Pour configurer la géoréplication active entre deux bases de données appartenant à des abonnements différents (que ce soit sous le même locataire ou non), vous devez suivre la procédure spéciale décrite dans cette section.  La procédure repose sur des commandes SQL et requiert ce qui suit : 
+
+- Création d'un ID de connexion privilégié sur les deux serveurs
+- Ajout de l'adresse IP à la liste verte du client qui procède à la modification sur les deux serveurs (comme l'adresse IP de l'hôte qui exécute SQL Server Management Studio). 
+
+Le client qui procède aux modifications doit disposer d'un accès réseau au serveur principal. Bien que la même adresse IP client doive être ajoutée à la liste verte sur le serveur secondaire, la connectivité réseau au serveur secondaire n'est pas strictement nécessaire. 
+
+### <a name="on-the-master-of-the-primary-server"></a>Sur le maître du serveur principal
+
+1. Ajoutez l'adresse IP à la liste verte du client qui procède aux modifications (pour plus d'informations, consultez [Configurer le pare-feu](sql-database-firewall-configure.md)). 
+1. Créez un ID de connexion dédié à la configuration de la géoréplication active (et, si nécessaire, modifiez les informations d'identification) :
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01'
+   ```
+
+1. Créez un utilisateur et attribuez-lui le rôle dbmanager : 
+
+   ```sql
+   create user geodrsetup for login gedrsetup
+   alter role geodrsetup dbmanager add member geodrsetup
+   ```
+
+1. Prenez note du SID associé au nouvel ID de connexion en utilisant la requête suivante : 
+
+   ```sql
+   select sid from sys.sql_logins where name = 'geodrsetup'
+   ```
+
+### <a name="on-the-source-database-on-the-primary-server"></a>Sur la base de données source du serveur principal
+
+1. Créez un utilisateur pour le même ID de connexion :
+
+   ```sql
+   create user geodrsetup for login geodrsetup
+   ```
+
+1. Attribuez le rôle db_owner à l'utilisateur :
+
+   ```sql
+   alter role db_owner add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-secondary-server"></a>Sur le maître du serveur secondaire 
+
+1. Ajoutez l'adresse IP à la liste verte du client qui procède aux modifications. Il doit s'agir de la même adresse IP que pour le serveur principal. 
+1. Créez le même ID de connexion que sur le serveur principal, en utilisant les mêmes nom d'utilisateur/mot de passe et le même SID : 
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
+   ```
+
+1. Créez un utilisateur et attribuez-lui le rôle dbmanager :
+
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   alter role dbmanager add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-primary-server"></a>Sur le maître du serveur principal
+
+1. Connectez-vous au maître du serveur principal à l'aide du nouvel ID de connexion. 
+1. Créez un réplica secondaire de la base de données source sur le serveur secondaire (si nécessaire, modifiez le nom de la base de données et le nom du serveur) :
+
+   ```sql
+   alter database dbrep add secondary on server <servername>
+   ```
+
+Au terme de la configuration initiale, les utilisateurs, les ID de connexion et les règles de pare-feu créés peuvent être supprimés. 
+
+
 ## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Synchronisation des informations d’identification et des règles de pare-feu
 
 Nous recommandons d’utiliser des [règles de pare-feu IP au niveau de la base de données](sql-database-firewall-configure.md) pour les bases de données géorépliquées, de façon à ce que ces règles puissent être répliquées avec la base de données, garantissant ainsi que toutes les bases de données secondaires ont les mêmes règles de pare-feu IP que la base de données primaire. Cette approche évite aux clients de devoir configurer et tenir à jour manuellement les règles de pare-feu sur les serveurs hébergeant les bases de données primaire et secondaires. De même, le recours à des [utilisateurs de base de données contenus](sql-database-manage-logins.md) pour l’accès aux données garantit que les bases de données primaires et secondaires ont toujours les mêmes informations d’identification d’utilisateur afin qu’un basculement n’entraîne aucune interruption due à une discordance d’ID de connexion et de mots de passe. Avec l’ajout [d’Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), les clients peuvent gérer l’accès utilisateur aux bases de données primaires et secondaires. Cela élimine également la nécessité de gérer les informations d’identification dans l’ensemble des bases de données.
@@ -178,11 +251,11 @@ Comme indiqué plus haut, la géoréplication active peut aussi être gérée pa
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |oblige l’application à attendre que toutes les transactions validées sont répliquées et acceptées par la base de données secondaire active. |
 |  | |
 
-### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell : Gérer le basculement des bases de données uniques et mises en pool
+### <a name="powershell-manage-failover-of-single-and-pooled-databases"></a>PowerShell : Gérer le basculement des bases de données uniques et mises en pool
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az et dans les modules AzureRm sont sensiblement identiques.
+> Le module PowerShell Azure Resource Manager est toujours pris en charge par Azure SQL Database, mais tous les développements futurs sont destinés au module Az.Sql. Pour ces cmdlets, voir [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Les arguments des commandes dans le module Az sont sensiblement identiques à ceux des modules AzureRm.
 
 | Applet de commande | Description |
 | --- | --- |

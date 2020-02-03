@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113857"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838256"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Comment traiter et extraire des informations d’images dans des scénarios d’enrichissement de l’IA
 
@@ -215,8 +215,8 @@ Pour vous aider, si vous avez besoin de convertir des coordonnées normalisées 
 
 ## <a name="see-also"></a>Voir aussi
 + [Créer un indexeur (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Compétence d’analyse d’image](cognitive-search-skill-image-analysis.md)
++ [Compétence d'analyse d'image](cognitive-search-skill-image-analysis.md)
 + [Compétence de reconnaissance optique des caractères](cognitive-search-skill-ocr.md)
 + [Compétence de fusion de texte](cognitive-search-skill-textmerger.md)
-+ [Guide pratique pour définir un jeu de compétences](cognitive-search-defining-skillset.md)
++ [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
 + [Guide pratique pour mapper des champs enrichis](cognitive-search-output-field-mapping.md)
