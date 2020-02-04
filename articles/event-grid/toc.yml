@@ -138,6 +138,8 @@
       href: custom-disaster-recovery.md
     - name: Résoudre les erreurs
       href: troubleshoot-errors.md
+    - name: Activer les journaux de diagnostic pour une rubrique
+      href: enable-diagnostic-logs-topic.md
 - name: Informations de référence
   items:
     - name: Azure CLI

@@ -126,7 +126,7 @@
       items:
         - name: Power BI
           items:
-            - name: Bonnes pratiques
+            - name: Meilleures pratiques
               href: power-bi-best-practices.md
             - name: connecteur
               href: power-bi-connector.md
@@ -174,12 +174,28 @@
               href: manage-cluster-vertical-scaling.md
             - name: Vérifier l’intégrité des clusters
               href: check-cluster-health.md
+            - name: Ajouter un principal de cluster
+              items:
+                - name: 'C#'
+                  href: cluster-principal-csharp.md
+                - name: Python
+                  href: cluster-principal-python.md
+                - name: "Modèle Azure\_Resource\_Manager"
+                  href: cluster-principal-resource-manager.md
         - name: Base de données
           items:
             - name: Bases de données d’abonné
               href: follower.md
             - name: Gérer des autorisations de base de données
               href: manage-database-permissions.md
+            - name: Ajouter un principal de base de données
+              items:
+                - name: 'C#'
+                  href: database-principal-csharp.md
+                - name: Python
+                  href: database-principal-python.md
+                - name: "Modèle Azure\_Resource\_Manager"
+                  href: database-principal-resource-manager.md
             - name: Stratégies
               items:
                 - name: 'C#'

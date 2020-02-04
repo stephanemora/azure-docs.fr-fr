@@ -27,7 +27,7 @@
       href: search-get-started-java.md
     - name: Node.js
       href: search-get-started-nodejs.md
-    - name: Postman
+    - name: postman
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -117,7 +117,7 @@
           href: search-security-overview.md
         - name: Créer un point de terminaison privé
           href: service-create-private-endpoint.md
-        - name: Gestion des clés du service
+        - name: Key Management Service
           href: search-security-api-keys.md
         - name: Accès administrateur basé sur le rôle
           href: search-security-rbac.md
@@ -141,13 +141,13 @@
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
               href: search-dotnet-sdk-migration-version-9.md
-            - name: "Kit SDK .NET\_5.0"
+            - name: Kit SDK .NET 5.0
               href: search-dotnet-sdk-migration-version-5.md
-            - name: "Kit SDK .NET\_3.0"
+            - name: Kit SDK .NET 3.0
               href: search-dotnet-sdk-migration.md
-            - name: "Kit SDK .NET\_1.1"
+            - name: Kit SDK .NET 1.1
               href: search-dotnet-sdk-migration-version-1.md
-            - name: Kit SDK de gestion .NET
+            - name: Kit SDK .NET Management
               href: search-dotnet-mgmt-sdk-migration.md
         - name: "Mettre à niveau l’API\_REST"
           href: search-api-migration.md
@@ -389,6 +389,8 @@
               href: cognitive-search-predefined-skills.md
             - name: Logique conditionnelle
               href: cognitive-search-skill-conditional.md
+            - name: Recherche d’entité personnalisée
+              href: cognitive-search-skill-custom-entity-lookup.md
             - name: Extraction de document
               href: cognitive-search-skill-document-extraction.md
             - name: Reconnaissance d’entité

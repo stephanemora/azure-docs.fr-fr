@@ -38,8 +38,12 @@
           href: ./ag/application-gateway-crs-rulegroups-rules.md
         - name: Vue d’ensemble des règles personnalisées
           href: ./ag/custom-waf-rules-overview.md
+        - name: Règles personnalisées Geomatch
+          href: ./ag/geomatch-custom-rules.md
         - name: Limites de la taille des demandes et listes d’exclusions
           href: ./ag/application-gateway-waf-configuration.md
+        - name: Vue d’ensemble de la stratégie WAF
+          href: ./ag/policy-overview.md
     - name: Front Door
       items:
         - name: Règles personnalisées

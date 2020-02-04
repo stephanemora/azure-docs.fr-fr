@@ -79,6 +79,8 @@
           href: delete-aadds.md
         - name: Migrer à partir d’un déploiement classique (préversion)
           href: migrate-from-classic-vnet.md
+        - name: Changer de référence SKU
+          href: change-sku.md
     - name: "Sécuriser Azure AD\_DS"
       items:
         - name: Sécuriser votre domaine managé

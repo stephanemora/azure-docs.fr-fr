@@ -79,7 +79,7 @@
       href: concept-environments.md
     - name: Données
       href: concept-data.md
-    - name: Entraînement du modèle
+    - name: Entraînement de modèle
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
     - name: Gestion de modèles (MLOps)
@@ -142,6 +142,8 @@
           href: how-to-manage-workspace.md
         - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
           href: how-to-manage-workspace-cli.md
+        - name: Utiliser REST
+          href: how-to-manage-rest.md
         - name: Utilisation d’un modèle Resource Manager
           displayName: arm
           href: how-to-create-workspace-template.md
@@ -194,6 +196,9 @@
         - name: Créer des jeux de données avec des étiquettes
           displayName: 'data, labels, torchvision'
           href: how-to-use-labeled-dataset.md
+        - name: DevOps pour l’ingestion de données
+          displayName: 'data, ingestion, devops'
+          href: how-to-cicd-data-ingestion.md
     - name: Entraîner des modèles
       items:
         - name: Utiliser le concepteur
