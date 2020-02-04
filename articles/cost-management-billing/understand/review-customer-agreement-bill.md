@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: banders
 ms.openlocfilehash: 3cbc4ab4f0e2ad18c7d1d430ed5501e23b5f5f4d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75983724"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>Tutoriel : Consulter votre facture Contrat client Microsoft
@@ -27,11 +27,11 @@ Ce tutoriel s’applique uniquement aux clients Azure disposant d’un Contrat c
 Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Passer en revue les transactions facturées dans le portail Azure.
-> * Passer en revue les frais en attente pour estimer votre prochaine facture.
-> * Analyser vos frais d’utilisation Azure.
+> * Passer en revue les transactions facturées dans le Portail Azure
+> * Passez en revue les frais en attente pour estimer votre prochaine facture
+> * Analyser vos frais d’utilisation Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez avoir un compte de facturation associé à un Contrat client Microsoft.
 
@@ -164,7 +164,7 @@ Les information suivantes vous guident lors du rapprochement des frais de calcul
 |Frais d’utilisation : Offre Microsoft Azure |productOrderName |
 |Calcul |serviceFamily |
 
-Filtrez la colonne **invoiceSectionName** dans le fichier CSV sur **Service de comptabilité**. Ensuite, filtrez la colonne **productOrderName** dans le fichier CSV sur **Microsoft Azure Plan**. Ensuite, filtrez la colonne **serviceFamily** dans le fichier CSV sur **Microsoft.Compute**.
+Filtre la colonne **invoiceSectionName** dans le fichier CSV sur **Service de comptabilité**. Ensuite, filtrez la colonne **productOrderName** dans le fichier CSV sur **Microsoft Azure Plan**. Ensuite, filtrez la colonne **serviceFamily** dans le fichier CSV sur **Microsoft.Compute**.
 
 ![Capture d’écran qui illustre le fichier d’utilisation et de frais filtré par section de facture](./media/review-customer-agreement-bill/billing-usage-file-filtered-by-invoice-section.png)
 
@@ -191,7 +191,7 @@ Si vous avez déjà payé votre facture, vous pouvez vérifier le statut du paie
 Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Passer en revue les transactions facturées dans le portail Azure.
+> * Passer en revue les transactions facturées dans le Portail Azure
 > * Passez en revue les frais en attente pour estimer votre prochaine facture
 > * Analyser vos frais d’utilisation Azure
 

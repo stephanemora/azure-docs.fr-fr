@@ -8,12 +8,12 @@ ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: dfb46a40291a74cb8a2c172700f621ef835ef50e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547572"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769667"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration du portail Azure EA
 
@@ -21,7 +21,7 @@ Cet article présente les tâches courantes à la charge d’un administrateur d
 
 ## <a name="add-a-new-enterprise-administrator"></a>Ajouter un nouvel administrateur d’entreprise
 
-Les administrateurs d’entreprise disposent de la majorité des privilèges lors de la gestion d’une inscription Azure EA. L’administrateur Azure EA initial a été créé lors de la configuration du Contrat Entreprise. Toutefois, vous pouvez ajouter ou supprimer de nouveaux administrateurs à tout moment. Les nouveaux administrateurs peuvent être ajoutés uniquement par des administrateurs existants. Pour plus d’informations sur l’ajout d’administrateurs d'entreprise supplémentaires, consultez [Créer un autre administrateur d’entreprise](ea-portal-get-started.md#create-another-enterprise-admin). Pour plus d’informations sur les rôles et les tâches d’un profil de facturation, consultez [Tâches et rôles du profil de facturation](understand-mca-roles.md#billing-profile-roles-and-tasks).
+Les administrateurs d’entreprise disposent de la majorité des privilèges lors de la gestion d’une inscription Azure EA. L’administrateur Azure EA initial a été créé lors de la configuration du Contrat Entreprise. Toutefois, vous pouvez ajouter ou supprimer de nouveaux administrateurs à tout moment. Les nouveaux administrateurs peuvent être ajoutés uniquement par des administrateurs existants. Pour plus d’informations sur l’ajout d’administrateurs d'entreprise supplémentaires, consultez [Créer un autre administrateur d’entreprise](ea-portal-get-started.md#create-another-enterprise-administrator). Pour plus d’informations sur les rôles et les tâches d’un profil de facturation, consultez [Tâches et rôles du profil de facturation](understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="update-user-state-from-pending-to-active"></a>Mettre à jour l’état utilisateur de En attente à Actif
 
@@ -31,7 +31,7 @@ Lorsque de nouveaux propriétaires de compte sont ajoutés pour la première foi
 
 Une fois qu’un administrateur Azure EA a créé un service, l’administrateur d’entreprise Azure peut ajouter des administrateurs de service et associer chacun d’eux à un service. Un administrateur de service peut créer des comptes. Ces comptes sont nécessaires pour créer des abonnements Azure EA.
 
-Pour plus d’informations sur l’ajout d’un administrateur de service, consultez [Créer un administrateur de service Azure EA](ea-portal-get-started.md#add-a-department-admin).
+Pour plus d’informations sur l’ajout d’un administrateur de service, consultez [Créer un administrateur de service Azure EA](ea-portal-get-started.md#add-a-department-administrator).
 
 ## <a name="associate-an-account-to-a-department"></a>Associer un compte à un service
 

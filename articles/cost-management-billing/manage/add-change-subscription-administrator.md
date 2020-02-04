@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: banders
 ms.openlocfilehash: a35d7d4ef24218c96e305abf623f746c92c8aa87
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986181"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Ajout ou modification des administrateurs d’abonnements Azure

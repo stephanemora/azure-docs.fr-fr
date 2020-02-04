@@ -9,10 +9,10 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 02d446d1b70b64092501804e793b400e983a4d80
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986621"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Afficher et télécharger vos informations d’utilisation et vos frais Azure

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: cwatson
 ms.openlocfilehash: 280764d3b9185abd1d8112f641007a7dc1861b34
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986681"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Comprendre l'application des remises aux plans de réservation de logiciels Red Hat Linux Enterprise pour Azure

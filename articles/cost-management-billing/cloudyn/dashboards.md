@@ -1,21 +1,20 @@
 ---
 title: Afficher les métriques clés dans des tableaux de bord Cloudyn dans Azure | Microsoft Docs
 description: Cet article explique comment afficher les mesures clés avec les tableaux de bord de Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: c0651dd006585e4ed5b8b888d6e55974c5c45a1d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 78af8f2541eb0b28d75be89612d158c889261adc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985253"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770127"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>Afficher les métriques de coût clés dans des tableaux de bord
 

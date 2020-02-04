@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
 ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75984489"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtenir la propriété de facturation des abonnements Azure associés à votre compte MPA

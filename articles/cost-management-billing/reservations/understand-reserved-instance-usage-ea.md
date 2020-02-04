@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 06/30/2019
 ms.author: banders
 ms.openlocfilehash: af0769ae4e242c86a56ff63d5f7c9ecbe9382b48
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986709"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Obtenir les données d’utilisation et de coûts de la réservation pour les Contrats Entreprise

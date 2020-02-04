@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: a7520d7b3bd46aa9151c68598574f9cbec84d6fc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75984617"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gérer le coût et l’utilisation d’AWS dans Azure

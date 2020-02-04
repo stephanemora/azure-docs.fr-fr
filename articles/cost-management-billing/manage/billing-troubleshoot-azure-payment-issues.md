@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
 ms.openlocfilehash: 986af72ed2ac10a285cfe32768d8541b7fce2428
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75985041"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Résoudre les problèmes de paiement d’Azure

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: b4069c9b18f9591e79d983a1317f00df11cf0611
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986841"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>Réduire les coûts de SQL Data Warehouse avec une capacité réservée

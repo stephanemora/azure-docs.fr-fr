@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2019
+ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: e3140ee990127db6815828314103a09dff7cf26e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8cb803c78b8bb5acd7880f79a19b5e3f0a978bd8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984741"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773966"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Affecter une autorisation d’accès aux données Cost Management
 
@@ -48,13 +48,6 @@ Pour afficher les données de coût relatives aux abonnements Azure EA, un utili
 
 <sup>2</sup> Le compte d’inscription est souvent désigné sous le terme de propriétaire du compte.
 
-Le diagramme suivant illustre la relation entre les étendues de gestion des coûts avec des rôles et les paramètres du portail Accord Entreprise.
-
-![Diagramme montrant la relation entre les étendues de gestion des coûts avec des rôles et les paramètres du portail Accord Entreprise.](./media/assign-access-acm-data/scope-access-relationship-diagram.png)
-
-Lorsque **les coûts d’affichage DA** sont désactivés dans le portail EA, lorsque vous essayez d’afficher les coûts de services et de comptes, vous voyez s’afficher un message indiquant que les *coûts sont désactivés pour votre organisation*.
-
-De mêmes, lorsque **les coûts d’affichage DA** sont désactivés dans le portail EA, lorsque vous essayez d’afficher les coûts de comptes d’inscription, de groupes de gestion d’abonnement et de groupes de ressources, vous voyez s’afficher un message indiquant que les *coûts sont désactivés pour votre organisation*.
 
 ## <a name="other-azure-account-scopes"></a>Autres étendues de compte Azure
 

@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: e6858d51eec1bbcb100f71418337d74d19d6db5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986497"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Comprendre les termes figurant sur votre facture Microsoft Azure

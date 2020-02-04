@@ -11,10 +11,10 @@ ms.service: cost-management-billing
 manager: ormaoz
 ms.custom: ''
 ms.openlocfilehash: 5dbc6ca836c8d1c8b717fd4bf23eab5aa360a288
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75984641"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Configurer l'intégration des rapports sur les coûts et l'utilisation AWS

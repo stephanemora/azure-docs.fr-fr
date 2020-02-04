@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
 ms.openlocfilehash: 0cdcc26ca0ae64455f8a27b13c2e4bc87e0ecb68
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "74222650"
 ---
 Vérifiez le type de contrat pour déterminer si vous avez accès à un compte de facturation d’un Contrat Partenaire Microsoft.
  
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
  
 2. Effectuez une recherche sur **Gestion des coûts + facturation**.
  

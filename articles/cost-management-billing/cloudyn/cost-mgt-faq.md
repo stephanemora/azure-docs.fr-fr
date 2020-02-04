@@ -1,21 +1,20 @@
 ---
 title: Forum aux questions sur Cloudyn dans Azure | Microsoft Docs
 description: Cet article fournit des réponses à certaines questions fréquemment posées sur Cloudyn.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 70f5edfb186cb7a9c05fe8ee59533193cee4fcd4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5c770d83d59edf0a56184f8eea0bda6b0603893c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985277"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770076"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Forum aux questions (FAQ) sur Cloudyn
 

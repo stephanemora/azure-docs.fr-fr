@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: eaec828abe83164d18796cfb2e795a363353fab4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75984409"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Présentation des rôles d'administrateur Azure dans le cadre des Contrats client Microsoft

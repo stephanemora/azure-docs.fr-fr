@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 11/20/2019
 ms.author: banders
 ms.openlocfilehash: 1249758e5dd5b7e823c11890e57549195da22529
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75984124"
 ---
 # <a name="tutorial-review-your-individual-azure-bill"></a>Tutoriel : Consulter votre facture Azure
@@ -30,7 +30,7 @@ Dans ce tutoriel, vous allez apprendre à :
 > * Comparer les frais facturés avec le fichier d’utilisation.
 > * Comparer les frais et l’utilisation dans l’analyse des coûts.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez disposer d’un compte de facturation *Programme Microsoft Online Services*. Le compte est créé quand vous vous inscrivez à Azure par le biais du site web Azure. C’est par exemple le cas si vous disposez d’un [compte avec des tarifs de paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) ou si vous êtes un [abonné Visual Studio](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 

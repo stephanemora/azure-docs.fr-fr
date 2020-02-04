@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: 33fa553e9148a1ac838e6bf53fc83cf7eadd7499
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75985837"
 ---
 # <a name="create-an-additional-azure-subscription"></a>Créer un abonnement Azure supplémentaire

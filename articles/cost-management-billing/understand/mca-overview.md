@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: 7d26c98ae8e5b9b95038a4a775134282703fa7c6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75986617"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Prise en main de votre compte de facturation dans le cadre d’un Contrat client Microsoft
