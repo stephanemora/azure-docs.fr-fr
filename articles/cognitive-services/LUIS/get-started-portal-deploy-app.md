@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448070"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772493"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Démarrage rapide : Déployer une application dans le portail LUIS
 
@@ -45,7 +45,7 @@ Vous créez la ressource de point de terminaison de prédiction dans le portail 
    |Emplacement de création|**USA Ouest**|Région Azure pour la création.|
    |Niveau tarifaire de création|**F0**|Niveau tarifaire par défaut pour la création.|
    |Emplacement du runtime|**USA Ouest**|Région Azure pour les requêtes de point de terminaison de prédiction.|
-   |Niveau tarifaire du runtime|**S0**|Ce niveau tarifaire est fourni pour les sites web à fort trafic.|
+   |Niveau tarifaire du runtime|**S0**|Ce niveau tarifaire convient pour les sites web à fort trafic.|
    | | | |
 
 
@@ -74,6 +74,9 @@ Chaque fois que vous créez une ressource pour LUIS, vous devez l’affecter à 
 1. Effectuez les mêmes étapes pour ajouter la clé de création à votre application.
 
 1. Recherchez la nouvelle ligne dans le tableau pour la nouvelle ressource de prédiction et copiez l’URL de point de terminaison. Elle est correctement construite pour effectuer une requête `HTTP GET` au point de terminaison d’API LUIS pour une prédiction.
+
+> [!TIP]
+> Si vous avez l’intention d’utiliser l’apprentissage actif pour améliorer votre application LUIS, sélectionnez **Change query parameters** (Changer les paramètres de requête), puis sélectionnez **Save logs** (Enregistrer les journaux). Cette action change l’exemple d’URL en ajoutant le paramètre de chaîne de requête `log=true`. Copiez et utilisez l’exemple d’URL de requête modifié quand vous effectuez des requêtes de prédiction au point de terminaison de runtime.
 
 ## <a name="train-the-app"></a>Effectuer l’apprentissage de l’application
 

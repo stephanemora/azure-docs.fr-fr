@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e06c8d5373f8740e8091daae242a4f7af6c0ea4a
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995862"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769231"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour Java
 
@@ -22,12 +22,12 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 - Accroître la sécurité et le contrôle des clés et des mots de passe
 - Créer et importer des clés de chiffrement en quelques minutes
 - Réduire la latence avec la mise à l’échelle du cloud et la redondance globale
-- Simplifier et automatiser les tâches associées aux certificats SSL/TLS
+- Simplifier et automatiser les tâches associées aux certificats TLS/SSL
 - Utiliser des HSM (modules de sécurité matériels) validés conformes à la norme FIPS 140-2 de niveau 2
 
 [Code source](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [Documentation de référence de l’API](https://azure.github.io/azure-sdk-for-java) | [Documentation du produit](index.yml) | [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Kit de développement Java (JDK)](/java/azure/jdk/?view=azure-java-stable), version 8 ou ultérieure
@@ -236,7 +236,7 @@ Vous pouvez vérifier que le secret a été effacé à l’aide de la commande [
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 ```
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous n’en avez plus besoin, vous pouvez supprimer votre coffre de clés et le groupe de ressources correspondant à l’aide d’Azure CLI ou d’Azure PowerShell.
 

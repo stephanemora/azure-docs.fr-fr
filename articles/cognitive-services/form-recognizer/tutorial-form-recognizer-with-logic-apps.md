@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981262"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773080"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Tutoriel : Utiliser Form Recognizer avec Azure Logic Apps pour analyser les factures
 
-Dans ce tutoriel, à l’aide d’Azure Logic Apps, vous allez créer un workflow qui utilise Form Recognizer (un service de la suite Azure Cognitive Services) afin d’extraire les données des factures. Vous allez utiliser Form Recognizer pour d’abord entraîner un modèle avec un exemple de jeu de données, puis pour tester le modèle avec un autre jeu de données. Les exemples de données utilisés dans ce tutoriel sont stockés dans les conteneurs d’objets blob du stockage Azure.
+Dans ce tutoriel, à l’aide d’Azure Logic Apps, vous allez créer un workflow qui utilise Form Recognizer (un service de la suite Azure Cognitive Services) afin d’extraire les données des factures. Commencez par entraîner un modèle Form Recognizer à l’aide d’un exemple de jeu de données, puis testez le modèle sur un autre jeu de données.
 
 Voici ce qui est couvert par ce tutoriel :
 
@@ -41,12 +41,12 @@ Form Recognizer est disponible en préversion à accès limité. Pour accéder �
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Comprendre la facture à analyser
 
-L’exemple de jeu de données utilisé pour entraîner et tester le modèle est disponible sous la forme d’un fichier .zip sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Téléchargez et extrayez le fichier .zip, puis ouvrez le fichier PDF d’une facture dans le dossier **/train**. Notez que le fichier comprend un tableau où se trouvent le numéro de la facture, la date de facture, etc. 
+L’exemple de jeu de données que vous allez utiliser pour entraîner et tester le modèle est disponible sous la forme d’un fichier .zip sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Téléchargez et extrayez le fichier .zip, puis ouvrez le fichier PDF d’une facture dans le dossier **/train**. Notez qu’il comprend un tableau avec le numéro de facture, la date de facturation, etc. 
 
 > [!div class="mx-imgBorder"]
 > ![Exemple de facture](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
-Dans ce tutoriel, nous allons apprendre à extraire les informations de ces tableaux au format JSON à l’aide d’un workflow créé avec Azure Logic Apps et Form Recognizer.
+Dans ce tutoriel, vous allez apprendre à utiliser un workflow Azure Logic Apps pour extraire les informations de tableaux comme ceux-ci au format JSON.
 
 ## <a name="create-an-azure-storage-blob-container"></a>Créer un conteneur d’objets blob du stockage Azure
 
@@ -62,7 +62,7 @@ Vous allez utiliser ce conteneur pour charger les exemples de données nécessai
 
 Téléchargez les exemples de données disponibles sur [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extrayez les données dans un dossier local, puis chargez le contenu du dossier **/train** dans le conteneur **formrecocontainer** que vous avez créé précédemment. Suivez les instructions fournies dans [Charger un objet blob de blocs](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) pour charger des données dans un conteneur.
 
-Copiez l’URL du conteneur. Vous en aurez besoin plus tard dans ce tutoriel. Si vous avez créé le compte de stockage et le conteneur en leur attribuant les noms indiqués dans ce tutoriel, l’URL sera la suivante : *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
+Copiez l’URL du conteneur. Vous aurez besoin de cette URL plus tard dans le tutoriel. Si vous avez créé le compte de stockage et le conteneur en leur attribuant les noms indiqués dans ce tutoriel, l’URL sera la suivante : *https:\//formrecostorage.blob.core.windows.net/formrecocontainer/* .
 
 ## <a name="create-a-form-recognizer-resource"></a>Créer une ressource Form Recognizer
 
@@ -75,7 +75,7 @@ Vous pouvez utiliser Azure Logic Apps pour automatiser et orchestrer les tâches
 * Configurer l’application logique pour qu’elle utilise l’opération **Train Model** (Entraîner le modèle) de Form Recognizer afin d’entraîner un modèle avec des exemples de données que vous avez chargés dans le stockage d’objets blob Azure.
 * Configurer l’application logique pour qu’elle utilise l’opération **Analyze Form** (Analyser le formulaire) de Form Recognizer afin d’utiliser le modèle que vous avez déjà entraîné. Ce composant va analyser la facture que vous fournissez à cette application logique en fonction du modèle qu’il a précédemment entraîné.
 
-Commençons ! Effectuez les étapes suivantes pour configurer votre workflow.
+Effectuez les étapes suivantes pour configurer votre workflow.
 
 1. Dans le menu principal Azure, choisissez **Créer une ressource** > **Intégration** > **Application logique**.
 
@@ -99,7 +99,7 @@ Commençons ! Effectuez les étapes suivantes pour configurer votre workflow.
 
 ### <a name="configure-the-logic-app-to-trigger-the-workflow-when-an-email-arrives"></a>Configurer l’application logique pour qu’elle déclenche le workflow à la réception d’un e-mail
 
-Dans ce tutoriel, vous allez déclencher le workflow à la réception d’un e-mail contenant une facture en pièce jointe. Pour ce tutoriel, nous choisissons Office 365 comme service de messagerie. Toutefois, vous pouvez utiliser n’importe quel autre fournisseur de messagerie.
+Dans ce tutoriel, vous allez déclencher le workflow à la réception d’un e-mail contenant une facture en pièce jointe. Ce tutoriel est basé sur le service e-mail Office 365, mais vous pouvez utiliser n’importe quel autre fournisseur de messagerie.
 
 1. Sous les onglets, sélectionnez Tout, sélectionnez **Office 365 Outlook**, puis, sous **Déclencheurs**, sélectionnez **À la réception d’un e-mail**.
 
@@ -149,14 +149,14 @@ Dans cette section, vous allez ajouter l’opération **Analyze Form** (Analyser
     > [!div class="mx-imgBorder"]
     > ![Analyser un formulaire Form Recognizer](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
 
-1. Dans la boîte de dialogue **Analyze Form** (Analyser un formulaire), effectuez les étapes suivantes :
+1. Dans la boîte de dialogue **Analyze Form** (Analyser le formulaire), effectuez ce qui suit :
 
     1. Cliquez sur la zone de texte **Model ID** (ID de modèle), puis, dans la boîte de dialogue qui s’ouvre, sous **Dynamic Content** (Contenu dynamique), sélectionnez **modelId**. En procédant ainsi, vous fournissez à l’application de workflow l’ID du modèle que vous avez entraîné dans la dernière section.
 
         > [!div class="mx-imgBorder"]
         > ![Utiliser ModelID pour Form Recognizer](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
-    2. Cliquez sur la zone de texte **Document**, puis, dans la boîte de dialogue qui s’ouvre, sous **Dynamic Content** (Contenu dynamique), sélectionnez **Attachments Content** (Contenu des pièces jointes). En procédant ainsi, vous configurez le workflow pour qu’il utilise l’exemple de facture joint à l’e-mail qui est envoyé pour déclencher le workflow.
+    2. Cliquez sur la zone de texte **Document**, puis, dans la boîte de dialogue qui s’ouvre, sous **Dynamic Content** (Contenu dynamique), sélectionnez **Attachments Content** (Contenu des pièces jointes). En procédant ainsi, vous configurez le flux pour utiliser l’exemple de fichier de facture joint à l’e-mail qui déclenche le workflow.
 
         > [!div class="mx-imgBorder"]
         > ![Utiliser la pièce jointe pour analyser les factures](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
@@ -165,7 +165,7 @@ Dans cette section, vous allez ajouter l’opération **Analyze Form** (Analyser
 
 ### <a name="extract-the-table-information-from-the-invoice"></a>Procéder à l’extraction des informations du tableau que contient la facture
 
-Dans cette section, nous allons configurer l’application logique pour qu’elle extraie les informations du tableau des factures.
+Dans cette section, vous configurez l’application logique pour extraire les informations du tableau parmi les factures.
 
 1. Sélectionnez **Ajouter une action**, puis, sous **Choisir une action**, recherchez **Composer** et sous les actions disponibles, sélectionnez à nouveau **Composer**.
     ![Extraction des informations du tableau que contient la facture](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)

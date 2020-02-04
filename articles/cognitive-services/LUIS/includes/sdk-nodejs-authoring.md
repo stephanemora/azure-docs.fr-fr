@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 65611dfb171008deab9d1d6cb15f0470fcbc2753
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 58ee74f7b01738e67f9fddd39eb4eee59cdb65b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170417"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774232"
 ---
 Utilisez la bibliothèque de client de création LUIS pour Node.js afin de :
 
@@ -25,7 +25,7 @@ Utilisez la bibliothèque de client de création LUIS pour Node.js afin de :
 * Entraîner et publier une application.
 * Supprimer l’application
 
-[Documentation de référence](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Package de création (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Documentation de référence](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [Package de création (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [Package du runtime (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [Exemples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -125,7 +125,7 @@ Créez des variables pour le point de terminaison et la clé Azure de votre ress
 
 ## <a name="authenticate-the-client"></a>Authentifier le client
 
-Créez un objet [CognitiveServicesCredentials]() avec votre clé et utilisez-le avec votre point de terminaison pour créer un objet [LUISAuthoringClient]().
+Créez un objet [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) avec votre clé et utilisez-le avec votre point de terminaison pour créer un objet [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest).
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 
@@ -167,7 +167,7 @@ Appelez [examples.batch](https://docs.microsoft.com/javascript/api/@azure/cognit
 
 [!code-javascript[Add example utterance to intent](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringBatchAddUtterancesForIntent&highlight=52-56)]
 
-## <a name="train-the-app"></a>Entraîner l’application
+## <a name="train-the-app"></a>Effectuer l’apprentissage de l’application
 
 Une fois le modèle créé, l’application LUIS doit être entraînée pour cette version du modèle. Un modèle entraîné peut être utilisé dans un [conteneur](../luis-container-howto.md) ou [publié](../luis-how-to-publish-app.md) dans les emplacements intermédiaires ou produits.
 

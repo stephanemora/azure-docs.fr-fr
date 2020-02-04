@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/24/2019
+ms.date: 01/07/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 370cdc18ae5d7680d2ce38b42bdc436367ce3700
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 7b2d4777772d842898cfcdd04f1c6d926cdbf0ad
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76159372"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837559"
 ---
 | Tailles de disque SSD Premium | P1* | P2* | P3* | P4 | P6 | P10 | P15 | P20 | P30 | P40 | P50 | P60 | P70 | P80 |
 |-------------------|----|----|----|----|----|-----|-----|-----|-----|-----|-----|------|------|------|
@@ -23,6 +23,7 @@ ms.locfileid: "76159372"
 | Nb max. d’iOPS de rafale par disque** | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 | 3 500 |
 | Débit max. de rafale par disque** | 170 Mio/s | 170 Mio/s | 170 Mio/s | 170 Mio/s | 170 Mio/s | 170 Mio/s | 170 Mio/s | 170 Mio/s |
 | Durée maximale de rafale** | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  | 30 min  |
+| Éligible pour la réservation | Non  | Non  | Non  | Non  | Non  | Non  | Non  | Non  | Oui, jusqu’à un an | Oui, jusqu’à un an | Oui, jusqu’à un an | Oui, jusqu’à un an | Oui, jusqu’à un an | Oui, jusqu’à un an |
 
 \*Indique une taille de disque actuellement en préversion. Pour plus d’informations sur la disponibilité régionale, voir [Nouvelles tailles de disque : managés et non managés](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks#new-disk-sizes-managed-and-unmanaged).  
 \*\*Désigne une fonctionnalité en préversion. Pour plus d’informations, consultez [Mode rafale](https://docs.microsoft.com/azure/virtual-machines/linux/disk-bursting#regional-availability).

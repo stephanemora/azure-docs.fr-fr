@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à AcquireIO | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à AcquireIO | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et AcquireIO.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cc6df651a82b416e670ee5ca5683c428eac6b5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 01bcc3678485119afae1d567d97eff9dcebe6b95
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596267"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714621"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à AcquireIO
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à AcquireIO
 
 Dans ce tutoriel, vous allez apprendre à intégrer AcquireIO à Azure Active Directory (Azure AD). Quand vous intégrez AcquireIO à Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer AcquireIO à Azure Active Di
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -141,7 +141,7 @@ Dans cette section, vous allez autoriser B. Simon à utiliser l’authentificat
 
      ![Configuration d’AcquireIO](./media/acquireio-tutorial/config01.png)
 
-1. Faites défiler l’écran vers le bas jusqu'à **Active Directory**, puis cliquez sur **Installer**.
+1. Faites défiler l’écran vers le bas jusqu’à **Active Directory**, puis cliquez sur **Installer**.
 
     ![Configuration d’AcquireIO](./media/acquireio-tutorial/config02.png)
 

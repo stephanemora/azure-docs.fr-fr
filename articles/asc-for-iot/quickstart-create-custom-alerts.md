@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2019
+ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 992dd7b85dee0774b8388ae22fe18377ca9e5691
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664827"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766459"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Démarrage rapide : Créer des alertes personnalisées
 
@@ -79,30 +79,7 @@ Utilisez des groupes de sécurité pour regrouper vos appareils par catégories 
  
 ## <a name="alerts-available-for-customization"></a>Alertes disponibles pour la personnalisation
 
-Le tableau suivant récapitule les alertes disponibles pour la personnalisation.
-
-
-| severity | Nom | source de données | Description | Correction suggérée|
-|---|---|---|---|---|
-| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil dans le protocole AMQP est en dehors de la plage autorisée          | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole AMQP) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.||
-| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil rejetés dans le protocole AMQP est en dehors de la plage autorisée | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole AMQP) rejetés par l’appareil dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.||
-| Faible      | Alerte personnalisée : le nombre de messages appareil-à-cloud dans le protocole AMQP est en dehors de la plage autorisée      | IoT Hub     | Le nombre de messages appareil-à-cloud (protocole AMQP) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|   |
-| Faible      | Alerte personnalisée : le nombre d’appels de méthode directe est en dehors de la plage autorisée | IoT Hub     | Le nombre d’appels de méthode directe dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.||
-| Faible      | Alerte personnalisée : le nombre de chargements de fichiers est en dehors de la plage autorisée | IoT Hub     | Le nombre de nombre de chargements de fichiers dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.| |
-| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil dans le protocole HTTP est en dehors de la plage autorisée | IoT Hub     | La quantité de messages cloud-à-appareil (protocole HTTP) dans une fenêtre de temps n’est pas dans la plage autorisée configurée                                  |
-| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil rejetés dans le protocole HTTP est en dehors de la plage autorisée | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole HTTP) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée. |
-| Faible      | Alerte personnalisée : le nombre de messages appareil-à-cloud dans le protocole HTTP est en dehors de la plage autorisée | IoT Hub| Le nombre de messages appareil-à-cloud (protocole HTTP) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|    |
-| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil dans le protocole MQTT est en dehors de la plage autorisée | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole MQTT) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|   |
-| Faible      | Alerte personnalisée : le nombre de messages cloud-à-appareil rejetés dans le protocole MQTT est en dehors de la plage autorisée | IoT Hub     | Le nombre de messages cloud-à-appareil (protocole MQTT) rejetés par l’appareil dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée. |
-| Faible      | Alerte personnalisée : le nombre de messages appareil-à-cloud dans le protocole MQTT est en dehors de la plage autorisée          | IoT Hub     | Le nombre de messages appareil-à-cloud (protocole MQTT) dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|
-| Faible      | Alerte personnalisée : le nombre de vidages de file d’attente de commandes est en dehors de la plage autorisée                               | IoT Hub     | Le nombre de vidages de file d’attente de commandes dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.||
-| Faible      | Alerte personnalisée : le nombre de mises à jour de jumeau de module est en dehors de la plage autorisée                                       | IoT Hub     | Le nombre de mises à jour de jumeau de module dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|
-| Faible      | Alerte personnalisée : le nombre d’opérations non autorisées est en dehors de la plage autorisée  | IoT Hub     | Le nombre d’opérations non autorisées dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|
-| Faible      | Alerte personnalisée : le nombre de connexions actives est en dehors de la plage autorisée  | Agent       | Le nombre de connexions actives dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée.|  Examinez les journaux de l’appareil. Découvrez l’origine de la connexion et déterminez si elle est inoffensive ou malveillante. Si cela elle est malveillante, supprimez les programmes malveillants et identifiez la source. Si elles est inoffensive, ajoutez la source à la liste des connexions autorisées.  |
-| Faible      | Alerte personnalisée : une connexion sortante vers une adresse IP non autorisée a été créée                             | Agent       | Une connexion sortante a été créée à une adresse IP qui ne figure pas dans votre liste d’adresses IP autorisées. |Examinez les journaux de l’appareil. Découvrez l’origine de la connexion et déterminez si elle est inoffensive ou malveillante. Si cela elle est malveillante, supprimez les programmes malveillants et identifiez la source. Si elles est inoffensive, ajoutez la source à la liste des adresses IP autorisées.                        |
-| Faible      | Alerte personnalisée : le nombre de connexions locales ayant échoué est en dehors de la plage autorisée                               | Agent       | Le nombre de nombre de connexions locales ayant échoué dans une fenêtre de temps spécifique est en dehors de la plage autorisée actuellement configurée. |   |
-| Faible      | Alerte personnalisée : connexion d’un utilisateur ne figurant pas sur la liste des utilisateurs autorisés | Agent       | Un utilisateur local ne figurant pas sur la liste des utilisateurs autorisés s’est connecté à l’appareil.|  Si vous enregistrez des données brutes, accédez à votre compte Log Analytics et utilisez les données pour examiner l’appareil, identifier la source, puis corriger la liste verte ou rouge pour ces paramètres. Si vous n’enregistrez pas actuellement de données brutes, accédez à l’appareil, puis corrigez la liste verte ou rouge pour ces paramètres.|
-| Faible      | Alerte personnalisée : un processus non autorisé a été exécuté | Agent       | Un processus non autorisé a été exécuté sur l’appareil. |Si vous enregistrez des données brutes, accédez à votre compte Log Analytics et utilisez les données pour examiner l’appareil, identifier la source, puis corriger la liste verte ou rouge pour ces paramètres. Si vous n’enregistrez pas actuellement de données brutes, accédez à l’appareil, puis corrigez la liste verte ou rouge pour ces paramètres.  |
+Azure Security Center pour IoT propose un grand nombre d’alertes qui peuvent être personnalisées en fonction de vos besoins spécifiques. Consultez le [tableau d’alertes personnalisables](concept-customizable-security-alerts.md) pour connaître la gravité des alertes, la source de données et la description ainsi que les étapes de correction que nous suggérons, si et quand chaque alerte est reçue. 
 |
 
 

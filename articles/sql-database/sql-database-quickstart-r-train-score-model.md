@@ -13,33 +13,33 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714896"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768459"
 ---
-# <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Créer et former un modèle prédictif dans R avec Azure SQL Database Machine Learning Services (préversion)
+# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Démarrage rapide : Créer et former un modèle prédictif dans R avec Azure SQL Database Machine Learning Services (préversion)
 
-Dans ce démarrage rapide, vous allez créer et former un modèle prédictif avec R, l’enregistrer dans une table de votre base de données SQL, puis utiliser le modèle pour prédire des valeurs à partir de nouvelles données à l’aide de la préversion publique de [Machine Learning Services (avec R) dans Azure SQL Database ](sql-database-machine-learning-services-overview.md). 
-
-Le modèle que vous allez utiliser dans ce démarrage rapide est un modèle simple qui prédit la distance d’arrêt d’une voiture en fonction de sa vitesse. Vous utiliserez le jeu de données **cars** inclus dans R, car il est petit et facile à comprendre.
-
-> [!TIP]
-> De nombreux jeux de données, petits et grands, sont inclus avec le runtime R. Pour obtenir une liste des jeux de données installés avec R, tapez `library(help="datasets")` à partir d’une invite de commandes R.
+Dans ce démarrage rapide, vous allez créer et entraîner un modèle prédictif avec R, l’enregistrer dans une table de votre base de données, puis utiliser ce modèle pour prédire des valeurs à partir de nouvelles données à l’aide de Machine Learning Services (avec R) dans Azure SQL Database.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-- Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/) avant de commencer.
+- Un compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Une [base de données Azure SQL](sql-database-single-database-get-started.md) avec une [règle de pare-feu au niveau du serveur](sql-database-server-level-firewall-rule.md)
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) avec R activé. [Inscrivez-vous à la préversion](sql-database-machine-learning-services-overview.md#signup).
+- [SSMS](/sql/ssms/sql-server-management-studio-ssms) (SQL Server Management Studio)
 
-- Pour exécuter l’exemple de code dans ces exercices, vous devez tout d’abord disposer d’une base de données Azure SQL avec Machine Learning Services (y compris R) activé. Pendant la préversion publique, Microsoft vous intégrera et activera le machine learning sur votre base de données nouvelle ou existante. Suivez les étapes pour vous [inscrire à la préversion](sql-database-machine-learning-services-overview.md#signup).
+> [!NOTE]
+> Pendant la préversion publique, Microsoft vous intégrera et activera le machine learning sur votre base de données nouvelle ou existante.
 
-- Vérifiez que vous avez installé la dernière version de [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Vous pouvez exécuter les scripts R à l’aide d’autres outils de gestion de base de données ou de requête, mais dans ce démarrage rapide, vous allez utiliser SSMS.
+Cet exemple utilise un modèle de régression simple pour prédire la distance d’arrêt d’une voiture en fonction de la vitesse à l’aide du jeu de données **cars** inclus dans R.
 
-- Ce guide de démarrage rapide nécessite la configuration d’une règle de pare-feu au niveau du serveur. Pour obtenir des informations sur la marche à suivre, consultez [Créer une règle de pare-feu au niveau du serveur](sql-database-server-level-firewall-rule.md).
+> [!TIP]
+> De nombreux jeux de données sont inclus dans le runtime R. Pour obtenir la liste de ceux qui sont installés, tapez `library(help="datasets")` à partir de l’invite de commandes R.
 
 ## <a name="create-and-train-a-predictive-model"></a>Créer et former un modèle prédictif dans R
 
@@ -50,13 +50,13 @@ Les exigences d’un modèle linéaire sont simples :
 - Fournissez les données d’entrée à utiliser pour entraîner le modèle.
 
 > [!TIP]
-> Si vous avez besoin de vous rafraîchir la mémoire, essayez avec ce tutoriel sur les modèles linéaires. Il décrit le processus d’ajustement d’un modèle avec rxLinMod : [Ajustement des modèles linéaires](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+> Si vous avez besoin de rafraîchir vos connaissances sur les modèles linéaires, consultez le tutoriel suivant, qui décrit le processus d’ajustement des modèles linéaire à l’aide de rxLInMod : [Ajustement des modèles linéaires](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
 Dans les étapes suivantes, vous allez configurer les données d’apprentissage, créer un modèle de régression, puis le former avec les données d’apprentissage et enregistrer le modèle dans une table SQL.
 
 1. Ouvrez **SQL Server Management Studio**, puis connectez-vous à votre base de données SQL.
 
-   Si vous avez besoin d’aide pour la connexion, consultez [Démarrage rapide : utiliser SQL Server Management Studio pour se connecter à une base de données SQL Azure et l’interroger](sql-database-connect-query-ssms.md).
+   Si vous avez besoin d’aide pour la connexion, consultez [Démarrage rapide : utiliser SQL Server Management Studio pour se connecter à une base de données Azure SQL et l’interroger](sql-database-connect-query-ssms.md).
 
 1. Créez la table **CarSpeed** pour enregistrer les données d’apprentissage.
 
@@ -173,9 +173,9 @@ VALUES (
 
 ![Modèle entraîné avec sortie supplémentaire](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
-## <a name="score-new-data-using-the-trained-model"></a>Évaluer de nouvelles données à l’aide du modèle formé
+## <a name="score-new-data-using-the-trained-model"></a>Noter les nouvelles données à l’aide du modèle formé
 
-Le *scoring* est un terme utilisé dans le domaine de la science des données pour désigner la génération de prédictions, de probabilités ou d’autres valeurs en s’appuyant sur de nouvelles données chargées dans un modèle formé. Vous allez utiliser le modèle créé dans la section précédente pour évaluer des prédictions à partir de nouvelles données.
+La *notation* est un terme utilisé dans la science des données pour signifier la génération de prédictions, de probabilités ou d’autres valeurs en fonction de nouvelles données introduites dans un modèle formé. Vous utiliserez le modèle que vous avez créé dans la section précédente pour noter les prédictions en fonction des nouvelles données.
 
 Avez-vous remarqué que les données d’entraînement d’origine s’arrêtaient à une vitesse de 25 miles/h ? C’est parce que les données d’origine étaient basées sur une expérience réalisée en 1920 ! Vous seriez peut-être curieux de savoir combien de temps une voiture des années 20 mettrait à s’arrêter si elle pouvait atteindre une vitesse de 60, voire 100 miles à l’heure ? Pour répondre à cette question, vous pouvez fournir des nouvelles valeurs de vitesse pour votre modèle.
 
@@ -244,7 +244,7 @@ Avez-vous remarqué que les données d’entraînement d’origine s’arrêtaie
 > [!NOTE]
 > Dans cet exemple de script, la fonction `str` est ajoutée au cours de la phase de test, afin de vérifier le schéma de données retourné à partir de R. Vous pourrez supprimer l’instruction ultérieurement.
 >
-> Les noms de colonne utilisés dans le script R ne sont pas nécessairement passés à la sortie de la procédure stockée. Ici, la clause WITH RESULTS définit de nouveaux noms de colonnes.
+> Les noms de colonne utilisés dans le script R ne sont pas nécessairement transmis à la sortie de la procédure stockée. Ici, la clause WITH RESULTS définit de nouveaux noms de colonnes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

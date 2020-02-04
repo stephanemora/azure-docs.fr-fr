@@ -1,6 +1,6 @@
 - name: Documentation sur les extensions de machine virtuelle
   href: ../index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: À propos des extensions Azure
       href: overview.md
@@ -64,18 +64,26 @@
           href: hpccompute-gpu-linux.md
         - name: Windows
           href: hpccompute-gpu-windows.md
-    - name: Log Analytics
+    - name: Azure Monitor
       items:
-        - name: Linux
-          href: oms-linux.md
-        - name: Windows
-          href: oms-windows.md
-    - name: Azure Monitor pour machines virtuelles
-      items:
-        - name: Agent de dépendances Linux
-          href: agent-dependency-linux.md
-        - name: Agent de dépendances Windows
-          href: agent-dependency-windows.md
+        - name: Extension Diagnostics
+          items:
+            - name: Linux
+              href: diagnostics-linux.md
+            - name: Windows
+              href: ../../azure-monitor/platform/diagnostics-extension-overview.md?toc=/azure/virtual-machines/extensions/toc.json
+        - name: Log Analytics
+          items:
+            - name: Linux
+              href: oms-linux.md
+            - name: Windows
+              href: oms-windows.md
+        - name: Azure Monitor pour machines virtuelles
+          items:
+            - name: Agent de dépendances Linux
+              href: agent-dependency-linux.md
+            - name: Agent de dépendances Windows
+              href: agent-dependency-windows.md
     - name: DSC PowerShell
       href: dsc-overview.md
       items:
@@ -89,14 +97,6 @@
           href: dsc-template.md
     - name: Accès à la machine virtuelle
       href: vmaccess.md
-    - name: Diagnostics de machine virtuelle
-      items:
-        - name: Linux
-          href: diagnostics-linux.md
-        - name: Windows
-          href: diagnostics-windows.md
-        - name: Utiliser des modèles
-          href: diagnostics-template.md
     - name: Extensions tierces
       items:
         - name: Chef
@@ -123,5 +123,5 @@
       href: update-linux-agent.md
     - name: Exporter des extensions
       href: export-templates.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       href: troubleshoot.md

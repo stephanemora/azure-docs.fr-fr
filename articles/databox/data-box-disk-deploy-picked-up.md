@@ -1,6 +1,6 @@
 ---
 title: Tutoriel sur le renvoi d’Azure Data Box Disk | Microsoft Docs
-description: Utilisez ce didacticiel pour savoir comment renvoyer vos disques Azure Data Box à Microsoft
+description: Utilisez ce tutoriel pour savoir comment renvoyer vos disques Azure Data Box à Microsoft
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514117"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845488"
 ---
 ::: zone target="chromeless"
 
@@ -28,7 +28,7 @@ ms.locfileid: "76514117"
 
 Ce tutoriel explique comment planifier un enlèvement pour renvoyer un disque Azure Data Box. Les instructions d’enlèvement varient selon la destination de renvoi de l’appareil. 
 
-Dans ce didacticiel, vous apprendrez à :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Expédier le disque Data Box à Microsoft
@@ -155,14 +155,32 @@ Si nécessaire, vous pouvez contacter le support de Quantium Solutions (en langu
 
    Si vous rencontrez des problèmes, contactez l’équipe Data Box Operations Asia à l’adresse suivante : adbo@microsoft.com. Indiquez le nom de la tâche dans l’objet du message, ainsi que le problème rencontré.
 
-3. Remettez le colis au transporteur. 
+3. Remettez le colis au transporteur.
 
+### <a name="in-self-managedtabin-selfmanaged"></a>[Si auto-gestion](#tab/in-selfmanaged)
+
+Si vous utilisez Data Box Disk au Japon, à Singapour, en Corée et dans la région Europe Ouest et que vous avez sélectionné l’option d’expédition auto-gérée pendant la création de la commande, suivez ces instructions. 
+
+1. Accédez au panneau **Vue d’ensemble** de votre commande dans le portail Azure. Parcourez les instructions qui s’affichent lorsque vous sélectionnez **Planifier l’enlèvement**. Un code d’autorisation doit apparaître. Il est utilisé au moment de la remise de la commande.
+
+2. Envoyez un e-mail à l’équipe des opérations Azure Data Box à l’aide du modèle suivant lorsque vous êtes prêt à renvoyer l’appareil.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. L’équipe des opérations Azure Data Box vous accompagne pour organiser la remise au centre de données Azure.
 
 ::: zone target="docs"
 
+---
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Ce didacticiel vous a apporté des connaissances sur les disques Azure Data Box, notamment concernant les points suivants :
+Ce tutoriel vous a apporté des connaissances sur les disques Azure Data Box, notamment concernant les points suivants :
 
 > [!div class="checklist"]
 > * Expédier le disque Data Box à Microsoft

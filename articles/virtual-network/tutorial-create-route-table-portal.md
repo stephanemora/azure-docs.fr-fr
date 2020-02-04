@@ -5,25 +5,20 @@ description: Dans ce didacticiel, découvrez comment acheminer le trafic réseau
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350289"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775280"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutoriel : Acheminer le trafic réseau avec une table de routage à l’aide du portail Azure
 
@@ -48,19 +43,19 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Créer une table de routage
 
-1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Table de routage**.
-
-1. Dans **Créer une table de routage**, entrez ou sélectionnez ces informations :
+1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.
+2. Dans la zone de recherche, entrez *table de route*. Quand le terme **table de route** s’affiche dans les résultats de recherche, sélectionnez-le.
+3. Dans la page **table de route**, sélectionnez **Créer**.
+4. Dans **Créer une table de routage**, entrez ou sélectionnez ces informations :
 
     | Paramètre | Valeur |
     | ------- | ----- |
     | Name | Entrez *myRouteTablePublic*. |
     | Subscription | Sélectionnez votre abonnement. |
     | Resource group | Sélectionnez **Créer**, entrez *myResourceGroup* et sélectionnez *OK*. |
-    | Location | Conservez la valeur par défaut **USA Est**.
+    | Location | Sélectionnez **USA Est**.
     | Propagation de la route de la passerelle de réseau virtuel | Conservez la valeur par défaut **Activé**. |
-
-1. Sélectionnez **Create** (Créer).
+5. Sélectionnez **Create** (Créer).
 
 ## <a name="create-a-route"></a>Créer un itinéraire
 
@@ -167,7 +162,7 @@ Les NVA sont des machines virtuelles qui facilitent des fonctions réseau telles
     | Mot de passe | Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirmer le mot de passe | Retapez le mot de passe. |
     | **RÈGLES DES PORTS D’ENTRÉE** |  |
-    | Aucun port d’entrée public | Conservez la valeur par défaut **Aucun**.
+    | Aucun port d’entrée public | Sélectionnez **Aucun**.
     | **ÉCONOMISEZ DE L’ARGENT** |  |
     | Vous disposez déjà d’une licence Windows ? | Conservez la valeur par défaut **Non**. |
 

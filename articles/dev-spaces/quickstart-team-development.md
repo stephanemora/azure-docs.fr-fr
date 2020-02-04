@@ -1,17 +1,17 @@
 ---
 title: Développement en équipe dans Kubernetes
 services: azure-dev-spaces
-ms.date: 04/25/2019
+ms.date: 01/22/2020
 ms.topic: quickstart
 description: Ce guide de démarrage rapide vous montre comment développer en équipe dans Kubernetes à l’aide de conteneurs et de microservices avec Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b84bb67556eda3a453ede5a6fb745d8ae472fb6c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: d2b31cce6604cef31de6f034566ebd46a4e92750
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290408"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721589"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>Démarrage rapide : Développement en équipe dans Kubernetes avec Azure Dev Spaces
 
@@ -27,7 +27,7 @@ Dans ce guide, vous allez apprendre à :
 
 - Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
-- [Helm 2.13 à 2.16 installé][helm-installed].
+- [Helm 3 installé][helm-installed].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Créer un cluster Azure Kubernetes Service
 
@@ -82,39 +82,14 @@ Les commandes pour l’exécution de l’exemple d’application sur Kubernetes 
 
 Vous pouvez utiliser Azure Dev Spaces pour le développement en équipe lorsqu’une application est en cours d’exécution dans un cluster, quels que soient les outils utilisés pour le déployer.
 
-Utilisez les commandes `helm init` et `helm install` pour configurer et installer l’exemple d’application sur votre cluster.
+Utilisez la commande `helm install` pour configurer et installer l’exemple d’application sur votre cluster.
 
 ```cmd
 cd charts/
-helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic 
-```
-> [!Note]
-> **Si vous utilisez un cluster où RBAC est activé**, veillez à configurer [un compte de service pour Tiller](https://helm.sh/docs/using_helm/#role-based-access-control). Sinon, les commandes `helm` échoueront.
-
-La commande `helm install` peut prendre plusieurs minutes. La sortie de la commande affiche l’état de tous les services qu'elle a déployés sur le cluster lors de son exécution :
-
-```cmd
-$ cd charts/
-$ helm init --wait
-...
-Happy Helming!
-
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic
-
-Hang tight while we grab the latest from your chart repositories...
-...
-NAME               READY  UP-TO-DATE  AVAILABLE  AGE
-bikes              1/1    1           1          4m32s
-bikesharingweb     1/1    1           1          4m32s
-billing            1/1    1           1          4m32s
-gateway            1/1    1           1          4m32s
-reservation        1/1    1           1          4m32s
-reservationengine  1/1    1           1          4m32s
-users              1/1    1           1          4m32s
+helm install bikesharing . --dependency-update --namespace dev --atomic
 ```
 
-Après avoir installé l’exemple d’application et activé Dev Spaces sur votre cluster, utilisez la commande `azds list-uris` pour afficher les URL de l’exemple d’application dans le *dev* actuellement sélectionné.
+La commande `helm install` peut prendre plusieurs minutes. Après avoir installé l’exemple d’application et activé Dev Spaces sur votre cluster, utilisez la commande `azds list-uris` pour afficher les URL de l’exemple d’application dans le *dev* actuellement sélectionné.
 
 ```cmd
 $ azds list-uris
@@ -235,5 +210,5 @@ Découvrez comment Azure Dev Spaces vous aide à développer des applications pl
 > [!div class="nextstepaction"]
 > [Utilisation de plusieurs conteneurs et développement en équipe](multi-service-nodejs.md)
 
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 29e1af5f23b2167a524872731490b5862a14e5c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9b92796e477ea0dd6795015edd3f400dd2cc9aa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975395"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773741"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Démarrage rapide : Bibliothèque de client Azure Key Vault pour .NET (SDK v3)
 
@@ -25,7 +25,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 - Accroître la sécurité et le contrôle des clés et des mots de passe
 - Créer et importer des clés de chiffrement en quelques minutes
 - Réduire la latence avec la mise à l’échelle du cloud et la redondance globale
-- Simplifier et automatiser les tâches associées aux certificats SSL/TLS
+- Simplifier et automatiser les tâches associées aux certificats TLS/SSL
 - Utiliser des HSM (modules de sécurité matériels) validés conformes à la norme FIPS 140-2 de niveau 2
 
 [Documentation de référence sur l’API](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
@@ -34,7 +34,7 @@ Azure Key Vault permet de protéger les clés de chiffrement et les secrets util
 > Chaque coffre de clés doit avoir un nom unique. Remplacez <your-unique-keyvault-name> par le nom de votre coffre de clés dans les exemples suivants.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure - [En créer un gratuitement](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * Kit de développement logiciel (SDK) [.NET Core 2.1 ou version ultérieure](https://dotnet.microsoft.com/download/dotnet-core/2.1).
@@ -185,7 +185,7 @@ Vous pouvez désormais récupérer la valeur définie avec la [méthode GetSecre
 
 Votre secret est désormais enregistré en tant que `keyvaultSecret.Value;`.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous n’en avez plus besoin, vous pouvez supprimer votre coffre de clés et le groupe de ressources correspondant à l’aide d’Azure CLI ou d’Azure PowerShell.
 

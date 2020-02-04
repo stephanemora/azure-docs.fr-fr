@@ -1,9 +1,9 @@
 ---
-ms.openlocfilehash: a78649033b84a726b6e7daee95efc4192ce85c3a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: bb75ea0f8eb3fcf85a06cadd68ae111d51369891
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67176773"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694294"
 ---
-Vous avez besoin de suffisamment de données environnement capturées avant d’essayer de créer une ancre cloud.
+Comme nous l’avons dit précédemment, vous devez capturer suffisamment de données d’environnement avant d’essayer de créer une ancre spatiale cloud. Cela signifie que `ReadyForCreateProgress` doit être supérieur à 1, même si nous vous recommandons d’attendre que `RecommendedForCreateProgress` soit supérieur à 1 pour le faire.

@@ -1,15 +1,15 @@
 ---
 title: Créer un membre Azure Blockchain Service - Azure CLI
 description: Créez un membre Azure Blockchain Service pour un consortium de blockchain à l’aide d’Azure CLI.
-ms.date: 11/20/2019
+ms.date: 01/23/2020
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 6a9673431c3da21b3ce645b9aff30506be1012f3
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 703444b6077c2301e1ffec77c8096fb76ddaa731
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455951"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759924"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-azure-cli"></a>Démarrage rapide : Créer un membre blockchain Azure Blockchain Service à l’aide d’Azure CLI
 
@@ -37,7 +37,9 @@ az group create \
 
 ## <a name="create-a-blockchain-member"></a>Créer un membre blockchain
 
-Dans Azure Blockchain Service, créez un membre blockchain qui exécute le protocole de registre Quorum dans un nouveau consortium. Vous devez passer plusieurs paramètres et propriétés. Remplacez les exemples de paramètres par vos propres valeurs.
+Un membre Azure Blockchain Service est un nœud blockchain dans un réseau blockchain de consortium privé. Lors du provisionnement d’un membre, vous pouvez créer ou rejoindre un réseau de consortium. Vous avez besoin d’au moins un membre pour former un réseau de consortium. Le nombre de membres blockchain nécessaires par participant dépend de votre scénario. Les participants au consortium peuvent avoir un ou plusieurs membres blockchain ou ils peuvent partager des membres avec d’autres participants. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
+
+Vous devez passer plusieurs paramètres et propriétés. Remplacez les exemples de paramètres par vos propres valeurs.
 
 ```azurecli-interactive
 az resource create \
@@ -54,13 +56,13 @@ az resource create \
 | **name** | Nom unique qui identifie le membre blockchain Azure Blockchain Service. Le nom est utilisé pour l’adresse de point de terminaison public. Par exemple : `myblockchainmember.blockchain.azure.com`.
 | **location** | Région Azure dans laquelle le membre blockchain est créé. Par exemple : `westus2`. Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
 | **mot de passe** | Le mot de passe du nœud de transaction par défaut du membre. Utilisez le mot de passe pour l’authentification de base lorsque vous vous connectez au point de terminaison public du nœud de transaction par défaut du membre blockchain.
-| **consortium** | Nom du consortium à rejoindre ou créer.
+| **consortium** | Nom du consortium à rejoindre ou créer. Pour plus d’informations sur les consortiums, consultez [Consortium Azure Blockchain Service](consortium.md).
 | **consortiumAccountPassword** | Le mot de passe du compte consortium est également appelé mot de passe du compte du membre. Le mot de passe du compte du membre sert à chiffrer la clé privée du compte Ethereum créé pour votre membre. Vous utilisez le compte du membre et le mot de passe du compte du membre pour la gestion du consortium.
 | **skuName** | Niveau de service. Utilisez S0 pour Standard et B0 pour De base.
 
 La création du membre blockchain et des ressources de prise en charge prend environ 10 minutes.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Vous pouvez utiliser le membre blockchain que vous avez créé pour le guide de démarrage rapide ou tutoriel suivant. Lorsque vous n’en aurez plus besoin, vous pourrez supprimer les ressources en supprimant le groupe de ressources `myResourceGroup` que vous avez créé dans le guide de démarrage rapide.
 
@@ -74,7 +76,7 @@ az group delete \
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé un membre Azure Blockchain Service et un nouveau consortium. Dans le guide de démarrage rapide qui suit, vous allez utiliser Azure Blockchain Development Kit pour Ethereum afin d’effectuer une jonction à un consortium dans Azure Blockchain Service.
+Dans ce guide de démarrage rapide, vous avez déployé un membre Azure Blockchain Service et un nouveau consortium. Dans le guide de démarrage rapide qui suit, vous allez utiliser Azure Blockchain Development Kit pour Ethereum afin d’effectuer une jonction à un membre Azure Blockchain Service.
 
 > [!div class="nextstepaction"]
 > [Utiliser Visual Studio Code pour se connecter à Azure Blockchain Service](connect-vscode.md)

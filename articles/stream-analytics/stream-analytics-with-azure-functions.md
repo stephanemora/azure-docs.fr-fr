@@ -1,19 +1,18 @@
 ---
 title: Tutoriel - Exécuter Azure Functions dans des travaux Azure Stream Analytics
-description: Dans ce didacticiel, vous apprenez à configurer Azure Functions comme récepteur de sortie pour les travaux Stream Analytics.
+description: Dans ce tutoriel, vous apprenez à configurer Azure Functions comme récepteur de sortie pour les travaux Stream Analytics.
 author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/05/2019
-ms.author: mamccrea
-ms.reviewer: mamccrea
-ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/27/2020
+ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369318"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772889"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutoriel : Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
 
@@ -39,7 +38,7 @@ Cette section explique comment configurer un travail Stream Analytics pour exéc
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Créer un travail Stream Analytics en utilisant Event Hubs comme entrée
 
-Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-real-time-fraud-detection.md) pour créer un concentrateur d’événements, démarrer l’application de générateur d’événements et créer un travail Stream Analytics. Ignorez les étapes de création de la requête et de la sortie. Consultez plutôt les sections suivantes pour configurer la sortie Azure Functions.
+Suivez le tutoriel [Détection des fraudes en temps réel](stream-analytics-real-time-fraud-detection.md) pour créer un concentrateur d’événements, démarrer l’application de générateur d’événements et créer un travail Stream Analytics. Ignorez les étapes de création de la requête et de la sortie. Consultez plutôt les sections suivantes pour configurer la sortie Azure Functions.
 
 ## <a name="create-an-azure-cache-for-redis-instance"></a>Créer une instance Cache Redis Azure
 
@@ -51,7 +50,7 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Créer une fonction dans Azure Functions qui permet d’écrire des données dans Cache Redis Azure
 
-1. Consultez la section [Créer une application de fonction](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentation Functions. Cette section vous explique comment créer une application de fonction et une [fonction déclenchée par HTTP dans Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) en utilisant le langage CSharp.  
+1. Consultez la section [Créer une application de fonction](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) de la documentation Functions. Cette section vous explique comment créer une application de fonction et une [fonction déclenchée par HTTP dans Azure Functions](../azure-functions/functions-create-first-azure-function.md#create-function) en utilisant le langage C#.  
 
 2. Accédez à la fonction **run.csx**. Mettez-la à jour avec le code suivant. Remplacez **«\< your redis cache connection string goes here \>»** par la chaîne de connexion principale de Cache Redis Azure que vous avez récupérée dans la section précédente. 
 
@@ -153,7 +152,7 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
    |Nombre maximal de lots|Spécifie le nombre maximal d’événements dans chaque lot envoyé à la fonction. La valeur par défaut est 100. Cette propriété est facultative.|
    |Clé|Vous permet d’utiliser une fonction d’un autre abonnement. Indiquez la valeur de la clé pour accéder à votre fonction. Cette propriété est facultative.|
 
-3. Indiquez un nom pour l’alias de sortie. Dans ce didacticiel, il est nommé **saop1**, mais vous pouvez utiliser n’importe quel nom de votre choix. Renseignez les autres détails.
+3. Indiquez un nom pour l’alias de sortie. Dans ce tutoriel, il est nommé **saop1**, mais vous pouvez utiliser n’importe quel nom de votre choix. Renseignez les autres détails.
 
 4. Ouvrez votre travail Stream Analytics et mettez à jour la requête comme suit. Si vous n’avez pas nommé votre récepteur de sortie **saop1**, n’oubliez pas de modifier le nom dans la requête.  
 
@@ -187,13 +186,10 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
    Cette commande doit produire la valeur de la clé spécifiée :
 
    ![Capture d’écran de la sortie de Cache Redis Azure](./media/stream-analytics-with-azure-functions/image5.png)
-   
-## <a name="error-handling-and-retries"></a>Gestion des erreurs et nouvelles tentatives
-En cas de défaillance lors de l’envoi d’événements vers Azure Functions, Stream Analytics effectue une nouvelle tentative pour mener à bien l’opération. Dans les cas suivants, aucune nouvelle tentative n’est effectuée :
 
- 1. HttpRequestExceptions
- 2. Entité de requête trop grande (code d’erreur HTTP 413)
- 3. ApplicationExceptions
+## <a name="error-handling-and-retries"></a>Gestion des erreurs et nouvelles tentatives
+
+Si une défaillance se produit lors de l’envoi d’événements à Azure Functions, Stream Analytics retente la plupart des opérations. Toutes les exceptions HTTP sont retentées jusqu’à réussite, à l’exception de l’erreur HTTP 413 (Entité trop volumineuse). L’erreur causée par une entité trop volumineuse est traitée comme une erreur de données soumise à la [stratégie Retenter ou supprimer](stream-analytics-output-error-policy.md).
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -210,7 +206,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le trav
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé un travail Stream Analytics simple, qui exécute une fonction Azure. Pour en savoir plus sur les travaux Stream Analytics, passez au didacticiel suivant :
+Dans ce tutoriel, vous avez créé une tâche Stream Analytics simple qui exécute une fonction Azure. Pour en savoir plus sur les travaux Stream Analytics, passez au tutoriel suivant :
 
 > [!div class="nextstepaction"]
 > [Exécuter des fonctions JavaScript définies par l’utilisateur dans des travaux Stream Analytics](stream-analytics-javascript-user-defined-functions.md)

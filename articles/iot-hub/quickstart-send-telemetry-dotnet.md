@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 9f9e84570c7e7a4a2049c9f357d001c3316a4106
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33d0e5c40e4c7d404558fe8fa7a5fb8f5967924e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166347"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773798"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Démarrage rapide : Envoyer des données de télémétrie d’un appareil à un hub IoT et les lire avec une application principale (.NET)
 
@@ -29,7 +29,7 @@ Ce démarrage rapide utilise deux applications C# prédéfinies, une pour envoye
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Les deux exemples d’applications que vous exécutez dans ce guide de démarrage rapide sont écrits à l’aide de C#. Votre machine de développement doit disposer du Kit SDK .NET Core 2.1.0 ou version ultérieure.
 
@@ -47,7 +47,7 @@ Exécutez la commande suivante afin d’ajouter l’extension Microsoft Azure I
 az extension add --name azure-cli-iot-ext
 ```
 
-Téléchargez l’exemple de projet C# à partir de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip et extrayez l’archive ZIP.
+Téléchargez les exemples C# Azure IoT à partir de https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip et extrayez l’archive ZIP.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -151,7 +151,7 @@ L’application back-end se connecte au point de terminaison **Événements** du
 
     ![Exécuter l’application back-end](media/quickstart-send-telemetry-dotnet/ReadDeviceToCloud.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources](../../includes/iot-hub-quickstarts-clean-up-resources.md)]
 
@@ -162,4 +162,4 @@ Dans ce guide de démarrage rapide, vous avez configuré un hub IoT, inscrit un
 Pour savoir comment contrôler votre appareil simulé à partir d’une application back-end, passez au démarrage rapide suivant.
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-dotnet.md)
+> [Démarrage rapide : Contrôler un appareil connecté à un hub IoT](quickstart-control-device-dotnet.md)

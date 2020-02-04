@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514270"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772780"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Qu’est-ce que Windows Virtual Desktop ? 
 
@@ -99,13 +99,15 @@ Les machines virtuelles Azure que vous créez pour Windows Virtual Desktop doive
 |kms.core.windows.net|Port TCP 1688|Activation de Windows 10|
 
 >[!IMPORTANT]
->Il est essentiel d’ouvrir ces URL pour un déploiement Windows Virtual Desktop fiable. Il n’est pas possible de bloquer l’accès à ces URL, car cela affecterait le fonctionnement du service. Ces URL correspondent seulement aux sites et aux ressources Windows Virtual Desktop, et n’incluent pas les URL d’autres services comme Azure AD.
+>Il est essentiel d’ouvrir ces URL pour un déploiement Windows Virtual Desktop fiable. Il n’est pas possible de bloquer l’accès à ces URL, car cela affecterait le fonctionnement du service. Ces URL correspondent seulement aux sites et aux ressources Windows Virtual Desktop, et n’incluent pas les URL d’autres services comme Azure Active Directory.
 
 >[!NOTE]
+>Actuellement, Windows Virtual Desktop ne dispose pas d’une liste de plages d’adresses IP que vous pouvez mettre en liste verte pour autoriser le trafic réseau. Pour le moment, seules certaines URL spécifiques peuvent être ajoutées à la liste verte.
+>
 >Vous devez utiliser le caractère générique (*) pour les URL impliquant du trafic de service. Si vous préférez ne pas utiliser * pour le trafic lié à l’agent, voici comment trouver les URL sans caractères génériques :
 >
 >1. Inscrivez vos machines virtuelles dans le pool d’hôtes Windows Virtual Desktop.
->2. Ouvrez **Observateur d’événements** et accédez à **Windows** > **Journaux d’application**, puis recherchez l’ID d’événement 3702.
+>2. Ouvrez **Observateur d’événements** et accédez à **Journaux Windows** > **Application** > **WVD-Agent**, puis recherchez l’ID d’événement 3702.
 >3. Placez en liste verte les URL que vous trouvez sous l’ID d’événement 3702. Les URL sous l’ID d’événement 3702 sont spécifiques à la région. Vous devez répéter le processus de mise en liste verte avec les URL appropriées pour chaque région où vous voulez déployer vos machines virtuelles.
 
 Windows Virtual Desktop comprend les bureaux et applications Windows que vous fournissez aux utilisateurs  ainsi que la solution de gestion, qui est hébergée en tant que service sur Azure par Microsoft. Les bureaux et applications peuvent être déployés sur des machines virtuelles dans n’importe quelle région Azure, et la solution de gestion et les données pour ces machines virtuelles résident aux États-Unis. Cela peut entraîner le transfert des données vers les États-Unis.
@@ -137,7 +139,7 @@ Windows Virtual Desktop prend en charge les images de système d'exploitation x6
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop ne prend pas en charge les images de système d’exploitation x86 (32 bits), Windows 10 Entreprise N ou Windows 10 Entreprise KN.
+Windows Virtual Desktop ne prend pas en charge les images de système d’exploitation x86 (32 bits), Windows 10 Entreprise N ou Windows 10 Entreprise KN. Windows 7 ne prend pas non plus en charge les solutions de profil VHD ou VHDX hébergées sur le stockage Azure managé en raison d’une limitation de la taille de secteur.
 
 Les options d’automatisation et de déploiement qui sont disponibles dépendent du système d’exploitation et de la version que vous choisissez, comme indiqué dans le tableau suivant : 
 

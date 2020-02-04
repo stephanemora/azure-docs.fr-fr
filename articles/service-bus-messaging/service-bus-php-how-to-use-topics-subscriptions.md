@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Guide pratique pour utiliser les rubriques Service Bus avec PHP'
-description: 'Démarrage rapide : Découvrez comment utiliser les rubriques Service Bus avec PHP dans Azure.'
+title: Guide pratique pour utiliser les rubriques Azure Service Bus avec PHP
+description: Dans ce tutoriel, vous allez apprendre à utiliser les rubriques et abonnements Azure Service Bus à partir d’une application PHP.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: b55d3c93f9926b7446dadf069b37a878caa81e15
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721656"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760672"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Démarrage rapide : Utilisation des rubriques et abonnements Service Bus avec PHP
 
@@ -33,7 +33,7 @@ Cet article vous montre comment utiliser les rubriques et les abonnements Servic
 - Réception de messages à partir d’un abonnement
 - Suppression de rubriques et d’abonnements
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 1. Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Suivez les étapes dans [Démarrage rapide : utiliser le portail Azure pour créer une rubrique Service Bus et des abonnements à cette rubrique](service-bus-quickstart-topics-subscriptions-portal.md) pour créer un **espace de noms** Service Bus et obtenir la **chaîne de connexion**.
 
@@ -118,7 +118,7 @@ $serviceBusRestProxy = ServicesBuilder::getInstance()->createServiceBusService($
 ```
 
 ## <a name="create-a-topic"></a>Création d'une rubrique
-Vous pouvez effectuer des opérations de gestion pour les rubriques Service Bus avec la classe `ServiceBusRestProxy`. Un objet `ServiceBusRestProxy` est construit par la méthode d’usine `ServicesBuilder::createServiceBusService` avec une chaîne de connexion appropriée qui encapsule les autorisations de jeton pour le gérer.
+Vous pouvez effectuer des opérations de gestion pour les rubriques Service Bus avec la classe `ServiceBusRestProxy`. Un objet `ServiceBusRestProxy` est construit via la méthode d’usine `ServicesBuilder::createServiceBusService` avec une chaîne de connexion appropriée qui encapsule les autorisations de jeton pour le gérer.
 
 L’exemple suivant montre comment instancier un `ServiceBusRestProxy` et appeler `ServiceBusRestProxy->createTopic` pour créer une rubrique nommée `mytopic` dans un espace de noms `MySBNamespace` :
 

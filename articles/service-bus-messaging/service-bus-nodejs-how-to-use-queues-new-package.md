@@ -1,6 +1,6 @@
 ---
-title: 'Démarrage rapide : Guide pratique pour utiliser des files d’attente azure/service-bus dans Node.js'
-description: 'Démarrage rapide : Découvrez comment utiliser les files d’attente Service Bus dans Azure à partir d’une application Node.js à l’aide du package azure/service-bus.'
+title: Guide pratique pour utiliser des files d’attente azure/service-bus dans Node.js
+description: Découvrez comment écrire un programme Nodejs pour envoyer et recevoir des messages à partir d’une file d’attente Service Bus en utilisant le nouveau package @azure/service-bus.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 9901ccd6bb1abf27bb1141c618d0bfde167b9cc3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9db359d8331859e3eebf345d91fe5dc6e66c0d4c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721683"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774586"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>Démarrage rapide : Comment utiliser les files d’attente Service Bus avec Node.js et le package azure/service-bus
 > [!div class="op_multi_selector" title1="Langage de programmation" title2="Package Node.js"]
@@ -27,9 +27,9 @@ ms.locfileid: "73721683"
 
 Dans ce tutoriel, vous allez apprendre à écrire un programme Nodejs pour envoyer et recevoir des messages à partir d’une file d’attente Service Bus en utilisant le nouveau package [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Ce package utilise le protocole [AMQP 1.0](service-bus-amqp-overview.md) plus rapide, alors que l’ancien package [azure-sb](https://www.npmjs.com/package/azure-sb) utilisait des [API d’exécution REST Service Bus](/rest/api/servicebus/service-bus-runtime-rest). Les exemples sont écrits en JavaScript.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 - Un abonnement Azure. Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Vous pouvez [activer les avantages de votre abonnement MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) ou [vous inscrire pour un compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
-- Si vous n’avez pas de file d’attente avec laquelle travailler, suivez les étapes de l’article [Utiliser le Portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente. Notez la chaîne de connexion pour votre instance Service Bus et le nom de la file d’attente que vous avez créée. Nous allons utiliser ces valeurs dans les exemples.
+- Si vous n’avez pas de file d’attente à utiliser, suivez les étapes de l’article [Utiliser le portail Azure pour créer une file d’attente Service Bus](service-bus-quickstart-portal.md) pour créer une file d’attente. Notez la chaîne de connexion pour votre instance Service Bus et le nom de la file d’attente que vous avez créée. Nous allons utiliser ces valeurs dans les exemples.
 
 > [!NOTE]
 > - Ce didacticiel utilise des exemples que vous pouvez copier et exécuter à l’aide de [Nodejs](https://nodejs.org/). Pour obtenir des instructions sur la création d’une application Node.js, veuillez consulter les pages [Création et déploiement d’une application Node.js sur un site web Azure](../app-service/app-service-web-get-started-nodejs.md) ou [Service cloud Node.js avec Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).

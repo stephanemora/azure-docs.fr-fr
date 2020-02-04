@@ -1,180 +1,303 @@
 ---
 title: Créer une fonction Python déclenchée par HTTP dans Azure
-description: Découvrez comment créer votre première fonction Python dans Azure à l’aide d’Azure CLI et d’Azure Functions Core Tools.
-ms.date: 11/07/2019
+description: Créez et déployez du code Python serverless dans le cloud à l’aide d’Azure Functions.
+ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 3de8c42c59455cc326fa909bc520a94daac68706
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 452c5aeab5d2a1092cb7d338d37e26a82d92396e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769334"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845496"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Démarrage rapide : Créer une fonction Python déclenchée par HTTP dans Azure
 
-Cet article explique comment utiliser des outils en ligne de commande pour créer un projet Python s’exécutant dans Azure Functions. Vous créez également une fonction qui est déclenchée par une requête HTTP. Après une exécution locale, vous publiez votre projet de sorte qu’il s’exécute en tant que [fonction serverless](functions-scale.md#consumption-plan) dans Azure. 
-
-Cet article est le premier de deux guides de démarrage rapide Python pour Azure Functions. Après avoir terminé ce guide de démarrage rapide, vous pouvez [ajouter une liaison de sortie de file d’attente de Stockage Azure](functions-add-output-binding-storage-queue-python.md) à votre fonction.
+Dans cet article, vous utilisez des outils en ligne de commande pour créer une fonction Python qui répond à des requêtes HTTP. Après avoir testé le code localement, vous le déployez dans l’environnement serverless d’Azure Functions. Le fait de suivre ce guide de démarrage rapide entraîne une faible dépense de quelques cents USD tout au plus dans votre compte Azure.
 
 Si vous souhaitez consulter une version de cet article adaptée à Visual Studio Code, [cliquez ici](/azure/python/tutorial-vs-code-serverless-python-01).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de commencer, vous devez :
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 ou ultérieure.
+- [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 ou ultérieure. 
+- [Python 3.7.4 - 64 bits](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 est pris en charge par Azure Functions ; Python 3.8 et les versions ultérieures ne sont pas encore prises en charge.)
 
-+ installer [Python 3.7.4](https://www.python.org/downloads/). Cette version de Python est vérifiée avec Functions. Les versions 3.8 et ultérieures ne sont pas encore prises en charge ;
+### <a name="prerequisite-check"></a>Vérification du prérequis
 
-+ installer [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.7.1846 ou une version ultérieure ;
-
-+ installer [Azure CLI](/cli/azure/install-azure-cli) version 2.0.76 ou une version ultérieure ;
-
-+ Avoir un abonnement Azure actif.
-
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+1. Dans une fenêtre de terminal ou une fenêtre Commande, exécutez `func --version` pour vérifier que vous disposez d’Azure Functions Core Tools version 2.7.1846 ou ultérieure.
+1. Exécutez `az --version` pour vérifier que vous disposez d’Azure CLI version 2.0.76 ou ultérieure.
+1. Exécutez `az login` pour vous connecter à Azure et vérifier que l’abonnement est actif.
+1. Exécutez `python --version` (Linux/macOS) ou `py --version` (Windows) pour vérifier que vous disposez de Python version 3.7.x.
 
 ## <a name="create-and-activate-a-virtual-environment"></a>Créer et activer un environnement virtuel
 
-Vous devez utiliser un environnement Python 3.7 pour développer localement des fonctions Python. Exécutez les commandes suivantes pour créer et activer un environnement virtuel nommé `.venv`.
+Dans le dossier approprié, exécutez les commandes suivantes pour créer et activer un environnement virtuel nommé `.venv`. Veillez à utiliser Python 3.7, qui est pris en charge par Azure Functions.
 
-> [!NOTE]
-> Si Python n’a pas installé venv sur votre distribution Linux, vous pouvez l’installer à l’aide de la commande suivante :
-> ```command
-> sudo apt-get install python3-venv
 
-### <a name="bash"></a>Bash :
+# <a name="bashtabbash"></a>[bash](#tab/bash)
 
 ```bash
 python -m venv .venv
+```
+
+```bash
 source .venv/bin/activate
 ```
 
-### <a name="powershell-or-a-windows-command-prompt"></a>PowerShell ou une invite de commandes Windows :
+Si Python n’a pas installé le package venv sur votre distribution Linux, exécutez la commande suivante :
+
+```bash
+sudo apt-get install python3-venv
+```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
+```
+
+```powershell
 .venv\scripts\activate
 ```
 
-Maintenant que vous avez activé l’environnement virtuel, exécutez-y les commandes restantes. Pour sortir de l’environnement virtuel, exécutez `deactivate`.
+# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
 
-## <a name="create-a-local-functions-project"></a>Créer un projet de fonctions local
-
-Un projet de fonctions peut contenir plusieurs fonctions qui partagent les mêmes configurations locale et d’hébergement.
-
-Dans l’environnement virtuel, exécutez les commandes suivantes :
-
-```console
-func init MyFunctionProj --python
-cd MyFunctionProj
+```cmd
+py -m venv .venv
 ```
 
-La commande `func init` crée un dossier _MyFunctionProj_. Le projet Python dans ce dossier n’a pas encore de fonctions. Vous les ajouterez plus tard.
-
-## <a name="create-a-function"></a>Créer une fonction
-
-Pour ajouter une fonction à votre projet, exécutez la commande suivante :
-
-```console
-func new --name HttpTrigger --template "HTTP trigger"
+```cmd
+.venv\scripts\activate
 ```
 
-Cette commande crée un sous-dossier nommé _HttpTrigger_, qui contient les fichiers suivants :
+---
 
-* *function.JSON* : fichier de configuration qui définit la fonction, le déclencheur et d’autres liaisons. Notez que dans ce fichier, la valeur de `scriptFile` pointe sur le fichier contenant la fonction et que le tableau `bindings` définit le déclencheur d’invocation et les liaisons.
+Vous devez exécuter toutes les commandes suivantes dans cet environnement virtuel activé. (Pour quitter l’environnement virtuel, exécutez `deactivate`.)
 
-    Chaque liaison requiert une direction, un type et un nom unique. Le déclencheur HTTP comporte une liaison d’entrée de type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) et une liaison de sortie de type [`http`](functions-bindings-http-webhook.md#output).
+## <a name="create-a-local-function-project"></a>Créer un projet de fonction local
 
-* *\_\_init\_\_.py* : fichier de script qui est votre fonction déclenchée via HTTP. Notez que ce script a une valeur `main()` par défaut. Les données HTTP du déclencheur sont passées à la fonction à l’aide du `req` nommé `binding parameter`. `req`, qui est défini dans function.json, est une instance de la [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). 
+Dans Azure Functions, un projet de fonction est un conteneur pour une ou plusieurs fonctions qui répondent chacune à un déclencheur spécifique. Toutes les fonctions d’un projet partagent les mêmes configurations locale et d’hébergement. Dans cette section, vous créez un projet de fonction qui contient une seule fonction.
 
-    L’objet retourné, défini comme `$return` dans *function.json*, est une instance de la [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](functions-bindings-http-webhook.md).
+1. Dans l’environnement virtuel, exécutez la commande `func init` pour créer un projet Functions dans un dossier nommé *LocalFunctionProj* avec le runtime spécifié :
 
-Vous pouvez maintenant exécuter la nouvelle fonction sur votre ordinateur local.
+    ```
+    func init LocalFunctionProj --python
+    ```
+    
+    Ce dossier contient divers fichiers pour le projet, notamment des fichiers config nommés [local.settings.json](functions-run-local.md#local-settings-file) et [host.json](functions-host-json.md). Dans la mesure où *local.settings.json* peut contenir des secrets téléchargés à partir d’Azure, le fichier est exclu du contrôle de code source par défaut dans le fichier *.gitignore*.
+
+    > [!TIP]
+    > Dans la mesure où un projet de fonction est lié à un runtime spécifique, toutes les fonctions du projet doivent être écrites dans le même langage.
+
+1. Accédez au dossier du projet :
+
+    ```
+    cd LocalFunctionProj
+    ```
+    
+1. Ajoutez une fonction à votre projet à l’aide de la commande suivante, où l’argument `--name` est le nom unique de votre fonction, et l’argument `--template` spécifie le déclencheur de la fonction. `func new` crée un sous-dossier correspondant au nom de la fonction qui contient le fichier de code approprié au langage choisi pour le projet, et un fichier config nommé *function.json*.
+
+    ```
+    func new --name HttpExample --template "HTTP trigger"
+    ```
+
+### <a name="optional-examine-the-file-contents"></a>(Facultatif) Examiner le contenu du fichier
+
+Si vous le souhaitez, vous pouvez passer à [Exécuter la fonction localement](#run-the-function-locally) et examiner le contenu du fichier plus tard.
+
+### <a name="__init__py"></a>\_\_init\_\_.py
+
+*\_\_init\_\_.py* contient une fonction Python `main()`, qui se déclenche selon la configuration définie dans *function.json*.
+
+```python
+import logging
+
+import azure.functions as func
+
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+             "Please pass a name on the query string or in the request body",
+             status_code=400
+        )
+```
+
+Pour le déclencheur HTTP, la fonction reçoit les données de requête dans la variable `req`, tel que cela est défini dans *function.json*. `req` est une instance de la [classe azure.functions.HttpRequest](/python/api/azure-functions/azure.functions.httprequest). L’objet retourné, défini comme `$return` dans *function.json*, est une instance de la [classe azure.functions.HttpResponse](/python/api/azure-functions/azure.functions.httpresponse). Pour en savoir plus, voir [Déclencheurs et liaisons HTTP Azure Functions](functions-bindings-http-webhook.md).
+
+### <a name="functionjson"></a>function.json
+
+*function.json* est un fichier config qui définit le `bindings` d’entrée et de sortie de la fonction, notamment le type du déclencheur. Vous pouvez changer `scriptFile` pour appeler un autre fichier Python, si vous le souhaitez.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    }
+  ]
+}
+```
+
+Chaque liaison nécessite une direction, un type et un nom unique. Le déclencheur HTTP comporte une liaison d’entrée de type [`httpTrigger`](functions-bindings-http-webhook.md#trigger) et une liaison de sortie de type [`http`](functions-bindings-http-webhook.md#output).
+
 
 ## <a name="run-the-function-locally"></a>Exécuter la fonction localement
 
-Cette commande démarre l’application de fonction à l’aide du runtime Azure Functions (func.exe) :
+Démarrez la fonction en démarrant l’hôte du runtime d’Azure Functions local dans le dossier *LocalFunctionProj* :
 
-```console
-func host start
+```
+func start
 ```
 
-Le résultat généré doit contenir les informations suivantes :
+La sortie suivante doit s’afficher. (Si HttpExample n’apparaît pas comme indiqué ci-dessous, cela signifie probablement que vous avez démarré l’hôte à partir du dossier *HttpExample*. Dans ce cas, utilisez **Ctrl**+**C** pour arrêter l’hôte, accédez au dossier *LocalFunctionProj* parent, puis réexécutez `func start`.)
 
 ```output
+Now listening on: http://0.0.0.0:7071
+Application started. Press Ctrl+C to shut down.
+
 Http Functions:
 
-        HttpTrigger: http://localhost:7071/api/HttpTrigger    
+        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
 ```
 
-Copiez l’URL de votre fonction `HttpTrigger` à comprise dans le résultat généré, puis collez-la dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande. La capture d’écran suivante montre la réponse à la requête GET que la fonction locale retourne au navigateur :
+Copiez dans un navigateur l’URL de votre fonction `HttpExample` à partir de cette sortie, puis ajoutez la chaîne de requête `?name=<your-name>` pour obtenir une URL complète semblable à `http://localhost:7071/api/HttpExample?name=Functions`. Le navigateur doit afficher un message similaire à `Hello Functions` :
 
-![Vérifier localement dans le navigateur](./media/functions-create-first-function-python/function-test-local-browser.png)
+![Résultat de la fonction exécutée localement dans le navigateur](./media/functions-create-first-function-python/function-test-local-browser.png)
 
-Utilisez Ctrl+C pour arrêter l’exécution de votre application de fonction.
+Le terminal dans lequel vous avez exécuté `func start` affiche également une sortie de journal quand vous effectuez des requêtes.
 
-Maintenant que vous avez exécuté votre fonction localement, vous pouvez déployer votre code de fonction dans Azure.  
-Avant de pouvoir déployer votre application, vous devez créer des ressources Azure.
+Quand vous êtes prêt, appuyez sur **Ctrl**+**C** pour arrêter l’hôte Functions.
 
-[!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
+## <a name="create-supporting-azure-resources-for-your-function"></a>Créer des ressources Azure de prise en charge pour votre fonction
 
-[!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
+Pour déployer votre code de fonction sur Azure, vous devez créer trois ressources :
 
-## <a name="create-a-function-app-in-azure"></a>Créer une application de fonction dans Azure
+- Un groupe de ressources, qui est un conteneur logique pour les ressources associées.
+- Un compte de stockage Azure, qui conserve l’état et d’autres informations spécifiques à vos projets.
+- Une application Azure Functions, qui fournit l’environnement d’exécution de votre code de fonction. Une application de fonction est mappée à votre projet de fonction local. Elle vous permet de regrouper les fonctions en tant qu’unité logique pour faciliter la gestion, le déploiement et le partage des ressources.
 
-Une application de fonction fournit un environnement pour l’exécution du code de votre fonction. Elle vous permet de regrouper les fonctions en une unité logique pour faciliter la gestion, le déploiement, la mise à l’échelle et le partage des ressources.
+Vous utilisez les commandes Azure CLI pour créer ces éléments. Chaque commande fournit une sortie JSON à la fin de son exécution.
 
-Exécutez la commande suivante : Remplacez `<APP_NAME>` par un nom d’application de fonction unique. Remplacez `<STORAGE_NAME>` par un nom de compte de stockage. `<APP_NAME>` représente également le domaine DNS par défaut pour l’application de fonction. Ce nom doit être unique parmi toutes les applications dans Azure.
+1. Si vous ne l’avez pas déjà fait, connectez-vous à Azure avec la commande [az login](/cli/azure/reference-index#az-login) :
 
-> [!NOTE]
-> Vous ne pouvez pas héberger des applications Linux et Windows dans le même groupe de ressources. Si vous disposez d’un groupe de ressources existant nommé `myResourceGroup` avec une application de fonction Windows ou une application web, vous devez utiliser un autre groupe de ressources.
+    ```azurecli
+    az login
+    ```
+    
+1. Créez un groupe de ressources avec la commande [az group create](/cli/azure/group#az-group-create). L’exemple suivant crée un groupe de ressources nommé `AzureFunctionsQuickstart-rg` dans la région `westeurope`. (Vous créez généralement votre groupe de ressources et vos ressources dans une région près de chez vous, en utilisant une région disponible à partir de la commande `az account list-locations`.)
 
-```azurecli-interactive
-az functionapp create --resource-group myResourceGroup --os-type Linux \
---consumption-plan-location westeurope  --runtime python --runtime-version 3.7 \
---name <APP_NAME> --storage-account  <STORAGE_NAME>
+    ```azurecli
+    az group create --name AzureFunctionsQuickstart-rg --location westeurope
+    ```
+    
+    > [!NOTE]
+    > Vous ne pouvez pas héberger des applications Linux et Windows dans le même groupe de ressources. Si vous disposez d’un groupe de ressources existant nommé `AzureFunctionsQuickstart-rg` avec une application de fonction Windows ou une application web, vous devez utiliser un autre groupe de ressources.
+    
+1. Créez un compte de stockage universel dans votre groupe de ressources et votre région à l’aide de la commande [az storage account create](/cli/azure/storage/account#az-storage-account-create). Dans l’exemple suivant, remplacez `<storage_name>` par le nom global unique qui vous convient. Les noms doivent contenir entre 3 et 24 caractères, et comporter uniquement des lettres minuscules. `Standard_LRS` spécifie un compte universel classique.
+
+    ```azurecli
+    az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsQuickstart-rg --sku Standard_LRS
+    ```
+    
+    Le compte de stockage n’engendre que quelques cents USD de dépense dans ce guide de démarrage rapide.
+    
+1. Créez l’application Functions à l’aide de la commande [az functionapp create](/cli/azure/functionapp#az-functionapp-create). Dans l’exemple suivant, remplacez `<storage_name>` par le nom du compte que vous avez utilisé à l’étape précédente, puis remplacez `<app_name>` par le nom global unique qui vous convient. `<app_name>` représente également le domaine DNS par défaut pour l’application de fonction.
+
+    ```azurecli
+    az functionapp create --resource-group AzureFunctionsQuickstart-rg --os-type Linux --consumption-plan-location westeurope --runtime python --name <app_name> --storage-account <storage_name>
+    ```
+    
+    Cette commande crée une application de fonction exécutant le runtime de langage spécifié dans le [Plan Consommation Azure Functions](functions-scale.md#consumption-plan), qui est gratuit pour l’utilisation faite ici. La commande provisionne également une instance d’Azure Application Insights associée dans le même groupe de ressources, avec laquelle vous pouvez superviser votre application de fonction et visualiser les journaux. Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md). L’instance n’entraîne aucun coût tant que vous ne l’activez pas.
+    
+## <a name="deploy-the-function-project-to-azure"></a>Déployer le projet de fonction sur Azure
+
+Une fois les ressources nécessaires en place, vous êtes prêt à déployer votre projet Functions local sur l’application de fonction dans Azure à l’aide de la commande [func azure functionapp publish](functions-run-local.md#project-file-deployment). Dans l’exemple suivant, remplacez `<app_name>` par le nom de votre application.
+
+```
+func azure functionapp publish <app_name>
 ```
 
-La commande précédente crée une application de fonction exécutant Python 3.7.4. Elle provisionne également une instance Azure Application Insights associée dans le même groupe de ressources. Vous pouvez utiliser cette instance pour superviser votre application de fonction et afficher les journaux. 
+Si vous voyez l’erreur « Impossible de localiser l’application nommée... », attendez quelques secondes, puis réessayez, car Azure n’a peut-être pas complètement initialisé l’application après la commande `az functionapp create` précédente.
 
-Vous êtes désormais prêt à publier votre projet de fonctions local sur l’application de fonction dans Azure.
-
-## <a name="deploy-the-function-app-project-to-azure"></a>Déployer le projet d’application de fonction sur Azure
-
-Après avoir créé l’application de fonction dans Azure, vous pouvez utiliser la commande Core Tools [func azure functionapp publish](functions-run-local.md#project-file-deployment) pour déployer votre code de projet sur Azure. Dans cet exemple, remplacez `<APP_NAME>` par le nom de votre application.
-
-```console
-func azure functionapp publish <APP_NAME>
-```
-
-Votre projet Python est généré à distance dans Azure à partir des fichiers du package de déploiement. 
-
-La sortie ressemble au message suivant. Elle est tronquée ici pour vous donner une meilleure lisibilité :
+La commande de publication affiche des résultats similaires à la sortie suivante (tronquée par souci de simplicité) :
 
 ```output
 Getting site publishing info...
+Creating archive for current directory...
+Performing remote build for functions project.
+
 ...
 
-Preparing archive...
-Uploading content...
-Upload completed successfully.
-Deployment completed successfully.
+Deployment successful.
+Remote build succeeded!
 Syncing triggers...
-Functions in myfunctionapp:
-    HttpTrigger - [httpTrigger]
-        Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
+Functions in msdocs-azurefunctions-qs:
+    HttpExample - [httpTrigger]
+        Invoke url: https://msdocs-azurefunctions-qs.azurewebsites.net/api/httpexample?code=KYHrydo4GFe9y0000000qRgRJ8NdLFKpkakGJQfC3izYVidzzDN4gQ==
 ```
 
-Vous pouvez copier la valeur `Invoke url` pour votre `HttpTrigger` et l’utiliser pour vérifier votre fonction dans Azure. L’URL contient une valeur de chaîne de requête `code` qui est votre clé de fonction. Cette dernière empêche les autres utilisateurs d’appeler le point de terminaison de votre déclencheur HTTP dans Azure.
+## <a name="invoke-the-function-on-azure"></a>Appeler la fonction sur Azure
 
-[!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+Dans la mesure où votre fonction utilise un déclencheur HTTP, vous l’appelez en adressant une requête HTTP à son URL dans le navigateur ou à l’aide d’un outil semblable à curl. Dans les deux cas, le paramètre d’URL `code` est votre clé de fonction unique qui autorise l’appel avec votre point de terminaison de fonction.
 
-> [!NOTE]
+# <a name="browsertabbrowser"></a>[Browser](#tab/browser)
+
+Copiez l’**URL d’appel** complète affichée au sein de la sortie de la commande de publication dans la barre d’adresse d’un navigateur, en ajoutant le paramètre de requête `&name=Azure`. Le navigateur doit afficher une sortie similaire à celle générée au moment de l’exécution locale de la fonction.
+
+![Sortie de la fonction exécutée sur Azure dans un navigateur](./media/functions-create-first-function-python/function-test-cloud-browser.png)
+
+
+# <a name="curltabcurl"></a>[curl](#tab/curl)
+
+Exécutez [curl](https://curl.haxx.se/) avec l’**URL d’appel**, en ajoutant le paramètre `&name=Azure`. La sortie de la commande doit correspondre au texte « Hello Azure ».
+
+![Sortie de la fonction exécutée sur Azure à l’aide de curl](./media/functions-create-first-function-python/function-test-cloud-curl.png)
+
+---
+
+> [!TIP]
 > Pour voir les journaux en quasi temps réel d’une application Python publiée, utilisez le [flux de métriques temps réel Application Insights](functions-monitoring.md#streaming-logs).
+
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+
+Si vous passez à l’étape suivante, [Ajouter une liaison de sortie de file d’attente Stockage Azure](functions-add-output-binding-storage-queue-python.md), gardez toutes vos ressources en place, car vous allez tirer parti de ce que vous avez déjà fait.
+
+Sinon, utilisez la commande suivante pour supprimer le groupe de ressources et toutes les ressources qu’il contient afin d’éviter les coûts supplémentaires.
+
+```azurecli
+az group delete --name AzureFunctionsQuickstart-rg
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Vous avez créé un projet de fonctions Python avec une fonction déclenchée via HTTP, l’avez exécuté sur votre ordinateur local et l’avez déployé sur Azure. À présent, étendez votre fonction en effectuant un...
-
 > [!div class="nextstepaction"]
-> [Ajout de liaison de sortie de file d’attente Stockage Azure](functions-add-output-binding-storage-queue-python.md)
+> [Ajouter une liaison de sortie de file d’attente Stockage Azure](functions-add-output-binding-storage-queue-python.md)

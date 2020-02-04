@@ -1,12 +1,12 @@
 ---
-title: 'Démarrage rapide : Créer un équilibreur de charge standard - Portail Azure'
+title: 'Démarrage rapide : Créer un équilibreur de charge public - Portail Azure'
 titleSuffix: Azure Load Balancer
-description: Ce guide de démarrage rapide vous montre comment créer un Standard Load Balancer avec le portail Azure.
+description: Ce guide de démarrage rapide vous montre comment créer un équilibreur de charge avec le portail Azure.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771459"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843869"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge standard pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge pour équilibrer la charge des machines virtuelles à l’aide du portail Azure
 
-L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Vous pouvez utiliser le portail Azure pour créer un équilibreur de charge qui équilibre la charge des machines virtuelles. Ce démarrage rapide vous montre comment équilibrer la charge des machines virtuelles à l’aide d’un équilibreur de charge standard.
+L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Vous pouvez utiliser le portail Azure pour créer un équilibreur de charge qui équilibre la charge des machines virtuelles. Ce guide de démarrage rapide vous montre comment équilibrer la charge des machines virtuelles à l’aide d’un équilibreur de charge public.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
@@ -32,9 +32,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
+## <a name="create-a-load-balancer"></a>Créer un équilibreur de charge
 
-Dans cette section, vous allez créer un équilibreur de charge standard qui équilibre la charge de machines virtuelles. Vous pouvez créer une instance publique ou interne de Standard Load Balancer. Standard Load Balancer prend en charge uniquement les adresses IP publiques standard. Les adresses IP publiques de base ne sont pas prises en charge. Lorsque vous créez une instance publique de Standard Load Balancer, vous devez également créer une nouvelle adresse IP publique standard configurée comme le front-end (nommée *LoadBalancerFrontend* par défaut) pour Standard Load Balancer. 
+Dans cette section, vous créez un équilibreur de charge qui équilibre la charge des machines virtuelles. Vous pouvez créer un équilibreur de charge public ou un équilibreur de charge interne. Lorsque vous créez un équilibreur de charge public, vous devez également créer une adresse IP publique configurée comme le front-end (nommée *LoadBalancerFrontend* par défaut) pour l’équilibreur de charge.
 
 1. Dans l’angle supérieur gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Load Balancer**.
 2. Sous l’onglet **De base** de la page **Créer un équilibreur de charge**, entrez ou sélectionnez les informations suivantes, acceptez les valeurs par défaut pour les autres paramètres, puis choisissez **Vérifier + créer** :
@@ -46,10 +46,11 @@ Dans cette section, vous allez créer un équilibreur de charge standard qui éq
     | Name                   | *myLoadBalancer*                                   |
     | Région         | Sélectionnez **Europe Ouest**.                                        |
     | Type          | Sélectionnez **Public**.                                        |
-    | SKU           | Sélectionnez **Standard**.                          |
-    | Adresse IP publique | Sélectionnez **Créer nouveau**. |
+    | SKU           | Sélectionnez **Standard** ou **De base**. Microsoft recommande de sélectionner Standard pour les charges de travail de production.  |
+    | Adresse IP publique | Sélectionnez **Créer nouveau**. Si vous avez une adresse IP publique existante que vous souhaitez utiliser, sélectionnez **Utiliser l’existant**. |
     | Nom de l’adresse IP publique              | Tapez *myPublicIP* dans la zone de texte.   |
-    |Zone de disponibilité| Sélectionnez **Redondant dans une zone**.    |
+    | Zone de disponibilité | Tapez *redondant interzone* pour créer un équilibreur de charge résilient. Pour créer un équilibreur de charge zonal, sélectionnez une zone spécifique parmi 1, 2 ou 3. |
+
 3. Sous l’onglet **Review + create (Vérifier + créer)** , sélectionnez **Créer**.   
 
     ![Créer un équilibreur de charge standard](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
@@ -58,7 +59,7 @@ Dans cette section, vous allez créer un équilibreur de charge standard qui éq
 
 Dans cette section, vous allez configurer des paramètres d’équilibreur de charge pour un pool d’adresses principal et une sonde d’intégrité, puis spécifier une règle d’équilibreur de charge.
 
-### <a name="create-a-backend-address-pool"></a>Créer un pool d’adresses principal
+### <a name="create-a-backend-pool"></a>Créer un pool back-end
 
 Pour distribuer le trafic aux machines virtuelles, un pool d’adresses principal contient les adresses IP des cartes d’interface réseau virtuelles connectées à l’équilibreur de charge. Créez le pool d’adresses principal *myBackendPool* afin d’inclure des machines virtuelles pour l’équilibrage de charge du trafic Internet.
 
@@ -122,7 +123,7 @@ Dans cette section, vous allez créer un réseau virtuel ainsi que trois machine
 1. Conservez les autres valeurs par défaut et sélectionnez **Créer**.
 
 ### <a name="create-virtual-machines"></a>Créer des machines virtuelles
-Le service Standard Load Balancer ne prend en charge que des machines virtuelles auxquelles sont associées des adresses IP standard dans le pool principal. Dans cette section, vous allez créer trois machines virtuelles (*myVM1*, *myVM2* et *myVM3*) avec une adresse IP publique standard dans trois zones différentes (*Zone 1*, *Zone 2* et *Zone 3*) qui sont ajoutées ultérieurement au pool principal de Standard Load Balancer créé précédemment.
+Les références SKU d’adresse IP publique et d’équilibreur de charge doivent correspondre. Pour Standard Load Balancer, utilisez des machines virtuelles auxquelles sont associées des adresses IP standard dans le pool back-end. Dans cette section, vous allez créer trois machines virtuelles (*myVM1*, *myVM2* et *myVM3*) avec une adresse IP publique standard dans trois zones différentes (*Zone 1*, *Zone 2* et *Zone 3*) qui sont ajoutées ultérieurement au pool back-end de l’équilibreur de charge créé précédemment. Si vous avez sélectionné De base, utilisez des machines virtuelles avec des adresses IP de base.
 
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Calcul** > **Windows Server 2019 Datacenter**. 
    
@@ -138,7 +139,7 @@ Le service Standard Load Balancer ne prend en charge que des machines virtuelles
 1. Dans l’onglet **Mise en réseau**, vérifiez que les points suivants sont sélectionnés :
    - **Réseau virtuel** : *MyVNet*
    - **Sous-réseau** : *MyBackendSubnet*
-   - **Adresse IP publique** > Sélectionnez **Créer**, puis, dans la fenêtre **Créer une adresse IP publique**, pour **Référence (SKU)** , sélectionnez **Standard**, et pour **Zone de disponibilité**, sélectionnez **Redondant interzone**, puis **OK**.
+   - **Adresse IP publique** > Sélectionnez **Créer**, puis, dans la fenêtre **Créer une adresse IP publique**, pour **Référence (SKU)** , sélectionnez **Standard**, et pour **Zone de disponibilité**, sélectionnez **Redondant interzone**, puis **OK**. Si vous avez créé un équilibreur de charge de base, sélectionnez De base. Microsoft recommande d’utiliser la référence SKU Standard pour les charges de travail de production.
    - Pour créer un groupe de sécurité réseau (NSG, un type de pare-feu), sous **Groupe de sécurité réseau**, sélectionnez **Avancé**. 
        1. Dans le champ **Configurer le groupe de sécurité réseau**, sélectionnez **Créer**. 
        1. Tapez *myNetworkSecurityGroup*, puis sélectionnez **OK**.
@@ -167,15 +168,20 @@ Dans cette section, vous créez une règle de groupe de sécurité réseau pour 
 1. Sélectionnez **Tous les services** dans le menu de gauche, sélectionnez **Toutes les ressources**, puis dans la liste de ressources, sélectionnez **myNetworkSecurityGroup** qui se trouve dans le groupe de ressources **myResourceGroupSLB**.
 2. Sous **Paramètres**, sélectionnez **Règles de sécurité de trafic entrant**, puis sélectionnez **Ajouter**.
 3. Entrez ces valeurs pour la règle de sécurité entrante nommée *myHTTPRule* afin d’autoriser les connexions HTTP entrantes à l’aide du port 80 :
-    - *Service Tag* : pour **Source**.
-    - *Internet* : pour **Balise de service source**
-    - *80* : pour **Plages de port de destination**
-    - *TCP* : pour **Protocole**
-    - *Allow* : pour **Action**
-    - *100* pour **Priorité**
-    - *myHTTPRule* pour le nom
-    - *Allow HTTP* pour la description
+    - **Source** : *Balise du service*
+    -  **Balise du service source** : *Internet*
+    - **Plages de ports de destination** : *80*
+    - **Protocole** : *TCP*
+    - **Action** : *Autoriser*
+    - **Priorité** : *100*
+    - **Nom** : *myHTTPRule* 
+    - **Description** : *Autoriser HTTP* 
 4. Sélectionnez **Ajouter**.
+5. Répétez ces étapes pour la règle RDP entrante, si besoin, avec les valeurs différentes suivantes :
+   - **Plages de ports de destination** : Entrez *3389*.
+   - **Priorité** : Entrez *200*. 
+   - **Name** : Entrez *MyRDPRule*. 
+   - **Description** : Entrez *Autoriser HTTP*. 
  
 ### <a name="install-iis"></a>Installer IIS
 
@@ -214,7 +220,6 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’éq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce démarrage rapide, vous avez créé un Standard Load Balancer, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé Load Balancer. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels qui lui sont consacrés.
+Dans ce démarrage rapide, vous avez créé un Standard Load Balancer, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé Load Balancer. Pour en savoir plus sur Azure Load Balancer, consultez les [tutoriels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Didacticiels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Découvrez-en plus sur les [équilibreurs de charge et les zones de disponibilité](load-balancer-standard-availability-zones.md).

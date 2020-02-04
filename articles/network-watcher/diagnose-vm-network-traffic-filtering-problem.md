@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Dans ce guide de démarrage rapide, vous allez apprendre à diagnostiquer un problème de filtre de trafic réseau sur une machine virtuelle à l’aide de la fonctionnalité de vérification de flux IP d’Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276008"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844919"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Démarrage rapide : diagnostiquer un problème de filtre de trafic réseau d’une machine virtuelle en utilisant le portail Azure
 
@@ -43,11 +42,11 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|myVm|
+    |Name|myVm|
     |Nom d'utilisateur| Entrez un nom d’utilisateur de votre choix.|
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Subscription| Sélectionnez votre abonnement.|
-    |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
+    |Resource group| Sélectionnez **Créer** et entrez **myResourceGroup**.|
     |Location| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
@@ -58,7 +57,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 
 Pour tester une communication réseau avec Network Watcher, commencez par activer un observateur réseau pour au moins une région Azure, puis utilisez la capacité de vérification de flux IP de Network Watcher.
 
-### <a name="enable-network-watcher"></a>Activer l’observateur réseau
+### <a name="enable-network-watcher"></a>Activer Network Watcher
 
 Si vous avez déjà un observateur réseau activé dans au moins une région, passez à l’étape [Utiliser la vérification du flux IP](#use-ip-flow-verify).
 
@@ -69,9 +68,9 @@ Si vous avez déjà un observateur réseau activé dans au moins une région, pa
 
 3. Sélectionnez **Activer Network Watcher**.
 
-### <a name="use-ip-flow-verify"></a>Utilisez la vérification des flux IP
+### <a name="use-ip-flow-verify"></a>Utiliser la vérification des flux IP
 
-Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau à destination et en provenance de la machine virtuelle, par défaut. Vous pouvez ultérieurement remplacer des valeurs de Azure par défaut, autoriser ou refuser d’autres types de trafic.
+Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic réseau à destination et en provenance de la machine virtuelle, par défaut. Vous pourrez ultérieurement remplacer des valeurs Azure par défaut, en autorisant ou en refusant d’autres types de trafic.
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la zone de *filtre* **Tous les services**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats, sélectionnez-la.
 2. Sélectionnez **Vérifier le flux IP**, sous **OUTILS DE DIAGNOSTIC RÉSEAU**.
@@ -83,7 +82,7 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
     | Machine virtuelle   | Sélectionner myVm                                                                                       |
     | interface réseau | myvm - le nom de l’interface réseau créée par le portail lorsque vous avez créé la machine virtuelle est différent. |
     | Protocol          | TCP                                                                                               |
-    | Direction         | Règle de trafic sortant                                                                                          |
+    | Sens         | Règle de trafic sortant                                                                                          |
     | Adresse IP locale  | 10.0.0.4                                                                                          |
     | Port local      | 60000                                                                                                |
     | Adresse IP distante | 13.107.21.200 : l’une des adresses de <www.bing.com>.                                             |
@@ -109,13 +108,13 @@ Lorsque vous créez une machine virtuelle, Azure autorise et refuse le trafic r�
 
     ![Préfixes de règle de sécurité](./media/diagnose-vm-network-traffic-filtering-problem/security-rule-prefixes.png)
 
-    L’n des préfixes de la liste est **12.0.0.0/6**, ce qui englobe la plage d’adresses IP 12.0.0.1-15.255.255.254. Étant donné que l’adresse 13.107.21.200 est comprise dans cette plage d’adresses, la règle **AllowInternetOutBound** autorise le trafic sortant. En outre, il n’y a aucune règle de priorité supérieure (numéro inférieur) indiquée dans l’image à l’étape 2, qui remplace cette règle. Fermez la zone **Préfixes d’adresse**. Pour refuser les communications sortantes vers 13.107.21.200, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui empêche la sortie du port 80 vers l’adresse IP.
+    L’un des préfixes de la liste est **12.0.0.0/6**, ce qui englobe la plage d’adresses IP 12.0.0.1-15.255.255.254. Étant donné que l’adresse 13.107.21.200 se trouve dans cette plage d’adresses, la règle **AllowInternetOutBound** autorise le trafic sortant. En outre, il n’y a aucune règle de priorité supérieure (numéro inférieur) indiquée dans l’image à l’étape 2, qui remplace cette règle. Fermez la zone **Préfixes d’adresse**. Pour refuser les communications sortantes vers 13.107.21.200, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui empêche la sortie du port 80 vers l’adresse IP.
 4. Lorsque vous avez exécuté la vérification de sortie vers l’adresse 172.131.0.100 à l’étape 4 de [Utiliser la vérification de flux IP](#use-ip-flow-verify), vous avez appris que la règle **DefaultOutboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllOutBound** indiquée dans l’image à l’étape 2 qui spécifie **0.0.0.0/0** comme **DESTINATION**. Cette règle refuse les communications sortantes vers l’adresse 172.131.0.100, car l’adresse ne se trouve pas dans le même **DESTINATION** que toutes les autres **règles de trafic sortant** indiquées dans l’image. Pour autoriser les communications sortantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic sortant vers le port 80 pour l’adresse 172.131.0.100.
 5. Lorsque vous avez exécuté la vérification d’entrée vers l’adresse 172.131.0.100 à l’étape 5 de [Utiliser la vérification de flux IP](#use-ip-flow-verify), vous avez appris que la règle **DefaultIntboundDenyAll** a refusé la communication. Cette règle équivaut à la règle **DenyAllInBound** indiquée dans l’image à l’étape 2. La règle **DenyAllInBound** est appliquée, car aucune autre règle de priorité plus élevée n’existe pour autoriser l’entrée par le port 80 vers la machine virtuelle à partir de l’adresse 172.31.0.100. Pour autoriser les communications entrantes, vous pouvez ajouter une règle de sécurité avec une priorité plus élevée, ce qui autorise le trafic entrant vers le port 80 à partir de l’adresse 172.31.0.100.
 
-Les contrôles dans ce démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
+Les vérifications de ce guide de démarrage rapide ont permis de tester la configuration Azure. Si les vérifications effectuées retournent les résultats attendus alors que vous rencontrez toujours des problèmes réseau, vérifiez qu’il n’y a aucun pare-feu entre votre machine virtuelle et le point de terminaison avec lequel vous communiquez, et que le système d’exploitation dans votre machine virtuelle n’a pas de pare-feu qui autorise ou refuse les communications.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand vous n’avez plus besoin du groupe de ressources, supprimez-le, ainsi que toutes les ressources qu’il contient :
 

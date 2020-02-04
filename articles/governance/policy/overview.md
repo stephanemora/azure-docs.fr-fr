@@ -3,12 +3,13 @@ title: Présentation de la stratégie Azure
 description: Azure Policy est un service dans Azure, que vous utilisez pour créer, affecter et gérer les définitions de stratégie dans votre environnement Azure.
 ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: a7cc5ebca74e249057d159334e4207a3efca37f5
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9babfd52071ed7d033761802f696c3b6021287af
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885464"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846046"
 ---
 # <a name="what-is-azure-policy"></a>Présentation d’Azure Policy
 
@@ -62,7 +63,7 @@ Pour plus d’informations sur les structures des définitions de stratégie, co
 
 ## <a name="policy-assignment"></a>Affectation de rôle
 
-Une affectation de stratégie est une définition de stratégie qui a été affectée avec une étendue spécifique. Cette étendue peut aller d’un [groupe d’administration](../management-groups/overview.md) à un groupe de ressources. Le terme *étendue* désigne l’ensemble des groupes de ressources, abonnements ou groupes d’administration auxquels la définition de stratégie est affectée. Toutes les ressources enfants héritent des affectations de stratégie. Grâce à cette structure, si une stratégie est appliquée à un groupe de ressources, elle est également appliquée à toutes les ressources de ce groupe de ressources. Toutefois, vous pouvez exclure une sous-étendue de l’affectation de stratégie.
+Une affectation de stratégie est une définition de stratégie qui a été affectée avec une étendue spécifique. Cette étendue peut aller d’un [groupe d’administration](../management-groups/overview.md) à une ressource individuelle. Le terme *étendue* désigne l’ensemble des ressources, groupes de ressources, abonnements ou groupes d’administration auxquels la définition de stratégie est affectée. Toutes les ressources enfants héritent des affectations de stratégie. Grâce à cette structure, si une stratégie est appliquée à un groupe de ressources, elle est également appliquée à toutes les ressources de ce groupe de ressources. Toutefois, vous pouvez exclure une sous-étendue de l’affectation de stratégie.
 
 Par exemple, dans l’étendue de l’abonnement, vous pouvez affecter une stratégie qui empêche la création de ressources réseau. Vous pouvez exclure un groupe de ressources au sein de cet abonnement qui est destiné à l’infrastructure réseau. Vous accordez ensuite l’accès à ce groupe de ressources réseau aux utilisateurs auxquels vous faites confiance avec la création des ressources réseau.
 
@@ -93,7 +94,7 @@ Dans cette initiative, vous avez par exemple des définitions de stratégie comm
 
 ## <a name="initiative-assignment"></a>Affectation d’initiative
 
-Comme une affectation de stratégie, une affectation d’initiative est une définition d’initiative affectée à une étendue spécifique. Les affectations d’initiative réduisent la nécessité de créer plusieurs définitions d’initiative pour chaque étendue. Cette étendue peut également aller d’un groupe d’administration à un groupe de ressources.
+Comme une affectation de stratégie, une affectation d’initiative est une définition d’initiative affectée à une étendue spécifique. Les affectations d’initiative réduisent la nécessité de créer plusieurs définitions d’initiative pour chaque étendue. Cette étendue peut aussi aller d’un groupe d’administration à une ressource individuelle.
 
 Chaque initiative est affectable à différentes étendues. Une initiative peut être affectée à **subscriptionA** et **subscriptionB**.
 
@@ -105,7 +106,7 @@ Par exemple, imaginons un scénario où vous avez une définition d’initiative
 
 | Stratégie | Nom de paramètre |Type de paramètre  |Remarque |
 |---|---|---|---|
-| policyA | allowedLocations | array  |Ce paramètre attend une liste de chaînes pour une valeur, le type de paramètre ayant été défini comme tableau |
+| policyA | allowedLocations | tableau  |Ce paramètre attend une liste de chaînes pour une valeur, le type de paramètre ayant été défini comme tableau |
 | policyB | allowedSingleLocation |string |Ce paramètre attend un mot pour une valeur, le type de paramètre ayant été défini comme chaîne |
 
 Dans ce scénario, quand vous définissez les paramètres d’initiative pour **initiativeC**, vous avec trois options :

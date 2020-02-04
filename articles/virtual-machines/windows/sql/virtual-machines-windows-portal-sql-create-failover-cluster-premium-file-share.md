@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965340"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772602"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server avec un partage de fichiers Premium sur des machines virtuelles Azure
 
@@ -77,13 +77,15 @@ Avant d’effectuer les étapes décrites dans cet article, vous devez déjà di
 
 - Un abonnement Microsoft Azure.
 - Un domaine Windows sur des machines virtuelles Azure.
-- Un compte qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
+- Un compte d’utilisateur qui dispose des autorisations nécessaires pour créer des objets sur les machines virtuelles Azure et dans Active Directory.
+- Un compte d’utilisateur de domaine pour exécuter le service SQL Server, avec lequel vous pouvez vous connecter à la machine virtuelle lors du montage du partage de fichiers.  
 - Un réseau virtuel Azure et un sous-réseau avec suffisamment d’espace d’adressage IP pour ces composants :
    - Deux machines virtuelles.
    - L’adresse IP du cluster de basculement.
    - Une adresse IP pour chaque instance de cluster de basculement.
 - Un DNS configuré sur le réseau Azure, pointant vers les contrôleurs de domaine.
-- Un [partage de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) basé sur le quota de stockage de votre base de données pour vos fichiers de données.
+- Un [partage de fichiers Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) à utiliser comme lecteur en cluster, en fonction du quota de stockage de votre base de données pour vos fichiers de données.
+- Si vous utilisez Windows Server 2012 R2 et versions antérieures, vous aurez besoin d’un autre partage de fichiers à utiliser comme témoin de partage de fichiers, car les témoins cloud sont pris en charge pour Windows 2016 et versions ultérieures. Vous pouvez utiliser un autre partage de fichiers Azure, ou un partage de fichiers sur une machine virtuelle distincte. Si vous envisagez d’utiliser un autre partage de fichiers Azure, vous pouvez le monter en suivant le même processus que pour le partage de fichiers Premium utilisé pour votre lecteur en cluster. 
 
 Une fois ces conditions préalables en place, vous pouvez commencer la création de votre cluster de basculement. La première étape consiste à créer les machines virtuelles.
 
@@ -180,7 +182,8 @@ Une fois que vous avez créé et configuré les machines virtuelles, vous pouvez
 1. Répétez ces étapes sur chaque machine virtuelle SQL Server qui fera partie du cluster.
 
   > [!IMPORTANT]
-  > Envisagez d’utiliser un partage de fichiers distinct pour les fichiers de sauvegarde pour préserver la capacité d’IOPS et d’espace de ce partage pour les fichiers de données et les fichiers journaux. Vous pouvez utiliser un partage de fichiers Premium ou Standard pour les fichiers de sauvegarde.
+  > - Envisagez d’utiliser un partage de fichiers distinct pour les fichiers de sauvegarde pour préserver la capacité d’IOPS et d’espace de ce partage pour les fichiers de données et les fichiers journaux. Vous pouvez utiliser un partage de fichiers Premium ou Standard pour les fichiers de sauvegarde.
+  > - Si vous utilisez Windows 2012 R2 ou versions antérieures, procédez de la même façon que pour monter votre partage de fichiers à utiliser comme témoin de partage de fichiers. 
 
 ## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Étape 3 : Configurer le cluster de basculement avec le partage de fichiers
 
@@ -189,7 +192,7 @@ L’étape suivante consiste à configurer le cluster de basculement. Au cours d
 1. Ajouter la fonctionnalité de clustering de basculement Windows Server.
 1. Valider le cluster.
 1. Créer le cluster de basculement.
-1. Créer le témoin cloud.
+1. Créez le témoin cloud (pour Windows Server 2016 et versions ultérieures) ou le témoin de partage de fichiers (pour Windows Server 2012 R2 et versions antérieures).
 
 
 ### <a name="add-windows-server-failover-clustering"></a>Ajouter le clustering de basculement Windows Server
@@ -263,9 +266,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness"></a>Créer un témoin cloud
+### <a name="create-a-cloud-witness-win-2016-"></a>Créer un témoin cloud (Win 2016 +)
 
-Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dans un Storage Blob Azure. Il n’est donc pas nécessaire de disposer d’une machine virtuelle distincte qui héberge un partage de fichiers témoin.
+Si vous utilisez Windows Server 2016 et versions ultérieures, vous devez créer un témoin cloud. Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dans un Storage Blob Azure. Cela élimine la nécessité d’avoir une machine virtuelle distincte qui héberge un partage témoin ou utilise un partage de fichiers distinct.
 
 1. [Créez un témoin cloud pour le cluster de basculement](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -273,7 +276,11 @@ Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dan
 
 1. Enregistrez les clés d’accès et l’URL du conteneur.
 
-1. Configurez le témoin de quorum du cluster de basculement. Consultez la section [Configurer le témoin de quorum dans l’interface utilisateur](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+### <a name="configure-quorum"></a>Configurer un quorum 
+
+Pour Windows Server 2016 et versions ultérieures, configurez le cluster pour utiliser le témoin cloud que vous venez de créer. Suivez toutes les étapes décrites dans [Configurer le témoin de quorum dans l’interface utilisateur](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+
+Pour Windows Server 2012 R2 et versions antérieures, suivez les étapes décrites dans [Configurer le témoin de quorum dans l’interface utilisateur](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) mais, dans la page **Sélectionner le témoin de quorum**, sélectionnez l’option **Configurer un témoin de partage de fichiers**. Spécifiez le partage de fichiers que vous avez alloué comme témoin de partage de fichiers, qu’il s’agisse d’un partage de fichiers que vous avez configuré sur une machine virtuelle distincte ou monté à partir d’Azure. 
 
 
 ## <a name="step-4-test-cluster-failover"></a>Étape 4 : Tester le basculement de cluster
@@ -296,7 +303,7 @@ Après avoir configuré le cluster de basculement, vous pouvez créer l’instan
 
 1. Sélectionnez **Installation d’un nouveau cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer l’instance de cluster de basculement SQL Server.
 
-   Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur le partage de fichiers Premium. Entrez le chemin d’accès complet du partage, sous la forme suivante : `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Un avertissement s’affiche, vous informant que vous avez spécifié un serveur de fichiers comme répertoire de données. Cet avertissement est attendu. Vérifiez que le compte avec lequel vous avez conservé le partage de fichiers est le même que celui utilisé par le service SQL Server afin d’éviter toute défaillance.
+   Les répertoires de données de l’instance de cluster de basculement doivent se trouver sur le partage de fichiers Premium. Entrez le chemin d’accès complet du partage, sous la forme suivante : `\\storageaccountname.file.core.windows.net\filesharename\foldername`. Un avertissement s’affiche, vous informant que vous avez spécifié un serveur de fichiers comme répertoire de données. Cet avertissement est attendu. Vérifiez que le compte d’utilisateur avec lequel vous avez accédé par RPD à la machine virtuelle lorsque vous avez conservé le partage de fichiers est celui que le service SQL Server utilise pour éviter d’éventuelles défaillances.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Utilisez le partage de fichiers en tant que répertoires de données SQL":::
 

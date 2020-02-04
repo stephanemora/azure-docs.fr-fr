@@ -7,19 +7,19 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: e03429ed3df5bd3518d5e5194bd842b9a4f290ba
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991492"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844652"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Qu'est-ce qu'Azure Event Grid sur Azure IoT Edge ?
-Event Grid sur IoT Edge fournit la puissance et la flexibilité d'Azure Event Grid en périphérie pour les scénarios de publication/abonnement et les scénarios orientés événements. Créez des rubriques, publiez des événements et abonnez-vous à différentes destinations, qu'il s'agisse de modules situés sur le même appareil, d'autres appareils de périmètre ou de services cloud.
+Event Grid sur IoT Edge apporte la puissance et la flexibilité d’Azure Event Grid à la périphérie. Créez des rubriques, publiez des événements et abonnez-vous à différentes destinations, qu'il s'agisse de modules situés sur le même appareil, d'autres appareils de périmètre ou de services cloud.
 
-Comme dans le cloud, le module Event Grid sur IoT Edge gère le routage, le filtrage et la fiabilité de la livraison des événements à grande échelle. Utilisez des filtres de chaîne, des filtres numériques et des filtres booléens avancés pour veiller à ce que seuls les événements pertinents soient envoyés aux différents gestionnaires d'événements. Grâce à la logique de nouvelle tentative, vous êtes certain que l'événement atteindra le module cible, l'appareil de périmètre ou le service cloud, même s'il n'est pas disponible au moment de la publication. Celle-ci vous permet de bénéficier du puissant mécanisme de stockage et de transfert que constitue Event Grid sur IoT Edge.
+Comme dans le cloud, le module Event Grid sur IoT Edge gère le routage, le filtrage et la fiabilité de la livraison des événements à grande échelle. Utilisez des filtres de chaîne, des filtres numériques et des filtres booléens avancés pour veiller à ce que seuls les événements pertinents soient envoyés aux différents gestionnaires d'événements. Grâce à la logique de nouvelle tentative, vous êtes certain que l’événement atteindra la destination cible, même s’il n’est pas disponible au moment de la publication. Celle-ci vous permet de bénéficier du puissant mécanisme de stockage et de transfert que constitue Event Grid sur IoT Edge.
 
-Event Grid sur IoT Edge prend à la fois en charge CloudEvents v1.0 et les schémas d'événements personnalisés. Il prend également en charge la même sémantique de publication et d'abonnement qu'Event Grid dans le cloud pour faciliter l'interopérabilité avec Azure et des tiers.
+Event Grid sur IoT Edge prend à la fois en charge CloudEvents v1.0 et les schémas d'événements personnalisés. Il prend également en charge la même sémantique Pub/Sub qu’Event Grid dans le cloud pour faciliter l’interopérabilité.
 
 Cet article fournit une vue d'ensemble d'Azure Event Grid sur IoT Edge. Pour obtenir des instructions pas à pas sur l'utilisation de ce module en périphérie, consultez [Publier, s'abonner à des événements localement](pub-sub-events-webhook-local.md). 
 
@@ -29,7 +29,7 @@ Cette image illustre quelques-unes des utilisations d'Event Grid sur IoT Edge. I
 
 ## <a name="when-to-use-event-grid-on-iot-edge"></a>Quand utiliser Event Grid sur IoT Edge ?
 
-Event Grid sur IoT Edge est conçu pour fournir un modèle d'événement uniforme, facile à utiliser et fiable afin de créer des architectures orientées événements entre la périphérie et le cloud.
+Event Grid sur IoT Edge fournit un modèle de création d’événements fiable et facile à utiliser entre la périphérie et le cloud.
 
 Event Grid sur IoT Edge repose sur une surface d'exposition symétrique par rapport au service cloud Azure. Vous pouvez donc utiliser les mêmes événements et les mêmes appels d'API partout où vous en avez besoin. Quel que soit votre scénario de publication/abonnement (dans le cloud, en périphérie ou entre les deux), Event Grid sur IoT Edge peut désormais constituer votre unique solution.
 
@@ -55,8 +55,12 @@ Event Grid sur IoT Edge est conçu pour vous permettre d'envoyer des événement
 
 * Autres modules, comme IoT Hub, les fonctions et les modules personnalisés
 * Autres appareils de périmètre
-* Services hébergés dans le cloud, comme Azure Event Grid et Azure Functions
-* Webhooks
+* WebHooks
+* Service cloud Azure Event Grid
+* Event Hubs
+* Files d'attente Service Bus
+* Rubriques de Service Bus
+* Files d’attente de stockage
 
 ## <a name="supported-environments"></a>Environnements pris en charge
 Les environnements actuellement pris en charge sont les suivants : Windows 64 bits, Linux 64 bits et ARM 32 bits.

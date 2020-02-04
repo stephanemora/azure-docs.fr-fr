@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Modérer le contenu Facebook - Content Moderator'
+title: 'Tutoriel : Modérer le contenu Facebook - Content Moderator'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez apprendre à utiliser le service Content Moderator, basé sur l’apprentissage automatique, pour faciliter la modération des posts et commentaires Facebook.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936007"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774281"
 ---
-# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Didacticiel : Modérer les publications et commandes Facebook avec Azure Content Moderator
+# <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Tutoriel : Modérer les publications et commandes Facebook avec Azure Content Moderator
 
 Dans ce tutoriel, vous allez apprendre à utiliser Azure Content Moderator, pour faciliter la modération des publications et commentaires sur une page Facebook. Facebook enverra le contenu publié par les visiteurs au service Content Moderator. Vos flux de travail Content Moderator publient le contenu ou créent des révisions dans l’outil de révision selon les scores et les seuils de contenu. Consultez la [vidéo de démonstration du build 2017](https://channel9.msdn.com/Events/Build/2017/T6033) pour obtenir un exemple de ce scénario.
 
@@ -35,9 +35,9 @@ Ce diagramme illustre chaque composant du scénario :
 ![Diagramme de Content Moderator recevant des informations de Facebook via « FBListener » et envoyant des informations via « CMListener ».](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> En 2018, Facebook mis en place un contrôle plus strict des applications Facebook. Vous ne pourrez suivre ce tutoriel que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
+> En 2018, Facebook a implémenté une politique de filtrage plus stricte pour les applications Facebook. Vous ne pourrez suivre ce tutoriel que si votre application a été examinée et approuvée par l’équipe de révision de Facebook.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Une clé d’abonnement Content Moderator. Suivez les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service Content Moderator et obtenir votre clé.
 - Un [compte Facebook](https://www.facebook.com/).

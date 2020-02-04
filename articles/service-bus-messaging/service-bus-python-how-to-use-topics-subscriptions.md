@@ -1,10 +1,9 @@
 ---
 title: 'Démarrage rapide : Utiliser des rubriques et abonnements Azure Service Bus avec Python'
-description: Découvrez comment utiliser les rubriques et abonnements Service Bus Azure depuis Python.
+description: Cet article explique comment créer une rubrique Azure Service Bus, créer un abonnement, envoyer des messages à une rubrique et recevoir des messages d’un abonnement.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 94a49b31139947c6323ab391b78ecd03ee911e0a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748492"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774544"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Démarrage rapide : Utiliser des rubriques et des abonnements Service Bus avec Python
 
@@ -33,14 +32,14 @@ Cet article explique comment utiliser Python avec des rubriques et des abonnemen
 - recevoir des messages d’abonnements
 - Suppression de rubriques et d'abonnements
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 - Un abonnement Azure. Vous pouvez activer les [avantages de votre abonnement Visual Studio ou MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) ou vous inscrire pour un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Un espace de noms Service Bus, créé en suivant les étapes décrites dans [Démarrage rapide : Utilisez le portail Azure pour créer une rubrique Service Bus et des abonnements](service-bus-quickstart-topics-subscriptions-portal.md). Copiez le nom de l’espace de noms, le nom de la clé d’accès partagé et la valeur de clé primaire à partir de l’écran **Stratégies d’accès partagé** à utiliser ultérieurement dans ce démarrage rapide. 
 - Python 3.4x ou version ultérieure, avec le package du [kit de développement logiciel (SDK) Azure Python][Azure Python package] installé. Pour plus d’informations, consultez le [Guide d’installation Python](/azure/python/python-sdk-azure-install).
 
 ## <a name="create-a-servicebusservice-object"></a>Créer un objet ServiceBusService
 
-Un objet **ServiceBusService** vous permet d’utiliser des rubriques et des abonnements à des rubriques. Pour accéder à Service Bus par programme, ajoutez la ligne suivante vers le début de chaque fichier Python :
+Un objet **ServiceBusService** vous permet d’utiliser des rubriques et des abonnements à des rubriques. Pour accéder à Service Bus par programme, ajoutez la ligne suivante vers le début de votre fichier Python :
 
 ```python
 from azure.servicebus.control_client import ServiceBusService, Message, Topic, Rule, DEFAULT_RULE_NAME
@@ -149,7 +148,7 @@ Le paramètre facultatif `peek_lock` de `receive_subscription_message` détermin
 
 Pour supprimer des messages de l’abonnement au fur et à mesure de leur lecture, vous pouvez définir le paramètre `peek_lock` sur **False**, comme dans l’exemple précédent. La suppression de messages dans le cadre de l’opération de réception est le modèle le plus simple et fonctionne correctement si l’application peut tolérer les messages manquants en cas de défaillance. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel l’application émet la requête de réception et subit un incident avant de la traiter. Si le message a été supprimé lors de la réception, lorsque l’application redémarre et recommence à consommer des messages, elle a manqué le message qu’elle a reçu avant l’incident.
 
-Si votre application ne peut pas tolérer les messages manqués, la réception devient une opération en deux étapes. PeekLock recherche le message suivant à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Une fois le message traité ou stockée, l’application accomplit la deuxième étape du processus de réception en appelant la méthode `complete` sur l’objet **Message**.  La méthode `complete` marque le message comme étant consommé et le supprime de l’abonnement.
+Si votre application ne peut pas tolérer les messages manqués, la réception devient une opération en deux étapes. PeekLock recherche le message suivant à consommer, le verrouille pour veiller à ce que d'autres consommateurs ne le reçoivent pas, puis le renvoie à l'application. Une fois le message traité ou stocké, l’application effectue la deuxième étape du processus de réception en appelant la méthode `complete` sur l’objet **Message**.  La méthode `complete` marque le message comme étant consommé et le supprime de l’abonnement.
 
 L’exemple suivant illustre un scénario Peek-Lock :
 
@@ -164,9 +163,9 @@ if msg.body is not None:
 
 Service Bus intègre des fonctionnalités destinées à faciliter la récupération à la suite d’erreurs survenues dans votre application ou de difficultés à traiter un message. Si une application réceptrice ne parvient pas à traiter le message, pour une raison quelconque, elle appelle la méthode `unlock` pour l’objet **Message**. Cela amène Service Bus à déverrouiller le message dans l’abonnement et à le rendre à nouveau disponible en réception, pour la même application consommatrice ou pour une autre.
 
-Il y a également un délai d’expiration pour les messages verrouillés au sein de l’abonnement. Si une application ne parvient pas à traiter un message avant l’expiration du dépassement de délai d'attente de verrou, par exemple, si l’application subit un incident, Service Bus déverrouille le message automatiquement et le rend à nouveau disponible en réception.
+Il y a également un délai d’expiration pour les messages verrouillés au sein de l’abonnement. Si une application ne parvient pas à traiter un message avant l’expiration du verrouillage, par exemple, si l’application se heurte à un incident, Service Bus déverrouille le message automatiquement et permet sa réception.
 
-Si l’application subit un incident après le traitement d’un message, mais avant l’appel de la méthode `complete`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce comportement est souvent appelé *Traitement au moins une fois*. Chaque message est traité au moins une fois, mais dans certaines situations, le même message peut être redistribué. Si votre scénario ne peut pas tolérer un traitement en double, vous pouvez utiliser la propriété **MessageId** du message, qui reste constante entre les tentatives de livraison, pour gérer la livraison des messages en double. 
+Si l’application subit un incident après le traitement d’un message, mais avant l’appel de la méthode `complete`, le message est à nouveau remis à l’application lorsqu’elle redémarre. Ce comportement est souvent appelé *Traitement une fois au minimum*. Chaque message est traité au moins une fois, mais dans certaines situations, le même message peut être redistribué. Si votre scénario ne peut pas tolérer un traitement en double, vous pouvez utiliser la propriété **MessageId** du message, qui reste constante entre les tentatives de remise, pour gérer la remise des messages en double. 
 
 ## <a name="delete-topics-and-subscriptions"></a>Suppression de rubriques et d'abonnements
 

@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982176"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844772"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Démarrage rapide : Acheminer des événements de stockage Blob vers un point de terminaison web avec le portail Azure
 
@@ -41,6 +41,9 @@ Une fois que vous avez fini, vous voyez que les données d’événement ont ét
 1. Pour s’abonner à des événements, créez un compte de stockage v2 à usage général ou un compte de stockage d’objets blob. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../storage/common/storage-account-create.md) .
 
    ![Étapes de démarrage](./media/blob-event-quickstart-portal/provide-blob-values.png)
+
+>[!NOTE]
+> Seuls les comptes de stockage de type **StorageV2 (v2 universel)** et **BlobStorage** prennent en charge l’intégration d’événements. Le type **Stockage (v1 universel)** ne prend *pas* en charge l’intégration à Event Grid.
 
 ## <a name="create-a-message-endpoint"></a>Créer un point de terminaison de message
 

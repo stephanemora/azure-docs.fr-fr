@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Créer un équilibreur de charge standard public - Azure CLI'
+title: 'Démarrage rapide : Créer un équilibreur de charge public - Azure CLI'
 titleSuffix: Azure Load Balancer
 description: Ce démarrage rapide montre comment créer un équilibreur de charge public à l’aide d’Azure CLI
 services: load-balancer
@@ -7,7 +7,7 @@ documentationcenter: na
 author: asudbring
 manager: twooley
 tags: azure-resource-manager
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: a8bcdd88-f94c-4537-8143-c710eaa86818
 ms.service: load-balancer
 ms.devlang: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 30f2fa7537ed481c25940a2ed67c99c58a7a80ed
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214794"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837202"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>Démarrage rapide : créer un Standard Load Balancer pour équilibrer la charge des machines virtuelles avec Azure CLI
 
-Ce démarrage rapide vous montre comment créer un équilibreur de charge standard. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Ubuntu, puis vous équilibrez la charge d’une application web entre les deux machines virtuelles.
+Ce guide de démarrage rapide vous montre comment créer un équilibreur de charge public. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Ubuntu, puis vous équilibrez la charge d’une application web entre les deux machines virtuelles.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -44,13 +44,21 @@ L’exemple suivant crée un groupe de ressources nommé *myResourceGroupSLB* à
     --location eastus
 ```
 
-## <a name="create-a-public-standard-ip-address"></a>Créer une adresse IP standard publique
+## <a name="create-a-public-ip-address"></a>Créer une adresse IP publique
 
-Pour accéder à votre application web sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. L’équilibreur de charge standard prend uniquement en charge des adresses IP publiques standard. Utilisez la commande [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) pour créer une adresse IP publique standard nommée *myPublicIP* dans *myResourceGroupSLB*.
+Pour accéder à votre application web sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Utilisez la commande [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) pour créer une adresse IP publique redondante interzone Standard nommée *myPublicIP* dans *myResourceGroupSLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard
 ```
+
+Pour créer une adresse IP publique zonale dans la zone 1, utilisez :
+
+```azurecli-interactive
+  az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
+```
+
+ Utilisez ```--sku basic``` pour créer une adresse IP publique de base. Ce type ne prend pas en charge les zones de disponibilité. Microsoft recommande de sélectionner la référence SKU Standard pour les charges de travail de production.
 
 ## <a name="create-azure-load-balancer"></a>Créer un équilibreur de charge Azure
 
@@ -62,7 +70,7 @@ Cette section explique en détail comment vous pouvez créer et configurer les c
 
 ### <a name="create-the-load-balancer"></a>Créer l’équilibreur de charge
 
-Créez un équilibreur de charge Azure public à l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) nommé **myLoadBalancer**, qui inclut un pool frontal nommé **myFrontEnd**, un pool principal nommé **myBackEndPool** qui est associé à l’adresse IP publique **myPublicIP** créée à l’étape précédente.
+Créez un équilibreur de charge Azure public à l’aide de la commande [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) nommé **myLoadBalancer**, qui inclut un pool frontal nommé **myFrontEnd**, un pool principal nommé **myBackEndPool** qui est associé à l’adresse IP publique **myPublicIP** créée à l’étape précédente. Utilisez ```--sku basic``` pour créer une adresse IP publique de base. Microsoft recommande de sélectionner la référence SKU Standard pour les charges de travail de production.
 
 ```azurecli-interactive
   az network lb create \
@@ -182,20 +190,11 @@ Créez trois interfaces réseau à l’aide de la commande [az network nic creat
 
 ```
 
-
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
 Dans cet exemple, vous créez trois machines virtuelles à utiliser en tant que serveurs principaux pour l’équilibreur de charge. Pour vérifier que l’équilibreur de charge a bien été créé, vous installez également NGINX sur les machines virtuelles.
 
-### <a name="create-an-availability-set"></a>Créer un groupe à haute disponibilité
-
-Créer un groupe à haute disponibilité à l’aide de la commande [az vm availability-set create](/cli/azure/network/nic)
-
- ```azurecli-interactive
-  az vm availability-set create \
-    --resource-group myResourceGroupSLB \
-    --name myAvailabilitySet
-```
+Si vous créez un équilibreur de charge de base avec une adresse IP publique de base, vous avez besoin de créer un groupe à haute disponibilité à l’aide de la commande [az vm availabilityset create](/cli/azure/network/nic) pour y ajouter vos machines virtuelles. Les équilibreurs de charge standard n’ont pas besoin de cette étape supplémentaire. Microsoft recommande l’utilisation du type Standard.
 
 ### <a name="create-three-virtual-machines"></a>Créer trois machines virtuelles
 
@@ -293,16 +292,14 @@ Pour obtenir l’adresse IP publique de l’équilibreur de charge, utilisez la 
 ``` 
    ![Tester l’équilibreur de charge](./media/load-balancer-standard-public-cli/running-nodejs-app.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [az group delete](/cli/azure/group#az-group-delete) pour supprimer le groupe de ressources, l’équilibreur de charge et toutes les ressources associées.
 
 ```azurecli-interactive 
   az group delete --name myResourceGroupSLB
 ```
-## <a name="next-step"></a>Étape suivante
-Dans ce démarrage rapide, vous avez créé un équilibreur de charge standard, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels qui lui sont consacrés.
+## <a name="next-steps"></a>Étapes suivantes
+Dans ce démarrage rapide, vous avez créé un Standard Load Balancer, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé Load Balancer. Pour en savoir plus sur Azure Load Balancer, consultez les [tutoriels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Didacticiels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-
+Découvrez-en plus sur les [équilibreurs de charge et les zones de disponibilité](load-balancer-standard-availability-zones.md).

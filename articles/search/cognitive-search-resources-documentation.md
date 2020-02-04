@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e73e69f90b1228154d7f209c54c6b52cc03d5eb4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466714"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837788"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Ressources de documentation pour l’enrichissement de l’IA dans la recherche cognitive Azure
 
@@ -23,9 +23,9 @@ Les articles suivants constituent la documentation complète de l’enrichisseme
 
 ## <a name="getting-started"></a>Prise en main
 + [Présentation de l’intelligence artificielle dans la Recherche cognitive Azure](cognitive-search-concept-intro.md)
-+ [Démarrage rapide : Créer un ensemble de compétences cognitives dans le Portail Azure](cognitive-search-quickstart-blob.md)
-+ [Tutoriel : Indexation enrichie avec l’IA](cognitive-search-tutorial-blob.md)
-+ [Exemple : Création d’une compétence personnalisée pour l’enrichissement de l’IA](cognitive-search-create-custom-skill-example.md)
++ [Démarrage rapide : Créer un ensemble de compétences cognitives dans le Portail Azure](cognitive-search-quickstart-blob.md)
++ [Tutoriel : Indexation enrichie avec l’IA](cognitive-search-tutorial-blob.md)
++ [Exemple : Création d’une compétence personnalisée pour l’enrichissement par l’IA](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>Guides pratiques
 + [Guide pratique pour définir un ensemble de compétences](cognitive-search-defining-skillset.md)
@@ -43,6 +43,7 @@ Les articles suivants constituent la documentation complète de l’enrichisseme
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)
@@ -58,12 +59,12 @@ Les articles suivants constituent la documentation complète de l’enrichisseme
 + [Compétences dépréciées](cognitive-search-skill-deprecated.md)
   + [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md)
 
-+ [API REST](https://docs.microsoft.com/rest/api/searchservice/)
++ [REST API](https://docs.microsoft.com/rest/api/searchservice/)
   + [Créer un ensemble de compétences (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
   + [Créer un indexeur (api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 ## <a name="see-also"></a>Voir aussi
 
-+ [API REST de la recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/)
-+ [Indexeurs dans la recherche cognitive Azure](search-indexer-overview.md)
++ [API REST Recherche cognitive Azure](https://docs.microsoft.com/rest/api/searchservice/)
++ [Indexeurs dans Recherche cognitive Azure](search-indexer-overview.md)
 + [Qu’est-ce que la recherche cognitive Azure ?](search-what-is-azure-search.md)

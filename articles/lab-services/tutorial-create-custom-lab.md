@@ -1,6 +1,6 @@
 ---
 title: Créer un laboratoire à l’aide de Azure DevTest Labs | Microsoft Docs
-description: Dans ce guide de démarrage rapide, vous créez un laboratoire à l’aide de Azure DevTest Labs.
+description: Dans ce tutoriel, vous créez un laboratoire dans Azure DevTest Labs à l’aide du portail Azure. Un administrateur de laboratoire définit un laboratoire, crée dans celui-ci des machines virtuelles et configure des stratégies.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804953"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759531"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutoriel : Configurer un laboratoire avec Azure DevTest Labs
-Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Tutoriel : Configurer un laboratoire avec Azure DevTest Labs
+Dans ce tutoriel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
@@ -36,8 +36,8 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="create-a-lab"></a>Création d’un laboratoire
 Les étapes suivantes montrent comment utiliser le portail Azure pour créer un laboratoire dans Azure DevTest Labs. 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans le menu principal sur le côté gauche, sélectionnez **Créer une ressource** (en haut de la liste), pointez sur **Outils de développement**, puis cliquez sur **Lab Services (préversion)**. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+2. Dans le menu principal sur le côté gauche, sélectionnez **Créer une ressource** (en haut de la liste), pointez sur **Outils de développement**, puis cliquez sur **Lab Services (préversion)** . 
 
     ![Menu Nouveau DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
 1. Dans la fenêtre **Créer un DevTest Lab**, effectuez les actions suivantes : 
@@ -45,7 +45,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
     2. Pour **Abonnement**, sélectionnez l’abonnement dans lequel vous souhaitez créer le laboratoire. 
     3. Pour **Groupe de ressources**, sélectionnez **Créer un nouveau** et entrez un nom pour le groupe de ressources. 
     4. Pour **Emplacement**, sélectionnez la région ou l’emplacement où créer le laboratoire. 
-    5. Sélectionnez **Créer**. 
+    5. Sélectionnez **Create** (Créer). 
     6. Sélectionnez **Épingler au tableau de bord**. Après avoir créé le laboratoire, il s’affiche dans le tableau de bord. 
 
         ![Création d’un laboratoire de DevTest Labs](./media/tutorial-create-custom-lab/create-custom-lab-blade.png)
@@ -97,8 +97,8 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 
         ![Ajouter un utilisateur](./media/tutorial-create-custom-lab/add-user.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendiquer et se connecter à une machine virtuelle dans le laboratoire. Si vous ne souhaitez pas suivre ce didacticiel, et pour nettoyer les ressources créées dans le cadre de ce didacticiel, procédez comme suit : 
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendiquer et se connecter à une machine virtuelle dans le laboratoire. Si vous ne souhaitez pas suivre ce tutoriel, et nettoyer les ressources créées dans le cadre de ce tutoriel, effectuez ces étapes : 
 
 1. Dans le portail Azure, sélectionnez **Groupes de ressources** dans le menu. 
 
@@ -110,8 +110,8 @@ Le didacticiel suivant montre comment un utilisateur de laboratoire peut revendi
 1. Répétez ces étapes pour supprimer le groupe de ressources supplémentaire créé pour vous, avec le nom `<your resource group name><random numbers>`. Par exemple : `splab3988722144001`. Les machines virtuelles sont créées dans ce groupe de ressources plutôt que dans le groupe de ressources au sein duquel se trouve le laboratoire. 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez créé un laboratoire avec une machine virtuelle et vous avez donné un accès utilisateur au laboratoire. Pour savoir comment accéder au laboratoire en tant qu’un utilisateur du laboratoire, passer au didacticiel suivant :
+Dans ce tutoriel, vous avez créé un laboratoire avec une machine virtuelle et vous avez donné un accès utilisateur au laboratoire. Pour savoir comment accéder au laboratoire en tant qu’un utilisateur du laboratoire, passer au tutoriel suivant :
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Accéder au laboratoire](tutorial-use-custom-lab.md)
+> [Tutoriel : Accéder au laboratoire](tutorial-use-custom-lab.md)
 

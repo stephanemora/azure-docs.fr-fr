@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167627"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712539"
 ---
 # <a name="what-is-identity-provisioning"></a>Qu’est-ce que le provisionnement d’identités ?
 
 Les entreprises et les organisations utilisent aujourd’hui de plus en plus souvent une combinaison d’applications locales et cloud.  Les utilisateurs doivent avoir accès aux applications localement et dans le cloud. Il est nécessaire d’avoir une identité unique pour ces différentes applications (localement et dans le cloud).
 
-Le provisionnement est le processus visant à créer un objet en fonction de certaines conditions, à le maintenir à jour et à le supprimer lorsque les conditions ne sont plus remplies. Par exemple, lorsqu’un nouvel utilisateur rejoint votre organisation, cet utilisateur est entré dans le système RH.  À ce stade, le provisionnement peut créer un compte d’utilisateur correspondant dans le cloud, dans Active Directory et dans différentes applications auxquelles l’utilisateur doit accéder.  Cela permet à l’utilisateur de commencer à travailler et d’accéder aux applications et systèmes dont il a besoin, dès le premier jour. 
+Le provisionnement est le processus qui vise à créer un objet en fonction de certaines conditions, à le maintenir à jour et à le supprimer quand les conditions ne sont plus remplies. Par exemple, lorsqu’un nouvel utilisateur rejoint votre organisation, cet utilisateur est entré dans le système RH.  À ce stade, le provisionnement peut créer un compte d’utilisateur correspondant dans le cloud, dans Active Directory et dans différentes applications auxquelles l’utilisateur doit accéder.  Cela permet à l’utilisateur de commencer à travailler et d’accéder aux applications et systèmes dont il a besoin, dès le premier jour. 
 
 ![provisionnement cloud](media/what-is-provisioning/cloud1.png)
 

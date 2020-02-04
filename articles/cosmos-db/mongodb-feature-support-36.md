@@ -4,15 +4,15 @@ description: Découvrez les fonctionnalités et la syntaxe prises en charge de l
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a48fb82402cd4719cb210ec2dab55b3a0f7883ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a32affab45ab99a89113644bb08c4f2b57d69018
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441635"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721011"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API Azure Cosmos DB pour MongoDB (version 3.6) : fonctionnalités et syntaxe prises en charge
 
@@ -22,11 +22,11 @@ Azure Cosmos DB est le service de base de données multi-modèle de Microsoft di
 
 ## <a name="protocol-support"></a>Prise en charge du protocole
 
-L’API Azure Cosmos DB pour MongoDB est compatible avec la version **3.6** du serveur MongoDB par défaut pour les nouveaux comptes. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB.
+L’API Azure Cosmos DB pour MongoDB est compatible avec la version **3.6** du serveur MongoDB par défaut pour les nouveaux comptes. Les opérateurs pris en charge, ainsi que les limitations ou exceptions sont répertoriés ci-dessous. Les pilotes clients comprenant ces protocoles doivent pouvoir se connecter à l’API Azure Cosmos DB pour MongoDB. Notez que lors de l’utilisation de l’API Azure Cosmos DB pour les comptes MongoDB, le point de terminaison de la version 3.6 des comptes est au format `*.mongo.cosmos.azure.com`, tandis que celui de la version 3.2 des comptes est au format `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Prise en charge du langage de requêtes
 
-L’API Azure Cosmos DB pour MongoDB permet la prise en charge complète des constructions de langage de requête MongoDB. Vous trouverez ci-dessous la liste détaillée des opérations prises en charge actuellement, les opérateurs, les étapes, les commandes et les options.
+L’API Azure Cosmos DB pour MongoDB permet la prise en charge complète des constructions de langage de requête MongoDB. Vous trouverez ci-dessous la liste détaillée des opérations, opérateurs, étapes, commandes et options actuellement pris en charge.
 
 ## <a name="database-commands"></a>Commandes de base de données
 
@@ -34,43 +34,77 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 ### <a name="query-and-write-operation-commands"></a>Commandes d’opérations de requête et d’écriture
 
-- delete
-- trouver
-- findAndModify
-- getLastError
-- getMore
-- insert
-- update
+|Commande  |Prise en charge |
+|---------|---------|
+|delete | Oui |
+|trouver | Oui     |
+|findAndModify | Oui  |
+|getLastError|   Oui |
+|getMore  |  Oui  |
+|getPrevError | Non  |
+|insert  |   Oui  |
+|parallelCollectionScan  | Oui   |
+|resetError |   Non  |
+|update  |   Oui  |
+|[Flux de modification](mongodb-change-streams.md)  |  Oui  |
+|GridFS |   Oui  |
 
 ### <a name="authentication-commands"></a>Commandes d’authentification
 
-- logout
-- authentifier
-- getnonce
+|Commande  |Prise en charge |
+|---------|---------|
+|authentifier    |   Oui      |
+|logout    |      Oui   |
+|getnonce   |    Oui     |
+
 
 ### <a name="administration-commands"></a>Commandes d’administration
 
-- dropDatabase
-- listDatabases
-- listCollections
-- drop
-- create
-- filemd5
-- createIndexes
-- listIndexes
-- dropIndexes
-- ConnectionStatus
-- reIndex
-- killCursors
+|Commande  |Prise en charge |
+|---------|---------|
+|Collections limitées   |   Non      |
+|cloneCollectionAsCapped     |   Non      |
+|collMod     |   Non      |
+|collMod : expireAfterSeconds   |   Non      |
+|convertToCapped   |  Non       |
+|copydb     |  Non       |
+|create   |    Oui     |
+|createIndexes     |  Oui       |
+|currentOp     |  Oui       |
+|drop     |   Oui      |
+|dropDatabase     |  Oui       |
+|dropIndexes     |   Oui      |
+|filemd5    |   Oui      |
+|killCursors    |  Oui       |
+|killOp     |   Non      |
+|listCollections     |  Oui       |
+|listDatabases     |  Oui       |
+|listIndexes     |  Oui       |
+|reIndex     |    Oui     |
+|renameCollection     |    Non     |
+|ConnectionStatus    |     Non    |
 
 ### <a name="diagnostics-commands"></a>Commandes de diagnostic
 
-- buildInfo
-- collStats
-- dbStats
-- hostInfo
-- listDatabases
-- whatsmyuri
+|Commande  |Prise en charge |
+|---------|---------|
+|buildInfo       |   Oui      |
+|collStats    |  Oui       |
+|connPoolStats     |  Non       |
+|ConnectionStatus     |  Non       |
+|dataSize     |   Non      |
+|dbHash    |    Non     |
+|dbStats     |   Oui      |
+|explain     | Non        |
+|explain : executionStats     |     Non    |
+|features     |    Non     |
+|hostInfo     |   Non      |
+|listDatabases       |   Oui      |
+|listCommands     |  Non       |
+|profiler     |  Non       |
+|serverStatus     |  Non       |
+|top     |    Non     |
+|whatsmyuri     |   Oui      |
 
 <a name="aggregation-pipeline"/>
 
@@ -78,252 +112,433 @@ L’API Azure Cosmos DB pour MongoDB prend en charge les commandes de base de do
 
 ### <a name="aggregation-commands"></a>Commandes d’agrégation
 
-- aggregate
-- count
-- distinct
+|Commande  |Prise en charge |
+|---------|---------|
+|aggregate |   Oui  |
+|count     |   Oui  |
+|distinct  | Oui |
+|mapReduce | Non |
 
 ### <a name="aggregation-stages"></a>Étapes d’agrégation
 
-- $project
-- $match
-- $limit
-- $skip
-- $unwind
-- $group
-- $sample
-- $sort
-- $lookup
-- $out
-- $count
-- $addFields
-- $redact
-- $replaceRoot
+|Commande  |Prise en charge |
+|---------|---------|
+|$collStats |Non|
+|$project   |Oui|
+|$match |Oui|
+|$redact|   Oui|
+|$limit |Oui|
+|$skip  |Oui|
+|$unwind|   Oui|
+|$group |   Oui|
+|$sample|       Oui|
+|$sort  |Oui|
+|$geoNear|  Non|
+|$lookup    |   Oui|
+|$out       |Oui|
+|$indexStats|       Non|
+|$facet |Non|
+|$bucket|   Non|
+|$bucketAuto|   Non|
+|$sortByCount|  Oui|
+|$addFields |Oui|
+|$replaceRoot|  Oui|
+|$count |Oui|
+|$currentOp|    Non|
+|$listLocalSessions |Non|
+|$listSessions  |Non|
+|$graphLookup   |Non|
 
-### <a name="aggregation-expressions"></a>Expressions d’agrégation
+### <a name="boolean-expressions"></a>Expressions booléennes
 
-#### <a name="boolean-expressions"></a>Expressions booléennes
+|Commande  |Prise en charge |
+|---------|---------|
+|$and| Oui|
+|$or|Oui|
+|$not|Oui|
 
-- $and
-- $or
-- $not
+### <a name="set-expressions"></a>Expressions SET
 
-#### <a name="set-expressions"></a>Expressions SET
+|Commande  |Prise en charge |
+|---------|---------|
+| $setEquals | Oui|
+|$setIntersection|Oui|
+| $setUnion|Oui|
+| $setDifference|Oui|
+| $setIsSubset|Oui|
+| $anyElementTrue|Oui|
+| $allElementsTrue|Oui|
 
-- $setEquals
-- $setIntersection
-- $setUnion
-- $setDifference
-- $setIsSubset
-- $anyElementTrue
-- $allElementsTrue
+### <a name="comparison-expressions"></a>Expressions de comparaison
 
-#### <a name="comparison-expressions"></a>Expressions de comparaison
+|Commande  |Prise en charge |
+|---------|---------|
+|$cmp     |  Oui       |
+|$eq|   Oui| 
+|$gt |  Oui| 
+|$gte|  Oui| 
+|$lt    |Oui|
+|$lte|  Oui| 
+|$ne    |   Oui| 
+|$in    |   Oui| 
+|$nin   |   Oui| 
 
-- $cmp
-- $eq
-- $gt
-- $gte
-- $lt
-- $lte
-- $ne
+### <a name="arithmetic-expressions"></a>Expressions arithmétiques
 
-#### <a name="arithmetic-expressions"></a>Expressions arithmétiques
+|Commande  |Prise en charge |
+|---------|---------|
+|$abs |  Oui       |
+| $add |  Oui       |
+| $ceil |  Oui       |
+| $divide |  Oui       |
+| $exp |  Oui       |
+| $floor |  Oui       |
+| $ln |  Oui       |
+| $log |  Oui       |
+| $log10 |  Oui       |
+| $mod |  Oui       |
+| $multiply |  Oui       |
+| $pow |  Oui       |
+| $sqrt |  Oui       |
+| $subtract |  Oui       |
+| $trunc |  Oui       |
 
-- $abs
-- $add
-- $ceil
-- $divide
-- $exp
-- $floor
-- $ln
-- $log
-- $log10
-- $mod
-- $multiply
-- $pow
-- $sqrt
-- $subtract
-- $trunc
+### <a name="string-expressions"></a>Expressions de chaîne
 
-#### <a name="string-expressions"></a>Expressions de chaîne
+|Commande  |Prise en charge |
+|---------|---------|
+|$concat |  Oui       |
+| $indexOfBytes|  Oui       |
+| $indexOfCP|  Oui       |
+| $split|  Oui       |
+| $strLenBytes|  Oui       |
+| $strLenCP|  Oui       |
+| $strcasecmp|  Oui       |
+| $substr|  Oui       |
+| $substrBytes|  Oui       |
+| $substrCP|  Oui       |
+| $toLower|  Oui       |
+| $toUpper|  Oui       |
 
-- $concat
-- $indexOfBytes
-- $indexOfCP
-- $split
-- $strLenBytes
-- $strLenCP
-- $strcasecmp
-- $substr
-- $substrBytes
-- $substrCP
-- $toLower
-- $toUpper
+### <a name="text-search-operator"></a>Opérateur de recherche de texte
 
-#### <a name="array-expressions"></a>Expressions de tableau
+|Commande  |Prise en charge |
+|---------|---------|
+| $meta | Non|
 
-- $arrayElemAt
-- $concatArrays
-- $filter
-- $indexOfArray
-- $isArray
-- $range
-- $reverseArray
-- $size
-- $slice
-- $in
+### <a name="array-expressions"></a>Expressions de tableau
 
-#### <a name="date-expressions"></a>Expressions de date
+|Commande  |Prise en charge |
+|---------|---------|
+|$arrayElemAt   |   Oui|
+|$arrayToObject|    Oui|
+|$concatArrays  |   Oui|
+|$filter    |   Oui|
+|$indexOfArray  |Oui|
+|$isArray   |   Oui|
+|$objectToArray |Oui|
+|$range |Oui|
+|$reverseArray  |   Oui|
+|$reduce|   Oui|
+|$size  |   Oui|
+|$slice |   Oui|
+|$zip   |   Oui|
+|$in    |   Oui|
 
-- $dayOfYear
-- $dayOfMonth
-- $dayOfWeek
-- $year
-- $month
-- $week
-- $hour
-- $minute
-- $second
-- $millisecond
-- $isoDayOfWeek
-- $isoWeek
+### <a name="variable-operators"></a>Opérateurs de variable
 
-#### <a name="conditional-expressions"></a>Expressions conditionnelles
+|Commande  |Prise en charge |
+|---------|---------|
+|$map   |Non|
+|$let   |Oui|
 
-- $cond
-- $ifNull
+### <a name="system-variables"></a>Variables système
 
-## <a name="aggregation-accumulators"></a>Accumulateurs d’agrégation
+|Commande  |Prise en charge |
+|---------|---------|
+|$$CURRENT| Oui|
+|$$DESCEND|     Oui|
+|$$KEEP     |Oui|
+|$$PRUNE    |   Oui|
+|$$REMOVE   |Oui|
+|$$ROOT     |Oui|
 
-Cosmos DB prend en charge tous les accumulateurs MongoDB version 3.6, à l’exception des suivants :
+### <a name="literal-operator"></a>Opérateur littéral
 
-- $stdDevPop
-- $stdDevSamp
+|Commande  |Prise en charge |
+|---------|---------|
+|$literal   |Oui|
+
+### <a name="date-expressions"></a>Expressions de date
+
+|Commande  |Prise en charge |
+|---------|---------|
+|$dayOfYear |Oui    |
+|$dayOfMonth|   Oui |
+|$dayOfWeek |Oui    |
+|$year  |Oui    |
+|$month |Oui|   
+|$week  |Oui    |
+|$hour  |Oui    |
+|$minute|   Oui|    
+|$second    |Oui    |
+|$millisecond|  Oui|    
+|$dateToString  |Oui    |
+|$isoDayOfWeek  |Oui    |
+|$isoWeek   |Oui    |
+|$dateFromParts|    Non| 
+|$dateToParts   |Non |
+|$dateFromString|   Non|
+|$isoWeekYear   |Oui    |
+
+### <a name="conditional-expressions"></a>Expressions conditionnelles
+
+|Commande  |Prise en charge |
+|---------|---------|
+| $cond| Oui|
+| $ifNull| Oui|
+| $switch |Oui|
+
+### <a name="data-type-operator"></a>Opérateur de type de données
+
+|Commande  |Prise en charge |
+|---------|---------|
+| $type| Oui|
+
+### <a name="accumulator-expressions"></a>Expressions d’accumulation
+
+|Commande  |Prise en charge |
+|---------|---------|
+|$sum   |Oui    |
+|$avg   |Oui    |
+|$first|    Oui|
+|$last  |Oui    |
+|$max   |Oui    |
+|$min   |Oui    |
+|$push| Oui|
+|$addToSet| Oui|
+|$stdDevPop|    Non  |
+|$stdDevSamp|   Non|
+
+### <a name="merge-operator"></a>Opérateur Merge
+
+|Commande  |Prise en charge |
+|---------|---------|
+| $mergeObjects | Oui|
+
+## <a name="data-types"></a>Types de données
+
+|Commande  |Prise en charge |
+|---------|---------|
+|Double |Oui    |
+|String |Oui    |
+|Object |Oui    |
+|Array  |Oui    |
+|Binary Data    |Oui|   
+|ObjectId   |Oui    |
+|Boolean    |Oui    |
+|Date   |Oui    |
+|Null   |Oui    |
+|Entier de 32 bits (int)   |Oui    |
+|Timestamp  |Oui    |
+|Entier de 64 bits (long)  |Oui    |
+|MinKey |Oui    |
+|MaxKey |Oui    |
+|Decimal128 |Oui|   
+|Expression régulière |Oui|
+|JavaScript |Oui|
+|JavaScript (avec étendue)|   Oui |
+|Indéfini  |Oui    |
+
+## <a name="indexes-and-index-properties"></a>Index et propriétés d’index
+
+### <a name="indexes"></a>Index
+
+|Commande  |Prise en charge |
+|---------|---------|
+|Index à champ unique |Oui    |
+|Index composé |Oui    |
+|Index à plusieurs clés |Oui    |
+|Index de texte |Non|
+|2dsphere   |Oui    |
+|Index 2D   |Non |
+|Index de hachage   | Oui|
+
+### <a name="index-properties"></a>Propriétés d’index
+
+|Commande  |Prise en charge |
+|---------|---------|
+|TTL|   Oui |
+|Unique |Oui|
+|Partiel|   Non|
+|Insensible à la casse   |Non|
+|Partiellement alloué |Non |
+|Arrière-plan|    Oui |
 
 ## <a name="operators"></a>Opérateurs
 
-Les opérateurs suivants sont pris en charge, voici des exemples correspondant à leur utilisation. L’exemple de document suivant est utilisé pour les requêtes ci-dessous :
+### <a name="logical-operators"></a>Opérateurs logiques
 
-```json
-{
-  "Volcano Name": "Rainier",
-  "Country": "United States",
-  "Region": "US-Washington",
-  "Location": {
-    "type": "Point",
-    "coordinates": [
-      -121.758,
-      46.87
-    ]
-  },
-  "Elevation": 4392,
-  "Type": "Stratovolcano",
-  "Status": "Dendrochronology",
-  "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-}
-```
+|Commande  |Prise en charge |
+|---------|---------|
+|$or    |   Oui|
+|$and   |   Oui|
+|$not   |   Oui|
+|$nor   |   Oui| 
 
-Opérateur | Exemple |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+### <a name="element-operators"></a>Opérateurs d’élément
 
-### <a name="notes"></a>Notes
+|Commande  |Prise en charge |
+|---------|---------|
+|$exists|   Oui|
+|$type  |   Oui|
+
+### <a name="evaluation-query-operators"></a>Opérateurs de requête d’évaluation
+
+|Commande  |Prise en charge |
+|---------|---------|
+|$expr  |   Non|
+|$jsonSchema    |   Non|
+|$mod   |   Oui|
+|$regex |   Oui|
+|$text  | Non (Non pris en charge. Utilisez plutôt $regex.)| 
+|$where |Non| 
 
 Dans les requêtes $regex, les expressions ancrées à gauche autorisent la recherche d’index. Toutefois, l’utilisation des modificateurs « i » (non sensible à la casse) et « m » (multiligne), provoquent l’analyse de la collection pour toutes les expressions.
-Lorsqu’il est nécessaire d’inclure « $ » ou « | », il est préférable de créer deux requêtes regex (ou plus).
-Par exemple, étant donné la requête d’origine suivante : ```find({x:{$regex: /^abc$/})```, elle doit être modifiée comme suit : ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-La première partie utilise l’index pour limiter la recherche aux documents commençant par ^abc et la deuxième partie correspond aux entrées exactes.
-L’opérateur à barre « | » agit comme une fonction « OR », la requête ```find({x:{$regex: /^abc|^def/})``` correspond aux documents dont le champ « x » comporte une valeur commençant par « abc » ou « def ». Pour utiliser l’index, il est recommandé de diviser la requête en deux requêtes différentes jointes par l’opérateur $or : ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+
+Lorsqu’il est nécessaire d’inclure « $ » ou « | », il est préférable de créer deux requêtes regex (ou plus). Par exemple, étant donné la requête d’origine suivante : ```find({x:{$regex: /^abc$/})```, elle doit être modifiée comme suit :
+
+```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+
+La première partie utilise l’index pour limiter la recherche aux documents commençant par ^abc et la deuxième partie correspond aux entrées exactes. L’opérateur à barre « | » agit comme une fonction « OR », la requête ```find({x:{$regex: /^abc|^def/})``` correspond aux documents dont le champ « x » comporte une valeur commençant par « abc » ou « def ». Pour utiliser l’index, il est recommandé de diviser la requête en deux requêtes différentes jointes par l’opérateur $or : ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+
+### <a name="array-operators"></a>Opérateurs de tableau
+
+|Commande  |Prise en charge | 
+|---------|---------|
+| $all | Oui| 
+| $elemMatch | Oui| 
+| $size | Oui | 
+
+### <a name="comment-operator"></a>Opérateur de commentaire
+
+|Commande  |Prise en charge | 
+|---------|---------|
+$comment |Oui| 
+
+### <a name="projection-operators"></a>Opérateurs de projection
+
+|Commande  |Prise en charge |
+|---------|---------|
+|$elemMatch |Oui|
+|$meta| Non|
+|$slice | Oui|
 
 ### <a name="update-operators"></a>Opérateurs de mise à jour
 
 #### <a name="field-update-operators"></a>Opérateurs de mise à jour de champ
 
-- $inc
-- $mul
-- $rename
-- $setOnInsert
-- $set
-- $unset
-- $min
-- $max
-- $currentDate
+|Commande  |Prise en charge |
+|---------|---------|
+|$inc   |   Oui|
+|$mul   |   Oui|
+|$rename    |   Oui|
+|$setOnInsert|  Oui|
+|$set   |Oui|
+|$unset| Oui|
+|$min   |Oui|
+|$max   |Oui|
+|$currentDate   | Oui|
 
 #### <a name="array-update-operators"></a>Opérateurs de mise à jour de tableau
 
-- $addToSet
-- $pop
-- $pullAll
-- $pull
-- $pushAll
-- $push
-- $each
-- $slice
-- $sort
-- $position
+|Commande  |Prise en charge |
+|---------|---------|
+|$  |Oui|
+|$[]|   Oui|
+|$[<identifier>]|   Oui|
+|$addToSet  |Oui|
+|$pop   |Oui|
+|$pullAll|  Oui|
+|$pull  |Oui|
+|$push  |Oui|
+|$pushAll| Oui|
+
+
+#### <a name="update-modifiers"></a>Modificateurs de mise à jour
+
+|Commande  |Prise en charge |
+|---------|---------|
+|$each  |   Oui|
+|$slice |Oui|
+|$sort  |Oui|
+|$position  |Oui|
 
 #### <a name="bitwise-update-operator"></a>Opérateur de mise à jour au niveau du bit
 
-- $bit
+|Commande  |Prise en charge |
+|---------|---------|
+| $bit  |   Oui|    
+|$bitsAllSet    |   Non|
+|$bitsAnySet    |   Non|
+|$bitsAllClear  |Non|
+|$bitsAnyClear  |Non|
 
 ### <a name="geospatial-operators"></a>Opérateurs géospatiaux
 
-Opérateur | Exemple | |
---- | --- | --- |
-$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Oui |
-$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Oui |
-$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Oui |
-$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Oui |
-$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Oui |
-$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Oui |
-$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Oui |
-$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | Oui |
-$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Oui |
-$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Oui |
-$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Oui |
+Opérateur | Prise en charge| 
+--- | --- |
+$geoWithin | Oui |
+$geoIntersects | Oui | 
+$near |  Oui |
+$nearSphere |  Oui |
+$geometry |  Oui |
+$minDistance | Oui |
+$maxDistance | Oui |
+$center | Oui |
+$centerSphere | Oui |
+$box | Oui |
+$polygon |  Oui |
 
-## <a name="sort-operations"></a>Trier les opérations
+## <a name="cursor-methods"></a>Méthodes Cursor
+
+|Commande  |Prise en charge |
+|---------|---------|
+|cursor.batchSize() |   Oui|
+|cursor.close() |Oui|
+|cursor.isClosed()|     Oui|
+|cursor.collation()|    Non|
+|cursor.comment()   |Oui|
+|cursor.count() |Oui|
+|cursor.explain()|  Non|
+|cursor.forEach()   |Oui|
+|cursor.hasNext()   |Oui|
+|cursor.hint()  |Oui|
+|cursor.isExhausted()|  Oui|
+|cursor.itcount()   |Oui|
+|cursor.limit() |Oui|
+|cursor.map()   |Oui|
+|cursor.maxScan()   |Oui|
+|cursor.maxTimeMS()|    Oui|
+|cursor.max()   |Oui|
+|cursor.min()   |Oui|
+|cursor.next()| Oui|
+|cursor.noCursorTimeout()   |Non|
+|cursor.objsLeftInBatch()   |Oui|
+|cursor.pretty()|   Oui|
+|cursor.readConcern()|  Oui|
+|cursor.readPref()      |Oui|
+|cursor.returnKey() |Non|
+|cursor.showRecordId()| Non|
+|cursor.size()  |Nes|
+|cursor.skip()  |Oui|
+|Cursor.Sort()  |   Oui|
+|cursor.tailable()| Non|
+|cursor.toArray()   |Oui|
+
+## <a name="sort-operations"></a>Opérations de tri
 
 Lorsque vous utilisez l’opération `findOneAndUpdate`, les opérations de tri sur un champ unique sont prises en charge, mais les opérations à effectuer sur plusieurs champs ne le sont pas.
-
-## <a name="additional-operators"></a>Opérateurs supplémentaires
-
-Opérateur | Exemple | Notes
---- | --- | --- |
-$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-$size | ```{ "Location.coordinates": { $size: 2 } }``` |
-$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
-$text |  | Non pris en charge. Utilisez plutôt $regex.
-
-## <a name="unsupported-operators"></a>Opérateurs non pris en charge
-
-Les opérateurs ```$where``` et ```$eval``` ne sont pas pris en charge par Azure Cosmos DB.
-
-### <a name="methods"></a>Méthodes
-
-Les méthodes suivantes sont prises en charge :
-
-#### <a name="cursor-methods"></a>Méthodes Cursor
-
-Méthode | Exemple | Notes
---- | --- | --- |
-Cursor.Sort() | ```cursor.sort({ "Elevation": -1 })``` | Les documents sans clé de tri ne sont pas retournées
 
 ## <a name="unique-indexes"></a>Index uniques
 
@@ -335,7 +550,7 @@ Cosmos DB prend en charge une durée de vie (TTL) en fonction du timestamp du do
 
 ## <a name="user-and-role-management"></a>Gestion des rôles et des utilisateurs
 
-Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles. Cosmos DB prend cependant en charge le contrôle d’accès en fonction du rôle (RBAC) et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus via le [Portail Azure](https://portal.azure.com) (page de la chaîne de connexion).
+Cosmos DB ne prend pas encore en charge les utilisateurs et les rôles. Cosmos DB prend cependant en charge le contrôle d’accès en fonction du rôle (RBAC) et les mots de passe/clés en lecture-écriture et en lecture seule, qui peuvent être obtenus par le biais du [portail Azure](https://portal.azure.com) (page de la chaîne de connexion).
 
 ## <a name="replication"></a>Réplication
 

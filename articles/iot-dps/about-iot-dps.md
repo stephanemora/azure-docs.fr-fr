@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: b28e09b2d304dc392442d98fe39654bab2c8d09c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f9ac3c85bcd8e50918961649bdb5739fc66f1627
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645053"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772943"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Approvisionner des appareils avec le service Azure IoT Hub Device Provisioning
 Microsoft Azure fournit un ensemble complet de services cloud publics intégrés qui répondent à tous les besoins de votre solution IoT. Le service IoT Hub Device Provisioning est un service d’assistance pour IoT Hub qui permet d’effectuer un approvisionnement sans contact juste-à-temps sur le hub IoT approprié, sans intervention humaine. Les clients peuvent ainsi approvisionner des millions d’appareils de façon sécurisée et scalable.
@@ -80,7 +80,7 @@ Le service Device Provisioning propose de nombreuses fonctionnalités qui le ren
 * **Liste d’inscriptions** contenant l’enregistrement complet des appareils/groupes d’appareils susceptibles d’être enregistrés à un moment donné. La liste d’inscriptions contient des informations sur la configuration souhaitée de l’appareil après son enregistrement et peut être mise à jour à tout moment.
 * **Plusieurs stratégies d’allocation** pour contrôler la façon dont le service Device Provisioning affecte des appareils aux hubs IoT en fonction de vos scénarios : Latence la plus faible, distribution uniformément pondérée (par défaut) et configuration statique par le biais de la liste d’inscriptions. Notez que la latence est déterminée selon la même méthode que celle utilisée par [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance).
 * **Monitoring et journalisation des diagnostics** pour vérifier que tout fonctionne correctement.
-* **Prise en charge multihub** qui permet au service Device Provisioning d’affecter des appareils à plusieurs hubs IoT. Le service Device Provisioning peut communiquer avec les hubs de plusieurs abonnements Azure.
+* **La prise en charge de plusieurs hubs** permet au service de provisionnement des appareils de lier tardivement des appareils à un hub IoT lors de l’exécution. Le service Device Provisioning peut communiquer avec les hubs de plusieurs abonnements Azure.
 * **Prise en charge entre régions** qui permet au service Device Provisioning d’affecter des appareils à des IoT Hubs d’autres régions.
 
 Vous trouverez d’autres d’informations sur les concepts et les fonctionnalités impliqués dans l’approvisionnement d’appareils dans les [concepts d’appareil](concepts-device.md), les [concepts de service](concepts-service.md) et les [concepts de sécurité](concepts-security.md).

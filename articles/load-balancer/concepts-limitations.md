@@ -9,17 +9,16 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer components and limitations and how it will affect my environment.
 ms.devlang: na
 ms.topic: overview
-ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263538"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757797"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Composants et limitations d’Azure Load Balancer
 Azure Load Balancer contient plusieurs composants clés qui servent à son fonctionnement.  Ces composants peuvent être configurés dans votre abonnement via le portail Azure, Azure CLI ou Azure PowerShell.  
@@ -58,7 +57,7 @@ L’équilibreur de charge De base ne prend pas en charge les règles de trafic 
 
 Load Balancer offre les fonctionnalités de base suivantes pour les applications TCP et UDP :
 
-* **Algorithme d’équilibrage de charge** : Azure Load Balancer permet de créer une règle pour distribuer le trafic arrivant sur un serveur front-end sur des instances de pool de back-ends. Load Balancer utilise un algorithme de hachage pour la distribution des flux entrants et réécrit les en-têtes des flux sur les instances de pool de back-ends. Un serveur est disponible pour recevoir les nouveaux flux quand une sonde d’intégrité indique un point de terminaison de serveur principal sain.
+* **Algorithme d’équilibrage de charge** : Azure Load Balancer permet de créer une règle pour distribuer le trafic arrivant sur un serveur front-end sur des instances de pool de back-ends. Load Balancer utilise un algorithme de hachage pour la distribution des flux entrants (pas des octets) et réécrit les en-têtes des flux sur les instances de pool de back-ends. Un serveur est disponible pour recevoir les nouveaux flux quand une sonde d’intégrité indique un point de terminaison de serveur principal sain.
 Par défaut, Load Balancer utilise un hachage à 5 tuples. 
 
    Le hachage comprend les éléments suivants : 
@@ -158,7 +157,7 @@ Un équilibreur de charge interne permet d’effectuer les types d’équilibrag
 
 ## <a name="skus"></a> Comparaison des références SKU de Load Balancer
 
-L’équilibreur de charge prend en charge les références SKU De base et Standard. Ces références SKU présentent des différences en termes d’échelle de scénario, de fonctionnalités et de tarifs. N’importe quel scénario possible avec la référence SKU De base de Load Balancer peut être créé avec la référence SKU Standard. Les API sont identiques pour ces deux références SKU et sont appelées en spécifiant une référence SKU. Les références SKU pour Load Balancer et les adresses IP publiques sont prises en charge à partir de la version d’API `2017-08-01`. Les deux références SKU présentent les mêmes API et structure générales.
+L’équilibreur de charge prend en charge les références SKU De base et Standard. Ces références SKU présentent des différences en termes d’échelle de scénario, de fonctionnalités et de tarification. N’importe quel scénario possible avec la référence SKU De base de Load Balancer peut être créé avec la référence SKU Standard. Les API sont identiques pour ces deux références SKU et sont appelées en spécifiant une référence SKU. Les références SKU pour Load Balancer et les adresses IP publiques sont prises en charge à partir de la version d’API `2017-08-01`. Les deux références SKU présentent les mêmes API et structure générales.
 
 La configuration du scénario complet peut varier légèrement selon la référence SKU. Dans la documentation relative à Load Balancer, les articles qui s’appliquent uniquement à une référence SKU précise sont signalés. Pour comparer les références SKU et comprendre leurs différences, consultez le tableau ci-dessous. Pour plus d’informations, consultez [Vue d’ensemble du niveau Standard d’Azure Load Balancer](load-balancer-standard-overview.md).
 

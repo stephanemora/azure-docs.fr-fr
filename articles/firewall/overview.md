@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/15/2020
+ms.date: 01/28/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 1507eb4eba88fbf1ef50645390eaa9f17804359a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b19d8f26795dadb14f00aadd86ba99ae664b1a76
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293230"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764938"
 ---
 # <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -88,7 +88,7 @@ Cela donne accès aux scénarios suivants :
 
 ## <a name="azure-monitor-logging"></a>Journalisation d’Azure Monitor
 
-Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux d’activité dans un compte de stockage, de diffuser en streaming des événements à votre hub d’événements ou de les envoyer à des journaux d’activité Azure Monitor.
+Tous les événements sont intégrés à Azure Monitor, ce qui vous permet d’archiver les journaux d’activité dans un compte de stockage, de transmettre en continu des événements à votre hub d’événements ou de les envoyer à des journaux d’activité Azure Monitor.
 
 ## <a name="compliance-certifications"></a>Certifications de conformité
 
@@ -113,6 +113,7 @@ Les règles de filtrage réseau pour les protocoles autres que TCP/UDP (par exem
 |SNAT sur les connexions entrantes|En plus de DNAT, les connexions via l’adresse IP publique du pare-feu (entrante) sont traduites vers l’une des adresses IP privées du pare-feu. Cette exigence actuelle (également pour les appliances virtuelles réseau Active/Active) permet d’assurer la symétrie du routage.|Pour préserver la source originale pour HTTP/S, pensez à utiliser les en-têtes [XFF](https://en.wikipedia.org/wiki/X-Forwarded-For). Par exemple, utilisez un service tel que [Azure Front Door](../frontdoor/front-door-http-headers-protocol.md#front-door-service-to-backend) ou [Azure Application Gateway](../application-gateway/rewrite-http-headers.md) devant le pare-feu. Vous pouvez également ajouter le pare-feu d’applications web en tant qu’Azure Front Door et l’associer au pare-feu.
 |Prise en charge du filtrage FQDN SQL uniquement en mode proxy (port 1433)|Pour Azure SQL Database,Azure SQL Data Warehouse et Azure SQL Managed Instance :<br><br>Dans la préversion, le filtrage FQDN SQL est pris en charge uniquement en mode proxy (port 1433).<br><br>Pour Azure SQL IaaS :<br><br>Si vous utilisez des ports non standard, vous pouvez spécifier ces ports dans les règles de l’application.|Pour SQL en mode de redirection (qui est l’option par défaut si vous vous connectez à partir d’Azure), vous pouvez filtrer l’accès à l’aide de l’étiquette du service SQL, dans le cadre des règles de réseau du Pare-feu Azure.
 |Le trafic sortant sur le port TCP 25 n’est pas autorisé| Les connexions SMTP sortantes qui utilisent le port TCP 25 sont bloquées. Le port 25 sert essentiellement à la remise d’e-mails non authentifiés. Il s’agit du comportement par défaut de la plateforme pour les machines virtuelles. Pour plus d’informations consultez [Résoudre les problèmes de connectivité SMTP sortante dans Azure](../virtual-network/troubleshoot-outbound-smtp-connectivity.md). Toutefois, contrairement aux machines virtuelles, il n’est actuellement pas possible d’activer cette fonctionnalité sur le Pare-feu Azure.|Suivez la méthode d’envoi d’e-mails recommandée dans l’article traitant de la résolution des problèmes liés à SMTP. Vous pouvez aussi exclure la machine virtuelle qui a besoin d’un accès SMTP sortant entre votre route par défaut et le pare-feu pour configurer à la place un accès sortant directement vers Internet.
+|Le mode FTP actif n’est pas pris en charge|Le mode FTP actif est désactivé sur le pare-feu Azure à des fins de protection contre les attaques par rebond FTP qui utilisent la commande FTP PORT.|Vous pouvez utiliser le mode FTP passif à la place. Vous devez quand même ouvrir explicitement les ports TCP 20 et 21 sur le pare-feu.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

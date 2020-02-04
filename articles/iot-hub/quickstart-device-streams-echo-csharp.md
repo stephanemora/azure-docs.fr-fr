@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: ee709919f550a8b9afaf56e5e071522a494348ac
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084298"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773822"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>Démarrage rapide : Communiquer avec une application d’appareil en C# par le biais de flux d’appareil IoT Hub (préversion)
 
@@ -28,7 +28,7 @@ Les [flux d’appareil IoT Hub](./iot-hub-device-streams-overview.md) permettent
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Pour le moment, la préversion des flux d’appareil est uniquement prise en charge pour les hubs IoT créés dans les régions suivantes :
   * USA Centre
@@ -50,7 +50,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     az extension add --name azure-cli-iot-ext
     ```
 
-* [Téléchargez l’exemple de projet C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), puis extrayez l’archive ZIP. Vous en avez besoin à la fois côté appareil et côté service.
+* [Téléchargez les exemples C# Azure IOT](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) et extrayez l’archive ZIP. Vous en avez besoin à la fois côté appareil et côté service.
 
 ## <a name="create-an-iot-hub"></a>Créer un hub IoT
 
@@ -165,7 +165,7 @@ Sortie de console côté service :
 
 Le trafic envoyé sur le flux est traité par tunnel par le biais du hub IoT au lieu d’être envoyé directement. Les avantages sont détaillés dans [Avantages des flux d'appareils](./iot-hub-device-streams-overview.md#benefits).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [iot-hub-quickstarts-clean-up-resources-device-streams](../../includes/iot-hub-quickstarts-clean-up-resources-device-streams.md)]
 

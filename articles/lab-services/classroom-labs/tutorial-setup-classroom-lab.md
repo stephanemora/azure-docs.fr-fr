@@ -1,6 +1,6 @@
 ---
 title: Configurer un laboratoire de classe à l’aide d’Azure Lab Services | Microsoft Docs
-description: Dans ce didacticiel, vous allez configurer un laboratoire à utiliser dans une classe.
+description: Dans ce tutoriel, vous allez utiliser Azure Lab Services pour configurer un laboratoire de classe composé de machines virtuelles utilisées par les étudiants de votre classe.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: a5f8c8c00a9f63558043167c5cf8269f9e139d54
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2c28375ce7252e93340f395b97224d292940ce65
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584936"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719175"
 ---
-# <a name="tutorial-set-up-a-classroom-lab"></a>Didacticiel : Configurer un laboratoire de salle de classe 
+# <a name="tutorial-set-up-a-classroom-lab"></a>Tutoriel : Configurer un laboratoire de salle de classe 
 Dans ce tutoriel, vous allez configurer un laboratoire de classe avec des machines virtuelles utilisées par les étudiants dans la classe.  
 
 Dans ce tutoriel, vous allez effectuer les actions suivantes :
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 > * Définir un calendrier pour le labo
 > * Envoyer un e-mail d’invitation aux étudiants
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour configurer un lab de classe dans un compte lab, vous devez être membre de l’un des rôles suivants dans le compte lab : Propriétaire, Créateur de laboratoire ou Contributeur. Le compte que vous avez utilisé pour créer un compte lab est automatiquement ajouté au rôle Propriétaire.
 
 Un propriétaire de laboratoire peut ajouter d’autres utilisateurs au rôle **Créateur de laboratoire**. Par exemple, un propriétaire de laboratoire ajoute des professeurs au rôle Créateur de laboratoire. Ensuite, les professeurs créent des laboratoires avec des machines virtuelles pour leurs classes. Les étudiants utilisent le lien d’inscription qu’ils reçoivent des professeurs pour s’inscrire au laboratoire. Une fois inscrits, ils peuvent utiliser des machines virtuelles dans les laboratoires pour faire le travail en classe et leurs devoirs. Pour obtenir des instructions détaillées sur l’ajout d’utilisateurs au rôle Créateur de laboratoire, consultez [Ajouter un utilisateur au rôle Créateur de laboratoire](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).

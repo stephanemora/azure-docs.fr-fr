@@ -1,18 +1,18 @@
 ---
 title: Configurer le pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
-description: Didacticiel sur la configuration des workflows de création et de mise en production dans Azure DevOps à l’aide de la tâche de génération de l’émulateur Cosmos DB
+description: Tutoriel sur la configuration des workflows de création et de mise en production dans Azure DevOps à l’aide de la tâche de génération de l’émulateur Cosmos DB
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 05/23/2019
+ms.date: 01/28/2020
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: e3f7bcee8969939e3c3e9d9e10b43a3eb234fd50
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b05b4b44df53846a4880249785c6a5deda62f8a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441052"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846545"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurer un pipeline CI/CD avec la tâche de génération d’émulateur Azure Cosmos DB
 
@@ -47,12 +47,17 @@ Maintenant que l’extension est installée, connectez-vous à votre compte Azur
 
    ![Sélectionner le projet d’équipe, le référentiel et la branche pour le pipeline de build](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-3. Enfin, sélectionnez le modèle souhaité pour le pipeline de build. Nous allons sélectionner le modèle **ASP.NET** dans ce tutoriel. 
+3. Enfin, sélectionnez le modèle souhaité pour le pipeline de build. Nous allons sélectionner le modèle **ASP.NET** dans ce tutoriel. Vous disposez maintenant d’un pipeline de build que vous pouvez configurer pour utiliser la tâche de génération de l’émulateur Azure Cosmos DB. 
 
 > [!NOTE]
 > Le pool d’agents à sélectionner pour ce CI doit disposer de Docker pour Windows, sauf si l’installation est effectuée manuellement dans une tâche précédente dans le cadre de ce CI. Consultez l’article [Agents hébergés Microsoft](https://docs.microsoft.com/azure/devops/pipelines/agents/hosted?view=azure-devops&tabs=yaml) pour une sélection de pools d’agents ; nous vous recommandons de commencer par `Hosted VS2017`.
 
-Nous disposons maintenant d’un pipeline de build que nous pouvons configurer pour utiliser la tâche de génération d’émulateur Azure Cosmos DB. 
+L’émulateur Azure Cosmos DB ne prend pas actuellement en charge le pool d’agents VS2019 hébergé. Toutefois, l’émulateur est déjà équipé de VS2019. Pour l’utiliser, démarrez l’émulateur avec les applets de commande PowerShell suivantes. Si vous rencontrez des problèmes lors de l’utilisation de VS2019, contactez l’équipe [Azure DevOps](https://developercommunity.visualstudio.com/spaces/21/index.html) pour obtenir de l’aide :
+
+```powershell
+Import-Module "$env:ProgramFiles\Azure Cosmos DB Emulator\PSModules\Microsoft.Azure.CosmosDB.Emulator"
+Start-CosmosDbEmulator
+```
 
 ## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Ajouter la tâche à un pipeline de build
 
@@ -62,7 +67,7 @@ Nous disposons maintenant d’un pipeline de build que nous pouvons configurer p
 
    ![Ajouter la tâche de génération d’émulateur à une définition de build](./media/tutorial-setup-ci-cd/addExtension_3.png)
 
-Dans ce didacticiel, vous allez ajouter la tâche au début, afin que l’émulateur soit disponible avant d’exécuter nos tests.
+Dans ce tutoriel, vous allez ajouter la tâche au début, afin que l’émulateur soit disponible avant d’exécuter nos tests.
 
 ## <a name="configure-tests-to-use-the-emulator"></a>Configurer des tests pour utiliser l’émulateur
 

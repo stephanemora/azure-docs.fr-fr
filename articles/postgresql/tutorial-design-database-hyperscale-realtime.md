@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Concevoir un tableau de bord en temps réel - Hyperscale (Citus) - Azure Database pour PostgreSQL'
+title: 'Tutoriel : Concevoir un tableau de bord en temps réel - Hyperscale (Citus) - Azure Database pour PostgreSQL'
 description: Ce tutoriel illustre comment créer, remplir et interroger des tables distribuées dans Azure Database pour PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978098"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716318"
 ---
-# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Didacticiel : Concevoir un tableau de bord analytique en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus)
+# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Tutoriel : Concevoir un tableau de bord analytique en temps réel avec Azure Database pour PostgreSQL – Hyperscale (Citus)
 
-Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Citus) pour apprendre à :
+Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Citus) pour apprendre à :
 
 > [!div class="checklist"]
 > * Créer un groupe de serveurs Hyperscale (Citus)
@@ -28,7 +28,7 @@ Dans ce tutoriel, vous utilisez Azure Database pour PostgreSQL - Hyperscale (Cit
 > * Interroger des données brutes et agrégées
 > * Faire expirer des données
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -196,7 +196,7 @@ Une fois votre fonction en place, exécutez-la pour cumuler les données :
 SELECT rollup_http_request();
 ```
 
-Avec vos données au format préagrégé, vous pouvez interroger la table de cumul pour obtenir le même rapport que précédemment. Exécutez la requête suivante :
+Avec vos données au format préagrégé, vous pouvez interroger la table de cumul pour obtenir le même rapport que précédemment. Exécutez la requête suivante :
 
 ```sql
 SELECT site_id, ingest_time as minute, request_count,
@@ -216,13 +216,13 @@ DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 
 En production, vous pouvez encapsuler ces requêtes dans une fonction et appeler celle-ci toutes les minutes dans un travail cron.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure dans un groupe de serveurs. Si vous pensez ne pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de serveurs. Appuyez sur le bouton *Supprimer* dans la page *Vue d’ensemble* de votre groupe de serveurs. Quand vous y êtes invité dans une page contextuelle, confirmez le nom du groupe de serveurs, puis cliquez sur le bouton *Supprimer*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à configurer un groupe de serveurs Hyperscale (Citus). Vous vous y êtes connecté avec psql, vous avez créé un schéma et vous avez distribué les données. Vous avez appris à interroger des données sous leur forme brute, à agréger régulièrement ces données, à interroger les tables agrégées et à faire expirer les données anciennes.
+Dans ce tutoriel, vous avez appris à configurer un groupe de serveurs Hyperscale (Citus). Vous vous y êtes connecté avec psql, vous avez créé un schéma et vous avez distribué les données. Vous avez vu comment interroger des données sous leur forme brute, à agréger régulièrement ces données, à interroger les tables agrégées et à faire expirer les données anciennes.
 
 Ensuite, découvrez les concepts de l’hyperscale.
 > [!div class="nextstepaction"]

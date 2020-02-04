@@ -3,15 +3,15 @@ title: Téléchargement de l’émulateur Cosmos Azure et notes de publication
 description: Procurez-vous les notes de publication de l’émulateur Azure Cosmos pour connaître les différentes versions et les informations de téléchargement.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: markjbrown
-ms.author: mjbrown
+author: milismsft
+ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3878f6d01a2adfff2adc6a22aad20a5f83992b8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445305"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719685"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Émulateur Azure Cosmos - Notes de publication et informations sur le téléchargement
 
@@ -25,6 +25,10 @@ Cet article présente les notes de publication de l’émulateur Azure Cosmos av
 |**Prise en main**|[Développer localement avec l’émulateur Azure Cosmos](local-emulator.md)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="290"></a>2.9.0
+
+- Cette version ajoute une option permettant de définir la cohérence avec un préfixe cohérent et d’augmenter les limites maximales pour les utilisateurs et les autorisations.
 
 ### <a name="272"></a>2.7.2
 

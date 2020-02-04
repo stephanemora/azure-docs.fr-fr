@@ -1,12 +1,9 @@
 ---
-title: 'Tutoriel : Journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure'
-titleSuffix: Azure Network Watcher
-description: Dans ce tutoriel, découvrez comment journaliser le flux du trafic réseau à destination et en provenance d’une machine virtuelle à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher.
+title: Enregistrer le flux du trafic réseau vers et depuis une machine virtuelle - Tutoriel - Portail Azure | Microsoft Docs
+description: Découvrez comment enregistrer le flux du trafic réseau vers et depuis une machine virtuelle à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
@@ -16,16 +13,23 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 7f4466b6f6de5028db8b62389c9d5ddbdafc9d62
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280983"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841010"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
+
+> [!div class="op_single_selector"]
+> - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 Un groupe de sécurité réseau (NSG) permet de filtrer le trafic entrant vers une machine virtuelle ainsi que le trafic sortant qui en provient. Vous pouvez enregistrer le trafic réseau qui transite par un groupe de sécurité réseau à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher. Dans ce tutoriel, vous allez apprendre à :
 
@@ -93,7 +97,10 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
     | Location       | Sélectionnez **USA Est**.                                           |
     | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
 
-    Le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau. La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée.     
+    La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage. Dans tous les cas, le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau (NSG).
+
+    > [!NOTE]
+    > Bien que les fournisseurs Microsoft.Insight et Microsoft.Network soient actuellement pris en charge en tant que services Microsoft approuvés pour Stockage Azure, les journaux de flux NSG ne sont toujours pas entièrement intégrés. Pour activer la journalisation de flux NSG, l’option **Tous les réseaux** doit toujours être sélectionnée jusqu’à ce que cette fonctionnalité soit entièrement intégrée. 
 4. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 5. Sous **JOURNAUX D’ACTIVITÉ**, sélectionnez **Journaux de flux NSG**, comme illustré dans l’image suivante :
 
@@ -107,8 +114,9 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
 9. Sélectionnez le compte de stockage que vous avez créé à l’étape 3.
    > [!NOTE]
-   > Les journaux de flux NSG ne fonctionneront pas avec un compte de stockage si :
-   > * L’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) est activé pour le compte de stockage.
+   > Les journaux de flux NSG ne fonctionnent pas avec les comptes de stockage dans les cas suivants :
+   > * Un pare-feu est activé pour les comptes de stockage.
+   > * L’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) est activé pour les comptes de stockage.
 1. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 10. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
 
@@ -120,7 +128,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
    ![Télécharger des journaux de flux](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Sélectionnez le compte de stockage que vous avez configuré à l’étape 2 [Activer le journal de flux NSG](#enable-nsg-flow-log).
-4. Sous **Service Blob**, sélectionnez **Conteneurs**, puis sélectionnez le conteneur **insights-logs-networksecuritygroupflowevent**.
+4. Sous **Service Blob**, sélectionnez **Objets blob**, puis sélectionnez le conteneur **insights-logs-networksecuritygroupflowevent**.
 5. Dans le conteneur, parcourez l’arborescence des dossiers jusqu’à accéder au fichier PT1H.json, comme illustré dans l’image suivante : Les fichiers journaux sont écrits dans une arborescence des dossiers qui respecte la convention de nommage suivante : https://{NomCompteStockage}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{IDAbonnement}/RESOURCEGROUPS/{NomGroupeRessources}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{NomNSG}/y={année}/m={mois}/d={jour}/h={heure}/m=00/macAddress={AdresseMac}/PT1H.json
 
    ![Journal de flux](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
@@ -220,4 +228,4 @@ La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à activer la journalisation d’un flux de trafic pour un groupe de sécurité réseau. Vous avez également découvert comment télécharger et afficher les données enregistrées dans un fichier. Les données brutes du fichier JSON peuvent être difficiles à interpréter. Pour visualiser les données, vous pouvez utiliser Network Watcher [Traffic Analytics](traffic-analytics.md), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) et d’autres outils.
+Dans ce tutoriel, vous avez appris à activer la journalisation d’un flux de trafic pour un groupe de sécurité réseau. Vous avez également découvert comment télécharger et afficher les données enregistrées dans un fichier. Les données brutes du fichier JSON peuvent être difficiles à interpréter. Pour visualiser les données des journaux de flux, vous pouvez utiliser [Azure Traffic Analytics](traffic-analytics.md), [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) ou d’autres outils. Vous pouvez essayer d’autres méthodes d’activation des journaux de flux NSG, telles que [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), l’[API REST](network-watcher-nsg-flow-logging-rest.md) et les [modèles ARM](network-watcher-nsg-flow-logging-azure-resource-manager.md).

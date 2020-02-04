@@ -8,33 +8,34 @@ ms.custom: seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: 269eb1fe744a31f1f4501c5790e06c1a5e06bab6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 566bf606b275b8e2c1f456600b46b1d7304d2ce7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767889"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769029"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>Démarrage rapide : Utiliser Java pour se connecter à Azure Database pour PostgreSQL et interroger les données (serveur unique)
-Ce guide de démarrage rapide vous explique comment vous connecter à une base de données Azure pour PostgreSQL en utilisant une application Java. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via Java, et que vous ne savez pas utiliser Azure Database pour PostgreSQL.
 
-## <a name="prerequisites"></a>Prérequis
-Ce guide de démarrage rapide s’appuie sur les ressources créées dans l’un de ces guides :
-- [Créer une base de données - Portail](quickstart-create-server-database-portal.md)
-- [Créer une base de données - Interface de ligne de commande Azure](quickstart-create-server-database-azure-cli.md)
+Dans ce démarrage rapide, vous vous connectez à Azure Database pour PostgreSQL en utilisant une application Java. Il détaille l’utilisation d’instructions SQL pour interroger la base de données, la mettre à jour, y insérer des données ou en supprimer. Cet article suppose que vous connaissez les bases du développement via Java, et que vous ne savez pas utiliser Azure Database pour PostgreSQL.
 
-Il vous faudra également :
-- Télécharger le [pilote de PostgreSQL JDBC](https://jdbc.postgresql.org/download.html) correspondant à votre version de Java et le kit de développement Java.
-- Inclure le fichier .jar de PostgreSQL JDBC (postgresql-42.1.1.jar, par exemple) dans le chemin de classe de votre application. Pour plus d'informations, consultez la rubrique [Classpath](https://jdbc.postgresql.org/documentation/head/classpath.html) (Chemin de classe).
+## <a name="prerequisites"></a>Conditions préalables requises
+
+- Un compte Azure avec un abonnement actif. [Créez gratuitement un compte](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+
+- Exécution du [Démarrage rapide : Créer un serveur Azure Database pour PostgreSQL dans le portail Azure](quickstart-create-server-database-portal.md) ou [Démarrage rapide : Créer une instance de Azure Database pour PostgreSQL à l’aide de Azure CLI](quickstart-create-server-database-azure-cli.md).
+
+- [Pilote JDBC PostgreSQL](https://jdbc.postgresql.org/download.html) : faites-le correspondre à votre version de Java et du kit de développement Java.
+- [Détails du chemin de classe](https://jdbc.postgresql.org/documentation/head/classpath.html) : incluez le fichier .jar du pilote JDBC PostgreSQL (postgresql-42.1.1.jar, par exemple) dans le chemin de classe de votre application.
 
 ## <a name="get-connection-information"></a>Obtenir des informations de connexion
 Obtenez les informations de connexion requises pour vous connecter à la base de données Azure pour PostgreSQL. Vous devez disposer du nom de serveur complet et des informations d’identification.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/).
-2. Dans le menu de gauche du portail Azure, sélectionnez **Toutes les ressources**, puis recherchez le serveur que vous venez de créer, par exemple **mydemoserver**.
-3. Sélectionnez le nom du serveur.
-4. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom de connexion de l’administrateur du serveur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
- ![Nom du serveur Azure Database pour PostgreSQL](./media/connect-java/azure-database-postgresql-server-name.png)
+1. Dans le [portail Azure](https://portal.azure.com/), recherchez et sélectionnez le serveur que vous avez créé (par exemple, **mydemoserver**).
+
+1. Dans le panneau **Vue d’ensemble** du serveur, notez le **nom du serveur** et le **nom d’utilisateur de l’administrateur**. Si vous oubliez votre mot de passe, vous pouvez également le réinitialiser dans ce panneau.
+
+    ![Chaîne de connexion Azure Database pour PostgreSQL](./media/connect-java/server-details-azure-database-postgresql.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Se connecter, créer des tables et insérer des données
 Utilisez le code suivant pour vous connecter et charger les données dans la base de données à l’aide d’une instruction SQL **INSERT**. Les méthodes [getConnection()](https://www.postgresql.org/docs/7.4/static/jdbc-use.html), [createStatement()](https://jdbc.postgresql.org/documentation/head/query.html), et [executeQuery()](https://jdbc.postgresql.org/documentation/head/query.html) permettent de se connecter à la base de données, de déposer et de créer une table. L’objet [prepareStatement](https://jdbc.postgresql.org/documentation/head/query.html) permet de générer les commandes d’insertion, en utilisant les méthodes setString() et setInt() pour lier les valeurs des paramètres. La méthode [executeUpdate()](https://jdbc.postgresql.org/documentation/head/update.html) exécute la commande pour chaque ensemble de paramètres. 

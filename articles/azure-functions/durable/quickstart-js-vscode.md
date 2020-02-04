@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 94ba2830824c4a918e9451a9fc5140d422110370
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231309"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845726"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Créer votre première fonction durable dans JavaScript
 
@@ -22,7 +22,7 @@ Dans cet article, vous allez découvrir comment utiliser l’extension Azure Fun
 
 ![Exécution d’une fonction durable dans Azure](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce tutoriel :
 
@@ -38,7 +38,31 @@ Pour suivre ce tutoriel :
 
 [!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
+## <a name="create-an-azure-functions-project"></a>Créer votre projet local 
+
+Dans cette section, vous utilisez Visual Studio Code pour créer un projet Azure Functions local. 
+
+1. Dans Visual Studio Code, appuyez sur F1 pour ouvrir la palette de commandes. Dans la palette de commandes, recherchez et sélectionnez `Azure Functions: Create new project...`.
+
+1. Choisissez un emplacement de répertoire pour votre espace de travail de projet et optez pour **Sélectionner**.
+
+    > [!NOTE]
+    > Ces étapes ont été conçues pour être terminées en dehors d’un espace de travail. Dans ce cas, ne sélectionnez pas de dossier de projet qui fait partie d’un espace de travail.
+
+1. En suivant les invites, fournissez les informations suivantes pour le langage souhaitée :
+
+    | Prompt | Valeur | Description |
+    | ------ | ----- | ----------- |
+    | Sélectionnez un langage pour votre projet d’application de fonction | JavaScript | Créez un projet Node.js Functions local. |
+    | Sélectionner une version | Azure Functions v2 | Vous voyez cette option uniquement quand les outils Core Tools ne sont pas déjà installés. Dans le cas présent, les outils Core Tools sont installés la première fois que vous exécutez l’application. |
+    | Sélectionner un modèle pour la première fonction de votre projet | Déclencheur HTTP | Créez une fonction déclenchée via HTTP dans la nouvelle application de fonction. |
+    | Fournir un nom de fonction | HttpTrigger | Appuyez sur Entrée pour utiliser le nom par défaut. |
+    | Niveau d’autorisation | Fonction | Le niveau d’autorisation `function` vous oblige à fournir une clé d’accès au moment de l’appel du point de terminaison HTTP de la fonction. Cela rend plus difficile l’accès à un point de terminaison non sécurisé. Pour en savoir plus, consultez [Clés d’autorisation](../functions-bindings-http-webhook.md#authorization-keys).  |
+    | Sélectionner la façon dont vous souhaitez ouvrir votre projet | Ajouter à l’espace de travail | Crée l’application de fonction dans l’espace de travail actuel. |
+
+Visual Studio Code installe la solution Azure Functions Core Tools, si nécessaire. Il crée également un projet d’application de fonction dans un nouvel espace de travail. Ce projet contient les fichiers config [host.json](../functions-host-json.md) et [local.settings.json](../functions-run-local.md#local-settings-file). Il crée également un dossier HttpExample, qui contient le [fichier de définition function.json](../functions-reference-node.md#folder-structure) et le [fichier index.js](../functions-reference-node.md#exporting-a-function), un fichier Node.js qui contient le code de fonction.
+
+Un fichier package.json est également créé dans le dossier racine.
 
 ## <a name="install-the-durable-functions-npm-package"></a>Installer le package npm Durable Functions
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9be353e6a030708ea0b9939689d8669506d3b80
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289031"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760048"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Tutoriel : Intégrer l’authentification unique Azure Active Directory à NetSuite
 
@@ -98,8 +98,12 @@ Pour activer l’authentification unique Azure AD dans le portail Azure, effectu
     | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
     | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    > [!NOTE]
-    > Les valeurs des URL précédentes ne sont pas réelles. Mettez-les à jour avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Vous pouvez aussi vous reporter aux formats présentés dans la section **Configuration SAML de base** du portail Azure.
+    * Vous obtiendrez la valeur **<`Account ID`>** dans la section Configuration de NetSuite, qui est expliquée plus loin dans le tutoriel à l’étape 8 sous Configuration de NetSuite. Vous trouverez le domaine exact (par exemple, system.na0.netsuite.com dans le cas présent).
+
+        ![Configurer l’authentification unique](./media/NetSuite-tutorial/domain-value.png)
+
+        > [!NOTE]
+        > Les valeurs des URL précédentes ne sont pas réelles. Mettez-les à jour avec l’URL de réponse réelle. Pour obtenir cette valeur, contactez l’[équipe du support technique NetSuite](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Vous pouvez aussi vous reporter aux formats présentés dans la section **Configuration SAML de base** du portail Azure.
 
 1. L’application NetSuite s’attend à recevoir les assertions SAML dans un certain format, ce qui vous oblige à ajouter des mappages d’attributs personnalisés à la configuration des attributs de jetons SAML. La capture d’écran suivante montre la liste des attributs par défaut.
 
@@ -204,7 +208,7 @@ Dans cette section, vous allez autoriser l’utilisateur B.Simon à utiliser l�
 
     b. Dans le volet **Company Information**, dans la colonne de droite, copiez la valeur du champ **Account ID** (ID de compte).
 
-    c. Collez la valeur **Account ID** que vous avez copiée à partir du compte NetSuite dans la zone **Valeur de l’attribut** dans Azure AD. 
+    c. Collez la valeur **Account ID** que vous avez copiée à partir du compte NetSuite dans la zone **Valeur de l’attribut** dans Azure AD.
 
 10. Avant que les utilisateurs puissent utiliser l’authentification unique dans NetSuite, vous devez d’abord leur affecter les autorisations appropriées dans NetSuite. Pour affecter ces autorisations, effectuez les étapes suivantes :
 
@@ -262,7 +266,7 @@ Quand vous sélectionnez la vignette NetSuite dans le volet d’accès, vous dev
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
-- [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Liste de tutoriels sur l’intégration d’applications SaaS avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [Essayer NetSuite avec Azure AD](https://aad.portal.azure.com/)
