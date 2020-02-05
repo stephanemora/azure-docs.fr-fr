@@ -3,12 +3,12 @@ title: Tableau de prise en charge de sauvegarde SAP HANA
 description: Dans cet article,découvrez les scénarios et limitations pris en charge lorsque vous utilisez Sauvegarde Azure pour sauvegarder des bases de données SAP HANA sur des machines virtuelles Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a0a7c25ec718dcd6a903d2149a8b3930fb25941e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 82d844385290ab0dc2953537c1f9a3387dd7b2b2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514288"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842629"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matrice de prise en charge pour la sauvegarde des bases de données SAP HANA sur des machines virtuelles Azure
 
@@ -33,17 +33,17 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Scénario**               | **Configurations prises en charge**                                | **Configurations non prises en charge**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologie**               | SAP HANA s’exécutant sur des machines virtuelles Azure Linux uniquement                    | Grandes instances HANA (HLI)                                   |
-| **Zones géographiques**                   | Australie Sud-Est, Australie Est, Brésil Sud, Canada Centre, Canada Est, Asie Sud-Est, Asie Est, USA Est, USA Est 2, USA Centre-Ouest, USA Ouest, USA Ouest 2, USA Centre Nord, USA Centre, USA Centre Sud, Inde Centre, Inde Sud, Japon Est, Japon Ouest, Corée Centre, Corée Sud, Europe Nord, Europe Ouest, Royaume-Uni Sud, Royaume-Uni Ouest | Australie Centre, Australie Centre 2, Chine Est, Chine Nord, Chine Est 2, Chine Nord 2, Inde Ouest, France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Suisse Nord, Suisse Ouest, Afrique du Sud Nord, Afrique du Sud Ouest, Émirats arabes unis Nord, Émirats arabes unis Centre, régions Azure Government |
-| **Versions du système d’exploitation**            | SLES 12 avec SP2, SP3 ou SP4           | SLES 15, RHEL                                                |
-| **Versions HANA**          | SDC sur HANA 1.x, MDC sur HANA 2.x  <= SPS04 rév. 44           | -                                                            |
+| **Zones géographiques**                   | **Disponibilité générale :**<br />**Europe** – Europe Ouest, Europe Nord, France Centre, Royaume-Uni Sud, Royaume-Uni Ouest, Allemagne Nord, Allemagne Centre-Ouest, Suisse Nord, Suisse Ouest<br />**Asie-Pacifique** – Australie Centre, Australie Centre 2, Australie Est, Australie Sud-Est, Japon Est, Japon Ouest, Corée Centre, Corée Sud<br /><br>**Préversion :**<br />**Amériques**  – USA Centre, USA Est 2, USA Est, USA Centre Nord, USA Centre Sud, USA Ouest 2, USA Centre-Ouest, USA Ouest, Canada Centre, Canada Est <br />**Asie-Pacifique** – Asie Est, Asie Sud-Est, Inde Centre, Inde Sud | Chine Est, Chine Nord, Chine Est 2, Chine Nord 2, Inde Ouest, Suisse Nord, Afrique du Sud Nord, Afrique du Sud Nord, Afrique du Sud Ouest, Émirats arabes unis Nord, Émirats arabes unis Centre, régions Azure Government, France Sud, Brésil Sud |
+| **Versions du système d’exploitation**            | SLES 12 avec SP2, SP3 ou SP4                                | SLES 15, RHEL                                                |
+| **Versions HANA**          | SDC sur HANA 1.x, MDC sur HANA 2.x  <= SPS04 rév. 44            | -                                                            |
 | **Déploiements HANA**       | SAP HANA sur une machine virtuelle Azure unique - Montée en puissance uniquement               | Montée en charge                                                    |
 | **Instances HANA**         | Une seule SAP HANA instance sur une seule machine virtuelle Azure - montée en puissance uniquement | Plusieurs instances de SAP HANA sur une seule machine virtuelle                  |
 | **Types de bases de données HANA**    | Conteneur de base de données unique (SDC) sur 1.x, conteneur de bases de données multiples (MDC) sur 2.x | MDC dans HANA 1. x                                              |
-| **Taille de la base de données HANA**     | Taille de sauvegarde complète de 2 To, comme indiquée par HANA |                                                              |
-| **Types de sauvegarde**           | Sauvegardes complètes, différentielles et de fichier journal                           | Incrémentielle, instantanés                                       |
+| **Taille de la base de données HANA**     | Taille de sauvegarde complète de 2 To, comme indiquée par HANA                   |                                                              |
+| **Types de sauvegarde**           | Sauvegardes complètes, différentielles et de fichier journal                          | Incrémentielle, instantanés                                       |
 | **Types de restaurations**          | Reportez-vous à la note SAP HANA [1642148](https://launchpad.support.sap.com/#/notes/1642148) pour connaître les types de restauration pris en charge |                                                              |
-| **Limites de sauvegarde**          | Jusqu’à 2 To de taille de sauvegarde complète par instance de SAP HANA  |                                                              |
-| **Configurations spéciales** |                                                              | SAP HANA + Dynamic Tiering <br>  Clonage via LaMa            |
+| **Limites de sauvegarde**          | Jusqu’à 2 To de taille de sauvegarde complète par instance de SAP HANA         |                                                              |
+| **Configurations spéciales** |                                                              | SAP HANA + Dynamic Tiering <br>  Clonage via LaMa        |
 
 ------
 

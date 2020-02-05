@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ba7ba4be103beb494c31a844d1871c22c25b8c6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422360"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756298"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : Historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -84,6 +84,8 @@ Cette version corrige un bogue qui avait pour effet que certains serveurs étaie
 ### <a name="fixed-issues"></a>Problèmes résolus
 
 Dans certaines circonstances, les serveurs mis à niveau automatiquement vers la version 1.4.18.0 ne réactivaient pas la réinitialisation de mot de passe en libre-service et la réécriture du mot de passe une fois la mise à niveau terminée. Cette mise en production de la mise à niveau automatique corrige ce problème et réactive la réinitialisation de mot de passe en libre-service et la réécriture du mot de passe.
+
+Nous avons résolu un bogue dans l’utilitaire de compression des erreurs de synchronisation qui ne gérait pas correctement les caractères de substitution.
 
 ## <a name="14180"></a>1.4.18.0
 

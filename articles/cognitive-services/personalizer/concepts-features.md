@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490764"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760825"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -107,6 +107,7 @@ La chaîne que vous utilisez pour nommer l’espace de noms doit respecter certa
 * Elle ne peut pas être unicode.
 * Vous pouvez utiliser certains des symboles imprimables avec les codes < 256 pour les noms d’espaces de noms. 
 * Vous ne pouvez pas utiliser de symboles avec des codes < 32 (non imprimable), 32 (espace), 58 (deux-points), 124 (canal) et 126 à 140.
+* Elle ne doit pas commencer par un trait de soulignement « _ », autrement la fonctionnalité sera ignorée.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Comment rendre des ensembles de caractéristiques plus efficaces pour Personalizer
 
@@ -184,7 +185,7 @@ Voici quelques exemples :
 |Optimiser le positionnement des publicités sur un site web.|Chaque action est une disposition ou des règles pour créer une disposition pour les publicités (par exemple en haut, à droite, des petites images, des grandes images).|
 |Afficher un classement personnalisé d’éléments recommandés sur un site web de vente en ligne.|Chaque action est un produit spécifique.|
 |Suggérer des éléments d’interface utilisateur, comme des filtres à appliquer à une photo spécifique.|Chaque action peut être un filtre différent.|
-|Choisir la réponse d’un bot conversationnel pour clarifier l’intention de l’utilisateur ou suggérer une action.|Chaque action est une possibilité d’interprétation de la réponse.|
+|Choisir la réponse d’un chatbot pour clarifier l’intention de l’utilisateur ou suggérer une action.|Chaque action est une possibilité d’interprétation de la réponse.|
 |Choisir ce qu’il faut montrer en haut d’une liste des résultats d’une recherche|Chaque action est un des premiers résultats de la recherche.|
 
 

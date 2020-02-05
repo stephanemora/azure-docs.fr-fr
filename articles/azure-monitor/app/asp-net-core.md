@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 52314f0802acd6a296177d53ee9babb133172761
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f54605dd5b43236a75fe73aa3b47a4e619530a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407510"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765808"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights pour applications ASP.NET Core
 
@@ -416,7 +416,7 @@ Le métapackage 2.0 `Microsoft.AspNetCore.All` incluait le SDK Application Insi
 
 Oui. La prise en charge de fonctionnalités pour le SDK est la même sur toutes les plateformes, avec les exceptions suivantes :
 
-* Les compteurs de performance sont pris en charge uniquement dans Windows.
+* Le kit de développement logiciel (SDK) collecte des [compteurs d’événements](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters) sur Linux car les [compteurs de performances](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters) sont uniquement pris en charge dans Windows. La plupart des métriques sont identiques.
 * Même si `ServerTelemetryChannel` est activé par défaut, si l’application est exécutée sous Linux ou MacOS, le canal ne crée pas automatiquement un dossier de stockage local pour conserver temporairement les données de télémétrie s’il existe des problèmes de réseau. En raison de cette limitation, les données de télémétrie sont perdues en cas de problèmes temporaires de réseau ou de serveur. Pour contourner ce problème, configurez un dossier local pour le canal :
 
 ```csharp

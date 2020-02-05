@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9b9e39776e519a91a4464532e11e85da711087b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769521"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766250"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modèles d’expressions de liaison Azure Functions
 
@@ -131,7 +131,19 @@ public static void Run(
 
 ```
 
-Vous pouvez également créer des expressions pour certaines parties du nom de fichier comme l’extension. Pour plus d’informations sur l’utilisation des expressions et des modèles dans la chaîne du chemin d’accès à l’objet blob, consultez l’article sur la [référence de liaison de stockage blob](functions-bindings-storage-blob.md).
+Vous pouvez également créer des expressions pour certaines parties du nom de fichier. Dans l’exemple suivant, la fonction est déclenchée uniquement sur les noms de fichiers qui correspondent à un modèle : `anyname-anyfile.csv`
+
+```json
+{
+    "name": "myBlob",
+    "type": "blobTrigger",
+    "direction": "in",
+    "path": "testContainerName/{date}-{filetype}.csv",
+    "connection": "OrderStorageConnection"
+}
+```
+
+Pour plus d’informations sur l’utilisation des expressions et des modèles dans la chaîne du chemin d’accès à l’objet blob, consultez l’article sur la [référence de liaison de stockage blob](functions-bindings-storage-blob.md).
 
 ## <a name="trigger-metadata"></a>Métadonnées d’un déclencheur
 

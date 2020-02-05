@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 11/25/2019
+ms.date: 01/23/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 2a763bbd50f009ae469be889e6ebae0b0d90848b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ec1b77118f94501363d950d72a65a67ece79ff77
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796190"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748985"
 ---
 Des images de machine virtuelle standardisées permettent aux organisations de migrer vers le cloud en veillant à la cohérence des déploiements. Les images incluent généralement des paramètres de sécurité et de configuration prédéfinis et les logiciels nécessaires. La mise en place de votre propre pipeline d’acquisition d’image nécessite du temps, une infrastructure et une configuration. En revanche, le Générateur d’images de machine virtuelle Azure génère une simple configuration décrivant votre image et l’envoie au service qui la produit et la distribue.
  
@@ -45,8 +45,10 @@ Le service Générateur d’images Azure sera disponible en préversion dans les
 Le Générateur d’images Azure prendra en charge les images de système d’exploitation de base de la Place de marché Azure :
 - Ubuntu 18.04
 - Ubuntu 16.04
-- RHEL 7.6
-- CentOS 7.6
+- RHEL 7.6, 7.7
+- CentOS 7.6, 7.7
+- SLES 12 SP4
+- SLES 15, SLES 15 SP1
 - Windows 10 RS5 Entreprise/Professionnel/Entreprise pour le bureau virtuel (EVD) 
 - Windows 2016
 - Windows 2019
@@ -91,6 +93,13 @@ az role assignment create \
     --role Contributor \
     --scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName>
 ```
+
+Vous pouvez accorder l’accès à l’aide de PowerShell :
+
+```azurePowerShell-interactive
+New-AzRoleAssignment -ObjectId ef511139-6170-438e-a6e1-763dc31bdf74 -Scope /subscriptions/$subscriptionID/resourceGroups/<distributeResoureGroupName> -RoleDefinitionName Contributor
+```
+
 
 Si le compte de service est introuvable, cela peut signifier que l’abonnement auquel vous ajoutez l’attribution de rôle n’est pas encore inscrit pour le fournisseur de ressources.
 

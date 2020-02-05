@@ -1,6 +1,6 @@
 ---
 title: Utiliser PowerShell pour gérer les ressources Azure Service Bus | Microsoft Docs
-description: Utiliser le module PowerShell pour créer et gérer les ressources Service Bus
+description: Cet article explique comment utiliser le module Azure PowerShell pour créer et gérer des entités Service Bus (espaces de noms, files d’attente, rubriques, abonnements).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e333dfb109840538fd5dec8110e1c32adedce989
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311044"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759259"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Utiliser PowerShell pour gérer les ressources Service Bus
 
@@ -29,7 +29,7 @@ Vous pouvez également gérer les entités Service Bus à l’aide de modèles A
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer, vérifiez que les prérequis suivants sont respectés :
 
@@ -37,9 +37,9 @@ Avant de commencer, vérifiez que les prérequis suivants sont respectés :
 * Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la page [Bien démarrer avec les applets de commande Azure PowerShell](/powershell/azure/get-started-azureps).
 * Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
-## <a name="get-started"></a>Prise en main
+## <a name="get-started"></a>Bien démarrer
 
-La première étape consiste à utiliser PowerShell pour vous connecter à votre compte Azure et à votre abonnement Azure. Suivez les instructions décrites dans [Prise en main des applets de commande Azure PowerShell](/powershell/azure/get-started-azureps) pour vous connecter à votre compte Azure et récupérer les ressources de votre abonnement Azure ainsi qu’accéder à celles-ci.
+La première étape consiste à utiliser PowerShell pour vous connecter à votre compte Azure et à votre abonnement Azure. Suivez les instructions décrites dans [Prise en main des applets de commande Azure PowerShell](/powershell/azure/get-started-azureps) pour vous connecter à votre compte Azure, récupérer les ressources de votre abonnement Azure et accéder à celles-ci.
 
 ## <a name="provision-a-service-bus-namespace"></a>Approvisionner un espace de noms Service Bus
 
@@ -164,7 +164,7 @@ Vous pouvez utiliser le [module PowerShell de Service Bus](/powershell/module/az
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Consultez la documentation complète du module PowerShell du Gestionnaire de ressources Service Bus [ici](/powershell/module/az.servicebus). Cette page répertorie toutes les applets de commande disponibles.
+- Consultez la documentation complète du module PowerShell du Gestionnaire de ressources Service Bus [ici](/powershell/module/az.servicebus). Cette page liste toutes les applets de commande disponibles.
 - Pour plus d’informations sur l’utilisation des modèles Azure Resource Manager, consultez l’article [Création de ressources Service Bus à l’aide de modèles Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Informations sur les [bibliothèques de gestion Service Bus .NET](service-bus-management-libraries.md).
 

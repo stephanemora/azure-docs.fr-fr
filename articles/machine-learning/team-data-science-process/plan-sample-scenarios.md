@@ -3,25 +3,25 @@ title: Identifier des scénarios pour Azure Machine Learning - Team Data Science
 description: Sélectionnez les scénarios appropriés pour l’analyse prédictive avancée à l’aide du processus TDSP (Team Data Science Process).
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981129"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710492"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scénarios d’analyses avancées dans Azure Machine Learning
 Cet article présente les divers exemples de sources de données et les scénarios cibles qui peuvent être gérés par le processus [TDSP (Team Data Science Process)](overview.md). Le processus TDSP fournit une approche systématique permettant aux équipes de collaborer à la création d’applications intelligentes. Les scénarios présentés ici illustrent les options disponibles dans le flux de travail de traitement basées sur les caractéristiques des données, les emplacements sources et les référentiels cibles dans Azure.
 
-L’ **arbre de décision** qui permet de sélectionner les exemples de scénarios qui conviennent dans le cas de vos données et objectifs est présenté à la dernière section.
+L’**arbre de décision** permettant de sélectionner les exemples de scénarios qui conviennent dans le cas de vos données et objectifs est présenté à la dernière section.
 
 Les sections suivantes présentent quelques exemples de scénarios. Pour chaque scénario, un flux possible de science des données ou d’analyse avancée et les ressources Azure connexes sont répertoriés.
 
@@ -48,8 +48,8 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (serveur IPython Notebook)
 1. Créez une machine virtuelle Azure exécutant IPython Notebook.
-1. Téléchargez des données vers un conteneur de stockage Azure.
-1. Pré-traitez et nettoyez les données dans IPython Notebook, en accédant aux données à partir du conteneur de stockage Azure.
+1. Chargez des données dans un conteneur Stockage Azure.
+1. Pré-traitez et nettoyez les données dans IPython Notebook, en accédant aux données à partir du conteneur Stockage Azure.
 1. Transformez les données sous forme de tableau nettoyé.
 1. Enregistrez les données transformées dans des objets blob Azure.
 1. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
@@ -61,9 +61,9 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (serveur IPython Notebook)
 1. Créez une machine virtuelle Azure exécutant IPython Notebook.
-1. Téléchargez des données vers un conteneur de stockage Azure.
+1. Chargez des données dans un conteneur Stockage Azure.
 1. Pré-traitez et nettoyez les données dans IPython Notebook, en accédant aux données des objets blob Azure.
-1. Le cas échéant, transformez les données sous forme de tableau nettoyé.
+1. Si besoin, transformez les données sous forme de tableau nettoyé.
 1. Le cas échéant, explorez des données et créez des fonctionnalités.
 1. Extrayez un échantillon de données petit à moyen.
 1. Enregistrez les données échantillonnées dans des objets blob Azure.
@@ -76,15 +76,15 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
 1. Créez une Machine virtuelle Azure exécutant SQL Server + IPython Notebook.
-1. Téléchargez des données vers un conteneur de stockage Azure.
-1. Pré-traitez et nettoyez les données dans un conteneur de stockage Azure à l’aide d’IPython Notebook.
-1. Le cas échéant, transformez les données sous forme de tableau nettoyé.
+1. Chargez des données dans un conteneur Stockage Azure.
+1. Pré-traitez et nettoyez les données dans un conteneur Stockage Azure à l’aide d’IPython Notebook.
+1. Si besoin, transformez les données sous forme de tableau nettoyé.
 1. Enregistrez les données dans des fichiers locaux de la machine virtuelle (IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle).
 1. Chargez des données dans la base de données SQL Server s’exécutant sur une machine virtuelle Azure.
    
    Option \#1 : Avec SQL Server Management Studio.
    
-   * Vous connecter à la machine virtuelle SQL Server
+   * Connectez-vous à la machine virtuelle SQL Server.
    * Exécutez SQL Server Management Studio.
    * Créez la base de données et les tables cibles.
    * Utilisez une des méthodes d’importation en bloc pour charger les données à partir des fichiers locaux de la machine virtuelle.
@@ -95,10 +95,10 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
    * Utilisez la chaîne de connexion ODBC pour accéder à SQL Server sur la machine virtuelle.
    * Créez la base de données et les tables cibles.
    * Utilisez une des méthodes d’importation en bloc pour charger les données à partir des fichiers locaux de la machine virtuelle.
-1. Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
+1. Le cas échéant, explorez des données et créez des fonctionnalités. Les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 1. Choisissez une taille d’échantillon de données, si nécessaire et/ou souhaité.
 1. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
-1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données, le cas échéant, directement dans la requête [Import Data][import-data].
+1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Si besoin, collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données directement dans la requête [Importer des données][import-data].
 1. Créez un flux d’expérience Azure Machine Learning commençant par le ou les jeux de données ingérés.
 
 ## <a name="largelocaltodb"></a>Scénario \#5 : Jeu de données volumineux dans des fichiers locaux, ciblant SQL Server dans une machine virtuelle Azure
@@ -106,40 +106,36 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
 1. Créez une machine virtuelle Azure exécutant SQL Server et le serveur IPython Notebook.
-1. Téléchargez des données vers un conteneur de stockage Azure.
+1. Chargez des données dans un conteneur Stockage Azure.
 1. (Facultatif) Pré-traitez et nettoyez les données.
    
-   a.  Pré-traitez et nettoyez les données dans IPython Notebook, en accédant aux données des objets blob Azure.
+    a.  Pré-traitez et nettoyez les données dans IPython Notebook, en accédant aux données des objets blob Azure.
    
-       blobs.
+    b.  Si besoin, transformez les données sous forme de tableau nettoyé.
    
-   b.  Le cas échéant, transformez les données sous forme de tableau nettoyé.
-   
-   c.  Enregistrez les données dans des fichiers locaux de la machine virtuelle (IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle).
+    c.  Enregistrez les données dans des fichiers locaux de la machine virtuelle (IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle).
 1. Chargez des données dans la base de données SQL Server s’exécutant sur une machine virtuelle Azure.
    
-   a.  Connectez-vous à la machine virtuelle SQL Server.
+    a.  Connectez-vous à la machine virtuelle SQL Server.
    
-   b.  Si les données ne sont pas déjà enregistrées, téléchargez les fichiers de données à partir d’Azure
+    b.  Si les données n'ont pas encore été enregistrées, téléchargez les fichiers de données à partir d’un conteneur Stockage Azure vers le dossier de machine virtuelle local.
    
-       storage container to local-VM folder.
+    c.  Exécutez SQL Server Management Studio.
    
-   c.  Exécutez SQL Server Management Studio.
+    d.  Créez la base de données et les tables cibles.
    
-   d.  Créez la base de données et les tables cibles.
+    e.  Utilisez l’une des méthodes d’importation en bloc pour charger les données.
    
-   e.  Utilisez l’une des méthodes d’importation en bloc pour charger les données.
-   
-   f.  Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
+    f.  Si les jointures de table sont nécessaires, créez des index pour accélérer les jointures.
    
    > [!NOTE]
    > Pour accélérer le chargement des formats de données volumineux, il est recommandé de créer des tables partitionnées et d’importer en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](parallel-load-sql-partitioned-tables.md).
    > 
    > 
-1. Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
+1. Le cas échéant, explorez des données et créez des fonctionnalités. Les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 1. Choisissez une taille d’échantillon de données, si nécessaire et/ou souhaité.
 1. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
-1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données, le cas échéant, directement dans la requête [Import Data][import-data].
+1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Si besoin, collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données directement dans la requête [Importer des données][import-data].
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé
 
 ## <a name="largedbtodb"></a>Scénario \#6 : jeu de données volumineux dans une base de données SQL Server locale, ciblant SQL Server sur une machine virtuelle Azure
@@ -153,12 +149,12 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
    > Si vous décidez de déplacer toutes les données de la base de données locale, il existe une autre méthode (plus rapide) pour déplacer la base de données entière vers l’instance SQL Server dans Azure. Ignorez les étapes d’exportation des données, de création de la base de données et de chargement/importation des données dans la base de données cible, et suivez l’autre méthode.
    > 
    > 
-1. Téléchargez les fichiers de vidage vers le conteneur de stockage Azure.
+1. Chargez les fichiers de vidage vers le conteneur de Stockage Azure.
 1. Chargez les données dans une base de données SQL Server sur une machine virtuelle Azure.
    
    a.  Connectez-vous à la machine virtuelle SQL Server.
    
-   b.  Téléchargez les fichiers de données à partir d’un conteneur de stockage Azure vers le dossier de machine virtuelle local.
+   b.  Téléchargez les fichiers de données à partir d’un conteneur Stockage Azure vers le dossier de machine virtuelle local.
    
    c.  Exécutez SQL Server Management Studio.
    
@@ -172,17 +168,17 @@ Les sections suivantes présentent quelques exemples de scénarios. Pour chaque 
    > Pour accélérer le chargement des formats de données volumineux, créez des tables partitionnées et importez en bloc les données en parallèle. Pour plus d’informations, consultez la rubrique [Importation de données en parallèle dans des tables partitionnées SQL](parallel-load-sql-partitioned-tables.md).
    > 
    > 
-1. Le cas échéant, explorez des données et créez des fonctionnalités. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
+1. Le cas échéant, explorez des données et créez des fonctionnalités. Les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
 1. Choisissez une taille d’échantillon de données, si nécessaire et/ou souhaité.
 1. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
-1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données, le cas échéant, directement dans la requête [Import Data][import-data].
+1. Lisez les données directement à partir de SQL Server à l’aide du module [Importer des données][import-data]. Si besoin, collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données directement dans la requête [Importer des données][import-data].
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé.
 
 ### <a name="alternate-method-to-copy-a-full-database-from-an-on-premises--sql-server-to-azure-sql-database"></a>Autre méthode pour copier une base de données complète à partir d’un serveur SQL local vers une base de données Azure SQL
 ![Détacher la base de données locale et l’attacher à la base de données SQL dans Azure][7]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Autres ressources Azure : Machine virtuelle Azure (SQL Server / serveur IPython Notebook)
-Pour répliquer l’ensemble de la base de données SQL Server dans votre machine virtuelle SQL Server, vous devez copier une base de données à partir d’un emplacement/serveur vers un autre, en supposant que la base de données puisse être mise temporairement hors connexion. Pour cela, utilisez l’Explorateur d’objets SQL Server Management Studio ou les commandes Transact-SQL équivalentes.
+Pour répliquer l’ensemble de la base de données SQL Server dans votre machine virtuelle SQL Server, vous devez copier une base de données à partir d’un emplacement/serveur vers un autre, en supposant que la base de données puisse être mise temporairement hors connexion. Vous pouvez utiliser l’Explorateur d’objets SQL Server Management Studio ou les commandes Transact-SQL équivalentes.
 
 1. Détachez la base de données à l’emplacement source. Pour plus d’informations, consultez la rubrique [Détacher une base de données](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
 1. Dans l’Explorateur Windows ou l’invite de commandes Windows, copiez les fichiers de la base de données détachée et les fichiers journaux à l’emplacement cible sur la machine virtuelle SQL Server dans Azure.
@@ -202,7 +198,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
    
        blobs.
    
-   b.  Le cas échéant, transformez les données sous forme de tableau nettoyé.
+   b.  Si besoin, transformez les données sous forme de tableau nettoyé.
    
    c.  Enregistrez les données dans des fichiers locaux de la machine virtuelle (IPython Notebook est en cours d’exécution sur l’ordinateur virtuel, les lecteurs locaux font référence aux lecteurs de machine virtuelle).
 1. Téléchargez des données vers le conteneur par défaut du cluster Hadoop sélectionné à l’étape 2.
@@ -220,7 +216,7 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
    > Si les données sont volumineuses, les utilisateurs peuvent créer la table Hive avec des partitions. Ils peuvent ensuite utiliser une boucle `for` dans la ligne de commande Hadoop sur le nœud principal pour charger les données dans la table Hive une partition à la fois.
    > 
    > 
-1. Le cas échéant, explorez des données et créez des fonctionnalités dans la ligne de commande Hadoop. Notez que les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
+1. Le cas échéant, explorez des données et créez des fonctionnalités dans la ligne de commande Hadoop. Les fonctionnalités ne doivent pas être matérialisées dans les tables de base de données. Notez seulement la requête nécessaire pour les créer.
    
    a.  Connectez-vous au nœud principal du cluster Hadoop.
    
@@ -231,12 +227,12 @@ Pour répliquer l’ensemble de la base de données SQL Server dans votre machi
    d.  Exécutez les requêtes Hive sur la ligne de commande Hadoop sur le nœud principal du cluster Hadoop pour explorer les données et créer des fonctionnalités en fonction des besoins.
 1. Si nécessaire et/ou souhaité, échantillonnez les données pour les adapter à Azure Machine Learning Studio.
 1. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net/).
-1. Lisez les données directement à partir de `Hive Queries` à l’aide du module [Importer des données][import-data]. Collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données, le cas échéant, directement dans la requête [Import Data][import-data].
+1. Lisez les données directement à partir de `Hive Queries` à l’aide du module [Importer des données][import-data]. Si besoin, collez la requête nécessaire qui extrait les champs, crée les fonctionnalités et échantillonne les données directement dans la requête [Importer des données][import-data].
 1. Flux d’expérience Azure Machine Learning simple commençant par le jeu de données téléchargé.
 
 ## <a name="decisiontree"></a>Arbre de décision pour le choix du scénario
 ---
-Le schéma suivant résume les scénarios décrits ci-dessus et les processus de science des données ainsi que les choix technologiques effectués qui vous guident vers chacun des scénarios détaillés. Notez que le traitement des données, l’exploration, la conception de fonctionnalités et l’échantillonnage peuvent survenir dans un(e) ou plusieurs méthodes/environnements (dans l’environnement source, l’environnement intermédiaire et/ou l’environnement cible) et peuvent s’effectuer de manière itérative en fonction des besoins. Le schéma illustre uniquement les flux possibles et ne fournit pas d’énumération exhaustive.
+Le schéma suivant résume les scénarios décrits ci-dessus et les processus de science des données ainsi que les choix technologiques effectués qui vous guident vers chacun des scénarios détaillés. Le traitement des données, l’exploration, la conception de fonctionnalités et l’échantillonnage peuvent survenir dans un(e) ou plusieurs méthodes/environnements (dans l’environnement source, l’environnement intermédiaire et/ou l’environnement cible) et peuvent s’effectuer de manière itérative en fonction des besoins. Le schéma illustre uniquement les flux possibles et ne fournit pas d’énumération exhaustive.
 
 ![Exemples de scénarios de procédure pas à pas pour le processus DS][8]
 

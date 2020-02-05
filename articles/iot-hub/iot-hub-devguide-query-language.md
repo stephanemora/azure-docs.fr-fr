@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450060"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767729"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
@@ -233,7 +233,7 @@ L’objet de requête expose plusieurs valeurs **Next**, en fonction de l’opti
 ### <a name="limitations"></a>Limites
 
 > [!IMPORTANT]
-> Les résultats de la requête peuvent être produits avec quelques minutes de retard par rapport aux dernières valeurs dans les jumeaux d’appareil. Si vous interrogez des jumeaux d’appareil par ID, utilisez l’API de récupération de jumeau d’appareil. Cette API contient toujours les valeurs les plus récentes et ses seuils de limitation sont plus élevés.
+> Les résultats de la requête peuvent être produits avec quelques minutes de retard par rapport aux dernières valeurs dans les jumeaux d’appareil. Si vous interrogez des jumeaux d’appareil par ID, utilisez l’[API REST d’obtention de jumeau](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Cette API retourne toujours les valeurs les plus récentes et ses seuils de limitation sont plus élevés. Vous pouvez émettre l’API REST directement ou utiliser la fonctionnalité équivalente dans l’un des [kits Azure IoT Hub Service SDK](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 Actuellement, les comparaisons ne sont prises en charge qu’entre types primitifs (aucun objet), par exemple `... WHERE properties.desired.config = properties.reported.config` est pris en charge uniquement si ces propriétés ont des valeurs primitives.
 
@@ -328,7 +328,7 @@ SELECT <select_list>
 
 La clause **FROM <from_specification>** ne peut supposer que trois valeurs : **FROM devices** pour interroger les jumeaux d’appareil, **FROM devices.modules** pour interroger les jumeaux de module ou **FROM devices.jobs** pour interroger les détails de travaux par appareil.
 
-## <a name="where-clause"></a>Clause WHERE
+## <a name="where-clause"></a>WHERE (clause)
 
 La clause **WHERE <filter_condition>** est facultative. Elle indique une ou plusieurs conditions que les documents JSON du regroupement FROM doivent remplir pour être inclus dans le résultat. Pour être inclus dans le résultat, chaque document JSON doit évaluer les conditions spécifiées comme « true ».
 
@@ -447,11 +447,11 @@ Pour comprendre ce que signifie chaque symbole dans la syntaxe des expressions, 
 
 Les opérateurs suivants sont pris en charge :
 
-| Famille | Operators |
+| Famille | Opérateurs |
 | --- | --- |
-| Opérateurs arithmétiques |+, -, *, /, % |
-| Opérateurs logiques |AND, OR, NOT |
-| Opérateurs de comparaison |=, !=, <, >, <=, >=, <> |
+| Arithmétique |+, -, *, /, % |
+| Logical |AND, OR, NOT |
+| Comparaison |=, !=, <, >, <=, >=, <> |
 
 ### <a name="functions"></a>Fonctions
 
@@ -470,7 +470,7 @@ Dans les conditions d’itinéraire, les fonctions mathématiques suivantes sont
 | POWER(x,y) | Retourne la valeur de l’expression spécifiée élevée à la puissance spécifiée (x^y).|
 | SQUARE(x) | Retourne le carré de la valeur numérique spécifiée. |
 | CEILING(x) | Retourne le plus petit nombre entier qui est supérieur ou égal à l'expression numérique spécifiée. |
-| FLOOR(x) | Retourne le plus grand nombre entier qui est inférieur ou égal à l'expression numérique spécifiée. |
+| FLOOR(x) | Renvoie le nombre entier le plus grand, inférieur ou égal à l'expression numérique donnée. |
 | SIGN(x) | Retourne le signe positif (+1), nul (0) ou négatif (-1) de l'expression numérique spécifiée.|
 | SQRT(x) | Retourne la racine carrée de la valeur numérique spécifiée. |
 

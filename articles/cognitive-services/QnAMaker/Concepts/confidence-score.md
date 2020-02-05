@@ -1,29 +1,29 @@
 ---
 title: Score de confiance - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Le score de confiance indique la probabilité que la réponse corresponde à la requête de l’utilisateur.
+description: Une base de connaissances doit être publiée. Une fois publiée, la base de connaissances est interrogée au point de terminaison de prédiction du runtime à l’aide de l’API generateAnswer.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e2f7136ea7b973386eeb746a74ad09fadb490e83
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d901a803311805825c22503af6098e805a67e8f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229119"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843450"
 ---
-# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>Score de confiance d’une base de connaissances QnA Maker
-Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur. 
+# <a name="the-confidence-score-of-an-answer"></a>Score de confiance d'une réponse
+Quand une requête d’utilisateur trouve une correspondance dans une base de connaissances, QnA Maker renvoie des réponses pertinentes, ainsi qu’un score de confiance. Ce score indique la probabilité que la réponse corresponde à la requête de l’utilisateur.
 
 Un score de confiance est une valeur comprise de 0 à 100. Un score de 100 est probablement une correspondance exacte, tandis qu’un score de 0 signifie qu’aucune réponse correspondante n’a été trouvée. Plus le score et élevé,  plus la réponse est fiable. Plusieurs réponses peuvent correspondre à une requête donnée. Dans ce cas, les réponses sont retournées dans l’ordre décroissant du score de confiance.
 
-L’exemple ci-dessous présente une entité QnA avec 2 questions. 
+L’exemple ci-dessous présente une entité QnA avec 2 questions.
 
 
 ![Exemple de paire QnA](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
@@ -57,9 +57,9 @@ Lorsque vous choisissez votre seuil, n’oubliez pas l’équilibre entre exacti
 > [!NOTE]
 > Les nouvelles versions de QnA Maker incluent des améliorations à la logique de notation, et pourraient affecter votre seuil. Chaque fois que vous mettez à jour le service, assurez-vous de tester et d’ajuster le seuil si nécessaire. Vous pouvez vérifier votre version du service QnA [ici](https://www.qnamaker.ai/UserSettings) et voir comment obtenir les dernières mises à jour [ici](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
 
-## <a name="set-threshold"></a>Définir le seuil 
+## <a name="set-threshold"></a>Définir le seuil
 
-Définissez le score de seuil en tant que propriété du [corps JSON de l’API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Cela signifie que vous le définissez pour chaque appel à GenerateAnswer. 
+Définissez le score de seuil en tant que propriété du [corps JSON de l’API GenerateAnswer](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration). Cela signifie que vous le définissez pour chaque appel à GenerateAnswer.
 
 À partir de Bot Framework, définissez le score au niveau de l’objet options avec [C# ](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) ou [Node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs).
 
@@ -72,40 +72,23 @@ Lorsque plusieurs réponses ont un score de confiance similaire, il est probable
 
 
 ## <a name="confidence-score-differences-between-test-and-production"></a>Différences entre les scores de confiance entre le test et la production
-Le score de confiance d’une réponse peut changer sensiblement entre le test et la version publiée de la base de connaissances, même si le contenu est le même. En effet, le contenu de la base de connaissances de test et de la base de connaissances publiée se trouvent dans des index Recherche cognitive Azure différents. 
+Le score de confiance d’une réponse peut changer sensiblement entre le test et la version publiée de la base de connaissances, même si le contenu est le même. En effet, le contenu de la base de connaissances de test et de la base de connaissances publiée se trouvent dans des index Recherche cognitive Azure différents.
 
 L’index de test contient toutes les paires QnA de vos bases de connaissances. Lors de l’interrogation de l’index de test, la requête s’applique à l’ensemble de l’index, puis les résultats sont limités à la partition de cette base de connaissances spécifique. Si les résultats de la requête de test ont un impact négatif sur votre capacité à vérifier la base de connaissances, vous pouvez :
 * organiser votre base de connaissances à l’aide d’un des éléments suivants :
-    * 1 ressource limitée à 1 Ko : limitez votre ressource QnA unique (et l’index de test Recherche cognitive Azure résultant) à une base de connaissances unique. 
+    * 1 ressource limitée à 1 Ko : limitez votre ressource QnA unique (et l’index de test Recherche cognitive Azure résultant) à une base de connaissances unique.
     * 2 ressources (1 pour le test, 1 pour la production) : avoir deux ressources QnA Maker, en utilisant l’une pour le test (avec ses propres index de test et de production) et l’autre pour le produit (ayant également ses propres index de test et de production)
 * et toujours utilisez les mêmes paramètres, tels que **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** lorsque vous interrogez à la fois votre base de connaissances de test et celle de production
 
 Quand vous publiez une base de connaissances, ses contenus de questions/réponses se déplacent de l’index de test vers un index de production dans Recherche Azure. Découvrez le fonctionnement de l’opération de [publication](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 
-Si vous avez une base de connaissances dans des régions différentes, chacune d’elles utilise son propre index de Recherche cognitive Azure. Étant donné que différents index sont utilisés, les scores ne seront pas exactement les mêmes. 
+Si vous avez une base de connaissances dans des régions différentes, chacune d’elles utilise son propre index de Recherche cognitive Azure. Étant donné que différents index sont utilisés, les scores ne seront pas exactement les mêmes.
 
 
 ## <a name="no-match-found"></a>Aucune correspondance trouvée
-Si aucune bonne correspondance n’est trouvée par la fonction de classement, le score de confiance de 0,0 ou « None » est retourné, et la réponse par défaut est « Aucune bonne correspondance trouvée dans la base de connaissances ». Vous pouvez remplacer cette [réponse par défaut](#change-default-answer) dans le code du bot ou de l’application appelant le point de terminaison. Vous pouvez également définir la réponse de remplacement dans Azure, et cela modifie la valeur par défaut pour toutes les bases de connaissances déployées dans un service QnA Maker particulier.
-
-## <a name="change-default-answer"></a>Modifier la réponse par défaut
-
-1. Accédez au [portail Azure](https://portal.azure.com) et au groupe de ressources qui représente le service QnA Maker que vous avez créé.
-
-2. Cliquez pour ouvrir **App Service**.
-
-    ![Sur le portail Azure, accéder à App Service pour QnA Maker](../media/qnamaker-concepts-confidencescore/set-default-response.png)
-
-3. Cliquez sur **Paramètres de l’application** et modifiez le champ **DefaultAnswer** pour entrer la réponse par défaut souhaitée. Cliquez sur **Enregistrer**.
-
-    ![Sélectionner Paramètres de l’application, puis modifier DefaultAnswer pour QnA Maker](../media/qnamaker-concepts-confidencescore/change-response.png)
-
-4. Redémarrer votre App service
-
-    ![Après avoir modifié DefaultAnswer, redémarrer l’App Service QnA Maker](../media/qnamaker-faq/qnamaker-appservice-restart.png)
-
+Si aucune bonne correspondance n’est trouvée par la fonction de classement, le score de confiance de 0,0 ou « None » est retourné, et la réponse par défaut est « Aucune bonne correspondance trouvée dans la base de connaissances ». Vous pouvez remplacer cette [réponse par défaut](../How-To/metadata-generateanswer-usage.md) dans le code du bot ou de l’application appelant le point de terminaison. Vous pouvez également définir la réponse de remplacement dans Azure, et cela modifie la valeur par défaut pour toutes les bases de connaissances déployées dans un service QnA Maker particulier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
-> [Sources de données prises en charge](./data-sources-supported.md)
+> [Bonnes pratiques](./best-practices.md)
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035606"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721079"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -59,7 +59,7 @@ Familiarisons-nous avec le pilote ODBC.
     ![Fenêtre de configuration DSN du pilote ODBC Azure Cosmos DB](./media/odbc-driver/odbc-driver-dsn-setup.png)
     - **Nom de source de données** : le nom convivial de votre DSN ODBC. Ce nom étant spécifique à votre compte Azure Cosmos DB, choisissez-le de manière appropriée si vous possédez plusieurs comptes.
     - **Description** : courte description de la source de données.
-    - **Hôte** : URI de votre compte Azure Cosmos DB. Vous pouvez récupérer cette information sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. 
+    - **Hôte** : URI de votre compte Azure Cosmos DB. Vous pouvez récupérer cette information sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. 
     - **Clé d’accès** : clé primaire ou secondaire, en lecture-écriture ou en lecture seule, affichée sur la page des clés Azure Cosmos DB du portail Azure, comme illustré dans la capture d’écran suivante. Nous vous recommandons d'utiliser la clé en lecture seule si le DSN sert au traitement des données en lecture seule et à la création de rapports.
     ![Page des clés Azure Cosmos DB](./media/odbc-driver/odbc-cosmos-account-keys.png)
     - **Chiffrer la clé d’accès pour** : sélectionnez l’option optimale en fonction des utilisateurs de cet ordinateur. 
@@ -90,7 +90,7 @@ Familiarisons-nous avec le pilote ODBC.
 
 ## <a id="#container-mapping"></a>Étape 3 : Créer une définition de schéma à l’aide de la méthode de mappage de conteneur
 
-Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : le **mappage de conteneur** et les **délimiteurs de table**. Une session d’échantillonnage peut utiliser ces deux méthodes d’échantillonnage, mais chaque conteneur peut uniquement utiliser une méthode d’échantillonnage spécifique. Les étapes ci-dessous créent un schéma pour les données d’un ou plusieurs conteneurs à l’aide de la méthode de mappage de conteneur. Cette méthode d’échantillonnage récupère les données dans la page d’un conteneur pour déterminer la structure de ces données. Elle transpose un conteneur en table côté ODBC. Cette méthode d’échantillonnage est rapide et efficace lorsque les données d’un conteneur sont homogènes. Si un conteneur contient des données hétérogènes, nous vous recommandons d’utiliser la [méthode de mappage par délimiteurs de table](#table-mapping), car elle fournit une méthode d’échantillonnage plus robuste pour déterminer les structures des données du conteneur. 
+Il existe deux types de méthodes d’échantillonnage que vous pouvez utiliser : le **mappage de conteneur** et les **délimiteurs de table**. Une session d’échantillonnage peut utiliser ces deux méthodes d’échantillonnage, mais chaque conteneur ne peut utiliser qu’une méthode d’échantillonnage spécifique. Les étapes ci-dessous créent un schéma pour les données d’un ou plusieurs conteneurs à l’aide de la méthode de mappage de conteneur. Cette méthode d’échantillonnage récupère les données dans la page d’un conteneur pour déterminer la structure de ces données. Elle transpose un conteneur en table côté ODBC. Cette méthode d’échantillonnage est rapide et efficace lorsque les données d’un conteneur sont homogènes. Si un conteneur contient des données hétérogènes, nous vous recommandons d’utiliser la [méthode de mappage par délimiteurs de table](#table-mapping), car elle fournit une méthode d’échantillonnage plus robuste pour déterminer les structures des données du conteneur. 
 
 1. Après avoir terminé les étapes 1 à 4 de la rubrique [Vous connecter à votre base de données Azure Cosmos](#connect), cliquez sur **Éditeur de schéma** dans la fenêtre **Configuration DSN du pilote ODBC Azure Cosmos DB**.
 
@@ -172,7 +172,7 @@ Pour interroger la base de données liée, entrez une requête SSMS. Dans cet ex
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
 ```
 
-Exécutez la requête. Le résultat devrait se présenter ainsi :
+exécutez la requête. Le résultat devrait se présenter ainsi :
 
 ```
 attachments/  1507476156    521 Bassett Avenue, Wikieup, Missouri, 5422   "2602bc56-0000-0000-0000-59da42bc0000"   2015-02-06T05:32:32 +05:00 f1ca3044f17149f3bc61f7b9c78a26df
@@ -198,7 +198,7 @@ Pour créer une vue de vos données, dans la fenêtre **Éditeur de schéma**, d
     ![Création d’une vue des données](./media/odbc-driver/odbc-driver-create-view.png)
 
 
-Puis, dans la fenêtre **View Definitions** (Définitions de vue), procédez comme suit :
+Puis, dans la fenêtre **View Definitions** (Définitions de la vue), procédez comme suit :
 
 1. Cliquez sur **New** (Nouveau), entrez un nom pour la vue, par exemple, EmployeesfromSeattleView, puis cliquez **OK**.
 
@@ -209,7 +209,7 @@ Puis, dans la fenêtre **View Definitions** (Définitions de vue), procédez com
 
 Vous pouvez créer autant de vues que vous le souhaitez. Une fois que vous avez terminé la définition des vues, vous pouvez échantillonner les données. 
 
-## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>Étape 5 : Affichage de vos données dans des outils décisionnels comme Power BI Desktop
+## <a name="step-5-view-your-data-in-bi-tools-such-as-power-bi-desktop"></a>Étape 5 : Affichage de vos données dans des outils décisionnels comme Power BI Desktop
 
 Vous pouvez utiliser votre nouveau DSN pour vous connecter à Azure Cosmos DB avec n’importe quel outil compatible ODBC. Cette étape vous indique simplement comment vous connecter à Power BI Desktop et créer une visualisation Power BI.
 
@@ -239,7 +239,7 @@ Vous pouvez utiliser votre nouveau DSN pour vous connecter à Azure Cosmos DB av
 
 1. Vous pouvez désormais créer des éléments visuels à l’aide de Power BI en cliquant sur l’onglet Rapport ![onglet Rapport dans Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), sur **Nouvel élément visuel**, puis en personnalisation votre mosaïque. Pour plus d’informations sur la création de visualisations dans Power BI Desktop, consultez [Types de visualisation dans Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si l’erreur suivante s’affiche, vérifiez que les valeurs **Hôte** et **Clé d’accès** que vous avez copiées sur le portail Azure à l’[étape 2](#connect) sont correctes, puis réessayez. Utilisez les boutons de copie à droite des valeurs **Hôte** et **Clé d’accès** sur le portail Azure pour copier les valeurs correctes.
 

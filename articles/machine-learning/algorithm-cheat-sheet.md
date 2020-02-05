@@ -9,18 +9,20 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771510"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767626"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Aide-mémoire de l’algorithme Machine Learning pour le concepteur Azure Machine Learning
 
 **L’Aide-mémoire d’algorithme Azure Machine Learning Studio** vous permet de choisir l’algorithme adapté à un modèle d’analyse prédictif.
 
-Azure Machine Learning possède une grande bibliothèque d’algorithmes à partir des familles ***classification***, ***systèmes de recommandation***, ***clustering***,  ***détection des anomalies***, ***régression*** et ***analyse de texte***. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
+Azure Machine Learning a une grande bibliothèque d’algorithmes à partir des familles ***classification***, ***systèmes de recommandation***, ***clustering***, ***détection des anomalies***, ***régression*** et ***analyse de texte***. Chacun est conçu pour traiter un type de problème de Machine Learning différent.
+
+Pour obtenir des instructions supplémentaires, consultez [Guide pratique pour sélectionner des algorithmes](how-to-select-algorithms.md).
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Télécharger : Aide-mémoire de l’algorithme Machine Learning
 
@@ -32,7 +34,7 @@ Téléchargez et imprimez l’Aide-mémoire d’algorithme Machine Learning au f
 
 ## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Comment utiliser l’aide-mémoire de l’algorithme Machine Learning
 
-Les suggestions proposées dans cet aide-mémoire d'algorithme sont des règles de base approximatives. Certaines peuvent être contournées et d’autres ignorées. Elles visent à proposer un point de départ. N’hésitez pas à comparer plusieurs algorithmes avec vos données. Il est tout simplement indispensable de comprendre les principes de chaque algorithme et le système qui a généré les données.
+Les suggestions proposées dans cet aide-mémoire d'algorithme sont des règles de base approximatives. Certaines peuvent être contournées et d’autres ignorées. La finalité de cet aide-mémoire est de proposer un point de départ. N’hésitez pas à comparer plusieurs algorithmes avec vos données. Il est tout simplement indispensable de comprendre les principes de chaque algorithme et le système qui a généré les données.
 
 Chaque algorithme Machine Learning a son propre style ou biais inductif. Plusieurs algorithmes peuvent être appropriés pour un problème spécifique et un algorithme peut être un meilleur choix que d’autres. Mais il n’est pas toujours possible de savoir au préalable lequel convient le mieux. Dans ce cas, plusieurs algorithmes sont affichés dans l’aide-mémoire. Une stratégie appropriée consiste à essayer un algorithme et, si les résultats ne sont pas satisfaisants, à essayer les autres. 
 
@@ -48,7 +50,7 @@ Dans l’apprentissage supervisé, chaque point de données est étiqueté ou as
 
 ### <a name="unsupervised-learning"></a>Apprentissage non supervisé
 
-Dans l’apprentissage non supervisé, les points de données n’ont aucune étiquette associée. En effet, l’objectif d’un algorithme d’apprentissage non supervisé est d’organiser les données d’une certaine façon ou de décrire sa structure. Cela peut signifier un regroupement en clusters, comme le fait l’algorithme des k-moyennes ou la recherche de différentes manières de visualiser des données complexes afin d’en simplifier l’affichage.
+Dans l’apprentissage non supervisé, les points de données n’ont aucune étiquette associée. En effet, l’objectif d’un algorithme d’apprentissage non supervisé est d’organiser les données d’une certaine façon ou de décrire sa structure. L’apprentissage non supervisé groupe les données en clusters, comme le fait l’algorithme des k-moyennes, ou recherche différentes manières de visualiser des données complexes afin d’en simplifier l’affichage.
 
 ### <a name="reinforcement-learning"></a>Apprentissage par renforcement
 
@@ -56,9 +58,9 @@ Dans l’apprentissage par renforcement, l’algorithme choisit une action en r�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [En savoir plus sur Studio dans Azure Machine Learning et le Portail Azure](overview-what-is-azure-ml.md).
+* Prenez connaissance de conseils supplémentaires avec le [Guide pratique pour sélectionner des algorithmes](how-to-select-algorithms.md)
 
-* Consultez la liste des algorithmes et des modules dans la [référence des algorithmes et des modules](algorithm-module-reference/module-reference.md).
+* [En savoir plus sur Studio dans Azure Machine Learning et le Portail Azure](overview-what-is-azure-ml.md).
 
 * [Tutoriel : Générer un modèle de prévision dans le concepteur Azure Machine Learning](tutorial-designer-automobile-price-train-score.md).
 

@@ -5,20 +5,21 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969656"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845470"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exporter le journal d’activité vers le stockage ou Azure Event Hubs
 
-> [!WARNING]
-> Vous pouvez maintenant collecter le journal d’activité dans un espace de travail Log Analytics à l’aide d’un paramètre de diagnostic de la même façon que vous collectez les journaux de ressources. Consultez [Collecter et analyser les journaux d’activité Azure dans l’espace de travail Log Analytics dans Azure Monitor](diagnostic-settings-legacy.md).
+> [!IMPORTANT]
+> La méthode d’envoi du journal d’activité Azure dans Stockage Azure et Azure Event Hubs a été remplacée par des [paramètres de diagnostic](diagnostic-settings.md). Cet article décrit la méthode actuelle qui est en cours de dépréciation. Pour obtenir une comparaison, consultez [Mise à jour avec la collecte et l’exportation de journaux d’activité Azure](diagnostic-settings-legacy.md).
+
 
 Le [journal d’activité Azure](platform-logs-overview.md) apporte des insights sur les événements liés aux abonnements qui se sont produits dans votre abonnement Azure. En plus d'afficher le journal d’activité dans le portail Azure ou de le copier dans un espace de travail Log Analytics où il peut être analysé avec d’autres données collectées par Azure Monitor, vous pouvez créer un profil de journal pour archiver le journal d’activité dans un compte de stockage Azure ou le diffuser en continu dans un Event Hub.
 
@@ -35,9 +36,10 @@ Archiver le journal d'activité vers un compte de stockage est utile si vous sou
 ### <a name="storage-account"></a>Compte de stockage
 Si vous archivez votre journal d’activité, vous devez [créer un compte de stockage](../../storage/common/storage-account-create.md), si vous n'en avez pas déjà. Nous vous déconseillons d'utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. Cependant, si vous archivez également des journaux et des métriques sur un compte de stockage, vous pouvez choisir d’utiliser ce même compte pour regrouper toutes vos données d’analyse au même emplacement.
 
-Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que l’abonnement générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements.
-> [!NOTE]
->  Vous ne pouvez pas archiver les données dans un stockage situé derrière un réseau virtuel sécurisé.
+Il n’est pas nécessaire que le compte de stockage se trouve dans le même abonnement que l’abonnement générant des journaux d’activité, à condition que l’utilisateur qui configure le paramètre ait un accès RBAC approprié aux deux abonnements. 
+
+> [!TIP]
+> Pour fournir un accès à un compte de stockage situé derrière un réseau virtuel sécurisé, consultez [Configurer des pare-feu et des réseaux virtuels dans Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
 ### <a name="event-hubs"></a>Event Hubs
 Si vous transférez votre journal d’activité vers un Event Hub, vous devez [créer un Event Hub](../../event-hubs/event-hubs-create.md), si vous n'en avez pas déjà. Si vous avez précédemment diffusé en continu des événements du journal d’activité vers cet espace de noms Event Hubs, cet Event Hub sera réutilisé.
@@ -72,9 +74,14 @@ Si des stratégies de rétention sont définies, mais que le stockage des journa
 
 Créez ou modifiez un profil de journal avec l'option **Exporter vers Event Hub** dans le portail Azure.
 
-1. À partir du menu **Superviser** du portail Azure, sélectionnez **Exporter vers Event Hub**.
+1. À partir du menu **Azure Monitor** du Portail Azure, sélectionnez **Journal d’activité**.
+3. Cliquez sur **Paramètres de diagnostic**.
 
-    ![Bouton Exporter dans le portail](media/activity-log-export/portal-export.png)
+   ![Paramètres de diagnostic](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Cliquez sur la bannière violette pour obtenir l’expérience héritée.
+
+    ![Expérience héritée](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. Dans le panneau qui s’affiche, spécifiez ce qui suit :
    * Régions avec les événements à exporter. Vous devez sélectionner toutes les régions pour être certain de ne manquer aucun événement clé car le journal d'activité est mondial (et non régional) et dès lors, la plupart des événements ne sont pas associés à une région.

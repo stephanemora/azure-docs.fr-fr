@@ -1,6 +1,6 @@
 ---
-title: Quotas et limites Microsoft Azure Service Bus | Microsoft Docs
-description: Découvrez les limites et quotas pour Azure Service Bus.
+title: Quotas et limites Microsoft Azure Service Bus
+description: Cet article répertorie les quotas de base et les seuils de limitation qui s’appliquent à la messagerie Azure Service Bus. Par exemple, nombre maximal d’espaces de noms par abonnement.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/27/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: ae2c55486e0489006395a1630eba0b1c3f56b5be
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 7a6d8e56d7f70d637b2c963814b66e6e7cb3a907
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561533"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759565"
 ---
 # <a name="service-bus-quotas"></a>Quotas Service Bus
 Cette section répertorie les quotas de base et les seuils de limitation qui s’appliquent à la messagerie d’Azure Service Bus.

@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.date: 01/22/2020
+ms.openlocfilehash: 4cac2fcd16f779a6b31e36ca175801eedaa31d5d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045567"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705817"
 ---
 # <a name="create-a-new-saas-offer"></a>Créer une nouvelle offre SaaS
 
@@ -111,7 +111,7 @@ Promouvoir votre entreprise avec Microsoft en créant une liste de la Place de m
 - **Comment voulez-vous qu’interagissent les clients avec l’offre de liste ?**
 
 ##### <a name="get-it-now-free"></a>Obtenez-en une maintenant (gratuit)
-Répertoriez votre offre gratuitement pour les clients en fournissant une URL valide (qui commence par *http* ou *https*) où ils peuvent accéder à votre application.  Par exemple : `https://contoso.com/saas-app`
+Répertoriez gratuitement votre offre aux clients en fournissant une URL valide (qui commence par *http* ou *https*), où ils peuvent obtenir une version d’évaluation via une [authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Par exemple : `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>Essai gratuit (annonce)
 Répertoriez votre offre aux clients avec un lien vers une version d’évaluation gratuite en fournissant une URL valide (qui commence par *http* ou *https*), où ils peuvent obtenir une version d’évaluation via une [authentification en un clic à l’aide d’Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  Par exemple : `https://contoso.com/trial/saas-app`. Les versions d’évaluation gratuites sont créées, gérées et configurées par votre service et n’ont pas d’abonnements gérés par Microsoft.

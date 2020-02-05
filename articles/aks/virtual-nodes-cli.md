@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 43ea197c4dc774a4e011cd9fb2b3adcf94866d90
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 423f0866494054702330c8e51fb1ef45e74a0650
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926083"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845708"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
 
@@ -60,7 +60,7 @@ Les régions suivantes sont prises en charge pour les déploiements de nœuds vi
 * USA Ouest (ouest des USA)
 * USA Ouest 2 (westus2)
 
-## <a name="known-limitations"></a>Limites connues
+## <a name="known-limitations"></a>Limitations connues
 Le fonctionnement des nœuds virtuel dépend fortement de l’ensemble de fonctionnalités d’ACI. Les scénarios suivants ne sont pas encore pris en charge avec les nœuds virtuels
 
 * Utilisation du principal du service pour extraire des images ACR. Une [solution de contournement](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste à utiliser les [Secrets Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
@@ -150,7 +150,7 @@ Pour accorder l’accès correct afin que le cluster AKS puisse utiliser le rés
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 ```
 
-## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
+## <a name="create-an-aks-cluster"></a>Créer un cluster AKS
 
 Vous déployez un cluster AKS sur un sous-réseau AKS créé à l’étape précédente. Obtenez l’ID de ce sous-réseau à l’aide de la commande [az network vnet subnet show][az-network-vnet-subnet-show] :
 
@@ -174,7 +174,7 @@ az aks create \
     --client-secret <password>
 ```
 
-Au bout de quelques minutes, la commande se termine et retourne des informations formatées JSON sur le cluster.
+Au bout de quelques minutes, la commande se termine et retourne des informations au format JSON sur le cluster.
 
 ## <a name="enable-virtual-nodes-addon"></a>Activer le module complémentaire de nœuds virtuels
 
@@ -188,7 +188,7 @@ az aks enable-addons \
     --subnet-name myVirtualNodeSubnet
 ```
 
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
+## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
 Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, exécutez la commande [az aks get-credentials][az-aks-get-credentials]. Cette étape télécharge les informations d’identification et configure l’interface de ligne de commande Kubernetes pour leur utilisation.
 
@@ -319,6 +319,10 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 
 À présent, supprimez les ressources réseau virtuelles et le groupe de ressources :
 
+
+> [!NOTE]
+> Si une erreur survient quand vous tentez de supprimer le profil réseau, comptez 3 ou 4 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si vous devez supprimer un profil réseau immédiatement, [ouvrez une demande de support](https://azure.microsoft.com/support/create-ticket/) en faisant référence au service Azure Container Instances.
+
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
@@ -334,12 +338,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0

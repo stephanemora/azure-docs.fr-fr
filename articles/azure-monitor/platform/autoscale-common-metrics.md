@@ -4,12 +4,12 @@ description: Découvrez les métriques utilisées pour la mise à l’échelle a
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364592"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845565"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métriques courantes pour la mise à l’échelle automatique d’Azure Monitor
 
@@ -36,7 +36,7 @@ Les métriques de niveau hôte suivantes sont émies par défaut pour les machin
 - [Métriques de l’hôte pour les machines virtuelles Windows et Linux basées sur Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Métriques de l’hôte pour les jeux de mise à l’échelle de machine virtuelle Windows et Linux basées sur Resource Manager](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Métriques de SE invité pour machines virtuelles Windows basées sur Resource Manager
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métriques de système d’exploitation invité pour les machines virtuelles Windows basées sur Resource Manager
 Lorsque vous créez une machine virtuelle dans Azure, les diagnostics sont effectués grâce à l’extension Diagnostics. L’extension de diagnostics émet un ensemble de métriques extraites de la machine virtuelle. Cela signifie que vous pouvez automatiser la mise à l’échelle des métriques qui ne sont pas émises par défaut.
 
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques.
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \Interface réseau\Total des erreurs Tx |Count |
 | \Interface réseau\Total des collisions |Count |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Métriques web couramment utilisées (batterie de serveurs)
-Vous pouvez également effectuer la mise à l’échelle en fonction des métriques de serveur web courantes, telles que la longueur de file d’attente HTTP. Son nom de métrique est **Longueur de file d’attente HTTP**.  La section suivante répertorie les métriques de batterie de serveurs (Web Apps) disponibles.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>Métriques App Service (batterie de serveurs) couramment utilisées
+Vous pouvez également effectuer la mise à l’échelle en fonction des métriques de serveur web courantes, telles que la longueur de file d’attente HTTP. Son nom de métrique est **HttpQueueLength**.  La section suivante liste les métriques de batterie de serveurs (App Service) disponibles.
 
 ### <a name="web-apps-metrics"></a>Métriques Web Apps
 Vous pouvez utiliser la commande suivante dans PowerShell pour générer une liste des métriques Web Apps.
@@ -159,8 +159,8 @@ Par exemple, avec un compte de stockage classique, le paramètre de mise à l’
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 Pour un compte de stockage (non classique), le paramètre metricTrigger peut inclure :
@@ -177,7 +177,7 @@ Vous pouvez procéder à une mise à l’échelle en fonction de la longueur de 
 Pour les jeux de mise à l’échelle de machine virtuelle, vous pouvez mettre à jour le paramètre Mise à l’échelle automatique dans le modèle Resource Manager afin d’utiliser *metricName* avec la valeur *ApproximateMessageCount*, puis transmettre l’ID de la file d’attente de stockage avec la valeur *metricResourceUri*.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

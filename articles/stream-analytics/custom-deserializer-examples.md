@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 1/28/2020
+ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553016"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845260"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Lire les entrées dans n’importe quel format avec des désérialiseurs .NET personnalisés
 
@@ -80,7 +80,7 @@ Le paramètre `stream` est le flux contenant l’objet sérialisé. `Deserialize
 
 ## <a name="deserializer-examples"></a>Exemples de désérialiseur
 
-Cette section vous montre comment écrire des désérialiseurs personnalisés pour Protobuf et CSV. Pour obtenir des exemples supplémentaires, consultez [Azure Stream Analytics sur GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
+Cette section vous montre comment écrire des désérialiseurs personnalisés pour Protobuf et CSV. Pour d’autres exemples, tels que le format AVRO pour la capture Event Hub, consultez [Azure Stream Analytics sur GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers).
 
 ### <a name="protocol-buffer-protobuf-format"></a>Format de tampon de protocole (Protobuf)
 

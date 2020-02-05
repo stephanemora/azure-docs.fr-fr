@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c102941920d2b8746a49be47ef4c5613fa0bc281
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973378"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719073"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Générer des applications de stockage Azure hautement disponibles sur le stockage géoredondant interzone (GZRS) (préversion)
 
@@ -32,6 +32,7 @@ GZRS et RA-GZRS sont actuellement disponibles en préversion dans les régions s
 - Asie du Sud-Est
 - Europe septentrionale
 - Europe occidentale
+- Japon Est
 - Sud du Royaume-Uni
 - USA Est
 - USA Est 2
@@ -129,6 +130,7 @@ Une fois la migration terminée, le paramètre de réplication du compte de stoc
 Dans le cadre d’une migration dynamique, gardez à l’esprit les restrictions suivantes :
 
 - Lorsque Microsoft gère votre demande de migration dynamique rapidement, il n’existe aucune garantie quant au moment où une migration dynamique s’achève. Si vos données doivent être migrées vers GZRS ou RA-GZRS avant une certaine date, Microsoft recommande d’effectuer plutôt une migration manuelle. En général, plus la quantité de données présentes dans votre compte est élevée, plus la migration des données est longue.
+- La migration dynamique est prise en charge uniquement pour les comptes de stockage utilisant une réplication GRS ou RA-GRS. Si votre compte utilise la réplication LRS, vous devez commencer par changer le type de réplication de votre compte en GRS ou RA-GRS avant de procéder. Cette étape intermédiaire ajoute le point de terminaison secondaire fourni par GRS/RA-GRS.
 - Votre compte doit contenir des données.
 - Vous ne pouvez migrer des données qu’au sein de la même région.
 - Seuls les types de comptes de stockage standard prennent en charge la migration dynamique. Les comptes de stockage Premium doivent être migrés manuellement.
@@ -160,4 +162,4 @@ Un représentant du support technique vous contactera pour vous fournir de l’a
 - [Réplication Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [Stockage localement redondant (LRS) : redondance des données à faible coût pour Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [Stockage redondant interzone (ZRS) : applications Stockage Azure hautement disponibles](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
-- [Objectifs de scalabilité et de performances pour les comptes de stockage standard](scalability-targets-standard-account.md)
+- [Objectifs d’extensibilité et de performances pour les comptes de stockage standard](scalability-targets-standard-account.md)

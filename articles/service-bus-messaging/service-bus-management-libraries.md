@@ -1,6 +1,6 @@
 ---
 title: Bibliothèques de gestion Azure Service Bus | Microsoft Docs
-description: Gérez les espaces de noms et les entités de messagerie Service Bus à partir de .NET.
+description: Cet article explique comment utiliser les bibliothèques de gestion Azure Service Bus pour approvisionner dynamiquement des entités et des espaces de noms Service Bus.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816084"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756264"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliothèques de gestion Service Bus
 
@@ -32,7 +32,7 @@ Les bibliothèques de gestion Azure Service Bus peuvent approvisionner dynamique
 * Création, mise à jour et suppression de rubriques
 * Création, mise à jour et suppression d’abonnements
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer à utiliser les bibliothèques de gestion Service Bus, vous devez vous authentifier auprès du service Azure Active Directory (Azure AD). Azure AD vous oblige à vous authentifier en tant que principal du service pour pouvoir accéder à vos ressources Azure. Pour plus d’informations sur la création d’un principal du service, consultez ces articles :  
 

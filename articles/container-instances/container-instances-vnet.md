@@ -4,12 +4,12 @@ description: Découvrez comment déployer des groupes de conteneurs dans un rés
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887954"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845175"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -33,6 +33,7 @@ Certaines limitations s’appliquent lorsque vous déployez des groupes de conte
 
 * Pour déployer des groupes de conteneurs dans un sous-réseau, le sous-réseau ne peut pas contenir d’autres types de ressources. Supprimez toutes les ressources d’un sous-réseau avant de déployer des groupes de conteneurs dans celui-ci, ou créez un sous-réseau.
 * Vous ne pouvez pas utiliser une [identité managée](container-instances-managed-identity.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
+* Vous ne pouvez pas activer de [probe liveness](container-instances-liveness-probe.md) ni de [probe readiness](container-instances-readiness-probe.md) dans un groupe de conteneurs déployé sur un réseau virtuel.
 * En raison des ressources réseau supplémentaires impliquées, le déploiement d’un groupe de conteneurs sur un réseau virtuel est généralement plus lent que celui d’une instance de conteneur standard.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -261,7 +262,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Si une erreur survient lorsque vous tentez de supprimer le profil réseau, comptez 2 ou 3 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si le problème persiste, [ouvrez une demande de support](https://azure.microsoft.com/support/create-ticket/).
+> Si une erreur se produit lorsque vous tentez de supprimer le profil réseau, comptez 3 ou 4 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si vous devez supprimer un profil réseau immédiatement, [ouvrez une demande de support](https://azure.microsoft.com/support/create-ticket/) en faisant référence au service Azure Container Instances.
 
 Cette fonctionnalité nécessite pour le moment plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées précédemment. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau.
 

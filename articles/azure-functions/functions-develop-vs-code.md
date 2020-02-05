@@ -3,12 +3,12 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547419"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845409"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -65,11 +65,13 @@ L’extension Functions vous permet de créer un projet d’application de fonct
 
 1. Sélectionnez le dossier de votre projet d’application de fonction, puis **sélectionnez un langage pour votre projet de fonction**.
 
+1. Si vous n’avez pas encore installé Core Tools, vous êtes invité à **sélectionner une version** de Core Tools à installer. Choisissez la version 2.x ou une version ultérieure. 
+
 1. Sélectionnez le modèle de fonction **Déclencheur HTTP**, sinon vous pouvez sélectionner **Ignorer pour le moment** et créer un projet sans fonction. Vous pourrez toujours [ajouter une fonction à votre projet](#add-a-function-to-your-project) ultérieurement.
 
     ![Choisir le modèle de déclencheur HTTP](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Tapez **HTTPTrigger** en guise de nom de fonction, et sélectionnez Entrée, puis l’autorisation **Fonction**. Avec ce niveau d’autorisation, vous devez fournir une [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) lorsque vous appelez le point de terminaison de la fonction.
+1. Tapez **HttpExample** comme nom de fonction. Sélectionnez ensuite Entrée, puis l’autorisation **Fonction**. Avec ce niveau d’autorisation, vous devez fournir une [clé de fonction](functions-bindings-http-webhook.md#authorization-keys) lorsque vous appelez le point de terminaison de la fonction.
 
     ![Sélectionner l’autorisation Fonction](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -189,6 +191,8 @@ Pour plus d’informations, consultez la référence [Liaison de sortie de stock
 ---
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## <a name="publish-to-azure"></a>Publication dans Azure
 

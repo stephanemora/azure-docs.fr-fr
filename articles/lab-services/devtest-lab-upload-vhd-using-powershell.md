@@ -1,6 +1,6 @@
 ---
 title: Télécharger un fichier de disque dur virtuel vers Azure DevTest Labs avec PowerShell | Microsoft Docs
-description: Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec PowerShell
+description: Cet article présente une procédure pas à pas qui vous explique comment charger un fichier VHD sur Azure DevTest Labs avec PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 56a66c3eb1dad93fad3ad1572989dc0c0aa14632
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a9e5a69cd7840bbaff081a4d47cb60f62a76eda6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622755"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759753"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Télécharger le fichier de disque dur virtuel dans le compte de stockage du laboratoire avec PowerShell
 
@@ -31,7 +31,7 @@ Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilis
 
 Les étapes suivantes vous guident lors du téléchargement d’un fichier de disque dur virtuel dans Azure DevTest Labs avec PowerShell. 
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 

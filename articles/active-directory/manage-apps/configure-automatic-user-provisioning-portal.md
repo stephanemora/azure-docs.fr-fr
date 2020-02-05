@@ -15,19 +15,19 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e776ce8a455f2a5b453e23ebb996de9ddb5175a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430197"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711965"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Gestion de l’approvisionnement de comptes d’utilisateur pour les applications d’entreprise dans le portail Azure
 
 Cet article décrit les étapes générales de la gestion du provisionnement et du déprovisionnement automatique des comptes d’utilisateur pour les applications qui prennent en charge ces fonctions. *L’approvisionnement de comptes d’utilisateur* consiste à créer, mettre à jour et/ou désactiver des enregistrements de compte d’utilisateur dans le magasin local de profils utilisateur d’une application. La plupart des applications cloud et SaaS stockent le rôle et les autorisations des utilisateurs dans le magasin local de profils utilisateur de l’utilisateur. La présence de ces enregistrements d’utilisateur dans le magasin local de l’utilisateur est *requise* pour l’authentification unique et l’accès aux opérations. Pour en savoir plus sur le provisionnement automatique de comptes d’utilisateur, consultez [Automatiser le provisionnement et le déprovisionnement des utilisateurs dans les applications avec Azure Active Directory](user-provisioning.md).
 
 > [!IMPORTANT]
-> Azure Active Directory (Azure AD) a une galerie contenant des milliers d’applications pr-intégrées pour lesquelles le provisionnement automatique est activé avec Azure AD. Vous devez commencer par trouver le tutoriel de configuration du provisionnement spécifique de votre application dans la [liste des tutoriels sur l’intégration des applications SaaS avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Vous y trouverez probablement des instructions pas à pas pour la configuration de l’application et d’Azure AD afin de créer la connexion de provisionnement.
+> Azure Active Directory (Azure AD) a une galerie contenant des milliers d’applications préintégrées pour lesquelles le provisionnement automatique est activé avec Azure AD. Vous devez commencer par trouver le tutoriel de configuration du provisionnement spécifique de votre application dans la [liste des tutoriels sur l’intégration des applications SaaS avec Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-saas-tutorial-list/). Vous y trouverez probablement des instructions pas à pas pour la configuration de l’application et d’Azure AD afin de créer la connexion de provisionnement.
 
 ## <a name="finding-your-apps-in-the-portal"></a>Recherche de vos applications dans le portail
 
@@ -38,7 +38,7 @@ Utilisez le portail Azure Active Directory pour afficher et gérer toutes les ap
 1. Sélectionnez n’importe quelle application pour charger son panneau de ressources, où vous pouvez afficher les rapports et gérer les paramètres de l’application.
 1. Sélectionnez **Approvisionnement** pour gérer les paramètres d’approvisionnement du compte utilisateur de l’application sélectionnée.
 
-   ![Écran Approvisionnement pour gérer les paramètres d’approvisionnement du compte d'utilisateur](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Écran Approvisionnement pour gérer les paramètres d’approvisionnement du compte d'utilisateur](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Modes d’approvisionnement
 
@@ -68,7 +68,7 @@ Développez **Mappages** pour afficher et modifier les attributs utilisateur qui
 
 Il existe un ensemble préconfiguré de mappages entre les objets utilisateur Azure AD et les objets utilisateur de chaque application SaaS. Certaines applications gèrent d’autres types d’objets, tels que des groupes ou des contacts. Sélectionnez un mappage dans la table pour ouvrir l’éditeur de mappage sur la droite, où vous pouvez les afficher et les personnaliser.
 
-![Affiche l'écran Mappage d’attributs](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Affiche l'écran Mappage d’attributs](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Les personnalisations prises en charge sont notamment les suivantes :
 
@@ -88,4 +88,4 @@ Si c’est la première fois que l’approvisionnement est activé pour une appl
 
 Changez **État de la configuration** pour **Désactivé** pour suspendre le service d’approvisionnement. Dans cet état, Azure ne crée, met à jour ou supprime aucun objet utilisateur ou groupe dans l’application. Changez de nouveau l’état pour **Activé** et le service reprend où il s’était arrêté.
 
-**Effacer l’état en cours et redémarrer la synchronisation** déclenche un cycle initial. Le service réévalue ensuite tous les utilisateurs du système source et détermine s’ils sont dans l’étendue de provisionnement. Cela peut être utile quand votre application est placée sous contrôle, ou que vous devez apporter un changement à vos mappages d’attributs. Notez que le cycle initial met plus de temps à s’effectuer que le cycle incrémentiel classique en raison du nombre d’objets à évaluer. Pour en savoir plus sur les performances des cycles initiaux et incrémentiels, cliquez [ici](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user). 
+**Effacer l’état en cours et redémarrer la synchronisation** déclenche un cycle initial. Le service réévalue ensuite tous les utilisateurs du système source et détermine s’ils sont dans l’étendue de provisionnement. Cela peut être utile quand votre application est placée sous contrôle, ou que vous devez apporter un changement à vos mappages d’attributs. Notez que le cycle initial met plus de temps à s’effectuer que le cycle incrémentiel classique en raison du nombre d’objets à évaluer. Pour en savoir plus sur les performances des cycles initiaux et incrémentiels, cliquez [ici](application-provisioning-when-will-provisioning-finish-specific-user.md). 

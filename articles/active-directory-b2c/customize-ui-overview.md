@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949404"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841231"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -28,15 +28,15 @@ Différentes méthodes sont disponibles pour personnaliser l’interface utilisa
 
 ### <a name="user-flows"></a>Flux d’utilisateurs
 
-Si vous utilisez des [flux utilisateur](active-directory-b2c-reference-policies.md), vous pouvez modifier l’apparence de vos pages de flux utilisateur en utilisant des *modèles de mise en page* prédéfinis ou en utilisant vos propres fichiers HTML et CSS. Les deux méthodes sont décrites plus loin dans cet article.
+Si vous utilisez des [flux utilisateur](user-flow-overview.md), vous pouvez modifier l’apparence de vos pages de flux utilisateur en utilisant des *modèles de mise en page* prédéfinis ou en utilisant vos propres fichiers HTML et CSS. Les deux méthodes sont décrites plus loin dans cet article.
 
 Vous utilisez le [portail Azure](tutorial-customize-ui.md) pour configurer la personnalisation de l’interface utilisateur pour les flux utilisateur.
 
 ### <a name="custom-policies"></a>Stratégies personnalisées
 
-Si vous utilisez des [stratégies personnalisées](active-directory-b2c-overview-custom.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, utilisez des [fichiers de stratégie pour personnaliser l’interface utilisateur](active-directory-b2c-ui-customization-custom.md).
+Si vous utilisez des [stratégies personnalisées](custom-policy-overview.md) pour fournir des expériences de modification de profil, de réinitialisation du mot de passe, d’inscription ou de connexion dans votre application, utilisez des [fichiers de stratégie pour personnaliser l’interface utilisateur](custom-policy-ui-customization.md).
 
-Si vous avez besoin de fournir du contenu dynamique basé sur la décision d’un client, utilisez des [stratégies personnalisées qui peuvent changer le contenu de la page de manière dynamique](active-directory-b2c-ui-customization-custom-dynamic.md) en fonction d’un paramètre qui est envoyé dans une chaîne de requête. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile.
+Si vous avez besoin de fournir du contenu dynamique basé sur la décision d’un client, utilisez des [stratégies personnalisées qui peuvent changer le contenu de la page de manière dynamique](custom-policy-ui-customization-dynamic.md) en fonction d’un paramètre qui est envoyé dans une chaîne de requête. Par exemple, vous pouvez changer l’image d’arrière-plan dans la page de connexion ou d’inscription Azure AD B2C en fonction d’un paramètre que vous transmettez depuis votre application web ou mobile.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -65,6 +65,8 @@ Sélectionnez ensuite un modèle dans la liste. Voici quelques exemples de pages
 Lorsque vous choisissez un modèle, la mise en page sélectionnée est appliquée à toutes les pages dans votre flux utilisateur et l’URI de chaque page est visible dans le champ **URI de la page personnalisée**.
 
 ## <a name="custom-html-and-css"></a>Fichiers HTML et CSS personnalisés
+
+Si vous souhaitez concevoir votre propre disposition de stratégie avec votre code HTML et CSS personnalisé, vous pouvez le faire en basculant le bouton « Utiliser un contenu de page personnalisé » pour chacun des noms de disposition présents dans votre stratégie. Suivez les instructions ci-dessous concernant les configurations de disposition personnalisées :
 
 Azure AD B2C exécute le code dans le navigateur de votre client à l’aide d’une approche appelée [Partage des ressources cross-origin (CORS)](https://www.w3.org/TR/cors/).
 
@@ -150,7 +152,7 @@ Le tableau suivant répertorie les fragments HTML qu’Azure AD B2C fusionne dan
 
 ## <a name="localize-content"></a>Localiser le contenu
 
-Vous localisez votre contenu HTML en activant la [personnalisation de la langue](active-directory-b2c-reference-language-customization.md) dans votre locataire Azure AD B2C. L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre OpenID Connect `ui-locales` à votre point de terminaison. Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML propres à la langue.
+Vous localisez votre contenu HTML en activant la [personnalisation de la langue](user-flow-language-customization.md) dans votre locataire Azure AD B2C. L’activation de cette fonctionnalité permet à Azure AD B2C de transmettre le paramètre OpenID Connect `ui-locales` à votre point de terminaison. Votre serveur de contenu peut utiliser ce paramètre pour fournir des pages HTML propres à la langue.
 
 Le contenu peut être extrait de différents emplacements en fonction des paramètres régionaux utilisés. Dans votre point de terminaison avec CORS activé, vous configurez une structure de dossiers pour héberger du contenu pour des langues spécifiques. Vous devez appeler celui qui convient si vous utilisez la valeur générique `{Culture:RFC5646}`.
 
@@ -179,4 +181,4 @@ Les exemples de fichiers HTML et CSS des modèles se trouvent dans le répertoir
     [Personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C](tutorial-customize-ui.md).
 - Si vous utilisez des **stratégies personnalisées**, vous pouvez commencer à personnaliser l’interface utilisateur avec l’article :
 
-    [Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+    [Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C](custom-policy-ui-customization.md).

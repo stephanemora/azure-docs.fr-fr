@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979696"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715429"
 ---
 # <a name="payout-reporting"></a>Rapports de paiement
 
@@ -46,7 +46,7 @@ Si vous vendez des offres sur la Place de marché Azure, **Récapitulatif des pa
 
 | | Portail des partenaires cloud | Espace partenaire |
 |---------|---------|---------|
-| Liens | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory et https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| Liens | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) et [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navigation | Rapports de paiement fournis dans le paiement des insights | Rapports de paiement fournis dans l’Espace partenaires – Icône de paiement |
 | Étendue | <ul> <li>La transaction par article est visible, quand la collecte en cours, quand elle est terminée et quand elle est payée </li> <li>Rapports : montre tous les articles une fois que le bon de commande est créé, notamment la collecte et la facturation en cours, ainsi que l’état de la collecte et les articles qui ne peuvent pas encore être payés. </li> </ul> | <ul> <li>Montre les articles une fois qu’ils sont considérés comme des revenus éligibles.</li> <li>Les clients paient d’abord Microsoft, puis les éditeurs de logiciels indépendants peuvent voir le rapport de paiement commencer.</li> <li>Le rapport de paiement ne montre pas la collecte ni la facturation en cours.  </li> </ul>  |
 | Transaction non prête pour le paiement | Facturation en cours | Estimation du prochain paiement : Le paiement est dans l’état non traité.  |

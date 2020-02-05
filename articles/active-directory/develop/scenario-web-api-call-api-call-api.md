@@ -14,19 +14,20 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 701f1f7c26731f3e9653955907f5f16d2688cdb2
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: d66a08d4e84a3771d6c3fa46b96c975869435452
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043436"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833377"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Une API web qui appelle des API web : Appeler une API
 
-Après avoir obtenu un jeton, vous pouvez appeler une API web protégée. Pour ce faire, vous pouvez utiliser le contrôleur de votre API web ASP.NET ou ASP.NET Core.
+Après avoir obtenu un jeton, vous pouvez appeler une API web protégée. Pour ce faire, utilisez le contrôleur de votre API web.
 
 ## <a name="controller-code"></a>Code de contrôle
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 Le code suivant poursuit l’exemple de code illustré dans [Une API web qui appelle des API web : Acquérir un jeton pour l’application](scenario-web-api-call-api-acquire-token.md). Le code est appelé dans les actions des contrôleurs d’API. Il appelle une API en aval nommée *todolist*.
 
@@ -57,6 +58,35 @@ HttpResponseMessage response = await _httpClient.GetAsync(TodoListBaseAddress + 
 ...
 }
 ```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Le code suivant poursuit l’exemple de code illustré dans [Une API web qui appelle des API web : Acquérir un jeton pour l’application](scenario-web-api-call-api-acquire-token.md). Le code est appelé dans les actions des contrôleurs d’API. Il appelle l’API MS Graph en aval.
+
+Une fois que vous avez acquis le jeton, utilisez-le comme un jeton du porteur pour appeler l’API en aval.
+
+```Java
+private String callMicrosoftGraphMeEndpoint(String accessToken){
+    RestTemplate restTemplate = new RestTemplate();
+
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+
+    headers.set("Authorization", "Bearer " + accessToken);
+
+    HttpEntity<String> entity = new HttpEntity<>(null, headers);
+
+    String result = restTemplate.exchange("https://graph.microsoft.com/v1.0/me", HttpMethod.GET,
+            entity, String.class).getBody();
+
+    return result;
+}
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+Aucun exemple illustrant ce flux avec MSAL Python n’est encore disponible.
+
+---
 
 ## <a name="next-steps"></a>Étapes suivantes
 

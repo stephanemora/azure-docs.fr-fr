@@ -11,15 +11,15 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: b36a64bb82449ace7acc1de0b3c2bc7c5efebe70
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: c5f85f102d72ac2e4a0315109748d48573f49407
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685556"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721181"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>Applets de commande PowerShell et API REST pour SQL Data Warehouse
-De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST.  Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse.  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST][Manage scalability with REST].
+De nombreuses tâches d’administration de SQL Data Warehouse peuvent être gérées à l’aide d’applets de commande Azure PowerShell ou d’API REST.  Voici quelques exemples d’utilisation des commandes PowerShell pour automatiser les tâches courantes dans SQL Data Warehouse.  Pour obtenir de bons exemples REST, consultez l’article [Gérer l’évolutivité avec REST](sql-data-warehouse-manage-compute-rest-api.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -39,7 +39,7 @@ Une base de données appelée « Database02 » et hébergée sur un serveur ap
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-Variante : dans cet exemple, l’objet récupéré est redirigé vers [Suspend-AzSqlDatabase][Suspend-AzSqlDatabase].  En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
+Variante : dans cet exemple, l’objet récupéré est redirigé vers [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase).  En conséquence, la base de données est interrompue. La dernière commande affiche les résultats.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -54,7 +54,7 @@ Les opérations d’une base de données appelée « Database02 » et héberg�
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-Une variante, dans cet exemple une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet récupéré est redirigé vers [Resume-AzSqlDatabase][Resume-AzSqlDatabase].
+Une variante, dans cet exemple une base de données appelée « Database02 » est récupérée d’un serveur appelé « Server01 » hébergé dans un groupe de ressources appelé « ResourceGroup1 ». L’objet récupéré est redirigé vers [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase).
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -69,47 +69,21 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 ## <a name="other-supported-powershell-cmdlets"></a>Autres applets de commande PowerShell prises en charge
 Ces applets de commande PowerShell sont prises en charge avec Azure SQL Data Warehouse.
 
-* [Get-AzSqlDatabase][Get-AzSqlDatabase]
-* [Get-AzSqlDeletedDatabaseBackup][Get-AzSqlDeletedDatabaseBackup]
-* [Get-AzSqlDatabaseRestorePoint][Get-AzSqlDatabaseRestorePoint]
-* [New-AzSqlDatabase][New-AzSqlDatabase]
-* [Remove-AzSqlDatabase][Remove-AzSqlDatabase]
-* [Restore-AzSqlDatabase][Restore-AzSqlDatabase]
-* [Resume-AzSqlDatabase][Resume-AzSqlDatabase]
-* [Select-AzSubscription][Select-AzSubscription]
-* [Set-AzSqlDatabase][Set-AzSqlDatabase]
-* [Suspend-AzSqlDatabase][Suspend-AzSqlDatabase]
+* [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
+* [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
+* [Get-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoint)
+* [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
+* [Remove-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase)
+* [Restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)
+* [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase)
+* [Select-AzSubscription](https://msdn.microsoft.com/library/dn722499.aspx)
+* [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
+* [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’exemples PowerShell, consultez :
 
-* [Création de SQL Data Warehouse à l’aide de Powershell][Create a SQL Data Warehouse using PowerShell]
-* [Restauration de base de données][Database restore]
+* [Création de SQL Data Warehouse à l’aide de Powershell](create-data-warehouse-powershell.md)
+* [Restauration de base de données](sql-data-warehouse-restore-database-powershell.md)
 
-Pour connaître d’autres tâches automatisables avec PowerShell, voir [Cmdlets Azure SQL Database][Azure SQL Database Cmdlets]. Notez que certaines applets de commande Azure SQL Database ne sont pas prises en charge pour Azure SQL Data Warehouse.  Pour connaître la liste des tâches automatisables avec REST, voir [Opérations pour Azure SQL Database][Operations for Azure SQL Database].
-
-<!--Image references-->
-
-<!--Article references-->
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Create a SQL Data Warehouse using PowerShell]: ./create-data-warehouse-powershell.md
-[Database restore]: ./sql-data-warehouse-restore-database-powershell.md
-[Manage scalability with REST]: ./sql-data-warehouse-manage-compute-rest-api.md
-
-<!--MSDN references-->
-[Azure SQL Database Cmdlets]: https://docs.microsoft.com/powershell/module/az.sql
-[Operations for Azure SQL Database]: https://msdn.microsoft.com/library/azure/dn505719.aspx
-[Get-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase
-[Get-AzSqlDeletedDatabaseBackup]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup
-[Get-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaserestorepoint
-[New-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase
-[Remove-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabase
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-[Resume-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase
-<!-- It appears that Select-AzSubscription isn't documented, so this points to Select-AzureSubscription -->
-[Select-AzSubscription]: https://msdn.microsoft.com/library/dn722499.aspx
-[Set-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase
-[Suspend-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase
-
-<!--Other Web references-->
-[Microsoft Web Platform Installer]: https://aka.ms/webpi-azps
+Pour connaître d’autres tâches automatisables avec PowerShell, consultez [Cmdlets Azure SQL Database](https://docs.microsoft.com/powershell/module/az.sql). Toutes les cmdlets Azure SQL Database ne sont pas prises en charge pour Azure SQL Data Warehouse.  Pour connaître la liste des tâches automatisables avec REST, consultez [Opérations pour Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx).

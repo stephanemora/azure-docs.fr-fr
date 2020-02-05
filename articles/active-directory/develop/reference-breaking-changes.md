@@ -13,17 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125412"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758748"
 ---
 # <a name="whats-new-for-authentication"></a>Quelles sont les nouveautés en matière d’authentification ? 
 
@@ -41,7 +40,20 @@ Le système d’authentification modifie et ajoute des fonctionnalités en perma
 
 ## <a name="upcoming-changes"></a>Changements à venir
 
-Septembre 2019 : Application supplémentaire de la sémantique POST en fonction des règles d’analyse d’URL : les paramètres en double déclenchent une erreur et la [marque d'ordre d'octet](https://www.w3.org/International/questions/qa-byte-order-mark) est ignorée.
+Aucun n’est planifié pour l’instant.  Pour connaître les changements qui sont en production ou qui vont y être, consultez les changements ci-dessous. 
+
+## <a name="february-2020"></a>Février 2020 : 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Les fragments vides sont ajoutés à chaque redirection HTTP à partir du point de terminaison de connexion. 
+
+**Date d’effet** : 8 février 2020
+
+**Points de terminaison impactés** : V1.0 et v2.0
+
+**Protocole impacté** : Les flux OAuth et OIDC qui utilisent response_type=query : cela couvre le [flux du code d’autorisation](v2-oauth2-auth-code-flow.md) dans certains cas, ainsi que le [flux implicite](v2-oauth2-implicit-grant-flow.md). 
+
+Quand une réponse d’authentification est envoyée à partir de login.microsoftonline.com à une application via la redirection HTTP, le service ajoute un fragment vide à l’URL de réponse.  Cela évite une classe d’attaques de redirection en garantissant que le navigateur efface tous les fragments existants dans la demande d’authentification.  Aucune application ne doit dépendre de ce comportement. 
+
 
 ## <a name="august-2019"></a>Août 2019
 
@@ -55,7 +67,7 @@ Septembre 2019 : Application supplémentaire de la sémantique POST en fonction 
 
 À partir de la semaine du 2 septembre, les demandes d’authentification qui utilisent la méthode POST seront validées à l’aide de normes HTTP plus strictes.  Plus précisément, les espaces et les guillemets doubles (“) ne seront plus supprimés des valeurs du formulaire de demande. Ces modifications ne devraient pas bloquer les clients existants et permettront de s’assurer que les demandes envoyées à Azure AD sont gérées de manière fiable à chaque fois. À l’avenir (voir ci-dessus), nous prévoyons également de rejeter les paramètres dupliqués et d’ignorer la marque d’ordre d'octet dans les demandes. 
 
-Exemple :
+Exemple :
 
 Aujourd’hui, `?e=    "f"&g=h` est analysé de la même façon que `?e=f&g=h`, donc `e` == `f`.  Avec ce changement, il est maintenant analysé comme `e` == `    "f"`. Il est peu probable que ce soit un argument valide, et la demande devrait maintenant échouer. 
 
@@ -64,7 +76,7 @@ Aujourd’hui, `?e=    "f"&g=h` est analysé de la même façon que `?e=f&g=h`, 
 
 ### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>Les jetons d’application pour applications à locataire unique sont émis uniquement si l’application cliente existe dans le locataire de ressources
 
-**Date d’effet** : 26 juillet 2019
+**Date d’effet** : 26 juillet 2019
 
 **Points de terminaison impactés** : [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) et [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
 
@@ -130,7 +142,7 @@ Les applications émettant de nombreuses demandes (15 ou plus) dans un bref laps
 Toutes les applications doivent gérer l’erreur `invalid_grant` en affichant une invite interactive au lieu de demander un jeton en mode silencieux.  Pour éviter cette erreur, les clients doivent s’assurer que les jetons qu’ils reçoivent sont correctement mis en cache.
 
 
-## <a name="october-2018"></a>Octobre 2018
+## <a name="october-2018"></a>Octobre 2018
 
 ### <a name="authorization-codes-can-no-longer-be-reused"></a>Impossible de réutiliser les codes d’autorisation
 
@@ -146,7 +158,7 @@ Si votre application réutilise des codes d’autorisation pour obtenir des jeto
 
 Pour plus d’informations sur les jetons d’actualisation, voir [Actualisation des jetons d’accès](v1-protocols-oauth-code.md#refreshing-the-access-tokens).  Si vous utilisez la bibliothèque ADAL ou MSAL, ceci est géré pour vous par la bibliothèque : remplacez la deuxième instance de « AcquireTokenByAuthorizationCodeAsync » par « AcquireTokenSilentAsync ». 
 
-## <a name="may-2018"></a>Mai 2018
+## <a name="may-2018"></a>Mai 2018
 
 ### <a name="id-tokens-cannot-be-used-for-the-obo-flow"></a>Impossible d’utiliser les jetons d’ID pour le flux OBO
 

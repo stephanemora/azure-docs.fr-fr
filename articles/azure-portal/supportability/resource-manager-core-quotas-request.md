@@ -1,27 +1,27 @@
 ---
-title: Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager | Microsoft Docs
+title: Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager
 description: Demandes d’augmentation des quotas de processeurs virtuels pour Azure Resource Manager
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 06/07/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: c3248b10b4ad343e8776056d42ec153130f0061f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: cdbf7364a275eb246615f398044456645a96d1a5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898801"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843665"
 ---
 # <a name="quota-increase-requests"></a>Demandes d’augmentation de quota
 
-Les quotas de processeurs virtuels de Resource Manager pour les machines virtuelles et les groupes de machines virtuelles identiques sont appliqués sur deux niveaux pour chaque abonnement, dans chaque région. 
+Les quotas de processeurs virtuels de Resource Manager pour les machines virtuelles et les groupes de machines virtuelles identiques sont appliqués sur deux niveaux pour chaque abonnement, dans chaque région.
 
-Le premier niveau est la limite de total de processeurs virtuels régionaux (sur toutes les séries de machines virtuelles) et le deuxième niveau est la limite de processeurs virtuels par série de machines virtuelles (par exemple, les processeurs virtuels de série D). Chaque fois qu’une nouvelle machine virtuelle est déployée, la somme des processeurs virtuels nouveaux et existants pour cette série de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels approuvé pour cette série de machines virtuelles particulière. En outre, le nombre total de processeurs virtuels nouveaux et existants déployés sur toutes les séries de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels régionaux total approuvé pour l’abonnement. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé.
-Vous pouvez demander une augmentation de la limite de quota de processeurs virtuels pour une série de machines virtuelles à partir du portail Azure. Une augmentation du quota de série de machines virtuelles augmente automatiquement la limite totale de processeurs virtuels régionaux du même montant. 
+Le premier niveau correspond à la limite du nombre total de processeurs virtuels régionaux dans toutes les séries de machines virtuelles. Le deuxième niveau correspond à la limite du nombre de processeurs virtuels pour chaque série de machines virtuelles, par exemple les processeurs virtuels de série D. Chaque fois qu’une nouvelle machine virtuelle doit être déployée, la somme de l’utilisation des processeurs virtuels nouveaux et existants pour la série de machines virtuelles concernée ne doit pas dépasser le quota de processeurs virtuels approuvé pour cette série de machines virtuelles. De plus, le nombre total de processeurs virtuels nouveaux et existants déployés sur toutes les séries de machines virtuelles ne doit pas dépasser le quota de processeurs virtuels régionaux total approuvé pour l’abonnement. Si l’un de ces quotas est dépassé, le déploiement des machines virtuelles n’est pas autorisé.
+Vous pouvez demander une augmentation de la limite de quota de processeurs virtuels pour une série de machines virtuelles à partir du portail Azure. Une augmentation du quota d’une série de machines virtuelles augmente automatiquement la limite totale de processeurs virtuels régionaux du même montant.
 
-Lorsqu’un nouvel abonnement est créé, la valeur par défaut du total des processeurs virtuels régionaux peut ne pas être égale à la somme des quotas de processeurs virtuels par défaut pour toutes les séries de machines virtuelles individuelles. Cela peut conduire à un abonnement avec un quota suffisant pour chaque série de machines virtuelles individuelle que vous souhaitez déployer, mais insuffisant pour le total de processeurs virtuels régionaux pour tous les déploiements. Dans ce cas, vous devez envoyer une demande d’augmentation de la limite totale de processeurs virtuels régionaux explicitement. La limite du nombre total de processeurs virtuels régionaux ne peut pas dépasser la somme des quotas approuvés sur toutes les séries de machines virtuelles pour la région.
+Quand un abonnement est créé, la valeur par défaut du total de processeurs virtuels régionaux peut ne pas être égale à la somme des quotas de processeurs virtuels par défaut pour toutes les séries de machines virtuelles individuelles. De ce fait, l’abonnement peut avoir un quota suffisant pour chacune des séries de machines virtuelles à déployer. Son quota peut être insuffisant pour le total des processeurs virtuels régionaux de tous les déploiements. Dans ce cas, vous devez envoyer une demande d’augmentation explicite de la limite totale des processeurs virtuels régionaux. La limite du nombre de processeurs virtuels régionaux ne peut pas dépasser la somme des quotas approuvés sur toutes les séries de machines virtuelles pour la région.
 
-Apprenez-en davantage sur les quotas sur la page [Quotas de processeurs virtuels pour les machines virtuelles](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) et la page [Limites du service et de l’abonnement Azure](https://aka.ms/quotalimits). 
+Pour en savoir plus sur les quotas, consultez [Quotas de processeurs virtuels pour les machines virtuelles](../../virtual-machines/windows/quotas.md) et [Abonnement Azure et limites, quotas et contraintes de service](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 

@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c4f0a72cb598a8e38fc69f23f62f0f456cccb04
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543917"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833362"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -130,9 +130,9 @@ Il est courant de forcer un utilisateur à modifier son mot de passe lors de sa 
   
 La fonctionnalité de mot de passe temporaire permet de s’assurer que le transfert de propriété des informations d’identification est effectué lors de la première utilisation, afin de réduire la durée pendant laquelle plusieurs personnes ont connaissance de ces informations d’identification.
 
-Pour prendre en charge les mots de passe temporaires dans Azure AD pour les utilisateurs synchronisés, vous pouvez activer la fonctionnalité *ForcePasswordResetOnLogonFeature* en exécutant la commande suivante sur votre serveur Azure AD Connect :
+Pour prendre en charge les mots de passe temporaires dans Azure AD pour les utilisateurs synchronisés, vous pouvez activer la fonctionnalité *ForcePasswordChangeOnLogOn* en exécutant la commande suivante sur votre serveur Azure AD Connect :
 
-`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
 > forcer un utilisateur à changer son mot de passe lors de la prochaine ouverture de session nécessite en même temps un changement du mot de passe.  AD Connect ne récupère pas l’indicateur le changement de mot de passe forcé de lui-même. Cela s’ajoute au changement de mot de passe détecté qui se produit pendant la synchronisation du hachage de mot de passe.

@@ -15,41 +15,40 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 156917a011be2909ecca8ca14c98feb360f7831a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 922a484d111746e5073c08a64d7c92e2b6b4a7c4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423908"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773392"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>Application démon qui appelle des API web - inscription d'application
 
-Voici ce que vous devez savoir lors de l'inscription d'une application démon.
+Voici ce que vous devez savoir lors de l’inscription d’une application démon.
 
 ## <a name="supported-account-types"></a>Types de comptes pris en charge
 
-Dans la mesure où les applications démon ne présentent d’intérêt que dans des locataires Azure AD, lorsque vous créez l’application, vous devez choisir :
+Les applications démon n’ont de sens que dans les locataires Azure AD. Ainsi, quand vous créez l’application, vous devez choisir l’une des options suivantes :
 
-- **Comptes dans cet annuaire organisationnel uniquement** : ce choix est le plus fréquent car les applications démon sont généralement créées par des développeurs métier ;
-- ou **Comptes dans un annuaire organisationnel** : ce choix s'applique aux éditeurs de logiciels indépendants qui fournissent un utilitaire à leurs clients. Les admins de locataire du client sont requis pour l'approuver.
+- **Comptes dans cet annuaire organisationnel uniquement**. Ce choix est le plus fréquent car les applications démon sont généralement écrites par des développeurs métier.
+- **Comptes dans un annuaire organisationnel**. ce choix s'applique aux éditeurs de logiciels indépendants qui fournissent un utilitaire à leurs clients. Les administrateurs de locataires de vos clients doivent l’approuver.
 
-## <a name="authentication---no-reply-uri-needed"></a>Authentification - Aucune adresse URI de réponse requise
+## <a name="authentication---no-reply-uri-needed"></a>Authentification : aucun URI de réponse nécessaire
 
-Si votre application cliente confidentielle utilise **uniquement** le flux d’informations d’identification du client, l’URI de réponse n’a pas besoin d’être enregistré. Elle n'est pas non plus nécessaire pour la configuration/construction de l'application. Le flux d'informations d'identification du client ne l'utilise pas.
+Si votre application cliente confidentielle utilise *uniquement* le flux d’informations d’identification du client, l’URI de réponse n’a pas besoin d’être inscrit. Il n’est pas nécessaire pour la configuration ou la construction de l’application. Le flux d'informations d'identification du client ne l'utilise pas.
 
-## <a name="api-permissions---app-permissions-and-admin-consent"></a>Autorisations d'API - permissions d'application et consentement administrateur
+## <a name="api-permissions---app-permissions-and-admin-consent"></a>Autorisations d’API : autorisations d’application et consentement administrateur
 
-Une application démon peut uniquement demander des permissions d'application (et non des permissions déléguées) aux APIs. Sur la page **Autorisation d'API** du processus d'inscription d'application, après avoir sélectionné **Ajouter une autorisation** et choisi la famille d'API, choisissez **Permissions d'application**, puis sélectionnez vos autorisations.
+Une application démon peut uniquement demander des permissions d’application (et non des autorisations déléguées) aux APIs. Dans la page **Autorisation d’API** de l’inscription d’application, après avoir sélectionné **Ajouter une autorisation** et choisi la famille d’API, choisissez **Autorisations d’application**, puis sélectionnez vos autorisations.
 
 ![Permissions d'application et consentement administrateur](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
-> L’API web que vous souhaitez appeler doit définir des **autorisations d’application (rôles d’application)** , et non des autorisations déléguées. Pour plus d’informations sur la façon d’exposer une telle API, voir [API web protégée : Inscription d’application – Si votre API web est appelée par une application démon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app)
+> L’API web que vous souhaitez appeler doit définir des *autorisations d’application (rôles d’application)* , et non des autorisations déléguées. Pour plus d’informations sur la façon d’exposer une telle API, voir [API web protégée : Inscription d’application : quand votre API web est appelée par une application démon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
-Les applications démon ont besoin de l'accord préalable de l'administrateur du locataire pour appeler l'API web. Ce consentement est fourni sur la même page **Autorisation d'API** par un administrateur de locataire qui sélectionne **Accorder le consentement administrateur à *notre organisation*** .
+Avec les applications démon, un administrateur de locataire doit accorder un consentement préalable à l’application qui appelle l’API web. Les administrateurs de locataires fournissent ce consentement dans la même page **Autorisation d’API** en sélectionnant **Accorder le consentement administrateur à *notre organisation*** .
 
-Si vous êtes un éditeur de logiciels indépendant qui génère une application mutualisée, n'hésitez pas à consulter le paragraphe [Déploiement - cas d'applications démon mutualisées](scenario-daemon-production.md#deployment---case-of-multi-tenant-daemon-apps).
+Si vous êtes un éditeur de logiciels indépendant qui génère une application multilocataire, nous vous recommandons de lire la section [Déploiement : cas d’applications démon multilocataires](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 

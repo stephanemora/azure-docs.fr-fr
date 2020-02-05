@@ -3,20 +3,20 @@ title: Créer des fonctionnalités dans SQL Server à l’aide de SQL et Python 
 description: Générez des fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure à l’aide de SQL et Python (étape incluse dans le processus Team Data Science Process).
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982053"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721742"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Créer des fonctionnalités pour les données dans SQL Server à l’aide de SQL et Python
 Ce document montre comment générer des fonctionnalités pour des données stockées dans une machine virtuelle SQL Server sur Azure qui aident les algorithmes à apprendre efficacement à partir des données. Vous pouvez utiliser SQL ou un langage de programmation comme Python pour accomplir cette tâche. Les deux approches sont décrites ici.
@@ -37,9 +37,9 @@ Cet article suppose que vous avez :
 ## <a name="sql-featuregen"></a>Génération de fonctionnalités avec SQL
 Dans cette section, nous décrivons plusieurs manières de générer des fonctionnalités via SQL :  
 
-1. [Génération de fonctionnalités utilisant des décomptes](#sql-countfeature)
-2. [Génération de caractéristiques de compartimentage](#sql-binningfeature)
-3. [Déploiement des caractéristiques à partir d’une seule colonne](#sql-featurerollout)
+* [Génération de fonctionnalités utilisant des décomptes](#sql-countfeature)
+* [Génération de caractéristiques de compartimentage](#sql-binningfeature)
+* [Déploiement des caractéristiques à partir d’une seule colonne](#sql-featurerollout)
 
 > [!NOTE]
 > Une fois que vous avez généré des fonctionnalités supplémentaires, vous pouvez soit les ajouter sous forme de colonnes à la table existante, soit créer une autre table avec les fonctionnalités supplémentaires et la clé primaire que vous pouvez joindre à la table d’origine.
@@ -47,7 +47,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 > 
 
 ### <a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
-Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
+Ce document décrit deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces nouvelles fonctionnalités à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -55,7 +55,7 @@ Ce document décrit deux manières de générer des fonctionnalités utilisant d
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ### <a name="sql-binningfeature"></a>Génération de caractéristiques de compartimentage
-L’exemple ci-dessous illustre comment générer des fonctionnalités compartimentées en divisant (à l’aide de 5 emplacements) une colonne numérique qui peut être plutôt utilisée sous la forme d’une fonctionnalité :
+L’exemple ci-dessous illustre comment générer des fonctionnalités compartimentées en divisant (à l’aide de cinq emplacements) une colonne numérique qui peut être plutôt utilisée sous la forme d’une fonctionnalité :
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -74,9 +74,9 @@ Voici une brève introduction relative aux données de latitude/longitude (repos
 * La troisième décimale équivaut à 110 m maximum : elle permet d’identifier un domaine agricole ou un campus universitaire de grande taille.
 * La quatrième décimale correspond à 11 m maximum : elle permet d’identifier une parcelle de terre. Cette information est comparable à la précision classique d’un appareil GPS non corrigé sans aucune interférence.
 * La cinquième décimale équivaut à 1,1 m maximum : elle permet de distinguer un arbre d’un autre. Un tel niveau de précision sur les appareils GPS commerciaux ne peut être atteint qu’au moyen d’une correction différentielle.
-* La sixième décimale équivaut à 0,11 m maximum : vous pouvez notamment l’utiliser pour représenter des structures en détail, pour concevoir des plans d’aménagement paysager et pour construire des routes. Elle devrait se révéler amplement suffisante pour assurer le suivi des mouvements des glaciers et des rivières. L’obtention d’une telle précision sur un GPS nécessite l’emploi de mesures rigoureuses, telles qu’une correction différentielle.
+* La sixième décimale équivaut à 0,11 m maximum : vous pouvez notamment utiliser ce niveau pour représenter des structures en détail, pour concevoir des plans d’aménagement paysager et pour construire des routes. Elle devrait se révéler amplement suffisante pour assurer le suivi des mouvements des glaciers et des rivières. L’obtention d’une telle précision sur un GPS est possible et nécessite l’emploi de mesures rigoureuses, telles qu’une correction différentielle.
 
-Vous pouvez implémenter les informations de localisation en les répartissant par région, par emplacement et par ville. Notez qu’il est également possible d’appeler un point de terminaison REST, tel que l’API Bing Cartes disponible à l’adresse `https://msdn.microsoft.com/library/ff701710.aspx` , pour obtenir les informations de région/secteur.
+Vous pouvez implémenter les informations de localisation en les répartissant par région, par emplacement et par ville. Il est également possible d’appeler un point de terminaison REST, tel que l’API Bing Cartes (consultez `https://msdn.microsoft.com/library/ff701710.aspx` pour obtenir les informations de région/secteur).
 
     select
         <location_columnname>

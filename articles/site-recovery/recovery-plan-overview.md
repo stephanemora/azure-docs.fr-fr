@@ -2,25 +2,27 @@
 title: Informations sur les plans de récupération dans Azure Site Recovery
 description: Apprenez-en plus sur les plans de récupération dans Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/23/2020
+ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497889"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705851"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
 Cet article propose une vue d’ensemble des plans de récupération dans [Azure Site Recovery](site-recovery-overview.md).
 
-Un plan de récupération rassemble les machines dans des groupes de récupération. Un plan de récupération vous permet de définir un processus de récupération systématique en créant de petites unités indépendantes que vous pouvez basculer. Une unité représente généralement une application dans votre environnement.
+Un plan de récupération rassemble les machines dans des groupes de récupération à des fins de basculement. Un plan de récupération vous permet de définir un processus de récupération systématique en créant de petites unités indépendantes que vous pouvez basculer. Une unité représente généralement une application dans votre environnement.
 
 - Un plan de récupération définit comment les machines basculent et l’ordre dans lequel elles démarrent après un basculement.
+- Les plans de récupération sont utilisés pour basculer vers Azure, mais ne permettent pas la restauration automatique à partir d'Azure.
 - Vous pouvez ajouter jusqu’à 100 instances protégées à un même plan de récupération.
 - Vous pouvez personnaliser un plan en y ajoutant un ordre, des instructions et des tâches.
 - Lorsqu’un plan est défini, vous pouvez basculer vers celui-ci.
 - Les machines peuvent être référencées dans plusieurs plans de récupération, dans lesquels les plans suivants ignoreront le déploiement/démarrage d’une machine si elle a été déployée au préalable à l’aide d’un autre plan de récupération.
+
 
 
 ### <a name="why-use-a-recovery-plan"></a>Pourquoi utiliser un plan de récupération ?

@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c49782a6e1e86320b508875e2bf931cc1cc19b4e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964768"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768101"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Application web qui connecte les utilisateurs : Passer en production
 
@@ -30,6 +29,13 @@ Maintenant que vous savez comment obtenir un jeton pour appeler des API web, dé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+### <a name="same-site"></a>Même site
+
+Vérifier que vous comprenez les problèmes susceptibles d’affecter les nouvelles versions du navigateur Chrome
+
+> [!div class="nextstepaction"]
+> [Guide pratique pour gérer les changements de cookie SameSite dans le navigateur Chrome](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### <a name="scenario-for-calling-web-apis"></a>Scénario d’appel d’API web
 
 Lorsque votre application web connecte des utilisateurs, elle peut appeler des API web pour le compte des utilisateurs connectés. L’appel d’API web à partir de l’application web est l’objet du scénario suivant :
@@ -37,7 +43,7 @@ Lorsque votre application web connecte des utilisateurs, elle peut appeler des A
 > [!div class="nextstepaction"]
 > [Application web qui appelle des API web](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Présentation approfondie : Didacticiel sur les applications web ASP.NET Core
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Présentation approfondie : Didacticiel sur les applications web ASP.NET Core
 
 En savoir plus sur les autres façons de connecter les utilisateurs avec ce didacticiel ASP.NET Core : 
 
@@ -52,7 +58,7 @@ Ce didacticiel progressif propose un code prêt pour la production d’une appli
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - Clouds nationaux
 
-### <a name="sample-code-java-web-app"></a>Exemple de code : Applications web Java
+## <a name="sample-code-java-web-app"></a>Exemple de code : Applications web Java
 
 En savoir plus sur l’application web Java à partir de cet exemple sur GitHub : 
 

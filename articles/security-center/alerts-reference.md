@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 322b7656a5e8cb5d0fd0274cc9f09adec2c2c5e1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3b4b9f782d3306777e853a22ed24fac803da4fb9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514763"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835254"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertes de sécurité - guide de référence
 
@@ -234,7 +234,7 @@ Sous les tableaux des alertes, un tableau décrit la kill chain d’Azure Securi
 ||||
 
 
-## <a name="alerts-akscluster"></a>Alertes pour le niveau du cluster AKS
+## <a name="alerts-akscluster">Alertes pour les conteneurs : clusters Azure Kubernetes Service</a>
 
 [Informations complémentaires et notes](security-center-alerts-compute.md#azure-containers-)
 
@@ -249,7 +249,7 @@ Sous les tableaux des alertes, un tableau décrit la kill chain d’Azure Securi
 |**PRÉVERSION - Conteneur avec un montage de volume sensible détecté**|L’analyse du journal d’audit Kubernetes a détecté un nouveau conteneur avec un montage de volume sensible. Le volume détecté est un type hostPath qui monte un fichier ou un dossier sensible depuis le nœud sur le conteneur. Si le conteneur est compromis, l’attaquant peut utiliser ce montage pour accéder au nœud.|PrivilegeEscalation|
 ||||
 
-## <a name="alerts-containerhost"></a>Alertes pour le niveau de l’hôte Conteneurs
+## <a name="alerts-containerhost">Alertes pour les conteneurs : niveau de l’hôte</a>
 
 [Informations complémentaires et notes](security-center-alerts-compute.md#azure-containers-)
 
@@ -304,7 +304,7 @@ Sous les tableaux des alertes, un tableau décrit la kill chain d’Azure Securi
 ||||
 
 
-## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
+## <a name="alerts-azurecosmos"></a>Alertes pour Azure Cosmos DB (préversion)
 
 [Informations complémentaires et notes](security-center-alerts-data-services.md#azure-cosmos-db)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer Azure Active Directory pour approvisionner et retirer automatiquement des comptes utilisateur sur Snowflake.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 04d9ec8cad2404466d2df649df4d5c461768b76f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2aaf1d2b377abc0b10b0b14de03d01c7f6fae5b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693563"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767764"
 ---
-# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Didacticiel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Tutoriel : Configurer Snowflake pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de présenter les étapes à effectuer dans Snowflake et Azure Active Directory (Azure AD) afin de configurer Azure AD pour l’approvisionnement et le déprovisionnement automatiques d’utilisateurs et/ou de groupes sur Snowflake.
 
@@ -31,7 +31,7 @@ L’objectif de ce didacticiel est de présenter les étapes à effectuer dans S
 >
 > Ce connecteur est actuellement en préversion publique. Pour plus d’informations sur les conditions d’utilisation Microsoft Azure générales relatives aux fonctionnalités d’évaluation, consultez [Conditions d’utilisation supplémentaires des préversions Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le scénario décrit dans ce tutoriel part du principe que vous disposez des prérequis suivants :
 
@@ -41,7 +41,7 @@ Le scénario décrit dans ce tutoriel part du principe que vous disposez des pr�
 
 ## <a name="assigning-users-to-snowflake"></a>Affectation d’utilisateurs à Snowflake
 
-Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre de l’approvisionnement automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application dans Azure AD a été attribuée sont synchronisés.
+Azure Active Directory utilise un concept appelé *affectations* pour déterminer les utilisateurs devant recevoir l’accès aux applications sélectionnées. Dans le cadre d’une attribution automatique d’utilisateurs, seuls les utilisateurs ou les groupes auxquels une application a été attribuée dans Azure AD sont synchronisés.
 
 Avant de configurer et d’activer l’approvisionnement automatique d’utilisateurs, vous devez décider quels utilisateurs et/ou groupes dans Azure AD ont besoin d’accéder à Snowflake. Une fois que vous avez choisi, vous pouvez assigner ces utilisateurs et/ou groupes à Snowflake en suivant les instructions fournies ici :
 * [Affecter un utilisateur ou un groupe à une application d’entreprise](../manage-apps/assign-user-or-group-access-portal.md)
@@ -56,10 +56,7 @@ Avant de configurer et d’activer l’approvisionnement automatique d’utilisa
 
 Avant de configurer Snowflake pour l’attribution automatique d’utilisateurs avec Azure AD, vous devez activer le provisionnement SCIM sur Snowflake.
 
-> [!NOTE]
-> Cette intégration est en préversion privée dans Snowflake dès aujourd’hui. Si vous souhaitez activer cette fonctionnalité dans votre compte Snowflake, contactez votre représentant Snowflake.
-
-1. Connectez-vous à votre Console d’administration Snowflake. Entrez la requête illustrée ci-dessous dans l’espace de travail en surbrillance, puis cliquez sur **Exécuter**.
+1. Connectez-vous à votre Console d’administration Snowflake. Entrez la requête illustrée ci-dessous dans la feuille de calcul en surbrillance, puis cliquez sur **Exécuter**.
 
     ![Console d’administrateur Snowflake](media/Snowflake-provisioning-tutorial/image00.png)
 
@@ -102,7 +99,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
 ### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Pour configurer l’approvisionnement automatique d’utilisateurs pour Snowflake dans Azure AD :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
     ![Panneau Applications d’entreprise](common/enterprise-applications.png)
 
@@ -152,7 +149,7 @@ Cette section vous guide tout au long des étapes de configuration du service d�
 
     ![État d’approvisionnement activé](common/provisioning-toggle-on.png)
 
-15. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur Snowflake en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**.
+15. Définissez les utilisateurs et/ou groupes que vous aimeriez approvisionner sur Snowflake en choisissant les valeurs souhaitées dans **Étendue** dans la section **Paramètres**. Si cette option n’est pas disponible, configurez les champs nécessaires sous Informations d’identification de l’administrateur, cliquez sur **Enregistrer**, puis actualisez la page. 
 
     ![Étendue de l’approvisionnement](common/provisioning-scope.png)
 

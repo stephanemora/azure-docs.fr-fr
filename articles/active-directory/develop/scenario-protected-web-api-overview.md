@@ -15,28 +15,29 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64418138f9eff61cc94a57be4dc5e2625e5fdebb
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: abe4ecf77e7a65251830ff822b15f79291471202
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803685"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773335"
 ---
-# <a name="scenario-protected-web-api"></a>Scénario : API web protégée
+# <a name="scenario-protected-web-api"></a>Scénario : API web protégée
 
-Dans ce scénario, nous allons vous montrer comment exposer une API web et comment la protéger afin que seuls les utilisateurs authentifiés puissent y accéder. Vous souhaiterez autoriser les utilisateurs authentifiés disposant à la fois de comptes professionnels et scolaires ou de comptes personnels Microsoft à utiliser votre API web.
+Dans ce scénario, vous allez apprendre à exposer une API web. Vous allez également découvrir comment protéger une API web afin que seuls les utilisateurs authentifiés puissent y accéder.
 
-## <a name="prerequisites"></a>Prérequis
+Pour utiliser votre API web, vous devez soit autoriser les utilisateurs authentifiés disposant à la fois de comptes professionnels et scolaires, soit autoriser les comptes personnels Microsoft.
+
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## <a name="specifics"></a>Spécificités
 
-Voici certaines caractéristiques que vous devez connaître pour protéger les API web :
+Voici des informations spécifiques que vous devez connaître pour protéger les API web :
 
 - L’inscription de votre application doit exposer au moins une étendue. La version de jeton acceptée par votre API web dépend de l’audience de connexion.
-- La configuration du code pour l’API web doit valider le jeton qui est utilisé lors de l’appel de l’API web.
+- La configuration du code pour l’API web doit valider le jeton utilisé quand l’API web est appelée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

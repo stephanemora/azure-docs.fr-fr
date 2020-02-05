@@ -7,26 +7,26 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 43d91bff6b8b67e79a9549c1524f918166c9adc4
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 01/28/2020
+ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934007"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843573"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Interroger des données dans Azure Monitor avec Azure Data Explorer (préversion)
 
-Le cluster proxy Azure Data Explorer (ADX Proxy) est une entité qui vous permet d’effectuer des requêtes entre Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview) et [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) dans le service [Azure Monitor](/azure/azure-monitor/). Vous pouvez mapper les espaces de travail d’Azure Monitor Log Analytics ou les applications d’Application Insights comme un cluster proxy. Vous pouvez ensuite interroger le cluster proxy à l’aide des outils Azure Data Explorer et vous y référer dans une requête entre clusters. L’article montre comment se connecter à un cluster proxy, ajouter un cluster proxy à l’interface utilisateur web d’Azure Data Explorer, et exécuter des requêtes contre vos applications AI ou vos espaces de travail LA depuis Azure Data Explorer.
+Le cluster proxy Azure Data Explorer (ADX Proxy) est une entité qui vous permet d’effectuer des requêtes entre Azure Data Explorer, [Application Insights (AI)](/azure/azure-monitor/app/app-insights-overview) et [Log Analytics (LA)](/azure/azure-monitor/platform/data-platform-logs) dans le service [Azure Monitor](/azure/azure-monitor/). Vous pouvez mapper les espaces de travail d’Azure Monitor Log Analytics ou les applications d’Application Insights comme clusters de proxy. Vous pouvez ensuite interroger le cluster proxy à l’aide des outils Azure Data Explorer et vous y référer dans une requête entre clusters. L’article montre comment se connecter à un cluster proxy, ajouter un cluster proxy à l’interface utilisateur web d’Azure Data Explorer, et exécuter des requêtes contre vos applications AI ou vos espaces de travail LA depuis Azure Data Explorer.
 
 Le flux de proxy Azure Data Explorer : 
 
 ![Flux de proxy ADX](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 > [!NOTE]
-> Le proxy ADX est en mode aperçu. Pour activer cette fonctionnalité, contactez l’équipe [ADXProxy](mailto:adxproxy@microsoft.com).
+> Le proxy ADX est en mode aperçu. [Connectez-vous au proxy](#connect-to-the-proxy) pour activer la fonctionnalité de proxy ADX pour vos clusters. Pour toute question, contactez l’équipe [ADXProxy](mailto:adxproxy@microsoft.com).
 
 ## <a name="connect-to-the-proxy"></a>Se connecter au proxy
 
@@ -36,9 +36,10 @@ Le flux de proxy Azure Data Explorer :
 
 1. Dans l’interface utilisateur d’Azure Data Explorer https://dataexplorer.azure.com/clusters), sélectionnez **Ajouter un cluster**.
 
-1. Dans la fenêtre **Ajouter un cluster** :
-
-    * Ajoutez l’URL menant au cluster LA ou AI. Par exemple : `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+1. Dans la fenêtre **Ajouter un cluster**, ajoutez l’URL au cluster LA ou AI. 
+    
+    * Pour LA : `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * Pour AI : `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
     * Sélectionnez **Ajouter**.
 
@@ -52,7 +53,7 @@ Le flux de proxy Azure Data Explorer :
 
 ## <a name="run-queries"></a>Exécuter des requêtes
 
-Vous pouvez utiliser Kusto Explorer, ADX Web Explorer, Jupyter Kqlmagic ou l’API REST pour interroger les clusters proxy. 
+Vous pouvez exécuter les requêtes à l’aide des outils clients qui prennent en charge les requêtes Kusto, par exemple : Kusto Explorer, interface utilisateur ADX Web, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, Lens, API REST.
 
 > [!TIP]
 > * Le nom de la base de données doit avoir le même nom que la ressource spécifiée dans le cluster proxy. Les noms respectent la casse.
@@ -60,19 +61,9 @@ Vous pouvez utiliser Kusto Explorer, ADX Web Explorer, Jupyter Kqlmagic ou l’A
 >     * Si les noms contiennent des caractères spéciaux, ils sont remplacés par l’encodage d’URL dans le nom du cluster proxy. 
 >     * Si les noms contiennent des caractères qui ne respectent pas les [règles de nom d’identificateur KQL](/azure/kusto/query/schema-entities/entity-names), ils sont remplacés par le caractère tiret **-** .
 
-### <a name="query-against-the-native-azure-data-explorer-cluster"></a>Requête contre le cluster natif Azure Data Explorer 
+### <a name="direct-query-from-your-la-or-ai-adx-proxy-cluster"></a>Requête directe à partir de votre cluster proxy ADX LA ou AI
 
-Exécutez des requêtes sur votre cluster Azure Data Explorer (comme la table *StormEvents* dans le cluster *d’aide*). Lors de l’exécution de la requête, vérifiez que votre cluster natif Azure Data Explorer est sélectionné dans le volet gauche.
-
-```kusto
-StormEvents | take 10 // Demonstrate query through the native ADX cluster
-```
-
-![Requête de la table StormEvents](media/adx-proxy/query-adx.png)
-
-### <a name="query-against-your-la-or-ai-cluster"></a>Requête contre votre cluster LA ou AI
-
-Lorsque vous exécutez des requêtes sur votre cluster LA ou AL, vérifiez que votre cluster LA ou AI est sélectionné dans le volet gauche. 
+Exécutez des requêtes sur votre cluster LA ou AI. Vérifiez que votre cluster est sélectionné dans le volet gauche. 
 
 ```kusto
 Perf | take 10 // Demonstrate query through the proxy on the LA workspace
@@ -80,18 +71,7 @@ Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 
 ![Requête de l’espace de travail LA](media/adx-proxy/query-la.png)
 
-### <a name="query-your-la-or-ai-cluster-from-the-adx-proxy"></a>Interrogez votre cluster LA ou AI à partir du proxy ADX  
-
-Lorsque vous lancez des requêtes sur votre cluster LA ou AI à partir du proxy, vérifiez que votre cluster natif ADX est sélectionné dans le volet de gauche. L’exemple suivant illustre une requête de l’espace de travail LA à l’aide du cluster natif ADX
-
-```kusto
-cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name').Perf
-| take 10 
-```
-
-![Requête à partir du proxy Azure Data Explorer](media/adx-proxy/query-adx-proxy.png)
-
-### <a name="cross-query-of-la-or-ai-cluster-and-the-adx-cluster-from-the-adx-proxy"></a>Requête croisée du cluster LA ou AI et du cluster ADX depuis le proxy ADX 
+### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>Requête croisée de votre cluster proxy ADX LA ou AI et du cluster ADX natif 
 
 Lorsque vous lancez des requêtes croisées à partir du proxy, vérifiez que votre cluster natif ADX est sélectionné dans le volet de gauche. Les exemples suivants illustrent la combinaison de tables de cluster ADX (à l’aide de `union`) avec l’espace de travail LA.
 
@@ -105,7 +85,7 @@ let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourceg
 union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
-![Requête croisée à partir du proxy Azure Data Explorer](media/adx-proxy/cross-query-adx-proxy.png)
+   [ ![Requête croisée à partir du proxy Azure Data Explorer](media/adx-proxy/cross-query-adx-proxy.png)](media/adx-proxy/cross-query-adx-proxy.png#lightbox)
 
 L’utilisation de l’[`join`opérateur](/azure/kusto/query/joinoperator), au lieu de l’union, peut nécessiter un [`hint`](/azure/kusto/query/joinoperator#join-hints) pour l’exécuter sur un cluster natif Azure Data Explorer (et non sur le proxy). 
 

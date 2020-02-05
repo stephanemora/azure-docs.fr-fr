@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 01/27/2020
+ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546484"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841265"
 ---
 # <a name="summarize-data"></a>Totaliser les données
 
@@ -70,6 +70,20 @@ Le rapport du module peut comprendre les statistiques suivantes.
 |**P5**|5e centile|
 |**P95**|95e centile|
 |**P99.5**|99,5e centile |
+
+## <a name="technical-notes"></a>Notes techniques
+
+- Pour les colonnes non numériques, seules les valeurs de Count, d'Unique value count et de Missing value count sont calculées. Pour les autres statistiques, une valeur Null est renvoyée.
+
+- Les colonnes contenant des valeurs booléennes sont traitées à l'aide des règles suivantes :
+
+    - Lors du calcul de Min, un opérateur logique AND est appliqué.
+    
+    - Lors du calcul de Max, un opérateur logique OR est appliqué.
+    
+    - Lors du calcul de Range, le module vérifie d'abord si le nombre de valeurs uniques dans la colonne est égal à 2.
+    
+    - Lors du calcul des statistiques nécessitant des calculs à virgule flottante, les valeurs True sont traitées comme 1,0, et les valeurs False comme 0,0.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

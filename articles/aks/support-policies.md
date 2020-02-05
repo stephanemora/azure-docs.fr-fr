@@ -5,14 +5,14 @@ services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707218"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767381"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Stratégies de support pour Azure Kubernetes Service
 
@@ -42,6 +42,8 @@ Les services sont *gérés* de façon que Microsoft et l’équipe AKS déploien
 
 > [!NOTE]
 > Les nœuds Worker AKS sont affichés dans le portail Azure en tant que ressources Azure IaaS standard. Toutefois, ces machines virtuelles sont déployées dans un groupe de ressources Azure personnalisé (portant le préfixe MC\\\*). Il est possible de modifier des nœuds Worker AKS. Par exemple, vous pouvez utiliser Secure Shell (SSH) pour modifier les nœuds Worker AKS de la même façon que si vous apportiez des modifications à des machines virtuelles normales (néanmoins, vous ne pouvez pas changer l’image de système d’exploitation de base, et les modifications peuvent ne pas être conservées suite à une mise à jour ou un redémarrage). En outre, vous pouvez associer d’autres ressources Azure aux nœuds Worker AKS. Toutefois, lorsque vous apportez des modifications de *personnalisation et de gestion en dehors du réseau*, le cluster AKS peut ne plus être supporté. Évitez de modifier des nœuds Worker, sauf si le Support Microsoft vous demande d’apporter ces modifications.
+
+L’émission d’opérations non prises en charge telles que définies ci-dessus, comme la désallocation hors bande de tous les nœuds d’agent, entraîne la non prise en charge du cluster. AKS se réserve le droit d’archiver les plans de contrôle qui ont été configurés sans respecter les instructions de prise en charge pendant des périodes prolongées supérieures ou égales à 30 jours. AKS tient à jour les sauvegardes des métadonnées etcd du cluster et peut facilement réallouer le cluster. Cette réallocation peut être lancée par toute opération PUT qui permet au cluster de bénéficier à nouveau d’une prise en charge, par exemple une mise à niveau ou une mise à l’échelle vers des nœuds d’agent actifs.
 
 ## <a name="shared-responsibility"></a>Responsabilité partagée
 

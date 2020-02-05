@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 4919c8f303488b583ea4d10dca87dd29bfb52e99
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374078"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835162"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Forum aux questions (FAQ) relatives à l’exécution de SQL Server sur les machines virtuelles Windows dans Azure
 
@@ -82,15 +82,6 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
    Il existe trois façons d'effectuer cette opération. Si vous êtes client d’un Accord Entreprise (EA), vous pouvez configurer l’une des [images de machine virtuelle prenant en charge les licences](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), également appelée BYOL (apportez votre propre licence). Si vous disposez de [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default), vous pouvez activer [Azure Hybrid Benefit](virtual-machines-windows-sql-ahb.md) sur une image de paiement à l’utilisation (PAYG) existante. Vous pouvez également copier le support d’installation de SQL Server dans une machine virtuelle Windows Server, puis installer SQL Server sur la machine virtuelle. Veillez à inscrire votre machine virtuelle SQL Server auprès du [fournisseur de ressources](virtual-machines-windows-sql-register-with-resource-provider.md) pour pouvoir utiliser des fonctionnalités telles que la gestion du portail, la sauvegarde automatisée et la mise à jour corrective automatisée. 
 
-1. **Dois-je payer une licence SQL Server sur une machine virtuelle Azure si elle est utilisée uniquement pour le mode veille ou le basculement ?**
-
-   Pour disposer d’une licence passive gratuite pour un groupe de disponibilité secondaire de secours ou une instance en cluster de basculement, vous devez respecter tous les critères suivants, comme décrit dans les [Termes des contrats de licence](https://www.microsoft.com/licensing/product-licensing/products) :
-
-   1. Vous disposez de la [mobilité de licence](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) à travers la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, comme des rapports, à des clients exécutant des charges de travail SQL Server actives, ou si elle effectue n’importe quels travaux autres que ceux qui sont spécifiés dans les termes du contrat, il doit s’agir d’une instance SQL Server sous licence payante. Les activités suivantes sont autorisées sur l’instance secondaire : vérifications de cohérence de la base de données ou CheckDB, sauvegardes complètes, sauvegardes du journal des transactions et supervision des données d’utilisation des ressources. Vous pouvez également exécuter simultanément l’instance principale et l’instance de reprise d’activité correspondante pendant de courtes périodes de test de reprise d’activité tous les 90 jours. 
-   1. La licence SQL Server active est couverte par Software Assurance et n’autorise qu’**une seule** instance SQL Server secondaire passive avec la même quantité de calcul que le serveur actif sous licence. 
-   1. La machine virtuelle SQL Server secondaire utilise la licence [Reprise d’activité](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) dans le portail Azure.
-
 1. **Puis-je modifier une machine virtuelle pour utiliser ma propre licence SQL Server si elle a été créée à partir de l’une des images de la galerie avec paiement à l’utilisation ?**
 
    Oui. Vous pouvez facilement basculer entre une image de la galerie de paiement à l’utilisation (PAYG) et BYOL (apportez votre propre licence) en activant [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Pour plus d'informations, consultez [Guide pratique pour changer le modèle de licence d'une machine virtuelle SQL Server](virtual-machines-windows-sql-ahb.md). Actuellement, ce service n'est disponible que pour les clients du cloud public.
@@ -98,6 +89,10 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Est-ce que SQL Server rencontre des temps d’arrêt si je change de modèle de licence ?**
 
    Non. Un [changement de modèle de licence](virtual-machines-windows-sql-ahb.md) n’entraîne aucun temps d’arrêt dans SQL Server, car il prend effet immédiatement et ne nécessite pas un redémarrage de la machine virtuelle. Toutefois, pour inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources de machines virtuelles SQL Server, vous devez disposer d’une [extension SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md). L’installation de l’extension SQL IaaS en mode _complet_ redémarre le service SQL Server. Par conséquent, si l’extension SQL IaaS doit être installée, installez-la en mode _léger_ pour des fonctionnalités limitées ou installez-la en mode _complet_ pendant une fenêtre de maintenance. L’extension SQL IaaS installée en mode _léger_ peut être mise à niveau en mode _complet_ à tout moment, mais nécessite un redémarrage du service SQL Server. 
+   
+1. **Est-il possible de changer le modèle de licence sur une machine virtuelle SQL Server déployée avec le modèle Classique ?**
+
+   Non. Le changement du modèle de licence n’est pas pris en charge sur une machine virtuelle classique. Vous pouvez migrer votre machine virtuelle vers le modèle Azure Resource Manager et l’inscrire auprès du fournisseur de ressources de machine virtuelle SQL Server. Une fois que la machine virtuelle est inscrite auprès du fournisseur de ressources de machine virtuelle SQL Server, les changements du modèle de licence sont disponibles sur la machine virtuelle.
 
 1. **Puis-je utiliser le portail Azure pour gérer plusieurs instances sur la même machine virtuelle ?**
 
@@ -106,6 +101,32 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 1. **Les abonnements CSP peuvent-ils activer Azure Hybrid Benefit ?**
 
    Oui, Azure Hybrid Benefit est disponible pour les abonnements CSP. Les clients CSP doivent d'abord déployer une image Paiement à l'utilisation, puis [remplacer le modèle de licence](virtual-machines-windows-sql-ahb.md) par BYOL (apportez votre propre licence).
+   
+ 
+1. **Dois-je payer une licence SQL Server sur une machine virtuelle Azure si elle est utilisée uniquement pour le mode veille ou le basculement ?**
+
+   Pour disposer d’une licence passive gratuite pour un groupe de disponibilité secondaire de secours ou une instance en cluster de basculement, vous devez respecter tous les critères suivants, comme décrit dans les [Termes des contrats de licence](https://www.microsoft.com/licensing/product-licensing/products) :
+
+   1. Vous disposez de la [mobilité de licence](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) à travers la [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
+   1. L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, comme des rapports, à des clients exécutant des charges de travail SQL Server actives, ou si elle effectue n’importe quels travaux autres que ceux qui sont spécifiés dans les termes du contrat, il doit s’agir d’une instance SQL Server sous licence payante. Les activités suivantes sont autorisées sur l’instance secondaire : vérifications de cohérence de la base de données ou CheckDB, sauvegardes complètes, sauvegardes du journal des transactions et supervision des données d’utilisation des ressources. Vous pouvez également exécuter simultanément l’instance principale et l’instance de reprise d’activité correspondante pendant de courtes périodes de test de reprise d’activité tous les 90 jours. 
+   1. La licence SQL Server active est couverte par Software Assurance et n’autorise qu’**une seule** instance SQL Server secondaire passive avec la même quantité de calcul que le serveur actif sous licence. 
+   1. La machine virtuelle SQL Server secondaire utilise la licence [Reprise d’activité](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) dans le portail Azure.
+   
+1. **Qu’est-ce qu’une instance passive ?**
+
+   L’instance SQL Server passive ne fournit pas de données SQL Server aux clients ni n’exécute de charges de travail SQL Server actives. Elle est utilisée uniquement pour la synchronisation avec le serveur principal et maintient la base de données passive dans un état de secours semi-automatique. Si elle fournit des données, comme des rapports, à des clients exécutant des charges de travail SQL Server actives, ou si elle effectue tout travail autre que ceux qui sont spécifiés dans les termes du contrat, il doit s’agir d’une instance SQL Server sous licence payante. Les activités suivantes sont autorisées sur l’instance secondaire : vérifications de cohérence de la base de données ou CheckDB, sauvegardes complètes, sauvegardes du journal des transactions et supervision des données d’utilisation des ressources. Vous pouvez également exécuter simultanément l’instance principale et l’instance de reprise d’activité correspondante pendant de courtes périodes de test de reprise d’activité tous les 90 jours.
+   
+
+1. **Quels scénarios peuvent tirer parti de l’avantage Reprise d’activité après sinistre ?**
+
+   Le [Guide de gestion des licences](https://aka.ms/sql2019licenseguide) fournit des scénarios dans lesquels l’avantage Reprise d’activité après sinistre peut être utilisé. Pour plus d’informations, reportez-vous aux Termes du contrat de licence du produit et contactez les agents chargés de la gestion des licences ou votre responsable de compte.
+
+1. **Quels sont les abonnements qui prennent en charge l’avantage Reprise d’activité après sinistre ?**
+
+   Les programmes complets qui offrent des droits d’abonnement équivalents à la Software Assurance en tant qu’avantage fixe prennent en charge l’avantage Reprise d’activité après sinistre. Cela comprend, mais pas exclusivement, Open Value (OV), Open Value Subscription (OVS), Contrat Entreprise (EA), Contrat Souscription Entreprise (EAS) et Server and Cloud Enrollment (SCE). Pour plus d’informations, reportez-vous aux [Termes du contrat de licence du produit](https://www.microsoft.com/licensing/product-licensing/products) et contactez les agents chargés de la gestion des licences ou votre responsable de compte. 
+
+   
+ ## <a name="resource-provider"></a>Fournisseur de ressources
 
 1. **Est-ce que l’inscription de ma machine virtuelle auprès du nouveau fournisseur de ressources de machine virtuelle SQL Server engendre des frais supplémentaires ?**
 
@@ -127,9 +148,7 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
     Oui. Si vous avez déployé SQL Server à partir de votre propre support et installé l’extension SQL IaaS, vous pouvez inscrire votre machine virtuelle SQL Server auprès du fournisseur de ressources pour profiter des avantages de facilité de gestion fournis par l’extension IaaS de SQL. Toutefois, vous ne pouvez pas convertir une machine virtuelle SQL Server auto-déployée en paiement à l’utilisation.
 
-1. **Est-il possible de changer le modèle de licence sur une machine virtuelle SQL Server déployée avec le modèle Classique ?**
 
-   Non. Le changement du modèle de licence n’est pas pris en charge sur une machine virtuelle classique. Vous pouvez migrer votre machine virtuelle vers le modèle Azure Resource Manager et l’inscrire auprès du fournisseur de ressources de machine virtuelle SQL Server. Une fois que la machine virtuelle est inscrite auprès du fournisseur de ressources de machine virtuelle SQL Server, les changements du modèle de licence sont disponibles sur la machine virtuelle. 
    
 
 
@@ -181,9 +200,9 @@ Cet article fournit des réponses à certaines des questions les plus courantes 
 
 ## <a name="general"></a>Général
 
-1. **Les instances de cluster de basculement (FCI) SQL Server sont-elles prises en charge sur les machines virtuelles Azure ?**
+1. **Les instances de cluster de basculement (FCI) SQL Server sont-elles prises en charge sur les machines virtuelles Azure ?**
 
-   Oui. Vous pouvez [créer un cluster de basculement Windows sur Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) et utiliser les espaces de stockage direct (S2D) pour le stockage du cluster. Vous pouvez également utiliser les solutions de clustering ou de stockage tierces comme décrit dans [Haute disponibilité et récupération d’urgence pour SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+   Oui. Vous pouvez installer une instance de cluster de basculement à l’aide de [partages de fichiers Premium (PFS)](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) ou d’[espaces de stockage direct (S2D)](virtual-machines-windows-portal-sql-create-failover-cluster.md) pour le sous-système de stockage. Les partages de fichiers Premium fournissent une capacité d’IOPS et de débit qui répond aux besoins de nombreuses charges de travail. Pour les charges de travail gourmandes en E/S, il peut être préférable d’utiliser des espaces de stockage direct basés sur des disques Premium managés ou des disques Ultra. Vous pouvez également utiliser les solutions de clustering ou de stockage tierces comme décrit dans [Haute disponibilité et récupération d’urgence pour SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > À ce stade, l’[extension de l’agent IaaS SQL Server](virtual-machines-windows-sql-server-agent-extension.md)_complète_ n’est pas prise en charge pour l’ICF SQL Server sur Azure. Nous vous recommandons de désinstaller l’extension _complète_ des machines virtuelles qui participent à l’ICF, puis d’installer l’extension en mode _léger_ à la place. Cette extension prend en charge des fonctionnalités telles que la sauvegarde et la mise à jour corrective automatisées, ainsi que certaines fonctionnalités du portail pour SQL Server. Ces fonctionnalités ne s’opèrent pas pour les machines virtuelles SQL Server une fois l’agent _complet_ désinstallé.

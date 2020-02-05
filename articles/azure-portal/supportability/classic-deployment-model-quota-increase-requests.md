@@ -1,108 +1,108 @@
 ---
-title: Modèle de déploiement Azure Classic | Microsoft Docs
-description: Modèle de déploiement classique Azure
+title: Modèle de déploiement classique Azure
+description: Le modèle de déploiement Classic, désormais remplacé par le modèle Resource Manager, applique une limite de quota de processeurs virtuels globale aux machines virtuelles et groupes de machines virtuelles identiques.
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 06/20/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: d8f4bf04251347c44ea1692cfdda2602e23117f4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a3d5106cafc1d3bfe77f3e42e85cedb668fc4fa0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898785"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835586"
 ---
 # <a name="classic-deployment-model"></a>Modèle de déploiement classique
 
-Le modèle de déploiement Classic est le modèle de déploiement Azure de génération antérieure. Il applique une limite de quota de processeur virtuel global pour les machines virtuelles et les groupes de machines virtuelles identiques. Le modèle de déploiement Classic n’est plus recommandé. Il est désormais remplacé par le modèle Resource Manager. 
+Le modèle de déploiement Classic est le modèle de déploiement Azure de génération antérieure. Il applique une limite de quota de processeur virtuel global pour les machines virtuelles et les groupes de machines virtuelles identiques. Le modèle de déploiement Classic n’est plus recommandé. Il est désormais remplacé par le modèle Resource Manager.
 
-Pour en savoir plus sur ces deux modèles de déploiement et sur les avantages liés à l’utilisation de Resource Manager, voir la page [Déploiement Azure Resource Manager et déploiement Classic](../../azure-resource-manager/management/deployment-models.md).
- 
+Pour en savoir plus sur ces deux modèles de déploiement et sur les avantages liés à l’utilisation de Resource Manager, consultez [Déploiements Resource Manager et Classic](../../azure-resource-manager/management/deployment-models.md).
+
 Quand un abonnement est créé, un quota de processeurs virtuels par défaut lui est attribué. Chaque fois qu’une nouvelle machine virtuelle doit être déployée à l’aide du modèle de déploiement Classic, la somme de l’utilisation des processeurs virtuels nouveaux et existants dans toutes les régions ne doit pas dépasser le quota de processeur virtuel approuvé pour le modèle de déploiement Classic.
- 
-Pour en savoir plus sur les quotas, voir la page [Abonnement Azure et limites, quotas et contraintes de service](https://aka.ms/quotalimits).
 
-Vous pouvez demander une augmentation de la limite de quota de processeur virtuel pour le modèle de déploiement Classic par le biais du panneau « Aide + Support » ou « Utilisations + Quota » dans le portail.
+Pour en savoir plus sur les quotas, consultez [Abonnement Azure et limites, quotas et contraintes de service](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Demandez une augmentation du quota total de processeurs virtuels par série de machines virtuelles au niveau de l’abonnement à l’aide du panneau **Aide + Support**
+Vous pouvez demander une augmentation de la limite de quota de processeurs virtuels pour le modèle de déploiement Classic. Utilisez **Aide + support** ou **Utilisation + quotas** dans le portail Azure.
 
-Suivez les instructions ci-dessous pour créer une demande de support via le panneau « Aide + Support » d’Azure disponible dans le portail Azure. 
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-help--support"></a>Demander une augmentation du quota total de processeurs virtuels par série de machines virtuelles au niveau de l’abonnement en utilisant Aide + support
 
-1. À partir de https://portal.azure.com, sélectionnez **Aide + Support**.
+Suivez les instructions ci-dessous pour créer une demande de support en utilisant **Aide et support** dans le portail Azure.
 
-   ![Aide + support](./media/resource-manager-core-quotas-request/helpsupport.png)
- 
-2.  Sélectionnez **Nouvelle demande de support**. 
+1. Dans le menu [Portail Azure](https://portal.azure.com), sélectionnez **Aide + support**.
 
-      ![Nouvelle demande de support](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+   ![Sélectionner Aide + support dans le portail Azure](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-3. Dans la liste déroulante Type de problème, choisissez **Limites du service et des abonnements (quotas)** .
+1. Sélectionnez **Nouvelle demande de support**.
 
-   ![Liste déroulante Type de problème](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+   ![Créer une demande de support dans le portail Azure](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-4. Sélectionnez l’abonnement nécessitant une augmentation du quota.
+1. Dans **Type de problème**, sélectionnez **Limites du service et de l’abonnement (quotas)** .
 
-   ![Sélectionner l’abonnement newSR](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
-   
-5. Sélectionnez **La limite d’abonnement de calcul/machine virtuelle (cœurs/processeurs virtuels) augmente** dans la liste déroulante **Type de quota**. 
+   ![Sélectionner des quotas comme le type de problème](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
+
+1. Sélectionnez l’abonnement pour lequel vous souhaitez augmenter le quota.
+
+   ![Sélectionner un abonnement pour lequel augmenter un quota](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
+
+1. Pour **Type de quota**, sélectionnez **La limite d’abonnement de calcul/machine virtuelle (cœurs/processeurs virtuels) augmente**.
+
+   ![Sélectionner le type de quota à augmenter](./media/resource-manager-core-quotas-request/select-quota-type.png)
+
+1. Sélectionnez **Suivant : Solutions** pour ouvrir **DÉTAILS DU PROBLÈME**. Sélectionnez **Fournir des détails** pour fournir des informations supplémentaires.
+
+   ![Fournir des détails pour faciliter la demande](./media/resource-manager-core-quotas-request/provide-details-link.png)
+
+1. Dans **Détails du quota**, sélectionnez **Classique**, puis un **emplacement**.
+
+   ![Ajouter des détails, notamment le modèle de déploiement et l’emplacement](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+
+1. Pour la **famille de références SKU**, sélectionnez une ou plusieurs familles de références SKU à augmenter.
+
+   ![Spécifier la famille de références SKU à augmenter](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+
+1. Entrez les nouvelles limites que vous souhaitez appliquer à l’abonnement. Pour supprimer une ligne, désélectionnez la référence SKU dans **Famille de références SKU** ou sélectionnez l’icône de fermeture « X ». Après avoir entré un quota pour chaque famille de références SKU, sélectionnez **Enregistrer et continuer** dans **Détails du quota** afin de poursuivre la demande de support.
+
+   ![Demander de nouvelles limites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+
+## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usage--quotas"></a>Demandez une augmentation du quota total de processeurs virtuels par série de machines virtuelles au niveau de l’abonnement avec Utilisation + quotas
+
+Suivez les instructions ci-dessous pour créer une demande de support à l'aide de **Utilisation + quotas** dans le portail Azure.
+
+1. Dans le [portail Azure](https://portal.azure.com), recherchez et sélectionnez **Abonnements**.
+
+   ![Accéder à Abonnements dans le portail Azure](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
+
+1. Sélectionnez l’abonnement pour lequel vous souhaitez augmenter le quota.
+
+   ![Sélectionner l'abonnement à modifier](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
+
+1. Sélectionnez **Utilisation + quotas**.
+
+   ![Sélectionner Utilisation et quotas pour un abonnement](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
+
+1. Dans l’angle supérieur droit, cliquez sur **Demander une augmentation**.
+
+   ![Sélectionner cette option pour augmenter le quota](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
+
+1. Sélectionnez **La limite d’abonnement de calcul/machine virtuelle (cœurs/processeurs virtuels) augmente** comme **type de quota**.
 
    ![Sélectionner un type de quota](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-6. Dans **Détails du problème**, fournissez des informations supplémentaires pour faciliter le traitement de votre demande en cliquant sur **Fournir des informations**.
+1. Sélectionnez **Suivant : Solutions** pour ouvrir **DÉTAILS DU PROBLÈME**. Sélectionnez **Fournir des détails** pour fournir des informations supplémentaires.
 
-   ![Fournir des informations](./media/resource-manager-core-quotas-request/provide-details.png)
+   ![Fournir les détails de la requête](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-7. Dans le panneau **Détails du quota**, sélectionnez Classique, puis sélectionnez un emplacement.
+1. Dans **Détails du quota**, sélectionnez **Classique**, puis un **emplacement**.
 
-   ![Détails des quotas : modèle de déploiement](./media/resource-manager-core-quotas-request/quota-details-classic.png)
+   ![Sélectionner les détails de quota, notamment le modèle de déploiement et l’emplacement](./media/resource-manager-core-quotas-request/quota-details-classic.png)
 
-8. Sélectionnez les **familles de références** qui nécessitent une augmentation. 
+1. Sélectionnez une ou plusieurs familles de références SKU à augmenter.
 
-   ![Famille de références](./media/resource-manager-core-quotas-request/sku-family-classic.png)
+   ![Sélectionner la famille de références SKU à augmenter](./media/resource-manager-core-quotas-request/sku-family-classic.png)
 
-9. Entrez les nouvelles limites que vous souhaitez appliquer à l’abonnement. Pour supprimer une ligne, désactivez la case de la référence dans la liste déroulante de la famille de références ou cliquez sur l’icône de fermeture « x ». Après avoir entré le quota de votre choix pour chaque famille de références, cliquez sur **Enregistrer et continuer** dans le panneau Détails du quota pour poursuivre la création de demande de support.
+1. Entrez les nouvelles limites que vous souhaitez appliquer à l’abonnement. Pour supprimer une ligne, désélectionnez la référence SKU dans **Famille de références SKU** ou sélectionnez l’icône de fermeture « X ». Après avoir entré un quota pour chaque famille de références SKU, sélectionnez **Enregistrer et continuer** dans **Détails du quota** afin de poursuivre la demande de support.
 
-   ![Nouvelles limites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
-
-## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-usages--quota-blade"></a>Demandez une augmentation du quota total de processeurs virtuels par série de machines virtuelles au niveau de l’abonnement à l’aide du panneau **Utilisation + quotas**
-
-Suivez les instructions ci-dessous pour créer une demande de support via le panneau « Utilisation + Quotas » d’Azure disponible dans le portail Azure. 
-
-1. Dans https://portal.azure.com, sélectionnez **Abonnements**.
-
-   ![Abonnements](./media/resource-manager-core-quotas-request/subscriptions.png)
-
-2. Sélectionnez l’abonnement nécessitant une augmentation du quota.
-
-   ![Sélectionner un abonnement](./media/resource-manager-core-quotas-request/select-subscription.png)
-
-3. Sélectionnez **Utilisation + quotas**.
-
-   ![Sélectionnez Utilisation + quotas](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
-
-4. Dans l’angle supérieur droit, cliquez sur **Demander une augmentation**.
-
-   ![Demander une augmentation](./media/resource-manager-core-quotas-request/request-increase.png)
-
-5. Sélectionnez **La limite d’abonnement de calcul/machine virtuelle (cœurs/processeurs virtuels) augmente** comme type de quota. 
-
-   ![Renseignez le formulaire](./media/resource-manager-core-quotas-request/select-quota-type.png)
-   
-6. Dans **Détails du problème**, fournissez des informations supplémentaires pour faciliter le traitement de votre demande en cliquant sur **Fournir des informations**.
-
-   ![Fournir des informations](./media/resource-manager-core-quotas-request/provide-details.png)
-
-7. Dans le panneau **Détails du quota**, sélectionnez Classique, puis sélectionnez un emplacement.
-
-   ![Détails des quotas : modèle de déploiement](./media/resource-manager-core-quotas-request/quota-details-classic.png)
-
-8. Sélectionnez les **familles de références** qui nécessitent une augmentation. 
-
-   ![Famille de références](./media/resource-manager-core-quotas-request/sku-family-classic.png)
-
-9. Entrez les nouvelles limites que vous souhaitez appliquer à l’abonnement. Pour supprimer une ligne, désactivez la case de la référence dans la liste déroulante de la famille de références ou cliquez sur l’icône de fermeture « x ». Après avoir entré le quota de votre choix pour chaque famille de références, cliquez sur **Enregistrer et continuer** dans le panneau Détails du quota pour poursuivre la création de demande de support.
-
-   ![Nouvelles limites](./media/resource-manager-core-quotas-request/new-limits-classic.png)
+   ![Entrer un nouveau quota](./media/resource-manager-core-quotas-request/new-limits-classic.png)
 

@@ -3,24 +3,24 @@ title: Niveaux de zoom et grille mosaïque | Microsoft Azure Maps
 description: Dans cet article, vous allez découvrir les niveaux de zoom et la grille mosaïque dans Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910776"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765839"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Niveaux de zoom et grille mosaïque
 
-Azure Maps utilise le système de coordonnées de projection Spherical Mercator (EPSG : 3857). Une projection est le modèle mathématique utilisé pour transformer le globe sphérique en une carte plate. La projection Spherical Mercator étire la carte au niveau des pôles afin de créer une carte carrée. Cela déforme significativement l’échelle et la zone de la carte, mais deux propriétés importantes l’emportent sur cette distorsion :
+Azure Maps utilise le système de coordonnées de projection Spherical Mercator (EPSG : 3857). Une projection est le modèle mathématique utilisé pour transformer le globe sphérique en une carte plate. La projection Spherical Mercator étire la carte au niveau des pôles afin de créer une carte carrée. Cette projection déforme significativement l’échelle et la zone de la carte, mais deux propriétés importantes l’emportent sur cette distorsion :
 
-- Il s’agit d’une projection conforme, ce qui signifie qu’elle conserve la forme des objets relativement petits. Cela est particulièrement important lorsque vous montrez une image aérienne, car nous souhaitons éviter de déformer la forme des bâtiments. Les bâtiments carrés doivent apparaître carrés, pas rectangulaires.
-- Il s’agit d’une projection cylindrique, ce qui signifie que le nord et le sud sont toujours en haut et en bas, et que l’est et l’ouest sont toujours à gauche et à droite. 
+- Il s’agit d’une projection conforme, ce qui signifie qu’elle conserve la forme des objets relativement petits. Conserver la forme des petits objets est d'autant plus important dans le cas de l'imagerie aérienne. À titre d'exemple, il est important d'éviter la déformation des bâtiments. Les bâtiments carrés doivent apparaître carrés, pas rectangulaires.
+- Il s'agit d'une projection cylindrique. Le nord et le sud se trouvent toujours en haut et en bas, et l'ouest et l'est toujours à gauche et à droite. 
 
 Pour optimiser les performances de récupération et d’affichage de la carte, celle-ci est divisée en mosaïques carrées. Le kit de développement logiciel (SDK) Azure Maps utilise des mosaïques d’une taille de 512 x 512 pixels pour les cartes routières, et de 256 x 256 pixels pour les images satellites. Azure Maps fournit des mosaïques Raster et Vecteur pour 23 niveaux de zoom, numérotés de 0 à 22. Au niveau de zoom 0, le monde entier tient dans une seule mosaïque :
 
@@ -70,7 +70,7 @@ Le tableau suivant fournit la liste complète des valeurs pour les niveaux de zo
 
 ## <a name="pixel-coordinates"></a>Coordonnées des pixels
 
-Après avoir choisi la projection et l’échelle à utiliser à chaque niveau de zoom, nous pouvons convertir les coordonnées géographiques en coordonnées de pixels. La largeur et la hauteur en pixels de l’image d’une carte du monde pour un niveau de zoom particulier peuvent être calculées comme suit :
+Après avoir choisi la projection et l’échelle à utiliser à chaque niveau de zoom, nous pouvons convertir les coordonnées géographiques en coordonnées de pixels. La largeur et la hauteur en pixels de l’image d’une carte du monde pour un niveau de zoom particulier sont calculées comme suit :
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -82,9 +82,11 @@ var mapHeight = mapWidth;
 
 <center>
 
-![Carte présentant des dimensions en pixels](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![Carte présentant des dimensions en pixels](media/zoom-levels-and-tile-grid/map-width-height.png)
 
-Avec une latitude et une longitude en degrés données, et le niveau de détail, les coordonnées XY du pixel peuvent être calculées comme suit :
+</center>
+
+Avec une latitude et une longitude en degrés données, et le niveau de détail, les coordonnées XY du pixel sont calculées comme suit :
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -94,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Les valeurs de latitude et de longitude sont supposées être sur la référence WGS 84. Même si Azure Maps utilise une projection sphérique, il est important de convertir toutes les coordonnées géographiques en une référence commune, et WGS 84 a été choisi comme référence. La valeur de longitude est supposée être comprise entre-180 et + 180 degrés, et la valeur de latitude doit être découpée pour être comprise entre -85,05112878 et 85,05112878. Cela permet d’éviter une singularité aux pôles et de faire en sorte que le plan projeté soit carré.
+Les valeurs de latitude et de longitude sont supposées être sur la référence WGS 84. Même si Azure Maps utilise une projection sphérique, il est important de convertir toutes les coordonnées géographiques en une donnée commune. WGS 84 correspond à la donnée sélectionnée. La valeur de longitude est supposée être comprise entre - 180 degrés et + 180 degrés, et la valeur de latitude doit être découpée pour être comprise entre - 85,05112878 et 85,05112878. Adhérer à ces valeurs permet d'éviter toute singularité au niveau des pôles, et garantit à la carte projetée une forme carrée.
 
 ## <a name="tile-coordinates"></a>Coordonnées de mosaïque
 
-Pour optimiser les performances de récupération et d’affichage de la carte, la carte rendue est divisée en mosaïques. Étant donné que le nombre de pixels diffère à chaque niveau de zoom, il en est de même pour le nombre de mosaïques :
+Pour optimiser les performances de récupération et d’affichage de la carte, la carte rendue est divisée en mosaïques. Le nombre de pixels et le nombre de mosaïques diffèrent à chaque niveau de zoom :
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -120,9 +122,9 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Les mosaïques sont appelées selon le niveau de zoom et les coordonnées x et y correspondant à la position de la mosaïque sur la grille pour ce niveau de zoom.
+Les mosaïques sont appelées selon le niveau de zoom. Les coordonnées x et y correspondent à la position de la mosaïque sur la grille pour ce niveau de zoom.
 
-Quand vous déterminez le niveau de zoom à utiliser, n’oubliez pas que chaque emplacement correspond à une position fixe sur sa mosaïque. Cela signifie que le nombre de mosaïques nécessaires pour afficher l’étendue donnée d’un territoire dépend du placement spécifique de la grille de zoom dans le monde. Par exemple, si deux points sont éloignés l’un de l’autre de 900 mètres, trois mosaïques *peuvent* suffire pour afficher un itinéraire entre eux au niveau de zoom 17. Toutefois, si le point occidental se trouve à droite de sa mosaïque et que le point oriental se trouve à gauche, on obtient quatre mosaïques :
+Quand vous déterminez le niveau de zoom à utiliser, n’oubliez pas que chaque emplacement correspond à une position fixe sur sa mosaïque. Ainsi, le nombre de mosaïques nécessaires pour afficher l’étendue donnée d’un territoire dépend du placement spécifique de la grille de zoom sur la carte du monde. Par exemple, si deux points sont éloignés l’un de l’autre de 900 mètres, trois mosaïques *peuvent* suffire pour afficher un itinéraire entre eux au niveau de zoom 17. Toutefois, si le point occidental se trouve à droite de sa mosaïque et que le point oriental se trouve à gauche, on obtient quatre mosaïques :
 
 <center>
 

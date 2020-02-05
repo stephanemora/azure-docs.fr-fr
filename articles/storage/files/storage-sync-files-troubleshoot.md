@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545039"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842714"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -298,6 +298,15 @@ Notez que si vous avez effectué des modifications directement dans votre partag
 Si votre PerItemErrorCount sur le serveur ou le nombre de fichiers non synchronisés dans le portail est supérieur à 0 pour une session de synchronisation donnée, cela signifie que certains éléments ne sont pas synchronisés. Les fichiers et les dossiers peuvent avoir des caractéristiques qui empêchent leur synchronisation. Ces caractéristiques peuvent être persistantes et nécessitent une action explicite pour reprendre la synchronisation, par exemple la suppression des caractères non pris en charge à partir du nom du fichier ou du dossier. Elles peuvent aussi être temporaires, ce qui signifie que le fichier ou le dossier reprendra automatiquement la synchronisation ; par exemple, des fichiers avec des handles ouverts qui reprennent automatiquement la synchronisation quand le fichier est fermé. Lorsque le moteur Azure File Sync détecte ce type de problème, un journal des erreurs est généré, il peut être analysé pour répertorier les éléments qui ne sont pas en train de se synchroniser correctement.
 
 Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport.ps1** (situé dans le répertoire d’installation de l’agent Azure File Sync) pour identifier les fichiers qui ont échoué lors de la synchronisation en raison de descripteurs ouverts, de caractères non pris en charge, ou d’autres problèmes. Le champ ItemPath vous indique l’emplacement du fichier en relation avec le répertoire racine de synchronisation. Consultez la liste des erreurs de synchronisation courantes ci-dessous pour les étapes de correction.
+
+> [!Note]  
+> Si le script FileSyncErrorsReport.ps1 retourne « Aucune erreur de fichier n’a été trouvée » ou ne contient pas d’erreurs par élément pour le groupe de synchronisation, la cause est l’une des suivantes :
+>
+>- Cause 1 : La dernière session de synchronisation terminée n’a pas d’erreurs par élément. Le portail doit être mis à jour bientôt pour afficher « 0 Fichiers non synchronisés ». 
+>   - Vérifiez l’[ID d’événement 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) dans le journal des événements de télémétrie pour confirmer que PerItemErrorCount a la valeur 0. 
+>
+>- Cause 2 : Le journal des événements ItemResults sur le serveur a été enveloppé (wrapped) car les erreurs par élément sont trop nombreuses et le journal des événements ne contient plus d’erreurs pour ce groupe de synchronisation.
+>   - Pour éviter ce problème, augmentez la taille du journal des événements ItemResults. Le journal des événements ItemResults se trouve sous « Journaux des applications et des services\Microsoft\FileSync\Agent » dans l’observateur d’événements. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Résolution des problèmes par les erreurs de synchronisation de fichier/répertoire
 **Journal ItemResults : erreurs de synchronisation par élément**  
@@ -1075,7 +1084,35 @@ Si la hiérarchisation des fichiers dans Azure Files échoue :
        - À partir d’une invite de commandes avec élévation de privilèges, exécutez `fltmc`. Vérifiez que les pilotes de filtre du système de fichiers StorageSync.sys et StorageSyncGuard.sys sont répertoriés.
 
 > [!NOTE]
-> Un d’ID d’événement 9003 est enregistré une fois par heure dans le journal d’événements de télémétrie si un fichier ne parvient pas à hiérarchiser (un événement est enregistré par code d’erreur). Les journaux d’événements des opérations et de diagnostic doivent être utilisés si les informations supplémentaires sont nécessaires pour diagnostiquer un problème.
+> Un d’ID d’événement 9003 est enregistré une fois par heure dans le journal d’événements de télémétrie si un fichier ne parvient pas à hiérarchiser (un événement est enregistré par code d’erreur). Consultez la section [Erreurs de hiérarchisation et correction](#tiering-errors-and-remediation) pour vérifier si des étapes de correction sont fournies pour le code d’erreur.
+
+### <a name="tiering-errors-and-remediation"></a>Erreurs de hiérarchisation et correction
+
+| HRESULT | HRESULT (décimal) | Chaîne d’erreur | Problème | Correction |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Le fichier n’a pas pu être hiérarchisé car il est en cours d’utilisation. | Aucune action requise. Le fichier sera hiérarchisé quand il ne sera plus en cours d’utilisation. |
+| 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | Le fichier n’a pas pu être hiérarchisé car il est exclu par synchronisation. | Aucune action requise. Les fichiers de la liste d’exclusion de synchronisation ne peuvent pas être hiérarchisés. |
+| 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | Le fichier n’a pas pu être hiérarchisé car il est introuvable sur le serveur. | Aucune action requise. Si l’erreur persiste, vérifiez si le fichier existe sur le serveur. |
+| 0x80c83053 | -2134364077 | ECS_E_CREATE_SV_FILE_DELETED | Le fichier n’a pas pu être hiérarchisé car il a été supprimé dans le partage de fichiers Azure. | Aucune action requise. Le fichier doit être supprimé sur le serveur lors de l’exécution de la session de synchronisation de téléchargement suivante. |
+| 0x80c8600e | -2134351858 | ECS_E_AZURE_SERVER_BUSY | La hiérarchisation du fichier a échoué à cause d’un problème réseau. | Aucune action requise. Si l’erreur persiste, vérifiez la connectivité réseau vers le partage de fichiers Azure. |
+| 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | La hiérarchisation du fichier a échoué à cause d’un problème réseau. | Aucune action requise. Si l’erreur persiste, vérifiez la connectivité réseau vers le partage de fichiers Azure. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | La hiérarchisation du fichier a échoué à cause d’une erreur d’accès refusé. Ce problème peut se produire si le fichier se trouve dans un dossier de réplication DFS-R en lecture seule. | Azure Files Sync ne prend pas en charge les points de terminaison de serveur sur les dossiers de réplication en lecture seule DFS-R. Consultez le [guide de planification](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) pour plus d’informations. |
+| 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | La hiérarchisation du fichier a échoué à cause d’un problème réseau. | Aucune action requise. Si l’erreur persiste, vérifiez la connectivité réseau vers le partage de fichiers Azure. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | La hiérarchisation du fichier a échoué car la taille du fichier est inférieure à la taille prise en charge. | Si la version de l’agent est inférieure à 9.0, la taille de fichier minimale prise en charge est de 64 Ko. Si la version de l’agent est 9.0 ou plus récente, la taille de fichier minimale prise en charge dépend de la taille de cluster du système de fichiers (deux fois la taille de cluster de système de fichiers). Par exemple, si la taille du cluster de système de fichiers est de 4 Ko, la taille de fichier minimale est de 8 Ko. |
+| 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | La hiérarchisation du fichier a échoué en raison d’un problème de stockage Azure. | Si l’erreur persiste, ouvrez une demande de support. |
+| 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | Le fichier n’a pas pu être hiérarchisé car il a été rappelé en même temps. | Aucune action requise. Le fichier sera hiérarchisé quand le rappel sera terminé et que le fichier ne sera plus utilisé. |
+| 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Le fichier n’a pas pu être hiérarchisé car il n’a pas été synchronisé avec le partage de fichiers Azure. | Aucune action requise. Le fichier sera hiérarchisé une fois qu’il aura été synchronisé avec le partage de fichiers Azure. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Le fichier n’a pas pu être hiérarchisé car le pilote de filtre de hiérarchisation cloud (storagesync.sys) n’est pas en cours d’exécution. | Pour résoudre ce problème, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : fltmc load storagesync <br>Si le chargement du pilote de filtre storagesync échoue lors de l’exécution de la commande fltmc, désinstallez l’agent Azure File Sync, redémarrez le serveur et réinstallez l’agent Azure File Sync. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | La hiérarchisation du fichier a échoué car l’espace disque est insuffisant sur le volume où se trouve le point de terminaison de serveur. | Pour résoudre ce problème, libérez au moins 100 Mo d’espace disque sur le volume où se trouve le point de terminaison de serveur. |
+| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Le fichier n’a pas pu être hiérarchisé car il n’a pas été synchronisé avec le partage de fichiers Azure. | Aucune action requise. Le fichier sera hiérarchisé une fois qu’il aura été synchronisé avec le partage de fichiers Azure. |
+| 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | La hiérarchisation du fichier a échoué car il s’agit d’un point d’analyse non pris en charge. | Si le fichier est un point d’analyse de déduplication des données, effectuez les étapes décrites dans le [guide de planification](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) pour activer la prise en charge de la déduplication des données. Les fichiers avec des points d’analyse autres que la déduplication des données ne sont pas pris en charge et ne seront pas hiérarchisés.  |
+| 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | Le fichier n’a pas pu être hiérarchisé car il a été modifié. | Aucune action requise. Le fichier sera hiérarchisé une fois que le fichier modifié aura été synchronisé avec le partage de fichiers Azure. |
+| 0x80c80269 | -2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | Le fichier n’a pas pu être hiérarchisé car il n’a pas été synchronisé avec le partage de fichiers Azure. | Aucune action requise. Le fichier sera hiérarchisé une fois qu’il aura été synchronisé avec le partage de fichiers Azure. |
+| 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | La hiérarchisation du fichier a échoué à cause d’un problème réseau. | Aucune action requise. Si l’erreur persiste, vérifiez la connectivité réseau vers le partage de fichiers Azure. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Le fichier n’a pas pu être hiérarchisé car il a été modifié. | Aucune action requise. Le fichier sera hiérarchisé une fois que le fichier modifié aura été synchronisé avec le partage de fichiers Azure. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | La hiérarchisation du fichier a échoué car les ressources système sont insuffisantes. | Si l’erreur persiste, essayez d’identifier l’application ou le pilote en mode noyau qui épuise les ressources système. |
+
+
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Résoudre les problèmes de rappel de fichiers  
 Si le rappel de fichiers échoue :

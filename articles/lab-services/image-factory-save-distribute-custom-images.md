@@ -1,6 +1,6 @@
 ---
 title: Enregistrer et distribuer des images dans Azure DevTest Labs | Microsoft Docs
-description: Découvrez comment créer une fabrique d’images personnalisées dans Azure DevTest Labs.
+description: Cet article décrit les étapes à suivre pour enregistrer des images personnalisées à partir de machines virtuelles existantes dans Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: feabd055833e5f0d850138af528cce1da82cae49
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e5bc8e5041bfe6d95e3ff1a93bb3338ccead5bb4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622612"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759429"
 ---
 # <a name="save-custom-images-and-distribute-to-multiple-labs"></a>Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires
-Cet article décrit les étapes à effectuer pour enregistrer des images personnalisées à partir de machines virtuelles existantes. Il explique également comment distribuer ces images personnalisées dans d’autres labs DevTest Labs de l’organisation.
+Cet article décrit les étapes à suivre pour enregistrer des images personnalisées à partir de machines virtuelles existantes. Il explique également comment distribuer ces images personnalisées dans d’autres labs DevTest Labs de l’organisation.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Les éléments suivants doivent déjà être en place :
 
 - Un lab pour la fabrique d’images dans Azure DevTest Labs.

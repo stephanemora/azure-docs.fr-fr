@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus avec .NET et AMQP 1.0 | Microsoft Docs
-description: Utilisation d’Azure Service Bus à partir de .NET avec AMQP
+description: Cet article explique comment utiliser Azure Service Bus à partir d’une application .NET avec AMQP (Advanced Messaging Queuing Protocol).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 82301a17bb461b6d8733d5f046fe791ffbcf3ecb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 536c315077cb74a1dfa8db457f0f0b3725edf7a1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749255"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759245"
 ---
 # <a name="use-service-bus-from-net-with-amqp-10"></a>Utiliser Service Bus à partir de .NET avec AMQP 1.0
 
@@ -49,7 +49,7 @@ La valeur du paramètre `Microsoft.ServiceBus.ConnectionString` est la chaîne d
 
 `Endpoint=sb://[namespace].servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=[SAS key];TransportType=Amqp`
 
-Où les éléments `namespace` et `SAS key` sont obtenus à partir du [portail Azure][Azure portal] lorsque vous créez un espace de noms Service Bus. Pour plus d’informations, consultez la page [Création d’un espace de noms Service Bus à l’aide du portail Azure][Create a Service Bus namespace using the Azure portal].
+Où les éléments `namespace` et `SAS key` sont obtenus à partir du [portail Azure][Azure portal] lorsque vous créez un espace de noms Service Bus. Pour plus d’informations, consultez [Créer un espace de noms Service Bus à l’aide du portail Azure][Create a Service Bus namespace using the Azure portal].
 
 Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType=Amqp`. Cette notation informe la bibliothèque cliente qu’elle doit se connecter à Service Bus à l’aide d’AMQP 1.0.
 
@@ -57,13 +57,13 @@ Lorsque vous utilisez AMQP, ajoutez la chaîne de connexion avec `;TransportType
 
 Lorsque vous utilisez le protocole par défaut, le comportement de sérialisation par défaut de la bibliothèque cliente .NET consiste à utiliser le type [DataContractSerializer][DataContractSerializer] pour sérialiser une instance [BrokeredMessage][BrokeredMessage] en vue de son transport entre la bibliothèque cliente et le service Service Bus. Lorsque vous utilisez le mode de transport AMQP, la bibliothèque cliente utilise le système de type AMQP pour la sérialisation du [message réparti][BrokeredMessage] dans un message AMQP. Cette sérialisation permet au message d’être reçu et interprété par une application réceptrice potentiellement exécutée sur une plateforme différente, par exemple, une application Java qui utilise l’API JMS pour accéder à Service Bus.
 
-Lorsque vous construisez une instance [BrokeredMessage][BrokeredMessage], vous pouvez fournir au constructeur un objet .NET comme paramètre devant servir de corps au message. Pour les objets qui peuvent être mappés sur des types primitifs AMQP, le corps est sérialisé en types de données AMQP. Si l’objet ne peut pas être directement mappé sur un type primitif AMQP, c’est-à-dire un type personnalisé défini par l’application, l’objet est sérialisé à l’aide de [DataContractSerializer][DataContractSerializer] et les octets sérialisés sont envoyés dans un message de données AMQP.
+Lorsque vous construisez une instance [BrokeredMessage][BrokeredMessage], vous pouvez fournir un objet .NET en tant que paramètre au constructeur pour servir de corps au message. Pour les objets qui peuvent être mappés sur des types primitifs AMQP, le corps est sérialisé en types de données AMQP. Si l’objet ne peut pas être directement mappé sur un type primitif AMQP, c’est-à-dire un type personnalisé défini par l’application, l’objet est sérialisé à l’aide de [DataContractSerializer][DataContractSerializer] et les octets sérialisés sont envoyés dans un message de données AMQP.
 
 Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez uniquement des types .NET qui peuvent être sérialisés directement en types AMQP pour le corps du message. Le tableau suivant détaille ces types et le mappage correspondant sur le système de types AMQP.
 
 | Type d’objet de corps .NET | Type AMQP mappé | Type de section de corps AMQP |
 | --- | --- | --- |
-| bool |booléenne |Valeur AMQP |
+| bool |boolean |Valeur AMQP |
 | byte |ubyte |Valeur AMQP |
 | ushort |ushort |Valeur AMQP |
 | uint |uint |Valeur AMQP |
@@ -74,20 +74,20 @@ Pour faciliter l’interopérabilité avec les clients autres que .NET, utilisez
 | long |long |Valeur AMQP |
 | float |float |Valeur AMQP |
 | double |double |Valeur AMQP |
-| décimal |decimal128 |Valeur AMQP |
+| Décimal |decimal128 |Valeur AMQP |
 | char |char |Valeur AMQP |
-| Datetime |timestamp |Valeur AMQP |
+| DateTime |timestamp |Valeur AMQP |
 | Guid |uuid |Valeur AMQP |
 | byte[] |binary |Valeur AMQP |
-| chaîne |chaîne |Valeur AMQP |
+| string |string |Valeur AMQP |
 | System.Collections.IList |list |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. |
-| System.Array |array |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. |
+| System.Array |tableau |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. |
 | System.Collections.IDictionary |map |Valeur AMQP : les éléments contenus dans la collection peuvent uniquement être ceux qui sont définis dans ce tableau. Remarque : seules les clés de chaîne sont prises en charge. |
 | Uri |Valeur string décrite (voir le tableau suivant) |Valeur AMQP |
-| DatetimeOffset |Valeur long décrite (voir le tableau suivant) |Valeur AMQP |
+| DateTimeOffset |Valeur long décrite (voir le tableau suivant) |Valeur AMQP |
 | TimeSpan |Valeur long décrite (voir la suite) |Valeur AMQP |
-| Stream |binary |Données AMQP (peuvent être multiples). Les sections de données contiennent les octets bruts lus à partir de l’objet Stream. |
-| Objet Other |binaire |Données AMQP (peuvent être multiples). Contient le binaire sérialisé de l’objet qui utilise DataContractSerializer ou un sérialiseur fourni par l’application. |
+| STREAM |binary |Données AMQP (peuvent être multiples). Les sections de données contiennent les octets bruts lus à partir de l’objet Stream. |
+| Objet Other |binary |Données AMQP (peuvent être multiples). Contient le binaire sérialisé de l’objet qui utilise DataContractSerializer ou un sérialiseur fourni par l’application. |
 
 | Type .NET | Type décrit AMQP mappé | Notes |
 | --- | --- | --- |
@@ -116,7 +116,7 @@ Les [API .NET](/dotnet/api/) exposent plusieurs paramètres pour contrôler le c
 
 Prêt à en savoir plus ? Visitez les liens suivants :
 
-* [Vue d’ensemble d’AMQP de Service Bus]
+* [Vue d’ensemble du protocole AMQP de Service Bus]
 * [Guide du protocole AMQP 1.0]
 
 [Create a Service Bus namespace using the Azure portal]: service-bus-create-namespace-portal.md
@@ -126,6 +126,6 @@ Prêt à en savoir plus ? Visitez les liens suivants :
 [OperationTimeout]: /dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings.operationtimeout?view=azureservicebus-4.0.0#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout
 [NuGet]: https://nuget.org/packages/WindowsAzure.ServiceBus/
 [Azure portal]: https://portal.azure.com
-[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
+[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
 [Guide du protocole AMQP 1.0]: service-bus-amqp-protocol-guide.md
 

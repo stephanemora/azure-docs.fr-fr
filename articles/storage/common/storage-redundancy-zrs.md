@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0e6b87ff34d6555fda50518198f9ae3839aa56e6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895182"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719090"
 ---
 # <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>Créer des applications hautement disponibles avec stockage redondant interzone (ZRS)
 
@@ -34,6 +34,7 @@ Pour les comptes v2 universels, le stockage ZRS est généralement disponible da
 - Europe occidentale
 - France Centre
 - Japon Est
+- Afrique du Sud Nord
 - Sud du Royaume-Uni
 - USA Centre
 - USA Est
@@ -88,7 +89,7 @@ Lors d’une migration dynamique, vous pouvez utiliser votre compte de stockage 
 Dans le cadre d’une migration dynamique, gardez à l’esprit les restrictions suivantes :
 
 - Lorsque Microsoft gère votre demande de migration dynamique rapidement, il n’existe aucune garantie quant au moment où une migration dynamique s’achève. Si vos données doivent être migrées vers ZRS pour une certaine date, Microsoft recommande d’effectuer plutôt une migration manuelle. En général, plus la quantité de données présentes dans votre compte est élevée, plus la migration des données est longue. 
-- La migration dynamique n’est prise en charge que pour des comptes de stockage utilisant une réplication LRS ou GRS. Si votre compte utilise une réplication RA-GRS, vous devez commencer par modifier le type de réplication de votre compte en LRS ou GRS avant de procéder. Cette étape intermédiaire supprime le point de terminaison secondaire en lecture seule fourni par la réplication RA-GRS avant la migration.
+- La migration dynamique est prise en charge uniquement pour les comptes de stockage utilisant la réplication LRS. Si votre compte utilise la réplication GRS ou RA-GRS, vous devez commencer par changer le type de réplication de votre compte en LRS avant de procéder. Cette étape intermédiaire supprime le point de terminaison secondaire fourni par GRS/RA-GRS.
 - Votre compte doit contenir des données.
 - Vous ne pouvez migrer des données qu’au sein de la même région. Si vous souhaitez migrer vos données vers un compte de stockage ZRS situé dans une région différente de celle du compte source, vous devez effectuer une migration manuelle.
 - Seuls les types de comptes de stockage standard prennent en charge la migration dynamique. Les comptes de stockage Premium doivent être migrés manuellement.
@@ -101,11 +102,11 @@ Vous pouvez demander une migration dynamique via le [portail du Support Azure](h
 2. Fournissez les informations **De base** de votre compte. Dans la section **Service**, sélectionnez **Gestion de compte de stockage**, puis la ressource que vous souhaitez convertir en ZRS. 
 3. Sélectionnez **Suivant**. 
 4. Dans la section **Problème**, spécifiez les valeurs suivantes : 
-    - **Niveau de gravité** : conservez la valeur par défaut.
+    - **Gravité** : conservez la valeur par défaut.
     - **Type de problème** : sélectionnez **Migration des données**.
     - **Catégorie** : Sélectionnez **Migrer vers ZRS**.
     - **Titre** : tapez un titre descriptif tel que **Migration de compte ZRS**.
-    - **Détails** : tapez des détails supplémentaires dans la zone **Détails**, par exemple, « Je souhaite migrer vers ZRS à partir de [LRS, GRS] dans la région \_\_ ». 
+    - **Détails** : tapez des détails supplémentaires dans la zone **Détails**, par exemple, « Je souhaite migrer vers ZRS à partir de [LRS, GRS] dans la région \_\_ ». 
 5. Sélectionnez **Suivant**.
 6. Vérifiez que les informations de contact dans le panneau **Informations de contact** sont correctes.
 7. Sélectionnez **Create** (Créer).
@@ -130,9 +131,9 @@ La migration entraîne un passage au type de réplication des comptes « Stocka
 
 ZRS ne prend en charge que les comptes v2 universels. Ainsi, avant de soumettre une demande de migration dynamique vers ZRS, veillez à mettre à niveau vos comptes vers la version v2 universelle. Pour plus d’informations, voir [Vue d’ensemble des comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) et [Mettre à niveau vers un compte de stockage v2 universel](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 
-**Puis-je demander une migration dynamique de mes comptes de stockage géographiquement redondant avec accès en lecture (RA-GRS) vers ZRS ?**
+**Puis-je demander une migration dynamique de mes comptes de stockage géographiquement redondants ou géographiquement redondants avec accès en lecture (GRS/RA-GRS) vers ZRS ?**
 
-Avant de soumettre une demande de migration dynamique vers ZRS, assurez-vous que vos applications ou charges de travail n’ont plus besoin d’accéder au point de terminaison en lecture seule secondaire, et changez le type de réplication de vos comptes de stockage en stockage géoredondant (GRS). Pour plus d’informations, voir [Modification de la stratégie de réplication](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy).
+La migration dynamique est prise en charge uniquement pour les comptes de stockage utilisant la réplication LRS. Si votre compte utilise la réplication GRS ou RA-GRS, vous devez commencer par changer le type de réplication de votre compte en LRS avant de procéder. Cette étape intermédiaire supprime le point de terminaison secondaire fourni par GRS/RA-GRS. De plus, avant de soumettre une demande de migration dynamique vers ZRS, assurez-vous que vos applications ou charges de travail n’ont plus besoin d’accéder au point de terminaison en lecture seule secondaire, et remplacez le type de réplication de vos comptes de stockage par un stockage localement redondant (LRS). Pour plus d’informations, voir [Modification de la stratégie de réplication](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy).
 
 **Puis-je demander une migration dynamique de mes comptes de stockage vers ZRS dans une autre région ?**
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 97342f1dd4f6ce343626ba6c294f09dabe3db5c0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647279"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717208"
 ---
 # <a name="create-containers-for-reuse"></a>Créer des conteneurs à réutiliser
 
@@ -64,7 +64,7 @@ ENV apikey={ENDPOINT_KEY}
 ENV EULA=accept
 ```
 
-Créez et exécuter le conteneur [localement](#how-to-use-container-on-your-local-host) ou à partir de votre [conteneur de registre privé](#how-to-add-container-to-private-registry), selon les besoins.
+Créez et exécuter le conteneur [localement](#how-to-use-container-on-your-local-host) ou à partir de votre [registre de conteneurs privés](#how-to-add-container-to-private-registry), selon les besoins.
 
 ### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>Recette réutilisable : stocker les paramètres de facturation et de montage avec le conteneur
 

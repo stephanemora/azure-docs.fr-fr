@@ -1,6 +1,6 @@
 ---
 title: Fichier Include
-description: Fichier Include pour les pages d’accueil du scénario de client confidentiel (démon, application Web, API Web)
+description: Fichier include pour les pages d’accueil du scénario de client confidentiel (démon, application web, API web)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,33 +14,33 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 8f98808aa0f8a2c32e2117447824114747091a82
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912355"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773379"
 ---
-## <a name="registration-of-secrets-or-certificates"></a>Enregistrement de secrets ou de certificats
+## <a name="register-secrets-or-certificates"></a>Inscrire des secrets ou des certificats
 
-Comme pour toute application de client confidentiel, vous devez inscrire un certificat ou un secret. Vous pouvez inscrire les secrets de votre application via une expérience interactive dans le [portail Microsoft Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview), ou à l’aide des outils de ligne de commande (par exemple, PowerShell).
+Comme pour toute application de cliente confidentiel, vous devez inscrire un certificat ou un secret. Vous pouvez inscrire les secrets de votre application via une expérience interactive dans le [portail Microsoft Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview), ou à l’aide d’outils en ligne de commande (par exemple PowerShell).
 
-### <a name="registering-client-secrets-using-the-application-registration-portal"></a>Inscrire des secrets client avec le portail d’inscription d’applications
+### <a name="register-client-secrets-by-using-the-application-registration-portal"></a>Inscrire des secrets clients avec le portail d’inscription d’applications
 
-La gestion des informations d’identification du client est effectuée dans la page des **certificats et secrets** d’une application :
+La gestion des informations d’identification du client s’effectue dans la page **Certificats et secrets** d’une application :
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+![Page Certificats et secrets](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
-- Le secret d’une application (également appelé secret client) est généré par Azure AD, lors de l’inscription de l’application de client confidentiel. Cette génération est effectuée via l’option **Nouveau secret client**. À ce stade, vous devez copier la chaîne du secret dans le Presse-papiers pour pouvoir l’utiliser dans votre application, avant de cliquer sur **Enregistrer**. Cette chaîne ne s’affichera plus.
-- Le certificat est chargé lors de l’inscription d’application à l'aide du bouton **Charger un certificat**. Azure AD prend uniquement en charge les certificats directement inscrits sur l’application et ne suit pas les chaînes de certificats.
+- Le secret d’une application (également appelé secret client) est généré par Azure AD lors de l’inscription de l’application de client confidentiel. Cette génération est effectuée via l’option **Nouveau secret client**. À ce stade, vous devez copier la chaîne du secret dans le Presse-papiers pour pouvoir l’utiliser dans votre application, avant de sélectionner **Enregistrer**. Cette chaîne ne s’affichera plus.
+- Pendant l’inscription de l’application, vous utilisez le bouton **Charger le certificat** pour charger le certificat. Azure AD prend uniquement en charge les certificats qui sont directement inscrits sur l’application et ne suivent pas de chaînes de certificats.
 
-Pour en savoir plus, voir [Démarrage rapide : Configurer une application cliente pour accéder aux API web | Ajouter des informations d’identification à votre application web](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
+Pour en savoir plus, voir [Démarrage rapide : Configurer une application cliente pour accéder aux API web | Ajouter des informations d’identification à votre application.](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
 
 
 
-### <a name="registering-client-secrets-using-powershell"></a>Inscription de secrets client à l’aide de PowerShell
+### <a name="register-client-secrets-by-using-powershell"></a>Inscrire des secrets clients avec PowerShell
 
-Vous pouvez également inscrire votre application auprès d’Azure AD à l’aide des outils de ligne de commande. L’exemple de commande [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) montre comment inscrire un secret d’application ou un certificat avec une application Azure AD :
+Vous pouvez également inscrire votre application auprès d’Azure AD à l’aide d’outils en ligne de commande. L’exemple de commande [active-directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) montre comment inscrire un certificat ou un secret d’application avec une application Azure AD :
 
-- Pour en savoir plus sur l’inscription d’un secret d’application, voir [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)
-- Pour en savoir plus sur la méthode à suivre pour inscrire un certificat avec l’application, voir [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)
+- Pour découvrir comment inscrire un secret d’application, consultez [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- Pour découvrir comment inscrire un certificat avec une application, consultez [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

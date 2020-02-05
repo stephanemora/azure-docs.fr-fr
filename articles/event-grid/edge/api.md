@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ee2b3a35b6f1817b89541a31d0bde4adf00ade2a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991846"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841827"
 ---
 # <a name="rest-api"></a>API REST
 Cet article décrit les API REST d’Azure Event Grid sur IoT Edge
@@ -183,6 +183,7 @@ Les exemples de cette section utilisent `EndpointType=Webhook;`. Les exemples JS
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -686,3 +687,93 @@ SasKey :
 TopicName :
 - Si Subscription.EventDeliverySchema est défini sur EventGridSchema, la valeur de ce champ est placée dans le champ Topic de chaque événement avant d’être transférée vers Event Grid dans le cloud.
 - Si Subscription.EventDeliverySchema est défini sur CustomEventSchema, cette propriété est ignorée et la charge utile d’événement personnalisée est transférée exactement telle qu’elle a été reçue.
+
+## <a name="set-up-event-hubs-as-a-destination"></a>Configurer Event Hubs en tant que destination
+
+Pour publier sur un Event Hub, définissez `endpointType` sur `eventHub` et indiquez :
+
+* connectionString : chaîne de connexion pour l'Event Hub spécifique que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
+
+    >[!NOTE]
+    > La chaîne de connexion doit être propre à l’entité. L’utilisation d’une chaîne de connexion d’espace de noms ne fonctionne pas. Vous pouvez générer une chaîne de connexion spécifique à une entité en accédant au hub d’événements sur lequel vous souhaitez publier dans le portail Azure, et en cliquant sur **Stratégies d’accès partagé** pour générer une chaîne de connexion propre à l’entité.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-queues-as-a-destination"></a>Configurer des files d’attente Service Bus en tant que destination
+
+Pour publier dans une file d’attente Service Bus, définissez `endpointType` sur `serviceBusQueue` et indiquez :
+
+* connectionString : chaîne de connexion pour la file d’attente Service Bus spécifique que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
+
+    >[!NOTE]
+    > La chaîne de connexion doit être propre à l’entité. L’utilisation d’une chaîne de connexion d’espace de noms ne fonctionne pas. Générez une chaîne de connexion spécifique à une entité en accédant à la file d’attente Service Bus sur laquelle vous souhaitez publier dans le portail Azure, et en cliquant sur **Stratégies d’accès partagé** pour générer une chaîne de connexion propre à l’entité.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-topics-as-a-destination"></a>Configurer des rubriques Service Bus en tant que destination
+
+Pour publier dans une rubrique Service Bus, définissez `endpointType` sur `serviceBusTopic` et indiquez :
+
+* connectionString : chaîne de connexion pour la rubrique Service Bus spécifique que vous ciblez, générée par le biais d’une stratégie d’accès partagé.
+
+    >[!NOTE]
+    > La chaîne de connexion doit être propre à l’entité. L’utilisation d’une chaîne de connexion d’espace de noms ne fonctionne pas. Générez une chaîne de connexion spécifique à une entité en accédant à la rubrique Service Bus sur laquelle vous souhaitez publier dans le portail Azure, et en cliquant sur **Stratégies d’accès partagé** pour générer une chaîne de connexion propre à l’entité.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-storage-queues-as-a-destination"></a>Configurer des files d’attente de stockage en tant que destination
+
+Pour publier dans une file d’attente de stockage, définissez `endpointType` sur `storageQueue` et indiquez :
+
+* queueName : nom de la file d’attente de stockage dans laquelle vous publiez.
+* connectionString : chaîne de connexion pour le compte de stockage dans lequel se trouve la file d'attente de stockage.
+
+    >[!NOTE]
+    > Contrairement aux Event Hubs, aux rubriques et files d’attente Service Bus, la chaîne de connexion utilisée pour les files d’attente de stockage n’est pas propre à l’entité. C’est la chaîne de connexion du compte de stockage qui doit être utilisée à la place.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "storageQueue",
+              "properties": {
+                "queueName": "<your-storage-queue-name>",
+                "connectionString": "<your-storage-account-connection-string>"
+              }
+            }
+          }
+        }
+    ```

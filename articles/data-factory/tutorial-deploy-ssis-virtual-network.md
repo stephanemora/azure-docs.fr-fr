@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 593ceb884e751ca3115b08baf0c9c7e802057f54
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865938"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841095"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Configurer un runtime d’intégration (IR) Azure-SQL Server Integration Services (SSIS) pour joindre un réseau virtuel
 
@@ -44,7 +44,7 @@ Procédez comme suit :
     
         Le runtime d’intégration Azure-SSIS doit créer certaines ressources réseau sous le même groupe de ressources que le réseau virtuel. Ces ressources incluent :
         - Un équilibreur de charge Azure, avec le nom *\<<GUID>-azurebatch-cloudserviceloadbalancer*
-        - Un groupe de sécurité de travail réseau, avec le nom *\<<GUID>-azurebatch-cloudservicenetworksecuritygroup
+        - Un groupe de sécurité réseau, avec le nom *\<GUID>-azurebatch-cloudservicenetworksecuritygroup
         - Une adresse IP publique Azure, avec le nom -azurebatch-cloudservicepublicip
     
         Ces ressources sont créées au démarrage de votre Azure-SSIS IR. Elles sont supprimées lorsqu’il est arrêté. Pour éviter de bloquer l’arrêt du runtime d’intégration Azure-SSIS IR, ne réutilisez pas ces ressources réseau dans vos autres ressources.
@@ -59,14 +59,14 @@ Procédez comme suit :
     - Si vous apportez vos propres adresses IP publiques pour Azure-SSIS IR.
     - Si vous utilisez votre propre serveur DNS (Domain Name System).
     - Si vous utilisez un groupe de sécurité réseau sur le sous-réseau.
-    - Si vous utilisez Azure ExpressRoute ou un itinéraire défini par l’utilisateur (UDR).
+    - Si vous utilisez Azure ExpressRoute ou une route définie par l’utilisateur (UDR).
     - Si vous utilisez un Azure-SSIS IR personnalisé.
     
     Pour plus d’informations, consultez [Configuration du réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md#virtual-network-configuration).
 
 ## <a name="configure-a-virtual-network"></a>Configurer un réseau virtuel
 
-Utilisez le Portail Azure sur un réseau virtuel avant de tenter d’y joindre un Azure-SSIS IR.
+Utilisez le portail Azure pour configurer un réseau virtuel avant de tenter d’y joindre une instance Azure-SSIS IR.
 
 1. Démarrez Microsoft Edge ou Google Chrome. Actuellement, seuls les navigateurs web prennent en charge l’interface utilisateur.
 

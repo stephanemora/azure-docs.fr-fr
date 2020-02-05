@@ -8,30 +8,37 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 0820d7a5baaf3972b3895472707f6e7d9dfc6c11
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3212493963805de3c8845ec494d87fc92d72998a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552336"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760111"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Normes de sécurité pour Azure IoT Edge
 
-Azure IoT Edge répond aux risques qui sont inhérents au déplacement de vos données et de votre analytique vers la périphérie intelligente. Les standards de sécurité IoT Edge apportent un compromis entre la flexibilité pour différents types de scénarios de déploiement et la protection que vous attendez de tous les services Azure. 
+Azure IoT Edge répond aux risques qui sont inhérents au déplacement de vos données et de votre analytique vers la périphérie intelligente. Les standards de sécurité IoT Edge apportent un compromis entre la flexibilité pour différents types de scénarios de déploiement et la protection que vous attendez de tous les services Azure.
 
-IoT Edge s’exécute sur différents modèles de matériels, prend en charge plusieurs systèmes d’exploitation et s’applique à différents scénarios de déploiement. Le risque lié à un scénario de déploiement donné dépend de différents facteurs, comme la propriété de la solution, la géographie du déploiement, la sensibilité des données, la confidentialité, la verticalité des applications et les exigences réglementaires. Plutôt que de proposer des solutions concrètes pour des scénarios spécifiques, IoT Edge offre une infrastructure de sécurité extensible basée sur des principes concrets conçus pour la mise à l’échelle. 
- 
+IoT Edge s’exécute sur différents modèles de matériels, prend en charge plusieurs systèmes d’exploitation et s’applique à différents scénarios de déploiement. Plutôt que de proposer des solutions concrètes pour des scénarios spécifiques, IoT Edge offre une infrastructure de sécurité extensible basée sur des principes concrets conçus pour la mise à l’échelle. Le risque lié à un scénario de déploiement donné dépend de nombreux facteurs, notamment :
+
+* Propriété de la solution
+* Géographie du déploiement
+* Sensibilité des données
+* Confidentialité
+* Verticalité des applications
+* Exigences réglementaires
+
 Cet article fournit une vue d’ensemble du framework de sécurité IoT Edge. Pour plus d’informations, consultez [Securing the intelligent edge (Sécurisation de la périphérie intelligente)](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
 ## <a name="standards"></a>Standards
 
-Les standards facilitent l’examen et l’implémentation, qui sont des éléments clés de la sécurité. Une solution de sécurité doit pouvoir être examinée et évaluée afin de gagner la confiance des utilisateurs, et ne doit pas être un obstacle au déploiement. La conception du framework permettant de sécuriser Azure IoT Edge est basée sur des protocoles de sécurité testés visant à vous familiariser avec elle et à l’utiliser plus facilement. 
+Les standards facilitent l’examen et l’implémentation, qui sont des éléments clés de la sécurité. Une solution de sécurité doit pouvoir être examinée et évaluée afin de gagner la confiance des utilisateurs, et ne doit pas être un obstacle au déploiement. La conception du framework permettant de sécuriser Azure IoT Edge est basée sur des protocoles de sécurité testés visant à vous familiariser avec elle et à l’utiliser plus facilement.
 
 ## <a name="authentication"></a>Authentication
 
-Quand vous déployez une solution IoT, vous devez être sûr que seuls les acteurs, les appareils et les modules approuvés ont accès à votre solution. L’authentification par certificat est le mécanisme principal d’authentification pour la plateforme Azure IoT Edge. Ce mécanisme est dérivé d’un ensemble de standards de l’IETF (Internet Engineering Task Force) régissant l’infrastructure à clé publique (PKiX).     
+Quand vous déployez une solution IoT, vous devez être sûr que seuls les acteurs, les appareils et les modules approuvés ont accès à votre solution. L’authentification par certificat est le mécanisme principal d’authentification pour la plateforme Azure IoT Edge. Ce mécanisme est dérivé d’un ensemble de standards de l’IETF (Internet Engineering Task Force) régissant l’infrastructure à clé publique (PKiX).
 
-Tous les appareils, modules et acteurs qui interagissent avec l’appareil Azure IoT Edge, que ce soit physiquement ou via une connexion réseau, doivent avoir des identités de certificat uniques. Tous les scénarios ou composants ne se prêtent pas nécessairement à l’authentification basée sur un certificat : l’extensibilité de l’infrastructure de sécurité offre donc des alternatives sécurisées. 
+Tous les appareils, modules et acteurs qui interagissent avec l’appareil Azure IoT Edge doivent disposer d'identités de certificat uniques. Ces conseils s'appliquent en présence d'interactions physiques ou via une connexion réseau. Tous les scénarios ou composants ne se prêtent pas nécessairement à l’authentification basée sur un certificat : l’extensibilité de l’infrastructure de sécurité offre donc des alternatives sécurisées.
 
 Pour plus d’informations, consultez [Utilisation des certificats par Azure IoT Edge](iot-edge-certs.md).
 
@@ -39,7 +46,7 @@ Pour plus d’informations, consultez [Utilisation des certificats par Azure IoT
 
 Selon le principe des privilèges minimum, les utilisateurs et les composants d’un système doivent uniquement avoir accès à un ensemble minimal de ressources et aux données dont ils ont besoin pour exécuter leurs rôles. Les appareils, modules et acteurs doivent uniquement accéder aux ressources et aux données qui se trouvent dans leur étendue d’autorisations, et uniquement quand l’architecture le permet. Certaines autorisations sont configurables avec des privilèges suffisants, et d’autres sont appliquées au niveau de l’architecture. Par exemple, certains modules peuvent être autorisés à se connecter à Azure IoT Hub. Cependant, il n’y a aucune raison pour qu’un module d’un appareil IoT Edge doive accéder au jumeau d’un module sur un autre appareil IoT Edge.
 
-Parmi les autres schémas d’autorisation figurent les droits de signature de certificat et le contrôle d’accès en fonction du rôle (RBAC). 
+Parmi les autres schémas d’autorisation figurent les droits de signature de certificat et le contrôle d’accès en fonction du rôle (RBAC).
 
 ## <a name="attestation"></a>Attestation
 
@@ -51,7 +58,7 @@ L’attestation garantit l’intégrité des bits logiciels, ce qui est importan
 
 ### <a name="static-attestation"></a>Attestation statique
 
-L’attestation statique vérifie l’intégrité de tous les logiciels présents sur un appareil lors du démarrage, notamment le système d’exploitation, tous les runtimes et les informations de configuration. Comme l’attestation statique se produit lors du démarrage, elle est souvent appelée « démarrage sécurisé ». L’infrastructure de sécurité des appareils IoT Edge s’étend aux fabricants et incorpore des fonctionnalités matérielles sécurisées qui assurent les processus d’attestation statique. Ces processus incluent le démarrage sécurisé et la mise à niveau sécurisée du microprogramme. Le fait de collaborer étroitement avec les fournisseurs de silicium permet d’éliminer les couches de microprogramme superflues, réduisant ainsi la surface d’attaque. 
+L’attestation statique vérifie l’intégrité de tous les logiciels présents sur un appareil lors du démarrage, notamment le système d’exploitation, tous les runtimes et les informations de configuration. Comme l’attestation statique se produit lors du démarrage, elle est souvent appelée « démarrage sécurisé ». L’infrastructure de sécurité des appareils IoT Edge s’étend aux fabricants et incorpore des fonctionnalités matérielles sécurisées qui assurent les processus d’attestation statique. Ces processus incluent le démarrage sécurisé et la mise à niveau sécurisée du microprogramme. Le fait de collaborer étroitement avec les fournisseurs de silicium permet d’éliminer les couches de microprogramme superflues, réduisant ainsi la surface d’attaque.
 
 ### <a name="runtime-attestation"></a>Attestation d’exécution
 
@@ -59,19 +66,19 @@ Une fois qu’un système a démarré de façon sécurisée, des systèmes conç
 
 ### <a name="software-attestation"></a>Attestation logicielle
 
-Tous les systèmes sains, notamment les systèmes de périphérie intelligente, ont besoin de correctifs et de mises à niveau. La sécurité est importante pour les processus de mise à jour, car ceux-ci peuvent sinon constituer des vecteurs de menaces potentiels. L’infrastructure de sécurité pour IoT Edge appelle les mises à jour via des packages mesurés et signés, afin de garantir l’intégrité et l’authentification de la source des packages. Ce standard s’applique à tous les systèmes d’exploitation et logiciels d’application. 
+Tous les systèmes sains, notamment les systèmes de périphérie intelligente, ont besoin de correctifs et de mises à niveau. La sécurité est importante pour les processus de mise à jour, car ceux-ci peuvent sinon constituer des vecteurs de menaces potentiels. L’infrastructure de sécurité pour IoT Edge appelle les mises à jour via des packages mesurés et signés, afin de garantir l’intégrité et l’authentification de la source des packages. Ce standard s’applique à tous les systèmes d’exploitation et logiciels d’application.
 
 ## <a name="hardware-root-of-trust"></a>Racine matérielle de confiance
 
-Pour de nombreux appareils de périphérie intelligente, en particulier ceux qui sont accessibles par des acteurs potentiellement malveillants, la sécurité matérielle constitue la dernière défense pour la protection. Pour de tels déploiements, il est essentiel de disposer de composants matériels inviolables. Azure IoT Edge encourage les fournisseurs de composants matériels en silicium sécurisés à proposer différentes versions de racine matérielle de confiance afin de prendre en charge différents scénarios de déploiement et profils de risque. La confiance accordée aux composants matériels est garantie par les standards de protocole de sécurité courants tels que le Trusted Platform Module (ISO/IEC 11889) et le Device Identifier Composition Engine (DICE) du Trusted Computing Group. Les technologies intégrées et sécurisées comme TrustZones et Software Guard Extensions (SGX) permettent également aux composants matériels d’être considérés comme étant de confiance. 
+Pour de nombreux appareils de périphérie intelligente, en particulier ceux qui sont accessibles par des acteurs potentiellement malveillants, la sécurité matérielle constitue la dernière défense pour la protection. Pour de tels déploiements, il est essentiel de disposer de composants matériels inviolables. Azure IoT Edge encourage les fournisseurs de composants matériels en silicium sécurisés à proposer différentes versions de racine matérielle de confiance afin de prendre en charge différents scénarios de déploiement et profils de risque. La confiance accordée aux composants matériels est garantie par les standards de protocole de sécurité courants tels que le Trusted Platform Module (ISO/IEC 11889) et le Device Identifier Composition Engine (DICE) du Trusted Computing Group. Les technologies intégrées et sécurisées comme TrustZones et Software Guard Extensions (SGX) permettent également aux composants matériels d’être considérés comme étant de confiance.
 
 ## <a name="certification"></a>Certification
 
-Pour aider les clients à prendre des décisions en connaissance de cause quand ils font l’acquisition d’appareils Azure IoT Edge pour leur déploiement, l’infrastructure IoT Edge inclut des exigences de certification. À la base de ces exigences figurent des certifications relatives aux revendications de sécurité et des certifications relatives à la validation de l’implémentation de sécurité. Par exemple, une certification de revendication de sécurité signifie que l’appareil IoT Edge utilise du matériel sécurisé connu pour résister aux attaques de démarrage. Un certificat de validation signifie que le matériel sécurisé a été correctement implémenté pour offrir cette fonctionnalité dans l’appareil. Conformément au principe de simplicité, le framework vise à réduire au maximum la charge de certification.   
+Pour aider les clients à prendre des décisions en connaissance de cause quand ils font l’acquisition d’appareils Azure IoT Edge pour leur déploiement, l’infrastructure IoT Edge inclut des exigences de certification. À la base de ces exigences figurent des certifications relatives aux revendications de sécurité et des certifications relatives à la validation de l’implémentation de sécurité. Par exemple, une certification de revendication de sécurité signifie que l’appareil IoT Edge utilise du matériel sécurisé connu pour résister aux attaques de démarrage. Un certificat de validation signifie que le matériel sécurisé a été correctement implémenté pour offrir cette fonctionnalité dans l’appareil. Conformément au principe de simplicité, le framework vise à réduire au maximum la charge de certification.
 
 ## <a name="extensibility"></a>Extensibilité
 
-Étant donné que la technologie IoT pilote différents types de transformations des entreprises, la sécurité doit évoluer en parallèle afin de gérer les scénarios émergents. L’infrastructure de sécurité Azure IoT Edge repose sur une base solide et extensible dans différentes dimensions de façon à inclure ce qui suit : 
+Étant donné que la technologie IoT pilote différents types de transformations des entreprises, la sécurité doit évoluer en parallèle afin de gérer les scénarios émergents. L’infrastructure de sécurité Azure IoT Edge repose sur une base solide et extensible dans différentes dimensions de façon à inclure ce qui suit :
 
 * Services de sécurité internes tels que le service Device Provisioning pour Azure IoT Hub.
 * Services tiers, comme des services de sécurité managés pour différents domaines d’application (l’industrie ou les soins de santé) ou centrés sur la technologie (surveillance de la sécurité sur les réseaux à maillage ou les services d’attestation matérielle « silicium ») via un important réseau de partenaires.

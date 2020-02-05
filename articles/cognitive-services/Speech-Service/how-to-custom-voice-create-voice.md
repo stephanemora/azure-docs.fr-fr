@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 437b87a3d684d7751adc89ba77b20ea86b3455e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805992"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717331"
 ---
 # <a name="create-a-custom-voice"></a>Créer une voix personnalisée Custom Voice
 
@@ -32,13 +32,13 @@ Pour charger vos données, accédez au [portail Custom Voice](https://aka.ms/cus
 
 Accédez à l’onglet **Données** et cliquez sur **Charger des données**. Dans l’Assistant, sélectionnez le type de données correspondant à ce que vous avez préparé.
 
-Chacun des jeux de données chargés doit respecter les prérequis du type de données choisi. Il est important de bien mettre en forme les données avant de les charger pour qu’elles soient correctement traitées par le service Custom Voice. Accédez à [Préparer des données pour Custom Voice](how-to-custom-voice-prepare-data.md) pour vérifier que vos données sont bien mises en forme.
+Chaque jeu de données que vous chargez doit respecter les exigences associé au type de données choisi. Il est important de bien formater les données avant de les charger pour qu’elles soient correctement traitées par le service Custom Voice. Accédez à [Préparer des données pour Custom Voice](how-to-custom-voice-prepare-data.md) pour vérifier que vos données sont bien mises en forme.
 
 > [!NOTE]
 > Les utilisateurs disposant d’un abonnement gratuit (F0) peuvent charger simultanément deux jeux de données. Ceux qui disposent d’un abonnement standard (S0) peuvent, quant à eux, en charger cinq simultanément. Si vous atteignez la limite, attendez au moins la fin de l’importation de l’un de vos jeux de données, puis réessayez.
 
 > [!NOTE]
-> Le nombre maximal de jeux de données qu’il est autorisé d’importer par abonnement est de 10 fichiers .zip pour les utilisateurs disposant d’un abonnement gratuit (F0) et de 500 pour ceux qui disposent d’un abonnement standard (S0).
+> Le nombre maximal de jeux de données qu’il est autorisé d’importer par abonnement est de 10 fichiers .zip pour les utilisateurs disposant d’un abonnement gratuit (F0) et de 500 pour ceux qui disposent d’un abonnement standard (S0).
 
 Les jeux de données sont validés automatiquement après avoir appuyé sur le bouton de chargement. La validation des données passe par une série de vérifications des fichiers audio visant à contrôler leur format, leur taille et leur taux d’échantillonnage. Corrigez les erreurs éventuelles et soumettez-les à nouveau. Une fois la demande d’importation de données lancée, une entrée correspondant au jeu de données chargé apparaît dans la table de données.
 
@@ -47,7 +47,7 @@ Le tableau suivant présente les états de traitement des jeux de données impor
 | State | Signification |
 | ----- | ------- |
 | Traitement en cours | Votre jeu de données est bien reçu et est en cours de traitement. |
-| Succeeded | Votre jeu de données a été validé et est maintenant utilisable pour créer un modèle vocal. |
+| Opération réussie | Votre jeu de données a été validé et est maintenant utilisable pour créer un modèle vocal. |
 | Échec | Le traitement de votre jeu de données a échoué pour plusieurs raisons possibles, par exemple des erreurs dans les fichiers, des problèmes de données ou des problèmes de réseau. |
 
 Une fois la validation terminée, le nombre total d’énoncés correspondants apparaît pour chacun des jeux de données dans la colonne **Énoncés**. Si le type de données que vous avez sélectionné implique une longue segmentation audio, cette colonne ne reflètera que les énoncés segmentés automatiquement à partir de vos transcriptions ou avec le service de transcription vocale. Vous pouvez télécharger la suite du jeu de données validé pour voir les résultats détaillés des énoncés importés et les transcriptions associées. Remarque : la segmentation audio longue durée peut prendre plus d’une heure dans le cadre du traitement des données.
@@ -64,7 +64,7 @@ Une fois votre jeu de données validé, vous pouvez l’utiliser pour créer vot
 
 1.  Accédez à **Synthèse vocale > Custom Voice > Apprentissage**.
 
-2.  Cliquez sur **Entraîner le modèle**.
+2.  Cliquez sur **Train model**.
 
 3.  Ensuite, entrez un **Nom** et une **Description** pour identifier plus facilement ce modèle.
 
@@ -82,14 +82,14 @@ Une fois votre jeu de données validé, vous pouvez l’utiliser pour créer vot
 
 5.  Cliquez sur **Entraîner** pour commencer à créer votre modèle vocal.
 
-La table Apprentissage comporte une nouvelle entrée correspondant à ce nouveau modèle. Elle indique également l’état : En cours de traitement, Réussite, Échec.
+La table Training (Entraînement) comporte une nouvelle entrée correspondant à ce nouveau modèle. Elle indique également l’état : Processing, Succeeded, Failed (En cours de traitement, Réussite, Échec).
 
 L’état indiqué reflète le processus de conversion du jeu de données en modèle vocal :
 
 | State | Signification |
 | ----- | ------- |
 | Traitement en cours | Le modèle vocal est en cours de création. |
-| Succeeded | Le modèle vocal a été créé et peut être déployé. |
+| Opération réussie | Le modèle vocal a été créé et peut être déployé. |
 | Échec | L’apprentissage du modèle vocal a échoué pour plusieurs raisons possibles, par exemple des problèmes inédits de données ou de réseau. |
 
 Le temps d’apprentissage varie selon le volume de données audio traitées. Il varie généralement d’environ 30 minutes pour plusieurs centaines d’énoncés à 40 heures pour 20 000 énoncés. Une fois l’apprentissage de votre modèle réussi, vous pouvez commencer à le tester.

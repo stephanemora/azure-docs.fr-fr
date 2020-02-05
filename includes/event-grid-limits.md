@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: ee80c04a6365c2cf337c4033a90df8d2993c299d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887768"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845974"
 ---
 Les limites suivantes s’appliquent aux rubriques système Azure Event Grid et aux rubriques personnalisées, et  *non pas* aux domaines d’événements.
 
@@ -23,7 +23,7 @@ Les limites suivantes s’appliquent aux rubriques système Azure Event Grid et 
 | Abonnements à des événements par rubrique | 500 |
 | Taux de publication pour une rubrique personnalisée (entrée) | 5 000 événements par seconde et par rubrique |
 | Publier les requêtes | 250 par seconde |
-| Taille d’événement | Prise en charge de 64 Ko dans la disponibilité générale (GA). La prise en charge de 1 Mo est actuellement en préversion. |
+| Taille d’événement | 1 Mo (facturé sous la forme de plusieurs événements de 64 Ko) |
 
 Les limites suivantes s’appliquent aux domaines d’événements uniquement.
 

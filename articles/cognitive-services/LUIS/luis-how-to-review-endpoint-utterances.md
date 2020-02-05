@@ -1,7 +1,7 @@
 ---
 title: Passer en revue les énoncés de l’utilisateur – LUIS
 titleSuffix: Azure Cognitive Services
-description: Passez en revue les énoncés capturés par l’apprentissage actif pour sélectionner l’intention et marquer les entités pour les énoncés du monde réel ; acceptez les modifications, entraînez et publiez.
+description: Passez en revue les énoncés capturés par l’apprentissage actif afin de sélectionner l’intention et marquer les entités pour les énoncés du monde réel ; acceptez les modifications, entraînez et publiez.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: b04a17c893f748670eb1c79f0ada879c0d5c401f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381713"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775103"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Comment améliorer l’application LUIS en examinant les énoncés de point de terminaison
 
@@ -27,6 +27,22 @@ Le processus de vérification des énoncés de point de terminaison pour obtenir
 ## <a name="enable-active-learning"></a>Activer l’apprentissage actif
 
 Pour activer l’apprentissage actif, vous devez enregistrer des requêtes utilisateur. Pour cela, vous appelez la [requête de point de terminaison](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) avec la valeur et le paramètre querystring `log=true`.
+
+Utilisez le portail LUIS pour créer la requête de point de terminaison correcte.
+
+1. Dans le [portail LUIS en préversion](https://preview.luis.ai/), sélectionnez votre application dans la liste.
+1. Accédez à la section **Manage** (Gérer), puis sélectionnez **Azure resources** (Ressources Azure).
+1. Pour la ressource de prédiction assignée, sélectionnez **Change query parameters** (Modifier les paramètres de requête).
+
+    > [!div class="mx-imgBorder"]
+    > ![Utilisez le portail LUIS pour enregistrer les journaux, ce qui est nécessaire pour l’apprentissage actif.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Activez **Save logs** (Enregistrer les journaux), puis enregistrez en sélectionnant **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Utilisez le portail LUIS pour enregistrer les journaux, ce qui est nécessaire pour l’apprentissage actif.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     Cette action modifie l’URL de l’exemple en ajoutant le paramètre querystring `log=true`. Copiez et utilisez l’exemple d’URL de requête modifié lors de l’exécution de requêtes de prédiction sur le point de terminaison du runtime.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Corriger les prédictions d’intention pour aligner les énoncés
 

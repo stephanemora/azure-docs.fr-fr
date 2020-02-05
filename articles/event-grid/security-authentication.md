@@ -1,6 +1,6 @@
 ---
 title: Sécurité et authentification Azure Event Grid
-description: Détaille le service Azure Event Grid et ses concepts.
+description: Détaille Azure Event Grid et ses concepts.
 services: event-grid
 author: banisadr
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169579"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846295"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -85,9 +85,9 @@ Pour prouver que vous êtes propriétaire du point de terminaison, renvoyez le c
 }
 ```
 
-Vous devez renvoyer un code d'état de réponse HTTP 200 OK. HTTP 202 Accepté n’est pas considéré comme une réponse de validation d’abonnement Event Grid valide. La requête HTTP doit s’achever dans un délai de 30 secondes. Si l’opération ne se termine pas dans les 30 secondes, elle est annulée et pourra faire l’objet d’une nouvelle tentative au bout de 5 secondes. Si toutes les tentatives échouent, elle est traitée comme une erreur d’établissement d’une liaison de validation.
+Vous devez renvoyer un code d'état de réponse HTTP 200 OK. HTTP 202 Accepté n'est pas considéré comme une réponse de validation d'abonnement Event Grid valide. La requête HTTP doit s'achever dans un délai de 30 secondes. Si l’opération ne se termine pas dans les 30 secondes, elle est annulée et pourra faire l’objet d’une nouvelle tentative au bout de 5 secondes. Si toutes les tentatives échouent, elle est traitée comme une erreur d’établissement d’une liaison de validation.
 
-Sinon, vous pouvez valider manuellement l’abonnement en envoyant une demande GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente tant qu’il n’est pas validé. L’URL de validation utilise le port 553. Si les règles de pare-feu bloquent le port 553, il faudra peut-être les mettre à jour pour que l’établissement manuel d’une liaison réussisse.
+Sinon, vous pouvez valider manuellement l’abonnement en envoyant une demande GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente jusqu’à ce qu’il soit validé. L’URL de validation utilise le port 553. Si les règles de pare-feu bloquent le port 553, il faudra peut-être les mettre à jour pour que l’établissement manuel d’une liaison réussisse.
 
 Pour accéder à un exemple de gestion d'établissement de liaison de validation d'abonnement, consultez un [exemple C#](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -95,7 +95,7 @@ Pour accéder à un exemple de gestion d'établissement de liaison de validation
 
 Lors de la création de l’abonnement aux événements, si vous voyez un message d’erreur indiquant que la tentative de validation a échoué pour le point de terminaison https:\//your-endpoint-here failed. et vous invitant à rechercher plus d’informations dans https:\//aka.ms/esvalidation, cela signifie qu’il existe une défaillance dans l’établissement de liaison de validation. Pour résoudre cette erreur, vérifiez les points suivants :
 
-* Contrôlez-vous le code d’application dans le point de terminaison cible ? Par exemple, si vous écrivez un déclencheur HTTP basé sur Azure Function, avez-vous accès au code d’application pour apporter des modifications ?
+* Contrôlez-vous le code d’application qui s'exécute dans le point de terminaison cible ? Par exemple, si vous écrivez un déclencheur HTTP basé sur Azure Function, avez-vous accès au code d’application pour apporter des modifications ?
 * Si vous avez accès au code d’application, implémentez le mécanisme d’établissement de liaison ValidationCode comme dans l’exemple ci-dessus.
 
 * Si vous n’avez pas accès au code d’application (par exemple, si vous utilisez un service tiers qui prend en charge les Webhooks), vous pouvez utiliser le mécanisme d’établissement de liaison manuel. Vérifiez que vous utilisez la version d’API 2018-05-01-preview ou ultérieure (installation de l’extension Azure CLI Event Grid) pour recevoir validationUrl dans l’événement de validation. Pour terminer l’établissement de liaison de validation manuel, obtenez la valeur de la propriété `validationUrl` et accédez à cette URL dans votre navigateur web. Si la validation a réussi, vous devez voir un message dans votre navigateur web indiquant que la validation a réussi. La propriété provisioningState de l’abonnement aux événements doit être définie sur « Réussi ». 
@@ -348,6 +348,10 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 ```
 
 Vous pouvez créer des rôles personnalisés avec [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md) et [REST](../role-based-access-control/custom-roles-rest.md).
+
+## <a name="encryption-at-rest"></a>Chiffrement au repos
+
+Tous les événements ou données écrits sur le disque par le service Event Grid sont chiffrés à l'aide d'une clé gérée par Microsoft, ce qui garantit un chiffrement au repos. En outre, la durée maximale de conservation des événements ou données est de 24 heures, conformément à la [stratégie de nouvelles tentatives Event Grid](delivery-and-retry.md). Event Grid supprime automatiquement tous les événements ou données après 24 heures, ou la durée de vie de l’événement, selon la valeur la plus faible.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

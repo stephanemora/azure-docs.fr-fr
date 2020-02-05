@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872296"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843258"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Utiliser des invites de suivi pour créer plusieurs tours de conversation
 
@@ -65,7 +65,7 @@ Si vous créez un document multitour, gardez à l’esprit les instructions suiv
 
 * Utilisez des titres et sous-titres pour montrer la hiérarchie. Par exemple, vous pouvez H1 pour dénoter la QnA parente et H2 pour dénoter la QnA à considérer comme invite. Utilisez une petite taille de titre pour dénoter la hiérarchie suivante. N’utilisez pas de style, de couleur ou d’autre mécanisme pour montrer la structure de votre document. QnA Maker n’extrait pas les invites multitours.
 
-* Le premier caractère de l’en-tête doit être en majuscule. 
+* Le premier caractère de l’en-tête doit être en majuscule.
 
 * Ne pas terminer un titre par un point d’interrogation (`?`).
 
@@ -368,7 +368,7 @@ Vous pouvez ajouter ou supprimer des invites multitours à l’aide de l’[API 
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exporter la base de connaissances pour la gestion de versions
 
-QnA Maker [prend en charge la gestion de versions](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) dans le portail QnA Maker en incluant des étapes de conversation multitour dans le fichier exporté.
+QnA Maker prend en charge la gestion de versions en incluant des étapes de conversation multitour dans le fichier exporté.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

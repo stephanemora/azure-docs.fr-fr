@@ -1,6 +1,6 @@
 ---
 title: Informations de référence sur la syntaxe de SQLFilter dans Azure Service Bus | Microsoft Docs
-description: Informations sur la syntaxe relative à SQLFilter.
+description: Cet article fournit des détails sur la grammaire SQLFilter. L’instance SqlFilter prend en charge un sous-ensemble de la norme SQL-92.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60591803"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759661"
 ---
 # <a name="sqlfilter-syntax"></a>Syntaxe SQLFilter
 
@@ -60,13 +60,13 @@ Un objet *SqlFilter* est une instance de la [classe SqlFilter](/dotnet/api/micro
   
 ## <a name="arguments"></a>Arguments  
   
--   `<scope>` est une chaîne facultative qui indique la portée de `<property_name>`. Les valeurs autorisées sont `sys` ou `user`. La valeur `sys` indique la portée du système où `<property_name>` est un nom de propriété publique de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indique la portée de l’utilisateur où `<property_name>` est une clé du dictionnaire de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). La portée de l’`user` est l’étendue par défaut si `<scope>` n’est pas défini.  
+-   `<scope>` est une chaîne facultative qui indique la portée de `<property_name>`. Les valeurs valides sont `sys` ou `user`. La valeur `sys` indique la portée du système où `<property_name>` est un nom de propriété publique de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indique la portée de l’utilisateur où `<property_name>` est une clé du dictionnaire de la [classe BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). La portée de l’`user` est l’étendue par défaut si `<scope>` n’est pas défini.  
   
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 Une tentative d’accès à une propriété inexistante du système est une erreur, tandis qu’une tentative d’accès à une propriété d’utilisateur inexistante n’est pas une erreur. Au lieu de cela, une propriété d’utilisateur inexistante est évaluée en interne en tant que valeur inconnue. Une valeur inconnue est traitée spécialement lors de l’évaluation de l’opérateur.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -115,22 +115,22 @@ Un `<regular_identifier>` ne peut pas être un mot-clé réservé.
       <expression>  
 ```  
   
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
   
 `<pattern>` doit être une expression évaluée comme chaîne. Il est utilisé comme modèle pour l’opérateur LIKE.      Il peut contenir les caractères génériques suivants :  
   
--   `%`:  toute chaîne de zéro caractère ou plus.  
+-   `%`:  Toute chaîne de zéro caractère ou plus.  
   
--   `_`: N’importe quel caractère unique.  
+-   `_`: N'importe quel caractère.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
       <expression>  
 ```  
   
-### <a name="remarks"></a>Remarques  
+### <a name="remarks"></a>Notes  
 
 `<escape_char>` doit être une expression évaluée comme chaîne dont la longueur est 1. Il est utilisé comme caractère d’échappement pour l’opérateur LIKE.  
   
@@ -172,24 +172,24 @@ Un `<regular_identifier>` ne peut pas être un mot-clé réservé.
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
       TRUE | FALSE  
 ```  
   
-### <a name="remarks"></a>Remarques  
+### <a name="remarks"></a>Notes  
 
 Les constantes booléennes sont représentées par les mots-clés **TRUE** ou **FALSE**. Les valeurs sont stockées en tant que `System.Boolean`.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
 ```  
   
-### <a name="remarks"></a>Remarques  
+### <a name="remarks"></a>Notes  
 
 Les constantes de chaîne sont placées entre guillemets simples et incluent tout caractère Unicode valide. Un guillemet simple intégré à une constante de chaîne est représenté par deux guillemets simples.  
   
@@ -201,7 +201,7 @@ Les constantes de chaîne sont placées entre guillemets simples et incluent tou
       property(name) | p(name)  
 ```  
   
-### <a name="remarks"></a>Remarques
+### <a name="remarks"></a>Notes
   
 La fonction `newid()` renvoie un **System.Guid** généré par la méthode `System.Guid.NewGuid()`.  
   

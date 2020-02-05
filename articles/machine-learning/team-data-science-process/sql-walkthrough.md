@@ -3,20 +3,20 @@ title: Construire et déployer un modèle dans une machine virtuelle SQL Server 
 description: Créez et déployez un modèle Machine Learning à l’aide de SQL Server sur une machine virtuelle Azure avec un ensemble de données disponible publiquement.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 533c91bdc02425cabf5eeae93f37811144b32149
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a47f30cf00624faf098c8b605534cf355eacadee
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976325"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718529"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server
 Dans ce didacticiel, vous allez explorer le processus de création et de déploiement d’un modèle d’apprentissage automatique à l’aide de SQL Server et d’un jeu de données disponible publiquement, le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/). La procédure suit un flux de travail de science des données standard : ingérer et explorer les données, concevoir des fonctionnalités pour faciliter l’apprentissage, puis générer et déployer un modèle.
@@ -46,15 +46,15 @@ La clé unique permettant de joindre trip\_data et trip\_fare se compose des cha
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
 Nous allons formuler trois problèmes de prédiction reposant sur le champ *tip\_amount* (montant du pourboire), à savoir :
 
-1. Classification binaire : Prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une *tip\_amount* de 0 $ est un exemple négatif.
-2. Classification multiclasse : Prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
+* Classification binaire : Prédire si un pourboire a ou non été versé pour une course ; autrement dit, une valeur *tip\_amount* supérieure à 0 $ constitue un exemple positif, alors qu’une valeur *tip\_amount* de 0 $ est un exemple négatif.
+* Classification multiclasse : Prédire la fourchette des pourboires versés pour une course. Nous divisons la valeur *tip\_amount* en cinq compartiments ou classes :
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Tâche de régression : Prédire le montant du pourboire versé pour une course.  
+* Tâche de régression : Prédire le montant du pourboire versé pour une course.  
 
 ## <a name="setup"></a>Configuration de l’environnement de science des données Azure pour l’analyse avancée
 Comme vous l’explique le guide [Planifier votre environnement](plan-your-environment.md) , vous disposez de plusieurs options pour travailler sur le jeu de données NYC Taxi Trips dans Azure :
@@ -62,7 +62,7 @@ Comme vous l’explique le guide [Planifier votre environnement](plan-your-envir
 * manipuler les données dans des objets blob Azure, puis les modéliser dans Azure Machine Learning ;
 * charger les données dans une base de données SQL Server, puis les modéliser dans Azure Machine Learning.
 
-Dans ce didacticiel, nous allons décrire les procédures d’importations de données en bloc en parallèle dans SQL Server, d’exploration des données, de conception de fonctionnalités et de sous-échantillonnage à l’aide de SQL Server Management Studio et de Notebook IPython. Des [exemples de scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) et de [notebooks IPython](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) sont publiquement accessibles dans GitHub. Un exemple de notebook IPython permettant de travailler sur les données d’objets blob d’Azure est également disponible au même emplacement.
+Dans ce tutoriel, nous allons décrire l’importation en parallèle de données en bloc dans une instance SQL Server, l’exploration des données, la conception de fonctionnalités et le sous-échantillonnage avec SQL Server Management Studio et IPython Notebook. Des [exemples de scripts](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) et de [notebooks IPython](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks) sont publiquement accessibles dans GitHub. Un exemple de notebook IPython permettant de travailler sur les données d’objets blob d’Azure est également disponible au même emplacement.
 
 Pour configurer votre environnement de science des données Azure :
 
@@ -87,7 +87,7 @@ Pour récupérer le jeu de données [NYC Taxi Trips](https://www.andresmh.com/ny
 Pour copier les données à l’aide d’AzCopy :
 
 1. Connectez-vous à votre machine virtuelle.
-2. Créez un répertoire dans le disque de données de la machine virtuelle (remarque : n’utilisez pas le disque temporaire fourni avec la machine virtuelle en tant que disque de données).
+2. Créez un répertoire dans le disque de données de la machine virtuelle (remarque : n’utilisez pas le disque temporaire fourni avec la machine virtuelle comme disque de données).
 3. Dans une fenêtre d’invite de commandes, exécutez la ligne de commande Azcopy ci-après en remplaçant la chaîne <chemin_dossier_de_données> par votre dossier de données créé à l’étape 2 :
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -96,13 +96,13 @@ Pour copier les données à l’aide d’AzCopy :
 4. Décompressez les fichiers téléchargés. Notez le dossier dans lequel résident les fichiers décompressés. Ce dossier sera désigné par la chaîne <chemin\_des\_fichiers\_de_données\>.
 
 ## <a name="dbload"></a>Importer en bloc les données dans une base de données SQL Server
-Les performances de chargement et de transfert de grandes quantités de données dans une base de données SQL et des requêtes ultérieures peuvent être optimisées à l’aide de *tables et de vues partitionnées*. Dans cette section, nous allons suivre les instructions de l’article [Importations de données en bloc en parallèle à l’aide de tables de partition SQL](parallel-load-sql-partitioned-tables.md) pour créer une base de données et charger les données dans des tables partitionnées en parallèle.
+Les performances de chargement et de transfert de grandes quantités de données dans une base de données SQL et les requêtes ultérieures peuvent être optimisées avec des *tables et de vues partitionnées*. Dans cette section, nous allons suivre les instructions de l’article [Importations de données en bloc en parallèle à l’aide de tables de partition SQL](parallel-load-sql-partitioned-tables.md) pour créer une base de données et charger les données dans des tables partitionnées en parallèle.
 
 1. Pendant que vous êtes connecté à votre machine virtuelle, démarrez **SQL Server Management Studio**.
 2. Connectez-vous à l’aide de l’authentification Windows.
    
     ![Connecter SSMS][12]
-3. Si vous n’avez pas encore modifié le mode d’authentification de SQL Server et créé un utilisateur de connexion SQL, ouvrez le fichier de script appelé **change\_auth.sql** dans le dossier **Exemples de scripts**. Changez le nom d’utilisateur et le mot de passe par défaut. Cliquez sur **!Exécuter** dans la barre d’outils pour exécuter le script.
+3. Si vous n’avez pas encore modifié le mode d’authentification de SQL Server et créé un utilisateur de connexion SQL, ouvrez le fichier de script appelé **change\_auth.sql** dans le dossier **Exemples de scripts**. Changez le nom d’utilisateur et le mot de passe par défaut. Cliquez sur **Exécuter** dans la barre d’outils pour exécuter le script.
    
     ![Exécuter le script][13]
 4. Vérifiez et/ou modifiez les dossiers de base de données et de journaux par défaut de SQL Server pour vous assurer que les bases de données nouvellement créées seront stockées dans un disque de données. L’image de machine virtuelle SQL Server optimisée pour les charges d’entreposage de données est préconfigurée avec des disques de données et de journaux. Si votre machine virtuelle ne comportait aucun disque de données et que vous avez ajouté des disques durs virtuels lors du processus de configuration de la machine virtuelle, modifiez les dossiers par défaut en procédant comme suit :
@@ -111,17 +111,17 @@ Les performances de chargement et de transfert de grandes quantités de données
      
        ![Propriétés SQL Server][14]
    * Dans la liste **Sélectionner une page** figurant sur la gauche, sélectionnez **Paramètres de la base de données**.
-   * Vérifiez et/ou redéfinissez le champ **Emplacements de la base de données par défaut** sur les emplacements **Disque de données** de votre choix. Il s’agit des emplacements dans lesquels résident les nouvelles bases de données si elles ont été créées avec les paramètres d’emplacement par défaut.
+   * Vérifiez et/ou redéfinissez le champ **Emplacements de la base de données par défaut** sur les emplacements **Disque de données** de votre choix. Cet emplacement est l’endroit dans lequel réside les nouvelles bases de données si elles ont été créées avec les paramètres par défaut.
      
        ![Valeurs par défaut de la base de données SQL][15]  
-5. Pour créer une base de données et un ensemble de groupes de fichiers destinés à contenir les tables partitionnées, ouvrez l’exemple de script **create\_db\_default.sql**. Ce script créera une base de données nommée **TaxiNYC** et 12 groupes de fichiers à l’emplacement des données par défaut. Chaque groupe de fichiers contiendra un mois de données trip\_data et trip\_fare. Si vous le souhaitez, modifiez le nom de la base de données. Cliquez sur **!Exécuter** pour exécuter le script.
+5. Pour créer une base de données et un ensemble de groupes de fichiers destinés à contenir les tables partitionnées, ouvrez l’exemple de script **create\_db\_default.sql**. Ce script créera une base de données nommée **TaxiNYC** et 12 groupes de fichiers à l’emplacement des données par défaut. Chaque groupe de fichiers contiendra un mois de données trip\_data et trip\_fare. Si vous le souhaitez, modifiez le nom de la base de données. Cliquez sur **Exécuter** pour exécuter le script.
 6. Créez ensuite deux tables de partition, l’une pour les données trip\_data et l’autre pour les données trip\_fare. Ouvrez l’exemple de script **create\_partitioned\_table.sql**, qui va :
    
    * Créer une fonction de partition pour fractionner les données par mois.
    * Créer un schéma de partition pour mapper les données de chaque mois sur un groupe de fichiers distinct.
    * Créer deux tables partitionnées mappées sur le schéma de partition : **nyctaxi\_trip** contiendra les données de trip\_data et **nyctaxi\_fare** contiendra les données de trip\_fare.
      
-     Cliquez sur **!Exécuter** pour exécuter le script et créer les tables partitionnées.
+     Cliquez sur **Exécuter** pour exécuter le script et créer les tables partitionnées.
 7. Le dossier **Exemples de scripts** comporte deux exemples de scripts PowerShell présentant les procédures d’importations de données en bloc en parallèle dans des tables SQL Server.
    
    * **bcp\_parallel\_generic.ps1** est un script générique permettant d’effectuer des importations de données en bloc en parallèle dans une table. Modifiez ce script pour définir les variables d’entrée et les variables cibles, comme indiqué dans les lignes de commentaire du script.
@@ -133,7 +133,7 @@ Les performances de chargement et de transfert de grandes quantités de données
     Vous pouvez également sélectionner le mode d’authentification (le mode par défaut est l’authentification Windows). Cliquez sur la flèche de couleur verte située dans la barre d’outils pour exécuter le script. Le script lancera 24 opérations d’importation en bloc en parallèle, 12 par table partitionnée. Vous pouvez suivre la progression de l’importation des données en ouvrant le dossier de données par défaut de SQL Server tel que défini ci-dessus.
 9. Le script PowerShell indique les heures de début et de fin. Une fois toutes les importations en bloc effectuées, l’heure de fin est spécifiée. Consultez le dossier de journaux cibles pour vous assurer que les importations en bloc se sont déroulées sans erreur.
 10. Votre base de données est désormais prête pour vos opérations d’exploration, de conception de fonctionnalités, etc. Les tables étant partitionnées en fonction du champ **pickup\_datetime**, les requêtes qui incluent des conditions **pickup\_datetime** dans la clause **WHERE** tireront avantage du schéma de partition.
-11. Dans **SQL Server Management Studio**, explorez l’exemple de script **sample\_queries.sql** fourni. Pour exécuter l’un des exemples de requêtes, mettez en surbrillance les lignes de la requête concernées, puis cliquez sur **!Exécuter** dans la barre d’outils.
+11. Dans **SQL Server Management Studio**, explorez l’exemple de script **sample\_queries.sql** fourni. Pour exécuter l’un des exemples de requêtes, mettez en surbrillance les lignes de la requête concernées, puis cliquez sur **Exécuter** dans la barre d’outils.
 12. Les données NYC Taxi Trips sont chargées dans deux tables distinctes. Pour améliorer les opérations de jointure, il est vivement recommandé d’indexer les tables. L’exemple de script **create\_partitioned\_index.sql** crée des index partitionnés sur la clé de jointure composite **medallion, hack\_license et pickup\_datetime**.
 
 ## <a name="dbexplore"></a>Exploration des données et conception de fonctionnalités dans SQL Server
@@ -201,7 +201,7 @@ Cet exemple recherche le nombre de courses avec et sans pourboire sur une pério
     GROUP BY tipped
 
 #### <a name="exploration-tip-classrange-distribution"></a>Exploration : Distribution des classes/fourchettes de pourboires
-Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Il s’agit de la distribution des classes d’étiquette à utiliser par la suite pour la modélisation de classification multiclasse.
+Cet exemple calcule la distribution des fourchettes de pourboires sur une période donnée (ou dans le jeu de données complet si la requête porte sur l’année entière). Cette distribution des classes d’étiquette sera utilisée par la suite pour la modélisation de classification multiclasse.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -230,7 +230,7 @@ Cet exemple convertit la longitude et la latitude des points d’embarquement et
     AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 
 #### <a name="feature-engineering-in-sql-queries"></a>Conception de fonctionnalités dans des requêtes SQL
-Vous pouvez également utiliser les requêtes de génération d’étiquettes et de conversion de données géographiques pour générer des étiquettes/fonctionnalités en supprimant la partie décompte. D’autres exemples SQL de conception de fonctionnalités sont fournis à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb) . L’exécution des requêtes de génération de fonctionnalités se révèle plus efficace sur la totalité du jeu de données ou sur un large sous-échantillon de ce jeu par le biais de requêtes SQL qui s’exécutent directement sur l’instance de base de données SQL Server. Les requêtes sont exécutables dans **SQL Server Management Studio**, dans Notebook IPython ou dans tout autre outil/environnement de développement pouvant accéder à la base de données localement ou à distance.
+Vous pouvez également utiliser les requêtes de génération d’étiquettes et de conversion de données géographiques pour générer des étiquettes/fonctionnalités en supprimant la partie décompte. D’autres exemples SQL de conception de fonctionnalités sont fournis à la section [Exploration des données et conception de fonctionnalités dans Notebook IPython](#ipnb) . L’exécution des requêtes de génération de fonctionnalités se révèle plus efficace sur la totalité du jeu de données ou sur un large sous-échantillon de ce jeu par le biais de requêtes SQL qui s’exécutent directement sur l’instance de base de données SQL Server. Les requêtes sont exécutables dans **SQL Server Management Studio**, dans IPython Notebook ou dans tout autre outil/environnement de développement pouvant accéder à la base de données localement ou à distance.
 
 #### <a name="preparing-data-for-model-building"></a>Préparation des données pour la création de modèles
 La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, génère une étiquette de classification binaire **tipped** et une étiquette de classification multiclasse **tip\_class**, puis extrait un échantillon aléatoire de 1 % des données de l’intégralité du jeu de données joint. Vous pouvez ensuite copier cette requête et la coller directement dans le module [Importer les données][import-data] d’[Azure Machine Learning Studio](https://studio.azureml.net) pour permettre l’ingestion directe des données de l’instance de base de données SQL Server dans Azure. La requête exclut les enregistrements qui présentent des coordonnées (0, 0) incorrectes.
@@ -254,7 +254,7 @@ La requête ci-après joint les tables **nyctaxi\_trip** et **nyctaxi\_fare**, g
 ## <a name="ipnb"></a>Exploration des données et conception de fonctionnalités dans Notebook IPython
 Dans cette section, nous allons effectuer des tâches d’exploration des données et de génération de fonctionnalités en exécutant des requêtes Python et SQL dans la base de données SQL Server créée précédemment. Le dossier **Exemples de notebooks IPython** comporte un exemple de notebook IPython nommé **machine-Learning-data-science-process-sql-story.ipynb**. Ce notebook est également disponible sur [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/iPythonNotebooks).
 
-Lorsque vous travaillez sur des données volumineuses, il est recommandé de procéder comme suit :
+Lorsque vous travaillez sur des données volumineuses, suivez ces étapes conseillées :
 
 * Lisez un petit échantillon des données dans une trame de données en mémoire.
 * Procédez à certaines visualisations et explorations à l’aide des données échantillonnées.
@@ -264,7 +264,7 @@ Lorsque vous travaillez sur des données volumineuses, il est recommandé de pro
 
 Lorsque vous êtes prêt à utiliser Azure Machine Learning, vous pouvez effectuer l’une des deux opérations suivantes :  
 
-1. Enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning. Cette méthode est décrite dans la section [Création de modèles dans Azure Machine Learning](#mlmodel) .    
+1. enregistrer la requête SQL finale d’extraction et d’échantillonnage des données et copier-coller cette requête directement dans un module [Importer les données][import-data] d’Azure Machine Learning. Cette méthode est décrite dans la section [Création de modèles dans Azure Machine Learning](#mlmodel) .    
 2. Stocker les données échantillonnées et générées que vous prévoyez d’utiliser pour la création de modèles dans une nouvelle table de base de données et utiliser cette table dans le module [Importer les données][import-data].
 
 Vous trouverez ci-dessous quelques exemples d’exploration des données, de visualisation des données et de conception de fonctionnalités. Pour découvrir d’autres exemples, reportez-vous à l’exemple de notebook IPython SQL figurant dans le dossier **Exemples de notebooks IPython** .
@@ -405,7 +405,7 @@ Dans cette section, nous allons joindre les tables **nyctaxi\_trip** et **nyctax
     cursor.commit()
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploration des données à l’aide de requêtes SQL dans Notebook IPython
-Dans cette section, nous allons explorer les distributions de données à l’aide de l’échantillon de 1 % des données que nous avons stocké dans la table créée ci-dessus. Notez que vous pouvez effectuer des explorations similaires à l’aide des tables d’origine, le cas échéant en utilisant **TABLESAMPLE** pour limiter l’échantillon d’exploration ou en restreignant les résultats à une période spécifique au moyen des partitions **pickup\_datetime**, comme décrit à la section [Exploration des données et ingénierie de caractéristiques dans SQL Server](#dbexplore).
+Dans cette section, nous allons explorer les distributions de données à l’aide de l’échantillon de 1 % des données que nous avons stocké dans la table créée ci-dessus. Vous pouvez effectuer des explorations similaires à l’aide des tables d’origine, le cas échéant en utilisant **TABLESAMPLE** pour limiter l’échantillon d’exploration ou en restreignant les résultats à une période spécifique au moyen des partitions **pickup\_datetime**, comme décrit à la section [Exploration des données et conception de fonctionnalités dans SQL Server](#dbexplore).
 
 #### <a name="exploration-daily-distribution-of-trips"></a>Exploration : Distribution quotidienne des courses
     query = '''
@@ -515,7 +515,7 @@ Cet exemple transforme un champ numérique continu en plages de catégories pré
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Conception de fonctionnalités : Extraire des fonctionnalités d’emplacement des valeurs décimales de latitude/longitude
-Cet exemple décompose la représentation décimale d’un champ de latitude ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays/région, ville, bloc, etc. Notez que les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
+Cet exemple décompose la représentation décimale d’un champ de latitude ou de longitude en plusieurs champs d’emplacement de différentes granularités, tels que pays/région, ville, bloc, etc. Les nouveaux champs géographiques ne sont pas mappés sur des emplacements réels. Pour plus d’informations sur le mappage des emplacements associés à un géocode, consultez l’article consacré aux [Services REST de Bing Cartes](https://msdn.microsoft.com/library/ff701710.aspx).
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -555,9 +555,9 @@ Pour démarrer l’exercice de modélisation, connectez-vous à votre espace de 
 
 1. Pour plus d’informations sur la prise en main d’Azure Machine Learning, consultez la page [Azure Machine Learning Studio - De quoi s’agit-il ?](../studio/what-is-ml-studio.md)
 2. Connectez-vous à [Azure Machine Learning Studio](https://studio.azureml.net).
-3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation d’Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. La page d’accueil de Studio permet d’accéder à une multitude d’informations, de vidéos, de didacticiels, de liens vers la documentation de référence des modules et d’autres ressources. Pour plus d’informations sur Azure Machine Learning, consultez le [Centre de documentation Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-Une expérience d’apprentissage classique se déroule comme suit :
+Une expérience de formation classique se déroule comme suit :
 
 1. Création d’une expérience à l’aide du bouton **+NOUVEAU** .
 2. Transfert des données vers Azure Machine Learning.
@@ -610,7 +610,7 @@ Azure Machine Learning va essayer de créer une expérience de notation reposant
 2. identifier un **port d’entrée** logique pour représenter le schéma de données d’entrée attendu ;
 3. identifier un **port de sortie** logique pour représenter le schéma de sortie de service web attendu.
 
-Une fois l’expérience de notation créée, passez-la en revue et ajustez-la selon vos besoins. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, car ces derniers ne seront pas disponibles lors de l’appel du service. Il est également recommandé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
+Une fois l’expérience de notation créée, passez-la en revue et ajustez-la selon vos besoins. Un ajustement classique consiste à remplacer le jeu de données d’entrée et/ou la requête par un autre jeu excluant les champs d’étiquette, étant donné que ces étiquettes ne seront pas disponibles dans le schéma lors de l’appel du service. Il est également conseillé de restreindre la taille du jeu de données d’entrée et/ou de la requête au nombre d’enregistrements suffisants pour indiquer le schéma d’entrée. Pour le port de sortie, il est courant d’exclure tous les champs d’entrée et de n’inclure que les valeurs **Étiquettes notées** et **Probabilités notées** dans la sortie à l’aide du module [Sélectionner des colonnes dans le jeu de données][select-columns].
 
 La figure ci-après illustre un exemple d’expérience de notation. Quand vous êtes prêt à effectuer le déploiement, cliquez sur le bouton **PUBLIER LE SERVICE WEB** de la barre d’action inférieure.
 

@@ -3,20 +3,20 @@ title: Opérationnaliser les modèles Machine Learning créés avec Spark– Pro
 description: Comment charger et noter les modèles d’apprentissage stockés dans Azure Blob Storage (WASB) avec Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253180"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718546"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Faire fonctionner les modèles Machine Learning créés avec Spark
 
@@ -32,10 +32,10 @@ Le notebook Jupyter [pySpark-machine-learning-data-science-spark-model-consumpti
 Pour modifier le notebook Jupyter pour Spark 1.6 afin de l’utiliser avec un cluster HDInsight Spark 2.0, remplacez le fichier de code Python par [ce fichier](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Ce code montre comment utiliser les modèles créés dans Spark 2.0.
 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Vous avez besoin d’un compte Azure et d’un cluster HDInsight Spark 1.6 (ou Spark 2.0) pour effectuer cette procédure pas à pas. Pour obtenir des instructions sur la façon de satisfaire à ces exigences, voir [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Cette rubrique contient également une description des données NYC 2013 Taxi utilisées ici, et des instructions sur l’exécution de code à partir d’un bloc-notes Jupyter sur le cluster Spark. 
-2. Vous devez également créer les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. 
+2. Créez les modèles Machine Learning à noter ici en appliquant la procédure de la rubrique [Exploration et modélisation des données avec Spark](spark-data-exploration-modeling.md) pour le cluster Spark 1.6 ou les notebooks Spark 2.0. 
 3. Les notebooks Spark 2.0 utilisent un jeu de données supplémentaire pour la tâche de classification, le jeu de données bien connu sur les départs à l’heure des compagnies aériennes pour les années 2011 et 2012. Une description des notebooks et des liens vers ceux-ci sont fournis dans le fichier [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) correspondant au dépôt GitHub qui les contient. En outre, le code présenté ici et dans les notebooks liés est générique et doit fonctionner sur n’importe quel cluster Spark. Si vous n’utilisez pas HDInsight Spark, les étapes de configuration et de gestion de cluster peuvent être légèrement différentes de celles indiquées ici. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
@@ -104,7 +104,7 @@ Définir le contexte Spark et importer les bibliothèques nécessaires avec le c
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Contexte Spark prédéfini et commandes magiques PySpark
-Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte prédéfini. Vous n’avez donc pas besoin de définir explicitement les contextes Spark ou Hive avant de commencer à utiliser l’application que vous développez. Ils sont disponibles pour vous par défaut. Ces contextes sont les suivants :
+Les noyaux PySpark fournis avec les blocs-notes Jupyter comprennent un contexte prédéfini. Par conséquent, vous n’avez pas besoin de définir explicitement les contextes Spark ou Hive avant de commencer à utiliser l’application que vous développez. Ces contextes sont disponibles par défaut.
 
 * sc : pour Spark 
 * sqlContext : pour Hive
@@ -182,7 +182,7 @@ Les fichiers relatifs aux courses en taxi et aux tarifs ont été joints conform
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 46,37 secondes
+Durée d’exécution de la cellule ci-dessus : 46,37 secondes
 
 ## <a name="prepare-data-for-scoring-in-spark"></a>Préparer les données à la notation dans Spark
 Cette section montre comment indexer, encoder et mettre à l’échelle des caractéristiques catégorielles en vue de leur utilisation dans les algorithmes d’apprentissage contrôlé MLlib pour la classification et la régression.
@@ -254,10 +254,10 @@ Cette section montre comment indexer les données catégorielles à l’aide d�
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 5,37 secondes
+Durée d’exécution de la cellule ci-dessus : 5,37 secondes
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Créer des objets RDD avec des tableaux de caractéristiques à intégrer dans des modèles
-Cette section contient le code montrant comment indexer des données textuelles catégorielles en un objet RDD et les encoder linéairement pour qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les données indexées sont stockées dans des objets [RDD (Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Il s’agit de l’abstraction de base dans Spark. Un objet RDD représente une collection immuable et partitionnée d’éléments qui peuvent faire l’objet d’un traitement en parallèle avec Spark.
+Cette section contient le code montrant comment indexer des données textuelles catégorielles en un objet RDD et les encoder linéairement pour qu’elles puissent former et tester la régression logistique de MLlib et d’autres modèles de classification. Les données indexées sont stockées dans des objets [RDD (Resilient Distributed Dataset)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) . Les objets RDD constituent l’abstraction de base dans Spark. Un objet RDD représente une collection immuable et partitionnée d’éléments qui peuvent faire l’objet d’un traitement en parallèle avec Spark.
 
 Il contient également du code montrant comment mettre à l’échelle des données avec le `StandardScalar` fourni par MLlib, en vue d’une utilisation dans la régression linéaire avec SGD (Stochastic Gradient Descent), un algorithme répandu permettant de former une large gamme de modèles Machine Learning. [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) permet de mettre à l’échelle les caractéristiques en fonction de la variance d’unité. La mise à l’échelle des caractéristiques, également appelée normalisation des données, garantit que les caractéristiques aux valeurs très dispersées sont pondérées dans la fonction cible. 
 
@@ -328,7 +328,7 @@ Il contient également du code montrant comment mettre à l’échelle des donn�
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 11,72 secondes
+Durée d’exécution de la cellule ci-dessus : 11,72 secondes
 
 ## <a name="score-with-the-logistic-regression-model-and-save-output-to-blob"></a>Noter avec le modèle de régression logistique et enregistrer la sortie dans l’objet BLOB
 Le code de cette section montre comment charger un modèle de régression logistique enregistré dans Azure Blob Storage et l’utiliser pour prédire si un pourboire est payé lors d’un trajet en taxi, le noter avec des mesures de classification standard, l’enregistrer puis représenter graphiquement les résultats dans Blob Storage. Les résultats notés sont stockés dans des objets RDD. 
@@ -359,7 +359,7 @@ Le code de cette section montre comment charger un modèle de régression logist
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 19,22 secondes
+Durée d’exécution de la cellule ci-dessus : 19,22 secondes
 
 ## <a name="score-a-linear-regression-model"></a>Noter un modèle de régression linéaire
 Nous avons utilisé [LinearRegressionWithSGD](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) pour former un modèle de régression linéaire utilisant SGD (Stochastic Gradient Descent) à des fins d’optimisation pour prédire le montant des pourboires payés. 
@@ -392,7 +392,7 @@ Le code de cette section montre comment charger un modèle de régression linéa
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 16,63 secondes
+Durée d’exécution de la cellule ci-dessus : 16,63 secondes
 
 ## <a name="score-classification-and-regression-random-forest-models"></a>Noter les modèles Forêts aléatoires de classification et de régression
 Le code de cette section montre comment charger les modèles Forêts aléatoires de classification et de régression enregistrés dans Azure Blob Storage, noter leurs performances avec des mesures standard de classificateur et de régression, puis réenregistrer les résultats dans Azure Blob Storage.
@@ -438,14 +438,14 @@ Le code de cette section montre comment charger les modèles Forêts aléatoires
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 31,07 secondes
+Durée d’exécution de la cellule ci-dessus : 31,07 secondes
 
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>Noter les modèles GBT de classification et de régression
 Le code de cette section montre comment charger les modèles GBT de classification et de régression enregistrés dans Azure Blob Storage, noter leurs performances avec des mesures standard de classificateur et de régression, puis réenregistrer les résultats dans Azure Blob Storage. 
 
-**spark.mllib** prend en charge les arbres GBT pour la classification binaire et la régression, à l’aide des caractéristiques continues et catégorielles. 
+**spark.mllib** prend en charge les arbres GBTS pour la classification binaire et la régression en utilisant des caractéristiques continues et catégorielles. 
 
-[Gradient Boosted Tree](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Ils gèrent les caractéristiques catégorielles, ne requièrent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Ils s’utilisent également dans le paramétrage de classification multiclasse.
+Les [GBTS (Gradient Boosting Trees)](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) sont des ensembles d’arbres de décision. Ils aident les arbres de décision à minimiser itérativement une fonction de perte. Ils gèrent les caractéristiques catégorielles, ne demandent aucune mise à l’échelle des caractéristiques et peuvent capturer les non-linéarités ainsi que les interactions entre les caractéristiques. Cet algorithme s’utilise également dans le paramétrage de classification multiclasse.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -488,7 +488,7 @@ Le code de cette section montre comment charger les modèles GBT de classificati
 
 **SORTIE :**
 
-Durée d’exécution de la cellule ci-dessus : 14,6 secondes
+Durée d’exécution de la cellule ci-dessus : 14,6 secondes
 
 ## <a name="clean-up-objects-from-memory-and-print-scored-file-locations"></a>Nettoyer des objets de la mémoire et imprimer les emplacements de fichier notés
     # UNPERSIST OBJECTS CACHED IN MEMORY
@@ -586,6 +586,6 @@ Si vous préférez vous passer de code, utilisez [Azure Logic Apps](https://azur
 
 ![Concepteur Logic Apps](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>Et ensuite ?
+## <a name="whats-next"></a>Quelle est l’étape suivante ?
 **Validation croisée et balayage hyperparamétrique** : consultez la page [Exploration et modélisation avancées des données avec Spark](spark-advanced-data-exploration-modeling.md) pour savoir comment entraîner les modèles à l’aide de la validation croisée et du balayage hyperparamétrique.
 

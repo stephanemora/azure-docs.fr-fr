@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3275e31744faba5b029e5a4619a51420400b9d0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2e2a3dbf0ce3be28a78f04eb5bb1c369aeff1441
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425607"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773449"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -99,6 +99,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | OutputClaimsTransformations | 0:1 | Liste des références précédemment définies aux transformations de revendications qui doivent être exécutées après la réception des revendications provenant du fournisseur de revendications. |
 | ValidationTechnicalProfiles | 0:n | Liste des références à d’autres profils techniques que le profil technique utilise à des fins de validation. Pour plus d’informations, voir [Profil technique de validation](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Contrôle la production du nom du sujet dans les jetons où le nom du sujet est spécifié séparément à partir de revendications. Par exemple, OAuth ou SAML.  |
+| IncludeInSso | 0:1 |  Si l’utilisation de ce profil technique doit appliquer le comportement de l’authentification unique (SSO) pour la session, ou si une interaction explicite est exigée à la place. Cet élément est valide uniquement dans les profils SelfAsserted utilisés dans un profil technique de validation. Valeurs possibles : `true` (par défaut) ou `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les revendications d’entrée et de sortie soient ajoutées à ce profil technique. Le profil technique référencé doit être défini dans le même fichier de stratégie. |
 | IncludeTechnicalProfile |0:1 | Identificateur d’un profil technique à partir duquel vous souhaitez que toutes les sonnées soient ajoutées à ce profil technique. Le profil technique référencé doit exister dans le même fichier de stratégie. |
 | UseTechnicalProfileForSessionManagement | 0:1 | Autre profil technique à utiliser pour la gestion de session. |

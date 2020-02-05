@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eceb4b312476d701ec8ce4eb0ce4886621824b3a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706018"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841589"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrer des charges de travail Azure HDInsight 3.6 Hive vers HDInsight 4.0
 
@@ -76,10 +76,10 @@ Utilisez les valeurs du tableau plus loin. Remplacez `SQLSERVERNAME DATABASENAME
 |Propriété | Valeur |
 |---|---|
 |Type de script|- Personnalisé|
-|Nom|Mise à niveau de Hive|
+|Name|Mise à niveau de Hive|
 |URI de script bash|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
-|Type(s) de nœud|Nœud principal|
-|parameters|SQLSERVERNAME DATABASENAME USERNAME PASSWORD|
+|Type(s) de nœud|Head|
+|Paramètres|SQLSERVERNAME DATABASENAME USERNAME PASSWORD|
 
 > [!Warning]  
 > La mise à niveau qui convertit le schéma de métadonnées HDInsight 3.6 vers le schéma HDInsight 4.0 ne peut pas être annulée.
@@ -179,11 +179,13 @@ Dans HDInsight 3.6, le client de l’interface graphique utilisateur permettant 
 |Propriété | Valeur |
 |---|---|
 |Type de script|- Personnalisé|
-|Nom|DAS|
+|Name|DAS|
 |URI de script bash|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|Type(s) de nœud|Nœud principal|
+|Type(s) de nœud|Head|
 
-Patientez 5 à 10 minutes, puis lancez Data Analytics Studio à l'aide de l'URL suivante : `https://CLUSTERNAME.azurehdinsight.net/das/`.
+Patientez 10 à 15 minutes, puis lancez Data Analytics Studio à l'aide de l'URL suivante : `https://CLUSTERNAME.azurehdinsight.net/das/`.
+
+Il peut être nécessaire d'actualiser l’interface utilisateur Ambari et/ou de redémarrer tous les composants Ambari avant d’accéder à DAS.
 
 Une fois DAS installé, si vous ne voyez pas les requêtes que vous avez exécutées dans la visionneuse de requêtes, procédez comme suit :
 

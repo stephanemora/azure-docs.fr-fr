@@ -3,9 +3,7 @@ title: Inspection de paquets avec Azure Network Watcher | Microsoft Docs
 description: Cet article explique comment utiliser Network Watcher pour effectuer une inspection approfondie des paquets collectés à partir d’une machine virtuelle
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716908"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845067"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspection de paquets avec Azure Network Watcher
 
@@ -41,7 +39,7 @@ Dans ce scénario, vous allez :
 
 Dans ce scénario, nous expliquons comment afficher la durée initiale des boucles d’une conversation de protocole TCP entre deux points de terminaison.
 
-Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
+Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
 ### <a name="step-1"></a>Étape 1
 

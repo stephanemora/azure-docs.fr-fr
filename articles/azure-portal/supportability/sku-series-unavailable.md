@@ -1,25 +1,27 @@
 ---
-title: Séries de références (SKU) non disponibles | Microsoft Docs
-description: Certaines séries de références (SKU) ne sont pas disponibles pour l’abonnement sélectionné pour cette région.
+title: Région ou séries de références SKU non disponibles | Azure
+description: Certaines séries de références SKU ne sont pas disponibles pour l’abonnement sélectionné de cette région, ce qui peut nécessiter une demande de support pour la gestion des abonnements.
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: e317ae1ad88cf162f1d55a06d19e7b3b0b88ce60
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898685"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843626"
 ---
-# <a name="region-or-sku-unavailable"></a>Région ou référence (SKU) non disponible
-Cet article décrit comment résoudre le problème quand un abonnement Azure n’a pas accès à une région ou à un SKU de machine virtuelle.
+# <a name="region-or-sku-unavailable"></a>Région ou référence SKU non disponible
+
+Cet article décrit comment résoudre le problème quand un abonnement Azure n’a pas accès à une région ou à une référence SKU de machine virtuelle.
 
 ## <a name="symptoms"></a>Symptômes
 
-### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Quand vous déployez une machine virtuelle, vous recevez l’un des messages d’erreur suivants :
+Quand vous déployez une machine virtuelle, vous recevez l’un des messages d’erreur suivants :
+
 ```
 Code: SkuNotAvailable
 Message: The requested size for resource '<resource>' is currently not available in location 
@@ -37,7 +39,7 @@ Code: NotAvailableForSubscription
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Quand vous achetez des instances de machine virtuelle réservées, vous recevez l’un des messages d’erreur suivants :
+Quand vous achetez des instances de machine virtuelle réservées, vous recevez l’un des messages d’erreur suivants :
 
 ```
 Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
@@ -48,32 +50,38 @@ different location. Supported locations are: <list of locations>
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>Quand vous créez une demande de support pour augmenter le quota de cœurs de calcul, une région ou une famille de références (SKU) n’est pas disponible pour la sélection.
+Quand vous créez une demande de support pour augmenter le quota de cœurs de calcul, une région ou une famille de références SKU n’est pas disponible pour la sélection.
 
 ## <a name="solution"></a>Solution
-Tout d’abord, nous vous recommandons d’utiliser une autre région ou référence qui répond aux besoins de votre entreprise. Si vous ne parvenez pas à trouver une région ou référence appropriée, créez une [demande de support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) « Gestion de l’abonnement » en suivant les étapes ci-dessous :
 
+Tout d’abord, nous vous recommandons d’utiliser une autre région ou référence qui répond aux besoins de votre entreprise.
 
-- Dans la page Paramètres de base, sélectionnez le type de problème « Gestion de l’abonnement », sélectionnez l’abonnement, puis cliquez sur « Suivant ».
+Si vous ne parvenez pas à trouver une région ou une référence appropriée, créez une **demande de support** [Gestion des abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) en suivant ces étapes :
 
-![Panneau Informations de base](./media/SKU-series-unavailable/BasicsSubMgmt.png)
+1. Dans le menu [Portail Azure](https://portal.azure.com), sélectionnez **Aide + support**. Puis sélectionnez **Nouvelle demande de support**.
 
+1. Dans **Fonctions de base**, comme **Type de problème**, sélectionnez **Gestion des abonnements**.
 
--   Dans la page Problème, sélectionnez le type de problème « Autres questions générales ».
-- Dans la section Détails :
-  - Indiquez si vous cherchez à déployer des machines virtuelles ou à acheter des instances de machine virtuelle réservées.
-  - Spécifiez la région, la référence et le nombre d’instances de machine virtuelle que vous envisagez de déployer ou d’acheter.
+1. Sélectionnez un **Abonnement** et entrez une brève description dans **Résumé**.
 
+   ![Onglet Fonctions de base de Nouvelle demande de support](./media/SKU-series-unavailable/support-request-basics.png)
 
-![Problème](./media/SKU-series-unavailable/ProblemSubMgmt.png)
+1. Comme **Type de problème**, choisissez **Sélectionner un type de problème**.
 
--   Entrez vos informations de contact, puis cliquez sur « Créer ».
+1. Pour **Sélectionner un type de problème**, choisissez une option, par exemple **Impossible d’accéder à mon abonnement ou à la ressource** > **Mon problème n’est pas répertorié ci-dessus**. Sélectionnez **Enregistrer**.
 
-![Informations de contact](./media/SKU-series-unavailable/ContactInformation.png)
+   ![Spécifier un problème pour la demande](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
-## <a name="feedback"></a>Commentaires
-Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter via [Twitter](https://twitter.com/azuresupport) ou via les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
+1. Sélectionnez **Suivant : Solutions** pour explorer les solutions possibles. Si nécessaire, sélectionnez **Suivant : Détails** pour continuer.
+
+1. Entrez les informations complémentaires que vous pouvez fournir, ainsi que vos coordonnées.
+
+1. Sélectionnez **Revoir + créer**. Après avoir vérifié vos informations, sélectionnez **Créer** pour créer la demande.
+
+## <a name="send-us-your-suggestions"></a>Envoyez-nous vos suggestions.
+
+Nous sommes ouverts aux commentaires et suggestions ! Envoyez-nous vos [suggestions](https://feedback.azure.com/forums/266794-support-feedback). Vous pouvez aussi nous contacter sur [Twitter](https://twitter.com/azuresupport) ou sur les [forums MSDN](https://social.msdn.microsoft.com/Forums/azure).
 
 ## <a name="learn-more"></a>En savoir plus
-[FAQ du support Azure](https://azure.microsoft.com/support/faq)
 
+[FAQ du support Azure](https://azure.microsoft.com/support/faq)

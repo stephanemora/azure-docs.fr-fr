@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: b70fcb1d63636984e1d014723b50170651a553d9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0fef7d6f59b8893ff400914f491f421cddf436b7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156877"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842918"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Pour installer l’environnement du Kit de développement logiciel (SDK) pour vo
 L’[instance de calcul Azure Machine Learning (préversion)](concept-compute-instance.md) est une station de travail Azure sécurisée et basée sur le cloud, qui fournit aux scientifiques des données un serveur de notebooks Jupyter, JupyterLab et un environnement ML prêt à l’emploi.
 
 > [!NOTE]
-> Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
+> Les instances de calcul sont uniquement disponibles pour les espaces de travail des régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**.
 >Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place.
 
 Vous n’avez rien à installer ou à configurer pour une instance de calcul.  créez à tout moment depuis votre espace de travail Azure Machine Learning. Indiquez juste un nom et spécifiez un type de machine virtuelle Azure. Essayez dès maintenant avec ce [Didacticiel : Configurer l'environnement et l'espace de travail](tutorial-1st-experiment-sdk-setup.md).

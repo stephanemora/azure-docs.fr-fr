@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 0ab81d3c1d4c68827cf1569bf4a22c3311fe355d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555827"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844477"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Schéma d’événements Azure Event Grid pour le stockage Blob
 
@@ -20,11 +20,14 @@ Cet article fournit les propriétés et les schémas des événements de stockag
 
 Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [Source d’événement Stockage](event-sources.md#storage).
 
+>[!NOTE]
+> Seuls les comptes de stockage de type **StorageV2 (usage général v2)** et **BlobStorage** prennent en charge l’intégration d’événements. **Le stockage (usage général v1)** ne prend *pas* en charge l’intégration à Event Grid.
+
 ## <a name="list-of-events-for-blob-rest-apis"></a>Liste des événements pour des API REST d’objets blob
 
 Ces événements sont déclenchés quand un client crée, remplace ou supprime un objet blob en appelant des API REST d’objets blob.
 
- |Nom de l'événement |Description|
+ |Nom d'événement |Description|
  |----------|-----------|
  |**Microsoft.Storage.BlobCreated** |Déclenché quand un objet blob est créé ou remplacé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent les opérations `PutBlob`, `PutBlockList` ou `CopyBlob` qui sont disponibles dans l’API REST d’objet blob.   |
  |**Microsoft.Storage.BlobDeleted** |Déclenché quand un objet blob est supprimé. <br>Plus précisément, cet événement est déclenché quand des clients appellent l’opération `DeleteBlob` qui est disponible dans l’API REST d’objet blob. |
@@ -36,7 +39,7 @@ Ces événements sont déclenchés quand un client crée, remplace ou supprime u
 
 Ces événements sont déclenchés si vous activez un espace de noms hiérarchique sur le compte de stockage et que des clients appellent des API REST Azure Data Lake Storage Gen2.
 
-|Nom de l'événement|Description|
+|Nom d'événement|Description|
 |----------|-----------|
 |**Microsoft.Storage.BlobCreated** | Déclenché quand un objet blob est créé ou remplacé. <br>Plus précisément, cet événement est déclenché quand des clients utilisent les opérations `CreateFile` et `FlushWithClose` qui sont disponibles dans l’API REST Azure Data Lake Storage Gen2. |
 |**Microsoft.Storage.BlobDeleted** |Déclenché quand un objet blob est supprimé. <br>Plus précisément, cet événement est également déclenché quand des clients appellent l’opération `DeleteFile` qui est disponible dans l’API REST Azure Data Lake Storage Gen2. |
@@ -69,7 +72,7 @@ Cette section contient un exemple de ce à quoi ces données ressembleraient pou
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -108,7 +111,7 @@ Si le compte de stockage d’objets blob a un espace de noms hiérarchique, les 
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -309,9 +312,9 @@ L’objet de données comporte les propriétés suivantes :
 | requestId | string | L’ID de requête de service généré pour l’opération de l’API de stockage. Peut être utilisé pour mettre en corrélation les journaux de diagnostic de stockage Azure en utilisant le champ « request-id-header » dans les journaux d’activité et est retourné lors de l’initialisation de l’appel d’API dans l’en-tête ’x-ms-request-id’. Consultez [Format de journal](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format). |
 | eTag | string | Valeur que vous pouvez utiliser pour effectuer des opérations de manière conditionnelle. |
 | contentType | string | Type de contenu spécifié pour l’objet blob. |
-| contentLength | integer | Taille de l’objet blob en octets. |
+| contentLength | entier | Taille de l’objet blob en octets. |
 | blobType | string | Type d’objet blob. Les valeurs valides sont « BlockBlob » ou « PageBlob ». |
-| contentOffset | number | Décalage, en octets, d’une opération d’écriture effectuée au point où l’application de déclenchement d’événement a effectué l’écriture dans le fichier. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique.|
+| contentOffset | nombre | Décalage, en octets, d’une opération d’écriture effectuée au point où l’application de déclenchement d’événement a effectué l’écriture dans le fichier. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique.|
 | destinationUrl |string | URL du fichier qui existera une fois l’opération terminée. Par exemple, si un fichier est renommé, la propriété `destinationUrl` contient l’URL du nouveau nom de fichier. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique.|
 | sourceUrl |string | URL du fichier qui existe avant l’opération. Par exemple, si un fichier est renommé, `sourceUrl` contient l’URL du nom de fichier d’origine avant l’opération de renommage. <br>Apparaît uniquement pour les événements déclenchés sur les comptes de stockage d’objets blob qui ont un espace de noms hiérarchique. |
 | url | string | Chemin de l’objet blob. <br>Si le client utilise une API REST d’objet blob, l’URL présente la structure suivante : *\<nom-compte-stockage\>.blob.core.windows.net/\<nom-conteneur\>/\<nom-fichier\>* . <br>Si le client utilise une API REST Data Lake Storage, l’URL présente la structure suivante : *\<nom-compte-stockage\>.dfs.core.windows.net/\<nom-système-fichiers\>/\<nom-fichier\>* . |

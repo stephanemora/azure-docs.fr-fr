@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: e9e6eff4c527ff2e22be57ebc1eb3dcdb3c4e0ab
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241992"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845280"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
-Cet article décrit la syntaxe des expressions de stratégie de C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.
+Cet article décrit la syntaxe des expressions de stratégie dans C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.
 
 Pour plus d'informations :
 
@@ -156,7 +156,7 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Security.Cryptography.SymmetricAlgorithm|Tous|
 |System.Security.Cryptography.X509Certificates.PublicKey|Tous|
 |System.Security.Cryptography.X509Certificates.RSACertificateExtensions|Tous|
-|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Nom|
+|System.Security.Cryptography.X509Certificates.X500DistinguishedName|Name|
 |System.Security.Cryptography.X509Certificates.X509Certificate|Tous|
 |System.Security.Cryptography.X509Certificates.X509Certificate2|Tous|
 |System.Security.Cryptography.X509Certificates.X509ContentType|Tous|
@@ -192,7 +192,7 @@ Le tableau suivant liste les types .NET Framework et leurs membres qui sont auto
 |System.Xml.Linq.XComment|Tous|
 |System.Xml.Linq.XContainer|Tous|
 |System.Xml.Linq.XDeclaration|Tous|
-|System.Xml.Linq.XDocument|Toutes, sauf : charger|
+|System.Xml.Linq.XDocument|Toutes, sauf : Load|
 |System.Xml.Linq.XDocumentType|Tous|
 |System.Xml.Linq.XElement|Tous|
 |System.Xml.Linq.XName|Tous|
@@ -210,9 +210,9 @@ Une variable nommée `context` est implicitement disponible dans toutes les [exp
 
 |Variable de contexte|Méthodes, propriétés et valeurs de paramètres autorisées|
 |----------------------|-------------------------------------------------------|
-|context|[Api](#ref-context-api) : [IApi](#ref-iapi)<br /><br /> [Déploiement](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [opération](#ref-context-operation)<br /><br /> [Produit](#ref-context-product)<br /><br /> [Requête](#ref-context-request)<br /><br /> RequestId: Guid (identificateur de requête unique)<br /><br /> [Réponse](#ref-context-response)<br /><br /> [Abonnement](#ref-context-subscription)<br /><br /> Timestamp : DateTime (point dans le temps où la requête a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> [Utilisateur](#ref-context-user)<br /><br /> [Variables](#ref-context-variables) : IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
+|contexte|[Api](#ref-context-api) : [IApi](#ref-iapi)<br /><br /> [Déploiement](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan (intervalle de temps entre la valeur Timestamp et l’heure actuelle)<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [opération](#ref-context-operation)<br /><br /> [Produit](#ref-context-product)<br /><br /> [Requête](#ref-context-request)<br /><br /> RequestId: Guid (identificateur de requête unique)<br /><br /> [Réponse](#ref-context-response)<br /><br /> [Abonnement](#ref-context-subscription)<br /><br /> Timestamp : DateTime (point dans le temps où la requête a été reçue)<br /><br /> Tracing: bool (indique si le traçage est activé ou désactivé) <br /><br /> [Utilisateur](#ref-context-user)<br /><br /> [Variables](#ref-context-variables) : IReadOnlyDictionary<string, object><br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [IUrl](#ref-iurl)<br /><br /> Version: string |
-|<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
+|<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificats : IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> Pour plus d’informations sur context.LastError, consultez la page [Gestion des erreurs](api-management-error-handling-policies.md).|
 |<a id="ref-context-operation"></a>context.Operation|Id: string<br /><br /> Method: string<br /><br /> Name: string<br /><br /> UrlTemplate: string|
 |<a id="ref-context-product"></a>context.Product|Apis: IEnumerable<[IApi](#ref-iapi)\><br /><br /> ApprovalRequired: bool<br /><br /> Groups: IEnumerable<[IGroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Name: string<br /><br /> State: enum ProductState {NotPublished, Published}<br /><br /> SubscriptionLimit: int?<br /><br /> SubscriptionRequired: bool|
@@ -253,4 +253,4 @@ Pour plus d’informations sur l’utilisation de stratégies, consultez les pag
 + [Stratégies dans Gestion des API](api-management-howto-policies.md)
 + [Transform and protect your API](transform-api.md) (Transformer et protéger votre API)
 + [Référence de stratégie](api-management-policy-reference.md) pour obtenir la liste complète des instructions et des paramètres de stratégie
-+ [API Management policy samples](policy-samples.md) (Exemples de stratégie de gestion d’API)
++ [Exemples de stratégie](policy-samples.md)

@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933443"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765389"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Guide pratique pour configurer Postman pour Azure Digital Twins
 
@@ -79,7 +79,6 @@ Configurez votre application Azure Active Directory pour utiliser le flux d’oc
 
 Configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, adressez une requête HTTP authentifiée à Azure Digital Twins en utilisant le jeton acquis :
 
-1. Accédez à [www.getpostman.com](https://www.getpostman.com/) pour télécharger l’application.
 1. Vérifiez que votre **URL d’autorisation** est correcte. Elle doit prendre la forme suivante :
 
     ```plaintext
@@ -88,9 +87,13 @@ Configurez Postman pour obtenir un jeton Azure Active Directory. Après quoi, ad
 
     | Name  | Remplacer par | Exemple |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | Nom de votre locataire ou organisation | `microsoft` |
+    | YOUR_AZURE_TENANT | Nom de votre locataire ou organisation. Utilisez le nom convivial plutôt que l'**ID de locataire** alphanumérique de l'inscription de votre application Azure Active Directory. | `microsoft` |
 
-1. Sélectionnez l’onglet **Autorisation**, **OAuth 2.0**, puis **Get New Access Token** (Obtenir un nouveau jeton d’accès).
+1. Accédez à [www.getpostman.com](https://www.getpostman.com/) pour télécharger l’application.
+
+1. Ouvrez l’application Postman, cliquez sur New (Nouveau) | Create New (Créer), puis sélectionnez Request (Requête). Entrez un nom de requête. Sélectionnez la collection ou le dossier dans lequel l'enregistrer, puis cliquez sur Enregistrer. 
+
+1. Nous souhaitons effectuer une requête GET. Sélectionnez l’onglet **Autorisation**, OAuth 2.0, puis **Obtenir un nouveau jeton d’accès**.
 
     | Champ  | Valeur |
     |---------|---------|

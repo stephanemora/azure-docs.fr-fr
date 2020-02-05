@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: b33366b65fed0042eb3024c2264bce1c4a1c4c1d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75649557"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715672"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Applications managées Azure avec notifications
 
@@ -189,7 +189,7 @@ billingDetails | *Spécifié uniquement pour les applications managées de la Pl
 
 ## <a name="endpoint-authentication"></a>Authentification du point de terminaison
 Pour sécuriser le point de terminaison webhook et garantir l’authenticité de la notification :
-1. Fournissez un paramètre de requête au-dessus de l’URI webhook, comme ceci : https://your-endpoint.com?sig=Guid. Avec chaque notification, vérifiez que le paramètre de requête `sig` a la valeur attendue `Guid`.
+1. Fournissez un paramètre de requête au-dessus de l’URI webhook, comme ceci : https\://your-endpoint.com?sig=Guid. Avec chaque notification, vérifiez que le paramètre de requête `sig` a la valeur attendue `Guid`.
 2. Émettez une opération GET sur l’instance d’application managée à l’aide d’applicationId. Vérifiez que provisioningState correspond au provisioningState de la notification pour garantir la cohérence.
 
 ## <a name="notification-retries"></a>Nouvelles tentatives de notification

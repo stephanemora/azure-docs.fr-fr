@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431738"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768207"
 ---
 # <a name="cloud-tiering-overview"></a>Vue d’ensemble de la hiérarchisation cloud
 La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « offline » (hors connexion), et son attribut FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS est défini dans le système de fichiers NTFS de façon à ce que des applications tierces puissent identifier sûrement des fichiers hiérarchisés.
  
-Quand un utilisateur ouvre un fichier hiérarchisé, Azure File Sync rappelle les données du fichier à partir d’Azure Files avec fluidité, sans que l’utilisateur ait besoin de savoir que le fichier est réellement stocké dans Azure. 
+Lorsqu'un utilisateur ouvre un fichier hiérarchisé, Azure File Sync rappelle les données du fichier à partir d’Azure Files avec fluidité, sans que l’utilisateur ait besoin de savoir que le fichier est stocké dans Azure. 
  
  > [!Important]  
  > La hiérarchisation cloud n’est pas prise en charge pour les points de terminaison de serveur sur les volumes système Windows, et seuls des fichiers d’une taille supérieure à 64 Kio peuvent être hiérarchisés sur Azure Files.
@@ -61,7 +61,7 @@ La conservation de davantage de données localement implique une baisse des coû
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>J’ai ajouté un nouveau point de terminaison de serveur. Au bout de combien de temps surviendra la hiérarchisation sur ce serveur ?
-Dans les versions 4.0 et ultérieures de l’agent Azure File Sync, lorsque vos fichiers sont téléchargés vers le partage de fichiers Azure, ils sont hiérarchisés en fonction de vos stratégies dès l’exécution de la prochaine session de hiérarchisation, c’est à dire toutes les heures. Sur les agents plus anciens, l’intervalle entre deux hiérarchisations peut prendre jusqu'à 24 heures.
+Dans les versions 4.0 et ultérieures de l’agent Azure File Sync, lorsque vos fichiers sont téléchargés vers le partage de fichiers Azure, ils sont hiérarchisés en fonction de vos stratégies dès l’exécution de la session de hiérarchisation suivante, à savoir toutes les heures. Sur les agents plus anciens, l’intervalle entre deux hiérarchisations peut prendre jusqu'à 24 heures.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>Comment déterminer si un fichier a été hiérarchisé ?
@@ -103,11 +103,10 @@ Vous pouvez également utiliser PowerShell pour forcer le rappel d’un fichier.
     
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
-
-Spécifier `-Order CloudTieringPolicy` rappelle, dans un premier temps, les fichiers récemment modifiés.
-Autres paramètres facultatifs :
+Paramètres facultatifs :
+* `-Order CloudTieringPolicy` rappelle, dans un premier temps, les fichiers récemment modifiés.  
 * `-ThreadCount` détermine le nombre de fichiers rappelés en parallèle.
 * `-PerFileRetryCount` détermine la fréquence à laquelle un rappel portant sur une fichier actuellement bloqué est tenté.
 * `-PerFileRetryDelaySeconds` détermine le délai, en secondes, entre les tentatives de rappel, et doit systématiquement être utilisé avec le paramètre précédent.
@@ -127,6 +126,13 @@ Quand elle est activée, la fonctionnalité de hiérarchisation cloud hiérarchi
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
+
+<a id="afs-image-thumbnail"></a>
+### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>Pourquoi mes fichiers hiérarchisés n’affichent-ils pas de miniatures ou d'aperçus dans l’Explorateur Windows ?
+Pour les fichiers hiérarchisés, les miniatures et aperçus ne sont pas visibles au niveau de votre point de terminaison de serveur. Ce comportement est normal puisque la fonctionnalité de cache des miniatures dans Windows ignore intentionnellement la lecture des fichiers avec l’attribut hors connexion. En cas d'activation de la hiérarchisation cloud, la lecture des fichiers hiérarchisés entraînerait leur téléchargement (rappel).
+
+Ce comportement n’est pas spécifique à Azure File Sync. L’Explorateur Windows affiche une « X grise » pour tous les fichiers avec l’attribut hors connexion. L’icône X s’affiche lors de l’accès aux fichiers sur SMB. Pour obtenir une explication détaillée de ce comportement, consultez [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Planification d’un déploiement Azure File Sync](storage-sync-files-planning.md)

@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: f7a1ff63f39777c1f7a83190adae2991138a11d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464060"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774443"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Sécuriser un cluster autonome sous Windows avec la sécurité Windows
 Pour empêcher tout accès non autorisé à un cluster Service Fabric, vous devez sécuriser le cluster. La sécurité est particulièrement importante lorsque le cluster exécute des charges de travail de production. Cet article explique comment configurer la sécurité de nœud à nœud et de client à nœud avec la sécurité Windows dans le fichier *ClusterConfig.JSON*.  Le processus correspond à l’étape de configuration de la sécurité sur la page [Créer un cluster autonome s’exécutant sous Windows](service-fabric-cluster-creation-for-windows-server.md). Pour plus d’informations sur la manière dont Service Fabric utilise la sécurité Windows, référez-vous à [Scénarios de sécurité du cluster](service-fabric-cluster-security.md).
@@ -52,7 +52,7 @@ L’exemple de fichier de configuration *ClusterConfig.gMSA.Windows.MultiMachine
 | IsAdmin |Définissez sur true pour indiquer que l’utilisateur de domaine dispose d’un accès administrateur au client, ou sur false pour un accès utilisateur. |
 
 > [!NOTE]
-> La valeur de ClustergMSAIdentity doit être au format « mysfgmsa@mydomain ».
+> La valeur de ClustergMSAIdentity doit être au format « mysfgmsa@mydomain ».
 
 La [sécurité de nœud à nœud](service-fabric-cluster-security.md#node-to-node-security) se configure en définissant **ClustergMSAIdentity** lorsque Service Fabric doit s’exécuter sous le compte gMSA. Pour créer des relations d’approbation entre les nœuds, ceux-ci doivent se connaître mutuellement. Cette opération peut être réalisée de deux manières : indiquez le compte de service administré de groupe qui inclut tous les nœuds du cluster, ou spécifiez le groupe de machines de domaine qui inclut tous les nœuds du cluster. Nous vous recommandons d’utiliser l’approche avec le [compte de service géré de groupe (gMSA)](https://technet.microsoft.com/library/hh831782.aspx) , en particulier pour les clusters de grande taille (plus de 10 nœuds) ou pour les clusters dont la taille est susceptible d’augmenter ou de diminuer.  
 Cette méthode ne nécessite pas la création d’un groupe de domaine pour lequel les administrateurs de cluster disposent des droits d’accès leur permettant d’ajouter et de supprimer des membres. Ces comptes sont également utiles pour la gestion des mots de passe automatique. Pour en savoir plus, consultez [Prise en main des comptes de service gérés de groupe](https://technet.microsoft.com/library/jj128431.aspx).  

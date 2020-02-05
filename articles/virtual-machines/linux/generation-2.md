@@ -3,7 +3,7 @@ title: Support Azure pour les machines virtuelles de 2e génération
 description: Vue d’ensemble de la prise en charge Azure pour les machines virtuelles de 2e génération
 services: virtual-machines-linux
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: lahugh
-ms.openlocfilehash: cfa8d28a41bb5551277bca29c118698ecaa8d112
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/28/2020
+ms.author: jushiman
+ms.openlocfilehash: 766ac4f67c0d448f3988eb66c84dddbf44076ab5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791736"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841135"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Support des machines virtuelles de 2e génération dans Azure
 
@@ -30,7 +30,7 @@ Les machines virtuelles de 2e génération utilisent la nouvelle architecture de
 
 ## <a name="generation-2-vm-sizes"></a>Tailles des machines virtuelles de 2e génération
 
-Les machines virtuelles de 1ère génération sont prises en charge dans toutes les tailles dans Azure. Azure prend désormais en charge la 2e génération de machines virtuelles des séries sélectionnées suivantes :
+Les machines virtuelles de 1ère génération sont prises en charge dans toutes les tailles dans Azure (sauf les machines virtuelles de série Mv2). Azure prend désormais en charge la 2e génération de machines virtuelles des séries sélectionnées suivantes :
 
 * [Série B](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [Série DC](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
@@ -54,7 +54,7 @@ Les machines virtuelles de 1ère génération sont prises en charge dans toutes 
 Les machines virtuelles de 2e génération prennent en charge les images de la Place de marché suivantes :
 
 * Windows Server 2019, 2016, 2012 R2, 2012
-* Windows 10
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
@@ -125,6 +125,12 @@ Par exemple, utilisez l’applet de commande PowerShell suivante pour obtenir un
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
+Vous pouvez également utiliser Azure CLI pour voir les images de génération 2 disponibles, listées par **Éditeur**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
+
 Si vous créez une machine virtuelle avec le système d’exploitation Windows Server 2012, vous devez sélectionner le SKU de machine virtuelle génération 1 (BIOS) ou génération 2 (UEFI), comme suit :
 
 ```powershell
@@ -142,7 +148,7 @@ Vous pouvez créer une machine virtuelle de 2e génération à partir d’une im
 
 Vous pouvez également créer des machines virtuelles de 2e génération à l’aide de groupes de machines virtuelles identiques. Dans Azure CLI, utilisez les groupes identiques Azure pour créer des machines virtuelles de 2e génération.
 
-## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
+## <a name="frequently-asked-questions"></a>Forum aux questions
 
 * **Les machines virtuelles de 2e génération sont-elles disponibles dans toutes les régions Azure ?**  
     Oui. Par contre, toutes les [tailles de machines virtuelles de 2e génération](#generation-2-vm-sizes) ne sont pas disponibles dans chaque région. La disponibilité des machines virtuelles de 2e génération dépend des disponibilités en matière de taille.

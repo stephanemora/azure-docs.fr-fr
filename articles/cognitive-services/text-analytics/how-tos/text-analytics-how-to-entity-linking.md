@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/06/2019
+ms.date: 01/27/2019
 ms.author: aahi
-ms.openlocfilehash: a9bfa2a51341bf60f92378f5d96a390bd1d92db1
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732776"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774138"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte
 
@@ -23,7 +23,7 @@ L’API Analyse de texte accepte un texte non structuré et retourne une liste d
 
 ### <a name="entity-linking"></a>Liaison d’entités
 
-La liaison d’entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si une occurrence du mot `Mars` fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances dans une langue appropriée pour lier les entités reconnues dans le texte. 
+La liaison d’entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si une occurrence du mot `Mars` fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances dans une langue appropriée pour lier les entités reconnues dans le texte. La liaison d’entités utilise [Wikipedia](https://www.wikipedia.org/) en tant que base de connaissances.
 
 
 ### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)

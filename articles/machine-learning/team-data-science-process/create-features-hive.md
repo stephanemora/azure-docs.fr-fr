@@ -1,22 +1,22 @@
 ---
-title: Créer des fonctionnalités pour les données dans un cluster Hadoop - Team Data Science Process
+title: Créer des fonctionnalités pour les données dans un cluster Azure HDInsight Hadoop - Team Data Science Process
 description: Exemples de requêtes Hive qui génèrent des fonctionnalités dans les données stockées dans un cluster Azure HDInsight Hadoop.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982044"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721776"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Création de fonctionnalités pour les données dans un cluster Hadoop à l’aide de requêtes Hive
 Ce document montre comment créer des fonctionnalités pour des données stockées dans un cluster Hadoop Azure HDInsight à l’aide de requêtes Hive. Ces requêtes Hive utilisent les FDU (fonctions définies par l’utilisateur) Hive, dont les scripts sont intégrés.
@@ -144,14 +144,14 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Ce paramètre alloue 4 Go de mémoire à l’espace de tas Java et accélère le tri en lui attribuant davantage de mémoire. Ajuster ce paramètre est une bonne idée si des erreurs se produisent à cause d’un espace de tas insuffisant.
+    Ce paramètre alloue 4 Go de mémoire à l’espace de tas Java et accélère le tri en lui allouant davantage de mémoire. Ajuster ce paramètre est une bonne idée si des erreurs se produisent à cause d’un espace de tas insuffisant.
 
 1. **Taille de bloc DFS** : ce paramètre définit l’unité élémentaire de donnée stockée dans le système de fichiers. Par exemple, si la taille du bloc DFS est de 128 Mo, alors les données dont la taille est inférieure ou égale à 128 Mo sont stockées dans un seul bloc. Des blocs supplémentaires sont affectés aux données dont la taille est supérieure à 128 Mo. 
 2. Une taille de bloc petite génère des temps de traitement importants dans Hadoop, car le nœud de noms doit traiter beaucoup plus de requêtes pour trouver le bloc approprié au fichier. Quand vos données ont une taille supérieure ou égale à plusieurs gigaoctets, le paramètre suivant est recommandé :
 
         set dfs.block.size=128m;
 
-2. **Optimisation de l’opération de jointure dans Hive** : dans le framework map/reduce, si les opérations de jointure s’exécutent en général pendant la phase de réduction, il est possible de gagner en efficacité en planifiant les jointures pendant la phase de mappage (également appelée « jointures Map »). Pour obtenir ce comportement dans Hive le cas échéant, définissez ce qui suit :
+2. **Optimisation de l’opération de jointure dans Hive** : dans le framework map/reduce, si les opérations de jointure s’exécutent en général pendant la phase de réduction, il est possible de gagner en efficacité en planifiant les jointures pendant la phase de mappage (également appelée « jointures Map »). Définissez cette option :
    
        set hive.auto.convert.join=true;
 
@@ -167,7 +167,7 @@ Les paramètres par défaut du cluster Hive peuvent ne pas convenir aux requête
 
      Comme nous pouvons le constater, vu la taille des données, l’ajustement de ces paramètres permet d’optimiser le nombre de mappeurs utilisés.
 
-4. Voici d’autres **options avancées** optimisant les performances de Hive. Elles permettent de configurer la mémoire allouée aux tâches de mappage et de réduction, et d’ajuster au mieux les performances. Gardez à l’esprit que *mapreduce.reduce.memory.mb* ne peut pas être supérieur à la mémoire physique de chaque nœud de travail du cluster Hadoop.
+4. Voici d’autres **options avancées** optimisant les performances de Hive. Ces options vous permettent de configurer la mémoire allouée aux tâches de mappage et de réduction, et d’ajuster au mieux les performances. Gardez à l’esprit que *mapreduce.reduce.memory.mb* ne peut pas être supérieur à la mémoire physique de chaque nœud de travail du cluster Hadoop.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;
