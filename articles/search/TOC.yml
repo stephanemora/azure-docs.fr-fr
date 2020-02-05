@@ -1,4 +1,4 @@
-- name: Documentation sur la Recherche cognitive Azure
+- name: Documentation sur la recherche cognitive Azure
   href: index.yml
 - name: Vue d’ensemble
   expanded: true
@@ -13,7 +13,7 @@
       href: search-create-service-portal.md
     - name: Portail
       items:
-        - name: Créer un index
+        - name: Création d'un index
           href: search-get-started-portal.md
         - name: Créer une application
           href: search-create-app-portal.md
@@ -27,7 +27,7 @@
       href: search-get-started-java.md
     - name: Node.js
       href: search-get-started-nodejs.md
-    - name: postman
+    - name: Postman
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -115,7 +115,7 @@
       items:
         - name: Présentation de la sécurité
           href: search-security-overview.md
-        - name: Créer un point de terminaison privé
+        - name: Créer un Private Endpoint
           href: service-create-private-endpoint.md
         - name: Key Management Service
           href: search-security-api-keys.md
@@ -135,19 +135,19 @@
           href: search-api-preview.md
         - name: Développer dans .NET
           href: search-howto-dotnet-sdk.md
-        - name: Mettre à niveau le kit SDK
+        - name: Mettre à niveau le kit de développement logiciel (SDK)
           items:
             - name: ".NET SDK\_10.0"
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
               href: search-dotnet-sdk-migration-version-9.md
-            - name: Kit SDK .NET 5.0
+            - name: Kit de développement logiciel (SDK) .NET 5.0
               href: search-dotnet-sdk-migration-version-5.md
-            - name: Kit SDK .NET 3.0
+            - name: Kit de développement logiciel (SDK) .NET 3.0
               href: search-dotnet-sdk-migration.md
-            - name: Kit SDK .NET 1.1
+            - name: Kit de développement logiciel (SDK) .NET 1.1
               href: search-dotnet-sdk-migration-version-1.md
-            - name: Kit SDK .NET Management
+            - name: Kit de développement logiciel (SDK) .NET Management
               href: search-dotnet-mgmt-sdk-migration.md
         - name: "Mettre à niveau l’API\_REST"
           href: search-api-migration.md
@@ -345,8 +345,8 @@
       items:
         - name: Recherche 2019-05-06
           href: /rest/api/searchservice
-        - name: Réinitialiser les compétences (api-version=2019-05-06-Preview)
-          href: preview-api-resetskills.md
+        - name: Recherche 2019-05-06-Preview
+          href: /rest/api/searchservice/index-2019-05-06-preview
         - name: Gestion 2015-08-15
           href: /rest/api/searchmanagement
         - name: Gestion 2019-10-01-Preview

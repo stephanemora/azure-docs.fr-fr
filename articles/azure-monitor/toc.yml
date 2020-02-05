@@ -14,11 +14,11 @@
       href: learn/quick-monitor-azure-resource.md
     - name: Surveillance des machines virtuelles
       items:
-        - name: Collecter - Machines virtuelles Azure
+        - name: Machines virtuelles Azure
           href: learn/quick-collect-azurevm.md
-        - name: Collecter - Ordinateur Linux
+        - name: Ordinateur Linux
           href: learn/quick-collect-linux-computer.md
-        - name: Collecter - Ordinateur Windows
+        - name: Ordinateur Windows
           href: learn/quick-collect-windows-computer.md
     - name: Surveillance des applications
       items:
@@ -439,6 +439,8 @@
               href: app/configuration-with-applicationinsights-config.md
             - name: Mettre en corrélation les sources de données personnalisées
               href: app/custom-data-correlation.md
+            - name: Chaînes de connexion
+              href: app/sdk-connection-string.md
             - name: Rubriques spéciales
               items:
                 - name: Diagnostic approfondi des applications et services web
@@ -535,23 +537,18 @@
               href: 'faq.md#agents'
             - name: Extension Diagnostics Azure
               items:
-                - name: Vue d’ensemble
-                  href: platform/diagnostics-extension-overview.md
-                - name: Collecter les journaux d’activité
-                  href: platform/azure-storage-iis-table.md
                 - name: Windows
+                  displayname: diagnostics extension
                   items:
-                    - name: Historique des versions
-                      href: platform/diagnostics-extension-schema.md
-                    - name: schéma
-                      href: platform/diagnostics-extension-schema-1dot3.md
-                    - name: Envoyer à Stockage Azure
-                      href: platform/diagnostics-extension-to-storage.md
-                    - name: Envoyer à Application Insights
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Envoyer à Event Hubs
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: Envoyer à Azure Monitor en tant que métriques personnalisées
+                    - name: Vue d’ensemble
+                      href: platform/diagnostics-extension-overview.md
+                    - name: Installation et configuration
+                      items:
+                        - name: PowerShell
+                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                        - name: Modèle Resource Manager
+                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                    - name: Envoyer aux métriques Azure Monitor
                       items:
                         - name: Machine virtuelle
                           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
@@ -561,17 +558,28 @@
                           href: platform/collect-custom-metrics-guestos-vm-classic.md
                         - name: service cloud
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                    - name: Envoyer à Event Hubs
+                      href: platform/diagnostics-extension-stream-event-hubs.md
+                    - name: Envoyer aux journaux
+                      href: platform/azure-storage-iis-table.md
+                    - name: Envoyer à Stockage Azure
+                      href: platform/diagnostics-extension-to-storage.md
+                    - name: Envoyer à Application Insights
+                      href: platform/diagnostics-extension-to-application-insights.md
+                    - name: Historique des versions
+                      href: platform/diagnostics-extension-schema.md
                     - name: Format des journaux de ressources JSON Lines
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: Dépannage
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
+                  displayname: diagnostics extension
                   items:
-                    - name: Utiliser avec des machines virtuelles
-                      href: ../virtual-machines/extensions/diagnostics-linux.md
-                    - name: Métriques personnalisées avec Telegraf
+                    - name: Vue d’ensemble
+                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                    - name: Collecter des métriques avec Telegraf
                       href: platform/collect-custom-metrics-linux-telegraf.md
-            - name: Agents Log Analytics
+            - name: Agent Log Analytics
               items:
                 - name: Vue d’ensemble
                   href: platform/log-analytics-agent.md
@@ -589,6 +597,28 @@
                   href: platform/agent-manage.md
                 - name: Agent Health
                   href: insights/solution-agenthealth.md
+                - name: Sources de données
+                  items:
+                    - name: Vue d’ensemble
+                      href: platform/agent-data-sources.md
+                    - name: Événements Windows
+                      href: platform/data-sources-windows-events.md
+                    - name: Données JSON personnalisées
+                      href: platform/data-sources-json.md
+                    - name: Données de performances de CollectD
+                      href: platform/data-sources-collectd.md
+                    - name: syslog
+                      href: platform/data-sources-syslog.md
+                    - name: Compteurs de performance
+                      href: platform/data-sources-performance-counters.md
+                    - name: Performances des applications Linux
+                      href: platform/data-sources-linux-applications.md
+                    - name: Journaux d’activité IIS
+                      href: platform/data-sources-iis-logs.md
+                    - name: Journaux d’activité personnalisés
+                      href: platform/data-sources-custom-logs.md
+                    - name: Champs personnalisés
+                      href: platform/custom-fields.md
             - name: Dépanner
               items:
                 - name: "Extension de machine virtuelle Log\_Analytics"
@@ -600,28 +630,6 @@
                 - name: "Agent Linux de Log\_Analytics"
                   displayname: 'troubleshoot, troubleshooting'
                   href: platform/agent-linux-troubleshoot.md
-        - name: Sources de données des agents
-          items:
-            - name: Vue d’ensemble
-              href: platform/agent-data-sources.md
-            - name: Événements Windows
-              href: platform/data-sources-windows-events.md
-            - name: Données JSON personnalisées
-              href: platform/data-sources-json.md
-            - name: Données de performances de CollectD
-              href: platform/data-sources-collectd.md
-            - name: syslog
-              href: platform/data-sources-syslog.md
-            - name: Compteurs de performance
-              href: platform/data-sources-performance-counters.md
-            - name: Performances des applications Linux
-              href: platform/data-sources-linux-applications.md
-            - name: Journaux d’activité IIS
-              href: platform/data-sources-iis-logs.md
-            - name: Journaux d’activité personnalisés
-              href: platform/data-sources-custom-logs.md
-            - name: Champs personnalisés
-              href: platform/custom-fields.md
         - name: Azure Monitor pour machines virtuelles
           items:
             - name: Vue d’ensemble
@@ -660,14 +668,16 @@
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: Désactiver l’analyse
               href: insights/vminsights-optout.md
-        - name: Solution Capacité et performances
-          href: insights/capacity-performance.md
-        - name: Solution Analytique VMware
-          href: insights/vmware.md
-        - name: Solution Wire Data
-          href: insights/wire-data.md
-        - name: Solution Service Map
-          href: insights/service-map.md
+        - name: Solutions
+          items:
+            - name: Solution Capacité et performances
+              href: insights/capacity-performance.md
+            - name: Solution Analytique VMware
+              href: insights/vmware.md
+            - name: Solution Wire Data
+              href: insights/wire-data.md
+            - name: Solution Service Map
+              href: insights/service-map.md
         - name: Groupes d’ordinateurs
           href: platform/computer-groups.md
     - name: Analyser les conteneurs
@@ -1125,6 +1135,10 @@
   items:
     - name: Limites du service
       href: service-limits.md
+    - name: Extension Diagnostics
+      items:
+        - name: schéma
+          href: platform/diagnostics-extension-schema-1dot3.md
     - name: Application Insights
       items:
         - name: Collecte automatique de dépendance

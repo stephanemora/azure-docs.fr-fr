@@ -1,30 +1,30 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentation de l’Explorateur de données Azure
+title: Documentation Azure Data Explorer
 metadata:
-  title: 'Documentation Azure Data Explorer - Guides de démarrage rapide, tutoriels et informations de référence sur les langages et API'
-  description: L’Explorateur de données Azure est une plateforme cloud d’analytique des journaux d’activité optimisée pour les requêtes Big Data ad hoc.
+  title: 'Guides de démarrage rapide, tutoriels et documentation sur les langages/API - Azure Data Explorer'
+  description: Azure Data Explorer est une plateforme cloud d’analytique des journaux optimisée pour les requêtes Big Data ad hoc.
   author: orspod
   ms.author: orspodek
   ms.service: data-explorer
   ms.topic: landing-page
   ms.date: 03/24/2019
 abstract:
-  description: "<p>Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils\_IoT, etc. Vous pouvez utiliser Azure Data Explorer pour collecter, stocker et analyser diverses données en vue d’améliorer les produits et l’expérience des clients, ainsi que de superviser les appareils et de booster les opérations.</p><p>Découvrez comment utiliser l’Explorateur de données Azure avec nos guides de démarrage rapide, nos tutoriels et nos informations de référence.</p>"
+  description: "<p>Azure Data Explorer est un service d’analytique données rapide et complètement managé pour l’analyse en temps réel de gros volumes de données diffusées en continu par des applications, des sites web, des appareils\_IoT, etc. Vous pouvez utiliser Azure Data Explorer pour collecter, stocker et analyser diverses données en vue d’améliorer les produits et l’expérience des clients, ainsi que de superviser les appareils et de booster les opérations.</p><p>Découvrez comment utiliser Azure Data Explorer avec nos guides de démarrage rapide, nos tutoriels et nos informations de référence.</p>"
   aside:
     image:
       alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: "Qu’est-ce que l’Explorateur de données Azure\_? (19:47)"
+    title: "Qu’est-ce qu’Azure Data Explorer\_? (19:47)"
     href: 'https://youtu.be/D_AJk2lAepw'
     width: 250
 sections:
   - title: "Démarrages en 5\_minutes"
     items:
       - type: paragraph
-        text: 'Découvrez comment provisionner et utiliser l’Explorateur de données Azure :'
+        text: "Découvrez comment provisionner et utiliser Azure Data Explorer\_:"
       - type: list
         style: icon48
         items:
@@ -48,21 +48,21 @@ sections:
               src: /azure/data-explorer/media/index/logo-python.svg
             text: Interroger des données avec Python
             href: /azure/data-explorer/python-query-data
-  - title: Didacticiels pas à pas
+  - title: Tutoriels pas à pas
     items:
       - type: paragraph
         text: 'Découvrez comment créer des solutions de bout en bout :'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/data-explorer/visualize-power-bi">Visualiser des données provenant de l’Explorateur de données Azure dans Power BI</a>
+          - html: <a href="/azure/data-explorer/visualize-power-bi">Visualiser des données Azure Data Explorer dans Power BI</a>
   - title: Formation vidéo gratuite Pluralsight
     items:
       - type: list
         style: cards
         className: cardsFTitle
         items:
-          - title: Langage de requête pour l’Explorateur de données Azure
+          - title: Langage de requête pour Azure Data Explorer
             href: 'https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch'
             image:
               src: /azure/data-explorer/media/index/logo-pluralsight.svg
