@@ -2,18 +2,18 @@
 title: Extraire, transformer et charger (ETL) des données à l’échelle - Azure HDInsight
 description: Découvrez comment la fonction Extraction, transformation et chargement est utilisée dans HDInsight avec Apache Hadoop.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.author: ashishth
-ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: hdinsightactive
+ms.date: 01/27/2020
+ms.openlocfilehash: f2c18a1e858fcebf8d2c82210f2290cf4a14d061
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435790"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846012"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
@@ -39,7 +39,7 @@ Pour plus d’informations, consultez la section [Utiliser Apache Oozie avec Apa
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 
-Azure Data Factory fournit des capacités d’orchestration sous la forme d’une plateforme en tant que service. Il s’agit d’un service d’intégration de données basé sur le cloud qui vous permet de créer des flux de travail orientés données dans le cloud pour orchestrer et automatiser le déplacement et la transformation des données.
+Azure Data Factory fournit des capacités d’orchestration sous la forme d’une plateforme en tant que service. Il s’agit d’un service d’intégration de données basé sur le cloud qui vous permet de créer des workflows pilotés par les données dans le cloud, pour orchestrer et automatiser le déplacement des données et la transformation des données.
 
 À l’aide d’Azure Data Factory, vous pouvez :
 
@@ -55,7 +55,7 @@ Les fichiers de données sources sont généralement chargés dans un emplacemen
 
 ### <a name="azure-storage"></a>Stockage Azure
 
-Le [stockage Azure](https://azure.microsoft.com/services/storage/blobs/) a des objectifs d’extensibilité spécifiques. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le Stockage Blob](../../storage/blobs/scalability-targets.md). Pour la plupart des nœuds d’analytique, Stockage Azure propose une meilleure mise à l’échelle avec de nombreux petits fichiers.  Stockage Azure garantit des performances identiques, quel que soit le nombre de fichiers ou la taille des fichiers (tant que vous êtes dans les limites que vous avez définies).  Cela signifie que vous pouvez stocker des téraoctets de données et que vous obtenez toujours des performances cohérentes, que vous utilisiez un sous-ensemble des données ou toutes les données.
+Le [stockage Azure](https://azure.microsoft.com/services/storage/blobs/) a des objectifs d’extensibilité spécifiques. Pour plus d’informations, consultez [Objectifs de performance et de scalabilité pour le Stockage Blob](../../storage/blobs/scalability-targets.md). Pour la plupart des nœuds d’analytique, Stockage Azure propose une meilleure mise à l’échelle avec de nombreux petits fichiers.  Stockage Azure garantit des performances identiques, quel que soit le nombre de fichiers ou la taille des fichiers (tant que vous êtes dans les limites que vous avez définies).  Cela signifie que vous pouvez stocker des téraoctets de données et que vous obtenez toujours des performances cohérentes, que vous utilisiez une partie ou l’intégralité des données.
 
 Stockage Azure a plusieurs types d’objets blob.  Un *blob d’ajout* est idéal pour le stockage de fichiers journaux d’activité web ou de données de capteur.  
 
@@ -91,7 +91,7 @@ Azure SQL Data Warehouse (SQL DW) est un magasin de base de données relationnel
 
 Apache HBase est un magasin clé-valeur disponible dans Azure HDInsight.  Apache HBase est une base de données NoSQL open source, basée sur Hadoop et modélisée d'après Google BigTable. HBase fournit un accès aléatoire performant et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées, dans une base de données sans schéma, organisée par familles de colonnes.
 
-Les données sont stockées dans les lignes d'une table et les données au sein d'une ligne sont regroupées par familles de colonnes. HBase est une base de données sans schéma dans le sens où ni les colonnes ni le type de données qui y sont stockées ne doivent être définis avant de pouvoir les utiliser. Le code open source peut être mis à l'échelle de façon linéaire pour gérer des pétaoctets de données dans des milliers de nœuds. HBase peut reposer sur la redondance des données, le traitement par lots et d’autres fonctionnalités qui sont fournies par des applications distribuées dans l’écosystème Hadoop.   
+Les données sont stockées dans les lignes d'une table et les données au sein d'une ligne sont regroupées par familles de colonnes. HBase est une base de données sans schéma dans le sens où ni les colonnes ni le type de données qui y sont stockées ne doivent être définis avant de pouvoir les utiliser. Le code open source peut être mis à l'échelle de façon linéaire pour gérer des pétaoctets de données dans des milliers de nœuds. HBase peut reposer sur la redondance des données, le traitement par lots et d’autres fonctionnalités qui sont fournies par des applications distribuées dans l’écosystème Hadoop.
 
 HBase est une excellente destination pour les données de capteur et de journal pour des analytiques futures.
 
@@ -105,9 +105,9 @@ Azure propose trois bases de données relationnelles PaaS (platforme-as-a-servic
 * [Azure Database pour MySQL](../../mysql/overview.md) est une implémentation d’Oracle MySQL.
 * [Azure Database pour PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) est une implémentation de PostgreSQL.
 
-Ces produits ont une scalabilité verticale, ce qui signifie qu’ils peuvent avoir une échelle plus grande en ajoutant plus d’UC et de mémoire.  Vous pouvez également choisir d’utiliser des disques Premium avec les produits pour bénéficier de meilleures performances d’E/S.
+Ces produits font l’objet d’un scale-up, ce qui signifie qu’ils sont mis à l’échelle en ajoutant plus de processeur et de mémoire.  Vous pouvez également choisir d’utiliser des disques Premium avec les produits pour bénéficier de meilleures performances d’E/S.
 
-## <a name="azure-analysis-services"></a>Azure Analysis Services 
+## <a name="azure-analysis-services"></a>Azure Analysis Services
 
 Azure Analysis Services (AAS) est un moteur de données analytiques utilisé dans l’aide à la décision et l’analytique métier. Il fournit des données analytiques pour les rapports d’entreprise et les applications clientes, telles que Power BI, Excel, les rapports Reporting Services et d’autres outils de visualisation des données.
 
@@ -115,11 +115,11 @@ Les cubes d’analyse peuvent être mis à l’échelle en modifiant les niveaux
 
 ## <a name="extract-and-load"></a>Extraire et charger
 
-Une fois que les données existent dans Azure, vous pouvez utiliser de nombreux services pour les extraire et les charger dans d’autres produits.  HDInsight prend en charge Sqoop et Flume. 
+Une fois que les données existent dans Azure, vous pouvez utiliser de nombreux services pour les extraire et les charger dans d’autres produits.  HDInsight prend en charge Sqoop et Flume.
 
 ### <a name="apache-sqoop"></a>Apache Sqoop
 
-Apache Sqoop est un outil conçu pour transférer efficacement des données entre des sources de données structurées, semi-structurées et non structurées. 
+Apache Sqoop est un outil conçu pour transférer efficacement des données entre des sources de données structurées, semi-structurées et non structurées.
 
 Sqoop utilise MapReduce pour importer et exporter les données, fournir une tolérance de panne et un fonctionnement parallèle.
 
@@ -131,10 +131,10 @@ Apache Flume ne peut pas être utilisé avec Azure HDInsight.  Une installation 
 
 ## <a name="transform"></a>Transformer
 
-Une fois qu’il existe des données dans l’emplacement choisi, vous devez les nettoyer, combiner ou préparer pour un modèle d’utilisation spécifique.  Hive, Pig et Spark SQL sont des choix adéquats pour ce type de travail.  Ils sont tous pris en charge sur HDInsight. 
+Une fois qu’il existe des données dans l’emplacement choisi, vous devez les nettoyer, combiner ou préparer pour un modèle d’utilisation spécifique.  Hive, Pig et Spark SQL sont des choix adéquats pour ce type de travail.  Ils sont tous pris en charge sur HDInsight.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Utiliser Apache Pig avec Apache Hadoop sur HDInsight](hdinsight-use-pig.md)
-* [Utiliser Apache Hive comme outil ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Utiliser Apache Hive comme outil ETL](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 * [Utiliser Azure Data Lake Storage Gen2 avec des clusters Azure HDInsight](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Déplacer des données d’Azure SQL Database vers la table Apache Hive](./apache-hadoop-use-sqoop-mac-linux.md)

@@ -4,14 +4,14 @@ description: Découvrez les options de configuration clientes disponibles pour a
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "71261307"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720994"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 
@@ -40,18 +40,18 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
 
    * Mode direct
 
-     Le mode direct prend en charge la connectivité via les protocoles TCP et HTTPS. Il s’agit du mode de connectivité par défaut si vous utilisez le [SDK Microsoft.Azure.Cosmos/.Net V3](sql-api-sdk-dotnet-standard.md).
+     Le mode direct prend en charge la connectivité via les protocoles TCP. Il s’agit du mode de connectivité par défaut si vous utilisez le [SDK Microsoft.Azure.Cosmos/.Net V3](sql-api-sdk-dotnet-standard.md).
 
      Quand vous utilisez le mode passerelle, Cosmos DB utilise le port 443, et les ports 10250, 10255 et 10256 lors de l’utilisation de l’API pour MongoDB d’Azure Cosmos DB. Le port 10250 est mappé par défaut à une instance MongoDB sans géo-réplication, et les ports 10255/10256 sont mappés à l’instance MongoDB avec la fonctionnalité de géo-réplication. Lors de l’utilisation de TCP en mode direct, en plus des ports de passerelle, vous devez vérifier que la plage de ports comprise entre 10000 et 20000 est ouverte, car Azure Cosmos DB utilise des ports TCP dynamiques. Si ces ports ne sont pas ouverts et que vous essayez d’utiliser le protocole TCP, vous recevez une erreur de type 503 Service indisponible. Le tableau suivant montre les modes de connexion disponibles pour les différentes API et l’utilisateur de ports de service pour chaque API :
 
      |Mode de connexion  |Protocole pris en charge  |Kits SDK pris en charge  |API/Port de service  |
      |---------|---------|---------|---------|
      |Passerelle  |   HTTPS    |  Tous les kits SDK    |   SQL(443), Mongo(10250, 10255, 10256), Table(443), Cassandra(10350), Graph(443)    |
-     |Directement    |     TCP    |  Kit de développement logiciel (SDK) .NET    | Ports dans la plage de 10 000 à 20 000 |
+     |Direct    |     TCP    |  Kit de développement logiciel (SDK) .NET    | Ports dans la plage de 10 000 à 20 000 |
 
-     Azure Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Direct TCP et HTTPS SSL utilisent tous deux SSL pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
+     Azure Cosmos DB fournit un modèle de programmation RESTful simple et ouvert sur HTTPS. De plus, il fournit un protocole TCP très performant qui utilise aussi un modèle de communication RESTful, disponible via le Kit de développement logiciel (SDK) .NET. Le protocole TCP utilise SSL pour l’authentification initiale et le chiffrement du trafic. Pour de meilleures performances, utilisez le protocole TCP lorsque cela est possible.
 
-     Pour le kit SDK V3, le mode de connectivité est configuré lors de la création de l’instance CosmosClient, dans le cadre de CosmosClientOptions.
+     Pour le kit SDK V3, le mode de connectivité est configuré lors de la création de l’instance CosmosClient, dans le cadre de CosmosClientOptions. Souvenez-vous que le mode direct est le mode par défaut.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -59,7 +59,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct
+        ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
      });
      ```
 
@@ -71,7 +71,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
-        ConnectionMode = ConnectionMode.Direct,
+        ConnectionMode = ConnectionMode.Direct, //ConnectionMode.Gateway is the default
         ConnectionProtocol = Protocol.Tcp
      });
      ```
