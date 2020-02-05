@@ -1,6 +1,6 @@
 - name: Documentation de l’API Vision par ordinateur
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Qu’est-ce que le service Vision par ordinateur ?
@@ -135,13 +135,11 @@
         - name: Utiliser des instances de conteneur
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
-    - name: Utilisez le service connecté Vision par ordinateur
-      href: vs-computer-vision-connected-service.md
     - name: Analyser des vidéos en temps réel
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
     - name: Azure PowerShell
       href: 'https://aka.ms/azure-powershell-cognitiveservices'
@@ -171,7 +169,7 @@
           href: Tutorials/CSharpTutorial.md
         - name: Autres exemples de Vision par ordinateur
           href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: FAQ.md
     - name: Taxonomie des catégories
       href: Category-Taxonomy.md

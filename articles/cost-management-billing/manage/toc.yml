@@ -101,8 +101,6 @@
           href: ea-portal-vm-reservations.md
         - name: "Résoudre les problèmes d’accès au portail Azure\_EA"
           href: ea-portal-troubleshoot.md
-        - name: Tâches EA dans un contrat client Microsoft
-          href: mca-enterprise-operations.md
 - name: Dépanner
   items:
     - name: Aucun abonnement trouvé

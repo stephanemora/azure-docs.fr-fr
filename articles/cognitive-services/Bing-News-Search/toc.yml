@@ -1,6 +1,6 @@
 - name: Documentation Recherche d’actualités Bing
   href: ../Bing-Web-Search/index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   expanded: true
   items:
     - name: Qu’est-ce que l’API Recherche d’actualités Bing ?
@@ -56,10 +56,6 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: Mettre à niveau l’API de v5 vers v7
       href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Interroger Azure SQL Data Warehouse (sqlcmd) (Visual Studio)
-      items:
-        - name: Utiliser le service connecté Recherche d’actualités Bing
-          href: vs-bing-news-search-connected-service.md
 - name: Concepts
   items:
     - name: Envoi de requêtes de recherche

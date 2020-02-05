@@ -26,7 +26,7 @@
         - name: Node.js
           href: quickstart-connect-pnp-device-node.md
     - name: Connecter un appareil à IoT Central
-      href: ../iot-central/preview/tutorial-connect-pnp-device.md
+      href: ../iot-central/core/tutorial-connect-pnp-device.md
     - name: Connecter à un appareil dans votre solution
       items:
         - name: 'C#'
@@ -99,7 +99,7 @@
           href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits Service IoT Service SDK
+        - name: Kits de développement logiciel (SDK) IoT Service
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Cartes
           href: /azure/azure-maps
@@ -109,7 +109,7 @@
       items:
         - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
-        - name: Kits IoT Device SDK
+        - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:
