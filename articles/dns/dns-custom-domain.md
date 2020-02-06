@@ -2,23 +2,23 @@
 title: Intégrer Azure DNS à vos ressources Azure – Azure DNS
 description: Dans cet article, découvrez comment utiliser Azure DNS et fournir un DNS pour vos ressources Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
-ms.author: allensu
-ms.openlocfilehash: b005cb9e0611d18c24e2b77abf493292d47f44b4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212415"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934904"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Utiliser DNS Azure pour fournir des paramètres de domaine personnalisé pour un service Azure
 
 DNS Azure fournit un DNS pour un domaine personnalisé, pour toutes vos ressources Azure prenant en charge les domaines personnalisés ou ayant un nom de domaine complet (FQDN). C'est le cas, par exemple, si vous disposez d'une application web Azure et souhaitez que vos utilisateurs y accèdent en utilisant soit contoso.com ou www\.contoso.com comme nom de domaine complet. Cet article vous guide tout au long de la configuration de votre service Azure avec DNS Azure pour l’utilisation de domaines personnalisés.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour pouvoir utiliser DNS Azure pour votre domaine personnalisé, vous devez tout d’abord déléguer votre domaine à DNS d’Azure. Pour obtenir des instructions sur la façon de configurer vos serveurs de noms pour la délégation, voir [Délégation de domaine à Azure DNS](./dns-delegate-domain-azure-dns.md). Une fois votre domaine délégué à votre zone DNS Azure, vous êtes en mesure de configurer les enregistrements DNS nécessaires.
 
@@ -40,7 +40,7 @@ Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Ent
 
 |Propriété  |Valeur  |Description  |
 |---------|---------|---------|
-|Nom     | myFunctionApp        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|Name     | myFunctionApp        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
@@ -65,8 +65,8 @@ Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Ent
 
 |Propriété  |Valeur  |Description  |
 |---------|---------|---------|
-|Nom     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
-|Type     | A        | Utiliser un enregistrement A si la ressource est une adresse IP.        |
+|Name     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|Type     | Un        | Utiliser un enregistrement A si la ressource est une adresse IP.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
 |Adresse IP     | `<your ip address>`       | Adresse IP publique.|
@@ -92,7 +92,7 @@ Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Ent
 
 |Propriété  |Valeur  |Description  |
 |---------|---------|---------|
-|Nom     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|Name     | mywebserver        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias. Si la ressource utilisait une adresse IP, un enregistrement A serait utilisé.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
@@ -128,7 +128,7 @@ Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Ent
 
 |Propriété  |Valeur  |Description  |
 |---------|---------|---------|
-|Nom     | asverify.mystorageaccount        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|Name     | asverify.mystorageaccount        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |
@@ -156,7 +156,7 @@ Accédez à votre zone DNS, puis cliquez sur **+ Jeu d’enregistrements**. Ent
 
 |Propriété  |Valeur  |Description  |
 |---------|---------|---------|
-|Nom     | cdnverify.mycdnendpoint        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
+|Name     | cdnverify.mycdnendpoint        | Cette valeur et l’étiquette du nom du domaine constituent le FQDN pour le nom de domaine personnalisé.        |
 |Type     | CNAME        | Utiliser un enregistrement CNAME équivaut à utiliser un alias.        |
 |TTL     | 1        | 1 est utilisé pour 1 heure        |
 |Unité de durée de vie     | Heures        | Les heures sont utilisées en tant que mesure du temps         |

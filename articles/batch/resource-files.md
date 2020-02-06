@@ -2,18 +2,18 @@
 title: Création et utilisation de fichiers de ressources – Azure Batch
 description: Découvrez comment créer des fichiers de ressources Batch à partir de diverses sources d’entrée. Cet article décrit quelques méthodes courantes pour les créer et les placer sur une machine virtuelle.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
-ms.author: jushiman
-ms.openlocfilehash: 61d4baffe65da52f8ca926bc911b26e3f1c9a79a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: dd8046891362cf4d4d7eed805fbc13d0f784a99c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029351"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019262"
 ---
 # <a name="creating-and-using-resource-files"></a>Création et utilisation de fichiers de ressources
 

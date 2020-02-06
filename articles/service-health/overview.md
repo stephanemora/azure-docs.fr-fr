@@ -3,12 +3,12 @@ title: Qu’est-ce qu’Azure Service Health ?
 description: Obtenez des informations personnalisées concernant l’incidence des problèmes et de la maintenance actuels et futurs d’Azure sur vos applications Azure.
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 4d9d9dcb4db483b524cb7be8e006ba12edcc8442
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 039583d9243f8ce76b33afcee098e71a670b5285
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463956"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939198"
 ---
 # <a name="what-is-azure-service-health"></a>Qu’est-ce qu’Azure Service Health ?
 
@@ -27,3 +27,5 @@ Ensemble, ces expériences vous donnent une vue complète de l’intégrité d�
 **Regarder une présentation de la page État d’Azure, d’Azure Service Health et d’Azure Resource Health**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]

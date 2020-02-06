@@ -3,7 +3,7 @@ title: Aperçu du DNS inversé dans Azure - Azure DNS
 description: Dans ce parcours d’apprentissage, commencez à découvrir comment fonctionne le DNS inversé et comment il peut être utilisé dans Azure
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: KumuD
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: allensu
-ms.openlocfilehash: 2788cc3957e9822e61c10f5f06a29802e225bcbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211026"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932295"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Vue d’ensemble du DNS inversé et prise en charge dans Azure
 

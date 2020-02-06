@@ -9,25 +9,25 @@ ms.reviewer: jasonwhowell
 ms.assetid: 9de1bcf4-b15b-4d0b-9284-8889ecf0c438
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 3b5b11b148910e9bd1348b20a25fa8383fc2ec9c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 21d59f6543df7fe9d1fad47a006260bff9c93e2b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812738"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988054"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-sdk-for-nodejs"></a>Gestion d’Azure Data Lake Analytics à l’aide du kit de développement logiciel (SDK) Azure pour Node.js
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
 Cet article décrit comment gérer des comptes Azure Data Lake Analytics, des sources de données, des utilisateurs et des travaux utilisant une application écrite à l’aide du kit de développement logiciel (SDK) Azure pour Node.js. 
 
-Les versions suivantes sont prises en charge :
+Les versions suivantes sont prises en charge :
 * **Version de Node.js : 0.10.0 ou version ultérieure**
 * **Version de l’API REST pour le compte : 2015-10-01-preview**
 * **Version de l’API REST pour le catalogue : 2015-10-01-preview**
 * **Version de l’API REST pour la tâche : 2016-03-20-preview**
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 * Gestion de compte : créer, obtenir, répertorier, mettre à jour et supprimer.
 * Gestion de travail : envoyer, obtenir, répertorier et annuler.
 * Gestion de catalogue : obtenir et répertorier.
@@ -131,5 +131,3 @@ catalogClient.catalog.listDatabases(accountName, function (err, result, request,
 
 ## <a name="see-also"></a>Voir aussi
 * [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js](https://github.com/azure/azure-sdk-for-node)
-* [Kit de développement logiciel (SDK) Microsoft Azure pour Node.js - Gestion du Magasin Data Lake](https://github.com/Azure/azure-sdk-for-node/tree/autorest/lib/services/dataLake.Store)
-

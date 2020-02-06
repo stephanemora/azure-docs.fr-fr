@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 0ab714efc3e9eb0de9d6753854031110e09fe06b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147830"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939323"
 ---
 # <a name="get-started-with-device-management-net"></a>Prise en main de la gestion d’appareils (.NET)
 
@@ -34,7 +34,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 * **TriggerReboot**. Cette application appelle une méthode directe sur l’application d’appareil simulé et affiche la réponse et les propriétés signalées mises à jour.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Visual Studio.
 
@@ -58,7 +58,7 @@ Ce didacticiel vous explique les procédures suivantes :
 
 Dans cette section, vous créez une application console .NET (à l’aide de C#) qui lance un redémarrage à distance sur un appareil avec une méthode directe. L’application utilise des requêtes du jumeau d’appareil pour déterminer l’heure du dernier redémarrage de cet appareil.
 
-1. Dans Visual Studio, sélectionnez **Créer un projet**.
+1. Dans Visual Studio, sélectionnez **Créer un nouveau projet**.
 
 1. Sous **Créer un projet**, recherchez et sélectionnez le modèle de projet **Application console (.NET Framework)** , puis sélectionnez **suivant**.
 
@@ -155,7 +155,7 @@ Pour créer l’application d’appareil simulé, procédez comme suit :
 
     ![Application cliente dans la fenêtre du gestionnaire de package NuGet](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 
-   Cette opération a pour effet de télécharger, d’installer et d’ajouter une référence au package NuGet [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) et ses dépendances.
+   Cette étape télécharge, installe et ajoute une référence au package NuGet [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) et à ses dépendances.
 
 1. Ajoutez les instructions `using` suivantes en haut du fichier **Program.cs** :
 
@@ -200,7 +200,7 @@ Pour créer l’application d’appareil simulé, procédez comme suit :
            Console.WriteLine("Error in sample: {0}", ex.Message);
        }
 
-       string result = "'Reboot started.'";
+       string result = @"{""result"":""Reboot started.""}";
        return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
    }
    ```

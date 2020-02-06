@@ -3,22 +3,34 @@ title: Fonctionnalités de sécurité pour protéger les charges de travail clou
 description: Découvrez comment utiliser les fonctionnalités de sécurité dans Sauvegarde Azure pour renforcer la sécurité des sauvegardes.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 20cf322dec0827c00b15a62bf4f7695fc4ed0992
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028209"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705494"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Fonctionnalités de sécurité pour protéger les charges de travail cloud utilisant Sauvegarde Azure
 
-Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les données de sauvegarde après la suppression. Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un acteur malveillant supprime la sauvegarde d’une machine virtuelle (ou que les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. Cette conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour le client. Azure chiffre également toutes les données au repos sauvegardées, à l’aide de [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), afin de renforcer la sécurité de vos données.
+Les préoccupations en matière de risques de sécurité, comme les logiciels malveillants, le ransomware et les intrusions, sont de plus en plus nombreuses. Ces problèmes de sécurité peuvent coûter cher, à la fois en termes d’argent et de données. Pour vous protéger contre ces attaques, Sauvegarde Azure fournit désormais des fonctionnalités de sécurité visant à protéger les données de sauvegarde après la suppression.
+
+Une fonctionnalité de ce type est la suppression réversible. Avec la suppression réversible, même si un acteur malveillant supprime la sauvegarde d’une machine virtuelle (ou que les données de sauvegarde sont accidentellement supprimées), les données de sauvegarde sont conservées pendant 14 jours supplémentaires, ce qui permet la récupération de cet élément de sauvegarde sans perte de données. La conservation des données de sauvegarde pendant 14 jours supplémentaires dans l’état « suppression réversible » n’engendre pas de frais pour le client. Azure chiffre également toutes les données au repos sauvegardées, à l’aide de [Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), afin de renforcer la sécurité de vos données.
+
+Une protection contre la suppression réversible pour les machines virtuelles Azure est généralement disponible.
+
+>[!NOTE]
+>La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure est maintenant disponible en préversion.<br>
+>Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
+
+## <a name="soft-delete"></a>Suppression réversible
+
+### <a name="soft-delete-for-vms"></a>Suppression réversible pour les machines virtuelles
+
+La suppression réversible pour les machines virtuelles protège les sauvegardes de vos machines virtuelles des suppressions involontaires. Même après leur suppression, les sauvegardes sont conservées à l’état de suppression réversible pendant 14 jours supplémentaires.
 
 > [!NOTE]
 > La suppression réversible protège uniquement les données de sauvegarde supprimées. Si une machine virtuelle est supprimée sans sauvegarde, la fonctionnalité de suppression réversible ne conserve pas les données. Toutes les ressources doivent être protégées avec Sauvegarde Azure pour garantir une résilience complète.
 >
-
-## <a name="soft-delete"></a>Suppression réversible
 
 ### <a name="supported-regions"></a>Régions prises en charge
 

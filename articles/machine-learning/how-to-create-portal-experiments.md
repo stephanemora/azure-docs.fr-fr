@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894020"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720399"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Créer, explorer et déployer des expériences de Machine Learning automatisé avec Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -153,9 +153,15 @@ Kurtosis| Mesure de la latéralité des données de cette colonne par rapport à
 
 <a name="preprocess"></a>
 
-## <a name="advanced-preprocessing-options"></a>Options de prétraitement avancé
+## <a name="advanced-featurization-options"></a>Options avancées de caractérisation
 
-Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avancé `Preprocess`. Ainsi, dans le cadre du prétraitement, les étapes suivantes de garde-fous et de personnalisation des données sont effectuées automatiquement.
+Lorsque vous configurez vos expériences, vous pouvez activer le paramètre avancé `feauturization`. 
+
+|Configuration de la caractérisation | Description |
+| ------------- | ------------- |
+|"featurization" = 'FeaturizationConfig'| Indique que l’étape de caractérisation personnalisée doit être utilisée. [Découvrez comment personnaliser la caractérisation](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"featurization" = 'off'| Indique que l’étape de caractérisation ne doit pas être automatique.|
+|"featurization" = 'auto'| Indique que, dans le cadre du prétraitement, les étapes suivantes de garde-fous des données et de caractérisation sont automatiques.|
 
 |Étapes de &nbsp;prétraitement| Description |
 | ------------- | ------------- |
@@ -175,7 +181,7 @@ Le Machine Learning automatisé offre des garde-fous des données pour vous aide
 
 Le tableau suivant décrit les garde-fous des données actuellement pris en charge, ainsi que les états associés que les utilisateurs peuvent rencontrer lors de l’envoi de leur expérience.
 
-Garde-fou|État|Condition&nbsp;pour&nbsp;le déclencheur
+Garde-fou|Statut|Condition&nbsp;pour&nbsp;le déclencheur
 ---|---|---
 Imputation&nbsp;de valeurs&nbsp;manquantes |**Passed** <br> <br> **Fixed**|    Aucune valeur manquante dans les colonnes&nbsp;d’entrée <br> <br> Certaines colonnes ont des valeurs manquantes
 Validation croisée|**Done**|Si aucun jeu de validation explicite n’est fourni

@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Créer une zone et un enregistrement DNS – Azur
 titleSuffix: Azure DNS
 description: Utilisez ce guide de démarrage rapide pas à pas pour apprendre à créer un enregistrement et une zone Azure DNS à l’aide du portail Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: cb81b0ec2b5283ba242dd7c2dd549c330e230f0a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rohink
+ms.openlocfilehash: 26e5386f1c9730f1600e59a002ea7845b82ffe06
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082925"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937131"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>Démarrage rapide : Créer une zone et un enregistrement Azure DNS à partir du portail Azure
 
@@ -42,7 +42,7 @@ Une zone DNS contient les entrées DNS d’un domaine. Pour commencer à héberg
 
 1. Dans la page **Créer une zone DNS**, tapez ou sélectionnez les valeurs suivantes :
 
-   - **Nom** : Pour l’exemple de ce guide de démarrage rapide, tapez *contoso.xyz*. Vous pouvez affecter comme nom de zone DNS toute valeur qui n’est pas encore configurée sur les serveurs Azure DNS. Une valeur réelle est un domaine que vous avez acheté auprès d’un bureau d’enregistrement de nom de domaine.
+   - **Name** : Pour l’exemple de ce guide de démarrage rapide, tapez *contoso.xyz*. Vous pouvez affecter comme nom de zone DNS toute valeur qui n’est pas encore configurée sur les serveurs Azure DNS. Une valeur réelle est un domaine que vous avez acheté auprès d’un bureau d’enregistrement de nom de domaine.
    - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyResourceGroup*, puis sélectionnez **OK**. Le nom du groupe de ressources doit être unique au sein de l’abonnement Azure. 
 
 1. Sélectionnez **Create** (Créer).
@@ -63,13 +63,13 @@ Vous créez des entrées ou enregistrements DNS pour votre domaine à l’intér
 
 1. Dans la page **Ajouter un jeu d’enregistrements**, tapez ou sélectionnez les valeurs suivantes :
 
-   - **Nom** : Tapez *www*. Le nom d’enregistrement est le nom d’hôte que vous souhaitez résoudre en l’adresse IP spécifiée.
+   - **Name** : Tapez *www*. Le nom d’enregistrement est le nom d’hôte que vous souhaitez résoudre en l’adresse IP spécifiée.
    - **Type** : Sélectionnez **A**. Les enregistrements « A » sont les plus courants, mais il existe d’autres types d’enregistrements pour les serveurs de messagerie (« MX »), les adresses IPv6 (« AAAA »), et ainsi de suite. 
    - **DURÉE DE VIE** : Tapez *1*. La *durée de vie* (TTL) de la requête DNS spécifie la durée pendant laquelle les clients et serveurs DNS peuvent mettre en cache une réponse.
    - **Unité de durée de vie** : Sélectionnez **Heures**. Il s’agit de l’unité de temps pour la valeur **TTL**. 
    - **Adresse IP** : Pour l’exemple de ce guide de démarrage rapide, tapez *10.10.10.10*. Cette valeur est l’adresse IP en laquelle est résolu le nom d’enregistrement. Dans votre scénario réel, vous devez entrer l’adresse IP publique de votre serveur web.
 
-Ce démarrage rapide étant uniquement prévu pour des tests rapides, il n’est pas nécessaire de configurer les serveurs de noms Azure DNS auprès d’un bureau d’enregistrement de noms de domaine. Avec un véritable domaine de production, vous devrez faire en sorte que tout internaute puisse résoudre le nom d’hôte de façon à pouvoir se connecter à votre serveur ou application web. Vous consulterez votre bureau d’enregistrement de noms de domaine afin de remplacer les enregistrements de serveur par les serveurs de noms Azure DNS. Pour plus d’informations, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+Ce démarrage rapide étant uniquement prévu pour des tests rapides, il n’est pas nécessaire de configurer les serveurs de noms Azure DNS auprès d’un bureau d’enregistrement de noms de domaine. Avec un véritable domaine de production, vous devrez faire en sorte que tout internaute puisse résoudre le nom d’hôte de façon à pouvoir se connecter à votre serveur ou application web. Vous consulterez votre bureau d’enregistrement de noms de domaine afin de remplacer les enregistrements de serveur par les serveurs de noms Azure DNS. Pour plus d’informations, consultez [Didacticiel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
 
 ## <a name="test-the-name-resolution"></a>Tester la résolution de nom
 
@@ -101,7 +101,7 @@ Maintenant que vous disposez d’une zone DNS test avec un enregistrement « A
 
 Le nom d’hôte **www\.contoso.xyz** se résout en **10.10.10.10**, tel que vous l’avez configuré. Ce résultat confirme que la résolution de noms fonctionne correctement. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Dès lors que les ressources que vous avez créées dans ce démarrage rapide ne vous sont plus utiles, supprimez-les en supprimant le groupe de ressources **MyResourceGroup** . Ouvrez le groupe de ressources **MyResourceGroup**, puis sélectionnez **Supprimer le groupe de ressources**.
 

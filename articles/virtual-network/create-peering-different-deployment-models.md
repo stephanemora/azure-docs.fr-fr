@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 11/15/2018
 ms.author: kumud
 ms.reviewer: anavin
-ms.openlocfilehash: 6c539121914418f5373b333e9493e24f7769fa5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61df13e78dc7115d4f4d45ab18b9ffdae107dc96
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978990"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023257"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-same-subscription"></a>Créer un peering de réseaux virtuels Azure - Modèles de déploiement différents, même abonnement
 
@@ -262,4 +262,4 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
 - Familiarisez-vous bien avec les [comportements et contraintes importants du peering de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer un pour une utilisation en production.
 - Apprenez-en davantage sur tous les [paramètres de peering de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).
-- Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec le peering de réseaux virtuels.
+- Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) avec le peering de réseaux virtuels.

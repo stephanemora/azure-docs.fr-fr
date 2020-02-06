@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c1ebedcf93d66c01c80f7f40171a7aa27441488d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277987"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722150"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurer des expériences ML automatisées dans Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -189,11 +189,11 @@ La métrique principale détermine la métrique à utiliser pendant l’entraîn
 
 Pour découvrir les définitions spécifiques de ces métriques, consultez [Comprendre les résultats du Machine Learning automatisé](how-to-understand-automated-ml.md).
 
-### <a name="data-preprocessing--featurization"></a>Prétraitement et personnalisation des données
+### <a name="data-featurization"></a>Caractérisation de données
 
-Dans chaque expérience d’apprentissage automatique automatisée, vos données sont [automatiquement mises à l’échelle et normalisées](concept-automated-ml.md#preprocess) pour faciliter l’exécution de *certains* algorithmes qui sont sensibles aux caractéristiques d’échelles différentes.  Toutefois, vous pouvez également activer un prétraitement/une personnalisation supplémentaires, tels que l’absence d’imputation des valeurs, de codage et de transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess).
+Dans chaque expérience d’apprentissage automatique automatisée, vos données sont [automatiquement mises à l’échelle et normalisées](concept-automated-ml.md#preprocess) pour faciliter l’exécution de *certains* algorithmes qui sont sensibles aux caractéristiques d’échelles différentes.  Toutefois, vous pouvez également activer des fonctions supplémentaires, telles que l’imputation des valeurs manquantes, l’encodage et les transformations. [En savoir plus sur la personnalisation incluse](how-to-create-portal-experiments.md#preprocess).
 
-Pour activer cette personnalisation, spécifiez `"preprocess": True` pour la classe [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+Pour activer cette personnalisation, spécifiez `"featurization": 'auto'` pour la classe [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 > [!NOTE]
 > Les étapes de prétraitement du Machine Learning automatisé (normalisation des fonctionnalités, gestion des données manquantes, conversion de texte en valeurs numériques, etc.) font partie du modèle sous-jacent. Lorsque vous utilisez le modèle pour des prédictions, les étapes de prétraitement qui sont appliquées pendant l’entraînement sont appliquées automatiquement à vos données d’entrée.
@@ -242,7 +242,7 @@ Les modèles ensemblistes sont activés par défaut, et leurs itérations appara
 
 Plusieurs arguments par défaut peuvent être fournis en tant que `kwargs` dans un objet `AutoMLConfig` pour modifier le comportement par défaut de l’ensemble d’empilement.
 
-* `stack_meta_learner_type` : ce modèle est entraîné avec la sortie de modèles hétérogènes. Les méta-learners par défaut sont `LogisticRegression` pour les tâches de classification (ou `LogisticRegressionCV`, si la validation croisée est activée) et `ElasticNet` pour les tâches de régression/prévision (ou `ElasticNetCV`, si la validation croisée est activée). Ce paramètre peut correspondre à l’une des chaînes suivantes : `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` ou `LinearRegression`.
+* `stack_meta_learner_type` : ce modèle est entraîné avec la sortie de modèles hétérogènes individuels. Les méta-learners par défaut sont `LogisticRegression` pour les tâches de classification (ou `LogisticRegressionCV`, si la validation croisée est activée) et `ElasticNet` pour les tâches de régression/prévision (ou `ElasticNetCV`, si la validation croisée est activée). Ce paramètre peut correspondre à l’une des chaînes suivantes : `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` ou `LinearRegression`.
 * `stack_meta_learner_train_percentage` : spécifie la proportion du jeu d’entraînement (lorsque vous choisissez le type d’entraînement « Entraîner et valider ») à réserver pour l’entraînement du méta-learner. La valeur par défaut est `0.2`.
 * `stack_meta_learner_kwargs` : paramètres facultatifs à passer à l’initialiseur du méta-learner. Ces paramètres et types de paramètres reflètent ceux du constructeur de modèle correspondant, et sont transmis à celui-ci.
 
@@ -326,7 +326,7 @@ Vous pouvez consulter vos résultats de formation dans un widget ou en ligne si 
 ## <a name="understand-automated-ml-models"></a>Comprendre des modèles ML automatisés
 
 Tous les modèles produits à l’aide de ML automatisé comprennent les étapes suivantes :
-+ Ingénierie des fonctionnalités automatisées (si prétraiter = True)
++ Ingénierie des fonctionnalités automatisées (si `"featurization": 'auto'`)
 + Mise à l’échelle/Normalisation et algorithme avec des valeurs d’hyperparamètre
 
 Nous rendons transparente l’obtention de ces informations à partir de la sortie fitted_model de ML automatisé.
@@ -339,7 +339,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Ingénierie des fonctionnalités automatisées
 
-Consultez la liste de prétraitement et d’[ingénierie des caractéristiques automatisées](concept-automated-ml.md#preprocess) qui se produit quand la caractérisation est définie sur auto.
+Afficher la liste de prétraitement et [d’ingénierie des fonctionnalités automatisées](concept-automated-ml.md#preprocess) qui se produit lorsque `"featurization": 'auto'`.
 
 Examinez cet exemple :
 + Il existe quatre fonctionnalités d’entrée : A (numérique), B (numérique), C (numérique), D (DateTime)

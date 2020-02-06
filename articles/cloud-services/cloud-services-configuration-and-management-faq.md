@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 50dd6e2387abbf5b24adcee708dd2ff387e33261
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845379"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019415"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de configuration et de gestion pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -174,11 +174,11 @@ Pour plus d’informations, consultez [Nouveau : délai d’inactivité configur
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Comment associer une adresse IP statique à mon service cloud ?
 Pour configurer une adresse IP statique, vous devez créer une adresse IP réservée. Cette adresse IP réservée peut être associée à un nouveau service cloud ou à un déploiement existant. Pour plus d’informations, consultez les documents suivants :
-* [Comment créer une adresse IP réservée](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Réserver l’adresse IP d’un service cloud existant](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Associer une adresse IP réservée à un nouveau service cloud](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Associer une adresse IP réservée à un déploiement en cours d’exécution](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Comment créer une adresse IP réservée](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#manage-reserved-vips)
+* [Réserver l’adresse IP d’un service cloud existant](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Associer une adresse IP réservée à un nouveau service cloud](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Associer une adresse IP réservée à un déploiement en cours d’exécution](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-running-deployment)
+* [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Quelles fonctionnalités et capacités IPS/ID et DDOS de base trouve-t-on sur Azure ?
 Azure propose des fonctionnalités IPS/IDS sur les serveurs physiques des centres de données pour assurer une protection contre les menaces. Par ailleurs, les clients peuvent déployer des solutions de sécurité tierces, telles que des pare-feu d’applications web, des pare-feu réseau, des logiciels anti-programmes malveillants, des systèmes de détection et de prévention des intrusions (IDS/IPS), etc. Pour plus d’informations, consultez [Protégez vos données et vos biens en respectant les normes internationales de sécurité](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).

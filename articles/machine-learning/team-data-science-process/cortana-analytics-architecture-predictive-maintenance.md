@@ -1,22 +1,22 @@
 ---
 title: Maintenance prédictive pour l’industrie aérospatiale avec Azure - Team Data Science Process
-description: Diagramme d’architecture du modèle de solution Microsoft Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale, les services publics, le transport
+description: Diagramme d’architecture de maintenance prédictive du modèle de solution Microsoft Cortana Intelligence pour l'aérospatiale, les services publics, les transports
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: 057607a67de72fa3607f584772693a31c9448fd6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 888f638182964872bb38dff1c9d6e125473bacc4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303718"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721793"
 ---
 # <a name="architecture-of-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace"></a>Architecture du modèle de solution Cortana Intelligence pour la maintenance prédictive dans l’industrie aérospatiale
 Le diagramme ci-dessous fournit une vue d’ensemble architecturale du [modèle de solution Cortana Intelligence pour la maintenance prédictive](https://gallery.cortanaanalytics.com/SolutionTemplate/Predictive-Maintenance-for-Aerospace-1).

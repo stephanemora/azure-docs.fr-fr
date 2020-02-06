@@ -1,14 +1,14 @@
 ---
 title: Authentification externe à partir d’une tâche ACR
-description: Activez une identité managée pour les ressources Azure dans une tâche Azure Container Registry (ACR) pour permettre à la tâche de lire les informations d’identification Docker Hub stockées dans un coffre de clés Azure.
+description: Configurez une tâche Azure Container Registry (tâche ACR) pour lire les informations d’identification Docker Hub stockées dans un coffre de clés Azure à l’aide d’une identité managée pour les ressources Azure.
 ms.topic: article
-ms.date: 07/12/2019
-ms.openlocfilehash: a7086050a4aef380f11298c819817692396216b2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/14/2020
+ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456224"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842518"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Authentification externe dans une tâche ACR à l’aide d’une identité managée par Azure 
 
@@ -20,13 +20,13 @@ Pour créer les ressources Azure, il est nécessaire dans le cadre de cet articl
 
 ## <a name="scenario-overview"></a>Présentation du scénario
 
-L’exemple de tâche lit les informations d’identification Docker Hub stockées dans un coffre de clés Azure. Les informations d’identification sont pour un compte Docker Hub doté d’autorisations en écriture (push) sur un dépôt privé dans Docker Hub. Pour lire les informations d’identification, configurez la tâche avec une identité managée et attribuez-lui les autorisations appropriées. La tâche associée à l’identité génère une image et se connecte à Docker Hub pour envoyer l’image au dépôt privé. 
+L’exemple de tâche lit les informations d’identification Docker Hub stockées dans un coffre de clés Azure. Les informations d’identification sont pour un compte Docker Hub doté d’autorisations en écriture (push) sur un référentiel Docker Hub privé. Pour lire les informations d’identification, configurez la tâche avec une identité managée et attribuez-lui les autorisations appropriées. La tâche associée à l’identité génère une image et se connecte à Docker Hub pour envoyer l’image au dépôt privé. 
 
 Cet exemple montre les étapes à effectuer à l’aide d’une identité managée affectée par l’utilisateur ou par le système. Votre choix d’identité dépend des besoins de votre organisation.
 
 Dans un scénario concret, une entreprise peut publier des images sur un dépôt privé dans Docker Hub dans le cadre d’un processus de génération. 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous avez besoin d’un registre de conteneurs Azure dans lequel vous exécutez la tâche. Dans cet article, ce registre est nommé *myregistry*. Remplacez-le par votre propre nom de registre dans les étapes suivantes.
 
@@ -71,7 +71,7 @@ Dans un scénario concret, les secrets seraient probablement définis et mainten
 Les étapes de cet exemple de tâche sont définies dans un [fichier YAML](container-registry-tasks-reference-yaml.md). Créez un fichier nommé `dockerhubtask.yaml` dans un répertoire de travail local et collez le contenu suivant. Veillez à remplacer le nom du coffre de clés dans le fichier par le nom de votre coffre de clés.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 # Replace mykeyvault with the name of your key vault
 secrets:
   - id: username
@@ -80,12 +80,12 @@ secrets:
     keyvault: https://mykeyvault.vault.azure.net/secrets/Password
 steps:
 # Log in to Docker Hub
-  - cmd: docker login --username '{{.Secrets.username}}' --password '{{.Secrets.password}}'
+  - cmd: bash echo '{{.Secrets.password}}' | docker login --username '{{.Secrets.username}}' --password-stdin 
 # Build image
-  - build: -t {{.Values.PrivateRepo}}:{{.Run.ID}} https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
+  - build: -t {{.Values.PrivateRepo}}:$ID https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
 # Push image to private repo in Docker Hub
   - push:
-    - {{.Values.PrivateRepo}}:{{.Run.ID}}
+    - {{.Values.PrivateRepo}}:$ID
 ```
 
 Les étapes de tâche effectuent ce qui suit :
@@ -95,7 +95,8 @@ Les étapes de tâche effectuent ce qui suit :
 * Générez une image à l’aide d’un exemple de fichier Docker dans le dépôt [Azure-Samples/acr-tasks](https://github.com/Azure-Samples/acr-tasks.git).
 * Envoyez par push l’image au dépôt privé Docker Hub.
 
-## <a name="option-1-create-task-with-user-assigned-identity"></a>Option 1 : Créer une tâche avec une identité affectée par l’utilisateur
+
+## <a name="option-1-create-task-with-user-assigned-identity"></a>Option 1 : Créer une tâche avec une identité affectée par l’utilisateur
 
 Les étapes de cette section créent une tâche et activent une identité affectée par l’utilisateur. Si vous souhaitez activer une identité affectée par le système à la place, consultez l’[option 2 : Créer une tâche avec une identité affectée par le système](#option-2-create-task-with-system-assigned-identity). 
 
@@ -116,7 +117,7 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>Option 2 : Créer une tâche avec une identité affectée par le système
+## <a name="option-2-create-task-with-system-assigned-identity"></a>Option n°2 : Créer une tâche avec une identité affectée par le système
 
 Les étapes de cette section créent une tâche et activent une identité affectée par le système. Si vous souhaitez activer une identité affectée par l’utilisateur à la place, consultez l’[Option 1 : Créer une tâche avec une identité affectée par l’utilisateur](#option-1-create-task-with-user-assigned-identity). 
 
@@ -140,7 +141,10 @@ az acr task create \
 Exécutez la commande [az keyvault set-policy][az-keyvault-set-policy] suivante pour définir une stratégie d’accès sur le coffre de clés. L’exemple suivant permet à l’identité de lire des secrets du coffre de clés. 
 
 ```azurecli
-az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
 ```
 
 ## <a name="manually-run-the-task"></a>Exécuter manuellement la tâche
@@ -148,7 +152,7 @@ az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --obje
 Pour vérifier que la tâche dans laquelle vous avez activé une identité managée s’exécute correctement, déclenchez manuellement la tâche à l’aide de la commande [az acr task run][az-acr-task-run]. Le paramètre `--set` est utilisé pour transmettre le nom du dépôt privé à la tâche. Dans cet exemple, l’espace réservé du nom de dépôt est *hubuser/hubrepo*.
 
 ```azurecli
-az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo 
+az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
 ```
 
 Quand la tâche s’exécute correctement, la sortie indique une authentification réussie auprès de Docker Hub et l’image est correctement générée et envoyée au dépôt privé :

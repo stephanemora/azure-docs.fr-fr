@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84296631e35de759fbb971f5de2d918afa5d17f0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b606566fa2b8154eb9ac8fda97d3c3ae81cd3447
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967569"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767416"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorisations des rôles d’administrateur dans Azure Active Directory
 
@@ -375,7 +375,7 @@ Windows Defender ATP et EDR | Attribuer des rôles<br>Gérer des groupes de mach
 
 ### <a name="security-operatorsecurity-operator-permissions"></a>[Opérateur de sécurité](#security-operator-permissions)
 
-Les utilisateurs dotés de ce rôle peuvent gérer les alertes et disposent d’un accès en lecture seule global à la fonctionnalité liée à la sécurité, notamment à toutes les informations disponibles dans le centre de sécurité Microsoft 365, Azure Active Directory, Identity Protection, Privileged Identity Management et le Centre de sécurité et de conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Les utilisateurs dotés de ce rôle peuvent gérer les alertes et disposent d’un accès global en lecture seule aux fonctionnalités liées à la sécurité, notamment à toutes les informations disponibles dans le centre de sécurité Microsoft 365, Azure Active Directory, Identity Protection, Privileged Identity Management et le Centre de sécurité et de conformité Office 365. Pour plus d’informations sur les autorisations Office 365, consultez [Autorisations dans le Centre de sécurité et conformité Office 365](https://docs.microsoft.com/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
 Dans | Peut
 --- | ---
@@ -1720,7 +1720,7 @@ Administrateur de fournisseurs d’identité externes | Administrateur de fourni
 Lecteur général | Lecteur général | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrateur de groupe | Administrateur de groupe | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Inviteur | Inviteur d’invités | 95e79109-95c0-4d8e-aee3-d01accf2d47b
-Administrateur du support technique | Administrateur de mots de passe | 729827e3-9c14-49f7-bb1b-9608f156bbb8
+Administrateur du support technique | Administrateur du support technique | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Administrateur de services Intune | Administrateur Intune | 3a2c62db-5318-420d-8d74-23affee5d9d5
 Administrateur Kaizala | Administrateur Kaizala | 74ef975b-6605-40af-a5d2-b9539d836353
 Administrateur de licence | Administrateur de licence | 4d6ac14f-3453-41d0-bef9-a3e0c569773a

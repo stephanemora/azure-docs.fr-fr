@@ -3,24 +3,24 @@ title: Créer un pipeline CI/CD avec Azure Pipelines - Processus TDSP
 description: Créez un pipeline d’intégration continue et de livraison continue pour les applications d’intelligence artificielle (IA) à l’aide de Docker et Kubernetes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: f07ce8e8834a2804b6a5b7668718c8e6bff00fa6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260666"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721827"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Créer des pipelines CI/CD pour les applications IA à l’aide d’Azure Pipelines, de Docker et de Kubernetes
 
-Une application d’intelligence artificielle (IA) est un code d’application incorporé avec un modèle de Machine Learning (ML) préformé. Il existe toujours deux flux de travail pour une application IA : Les scientifiques des données génèrent le modèle ML, tandis que les développeurs d’applications génèrent l’application et l’exposent aux utilisateurs finaux pour qu’ils les utilisent. Cet article explique comment implémenter un pipeline d’intégration continue et de livraison continue (CI/CD) pour une application IA qui incorpore le modèle ML dans le code source de l’application. L’exemple de code et le tutoriel utilisent une application web Python Flask simple et extraient un modèle préentraîné d’un compte de stockage d’objets blob Azure privé. Vous pouvez également utiliser un compte de stockage AWS S3.
+Une application d’intelligence artificielle (IA) est un code d’application incorporé avec un modèle de Machine Learning (ML) préformé. Il existe toujours deux flux de travail pour une application IA : Les scientifiques des données génèrent le modèle ML, tandis que les développeurs d’applications génèrent l’application et l’exposent aux utilisateurs finaux pour qu’ils les utilisent. Cet article explique comment implémenter un pipeline d’intégration continue et de livraison continue (CI/CD) pour une application IA qui incorpore le modèle ML dans le code source de l’application. L’exemple de code et le tutoriel utilisent une application web Python Flask et extraient un modèle préentraîné d’un compte de stockage de blobs Azure privé. Vous pouvez également utiliser un compte de stockage AWS S3.
 
 > [!NOTE]
 > Le processus suivant est l’un des nombreux moyens d’effectuer des opérations CI/CD. Il existe des alternatives à ces outils et aux prérequis.
@@ -33,7 +33,7 @@ Pour utiliser le code source et le tutoriel téléchargés, vous avez besoin de 
 
 - Le [dépôt du code source](https://github.com/Azure/DevOps-For-AI-Apps) dupliqué sur votre compte GitHub
 - Une [organisation Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
-- [Interface de ligne de commande Azure](/cli/azure/install-azure-cli)
+- [Azure CLI](/cli/azure/install-azure-cli)
 - Un [cluster Azure Container Service pour Kubernetes (AKS)](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/), pour exécuter des commandes et récupérer la configuration du cluster AKS 
 - Un [compte Azure Container Registry (ACR)](/azure/container-registry/container-registry-get-started-portal)

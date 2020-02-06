@@ -3,12 +3,12 @@ title: Présentation de l'architecture
 description: Fournit une vue d’ensemble de l’architecture, des composants et des processus utilisés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450195"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963935"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architecture et composants d’Azure Backup
 
@@ -101,6 +101,23 @@ Exécuter une sauvegarde incrémentielle |![Oui][green] |![Oui][green] |![Oui][g
 Sauvegarder les disques dédupliqués | | | ![Partiellement][yellow]<br/><br/> Uniquement pour les serveurs DPM/MABS déployés localement.
 
 ![Clé de table](./media/backup-architecture/table-key.png)
+
+## <a name="backup-policy-essentials"></a>Principes de base de la stratégie de sauvegarde
+
+- Une stratégie de sauvegarde est créée par coffre.
+- Une stratégie de sauvegarde peut être créée pour la sauvegarde des charges de travail suivantes
+  - Azure VM
+  - SQL dans une machine virtuelle Azure
+  - Partage de fichiers Azure
+- Une stratégie peut être attribuée à de nombreuses ressources. Une stratégie de sauvegarde de machine virtuelle Azure peut être utilisée pour protéger plusieurs machines virtuelles Azure.
+- Une stratégie est constituée de deux composants
+  - Planification : quand effectuer la sauvegarde
+  - Conservation : la durée de conservation de chaque sauvegarde.
+- La planification peut être définie comme « quotidienne » ou « hebdomadaire » avec un point de temps spécifique.
+- La rétention peut être définie pour les points de sauvegarde « quotidienne », « hebdomadaire », « mensuelle », « annuelle ».
+- « hebdomadaire » fait référence à une sauvegarde un jour donné de la semaine, « mensuelle » fait référence à une sauvegarde un jour donné du mois et « année » fait référence à une sauvegarde un jour donné de l’année.
+- La rétention pour les points de sauvegarde « mensuelle », « annuelle » est appelée « LongTermRetention ».
+- Quand un coffre est créé, une stratégie pour les sauvegardes de machine virtuelle Azure appelée « DefaultPolicy » est également créée et peut être utilisée pour sauvegarder des machines virtuelles Azure.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>Architecture : Sauvegarde de machine virtuelle Azure prédéfinie
 

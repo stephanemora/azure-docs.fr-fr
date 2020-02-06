@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/28/2020
+ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747344"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842467"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Journalisation d’audit dans Azure Database pour PostgreSQL - Serveur unique
 
@@ -65,10 +65,8 @@ pgAudit vous permet de configurer la journalisation d’audit des sessions et de
 Une fois que vous avez [installé pgAudit](#installing-pgaudit), vous pouvez configurer ses paramètres pour démarrer la journalisation. La [documentation pgAudit](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) donne la définition de chaque paramètre. Testez d’abord les paramètres pour vérifier que vous obtenez le comportement attendu.
 
 > [!NOTE]
-> L’affectation de la valeur ON à `pgaudit.log_client` permet de rediriger les journaux vers un processus client (comme psql) au lieu de les écrire dans un fichier. Ce paramètre doit généralement rester désactivé.
-
-> [!NOTE]
-> `pgaudit.log_level` est activé uniquement lorsque `pgaudit.log_client` est activé. En outre, dans le portail Azure, il y a actuellement un bogue avec `pgaudit.log_level` : une zone de liste modifiable est affichée, ce qui laisse à penser que plusieurs niveaux peuvent être sélectionnés. Toutefois, un seul niveau doit être sélectionné. 
+> L’affectation de la valeur ON à `pgaudit.log_client` permet de rediriger les journaux vers un processus client (comme psql) au lieu de les écrire dans un fichier. Ce paramètre doit généralement rester désactivé. <br> <br>
+> `pgaudit.log_level` est activé uniquement lorsque `pgaudit.log_client` est activé.
 
 > [!NOTE]
 > Dans Azure Database pour PostgreSQL, `pgaudit.log` ne peut pas être défini à l’aide d’un raccourci de signe `-` (moins) contrairement à ce qui est dit dans la documentation pgAudit. Toutes les classes d’instruction requises (READ, WRITE, etc.) doivent être spécifiées individuellement.
@@ -87,6 +85,22 @@ Pour plus d’informations sur `log_line_prefix`, consultez la [documentation Po
 ### <a name="getting-started"></a>Prise en main
 Pour commencer, définissez `pgaudit.log` sur `WRITE`, puis ouvrez vos journaux pour consulter la sortie. 
 
+## <a name="viewing-audit-logs"></a>Affichage des journaux d’audit
+Si vous utilisez des fichiers .log, vos journaux d’audit seront inclus dans le même fichier que vos journaux d’erreurs PostgreSQL. Vous pouvez télécharger des fichiers journaux à partir du [Portail](howto-configure-server-logs-in-portal.md) Azure ou de l’[interface CLI](howto-configure-server-logs-using-cli.md). 
+
+Si vous utilisez la journalisation des diagnostics Azure, la façon dont vous accédez aux journaux dépend du point de terminaison que vous choisissez. Pour Stockage Azure, consultez l’article [Compte de stockage des journaux](../azure-monitor/platform/resource-logs-collect-storage.md). Pour Event Hubs, consultez l’article [Diffusion des journaux Azure](../azure-monitor/platform/resource-logs-stream-event-hubs.md).
+
+Pour les journaux Azure Monitor, les journaux sont envoyés à l’espace de travail que vous avez sélectionné. Les journaux Postgres utilisent le mode de collecte **AzureDiagnostics**, pour qu’ils puissent être interrogés à partir de la table AzureDiagnostics. Les champs de la table sont décrits ci-dessous. En savoir plus sur l’interrogation et la génération d’alertes dans la vue d’ensemble [Interroger les journaux Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+Vous pouvez utiliser cette requête pour commencer. Vous pouvez configurer des alertes basées sur les requêtes.
+
+Rechercher tous les journaux Postgres pour un serveur particulier au cours du dernier jour
+```
+AzureDiagnostics
+| where LogicalServerName_s == "myservername"
+| where TimeGenerated > ago(1d) 
+| where Message contains "AUDIT:"
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [En savoir plus sur la journalisation dans Azure Database pour PostgreSQL](concepts-server-logs.md)

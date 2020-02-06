@@ -13,13 +13,12 @@ ms.date: 04/25/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ad2f271ae0eea2e393aad4eb972eff211655b02
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75ea183a9968c65957bcf2a4d39966d2553db84f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917095"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696587"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>Applications clientes publiques et confidentielles
 La bibliothèque d’authentification Microsoft (MSAL) définit deux types de clients : les clients publics et les clients confidentiels. Les deux types de clients se distinguent par leur capacité à s’authentifier en toute sécurité avec le serveur d’autorisation et à préserver la confidentialité de leurs identifiants client. En revanche, Azure AD Authentication Library (ADAL) utilise ce qu’on appelle le *contexte d’authentification* (qui est une connexion à Azure AD).
@@ -27,7 +26,7 @@ La bibliothèque d’authentification Microsoft (MSAL) définit deux types de cl
 - Les **applications clientes confidentielles** sont des applications qui s’exécutent sur des serveurs (applications web, applications d’API web, voire applications de service ou de démon). Elles sont considérées comme difficiles d’accès et, pour cette raison, capables de rester secrètes. Les clients confidentiels peuvent détenir des clés secrètes définies au moment de la configuration. Chaque instance du client possède une configuration distincte (comprenant l’ID client et la clé secrète du client). Ces valeurs sont difficiles à extraire pour les utilisateurs finaux. Une application web est le client confidentiel le plus courant. L’ID client est exposé via le navigateur web, mais la clé secrète n’est transmise que dans le canal arrière et jamais directement exposée.
 
     Applications clientes confidentielles : <BR>
-    ![application web](media/msal-client-applications/web-app.png) ![API web](media/msal-client-applications/web-api.png) ![démon/service](media/msal-client-applications/daemon-service.png)
+    ![Application web](media/msal-client-applications/web-app.png) ![ API web](media/msal-client-applications/web-api.png) ![Démon/Service](media/msal-client-applications/daemon-service.png)
 
 - **Les applications clientes publiques** sont des applications qui s’exécutent sur des appareils, des ordinateurs de bureau ou dans un navigateur web. Comme elles ne sont pas réputées garder les clés secrètes d’application en toute sécurité, elles n’accèdent aux API web que pour le compte de l’utilisateur. (Elles ne prennent en charge que les flux de clients publics.) Les clients publics ne disposent pas de clés secrètes de client comme elles ne peuvent pas contenir les clés secrètes définies lors de la configuration.
 

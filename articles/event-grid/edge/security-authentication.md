@@ -9,18 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 77b4b265b2e993ccdbc9e07fd2dab5a37ed22a6b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991730"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844511"
 ---
 # <a name="security-and-authentication"></a>Sécurité et authentification
 
 La sécurité et l’authentification constituent un concept avancé qui requiert une certain connaissance des concepts de base d’Event Grid. Si vous ignorez tout d’Event Grid sur IoT Edge, démarrez [ici](concepts.md). Le module Event Grid s’appuie sur l’infrastructure de sécurité existante de IoT Edge. Pour plus de détails et pour configurer, consultez [cette documentation](../../iot-edge/security.md).
 
-Les sections suivantes décrivent en détail comment ces paramètres sont sécurisés et authentifiés :-
+Les sections suivantes décrivent en détail comment ces paramètres sont sécurisés et authentifiés :
 
 * Configuration TLS
 * Authentification du client entrant
@@ -37,19 +37,19 @@ Les sections suivantes décrivent en détail comment ces paramètres sont sécur
 
 Le module Event Grid héberge des points de terminaison HTTP et HTTPs. Chaque module IoT Edge reçoit un certificat de serveur du démon de sécurité de l’IoT Edge. Nous utilisons le certificat de serveur pour sécuriser le point de terminaison. À l’expiration du certificat, le module est automatiquement actualisé avec un nouveau certificat du démon de sécurité d’IoT Edge.
 
-Par défaut, seules les communications HTTPs sont autorisées. Vous pouvez modifier ce comportement via une configuration **inbound:serverAuth:tlsPolicy**. Le tableau suivant indique les valeurs possibles de cette propriété.
+Par défaut, seules les communications HTTPs sont autorisées. Vous pouvez modifier ce comportement via une configuration **inbound__serverAuth__tlsPolicy**. Le tableau suivant indique les valeurs possibles de cette propriété.
 
 | Valeurs possibles | Description |
 | ---------------- | ------------ |
 | Strict | Par défaut. Active HTTPS uniquement
-| Activé | Active HTTP et HTTPs
+| activé | Active HTTP et HTTPs
 | Désactivé | Active HTTP uniquement
 
 ## <a name="inbound-client-authentication"></a>Authentification du client entrant
 
 Les clients sont des entités effectuant des opérations de gestion ou d’exécution. Les clients peuvent être d’autres modules IoT Edge, mais pas des applications IoT.
 
-Le module Event Grid prend en charge deux types d’authentifications du client :
+Le module Event Grid prend en charge deux types d’authentifications du client :
 
 * Signature d’accès partagé (SAP) basée sur une clé
 * basée sur un certificat
@@ -58,20 +58,20 @@ Par défaut, le module Event Grid est configuré pour accepter uniquement une au
 
 ### <a name="certificate-based-client-authentication"></a>Authentification du client basée sur un certificat
 
-L’authentification basée sur un certificat est activée par défaut. Vous pouvez choisir de désactiver l’authentification basée sur un certificat via la propriété **inbound:clientAuth:clientCert:enabled**. Le tableau suivant présente les valeurs possibles.
+L’authentification basée sur un certificat est activée par défaut. Vous pouvez désactiver l’authentification basée sur un certificat via la propriété **inbound__clientAuth__clientCert__enabled**. Le tableau suivant présente les valeurs possibles.
 
 | Valeurs possibles | Description |
 | ----------------  | ------------ |
-| true | Par défaut. Exige que toutes les demandes dans le module Event Grid présentent un certificat client. Vous devez en outre configurer **inbound:clientAuth:clientCert:source**.
+| true | Par défaut. Exige que toutes les demandes dans le module Event Grid présentent un certificat client. Vous devez en outre configurer **inbound__clientAuth__clientCert__source**.
 | false | Ne force pas un client à présenter un certificat.
 
-Le tableau suivant capture les valeurs possibles pour **inbound:clientAuth:clientCert:source**
+Le tableau suivant capture les valeurs possibles pour **inbound__clientAuth__clientCert__source**
 
 | Valeurs possibles | Description |
 | ---------------- | ------------ |
 | IoT Edge | Par défaut. Utilise le Trustbundle de l’IoT Edge pour valider tous les certificats clients.
 
-Si un client présente un certificat auto-signé, par défaut, le module Event Grid rejette la demande. Vous pouvez choisir d’autoriser les certificats clients auto-signés à l’aide de la propriété **inbound:clientAuth:clientCert:allowUnknownCA**. Le tableau suivant présente les valeurs possibles.
+Si un client présente un certificat auto-signé, par défaut, le module Event Grid rejette la demande. Vous pouvez autoriser les certificats clients auto-signés à l’aide de la propriété **inbound__clientAuth__clientCert__allowUnknownCA**. Le tableau suivant présente les valeurs possibles.
 
 | Valeurs possibles | Description |
 | ----------------  | ------------|
@@ -79,20 +79,20 @@ Si un client présente un certificat auto-signé, par défaut, le module Event G
 | false | Les demandes échouent en cas de présentation de certificats auto-signés.
 
 >[!IMPORTANT]
->Dans des scénarios de production, vous pouvez définir **inbound:clientAuth:clientCert:allowUnknownCA** sur **false**.
+>Dans des scénarios de production, vous pouvez définir **inbound__clientAuth__clientCert__allowUnknownCA** sur **false**.
 
 ### <a name="sas-key-based-client-authentication"></a>Authentification du client basée sur une clé SAP
 
 Outre l’authentification basée sur un certificat, le module Event Grid peut également effectuer une authentification basée sur une clé SAP. Une clé SAP est semblable à un secret configuré dans le module Event Grid que celui-ci doit utiliser pour valider tous les appels entrants. Les clients doivent spécifier le secret dans l’en-tête HTTP ’aeg-sas-key’. Si la demande ne correspond pas, est rejetée avec l’erreur `UnAuthorized`.
 
-La configuration pour contrôler l’authentification basée sur une clé SAP est **inbound:clientAuth:sasKeys:enabled**.
+La configuration permettant de contrôler l’authentification basée sur une clé SAP est **inbound__clientAuth__sasKeys__enabled**.
 
 | Valeurs possibles | Description  |
 | ----------------  | ------------ |
-| true | Autorise une authentification basée sur une clé SAP. Requiert **inbound:clientAuth:sasKeys:key1** ou **inbound:clientAuth:sasKeys:key2**
+| true | Autorise une authentification basée sur une clé SAP. Requiert **inbound__clientAuth__sasKeys__key1** ou **inbound__clientAuth__sasKeys__key2**
 | false | Par défaut. L’authentification basée sur une clé SAP est désactivée.
 
- **inbound:clientAuth:sasKeys:key1** et **inbound:clientAuth:sasKeys:key2** sont des clés que vous configurez sur le module Event Grid pour vérifier les demandes entrantes. Au moins une des clés doit être configurée. Le client qui effectue la demande doit présenter la clé dans l’en-tête de demande ’**aeg-sas-key**’. Si les deux clés sont configurées, le client peut présenter n’importe laquelle.
+ **inbound__clientAuth__sasKeys__key1** et **inbound__clientAuth__sasKeys__key2** sont des clés que vous configurez sur le module Event Grid pour vérifier les demandes entrantes. Au moins une des clés doit être configurée. Le client qui effectue la demande doit présenter la clé dans l’en-tête de demande ’**aeg-sas-key**’. Si les deux clés sont configurées, le client peut présenter n’importe laquelle.
 
 > [!NOTE]
 >Vous pouvez configurer les deux méthodes d’authentification. Dans ce cas, la clé SAP est vérifiée en premier et l’authentification basée sur le certificat n’est effectuée qu’en cas d’échec. Pour qu’une demande aboutisse, une seule méthode d’authentification doit réussir.
@@ -103,14 +103,14 @@ Un client dans un contexte sortant fait référence au module Event Grid. L’op
 
 Chaque module IoT Edge reçoit un certificat d’identité du démon de sécurité de l’IoT Edge. Nous utilisons le certificat d’identité pour les appels sortants. À l’expiration du certificat, le module est automatiquement actualisé avec un nouveau certificat du démon de sécurité d’IoT Edge.
 
-La configuration pour contrôler l’authentification du client sortant est **outbound:clientAuth:clientCert:enabled**.
+La configuration permettant de contrôler l’authentification du client sortant est **outbound__clientAuth__clientCert__enabled**.
 
 | Valeurs possibles | Description |
 | ----------------  | ------------ |
-| true | Par défaut. Exige que toutes les demandes sortantes du module Event Grid présentent un certificat. Nécessite de configurer **outbound:clientAuth:clientCert:source**.
+| true | Par défaut. Exige que toutes les demandes sortantes du module Event Grid présentent un certificat. Nécessite de configurer **outbound__clientAuth__clientCert__source**.
 | false | N’exige pas que le module Event Grid présente son certificat.
 
-La configuration qui contrôle la source du certificat est **outbound:clientAuth:clientCert:source**.
+La configuration qui contrôle la source du certificat est **outbound__clientAuth__clientCert__source**.
 
 | Valeurs possibles | Description |
 | ---------------- | ------------ |
@@ -120,21 +120,21 @@ La configuration qui contrôle la source du certificat est **outbound:clientAuth
 
 L’un des types de destinations pour un abonné Event Grid est « Webhook ». Par défaut, seuls des points de terminaison HTTPs sont acceptés pour de tels abonnés.
 
-La configuration pour contrôler la stratégie de destination webhook est **outbound:webhook:httpsOnly**.
+La configuration permettant de contrôler la stratégie de destination webhook est **outbound__webhook__httpsOnly**.
 
 | Valeurs possibles | Description |
 | ----------------  | ------------ |
 | true | Par défaut. Autorise uniquement les abonnés disposant d’un point de terminaison HTTPs.
 | false | Autorise les abonnés disposant d’un point de terminaison HTTP ou HTTPs.
 
-Par défaut, le module Event Grid valide le certificat de serveur de l’abonné. Vous pouvez ignorer la validation en modifiant **outbound:webhook:skipServerCertValidation**. Les valeurs possibles sont les suivantes :
+Par défaut, le module Event Grid valide le certificat de serveur de l’abonné. Vous pouvez ignorer la validation en modifiant **outbound__webhook__skipServerCertValidation**. Les valeurs possibles sont les suivantes :
 
 | Valeurs possibles | Description |
 | ----------------  | ------------ |
 | true | Ne pas valider pas le certificat de serveur de l’abonné.
 | false | Par défaut. Valider le certificat de serveur de l’abonné.
 
-Si le certificat de l’abonné est auto-signé, par défaut, le module Event Grid rejette l’abonné. Pour autoriser l’usage d’un certificat auto-signé, vous pouvez modifier **outbound:webhook:allowUnknownCA**. Le tableau suivant présente les valeurs possibles.
+Si le certificat de l’abonné est auto-signé, par défaut, le module Event Grid rejette l’abonné. Pour autoriser l’usage d’un certificat auto-signé, vous pouvez modifier **outbound__webhook__allowUnknownCA**. Le tableau suivant présente les valeurs possibles.
 
 | Valeurs possibles | Description |
 | ----------------  | ------------ |
@@ -142,7 +142,7 @@ Si le certificat de l’abonné est auto-signé, par défaut, le module Event Gr
 | false | Les demandes échouent en cas de présentation de certificats auto-signés.
 
 >[!IMPORTANT]
->Dans des scénarios de production, vous pouvez définir **outbound:webhook:allowUnknownCA** sur **false**.
+>Dans des scénarios de production, vous pouvez définir **outbound__webhook__allowUnknownCA** sur **false**.
 
 > [!NOTE]
 >L’environnement IoT Edge génère des certificats auto-signés. Il est recommandé de générer des certificats émis par des autorités de certification autorisées pour les charges de travail de production, et de définir la propriété **allowUnknownCA** sur **false** pour les trafics tant entrant que sortant.
@@ -160,22 +160,22 @@ Voici les principes directeurs à suivre lors de la configuration :
 * Autoriser uniquement des abonnés HTTPs pour des types de destinations Webhook.
 * Toujours valider le certificat de serveur de l’abonné pour des types de destinations Webhook. Autoriser uniquement des certificats émis par des autorités de certification bien connues. Ne pas autoriser de certificats auto-signés.
 
-Par défaut, le module Event Grid est déployé avec la configuration suivante :
+Par défaut, le module Event Grid est déployé avec la configuration suivante :
 
  ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge",
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true",
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge",
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge",
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true",
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge",
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ],
   "HostConfig": {
     "PortBindings": {

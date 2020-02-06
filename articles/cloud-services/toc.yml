@@ -6,7 +6,7 @@
       href: cloud-services-choose-me.md
     - name: Création de packages et fichiers de configuration de service cloud
       href: cloud-services-model-and-package.md
-- name: Prise en main
+- name: Découvrir
   items:
     - name: Exemple de service cloud .NET
       href: cloud-services-dotnet-get-started.md
@@ -14,13 +14,13 @@
       href: cloud-services-python-ptvs.md
 - name: Procédure
   items:
-    - name: Planification
+    - name: Plan
       items:
         - name: Tailles de machines virtuelles
           href: cloud-services-sizes-specs.md
         - name: Mises à jour
           href: cloud-services-update-azure-service.md
-    - name: Développement
+    - name: Développer
       items:
         - name: Créer des rôles web et de travail PHP
           href: ../cloud-services-php-create-web-role.md
@@ -102,7 +102,7 @@
           href: cloud-services-certs-create.md
         - name: Configuration du chiffrement SSL
           href: cloud-services-configure-ssl-certificate-portal.md
-    - name: Surveiller
+    - name: Moniteur
       items:
         - name: Surveiller le service cloud
           href: cloud-services-how-to-monitor.md
@@ -125,9 +125,9 @@
           href: ../azure-monitor/platform/diagnostics-extension-to-storage.md?toc=%2fazure%2fcloud-services%2ftoc.json
         - name: Suivre un service cloud avec les diagnostics
           href: cloud-services-dotnet-diagnostics-trace-flow.md
-    - name: Résolution des problèmes
+    - name: Dépanner
       items:
-        - name: Déboguer
+        - name: Débogage
           items:
             - name: Options d’un service cloud
               href: /visualstudio/azure/vs-azure-tools-debugging-cloud-services-overview?toc=/azure/cloud-services/toc.json
@@ -137,6 +137,8 @@
               href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
         - name: Échec d’allocation de service cloud
           href: cloud-services-allocation-failures.md
+        - name: "Les applications ne prennent pas en charge TLS\_1.2"
+          href: applications-dont-support-TLS-1-2.md
         - name: Causes courantes de recyclage des rôles de service cloud
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
         - name: Taille par défaut du dossier TEMP trop petite pour un rôle

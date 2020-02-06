@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5c959dc7fa36fb41307d286b1e7d0b475d5b56c6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981607"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988462"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Recevoir des notifications concernant un coffre de clés et y répondre avec Azure Event Grid (préversion)
 
@@ -119,8 +119,6 @@ Créez un Webhook pour déclencher le runbook que vous venez de créer.
 ## <a name="create-an-event-grid-subscription"></a>Créer un abonnement Event Grid
 
 Créez un abonnement Event Grid sur le [Portail Azure](https://portal.azure.com).
-
-1.  Ouvrez le [portail Azure](https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 
 1.  Accédez à votre coffre de clés et sélectionnez l’onglet **Événements**. Si vous ne le voyez pas, vérifiez que vous utilisez la [préversion du portail](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
 

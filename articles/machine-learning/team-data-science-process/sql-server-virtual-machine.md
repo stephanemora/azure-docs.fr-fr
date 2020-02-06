@@ -3,23 +3,23 @@ title: Explorer les données d’une machine virtuelle SQL Server – Team Data
 description: Explorer des données de traitement supplémentaires et générer des fonctionnalités à l’aide de Python ou de SQL dans une machine virtuelle SQL Server sur Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 01/23/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 877c639c35378b173b6ec9c8697725e3b3c09290
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d3eb4d2faf58d1861fda9d04437f9f9530c77672
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053613"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718478"
 ---
 # <a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
-Ce document décrit l'exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.
+Ce document décrit l'exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cet objectif peut être atteint par data wrangling à l’aide de SQL ou en utilisant un langage de programmation comme Python.
 
 > [!NOTE]
 > Les exemples d’instructions SQL qui figurent dans ce document reposent sur l’hypothèse que les données sont stockées dans SQL Server. Dans le cas contraire, reportez-vous à la cartographie du processus de science des données du cloud pour découvrir comment déplacer vos données vers SQL Server.
@@ -66,7 +66,7 @@ Dans cette section, nous décrivons plusieurs manières de générer des fonctio
 > 
 
 ### <a name="sql-countfeature"></a>Génération de fonctionnalités utilisant des décomptes
-Les exemples suivants décrivent deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Vous pouvez ensuite associer ces dernières à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
+Les exemples suivants décrivent deux manières de générer des fonctionnalités utilisant des décomptes. La première méthode a recours à une somme conditionnelle, tandis que la seconde méthode utilise la clause « where ». Ces résultats peuvent ensuite être joints à la table d’origine (à l’aide des colonnes de clé primaire) pour disposer de fonctionnalités de décompte parallèlement aux données d’origine.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3> 
 
@@ -82,7 +82,7 @@ L’exemple ci-dessous illustre comment générer des fonctionnalités compartim
 ### <a name="sql-featurerollout"></a>Déploiement des caractéristiques à partir d’une seule colonne
 Dans cette section, nous décrivons comment déployer une seule colonne dans une table afin de générer des fonctionnalités supplémentaires. Cet exemple présuppose l’existence d’une colonne de latitude ou de longitude dans la table à partir de laquelle vous essayez de générer des fonctionnalités.
 
-Voici une petite présentation des données de latitude/longitude issue du site stackoverflow : [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)(Comment mesurer la précision de la latitude et de la longitude). Vous pourrez ainsi vous familiariser avec ces notions avant d’implémenter le champ d’emplacement :
+Voici une petite présentation des données de latitude/longitude issue du site stackoverflow : [How to measure the accuracy of latitude and longitude?](https://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude)(Comment mesurer la précision de la latitude et de la longitude). Il est utile de comprendre ces conseils avant d’inclure l’emplacement comme une ou plusieurs fonctionnalités :
 
 * Le signe indique si nous nous trouvons au nord, au sud, à l’est ou à l’ouest.
 * Un chiffre des centaines différent de zéro indique que nous utilisons la longitude, et non la latitude.
@@ -95,7 +95,7 @@ Voici une petite présentation des données de latitude/longitude issue du site 
 * La cinquième décimale équivaut à 1,1 m maximum : elle permet de distinguer un arbre d’un autre. Un tel niveau de précision sur les appareils GPS commerciaux ne peut être atteint qu’au moyen d’une correction différentielle.
 * La sixième décimale équivaut à 0,11 m maximum : vous pouvez notamment l’utiliser pour représenter des structures en détail, pour concevoir des plans d’aménagement paysager et pour construire des routes. Elle devrait se révéler amplement suffisante pour assurer le suivi des mouvements des glaciers et des rivières. L’obtention d’une telle précision sur un GPS nécessite l’emploi de mesures rigoureuses, telles qu’une correction différentielle.
 
-Vous pouvez implémenter les informations de localisation comme illustré ci-dessous, en les répartissant par région, par emplacement et par ville. Notez que vous pouvez aussi appeler un point de terminaison REST, tel que l’API Bing Cartes disponible dans [Rechercher un emplacement par point](https://msdn.microsoft.com/library/ff701710.aspx) , pour obtenir des informations sur la région/le secteur.
+Vous pouvez implémenter les informations de localisation comme illustré ci-dessous, en les répartissant par région, par emplacement et par ville. Vous pouvez aussi appeler un point de terminaison REST, tel que l’API Bing Maps disponible dans [Rechercher un emplacement par point](https://msdn.microsoft.com/library/ff701710.aspx), pour obtenir des informations sur la région/le secteur.
 
     select 
         <location_columnname>
@@ -121,7 +121,7 @@ La fonctionnalité que vous venez de générer peut être ajoutée sous la forme
 ![lecteurs azureml][1] 
 
 ## <a name="python"></a>Utilisation d’un langage de programmation tel que Python
-L’utilisation de Python pour explorer les données et générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué dans [Traiter les données Azure Blob dans votre environnement de science des données](data-blob.md). Les données doivent être chargées à partir de la base de données dans une trame de données pandas, puis faire l’objet d’un traitement complémentaire. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
+L’utilisation de Python pour explorer les données et générer des fonctionnalités quand les données sont stockées dans SQL Server est comparable au traitement des données dans l’objet blob Azure à l’aide de Python comme expliqué dans [Traiter les données Azure Blob dans votre environnement de science des données](data-blob.md). Chargez les données issues de la base de données dans une trame de données pandas pour un traitement plus approfondi. Nous décrivons dans cette section le processus de connexion à la base de données et de chargement des données dans la trame de données.
 
 Le format de chaîne de connexion ci-après vous permet de vous connecter à une base de données SQL Server à partir de Python à l’aide de pyodbc (en remplaçant les variables servername, dbname, username et password par les valeurs qui vous correspondent) :
 

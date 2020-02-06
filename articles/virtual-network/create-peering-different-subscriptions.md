@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: anavin
-ms.openlocfilehash: e44a27178434e7e5decbd30fda8febe0a710e7f0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: da85d8904fcd44788d6a87a22ea14d683982e333
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978954"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020010"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Créer un peering de réseaux virtuels - Resource Manager - Abonnements différents
 
@@ -330,4 +330,4 @@ Lorsque vous aurez terminé ce didacticiel, vous souhaiterez peut-être supprime
 
 - Familiarisez-vous bien avec les [comportements et contraintes importants du peering de réseaux virtuels](virtual-network-manage-peering.md#requirements-and-constraints) avant d’en créer un pour une utilisation en production.
 - Apprenez-en davantage sur tous les [paramètres de peering de réseaux virtuels](virtual-network-manage-peering.md#create-a-peering).
-- Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#vnet-peering) avec le peering de réseaux virtuels.
+- Découvrez comment [créer une topologie de réseau de type hub et spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke#virtual-network-peering) avec le peering de réseaux virtuels.

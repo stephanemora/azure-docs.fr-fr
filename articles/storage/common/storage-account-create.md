@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c9d3a876b75e7d3ed8ff43217227db1a524206f2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2ef90e1cb883a2d22b355ff4105ae0ce3c73ad6d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273476"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759845"
 ---
 # <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage
 
@@ -133,6 +133,9 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
+> [!IMPORTANT]
+> Si vous envisagez d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez `-EnableHierarchicalNamespace $True` dans cette liste de paramètres. 
+
 Pour créer un compte de stockage universel v2 avec une option de réplication différente, remplacez la valeur souhaitée pour le paramètre **SkuName** dans le tableau ci-dessous.
 
 |Option de réplication  |Paramètre SkuName  |
@@ -172,6 +175,9 @@ az storage account create \
     --sku Standard_RAGRS \
     --kind StorageV2
 ```
+
+> [!IMPORTANT]
+> Si vous envisagez d’utiliser [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), incluez `--enable-hierarchical-namespace true` dans cette liste de paramètres. 
 
 Pour créer un compte de stockage universel v2 avec une option de réplication différente, remplacez la valeur souhaitée pour le paramètre **sku** dans le tableau ci-dessous.
 

@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4078f2a005dcd324fa9c1d31cdca4b1f8337eecd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003867"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988377"
 ---
-# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Didacticiel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans Python
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Tutoriel : Utiliser Azure Key Vault avec une machine virtuelle Windows dans Python
 
 Azure Key Vault vous permet de protéger des secrets tels que les clés API et les chaînes de connexion de base de données nécessaires pour accéder à vos applications, services et ressources.
 
@@ -36,7 +36,7 @@ Avant de continuer, lisez les [concepts de base de Key Vault](basic-concepts.md)
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour Windows, Mac et Linux :
   * [Git](https://git-scm.com/downloads)
@@ -136,7 +136,7 @@ Pour vous connecter à la machine virtuelle, suivez les instructions de l’arti
 
 ## <a name="create-and-run-a-sample-python-app"></a>Créer et exécuter l’exemple d’application Python
 
-La section suivante inclut un exemple de fichier nommé *Sample.py*. Il utilise la bibliothèque [requests](http://docs.python-requests.org/en/master/) pour effectuer des appels HTTP GET.
+La section suivante inclut un exemple de fichier nommé *Sample.py*. Il utilise la bibliothèque [requests](https://2.python-requests.org/en/master/) pour effectuer des appels HTTP GET.
 
 ## <a name="edit-samplepy"></a>Modifier Sample.py
 
@@ -175,7 +175,7 @@ python Sample.py
 
 Le code précédent montre comment effectuer des opérations avec Azure Key Vault dans une machine virtuelle Windows. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Quand ils ne sont plus nécessaires, supprimez la machine virtuelle et le coffre de clés.
 

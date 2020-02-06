@@ -3,20 +3,20 @@ title: Phase de modélisation du cycle de vie du processus TDSP (Team Data Scien
 description: Objectifs, tâches et livrables associés à la phase de modélisation de vos projets de science des données
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1d3cd61ea3da88c4c5231f22c0e127508591fb8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538219"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720467"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Phase de modélisation du cycle de vie du processus TDSP (Team Data Science Process)
 
@@ -74,7 +74,7 @@ Les artefacts générés au cours de cette phase sont les suivants :
 
    * [Jeux de caractéristiques](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md) : Les caractéristiques développées pour la modélisation sont décrites dans la section **Feature Sets (Jeux de caractéristiques)** du rapport **Data Definition (Définition des données)** . Elle contient des pointeurs vers le code permettant de générer les caractéristiques et une description de la génération de la caractéristique.
    * [Modèle de rapport](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md) : Pour chaque modèle tenté, un rapport standard basé sur le modèle fournissant des détails sur chaque expérience est produit.
-   * **Décision de point de contrôle** : Déterminez si le modèle est suffisamment performant pour être déployé sur un système de production. Voici certaines questions clés que vous devez vous poser :
+   * **Décision de point de contrôle** : Déterminez si le modèle est suffisamment performant pour la production. Voici certaines questions clés que vous devez vous poser :
      * Le modèle répond-il à la question avec une fiabilité suffisante compte tenu des données de test ? 
      * Devez-vous essayer d’appliquer d’autres approches ? Devez-vous collecter des données supplémentaires, poursuivre l’ingénierie des caractéristiques ou faire des essais avec d’autres algorithmes ?
 

@@ -1,6 +1,6 @@
 ---
 title: Télécharger un fichier de disque dur virtuel vers Azure DevTest Labs à l’aide d’AzCopy | Microsoft Docs
-description: Télécharger un fichier de disque dur virtuel dans le compte de stockage d’un laboratoire avec AzCopy
+description: Cet article explique pas à pas comment utiliser l’utilitaire de ligne de commande AzCopy pour télécharger un fichier VHD sur le compte de stockage d’un lab dans Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 8cd778762bebf4a9dda3688292ac0a3674e446e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49dc70788bf2a44b6925c5f3f8226fdadab8768c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634974"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757420"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Télécharger un fichier de disque dur virtuel dans le compte de stockage d’un laboratoire avec AzCopy
 
@@ -37,7 +37,7 @@ Les étapes suivantes vous guident lors du téléchargement d’un fichier de di
 
 1. Obtenez le nom du compte de stockage du laboratoire à l’aide du portail Azure :
 
-1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 

@@ -7,14 +7,14 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2019
-ms.openlocfilehash: 2c015db828bcbfa8b26f519b3a4707b5ec69b8f3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982510"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846053"
 ---
-# <a name="customer-managed-key-disk-encryption"></a>Chiffrement de disque avec clés gérées par le client
+# <a name="customer-managed-key-disk-encryption"></a>Chiffrement de disque de clés gérées par le client
 
 Azure HDInsight prend en charge les clés gérées par le client, également appelées chiffrement Bring Your Own Key (BYOK), pour les données sur les disques managés et les disques de ressources attachés aux machines virtuelles de cluster HDInsight. Cette fonctionnalité vous permet d’utiliser Azure Key Vault pour gérer les clés de chiffrement qui sécurisent les données au repos sur vos clusters HDInsight. Vos clusters peuvent avoir un ou plusieurs comptes Stockage Azure attachés où les clés de chiffrement peuvent également être managées par Microsoft ou gérées par le client, mais le service de chiffrement est différent.
 
@@ -79,7 +79,7 @@ HDInsight prend uniquement en charge Azure Key Vault. Si vous disposez de votre 
 
     b. Sous **Sélectionner le principal**, choisissez l’identité managée affectée par l’utilisateur que vous avez créé.
 
-    ![Définir Sélectionner le principal pour la stratégie d’accès Azure Key Vault](./media/disk-encryption/add-key-vault-access-policy-select-principal.png)
+    ![Définir Sélectionner le principal pour la stratégie d’accès Azure Key Vault](./media/disk-encryption/azure-portal-add-access-policy.png)
 
     c. Définissez **Autorisations de clé** sur **Obtenir**, **Ne pas inclure la clé** et **Inclure la clé**.
 
@@ -100,6 +100,8 @@ Vous êtes maintenant prêt à créer un cluster HDInsight. La clé gérée par 
 ### <a name="using-the-azure-portal"></a>Utilisation du portail Azure
 
 Pendant la création du cluster, indiquez l’URL complète de la clé en incluant la version de la clé. Par exemple : `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Vous devez aussi affecter l’identité managée au cluster et indiquer l’URI de la clé.
+
+![Créer un cluster](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Utilisation de l’interface de ligne de commande Azure
 

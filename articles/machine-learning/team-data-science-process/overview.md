@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 1/04/2020
+ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 124fe4f69396286dbe383f8823a36b4ba52d346c
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: e9d98f03b2c97245517e3fbb6d7dc7624cfb724d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665070"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721385"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Qu’est-ce que le processus Team Data Science Process ?
 
@@ -36,11 +36,11 @@ Le processus TDSP est constitué des composants clés suivants :
 
 ## <a name="data-science-lifecycle"></a>Cycle de vie de la science des données
 
-Le processus TDSP (Team Data Science Process) fournit un cycle de vie qui structure le développement des projets de sciences des données. Le cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement quand ils sont exécutés.
+Le processus TDSP (Team Data Science Process) fournit un cycle de vie qui structure le développement des projets de sciences des données. Le cycle de vie décrit l’ensemble des étapes que suivent les projets réussis.
 
-Si vous utilisez un autre cycle de vie de sciences des données, tel que [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) ou le processus personnalisé de votre organisation, vous pouvez toujours utiliser le processus TDSP basé sur les tâches dans le contexte de ces cycles de vie de développement. À haut niveau, ces méthodologies ont beaucoup en commun. 
+Si vous utilisez un autre cycle de vie de science des données, tel que [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) ou le processus personnalisé de votre organisation, vous pouvez toujours utiliser le processus TDSP basé sur les tâches dans le contexte de ces cycles de vie de développement. À haut niveau, ces méthodologies ont beaucoup en commun. 
 
-Ce cycle de vie a été conçu pour les projets de sciences des données intégrés à des applications intelligentes. Ces applications déploient des modèles d’apprentissage automatique ou d’intelligence artificielle pour l’analytique prédictive. Les projets de sciences des données exploratoires et les projets d’analytique ad hoc peuvent également tirer parti de ce processus. Mais, dans ce cas, certaines des étapes décrites peuvent s’avérer superflues.    
+Ce cycle de vie a été conçu pour les projets de sciences des données intégrés à des applications intelligentes. Ces applications déploient des modèles d’apprentissage automatique ou d’intelligence artificielle pour l’analytique prédictive. Les projets de science des données exploratoires ou les projets d’analytique improvisée peuvent également tirer parti de ce processus. Mais, dans ce cas, certaines des étapes décrites peuvent s’avérer superflues.    
 
 Le cycle de vie expose les principales phases que les projets exécutent généralement, souvent de manière itérative :
 
@@ -90,7 +90,7 @@ Le processus TDSP fournit des recommandations sur la gestion de l’infrastructu
 - clusters Big Data (Hadoop ou Spark) ; 
 - service Machine Learning 
 
-L’infrastructure de stockage et d’analytique peut se trouver sur le cloud ou sur site. C’est à cet endroit que sont stockés les jeux de données bruts et traités. Cette infrastructure permet de reproduire les analyses. Elle évite également la duplication, susceptible de provoquer des incohérences et d’entraîner des coûts d’infrastructure inutiles. Des outils sont fournis pour configurer les ressources partagées, les suivre et permettre à chacun des membres de l’équipe de se connecter à ces ressources en toute sécurité. Il est également recommandé que les participants au projet créent un environnement de calcul homogène. Différents membres de l’équipe pourront alors répliquer et valider les expériences.
+L’infrastructure d’analyse et de stockage, dans laquelle sont stockées les jeux de données bruts et traités, peut être dans le cloud ou locale. Cette infrastructure permet de reproduire les analyses. Elle évite également la duplication, susceptible de provoquer des incohérences et d’entraîner des coûts d’infrastructure inutiles. Des outils sont fournis pour configurer les ressources partagées, les suivre et permettre à chacun des membres de l’équipe de se connecter à ces ressources en toute sécurité. Il est également recommandé que les participants au projet créent un environnement de calcul homogène. Différents membres de l’équipe pourront alors répliquer et valider les expériences.
 
 Voici l’exemple d’une équipe qui travaille sur plusieurs projets et partage différents composants de l’infrastructure d’analytique cloud.
 

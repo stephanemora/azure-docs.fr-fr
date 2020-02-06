@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 3401ed08a9332d4bb2735e536df33c201b28ca0e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778343"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841946"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Approvisionnement d’applications basé sur les attributs avec filtres d’étendue
 L’objectif de cet article est d’expliquer comment utiliser des filtres d’étendue pour définir des règles basées sur des attributs qui déterminent quels utilisateurs sont approvisionnés pour une application.
@@ -52,7 +52,7 @@ Chaque utilisateur ou groupe traité par le service d’approvisionnement Azure 
 
 Par exemple, considérez le filtre d’étendue suivant :
 
-![Filtre d’étendue](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![Filtre d’étendue](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 D’après ce filtre d’étendue, les utilisateurs doivent satisfaire aux critères suivants pour être approvisionnés :
 
@@ -94,7 +94,12 @@ Les filtres d’étendue sont configurés comme parties des mappages d’attribu
    g. **REGEX MATCH**. La clause renvoie « true » si l’attribut évalué correspond à un modèle d’expression régulière. Exemple : ([1-9][0-9]) comprend tout nombre compris entre 10 et 99.
 
    h. **NOT REGEX MATCH**. La clause renvoie « true » si l’attribut évalué ne correspond pas à un modèle d’expression régulière.
- 
+   
+   i. **Greater_Than.** La clause renvoie « true » si l’attribut évalué est supérieur à la valeur. La valeur indiquée dans le filtre d’étendue doit être un nombre entier et l’attribut de l’utilisateur doit être un nombre entier [0, 1, 2,...]. 
+   
+   j. **Greater_Than_OR_EQUALS.** La clause renvoie « true » si l’attribut évalué est supérieur ou égal à la valeur. La valeur indiquée dans le filtre d’étendue doit être un nombre entier et l’attribut de l’utilisateur doit être un nombre entier [0, 1, 2,...]. 
+
+
 >[!IMPORTANT] 
 > Les filtres Includes et IsMemberOf ne sont pas pris en charge. Ils seront bientôt supprimés de l’interface utilisateur.
 

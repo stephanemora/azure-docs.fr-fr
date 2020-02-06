@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668145"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031558"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Application Gateway v2 avec mise à l’échelle automatique et redondance interzone 
 
@@ -64,7 +64,7 @@ Le tableau suivant montre des exemples de prix proposés à des fins d'illustrat
 | Standard_v2                                       |    0.20             | 0,0080                          |
 | WAF_v2                                            |    0,36             | 0,0144                          |
 
-Pour plus d’informations concernant la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/). La facturation est planifiée pour le 1er juillet 2019.
+Pour plus d’informations concernant la tarification, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
 **Exemple 1**
 
@@ -184,7 +184,7 @@ Un script Azure PowerShell est disponible dans la galerie PowerShell pour vous a
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md)
+- [Démarrage rapide : diriger le trafic web avec Azure Application Gateway - Portail Azure](quick-create-portal.md)
 - [Créer une passerelle d’application redondante dans une zone, avec mise à l’échelle automatique et avec une adresse IP virtuelle réservée à l’aide d’Azure PowerShell](tutorial-autoscale-ps.md)
 - Découvrez [Application Gateway](overview.md).
 - Découvrez le [Pare-feu Azure](../firewall/overview.md).

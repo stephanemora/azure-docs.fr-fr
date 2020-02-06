@@ -3,34 +3,34 @@ title: Créer des tables Hive et charger des données à partir de Stockage Blob
 description: Utilisez des requêtes Hive pour créer des tables Hive et charger des données à partir de Stockage Blob Azure. Partitionnez des tables Hive et utilisez le format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: af9c072c428c486cab89288db4c9ee1c26513185
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 625d9d5c5ecf095d4acbff625754b2065f184536
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250144"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722524"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Créer des tables Hive et charger des données à partir de Stockage Blob Azure
 
 Cet article présente des requêtes Hive génériques qui créent des tables Hive et chargent des données à partir d’un stockage d’objets blob Azure. Il donne également quelques conseils sur le partitionnement des tables Hive et sur l’utilisation du format ORC (Optimized Row Columnar) pour améliorer les performances des requêtes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose que vous avez :
 
-* Créé un compte de stockage Azure. Pour obtenir des instructions, voir [À propos des comptes de stockage Azure](../../storage/common/storage-introduction.md).
+* Créé un compte de stockage Azure. Pour obtenir des instructions, consultez [À propos des comptes de stockage Azure](../../storage/common/storage-introduction.md).
 * Approvisionné un cluster Hadoop personnalisé avec le service HDInsight.  Si vous avez besoin d’aide, consultez [Configurer des clusters dans HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 * Activé l’accès à distance au cluster, saisi les identifiants appropriés et ouvert la console de ligne de commande Hadoop. Si vous avez besoin d’aide, consultez [Gérer des clusters Apache Hadoop](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Téléchargement de données vers le stockage d’objets blob Azure
-Si vous avez créé une machine virtuelle Azure en suivant les instructions de l’article [Configurer une machine virtuelle Azure pour l’analyse avancée](../../machine-learning/data-science-virtual-machine/overview.md), ce fichier de script doit avoir été téléchargé dans le répertoire *C:\\Utilisateurs\\\<nom_utilisateur\>\\Documents\\Data Science Scripts* de la machine virtuelle. Pour pouvoir être envoyées, ces requêtes Hive nécessitent simplement que votre schéma de données et la configuration de votre stockage Azure Blob soient déclarés dans les champs appropriés.
+Si vous avez créé une machine virtuelle Azure en suivant les instructions de l’article [Configurer une machine virtuelle Azure pour l’analyse avancée](../../machine-learning/data-science-virtual-machine/overview.md), ce fichier de script doit avoir été téléchargé dans le répertoire *C:\\Utilisateurs\\\<nom_utilisateur\>\\Documents\\Data Science Scripts* de la machine virtuelle. Pour pouvoir être envoyées, ces requêtes Hive nécessitent simplement que vous fournissiez un schéma de données et une configuration de stockage de blobs Azure dans les champs appropriés.
 
 Nous partons du principe que les données des tables Hive ont un format tabulaire **non compressé** et qu’elles ont été chargées dans le conteneur par défaut (ou un conteneur supplémentaire) du compte de stockage utilisé par le cluster Hadoop.
 
@@ -43,15 +43,15 @@ Si vous souhaitez vous exercer avec l’exemple **NYC Taxi Trip Data**, vous dev
 ## <a name="submit"></a>Envoi de requêtes Hive
 Pour envoyer des requêtes Hive, utilisez au choix :
 
-1. [Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop](#headnode)
-2. [Envoyer des requêtes Hive avec l'éditeur Hive](#hive-editor)
-3. [Envoyer des requêtes Hive avec les commandes Azure PowerShell](#ps)
+* [Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop](#headnode)
+* [Envoyer des requêtes Hive avec l'éditeur Hive](#hive-editor)
+* [Envoyer des requêtes Hive avec les commandes Azure PowerShell](#ps)
 
 Des requêtes Hive sont similaires à SQL. Si vous maîtrisez SQL, l’ [aide-mémoire Hive pour utilisateurs SQL](https://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf) peut vous être utile.
 
 Lors de l’envoi d’une requête Hive, vous pouvez également contrôler la destination de sa sortie : écran, fichier local sur le nœud principal ou blob Azure.
 
-### <a name="headnode"></a> 1. Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop
+### <a name="headnode"></a>Envoyer des requêtes Hive avec la ligne de commande Hadoop dans le nœud principal du cluster Hadoop
 Une requête Hive complexe envoyée directement au nœud principal du cluster Hadoop est traitée plus rapidement qu'avec un éditeur Hive ou des scripts Azure PowerShell.
 
 Connectez-vous au nœud principal du cluster Hadoop, ouvrez la ligne de commande Hadoop sur le bureau du nœud principal et saisissez la commande `cd %hive_home%\bin`.
@@ -59,7 +59,7 @@ Connectez-vous au nœud principal du cluster Hadoop, ouvrez la ligne de commande
 Vous disposez de trois possibilités pour envoyer des requêtes Hive dans la ligne de commande Hadoop :
 
 * directement ;
-* à l’aide de fichiers HQL ;
+* à l’aide de fichiers « .hql » ;
 * à l’aide de la console de commande Hive.
 
 #### <a name="submit-hive-queries-directly-in-hadoop-command-line"></a>Envoyer directement des requêtes Hive dans la ligne de commande Hadoop
@@ -67,18 +67,18 @@ Vous pouvez exécuter une commande du type `hive -e "<your hive query>;` pour en
 
 ![Commande d’envoi de requête Hive avec la sortie correspondante](./media/move-hive-tables/run-hive-queries-1.png)
 
-#### <a name="submit-hive-queries-in-hql-files"></a>Envoyer des requêtes Hive dans des fichiers HQL
-Lorsque la requête Hive est plus complexe et comporte plusieurs lignes, la modifier dans la ligne de commande ou la console de commande Hive n’est pas simple. L’alternative consiste à utiliser un éditeur de texte dans le nœud principal du cluster Hadoop pour enregistrer la requête Hive dans un fichier HQL situé dans le répertoire local du nœud principal. Ensuite, celle-ci peut être envoyée à l'aide de l'argument `-f` , comme indiqué ci-dessous :
+#### <a name="submit-hive-queries-in-hql-files"></a>Envoyer des requêtes Hive dans des fichiers « .hql »
+Lorsque la requête Hive est plus complexe et comporte plusieurs lignes, la modifier dans la ligne de commande ou la console de commande Hive n’est pas simple. L’alternative consiste à utiliser un éditeur de texte dans le nœud principal du cluster Hadoop pour enregistrer la requête Hive dans un fichier « .hql » situé dans un répertoire local du nœud principal. Ensuite, celle-ci peut être envoyée dans le fichier « .hql » à l’aide de l’argument `-f` , comme indiqué ci-dessous :
 
-    hive -f "<path to the .hql file>"
+    hive -f "<path to the '.hql' file>"
 
-![Requête Hive dans un fichier .hql](./media/move-hive-tables/run-hive-queries-3.png)
+![Requête Hive dans un fichier « .hql »](./media/move-hive-tables/run-hive-queries-3.png)
 
 **Supprimer l’affichage de l’état d’avancement des requêtes Hive**
 
 Par défaut, après l’envoi d’une requête Hive dans la ligne de commande Hadoop, l’état d’avancement de la tâche Map/Reduce s’affiche à l’écran. Pour supprimer cet affichage, déclarez l'argument `-S` (« S » en majuscule) dans la ligne de commande, comme indiqué ci-dessous :
 
-    hive -S -f "<path to the .hql file>"
+    hive -S -f "<path to the '.hql' file>"
     hive -S -e "<Hive queries>"
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Envoyer des requêtes Hive dans la console de commande Hive
@@ -111,10 +111,10 @@ Si vous ouvrez le conteneur par défaut du cluster Hadoop à l’aide d’Azure 
 
 ![Explorateur Stockage Azure montrant la sortie de la requête Hive](./media/move-hive-tables/output-hive-results-3.png)
 
-### <a name="hive-editor"></a> 2. Envoyer des requêtes Hive avec l'éditeur Hive
+### <a name="hive-editor"></a>Envoyer des requêtes Hive avec l’éditeur Hive
 Vous pouvez également utiliser la console de requête (éditeur Hive) en entrant une URL sous la forme *https:\//\<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* dans un navigateur web. Vous devez être connecté pour afficher cette console, et vous devez donc saisir ici vos informations d’identification de cluster Hadoop.
 
-### <a name="ps"></a> 3. Envoyer des requêtes Hive avec les commandes Azure PowerShell
+### <a name="ps"></a>Envoyer des requêtes Hive avec les commandes Azure PowerShell
 Vous pouvez également utiliser PowerShell pour envoyer des requêtes Hive. Pour obtenir de l'aide, consultez [Envoi de tâches Hive avec PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
 
 ## <a name="create-tables"></a>Créer la base de données et les tables Hive
@@ -137,11 +137,11 @@ Voici la requête Hive qui crée une table Hive.
 
 Voici les descriptions des champs que vous devez renseigner et d’autres opérations de configuration :
 
-* **\<database name\>**  : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête *create database...* peut être omise.
+* **\<database name\>**  : nom de la base de données que vous souhaitez créer. Si vous voulez utiliser la base de données par défaut, la requête « *create database...*  » peut être omise.
 * **\<table name\>**  : nom de la table que vous voulez créer dans la base de données spécifiée. Si vous voulez utiliser la base de données par défaut, la table peut être désignée directement par *\<table name\>* sans \<database name\>.
 * **\<field separator\>**  : séparateur qui délimite les champs dans le fichier de données à charger dans la table Hive.
 * **\<line separator\>**  : séparateur qui délimite les lignes dans le fichier de données.
-* **\<storage location\>**  : emplacement Azure où enregistrer les données des tables Hive. Si vous ne spécifiez pas *LOCATION \<storage location\>* , la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si vous souhaitez spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement par rapport au conteneur par défaut du cluster sous la forme *'wasb:///\<répertoire 1>/'* ou *'wasb:///\<répertoire 1>/\<répertoire 2>/'* , etc. Une fois la requête exécutée, les répertoires relatifs sont créés dans le conteneur par défaut.
+* **\<storage location\>**  : emplacement Stockage Azure où enregistrer les données des tables Hive. Si vous ne spécifiez pas *LOCATION \<storage location\>* , la base de données et les tables sont stockées dans le répertoire *hive/warehouse/* du conteneur par défaut du cluster Hive par défaut. Si vous souhaitez spécifier l’emplacement de stockage, ce dernier doit se trouver dans le conteneur par défaut de la base de données et des tables. Cet emplacement doit être désigné comme emplacement par rapport au conteneur par défaut du cluster sous la forme *'wasb:///\<répertoire 1>/'* ou *'wasb:///\<répertoire 1>/\<répertoire 2>/'* , etc. Une fois la requête exécutée, les répertoires relatifs sont créés dans le conteneur par défaut.
 * **TBLPROPERTIES("skip.header.line.count"="1")** : si le fichier de données contient une ligne d’en-tête, vous devez ajouter cette propriété **à la fin** de la requête *create table*. Sinon, cette ligne d’en-tête est chargée comme un enregistrement dans la table. Si le fichier de données ne contient aucune ligne d’en-tête, cette configuration peut être omise dans la requête.
 
 ## <a name="load-data"></a>Chargement des données dans des tables Hive
@@ -174,7 +174,7 @@ Voici la requête Hive qui crée une table partitionnée et charge les données 
     LOAD DATA INPATH '<path to the source file>' INTO TABLE <database name>.<partitioned table name>
         PARTITION (<partitionfieldname>=<partitionfieldvalue>);
 
-Lors de l’interrogation de tables partitionnées, il est recommandé d’ajouter la condition de partition au **début** de la clause `where`, car cela améliore considérablement l’efficacité de la recherche.
+Lors de l’interrogation de tables partitionnées, il est recommandé d’ajouter la condition de partition au **début** de la clause `where`, ce qui améliore l’efficacité de la recherche.
 
     select
         field1, field2, ..., fieldN
@@ -225,7 +225,7 @@ Sélectionnez les données de la table externe à l’étape 1 et insérez-les 
            FROM <database name>.<external textfile table name>
            WHERE <partition variable>=<partition value>;
 
-Pour plus de sécurité, quand vous utilisez la requête suivante, il est recommandé de déplacer la table *\<external textfile table name\>* une fois toutes les données insérées dans la table *\<database name\>.\<ORC table name\>*  :
+Lors de l’utilisation de la requête suivante, il est possible de supprimer en toute sécurité la table *\<external text file table name\>* une fois toutes les données insérées dans la base de données *\<database name\>.\<ORC table name\>*  :
 
         DROP TABLE IF EXISTS <database name>.<external textfile table name>;
 

@@ -16,90 +16,101 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86c36661dd8b5d43417ca1d845eef5cdb146f1e9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2d9e5d051f101288b8528b47fa88b4783a040950
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962523"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775165"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protégée : Inscription d'application
 
 Cet article explique les spécificités de l’inscription d’application pour une API web protégée.
 
-Consultez [Démarrage rapide : Inscrire une application avec la plateforme d’identités Microsoft](quickstart-register-app.md) pour découvrir les étapes courantes de l’inscription d’une application.
+Pour connaître les étapes courantes visant à inscrire une application, consultez [Démarrage rapide : Inscrire une application avec la plateforme des identités Microsoft](quickstart-register-app.md).
 
 ## <a name="accepted-token-version"></a>Version de jeton acceptée
 
-Le point de terminaison de la plateforme d’identités Microsoft peut émettre deux types de jetons : des jetons v1.0 et des jetons v2.0. Pour plus d’informations sur ces jetons, consultez [Jetons d’accès](access-tokens.md). La version de jeton acceptée varie selon les **types de comptes pris en charge** que vous avez choisis lorsque vous avez créé votre application :
+Le point de terminaison de la plateforme d’identités Microsoft peut émettre des jetons v1.0 et des jetons v2.0. Pour plus d’informations sur ces jetons, consultez [Jetons d’accès](access-tokens.md).
 
-- Si la valeur de **Types de comptes pris en charge** est **Comptes dans un annuaire organisationnel et comptes personnels Microsoft (par exemple, Skype, Xbox, Outlook.com)** , la version de jeton acceptée est v2.0.
+La version de jeton acceptée varie selon la valeur **Types de comptes pris en charge** que vous avez choisie lorsque vous avez créé votre application.
+
+- Si la valeur **Types de comptes pris en charge** est **Comptes dans un annuaire organisationnel et comptes Microsoft personnels (par exemple, Skype, Xbox, Outlook.com)** , la version de jeton acceptée est v2.0.
 - Sinon, la version de jeton acceptée est v1.0.
 
 Après avoir créé l’application, vous pouvez déterminer ou changer la version de jeton acceptée en procédant comme suit :
 
-1. Dans le portail Azure, sélectionnez votre application puis le **manifeste** pour votre application.
-2. Dans le manifeste, recherchez **« accessTokenAcceptedVersion »** . Notez que sa valeur est **2**. Cette propriété indique à Azure Active Directory (Azure AD) que l’API web accepte les jetons v2.0. Si la valeur est **null**, la version de jeton acceptée est v1.0.
-3. Si vous avez modifié la version de jeton, sélectionnez **Enregistrer**.
+1. Dans le Portail Azure, sélectionnez votre application puis **Manifeste**.
+1. Recherchez la propriété **accessTokenAcceptedVersion** dans le manifeste. La valeur par défaut de la propriété est 2.
+1. La valeur spécifie à Azure Active Directory (Azure AD) la version de jeton acceptée par l’API web.
+    - Si la valeur est 2, l’API web accepte les jetons v2.0.
+    - Si la valeur est **Null**, l’API web accepte les jetons v1.0.
+1. Si vous avez modifié la version de jeton, sélectionnez **Enregistrer**.
 
 > [!NOTE]
-> L’API web spécifie la version de jeton (v1.0 ou v2.0) qu’elle accepte. Quand des clients demandent un jeton pour votre API web à partir du point de terminaison de la plateforme d’identités Microsoft (v2.0), ils obtiennent un jeton qui indique la version qui est acceptée par l’API web.
+> L’API web spécifie la version de jeton qu’elle accepte. Quand un client demande un jeton pour votre API web auprès du point de terminaison de la plateforme d’identités Microsoft (v2.0), le client obtient un jeton qui indique quelle version de jeton est acceptée par l’API web.
 
 ## <a name="no-redirect-uri"></a>Aucun URI de redirection
 
 Les API web n’ont pas besoin d’inscrire d’URI de redirection, car aucun utilisateur n’est connecté de manière interactive.
 
-## <a name="expose-an-api"></a>Exposer une API
+## <a name="exposed-api"></a>API exposée
 
-Un autre paramètre spécifique des API web est l’API exposée et les étendues exposées.
+D’autres paramètres spécifiques aux API web sont l’API exposée et les étendues exposées.
 
-### <a name="resource-uri-and-scopes"></a>URI de ressource et étendues
+### <a name="application-id-uri-and-scopes"></a>URI d’ID d’application et étendues
 
-Les étendues sont généralement de la forme `resourceURI/scopeName`. Pour Microsoft Graph, les étendues ont des raccourcis tels que `User.Read`. Cette chaîne est un raccourci pour `https://graph.microsoft.com/user.read`.
+Les étendues se présentent généralement sous la forme `resourceURI/scopeName`. Pour Microsoft Graph, les étendues ont des raccourcis. Par exemple, `User.Read` est un raccourci pour `https://graph.microsoft.com/user.read`.
 
 Lors de l’inscription de l’application, vous devez définir les paramètres suivants :
 
-- L’URI de ressource. Par défaut, le portail d’inscription des applications vous recommande d’utiliser `api://{clientId}`. Cet URI de ressource est unique, mais il n’est pas lisible. Vous pouvez le changer, mais assurez-vous que la nouvelle valeur est unique.
-- Une ou plusieurs *étendues*. (Pour les applications clientes, elles apparaîtront en tant qu’*autorisations déléguées* pour votre API web.)
-- Un ou plusieurs *rôles d’application*. (Pour les applications clientes, elles apparaîtront en tant qu’*autorisations d’application* pour votre API web.)
+- L’URI de ressource
+- Une ou plusieurs étendues
+- Un ou plusieurs rôles d’application
 
-Les étendues sont également affichées sur l’écran de consentement qui est présenté aux utilisateurs finaux de votre application. Par conséquent, vous devez fournir les chaînes correspondantes qui décrivent l’étendue :
+Par défaut, le portail d’inscription des applications vous recommande d’utiliser l’URI de ressource `api://{clientId}`. Cet URI est unique, mais n’est pas lisible. Si vous modifiez l’URI, assurez-vous que la nouvelle valeur est unique.
 
-- Comme vue par l’utilisateur final.
-- Comme vue par l’administrateur de locataire, qui peut accorder un consentement d’administrateur.
+Pour les applications clientes, les étendues s’affichent en tant que *permissions déléguées* et les rôles d’application en tant que *permissions d’application* pour votre API web.
+
+Les étendues s’affichent également dans la fenêtre de consentement présentée aux utilisateurs de votre application. Par conséquent, vous devez fournir les chaînes correspondantes qui décrivent l’étendue :
+
+- Comme vue par un utilisateur.
+- Comme vue par l’administrateur client, qui peut accorder un consentement administrateur.
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Exposition d’autorisations déléguées (étendues)
 
-1. Sélectionnez la section **Exposer une API** dans l’inscription de l’application.
+1. Sélectionnez **Exposer une API** dans l’inscription de l’application.
 1. sélectionner **Ajouter une étendue**.
 1. Si vous y êtes invité, acceptez l’URI d’ID d’application proposé (`api://{clientId}`) en sélectionnant **Enregistrer et continuer**.
-1. Entrez ces paramètres :
-      - Pour **Nom de l’étendue**, utilisez **access_as_user**.
-      - Pour **Qui peut donner son consentement**, assurez-vous que l’option **Administrateurs et utilisateurs** est sélectionnée.
-      - Dans **Nom d'affichage du consentement administrateur**, entrez **Accéder à TodoListService en tant qu’utilisateur**.
-      - Dans **Description du consentement de l'administrateur**, entrez **Accède à l’API web TodoListService en tant qu’utilisateur**.
-      - Dans **Nom d'affichage du consentement de l’administrateur**, entrez **Accéder à TodoListService en tant qu’utilisateur**.
-      - Dans **Description du consentement de l'utilisateur**, entrez **Accède à l’API web TodoListService en tant qu’utilisateur**.
-      - Conservez **État** défini sur **Activé**.
-      - Sélectionnez **Ajouter une étendue**.
+1. Spécifiez les valeurs suivantes :
+    - Sélectionnez **Nom de l’étendue** et entrez **access_as_user**.
+    - Sélectionnez **Qui peut donner son consentement** et assurez-vous que l’option **Administrateurs et utilisateurs** est sélectionnée.
+    - Sélectionnez **Nom d’affichage du consentement administrateur** et entrez **Accéder à TodoListService en tant qu’utilisateur**.
+    - Sélectionnez **Description du consentement administrateur** et entrez **Accède à l’API web TodoListService en tant qu’utilisateur**.
+    - Sélectionnez **Nom d’affichage du consentement de l’utilisateur** et entrez **Accéder à TodoListService en tant qu’utilisateur**.
+    - Sélectionnez **Description du consentement de l’utilisateur** et entrez **Accède à l’API web TodoListService en tant qu’utilisateur**.
+    - Conservez la valeur **État** définie sur **Activé**.
+ 1. Sélectionnez **Ajouter une étendue**.
 
 ### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Si votre API web est appelée par une application démon
 
-Dans cette section, vous allez apprendre à inscrire votre API web protégée afin qu’elle puisse être appelée en toute sécurité par les applications de démon.
+Dans cette section, vous apprenez à inscrire votre API web protégée afin que les applications démon puissent l’appeler.
 
-- Vous devez exposer les *autorisations d’application*. Vous allez déclarer uniquement les autorisations d’application, car les applications de démon n’interagissent pas avec les utilisateurs, si bien que les autorisations déléguées n’auraient aucun sens.
-- Les administrateurs de locataires peuvent exiger d’Azure Active Directory (Azure AD) qu’il émette des jetons pour votre API web uniquement aux applications qui se sont inscrites pour accéder aux autorisations d’application de l’une des API web.
+- Vous déclarez et exposez uniquement les *permissions d’application*, car les applications démon n’interagissent pas avec les utilisateurs. Des permissions déléguées n’auraient aucun sens.
+- Les administrateurs client peuvent exiger d’Azure AD qu’il émette des jetons d’API web uniquement aux applications qui se sont inscrites pour accéder aux permissions d’application de l’une des API.
 
 #### <a name="exposing-application-permissions-app-roles"></a>Exposition des autorisations d’application (rôles d’application)
 
-Pour exposer les autorisations d’application, vous devez modifier le manifeste.
+Pour exposer les permissions d’application, vous devez modifier le manifeste.
 
 1. Dans l’inscription d’application pour votre application, sélectionnez **Manifeste**.
-1. Modifiez le manifeste en recherchant le paramètre `appRoles` et en ajoutant un ou plusieurs rôles d'application. La définition de rôle est fournie dans l’exemple de bloc JSON suivant. Laissez le paramètre `allowedMemberTypes` défini sur `"Application"` uniquement. Assurez-vous que le paramètre `id` est un GUID unique et que `displayName` et `value` ne contiennent pas d’espaces.
+1. Pour modifier le manifeste, recherchez le paramètre `appRoles` et ajoutez des rôles d’application. La définition de rôle est fournie dans l’exemple de bloc JSON suivant.
+1. Laissez `allowedMemberTypes` défini sur `"Application"` uniquement.
+1. Assurez-vous que `id` est un GUID unique.
+1. Assurez-vous que `displayName` et `value` ne contiennent pas d’espaces.
 1. Enregistrez le manifeste.
 
-L’exemple suivant affiche le contenu de `appRoles`. (`id` peut être n’importe quel GUID unique.)
+L’exemple suivant montre le contenu de `appRoles`, où la valeur de `id` peut être n’importe quel GUID unique.
 
 ```JSon
 "appRoles": [
@@ -118,26 +129,31 @@ L’exemple suivant affiche le contenu de `appRoles`. (`id` peut être n’impor
 
 #### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>S’assurer qu’Azure AD émet des jetons pour votre API web uniquement aux clients autorisés
 
-L’API web recherche le rôle d’application. (C’est la méthode disponible au développeur pour exposer les autorisations d’application.) Toutefois, vous pouvez également configurer Azure AD pour émettre un jeton pour votre API web uniquement aux applications qui sont approuvées par l’administrateur de locataires pour accéder à votre API. Pour ajouter cette sécurité renforcée :
+L’API web recherche le rôle d’application. Ce rôle est un moyen pour les développeurs de logiciels d’exposer les permissions d’application. Vous pouvez également configurer Azure AD de sorte qu’il émette des jetons d’API uniquement aux applications approuvées par l’administrateur client pour accéder aux API.
 
-1. Dans la page **Présentation** de l’application pour l’inscription de votre application, sélectionnez le lien avec le nom de votre application sous **Application managée dans l’annuaire local**. Le titre de ce champ peut être tronqué. Vous pouvez, par exemple, voir **Application managée dans ...**
+Pour ajouter cette sécurité renforcée :
+
+1. Accédez à la page **Vue d’ensemble** de l’application pour l’inscription de votre application.
+1. Sous **Application managée dans l’annuaire local**, sélectionnez le lien portant le nom de votre application. L’étiquette de cette sélection peut être tronquée. Par exemple, vous pouvez voir **Application managée dans …**
 
    > [!NOTE]
    >
-   > Lorsque vous sélectionnez ce lien, vous accédez à la page **Présentation de l’application d’entreprise** associée au principal de service pour votre application dans le locataire où vous l’avez créée. Vous pouvez revenir à la page d’inscription d’application à l’aide du bouton Précédent de votre navigateur.
+   > Lorsque vous sélectionnez ce lien, vous accédez à la page **Vue d’ensemble de l’application d’entreprise**. Cette page est associée au principal de service de votre application dans le locataire où vous l’avez créée. Vous pouvez accéder à la page d’inscription d’application à l’aide du bouton Précédent de votre navigateur.
 
 1. Sélectionnez la page **Propriétés** dans la section **Gérer** des pages d’application d’entreprise.
 1. Si vous souhaitez qu’Azure AD autorise l’accès à votre API web à partir de certains clients seulement, définissez **Assignation requise de utilisateur ?** sur **Oui**.
 
    > [!IMPORTANT]
    >
-   > Si vous définissez **Assignation requise de utilisateur ?** sur **Oui**, Azure AD vérifie les attributions de rôles d’application des clients lorsqu’ils demandent un jeton d’accès pour l’API web. Si le client n’est affecté à aucun rôle d’application, Azure AD renvoie l’erreur `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
+   > Si vous définissez **Attribution de l’utilisateur requise ?** sur **Oui**, Azure AD vérifie les attributions de rôles d’application d’un client lorsqu’il demande un jeton d’accès pour l’API web. Si le client n’est attribué à aucun rôle d’application, Azure AD renvoie le message d’erreur « invalid_client: AADSTS501051: L’application \<nom d’application\> n’est pas attribuée à un rôle pour \<API web\> ».
    >
-   > Si vous maintenez l’option **Assignation requise de utilisateur ?** définie sur **Non**, *Azure AD ne vérifiera pas les attributions de rôles d’application lorsqu’un client demandera un jeton d’accès pour votre API web*. N’importe quel client démon (autrement dit, tous les clients utilisant le flux d’informations d’identification de client) sera en mesure d’obtenir un jeton d’accès pour l’API en spécifiant simplement son public. N’importe quelle application sera en mesure d’accéder à l’API sans avoir à demander d’autorisations pour cela. Toutefois, votre API web peut toujours, comme cela est expliqué dans la section précédente, vérifier que l’application possède le rôle approprié (qui est autorisé par l’administrateur de locataire). L’API effectue cette vérification en validant que le jeton d’accès a une revendication de rôles et que la valeur de cette revendication est correcte. (Dans notre cas, cette valeur est `access_as_application`.)
+   > Si vous maintenez l’option **Attribution de l’utilisateur requise ?** définie sur **Non**, Azure AD ne vérifiera pas les attributions de rôles d’application lorsqu’un client demandera un jeton d’accès pour votre API web. N’importe quel client démon, c’est-à-dire tous les clients utilisant le flux d’informations d’identification du client, peut obtenir un jeton d’accès pour l’API en spécifiant simplement son public. N’importe quelle application peut accéder à l’API sans avoir à demander de permissions pour cela.
+   >
+   > Toutefois, comme cela est expliqué dans la section précédente, votre API web peut toujours vérifier que l’application possède le rôle approprié, ce qui est autorisé par l’administrateur client. L’API effectue cette vérification en validant que le jeton d’accès a une revendication de rôles et que la valeur de cette revendication est correcte. Dans l’exemple JSON précédent, la valeur est `access_as_application`.
 
 1. Sélectionnez **Enregistrer**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Configuration de code de l’application](scenario-protected-web-api-app-configuration.md)
+> [Configuration du code d’application](scenario-protected-web-api-app-configuration.md)

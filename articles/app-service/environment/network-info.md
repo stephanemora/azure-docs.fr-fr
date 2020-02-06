@@ -4,15 +4,15 @@ description: Découvrez le trafic réseau ASE et comment définir des groupes de
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75375013"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713198"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considérations relatives à la mise en réseau pour un environnement App Service Environment #
 
@@ -88,7 +88,7 @@ L’ASE communique avec les adresses Internet accessibles sur les ports suivants
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
-| 8CRL, mises à jour Windows, dépendances Linux, services Azure | 80/443 |
+| CRL, mises à jour Windows, dépendances Linux, services Azure | 80/443 |
 | Azure SQL | 1433 | 
 | Surveillance | 12 000 |
 

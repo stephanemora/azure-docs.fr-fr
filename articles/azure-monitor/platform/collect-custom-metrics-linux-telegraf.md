@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b4cf5dc53c0fe256c9ecab5a844300224b860e44
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926743"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901322"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Collecter des métriques personnalisées pour une machine virtuelle Linux avec l’agent InfluxData Telegraf
 
@@ -21,7 +21,7 @@ Azure Monitor vous permet de collecter des métriques personnalisées par le bia
 
 ## <a name="influxdata-telegraf-agent"></a>Agent InfluxData Telegraf 
 
-[Telegraf](https://docs.influxdata.com/telegraf/v1.7/) est un agent piloté par le plug-in qui permet la collection de métriques provenant de plus de 150 sources différentes. En fonction des charges de travail qui sont exécutées sur votre machine virtuelle, vous pouvez configurer l’agent pour tirer parti des plug-ins d’entrée spécialisés afin de collecter des métriques. MySQL, NGINX et Apache en sont des exemples. À l’aide de plug-ins de sortie, l’agent peut ensuite écrire les données dans les destinations que vous choisissez. L’agent Telegraf est intégré directement à l’API REST des métriques personnalisées Azure Monitor. Il prend en charge un plug-in de sortie Azure Monitor. Avec ce plug-in, l’agent peut collecter des métriques concernant les charges de travail sur votre machine virtuelle Linux, et les envoyer en tant que métriques personnalisées à Azure Monitor. 
+[Telegraf](https://docs.influxdata.com/telegraf/) est un agent piloté par le plug-in qui permet la collection de métriques provenant de plus de 150 sources différentes. En fonction des charges de travail qui sont exécutées sur votre machine virtuelle, vous pouvez configurer l’agent pour tirer parti des plug-ins d’entrée spécialisés afin de collecter des métriques. MySQL, NGINX et Apache en sont des exemples. À l’aide de plug-ins de sortie, l’agent peut ensuite écrire les données dans les destinations que vous choisissez. L’agent Telegraf est intégré directement à l’API REST des métriques personnalisées Azure Monitor. Il prend en charge un plug-in de sortie Azure Monitor. Avec ce plug-in, l’agent peut collecter des métriques concernant les charges de travail sur votre machine virtuelle Linux, et les envoyer en tant que métriques personnalisées à Azure Monitor. 
 
  ![Présentation de l’agent Telegraf](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
@@ -29,7 +29,7 @@ Azure Monitor vous permet de collecter des métriques personnalisées par le bia
 
 Pour les besoins de ce tutoriel, nous allons déployer une machine virtuelle Linux exécutant le système d’exploitation Ubuntu 16.04 LTS. L’agent Telegraf est pris en charge sur la plupart des systèmes d’exploitation Linux. Les packages Debian et RPM, ainsi que les fichiers binaires décompressés de Linux, sont disponibles sur le [portail de téléchargement InfluxData](https://portal.influxdata.com/downloads). Consultez ce [guide d’installation Telegraf](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) pour obtenir des instructions et connaître les options d’installation supplémentaires. 
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 Créez une machine virtuelle Linux : 
 
@@ -126,7 +126,7 @@ La procédure pas à pas précédente explique comment configurer l’agent Tele
 
 De plus, dans cette procédure pas à pas, vous avez utilisé un agent Telegraf pour envoyer des métriques concernant la machine virtuelle sur laquelle l’agent est déployé. L’agent Telegraf peut également servir de collecteur et de redirecteur de métriques pour d’autres ressources. Pour savoir comment configurer l’agent afin d’émettre des métriques pour les autres ressources Azure, consultez [Sortie de métriques personnalisée Azure Monitor pour Telegraf](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md).  
 
-## <a name="clean-up-resources"></a>Supprimer des ressources 
+## <a name="clean-up-resources"></a>Nettoyer les ressources 
 
 Dès que vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle, puis sélectionner **Supprimer**. Ensuite, confirmez le nom du groupe de ressources à supprimer. 
 

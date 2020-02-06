@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 32eb8e71cfb978fac5b4d6d05af4da4fdc9f67b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513930"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715525"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingérer des données de télémétrie historiques
 
@@ -72,7 +72,7 @@ Effectuez les opérations suivantes.
 
  Maintenant que vous disposez des informations d’identification nécessaires, vous pouvez définir les appareils et les capteurs. Pour cela, créez les métadonnées en appelant les API FarmBeats. Sachez que vous devrez appeler les API en tant qu’application cliente créée dans la section ci-dessus.
 
- FarmBeats Datahub propose les API suivantes qui permettent de créer et de gérer les métadonnées d’appareils ou de capteurs.
+ FarmBeats Datahub propose les API suivantes qui permettent de créer et de gérer les métadonnées d’appareils ou de capteurs. Notez que, en tant que partenaire, vous avez accès uniquement à la lecture, à la création et à la mise à jour des métadonnées ;. **la suppression n’est pas autorisée par un partenaire.**
 
 - /**DeviceModel** : DeviceModel correspond aux métadonnées de l’appareil, telles que le fabricant et le type d’appareil (passerelle ou nœud).
 - /**Device** : Device correspond à un appareil physique présent dans l’exploitation agricole.
@@ -381,6 +381,41 @@ Voici un exemple de message de télémétrie :
       ]
     }
   ]
+}
+```
+
+## <a name="troubleshooting"></a>Dépannage
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Impossible d’afficher les données de télémétrie après l’ingestion des données historique/de diffusion en continu à partir de vos capteurs
+
+**Symptôme** : Des dispositifs ou des capteurs sont déployés. Vous avez créé les dispositifs/capteurs sur FarmBeats et ingéré la télémétrie vers l'EventHub, mais vous ne pouvez pas obtenir ou visualiser les données de télémétrie sur FarmBeats.
+
+**Action corrective** :
+
+1. Assurez-vous d’avoir correctement effectué l’inscription du partenaire. Pour le vérifier, accédez à votre Swagger DataHub et à /API Partner, effectuez un GET et regardez si le partenaire est bien inscrit. Si ce n’est pas le cas, suivez les [étapes indiquées ici](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) pour ajouter un partenaire.
+2. Assurez-vous que vous avez créé les métadonnées (DeviceModel, Appareil, SensorModel, Capteur) à l’aide des informations d’identification du client partenaire.
+3. Vérifiez que vous avez bien utilisé le bon format de message de télémétrie (comme indiqué ci-dessous) :
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
 }
 ```
 

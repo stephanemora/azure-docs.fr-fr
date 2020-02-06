@@ -8,33 +8,80 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 53856b4157afa5976947c451952fc26eefcdd0ea
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 20a2c18875096680cd1eba7601e88965fcbcc568
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264184"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715360"
 ---
-# <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
+# <a name="using-azure-maps-search-services-for-geocoding-and-reverse-geocoding"></a>Utilisation des services Search d’Azure Maps pour le géocodage et le géocodage inversé
 
-Le service de recherche Maps est un ensemble d’API RESTful conçu pour les développeurs. Le Service peut rechercher des adresses, des lieux, des points d’intérêt, des listes d’entreprises et d’autres informations d’ordre géographique. Chacun des éléments suivants a des valeurs de latitude et longitude : adresse spécifique, intersection, caractéristique géographique ou point d’intérêt (POI). Vous pouvez utiliser les valeurs de latitude et longitude retournées par une requête en tant que paramètres dans d’autres services de carte. Par exemple, les valeurs retournées peuvent devenir des paramètres pour le service d’itinéraire ou le service de flux de trafic. 
+Le [service Search](https://docs.microsoft.com/rest/api/maps/search) d’Azure Maps est un ensemble d’API RESTful destinées aux développeurs souhaitant rechercher des adresses, des lieux, des listes d’entreprises par nom ou catégorie et d’autres informations d’ordre géographique. En plus de prendre en charge le géocodage traditionnel, les services peuvent aussi géocoder en inversé les adresses et rues de croisement en fonction des latitudes et longitudes. Les valeurs de latitude et de longitude renvoyées par le service peuvent être utilisées comme paramètres dans d’autres services d’Azure Maps, tels que les services [Itinéraire](https://docs.microsoft.com/rest/api/maps/route) et [Météo](https://docs.microsoft.com/rest/api/maps/weather).
 
 Voyons comment effectuer les opérations suivantes :
 
-* Rechercher une adresse à l’aide de l’[API de recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Demander des coordonnées de latitude et de longitude pour une adresse (emplacement de l’adresse géocodée) à l’aide de l’[API Search Address]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
+* Rechercher une adresse ou un point d’intérêt (POI) à l’aide de l’[API Fuzzy Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
 * Rechercher une adresse avec des propriétés et des coordonnées
-* Effectuer une [recherche d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour rechercher une adresse postale
+* Créer une [recherche d’adresse inversée](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) pour traduire les coordonnées de l’emplacement en adresse postale
 * Rechercher une intersection à l’aide d’une [API de recherche d’intersection d’adresse inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour appeler les API du service Maps, vous avez besoin d’un compte et d’une clé Maps. Pour créer un compte pour Azure Maps, suivez les instructions fournies dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps). Si vous avez besoin d’aide pour obtenir votre clé primaire, suivez les étapes décrites dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account). Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
+Pour réaliser les étapes de cet article, vous devez d’abord créer un compte Azure Maps et vous procurer la clé d’abonnement de ce compte. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps, puis effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 Cet article utilise [l’application Postman](https://www.getpostman.com/apps) pour générer des appels REST. Vous pouvez utiliser l’environnement de développement d’API que vous préférez.
 
-## <a name="using-fuzzy-search"></a>Utilisation de Fuzzy Search
+## <a name="request-latitude-and-longitude-for-an-address-geocoding"></a>Demander la latitude et la longitude d’une adresse (géocodage)
 
-L’API par défaut pour le service de recherche est [recherche approximative](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). Ce service est utile lorsque vous n’êtes pas sûr du format d’entrée utilisateur dans une requête de recherche. L’API combine la recherche de points d’intérêt et le géocodage dans une « recherche canonique à ligne unique ». Par exemple, l’API peut gérer les entrées de toute combinaison de jetons de points d’intérêt ou d’adresses. Elle peut également être pondérée avec une position contextuelle (paire lat./lon.), limitée par des coordonnées et un rayon, ou exécutée plus généralement sans point d’ancrage à biais géographique.
+Dans cet exemple, nous utilisons l’[API Get Search Address](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) d’Azure Maps pour convertir l’adresse postale en coordonnées de latitude et de longitude. Vous pouvez transmettre une adresse postale complète ou partielle à l’API et recevoir une réponse qui inclut les propriétés détaillées de l’adresse telles que la rue, le code postal et le pays ou la région, ainsi que sa position exprimée en latitude et longitude.
+
+Si vous avez un ensemble d’adresses à géocoder, vous pouvez utiliser l’[API Post Search Address Batch](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressbatch) pour envoyer un lot de requêtes en un seul appel d’API.
+
+1. Dans Postman, cliquez sur **New Request** (Nouvelle requête) | **GET request** (Requête GET) et nommez-la **Address Search** (Recherche d’adresses).
+
+2. Sous l’onglet Builder (Générateur), sélectionnez la méthode HTTP **GET**, entrez l’URL de la requête pour le point de terminaison de votre API et sélectionnez un protocole d’autorisation, le cas échéant.
+
+![Recherche d’adresses](./media/how-to-search-for-address/address_search_url.png)
+
+| Paramètre | Valeur suggérée |
+|---------------|------------------------------------------------| 
+| HTTP method | GET |
+| URL de la demande | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) | 
+| Autorisation | No Auth (Pas d’autorisation) |
+
+3. Cliquez sur **Params** (Paramètres), puis entrez les paires clé/valeur suivantes à utiliser en tant que paramètres de requête ou de chemin d’accès dans l’URL de requête : 
+
+![Recherche d’adresses](./media/how-to-search-for-address/address_search_params.png) 
+
+| Clé | Valeur | 
+|------------------|-------------------------| 
+| api-version | 1.0 | 
+| subscription-key | \<votre clé Azure Maps\> | 
+| query | 400 Broad St, Seattle, WA 98109 | 
+
+4. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse. 
+
+Dans ce cas, vous avez spécifié une requête d’adresse complète et recevez un résultat unique dans le corps de la réponse. 
+
+5. Dans Params (Paramètres), modifiez la chaîne de requête comme suit : 
+
+    ```plaintext 
+        400 Broad, Seattle 
+    ``` 
+
+6. Ajoutez la paire Clé/Valeur suivante à la section **Params** puis cliquez sur **Envoyer** : 
+
+| Clé | Valeur | 
+|-----|------------| 
+| typeahead | true | 
+
+L’indicateur **typeahead** indique à l’API Address Search de traiter la requête en tant qu’entrée partielle et de retourner un tableau de valeurs prédictives.
+
+## <a name="search-for-an-address-using-fuzzy-search-api"></a>Rechercher une adresse à l’aide de l’API Fuzzy Search
+
+L’[API Fuzzy Search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) d’Azure Maps est le service recommandé à utiliser lorsque vous ne connaissez pas les entrées utilisateur pour une requête de recherche. L’API combine la recherche de points d’intérêt (POI) et le géocodage dans une « recherche canonique à ligne unique ». Par exemple, l’API peut gérer les entrées de toute combinaison de jetons de points d’intérêt ou d’adresses. L’API peut également être affinée avec une position contextuelle (paire lat./lon.), limitée par des coordonnées et un rayon, ou exécutée plus généralement sans point d’ancrage à biais géographique.
 
 La plupart des requêtes de recherche utilisent par défaut le paramétrage `maxFuzzyLevel=1` pour optimiser les performances et réduire les résultats inhabituels. Selon le cas, vous pouvez remplacer ce paramétrage par défaut en passant le paramètre de requête `maxFuzzyLevel=2` ou `3`.
 
@@ -131,7 +178,7 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API de
 
     L’indicateur **typeahead** indique à l’API Address Search de traiter la requête en tant qu’entrée partielle et de retourner un tableau de valeurs prédictives.
 
-## <a name="search-for-a-street-address-using-reverse-address-search"></a>Rechercher une adresse postale à l’aide d’une recherche d’adresse inverse
+## <a name="make-a-reverse-address-search"></a>Effectuer une recherche d’adresse inverse
 
 1. Dans Postman, cliquez sur **New Request** (Nouvelle requête) | **GET request** (Requête GET) et nommez-la **Reverse Address Search** (Recherche d’adresse inverse).
 
@@ -189,9 +236,9 @@ Vous pouvez transmettre une adresse postale complète ou partielle à l’API de
     |-----|------------|
     | roadUse | true |
 
-    Vous pouvez limiter la requête de géocode inverse à un type spécifique d’usage routier à l’aide du paramètre de requête [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse).
+    Vous pouvez limiter la requête de géocode inverse à un type spécifique de route à l’aide du paramètre de requête [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse).
   
-## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Rechercher une intersection à l’aide d’une recherche d’intersection d’adresse inverse
+## <a name="search-for-cross-street-using-reverse-address-cross-street-search"></a>Rechercher une intersection à l’aide d’une recherche d’intersection d’adresse inverse
 
 1. Dans Postman, cliquez sur **New Request** (Nouvelle requête) | **GET request** (Requête GET) et nommez-la **Reverse Address Cross Street Search** (Recherche d’intersection d’adresse inverse).
 

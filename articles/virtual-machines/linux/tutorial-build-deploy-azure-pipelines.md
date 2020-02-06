@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: 8fda8e3079084ad917ad5a7fcfc4f80a622e2d82
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277240"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988326"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Tutoriel : Déployer votre application sur des machines virtuelles Linux dans Azure à l’aide d’Azure DevOps Services et d’Azure Pipelines
 
@@ -86,7 +86,7 @@ Suivez les étapes supplémentaires décrites ci-dessous, selon la pile d’exé
 
 - Pour déployer des applications Java Spring Boot et Spring Cloud, créez une machine virtuelle Linux dans Azure à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804), qui fournit un runtime OpenJDK entièrement pris en charge.
 - Pour déployer des servlets Java sur un serveur Tomcat, créez une machine virtuelle Linux avec Java 8 à l’aide de [ce modèle](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) Azure, puis [configurez Tomcat 9.x comme un service](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Pour déployer une application Java EE, utilisez un modèle Azure afin de créer une [machine virtuelle Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), une [machine virtuelle Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleWebLogicServer12cEnterprise) ou une [machine virtuelle Linux +Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804). 
+- Pour déployer une application Java EE, utilisez un modèle Azure afin de créer une [machine virtuelle Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), une [machine virtuelle Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) ou une [machine virtuelle Linux +Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804). 
 
 #### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
 

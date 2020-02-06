@@ -1,58 +1,72 @@
 ---
-title: Gestion des versions des modèles d’appareil pour les applications Azure IoT Central | Microsoft Docs
+title: Présentation de la gestion des versions des modèles d’appareil pour vos applications Azure IoT Central | Microsoft Docs
 description: Itérez au sein de vos modèles d’appareil en créant une nouvelle version sans impacter vos appareils actuellement connectés
-author: sandeeppujar
-ms.author: sandeepu
-ms.date: 07/08/2019
+author: sarahhubbard
+ms.author: sahubbar
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: feaa8abcb6635573b3680b77befa5ccb462ec73a
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 530208ed82c95187fac2173aa763ef5507f56b0b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930123"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018208"
 ---
 # <a name="create-a-new-device-template-version"></a>Créer une nouvelle version de modèle d’appareil
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-Avec Azure IoT Central, vous pouvez développer rapidement des applications IoT. Vous pouvez effectuer une itération rapide au sein des modèles d’appareil que vous avez conçus en ajoutant, modifiant ou supprimant des mesures, des paramètres ou des propriétés. Certains de ces changements peuvent s’avérer intrusifs pour les appareils actuellement connectés. Azure IoT Central identifie ces changements cassants et offre un moyen de déployer de façon sécurisée ces mises à jour sur les appareils.
 
-Chaque modèle d’appareil que vous créez se voit attribuer un numéro de version. Par défaut, il s’agit du numéro de version 1.0.0. Si vous modifiez un modèle d’appareil et que ce changement peut impacter les appareils actuellement connectés, Azure IoT Central vous invite à créer une nouvelle version du modèle d’appareil.
+Avec Azure IoT Central, vous pouvez développer rapidement des applications IoT. Vous pouvez effectuer une itération rapide au sein des modèles d’appareil que vous avez conçus en ajoutant, en modifiant ou en supprimant des capacités d’appareil, des vues et des personnalisations. Une fois que vous avez publié votre modèle d’appareil, le modèle de capacité de l’appareil s’affiche comme étant **Publié** avec des icônes de verrouillage en regard du modèle. Pour apporter des modifications au modèle de capacité de l’appareil, vous devez créer une nouvelle version du modèle d’appareil. Entre-temps, les propriétés, les personnalisations et les vue du cloud peuvent être modifiés à tout moment sans avoir besoin d’une version du modèle d’appareil. Une fois que vous avez enregistré certaines de ces modifications, vous pouvez publier le modèle d’appareil pour mettre les dernières modifications à la disposition de l’opérateur, qui pourra les afficher dans Device Explorer.
 
 > [!NOTE]
-> Pour en savoir plus sur la création d’un modèle d’appareil, consultez [Configurer un modèle d’appareil](howto-set-up-template.md).
+> Pour en savoir plus sur la création d’un modèle d’appareil, consultez [Configurer et gérer un modèle d’appareil](howto-set-up-template.md)
 
-## <a name="changes-that-prompt-a-version-change"></a>Changements qui appellent un changement de version
+## <a name="add-customizations-to-the-device-template-without-versioning"></a>Ajouter des personnalisations au modèle d’appareil sans contrôle de version
 
-En règle générale, les changements apportés aux paramètres ou aux propriétés de votre modèle d’appareil appellent un changement de version.
+Certains éléments de vos capacités d’appareil peuvent être modifiés sans avoir à contrôler la version de votre modèle d’appareil et de vos interfaces. Par exemple, certains de ces champs incluent le nom d'affichage, le type sémantique, la valeur minimale, la valeur maximale, les décimales, la couleur, l’unité, l’unité d’affichage, le commentaire et la description. Pour ajouter l’une de ces personnalisations :
+
+1. Accédez à la page **Modèles d’appareil**.
+1. Sélectionnez le modèle d’appareil que vous souhaitez personnaliser.
+1. Choisissez l’onglet **Personnaliser**.
+1. Toutes les fonctionnalités définies dans votre modèle de capacité d’appareil sont répertoriées ici. Tous les champs que vous pouvez modifier ici peuvent être enregistrés et utilisés dans votre application, sans que vous ayez besoin de contrôler la version de votre modèle d’appareil. Si des champs que vous souhaitez modifier sont en lecture seule, vous devez contrôler la version de votre modèle d’appareil pour pouvoir le faire. Sélectionnez un champ que vous souhaitez modifier et entrez les nouvelles valeurs.
+1. Cliquez sur **Enregistrer**. À présent, ces valeurs remplacent celles qui ont été initialement enregistrées dans votre modèle d’appareil et qui seront utilisées dans l’application.
+
+## <a name="versioning-a-device-template"></a>Contrôle de version d’un modèle d’appareil
+
+La création d’une nouvelle version de votre modèle d’appareil entraîne la création d’une version brouillon du modèle dans lequel le modèle de capacité de l’appareil peut être modifié. Toutes les interfaces publiées restent publiées jusqu’à ce qu’elles aient une version individuelle. Pour pouvoir modifier une interface publiée, vous devez d’abord créer une version de modèle d’appareil.
+
+La version du modèle d’appareil ne doit être contrôlée que lorsque vous essayez de modifier une partie du modèle de capacité de l’appareil que vous ne pouvez pas modifier dans la section Personnalisations du modèle d’appareil. 
+
+Pour obtenir la version d’un modèle d’appareil :
+
+1. Accédez à la page **Modèles d’appareil**.
+1. Sélectionnez le modèle d’appareil dont vous voulez contrôler la version.
+1. Cliquez sur le bouton **Version** en haut de la page et donnez un nouveau nom au modèle. Nous vous avons suggéré un nouveau nom qui peut être modifié.
+1. Cliquez sur **Créer**.
+1. Votre modèle d’appareil est maintenant en mode brouillon. Vous verrez que vos interfaces sont toujours verrouillées et que leur version doit être contrôlée individuellement pour qu’elles soient modifiées. 
+
+### <a name="versioning-an-interface"></a>Contrôle de version d’une interface
+
+Le contrôle de version d’une interface vous permet d’ajouter, de mettre à jour et de supprimer les fonctionnalités à l’intérieur de l’interface que vous avez déjà créée. 
+
+Pour contrôler la version d’une interface :
+
+1. Accédez à la page **Modèles d’appareil**.
+1. Sélectionnez le modèle d’appareil en mode brouillon.
+1. Sélectionnez l’interface en mode publié dont vous souhaitez contrôler la version et que vous voulez modifier.
+1. Cliquez sur le bouton **Version** en haut de la page de l’interface. 
+1. Cliquez sur **Créer**.
+1. Votre interface est maintenant en mode brouillon. Vous pouvez ajouter ou modifier des fonctionnalités dans votre interface sans arrêter les personnalisations et les vues existantes. 
 
 > [!NOTE]
-> Les changements apportés au modèle d’appareil n’appellent pas la création d’une nouvelle version dans la mesure où un seul appareil est connecté (ou aucun).
+> Les interfaces standard publiées par Azure IoT ne peuvent pas faire l’objet d’un contrôle de version ni être modifiées. Ces interfaces standard sont utilisées pour la certification des appareils.
 
-La liste suivante décrit les actions utilisateur qui peuvent exiger une nouvelle version :
+> [!NOTE]
+> Une fois l’interface publiée, vous ne pouvez supprimer aucune de ses fonctionnalités, même en mode brouillon. Les fonctionnalités ne peuvent être modifiées ou ajoutées à l’interface qu’en mode brouillon.
 
-* Propriétés (obligatoires)
-    * Ajout ou suppression d’une propriété obligatoire
-    * Changement du nom de champ d’une propriété, nom de champ utilisé par vos appareils pour l’envoi de messages
-*  Propriétés (facultatives)
-    * Suppression d’une propriété facultative
-    * Changement du nom de champ d’une propriété, nom de champ utilisé par vos appareils pour l’envoi de messages
-    * Remplacement d’une propriété facultative par une propriété obligatoire
-*  Paramètres
-    * Ajout ou suppression d’un paramètre
-    * Changement du nom de champ d’un paramètre, nom de champ utilisé par vos appareils pour l’envoi et la réception de messages
-
-## <a name="what-happens-on-version-change"></a>Que se passe-t-il à l’occasion d’un changement de version ?
-
-Que se passe-t-il au niveau des règles et des tableaux de bord d’appareil en cas de changement de version ?
-
-Les **règles** de la version précédente du modèle d'appareil continuent de fonctionner sans modification. Les règles ne migrent pas automatiquement vers la nouvelle version du modèle d'appareil. Comme d'habitude, vous pouvez créer des règles sur la nouvelle version du modèle. Pour plus d'informations, consultez l'article [Créer une règle de télémétrie et configurer des notifications dans votre application Azure IoT Central](howto-create-telemetry-rules.md).
-
-Les **tableaux de bord d’appareil** peuvent contenir plusieurs types de vignette. Certaines vignettes peuvent contenir des paramètres et des propriétés. Quand une propriété ou un paramètre utilisé dans une vignette est supprimé, la vignette est entièrement ou partiellement endommagée. Vous pouvez accéder à la vignette et corriger le problème en supprimant la vignette ou en mettant à jour son contenu.
 
 ## <a name="migrate-a-device-across-device-template-versions"></a>Migrer un appareil d’une version de modèle d’appareil vers une autre
 
@@ -60,8 +74,8 @@ Vous pouvez créer plusieurs versions d’un modèle d’appareil. Au fil du tem
 
 1. Accédez à la page **Explorateur d’appareils**.
 1. Sélectionnez l’appareil que vous devez migrer vers une autre version.
-1. Choisissez **Migrer l’appareil**.
-1. Sélectionnez le numéro de version vers lequel vous souhaitez migrer l’appareil, puis choisissez **Migrer**.
+1. Choisissez **Migrer**.
+1. Sélectionnez le modèle d’appareil avec le numéro de version vers lequel vous souhaitez migrer l’appareil, puis choisissez **Migrer**.
 
 ![Comment migrer un appareil](media/howto-version-device-template/pick-version.png)
 
@@ -70,4 +84,4 @@ Vous pouvez créer plusieurs versions d’un modèle d’appareil. Au fil du tem
 Maintenant que vous savez comment utiliser les versions de modèle d’appareil dans votre application Azure IoT Central, voici l’étape suivante suggérée :
 
 > [!div class="nextstepaction"]
-> [Guide pratique pour créer des règles de télémétrie](howto-create-telemetry-rules.md)
+> [Guide pratique pour créer des règles de télémétrie](tutorial-create-telemetry-rules.md)

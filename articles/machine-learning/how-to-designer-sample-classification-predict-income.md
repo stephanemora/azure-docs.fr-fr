@@ -5,25 +5,25 @@ description: Suivez cet exemple pour créer un classifieur sans code afin de pr�
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: bfae0d8eed80a88475c447a141097022fed9adff
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 560339fb04e3bbbe42c4370655e74e8536a7c015
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311110"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963364"
 ---
 # <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Générer un classifieur et utiliser une sélection de fonctionnalités afin de prédire des revenus avec le concepteur Azure Machine Learning
 
-**Échantillon de concepteur 3**
+**Échantillon 3 de Concepteur (préversion)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Apprenez à générer un classifieur d'apprentissage automatique à l'aide du concepteur, sans écrire la moindre ligne de code. Cet échantillon forme un **arbre de décision optimisé à deux classes** pour prédire le revenu du recensement pour adultes (> = 50 000 ou < = 50 000).
+Découvrez comment générer un classifieur de Machine Learning sans écrire une seule ligne de code à l’aide du concepteur (préversion). Cet échantillon forme un **arbre de décision optimisé à deux classes** pour prédire le revenu du recensement pour adultes (> = 50 000 ou < = 50 000).
 
 Comme cela répond à la question « Lequel ?», il s’agit d’un problème de classification. Toutefois, vous pouvez appliquer le même processus fondamental pour traiter n’importe quel type de problème d’apprentissage automatique : régression, classification, clustering, etc.
 

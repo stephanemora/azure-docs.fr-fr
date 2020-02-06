@@ -3,24 +3,24 @@ title: Données à partir d’un serveur SQL local vers SQL Azure avec Azure 
 description: Configuration d’un pipeline ADF composé de deux activités de migration des données qui déplacent quotidiennement les données entre des bases de données locales et sur le cloud.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b64aa6c0e6e0e3bf449d44996df3223b12a69923
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982411"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722490"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory
 
-Cet article explique comment déplacer des données à partir d’une base de données SQL Server locale vers une base de données SQL Azure via le Stockage Blob Azure à l’aide d’Azure Data Factory (ADF) : cette méthode est une approche héritée prise en charge qui présente les avantages d’une copie intermédiaire répliquée, même si [nous vous suggérons de consulter notre page Datamigration pour connaître les options les plus récentes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+Cet article explique comment déplacer des données à partir d’une base de données SQL Server locale vers une base de données SQL Azure via Stockage Blob Azure à l’aide d’Azure Data Factory (ADF) : cette méthode est une approche héritée prise en charge qui présente les avantages d’une copie intermédiaire répliquée, même si [nous vous suggérons de consulter notre page sur la migration des données pour connaître les options les plus récentes](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 Pour accéder à un tableau résumant les différentes options de déplacement de données dans une base de données Azure SQL, consultez [Déplacer des données dans une base de données Azure SQL pour Azure Machine Learning](move-sql-azure.md).
 
@@ -32,12 +32,12 @@ Avec ADF, les services de traitement de données existants peuvent être compos�
 Utilisez plutôt ADF :
 
 * lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède à la fois aux ressources locales et cloud ;
-* lorsque les données sont traitées ou doivent être modifiées ou complétées par une logique métier lors de leur migration.
+* lorsque les données doivent être transformées ou complétées par une logique métier lors de leur migration.
 
 ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes. Pour plus d'informations sur ADF, consultez la documentation relative à [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Scénario
-Nous allons configurer un pipeline ADF qui se compose de deux activités de migration de données. Ensemble, ces activités déplacent les données quotidiennement entre une base de données SQL locale et une base de données Azure SQL dans le cloud. Les deux activités sont :
+Nous allons configurer un pipeline ADF qui se compose de deux activités de migration de données. Ensemble, ces activités déplacent les données quotidiennement entre une instance SQL Database locale et une instance Azure SQL Database dans le cloud. Les deux activités sont :
 
 * copie de données depuis une base de données SQL Server locale vers un compte de stockage d’objets blob Azure ;
 * copie de données à partir du compte Stockage Blob Azure vers une base de données Azure SQL.
@@ -69,7 +69,7 @@ Vous pouvez adapter les procédures fournies ici à un jeu de vos propres donné
 Les instructions pour la création d’une fabrique de données Azure Data Factory et d’un groupe de ressources dans le [portail Azure](https://portal.azure.com/) sont fournies dans [Créer une fabrique de données Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Nommez la nouvelle instance ADF *adfdsp* et nommez le groupe de ressources créé *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installer et configurer Azure Data Factory Integration Runtime
-Le runtime d’intégration est une infrastructure d’intégration de données managées client utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Ce runtime s’appelait auparavant « Data Management Gateway ».
+Integration Runtime est une infrastructure d’intégration de données gérée par le client utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Ce runtime s’appelait auparavant « Data Management Gateway ».
 
 Pour le configurer, [suivez les instructions de création d’un pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
@@ -78,7 +78,7 @@ Un service lié définit les informations nécessaires à Azure Data Factory p
 
 1. SQL Server local
 2. Stockage Blob Azure
-3. Base de données Azure SQL
+3. Azure SQL Database
 
 La procédure pas à pas pour la création de services liés est fournie dans [Créer des services liés](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
@@ -136,7 +136,7 @@ La définition de table pour le SQL Server local est spécifié dans le fichier
 }
 ```
 
-Les noms de colonnes n’étaient pas inclus ici. Vous pouvez sélectionner des noms de colonnes en les incluant ici (pour plus d’informations, consultez la rubrique [documentation ADF](../../data-factory/copy-activity-overview.md) ).
+Les noms de colonnes n’étaient pas inclus ici. Vous pouvez sous-sélectionner des noms de colonnes en les incluant ici (pour plus d’informations, consultez la rubrique [Documentation ADF](../../data-factory/copy-activity-overview.md)).
 
 Copiez la définition JSON de la table dans un fichier appelé *onpremtabledef.json* et enregistrez-le dans un emplacement connu (ici supposé comme étant *C:\temp\onpremtabledef.json*). Créez la table dans ADF avec la cmdlet Azure PowerShell suivante :
 
@@ -302,4 +302,4 @@ Les valeurs de paramètres *startdate* et *enddate* doivent être remplacées pa
 
 Une fois que le pipeline s'exécute, vous devez être en mesure de voir des données apparaître dans le conteneur sélectionné pour l'objet blob, à compter d’un fichier par jour.
 
-Notez que nous n'avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](https://azure.microsoft.com/services/data-factory/).
+Nous n’avons pas tiré parti de la fonctionnalité fournie par ADF de canaliser les données de manière incrémentielle. Pour plus d’informations sur son utilisation et d’autres fonctionnalités fournies par ADF, consultez la [documentation ADF](https://azure.microsoft.com/services/data-factory/).

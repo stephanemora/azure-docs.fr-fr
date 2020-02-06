@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bca780eb31a16d3854a2e4dfac821d5a68e9ca43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719328"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905514"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Reprise d’activité après sinistre et basculement de compte (préversion)
 
@@ -126,21 +126,6 @@ Le basculement de compte est disponible en préversion pour tous les clients qui
 - USA Ouest 2
 
 La préversion est destinée uniquement à une utilisation hors production. Les contrats SLA (contrats de niveau de service) de production ne sont actuellement pas disponibles.
-
-### <a name="register-for-the-preview"></a>S’inscrire pour la préversion
-
-Pour vous inscrire à la préversion, exécutez les commandes suivantes dans PowerShell. N’oubliez pas de remplacer l’espace réservé entre crochets par votre propre ID d’abonnement :
-
-```powershell
-Connect-AzAccount -SubscriptionId <subscription-id>
-Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
-
-Vous recevrez votre approbation pour la préversion sous cinq à sept jours. Pour vérifier que votre inscription a été approuvée, exécutez la commande suivante :
-
-```powershell
-Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
 
 ### <a name="additional-considerations"></a>Considérations supplémentaires
 

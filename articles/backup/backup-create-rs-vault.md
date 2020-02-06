@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment créer des coffres Recovery Se
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 682bf26c1485bd9e2ae288a6947e9ad573463069
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708511"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705460"
 ---
 # <a name="create-a-recovery-services-vault"></a>Créer un coffre Recovery Services
 
@@ -90,7 +90,8 @@ Dans le cadre de ce processus, les implications tarifaires sont liées au niveau
 >- Examinez la [matrice de prise en charge](backup-support-matrix.md#cross-region-restore) pour obtenir la liste des types et des régions managés pris en charge.
 >- La fonctionnalité de restauration interrégion (CRR) est actuellement disponible uniquement dans la région WCUS.
 >- La CRR est une fonctionnalité d’abonnement au niveau du coffre pour tout coffre GRS (désactivé par défaut).
->- Utilisez *"featureName": "CrossRegionRestore"* pour intégrer votre abonnement à cette fonctionnalité.
+>- Utilisez la commande suivante afin d’intégrer votre abonnement pour cette fonctionnalité :<br>
+>  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
 >- Si vous êtes intégré à cette fonctionnalité pendant la préversion publique limitée, l’e-mail d’approbation de la validation inclut les détails de la stratégie de tarification.
 >- Après l’inscription, il peut s’écouler jusqu’à 48 heures avant que les éléments de sauvegarde ne soient disponibles dans les régions secondaires.
 >- Actuellement, la CRR est prise en charge uniquement pour Type de gestion des sauvegardes : Machine virtuelle Azure ARM (les machines virtuelles Azure classiques ne sont pas prises en charge).  Lorsque d’autres types de gestion prendront en charge la CRR, ils seront **automatiquement** enregistrés.

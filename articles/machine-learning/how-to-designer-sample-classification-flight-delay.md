@@ -5,21 +5,21 @@ description: Générez un classifieur et utilisez un code R personnalisé pour p
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 778673d724fd6774365c4f2427e2483856ec83a2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d459350572d68cc5dcbbfd56933483404b94f918
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311124"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963274"
 ---
 # <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Générer un classifieur et utiliser R pour prédire des retards déployés en mode Flighting avec le concepteur Azure Machine Learning
 
-**Exemple de concepteur 6**
+**Exemple 6 du concepteur (préversion)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 

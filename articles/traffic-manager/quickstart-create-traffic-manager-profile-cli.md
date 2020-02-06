@@ -2,7 +2,7 @@
 title: 'Démarrage rapide : Créer un profil pour la haute disponibilité des applications – Azure CLI – Azure Traffic Manager'
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 mnager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
-ms.author: allensu
-ms.openlocfilehash: b724a3e469c5dd8f7b4c4f30adef00c58c5c47c5
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 36ad1c47e115f06aea2017a049cefe36304504bf
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483921"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934835"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Démarrage rapide : Créer un profil Traffic Manager pour assurer une haute disponibilité à vos applications web avec Azure CLI
 
@@ -208,7 +208,7 @@ Copiez la valeur de **RelativeDnsName**. Le nom DNS de votre profil Traffic Mana
 3. Copiez le nom DNS de votre profil Traffic Manager (*http://<* nomdnsrelatif *>.trafficmanager.net*) pour afficher le site web dans une nouvelle session de navigateur web.
 4. Vérifiez que l’application web est toujours disponible.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous avez terminé, supprimez les groupes de ressources, les applications web et toutes les ressources associées en utilisant la commande [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete).
 

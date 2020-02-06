@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289610"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760847"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,11 +179,14 @@ Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et s
 
 - Refusez la connexion internet sortante à l’aide des règles NSG.
 
-- Limitez le trafic sortant vers les éléments suivants :
-   - Stockage Azure, à l’aide de la __balise du service__ de __Storage.Region_Name__ (par exemple, Storage.EastUS)
-   - Azure Container Registry, à l’aide de la __balise du service__ de __AzureContainerRegistry.Region_Name__ (par exemple, AzureContainerRegistry.EastUS)
+- Pour une __instance de calcul__ ou un __cluster de calcul__, limitez le trafic sortant aux éléments suivants :
+   - Stockage Azure, à l’aide de la __balise de service__ du __stockage__
+   - Azure Container Registry, à l’aide de la __balise du service__ de __AzureContainerRegistry__
    - Azure Machine Learning, à l’aide de la __balise du service__ de __AzureMachineLearning__
-   - Dans le cas d’une instance de calcul, Cloud Azure, à l’aide de la __balise de service__ __AzureResourceManager__
+   
+- Pour une __instance de calcul__, ajoutez également les éléments suivants :
+   - Azure Resource Manager, à l’aide de la __balise de service__ de __AzureResourceManager__
+   - Azure Active Directory, à l’aide de la __balise de service__ de __AzureActiveDirectory__
 
 La configuration de la règle de groupe de sécurité réseau dans le Portail Azure est illustrée dans l’image suivante :
 
@@ -206,12 +209,12 @@ La configuration de la règle de groupe de sécurité réseau dans le Portail Az
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Entraînement Estimator
+> __Entraînement Estimator__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```

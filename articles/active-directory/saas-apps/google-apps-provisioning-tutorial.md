@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8239b25f5ebf94d7368190f3169d0637d9943df1
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720284"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841248"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutoriel : Configurer G Suite pour l’attribution automatique d’utilisateurs
 
@@ -30,9 +30,9 @@ L’objectif de ce didacticiel est de présenter les étapes à effectuer dans G
 
 > [!NOTE]
 > Le connecteur G Suite a été récemment mis à jour en octobre 2019. Les modifications apportées au connecteur G Suite sont les suivantes :
-- Ajout de la prise en charge d’autres attributs d’utilisateur et de groupe G Suite. 
-- Les noms d’attributs cibles G Suite mis à jour correspondent à ce qui est défini [ici](https://developers.google.com/admin-sdk/directory).
-- Mappages d’attributs par défaut mis à jour.
+> - Ajout de la prise en charge d’autres attributs d’utilisateur et de groupe G Suite. 
+> - Les noms d’attributs cibles G Suite mis à jour correspondent à ce qui est défini [ici](https://developers.google.com/admin-sdk/directory).
+> - Mappages d’attributs par défaut mis à jour.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -209,6 +209,7 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
 
 ## <a name="common-issues"></a>Problèmes courants
 * Des échecs d’autorisation peuvent se produire lorsque le compte utilisé pour établir une connexion n’est pas destiné à un administrateur dans G Suite. Assurez-vous que le compte utilisé pour autoriser l’accès dispose des privilèges administrateur sur **tous les domaines** avec lesquels les utilisateurs doivent être approvisionnés. 
+* Azure AD prend en charge la désactivation des utilisateurs dans GSuite afin qu’ils ne puissent pas accéder à l’application, mais il ne supprime pas les utilisateurs dans GSuite.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

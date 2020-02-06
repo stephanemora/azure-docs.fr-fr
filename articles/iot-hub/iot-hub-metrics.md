@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 20a1ec4b8eb88f5914ce6b27acc8a472e58f5d29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457080"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705732"
 ---
 # <a name="understand-iot-hub-metrics"></a>Comprendre les métriques IoT Hub
 
@@ -115,7 +115,7 @@ IoT Hub fournit plusieurs métriques afin de vous donner une vue d’ensemble de
 
 Les métriques IoT Hub n’étant plus un secret pour vous, suivez le lien ci-après pour en savoir plus sur la gestion d’Azure IoT Hub :
 
-* [Surveillance des opérations](iot-hub-operations-monitoring.md)
+* [Configurer les journaux de diagnostic](iot-hub-monitor-resource-health.md)
 
 Pour explorer davantage les capacités de IoT Hub, consultez :
 

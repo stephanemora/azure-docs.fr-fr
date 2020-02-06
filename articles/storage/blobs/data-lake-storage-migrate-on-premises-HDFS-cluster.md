@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3360209e9de54d6011a2a430cd2c1fb54a315c43
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327605"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990961"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Migrer un magasin HDFS local vers Stockage Azure à l’aide d’Azure Data Box
 
@@ -27,7 +27,7 @@ Cet article vous aide à effectuer les étapes suivantes :
 > * Retourner l'appareil à Microsoft
 > * Déplacer les données vers Data Lake Storage Gen2.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous avez besoin des éléments suivants pour finaliser la migration.
 
@@ -75,9 +75,9 @@ Suivez ces étapes pour copier des données via les API REST du stockage Blob/Ob
 
     Pour déterminer si ces fichiers existent, utilisez la commande suivante : `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Remplacez l’espace réservé `<hadoop_install_dir>` par le chemin du répertoire où vous avez installé Hadoop. Veillez à utiliser des chemins d'accès complets.
 
-    Exemples :
+    Exemples :
 
-    `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar``azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
+    `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 
 5. Créez le conteneur de stockage à utiliser pour la copie des données. Vous devez également spécifier un répertoire de destination dans le cadre de cette commande. À ce stade, il peut s’agir d’un répertoire de destination fictif.
 
@@ -282,7 +282,7 @@ Avant de déplacer vos données vers une Data Box, vous devrez télécharger des
    sudo apt-get install jq
    ```
 
-3. Installez le package Python [requests](http://docs.python-requests.org/en/master/).
+3. Installez le package Python [requests](https://2.python-requests.org/en/master/).
 
    ```bash
    

@@ -9,12 +9,12 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/30/2019
 tags: connectors
-ms.openlocfilehash: a9cf818e8b31ea2efb2f2ef2f0848a759e017dfa
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3990a9d53a8e53ddd29683440917031bc1bb6448
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790878"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904654"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Se connecter aux systèmes SAP à partir d’Azure Logic Apps
 
@@ -39,7 +39,7 @@ Cet article explique comment créer des exemples d’applications logiques qui s
 
 <a name="pre-reqs"></a>
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre cet article, vous avez besoin de ces éléments :
 
@@ -97,7 +97,7 @@ Dans cet exemple, vous allez créer une application logique avec un point de ter
 
    ![Ajouter un déclencheur de requête HTTP](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
-1. Enregistrez maintenant votre application logique pour pouvoir générer une URL de point de terminaison pour votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Enregistrez maintenant votre application logique pour pouvoir générer une URL de point de terminaison pour votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
    L’URL du point de terminaison s’affiche désormais dans votre déclencheur, par exemple :
 
@@ -172,7 +172,7 @@ Dans Azure Logic Apps, une [action](../logic-apps/logic-apps-overview.md#logic-a
 
       ![Terminer l’action SAP](./media/logic-apps-using-sap-connector/SAP-app-server-complete-action.png)
 
-1. Enregistrez votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 <a name="add-response"></a>
 
@@ -213,7 +213,7 @@ Incluez le contenu du message avec votre requête. Pour envoyer la requête, vou
 1. Une fois votre requête HTTP envoyée, attendez la réponse de votre application logique.
 
    > [!NOTE]
-   > Votre application logique peut expirer si toutes les étapes nécessaires pour la réponse ne se terminent pas dans la [limite de délai d’attente des requêtes](./logic-apps-limits-and-config.md). Si cette situation se produit, les requêtes peuvent être bloquées. Pour vous aider à diagnostiquer les problèmes, découvrez comment vous pouvez [vérifier et surveiller vos applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md).
+   > Votre application logique peut expirer si toutes les étapes nécessaires pour la réponse ne se terminent pas dans la [limite de délai d’attente des requêtes](./logic-apps-limits-and-config.md). Si cette situation se produit, les requêtes peuvent être bloquées. Pour vous aider à diagnostiquer les problèmes, découvrez comment vous pouvez [vérifier et surveiller vos applications logiques](../logic-apps/monitor-logic-apps.md).
 
 Vous venez de créer une application logique qui peut communiquer avec votre serveur SAP. Maintenant que vous avez configuré une connexion SAP pour votre application logique, vous pouvez explorer d’autres actions SAP disponibles, telles que BAPI et RFC.
 
@@ -277,7 +277,7 @@ Cet exemple utilise une application logique qui se déclenche quand l’applicat
 
    Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-1. Enregistrez maintenant votre application logique pour commencer à recevoir des messages de votre système SAP. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Enregistrez maintenant votre application logique pour commencer à recevoir des messages de votre système SAP. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 Votre application logique est maintenant prête à recevoir des messages de votre système SAP.
 
@@ -339,7 +339,7 @@ Cet exemple utilise une application logique que vous pouvez déclencher à l’a
    ![Ajouter un déclencheur de requête HTTP](./media/logic-apps-using-sap-connector/add-http-trigger-logic-app.png)
 
 1. Enregistrez maintenant votre application logique pour pouvoir générer une URL de point de terminaison pour votre application logique.
-Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
    L’URL du point de terminaison s’affiche désormais dans votre déclencheur, par exemple :
 
@@ -401,7 +401,7 @@ Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
 
    Pour plus d’informations sur l’action SAP, consultez [Schémas de message pour les opérations IDOC](https://docs.microsoft.com/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations).
 
-1. Enregistrez votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 
@@ -444,7 +444,7 @@ Vous pouvez aussi télécharger ou stocker les schémas générés dans des réf
    > }
    > ```
 
-1. Enregistrez votre application logique. Dans la barre d’outils du concepteur, sélectionnez **Enregistrer**.
+1. Enregistrez votre application logique. Dans la barre d’outils du Concepteur, sélectionnez **Enregistrer**.
 
 ### <a name="test-your-logic-app"></a>Tester votre application logique
 

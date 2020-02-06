@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979340"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720654"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administrateurs d'abonnement classique Azure
 
@@ -99,29 +99,11 @@ Pour plus d’informations comparant les utilisateurs membres et les utilisateur
 
 Seul l’administrateur de compte peut modifier l’administrateur de services fédérés d’un abonnement. Par défaut, quand vous vous inscrivez à un abonnement Azure, l’Administrateur de services est le même que l’Administrateur de compte. L’utilisateur avec le rôle Administrateur de compte n’a pas accès au portail Azure. L’utilisateur avec le rôle Administrateur de service a un accès complet au portail Azure. Si l’Administrateur de compte et l’Administrateur de service sont le même utilisateur et que vous remplacez l’Administrateur de service par un autre utilisateur, alors l’Administrateur de compte perd l’accès au portail Azure. Toutefois, l’administrateur de compte peut toujours utiliser le centre des comptes pour se réaffecter le rôle d’administrateur de services fédérés à lui-même.
 
-Il existe deux façons de modifier l’Administrateur de service. Vous pouvez modifier dans le **portail Azure** ou le **Centre des comptes**.
-
-### <a name="azure-portal"></a>Portail Azure
-
-1. Vérifiez que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de services fédérés.
-
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
-
-1. Ouvrez [Abonnements](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) et sélectionnez un abonnement.
-
-1. Cliquez sur **Propriétés**.
-
-    ![Capture d’écran montrant l’Administrateur de compte](./media/classic-administrators/account-admin.png)
-
-1. En haut, cliquez sur **Admin de service** pour ouvrir le volet Administrateur de service.
-
-    Si le bouton Administrateur de service est désactivé, vous n’avez pas les autorisations requises. Seul l’utilisateur qui est l’Administrateur de compte peut modifier l’Administrateur de service.
-
-1. Sélectionnez un nouvel Administrateur de service, puis cliquez **Enregistrer**.
+Procédez comme suit pour modifier l’administrateur de services fédérés dans le **centre des comptes**.
 
 ### <a name="account-center"></a>Centre des comptes
 
-1. Vérifiez que votre scénario est pris en charge en vérifiant les limites de modification des administrateurs de services fédérés.
+1. Vérifiez que votre scénario est pris en charge en vérifiant les [limites de modification de l’administrateur de services fédérés](#limitations-for-changing-the-service-administrator).
 
 1. Connectez-vous au [Centre des comptes](https://account.windowsazure.com/subscriptions) en tant qu’administrateur de compte.
 

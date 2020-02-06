@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/25/2020
+ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444526"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773843"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guide des performances et du réglage du mappage de flux de données
 
@@ -129,6 +129,12 @@ La définition des propriétés de débit et de lot sur les récepteurs CosmosDB
 * Taille du lot : Calculez la taille de ligne approximative de vos données et vérifiez que le produit rowSize * taille du lot est inférieur à deux millions. Le cas échéant, augmentez la taille du lot pour obtenir un meilleur débit.
 * Débit : Définissez un paramètre de débit plus élevé ici pour permettre aux documents d’écrire plus rapidement sur CosmosDB. N’oubliez pas les coûts d’unité de requête supérieurs inhérents à un paramètre de débit élevé.
 *   Budget du débit d’écriture : Utilisez une valeur inférieure au nombre total d’unités de requête par minute. Si vous avez un flux de données avec un grand nombre de partitions Spark, la définition d’un budget de débit permet d’équilibrer davantage ces partitions.
+
+## <a name="join-performance"></a>Performances de jointure
+
+La gestion des performances des jointures dans votre flux de données est une opération très courante que vous effectuerez tout au long du cycle de vie de vos transformations de données. Dans ADF, les flux de données ne nécessitent pas de tri des données avant les jointures, car ces opérations sont exécutées en tant que jointures hachées dans Spark. Toutefois, vous pouvez bénéficier de performances améliorées grâce à l’optimisation de jointure de « diffusion ». Cela permet d’éviter les lectures aléatoires en poussant le contenu de chaque côté de votre relation de jointure dans le nœud Spark. Cela fonctionne bien pour les tables plus petites utilisées pour les recherches de référence. Les tables volumineuses, qui peuvent ne pas être contenues dans la mémoire du nœud, ne sont pas de bons candidats pour l’optimisation de la diffusion.
+
+Une autre optimisation de jointure consiste à créer vos jointures de manière à éviter que Spark n’implémente des jointures croisées. Par exemple, si vos conditions de jointure contiennent des valeurs littérales, Spark peut considérer qu’il faut d’abord exécuter un produit cartésien complet, puis filtrer les valeurs jointes. Mais si vous vous assurez d'avoir des valeurs de colonne des deux côtés de votre condition de jointure, vous pouvez éviter ce produit cartésien généré par Spark et améliorer les performances de vos jointures et de vos flux de données.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

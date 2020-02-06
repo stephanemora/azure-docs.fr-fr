@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 777fa7caa80371592f93ee6f7458a7669fe6698f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121356"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985932"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -188,7 +188,7 @@ Le tableau suivant renseigne sur les types et la descriptions des journaux pris 
 | AppServiceHTTPLogs | Oui | Oui | Journaux d’activité des serveurs Web |
 | AppServiceEnvironmentPlatformLogs | Oui | Oui | App Service Environment : mise à l’échelle, modifications de configuration et journaux d’état|
 | AppServiceAuditLogs | Oui | Oui | Activité de connexion via FTP et Kudu |
-| AppServiceFileAuditLogs | À confirmer | À confirmer | Modifications de fichiers via FTP et Kudu |
+| AppServiceFileAuditLogs | À confirmer | Oui | Modifications de fichiers via FTP et Kudu |
 | AppServiceAppLogs | À confirmer | Java SE et Tomcat | Journaux d’activité d’application |
 
 ## <a name="nextsteps"></a>Étapes suivantes

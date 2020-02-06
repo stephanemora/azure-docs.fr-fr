@@ -3,20 +3,20 @@ title: Accéder à des jeux de données avec la bibliothèque cliente de Python 
 description: Installez et utilisez la bibliothèque cliente Python pour accéder et gérer les données d'apprentissage automatique d'Azure en toute sécurité à partir d'un environnement Python local.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427382"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720977"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -26,7 +26,7 @@ Cette rubrique fournit des instructions pour les procédures suivantes :
 * installation de la bibliothèque cliente Python de Machine Learning
 * accès et téléchargement des jeux de données, y compris des instructions sur l’obtention d’une autorisation d'accès aux jeux de données Azure Machine Learning depuis votre environnement Python local
 * accès aux jeux de données intermédiaires à partir d'expériences
-* utilisation de la bibliothèque cliente Python pour énumérer les jeux de données, accès aux métadonnées, lecture du contenu d'un jeu de données, création de nouveaux jeux de données et mise à jour des jeux de données existants
+* utilisation de la bibliothèque cliente Python pour énumérer les jeux de données, accéder aux métadonnées, lire le contenu d’un jeu de données, créer de nouveaux jeux de données et mettre à jour des jeux de données existants
 
 ## <a name="prerequisites"></a>Configuration requise
 La bibliothèque cliente Python a été testée dans les environnements suivants :
@@ -43,7 +43,7 @@ Il a une dépendance sur les packages suivants :
 Nous vous invitons à utiliser une distribution Python telle qu’[Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), qui est fournie avec Python, IPython et les trois packages listés ci-dessus installés. Bien que IPython n'est pas formellement requis, il s'agit d'un environnement idéal pour la manipulation et la visualisation interactive des données.
 
 ### <a name="installation"></a>Installation de la bibliothèque cliente Python d'Azure Machine Learning
-La bibliothèque cliente Python d’Azure Machine Learning doit également être installée pour effectuer les tâches décrites dans cette rubrique. Elle est disponible depuis le [Python Package Index](https://pypi.python.org/pypi/azureml). Pour l'installer dans votre environnement Python, exécutez la commande suivante à partir de votre environnement Python local :
+Installez la bibliothèque cliente Python d’Azure Machine Learning pour effectuer les tâches décrites dans cette rubrique. Cette bibliothèque est disponible depuis le [Python Package Index](https://pypi.python.org/pypi/azureml). Pour l'installer dans votre environnement Python, exécutez la commande suivante à partir de votre environnement Python local :
 
     pip install azureml
 
@@ -70,13 +70,13 @@ Pour des raisons de sécurité, la fonctionnalité d'extrait de code est uniquem
 
 Si votre rôle n’est pas défini en tant que **Propriétaire**, vous pouvez demander à être invité à nouveau en tant que propriétaire ou demander au propriétaire de l’espace de travail de vous fournir l’extrait de code.
 
-Pour obtenir le jeton d'autorisation, vous pouvez effectuer l'une des opérations suivantes :
+Pour obtenir le jeton d’autorisation, vous pouvez choisir l’une des options suivantes :
 
 * Demander un jeton à un propriétaire. Les propriétaires peuvent accéder à leurs jetons d’autorisation à partir de la page Paramètres de leur espace de travail dans Azure Machine Learning Studio (classique). Sélectionnez **Paramètres** dans le volet gauche puis cliquez sur **JETONS D’AUTORISATION** pour voir les jetons principaux et secondaires. Bien que les jetons d'autorisation principaux ou secondaires puissent être utilisés dans l'extrait de code, il est recommandé aux propriétaires de ne partager que les jetons d'autorisation secondaires.
 
    ![Jetons d’autorisation](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Demander à être promu au rôle de propriétaire. Pour cela, un propriétaire actuel de l'espace de travail doit tout d'abord vous supprimer de l'espace de travail puis vous y inviter à nouveau en tant que propriétaire.
+* Demandez à être promu au rôle de propriétaire : un propriétaire actuel de l’espace de travail doit tout d’abord vous supprimer de l’espace de travail puis vous y inviter à nouveau en tant que propriétaire.
 
 Une fois que les développeurs ont obtenu l’ID de l’espace de travail et le jeton d’autorisation, ils peuvent accéder à l’espace de travail à l’aide de l’extrait de code, indépendamment de leur rôle.
 
@@ -100,7 +100,7 @@ Après l’exécution d’une expérience dans Machine Learning Studio (classiqu
 
 Les jeux de données intermédiaires sont accessibles tant que le format de données est compatible avec la bibliothèque cliente Python.
 
-Les formats suivants sont pris en charge (ces constantes sont dans la classe `azureml.DataTypeIds` ) :
+Les formats suivants sont pris en charge (les constantes pour ces formats sont dans la classe `azureml.DataTypeIds`) :
 
 * Texte brut
 * CSV générique
@@ -124,7 +124,7 @@ Les étapes suivantes proposent un exemple qui créé une expérience, l'exécut
 2. Insérez un module **Jeu de données Adult Census Income Binary Classification** .
 3. Insérez un module [Fractionner][split], puis connectez son entrée à la sortie du module de jeu de données.
 4. Insérez un module [Convertir au format CSV][convert-to-csv], puis connectez son entrée à l’une des sorties du module [Fractionner][split].
-5. Enregistrez l'expérience, exécutez-la et attendez qu'elle ait fini de s'exécuter.
+5. Enregistrez l’expérience, exécutez-la et attendez que la tâche se termine.
 6. Cliquez sur le nœud de sortie du module [Convertir au format CSV][convert-to-csv].
 7. Lorsque le menu contextuel s’affiche, sélectionnez **Générer un code d’accès aux données**.
    

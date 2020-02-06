@@ -3,26 +3,26 @@ title: Cycle de vie du processus TDSP
 description: Le processus TDSP fournit un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053239"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720450"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>Cycle de vie du processus TDSP
 
-Le processus TDSP fournit un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie présente les étapes, du début à la fin, que les projets suivent généralement quand ils sont exécutés. Si vous utilisez un autre cycle de vie de science des données comme le processus [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining) (Cross Industry Standard Process for Data Mining), la découverte [KDD](https://wikipedia.org/wiki/Data_mining#Process) (Knowledge Discovery in Databases) ou le processus personnalisé de votre organisation, vous pouvez toujours utiliser le processus TDSP basé sur des tâches. 
+Le processus TDSP fournit un cycle de vie recommandé que vous pouvez utiliser pour structurer vos projets de science des données. Le cycle de vie décrit les étapes complètes suivies que suivent les projets réussis. Si vous utilisez un autre cycle de vie de science des données comme le processus [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining) (Cross Industry Standard Process for Data Mining), la découverte [KDD](https://wikipedia.org/wiki/Data_mining#Process) (Knowledge Discovery in Databases) ou le processus personnalisé de votre organisation, vous pouvez toujours utiliser le processus TDSP basé sur des tâches. 
 
-Ce cycle de vie est conçu pour les projets de science des données destinés à faire partie d’applications intelligentes. Ces applications déploient des modèles d’apprentissage automatique ou d’intelligence artificielle pour l’analytique prédictive. Les projets de science des données exploratoires et les projets d’analytique ad hoc peuvent également tirer parti de l’utilisation de ce processus. Cependant, certaines des étapes décrites ici peuvent ne pas être nécessaires pour ces projets. 
+Ce cycle de vie est conçu pour les projets de science des données destinés à faire partie d’applications intelligentes. Ces applications déploient des modèles d’apprentissage automatique ou d’intelligence artificielle pour l’analytique prédictive. Les projets de science des données exploratoires et les projets d’analytique improvisée peuvent également tirer parti de l’utilisation de ce processus. Cependant, certaines des étapes décrites ici peuvent ne pas être nécessaires pour ces projets. 
 
 ## <a name="five-lifecycle-stages"></a>Cinq étapes de cycle de vie
 

@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 485c6d4a92539a2ba67aece319c68d31649e8045
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991762"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844613"
 ---
 # <a name="persist-state-in-windows"></a>Conserver l’état sur Windows
 
-Les rubriques et les abonnements créés dans le module Event Grid sont stockés par défaut dans le système de fichiers conteneur. Sans persistance, toutes les métadonnées créées seraient perdues en cas de redéploiement du module. Pour conserver les données d’un déploiement à l’autre, il est nécessaire de les rendre persistantes en dehors du système de fichiers conteneur. Actuellement, seules les métadonnées sont persistantes. Les événements sont stockés en mémoire. En cas de redéploiement ou de redémarrage du module Event Grid, tous les événements non remis sont perdus.
+Les rubriques et les abonnements créés dans le module Event Grid sont stockés dans le système de fichiers conteneur par défaut. Sans persistance, toutes les métadonnées créées seraient perdues en cas de redéploiement du module. Pour préserver les données tout au long des déploiements et des redémarrages, il est nécessaire de les rendre persistantes en dehors du système de fichiers conteneur. 
+
+Par défaut, seules les métadonnées sont rendues persistantes et les événements sont toujours stockés en mémoire pour améliorer les performances. Suivez également la section Rendre les événements persistants pour activer la persistance des événements.
 
 Cet article donne les étapes à suivre pour déployer le module Event Grid avec persistance dans les déploiements Windows.
 
@@ -27,7 +29,7 @@ Cet article donne les étapes à suivre pour déployer le module Event Grid avec
 
 ## <a name="persistence-via-volume-mount"></a>Persistance par montage de volume
 
-Les [volumes Docker](https://docs.docker.com/storage/volumes/) permettent de conserver les données d’un déploiement à l’autre. Pour monter un volume, il faut le créer avec des commandes Docker, accorder les autorisations nécessaires pour que le conteneur puisse le lire et y écrire des données, puis déployer le module. Aucune configuration ne permet de créer automatiquement un volume doté des autorisations requises sur Windows. Il doit être créé avant le déploiement.
+Les [volumes Docker](https://docs.docker.com/storage/volumes/) permettent de conserver les données d’un déploiement à l’autre. Pour monter un volume, il faut le créer avec des commandes Docker, accorder les autorisations nécessaires pour que le conteneur puisse le lire et y écrire des données, puis déployer le module.
 
 1. Créez un volume en exécutant la commande suivante :
 
@@ -82,17 +84,17 @@ Les [volumes Docker](https://docs.docker.com/storage/volumes/) permettent de con
     ```json
         {
               "Env": [
-                "inbound:serverAuth:tlsPolicy=strict",
-                "inbound:serverAuth:serverCert:source=IoTEdge",
-                "inbound:clientAuth:sasKeys:enabled=false",
-                "inbound:clientAuth:clientCert:enabled=true",
-                "inbound:clientAuth:clientCert:source=IoTEdge",
-                "inbound:clientAuth:clientCert:allowUnknownCA=true",
-                "outbound:clientAuth:clientCert:enabled=true",
-                "outbound:clientAuth:clientCert:source=IoTEdge",
-                "outbound:webhook:httpsOnly=true",
-                "outbound:webhook:skipServerCertValidation=false",
-                "outbound:webhook:allowUnknownCA=true"
+                "inbound__serverAuth__tlsPolicy=strict",
+                "inbound__serverAuth__serverCert__source=IoTEdge",
+                "inbound__clientAuth__sasKeys__enabled=false",
+                "inbound__clientAuth__clientCert__enabled=true",
+                "inbound__clientAuth__clientCert__source=IoTEdge",
+                "inbound__clientAuth__clientCert__allowUnknownCA=true",
+                "outbound__clientAuth__clientCert__enabled=true",
+                "outbound__clientAuth__clientCert__source=IoTEdge",
+                "outbound__webhook__httpsOnly=true",
+                "outbound__webhook__skipServerCertValidation=false",
+                "outbound__webhook__allowUnknownCA=true"
               ],
               "HostConfig": {
                 "Binds": [
@@ -110,7 +112,7 @@ Les [volumes Docker](https://docs.docker.com/storage/volumes/) permettent de con
     ```
 
    >[!IMPORTANT]
-   >Ne modifiez pas la deuxième partie de la valeur Binds. Elle pointe vers un emplacement spécifique dans le module. Dans le cas du module Event Grid sur Windows, il doit s’agir de **C:\\app\\metadataDb**.
+   >Ne modifiez pas la deuxième partie de la valeur de liaison. Elle pointe vers un emplacement spécifique dans le module. Dans le cas du module Event Grid sur Windows, il doit s’agir de **C:\\app\\metadataDb**.
 
 
     Par exemple,
@@ -118,21 +120,22 @@ Les [volumes Docker](https://docs.docker.com/storage/volumes/) permettent de con
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "myeventgridvol:C:\\app\\metadataDb"
+                "myeventgridvol:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -147,7 +150,7 @@ Les [volumes Docker](https://docs.docker.com/storage/volumes/) permettent de con
 
 ## <a name="persistence-via-host-directory-mount"></a>Persistance par montage du répertoire hôte
 
-Vous pouvez également choisir de créer et de monter un répertoire sur le système hôte.
+Au lieu de monter un volume, vous pouvez créer un répertoire sur le système hôte et le monter.
 
 1. Créez un répertoire dans le système de fichiers hôte en exécutant la commande suivante.
 
@@ -173,28 +176,29 @@ Vous pouvez également choisir de créer et de monter un répertoire sur le syst
     ```
 
     >[!IMPORTANT]
-    >Ne modifiez pas la deuxième partie de la valeur Binds. Elle pointe vers un emplacement spécifique dans le module. Dans le cas du module Event Grid sur Windows, il doit s’agir de **C:\\app\\metadataDb**.
+    >Ne modifiez pas la deuxième partie de la valeur de liaison. Elle pointe vers un emplacement spécifique dans le module. Dans le cas du module Event Grid sur Windows, il doit s’agir de **C:\\app\\metadataDb**.
 
     Par exemple,
 
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "C:\\myhostdir:C:\\app\\metadataDb"
+                "C:\\myhostdir:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -206,3 +210,30 @@ Vous pouvez également choisir de créer et de monter un répertoire sur le syst
          }
     }
     ```
+## <a name="persist-events"></a>Rendre les événements persistants
+
+Pour activer la persistance des événements, vous devez d’abord activer la persistance des métadonnées via le montage d’un volume ou d’un répertoire hôte à l’aide des sections ci-dessus.
+
+Points importants à noter concernant la persistance des événements :
+
+* La persistance des événements est activée pour chaque abonnement aux événements et fait l’objet d’une option d’adhésion une fois qu’un volume ou un répertoire a été monté.
+* La persistance des événements est configurée sur un abonnement aux événements au moment de la création et ne peut pas être modifiée une fois l’abonnement aux événements créé. Pour activer ou désactiver la persistance des événements, vous devez supprimer et recréer l’abonnement aux événements.
+* La persistance des événements est presque toujours plus lente que les opérations en mémoire, mais la différence de vitesse dépend fortement des caractéristiques du lecteur. Le compromis entre la vitesse et la fiabilité est inhérent à tous les systèmes de messagerie, mais il ne devient perceptible qu’à grande échelle.
+
+Pour activer la persistance des événements sur un abonnement aux événements, définissez `persistencePolicy` sur `true` :
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

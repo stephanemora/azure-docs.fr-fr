@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a275b08beac842c7d435d77d6b4c1338e817fbc7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d46036efa04b4e0225cad6e8a70cd31ad3c10bd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430104"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024175"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>Voir l’historique d’audit pour les rôles Azure AD dans PIM
 
@@ -33,6 +33,40 @@ Depuis novembre 2019, la partie Rôles Azure AD de Privileged Identity Manageme
 1. Ouvrez **Azure AD Privileged Identity Management**. Si une bannière figure en haut de la page de présentation, suivez les instructions sous l’onglet **Nouvelle version** de cet article. Sinon, suivez les instructions sous l’onglet **Version précédente**.
 
     ![Nouvelle version des rôles Azure AD](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+
+# <a name="new-versiontabnew"></a>[Nouvelle version](#tab/new)
+
+Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure AD.
+
+## <a name="view-resource-audit-history"></a>Afficher l’historique d’audit des ressources
+
+L’audit des ressources vous donne un aperçu de toutes les activités associées à vos rôles Azure AD.
+
+1. Ouvrez **Azure AD Privileged Identity Management**.
+
+1. Sélectionnez des **rôles Azure AD**.
+
+1. Sélectionnez un **audit de ressources**.
+
+1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
+
+    ![Liste des audits de ressources avec filtres](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+
+## <a name="view-my-audit"></a>Afficher mon audit
+
+Mon audit vous permet d’afficher votre activité personnelle de rôle.
+
+1. Ouvrez **Azure AD Privileged Identity Management**.
+
+1. Sélectionnez des **rôles Azure AD**.
+
+1. Sélectionnez la ressource pour laquelle vous souhaitez consulter l’historique d’audit.
+
+1. Sélectionnez **Mon audit**.
+
+1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
+
+    ![Liste d’audits pour l’utilisateur actuel](media/azure-pim-resource-rbac/my-audit-time.png)
 
 # <a name="previous-versiontabprevious"></a>[Version précédente](#tab/previous)
 
@@ -79,40 +113,6 @@ Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure
     ![Volet Mettre à jour les paramètres du graphique](media/pim-how-to-use-audit-log/update-chart-parameters.png)
 
 1. Sélectionnez **Terminé** pour voir l’historique d’audit filtré.
-
-# <a name="new-versiontabnew"></a>[Nouvelle version](#tab/new)
-
-Suivez ces étapes pour afficher l’historique des audits pour les rôles Azure AD.
-
-## <a name="view-resource-audit-history"></a>Afficher l’historique d’audit des ressources
-
-L’audit des ressources vous donne un aperçu de toutes les activités associées à vos rôles Azure AD.
-
-1. Ouvrez **Azure AD Privileged Identity Management**.
-
-1. Sélectionnez des **rôles Azure AD**.
-
-1. Sélectionnez un **audit de ressources**.
-
-1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
-
-    ![Liste des audits de ressources avec filtres](media/azure-pim-resource-rbac/rbac-resource-audit.png)
-
-## <a name="view-my-audit"></a>Afficher mon audit
-
-Mon audit vous permet d’afficher votre activité personnelle de rôle.
-
-1. Ouvrez **Azure AD Privileged Identity Management**.
-
-1. Sélectionnez des **rôles Azure AD**.
-
-1. Sélectionnez la ressource pour laquelle vous souhaitez consulter l’historique d’audit.
-
-1. Sélectionnez **Mon audit**.
-
-1. Filtrez l’historique en choisissant une date prédéfinie ou une plage personnalisée.
-
-    ![Liste d’audits pour l’utilisateur actuel](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ---
 

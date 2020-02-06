@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732584"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771567"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Clause OFFSET LIMIT dans Azure Cosmos DB
 
@@ -37,7 +37,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Notes
   
-  Le nombre OFFSET et le nombre LIMIT sont obligatoires dans la clause OFFSET LIMIT. Si une clause `ORDER BY` facultative est utilisée, la requête génère le jeu de résultats en classant d’abord les valeurs avant d’en ignorer et conserver les nombres indiqués. Sinon, la requête retourne un ordre fixe de valeurs. Cette clause est désormais prise en charge pour les requêtes au sein d’une partition unique, ainsi que pour les requêtes entre partitions.
+  Le nombre `OFFSET` et le nombre `LIMIT` sont requis dans la clause `OFFSET LIMIT`. Si une clause `ORDER BY` facultative est utilisée, la requête génère le jeu de résultats en classant d’abord les valeurs avant d’en ignorer et conserver les nombres indiqués. Sinon, la requête retourne un ordre fixe de valeurs.
+
+  Les frais d’unité de requête pour une requête avec `OFFSET LIMIT` augmente au fur et à mesure que le nombre de termes Offset augmente. Pour les requêtes affichant plusieurs pages de résultats, nous recommandons généralement d’utiliser des jetons de continuation. Les jetons de continuation sont un « signet » indiquant l’endroit où la requête pourra reprendre. Si vous utilisez `OFFSET LIMIT`, il n’y a aucun « signet ». Si vous souhaitez retourner à la page suivante de la requête, il vous faudrait commencer au début.
+  
+  Vous devez utiliser `OFFSET LIMIT` lorsque vous souhaitez ignorer des documents entiers et enregistrer des ressources du client. Par exemple, utilisez `OFFSET LIMIT` si vous souhaitez passer au millième résultat de la requête et que vous n’avez pas besoin d’afficher les résultats compris entre 1 et 999. Sur le serveur principal, `OFFSET LIMIT` charge toujours chaque document, y compris ceux qui sont ignorés. L’avantage, pour ce qui est de la performance, est que cela permet d’économiser les ressources du client en évitant de traiter des documents qui ne sont pas nécessaires.
 
 ## <a name="examples"></a>Exemples
 

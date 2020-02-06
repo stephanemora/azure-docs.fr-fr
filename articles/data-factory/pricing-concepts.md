@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: ee5acc97e4b05a0e93f4ceee8c04b400da211b49
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552132"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769493"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Comprendre les tarifs Data Factory à travers des exemples
 
@@ -156,7 +156,7 @@ Pour réaliser ce scénario, créez un pipeline avec les éléments suivants :
 | Hypothèses concernant le flux de données : durée d’exécution = 10 min + durée de vie de 10 min | 10 \* 16 cœurs de calcul général avec une durée de vie de 10 |
 | Monitoring du pipeline – hypothèse : 1 seule exécution s’est produite | 2 enregistrements d’exécution de monitoring retentés (1 pour l’exécution du pipeline, 1 pour l’exécution d’activité) |
 
-**Prix total du scénario : 0,3011 $**
+**Prix total du scénario : 1,4631 $**
 
 - Opérations Data Factory = **0,0001 $**
   - Lecture/écriture = 10 \* 0,00001 = 0,0001 $ [1 lecture/écriture = 0,50 / 50 000 = 0,00001]

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974106"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769114"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -117,7 +117,7 @@ Dans votre espace de travail dans Azure Machine Learning Studio, sélectionnez *
 
 Vous pouvez effectuer les actions suivantes :
 
-* Créer une instance de calcul. Spécifier le nom et le type de machine virtuelle Azure, y compris les GPU, activer/désactiver l’accès SSH et configurer des paramètres du réseau virtuel en option. Vous pouvez également créer une instance directement à partir de notebooks intégrés, du Portail Azure, du modèle Resource Manager ou du Kit de développement logiciel (SDK) Azure Machine Learning. Le quota de cœurs dédiés par région qui s’applique à la création d’une instance de calcul est unifié et partagé avec le quota de clusters de calcul Azure Machine Learning.
+* Créer une instance de calcul. Spécifier le nom et le type de machine virtuelle Azure, y compris les GPU (veuillez noter que le type de machine virtuelle ne peut pas être modifié après la création), activer/désactiver l’accès SSH et configurer des paramètres du réseau virtuel en option. Vous pouvez également créer une instance directement à partir de notebooks intégrés, du Portail Azure, du modèle Resource Manager ou du Kit de développement logiciel (SDK) Azure Machine Learning. Le quota de cœurs dédiés par région qui s’applique à la création d’une instance de calcul est unifié et partagé avec le quota de clusters de calcul Azure Machine Learning.
 * Actualiser l’onglet des instances de calcul.
 * Démarrer, arrêter et redémarrer une instance de calcul
 * Supprimer une instance de calcul

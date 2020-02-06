@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530695"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988173"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Partenaires pour le développement d’applications et la migration NoSQL pour solutions Azure Cosmos DB
 
@@ -21,7 +21,6 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 
 |**Partenaire**  |**Expérience et capacités**  |**Pays/régions pris en charge**  |**Contact**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | Migration de données de MongoDB vers Azure Cosmos DB. <br/> Imanis Data permet à des multinationales de migrer rapidement et facilement leurs bases de données MongoDB locales ou cloud vers Azure Cosmos DB. Imanis Data fournit une approche de migration cloud sans agent et incrémentielle à l’infini pour les magasins de données MongoDB, qui simplifie la migration et réduit considérablement le temps d’arrêt.|  États-Unis  |   [Site web](https://www.cohesity.com/products/imanis-data/)      |
 |![Striim][2]    |  [Assure le déplacement des données en temps réel vers Azure Cosmos DB](https://www.striim.com/striim-for-azure-cosmos-db/) à partir de très nombreuses sources de données. <br/> Striim simplifie la collecte en temps réel et le déplacement des données à partir de très nombreuses sources locales, notamment des bases de données relationnelles et de documents d’entreprise, des capteurs et des fichiers journaux, dans Azure Cosmos DB. |   États-Unis   |  [Site web](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>Partenaires intégrateurs système
@@ -59,7 +58,6 @@ De la migration NoSQL au développement d’applications, vous pouvez choisir pa
 Pour plus d’informations sur les autres partenaires Microsoft, voir le [site Microsoft Partner](https://partner.microsoft.com/en-US/).
 
 <!--Image references-->
-[1]: ./media/partners-migration-cosmosdb/imanisdata_logo.png
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png

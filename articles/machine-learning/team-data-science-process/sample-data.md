@@ -1,22 +1,22 @@
 ---
-title: Échantillonner données dans des emplacements de stockage Azure différents - Team Data Science Process
+title: Échantillonner des données dans des emplacements Stockage Azure différents – Team Data Science Process
 description: Échantillonnez des données dans des conteneurs d’objets blob Azure, SQL Server et des tables Hive pour une taille réduite, mais plus représentative et facile à gérer.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc91aec80f74488125649cfe807757ba5ae49c9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22e91d50227fcb44c7b90478d76379c14161ae05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253100"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718601"
 ---
 # <a name="heading"></a>Échantillonner des données dans des conteneurs d'objets blob Azure, SQL Server et des tables Hive
 
@@ -30,5 +30,5 @@ Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data S
 
 **Pourquoi échantillonner des données ?**
 
-Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Réduire la taille peut faciliter la compréhension et l’exploration des données, ainsi que l’ingénierie de fonctionnalités. Ce rôle d’échantillonnage dans le processus Cortana Analytics consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles Machine Learning.
 

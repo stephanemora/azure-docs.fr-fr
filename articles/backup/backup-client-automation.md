@@ -3,12 +3,12 @@ title: Utiliser PowerShell pour sauvegarder Windows Server dans Azure
 description: Dans cet article, découvrez comment utiliser PowerShell pour configurer Sauvegarde Azure sur un serveur Windows Server ou sur un client Windows, ainsi que pour gérer les sauvegardes et la récupération.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 54cfbb4a550ff14705d8d02b0589ee023cf9c225
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ef5571e6a059eedeba169765785bb0f840c8f256
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689190"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710865"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Déployer et gérer une sauvegarde vers Azure pour un serveur/client Windows à l’aide de PowerShell
 
@@ -101,7 +101,7 @@ Pour afficher la liste des programmes installés, cliquez sur **Panneau de confi
 
 ![Agent installé](./media/backup-client-automation/installed-agent-listing.png)
 
-### <a name="installation-options"></a>Options d’installation
+### <a name="installation-options"></a>Options d'installation
 
 Pour afficher toutes les options disponibles via la ligne de commande, utilisez la commande suivante :
 
@@ -405,7 +405,7 @@ PolicyState     : Valid
 
 Cette section traite de la commande PowerShell pour configurer l’état du système dans l’agent MABS
 
-### <a name="schedule"></a>Planification
+### <a name="schedule"></a>Planifier
 
 ```powershell
 $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00

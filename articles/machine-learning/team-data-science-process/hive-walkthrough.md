@@ -3,32 +3,32 @@ title: Exploration des données dans un cluster Hadoop (Team Data Science Proces
 description: Utilisation du processus TDSP (Team Data Science Process) pour un scénario de bout en bout employant un cluster Hadoop HDInsight pour créer et déployer un modèle.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 005d4fe1b6ec59e7f05be3dd2ab3e72d0e7aa8e0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982009"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720569"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process en action : Utilisation des clusters Azure HDInsight Hadoop
 Dans cette procédure pas à pas, nous utilisons le [processus TDSP (Team Data Science Process)](overview.md) dans un scénario de bout en bout. Nous utilisons un [cluster Azure Hadoop HDInsight](https://azure.microsoft.com/services/hdinsight/) pour effectuer des opérations sur le jeu de données [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) disponible publiquement, telles que le stockage, l’exploration, la conception de fonctionnalités et la réduction de l’échantillon de données. Pour gérer les tâches prédictives de classification et de régression binaires et multiclasses, nous créons des modèles de données avec Azure Machine Learning. 
 
-Pour une procédure pas à pas montrant comment gérer un plus grand jeu de données, consultez [Team Data Science Process - Using Azure HDInsight Hadoop Clusters on a 1 TB dataset](hive-criteo-walkthrough.md) (TDSP (Team Data Science Process) : utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To).
+Pour une procédure pas à pas indiquant comment gérer un plus grand jeu de données, consultez [Team Data Science Process : utiliser des clusters Azure HDInsight Hadoop sur un jeu de données de 1 To](hive-criteo-walkthrough.md).
 
-Vous pouvez également utiliser un bloc-notes IPython pour accomplir les tâches présentées dans cette procédure pas à pas qui utilise le jeu de données de 1 To. Pour plus d’informations, consultez [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procédure pas à pas Criteo à l’aide d’une connexion Hive ODBC).
+Vous pouvez également utiliser un notebook IPython pour accomplir les tâches présentées dans cette procédure pas à pas qui utilise le jeu de données de 1 To. Pour plus d’informations, consultez [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procédure pas à pas Criteo à l’aide d’une connexion Hive ODBC).
 
 ## <a name="dataset"></a>Description du jeu de données NYC Taxi Trips
 Les données NYC Taxi Trip sont constituées d’environ 20 Go de fichiers CSV (valeurs séparées par des virgules) compressés (~ 48 Go non compressés). Ces données comptent plus de 173 millions de courses individuelles et incluent les tarifs payés pour chaque course. Chaque enregistrement de course inclut le lieu et l’heure d’embarquement et de débarquement, le numéro de licence (du chauffeur) rendu anonyme et le numéro de médaillon (ID unique) du taxi. Les données portent sur toutes les courses effectuées en 2013 et sont fournies dans les deux jeux de données ci-après pour chaque mois :
 
-- Les fichiers CSV trip_data contiennent les détails des courses. Ceux-ci incluent le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
+- Les fichiers CSV trip_data contiennent les détails des courses, comme le nombre de passagers, les points d’embarquement et de débarquement, la durée du trajet et la distance parcourue. Voici quelques exemples d’enregistrements :
    
         medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -36,7 +36,7 @@ Les données NYC Taxi Trip sont constituées d’environ 20 Go de fichiers CSV (
         0BD7C8F5BA12B88E0B67BED28BEA73D8,9FD8F69F0804BDB5549F40E9DA1BE472,CMT,1,N,2013-01-05 18:49:41,2013-01-05 18:54:23,1,282,1.10,-74.004707,40.73777,-74.009834,40.726002
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:54:15,2013-01-07 23:58:20,2,244,.70,-73.974602,40.759945,-73.984734,40.759388
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868
-- Les fichiers CSV trip_fare contiennent les détails du tarif payé pour chaque course. Ceux-ci incluent le type de paiement, le montant du tarif, la surcharge et les taxes, les pourboires et les péages, et le montant total payé. Voici quelques exemples d’enregistrements :
+- Les fichiers CSV trip_fare contiennent des informations sur le prix payé pour chaque course, comme le type de paiement, le montant, la surcharge et les taxes, les pourboires et les péages, ainsi que le montant total réglé. Voici quelques exemples d’enregistrements :
    
         medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
         89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -48,7 +48,7 @@ Les données NYC Taxi Trip sont constituées d’environ 20 Go de fichiers CSV (
 La clé unique permettant de joindre trip\_data et trip\_fare se compose des champs suivants : medallion (médaillon), hack\_licence (licence de taxi) et pickup\_datetime (date et heure d’embarquement). Pour obtenir tous les détails pertinents pour un voyage en particulier, il suffit de joindre ces trois clés.
 
 ## <a name="mltasks"></a>Exemples de tâches de prédiction
-Déterminer le type de prédictions que vous souhaitez baser sur l’analyse de données. Cela permet de préciser les tâches que vous devez inclure dans votre processus. Voici trois exemples de problèmes de prédiction que nous allons traiter dans cette procédure pas à pas. Ils sont basés sur *tip\_amount* :
+Déterminer le type de prédictions que vous souhaitez baser sur l’analyse de données pour clarifier les tâches d’exécution requises. Voici trois exemples de problèmes de prédiction que nous allons traiter dans cette procédure pas à pas, tous étant basés sur le montant du *pourboire\_*  :
 
 - **Classification binaire** : Prédire si un pourboire a ou non été versé pour une course. Autrement dit, un *tip\_amount* qui est supérieur à 0 $ USD est un exemple positif, tandis qu’un *tip\_amount* égal à 0 $ USD est un exemple négatif.
    
@@ -104,7 +104,7 @@ Dans les commandes AzCopy suivantes, remplacez les paramètres suivants par les 
 
 * ***\<path_to_data_folder>*** Répertoire (avec le chemin) sur votre machine qui contient les fichiers de données décompressés.  
 * ***\<&#60;storage account name of Hadoop cluster>*** Compte de stockage associé à votre cluster HDInsight.
-* ***\<default container of Hadoop cluster>*** Conteneur par défaut utilisé par votre cluster. Notez que le nom du conteneur par défaut est généralement le même nom que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
+* ***\<default container of Hadoop cluster>*** Conteneur par défaut utilisé par votre cluster. Le nom du conteneur par défaut est généralement le même que celui du cluster. Par exemple, si le cluster est appelé « abc123.azurehdinsight.net », le conteneur par défaut est abc123.
 * ***\<storage account key>*** Clé du compte de stockage utilisé par votre cluster.
 
 À partir d’une invite de commandes ou d’une fenêtre Windows PowerShell, exécutez les deux commandes AzCopy suivantes.
@@ -129,7 +129,7 @@ Pour accéder au nœud principal du cluster afin d’exécuter une analyse explo
 
 Dans cette procédure pas à pas, nous utilisons principalement les requêtes écrites dans [Hive](https://hive.apache.org/), un langage de requête similaire à SQL, pour effectuer des explorations de données préliminaires. Les requêtes Hive sont stockées dans des fichiers .hql. Nous réduisons ensuite l’échantillon de ces données à utiliser avec Machine Learning pour la création de modèles.
 
-Pour préparer le cluster à une analyse exploratoire des données, téléchargez les fichiers .hql contenant les scripts Hive pertinents de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) dans un répertoire local (C:\temp) sur le nœud principal. Pour ce faire, ouvrez l’invite de commandes dans le nœud principal du cluster et exécutez les deux commandes suivantes :
+Pour préparer le cluster à une analyse exploratoire des données, téléchargez les fichiers .hql contenant les scripts Hive pertinents de [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) dans un répertoire local (C:\temp) sur le nœud principal. Ouvrez l’invite de commandes dans le nœud principal du cluster et exécutez les deux commandes suivantes :
 
     set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/DataScienceProcess/DataScienceScripts/Download_DataScience_Scripts.ps1'
 
@@ -139,7 +139,7 @@ Ces deux commandes téléchargent tous les fichiers .hql nécessaires dans cette
 
 ## <a name="#hive-db-tables"></a>Créer la base de données Hive et les tables partitionnées par mois
 > [!NOTE]
-> Il s’agit généralement d’une tâche d’administration.
+> Cette tâche est généralement destinée à un administrateur.
 > 
 > 
 
@@ -153,11 +153,11 @@ Dans le nœud principal du cluster Hadoop, ouvrez la ligne de commande Hadoop su
 > 
 > 
 
-À partir de l’invite du répertoire Hive, exécutez la commande suivante dans la ligne de commande Hadoop du nœud principal. La requête Hive est soumise pour créer la base de données et les tables Hive :
+À partir de l'invite du répertoire Hive, exécutez la commande suivante dans la ligne de commande Hadoop du nœud principal qui crée une base de données et des tables Hive :
 
     hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 
-Voici le contenu du fichier **C:\temp\sample\_hive\_create\_db\_and\_tables.hql**. Cela crée la base de données Hive **nyctaxidb**et les tables **trip** et **fare**.
+Voici le contenu du fichier **C:\temp\sample\_hive\_create\_db\_and\_tables.hql** qui crée la base de données Hive **nyctaxidb** et les tables **trip** et **fare**.
 
     create database if not exists nyctaxidb;
 
@@ -207,7 +207,7 @@ Si vous avez besoin d’aide sur ces procédures ou si vous souhaitez examiner d
 
 ## <a name="#load-data"></a>Charger les données dans des tables Hive par partitions
 > [!NOTE]
-> Il s’agit généralement d’une tâche d’administration.
+> Cette tâche est généralement destinée à un administrateur.
 > 
 > 
 
@@ -220,7 +220,7 @@ Le fichier **sample\_hive\_load\_data\_by\_partitions.hql** contient les command
     LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
     LOAD DATA INPATH 'wasb:///nyctaxifareraw/trip_fare_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.fare PARTITION (month=${hiveconf:MONTH});
 
-Notez qu’un nombre de requêtes Hive utilisées ici dans le processus d’exploration impliquent la recherche dans une ou deux partitions seulement. Mais ces requêtes peuvent être exécutées pour l’ensemble du jeu de données.
+Un certain nombre de requêtes Hive utilisées ici dans le processus d’exploration impliquent la recherche dans une ou deux partitions seulement. Mais ces requêtes peuvent être exécutées pour l’ensemble du jeu de données.
 
 ### <a name="#show-db"></a>Afficher les bases de données dans le cluster Hadoop HDInsight
 Pour afficher les bases de données créées dans le cluster Hadoop HDInsight dans la fenêtre de commande Hadoop, exécutez la commande suivante dans la ligne de commande Hadoop :
@@ -302,7 +302,7 @@ Pour obtenir les 10 premiers enregistrements dans la table « fare » du premie
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;"
 
-Vous pouvez sauvegarder les enregistrements dans un fichier pour un affichage pratique. Une petite modification à la requête précédente effectue cette opération :
+Vous pouvez enregistrer les enregistrements dans un fichier pour en faciliter la lecture en apportant une petite modification à la requête précédente :
 
     hive -e "select * from nyctaxidb.fare where month=1 limit 10;" > C:\temp\testoutput
 
@@ -316,7 +316,7 @@ La façon dont le nombre de courses varie au cours de l'année civile est intér
 
     hive -e "select month, count(*) from nyctaxidb.trip group by month;"
 
-Nous obtenons la sortie suivante :
+Cette commande génère la sortie suivante :
 
     1       14776615
     2       13990176
@@ -338,7 +338,7 @@ Nous pouvons également compter le nombre total d’enregistrements dans notre j
 
     hive -e "select count(*) from nyctaxidb.trip;"
 
-Cela donne :
+Cette commande interrompt :
 
     173179759
     Time taken: 284.017 seconds, Fetched: 1 row(s)
@@ -347,7 +347,7 @@ Cela donne :
 
     hive -e "select month, count(*) from nyctaxidb.fare group by month;"
 
-Nous obtenons la sortie suivante :
+Cette commande génère cette sortie :
 
     1       14776615
     2       13990176
@@ -363,22 +363,22 @@ Nous obtenons la sortie suivante :
     12      13971118
     Time taken: 253.955 seconds, Fetched: 12 row(s)
 
-Notez qu’exactement le même nombre de courses par mois est retourné pour les deux jeux de données. C’est le premier élément garantissant que les données ont été chargées correctement.
+Le même nombre de courses effectuées par mois est retourné pour les deux jeux de données. Cela est la première confirmation que les données ont été chargées correctement.
 
 Vous pouvez compter le nombre total d’enregistrements dans le jeu de données fare à l’aide de la commande suivante à partir de l’invite du répertoire Hive :
 
     hive -e "select count(*) from nyctaxidb.fare;"
 
-Cela donne :
+Cette commande interrompt :
 
     173179759
     Time taken: 186.683 seconds, Fetched: 1 row(s)
 
-Le nombre total d'enregistrements dans les deux tables est également le même. C’est le deuxième élément garantissant que les données ont été chargées correctement.
+Le nombre total d’enregistrements dans les deux tables est également identique. Cela est la deuxième confirmation que les données ont été chargées correctement.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Exploration : Distribution des courses par médaillon
 > [!NOTE]
-> Il s’agit généralement d’une tâche de scientifique des données.
+> Cette analyse est généralement une tâche de scientifique des données.
 > 
 > 
 
@@ -412,11 +412,11 @@ Voici le contenu du fichier **sample\_hive\_trip\_count\_by\_medallion.hql** pou
 
 ### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Exploration : Distribution des courses par médaillon et par licence de taxi
 > [!NOTE]
-> Il s’agit généralement d’une tâche de scientifique des données.
+> Cette tâche est généralement destinée à un scientifique des données.
 > 
 > 
 
-Lors de l’exploration d’un jeu de données, nous devons examiner fréquemment le nombre de co-occurrences des groupes de valeurs. Cette section fournit un exemple de procédure à suivre pour les chauffeurs et les taxis.
+Lors de l'exploration d'un jeu de données, nous devons examiner fréquemment le nombre de distributions des groupes de valeurs. Cette section fournit un exemple de procédure à suivre pour effectuer cette analyse pour les chauffeurs et les taxis.
 
 Le fichier **sample\_hive\_trip\_count\_by\_medallion\_license.hql** regroupe le jeu de données fare sur **medallion** et **hack_license**, et renvoie le nombre de chaque combinaison. Son contenu est présenté ci-dessous :
 
@@ -457,7 +457,7 @@ Voici le contenu du fichier **sample\_hive\_quality\_assessment.hql** pour l’i
 
     hive -S -f "C:\temp\sample_hive_quality_assessment.hql"
 
-L’argument *-S* inclus dans la commande supprime l’affichage de l’état des travaux Map/Reduce Hive. Son utilité réside dans le fait qu’il rend l’affichage de la sortie de la requête Hive plus lisible.
+L’argument *-S* inclus dans la commande supprime l’affichage de l’état des travaux Map/Reduce Hive. Cette comment est utile, car elle rend l’affichage de la sortie de la requête Hive plus lisible.
 
 ### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Exploration : Distributions de classe binaire des pourboires de course
 > [!NOTE]
@@ -470,7 +470,7 @@ Pour le problème de classification binaire présenté dans la section [Exemples
 * pourboire donné (classe 1, tip\_amount > 0 $)  
 * aucun pourboire (classe 0, tip\_amount = 0 $)
 
-Le fichier **sample\_hive\_tipped\_frequencies.hql** suivant effectue cette opération :
+Le fichier **sample\_hive\_tipped\_frequencies.hql** suivant indique quelle commande exécuter :
 
     SELECT tipped, COUNT(*) AS tip_freq
     FROM
@@ -537,7 +537,7 @@ Pour afficher la comparaison entre la distance de course réelle et la [distance
     and dropoff_longitude between -90 and -30
     and dropoff_latitude between 30 and 90;
 
-Dans la requête précédente, R est le rayon de la Terre en miles et pi est converti en radians. Notez que les points de latitude-longitude sont filtrés pour supprimer les valeurs éloignées de la zone NYC.
+Dans la requête précédente, R est le rayon de la Terre en miles et pi est converti en radians. Les points de latitude-longitude sont filtrés pour supprimer les valeurs éloignées de la zone NYC.
 
 Dans ce cas, nous écrivons les résultats sur un répertoire nommé **queryoutputdir**. La séquence des commandes suivantes crée d’abord ce répertoire de sortie, puis exécute la commande Hive.
 
@@ -578,10 +578,10 @@ Il existe deux étapes dans cette procédure. Tout d’abord nous regroupons les
 
 Pour pouvoir utiliser les échantillons de données réduits directement à partir du module [Importer des données][import-data] dans Machine Learning, vous devez stocker les résultats de la requête précédente dans une table Hive interne. Dans ce qui suit, nous créons une table interne Hive et remplissons son contenu avec les données regroupées et à échantillon réduit.
 
-La requête applique des fonctions Hive standard directement pour générer les valeurs suivantes dans le champ **pickup\_datetime** :
+La requête applique des fonctions Hive standard directement pour générer les paramètres de temps suivants dans le champ **pickup\_datetime** :
 - heure de la journée
 - semaine de l’année
-- jour de la semaine (1 pour lundi et 7 pour dimanche)
+- jour de la semaine (« 1 » pour lundi et « 7 » pour dimanche)
 
 La requête génère également la distance directe entre les lieux d’embarquement et de débarquement. Pour obtenir la liste complète de ces fonctions, consultez [UDF LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF).
 
@@ -721,7 +721,7 @@ Pour générer des requêtes Hive dans le module [Importer des données][import-
 
 Voici certains détails sur le module [Importer des données][import-data] et les paramètres à entrer :
 
-**URI du serveur HCatalog** : Si le nom du cluster est **abc123**, il s’agit simplement de : https://abc123.azurehdinsight.net.
+**URI du serveur HCatalog** : Si le nom du cluster est **abc123**, utilisez : https://abc123.azurehdinsight.net.
 
 **Nom du compte utilisateur Hadoop** : Nom d’utilisateur choisi pour le cluster (et non le nom d’utilisateur de l’accès à distance).
 
@@ -729,9 +729,9 @@ Voici certains détails sur le module [Importer des données][import-data] et le
 
 **Emplacement des données de sortie** : Il s’agit d’un emplacement Azure.
 
-**Nom du compte de Stockage Azure** : Nom du compte de stockage par défaut associé au cluster.
+**Nom du compte de Stockage Azure** : Nom du compte de stockage par défaut associé au cluster.
 
-**Nom de conteneur Azure** : Il s’agit du nom de conteneur par défaut du cluster. Il correspond généralement au nom du cluster. Pour un cluster appelé **abc123**, il s’agit de abc123.
+**Nom de conteneur Azure** : Nom du conteneur par défaut du cluster. Il correspond généralement à celui du cluster. Pour un cluster nommé **abc123**, le nom est abc123.
 
 > [!IMPORTANT]
 > Toute table que nous souhaitons interroger à l’aide du module [Importer des données][import-data] dans Machine Learning doit être une table interne.
@@ -750,7 +750,7 @@ Voici une capture d’écran de la requête Hive et du module [Importer des donn
 
 ![Capture d’écran de requête Hive pour le module Importer des données](./media/hive-walkthrough/1eTYf52.png)
 
-Étant donné que nos données à échantillon réduit résident dans le conteneur par défaut, la requête Hive obtenue de Machine Learning est très simple. Simplement **SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data**.
+Étant donné que nos données à échantillon réduit résident dans le conteneur par défaut, la requête Hive obtenue de Machine Learning est simple. Simplement **SELECT * FROM nyctaxidb.nyctaxi\_downsampled\_data**.
 
 Le jeu de données peut maintenant être utilisé comme point de départ pour créer des modèles Machine Learning.
 
@@ -791,11 +791,11 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 
   ![Graphique de distribution de classe de test](./media/hive-walkthrough/Vy1FUKa.png)
 
-  b. Pour cette expérience, nous utilisons une matrice de confusion pour consulter la précision des prédictions. En voici l’illustration :
+  b. Pour cette expérience, nous utilisons une matrice de confusion pour consulter la précision des prédictions comme indiqué ici :
 
   ![Matrice de confusion](./media/hive-walkthrough/cxFmErM.png)
 
-  Notez que les précisions des classes sur les classes les plus courantes sont assez bonnes, mais que le modèle n’effectue pas un bon travail « d’apprentissage » sur les classes plus rares.
+  Même si les précisions des classes sur les classes les plus courantes sont bonnes, le modèle n’effectue pas un bon travail « d’apprentissage » sur les classes plus rares.
 
 - **Tâche de régression** : Prédire le montant du pourboire versé pour une course.
 
@@ -819,7 +819,7 @@ Vous pouvez maintenant passer aux phases de création et de déploiement de mod�
 > 
 
 ## <a name="license-information"></a>Informations de licence
-Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la licence MIT. Pour plus d’informations, consultez le fichier **LICENSE.txt** figurant dans le répertoire de l’exemple de code sur GitHub.
+Ce didacticiel et ses scripts associés sont partagés par Microsoft sous la licence MIT. Pour en savoir plus, consultez le fichier **LICENSE.txt** figurant dans le répertoire de l’exemple de code sur GitHub.
 
 ## <a name="references"></a>References
 •    [Page de téléchargement des jeux de données NYC Taxi Trips par Andrés Monroy (en anglais)](https://www.andresmh.com/nyctaxitrips/)  

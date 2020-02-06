@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0912316d1c41f46e5dba74b58017f4fd5e8ed529
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973461"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909199"
 ---
 ### <a name="portal"></a>Portail
 
@@ -77,6 +77,7 @@ Deux notifications doivent s’afficher et s’effectuer correctement. Cela vous
 Maintenant que vous avez créé et configuré votre coffre de clés et le jeu de chiffrement de disque, vous pouvez déployer une machine virtuelle à l’aide du chiffrement.
 Le processus de déploiement de la machine virtuelle est similaire au processus de déploiement standard, les seules différences sont que vous devez déployer la machine virtuelle dans la même région que vos autres ressources et que vous choisissez d’utiliser une clé gérée par le client.
 
+1. Ouvrez le [lien des jeux de chiffrement de disque](https://aka.ms/diskencryptionsets).
 1. Recherchez **Machines virtuelles** et sélectionnez **+ Ajouter** pour créer une machine virtuelle.
 1. Sous l’onglet **De base**, sélectionnez la même région que votre jeu de chiffrement de disque et qu’Azure Key Vault.
 1. Renseignez les autres valeurs de l’onglet **De base** comme vous le souhaitez.
@@ -96,6 +97,7 @@ Pour gérer et configurer le chiffrement de disque sur vos disques existants, vo
 > [!CAUTION]
 > L’activation du chiffrement de disque sur les disques attachés à une machine virtuelle nécessite l’arrêt de celle-ci.
 
+1. Ouvrez le [lien des jeux de chiffrement de disque](https://aka.ms/diskencryptionsets).
 1. Accédez à une machine virtuelle qui se trouve dans la même région que l’un de vos jeux de chiffrement de disque.
 1. Ouvrez la machine virtuelle et sélectionnez **Arrêter**.
 

@@ -3,12 +3,12 @@ title: Sauvegarder des machines Windows avec l’agent MARS
 description: Utilisez l’agent MARS (Microsoft Azure Recovery Services) pour sauvegarder des machines Windows.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: c6e5ea1ed1ec9dd922793dfc6834238c431ddc38
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 990929cc95d1c25117873ca39415d33370456b91
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "76290867"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025535"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Sauvegarder des machines Windows avec l’agent MARS de la sauvegarde Azure
 
@@ -215,10 +215,10 @@ Créez une stratégie comme suit :
         -   Les sauvegardes effectuées le samedi de la dernière semaine du mois à minuit et 18h sont conservées pendant 12 mois.
         -   Les sauvegardes effectuées le samedi au cours de la dernière semaine du mois de mars sont conservées pendant 10 ans.
 
-    ![Exemple de conservation](./media/backup-configure-vault/retention-example.png)
+        ![Exemple de conservation](./media/backup-configure-vault/retention-example.png)
 
 
-11. Dans **Choisir le type de sauvegarde initiale**, décidez si vous souhaitez effectuer la sauvegarde initiale sur le réseau ou utiliser la sauvegarde en mode hors connexion (pour plus d’informations sur la sauvegarde en mode hors connexion, consultez cet [article](backup-azure-backup-import-export.md)). Pour effectuer la sauvegarde initiale sur le réseau, sélectionnez **Sur le réseau automatiquement** et cliquez sur **Suivant**.
+11. Dans **Choisir le type de sauvegarde initiale**, décidez si vous souhaitez effectuer la sauvegarde initiale sur le réseau ou utiliser la sauvegarde en mode hors connexion (pour plus d’informations sur la sauvegarde en mode hors connexion, consultez cet [article](offline-backup-azure-data-box.md)). Pour effectuer la sauvegarde initiale sur le réseau, sélectionnez **Sur le réseau automatiquement** et cliquez sur **Suivant**.
 
     ![Type de sauvegarde initiale](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -245,7 +245,7 @@ Vous pouvez exécuter une sauvegarde initiale automatiquement sur le réseau ou 
 5. Dans le centre de données, les données de disque sont copiées vers un compte de stockage Azure.
 6. Sauvegarde Azure copie les données de sauvegarde à partir du compte de stockage vers le coffre, et des sauvegardes incrémentielles sont planifiées.
 
-[Apprenez-en davantage](backup-azure-backup-import-export.md) sur l'amorçage hors connexion.
+[Apprenez-en davantage](offline-backup-azure-data-box.md) sur l'amorçage hors connexion.
 
 ### <a name="enable-network-throttling"></a>Activation de la limitation du réseau
 

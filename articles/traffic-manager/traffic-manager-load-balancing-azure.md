@@ -3,7 +3,7 @@ title: Utilisation des services d’équilibrage de charge dans Azure | Microso
 description: 'Ce didacticiel vous montre comment créer un scénario à l’aide du portefeuille d’équilibrage de charge Azure : Traffic Manager, Application Gateway et Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: allensu
-ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227792"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939222"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Utilisation des services d’équilibrage de charge dans Azure
 
@@ -63,12 +63,12 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
 ## <a name="setting-up-the-load-balancing-stack"></a>Configuration de la pile d’équilibrage de charge
 
-### <a name="step-1-create-a-traffic-manager-profile"></a>Étape 1 : Créer un profil Traffic Manager
+### <a name="step-1-create-a-traffic-manager-profile"></a>Étape 1 : Créer un profil Traffic Manager
 
 1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
 2. Entrez les informations de base suivantes :
 
-   * **Nom** : donnez un nom de préfixe DNS à votre profil Traffic Manager.
+   * **Name** : donnez un nom de préfixe DNS à votre profil Traffic Manager.
    * **Méthode de routage** : sélectionnez la stratégie de la méthode de routage du trafic. Pour en savoir plus sur les différentes méthodes , voir [À propos des méthodes de routage du trafic de Traffic Manager](traffic-manager-routing-methods.md).
    * **Abonnement**: sélectionnez l’abonnement qui contient le profil.
    * **Groupe de ressources** : sélectionnez le groupe de ressources qui contient le profil. Il peut s’agir d’un groupe de ressources nouveau ou existant.
@@ -78,12 +78,12 @@ Le diagramme suivant illustre l’architecture de ce scénario :
 
    ![Panneau Créer un profil Traffic Manager](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
-### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
+### <a name="step-2-create-the-application-gateways"></a>Étape 2 : créer des passerelles Application Gateway
 
 1. Dans le volet de gauche du portail Azure, cliquez sur **Créer une ressource** > **Mise en réseau** > **Application Gateway**.
 2. Indiquez ensuite les informations de base suivantes sur la passerelle Application Gateway :
 
-   * **Nom** : Nom de la passerelle Application Gateway.
+   * **Name** : Nom de la passerelle Application Gateway.
    * **Taille de la référence** : taille de la passerelle Application Gateway (petite, moyenne ou grande).
    * **Nombre d’instances** : nombre d’instances (valeur comprise entre 2 et 10).
    * **Groupe de ressources** : groupe de ressources qui contient la passerelle Application Gateway. Il peut s’agir d’un groupe existant, ou d’un nouveau groupe.
@@ -114,14 +114,14 @@ Au moment de choisir le pool principal, une passerelle Application Gateway conf
 
    Paramètres de base :
 
-   + **Nom** : nom convivial de la règle accessible via le portail.
+   + **Name** : nom convivial de la règle accessible via le portail.
    + **Écouteur** : écouteur utilisé pour la règle.
    + **Pool principal par défaut** : pool principal à utiliser avec la règle par défaut.
    + **Paramètres HTTP par défaut** : paramètres HTTP à utiliser avec la règle par défaut.
 
    Règles basées sur le chemin :
 
-   + **Nom** : nom convivial de la règle basée sur le chemin.
+   + **Name** : nom convivial de la règle basée sur le chemin.
    + **Chemins** : règle de chemin utilisée pour transférer le trafic.
    + **Pool principal** : pool principal à utiliser avec cette règle.
    + **Paramètre HTTP** : paramètres HTTP à utiliser avec cette règle.
@@ -143,7 +143,7 @@ Dans ce scénario, Traffic Manager est connecté à des instances Application 
 3. Créez un point de terminaison en entrant les informations suivantes :
 
    * **Type** : sélectionnez le type de point de terminaison pour l’équilibrage de charge. Dans ce scénario, sélectionnez **Point de terminaison Azure**, car nous le connectons aux instances Application Gateway configurées précédemment.
-   * **Nom** : saisissez le nom du point de terminaison.
+   * **Name** : saisissez le nom du point de terminaison.
    * **Type de ressource cible** : sélectionnez **Adresse IP publique** et, sous **Ressource cible**, sélectionnez l’adresse IP publique de la passerelle Application Gateway configurée précédemment.
 
    ![Ajouter un point de terminaison, dans Traffic Manager](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)

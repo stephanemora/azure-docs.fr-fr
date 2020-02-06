@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934475"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720706"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure
 
@@ -125,6 +125,16 @@ Pour lister l’accès pour un utilisateur, un groupe, un principal de service o
     ![Attributions de rôles pour une identité gérée affectée par le système](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. Pour changer d’abonnement, cliquez sur la liste **Abonnements**.
+
+## <a name="list-number-of-role-assignments"></a>Répertorier le nombre d’attributions de rôles
+
+Vous pouvez avoir jusqu’à **2 000** attributions de rôles dans chaque abonnement. Pour vous aider à suivre ces limites, l’onglet **Attributions de rôles** comprend un graphique qui répertorie le nombre actuel d’attributions de rôles.
+
+![Contrôle d’accès : graphique du nombre d’attributions de rôles](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+Si vous vous approchez du nombre maximal et que vous essayez d’ajouter d’autres attributions de rôles, un avertissement s’affiche dans le volet **Ajouter une attribution de rôle**. Vous pouvez réduire le nombre d’attributions de rôles en supprimant les attributions de rôles qui ne sont plus nécessaires ou en attribuant des rôles à des groupes plutôt qu’à des utilisateurs individuels.
+
+![Contrôle d’accès : avertissement Ajouter une attribution de rôle](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

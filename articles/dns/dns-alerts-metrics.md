@@ -3,7 +3,7 @@ title: Métriques et alertes - Azure DNS
 description: Avec ce parcours d’apprentissage, prenez en main les métriques et alertes Azure DNS.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/17/2018
-ms.author: allensu
-ms.openlocfilehash: dc4d7de3d235fcdaf4a7f681065ba6e2857eb2ce
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 42acbc0d32b3ce5de4befcf112b68f611ad70542
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212396"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937457"
 ---
 # <a name="azure-dns-metrics-and-alerts"></a>Métriques et alertes Azure DNS
 Azure DNS est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. Cet article aborde les métriques et les alertes du service Azure DNS.
@@ -44,14 +44,14 @@ Pour afficher cette métrique, sélectionnez l’explorateur Métriques (préver
 
 ![Volume de requêtes](./media/dns-alerts-metrics/dns-metrics-query-volume.png)
 
-*Figure : Métriques de volume de requêtes dans Azure DNS*
+*Figure : Métriques de volume de requêtes dans Azure DNS*
 
 ### <a name="record-set-count"></a>Nombre de jeux d’enregistrements
 La métrique *RecordSetCount* (Nombre de recordsets) indique le nombre de recordsets qui se trouvent dans Azure DNS pour votre zone DNS. Tous les recordsets définis dans votre zone sont comptabilisés. L’unité de mesure est Nombre et l’agrégation correspond au nombre total de recordsets. Pour afficher cette métrique, sélectionnez l’explorateur **Métriques (préversion)** sous l’onglet **Surveiller** du portail Azure. Sélectionnez votre zone DNS dans la liste déroulante **Ressource**, sélectionnez la métrique **RecordSetCount** (Nombre de recordsets), puis sélectionnez **Max** pour **Agrégation**. Pour plus d’informations sur Metrics Explorer et sur ses graphiques, consultez [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-charts.md). 
 
 ![Nombre de jeux d’enregistrements](./media/dns-alerts-metrics/dns-metrics-record-set-count.png)
 
-*Figure : Métriques du nombre de jeux d’enregistrement dans Azure DNS*
+*Figure : Métriques du nombre de jeux d’enregistrement dans Azure DNS*
 
 
 ### <a name="record-set-capacity-utilization"></a>Utilisation de la capacité du jeu d’enregistrements
@@ -59,7 +59,7 @@ Dans Azure DNS, la métrique *RecordSetCapacityUtilization* (Utilisation de la c
 
 ![Nombre de jeux d’enregistrements](./media/dns-alerts-metrics/dns-metrics-record-set-capacity-uitlization.png)
 
-*Figure : Métriques d’utilisation de la capacité du jeu d’enregistrements dans Azure DNS*
+*Figure : Métriques d’utilisation de la capacité du jeu d’enregistrements dans Azure DNS*
 
 ## <a name="alerts-in-azure-dns"></a>Alertes Azure DNS
 Azure Monitor permet d’être alerté lorsque des valeurs métriques sont disponibles. Les métriques DNS sont disponibles dans la nouvelle configuration des alertes. Comme décrit en détail dans la [documentation sur les alertes Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md), vous pouvez sélectionner la zone DNS en tant que ressource, choisir le type de signalement des métriques et configurer la logique d’alerte et d’autres paramètres tels que la **Période** et la **Fréquence**. Vous pouvez définir un [Groupe d’actions](../azure-monitor/platform/action-groups.md) à effectuer lorsqu’une condition d’alerte est remplie. Pour plus d’informations sur la configuration des alertes dans Azure Monitor, consultez [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 

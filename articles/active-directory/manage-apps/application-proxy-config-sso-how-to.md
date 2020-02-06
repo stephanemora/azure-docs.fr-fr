@@ -16,12 +16,12 @@ ms.date: 03/12/2019
 ms.author: mimart
 ms.reviewer: japere, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5eca08e0b736937af42e58d81148636e3269df
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 589b3e51f27147f0a0432b61c22a024c202e388b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712017"
 ---
 # <a name="how-to-configure-single-sign-on-to-an-application-proxy-application"></a>Comment configurer l’authentification unique pour une application de proxy d’application
 
@@ -37,7 +37,7 @@ Pour plus d’informations sur les méthodes de pré-authentification, reportez-
 ## <a name="configuring-single-sign-on-modes-for-application-proxy-applications"></a>Configuration des modes d’authentification unique pour les applications de proxy d’application
 Configurez le type d’authentification unique spécifique. Les méthodes d’authentification sont classées en fonction du type d’authentification utilisé par l’application principale. Les applications de proxy d’application prennent en charge trois types d’authentification :
 
--   **Authentification par mot de passe** : l’authentification par mot de passe peut être utilisée pour toutes les applications qui présentent des champs de nom d’utilisateur et de mot de passe pour l’authentification. Les étapes de configuration se trouvent dans [Configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD](configure-password-single-sign-on-gallery-applications.md).
+-   **Authentification par mot de passe** : l’authentification par mot de passe peut être utilisée pour toutes les applications qui présentent des champs de nom d’utilisateur et de mot de passe pour l’authentification. Les étapes de configuration se trouvent dans [Configurer l’authentification unique par mot de passe pour une application de la galerie Azure AD](configure-password-single-sign-on-non-gallery-applications.md).
 
 -   **Authentification Windows intégrée** : pour les applications utilisant l’authentification Windows intégrée, l’authentification unique est activée par le biais de la délégation Kerberos contrainte. Cette méthode donne aux connecteurs de proxy d’application l’autorisation d’emprunter l’identité des utilisateurs dans Active Directory et d’envoyer et recevoir des jetons en leur nom. Vous trouverez plus d’informations sur la configuration de KCD dans la [documentation sur l’authentification unique avec KCD](application-proxy-configure-single-sign-on-with-kcd.md).
 

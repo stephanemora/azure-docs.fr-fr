@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2019
-ms.openlocfilehash: ad9437b135e48dcfaff9efa5f6daf345d78e79ef
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 094d9fe7425a6192ce2af94c3ea18cac20ff9ded
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895336"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720331"
 ---
 # <a name="archived-release-notes"></a>Notes de publication archivées
 
@@ -55,7 +55,7 @@ TLS (Transport Layer Security) et SSL (Secure Sockets Layer) sont des protocoles
 Plus tard dans l’année, à compter du 30/06/2020, Azure HDInsight appliquera TLS 1.2 ou versions ultérieures pour toutes les connexions HTTPS. Nous vous recommandons de vous assurer que tous vos clients sont prêts à gérer TLS 1.2 ou versions ultérieures.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Passage à des groupes de machines virtuelles identiques Azure
-HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de février 2020 (la date sera précisée ultérieurement), HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+HDInsight utilise désormais les machines virtuelles Azure pour approvisionner le cluster. À partir de février 2020 (la date sera précisée ultérieurement), HDInsight utilisera à la place les groupes de machines virtuelles identiques Azure. En savoir plus sur les [groupes de machines virtuelles identiques Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 #### <a name="esp-spark-cluster-node-size-change"></a>Modification de la taille du nœud de cluster ESP Spark 
 Dans la prochaine version :

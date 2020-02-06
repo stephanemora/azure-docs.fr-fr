@@ -1,22 +1,22 @@
 ---
-title: 'Didacticiel : Créer un enregistrement d’alias Azure DNS pour référencer une adresse IP publique Azure'
+title: 'Tutoriel : Créer un enregistrement d’alias Azure DNS pour référencer une adresse IP publique Azure'
 description: Ce tutoriel vous montre comment configurer un enregistrement d’alias Azure DNS pour référencer une adresse IP publique Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 81dfbe5f46116d263c4a04d6178437a2c8bc1185
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: d601d19a786613f674f7b941becc5e97d84e6fce
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072129"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939277"
 ---
-# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Didacticiel : Configurer un enregistrement d’alias pour faire référence à une adresse IP publique 
+# <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>Tutoriel : Configurer un enregistrement d’alias pour faire référence à une adresse IP publique 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une infrastructure réseau.
@@ -27,7 +27,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Vous devez disposer d’un nom de domaine disponible, que vous pouvez héberger dans Azure DNS pour le test. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 
 Pour obtenir des instructions sur l’hébergement de votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -44,7 +44,7 @@ Créez d’abord un réseau virtuel et un sous-réseau pour y placer vos serveur
 ## <a name="create-a-web-server-virtual-machine"></a>Créez une machine virtuelle de serveur web
 1. Sélectionnez **Créer une ressource** > **Machine virtuelle Windows Server 2016**.
 2. Saisissez **Web-01** pour le nom et placez la machine virtuelle dans le groupe de ressources **RG-DNS-Alias-TM**. Entrez un nom d’utilisateur et un mot de passe, puis sélectionnez **OK**.
-3. Pour **Taille**, sélectionnez une référence SKU avec 8 Go de RAM.
+3. Pour **Taille**, sélectionnez une référence SKU avec 8 Go de RAM.
 4. Pour **Paramètres**, sélectionnez le réseau virtuel **VNet-Servers** et le sous-réseau **SN-Web**. Pour les ports d’entrée publics, sélectionnez **HTTP** > **HTTPS** > **RDP (3389)** , puis **OK**.
 5. Dans la page **Résumé**, sélectionnez **Créer**.
 
@@ -84,7 +84,7 @@ Créez un enregistrement d’alias qui pointe vers l’adresse IP publique.
 
 Cette procédure réussit, car vous avez utilisé un enregistrement d’alias pour pointer vers la ressource d’adresse IP publique, et non pas un enregistrement A standard.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’aurez plus besoin des ressources créées pour ce tutoriel, supprimez le groupe de ressources **RG-DNS-Alias-pip**.
 

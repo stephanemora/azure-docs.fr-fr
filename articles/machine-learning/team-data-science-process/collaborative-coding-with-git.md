@@ -2,20 +2,20 @@
 title: Codage collaboratif avec Git - Team Data Science Process
 description: Comment développer le code de projets de science des données en collaboration avec Git selon une planification agile.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195485"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721895"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
 
@@ -70,7 +70,7 @@ git commit -m "added an R script file"
 git push origin script
 ```
 
-![5\.](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
+![5](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
 ## <a name='CreateapullrequestonVSTS-3'></a>Créer une demande de tirage
 
@@ -80,7 +80,7 @@ Dans la page principale de votre projet Azure DevOps, pointez sur **Dépôts** >
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-Dans l’écran **Nouvelle demande de tirage**, accédez si nécessaire au dépôt Git et à la branche où vous voulez fusionner vos changements. Ajoutez ou modifiez d’éventuelles autres informations de votre choix. Sous **Réviseurs**, ajoutez les noms de ceux qui doivent vérifier vos changements, puis sélectionnez **Créer**. 
+Dans l’écran **Nouvelle demande de tirage**, accédez si nécessaire au dépôt Git et à la branche où vous voulez fusionner vos changements. Ajoutez ou modifiez d’éventuelles autres informations de votre choix. Sous **Réviseurs**, ajoutez les noms des réviseurs, puis sélectionnez **Créer**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 

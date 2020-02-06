@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008543"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714479"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité d’audit dans le portail Azure Active Directory 
 
@@ -45,7 +45,7 @@ Cet article présente une vue d’ensemble du rapport d’audit.
 
 ## <a name="audit-logs"></a>Journaux d’audit
 
-Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Activité** d’**Azure Active Directory**. Notez que les journaux d’audit peuvent avoir une latence de jusqu’à une heure, et il peut s’écouler un certain temps avant que les données d’activité d’audit s’affichent dans le portail une fois que vous avez terminé la tâche.
+Les journaux d’audit Azure AD fournissent des enregistrements des activités du système pour la conformité. Pour accéder au rapport d’audit, sélectionnez **Journaux d’audit** dans la section **Activité** d’**Azure Active Directory**. Notez que les journaux d’audit peuvent avoir une latence allant jusqu’à une heure, et il peut s’écouler un certain temps avant que les données d’activité d’audit s’affichent dans le portail une fois que vous avez terminé la tâche.
 
 
 
@@ -111,7 +111,7 @@ Le filtre **Catégorie** vous permet de sélectionner un des filtres suivants :
 - AdministrativeUnit
 - ApplicationManagement
 - Authentication
-- Authorization
+- Autorisation
 - Contact
 - Appareil
 - DeviceConfiguration
@@ -144,7 +144,7 @@ Les valeurs possibles sont les suivantes :
 - 1 mois
 - 7 jours
 - 24 heures
-- Personnalisée
+- Custom
 
 Lorsque vous sélectionnez une plage personnalisée, vous pouvez configurer une heure de début et une heure de fin.
 

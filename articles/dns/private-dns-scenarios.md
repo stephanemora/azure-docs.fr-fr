@@ -2,30 +2,30 @@
 title: Scénarios pour Private Zones – Azure DNS
 description: Dans cet article, vous découvrez des scénarios courants pour l’utilisation d’Azure DNS Private Zones.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
-ms.author: allensu
-ms.openlocfilehash: 2eb7e9e4df5bdf0f8eb047cc8594bd862245770d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: ab850adb2e9a25778d5f44ba711eb0762fe562c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210455"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939338"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Scénarios Azure DNS Private Zones
 
 Azure DNS Private Zones fournit la résolution de noms au sein d’un réseau virtuel, ainsi qu’entre des réseaux virtuels. Dans cet article, nous étudions certains des scénarios courants pouvant être mis en œuvre à l’aide de cette fonctionnalité.
 
-## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>Scénario : Résolution de noms pour un seul réseau virtuel
+## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>Scénario : Résolution de noms pour un seul réseau virtuel
 Dans ce scénario, vous disposez d’un réseau virtuel dans Azure qui possède un certain nombre de ressources Azure, y compris des machines virtuelles. Vous souhaitez résoudre les ressources à partir du réseau virtuel via un nom de domaine spécifique (zone DNS), et vous avez besoin que la résolution de noms soit privée et non accessible depuis Internet. En outre, pour les machines virtuelles dans le réseau virtuel, vous avez besoin d’Azure pour les enregistrer automatiquement dans la zone DNS. 
 
 Ce scénario est illustré ci-dessous. Le réseau virtuel nommé « A » contient deux machines virtuelles (VNETA-VM1 et VNETA-VM2). Chacune d’entre elles a des adresses IP privées associées. Une fois que vous créez une zone privée nommée contoso.com et que vous associez ce réseau virtuel en tant que réseau virtuel d’inscription, Azure DNS crée automatiquement deux enregistrements A dans la zone, comme illustré. Désormais, les requêtes DNS de VNETA-VM1 pour résoudre VNETA-VM2.contoso.com reçoivent une réponse DNS qui contient l’adresse IP privée de VNETA-VM2. En outre, une requête DNS inverse (PTR) pour l’adresse IP privée de VNETA-VM1 (10.0.0.1) émise depuis VNETA-VM2 reçoit une réponse DNS qui contient le nom de VNETA-VM1, comme prévu. 
 
 ![Résolution pour un seul réseau virtuel](./media/private-dns-scenarios/single-vnet-resolution.png)
 
-## <a name="scenario-name-resolution-across-virtual-networks"></a>Scénario : Résolution de noms sur plusieurs réseaux virtuels
+## <a name="scenario-name-resolution-across-virtual-networks"></a>Scénario : Résolution de noms sur plusieurs réseaux virtuels
 
 Ce scénario est le cas le plus courant où vous devez associer une zone privée à plusieurs réseaux virtuels. Ce scénario peut accepter des architectures comme le modèle « Hub and Spoke » où il existe un réseau virtuel Hub central auquel plusieurs réseaux virtuels Spoke sont connectés. Le réseau virtuel Hub central peut être associé en tant que réseau virtuel d’inscription à une zone privée, et les réseaux virtuels Spoke peuvent être associés en tant que réseaux virtuels de résolution. 
 
@@ -37,7 +37,7 @@ Le schéma suivant présente une version simple de ce scénario, où il existe s
 
 ![Résolution pour plusieurs réseaux virtuels](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Scénario : Fonctionnalité de découpage d’horizon
+## <a name="scenario-split-horizon-functionality"></a>Scénario : Fonctionnalité de découpage d’horizon
 
 Dans ce scénario, vous avez un cas d’usage où vous souhaitez qu’un comportement de résolution DNS différent s’applique en fonction de l’endroit où se trouve le client (dans Azure ou sur Internet) pour la même zone DNS. Par exemple, vous avez peut-être une version privée et publique de votre application qui a des fonctionnalités ou un comportement différents, mais vous souhaitez utiliser le même nom de domaine pour les deux versions. Ce scénario peut être mis en œuvre avec Azure DNS en créant une zone DNS publique, ainsi qu’une zone privée, portant le même nom.
 

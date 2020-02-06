@@ -2,20 +2,20 @@
 title: Surveillance des points de terminaison Azure Traffic Manager | Microsoft Docs
 description: Cet article explique comment Traffic Manager utilise la surveillance des points de terminaison et le basculement automatique des points de terminaison pour aider les clients Azure à déployer des applications haute disponibilité
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
-ms.author: allensu
-ms.openlocfilehash: e06d2ce93ac7c534f2c729dce794e66e3ee894d8
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.author: rohink
+ms.openlocfilehash: fcc9c5333b37c041342c2d20a53cf5d3908d1a26
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333816"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938553"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -27,7 +27,7 @@ Pour configurer la surveillance des points de terminaison, vous devez spécifier
 
 * **Protocole**. Sélectionnez HTTP, HTTPS ou TCP comme protocole utilisé par Traffic Manager lors de la détection du point de terminaison pour contrôler son intégrité. Notez que la surveillance HTTPS ne vérifie pas si votre certificat SSL est valide, mais uniquement s’il est présent.
 * **Port**. Choisissez le port utilisé pour la requête.
-* **Chemin d’accès**. Ce paramètre de configuration est valide uniquement pour les protocoles HTTP et HTTPS pour lesquels la configuration du chemin est obligatoire. La configuration de ce paramètre pour le protocole de surveillance TCP provoque une erreur. Pour le protocole HTTP et HTTPS, indiquez le chemin relatif et le nom du fichier ou de la page web auxquels la surveillance accède. Une barre oblique (/) est une entrée valide pour le chemin d’accès relatif. Cette valeur indique que le fichier est dans le répertoire racine (par défaut).
+* **Path**. Ce paramètre de configuration est valide uniquement pour les protocoles HTTP et HTTPS pour lesquels la configuration du chemin est obligatoire. La configuration de ce paramètre pour le protocole de surveillance TCP provoque une erreur. Pour le protocole HTTP et HTTPS, indiquez le chemin relatif et le nom du fichier ou de la page web auxquels la surveillance accède. Une barre oblique (/) est une entrée valide pour le chemin d’accès relatif. Cette valeur indique que le fichier est dans le répertoire racine (par défaut).
 * **Paramètres d’en-tête personnalisé**. Ce paramètre de configuration vous permet d’ajouter des en-têtes HTTP spécifiques aux vérifications d’intégrité que Traffic Manager envoie aux points de terminaison par le biais d’un profil. Les en-têtes personnalisés peuvent être spécifiés au niveau du profil (pour s’appliquer à tous les points de terminaison de ce profil) et/ou au niveau du point de terminaison (applicable uniquement à ce point de terminaison). Vous pouvez utiliser des en-têtes personnalisés pour que les vérifications d’intégrité effectuées sur des points de terminaison d’un environnement multilocataire soient correctement acheminées vers leur destination en spécifiant un en-tête d’hôte. Vous pouvez également utiliser ce paramètre en ajoutant des en-têtes uniques qui peuvent servir à identifier les requêtes HTTP(S) provenant de Traffic Manager et les traiter différemment. Vous pouvez spécifier jusqu’à huit paires header:value séparées par une virgule. Par exemple, « header1:value1,header2:value2 ». 
 * **Plages de code d’état prévues**. Ce paramètre vous permet de spécifier plusieurs plages de code de réussite au format 200-299, 301-301. Si, suite au lancement d’une vérification de l’intégrité, un point de terminaison envoie ces codes d’état en tant que réponse, Traffic Manager considère que ces points de terminaison sont sains. Vous pouvez spécifier un maximum de 8 plages de code d’état. Ce paramètre s’applique uniquement aux protocoles HTTP et HTTPS, et à tous les points de terminaison. Ce paramètre se trouve au niveau du profil Traffic Manager. Par défaut, la valeur du code d’état de réussite est définie sur 200.
 * **Intervalle de détection**. Cette valeur spécifie la fréquence à laquelle l’intégrité d’un point de terminaison est contrôlée par un agent de détection Traffic Manager. Vous pouvez spécifier deux valeurs ici : 30 secondes (détection normale) et 10 secondes (détection rapide). Si aucune valeur n’est fournie, le profil définit par défaut la valeur sur 30 secondes. Visitez la page [Tarification de Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) pour en savoir plus sur la tarification pour la détection rapide.
@@ -36,7 +36,7 @@ Pour configurer la surveillance des points de terminaison, vous devez spécifier
 
     ![Surveillance des points de terminaison Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-    **Figure :  Supervision des points de terminaison Traffic Manager**
+    **Figure :  Supervision des points de terminaison Traffic Manager**
 
 ## <a name="how-endpoint-monitoring-works"></a>Fonctionnement de la surveillance des points de terminaison
 
@@ -112,7 +112,7 @@ La chronologie de la figure suivante représente une description détaillée du 
 
 ![Séquence de basculement et de restauration automatique des points de terminaison Traffic Manager](./media/traffic-manager-monitoring/timeline.png)
 
-**Figure :  Séquence de basculement et de récupération des points de terminaison Traffic Manager**
+**Figure :  Séquence de basculement et de récupération des points de terminaison Traffic Manager**
 
 1. **GET**. Pour chaque point de terminaison, le système de surveillance de Traffic Manager exécute une requête GET sur le chemin d’accès spécifié dans les paramètres de surveillance.
 2. **200 OK ou plage de code personnalisée spécifiée dans les paramètres de surveillance du profil Traffic Manager**. Le système de surveillance attend que le message HTTP 200 OK ou celui de la plage de code personnalisée spécifiée dans les paramètres du profil Traffic Manager soit retourné sous 10 secondes. Lorsqu’il reçoit cette réponse, il reconnaît que le service est disponible.

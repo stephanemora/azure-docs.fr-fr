@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8a3d8c8769ff5026ec1dde98f3c4167aac302bf8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bb2371fc7732e8fa6fcfea53bf2822fcf3d7d2fa
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292941"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963952"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatiser le déploiement de ressources pour votre application de fonction dans Azure Functions
 
@@ -41,7 +41,7 @@ Un déploiement d’Azure Functions comprend généralement les ressources suiva
 <a name="storage"></a>
 ### <a name="storage-account"></a>Compte de stockage
 
-Un compte de stockage Azure est nécessaire pour une application de fonction. Vous avez besoin d’un compte à usage général qui prend en charge les objets blob, les tables, les files d’attente et les fichiers. Pour plus d’informations, consultez [Configuration requise du compte de stockage Azure Functions](functions-create-function-app-portal.md#storage-account-requirements).
+Un compte de stockage Azure est nécessaire pour une application de fonction. Vous avez besoin d’un compte à usage général qui prend en charge les objets blob, les tables, les files d’attente et les fichiers. Pour plus d’informations, consultez [Configuration requise du compte de stockage Azure Functions](storage-considerations.md#storage-account-requirements).
 
 ```json
 {

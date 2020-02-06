@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: e4050dedeb48b19b6848a95fc904f7f37fb5b04a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349390"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722558"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exemples de manifestes d’application pour plusieurs conteneurs et de service
 Le document suivant fournit des exemples de manifestes d’applications et de services pour une application Service Fabric multiconteneur. Ces exemples ont pour but de vous montrer les paramètres disponibles et leur utilisation. Ces manifestes d’applications et de services sont basés sur les manifestes de l’[exemple de conteneur Windows Server 2016](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows).
@@ -342,7 +342,7 @@ Le fichier exécutable spécifié par EntryPoint est généralement l’hôte de
  Pour plus d’informations, consultez l’article [Élément ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType).
 
 ### <a name="imagename-element"></a>Élément ImageName
-Référentiel et image sur https://hub.docker.com ou dans Azure Container Registry. Pour plus d’informations, consultez l’article [Élément ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType).
+Référentiel et image sur [ https://hub.docker.com ](https://hub.docker.com) ou Azure Container Registry. Pour plus d’informations, consultez l’article [Élément ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType).
 
 ### <a name="environmentvariables-element"></a>Élément EnvironmentVariables
 Passez les variables d'environnement à votre conteneur ou fichier exe.  Pour plus d’informations, consultez l’article [Élément EnvironmentVariables](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType).
@@ -386,7 +386,7 @@ Le fichier exécutable spécifié par EntryPoint est généralement l’hôte de
 Pour plus d’informations, consultez l’article [Élément ContainerHost](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType).
 
 ### <a name="imagename-element"></a>Élément ImageName
-Référentiel et image sur https://hub.docker.com ou dans Azure Container Registry. Pour plus d’informations, consultez l’article [Élément ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType).
+Référentiel et image sur [ https://hub.docker.com ](https://hub.docker.com) ou Azure Container Registry. Pour plus d’informations, consultez l’article [Élément ImageName](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType).
 
 ### <a name="commands-element"></a>Élément Commands
 Passez une liste de commandes séparées par des virgules au conteneur. Pour plus d’informations, consultez l’article [Élément Commands](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType).

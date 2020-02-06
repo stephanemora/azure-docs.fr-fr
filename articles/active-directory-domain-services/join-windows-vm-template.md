@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bf01eea71134d932305cce7665c68d4dcc655cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975202"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712557"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Joindre une machine virtuelle Windows Server à un domaine managé Azure Active Directory Domain Services à l’aide d’un modèle Resource Manager
 
@@ -40,7 +40,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 
 Les modèles Resource Manager permettent de définir une infrastructure Azure dans du code. Les ressources nécessaires, les connexions réseau ou la configuration des machines virtuelles peuvent toutes être définies dans un modèle. Ces modèles vous permettent de créer des déploiements cohérents et reproductibles à chaque fois, et une nouvelle version peut être créée à mesure que vous y apportez des modifications. Pour plus d’informations, consultez [Vue d’ensemble des modèles Azure Resource Manager][template-overview].
 
-Chaque ressource est définie dans un modèle au format JSON. L’exemple JSON suivant utilise le type de ressource *Microsoft. Compute/virtualMachines/extensions* pour installer l’extension de jonction de domaine Active Directory. Il comporte des paramètres qui sont spécifiés au moment du déploiement. Quand l’extension est déployée, la machine virtuelle est jointe au domaine managé Azure AD DS spécifié.
+Chaque ressource est définie dans un modèle au format JavaScript Object Notation (JSON). L’exemple JSON suivant utilise le type de ressource *Microsoft. Compute/virtualMachines/extensions* pour installer l’extension de jonction de domaine Active Directory. Il comporte des paramètres qui sont spécifiés au moment du déploiement. Quand l’extension est déployée, la machine virtuelle est jointe au domaine managé Azure AD DS spécifié.
 
 ```json
  {
@@ -94,7 +94,7 @@ Pour créer une machine virtuelle Windows Server et la joindre ensuite à un dom
     | DNS Label Prefix          | Entrez le nom DNS à utiliser pour la machine virtuelle, par exemple *myvm*. |
     | Taille de la machine virtuelle                   | Spécifiez une taille de machine virtuelle, par exemple *Standard_DS2_v2*. |
     | Domain To Join            | Nom DNS du domaine managé Azure AD DS, par exemple *aadds.contoso.com*. |
-    | Domain Username           | Compte d’utilisateur dans le domaine managé Azure AD DS qui doit être utilisé pour joindre la machine virtuelle au domaine managé. Ce compte doit être membre du groupe *Administrateurs Azure AD DC*. |
+    | Domain Username           | Compte d’utilisateur dans le domaine managé Azure AD DS qui doit être utilisé pour joindre la machine virtuelle au domaine managé, par exemple `contosoadmin@aadds.contoso.com`. Ce compte doit être membre du groupe *Administrateurs Azure AD DC*. |
     | Domain Password           | Mot de passe du compte d’utilisateur spécifié dans le paramètre précédent. |
     | Optional OU Path          | UO personnalisée dans laquelle ajouter la machine virtuelle. Si vous ne spécifiez pas de valeur pour ce paramètre, la machine virtuelle est ajoutée à l’unité d’organisation *AAD DC Computers*. |
     | VM Admin Username         | Spécifiez le compte administrateur local à créer sur la machine virtuelle. |
@@ -123,7 +123,7 @@ Pour joindre une machine virtuelle Windows Server existante à un domaine manag�
     | Resource group            | Choisissez le groupe de ressources avec votre machine virtuelle existante. |
     | Location                  | Sélectionnez l’emplacement de votre machine virtuelle existante. |
     | VM list                   | Entrez la liste séparée par des virgules de la ou des machines virtuelles existantes à joindre au domaine managé Azure AD DS, par exemple *myVM1,myVM2*. |
-    | Domain Join User Name     | Compte d’utilisateur dans le domaine managé Azure AD DS qui doit être utilisé pour joindre la machine virtuelle au domaine managé. Ce compte doit être membre du groupe *Administrateurs Azure AD DC*. |
+    | Domain Join User Name     | Compte d’utilisateur dans le domaine managé Azure AD DS qui doit être utilisé pour joindre la machine virtuelle au domaine managé, par exemple `contosoadmin@aadds.contoso.com`. Ce compte doit être membre du groupe *Administrateurs Azure AD DC*. |
     | Domain Join User Password | Mot de passe du compte d’utilisateur spécifié dans le paramètre précédent. |
     | Optional OU Path          | UO personnalisée dans laquelle ajouter la machine virtuelle. Si vous ne spécifiez pas de valeur pour ce paramètre, la machine virtuelle est ajoutée à l’unité d’organisation *AAD DC Computers*. |
 

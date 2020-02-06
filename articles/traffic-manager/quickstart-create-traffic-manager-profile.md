@@ -2,7 +2,7 @@
 title: 'Démarrage rapide : Créer un profil pour la haute disponibilité des applications - Portail Azure - Azure Traffic Manager'
 description: Cet article de démarrage rapide décrit comment créer un profil Traffic Manager pour créer des applications web hautement disponibles.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
-ms.author: allensu
-ms.openlocfilehash: b2163b76dc3a301359cf3474789c5b473f9e4552
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 559ed0a134bb6db78d1e89634138b4025e04152b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483672"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934763"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Démarrage rapide : Créer un profil Traffic Manager à l’aide du portail Azure
 
@@ -29,9 +29,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une application web déployée dans deux régions Azure différentes (*USA Est* et *Europe Ouest*). Chacune servira de point de terminaison principal et de point de terminaison de basculement à Traffic Manager.
 
@@ -54,7 +54,7 @@ Pour ce guide de démarrage rapide, vous aurez besoin de deux instances d’une 
 
 5. Vérifiez les paramètres, puis cliquez sur **Créer**.  Quand l’application web est déployé correctement, elle crée un site web par défaut.
 
-6. Suivez les étapes pour créer une deuxième application web nommée *myWebAppWestEurope*, avec le nom de **Groupe de ressources** *myResourceGroupTM2*, la **Région** *Europe Ouest*, le nom de **Plan App Service** **myAppServicePlanWestEurope** et tous les autres paramètres identiques à *myWebAppEastUS*.
+6. Suivez les étapes pour créer une deuxième application web nommée *myWebAppWestEurope*, avec le nom de **Groupe de ressources***myResourceGroupTM2*, la **Région***Europe Ouest*, le nom de **Plan App Service** **myAppServicePlanWestEurope** et tous les autres paramètres identiques à *myWebAppEastUS*.
 
 ## <a name="create-a-traffic-manager-profile"></a>Créer un profil Traffic Manager
 
@@ -65,7 +65,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en fonction de
 
     | Paramètre | Valeur |
     | --------| ----- |
-    | Nom | Attribuez un nom unique à votre profil Traffic Manager.|
+    | Name | Attribuez un nom unique à votre profil Traffic Manager.|
     | Méthode de routage | Sélectionnez **Priorité**.|
     | Subscription | Sélectionnez l’abonnement auquel vous souhaitez appliquer le profil Traffic Manager. |
     | Resource group | Sélectionnez *myResourceGroupTM1*.|
@@ -85,7 +85,7 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
     | Paramètre | Valeur |
     | ------- | ------|
     | Type | Sélectionnez **Point de terminaison Azure**. |
-    | Nom | Entrez *myPrimaryEndpoint*. |
+    | Name | Entrez *myPrimaryEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **USA Est**. |
     | Priority | Sélectionnez **1**. Tout le trafic se dirige vers ce point de terminaison quand il est sain. |
@@ -98,7 +98,7 @@ Ajoutez le site web dans la région *USA Est* en tant que point de terminaison p
     | Paramètre | Valeur |
     | ------- | ------|
     | Type | Sélectionnez **Point de terminaison Azure**. |
-    | Nom | Entrez *myFailoverEndpoint*. |
+    | Name | Entrez *myFailoverEndpoint*. |
     | Type de ressource cible | Sélectionner **App Service**. |
     | Ressource cible | Sélectionnez **Choisir un service d’application** > **Europe Ouest**. |
     | Priority | Sélectionnez **2**. Tout le trafic se dirige vers ce point de terminaison de basculement si le point de terminaison principal n’est pas sain. |
@@ -137,7 +137,7 @@ Dans cette section, vous allez vérifier le nom de domaine de votre profil Traff
 
 Le point de terminaison principal n’étant pas disponible, vous avez été routé vers le point de terminaison de basculement.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Une fois que vous avez terminé, supprimez les groupes de ressources, les applications web et toutes les ressources associées. Pour ce faire, sélectionnez individuellement chaque élément dans le tableau de bord, puis sélectionnez **Supprimer** en haut de chaque page.
 

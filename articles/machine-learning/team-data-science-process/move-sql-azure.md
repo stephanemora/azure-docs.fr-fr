@@ -1,26 +1,26 @@
 ---
 title: Déplacer des données vers Azure SQL Database - Team Data Science Process
-description: Déplacez des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées sur un ordinateur SQL Server local vers une base de données Azure SQL.
+description: Déplacez des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées sur un ordinateur SQL Server local vers une instance Azure SQL Database.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6b0f8294899c1ff00c27c2fa82b1228f0e9067af
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f9a1424f2afe6c5153e208601b21dff9651880a8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982398"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722456"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Déplacement de données vers une base de données Azure SQL pour Azure Machine Learning
 
-Cet article présente les options de déplacement des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées sur un ordinateur SQL Server local vers une base de données Azure SQL. Ces tâches permettant de déplacer des données vers le cloud font partie du processus TDSP (Team Data Science Process).
+Cet article présente les options de déplacement des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées sur un ordinateur SQL Server local vers une instance Azure SQL Database. Ces tâches permettant de déplacer des données vers le cloud font partie du processus TDSP (Team Data Science Process).
 
 Pour une rubrique présentant les options de déplacement de données sur un SQL Server local pour Machine Learning, voir [Déplacer des données vers SQL Server sur une machine virtuelle Azure](move-sql-server-virtual-machine.md).
 
@@ -43,32 +43,32 @@ Les procédures décrites ici nécessitent :
 
 Vous pouvez adapter les procédures décrites ici à un jeu de vos propres données ou suivre les étapes décrites à l'aide du jeu de données NYC Taxi. Pour télécharger le jeu de données NYC Taxi dans votre base de données SQL Server locale, suivez la procédure décrite dans [Importer des données en bloc dans SQL Server Database](sql-walkthrough.md#dbload). Ces instructions concernent un SQL Server sur une machine virtuelle Azure, mais la procédure de téléchargement vers le serveur local SQL Server est la même.
 
-## <a name="file-to-azure-sql-database"></a> Déplacement des données à partir d'un fichier plat source vers une base de données Azure SQL
-Les données de fichiers plats (au format CSV ou TSV) peuvent être déplacées vers une base de données Azure SQL à l'aide d'une requête SQL Bulk Insert.
+## <a name="file-to-azure-sql-database"></a> Déplacement des données à partir d’un fichier plat source vers une instance Azure SQL Database
+Les données de fichiers plats (au format CSV ou TSV) peuvent être déplacées vers une instance Azure SQL Database à l’aide d’une requête SQL Bulk Insert.
 
 ### <a name="bulk-insert-sql-query"></a> Requête SQL Bulk Insert
-Les étapes de la procédure à l'aide de la requête SQL Bulk Insert sont similaires à celles décrites dans les sections de déplacement des données à partir d'une source de fichier plat vers SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Requête SQL Bulk Insert](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
+Les étapes de la procédure à l’aide de la requête SQL Bulk Insert sont similaires aux instructions de déplacement des données à partir d’une source de fichier plat vers SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Requête SQL Bulk Insert](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a> Déplacement de données à partir d’un serveur SQL Server local vers une base de données Azure SQL
-Si la source de données est stockée dans un serveur SQL Server local, il existe différentes possibilités pour déplacer les données vers une base de données Azure SQL :
+## <a name="sql-on-prem-to-sazure-sql-database"></a> Déplacement de données à partir d’un ordinateur SQL Server local vers une instance Azure SQL Database
+Si les données sources sont stockées sur un ordinateur SQL Server local, il existe différentes possibilités pour déplacer les données vers une instance Azure SQL Database :
 
 1. [Exporter dans un fichier plat](#export-flat-file)
 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)
 3. [Sauvegarde et restauration de base de données](#db-migration)
 4. [Azure Data Factory](#adf).
 
-Les étapes des trois premières options sont très similaires à celles décrites dans les sections de [Déplacer des données vers un serveur SQL Server sur une machine virtuelle Azure](move-sql-server-virtual-machine.md) qui traitent des mêmes procédures. Vous trouverez dans les instructions ci-dessous des liens vers les sections appropriées de cette rubrique.
+Les étapes des trois premières options sont similaires à celles décrites dans les sections de [Déplacer des données vers SQL Server sur une machine virtuelle Azure](move-sql-server-virtual-machine.md) qui traitent des mêmes procédures. Vous trouverez dans les instructions ci-dessous des liens vers les sections appropriées de cette rubrique.
 
 ### <a name="export-flat-file"></a>Exporter dans un fichier plat
-Les étapes de l’exportation vers un fichier plat sont similaires à celles de la section [Exporter dans un fichier plat](move-sql-server-virtual-machine.md#export-flat-file).
+Les étapes de l’exportation vers un fichier plat sont similaires aux instructions décrites dans [Exporter dans un fichier plat](move-sql-server-virtual-machine.md#export-flat-file).
 
 ### <a name="insert-tables-bcp"></a>Assistant Migration de la base de données SQL
-Les étapes d’utilisation de l’Assistant de migration de base de données SQL sont semblables à celles de la section [Assistant Migration de la base de données SQL](move-sql-server-virtual-machine.md#sql-migration).
+Les étapes d’utilisation de l’Assistant de migration de base de données SQL sont semblables aux instructions décrites dans [Assistant Migration de base de données SQL](move-sql-server-virtual-machine.md#sql-migration).
 
 ### <a name="db-migration"></a>Sauvegarde et restauration de base de données
-Les étapes d’utilisation de la sauvegarde et de restauration de la base de données sont similaires à celles de la section [Sauvegarde et restauration de base de données](move-sql-server-virtual-machine.md#sql-backup).
+Les étapes d’utilisation de la sauvegarde et de la restauration de bases de données sont similaires aux instructions décrites dans [Sauvegarde et restauration de bases de données](move-sql-server-virtual-machine.md#sql-backup).
 
 ### <a name="adf"></a>Azure Data Factory
-La procédure de déplacement des données vers une base de données Azure SQL Database avec Azure Data Factory (ADF) est décrite dans la rubrique [Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory](move-sql-azure-adf.md). Cette rubrique montre comment déplacer des données d’une base de données SQL Server locale vers une base de données Azure SQL via Stockage Blob Azure à l’aide d’ADF.
+Découvrez comment déplacer des données vers une instance Azure SQL Database avec Azure Data Factory (ADF) dans cette rubrique : [Déplacement de données à partir d’un serveur SQL local vers SQL Azure avec Azure Data Factory](move-sql-azure-adf.md). Cette rubrique montre comment utiliser ADF pour déplacer des données d’une base de données SQL Server locale vers une instance Azure SQL Database via Stockage Blob Azure.
 
-Envisagez d’utiliser ADF lorsque les données doivent être migrées en permanence dans un scénario hybride qui accède aux ressources locales et cloud, et lorsque les données sont traitées ou doivent être modifiées ou si vous avez une logique métier ajoutée en cours de migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes.
+Envisagez d’utiliser ADF lorsque les données doivent être migrées en permanence avec des sources hybrides locales et cloud.  ADF vous aide également lorsque les données doivent être transformées ou complétées par une nouvelle logique métier lors de la migration. ADF permet la planification et la surveillance des travaux à l'aide de scripts JSON simples qui gèrent le déplacement des données sur une base périodique. ADF dispose également d'autres fonctionnalités comme la prise en charge des opérations complexes.

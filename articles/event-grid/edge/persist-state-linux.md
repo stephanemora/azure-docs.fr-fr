@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 3506399537fe2cb16014ceb3429bce5aeee8cb69
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 39b16c6cfd5b94d412827ed88197edbef2da1453
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100336"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844630"
 ---
 # <a name="persist-state-in-linux"></a>Conserver l’état dans Linux
 
-Les rubriques et les abonnements créés dans le module Event Grid sont stockés par défaut dans le système de fichiers conteneur. Sans persistance, toutes les métadonnées créées seraient perdues en cas de redéploiement du module. Actuellement, seules les métadonnées sont persistantes. Les événements sont stockés en mémoire. En cas de redéploiement ou de redémarrage du module Event Grid, tous les événements non remis sont perdus.
+Les rubriques et les abonnements créés dans le module Event Grid sont stockés dans le système de fichiers conteneur par défaut. Sans persistance, toutes les métadonnées créées seraient perdues en cas de redéploiement du module. Pour préserver les données tout au long des déploiements et des redémarrages, il est nécessaire de les rendre persistantes en dehors du système de fichiers conteneur.
+
+Par défaut, seules les métadonnées sont rendues persistantes et les événements sont toujours stockés en mémoire pour améliorer les performances. Suivez également la section Rendre les événements persistants pour activer la persistance des événements.
 
 Cet article donne les étapes à suivre pour déployer le module Event Grid avec persistance dans les déploiements Linux.
 
@@ -61,7 +63,8 @@ Par exemple, la configuration suivante entraîne la création du volume **egmeta
   ],
   "HostConfig": {
     "Binds": [
-      "egmetadataDbVol:/app/metadataDb"
+      "egmetadataDbVol:/app/metadataDb",
+      "egdataDbVol:/app/eventsDb"
     ],
     "PortBindings": {
       "4438/tcp": [
@@ -74,7 +77,7 @@ Par exemple, la configuration suivante entraîne la création du volume **egmeta
 }
 ```
 
-Vous pouvez également créer un volume Docker à l’aide des commandes du client de Docker. 
+Au lieu de monter un volume, vous pouvez créer un répertoire sur le système hôte et le monter.
 
 ## <a name="persistence-via-host-directory-mount"></a>Persistance par montage du répertoire hôte
 
@@ -138,7 +141,8 @@ Au lieu d’un volume Docker, vous avez également la possibilité de monter un 
           ],
           "HostConfig": {
                 "Binds": [
-                  "/myhostdir:/app/metadataDb"
+                  "/myhostdir:/app/metadataDb",
+                  "/myhostdir2:/app/eventsDb"
                 ],
                 "PortBindings": {
                       "4438/tcp": [
@@ -153,3 +157,32 @@ Au lieu d’un volume Docker, vous avez également la possibilité de monter un 
 
     >[!IMPORTANT]
     >Ne modifiez pas la deuxième partie de la valeur de liaison. Elle pointe vers un emplacement spécifique au sein du module. Dans le cas du module Event Grid sur Linux, il doit s’agir de **/app/metadata**.
+
+
+## <a name="persist-events"></a>Rendre les événements persistants
+
+Pour activer la persistance des événements, vous devez d’abord activer la persistance des métadonnées via le montage d’un volume ou d’un répertoire hôte à l’aide des sections ci-dessus.
+
+Points importants à noter concernant la persistance des événements :
+
+* La persistance des événements est activée pour chaque abonnement aux événements et fait l’objet d’une option d’adhésion une fois qu’un volume ou un répertoire a été monté.
+* La persistance des événements est configurée sur un abonnement aux événements au moment de la création et ne peut pas être modifiée une fois l’abonnement aux événements créé. Pour activer ou désactiver la persistance des événements, vous devez supprimer et recréer l’abonnement aux événements.
+* La persistance des événements est presque toujours plus lente que les opérations en mémoire, mais la différence de vitesse dépend fortement des caractéristiques du lecteur. Le compromis entre la vitesse et la fiabilité est inhérent à tous les systèmes de messagerie, mais il ne devient généralement perceptible qu’à grande échelle.
+
+Pour activer la persistance des événements sur un abonnement aux événements, définissez `persistencePolicy` sur `true` :
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

@@ -3,21 +3,21 @@ title: Importer ou exporter des données avec Azure App Configuration | Microsof
 description: Découvrir comment exporter ou importer des données vers ou depuis Azure App Configuration
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: balans
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 9780dc34aa6b146fe62b11586cbab46825e60535
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 64fcc8396fc1b771d0095ee595fd177d7fe99b58
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185154"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899518"
 ---
 # <a name="import-or-export-configuration-data"></a>Importer ou exporter des données de configuration
 

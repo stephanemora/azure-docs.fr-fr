@@ -1,6 +1,6 @@
 ---
 title: 'Script PowerShell : définir les tailles de machine virtuelle autorisées dans Azure Lab Services | Microsoft Docs'
-description: Ce script PowerShell définit les tailles de machine virtuelle autorisées dans Azure Lab Services.
+description: Cet article comprend un exemple de script PowerShell qui définit les tailles de machine virtuelle autorisées dans Azure Lab Services.
 services: lab-services
 author: spelluru
 manager: ''
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 0c82e304d3e3d8df1206c7c05883399b74229af7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1b0e9a4aed475f04ec8dcffa9bc95b7c7c713e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160550"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760449"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Utiliser PowerShell pour définir les tailles de machine virtuelle autorisées dans Azure Lab Services
 
@@ -27,7 +27,7 @@ Cet exemple de script PowerShell définit les tailles de machine virtuelle autor
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * **Un lab**. Le script vous demande d’avoir un lab. 
 
 ## <a name="sample-script"></a>Exemple de script

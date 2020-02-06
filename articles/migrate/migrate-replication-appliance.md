@@ -2,13 +2,13 @@
 title: Appliance de réplication Azure Migrate
 description: Apprenez-en davantage sur l’appliance de réplication Azure Migrate pour une migration VMWare basée sur un agent.
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 574877c6a0a5ade068cff08041b29d2465430ed1
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/30/2020
+ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029042"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901561"
 ---
 # <a name="replication-appliance"></a>Appliance de réplication
 

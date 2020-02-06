@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 70fe718884796ac127be38c375003dd728089be8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293451"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016032"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Se connecter à une machine virtuelle Windows dans Azure via l’authentification Azure Active Directory (préversion)
 
@@ -239,9 +239,9 @@ L’extension AADLoginForWindows doit être installée correctement pour que la 
 
    | Commande à exécuter | Sortie attendue |
    | --- | --- |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Informations correctes sur la machine virtuelle Azure |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | ID de locataire valide associé à l’abonnement Azure |
-   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | Jeton d’accès valide émis par Azure Active Directory pour l’identité managée qui est attribuée à cette machine virtuelle |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/instance?api-version=2017-08-01"` | Informations correctes sur la machine virtuelle Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01"` | ID de locataire valide associé à l’abonnement Azure |
+   | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Jeton d’accès valide émis par Azure Active Directory pour l’identité managée qui est attribuée à cette machine virtuelle |
 
    > [!NOTE]
    > Le jeton d’accès peut être décodé à l’aide d’un outil tel que [http://calebb.net/](http://calebb.net/). Vérifiez que l’« appid » dans le jeton d’accès correspond à l’identité managée attribuée à la machine virtuelle.

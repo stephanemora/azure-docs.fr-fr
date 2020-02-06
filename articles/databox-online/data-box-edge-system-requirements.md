@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756543"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757864"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Configuration système Azure Data Box Edge
 
@@ -60,7 +60,7 @@ Utilisez le tableau suivant pour configurer les ports des serveurs hébergeant l
 
 | N° de port | Entrant ou sortant | Étendue de ports | Obligatoire | Assistance |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Sortie       | WAN        | OUI      | Sortie ouverte pour le déploiement de IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning.|
+| TCP 443 (HTTPS)| Sortie       | WAN        | Oui      | Sortie ouverte pour le déploiement de IoT Edge. Cette configuration est requise en cas d’utilisation de scripts manuels ou du service Azure IoT Device Provisioning.|
 
 Pour plus d'informations, consultez [Règles de configuration du pare-feu et des ports pour le déploiement d’IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
@@ -123,10 +123,10 @@ Pour comprendre et affiner les performances de votre solution, vous pouvez utili
 - Les métriques de calcul disponibles dans le portail Azure. Accédez à votre ressource Data Box Edge, puis à **Supervision > Métriques**. Examinez les valeurs **Computing en périphérie - Utilisation de la mémoire** et **Computing en périphérie - Pourcentage du processeur** pour comprendre les ressources disponibles et comment elles sont utilisées.
 - Les commandes de supervision disponibles par le biais de l’interface PowerShell de l’appareil comme :
 
-    - Les statistiques `dkr` pour obtenir un flux en direct des statistiques d’utilisation des ressources de conteneurs. La commande prend en charge le processeur, l’utilisation de la mémoire, la limite de mémoire et les métriques d’E/S réseau.
-    - `dkr system df` pour obtenir des informations concernant la quantité d’espace disque utilisée. 
-    - `dkr image [prune]` pour nettoyer les images inutilisées et libérer de l’espace.
-    - `dkr ps --size` pour afficher la taille approximative d’un conteneur en cours d’exécution. 
+    - `dkrdbe stats` pour obtenir un stream en direct des statistiques d’utilisation des ressources de conteneurs. La commande prend en charge le processeur, l’utilisation de la mémoire, la limite de mémoire et les métriques d’E/S réseau.
+    - `dkrdbe system df` pour obtenir des informations concernant la quantité d’espace disque utilisée. 
+    - `dkrdbe image prune` pour nettoyer les images inutilisées et libérer de l’espace.
+    - `dkrdbe ps --size` pour afficher la taille approximative d’un conteneur en cours d’exécution. 
 
     Pour plus d’informations sur les commandes disponibles, accédez à [Superviser et dépanner des modules de computing en périphérie](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une application Flask pour traduire, synthétiser et analyser du texte - API Traduction de texte Translator Text'
+title: 'Tutoriel : Créer une application Flask pour traduire, synthétiser et analyser du texte - API Traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous allez créer une application web Flask pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e19e4247e58135c6a9bb7c6cc327cb566d294df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978456"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984165"
 ---
-# <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Didacticiel : Créer une application Flask avec Azure Cognitive Services
+# <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>Tutoriel : Créer une application Flask avec Azure Cognitive Services
 
 Dans ce tutoriel, vous allez créer une application web Flask qui utilise Azure Cognitive Services pour traduire du texte, analyser les sentiments et synthétiser du texte traduit en voix. Nous nous concentrons sur le code Python et les routes Flask qui servent de base à notre application ; nous vous aiderons cependant pour le code HTML et Javascript qui lui permet de fonctionner. Si vous rencontrez des problèmes, faites-le nous savoir via le bouton de commentaires ci-dessous.
 
@@ -44,7 +44,7 @@ Pour ceux d’entre vous qui souhaitent plus d’informations après ce tutoriel
 * [Documentation de Flask](http://flask.pocoo.org/)
 * [Flask for Dummies - A Beginner’s Guide to Flask](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Passons en revue les logiciels et les clés d’abonnement dont vous avez besoin pour ce tutoriel.
 
@@ -128,7 +128,7 @@ Requests est un module répandu qui est utilisé pour envoyer des requêtes HTTP
    ```
 
 > [!NOTE]
-> Si vous voulez en savoir plus sur Requests, consultez [: HTTP for Humans](http://docs.python-requests.org/en/master/).
+> Si vous voulez en savoir plus sur Requests, consultez [: HTTP for Humans](https://2.python-requests.org/en/master/).
 
 ### <a name="install-and-configure-flask"></a>Installer et configurer Flask
 
@@ -182,7 +182,7 @@ Ce code garantit que quand un utilisateur accède à `http://your-web-app.com/ab
 
 Si ces exemples montrent comment effectuer le rendu de pages HTML pour un utilisateur, les routes peuvent également être utilisées pour appeler des API quand un bouton est enfoncé ou pour lancer différentes actions sans devoir à quitter la page d’accueil. Vous verrez ceci en action lors de la création de routes pour la traduction, l’analyse des sentiments et la synthèse vocale.
 
-### <a name="get-started"></a>Prise en main
+### <a name="get-started"></a>Bien démarrer
 
 1. Ouvrez le projet dans votre IDE, puis créez un fichier nommé `app.py` à la racine de votre répertoire de travail. Ensuite, copiez ce code dans `app.py` et enregistrez-le :
 
@@ -255,7 +255,7 @@ Maintenant que vous avez une idée de la façon dont une application Flask simpl
 La première chose à faire est d’écrire une fonction pour appeler l’API Traduction de texte. Cette fonction prend deux arguments : `text_input` et `language_output`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Translate dans votre application. La zone de texte dans le HTML est envoyée en tant que `text_input`, et la valeur de la sélection de la langue dans le HTML est envoyée en tant que `language_output`.
 
 1. Commençons par créer un fichier appelé `translate.py` à la racine de votre répertoire de travail.
-2. Ensuite, ajoutez ce code à `translate.py`. Cette fonction prend deux arguments : `text_input` et `language_output`.
+2. Ajoutez ensuite ce code à `translate.py`. Cette fonction prend deux arguments : `text_input` et `language_output`.
    ```python
    import os, requests, uuid, json
 
@@ -487,7 +487,7 @@ Dans cette section, vous allez effectuer quelques opérations :
 
 Écrivons une fonction pour appeler l’API Analyse de texte. Cette fonction prend quatre arguments : `input_text`,`input_language`,`output_text` et `output_language`. Cette fonction est appelée chaque fois qu’un utilisateur appuie sur le bouton Run sentiment analysis (Exécuter l’analyse des sentiments) dans votre application. Les données fournies par l’utilisateur dans la zone de texte et le sélecteur de langue, ainsi que la langue détectée et le résultat de la traduction, sont fournis avec chaque requête. L’objet en réponse comprend des scores de sentiment pour la source et pour la traduction. Dans les sections suivantes, vous allez écrire du code Javascript pour analyser la réponse et l’utiliser dans votre application. Pour l’instant, concentrons-nous sur l’appel de l’API Analyse de texte.
 
-1. Commençons par créer un fichier appelé `sentiment.py` à la racine de votre répertoire de travail.
+1. Créons un fichier appelé `sentiment.py` à la racine de votre répertoire de travail.
 2. Ajoutez ensuite ce code à `sentiment.py`.
    ```python
    import os, requests, uuid, json

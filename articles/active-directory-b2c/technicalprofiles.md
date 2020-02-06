@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e2a3dbf0ce3be28a78f04eb5bb1c369aeff1441
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: ad6b84323ac49713506bc61bd0051421e0234a94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773449"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982277"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -84,7 +84,7 @@ L’élément **TechnicalProfile** contient les éléments suivants :
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | Nom de domaine pour le profil technique. Par exemple, si votre profil technique Spécifie le fournisseur d’identité Facebook, le nom de domaine est Facebook.com. |
-| DisplayName | 0:1 | Nom du profil technique qui peut être affiché aux utilisateurs. |
+| DisplayName | 1:1 | Nom du profil technique qui peut être affiché aux utilisateurs. |
 | Description | 0:1 | Description du profil technique qui peut être affichée aux utilisateurs. |
 | Protocol | 0:1 | Protocole utilisé pour la communication avec l’autre partie. |
 | Métadonnées | 0:1 | Collection de paires clé/valeur utilisées par le protocole pour communiquer avec le point de terminaison durant une transaction. |

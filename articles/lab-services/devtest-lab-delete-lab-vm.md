@@ -1,6 +1,6 @@
 ---
-title: Supprimer un labo ou une machine virtuelle d’un labo dans Azure DevTest Labs | Microsoft Docs
-description: Cet article vous montre comment supprimer un labo ou une machine virtuelle d’un labo.
+title: Supprimer un labo ou une machine virtuelle d’un labo dans Azure DevTest Labs
+description: Cet article vous explique comment supprimer un labo ou une machine virtuelle d’un labo à l’aide du portail Microsoft Azure (Azure DevTest Labs).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 9634c70566aba21bdd28ee016c9fa94464ec9c1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fb464714f464a4c0a8f5eaf304dcdd5d603c90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62127410"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759718"
 ---
 # <a name="delete-a-lab-or-vm-in-a-lab-in-azure-devtest-labs"></a>Supprimer un labo ou une machine virtuelle d’un labo dans Azure DevTest Labs
 Cet article vous montre comment supprimer un labo ou une machine virtuelle d’un labo.
@@ -31,7 +31,7 @@ Quand vous supprimez une instance DevTest Labs d’un groupe de ressources, le s
 
 Pour supprimer un labo, effectuez les actions suivantes : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Toutes les ressources** dans le menu gauche, sélectionnez **DevTest Labs** comme type de service, puis sélectionnez le labo.
 
     ![Sélectionner votre labo](media/devtest-lab-delete-lab-vm/select-lab.png)
@@ -56,7 +56,7 @@ La machine virtuelle, l’interface réseau et le disque associés à la machine
 
 Pour supprimer une machine virtuelle dans un labo, effectuez les actions suivantes : 
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Sélectionnez **Toutes les ressources** dans le menu gauche, sélectionnez **DevTest Labs** comme type de service, puis sélectionnez le labo.
 
     ![Sélectionner votre labo](media/devtest-lab-delete-lab-vm/select-lab.png)

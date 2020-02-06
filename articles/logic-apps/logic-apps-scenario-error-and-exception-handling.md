@@ -7,12 +7,12 @@ author: hedidin
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 03ed4731e59280a3879d77ca3fb82f0158313aeb
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 1bb6e28c9dcae01f3233178706d2a24156fa509a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771561"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902707"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scénario : gestion des exceptions et journalisation des erreurs pour les applications logiques
 
@@ -481,5 +481,5 @@ Le code source de l’application API de gestion des exceptions Logic Apps est d
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Afficher d’autres exemples et scénarios d’applications logiques](../logic-apps/logic-apps-examples-and-scenarios.md)
-* [En savoir plus sur la gestion des applications logiques](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Surveiller les applications logiques](../logic-apps/monitor-logic-apps.md)
 * [Automatiser le déploiement d’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

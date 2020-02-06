@@ -1,6 +1,6 @@
 ---
 title: Utiliser Azure DevTest Labs pour développeurs | Microsoft Docs
-description: Découvrez comment utiliser Azure DevTest Labs pour les scénarios de développement.
+description: Découvrez les fonctionnalités d’Azure DevTest Labs qui peuvent être utilisées pour satisfaire les exigences du développeur et la procédure détaillée que vous pouvez suivre pour mettre en place un lab.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 5a293946e4672e7737f912f42511ad0907ba4a81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61293944"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760145"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Utiliser Azure DevTest Labs pour développeurs
 Azure Labs DevTest peut être utilisé pour implémenter de nombreux scénarios clés, dont celui qui implique l’utilisation de DevTest Labs dans l’hébergement d’ordinateurs de développement pour les développeurs. Dans ce scénario, DevTest Labs offre les avantages suivants :
@@ -28,7 +28,7 @@ Azure Labs DevTest peut être utilisé pour implémenter de nombreux scénarios 
 - Si besoin, les développeurs peuvent facilement personnaliser leurs ordinateurs de développement.
 - Les administrateurs peuvent contrôler les coûts en s’assurant que :
   - Les développeurs ne peuvent pas obtenir plus de machines virtuelles que nécessaire pour le développement.
-  - Les machines virtuelles sont bien éteintes lorsqu’elles ne sont pas utilisées. 
+  - Les machines virtuelles sont éteintes lorsqu’elles ne sont pas utilisées. 
 
 ![Utiliser DevTest Labs à des fins de formation](./media/devtest-lab-developer-lab/devtest-lab-developer-lab.png)
 
@@ -56,7 +56,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | --- | --- |
    | [Configurer des images Place de marché Azure](devtest-lab-configure-marketplace-images.md) |Apprenez à ajouter à la liste verte des images de la Place de marché Azure afin que seules les images souhaitées pour les développeurs soient sélectionnables.|
    | [Créer une image personnalisée](devtest-lab-create-template.md) |Créez une image personnalisée en préinstallant les logiciels dont vous avez besoin afin que les développeurs puissent créer rapidement une machine virtuelle à l’aide de cette image.|
-   | [En savoir sur la fabrique d’images](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Visionnez une vidéo explicative sur la configuration et l’utilisation d’une fabrique d’images.|
+   | [Découvrir la fabrique d’images](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Regardez une vidéo expliquant comment configurer et utiliser une fabrique d’images.|
 
 3. **Créer des modèles réutilisables pour ordinateurs de développement** 
    
@@ -76,7 +76,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    - des actions que vous souhaitez exécuter sur la machine virtuelle, telles que le clonage d’un dépôt ;
    - des applications que vous voulez tester.
 
-   De nombreux artefacts sont déjà disponibles et prêts à l’emploi. Vous pouvez créer vos propres artefacts personnalisés, si vos besoins spécifiques requièrent davantage de personnalisation.
+   De nombreux artefacts prêts à l’emploi sont disponibles. Vous pouvez créer vos propres artefacts personnalisés, si vos besoins spécifiques requièrent davantage de personnalisation.
 
    Pour en savoir plus, cliquez sur les liens du tableau suivant :
    
@@ -102,7 +102,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
 
 1. **Ajouter un réseau virtuel à une machine virtuelle** 
    
-    DevTest Labs crée un nouveau réseau virtuel (VNET) dès la création d’un laboratoire. Si vous avez configuré votre propre réseau virtuel – en utilisant, par exemple, ExpressRoute ou un VPN de site à site – vous pouvez l’ajouter aux paramètres de réseau virtuel de votre laboratoire afin qu’il soit disponible lors de la création de machines virtuelles.
+    DevTest Labs crée un réseau virtuel (VNET) à chaque création de laboratoire. Si vous avez configuré votre propre réseau virtuel (par exemple, en utilisant ExpressRoute ou un VPN de site à site), vous pouvez l’ajouter aux paramètres de réseau virtuel de votre laboratoire afin qu’il soit disponible lors de la création de machines virtuelles.
 
     De plus, un artefact de jonction de domaine Azure Active Directory est disponible et liera une machine virtuelle à un domaine où la machine virtuelle est créée. 
    
@@ -110,11 +110,11 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    
    | Tâche | Contenu |
    | --- | --- |
-   | [Configuration d’un réseau virtuel dans Azure DevTest Labs](devtest-lab-configure-vnet.md) |Apprenez à configurer un réseau virtuel dans Azure DevTest Labs, à l’aide du portail Azure.|
+   | [Configuration d’un réseau virtuel dans Azure DevTest Labs](devtest-lab-configure-vnet.md) |Apprenez à configurer un réseau virtuel dans Azure DevTest Labs à l’aide du portail Azure.|
 
 6. **Partager le laboratoire avec chaque développeur**
    
-    Les laboratoires sont directement accessibles à l’aide d’un lien que vous partagez avec les développeurs. Ils n’ont même pas besoin d’avoir de compte Azure, à condition qu’ils aient un [compte Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Les développeurs ne voient pas les machines virtuelles créées par les autres développeurs.  
+    Les laboratoires sont directement accessibles à l’aide d’un lien que vous partagez avec les développeurs. Ceux-ci n’ont même pas besoin d’un compte Azure pour autant qu’ils aient un [compte Microsoft](devtest-lab-faq.md#what-is-a-microsoft-account). Les développeurs ne voient pas les machines virtuelles créées par les autres développeurs.  
    
     Pour en savoir plus, cliquez sur les liens du tableau suivant :
    
@@ -124,7 +124,7 @@ Cet article présente les différentes fonctionnalités d’Azure DevTest Labs q
    | [Ajouter des développeurs au laboratoire à l’aide d’un script PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell) |Utilisez PowerShell pour automatiser l’ajout de développeurs à votre laboratoire. |
    | [Obtenir un lien vers le laboratoire](devtest-lab-faq.md#how-do-i-share-a-direct-link-to-my-lab) |Découvrez comment les développeurs peuvent accéder directement à un laboratoire via un lien hypertexte.|
 
-7. **Automatiser la création de laboratoire pour plusieurs équipes** 
+7. **Automatiser la création de laboratoire pour d’autres équipes** 
    
     Vous pouvez automatiser la création de laboratoires, y compris les paramètres personnalisés, en créant un modèle Resource Manager qui vous permettra de mettre en place des laboratoires identiques à l’infini. 
    

@@ -9,21 +9,21 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098633"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844538"
 ---
-# <a name="tutorial-publish-subscribe-to-events-locally"></a>Didacticiel : Publier, s'abonner à des événements localement
+# <a name="tutorial-publish-subscribe-to-events-locally"></a>Tutoriel : Publier, s'abonner à des événements localement
 
 Cet article vous guide tout au long des étapes nécessaires pour publier et s’abonner à des événements avec Event Grid sur IoT Edge.
 
 > [!NOTE]
 > Pour en savoir plus sur les rubriques et les abonnements d’Azure Event Grid, consultez [Concepts d’Event Grid](concepts.md).
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 * **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
@@ -31,10 +31,10 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="deploy-event-grid-iot-edge-module"></a>Déployer le module Event Grid sur IoT Edge
 
-Il existe plusieurs façons de déployer des modules sur un appareil IoT Edge, et toutes fonctionnent pour Azure Event Grid sur IoT Edge. Cet article décrit les étapes à suivre pour déployer Event Grid sur IoT Edge à partir du portail Azure.
+Il existe plusieurs moyens de déployer des modules sur un appareil IoT Edge ; tous fonctionnent pour Azure Event Grid sur IoT Edge. Cet article décrit les étapes à suivre pour déployer Event Grid sur IoT Edge sur le Portail Azure.
 
 >[!NOTE]
-> Dans ce didacticiel, vous allez déployer le module Event Grid sans persistance. Cela signifie que toutes les rubriques et tous les abonnements que vous créez dans ce didacticiel seront supprimés lorsque vous redéploierez le module. Pour plus d’informations sur la configuration de la persistance, consultez les articles suivants : [Conserver l’état dans Linux](persist-state-linux.md) ou [Conserver l’état dans Windows](persist-state-windows.md). Pour les charges de travail de production, nous vous recommandons d’installer le module Event Grid avec la persistance.
+> Dans ce tutoriel, vous allez déployer le module Event Grid sans persistance. Cela signifie que toutes les rubriques et tous les abonnements créés dans ce tutoriel seront supprimés lors du redéploiement du module. Pour savoir comment configurer la persistance, voir les articles suivants : [Conserver l’état dans Linux](persist-state-linux.md) ou [Conserver l’état dans Windows](persist-state-windows.md). Pour les charges de travail de production, nous vous recommandons d’installer le module Event Grid avec la persistance.
 
 
 ### <a name="select-your-iot-edge-device"></a>Sélectionnez votre appareil IoT Edge
@@ -52,18 +52,20 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
 ### <a name="add-modules"></a>Ajouter des modules
 
 1. Dans la section **Modules de déploiement**, sélectionnez **Ajouter**
-1. Dans les types de modules de la liste déroulante, sélectionnez **Module IoT Edge**
+1. Dans la liste déroulante des types de modules, sélectionnez **Module IoT Edge**
 1. Indiquez le nom, l’image et les options de création du conteneur :
 
    * **Nom** : eventgridmodule
-   * **URI d’image** : `mcr.microsoft.com/azure-event-grid/iotedge:latest`
+   * **URI de l’image**  : `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Options de création de conteneur** :
+
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
 
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -80,9 +82,9 @@ Un manifeste de déploiement est un document JSON qui décrit les modules à dé
  1. Passez à la section suivante pour ajouter le module Azure Functions avant de les déployer ensemble.
 
     >[!IMPORTANT]
-    > Dans ce didacticiel, vous allez déployer le module Event Grid avec l’authentification du client désactivée et autoriser les abonnés HTTP. Pour les charges de travail de production, nous vous recommandons d’activer l’authentification client et d’autoriser uniquement les abonnés HTTPS. Pour plus d’informations sur la façon de configurer le module Event Grid de façon sûre, consultez [Sécurité et authentification](security-authentication.md).
+    > Dans ce didacticiel, vous allez déployer le module Event Grid avec l’authentification du client désactivée et autoriser les abonnés HTTP. Pour les charges de travail de production, nous vous recommandons d’activer l’authentification client et d’autoriser uniquement les abonnés HTTPS. Pour savoir comment configurer le module Event Grid de manière sécurisée, voir [Sécurité et authentification](security-authentication.md).
     > 
-    > Si vous utilisez une machine virtuelle Azure comme appareil de périphérie, ajoutez une règle de port entrant pour autoriser le trafic entrant sur le port 4438. Pour obtenir des instructions sur l’ajout de la règle, consultez [Comment ouvrir des ports sur une machine virtuelle](../../virtual-machines/windows/nsg-quickstart-portal.md).
+    > Si vous utilisez une machine virtuelle Azure comme appareil Edge, ajoutez une règle de port entrant pour autoriser le trafic entrant sur le port 4438. Pour savoir comment ajouter la règle, voir [Guide pratique pour ouvrir des ports sur une machine virtuelle](../../virtual-machines/windows/nsg-quickstart-portal.md).
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Déploiement du module Azure Functions IoT Edge
@@ -96,11 +98,11 @@ Cette section vous montre comment déployer le module Azure Functions IoT, qui a
 ### <a name="add-modules"></a>Ajouter des modules
 
 1. Dans la section **Modules de déploiement**, sélectionnez à nouveau **Ajouter**. 
-1. Dans les types de modules de la liste déroulante, sélectionnez **Module IoT Edge**
+1. Dans la liste déroulante des types de modules, sélectionnez **Module IoT Edge**
 1. Fournissez le nom, l’image et les options de création du conteneur :
 
    * **Nom** : abonné
-   * **URI d’image** : `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
+   * **URI de l’image**  : `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
    * **Options de création de conteneur** :
 
        ```json
@@ -120,7 +122,7 @@ Cette section vous montre comment déployer le module Azure Functions IoT, qui a
 1. Cliquez sur **Enregistrer**.
 1. Cliquez sur **Suivant** pour passer à la section des itinéraires
 
- ### <a name="setup-routes"></a>Configuration des itinéraires
+ ### <a name="setup-routes"></a>Configurer les itinéraires
 
 Conservez les itinéraires par défaut, puis sélectionnez **Suivant** pour passer à la section de vérification
 
@@ -153,13 +155,13 @@ En tant qu’éditeur d’un événement, vous devez créer une rubrique Event G
     curl -k -H "Content-Type: application/json" -X PUT -g -d @topic.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-1. Exécutez la commande suivante pour vérifier la bonne création de la rubrique. Le code d’état HTTP de 200 OK doit être retourné.
+1. Exécutez la commande suivante pour vérifier la bonne création de la rubrique. Le code d’état HTTP 200 OK doit être retourné.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1?api-version=2019-01-01-preview
     ```
 
-   Exemple de sortie :
+   Exemple de sortie :
 
    ```json
         [
@@ -178,6 +180,8 @@ En tant qu’éditeur d’un événement, vous devez créer une rubrique Event G
 ## <a name="create-an-event-subscription"></a>Créer un abonnement d’événement
 
 Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. Pour recevoir des événements, vous devez créer un abonnement Event Grid pour un sujet qui vous intéresse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Créez subscription.json avec le contenu suivant. Pour plus d’informations sur la charge utile, consultez notre [documentation sur l’API](api.md)
 
@@ -201,13 +205,13 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     ```sh
     curl -k -H "Content-Type: application/json" -X PUT -g -d @subscription.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
-3. Exécutez la commande suivante pour vérifier la bonne création de l’abonnement. Le code d’état HTTP de 200 OK doit être retourné.
+3. Exécutez la commande suivante pour vérifier la bonne création de l’abonnement. Le code d’état HTTP 200 OK doit être retourné.
 
     ```sh
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/eventSubscriptions/sampleSubscription1?api-version=2019-01-01-preview
     ```
 
-    Exemple de sortie :
+    Exemple de sortie :
 
    ```json
         {
@@ -226,7 +230,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
         }
     ```
 
-## <a name="publish-an-event"></a>Publication d’un événement
+## <a name="publish-an-event"></a>Publier un événement
 
 1. Créez event.json avec le contenu suivant. Pour plus d’informations sur la charge utile, consultez notre [documentation sur l’API](api.md).
 
@@ -251,7 +255,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     curl -k -H "Content-Type: application/json" -X POST -g -d @event.json https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic1/events?api-version=2019-01-01-preview
     ```
 
-## <a name="verify-event-delivery"></a>Vérifier la livraison d’événements
+## <a name="verify-event-delivery"></a>Vérifier la livraison de l’événement
 
 1. SSH ou RDP dans votre machine virtuelle IoT Edge.
 1. Vérifiez les journaux des abonnés :
@@ -268,7 +272,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     sudo docker logs subscriber
     ```
 
-    Exemple de sortie :
+    Exemple de sortie :
 
     ```sh
         Received event data [
@@ -301,10 +305,11 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez créé une rubrique Event Grid, un abonnement et des événements publiés. Maintenant que vous connaissez les étapes de base, consultez les articles suivants : 
 
-- Pour résoudre les problèmes liés à l’utilisation d’Azure Event Grid sur IoT Edge, consultez le [Guide de dépannage](troubleshoot.md).
+- Pour résoudre les problèmes liés à l’utilisation d’Azure Event Grid sur IoT Edge, voir le [Guide de dépannage](troubleshoot.md).
 - Créer/mettre à jour un abonnement avec des [filtres](advanced-filtering.md).
 - Activer la persistance du module Event Grid module sur [Linux](persist-state-linux.md) ou [Windows](persist-state-windows.md)
 - Suivre la [documentation](configure-client-auth.md) pour configurer l’authentification du client
 - Transférer les événements à Azure Functions dans le cloud en suivant ce [didacticiel](pub-sub-events-webhook-cloud.md)
 - [Réagir à des événements Storage Blob sur IoT Edge](react-blob-storage-events-locally.md)
+- [Superviser les rubriques et les abonnements à la périphérie](monitor-topics-subscriptions.md)
 

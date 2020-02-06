@@ -3,12 +3,12 @@ title: Types de ressource pris en charge par Azure Resource Health | Microsoft D
 description: Types de ressource pris en charge par Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f25dc32774cb040a2b9873c6811ff184373c5104
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465271"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717073"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Types de ressources et les contrôles d’intégrité dans Azure Resource Health
 Voici une liste complète de toutes les vérifications exécutées via Resource Health par type de ressource.
@@ -139,7 +139,7 @@ Voici une liste complète de toutes les vérifications exécutées via Resource 
 |---|
 |<ul><li>Le tunnel VPN est-il connecté ?</li><li>Existe-t-il des conflits de configuration dans la connexion ?</li><li>Les clés prépartagées sont-elles correctement configurées ?</li><li>L’appareil VPN local est-il accessible ?</li><li>Existe-t-il des non-correspondances dans la stratégie de sécurité IPSec/IKE ?</li><li>La connexion VPN S2S est-elle correctement configurée ou dans un état d’échec ?</li><li>La connexion de réseau virtuel à réseau virtuel est-elle correctement configurée ou dans un état d’échec ?</li></ul>|
 
-## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.network/expressroutecircuits
 |Vérifications exécutées|
 |---|
 |<ul><li>Le circuit ExpressRoute est-il sain ?</li></ul>|

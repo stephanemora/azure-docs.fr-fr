@@ -3,20 +3,20 @@ title: Développer des applications avec le SDK Speech - Service Speech
 titleSuffix: Azure Cognitive Services
 description: Découvrez comment déployer une application qui utilise le SDK Speech sur les plateformes prises en charge.
 services: cognitive-services
-author: jhakulin
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 01/30/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: f4200a0a43507a335f0e4e59e5a794d2bc4d6142
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816550"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902012"
 ---
 # <a name="ship-an-application"></a>Délivrer une application
 
@@ -39,7 +39,7 @@ Pour l’entrée du microphone, les bibliothèques Media Foundation doivent êtr
 
 Les fichiers du kit de développement logiciel (SDK) Speech requis peuvent être déployés dans le même répertoire que votre application. De cette façon, votre application peut accéder directement aux bibliothèques. Veillez à sélectionner la version appropriée (Win32/x64) correspondant à votre application.
 
-| Nom | Fonction |
+| Name | Fonction |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK principal, requis pour le déploiement natif et managé |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Requis pour le déploiement managé                      |

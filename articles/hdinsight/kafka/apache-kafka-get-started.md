@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/01/2019
-ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242039"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030009"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>Démarrage rapide : Créer un cluster Apache Kafka dans Azure HDInsight à l’aide du portail Azure
 
@@ -27,7 +27,7 @@ L’API Apache Kafka n’est accessible qu’aux ressources se trouvant dans le 
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight (Apache Hadoop) à l’aide de SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -35,7 +35,7 @@ Un client SSH. Pour plus d’informations, consultez [Se connecter à HDInsight 
 
 Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
 1. À partir du menu gauche, accédez à **+ Créer une ressource** > **Analytique** > **HDInsight**.
 
@@ -72,7 +72,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
     |Compte de stockage principal|Utilisez la liste déroulante pour sélectionner un compte de stockage existant, ou sélectionnez **Créer nouveau**. Si vous créez un compte, son nom doit contenir entre 3 et 24 caractères alphanumériques minuscules.|
     |Conteneur|Utilisez la valeur renseignée automatiquement.|
 
-    ![Prise en main de HDInsight Linux en fournissant les valeurs de stockage du cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "Fournir des valeurs de stockage pour la création d’un cluster HDInsight")
+    ![Prise en main de HDInsight Linux en fournissant les valeurs de stockage du cluster](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "Fournir des valeurs de stockage pour la création d’un cluster HDInsight")
 
     Sélectionnez l’onglet **Sécurité + réseau**.
 
@@ -80,7 +80,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
    Si vous souhaitez connecter votre cluster à un réseau virtuel, sélectionnez un réseau virtuel à partir de la liste déroulante du **Réseau virtuel**.
 
-   ![Ajouter un cluster à un réseau virtuel](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![Ajouter un cluster à un réseau virtuel](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     Sélectionnez l’onglet **Configuration + Tarifs**.
 
@@ -98,7 +98,7 @@ Pour créer un cluster Apache Kafka sur HDInsight, procédez comme suit :
 
     La création du cluster peut prendre jusqu’à 20 minutes.
 
-## <a name="connect-to-the-cluster"></a>Connexion au cluster
+## <a name="connect-to-the-cluster"></a>Se connecter au cluster
 
 1. Pour vous connecter au nœud principal primaire du cluster Apache Kafka, utilisez la commande suivante. Remplacez `sshuser` par le nom d’utilisateur SSH. Remplacez `mykafka` par le nom de votre cluster Apache Kafka.
 
@@ -138,7 +138,7 @@ Si vous utilisez Kafka, vous devez connaître les hôtes *Apache ZooKeeper* et *
 
 Dans cette section, vous allez obtenir les informations sur l’hôte grâce à l’API REST Apache Ambari sur le cluster.
 
-1. Installez [jq](https://stedolan.github.io/jq/), processeur JSON léger en ligne de commande. Il permet d’analyser des documents JSON, ce qui est utile pour analyser les informations sur l’hôte. À partir de la connexion SSH ouverte, entrez la commande suivante pour installer `jq` :
+1. Installez [jq](https://stedolan.github.io/jq/), un processeur JSON en ligne de commande. Il permet d’analyser des documents JSON, ce qui est utile pour analyser les informations sur l’hôte. À partir de la connexion SSH ouverte, entrez la commande suivante pour installer `jq` :
 
     ```bash
     sudo apt -y install jq
@@ -150,13 +150,13 @@ Dans cette section, vous allez obtenir les informations sur l’hôte grâce à 
     export password='PASSWORD'
     ```
 
-1. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, puis la stocke dans une variable. Entrez la commande suivante :
+1. Extrayez le nom du cluster avec la bonne casse. La casse réelle du nom du cluster peut être différente de la casse attendue, suivant la façon dont le cluster a été créé. Cette commande obtient la casse réelle, puis la stocke dans une variable. Entrez la commande suivante :
 
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
     > [!Note]  
-    > Si vous effectuez ce processus à partir de l’extérieur du cluster, il existe une autre procédure pour stocker le nom du cluster. Récupérez le nom du cluster en minuscules à partir du portail Azure. Ensuite, remplacez le nom du cluster par `<clustername>` dans la commande suivante et exécutez-la : `export clusterName='<clustername>'`.
+    > Si vous effectuez ce processus de l’extérieur du cluster, la procédure pour stocker le nom du cluster est différente. Récupérez le nom du cluster en minuscules à partir du portail Azure. Ensuite, remplacez le nom du cluster par `<clustername>` dans la commande suivante, puis exécutez-la : `export clusterName='<clustername>'`.
 
 
 1. Pour définir une variable d’environnement avec les informations d’hôte Zookeeper, utilisez la commande ci-dessous. La commande récupère tous les hôtes ZooKeeper et retourne uniquement les deux premières entrées. ce qui assure une redondance au cas où l’un des hôtes serait inaccessible.
@@ -166,7 +166,7 @@ Dans cette section, vous allez obtenir les informations sur l’hôte grâce à 
     ```
 
     > [!Note]  
-    > Cette commande requiert un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez cette commande à partir d’une machine pouvant accéder à Ambari. 
+    > Cette commande nécessite un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez cette commande à partir d’un ordinateur qui peut accéder à Ambari. 
 
 1. Pour vérifier que la variable d’environnement est correctement définie, utilisez la commande suivante :
 
@@ -185,7 +185,7 @@ Dans cette section, vous allez obtenir les informations sur l’hôte grâce à 
     ```
 
     > [!Note]  
-    > Cette commande requiert un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez cette commande à partir d’une machine pouvant accéder à Ambari. 
+    > Cette commande nécessite un accès à Ambari. Si votre cluster se trouve derrière un groupe de sécurité réseau, exécutez cette commande à partir d’un ordinateur qui peut accéder à Ambari. 
 
 1. Pour vérifier que la variable d’environnement est correctement définie, utilisez la commande suivante :
 
@@ -284,7 +284,7 @@ Pour stocker les enregistrements dans la rubrique test créée précédemment, p
 
 Vous pouvez également créer les producteurs et consommateurs par programme. Pour voir un exemple d’utilisation de cette API, consultez le document [API de producteur et de consommateur Apache Kafka avec HDInsight](apache-kafka-producer-consumer-api.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources créées par ce guide de démarrage rapide, vous pouvez supprimer le groupe de ressources. La suppression du groupe de ressources efface également le cluster HDInsight associé et d’autres ressources liées au groupe de ressources.
 

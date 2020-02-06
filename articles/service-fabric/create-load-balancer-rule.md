@@ -3,12 +3,12 @@ title: Créer une règle Azure Load Balancer pour un cluster
 description: Configurez Azure Load Balancer pour ouvrir les ports pour votre cluster Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351478"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025382"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Ouvrir des ports pour un cluster Service Fabric
 
@@ -60,7 +60,7 @@ La commande Azure CLI dispose de quelques paramètres décrits dans le tableau s
 
 
 >[!NOTE]
->Pour plus d’informations sur la création d’un équilibreur de charge avec l’interface Azure CLI, consultez [Créer un équilibreur de charge avec l’interface Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli.md).
+>Pour plus d’informations sur la création d’un équilibreur de charge avec l’interface Azure CLI, consultez [Créer un équilibreur de charge avec l’interface Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md).
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 En ce qui concerne la commande `New-AzLoadBalancerRuleConfig`, le `-FrontendPort` représente le port que l’équilibrage de charge expose aux connexions externes, et le `-BackendPort` représente le port d’écoute de l’application Service Fabric.
 
 >[!NOTE]
->Pour plus d’informations sur la création d’un équilibreur de charge avec l’interface PowerShellI, consultez [Créer un équilibreur de charge avec PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
+>Pour plus d’informations sur la création d’un équilibreur de charge avec l’interface PowerShellI, consultez [Créer un équilibreur de charge avec PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

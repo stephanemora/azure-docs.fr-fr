@@ -2,17 +2,17 @@
 title: Héberger des applications web Azure à charge équilibrée à l’extrémité de la zone
 description: Utilisez un enregistrement d’alias Azure DNS pour héberger des applications web à charge équilibrée à l’extrémité de la zone.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/10/2019
-ms.author: allensu
-ms.openlocfilehash: a673a74f8f6f919e7ebb7fc3b065ee0742ab3a10
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212364"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937363"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Héberger des applications web Azure à charge équilibrée à l’extrémité de la zone
 
@@ -26,7 +26,7 @@ Cet article explique comment créer un enregistrement d’alias pour une extrém
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vous devez disposer d’un nom de domaine disponible, que vous pouvez héberger dans Azure DNS pour le test. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 
@@ -43,7 +43,7 @@ Créez un groupe de ressources qui contiendra toutes les ressources utilisées d
 Créez deux plans Web App Service dans votre groupe de ressources en suivant les informations de configuration du tableau ci-dessous. Pour plus d’informations sur la création d’un plan App Service, voir [Gérer un plan App Service dans Azure](../app-service/app-service-plan-manage.md).
 
 
-|Nom  |Système d’exploitation  |Location  |Niveau de tarification  |
+|Name  |Système d’exploitation  |Location  |Niveau de tarification  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|USA Est|Dev/Test D1-Shared|
 |ASP-02     |Windows|USA Centre|Dev/Test D1-Shared|
@@ -58,7 +58,7 @@ Créez deux applications web, une dans chaque plan App Service.
 4. Sélectionnez **Create** (Créer).
 5. Acceptez les valeurs par défaut et utilisez le tableau suivant pour configurer les deux applications web :
 
-   |Nom<br>(doit être unique sur . azurewebsites.net)|Groupe de ressources |Pile d’exécution|Région|Plan App Service/Emplacement
+   |Name<br>(doit être unique sur . azurewebsites.net)|Groupe de ressources |Pile d’exécution|Région|Plan App Service/Emplacement
    |---------|---------|-|-|-------|
    |App-01|Utilisez l’existant<br>Sélectionnez votre groupe de ressources|.NET Core 2.2|USA Est|ASP-01(D1)|
    |App-02|Utilisez l’existant<br>Sélectionnez votre groupe de ressources|.NET Core 2.2|USA Centre|ASP-02(D1)|
@@ -87,7 +87,7 @@ Vous pouvez maintenant créer les points de terminaison pour les deux applicatio
 3. Sélectionnez **Ajouter**.
 4. Aidez-vous du tableau suivant pour configurer les points de terminaison :
 
-   |Type  |Nom  |Cible  |Location  |Paramètres d’en-tête personnalisé|
+   |Type  |Name  |Cible  |Location  |Paramètres d’en-tête personnalisé|
    |---------|---------|---------|---------|---------|
    |Point de terminaison externe     |End-01|Adresse IP enregistrée pour App-01|USA Est|host:\<URL enregistrée pour App-01\><br>Exemple : **host:app-01.azurewebsites.net**|
    |Point de terminaison externe     |End-02|Adresse IP enregistrée pour App-02|USA Centre|host:\<URL enregistrée pour App-02\><br>Exemple : **host:app-02.azurewebsites.net**
@@ -104,7 +104,7 @@ Lorsque vous ajoutez un nom d’hôte personnalisé à vos applications web, il 
 2. Sélectionnez **Jeu d’enregistrements**.
 3. Ajoutez le jeu d’enregistrements suivant le tableau ci-dessous. Pour la valeur, utilisez l’URL de l’application Web réelle enregistrée précédemment :
 
-   |Nom  |type  |Valeur|
+   |Name  |Type  |Valeur|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,9 +132,9 @@ Ajoutez maintenant un enregistrement d’alias d’apex de zone.
 2. Sélectionnez **Jeu d’enregistrements**.
 3. Ajoutez le jeu d’enregistrements suivant le tableau ci-dessous :
 
-   |Nom  |Type  |Jeu d’enregistrements d’alias  |Type d’alias  |Ressource Azure|
+   |Name  |Type  |Jeu d’enregistrements d’alias  |Type d’alias  |Ressource Azure|
    |---------|---------|---------|---------|-----|
-   |@     |A|OUI|Ressource Azure|Traffic Manager – votre profil|
+   |@     |Un|Oui|Ressource Azure|Traffic Manager – votre profil|
 
 
 ## <a name="test-your-web-apps"></a>Tester les applications web
@@ -156,8 +156,8 @@ Vous pouvez maintenant passer aux tests, pour vérifier que vous pouvez atteindr
 
 Pour en savoir plus sur les enregistrements d’alias, consultez les articles suivant :
 
-- [Tutoriel : Configurer un enregistrement d'alias pour faire référence à une adresse IP publique](tutorial-alias-pip.md)
-- [Tutoriel : Configurer un enregistrement d'alias pour prendre en charge des noms de domaine d'apex avec Traffic Manager](tutorial-alias-tm.md)
+- [Tutoriel : Configurer un enregistrement d'alias pour faire référence à une adresse IP publique](tutorial-alias-pip.md)
+- [Tutoriel : Configurer un enregistrement d'alias pour prendre en charge des noms de domaine d'apex avec Traffic Manager](tutorial-alias-tm.md)
 - [FAQ DNS](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
 Pour savoir comment migrer un nom DNS actif, consultez [Migrer un nom DNS actif vers Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).

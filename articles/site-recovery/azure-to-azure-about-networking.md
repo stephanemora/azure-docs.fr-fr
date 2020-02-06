@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 1/8/2020
+ms.date: 1/23/2020
 ms.author: sutalasi
-ms.openlocfilehash: 9fe3b4c0b7acc9c1e980d5885043d30503c211c4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: aeab1960b065538635fdd63c43d779287f8cd9ee
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754500"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759821"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informations sur les réseaux dans la récupération d'urgence de machines virtuelles Azure
 
@@ -50,76 +50,20 @@ Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la conne
 --- | ---
 *.blob.core.windows.net | Nécessaire pour que les données puissent être écrites dans le compte de stockage de cache dans la région source à partir de la machine virtuelle. Si vous connaissez tous les comptes de stockage de cache de vos machines virtuelles, vous pouvez autoriser l’accès aux URL de compte de stockage spécifiques (par exemple, cache1.blob.core.windows.net et cache2.blob.core.windows.net) au lieu de *.blob.core.windows.net.
 login.microsoftonline.com | Nécessaire pour l’autorisation et l’authentification aux URL du service Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle. Vous pouvez utiliser l’« Adresse IP de Site Recovery » correspondante si votre proxy de pare-feu prend en charge les adresses IP.
-*.servicebus.windows.net | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle. Vous pouvez utiliser l’« Adresse IP de supervision de Site Recovery » correspondante si votre proxy de pare-feu prend en charge les adresses IP.
+*.hypervrecoverymanager.windowsazure.com | Nécessaire pour que la communication du service Site Recovery puisse avoir lieu à partir de la machine virtuelle.
+*.servicebus.windows.net | Nécessaire pour que les données de surveillance et de diagnostic Site Recovery puissent être écrites à partir de la machine virtuelle.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Connectivité sortante pour les plages d’adresses IP
 
-Si vous utilisez un proxy de pare-feu basé sur une adresse IP ou un groupe de sécurité réseau pour contrôler la connectivité sortante, ces plages d’adresses IP doivent être autorisées.
+Si vous utilisez un groupe de sécurité réseau pour contrôler la connectivité sortante, ces étiquettes de services doivent être autorisées.
 
 - Toutes les plages d’adresses IP qui correspondent aux comptes de stockage dans la région source
     - Créez une règle de groupe de sécurité réseau basée sur une [balise de service de stockage](../virtual-network/security-overview.md#service-tags) pour la région source.
     - Autorisez ces adresses pour que les données puissent être écrites dans le compte de stockage de cache, à partir de la machine virtuelle.
 - Créer une règle de groupe de sécurité réseau basée sur une [balise de service Azure Active Directory (AAD)](../virtual-network/security-overview.md#service-tags) pour autoriser l’accès à toutes les adresses IP correspondant à AAD
-    - Si de nouvelles adresses sont ajoutées ultérieurement à Azure Active Directory (AAD), vous devez créer de nouvelles règles de groupe de sécurité réseau.
 - Créez une règle de groupe de sécurité réseau basée sur une balise du service EventsHub pour la région cible, en autorisant l’accès à la supervision de Site Recovery.
 - Créez une règle de groupe de sécurité réseau basée sur une balise du service AzureSiteRecovery pour autoriser l’accès au service Site Recovery dans n’importe quelle région.
 - Nous vous recommandons de créer les règles de groupe de sécurité réseau requises sur un groupe de sécurité réseau de test, et de vérifier qu’il n’y a aucun problème avant de créer les règles sur un groupe de sécurité réseau de production.
-
-
-Si vous préférez utiliser des plages d’adresses IP Site Recovery (non recommandé), reportez-vous au tableau ci-dessous :
-
-   **Cible** | **IP Site Recovery** |  **Adresse IP de surveillance Site Recovery**
-   --- | --- | ---
-   Asie Est | 52.175.17.132 | 13.94.47.61
-   Asie Sud-Est | 52.187.58.193 | 13.76.179.223
-   Inde centrale | 52.172.187.37 | 104.211.98.185
-   Inde Sud | 52.172.46.220 | 104.211.224.190
-   Centre-Nord des États-Unis | 23.96.195.247 | 168.62.249.226
-   Europe Nord | 40.69.212.238 | 52.169.18.8
-   Europe Ouest | 52.166.13.64 | 40.68.93.145
-   USA Est | 13.82.88.226 | 104.45.147.24
-   USA Ouest | 40.83.179.48 | 104.40.26.199
-   États-Unis - partie centrale méridionale | 13.84.148.14 | 104.210.146.250
-   USA Centre | 40.69.144.231 | 52.165.34.144
-   USA Est 2 | 52.184.158.163 | 40.79.44.59
-   Japon Est | 52.185.150.140 | 138.91.1.105
-   OuJapon Est | 52.175.146.69 | 138.91.17.38
-   Brésil Sud | 191.234.185.172 | 23.97.97.36
-   Australie Est | 104.210.113.114 | 191.239.64.144
-   Sud-Australie Est | 13.70.159.158 | 191.239.160.45
-   Centre du Canada | 52.228.36.192 | 40.85.226.62
-   Est du Canada | 52.229.125.98 | 40.86.225.142
-   Centre-USA Ouest | 52.161.20.168 | 13.78.149.209
-   USA Ouest 2 | 52.183.45.166 | 13.66.228.204
-   Ouest du Royaume-Uni | 51.141.3.203 | 51.141.14.113
-   Sud du Royaume-Uni | 51.140.43.158 | 51.140.189.52
-   Sud du Royaume-Uni 2 | 13.87.37.4| 13.87.34.139
-   Nord du Royaume-Uni | 51.142.209.167 | 13.87.102.68
-   Centre de la Corée | 52.231.28.253 | 52.231.32.85
-   Corée du Sud | 52.231.198.185 | 52.231.200.144
-   France Centre | 52.143.138.106 | 52.143.136.55
-   France Sud | 52.136.139.227 |52.136.136.62
-   Australie Centre| 20.36.34.70 | 20.36.46.142
-   Centre de l’Australie 2| 20.36.69.62 | 20.36.74.130
-   Afrique du Sud Ouest | 102.133.72.51 | 102.133.26.128
-   Afrique du Sud Nord | 102.133.160.44 | 102.133.154.128
-   Gouvernement américain - Virginie | 52.227.178.114 | 23.97.0.197
-   US Gov Iowa | 13.72.184.23 | 23.97.16.186
-   Gouvernement des États-Unis – Arizona | 52.244.205.45 | 52.244.48.85
-   Gouvernement des États-Unis – Texas | 52.238.119.218 | 52.238.116.60
-   Est des États-Unis – US DoD | 52.181.164.103 | 52.181.162.129
-   Centre des États-Unis – US DoD | 52.182.95.237 | 52.182.90.133
-   Chine du Nord | 40.125.202.254 | 42.159.4.151
-   Chine Nord 2 | 40.73.35.193 | 40.73.33.230
-   Chine orientale | 42.159.205.45 | 42.159.132.40
-   Chine orientale 2 | 40.73.118.52| 40.73.100.125
-   Allemagne Nord| 51.116.208.58| 51.116.58.128
-   Allemagne Centre-Ouest | 51.116.156.176 | 51.116.154.192
-   Suisse Ouest | 51.107.231.223| 51.107.154.128
-   Suisse Nord | 51.107.68.31| 51.107.58.128
-   Norvège Est | 51.120.100.64| 51.120.98.128
-   Norvège Ouest | 51.120.220.65| 51.120.218.160
 
 ## <a name="example-nsg-configuration"></a>Exemple de configuration de groupe de sécurité réseau
 

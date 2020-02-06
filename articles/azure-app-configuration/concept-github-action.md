@@ -1,17 +1,17 @@
 ---
 title: Utiliser GitHub Actions avec une synchronisation Azure App Configuration
 description: Utilisez GitHub Actions pour déclencher une mise à jour de votre instance App Configuration lorsque des actions définies sont effectuées sur un dépôt GitHub
-author: jpconnock
-ms.author: jeconnoc
+author: lisaguthrie
+ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 1b7586e6321318a3fe4566e8c744c17a1d7ee179
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310604"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899630"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synchroniser votre instance App Configuration à l’aide de GitHub Actions
 Azure App configuration utilise GitHub Actions pour mettre à jour une instance App Configuration déclenchée par une action effectuée sur un dépôt GitHub. Vous pouvez tirer parti des flux de travail GitHub pour mettre à jour une configuration d’application, ce qui permet l’intégration de mises à jour de configuration d’application dans le même flux de travail que celui utilisé pour mettre à jour le code de l’application.

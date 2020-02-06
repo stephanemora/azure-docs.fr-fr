@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
-ms.openlocfilehash: 5ce8414376862b66314f754252aba3ab6afdaf25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 56c25b7c77809a5cb7f4e539cff8e1815cd9976f
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435322"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031701"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>Configurer le stockage et l’extensibilité pour Apache Kafka sur HDInsight
 
@@ -34,7 +34,7 @@ Le diagramme ci-après compare l’utilisation de Kafka sur HDInsight avant les 
     > [!NOTE]  
     > Le type de disque managé peut être soit __Standard__ (HDD), soit __Premium__ (SSD). Les disques Premium sont utilisés avec les machines virtuelles séries DS et GS. Tous les autres types de machines virtuelles utilisent des disques Standard.
 
-    ![Section Taille du cluster avec mise en surbrillance des disques par nœud Worker](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
+    ![Section Taille du cluster avec mise en surbrillance des disques par nœud Worker](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>Configurer les disques managés : Modèle Resource Manager
 

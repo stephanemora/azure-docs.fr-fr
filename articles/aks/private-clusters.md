@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 2344e2189d6b0f02e7fed1aab25d32551c1fedcf
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154339"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713331"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Créer un cluster Azure Kubernetes Service privé (préversion)
 
@@ -128,14 +128,16 @@ Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. P
 
 ## <a name="dependencies"></a>Les dépendances  
 * Le service Liaison privée est pris en charge uniquement sur Azure Load Balancer Standard. Azure Load Balancer De base n’est pas pris en charge.  
+* Pour utiliser un serveur DNS personnalisé, déployez un serveur AD avec DNS à transférer à cette adresse IP : 168.63.129.16.
 
 ## <a name="limitations"></a>Limites 
+* La fonctionnalité Zones de disponibilité n’est actuellement pas prise en charge
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés, aux points de terminaison privés Azure et aux points de terminaison de service de réseau virtuel qui ne sont actuellement pas pris en charge dans le même réseau virtuel.
-* Aucune prise en charge des nœuds virtuels dans un cluster privé pour faire tourner des Azure Container Instances privées dans un réseau virtuel Azure privé.
-* Aucune prise en charge de l’intégration d’Azure DevOps prête à l’emploi avec les clusters privés.
+* Aucune prise en charge des nœuds virtuels dans un cluster privé pour faire tourner des Azure Container Instances privées dans un réseau virtuel Azure privé
+* Aucune prise en charge de l’intégration d’Azure DevOps avec les clusters privés.
 * Pour les clients qui doivent activer Azure Container Registry afin d’utiliser des clusters AKS privés, le réseau virtuel Container Registry doit être appairé avec le réseau virtuel du cluster d’agent.
-* Aucune prise en charge actuelle d’Azure Dev Spaces.
-* Aucune prise en charge de la conversion de clusters AKS existants en clusters privés.  
+* Aucune prise en charge de Azure Dev Spaces
+* Aucune prise en charge de la conversion de clusters AKS existants en clusters privés
 * La suppression ou la modification du point de terminaison privé dans le sous-réseau du client entraîne l’arrêt du fonctionnement du cluster. 
 * Les données actives Azure Monitor pour conteneurs ne sont actuellement pas prises en charge.
 * L’*apport de votre propre DNS* n’est actuellement pas pris en charge.

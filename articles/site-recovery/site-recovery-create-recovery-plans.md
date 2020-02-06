@@ -1,22 +1,18 @@
 ---
 title: Créer et personnaliser des plans de récupération dans Azure Site Recovery
 description: Découvrez comment créer et personnaliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
-ms.topic: article
-ms.date: 11/14/2019
-ms.author: raynew
-ms.openlocfilehash: 9bb5a1a3aa0c2a4681ddecb5e20df41d481755ec
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.topic: how-to
+ms.date: 01/23/2020
+ms.openlocfilehash: 6540317324a9f0d9bccc046ecf95824d4128bd09
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084521"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705834"
 ---
 # <a name="create-and-customize-recovery-plans"></a>Créer et personnaliser des plans de récupération
 
-Cet article décrit la création et la personnalisation d’un plan de récupération dans [Azure Site Recovery](site-recovery-overview.md). Avant de commencer, [découvrez-en plus](recovery-plan-overview.md) sur les plans de récupération.
+Cet article décrit la création et la personnalisation d’un plan de récupération pour le basculement dans [Azure Site Recovery](site-recovery-overview.md). Avant de commencer, [découvrez-en plus](recovery-plan-overview.md) sur les plans de récupération.
 
 ## <a name="create-a-recovery-plan"></a>Créer un plan de récupération
 
@@ -24,22 +20,25 @@ Cet article décrit la création et la personnalisation d’un plan de récupér
 2. Dans **Créer un plan de récupération**, spécifiez un nom pour le plan.
 3. Choisissez une source et une cible basées sur les ordinateurs dans le plan, puis sélectionnez **Resource Manager** comme modèle de déploiement. Le basculement et la récupération doivent être activés sur les ordinateurs de l’emplacement source. 
 
-   **Type de basculement** | **Source** | **Cible** 
+    **Type de basculement** | **Source** | **Cible** 
    --- | --- | ---
-   Azure vers Azure | Région Azure |Région Azure
-   VMware vers Azure | Serveur de configuration | Azure
-   Machines physiques vers Azure | Serveur de configuration | Azure   
-   Hyper-V géré par VMM vers Azure  | Nom d’affichage VMM | Azure
-   Hyper-V sans VMM vers Azure | Nom du site Hyper-V | Azure
-   VMM vers VMM |Nom convivial de VMM | Nom d’affichage VMM 
+   Azure vers Azure | Sélectionner la région Azure | Sélectionner la région Azure
+   VMware vers Azure | Sélectionner le serveur de configuration | Sélectionner Azure
+   Machines physiques vers Azure | Sélectionner le serveur de configuration | Sélectionner Azure   
+   Hyper-V vers Azure | Sélectionner le nom du site Hyper-V | Sélectionner Azure
+   Hyper-V (gérée par VMM) vers Azure  | Sélectionner le serveur VMM | Sélectionner Azure
+  
+    Notez les points suivants :
+    -  Vous ne pouvez utiliser un plan de récupération pour le basculement qu’à partir de l’emplacement source vers Azure. Vous ne pouvez pas utiliser un plan de récupération pour la restauration automatique à partir d’Azure.
+    - Le basculement et la récupération doivent être activés sur les ordinateurs de l’emplacement source. 
+    - Un plan de récupération peut contenir des ordinateurs ayant les mêmes source et cible. 
+    - Vous pouvez inclure des machines virtuelles VMware et Hyper-V gérées par VMM dans le même plan.
+    - Les machines virtuelles VMware et les serveurs physiques peuvent se trouver dans le même plan.
 
-   > [!NOTE]
-   > Un plan de récupération peut contenir des ordinateurs ayant les mêmes source et cible. Des machines virtuelles VMware et Hyper-V gérées par VMM ne peuvent pas se trouver dans le même plan. Les serveurs physiques et machines virtuelles VMware peuvent être dans le même plan, où la source est un serveur de configuration.
-
-2. Dans **Sélectionner les machines virtuelles**, sélectionnez les ordinateurs (ou le groupe de réplication) que vous voulez ajouter au plan. Cliquez ensuite sur **OK**.
+4. Dans **Sélectionner les machines virtuelles**, sélectionnez les ordinateurs (ou le groupe de réplication) que vous voulez ajouter au plan. Cliquez ensuite sur **OK**.
     - Les ordinateurs sont ajoutés au groupe par défaut (Groupe 1) dans le plan. Après le basculement, tous les ordinateurs dans ce groupe démarrent en même temps.
     - Vous pouvez sélectionner uniquement les ordinateurs qui se trouvent dans les emplacements source et cible que vous avez spécifiés. 
-1. Cliquez sur **OK** pour créer le plan.
+5. Cliquez sur **OK** pour créer le plan.
 
 ## <a name="add-a-group-to-a-plan"></a>Ajouter un groupe à un plan
 

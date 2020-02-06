@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3a87475146e2b23c4a824e568ea3da33e1f4abf0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3a52d906d958fdfd1d7e09c6229b12af3204bc52
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512944"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846384"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Sources d’événements dans Azure Event Grid
 
@@ -132,6 +132,9 @@ S’abonner aux événements Service Bus pour répondre aux messages sans un éc
 ## <a name="storage"></a>Stockage
 
 S’abonner aux événements Stockage Blob pour répondre aux événements de création et de suppression d’objets blob.
+
+>[!NOTE]
+> Seuls les comptes de stockage de type **StorageV2 (usage général v2)** et **BlobStorage** prennent en charge l’intégration d’événements. Le type **Storage (usage général v1)** ne prend *pas* en charge l’intégration à Event Grid.
 
 |Intitulé  |Description  |
 |---------|---------|

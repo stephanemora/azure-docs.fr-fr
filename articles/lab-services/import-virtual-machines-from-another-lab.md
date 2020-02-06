@@ -1,6 +1,6 @@
 ---
 title: Importer des machines virtuelles depuis un autre labo dans Azure DevTest Labs
-description: Découvrez comment importer des machines virtuelles depuis un autre labo dans le labo actuel.
+description: Cet article explique comment importer des machines virtuelles à partir d’un autre lab vers le lab actuel dans Azure DevTest Labs.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: d399bede7851b3acc282312994464d06370746e3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 299d5c8758a13edded63b99abb2f12ddf9fa14be
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169472"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759514"
 ---
 # <a name="import-virtual-machines-from-another-lab-in-azure-devtest-labs"></a>Importer des machines virtuelles depuis un autre labo dans Azure DevTest Labs
 Cet article fournit des informations sur la façon d’importer des machines virtuelles depuis un autre labo dans votre labo.

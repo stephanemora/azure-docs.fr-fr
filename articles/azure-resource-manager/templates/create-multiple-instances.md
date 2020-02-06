@@ -3,12 +3,12 @@ title: Déployer plusieurs instances de ressources
 description: Utilisez l’opération de copie et les tableaux dans un modèle Azure Resource Manager pour effectuer une itération à plusieurs reprises lors du déploiement de ressources.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 54d406771f64d97a3ba564556be6dc49677a732d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 0250f5ee64c91d8d75ad246271ab31324a2553f8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121979"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836927"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Itération de variable, de propriété ou de ressource dans les modèles Azure Resource Manager
 
@@ -205,6 +205,10 @@ L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks 
 
 Notez que, lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de propriété, vous devez fournir le nom de l’itération. Il est inutile de fournir le nom lorsque l’itération de propriété est utilisée avec une itération de ressource.
 
+> [!NOTE]
+> L’itération de propriété prend également en charge un argument de contrepartie. La contrepartie doit venir après le nom de l’itération, par exemple copyIndex('dataDisks', 1).
+>
+
 Le Gestionnaire des ressources développe le tableau `copy` durant le déploiement. Le nom du tableau devient celui de la propriété. Les valeurs d’entrée deviennent les propriétés de l’objet. Le modèle déployé devient :
 
 ```json
@@ -299,6 +303,10 @@ Vous pouvez utiliser des itérations de ressource et de propriété ensemble. R�
 ## <a name="variable-iteration"></a>Itération de variable
 
 Pour créer plusieurs instances d’une variable, utilisez la propriété `copy` dans la section des variables. Vous créez un tableau d’éléments construits à partir de la valeur de la propriété `input`. Vous pouvez utiliser la propriété `copy` au sein d’une variable, ou au niveau supérieur de la section des variables. Lorsque vous utilisez `copyIndex` à l’intérieur d’une itération de variable, vous devez fournir le nom de l’itération.
+
+> [!NOTE]
+> L’itération de variable prend également en charge un argument de contrepartie. La contrepartie doit venir après le nom de l’itération, par exemple copyIndex('diskNames', 1).
+>
 
 Pour obtenir un exemple simple de création d’un tableau de valeurs de chaîne, consultez [Copier le modèle de tableau](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 

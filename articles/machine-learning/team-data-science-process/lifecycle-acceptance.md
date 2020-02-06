@@ -3,20 +3,20 @@ title: Phase d’acceptation du client du cycle de vie du processus TDSP (Team D
 description: Objectifs, tâches et livrables associés à la phase d’acceptation du client de vos projets de science des données
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91d645e6120040870c7c1696c7bfd8f68509cb35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303568"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720518"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Phase d’acceptation du client du cycle de vie du processus TDSP (Team Data Science Process)
 
@@ -34,7 +34,7 @@ Voici une représentation visuelle du cycle de vie TDSP :
 
 
 ## <a name="goal"></a>Objectif
-**Finaliser les livrables du projet** : vérifiez que le pipeline, le modèle et leur déploiement dans un environnement de production sont conformes aux objectifs du client.
+**Finaliser les livrables du projet** : vérifiez que le pipeline, le modèle et leur déploiement dans un environnement de production sont conformes aux objectifs du client.
 
 ## <a name="how-to-do-it"></a>Marche à suivre
 Deux tâches principales sont traitées dans cette phase :
@@ -58,6 +58,6 @@ Voici les liens vers chaque étape du cycle de vie TDSP :
    4. [Déploiement](lifecycle-deployment.md)
    5. [Acceptation du client](lifecycle-acceptance.md)
 
-Nous indiquons des procédures pas à pas complètes qui illustrent toutes les étapes du processus correspondant à des scénarios spécifiques. L’article [Example walkthroughs](walkthroughs.md) (Exemples de procédures pas à pas) contient une liste des scénarios ainsi que des liens et des descriptions de miniatures. Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente. 
+Nous fournissons des procédures pas à pas complètes qui illustrent toutes les étapes du processus correspondant à des scénarios spécifiques. L’article [Example walkthroughs](walkthroughs.md) (Exemples de procédures pas à pas) contient une liste des scénarios ainsi que des liens et des descriptions de miniatures. Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente. 
 
 Pour obtenir des exemples sur l’exécution de procédures dans les processus TDSP utilisant Azure Machine Learning Studio, consultez [Utilisation du processus de science des données avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).

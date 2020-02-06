@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 933217b2ad86535d45f6674165ee162f263a8cd7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882894"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712178"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Provisionnement d’application en état de quarantaine
 
@@ -63,7 +63,7 @@ Tout d’abord, résolvez le problème qui a provoqué la mise en quarantaine de
 
 - Vérifiez les paramètres de provisionnement de l’application pour vous assurer d’avoir [entré des informations d’identification d’administrateur valides](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD doit être capable d’établir une relation de confiance avec l’application cible. Vérifiez que vous avez entré des informations d’identification valides et que votre compte dispose des autorisations nécessaires.
 
-- Passez en revue les [journaux de provisionnement](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) pour examiner de plus près les erreurs à l’origine de la quarantaine afin de les corriger. Accédez aux journaux de provisionnement dans le portail Azure en accédant à **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Journaux de provisionnement (préversion)** dans la section **Activité**.
+- Passez en revue les [journaux de provisionnement](../reports-monitoring/concept-provisioning-logs.md) pour examiner de plus près les erreurs à l’origine de la quarantaine afin de les corriger. Accédez aux journaux d’approvisionnement dans le portail Microsoft Azure en accédant à **Azure Active Directory** &gt; **Applications d’entreprise** &gt; **Journaux d’approvisionnement (préversion)** dans la section **Activité**.
 
 Une fois que vous avez résolu le problème, redémarrez le travail de provisionnement. Certaines modifications apportées aux paramètres de provisionnement de l’application, comme des mappages d’attributs ou des filtres d’étendue, redémarrent automatiquement le provisionnement. La barre de progression dans la page **Provisionnement** de l’application indique à quel moment le dernier provisionnement a démarré. Si vous avez besoin de redémarrer manuellement le travail de provisionnement, utilisez l’une des méthodes suivantes :  
 

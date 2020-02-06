@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a7eaabedd6736c107625204f982a530f2bab73d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444840"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718171"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Azure Cosmos DB pour API SQL : Notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ Le Kit de développement logiciel (SDK) de l’API Java SQL prend en charge les 
 |**Runtime minimal pris en charge**|[Kit de développement Java (JDK) 7+](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
+* Mise à jour de la bonne étiquette de stratégie de réplica côté client sur databaseAccount et mise à jour des lectures de configuration databaseAccount à partir du cache.
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
 * Nouvelle tentative évitée en cas d’erreur de plage de clés de partition non valide, si l’utilisateur fournit pkRangeId.

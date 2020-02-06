@@ -4,12 +4,12 @@ description: Supervisez les charges de travail de Sauvegarde Azure et créez des
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 983939a905c6c096f2e8e3007bd40cbbe9088395
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 4ff51080d675c53e53397a070c1f6f1766aa9e85
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611694"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989584"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Superviser à grande échelle avec Azure Monitor
 
@@ -21,54 +21,6 @@ Sauvegarde Azure fournit [des fonctionnalités intégrées de supervision et d�
 - Si vous voulez voir des informations provenant de composants locaux comme System Center Data Protection Manager (SC-DPM) dans Azure qui ne sont pas visibles dans [**Travaux de sauvegarde**](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault) ou dans [**Alertes de sauvegarde**](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault)
 
 ## <a name="using-log-analytics-workspace"></a>Utilisation d’un espace de travail Log Analytics
-
-> [!NOTE]
-> Des données provenant de sauvegardes de machines virtuelles Azure, de l’agent Sauvegarde Azure, de System Center Data Protection Manager, de sauvegardes SQL dans des machines virtuelles Azure et de sauvegardes de partage de fichiers Azure sont injectées dans l’espace de travail Log Analytics via des paramètres de diagnostic. La prise en charge du serveur de sauvegarde Microsoft Azure (MABS, Microsoft Azure Backup Server) sera bientôt disponible.
-
-Pour superviser/générer des rapports à grande échelle, vous avez besoin des fonctionnalités de deux services Azure. *Les paramètres de diagnostic* envoient des données provenant de plusieurs ressources Azure Resource Manager vers une autre ressource. *Log Analytics* génère des alertes personnalisées où vous pouvez utiliser des groupes d’actions pour définir d’autres canaux de notification.
-
-Les sections suivantes expliquent comment utiliser Log Analytics pour superviser Sauvegarde Azure à grande échelle.
-
-### <a name="configure-diagnostic-settings"></a>Configurer les paramètres de diagnostic
-
-Des ressources Azure Resource Manager comme le coffre Recovery Services, enregistrent des informations sur les opérations planifiées et sur les opérations déclenchées par l’utilisateur au titre de données de diagnostic.
-
-Dans la section Supervision, sélectionnez **Paramètres de diagnostic** et spécifiez la cible pour les données de diagnostic du coffre Recovery Services.
-
-![Paramètre de diagnostic du coffre Recovery Services, ciblant Log Analytics](media/backup-azure-monitoring-laworkspace/rs-vault-diagnostic-setting.png)
-
-Vous pouvez cibler un espace de travail Log Analytics depuis un autre abonnement. Pour superviser des coffres sur plusieurs abonnements à un même emplacement, sélectionnez le même espace de travail Log Analytics pour plusieurs coffres Recovery Services. Pour canaliser toutes les informations relatives à Sauvegarde Azure vers l’espace de travail Log Analytics, choisissez **AzureDiagnostics** sur le bouton bascule qui s’affiche, puis sélectionnez l’événement **AzureBackupReport**.
-
-> [!IMPORTANT]
-> Une fois la configuration terminée, vous devez attendre 24 heures pour que l’envoi (push) de données initial se termine. Après cet envoi (push) de données initial, tous les événements sont envoyés comme décrit plus loin dans cet article, dans la section [Fréquence](#diagnostic-data-update-frequency).
-
-### <a name="deploy-a-solution-to-the-log-analytics-workspace"></a>Déployer une solution sur l’espace de travail Log Analytics
-
-> [!IMPORTANT]
-> Nous avons publié un [modèle](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) multivue mis à jour pour la supervision et la création de rapports basés sur Log Analytics dans Sauvegarde Azure. Notez que les utilisateurs qui utilisaient la [solution antérieure](https://azure.microsoft.com/resources/templates/101-backup-oms-monitoring/) continuent à la voir dans leurs espaces de travail, même après le déploiement de la nouvelle solution. Toutefois, l’ancienne solution peut fournir des résultats incorrects en raison de modifications mineures du schéma. Les utilisateurs doivent donc déployer le nouveau modèle.
-
-Une fois que les données sont dans l’espace de travail Log Analytics, [déployez un modèle GitHub](https://azure.microsoft.com/resources/templates/101-backup-la-reporting/) sur Log Analytics pour visualiser les données. Pour identifier correctement l’espace de travail, veillez à lui donner le même groupe de ressources, le même nom d’espace de travail et le même emplacement d’espace de travail. Installez ensuite ce modèle sur l’espace de travail.
-
-### <a name="view-azure-backup-data-by-using-log-analytics"></a>Afficher des données de Sauvegarde Azure avec Log Analytics
-
-- **Azure Monitor** : Dans la section **Insights**, sélectionnez **Plus**, puis choisissez l’espace de travail approprié.
-- **Espaces de travail Log Analytics** : Sélectionnez l’espace de travail approprié puis, sous **Général**, sélectionnez **Récapitulatif de l’espace de travail**.
-
-![Vignettes de supervision et de création de rapports Log Analytics](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
-
-Lorsque vous sélectionnez l’une des vignettes de vue d’ensemble, vous pouvez afficher des informations supplémentaires. Voici quelques-uns des rapports qui s’affichent :
-
-- Travaux de sauvegarde (sans journal)
-
-   ![Graphiques Log Analytics pour les travaux de sauvegarde](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
-
-- Alertes à partir de la sauvegarde des ressources Azure
-
-   ![Graphiques Log Analytics pour les travaux de restauration](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
-
-De même, en cliquant sur les autres vignettes, vous pouvez voir des rapports sur les travaux de restauration, le stockage cloud, les éléments de sauvegarde, les alertes provenant de la sauvegarde des ressources locales et les travaux de sauvegarde de journal.
-
-Ces graphiques sont fournis avec le modèle. Vous pouvez modifier les graphiques ou en ajouter si nécessaire.
 
 ### <a name="create-alerts-by-using-log-analytics"></a>Créer des alertes avec Log Analytics
 
@@ -110,90 +62,65 @@ Les graphiques par défaut vous fournissent des requêtes Kusto pour les scénar
 - Tous les travaux de sauvegarde réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Completed"
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Completed"
     ````
 
 - Tous les travaux de sauvegarde ayant échoué
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | where OperationName == "Job" and JobOperation_s == "Backup"
-    | where JobStatus_s == "Failed"
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Failed"
     ````
 
 - Tous les travaux de sauvegarde de machines virtuelles Azure réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-    | join kind=inner
-    (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
-        | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "VM" and BackupManagementType_s == "IaaSVM"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-    )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Completed"
+| join kind=inner
+(
+    CoreAzureBackup
+    | where OperationName == "BackupItem"
+    | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+)
+on BackupItemUniqueId
     ````
 
 - Tous les travaux de sauvegarde de journal SQL réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s == "Log"
-    | join kind=inner
-    (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
-        | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "SQLDataBase" and BackupManagementType_s == "AzureWorkload"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-    )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    AddonAzureBackupJobs
+| where JobOperation=="Backup" and JobOperationSubType=="Log"
+| where JobStatus=="Completed"
+| join kind=inner
+(
+    CoreAzureBackup
+    | where OperationName == "BackupItem"
+    | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+)
+on BackupItemUniqueId
     ````
 
 - Tous les travaux de l’agent Sauvegarde Azure réussis
 
     ````Kusto
-    AzureDiagnostics
-    | where Category == "AzureBackupReport"
-    | where SchemaVersion_s == "V2"
-    | extend JobOperationSubType_s = columnifexists("JobOperationSubType_s", "")
-    | where OperationName == "Job" and JobOperation_s == "Backup" and JobStatus_s == "Completed" and JobOperationSubType_s != "Log" and JobOperationSubType_s != "Recovery point_Log"
-    | join kind=inner
-    (
-        AzureDiagnostics
-        | where Category == "AzureBackupReport"
-        | where OperationName == "BackupItem"
-        | where SchemaVersion_s == "V2"
-        | where BackupItemType_s == "FileFolder" and BackupManagementType_s == "MAB"
-        | distinct BackupItemUniqueId_s, BackupItemFriendlyName_s
-        | project BackupItemUniqueId_s , BackupItemFriendlyName_s
-    )
-    on BackupItemUniqueId_s
-    | extend Vault= Resource
-    | project-away Resource
+    AddonAzureBackupJobs
+| where JobOperation=="Backup"
+| where JobStatus=="Completed"
+| join kind=inner
+(
+    CoreAzureBackup
+    | where OperationName == "BackupItem"
+    | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+)
+on BackupItemUniqueId
     ````
 
 ### <a name="diagnostic-data-update-frequency"></a>Fréquence de mise à jour des données de diagnostic

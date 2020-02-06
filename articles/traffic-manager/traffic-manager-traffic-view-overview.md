@@ -3,21 +3,21 @@ title: Vue du trafic dans Azure Traffic Manager
 description: Dans cette introduction, vous découvrirez le fonctionnement de la vue du trafic de Traffic Manager.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: allensu
+ms.author: rohink
 ms.custom: ''
-ms.openlocfilehash: 1cdad5873ea0f6d2fab129aef7be012ea11e8a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023241"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938355"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic View de Traffic Manager
 

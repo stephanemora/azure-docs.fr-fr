@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
+ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4258bec3ceacd52f9679f48d8357be558ee0e27f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: ef296035ee8f0c80b4ee078303639d7aedf5a91d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561625"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986629"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Présentation d’Azure Lab Services
 Il existe deux services dans Azure qui vous permettent de configurer des environnements lab dans le cloud. 
@@ -36,9 +36,6 @@ Ces services (Azure DevTest Labs et Azure Lab Services) prennent en charge les f
 - **Sécurité intégrée**. Le propriétaire du laboratoire peut configurer des réseaux virtuels privés et un sous-réseau pour un laboratoire, et activer une adresse IP publique partagée. Les utilisateurs du laboratoire peuvent accéder en toute sécurité aux ressources à l’aide du réseau virtuel configuré avec ExpressRoute ou d’un VPN de site à site. (uniquement disponible dans DevTest Labs actuellement)
 - **Intégration dans vos flux de travail et outils**. Azure Lab Services vous permet d’intégrer les laboratoires dans le site Web et les systèmes de gestion de votre organisation. Vous pouvez automatiquement mettre en service les environnements à l’aide de vos outils de déploiement/intégration (CI/CD) en continu. (uniquement disponible dans DevTest Labs actuellement)
 
-> [!NOTE]
-> Actuellement, Azure Lab Services ne prend en charge que les machines virtuelles créées à partir d’images de la Place de marché Azure. Si vous souhaitez utiliser des images personnalisées ou créer d’autres ressources PaaS dans un environnement lab, utilisez DevTest Labs. Pour plus d’informations, voir [Créer une image personnalisée dans DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) et [Créer des environnements lab à l’aide de modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
-
 ## <a name="scenarios"></a>Scénarios
 
 Voici quelques scénarios pris en charge par Azure DevTest Labs et Azure Lab Services :
@@ -46,9 +43,9 @@ Voici quelques scénarios pris en charge par Azure DevTest Labs et Azure Lab Ser
 ### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>Configurer un laboratoire redimensionnable d’ordinateurs dans le cloud pour votre classe  
 
 - Créer un laboratoire de salle de classe managé. Vous indiquez au service exactement ce dont vous avez besoin, et celui-ci crée et gère l’infrastructure du laboratoire pour vous. Vous pouvez ainsi vous concentrer sur votre classe, sans vous soucier des aspects techniques d’un laboratoire.
-- Offrir aux élèves un laboratoire de machines virtuelles configurées avec exactement ce qui est nécessaire pour une classe. Accorder à chaque élève un nombre limité d’heures afin d’utiliser les machines virtuelles pour le travail en classe.  
-- Déplacer vers le cloud le laboratoire d’ordinateurs physiques de votre école. Redimensionner automatiquement le nombre de machines virtuelles uniquement à l’utilisation maximale et au seuil de coûts que vous définissez sur le laboratoire.
-- Supprimer le laboratoire d’un simple clic, une fois que vous avez terminé.
+- Proposer aux étudiants un laboratoire de machines virtuelles configurées précisément pour répondre aux besoins de la classe ; Accorder à chaque élève un nombre limité d’heures afin d’utiliser les machines virtuelles pour le travail en classe.  
+- Déplacer vers le cloud l’ordinateur physique qui servait de laboratoire à votre établissement. Redimensionner automatiquement et exclusivement le nombre de machines virtuelles à la limite maximale d’utilisation et au seuil de coûts définis sur le laboratoire.
+- Supprimez le laboratoire d’un simple clic une fois que vous avez terminé.
 
 ### <a name="use-devtest-labs-for-development-environments"></a>Utiliser DevTest Labs pour les environnements de développement
 
@@ -107,7 +104,7 @@ Voici quelques **cas d’usage des laboratoires DevTest** :
 ## <a name="managed-lab-types-vs-devtest-labs"></a>Types de laboratoires gérés et DevTest Labs
 Le tableau suivant compare les deux types de laboratoires pris en charge par Azure Lab Services : 
 
-| Caractéristiques | Types de laboratoires gérés | DevTest Labs |
+| Fonctionnalités | Types de laboratoires gérés | DevTest Labs |
 | -------- | ----------------- | ---------- |
 | Gestion de l’infrastructure Azure dans le laboratoire |  Gérée automatiquement par le service. | Gérée par vos soins.  |
 | Résilience intégrée en cas de problèmes d’infrastructure | Gérée automatiquement par le service. | Gérée par vos soins.  |
@@ -116,7 +113,7 @@ Le tableau suivant compare les deux types de laboratoires pris en charge par Azu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Consultez les articles suivants : 
+Voir les articles suivants : 
 
 - [À propos des laboratoires de salle de classe](./classroom-labs/classroom-labs-overview.md)
 - [À propos de DevTest Labs](devtest-lab-overview.md)

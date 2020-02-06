@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 885ddd5c25a36e2b12379ea7639956c1c4ca5437
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75534673"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904285"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Créer des flux de travail Machine Learning basés sur les événements (préversion)
 
@@ -32,21 +32,6 @@ Utilisez Event Grid pour activer des scénarios courants tels que :
 
 * Accès du contributeur ou du propriétaire à l’espace de travail Azure Machine Learning pour lequel vous allez créer des événements.
 * Sélectionnez un point de terminaison de gestionnaire d’événements, tel qu’un webhook ou un hub d’événements. Pour plus d’informations, consultez la section relative aux [gestionnaires d’événements](https://docs.microsoft.com/azure/event-grid/event-handlers). 
-
-## <a name="register-resource-providers"></a>Inscrire des fournisseurs de ressources
-
-Si vous avez utilisé Azure Event Grid ou Machine Learning avant le 1er novembre 2019, vous devrez peut-être réinscrire les fournisseurs de ressources avant de pouvoir suivre les étapes décrites dans ce document. Pour réinscrire les fournisseurs, procédez comme suit :
-
-1. Accédez au Portail Azure et sélectionnez __Abonnements__. Sélectionnez l’abonnement que vous souhaitez utiliser.
-1. Sélectionnez __Fournisseurs de ressources__, puis recherchez __EventGrid__.
-1. Sélectionnez l’entrée __Microsoft.EventGrid__, puis __Réinscrire__.
-
-    ![re-register-resource-provider](./media/how-to-use-event-grid/re-register-resource-provider.png)
-
-1. Recherchez __MachineLearningServices__, sélectionnez l’entrée, puis __Réinscrire__.
-
-> [!TIP]
-> Si vous ne disposez pas des autorisations nécessaires pour effectuer ces étapes, demandez à votre administrateur d’abonnement de les exécuter.
 
 ## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Configurer des événements Machine Learning à l’aide du Portail Azure
 

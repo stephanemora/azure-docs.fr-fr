@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a8882a810d18d06b33d6382bd8bd86ffe75b39d8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777816"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766805"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -22,36 +22,51 @@ Application Gateway publie des points de données, appelés métriques, sur [Azu
 
 ### <a name="timing-metrics"></a>Métriques de minutage
 
-Les métriques suivantes relatives au minutage de la requête et de la réponse sont disponibles. En analysant ces mesures pour un écouteur spécifique, vous pouvez déterminer si le ralentissement de l’application a lieu en raison du réseau étendu, d’Application Gateway, du réseau entre Application Gateway et l’application principale, ou des performances de l’application principale.
+Application Gateway fournit plusieurs métriques de minutage intégrées associées à la requête et à la réponse qui sont toutes mesurées en millisecondes. 
+
+![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
 > S’il existe plusieurs écouteurs dans Application Gateway, filtrez toujours par dimension *Écouteur* tout en comparant différentes mesures de latence afin d’obtenir une inférence significative.
 
-- **RTT client**
+- **Temps de connexion au principal**
 
-  Durée moyenne des allers-retours entre les clients et Application Gateway. Cette métrique indique le temps nécessaire à l’établissement des connexions et au retour des accusés de réception. 
+  Temps passé à établir une connexion avec l’application principale. 
 
-- **Durée totale d’Application Gateway**
-
-  Temps moyen nécessaire pour le traitement d’une requête et l’envoi de la réponse. Elle est calculée en fonction de l’intervalle moyen entre le moment où Application Gateway reçoit le premier octet d’une requête HTTP et le moment où l’opération d’envoi d’une réponse se termine. Il est important de noter que cela implique généralement le temps de traitement d’Application Gateway, le temps pendant lequel les paquets de requête et de réponse transitent sur le réseau et le temps que le serveur principal a mis pour répondre.
-  
-Après un filtrage par écouteur, si le *RTT client* est bien plus grand que la *durée totale d’Application Gateway*, il peut être déduit que la latence observée par le client est due à la connectivité réseau entre le client et Application Gateway. Si les deux latences sont comparables, la latence élevée peut être due à l’une des raisons suivantes : Application Gateway, le réseau entre le Application Gateway et l’application principale, ou les performances de l’application principale.
+  Cela comprend la latence du réseau, ainsi que le temps pris par la pile TCP du serveur principal pour établir de nouvelles connexions. Dans le cas de SSL, il comprend également le temps consacré à la négociation. 
 
 - **Temps de réponse du premier octet du principal**
 
-  Intervalle de temps entre le début de l’établissement d’une connexion au principal et la réception du premier octet de l’en-tête de réponse, ce qui correspond approximativement au temps de traitement du principal
+  Intervalle de temps entre le début de l’établissement d’une connexion au serveur principal et la réception du premier octet de l’en-tête de la réponse. 
+
+  Cela correspond approximativement à la somme du *temps de connexion au principal*, du temps pris par la demande pour atteindre le principal depuis Application Gateway, du temps pris par l’application principale pour répondre (le temps nécessaire au serveur pour générer du contenu, extraire potentiellement des requêtes de base de données) et du temps mis par le premier octet de la réponse à atteindre Application Gateway à partir du principal.
 
 - **Temps de réponse du dernier octet du principal**
 
-  Intervalle de temps entre le début de l’établissement d’une connexion au principal et la réception du dernier octet du corps de la réponse
-  
-Si *temps total d’Application Gateway* est bien plus important que le *temps de réponse du dernier octet du principal* pour un écouteur spécifique, il peut être déduit que la latence élevée peut être due à Application Gateway. D’un autre côté, si les deux mesures sont comparables, le problème peut être dû au réseau entre Application Gateway et l’application principale, ou aux performances de l’application principale.
+  Intervalle de temps entre le début de l’établissement d’une connexion au serveur principal et la réception du dernier octet du corps de la réponse. 
 
-- **Temps de connexion au principal**
+  Cela correspond approximativement à la somme du *temps de réponse du premier octet du principal* et du temps de transfert des données (ce nombre peut varier considérablement en fonction de la taille des objets demandés et de la latence du réseau du serveur).
 
-  Temps passé à établir une connexion avec une application principale. Dans le cas de SSL, il comprend le temps consacré à la négociation. Notez que cette mesure est différente des autres métriques de latence puisque cela mesure uniquement le temps de connexion et, par conséquent, ne doit pas être directement comparé en grandeur avec les autres latences. Toutefois, la comparaison du modèle de *temps de connexion au principal* avec le modèle des autres latences peut indiquer si une augmentation des autres latences peut être déduite en raison d’une variation du réseau entre Application Gateway et l’application principale. 
-  
+- **Durée totale d’Application Gateway**
+
+  Temps moyen nécessaire pour la réception et le traitement d’une requête et l’envoi de la réponse. 
+
+  Il s’agit de l’intervalle entre le moment où Application Gateway reçoit le premier octet de la requête HTTP et le moment où le dernier octet de la réponse a été envoyé au client. Cela comprend le temps de traitement pris par Application Gateway, le *temps de réponse du dernier octet du principal*, le temps pris par Application Gateway pour envoyer toutes les réponses et le *RTT client*.
+
+- **RTT client**
+
+  Durée moyenne des allers-retours entre les clients et Application Gateway.
+
+
+
+Ces métriques peuvent être utilisées pour déterminer si le ralentissement observé est dû au réseau client, aux performances d’Application Gateway, à la saturation de la pile TCP du réseau principal et du serveur principal, aux performances de l’application principale ou à la taille volumineuse des fichiers.
+
+Par exemple, s’il existe un pic dans la tendance *Temps de réponse du premier octet du principal*, mais que la tendance *Temps de connexion au principal* est stable, il peut être déduit que la latence de la passerelle d’application vers le principal et le temps nécessaire pour établir la connexion sont stables, et que le pic est dû à une augmentation du temps de réponse de l’application principale. En revanche, si le pic dans *Temps de réponse du premier octet du principal* est associé à un pic correspondant dans *Temps de connexion au principal*, il peut être déduit que le réseau entre Application Gateway et le serveur principal ou la pile TCP du serveur principal est saturé. 
+
+Si vous remarquez un pic dans *Temps de réponse du dernier octet du principal*, mais que le *temps de réponse du premier octet du principal* est stable, il peut être déduit que le pic est dû à la demande d’un fichier plus volumineux.
+
+De même, si la *durée totale de la passerelle d’application* présente un pic, mais que le *temps de réponse du dernier octet du principal* est stable, cela peut être le signe d’un goulot d’étranglement des performances au niveau d’Application Gateway ou d’un goulot d’étranglement dans le réseau entre le client et Application Gateway. En outre, si le *RTT client* présente également un pic correspondant, cela indique que la dégradation est due au réseau entre le client et le Application Gateway.
 
 ### <a name="application-gateway-metrics"></a>Mesures Application Gateway
 
@@ -112,11 +127,11 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 - **Nombre d’hôtes intègres**
 
-  Le nombre de serveurs principaux déterminés sains par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
+  Le nombre de serveurs principaux déterminés sains par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher le nombre d’hôtes sains dans un pool principal spécifique.
 
 - **Nombre d’hôtes défectueux**
 
-  Nombre de principaux déterminés défectueux par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes défectueux dans un pool principal spécifique.
+  Nombre de principaux déterminés défectueux par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher le nombre d’hôtes non sains dans un pool principal spécifique.
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Métriques prises en charge par le SKU Application Gateway v1
 
@@ -158,11 +173,11 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 - **Nombre d’hôtes intègres**
 
-  Le nombre de serveurs principaux déterminés sains par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes intègres/défectueux dans un pool principal spécifique.
+  Le nombre de serveurs principaux déterminés sains par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher le nombre d’hôtes sains dans un pool principal spécifique.
 
 - **Nombre d’hôtes défectueux**
 
-  Nombre de principaux déterminés défectueux par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher les hôtes défectueux dans un pool principal spécifique.
+  Nombre de principaux déterminés défectueux par la sonde d’intégrité. Vous pouvez filtrer sur une base de pool principal pour afficher le nombre d’hôtes non sains dans un pool principal spécifique.
 
 ## <a name="metrics-visualization"></a>Visualisation des métriques
 

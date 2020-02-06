@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 60cd9a1454704fae17ccdcf39b9de2745ae4fd2c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121010"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713135"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Comment sécuriser les API à l'aide d'une authentification par certificat client dans la Gestion des API
 
@@ -93,7 +93,7 @@ L’exemple suivant montre comment vérifier l’empreinte d’un certificat cli
 
 > [!TIP]
 > Le problème de blocage de certificat client décrit dans cet [article](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) peut se manifester de différentes manières, notamment par des demandes qui se figent, des demandes qui génèrent un code d’état `403 Forbidden` après une expiration du délai, `context.Request.Certificate` qui a la valeur `null`. Ce problème affecte généralement les demandes `POST` et `PUT` avec une longueur de contenu d’environ 60 Ko ou plus.
-> Pour éviter que ce problème se produise, activez le paramètre « Négocier le certificat client  » pour les noms d’hôte souhaités dans le panneau « Domaines personnalisés », comme indiqué ci-dessous. Cette fonctionnalité n’est pas disponible dans le niveau Consommation.
+> Pour éviter que ce problème se reproduise, activez le paramètre « Négocier le certificat client » pour les noms d’hôte souhaités dans le panneau « Domaines personnalisés », comme indiqué ci-dessous. Cette fonctionnalité n’est pas disponible dans le niveau Consommation.
 
 ![Négocier le certificat client](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 

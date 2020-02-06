@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 6b6fa03337e857c6dda43f8c6ae41713d8c3dbe0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2b800cbc2f836d415afbb53a8415e9e400f40d0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774189"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901969"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Démarrage rapide : Extraire des données de reçu à l’aide de l’API REST Form Recognizer avec Python
 
 Ce guide de démarrage rapide permet d’utiliser l’API REST Azure Form Recognizer avec Python pour extraire et identifier des informations pertinentes de reçus aux États-Unis.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-> [!IMPORTANT]
-> Ce guide de démarrage rapide utilise l’API Form Recognizer version 2.0. Si votre abonnement n’est pas dans la région `West US 2` ou `West Europe`, vous devez utiliser l’API version 1.0. Suivez le [guide de démarrage rapide pour la version 1.0](./curl-train-extract-v1.md) à la place.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

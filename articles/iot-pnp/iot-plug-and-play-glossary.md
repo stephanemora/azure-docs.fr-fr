@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ef5ce9cc1cda7f1ff6b1985771e20cb20123e264
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531199"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025637"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glossaire terminologique pour la préversion d’IoT Plug-and-Play
 
@@ -117,7 +117,7 @@ Un [développeur d’appareil](#device-developer) utilise le [DTDL (Digital Twin
 
 ## <a name="device-provisioning-service"></a>Service Device Provisioning
 
-[Azure IoT Central](#azure-iot-central) utilise le service Device Provisioning pour gérer toutes les inscriptions et connexions d’appareils. Pour plus d’informations, consultez [Connectivité des appareils dans Azure IoT Central](../iot-central/preview/overview-iot-central-get-connected.md). Vous pouvez également utiliser le service Device Provisioning pour gérer l’inscription et la connexion des appareils à votre solution IoT basée sur IoT Hub. Pour plus d’informations, consultez [Provisionnement d’appareils avec le service Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md).
+[Azure IoT Central](#azure-iot-central) utilise le service Device Provisioning pour gérer toutes les inscriptions et connexions d’appareils. Pour plus d’informations, consultez [Connectivité des appareils dans Azure IoT Central](../iot-central/core/concepts-get-connected.md). Vous pouvez également utiliser le service Device Provisioning pour gérer l’inscription et la connexion des appareils à votre solution IoT basée sur IoT Hub. Pour plus d’informations, consultez [Provisionnement d’appareils avec le service Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md).
 
 ## <a name="device-registration"></a>Enregistrement de l’appareil
 

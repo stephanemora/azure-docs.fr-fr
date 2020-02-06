@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7547608e227ca6b8d57bc1d4384ccdee181d9970
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430855"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984946"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Configuration des paramètres de groupe avec les applets de commande Azure Active Directory
 
@@ -178,9 +178,9 @@ Voici les paramètres définis dans l’objet SettingsTemplate Group.Unified. Sa
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Mettez à jour le paramètre AllowAddGuests :
+4. Mettez à jour le paramètre AllowToAddGuests :
    ```powershell
-   $Setting["AllowAddGuests"] = $False
+   $Setting["AllowToAddGuests"] = $False
    ```  
 5. Appliquez le paramètre :
   
@@ -234,7 +234,7 @@ Les étapes suivantes permettent de lire les paramètres au niveau du répertoir
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowAddGuests              True
+   AllowToAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -271,7 +271,7 @@ Les étapes suivantes permettent de supprimer les paramètres au niveau du répe
 
 4. Définissez le paramètre sur la valeur requise :
    ```powershell
-   $SettingCopy["AllowAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. Obtenez l’ID du groupe auquel vous souhaitez appliquer ce paramètre :
    ```powershell
@@ -297,7 +297,7 @@ Les étapes suivantes permettent de supprimer les paramètres au niveau du répe
    ```
 3. Mettez à jour le paramètre du groupe dont vous avez besoin, par exemple
    ```powershell
-   $Setting["AllowAddGuests"] = $True
+   $Setting["AllowToAddGuests"] = $True
    ```
 4. Obtenez ensuite l’ID du paramètre pour ce groupe spécifique :
    ```powershell

@@ -9,6 +9,7 @@ manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +18,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350445"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897281"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
@@ -48,7 +49,7 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 
 **Métrique : Nombre total de demandes** : nombre total de demandes traitées par les serveurs AD FS.
 
-|Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
+|Regrouper par | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
 | Tous | Montre le nombre total de demandes traitées par tous les serveurs AD FS.|
 | Application | Regroupe la totalité des demandes en fonction de la partie de confiance cible. Ce regroupement permet de comprendre le pourcentage du trafic total reçu par chaque application. |
@@ -60,7 +61,7 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 
 **Métrique : Nombre total de requêtes échouées** : nombre total de requêtes échouées traitées par le service de fédération. (Cette métrique est disponible uniquement sur AD FS pour Windows Server 2012 R2)
 
-|Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
+|Regrouper par | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
 | Type d’erreur | Indique le nombre d’erreurs en fonction des types d’erreurs prédéfinis. Ce regroupement permet de mieux comprendre les types courants d’erreurs. <ul><li>Nom d’utilisateur ou mot de passe incorrect : erreurs dues à un nom d’utilisateur ou mot de passe incorrect.</li> <li>« Verrouillage extranet » : défaillances provoquées par les requêtes reçues d’un utilisateur ne disposant d’aucun accès à l’extranet. </li><li> « Mot de passe expiré » : défaillances provoquées par des utilisateurs se connectant avec des mots de passe expirés.</li><li>« Compte désactivé » : défaillances dues aux utilisateurs se connectant avec un compte désactivé.</li><li>« Authentification de l’appareil » : défaillances provoquées par les utilisateurs ne réussissant pas à s’authentifier à l’aide de l’authentification de l’appareil.</li><li>« Authentification par certificat utilisateur » : défaillances dues aux utilisateurs ne réussissant pas à se connecter à cause d’un certificat non valide.</li><li>« MFA » : défaillances dues aux utilisateurs ne réussissant pas à s’identifier à l’aide de l’authentification multifacteur (Multi Factor Authentication, MFA).</li><li>« Autres informations d’identification » : « Autorisation d’émission » : défaillances dues à des défauts d’autorisation.</li><li>« Délégation d’émission » : défaillances dues à des erreurs de délégation d’émission.</li><li>« Acceptation de jetons » : défaillances dues au rejet par ADFS du jeton d’un fournisseur d’identité tiers.</li><li>« Protocole » : défaillances dues à des erreurs de protocoles.</li><li>« Inconnu » : intercepte tout. Toutes les autres défaillances qui n’entrent pas dans les catégories définies.</li> |
 | Serveur | Regroupe les erreurs en fonction du serveur. Ce regroupement permet de mieux comprendre la distribution des erreurs entre les serveurs. Une distribution inégale peut indiquer qu’un serveur présente un état défectueux. |
@@ -69,7 +70,7 @@ Pour sélectionner des mesures supplémentaires, spécifiez un intervalle de tem
 
 **Métrique : Nombre d’utilisateurs** : nombre moyen d’utilisateurs uniques qui utilisent activement l’authentification AD FS
 
-|Regroupement | En quoi consiste le regroupement ? Quel est son intérêt ? |
+|Regrouper par | En quoi consiste le regroupement ? Quel est son intérêt ? |
 | --- | --- |
 |Tous |Cette mesure fournit le nombre moyen de personnes utilisant le service de fédération durant l’intervalle sélectionné. Les utilisateurs ne sont pas regroupés. <br>La moyenne dépend de la tranche horaire sélectionnée. |
 | Application |Regroupe le nombre moyen d’utilisateurs sur l’application cible (partie de confiance). Ce regroupement procure une plus grande visibilité sur le nombre d’utilisateurs exécutant chaque application. |

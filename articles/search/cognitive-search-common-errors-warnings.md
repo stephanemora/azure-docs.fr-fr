@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314723"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838545"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Résoudre les erreurs et les avertissements courants de l’indexeur dans la Recherche cognitive Azure
 
@@ -249,7 +249,7 @@ Si vous savez que votre jeu de données contient plusieurs langues et que vous a
 ```
 
 Voici quelques références pour les langues actuellement prises en charge pour chacune des compétences qui peuvent générer ce message d'erreur :
-* [Langues prises en charge pour l'analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (pour [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) et [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Langues prises en charge pour l'analyse de texte](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (pour [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md) et [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Langues prises en charge par le traducteur](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (pour [Text TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) - langues prises en charge : `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -303,7 +303,7 @@ Le [service Stockage Table](https://azure.microsoft.com/services/storage/tables)
 <a name="truncated-extracted-text-to-x-characters"/>
 
 ## <a name="warning-truncated-extracted-text-to-x-characters"></a>Avertissement : Texte extrait tronqué à X caractères
-Les indexeurs limitent la quantité de texte qui peut être extraite d’un document. Cette limite dépend du niveau tarifaire : 32 000 caractères pour le niveau gratuit, 64 000 pour le niveau De base et 4 millions pour les niveaux Standard, Standard S2 et Standard S3. Le texte qui a été tronqué ne sera pas indexé. Pour éviter cet avertissement, essayez en scindant les documents avec de grandes quantités de texte en plusieurs documents plus petits. 
+Les indexeurs limitent la quantité de texte qui peut être extraite d’un document. Cette limite dépend du niveau tarifaire : 32 000 caractères pour le niveau Gratuit, 64 000 pour le niveau De base, 4 millions pour le niveau Standard, 8 millions pour le niveau Standard S2 et 16 millions pour le niveau Standard S3. Le texte qui a été tronqué ne sera pas indexé. Pour éviter cet avertissement, essayez en scindant les documents avec de grandes quantités de texte en plusieurs documents plus petits. 
 
 Pour plus d’informations, consultez [Limites des indexeurs](search-limits-quotas-capacity.md#indexer-limits).
 

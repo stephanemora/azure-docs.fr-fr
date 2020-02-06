@@ -1,6 +1,6 @@
 ---
 title: Séquencement et horodatage des messages Azure Service Bus | Microsoft Docs
-description: Conserver la séquence des messages Service Bus et ordonner les messages avec des horodatages
+description: Cet article explique comment conserver le séquencement et le classement (avec timestamps) des messages Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402715"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756315"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Séquencement et horodatage des messages
 

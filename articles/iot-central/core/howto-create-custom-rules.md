@@ -3,20 +3,22 @@ title: Étendre Azure IoT Central avec des notifications et des règles personna
 description: En tant que développeur de solutions, configurez une application IoT Central afin d’envoyer des notifications par e-mail lorsqu’un appareil cesse d’envoyer des données de télémétrie. Cette solution utilise Azure Stream Analytics, Azure Functions et SendGrid.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 541cbc0c34a691f51c1a3a53f71920379c447f5d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435001"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022441"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Étendre Azure IoT Central avec des règles personnalisées à l’aide de Stream Analytics, d’Azure Functions et de SendGrid
+
+
 
 Ce guide pratique vous montre comment étendre votre application IoT Central en tant que développeur de solutions avec des notifications et des règles personnalisées. L’exemple montre l’envoi d’une notification à un opérateur lorsqu’un appareil cesse d’envoyer des données de télémétrie. La solution utilise une requête [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) pour détecter le moment où un appareil a arrêté d’envoyer des données de télémétrie. Le travail Stream Analytics utilise [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) pour envoyer des notifications par e-mail via [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
@@ -40,15 +42,17 @@ Créez une application IoT Central sur le site web [Gestionnaire d’application
 
 | Paramètre | Valeur |
 | ------- | ----- |
-| Plan de paiement | Pay-As-You-Go |
-| Modèle d’application | Application héritée |
+| Plan tarifaire | standard |
+| Modèle d’application | Analytique en magasin – Monitorage des conditions |
 | Nom de l'application | Acceptez la valeur par défaut ou choisissez votre propre nom |
 | URL | Acceptez la valeur par défaut ou choisissez votre propre préfixe d’URL unique |
 | Répertoire | Votre locataire Azure Active Directory |
 | Abonnement Azure | Votre abonnement Azure |
-| Région | États-Unis |
+| Région | Région la plus proche |
 
 Les exemples et captures d’écran de cet article concernent la région **États-Unis**. Choisissez un emplacement proche de vous et assurez-vous de créer toutes vos ressources dans la même région.
+
+Ce modèle d’application comprend deux appareils à thermostat simulés qui envoient des données de télémétrie.
 
 ### <a name="resource-group"></a>Resource group
 
@@ -237,7 +241,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 
 La solution utilise une requête Stream Analytics pour détecter le moment où un appareil a arrêté d’envoyer des données de télémétrie pendant plus de 120 secondes. La requête utilise les données de télémétrie de l’Event Hub comme entrée. Le travail envoie les résultats de la requête à l’application de fonction. Dans cette section, vous configurez un travail Azure Stream Analytics :
 
-1. Dans le portail Azure, accédez à votre travail Stream Analytics, sous **Topologie des travaux**, sélectionnez **Entrées**, puis **+ Ajouter une entrée de flux** et sélectionnez **Event Hub**.
+1. Sur le Portail Azure, accédez à votre travail Stream Analytics ; sous **Topologie des travaux**, sélectionnez **Entrées**, puis **+ Ajouter une entrée de flux** et enfin **Event Hub**.
 1. Utilisez les informations dans le tableau suivant pour configurer l’entrée à l’aide de l’Event Hub que vous avez créé précédemment, puis choisissez **Enregistrer** :
 
     | Paramètre | Valeur |
@@ -307,7 +311,7 @@ La solution utilise une requête Stream Analytics pour détecter le moment où u
 
 Sur le site web [Gestionnaire d’applications Azure IoT Central](https://aka.ms/iotcentral), accédez à l’application IoT Central que vous avez créée à partir du modèle Contoso. Dans cette section, vous allez configurer l’application pour diffuser les données de télémétrie depuis ses appareils simulés vers votre Event Hub. Pour configurer l’exportation :
 
-1. Accédez à la page **Exportation de données continue**, sélectionnez **+ Nouveau**, puis **Azure Event Hubs**.
+1. Accédez à la page **Exportation de données**, sélectionnez **+ Nouveau**, puis **Azure Event Hubs**.
 1. Utilisez les paramètres suivants pour configurer l’exportation, puis sélectionnez **Enregistrer** :
 
     | Paramètre | Valeur |
@@ -328,15 +332,15 @@ Attendez que l’état de l’exportation soit **En cours d’exécution** avant
 
 Pour tester la solution, vous pouvez désactiver l’exportation de données continue depuis IoT Central vers les appareils arrêtés simulés :
 
-1. Dans votre application IoT Central, accédez à la page **Exportation de données continue** et sélectionnez la configuration d’exportation **Exporter vers Event Hubs**.
+1. Dans votre application IoT Central, accédez à la page **Exportation de données** et sélectionnez la configuration d’exportation **Exporter vers Event Hubs**.
 1. Définissez l’option **Activer** sur **Non**, puis cliquez sur **Enregistrer**.
 1. Après au moins deux minutes, l’adresse de **destination** recevra au moins un e-mail similaire à l’exemple de contenu suivant :
 
     ```txt
     The following device(s) have stopped sending telemetry:
 
-    Device ID   Time
-    7b169aee-c843-4d41-9f25-7a02671ee659    2019-05-09T14:28:59.954Z
+    Device ID         Time
+    Thermostat-Zone1  2019-11-01T12:45:14.686Z
     ```
 
 ## <a name="tidy-up"></a>Nettoyer

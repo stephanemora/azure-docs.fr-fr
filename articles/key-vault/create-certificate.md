@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26309bb9a7b9785dbac7f42b0c20de99bca10a17
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884148"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769240"
 ---
 # <a name="certificate-creation-methods"></a>Méthodes de création de certificats
 
@@ -41,10 +41,10 @@ Les descriptions suivantes correspondent aux étapes écrites en vert dans le di
 Les descriptions suivantes correspondent aux étapes écrites en vert dans le diagramme précédent.
 
 1. Dans le diagramme ci-dessus, votre application crée un certificat qui commence en interne par la création d’une clé dans votre coffre de clés.
-2. Key Vault envoie une demande de certificat SSL à l’autorité de certification.
+2. Key Vault envoie une demande de certificat TSL/SSL à l’autorité de certification.
 3. Votre application interroge, dans un processus boucle et attente, votre instance Key Vault pour savoir si la création du certificat est terminée. La création de certificats est terminée lorsque Key Vault reçoit la réponse de l’autorité de certification avec un certificat X509.
-4. L’autorité de certification répond à la demande de certificat SSL de Key Vault avec un certificat SSL X509.
-5. La création de votre nouveau certificat se termine avec la fusion du certificat X509 pour l’autorité de certification.
+4. L’autorité de certification répond à la demande de certificat TSL/SSL de Key Vault avec un certificat X509 TSL/SSL.
+5. La création de votre nouveau certificat se termine avec la fusion du certificat X.509 TSL/SSL pour l’autorité de certification.
 
 ## <a name="asynchronous-process"></a>Processus asynchrone
 La création du certificat KV est un processus asynchrone. Cette opération crée une demande de certificat KV et retourne un code d’état HTTP 202 (Accepté). Vous pouvez suivre l’état de la demande en interrogeant l’objet en attente créé par cette opération. L’URI complet de l’objet en attente est retourné dans l’en-tête EMPLACEMENT.  

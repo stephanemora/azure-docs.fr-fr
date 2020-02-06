@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d56504c96c5e039f2563a1bfee577fe9b15e8563
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513731"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715565"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtenir des données de capteur auprès de partenaires de capteur
 
@@ -37,9 +37,7 @@ Après avoir démarré le streaming des données de capteur, vous pouvez commenc
  - Clé secrète client
  - Chaîne de connexion du hub d’événements
 
-Les informations précédentes sont fournies par votre intégrateur système. Pour tout problème susceptible de se présenter lors de l’activation de l’intégration des appareils, contactez votre intégrateur système.
-
-Vous pouvez également générer les informations d’identification en exécutant ce script à partir d’Azure Cloud Shell. Effectuez les opérations suivantes.
+Vous pouvez générer les informations ci-dessus en procédant comme suit : (Veuillez noter que ces étapes doivent être effectuées sur Azure, vous aurez donc besoin d’accéder à l’abonnement Azure sur lequel FarmBeats est déployé.)
 
 1. Téléchargez le [fichier zip](https://aka.ms/farmbeatspartnerscriptv2) et extrayez-le sur votre lecteur local. Il y aura un fichier dans le fichier zip.
 2. Connectez-vous à https://portal.azure.com/ et accédez à Azure Active Directory -> Inscriptions d’applications.
@@ -74,13 +72,16 @@ Vous pouvez également générer les informations d’identification en exécuta
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Intégrer des données d’appareil avec des informations d’identification générées
 
-Accédez au portail du partenaire d’appareil pour lier FarmBeats en utilisant des informations d’identification générées à la section précédente :
-
+Vous disposez maintenant des informations suivantes générées à partir de la section précédente.
  - Point de terminaison d’API
  - Chaîne de connexion du hub d’événements
  - ID client
  - Clé secrète client
  - ID client
+ 
+Vous devrez le fournir à votre partenaire d’appareil pour lier FarmBeats. Accédez au portail du partenaire d’appareil pour faire de même. Par exemple, si vous utilisez des appareils de Davis Instruments, accédez à la page ci-dessous :
+
+[Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
 
  Le fournisseur d’appareil confirme la réussite de l’intégration. Une fois cette confirmation effectuée, vous pouvez voir tous les appareils et capteurs dans Azure FarmBeats.
 

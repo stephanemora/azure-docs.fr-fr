@@ -4,17 +4,17 @@ description: Architectures pour utiliser Azure Batch et d’autres services Azur
 services: batch
 ms.service: batch
 author: davefellows
-manager: gwallace
-ms.author: jushiman
+manager: evansma
+ms.author: labrenne
 ms.date: 02/07/2019
 ms.topic: conceptual
 ms.custom: seodec18
-ms.openlocfilehash: a04f59983aca4b7db1a58ab4e8b8a2da47a52783
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 20442a6618ca9357bb3be95879b68bffca45a40d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026296"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022951"
 ---
 # <a name="reference-architectures-for-azure-rendering"></a>Architectures de référence pour le rendu Azure
 

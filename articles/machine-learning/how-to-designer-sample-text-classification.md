@@ -5,25 +5,25 @@ description: Générez un classifieur par régression logistique multiclasse afi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311034"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963239"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Générez un classifieur pour prédire la catégorie d’entreprise à l’aide du concepteur Azure Machine Learning.
 
-**Exemple de concepteur 7**
+**Exemple 7 du concepteur (préversion)**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Cet exemple montre comment utiliser des modules d’analytique de texte pour générer un pipeline de classification de texte dans le concepteur Azure Machine Learning.
+Cet exemple montre comment utiliser des modules d’analytique de texte pour générer un pipeline de classification de texte dans le concepteur Azure Machine Learning (préversion).
 
 L’objectif de la classification de texte est d’affecter un texte à une ou plusieurs classes ou catégories prédéfinies. Il peut s’agir d’un document, d’un article de presse, d’une requête de recherche, d’un e-mail, d’un tweet, de tickets de support, d’un commentaire de client, d’une évaluation de produit par utilisateur, etc. Les applications de classification de texte incluent la catégorisation d’articles de presse et de contenus de fils d’actualités en rubriques, en organisant les pages web en catégories hiérarchiques, en filtrant le courrier indésirable, en analysant les sentiments, en prédisant l’intention des utilisateurs à partir de requêtes de recherche, en routant des tickets de support et analysant les commentaires des clients. 
 

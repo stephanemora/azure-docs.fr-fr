@@ -2,7 +2,7 @@
 title: Activer la journalisation des diagnostics dans Azure Traffic Manager
 description: Découvrez comment activer la journalisation des diagnostics pour votre profil Traffic Manager et accéder aux fichiers journaux créés par la suite.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
-ms.author: allensu
-ms.openlocfilehash: b2ebeb41e69b7edfd43c38cc3b828069a1b3401a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 0ed2ecef86795f62aa3fe5798dcd0d07adbaf9cc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071241"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938674"
 ---
 # <a name="enable-diagnostic-logging-in-azure-traffic-manager"></a>Activer la journalisation des diagnostics dans Azure Traffic Manager
 
@@ -55,7 +55,7 @@ Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https:/
       Veillez à ce que toutes les catégories de journaux activées associées à la ressource de profil Traffic Manager s’affichent correctement. Vérifiez aussi que le compte de stockage est correctement configuré.
 
 ## <a name="access-log-files"></a>Accéder aux fichiers journaux
-1. Connectez-vous au [Portail Azure](https://portal.azure.com). 
+1. Connectez-vous au [portail Azure](https://portal.azure.com). 
 1. Accédez à votre compte de stockage Azure dans le portail.
 2. Dans la page **Vue d’ensemble** de votre compte de stockage Azure, sous **Services**, sélectionnez **Objets blob**.
 3. Pour **Conteneurs**, sélectionnez **insights-logs-probehealthstatusevents**, puis accédez au fichier PT1H.json et cliquez sur **Télécharger** pour télécharger et enregistrer une copie de ce fichier journal.
@@ -72,8 +72,8 @@ Le tableau suivant inclut le schéma des journaux d’activité propre à la res
 |||||
 |----|----|---|---|
 |**Nom du champ**|**Type de champ**|**Définition**|**Exemple**|
-|EndpointName|Chaîne|Nom du point de terminaison Traffic Manager dont l’état d’intégrité est en cours d’enregistrement.|*myPrimaryEndpoint*|
-|Statut|Chaîne|État d’intégrité du point de terminaison Traffic Manager qui a été sondé. L’état peut être **Up** (sain) ou **Down** (non opérationnel).|**Haut**|
+|EndpointName|String|Nom du point de terminaison Traffic Manager dont l’état d’intégrité est en cours d’enregistrement.|*myPrimaryEndpoint*|
+|Statut|String|État d’intégrité du point de terminaison Traffic Manager qui a été sondé. L’état peut être **Up** (sain) ou **Down** (non opérationnel).|**Haut**|
 |||||
 
 ## <a name="next-steps"></a>Étapes suivantes

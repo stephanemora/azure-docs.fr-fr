@@ -252,9 +252,13 @@
           href: backup-azure-backup-cloud-as-tape.md
     - name: Sauvegarde hors connexion
       items:
-        - name: Configurer la sauvegarde hors connexion
+        - name: Vue d’ensemble
+          href: offline-backup-overview.md
+        - name: Sauvegarde hors connexion avec Azure Data Box
+          href: offline-backup-azure-data-box.md
+        - name: Sauvegarde hors connexion avec Import/Export (MARS)
           href: backup-azure-backup-import-export.md
-        - name: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
+        - name: Sauvegarde hors connexion avec Import/Export (DPM/MABS)
           href: backup-azure-backup-server-import-export-.md
     - name: Supervision et alertes
       items:

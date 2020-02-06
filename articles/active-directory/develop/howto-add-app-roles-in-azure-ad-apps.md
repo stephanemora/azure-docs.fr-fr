@@ -14,13 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c042cf22334a0163cd5b89e556210db0cd5c15f4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 5400ede4f3afd9f94d7380c6dfd55d8aa45d08ca
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888771"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834244"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procédure : Ajouter des rôles d’application dans votre application et les recevoir dans le jeton
 
@@ -45,7 +44,7 @@ Ces rôles d’application sont définis dans le [portail Azure](https://portal.
 1. Modifiez le manifeste d’application en recherchant le paramètre `appRoles` et en ajoutant tous vos rôles d'application.
 
      > [!NOTE]
-     > Chaque définition de rôle d’application dans ce manifeste doit avoir un GUID valide différent pour la propriété `id`. 
+     > Chaque définition de rôle d’application dans ce manifeste doit avoir un GUID valide différent dans le contexte du manifeste pour la propriété `id`.    
      > 
      > La propriété `value` de chaque définition de rôle d’application doit correspondre exactement aux chaînes qui sont utilisées dans le code de l’application. La propriété `value` ne peut pas contenir d’espaces. Si tel est le cas, vous recevrez une erreur lors de l’enregistrement du manifeste.
      

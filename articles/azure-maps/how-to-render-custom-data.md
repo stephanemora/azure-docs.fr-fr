@@ -3,18 +3,18 @@ title: Afficher des données personnalisées sur une carte raster | Microsoft Az
 description: Dans cet article, vous allez apprendre à afficher des données personnalisées sur une carte raster à l’aide du service d’image statique Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/29/2019
+ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911469"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766016"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Afficher des données personnalisées sur une carte raster
 
@@ -29,7 +29,7 @@ Pour afficher une superposition géométrique, des étiquettes et des repères p
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps
 
-Pour accomplir les procédures de cet article, vous devez d’abord créer un compte Azure Maps et obtenir la clé de compte Maps. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps, puis effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
+Pour accomplir les procédures de cet article, vous devez d’abord créer un compte Azure Maps et obtenir votre clé de compte Maps. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps, puis effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Afficher des repères avec des étiquettes et une image personnalisée
@@ -43,7 +43,7 @@ Pour afficher les repères avec les étiquettes et une image personnalisée, eff
 
 1. Créez une collection dans laquelle stocker les demandes. Dans l’application Postman, sélectionnez **New** (Nouveau). Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Collection**. Nommez la collection puis sélectionnez le bouton **Create** (Créer). 
 
-2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Saisissez un **Nom de demande** pour les repères, sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la requête, puis sélectionnez **Save** (Enregistrer).
+2. Pour créer la demande, sélectionnez **New** à nouveau. Dans la fenêtre **Create New** (Créer nouveau), sélectionnez **Request** (Demande). Entrez un **Request name** (Nom de demande) pour les clics-infos. Sélectionnez la collection que vous avez créée à l’étape précédente comme emplacement dans lequel enregistrer la requête, puis sélectionnez **Save** (Enregistrer).
     
     ![Créer une demande dans Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -142,13 +142,13 @@ Vous pouvez aussi obtenir les informations sur le chemin et l’emplacement du r
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Copiez l’URI d’état et ajoutez-lui le paramètre abonnement-clé. La valeur de ce paramètre doit correspondre à la clé d’abonnement de votre compte Azure Maps, que vous avez utilisée pour charger les données. L’URI d’état doit se présenter comme suit :
+5. Copiez votre URI d’état et ajoutez-lui un paramètre de clé d’abonnement. La valeur de ce paramètre doit correspondre à la clé d’abonnement de votre compte Azure Maps. Utilisez la clé d’abonnement de compte que vous avez utilisée pour charger les données. L’URI d’état doit se présenter comme suit :
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Pour obtenir l’udId, ouvrez un nouvel onglet dans l’application Postman, sélectionnez la méthode GET HTTP sous l’onglet Builder (Générateur) et effectuez une requête GET sur l’URI d’état. Si le chargement de données réussit, vous recevez un udId dans le corps de la réponse. Copiez l’udId.
+6. Pour obtenir l’udId, ouvrez un nouvel onglet dans l’application Postman, sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur) et effectuez une requête GET sur l’URI d’état. Si le chargement de données réussit, vous recevez un udId dans le corps de la réponse. Copiez l’udId.
 
    ```JSON
    {
@@ -156,7 +156,7 @@ Vous pouvez aussi obtenir les informations sur le chemin et l’emplacement du r
    }
    ```
 
-7. Utilisez la valeur `udId` reçue de l’API de chargement des données pour afficher les fonctions sur la carte. Pour ce faire, ouvrez un nouvel onglet dans la collection que vous avez créée dans la section précédente. Sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur), puis entrez cette URL pour envoyer une requête GET :
+7. Utilisez la valeur `udId` reçue de l’API de chargement des données pour afficher les fonctions sur la carte. Pour ce faire, ouvrez un nouvel onglet dans la collection que vous avez créée dans la section précédente. Sélectionnez la méthode HTTP GET sous l’onglet Builder (Générateur), remplacez {subscription-key} et {udId} par vos valeurs, puis entrez cette URL pour effectuer une requête GET :
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -192,7 +192,7 @@ Vous pouvez modifier l’apparence d’un polygone en utilisant des modificateur
 > La réalisation de cette procédure nécessite un compte Azure Maps dans le niveau tarifaire S1.
 
 
-Vous pouvez augmenter ou diminuer la taille des repères, ainsi que celle de leurs étiquettes à l’aide du modificateur de style de l’échelle `sc`. Ce modificateur accepte une valeur supérieure à zéro. La valeur 1 représente l’échelle standard. Les valeurs supérieures à 1 agrandissent les repères tandis que les valeurs qui lui sont inférieures les diminuent. Pour plus d’informations sur les modificateurs de style, consultez [Paramètres du chemin du service d’image statique](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Vous pouvez modifier l’apparence des repères en ajoutant des modificateurs de style. Par exemple, pour augmenter ou diminuer la taille des clics-infos et de leurs étiquettes, utilisez le modificateur de « style de l’échelle » `sc`. Ce modificateur accepte une valeur supérieure à zéro. La valeur 1 représente l’échelle standard. Les valeurs supérieures à 1 agrandissent les repères tandis que les valeurs qui lui sont inférieures les diminuent. Pour plus d’informations sur les modificateurs de style, consultez [Paramètres du chemin du service d’image statique](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Suivez ces étapes pour afficher un cercle et des repères avec des étiquettes personnalisées :
@@ -206,6 +206,18 @@ Suivez ces étapes pour afficher un cercle et des repères avec des étiquettes 
     Voici l’image de la réponse :
 
     ![Afficher un cercle avec des repères personnalisés](./media/how-to-render-custom-data/circle-custom-pins.png)
+
+2. Pour modifier la couleur des clics-infos à partir de la dernière étape, changez le modificateur de style « co ». Examinez `pins=default|la15+50|al0.66|lc003C62|co002D62|`, la couleur actuelle est spécifiée comme étant #002D62 dans CSS. Supposons que vous souhaitez la remplacer par #41d42a. Écrivez la nouvelle valeur de la couleur après le spécificateur « co », comme suit : `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Créez une nouvelle requête GET :
+
+    ```HTTP
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    ```
+
+    Voici l’image de réponse après avoir modifié les couleurs des repères :
+
+    ![Afficher un cercle avec des clics-infos mis à jour](./media/how-to-render-custom-data/circle-updated-pins.png)
+
+De même, vous pouvez modifier, ajouter et supprimer d’autres modificateurs de style.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

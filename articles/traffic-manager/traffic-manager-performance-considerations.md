@@ -3,24 +3,24 @@ title: Considérations sur les performances d’Azure Traffic Manager | Microsof
 description: Comprendre les performances sur Traffic Manager et comment tester les performances de votre site Web lors de l’utilisation de Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071058"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938541"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considérations sur les performances de Traffic Manager
 
-Cette page explique les considérations relatives aux performances de Traffic Manager. Examinez le scénario suivant :
+Cette page explique les considérations relatives aux performances de Traffic Manager. Examinez le cas suivant :
 
 Vous avez des instances de votre site web dans les régions WestUS et EastAsia. Une des instances ne réussit pas la vérification d’intégrité du sondage Traffic Manager. Le trafic de l’application est dirigé vers la région saine. Ce basculement est attendu, mais les performances peuvent constituer un problème en fonction de la latence du trafic qui transite maintenant vers une région distante.
 

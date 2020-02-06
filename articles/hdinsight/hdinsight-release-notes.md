@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/24/2020
+ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027758"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844681"
 ---
 # <a name="release-notes"></a>Notes de publication
 
@@ -23,7 +23,7 @@ Cet article fournit des informations sur les mises à jour **les plus récentes*
 
 Azure HDInsight est l’un des services les plus populaires parmi les clients d’entreprise pour l’analytique open source sur Azure.
 
-## <a name="release-date-01092019"></a>Date de publication : 09/01/2019
+## <a name="release-date-01092020"></a>Date de publication : 09/01/2020
 
 Cette version s’applique à la fois à HDInsight 3.6 et 4.0. La version HDInsight est mise à disposition dans toutes les régions sur plusieurs jours. La date de publication mentionnée ici indique la date de publication dans la première région. Si vous ne voyez pas les modifications ci-dessous, veuillez attendre quelques jours pour que la mise en production soit active dans votre région.
 
@@ -65,3 +65,34 @@ HDInsight continue à améliorer la fiabilité et les performances des clusters.
 
 ## <a name="component-version-change"></a>Changement de la version des composants
 Aucune modification de la version des composants pour cette version. Vous pouvez trouver les versions actuelles des composants pour HDInsight 4.0 et HDInsight 3.6 ici.
+
+## <a name="known-issues"></a>Problèmes connus
+
+Depuis le 24 janvier 2020, il existe un problème lors duquel vous pouvez recevoir une erreur quand vous tentez d’utiliser un notebook Jupyter. Pour résoudre ce problème, effectuez les étapes ci-dessous. Vous pouvez également vous reporter à ce [billet MSDN](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) ou à ce [billet StackOverflow](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) pour obtenir des informations à jour ou poser des questions. Cette page sera mise à jour lorsque le problème sera résolu.
+
+**Erreurs**
+
+* ValueError : Impossible de convertir le notebook vers la version V5, car cette version n’existe pas
+* Erreur lors du chargement du notebook. Une erreur inconnue s’est produite lors du chargement de ce notebook. Cette version peut charger des notebooks aux formats v4 et antérieurs
+
+**Cause** 
+
+Le fichier _version.py du cluster a été mis à jour vers la version 5.x.x au lieu de la version 4.4.x.##.
+
+**Solution**
+
+Si vous recevez l’une des erreurs listées ci-dessus lors de la création d’un notebook Jupyter, procédez comme suit pour résoudre le problème.
+
+1. Ouvrez Ambari dans un navigateur web en accédant à https://CLUSTERNAME.azurehdinsight.net, où CLUSTERNAME correspond au nom de votre cluster.
+1. Dans Ambari, dans le menu de gauche, cliquez sur **Jupyter**, puis, dans **Service Actions** (Actions du service), cliquez sur **Stop** (Arrêter).
+1. Connectez-vous avec SSH au nœud principal du cluster où est exécuté le service Jupyter.
+1. Ouvrez le fichier /usr/bin/anaconda/lib/python2.7/site-packages/nbformat/_version.py en mode sudo.
+1. L’entrée existante doit être similaire au code suivant : 
+
+    version_info = (5, 0, 3)
+
+    Remplacez l’entrée par : 
+    
+    version_info = (4, 4, 0)
+1. Enregistrez le fichier .
+1. Revenez à Ambari puis, dans **Service Actions** (Actions du service), cliquez sur **Restart All** (Tout redémarrer).

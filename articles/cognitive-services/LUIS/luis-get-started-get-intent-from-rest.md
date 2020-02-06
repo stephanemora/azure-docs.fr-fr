@@ -1,31 +1,23 @@
 ---
 title: 'Démarrage rapide : Reconnaître une intention avec des API REST - LUIS'
-titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide avec une API REST, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir d’un texte de conversation.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
-ms.author: diberry
+ms.date: 02/03/2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 3a8badb74bb8919876f3c0670d785f44fbcbb397
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 50d2161dc0fa738a70476fa3a9327d9d720e7c15
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499672"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987766"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>Démarrage rapide : Reconnaître une intention avec des API REST
 
-Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. Envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application. 
+Dans ce démarrage rapide, utilisez une application LUIS publique disponible pour déterminer l’intention d’un utilisateur à partir du texte conversationnel. Envoyez l’intention de l’utilisateur sous forme de texte au point de terminaison de prédiction HTTP de l’application publique. Au niveau du point de terminaison, LUIS applique le modèle de l’application publique pour analyser le sens du texte en langage naturel, déterminer l’intention globale et extraire les données pertinentes pour le domaine de l’application.
 
 Ce guide de démarrage rapide utilise l’API REST de point de terminaison. Pour plus d’informations, consultez la [documentation de l’API de point de terminaison](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78).
 
-Pour cet article, vous avez besoin d’un compte [LUIS](https://www.luis.ai) gratuit. 
+Pour cet article, vous avez besoin d’un compte [LUIS](https://www.luis.ai) gratuit.
 
 <a name="create-luis-subscription-key"></a>
 

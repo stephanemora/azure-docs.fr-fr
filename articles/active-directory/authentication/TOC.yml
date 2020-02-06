@@ -4,16 +4,13 @@
   items:
     - name: Qu’est-ce que l’authentification ?
       href: overview-authentication.md
-- name: Démarrage rapide
-  items:
-    - name: Configurer la réinitialisation du mot de passe
-      href: quickstart-sspr.md
 - name: Tutoriels
+  expanded: true
   items:
-    - name: 1 Activer l’authentification multifacteur (MFA) pour les applications
+    - name: Activer la réinitialisation du mot de passe libre-service
+      href: tutorial-enable-sspr.md
+    - name: Activer l’authentification multifacteur (MFA) pour les applications
       href: tutorial-mfa-applications.md
-    - name: 2 Activer un pilote SSPR
-      href: tutorial-sspr-pilot.md
     - name: Activer l’intégration locale SSPR
       href: tutorial-enable-writeback.md
     - name: Intégrer Azure Identity Protection

@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dcc2d6fc252f288f15e2583012798b4d0e9cee6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169436"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841963"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Configurer l’authentification unique SAML pour des applications non issues de la galerie
 
@@ -26,7 +26,7 @@ Lorsque vous [ajoutez une application galerie](add-gallery-app.md) ou une [appli
 > [!NOTE]
 > Vous ajoutez application de la galerie ? Découvrez des instructions de configuration pas à pas dans la [liste des tutoriels sur les applications SaaS](../saas-apps/tutorial-list.md)
 
-Si vous voulez configurer l’authentification unique SAML pour une application non issue de la galerie sans écrire de code, vous devez disposer d’un abonnement ou d’Azure AD Premium. De plus, l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+Si vous voulez configurer l’authentification unique SAML pour une application non issue de la galerie sans écrire de code, vous devez disposer d’un abonnement et d’une licence Azure AD Premium. De plus, l’application doit prendre en charge SAML 2.0. Pour plus d’informations sur les versions d’Azure AD, consultez [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -70,11 +70,11 @@ Lorsqu’un utilisateur s’authentifie auprès de l’application, Azure AD ém
 
 2. Vérifiez la **Valeur de nom d’identificateur**. La valeur par défaut est *utilisateur.nom_principal*. L’identificateur d’utilisateur identifie de façon unique chaque utilisateur au sein de l’application. Par exemple, si l’adresse e-mail est le nom d’utilisateur et l’identificateur unique, définissez la valeur sur *user.mail*.
 
-3. Pour modifier la **Valeur d’identificateur de nom**, sélectionnez l’icône **Modifier** (crayon) pour le champ **Valeur d’identificateur de nom**. Apportez les modifications appropriées au format de l’identificateur et à la source. Pour plus d’informations, consultez [Modification de NameID](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Quand vous avez terminé, enregistrez les modifications. 
+3. Pour modifier la **Valeur d’identificateur de nom**, sélectionnez l’icône **Modifier** (crayon) pour le champ **Valeur d’identificateur de nom**. Apportez les modifications appropriées au format de l’identificateur et à la source. Pour plus d’informations, consultez [Modification de NameID](../develop/active-directory-saml-claims-customization.md#editing-nameid). Quand vous avez terminé, enregistrez les modifications. 
  
 4. Pour configurer des revendications de groupe, sélectionnez l’icône **Modifier** pour le champ **Groupes retournés dans la revendication**. Pour plus d’informations, consultez [Configurer des revendications de groupe](../hybrid/how-to-connect-fed-group-claims.md).
 
-5. Pour ajouter une revendication, sélectionnez **Ajouter une nouvelle revendication** en haut de la page. Entrez le **Nom** et sélectionnez la source appropriée. Si vous sélectionnez la source **Attribut**, vous devez choisir **l’attribut Source** à utiliser. Si vous sélectionnez la source **Translation**, vous devez choisir les éléments **Transformation** et **Parameter 1** à utiliser. Pour plus d’informations, consultez [Ajout de revendications spécifiques à l’application](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Quand vous avez terminé, enregistrez les modifications. 
+5. Pour ajouter une revendication, sélectionnez **Ajouter une nouvelle revendication** en haut de la page. Entrez le **Nom** et sélectionnez la source appropriée. Si vous sélectionnez la source **Attribut**, vous devez choisir **l’attribut Source** à utiliser. Si vous sélectionnez la source **Translation**, vous devez choisir les éléments **Transformation** et **Parameter 1** à utiliser. Pour plus d’informations, consultez [Ajout de revendications spécifiques à l’application](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Quand vous avez terminé, enregistrez les modifications. 
 
 6. Sélectionnez **Enregistrer**. La nouvelle revendication s’affiche dans la table.
 
@@ -120,7 +120,7 @@ Depuis Azure AD, vous pouvez télécharger le certificat actif au format Base64 
 
 4. Si vous avez effectué des modifications, sélectionnez **Enregistrer** en haut de la section **Certificat de signature SAML**. 
 
-## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Étape 4. Configurer l’application pour utiliser Azure AD
+## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>Étape 4. Configurer l’application pour utiliser Azure AD
 
 La section **Configurer\<nom_application** liste les valeurs qui doivent être configurées dans l’application afin qu’elle utilise Azure AD comme fournisseur d’identité SAML. Les valeurs requises dépendent de l’application. Pour plus d’informations, consultez la documentation SAML de l’application. Pour trouver la documentation, accédez à la rubrique **Configurer \<nom de l’application>** et sélectionnez **Afficher les instructions détaillées**. La documentation s’affiche dans la page **Configurer l’authentification**. Cette page vous aide à renseigner l’**URL de connexion**, l’**Identificateur Azure AD** et l’**URL de déconnexion** dans la rubrique **Configurer \<nom de l’application >** .
 
@@ -150,7 +150,7 @@ Si un message d’erreur apparaît, effectuez les étapes suivantes :
 
 1. Copiez et collez les détails dans la case **À quoi ressemble l’erreur ?** .
 
-    ![Obtenir l’aide de résolution](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Obtenir l’aide de résolution](media/configure-single-sign-on-non-gallery-applications/error-guidance.png)
 
 2. Sélectionnez **Obtenir l’aide de résolution**. L’aide de résolution et de la cause racine apparaît.  Dans cet exemple, l’utilisateur n’était pas affecté à l’application.
 

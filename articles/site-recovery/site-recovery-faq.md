@@ -2,14 +2,14 @@
 title: Questions générales sur le service Azure Site Recovery
 description: Cet article traite des questions générales fréquemment posées sur Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863561"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760349"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Questions générales sur Azure Site Recovery
 
@@ -147,7 +147,7 @@ Azure Site Recovery réplique des données vers un compte de stockage Azure ou d
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Pourquoi ne puis-je pas répliquer via VPN ?
 
-Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un stockage Azure. Par conséquent, vous pouvez uniquement répliquer sur l’internet public avec ExpressRoute (peering Microsoft ou peering public existant) et le VPN ne fonctionne pas.
+Lorsque vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un stockage Azure. Par conséquent, vous pouvez uniquement répliquer sur l’Internet public ou via ExpressRoute (Peering Microsoft ou Peering public existant).
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>Puis-je utiliser Riverbed SteelHeads pour la réplication ?
 

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
+title: 'Tutoriel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs avec Azure Active Directory | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Salesforce.
 services: active-directory
 documentationCenter: na
@@ -15,22 +15,22 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0ed3307f2802e5372cf007f1df8eee2f26e6a39f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849171"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714377"
 ---
-# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Didacticiel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
+# <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutoriel : Configurer Salesforce pour l’approvisionnement automatique d’utilisateurs
 
 L’objectif de ce didacticiel est de montrer les étapes à effectuer dans Salesforce et Azure AD pour approvisionner et retirer automatiquement des comptes utilisateur d’Azure AD vers Salesforce.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Le scénario décrit dans ce didacticiel part du principe que vous disposez des éléments suivants :
 
-* Un client Azure Active Directory
+* Un locataire Azure Active Directory
 * Un locataire Salesforce.com
 
 > [!IMPORTANT]
@@ -64,7 +64,7 @@ Cette section va vous guider afin de connecter votre instance Azure AD à votre
 
 Cette section décrit comment activer l’approvisionnement des utilisateurs des comptes d’utilisateurs Active Directory sur Salesforce.
 
-1. Dans le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
+1. Sur le [portail Azure](https://portal.azure.com), accédez à la section **Azure Active Directory > Applications d’entreprise > Toutes les applications**.
 
 2. Si vous avez déjà configuré Salesforce pour l’authentification unique, recherchez votre instance de Salesforce à l’aide du champ de recherche. Sinon, sélectionnez **Ajouter** et effectuer une recherche pour **Salesforce** dans la galerie d’applications. Dans les résultats de la recherche, sélectionnez Salesforce, puis ajoutez-le à votre liste d’applications.
 
@@ -126,8 +126,8 @@ Pour plus d’informations sur la lecture des journaux d’activité d’approvi
     * L'accès à l'API Web est activé pour l'utilisateur.
 * Le service d’approvisionnement Azure AD prend en charge la langue, les paramètres régionaux et le fuseau horaire d’approvisionnement pour un utilisateur. Ces attributs figurent dans les mappages d'attributs par défaut mais n'ont pas d'attribut source par défaut. Assurez-vous que vous sélectionnez l'attribut source par défaut et que l'attribut source est dans le format attendu par SalesForce. Par exemple, localeSidKey pour english(UnitedStates) est en_US. Passez en revue les conseils fournis [ici](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) pour déterminer le format localeSidKey approprié. Les formats languageLocaleKey se trouvent [ici](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5). En plus de vous assurer que le format est correct, vous devrez peut-être vérifier que la langue est activée pour vos utilisateurs, comme décrit [ici](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5). 
 * **SalesforceLicenseLimitExceeded :** L’utilisateur n’a pas pu être créé dans l’application cible, car il n’existe aucune licence disponible pour cet utilisateur. Procurez-vous des licences supplémentaires pour l’application cible, ou passez en revue vos attributions d’utilisateurs et la configuration de mappage des attributs pour vous assurer que les utilisateurs appropriés sont affectés avec les attributs appropriés.
-* **SalesforceDuplicateUserName :** L'utilisateur ne peut pas être approvisionné car il dispose d'un attribut 'Username' Salesforce.com qui est dupliqué dans un autre locataire Salesforce.com.  Dans Salesforce.com, les valeurs de l'attribut 'Username' doivent être uniques pour tous les locataires Salesforce.com.  Par défaut, l’attribut userPrincipalName d'un utilisateur dans Azure Active Directory devient son attribut 'Username' dans Salesforce.com.   Deux options s’offrent à vous.  Une option consiste à trouver et à renommer l'utilisateur avec le doublon 'Username' dans l'autre locataire Salesforce.com, si vous administrez également cet autre locataire.  L'autre option consiste à supprimer l'accès de l'utilisateur Azure Active Directory au locataire Salesforce.com auquel votre répertoire est intégré. Nous réessayerons cette opération lors de la prochaine tentative de synchronisation. 
-* **SalesforceRequiredFieldMissing :** Salesforce exige que certains attributs soient présents sur l'utilisateur pour créer ou mettre à jour avec succès cet utilisateur. Il manque à cet utilisateur un des attributs requis. Assurez-vous que tous les utilisateurs que vous souhaitez approvisionner dans Salesforce possèdent des attributs tels que l'e-mail et l'alias. Vous pouvez définir l’étendue des utilisateurs qui n'ont pas ces attributs à l'aide de [filtres d’étendue basés sur des attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+* **SalesforceDuplicateUserName :** L'utilisateur ne peut pas être approvisionné car il dispose d'un attribut 'Username' Salesforce.com qui est dupliqué dans un autre locataire Salesforce.com.  Dans Salesforce.com, les valeurs de l'attribut 'Username' doivent être uniques pour tous les locataires Salesforce.com.  Par défaut, l’attribut userPrincipalName d'un utilisateur dans Azure Active Directory devient son attribut 'Username' dans Salesforce.com.   Vous avez le choix entre deux options.  Une option consiste à trouver et à renommer l'utilisateur avec le doublon 'Username' dans l'autre locataire Salesforce.com, si vous administrez également cet autre locataire.  L'autre option consiste à supprimer l'accès de l'utilisateur Azure Active Directory au locataire Salesforce.com auquel votre répertoire est intégré. Nous réessayerons cette opération lors de la prochaine tentative de synchronisation. 
+* **SalesforceRequiredFieldMissing :** Salesforce exige que certains attributs soient présents sur l'utilisateur pour créer ou mettre à jour avec succès l’utilisateur. Il manque à cet utilisateur un des attributs requis. Assurez-vous que tous les utilisateurs que vous souhaitez approvisionner dans Salesforce possèdent des attributs tels que l'e-mail et l'alias. Vous pouvez définir l’étendue des utilisateurs qui n'ont pas ces attributs à l'aide de [filtres d’étendue basés sur des attributs](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 * Le mappage d'attributs par défaut pour l’approvisionnement dans Salesforce inclut l'expression SingleAppRoleAssignments permettant de mapper appRoleAssignments dans Azure AD à ProfileName dans Salesforce. Assurez-vous que les utilisateurs n'ont pas plusieurs affectations de rôles d'applications dans Azure AD car le mappage d’attributs ne prend en charge qu'un seul rôle. 
 * Salesforce requiert l’approbation manuelle des mises à jour de la messagerie électronique avant leur modification. Par conséquent, vous pouvez voir plusieurs entrées dans les journaux d’approvisionnement pour mettre à jour la messagerie de l’utilisateur (jusqu’à ce que la modification de la messagerie ait été approuvée).
 

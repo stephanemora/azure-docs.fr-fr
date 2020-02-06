@@ -6,14 +6,14 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 02/28/2020
 ms.author: ellacroi
-ms.openlocfilehash: 0b12e122cef3a05af7a09918ba434d103e33a1a2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 54ad3049789a737ffb29519b6546973acda9b4ae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822954"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843835"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Prise en charge de la disponibilité géographique et des devises
 
@@ -49,6 +49,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Cabo Verde                          | CV        | USD          |
 | Caïmans (îles)                      | KY        | USD          |
 | Chili                               | CL        | USD          |
+| Chine\**                            | CN        | N/A          |
 | Colombie                            | CO        | USD          |
 | Costa Rica                          | CR        | USD          |
 | Côte d’Ivoire                       | CI        | USD          |
@@ -113,7 +114,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Nicaragua                           | NI        | USD          |
 | Nouvelle-Zélande                         | NZ        | NZD          |
 | Nigeria                             | NG        | USD          |
-| Norvège                              | NON        | NOK          |
+| Norvège                              | Non        | NOK          |
 | Oman                                | OM        | USD          |
 | Pakistan                            | PK        | USD          |
 | Autorité palestinienne               | PS        | USD          |
@@ -127,7 +128,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Qatar                               | QA        | USD          |
 | Roumanie                             | RO        | EUR          |
 | Russie                              | RU        | RUB          |
-| Rwanda                              | RW        | USD          |
+| Rwanda                              | L/E        | USD          |
 | Saint-Christophe-et-Niévès               | KN        | USD          |
 | Arabie Saoudite                        | SA        | USD          |
 | Sénégal                             | SN        | USD          |
@@ -153,7 +154,7 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 | Ouganda                              | UG        | USD          |
 | Ukraine                             | UA        | USD          |
 | Émirats Arabes Unis                | AE        | USD          |
-| Royaume-Uni                      | GB        | GBP          |
+| United Kingdom                      | Go        | GBP          |
 | États-Unis                       | US        | USD          |
 | Uruguay                             | UY        | USD          |
 | Ouzbékistan                          | UZ        | USD          |
@@ -165,3 +166,5 @@ Les offres de la Place de marché Azure et AppSource peuvent être achetées dan
 |   |   |   |
 
 \* Pour les clients en Brésil, la place de marché via les fournisseurs de solutions Cloud (CSP) utilise l’USD.
+
+\** Images de machines virtuelles gratuites et BYOL uniquement.

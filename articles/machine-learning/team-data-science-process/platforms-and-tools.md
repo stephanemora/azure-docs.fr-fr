@@ -2,34 +2,35 @@
 title: Plateformes et outils pour les projets de science des données - Team Data Science Process
 description: Détaille et décrit les données et les ressources analytiques à la disposition des entreprises souhaitant standardiser le processus de science des données pour leurs équipes.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97dafe292ff3ed0ef5fa46eb895136e3b32e62c5
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e3297319c67ad2b7c94371356cde49113c7ef737
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978507"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718886"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plateformes et outils pour les projets de science des données
 
-Microsoft fournit une gamme complète de services, et de ressources de données et d’analytique pour les plateformes cloud et locales. Vous pouvez déployer ces services et ressources pour faciliter et faire évoluer l’exécution de vos projets de science des données. [Team Data Science Process](overview.md) (TDSP) fournit aux équipes des conseils pour implémenter les projets de science des données de façon collaborative, en garantissant la traçabilité et la gestion des versions.  Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
+Microsoft fournit une gamme complète de ressources d’analytique pour les plateformes cloud et locales. Vous pouvez déployer ces services et ressources pour faciliter et faire évoluer l’exécution de vos projets de science des données. [Team Data Science Process](overview.md) (TDSP) fournit aux équipes des conseils pour implémenter les projets de science des données de façon collaborative, en garantissant la traçabilité et la gestion des versions.  Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
-Les équipes de science des données qui utilisent le processus TDSP ont accès aux services de données et d’analytique suivants :
+Les équipes de science des données qui utilisent le processus TDSP ont accès aux ressources d’analytique suivantes :
 
 - Instances Data Science Virtual Machine (Windows et CentOS Linux)
 - Clusters HDInsight Spark
-- SQL Data Warehouse
+- Synapse Analytics
 - Azure Data Lake
 - Clusters HDInsight Hive
 - Stockage Fichier Azure
-- SQL Server 2016 R Services
+- SQL Server 2019 R et Python Services
+- Azure Databricks
 
 Dans ce document, nous allons brièvement décrire les ressources disponibles, en indiquant les liens vers les didacticiels et les procédures pas à pas fournis par les équipes TDSP. Ces didacticiels et procédures pas à pas vous aideront à apprendre à utiliser les ressources étape par étape et à commencer à les utiliser pour créer des applications intelligentes. Vous trouverez des informations complètes sur ces ressources dans les pages produit correspondantes. 
 
@@ -44,13 +45,13 @@ L’instance DSVM fournie sur Windows et Linux par Microsoft contient des outils
 - Power BI Desktop pour Windows
 - SQL Server 2016 Developer Edition sur Windows / Postgres sur Linux
 
-Il inclut également des **outils ML et AI** comme xgboost, mxnet et Vowpal Wabbit.
+Il inclut également des **outils ML et AI** comme xgboost, mxnet et Vowpal Wabbit.
 
 La machine virtuelle DSVM est disponible sur les systèmes d’exploitation **Windows** et **CentOS Linux**. Déterminez la taille de votre machine virtuelle DSVM (nombre de cœurs de processeur et quantité de mémoire) en fonction des exigences des projets de science des données que vous prévoyez d’exécuter sur cette instance. 
 
 Pour plus d’informations sur l’édition Windows de DSVM, consultez [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) sur la Place de marché Azure. Pour l’édition Linux de DSVM, consultez [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
 
-Pour découvrir comment effectuer rapidement certaines tâches courantes de science des données sur la machine virtuelle DSVM, consultez [Dix tâches possibles sur une machine virtuelle DSVM](../data-science-virtual-machine/vm-do-ten-things.md)
+Pour découvrir comment effectuer efficacement certaines tâches courantes de science des données sur la machine virtuelle DSVM, consultez [Dix tâches possibles sur une machine virtuelle DSVM](../data-science-virtual-machine/vm-do-ten-things.md)
 
 
 ## <a name="azure-hdinsight-spark-clusters"></a>Clusters Azure HDInsight Spark
@@ -62,7 +63,7 @@ Quand vous créez un cluster Spark dans HDInsight, vous créez des ressources de
 L’équipe TDSP de Microsoft a publié deux procédures pas à pas qui expliquent comment utiliser des clusters Azure HDInsight Spark pour créer deux solutions de science des données (l’une avec Python, l’autre avec Scala). Pour plus d’informations sur les **clusters Azure HDInsight Spark**, consultez [Présentation : Apache Spark sur HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Python** sur un cluster Azure HDInsight Spark, consultez [Vue d’ensemble de la science des données à l’aide de Spark sur Azure HDInsight](spark-overview.md). Pour découvrir comment créer une solution de science des données à l’aide de **Scala** sur un cluster Azure HDInsight Spark, consultez [Science des données à l’aide de Scala et Spark sur Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse.
 
 Azure SQL Data Warehouse vous permet de mettre à l’échelle vos ressources de calcul facilement et en quelques secondes, sans surprovisionnement ni surfacturation. Ce service offre également la possibilité de suspendre l’utilisation des ressources de calcul, ce qui vous permet de mieux gérer les coûts associés au cloud. La possibilité de déployer des ressources de calcul évolutives rend possible le stockage de toutes vos données dans Azure SQL Data Warehouse. Les coûts de stockage sont faibles, et vous pouvez exécuter le calcul uniquement sur les parties des jeux de données que vous souhaitez analyser. 
 
@@ -71,7 +72,7 @@ Pour plus d’informations sur Azure SQL Data Warehouse, consultez le site web [
 
 ## <a name="azure-data-lake"></a>Azure Data Lake
 
-Azure Data Lake est un référentiel d’entreprise pour tous les types de données collectées dans un emplacement unique, avant l’application imposée de spécifications ou schémas formels. Grâce à cette flexibilité, toutes les données peuvent être conservées dans un lac de données (data lake), indépendamment de leur taille, de leur structure ou de leur vitesse d’ingestion. Les organisations utilisent ensuite Hadoop ou une analytique avancée pour identifier des modèles dans ces lacs de données. Les lacs de données peuvent également servir de référentiel où les données sont préparées à moindre coût avant d’être traitées et déplacées vers un entrepôt de données.
+Azure Data Lake est un référentiel d’entreprise pour tous les types de données collectées dans un emplacement unique, avant l’application imposée de spécifications ou schémas formels. Grâce à cette flexibilité, toutes les données peuvent être conservées dans un lac de données (data lake), indépendamment de leur taille, de leur structure ou de leur vitesse d’ingestion. Les organisations utilisent ensuite Hadoop ou une analytique avancée pour identifier des modèles dans ces lacs de données. Les lacs de données peuvent également servir de référentiel où les données sont préparées à moindre coût avant d’être traitées et déplacées vers un entrepôt de données.
 
 Pour plus d’informations sur Azure Data Lake, consultez [Présentation d’Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Pour découvrir comment créer une solution de science des données complète et évolutive avec Azure Data Lake, consultez [Science des données scalable avec Azure Data Lake : procédure complète](data-lake-walkthrough.md)
 
@@ -94,9 +95,9 @@ Le Stockage Fichier Azure est un service qui propose des partages de fichiers da
 Le fait de pouvoir créer un stockage de fichiers Azure est particulièrement utile pour les projets de science des données, car vous pouvez utiliser cet emplacement pour partager des données de projet avec les membres de votre équipe. Tous les membres ont ainsi accès à la même copie des données dans le stockage de fichiers Azure. Ils peuvent également se servir de ce stockage de fichiers pour y partager des ensembles de caractéristiques générés pendant l’exécution du projet. Si le projet est un engagement client, votre client peut créer un stockage de fichiers Azure sous son propre abonnement Azure et l’utiliser pour partager les données et caractéristiques du projet avec vous. De cette façon, le client garde un contrôle total sur les ressources de données du projet. Pour plus d’informations sur le Stockage Fichier Azure, consultez [Bien démarrer avec le Stockage Fichier Azure sur Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) et [Utiliser le Stockage Fichier Azure avec Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
-## <a name="sql-server-2016-r-services"></a>SQL Server 2016 R Services
+## <a name="sql-server-2019-r-and-python-services"></a>SQL Server 2019 R et Python Services
 
-R Services (en base de données) fournit une plateforme pour développer et déployer des applications intelligentes capables de découvrir de nouveaux insights. Pour créer des modèles et générer des prédictions à partir de vos données SQL Server, utilisez le langage R riche et puissant, avec les nombreux packages fournis par la Communauté R. Étant donné que R Services (en base de données) intègre le langage R avec SQL Server, l’analytique reste proche des données, ce qui évite les coûts et les risques de sécurité associés au déplacement des données.
+R Services (en base de données) fournit une plateforme pour développer et déployer des applications intelligentes capables de découvrir de nouveaux insights. Pour créer des modèles et générer des prédictions à partir de vos données SQL Server, utilisez le langage R riche et puissant, avec les nombreux packages fournis par la Communauté R. Étant donné que R Services (en base de données) intègre le langage R avec SQL Server, l’analytique reste proche des données, ce qui évite les coûts et les risques de sécurité associés au déplacement des données.
 
 R Services (en base de données) prend en charge le langage R open source avec un ensemble complet d’outils et de technologies SQL Server. Ils améliorent la gestion, la sécurité, la fiabilité et les performances. Vous pouvez déployer des solutions R à l’aide d’outils pratiques et familiers. Vos applications de production peuvent appeler le Runtime R, et récupérer des prédictions et des visuels à l’aide de Transact-SQL. Vous pouvez également utiliser les bibliothèques ScaleR pour rendre vos solutions R plus performantes et évolutives. Pour plus d’informations, consultez [SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
 
@@ -135,7 +136,7 @@ Si vous exécutez les commandes Git sur une machine Linux (CentOS), vous devez a
 
 1. Copiez l’intégralité de la clé ssh, y compris *ssh-rsa*. 
 1. Connectez-vous à vos Azure DevOps Services. 
-1. Cliquez sur **<Votre nom\>** en haut à droite de la page et cliquez sur **Sécurité**. 
+1. Cliquez sur **<Votre nom\>** en haut à droite de la page, puis sur **Sécurité**. 
     
    ![Cliquez sur votre nom, puis sur Sécurité](./media/platforms-and-tools/resources-2-user-setting.png)
 
@@ -143,7 +144,7 @@ Si vous exécutez les commandes Git sur une machine Linux (CentOS), vous devez a
 
    ![Cliquer sur Clés publiques SSH, puis cliquer sur + Ajouter](./media/platforms-and-tools/resources-3-add-ssh.png)
 
-1. Collez la clé ssh que vous venez de copier dans la zone de texte et enregistrez-la.
+1. Collez la clé ssh que vous avez copiée dans la zone de texte et enregistrez-la.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

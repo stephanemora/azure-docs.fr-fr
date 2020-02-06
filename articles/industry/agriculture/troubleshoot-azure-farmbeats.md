@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: f017b19ef8bd8e4c44d9e2885da6fbaf172808a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75476827"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705613"
 ---
 # <a name="troubleshoot"></a>Dépanner
 
@@ -44,6 +44,38 @@ Pour télécharger le fichier **deployer.log**, effectuez les étapes suivantes�
    - Si des *messages entrants* sont présents, contactez farmbeatssupport@microsoft.com. Attachez vos journaux DataHub et Accelerator et les données de télémétrie capturées.
 
 Pour comprendre comment télécharger les journaux, consultez la section [« Collecter les journaux manuellement »](#collect-logs-manually).  
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Impossible d’afficher les données de télémétrie après l’ingestion des données historique/de diffusion en continu à partir de vos capteurs
+
+**Symptôme** : Des appareils ou des capteurs sont déployés. Vous avez créé les appareils/capteurs sur FarmBeats et ingéré la télémétrie vers l’EventHub, mais vous ne pouvez pas obtenir ni visualiser les données de télémétrie sur FarmBeats.
+
+**Action corrective** :
+
+1. Assurez-vous d’avoir correctement effectué l’inscription du partenaire. Pour le vérifier, accédez à votre Swagger DataHub et à /Partner API, entrez la commande GET et regardez si le partenaire est bien inscrit. Si ce n’est pas le cas, suivez les [étapes indiquées ici](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) pour ajouter un partenaire.
+2. Vérifiez que vous avez utilisé le bon format de message de télémétrie :
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
+}
+```
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Chaîne de connexion Azure Event Hubs indisponible
 

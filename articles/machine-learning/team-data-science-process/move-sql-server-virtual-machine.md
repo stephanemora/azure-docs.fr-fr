@@ -3,20 +3,20 @@ title: Déplacer des données vers une machine virtuelle SQL Server - Team Data 
 description: Déplacer des données à partir de fichiers plats ou d'un SQL Server local vers SQL Server sur une machine virtuelle Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ddc732655c7cfb72c4948f83752440608332915d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8a01b5f2f5ec64fea014468356408220f9c4f1a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974083"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721368"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Déplacer des données vers SQL Server sur une machine virtuelle Azure
 
@@ -31,7 +31,7 @@ Le tableau suivant récapitule les options de déplacement de données vers SQL�
 | <b>Fichier plat</b> |1. <a href="#insert-tables-bcp">Utilitaire de copie en bloc à ligne de commande (BCP)</a><br> 2. <a href="#insert-tables-bulkquery">Requête SQL Bulk Insert</a><br> 3. <a href="#sql-builtin-utilities">Utilitaires graphiques intégrés dans SQL Server</a> |
 | <b>Serveur SQL Server local</b> |1. <a href="#deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard">Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure</a><br> 2. <a href="#export-flat-file">Exportation dans un fichier plat</a><br> 3. <a href="#sql-migration">Assistant Migration de la base de données SQL</a> <br> 4. <a href="#sql-backup">Sauvegarde et restauration de base de données</a><br> |
 
-Notez que ce document suppose que les commandes SQL sont exécutées à partir de SQL Server Management Studio ou Visual Studio Database Explorer.
+Ce document suppose que les commandes SQL sont exécutées à partir de SQL Server Management Studio ou Visual Studio Database Explorer.
 
 > [!TIP]
 > Comme autre solution, vous pouvez utiliser [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) pour créer et planifier un pipeline qui déplace des données vers une machine virtuelle SQL Server sur Azure. Pour plus d’informations, consultez [Copie de données avec Azure Data Factory (activité de copie)](../../data-factory/copy-activity-overview.md)
@@ -64,21 +64,21 @@ BCP est un utilitaire à ligne de commande, installé avec SQL Server. C’est l
 
 1. Vérifiez que la base de données et les tables sont créées dans la base de données SQL Server cible. Voici un exemple montrant comment faire à l’aide des commandes `Create Database` et `Create Table` :
 
-```sql
-CREATE DATABASE <database_name>
+    ```sql
+    CREATE DATABASE <database_name>
+    
+    CREATE TABLE <tablename>
+    (
+        <columnname1> <datatype> <constraint>,
+        <columnname2> <datatype> <constraint>,
+        <columnname3> <datatype> <constraint>
+    )
+    ```
 
-CREATE TABLE <tablename>
-(
-    <columnname1> <datatype> <constraint>,
-    <columnname2> <datatype> <constraint>,
-    <columnname3> <datatype> <constraint>
-)
-```
-
-1. Générez le fichier de format qui décrit le schéma de la table, en exécutant la commande suivante dans la ligne de commande de la machine où BCP est installé.
+1. Générez le fichier de format qui décrit le schéma de la table en exécutant la commande suivante dans la ligne de commande de la machine où BCP est installé.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-1. Insérez les données dans la base de données, en utilisant la commande BCP suivante. Cette commande fonctionne à partir de la ligne de commande, si SQL Server est installé sur la même machine :
+1. Insérez les données dans la base de données à l’aide de la commande BCP, qui doit fonctionner à partir de la ligne de commande lorsque SQL Server est installé sur la même machine :
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -87,7 +87,7 @@ CREATE TABLE <tablename>
 >
 
 ### <a name="insert-tables-bulkquery-parallel"></a>Parallélisation des insertions pour accélérer le déplacement des données
-Si le volume de données déplacées est important, vous pouvez accélérer l’opération en exécutant plusieurs commandes BCP simultanément dans un script PowerShell.
+Si le volume de données déplacées est important, vous pouvez accélérer l’opération en exécutant en parallèle plusieurs commandes BCP simultanément dans un script PowerShell.
 
 > [!NOTE]
 > **Ingestion de Big Data** Pour optimiser le chargement de données de jeux de données importants et très importants, partitionnez vos tables de base de données logiques et physiques en utilisant plusieurs groupes de fichiers et tables de partition. Pour plus d’informations sur la création et le chargement de données dans des tables de partition, consultez l’article [Importer des données en bloc et en parallèle à l’aide de tables de partition SQL](parallel-load-sql-partitioned-tables.md).
@@ -139,25 +139,25 @@ Voici quelques exemples de requêtes Bulk Insert :
 
 1. Analysez vos données et configurez les options de personnalisation souhaitées avant de procéder à l’importation, pour vérifier que la base de données SQL Server attend le même format pour les champs particuliers, comme les dates. Voici un exemple de configuration du format de date année-mois-jour (si vos données contiennent des dates dans ce format) :
 
-```sql
-SET DATEFORMAT ymd;
-```
-1. Importez des données avec des instructions import en bloc :
+    ```sql
+    SET DATEFORMAT ymd;
+    ```
+2. Importez des données avec des instructions import en bloc :
 
-```sql
-BULK INSERT <tablename>
-FROM
-'<datafilename>'
-WITH
-(
-    FirstRow = 2,
-    FIELDTERMINATOR = ',', --this should be column separator in your data
-    ROWTERMINATOR = '\n'   --this should be the row separator in your data
-)
-```
+    ```sql
+    BULK INSERT <tablename>
+    FROM
+    '<datafilename>'
+    WITH
+    (
+        FirstRow = 2,
+        FIELDTERMINATOR = ',', --this should be column separator in your data
+        ROWTERMINATOR = '\n'   --this should be the row separator in your data
+    )
+    ```
 
 ### <a name="sql-builtin-utilities"></a>Utilitaires intégrés dans SQL Server
-Vous pouvez utiliser l’utilitaire SSIS (SQL Server Integrations Services) pour importer les données d’un fichier plat dans SQL Server VM on Azure.
+Vous pouvez utiliser SQL Server Integrations Services (SSIS) pour importer les données sur une machine virtuelle SQL Server sur Azure à partir d’un fichier plat.
 SSIS est disponible dans deux environnements Studio. Pour en savoir plus, consultez l’article [Services d’intégration (SSIS) et environnements Studio](https://technet.microsoft.com/library/ms140028.aspx):
 
 * Pour en savoir plus sur les outils SQL Server Data Tools, consultez l’article [Microsoft SQL Server Data Tools](https://msdn.microsoft.com/data/tools.aspx)  
@@ -171,7 +171,7 @@ Vous pouvez également utiliser les stratégies de migration suivantes :
 3. [Assistant Migration de la base de données SQL](#sql-migration)
 4. [Sauvegarde et restauration de base de données](#sql-backup)
 
-Chacune de ces étapes est décrite ci-après :
+Chacune de ces options est décrite ci-après :
 
 ### <a name="deploy-a-sql-server-database-to-a-microsoft-azure-vm-wizard"></a>Assistant de déploiement d'une base de données SQL Server sur une machine virtuelle Microsoft Azure
 L’ **Assistant de déploiement d’une base de données SQL Server sur une machine virtuelle Microsoft Azure** est une méthode simple et recommandée pour déplacer des données d’une instance SQL Server locale vers un serveur SQL Server sur une machine virtuelle Azure. Pour des instructions détaillées, ainsi qu’une présentation des autres possibilités, consultez [Migration d’une base de données vers SQL Server sur une machine virtuelle Azure](../../virtual-machines/windows/sql/virtual-machines-windows-migrate-sql.md).
@@ -203,7 +203,7 @@ Plusieurs méthodes peuvent être utilisées pour exporter en bloc des données 
 SQL Server prend en charge :
 
 1. La [fonctionnalité de sauvegarde et de restauration de base de données](https://msdn.microsoft.com/library/ms187048.aspx) (dans un fichier local ou par exportation d’un bacpac dans un objet blob) et les [applications de la couche Données](https://msdn.microsoft.com/library/ee210546.aspx) (à l’aide de bacpac).
-2. La possibilité de créer directement des instances SQL Server VM on Azure avec une base de données copiée ou de copier une base de données SQL Azure. Pour plus d’informations, consultez l’article [Utiliser l’Assistant Copie de base de données](https://msdn.microsoft.com/library/ms188664.aspx).
+2. La possibilité de créer directement des instances SQL Server VM on Azure avec une base de données copiée ou de copier une base de données SQL Azure. Pour plus d'informations, consultez [Use the Copy Database Wizard](https://msdn.microsoft.com/library/ms188664.aspx).
 
 Voici une copie d’écran des options de sauvegarde/restauration de base de données dans SQL Server Management Studio.
 

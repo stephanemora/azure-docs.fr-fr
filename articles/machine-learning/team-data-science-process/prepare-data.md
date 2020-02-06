@@ -3,29 +3,29 @@ title: Préparer les données pour ML Studio (classique) – Team Data Science P
 description: Prétraitez et nettoyez les données afin de les préparer pour les utiliser efficacement dans le cadre d’un apprentissage automatique.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d17ca5d4bd709ec2529a771008e47ce6f1b68daf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: caedcf313ab809e9607907545f26ca1b62bbeca7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432153"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720042"
 ---
 # <a name="tasks-to-prepare-data-for-enhanced-machine-learning"></a>Tâches de préparation des données pour l'apprentissage automatique amélioré
-Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d'utiliser un jeu de données à des fins d'apprentissage automatique. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus TDSP (Team Data Science Process) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus TDSP, consultez les étapes décrites dans le [processus TDSP (Team Data Science Process)](overview.md).
+Le prétraitement et le nettoyage des données sont des tâches importantes qui doivent intervenir avant d’utiliser un jeu de données pour la formation de modèles. Les données brutes sont souvent bruyantes, peu fiables et incomplètes. Leur utilisation pour la modélisation peut générer des résultats trompeurs. Ces tâches font partie du processus TDSP (Team Data Science Process) et suivent généralement l'exploration initiale d'un jeu de données utilisé pour découvrir et planifier le traitement préliminaire requis. Pour plus d'instructions sur le processus TDSP, consultez les étapes décrites dans le [processus TDSP (Team Data Science Process)](overview.md).
 
 Les tâches de traitement préalable et de nettoyage, comme la tâche d'exploration de données, peuvent être exécutées dans une grande variété d'environnements, tels que SQL ou Hive ou Azure Machine Learning Studio (classique) et avec différents outils et langages, tels que R ou Python, en fonction de l'emplacement de stockage de vos données et leur mise en forme. Étant donné que le processus TDSP est itératif par nature, ces tâches peuvent avoir lieu à diverses étapes du flux de travail du processus.
 
 Cet article présente différents concepts et tâches de prétraitement des données, à effectuer avant ou après l'intégration de ces données dans Azure Machine Learning (classique).
 
-Pour obtenir un exemple d’exploration de données et de prétraitement dans Azure Machine Learning Studio (Classic)., consultez la vidéo [Prétraitement des données](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
+Pour obtenir un exemple d’exploration de données et de prétraitement dans Azure Machine Learning Studio (classique), consultez la vidéo [Prétraitement des données](https://azure.microsoft.com/documentation/videos/preprocessing-data-in-azure-ml-studio/).
 
 ## <a name="why-pre-process-and-clean-data"></a>Pourquoi prétraiter et nettoyer les données ?
 Dans le monde réel, les données proviennent de plusieurs sources et processus. Elles peuvent contenir des anomalies ou des valeurs incorrectes qui compromettent la qualité du jeu de données. Les problèmes de qualité les plus fréquents sont les suivants :
@@ -43,13 +43,13 @@ Il est possible d’évaluer la qualité globale des données en vérifiant les 
 * Le nombre d’**attributs** (ou de **fonctionnalités**).
 * Le **type de données** des attributs (nominal, ordinal ou continu).
 * Le nombre de **valeurs manquantes**.
-* **qualité de formation** des données.
+* Données **bien formées**.
   * Si les données sont au format TSV ou CSV, vérifiez que les séparateurs de colonne et de ligne séparent correctement et systématiquement les colonnes et les lignes.
   * Si les données sont au format HTML ou XML, vérifiez qu'elles sont conformes à leur standard respectif.
   * Une analyse peut également se révéler nécessaire pour obtenir des informations structurées à partir de données non ou semi-structurées.
-* **Enregistrements de données incohérents**. Vérifiez la plage des valeurs autorisées. Par exemple, si les données sont des notes moyennes d'étudiant, vérifiez qu'elles sont comprises dans la fourchette correcte.
+* **Enregistrements de données incohérents**. Vérifiez la plage des valeurs autorisées. Par exemple, si les données sont des notes moyennes d’étudiant, vérifiez qu’elles sont comprises dans la plage désignée.
 
-Lorsque vous détectez des problèmes dans les données, des **étapes de traitement** s'imposent : nettoyage des valeurs manquantes, normalisation des données, discrétisation, traitement de texte pour supprimer et/ou remplacer des caractères susceptibles de perturber l'alignement des données, types de données mixtes dans les champs communs, etc.
+Lorsque vous détectez des problèmes dans les données, des **étapes de traitement** s’imposent : nettoyage des valeurs manquantes, normalisation des données, discrétisation, traitement de texte pour supprimer et/ou remplacer des caractères incorporés susceptibles de perturber l’alignement des données, types de données mixtes dans les champs communs, etc.
 
 **Azure Machine Learning n'exploite que les données tabulaires bien formées**.  Si les données sont déjà sous forme tabulaire, le prétraitement des données peut être effectué directement avec Azure Machine Learning Studio (classique) dans le Machine Learning.  Si elles ne sont pas au format tabulaire, comme le format XML, une analyse peut être nécessaire pour les convertir.  
 
@@ -58,7 +58,7 @@ Lorsque vous détectez des problèmes dans les données, des **étapes de traite
 * **Transformation des données** :  normaliser les données pour réduire le volume et le bruit.
 * **Réduction des données** :  échantillonner les enregistrements de données ou les attributs pour faciliter la manipulation des données.
 * **Discrétisation des données** :  convertir des attributs continus en attributs catégoriels pour simplifier l’exploitation des données dans certains outils d’apprentissage automatique.
-* **Nettoyage du texte :** supprimer les caractères intégrés pouvant perturber l’alignement des données (comme les tabulations dans un fichier TSV), les nouvelles lignes qui peuvent interrompre des enregistrements, etc.
+* **Nettoyage du texte** : notamment supprimer les caractères incorporés pouvant perturber l’alignement des données (par exemple, les tabulations incorporées dans un fichier TSV) ou les nouvelles lignes qui peuvent interrompre des enregistrements.
 
 Les sections suivantes décrivent certaines de ces étapes de traitement des données.
 
@@ -92,9 +92,9 @@ Plusieurs méthodes permettent de réduire la taille des données pour en facili
 * **Agrégation** : diviser les données en groupes et stocker les nombres de chaque groupe. Par exemple, le chiffre d’affaires quotidien d’une chaîne de restaurants sur les 20 dernières années peut être agrégé en un chiffre d’affaires mensuel pour réduire la taille des données.  
 
 ## <a name="how-to-clean-text-data"></a>Comment nettoyer les données textuelles ?
-**Les champs de texte au format tabulaire** peuvent contenir des caractères qui perturbent l’alignement des données et/ou les limites des enregistrements. Par exemple, des tabulations intégrées dans un fichier TSV peuvent décaler les colonnes, et des caractères de nouvelle ligne peuvent déstructurer des enregistrements. Une manipulation inappropriée de l’encodage pendant l’écriture ou la lecture de texte provoque une perte d’informations ou l’ajout intempestif de caractères illisibles, pouvant empêcher une analyse correcte du texte. Soyez prudent lorsque vous analysez et modifiez des champs de texte pour corriger l’alignement et/ou extraire des données structurées de données non ou semi-structurées.
+Les **champs de texte au format tabulaire** peuvent contenir des caractères qui perturbent l’alignement des données et/ou les limites des enregistrements. Par exemple, des tabulations incorporées dans un fichier TSV peuvent décaler les colonnes, et des caractères incorporés de nouvelle ligne peuvent déstructurer des enregistrements. Une manipulation inappropriée de l’encodage pendant l’écriture ou la lecture de texte provoque une perte d’informations ou l’ajout intempestif de caractères illisibles (comme les valeurs Null) et peut empêcher une analyse correcte du texte. Soyez prudent lorsque vous analysez et modifiez des champs de texte pour corriger l’alignement et/ou extraire des données structurées de données non ou semi-structurées.
 
-**L’exploration des données** permet d’obtenir une vue sur l’état des données. Plusieurs problèmes peuvent être détectés pendant cette étape et les méthodes de correction correspondantes, appliquées.  Il est important de s’interroger sur l’origine du problème et la manière dont il a été introduit dans les données. Cela permet de déterminer les étapes de traitement à effectuer pour résoudre ces problèmes. Les conclusions que l’on peut tirer de l’analyse des données permettent également de hiérarchiser le travail de traitement des données.
+**L’exploration des données** permet d’obtenir une vue sur l’état des données. Plusieurs problèmes peuvent être détectés pendant cette étape et les méthodes de correction correspondantes, appliquées.  Il est important de s’interroger sur l’origine du problème et la manière dont il a été introduit dans les données. Ce processus permet de déterminer les étapes de traitement des données à effectuer pour résoudre ces problèmes. L’identification des cas d’usage final et des personnages peut également être utilisée pour classer par ordre de priorité l’effort de traitement des données.
 
 ## <a name="references"></a>References
 > *Data Mining: Concepts et Techniques*, 3e édition, Morgan Kaufmann, 2011, Jiawei Han, Micheline Kamber et Jian Pei

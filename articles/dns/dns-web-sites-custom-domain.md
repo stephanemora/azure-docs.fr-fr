@@ -2,19 +2,19 @@
 title: Didacticiel - Créer des enregistrements Azure DNS personnalisés pour une application web
 description: Dans ce didacticiel, vous apprendrez à créer des enregistrements DNS de domaine personnalisés pour une application web à l’aide d’Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: e0a0129f45e5e7612b6ecd79475a49822b42ba19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211217"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939093"
 ---
-# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Didacticiel : Créer des enregistrements DNS dans un domaine personnalisé pour une application web 
+# <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Tutoriel : Créer des enregistrements DNS dans un domaine personnalisé pour une application web 
 
 Vous pouvez configurer Azure DNS pour héberger un domaine personnalisé pour vos applications web. Par exemple, vous pouvez créer une application web Azure et y donner l’accès à vos utilisateurs par www\.contoso.com ou contoso.com comme nom de domaine complet (FQDN).
 
@@ -29,7 +29,7 @@ Pour cela, vous devez créer trois enregistrements :
 
 N'oubliez pas que si vous créez un enregistrement A pour une application web dans Azure, l'enregistrement A doit être mis à jour manuellement si l’adresse IP sous-jacente pour l'application web change.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un enregistrement A et TXT pour votre domaine personnalisé
@@ -43,7 +43,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -180,7 +180,7 @@ Vous devez voir la même page pour les deux URL. Par exemple :
 ![Service d’application Contoso](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’avez plus besoin des ressources créées dans ce didacticiel, supprimez le groupe de ressources **myresourcegroup**.
 

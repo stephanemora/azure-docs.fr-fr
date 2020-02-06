@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954649"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767945"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualiser les données de capteur en temps réel depuis votre hub Azure IoT dans une application web
 
@@ -165,10 +165,10 @@ Dans cette section, vous provisionnez une application web dans App Service et y 
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. À présent, provisionnez une application web dans votre plan App Service. Le paramètre `--deployment-local-git` active le code d’application web qui doit être chargé et déployé à partir d’un dépôt Git sur votre machine locale. Le nom de votre application web doit être globalement unique, il peut contenir des lettres majuscules et minuscules, des chiffres et des traits d’union.
+2. À présent, provisionnez une application web dans votre plan App Service. Le paramètre `--deployment-local-git` active le code d’application web qui doit être chargé et déployé à partir d’un dépôt Git sur votre machine locale. Le nom de votre application web doit être globalement unique, il peut contenir des lettres majuscules et minuscules, des chiffres et des traits d’union. Veillez à spécifier la version 10.6 du nœud ou une version ultérieure pour le paramètre `--runtime`, selon la version du runtime Node.js que vous utilisez. Vous pouvez utiliser la commande `az webapp list-runtimes` pour obtenir une liste des runtimes pris en charge.
 
    ```azurecli-interactive
-   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
+   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
 3. Ajoutez maintenant les Paramètres de l’application pour les variables d’environnement qui spécifient la chaîne de connexion du hub IoT et le groupe de consommateurs du hub d’événements. Les paramètres individuels sont délimités par des espaces dans le paramètre `-settings`. Utilisez la chaîne de connexion de service de votre hub IoT, et le groupe de consommateurs que vous avez créé précédemment dans ce tutoriel. Ne mettez pas les valeurs entre guillemets.
@@ -229,7 +229,7 @@ Dans cette section, vous provisionnez une application web dans App Service et y 
 
 11. Dans un navigateur, accédez à `https://<your web app name>.azurewebsites.net`. Une page web s’affiche, similaire à celle que vous avez vue lorsque vous avez exécuté l’application web localement. Si votre appareil est en cours d’exécution et qu’il envoie des données, vous devez voir s’afficher un tracé des 50 derniers relevés de température et d’humidité envoyés par l’appareil.
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 
 Si vous rencontrez des problèmes avec cet exemple, consultez les étapes décrites dans les sections suivantes. Si vous rencontrez toujours des problèmes, faites-nous part de vos commentaires au bas de cette rubrique.
 

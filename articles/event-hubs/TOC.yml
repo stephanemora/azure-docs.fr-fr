@@ -28,9 +28,9 @@
       items:
         - name: .NET Core (Azure.Messaging.EventHubs)
           href: get-started-dotnet-standard-send-v2.md
-        - name: Java (azure-eventhubs)
-          href: event-hubs-java-get-started-send.md
-        - name: Python (azure-eventhub version 5)
+        - name: Java (azure-messaging-eventhubs)
+          href: get-started-java-send-v2.md
+        - name: "Python (azure-eventhub version\_5)"
           href: get-started-python-send-v2.md
         - name: Node.js (azure/event-hubs version 5)
           href: get-started-node-send-v2.md
@@ -60,7 +60,7 @@
       href: store-captured-data-data-warehouse.md
     - name: Processus Apache Kafka pour les événements Event Hubs à l’aide de Stream Analytics
       href: event-hubs-kafka-stream-analytics.md
-    - name: Diffuser en streaming des données dans Azure Databricks à l’aide d’Event Hubs
+    - name: Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
       href: ../azure-databricks/databricks-stream-from-eventhubs.md
       maintainContext: true
 - name: Exemples
@@ -77,7 +77,7 @@
       href: event-hubs-availability-and-consistency.md
     - name: Extensibilité
       href: event-hubs-scalability.md
-    - name: Géo-reprise d’activité après sinistre
+    - name: Géorécupération d’urgence
       items:
         - name: Géo-reprise d'activité après sinistre et géo-réplication
           href: event-hubs-geo-dr.md
@@ -118,6 +118,8 @@
           items:
             - name: .NET (Azure.Messaging.EventHubs)
               href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md'
+            - name: Java (azure-messaging-eventhubs)
+              href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
             - name: "Python (azure-eventhub version\_5)"
               href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
             - name: "JavaScript (azure/event-hubs version\_5)"
@@ -130,6 +132,8 @@
           items:
             - name: .NET Core (Microsoft.Azure.EventHubs)
               href: event-hubs-dotnet-standard-getstarted-send.md
+            - name: Java (azure-eventhubs)
+              href: event-hubs-java-get-started-send.md
             - name: "Python (azure-eventhub version\_1)"
               href: event-hubs-python-get-started-send.md
             - name: "Node.js (azure/event-hubs version\_2)"
@@ -210,7 +214,11 @@
       items:
         - name: Bibliothèque cliente
           items:
-            - name: azure-eventhubs
+            - name: Effectuer une migration d’azure-eventhubs vers azure-messaging-eventhubs
+              href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md'
+            - name: azure-messaging-eventhubs (version la plus récente)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-messaging-eventhubs/5.0.0-beta.6/index.html'
+            - name: azure-eventhubs (version héritée)
               href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
         - name: Bibliothèque de gestion
           href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable

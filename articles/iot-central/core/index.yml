@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 73e139b4ce6f3085107a59d39452fa79ee1dafd0
-  ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+  ms.openlocfilehash: cddfdbe709849f81f585ad7537556945ec14c990
+  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/15/2019
-  ms.locfileid: "74123386"
+  ms.lasthandoff: 02/05/2020
+  ms.locfileid: "77023427"
 landingContent:
 - title: À propos d’Azure IoT Central
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
     links:
     - text: Configurer un modèle d’appareil
       url: howto-set-up-template.md
-    - text: Connecter un appareil IoT Plug-and-Play
+    - text: Connecter un appareil IoT Plug-and-Play (préversion)
       url: tutorial-add-device.md
   - linkListType: how-to-guide
     links:
@@ -83,7 +83,7 @@ landingContent:
     links:
     - text: Gérer votre application
       url: howto-administer.md
-    - text: Gérer des utilisateurs et des rôles
+    - text: Gérer les utilisateurs et les rôles
       url: howto-manage-users-roles.md
     - text: Consulter votre facture
       url: howto-view-bill.md

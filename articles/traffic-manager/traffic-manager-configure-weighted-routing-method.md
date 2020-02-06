@@ -3,7 +3,7 @@ title: Tutoriel - Configurer le routage du trafic en tourniquet par pondération
 description: Ce tutoriel explique comment équilibrer le trafic en utilisant une méthode en tourniquet (round robin) dans Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: 06bb86e635b7b3377e1f313ef3aa3487e1c215bc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: 8bdc710b36cae70d29d32333f431b8a9dda154cc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422772"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938709"
 ---
-# <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Didacticiel : Configurer la méthode de routage du trafic par pondération dans Traffic Manager
+# <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Tutoriel : Configurer la méthode de routage du trafic par pondération dans Traffic Manager
 
 Il est courant d'utiliser un ensemble de points de terminaison identiques, comprenant des services cloud et des sites web, et de répartir le trafic à parts égales entre eux. Les étapes suivantes décrivent comment configurer ce type de méthode de routage du trafic.
 

@@ -2,20 +2,20 @@
 title: Tâches pour le coordinateur de projet dans Team Data Science Process
 description: Présentation détaillée des tâches d’un coordinateur de projet au sein d’une équipe TDSP (Team Data Science Process)
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a94a2ae5298bbee8bb1c9c0fa044eb3189147be
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244370"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714417"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Tâches du coordinateur de projet dans Team Data Science Process
 
@@ -36,7 +36,7 @@ Pour l’étape 6 (Configurer le contrôle de sécurité du dépôt de projet),
 > [!NOTE] 
 > Cet article s’appuie sur Azure Repos pour configurer un projet TDSP, car c’est ainsi que Microsoft implémente le processus TDSP. Si votre équipe utilise une autre plateforme d’hébergement de code, les tâches du coordinateur de projet sont les mêmes, mais la façon de les accomplir peut être différente.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Ce tutoriel part du principe que les ressources et autorisations suivantes ont été créées par votre [responsable de groupe](group-manager-tasks.md) et votre [chef d’équipe](team-lead-tasks.md) :
 
@@ -45,7 +45,7 @@ Ce tutoriel part du principe que les ressources et autorisations suivantes ont �
 - **Dépôts** de modèle d’équipe et d’utilitaires
 - **Autorisations** sur le compte de votre organisation pour vous permettre de créer et de modifier des dépôts pour votre projet
 
-Pour cloner des dépôts et modifier leur contenu sur votre ordinateur local ou machine virtuelle DSVM (Data Science Virtual Machine), ou pour configurer le stockage de fichiers Azure et le monter sur votre machine virtuelle DSVM, vous avez également besoin des éléments suivants :
+Pour cloner des dépôts et modifier leur contenu sur votre ordinateur local ou votre machine virtuelle DSVM (Data Science Virtual Machine), ou pour configurer le stockage de fichiers Azure et le monter sur votre machine virtuelle DSVM, vous devez également respecter cette liste de vérification :
 
 - Un abonnement Azure.
 - Git installé sur votre ordinateur. Si vous utilisez une machine virtuelle DSVM, Git est préinstallé. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).

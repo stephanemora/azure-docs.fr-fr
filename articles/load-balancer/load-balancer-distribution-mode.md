@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: ddccd02e7157792d942309ae4f74933322f246f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225371"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023529"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuration du mode de distribution pour Azure Load Balancer
 
@@ -194,5 +194,5 @@ Comme décrit précédemment, définissez l’élément `LoadBalancerDistributio
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation de l’équilibrage de charge interne](load-balancer-internal-overview.md)
-* [Prise en main de la configuration d’un équilibreur de charge sur Internet](load-balancer-get-started-internet-arm-ps.md)
+* [Prise en main de la configuration d’un équilibreur de charge sur Internet](quickstart-create-standard-load-balancer-powershell.md)
 * [Configuration des paramètres du délai d’expiration TCP inactif pour votre équilibrage de charge](load-balancer-tcp-idle-timeout.md)

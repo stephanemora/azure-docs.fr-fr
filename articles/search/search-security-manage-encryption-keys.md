@@ -8,12 +8,12 @@ ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 6c7be7d92cae992e54ca6e9f50dda6342c57856b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: cb17fe24339ad618229b3456ece15c206f79bdb7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945718"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899953"
 ---
 # <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Chiffrement du contenu au repos dans Recherche cognitive Azure à l’aide de clés gérées par le client dans Azure Key Vault
 
@@ -26,13 +26,13 @@ Le chiffrement avec des clés gérées par le client est configuré au niveau de
 Toutes les clés ne doivent pas nécessairement se trouver dans le même Key Vault. Un service de recherche unique peut héberger plusieurs index chiffrés ou cartes de synonymes chiffrés avec leurs propres clés de chiffrement gérées par le client et stockées dans différents Key Vaults.  Vous pouvez également avoir des index et des cartes de synonymes dans le même service qui ne sont pas chiffrés à l’aide de clés gérées par le client. 
 
 > [!IMPORTANT] 
-> Cette caractéristique est disponible dans l’[API REST version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) et le [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). Il n’existe actuellement aucune prise en charge pour configurer des clés de chiffrement gérées par le client dans le Portail Azure.
+> Cette caractéristique est disponible dans l’[API REST version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) et le [.NET SDK version 8.0-preview](search-dotnet-sdk-migration-version-9.md). Il n’existe actuellement aucune prise en charge pour configurer des clés de chiffrement gérées par le client dans le Portail Azure. Le service Recherche doit être créé après janvier 2019 et ne peut pas être un service gratuit (partagé).
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Les services suivants sont utilisés dans cet exemple. 
 
-+ [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. Le service Recherche doit être créé après janvier 2019 et ne peut pas être un service gratuit (partagé).
++ [Créez un service Recherche cognitive Azure](search-create-service-portal.md) ou [recherchez un service existant](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) dans votre abonnement actuel. 
 
 + [Créez une ressource Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) ou recherchez un coffre existant dans votre abonnement.
 

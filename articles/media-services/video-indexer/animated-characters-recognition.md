@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8cc097bc7083729a0e99c93376fe46b170760cf4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327480"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989907"
 ---
 # <a name="animated-character-detection-preview"></a>Détection de personnages animés (préversion)
 
@@ -81,7 +81,7 @@ Procédez comme suit pour connecter votre compte Custom Vision à Video Indexer 
 1. Sélectionnez **Connecter un compte Custom Vision (PRÉVERSION)** et cliquez sur **Essayer**.
 1. Renseignez les champs obligatoires, ainsi que le jeton d’accès, puis cliquez sur **Envoyer**. 
 
-    Pour plus d’informations sur la façon d’obtenir le jeton d’accès Video Indexer, accédez au [portail des développeurs](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) et consultez la [documentation correspondante](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
+    Pour plus d’informations sur la façon d’obtenir le jeton d’accès Video Indexer, accédez au [portail des développeurs](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?) et consultez la [documentation correspondante](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Une fois que l’appel a renvoyé une réponse 200 OK, votre compte est connecté.
 1. Pour vérifier votre connexion en accédant au portail [Video Indexer](https://vi.microsoft.com/)) :
 1. Cliquez sur le bouton **Personnalisation du modèle de contenu** dans l’angle supérieur droit.

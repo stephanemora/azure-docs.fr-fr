@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 45b0c012ec8b8d70c1fad99db40f38fb92daf8a0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 01/24/2020
+ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770643"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759907"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>Tutoriel : Migrer Oracle vers Azure Database pour PostgreSQL en ligne à l’aide de DMS (préversion)
 
@@ -49,7 +49,7 @@ Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
 * Téléchargez et installez [Oracle 11g version 2 (Standard Edition, Standard Edition One ou Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html).
 * Téléchargez l’exemple de base de données **HR** en cliquant [ici](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002).
-* Téléchargez et installez ora2pg sur [Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf) ou sur [Linux](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Linux.pdf).
+* Téléchargez et [installez ora2pg sur Windows ou sur Linux](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf).
 * [Créer une instance dans Azure Database pour PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * Connectez-vous à l’instance et créez une base de données à l’aide des instructions figurant dans ce [document](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal).
 * Créez un Réseau virtuel Microsoft Azure pour Azure Database Migration Service à l’aide du modèle de déploiement Azure Resource Manager, qui fournit une connectivité site à site à vos serveurs sources locaux via [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) ou un [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Pour plus d’informations sur la création d’un réseau virtuel, consultez la [documentation sur le réseau virtuel](https://docs.microsoft.com/azure/virtual-network/), en particulier les articles sur le démarrage rapide, qui fournissent des informations pas à pas.
@@ -198,7 +198,7 @@ Pour configurer et exécuter ora2pg pour la conversion de schéma, consultez la 
 
 Vous pouvez choisir de convertir des schémas de table, des procédures stockées, des packages et d’autres objets de base de données Oracle pour les rendre compatibles avec Postgres en utilisant ora2pg avant de démarrer un pipeline de migration dans Azure Database Migration Service. Consultez les liens ci-dessous pour savoir comment utiliser ora2pg :
 
-* [Installer ora2pg sur Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf)
+* [Installer ora2pg sur Windows](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
 * [Livre de recettes sur la migration d’Oracle vers Azure PostgreSQL](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
 
 Azure Database Migration Service peut également créer le schéma de table PostgreSQL. Le service accède au schéma de table dans la source Oracle connectée et crée un schéma de table compatible dans Azure Database pour PostgreSQL. Veillez à valider et vérifier le format de schéma dans Azure Database pour PostgreSQL une fois qu’Azure Database Migration Service a terminé la création du schéma et le déplacement des données.

@@ -6,18 +6,19 @@ author: billmath
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: hybrid
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a3a57fbe5df690e4dbdba8cbab85e62648bb298
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5518d516848ba7c006827faa41ff76bbca35d0c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295368"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897058"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Facteurs affectant les performances d’Azure AD Connect
 
@@ -29,7 +30,7 @@ Azure AD Connect gère la synchronisation entre Active Directory et Azure AD. Ce
 | Scale| Nombre d’objets, tels que les utilisateurs, les groupes et les unités d’organisation, qui seront managés par Azure AD Connect. |
 | Matériel| Matériel (physique ou virtuel) utilisé pour Azure AD Connect et chaque composant matériel dont la capacité impacte les performances, notamment l’UC, la mémoire, le réseau et la configuration du disque dur. |
 | Configuration| Mode de traitement des annuaires et des informations par Azure AD Connect. |
-| charger| Fréquence des modifications d’objets. Les charges peuvent varier au cours d’une heure, d’un jour ou d’une semaine. En fonction du composant, vous devrez peut-être prévoir des pics de charge ou une charge moyenne. |
+| Load| Fréquence des modifications d’objets. Les charges peuvent varier au cours d’une heure, d’un jour ou d’une semaine. En fonction du composant, vous devrez peut-être prévoir des pics de charge ou une charge moyenne. |
 
 L’objectif de ce document est de décrire les facteurs qui impactent les performances du moteur de provisionnement Azure AD Connect. Les organisations complexes ou de grande taille (celles devant provisionner plus de 100 000 objets) peuvent suivre les suggestions pour optimiser leur implémentation d’Azure AD Connect, en particulier si elles rencontrent certains problèmes de performances décrits dans ce document. Les autres composants d’Azure AD Connect, comme [Azure AD Connect Health](how-to-connect-health-agent-install.md) et les agents ne sont pas abordés ici.
 
@@ -95,7 +96,7 @@ Le profil de synchronisation complète comprend les étapes suivantes :
 > [!NOTE]
 > Une planification soigneuse est nécessaire quand vous modifiez en bloc de nombreux objets dans Active Directory ou Azure AD. Après une mise à jour en bloc, l’importation par le processus de synchronisation différentielle prend plus de temps dans la mesure où beaucoup d’objets ont été modifiés. Des importations longues peuvent avoir lieu même si la mise à jour en bloc n’influe pas sur le processus de synchronisation. Par exemple, l’attribution de licences à de nombreux utilisateurs dans Azure AD déclenche un long cycle d’importation depuis Azure AD, sans entraîner de modifications d’attributs dans Active Directory.
 
-### <a name="synchronization"></a>Synchronisation
+### <a name="synchronization"></a>Synchronization
 
 L’exécution du processus de synchronisation présente les caractéristiques de performances suivantes :
 

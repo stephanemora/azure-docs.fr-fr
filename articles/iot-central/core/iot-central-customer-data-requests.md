@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 27cd2e58eabcd96414391cac1a517ea242a65c21
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809804"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023750"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Résumé des fonctionnalités de demande de données client
 
@@ -36,8 +36,6 @@ Lorsque vous utilisez les services d’entreprise Microsoft, Microsoft génère 
 La suppression de données utilisateur est uniquement possible via la page d’administration d’IoT Central. Les administrateurs d’applications peuvent sélectionner l’utilisateur à supprimer et cliquer sur **Supprimer** dans le coin supérieur droit de l’application afin de supprimer l’enregistrement. Les administrateurs d’une application peuvent également supprimer des comptes individuels qui ne sont plus associés à l’application en question.
 
 Une fois supprimé, l’utilisateur ne reçoit plus aucune alerte par e-mail. Toutefois, son adresse e-mail doit être supprimée individuellement de chaque alerte configurée.
-
-Pour plus d’informations, consultez [Configurer des règles et des actions pour votre appareil](tutorial-configure-rules.md).
 
 ## <a name="exporting-customer-data"></a>Exportation des données client
 

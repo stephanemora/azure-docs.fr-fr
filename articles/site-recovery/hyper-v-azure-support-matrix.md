@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863891"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774420"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Prendre en charge la matrice pour effectuer une récupération d’urgence de machines virtuelles Hyper-V locales vers Azure
 
@@ -33,7 +33,7 @@ Hyper-V sans Virtual Machine Manager | Vous pouvez effectuer la récupération d
 **Serveur** | **Configuration requise** | **Détails**
 --- | --- | ---
 Hyper-V (exécuté sans Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (installation de Server Core incluse), Windows Server 2012 R2 avec les dernières mises à jour | Si vous avez déjà configuré Windows Server 2012 R2 avec/ou SCVMM 2012 R2 avec Azure Site Recovery et que vous prévoyez de mettre à niveau le système d’exploitation, suivez les instructions de la [documentation.](upgrade-2012R2-to-2016.md) 
-Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (exécuté avec Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Si Virtual Machine Manager est utilisé, les hôtes Windows Server 2019 doivent être managés dans Virtual Machine Manager 2019. De même, les hôtes Windows Server 2016 doivent être gérés dans Virtual Machine Manager 2016.<br/><br/> Remarque : La restauration automatique vers un autre emplacement n’est pas prise en charge pour les hôtes Windows Server 2019.
 
 
 ## <a name="replicated-vms"></a>Machines virtuelles répliquées
@@ -132,9 +132,9 @@ Objets blob de blocs | Non | Non
 Chiffrement au repos (SSE)| Oui | Oui
 Chiffrement au repos (CMK) <br></br> (Uniquement pour le basculement vers des disques managés)| Oui (via le module PowerShell Az 3.3.0 et versions ultérieures) | Oui (via le module PowerShell Az 3.3.0 et versions ultérieures)
 Stockage Premium | Oui | Oui
-Service Import/Export | Non | Non
-Comptes de stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.
-Modifier le compte de stockage | Non. Le compte de stockage Azure cible ne peut pas être modifié une fois la réplication activée. Pour le modifier, désactivez puis réactivez la reprise d’activité après sinistre. | Non
+Service d’importation/exportation | Non | Non
+Comptes Stockage Azure avec un pare-feu activé | Oui. Pour le stockage et le cache cibles. | Oui. Pour le stockage et le cache cibles.
+Modifier le compte de stockage | Non. Le compte Stockage Azure cible ne peut pas être modifié une fois la réplication activée. Pour le modifier, désactivez puis réactivez la récupération d’urgence. | Non
 
 
 ## <a name="azure-compute-features"></a>Fonctionnalités de Calcul Azure

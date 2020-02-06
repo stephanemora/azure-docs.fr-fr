@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85987ca1ff7d2dd204d0a501367efffc8277f138
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939930"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721028"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>Isolation des groupes de charges de travail SQL Data Warehouse (préversion)
 
@@ -32,7 +32,7 @@ Les sections suivantes décrivent comment les groupes de charges de travail offr
 
 L’isolation de la charge de travail signifie que les ressources sont réservées, exclusivement, pour un groupe de charge de travail.  L’isolation des charges de travail s’effectue en configurant le paramètre MIN_PERCENTAGE_RESOURCE sur une valeur supérieure à zéro dans la syntaxe [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest).  Pour les charges de travail d’exécution continues qui doivent adhérer à des contrats de niveau de service étroits, l’isolation garantit que les ressources sont toujours disponibles pour le groupe de charge de travail. 
 
-La configuration de l’isolation de la charge de travail définit implicitement un niveau garanti de concurrence. Avec un MIN_PERCENTAGE_RESOURCE défini sur 30 % et REQUEST_MIN_RESOURCE_GRANT_PERCENT défini sur 2 %, un niveau de concurrence de 15 est garanti pour le groupe de charge de travail.  Considérez la méthode ci-dessous pour déterminer la concurrence garantie :
+La configuration de l’isolation de la charge de travail définit implicitement un niveau garanti de concurrence. Par exemple, un groupe de charge de travail avec un `MIN_PERCENTAGE_RESOURCE` défini sur 30 % et un `REQUEST_MIN_RESOURCE_GRANT_PERCENT` défini sur 2 % a 15 concurrences de garantie.  Le niveau de concurrence est garanti car 2 % des emplacements de ressources avec 15 concurrences sont réservés à tout moment dans le groupe de charge de travail (quelle que soit la façon dont `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` est configuré).  Si `REQUEST_MAX_RESOURCE_GRANT_PERCENT` est supérieur à `REQUEST_MIN_RESOURCE_GRANT_PERCENT` et `CAP_PERCENTAGE_RESOURCE` est supérieur à `MIN_PERCENTAGE_RESOURCE` des ressources supplémentaires sont ajoutées par requête.  Si `REQUEST_MAX_RESOURCE_GRANT_PERCENT` et `REQUEST_MIN_RESOURCE_GRANT_PERCENT` sont égaux et que `CAP_PERCENTAGE_RESOURCE` est supérieur à `MIN_PERCENTAGE_RESOURCE`, une concurrence supplémentaire est possible.  Considérez la méthode ci-dessous pour déterminer la concurrence garantie :
 
 [Accès concurrentiel garanti] = [`MIN_PERCENTAGE_RESOURCE`] / [`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 

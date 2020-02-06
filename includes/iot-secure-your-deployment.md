@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840690"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748860"
 ---
 Cet article fournit davantage de détails sur la sécurisation de l’infrastructure Internet des objets (IoT) basée sur Azure IoT. Il est lié à la procédure au niveau de l’implémentation pour la configuration et le déploiement de chaque composant. Il fournit également des comparaisons et des choix entre les différentes méthodes.
 
@@ -77,7 +77,7 @@ Lors de l’établissement d’une connexion TLS sécurisée avec IoT Hub, l’a
 
 ## <a name="securing-the-connection"></a>Sécurisation de la connexion
 
-La connexion Internet entre l’appareil IoT et IoT Hub est sécurisée à l’aide de la norme TLS (Transport Layer Security). Azure IoT prend en charge [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 et TLS 1.0, dans cet ordre. La prise en charge de TLS 1.0 est fournie uniquement à des fins de compatibilité descendante. Si possible, [configurez votre hub](../articles/iot-hub/iot-hub-tls.md) pour utiliser TLS 1.2 car il fournit le plus de sécurité.
+La connexion Internet entre l’appareil IoT et IoT Hub est sécurisée à l’aide de la norme TLS (Transport Layer Security). Azure IoT prend en charge [TLS 1.2](https://tools.ietf.org/html/rfc5246), TLS 1.1 et TLS 1.0, dans cet ordre. La prise en charge de TLS 1.0 est fournie uniquement à des fins de compatibilité descendante. Consultez [Prise en charge de TLS dans Iot Hub](../articles/iot-hub/iot-hub-tls-support.md) pour savoir comment configurer votre hub de manière à utiliser TLS 1.2, car il offre le plus de sécurité.
 
 ## <a name="securing-the-cloud"></a>Sécurisation du cloud
 

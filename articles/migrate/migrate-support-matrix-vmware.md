@@ -3,12 +3,12 @@ title: Prise en charge de l’évaluation VMware dans Azure Migrate
 description: Découvrez la prise en charge de l’évaluation VMware dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 74dae71404fe827c9e19d5e3042afd2f98a7a5dd
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154684"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846180"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Tableau de prise en charge pour l’évaluation VMware 
 
@@ -52,7 +52,7 @@ En plus de découvrir les machines, Azure Migrate : Server Assessment peut déco
 --- | ---
 **vCenter Server** | Les machines que vous souhaitez découvrir et évaluer doivent être gérées par vCenter Server version 5.5, 6.0, 6.5 ou 6.7.
 **Autorisations (évaluation)** | Compte vCenter Server en lecture seule.
-**Autorisations (découverte d’application)** | Compte vCenter Server disposant d’un accès en lecture seule, et privilèges activés pour les machines virtuelles > opérations d’invité.
+**Autorisations (découverte d’application)** | Compte vCenter Server disposant d’un accès en lecture seule et privilèges activés pour les **machines virtuelles > opérations d’invité**.
 **Autorisations (visualisation des dépendances)** | Compte vCenter Server disposant d’un accès en lecture seule, et privilèges activés pour **Machines virtuelles** > **Opérations d’invité**.
 
 
@@ -67,12 +67,13 @@ Azure Migrate utilise l’[appliance Azure Migrate](migrate-appliance.md) pour l
 
 **Appareil** | **Connection**
 --- | ---
-Appliance | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/><br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ```https://<appliance-ip-or-name>:44368``` <br/><br/>Connexions sortantes sur les ports 443, 5671 et 5672 pour envoyer les métadonnées de découverte et de performances à Azure Migrate.
+Appliance | Connexions entrantes sur le port TCP 3389 pour permettre des connexions Bureau à distance avec l’appliance.<br/><br/> Connexions entrantes sur le port 44368 pour accéder à distance à l’application de gestion de l’appliance via l’URL : ```https://<appliance-ip-or-name>:44368``` <br/><br/>Connexions sortantes sur les ports 443 (HTTPS), 5671 et 5672 (AMQP) pour l’envoi de métadonnées de découverte et de performances à Azure Migrate.
 Serveur vCenter | Connexions entrantes sur le port TCP 443 pour permettre à l’appliance de collecter les métadonnées de configuration et de performances pour les évaluations. <br/><br/> L’appliance se connecte à vCenter sur le port 443 par défaut. Si le serveur vCenter écoute sur un autre port, vous pouvez modifier le port lors de la configuration de la découverte.
+Hôtes ESXi | **Requis uniquement pour la [détection des application](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) et la [visualisation des dépendances sans agent](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization)** <br/><br/> L’application matérielle se connecte aux hôtes ESXi sur le port TCP 443 pour détecter des applications et exécuter la visualisation des dépendances sans agent sur les machines virtuelles s’exécutant sur les hôtes.
 
 ## <a name="agent-based-dependency-visualization"></a>Visualisation des dépendances basée sur les agents
 
-La [visualisation des dépendances](concepts-dependency-visualization.md) vous permet de visualiser les dépendances entre les machines que vous voulez évaluer et migrer. Les exigences et limitations applicables à la visualisation basée sur les agents sont résumées dans le tableau suivant
+La [visualisation des dépendances](concepts-dependency-visualization.md) vous permet de visualiser les dépendances entre les machines que vous souhaitez évaluer et migrer. Les exigences et limitations applicables à la visualisation basée sur les agents sont résumées dans le tableau suivant
 
 
 **Prérequis** | **Détails**

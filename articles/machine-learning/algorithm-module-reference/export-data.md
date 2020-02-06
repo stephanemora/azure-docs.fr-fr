@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7f8d3bb6452ee3260e5a89feb37c374418fc6943
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c83bfc4a3ec8d1163669f28dfde64c63e7c6ff89
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312156"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775068"
 ---
 # <a name="export-data-module"></a>Module Exporter les données
 
-Cet article décrit un module du concepteur Azure Machine Learning.
+Cet article décrit un module dans le concepteur Azure Machine Learning (version préliminaire).
 
 Utilisez ce module pour enregistrer les résultats, les données intermédiaires et les données de travail de vos pipelines dans les destinations de stockage cloud en dehors d’Azure Machine Learning. 
 
@@ -29,7 +29,7 @@ Ce module prend en charge l’exportation de vos données dans les services de d
 - Azure Data Lake
 - Azure Data Lake Gen2
 
-Avant d’exporter vos données, vous devez d’abord inscrire un magasin de données dans votre espace de travail Azure Machine Learning. Pour plus d’informations, consultez la page [Accès aux données](../how-to-access-data.md).
+Avant d’exporter vos données, vous devez d’abord inscrire un magasin de données dans votre espace de travail Azure Machine Learning. Pour plus d'informations, consultez la page [Accéder aux données dans les services de stockage Azure](../how-to-access-data.md).
 
 ## <a name="how-to-configure-export-data"></a>Configuration de l’exportation des données
 
@@ -39,7 +39,7 @@ Avant d’exporter vos données, vous devez d’abord inscrire un magasin de don
 
 1. Sélectionnez **Exporter les données** pour ouvrir le volet **Propriétés**.
 
-1. Pour **Magasin de données**, sélectionnez un magasin de données existant dans la liste déroulante. Vous pouvez également créer un magasin de données. Découvrez comment faire sur la page [how-to-access-data](../how-to-access-data.md)
+1. Pour **Magasin de données**, sélectionnez un magasin de données existant dans la liste déroulante. Vous pouvez également créer un magasin de données. Découvrez comment en consultant [Accéder aux données dans les services de stockage Azure](../how-to-access-data.md).
 
 1. Définissez le chemin d’accès du magasin de données vers lequel écrire les données. 
 

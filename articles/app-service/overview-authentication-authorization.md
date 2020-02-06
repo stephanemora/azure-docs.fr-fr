@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672239"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715108"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Authentification et autorisation dans Azure App Service
 
@@ -24,9 +24,9 @@ Azure App Service offre une prise en charge intégrée de l’authentification e
 Pour mettre en place un système sécurisé d’authentification et d’autorisation, il faut avoir une connaissance approfondie de la sécurité, notamment de la fédération, du chiffrement, de la gestion des [jetons web JSON (JWT)](https://wikipedia.org/wiki/JSON_Web_Token), des [types d’autorisation](https://oauth.net/2/grant-types/), etc. App Service propose ces utilitaires pour vous permettre de consacrer davantage de temps et d’énergie à offrir de la valeur ajoutée à votre client.
 
 > [!IMPORTANT]
-> Vous n’êtes pas obligé d’utiliser App Service pour l’authentification et l’autorisation. Plusieurs infrastructures web sont fournies avec des fonctionnalités de sécurité ; vous pouvez les utiliser si vous le souhaitez. Si vous avez besoin de plus de flexibilité que n’en offre App Service, vous pouvez également écrire vos propres utilitaires.  
+> Vous n’êtes pas obligé d’utiliser App Service pour l’authentification et l’autorisation. Vous pouvez utiliser les fonctionnalités de sécurité groupées dans l’infrastructure web de votre choix, ou vous pouvez écrire vos propres utilitaires. Cependant, gardez à l’esprit que [Chrome 80 apporte des changements cassants à son implémentation de SameSite pour les cookies](https://www.chromestatus.com/feature/5088147346030592) (date de publication aux alentours de mars 2020) et que l’authentification à distance personnalisée ou d’autres scénarios qui reposent sur l'envoi de cookies intersites peuvent être interrompus lorsque les navigateurs Chrome des clients sont mis à jour. La solution de contournement est complexe, car elle doit prendre en charge différents comportements SameSite pour différents navigateurs. 
 >
-> Cependant, si vous ne choisissez pas App Service pour l’authentification à distance, gardez à l’esprit que [Chrome 80 apporte des changements cassants à son implémentation de SameSite pour les cookies](https://www.chromestatus.com/feature/5088147346030592) (date de publication aux alentours de mars 2020) et que le mécanisme d’authentification de votre application risque de s’interrompre après la mise à jour des navigateurs clients. La documentation ASP.NET Core contient des informations sur la façon de résoudre ce problème dans votre application, dans la section [HTTP : Impact des changements apportés à SameSite sur l’authentification](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Vous y trouverez des conseils utiles sur la façon de tester les principaux navigateurs par rapport à ce changement cassant, que vous utilisiez ou non ASP.NET Core.
+> Les versions 2.1 (ou ultérieures) d’ASP.NET Core hébergées par App Service sont déjà corrigés pour cette modification avec rupture et gèrent correctement Chrome 80 et les navigateurs plus anciens. En outre, le même correctif pour ASP.NET Framework 4.7.2 est déployé sur les instances d’App Service tout au long du mois de janvier 2020. Pour en savoir plus, et découvrir notamment si votre application a reçu le correctif, consultez [Mise à jour de cookies SameSite Azure App Service](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 Pour plus d’informations sur les applications mobiles natives en particulier, consultez la page [Authentification et autorisation des utilisateurs pour les applications mobiles avec Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
@@ -132,7 +132,7 @@ Cette option évite d’avoir à écrire du code d’authentification dans l’a
 > [!CAUTION]
 > Cette manière de restreindre l’accès s’applique à tous les appels à votre application qui peuvent ne pas être souhaitables pour les applications souhaitant une page d’accès publique disponible, comme dans de nombreuses applications à page unique.
 
-## <a name="more-resources"></a>Autres ressources
+## <a name="more-resources"></a>Plus de ressources
 
 [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
 [Tutoriel : Authentifier et autoriser les utilisateurs de bout en bout dans Azure App Service pour Linux](containers/tutorial-auth-aad.md)  
@@ -145,7 +145,7 @@ Guides pratiques propres à chaque fournisseur :
 * [Comment configurer votre application pour utiliser une connexion Google][Google]
 * [Comment configurer votre application pour utiliser une connexion par compte Microsoft][MSA]
 * [Comment configurer votre application pour utiliser une connexion Twitter][Twitter]
-* [Guide pratique pour Utiliser l’authentification personnalisée pour votre application][custom-auth]
+* [Procédure : Utiliser l’authentification personnalisée pour votre application][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

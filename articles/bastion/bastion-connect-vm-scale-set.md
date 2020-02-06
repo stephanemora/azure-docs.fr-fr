@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 446784155cf6f72cfaa80523ed3913eacc7e5cfc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f513aaf113ef4bd6e75e5c4b31e0f0252d45f10
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510374"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988088"
 ---
 # <a name="connect-to-a-virtual-machine-scale-set-using-azure-bastion"></a>Se connecter à un groupe de machines virtuelles identiques à l’aide d’Azure Bastion
 
@@ -40,4 +40,4 @@ Assurez-vous que vous avez configuré un hôte Azure Bastion pour le réseau vir
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez les [questions fréquentes (FAQ) sur Bastion](bastion-faq.md).
+Lisez les [questions fréquentes sur Bastion](bastion-faq.md).

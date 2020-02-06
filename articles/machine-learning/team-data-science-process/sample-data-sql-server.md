@@ -3,20 +3,20 @@ title: Échantillonner des données dans SQL Server sur Azure - Team Data Scienc
 description: Échantillonnez des données stockées dans SQL Server sur Azure à l’aide de SQL ou du langage de programmation Python, puis déplacez-les vers Azure Machine Learning.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a544ddb6f31481750b1cd46b52d2909d71739707
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71a2ec9dc4d644fb8739db3817e2cd1d09913da7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043387"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717647"
 ---
 # <a name="heading"></a>Échantillonner des données dans SQL Server sur Azure
 
@@ -30,7 +30,7 @@ L’échantillonnage Python utilise la bibliothèque ODBC [pyodbc](https://code.
 > 
 
 **Pourquoi échantillonner vos données ?**
-Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
+Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. L’échantillonnage facilite la compréhension et l’exploration des données, ainsi que l’ingénierie de fonctionnalités. Son rôle dans le [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.
 
 Cette tâche d’échantillonnage est une étape du [processus TDSP (Team Data Science Process)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
@@ -48,7 +48,7 @@ Les deux options suivantes indiquent comment utiliser `newid` dans SQL Server po
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-Vous pouvez aussi utiliser Tablesample pour l’échantillonnage des données. L’utilisation de cette méthode peut constituer une meilleure approche si vos données sont volumineuses (en supposant que les données figurant sur des pages différentes ne sont pas corrélées) et que vous souhaitez que la requête s’exécute dans un délai acceptable.
+Vous pouvez aussi utiliser Tablesample pour l’échantillonnage des données. Cette option peut constituer une meilleure approche si vos données sont volumineuses (en supposant que les données figurant sur des pages différentes ne sont pas corrélées) et que vous souhaitez que la requête s’exécute dans un délai acceptable.
 
     SELECT *
     FROM <table_name> 
@@ -65,13 +65,13 @@ Vous pouvez utiliser directement les exemples de requêtes ci-dessus dans le mod
 ![lecteur sql][1]
 
 ## <a name="python"></a>Utilisation du langage de programmation Python
-Cette section décrit l’utilisation de la [bibliothèque pyodbc](https://code.google.com/p/pyodbc/) pour établir une connexion ODBC à une base de données SQL Server dans Python. La chaîne de connexion de base de données se présente comme suit :(remplacez les variables servername, dbname, username et password par les valeurs de votre configuration) :
+Cette section décrit l’utilisation de la [bibliothèque pyodbc](https://code.google.com/p/pyodbc/) pour établir une connexion ODBC à une base de données SQL Server dans Python. La chaîne de connexion de base de données se présente comme suit (remplacez les variables servername, dbname, username et password par les valeurs de votre configuration) :
 
     #Set up the SQL Azure connection
     import pyodbc    
     conn = pyodbc.connect('DRIVER={SQL Server};SERVER=<servername>;DATABASE=<dbname>;UID=<username>;PWD=<password>')
 
-La bibliothèque [Pandas](https://pandas.pydata.org/) de Python offre un ensemble élaboré de structures de données et d’outils d’analyse des données pour la manipulation des données dans le cadre d’une programmation en Python. Le code suivant lit un échantillon de 0,1 % des données d’une table de la base de données Azure SQL dans une trame de données Pandas :
+La bibliothèque [Pandas](https://pandas.pydata.org/) de Python offre un ensemble élaboré de structures de données et d’outils d’analyse des données pour la manipulation des données dans le cadre d’une programmation en Python. Le code suivant lit un échantillon de 0,1 % des données d’une table d’Azure SQL Database dans une trame de données Pandas :
 
     import pandas as pd
 
@@ -81,7 +81,7 @@ La bibliothèque [Pandas](https://pandas.pydata.org/) de Python offre un ensembl
 Vous pouvez à présent travailler sur les données échantillonnées dans la trame de données pandas. 
 
 ### <a name="python-aml"></a>Connexion à Azure Machine Learning
-Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données sous-échantillonnées dans un fichier et les charger dans un objet blob Azure. Les données figurant dans l’objet blob peuvent être lues directement dans une expérimentation Azure Machine Learning à l’aide du module [Importer les données][import-data]. La procédure comporte trois étapes : 
+Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données sous-échantillonnées dans un fichier et les charger dans un objet blob Azure. Les données figurant dans le blob peuvent être lues directement dans une expérimentation Azure Machine Learning à l’aide du module [Importer les données][import-data]. La procédure comporte trois étapes : 
 
 1. Écrire la trame de données pandas dans un fichier local
    
@@ -107,12 +107,12 @@ Vous pouvez utiliser l’exemple de code ci-après pour enregistrer les données
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Lisez les données de l’objet blob Azure à l’aide du module [Importer les données][import-data] d’Azure Machine Learning, comme l’illustre la capture d’écran ci-dessous :
+3. Lisez les données du blob Azure à l’aide du module [Importer les données][import-data] d’Azure Machine Learning, comme l’illustre la capture d’écran ci-dessous :
 
 ![objet blob de lecteur][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Exemple de processus TDSP (Team Data Science Process) en action
-Pour obtenir un exemple de procédure pas à pas du processus TDSP (Team Data Science Process) à l’aide d’un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](sql-walkthrough.md).
+Pour obtenir un exemple de procédure pas à pas du processus TDSP (Team Data Science Process) à l’aide d’un jeu de données public, consultez [Processus TDSP (Team Data Science Process) en action : utilisation de SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

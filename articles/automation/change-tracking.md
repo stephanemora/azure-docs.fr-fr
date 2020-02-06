@@ -3,19 +3,29 @@ title: Suivre les modifications avec Azure Automation
 description: La solution Change Tracking permet d’identifier les modifications apportées aux logiciels et au service Windows dans votre environnement.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 04/29/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418744"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844800"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
-Cet article vous aide à utiliser la solution Change Tracking pour identifier facilement les modifications apportées dans votre environnement. La solution suit les modifications apportées aux logiciels Windows et Linux, aux fichiers Windows et Linux, aux clés de Registre Windows, aux services Windows et aux démons Linux. Identifier les modifications de configuration peut vous aider à identifier les problèmes opérationnels.
+Cet article vous aide à utiliser la solution Change Tracking pour identifier facilement les modifications apportées dans votre environnement. La solution suit les modifications de configuration suivantes pour vous aider à identifier les problèmes de fonctionnement :
+
+- Logiciels Windows
+- Logiciel Linux (packages)
+
+    >[!NOTE]
+    >Change Tracking suit uniquement les logiciels gérés avec le gestionnaire de package de la distribution.
+
+- Fichiers Windows et Linux
+- Clés de Registre Windows
+- Services Windows
+- Démons Linux
 
 Les modifications apportées aux logiciels installés, aux services Windows, aux fichiers et au Registre Windows ainsi qu’aux démons Linux sur les serveurs supervisés sont envoyées au service cloud Azure Monitor pour traitement. La logique est appliquée aux données reçues et le service cloud enregistre les données. En utilisant les informations du tableau de bord de suivi des modifications, vous pouvez facilement voir les modifications apportées à votre infrastructure de serveur.
 
@@ -67,7 +77,7 @@ Pour suivre les modifications apportées à des fichiers sur Windows et Linux, l
 
 ### <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 
-Azure Security Center a ajouté le contrôle d’intégrité des fichiers (FIM) basé sur Azure Change Tracking. Alors que FIM surveille uniquement les fichiers et les registres, la solution complète de suivi des modifications comprend également les éléments suivants :
+Azure Security Center a ajouté le contrôle d’intégrité des fichiers (FIM) basé sur Azure Change Tracking. Alors que FIM surveille uniquement les fichiers et les registres, la solution Change Tracking complète comprend également les éléments suivants :
 
 - Modifications de logiciel
 - Services Windows
@@ -159,6 +169,8 @@ Actuellement, la solution Change Tracking ne prend pas en charge les éléments 
 
 * Récursivité pour le suivi du Registre Windows
 * Systèmes de fichiers réseau
+* Les différentes méthodes d’installation ne sont pas suivies
+* * Les fichiers .exe ne sont pas suivis pour Windows
 
 Autres limitations :
 

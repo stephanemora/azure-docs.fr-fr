@@ -2,20 +2,20 @@
 title: Développement agile de projets de science des données - Team Data Science Process
 description: Réalisez, au sein d’une équipe, un projet de science des données d’une manière systématique, collaborative et avec gestion de versions, à l’aide du processus Team Data Science Process.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260682"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722099"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Développement Agile de projets de science des données
 
@@ -42,8 +42,8 @@ Voici les définitions des types d’éléments de travail :
 - **Caractéristique** : une fonctionnalité correspond à un engagement de projet. Les différents engagements avec un client constituent des fonctionnalités différentes, et il est préférable d’envisager les différentes phases d’un projet en tant que fonctionnalités différentes. Si vous choisissez un format tel que *\<NomClient>-\<NomEngagement>* pour nommer vos fonctionnalités, vous pourrez facilement connaître le contexte du projet et de l’engagement grâce au nom qu’il porte.
   
 - **Récit utilisateur** : les récits utilisateur sont des éléments de travail nécessaires pour effectuer une fonctionnalité de bout en bout. Voici quelques exemples de récits utilisateur :
-  - Obtention des données 
-  - Explorer les données 
+  - Obtenir des données 
+  - Explorer des données 
   - Générer des fonctionnalités
   - Générer des modèles
   - Rendre les modèles opérationnels 
@@ -86,7 +86,7 @@ Une fois votre projet et le dépôt de code du projet créés, vous pouvez ajout
    
    Vous pouvez également lier la fonctionnalité au dépôt du code Azure Repos du projet en sélectionnant **Ajouter un lien** dans la section **Développement**. 
    
-   Une fois que vous avez fini de modifier la fonctionnalité, sélectionnez **Enregistrer et fermer**.
+   Après avoir modifié la fonctionnalité, sélectionnez **Enregistrer et fermer**.
    
    ![Modifier la fonctionnalité et sélectionner Enregistrer et fermer](./media/agile-development/3a-add-link-repo.png)
 

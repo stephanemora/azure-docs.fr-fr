@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 159b00f9417f4a572655f1f93208dbc755012922
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 18d7e02689cc9c5fe9282a6a2456b8b1574ec85e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844851"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901639"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Résolution des problèmes pour QnA Maker
 
@@ -39,13 +39,6 @@ Le point de terminaison du service QnAMaker est utile pour le débogage quand vo
 1. L’URL du point de terminaison est disponible dans la section Vue d’ensemble.
 
     ![Point de terminaison QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
-
-
-## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Utiliser le bot d’aide dans le portail QnA Maker
-
-QnA Maker fournit un bot **d’aide** dans le portail QnA Maker afin de vous aider. Le bot d’aide est disponible sur chaque page web. Le bot utilise QnA Maker pour fournir des réponses. Il fournit aussi le [projet de code Bot Framework C#](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) au bot pour que vous puissiez être rapidement opérationnel avec votre propre bot de réponse.
-
-![![QnA Maker fournit un bot **d’aide** dans le portail QnA Maker afin de vous aider.](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>Gestion de la base de connaissances
 

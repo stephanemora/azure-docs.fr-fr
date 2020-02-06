@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 73b8a559eddec51dbc01f1d55f70414360ff2956
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843546"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898434"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Accès et données sécurisés dans Azure Logic Apps
 
@@ -324,7 +324,7 @@ Voici quelques [aspects à prendre en compte](#obfuscation-considerations) lors 
 
 #### <a name="considerations-when-hiding-inputs-and-outputs"></a>Considérations relatives au masquage d’entrées et sorties
 
-* Lorsque vous sécurisez les entrées ou les sorties d’un déclencheur ou d’une action, Logic Apps n’envoie pas les données sécurisées à Azure Log Analytics. De plus, vous ne pouvez pas ajouter de [propriétés suivies](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) à ce déclencheur ou à cette action à des fins de supervision.
+* Lorsque vous sécurisez les entrées ou les sorties d’un déclencheur ou d’une action, Logic Apps n’envoie pas les données sécurisées à Azure Log Analytics. De plus, vous ne pouvez pas ajouter de [propriétés suivies](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) à ce déclencheur ou à cette action à des fins de supervision.
 
 * L’[API Logic Apps qui permet de gérer l’historique des workflows](https://docs.microsoft.com/rest/api/logic/) ne retourne pas de sorties sécurisées.
 
@@ -806,7 +806,7 @@ Si l’option [Identité managée](../active-directory/managed-identities-azure-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Automatiser le déploiement pour le service Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)  
-* [Analyser vos applications logiques](logic-apps-monitor-your-logic-apps.md)  
-* [Diagnostiquer des échecs et problèmes d’applications logiques](logic-apps-diagnosing-failures.md)  
-* [Automatiser le déploiement d’application logique](logic-apps-azure-resource-manager-templates-overview.md)
+* [Automatiser le déploiement pour le service Azure Logic Apps](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
+* [Surveiller les applications logiques](../logic-apps/monitor-logic-apps-log-analytics.md)  
+* [Diagnostiquer des échecs et problèmes d’applications logiques](../logic-apps/logic-apps-diagnosing-failures.md)  
+* [Automatiser le déploiement d’application logique](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

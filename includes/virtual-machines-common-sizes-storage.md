@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: b98aebfd7bef3edff8e046d7ef1c388ea57afa04
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 765ee3c737adbe1da89b9e908d0e22e44d0f29ba
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67501229"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748935"
 ---
 Les tailles de machines virtuelles à stockage optimisé offrent un débit de disque et d’E/S élevé. Elles sont idéales pour les bases de données Big Data, SQL, NoSQL ainsi que pour l’entreposage de données et les grandes bases de données transactionnelles.  Cassandra, MongoDB, Cloudera et Redis en sont des exemples. Cet article fournit des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage local et la bande passante réseau pour chaque taille optimisée.
 
@@ -31,7 +31,7 @@ La série Lsv2 offre un stockage NVMe local directement mappé, à haut débit e
 
 ACU : 150-175
 
-Premium Storage : Pris en charge
+Premium Storage : Prise en charge
 
 Mise en cache du Stockage Premium : Non pris en charge
 

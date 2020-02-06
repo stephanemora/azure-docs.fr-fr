@@ -1,6 +1,6 @@
 ---
 title: Diagnostics et traçage de bout en bout d’Azure Service Bus | Microsoft Docs
-description: Vue d’ensemble des diagnostics et du traçage de bout en bout du client Service Bus
+description: Vue d’ensemble des diagnostics et du traçage de bout en bout du client Service Bus (client via tous les services impliqués dans le traitement).
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a184e76faa89199d3e13ece3e17f94f73d995a12
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311000"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760264"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Traçage et corrélation distribués par le biais de la messagerie Service Bus
 
@@ -28,12 +28,12 @@ L’un des aspects du problème a trait au suivi d’éléments de travail logiq
 Quand un producteur envoie un message par le biais d’une file d’attente, cela se produit généralement dans l’étendue d’une autre opération logique lancée par un autre client ou service. Le consommateur continue la même opération quand il reçoit un message. Le producteur et le consommateur (et les autres services qui traitent l’opération) émettent probablement des événements de télémétrie pour tracer le flux et le résultat de l’opération. Pour mettre en corrélation de tels événements et tracer l’opération de bout en bout, chaque service qui signale des données de télémétrie doit horodater les événements avec un contexte de trace.
 
 La messagerie Microsoft Azure Service Bus définit des propriétés de charge utile que les producteurs et les consommateurs doivent utiliser pour passer ce contexte de trace.
-Le protocole est basé sur le [protocole de corrélation HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
+Le protocole est basé sur le [protocole de corrélation HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md).
 
 | Nom de la propriété        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | Identificateur unique d’un appel externe du producteur à la file d’attente. Pour explorer la logique, les considérations et le format, consultez [Request-Id dans le protocole HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id). |
-|  Correlation-Context | Contexte d’opération propagé à travers tous les services impliqués dans le traitement de l’opération. Pour plus d’informations, consultez [Correlation-Context dans le protocole HTTP](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context). |
+|  Diagnostic-Id       | Identificateur unique d’un appel externe du producteur à la file d’attente. Pour explorer la logique, les considérations et le format, consultez [Request-Id dans le protocole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id). |
+|  Correlation-Context | Contexte d’opération propagé à travers tous les services impliqués dans le traitement de l’opération. Pour plus d’informations, consultez [Correlation-Context dans le protocole HTTP](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context). |
 
 ## <a name="service-bus-net-client-auto-tracing"></a>Traçage automatique du client .NET Service Bus
 

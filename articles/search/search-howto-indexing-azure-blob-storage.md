@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 793258b572fdcf2487d4b20fa07fb4ef5524b149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113008"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846272"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Comment indexer des documents dans Stockage Blob Azure avec la Recherche cognitive Azure
 
@@ -30,7 +30,7 @@ L’indexeur d’objets blob peut extraire du texte à partir des formats de doc
 ## <a name="setting-up-blob-indexing"></a>Configuration de l’indexation d’objets blob
 Vous pouvez configurer un indexeur de Stockage Blob Azure avec les outils suivants :
 
-* [Portail Azure](https://ms.portal.azure.com)
+* [Azure portal](https://ms.portal.azure.com)
 * [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) de Recherche cognitive Azure
 * [Kit de développement logiciel (SDK) .NET](https://aka.ms/search-sdk) de Recherche cognitive Azure
 
@@ -40,7 +40,7 @@ Vous pouvez configurer un indexeur de Stockage Blob Azure avec les outils suivan
 
 Ici, nous vous présentons le flux à l’aide de l’API REST.
 
-### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
+### <a name="step-1-create-a-data-source"></a>Étape 1 : Création d'une source de données
 Une source de données spécifie les données à indexer, les informations d’identification nécessaires pour accéder aux données et les stratégies qui identifient efficacement les changements dans les données (telles que des lignes modifiées ou supprimées). Une source de données peut être utilisée par plusieurs indexeurs dans le même service de recherche.
 
 Pour l’indexation des objets blob, la source de données doit avoir les propriétés requises suivantes :
@@ -79,7 +79,7 @@ Pour plus d’informations sur les signatures d’accès partagé au stockage, c
 > [!NOTE]
 > Si vous utilisez des informations d’identification d’une SAP, vous devez mettre à jour les informations d’identification de la source de données régulièrement avec des signatures renouvelées afin d’éviter leur expiration. Si les informations d’identification de la SAP expirent, l’indexeur se bloque et affiche un message d’erreur similaire à `Credentials provided in the connection string are invalid or have expired.`.  
 
-### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
+### <a name="step-2-create-an-index"></a>Étape 2 : Création d'un index
 L’index spécifie les champs d’un document, les attributs et d’autres constructions qui façonnent l’expérience de recherche.
 
 Voici comment créer un index avec un champ `content` pouvant faire l'objet d'une recherche afin de stocker le texte extrait d'objets blob :   
@@ -134,13 +134,13 @@ En fonction de sa [configuration](#PartsOfBlobToIndex), l’indexeur d’objets 
 * Le contenu de texte du document est extrait dans un champ de chaîne nommé `content`.
 
 > [!NOTE]
-> La Recherche cognitive Azure limite la quantité de texte extrait en fonction du niveau tarifaire : 32 000 caractères pour le niveau gratuit, 64 000 pour le niveau De base et 4 millions pour les niveaux Standard, Standard S2 et Standard S3. Un avertissement est inclus dans la réponse d’état de l’indexeur pour les documents tronqués.  
+> La Recherche cognitive Azure limite la quantité de texte extrait en fonction du niveau tarifaire : 32 000 caractères pour le niveau Gratuit, 64 000 pour le niveau De base, 4 millions pour le niveau Standard, 8 millions pour le niveau Standard S2 et 16 millions pour le niveau Standard S3. Un avertissement est inclus dans la réponse d’état de l’indexeur pour les documents tronqués.  
 
 * Les propriétés de métadonnées spécifiées par l’utilisateur qui sont éventuellement présentes dans l’objet blob sont extraites textuellement.
 * Les propriétés de métadonnées d’objet blob standard sont extraites dans les champs suivants :
 
   * **metadata\_storage\_name** (Edm.String) : nom de fichier de l’objet blob. Par exemple, si vous disposez de l’objet blob /my-container/my-folder/subfolder/resume.pdf, ce champ présente la valeur `resume.pdf`.
-  * **metadata\_storage\_path** (Edm.String) : URI complet de l’objet blob, incluant le compte de stockage. Par exemple, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_path** (Edm.String) : URI complet de l’objet blob, incluant le compte de stockage. Par exemple : `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String) : type de contenu tel que spécifié par le code que vous avez utilisé pour charger l’objet blob. Par exemple : `application/octet-stream`.
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) : horodateur de la dernière modification de l’objet blob. La Recherche cognitive Azure utilise cet horodateur pour identifier les objets blob modifiés afin d’éviter une réindexation complète après l’indexation initiale.
   * **metadata\_storage\_size** (Edm.Int64) : taille de l’objet blob en octets.
@@ -398,5 +398,5 @@ Le tableau ci-après récapitule le traitement appliqué pour chaque format de d
 | Texte brut (text/plain) |`metadata_content_type`<br/>`metadata_content_encoding`<br/> | Extraction du texte|
 
 
-## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer la Recherche cognitive Azure
+## <a name="help-us-make-azure-cognitive-search-better"></a>Aidez-nous à améliorer Recherche cognitive Azure
 Si vous souhaitez nous soumettre des demandes d’ajout de fonctionnalités ou des idées d’amélioration, contactez-nous sur notre [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).

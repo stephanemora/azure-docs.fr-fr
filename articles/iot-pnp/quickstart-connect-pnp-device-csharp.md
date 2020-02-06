@@ -1,19 +1,19 @@
 ---
 title: Connecter l’exemple de code d’appareil IoT Plug-and-Play en préversion à IoT Hub | Microsoft Docs
 description: À l’aide de C# (.NET), créez et exécutez l’exemple de code d’appareil IoT Plug-and-Play en préversion qui se connecte à un IoT Hub. Utilisez l’outil Azure IoT Explorer pour afficher les informations envoyées par l’appareil au hub.
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dobett
 ms.date: 12/27/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b32fc103b4ed4d7058c8af42ffa126ee5527f45a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: b86f58a1b6b9e3a952861dbe7dbeef4dfe06a644
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550842"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964830"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>Démarrage rapide : Connecter un exemple d’application d’appareil IoT Plug-and-Play en préversion à IoT Hub (C#)
 

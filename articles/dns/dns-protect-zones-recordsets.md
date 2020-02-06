@@ -2,17 +2,17 @@
 title: Protection des zones DNS et des enregistrements - Azure DNS
 description: Dans ce parcours d’apprentissage, commencez à protéger des zones DNS et des jeux d’enregistrement dans Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
-ms.author: allensu
-ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: rohink
+ms.openlocfilehash: 549090f04f4969b00dc1c8ee8d5cc70a50523ca8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969017"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983824"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Comment protéger les enregistrements et zones DNS
 
@@ -205,7 +205,7 @@ La commande PowerShell suivante crée un verrou CanNotDelete sur l’enregistrem
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType "Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 Un autre moyen d’empêcher la suppression accidentelle d’une zone consiste à utiliser un rôle personnalisé afin que les comptes d’opérateur et de service utilisés pour gérer vos zones ne soient pas autorisés à supprimer des zones. Si vous avez besoin de supprimer une zone, vous pouvez appliquer une suppression en deux étapes : octroyer des autorisations de suppression de zone (dans l’étendue de la zone, afin d’éviter la suppression d’une zone incorrecte), puis supprimer la zone.

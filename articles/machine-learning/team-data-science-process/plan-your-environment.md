@@ -3,20 +3,20 @@ title: Identifier les scénarios et planifier le processus d’analyse – Proce
 description: Identifier les scénarios et planifier le traitement des données d’analyse avancée en répondant à une série de questions pertinentes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ba87461c6c195a6b483538fd94d8be76239b8dc5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647303"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710314"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Comment identifier les scénarios et planifier le traitement des données d’analyse avancée
 
@@ -48,7 +48,7 @@ Vos données sont-elles locales ou dans le cloud ? Les emplacements suivants so
 * une adresse HTTP publique
 * un emplacement de fichier local ou réseau
 * une base de données SQL Server
-* un conteneur de stockage Azure
+* un conteneur Stockage Azure
 
 ### <a name="what-is-the-azure-destination"></a>Qu’est-ce que la destination Azure ?
 
@@ -79,7 +79,7 @@ Pour plus d’informations, référez-vous à [Déplacement de données à parti
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Quelle est la quantité de données à déplacer vers Azure ?
 
-Des jeux de données extrêmement volumineux peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, consultez la discussion sur les limites de taille pour Machine Learning Studio (classique) dans la section suivante. Dans ces cas, vous pouvez utiliser un échantillon de données pendant l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus TDSP (Team Data Science Process)](sample-data.md).
+Des jeux de données volumineux peuvent dépasser la capacité de stockage de certains environnements. Pour obtenir un exemple, consultez la discussion sur les limites de taille pour Machine Learning Studio (classique) dans la section suivante. Dans ces cas, vous pouvez utiliser un échantillon de données pendant l’analyse. Pour plus d’informations sur l’échantillonnage d’un jeu de données dans différents environnements Azure, référez-vous à [Échantillonner des données dans le processus TDSP (Team Data Science Process)](sample-data.md).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Questions sur les caractéristiques des données : type, format et taille
 

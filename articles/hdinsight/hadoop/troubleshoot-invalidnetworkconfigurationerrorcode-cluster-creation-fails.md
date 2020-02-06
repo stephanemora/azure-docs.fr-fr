@@ -1,24 +1,24 @@
 ---
 title: Erreur InvalidNetworkConfigurationErrorCode – Azure HDInsight
 description: Diverses raisons pour les échecs de création de cluster avec InvalidNetworkConfigurationErrorCode dans Azure HDInsight
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/05/2019
-ms.openlocfilehash: f857ee47f5dd8018d2e26aab47252533b0b17617
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 01/22/2020
+ms.openlocfilehash: 6dd4db999cb130c9816ad023888a4333e968c224
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887102"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720382"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>La création du cluster échoue avec InvalidNetworkConfigurationErrorCode in Azure HDInsight
 
 Cet article décrit les éventuelles solutions à appliquer pour résoudre les problèmes rencontrés lors d’interactions avec des clusters Azure HDInsight.
 
-Si vous voyez le code d’erreur `InvalidNetworkConfigurationErrorCode` avec la description « La configuration du réseau virtuel n’est pas compatible avec la spécification HDInsight », cela indique généralement un problème avec la [configuration du réseau virtuel](../hdinsight-plan-virtual-network-deployment.md) pour votre cluster. En fonction du reste de la description de l’erreur, suivez les sections ci-dessous pour résoudre votre problème.
+Si vous voyez le code d’erreur `InvalidNetworkConfigurationErrorCode` avec la description « La configuration du Réseau virtuel Microsoft Azure n’est pas compatible avec la spécification HDInsight », cela indique généralement un problème avec la [configuration du réseau virtuel](../hdinsight-plan-virtual-network-deployment.md) pour votre cluster. En fonction du reste de la description de l’erreur, suivez les sections ci-dessous pour résoudre votre problème.
 
 ## <a name="hostname-resolution-failed"></a>« Échec de la résolution du nom d’hôte »
 
@@ -28,17 +28,17 @@ La description de l’erreur contient le message « Échec de la résolution du 
 
 ### <a name="cause"></a>Cause :
 
-Cette erreur pointe vers un problème de configuration DNS personnalisée. Les serveurs DNS au sein d’un réseau virtuel peuvent transférer les requêtes DNS aux programmes de résolution récursifs d’Azure pour résoudre les noms d’hôte au sein de ce réseau virtuel (pour plus d’informations, consultez [Résolution de noms dans les réseaux virtuels](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)). Les programmes de résolution récursifs d’Azure sont accessibles via l’adresse IP virtuelle 168.63.129.16. Cette adresse IP est uniquement accessible à partir des machines virtuelles Azure. Par conséquent, il ne fonctionnera pas si vous utilisez un serveur DNS local ou si votre serveur DNS est une machine virtuelle Azure, qui ne fait pas partie du réseau virtuel du cluster.
+Cette erreur pointe vers un problème de configuration DNS personnalisée. Les serveurs DNS au sein d’un réseau virtuel peuvent transférer les requêtes DNS aux programmes de résolution récursifs d’Azure pour résoudre les noms d’hôte au sein de ce réseau virtuel (pour plus d’informations, consultez [Résolution de noms dans les réseaux virtuels](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)). Les programmes de résolution récursifs d’Azure sont accessibles via l’adresse IP virtuelle 168.63.129.16. Cette adresse IP est uniquement accessible à partir des machines virtuelles Azure. Par conséquent, elle ne fonctionnera pas si vous utilisez un serveur DNS local ou si votre serveur DNS est une machine virtuelle Azure, qui ne fait pas partie du réseau virtuel du cluster.
 
 ### <a name="resolution"></a>Résolution
 
 1. Utilisez SSH dans la machine virtuelle qui fait partie du cluster, puis exécutez la commande `hostname -f`. Cela renverra le nom de domaine complet de l’hôte (appelé `<host_fqdn>` dans les instructions ci-dessous).
 
-1. Exécutez ensuite la commande `nslookup <host_fqdn>` (par exemple `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Si cette commande résout le nom en adresse IP, cela signifie que votre serveur DNS fonctionne correctement. Dans ce cas, déclenchez un cas de support avec HDInsight et nous étudierons votre problème. Dans votre cas de support, incluez les étapes de dépannage que vous avez exécutées. Cela nous aidera à résoudre le problème plus rapidement.
+1. Exécutez ensuite la commande `nslookup <host_fqdn>` (par exemple `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`). Si cette commande résout le nom en adresse IP, cela signifie que votre serveur DNS fonctionne correctement. Dans ce cas, déposez une demande de support sur HDInsight et nous étudierons votre problème. Dans votre cas de support, incluez les étapes de dépannage que vous avez exécutées. Cela nous aidera à résoudre le problème plus rapidement.
 
-1. Si la commande ci-dessus ne retourne pas d’adresse IP, exécutez `nslookup <host_fqdn> 168.63.129.16` (par exemple `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Si cette commande est en mesure de résoudre l’adresse IP, cela signifie que votre serveur DNS ne transfère pas la requête au DNS d’Azure, ou qu’il ne s’agit pas d’une machine virtuelle qui fait partie du même réseau virtuel que le cluster.
+1. Si la commande ci-dessus ne retourne pas d’adresse IP, exécutez `nslookup <host_fqdn> 168.63.129.16` (par exemple `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`). Si cette commande est en mesure de résoudre l’adresse IP, cela signifie que votre serveur DNS ne transfère pas la requête au DNS d’Azure ou qu’il ne s’agit pas d’une machine virtuelle qui fait partie du même réseau virtuel que le cluster.
 
-1. Si vous ne disposez pas d’une machine virtuelle Azure pouvant agir en tant que serveur DNS personnalisé dans le réseau virtuel du cluster, vous devez d’abord l’ajouter. Créez une machine virtuelle dans le réseau virtuel, qui sera configuré en tant que redirecteur DNS.
+1. Si vous ne disposez pas d’une machine virtuelle Azure pouvant agir en tant que serveur DNS personnalisé dans le réseau virtuel du cluster, vous devez d’abord l’ajouter. Créez une machine virtuelle dans le réseau virtuel qui sera configurée en tant que redirecteur DNS.
 
 1. Une fois que vous avez déployé une machine virtuelle dans votre réseau virtuel, configurez les règles de transfert DNS sur cette machine virtuelle. Transférez toutes les demandes de résolution de noms iDNS à 168.63.129.16 et le reste à votre serveur DNS. [Voici](../hdinsight-plan-virtual-network-deployment.md) un exemple de cette configuration pour un serveur DNS personnalisé.
 
@@ -54,7 +54,7 @@ La description de l’erreur contient le message « Échec de la connexion au co
 
 ### <a name="cause"></a>Cause :
 
-Le Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autoriser les connexions sortantes vers toutes les adresses IP pour autoriser l’accès à ces services. Les étapes de résolution exactes varient selon que vous avez configuré un groupe de sécurité réseau (NSG) ou des règles définies par l’utilisateur (UDR). Pour plus d’informations sur ces configurations, reportez-vous à la section sur le [contrôle du trafic réseau avec HDInsight avec les groupes de sécurité réseau et les itinéraires définis par l’utilisateur](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip).
+Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc autoriser les connexions sortantes vers toutes les adresses IP pour autoriser l’accès à ces services. Les étapes de résolution exactes varient selon que vous avez configuré un groupe de sécurité réseau (NSG) ou des règles définies par l’utilisateur (UDR). Pour plus d’informations sur ces configurations, reportez-vous à la section sur le [contrôle du trafic réseau avec HDInsight avec les groupes de sécurité réseau et les itinéraires définis par l’utilisateur](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip).
 
 ### <a name="resolution"></a>Résolution
 
@@ -70,6 +70,73 @@ Le Stockage Azure et SQL n’ont pas d’adresses IP fixes. Nous devons donc aut
 
 ---
 
+## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>« La configuration du réseau virtuel n’est pas compatible avec les spécifications HDInsight. »
+
+### <a name="issue"></a>Problème
+
+Les descriptions d’erreur contiennent des messages similaires à ce qui suit :
+
+```
+ErrorCode: InvalidNetworkConfigurationErrorCode
+ErrorDescription: Virtual Network configuration is not compatible with HDInsight Requirement. Error: 'Failed to connect to Azure Storage Account; Failed to connect to Azure SQL; HostName Resolution failed', Please follow https://go.microsoft.com/fwlink/?linkid=853974 to fix it.
+```
+
+### <a name="cause"></a>Cause :
+
+Probablement un problème avec la configuration DNS personnalisée.
+
+### <a name="resolution"></a>Résolution
+
+Vérifiez que l’adresse 168.63.129.16 se trouve dans la chaîne DNS personnalisée. Les serveurs DNS dans un réseau virtuel peuvent rediriger les requêtes DNS vers les programmes de résolution récursifs d’Azure en vue de la résolution des noms d’hôtes au sein de ce réseau virtuel. Pour plus d’informations, consultez [Résolution de noms dans les réseaux virtuels](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). Les programmes de résolution récursifs d’Azure sont accessibles via l’adresse IP virtuelle 168.63.129.16.
+
+1. Utilisez la [commande ssh](../hdinsight-hadoop-linux-use-ssh-unix.md) pour vous connecter à votre cluster. Modifiez la commande ci-dessous en remplaçant CLUSTERNAME par le nom de votre cluster, puis entrez la commande :
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. Exécutez la commande suivante :
+
+    ```bash
+    cat /etc/resolv.conf | grep nameserver*
+    ```
+
+    Le résultat suivant devrait s'afficher :
+
+    ```output
+    nameserver 168.63.129.16
+    nameserver 10.21.34.43
+    nameserver 10.21.34.44
+    ```
+
+    En fonction du résultat, choisissez l’une des étapes suivantes à suivre :
+
+#### <a name="1686312916-is-not-in-this-list"></a>168.63.129.16 n’est pas dans cette liste
+
+**Option 1 :**  
+Ajoutez l’adresse 168.63.129.16 en tant que premier DNS personnalisé pour le réseau virtuel à l’aide des étapes décrites dans [Planifier un réseau virtuel pour Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md). Ces étapes s’appliquent uniquement si votre serveur DNS personnalisé s’exécute sur Linux.
+
+**Option 2 :**  
+Déploie une machine virtuelle de serveur DNS pour le réseau virtuel. Cela implique les étapes suivantes :
+
+* Créez une machine virtuelle dans le réseau virtuel qui sera configurée en tant que redirecteur DNS (il peut s’agir d’une machine virtuelle Linux ou Windows).
+* Configurez les règles de transfert DNS sur cette machine virtuelle (transférez toutes les demandes de résolution de noms iDNS à 168.63.129.16 et le reste à votre serveur DNS).
+* Ajoutez l’adresse IP de cette machine virtuelle en tant que première entrée DNS pour la configuration DNS du Réseau virtuel Microsoft Azure.
+
+#### <a name="1686312916-is-in-the-list"></a>168.63.129.16 figure dans la liste
+
+Dans ce cas, créez une demande de support sur HDInsight et nous étudierons votre problème. Incluez le résultat des commandes ci-dessous dans votre demande de support. Cela nous aidera à examiner et résoudre le problème plus rapidement.
+
+À partir d’une session SSH sur le nœud principal, modifiez, puis exécutez ce qui suit :
+
+```bash
+hostname -f
+nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+```
+
+---
+
 ### <a name="next-steps"></a>Étapes suivantes
 
 Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
@@ -78,4 +145,4 @@ Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à 
 
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées (réponses, support et experts).
 
-* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour en savoir plus, voir [Création d’une requête de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).
+* Si vous avez besoin d’une aide supplémentaire, vous pouvez envoyer une requête de support à partir du [Portail Microsoft Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Sélectionnez **Support** dans la barre de menus, ou ouvrez le hub **Aide + Support**. Pour plus d’informations, consultez [Création d’une demande de support Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request). L’accès au support relatif à la gestion et à la facturation des abonnements est inclus avec votre abonnement Microsoft Azure. En outre, le support technique est fourni avec l’un des [plans de support Azure](https://azure.microsoft.com/support/plans/).

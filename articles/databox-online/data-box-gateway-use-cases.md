@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 03/02/2019
 ms.author: alkohli
-ms.openlocfilehash: e9092fb91ad98e6147647717e11d1a64bcff580e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e72113313e27949819db567c550401b1f051473f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66754182"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022679"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Cas d’utilisation pour Azure Data Box Gateway
 
@@ -51,7 +51,7 @@ Avant de commencer, vérifiez que vous avez un dispositif Data Box Gateway en co
     - Si vous utilisez Azure PowerShell, suivez ces [étapes](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) pour déplacer les données vers le niveau Archive.
     - Si vous utilisez la gestion du cycle de vie Azure, suivez ces étapes pour déplacer les données vers le niveau Archive.
         - [Inscrivez-vous](/azure/storage/common/storage-lifecycle-management-concepts) pour la préversion du service de gestion de cycle de vie de blob afin d’utiliser le niveau Archive.
-        - Utiliser la stratégie suivante pour [archiver des données au moment de l’ingestion](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
+        - Utiliser la stratégie suivante pour [archiver des données au moment de l’ingestion](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
 - Une fois les objets blob marqués comme Archive, ils ne peuvent plus être modifiés par la passerelle, sauf s’ils sont déplacés vers le niveau chaud ou froid. Si le fichier est dans le stockage local, aucune des modifications apportées à la copie locale (y compris les suppressions) n’est chargée vers le niveau Archive.
 - Pour lire des données dans le stockage Archive, vous devez les réactiver en basculant le niveau du blob sur chaud ou froid. [L’actualisation du partage](data-box-gateway-manage-shares.md#refresh-shares) sur la passerelle ne réactive pas le blob.
 
@@ -59,7 +59,7 @@ Pour plus d’informations, découvrez en détail comment [gérer le cycle de vi
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Transfert en bloc initial suivi de transfert incrémentiel
 
-Utilisez Data Box avec Data Box Gateway quand vous souhaitez effectuer un chargement en bloc d’une grande quantité de données, suivi de transferts incrémentiels. Utilisez Data Box pour le transfert en bloc dans un mode hors connexion (amorçage initial) et Data Box Gateway pour les transferts incrémentiels (flux en cours) par le biais du réseau.
+Utilisez Data Box avec Data Box Gateway quand vous souhaitez effectuer un chargement en bloc d’une grande quantité de données, suivi de transferts incrémentiels. Utilisez Data Box pour le transfert en bloc dans un mode hors connexion (amorçage initiale) et Data Box Gateway pour les transferts incrémentiels (flux en cours) par le biais du réseau.
 
 ### <a name="seed-the-data-with-data-box"></a>Amorcer les données avec Data Box
 

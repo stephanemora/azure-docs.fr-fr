@@ -3,7 +3,7 @@ title: Configurer le routage du trafic à valeurs multiples – Azure Traffic Ma
 description: Cet article explique comment configurer Traffic Manager pour router le trafic vers des points de terminaison A/AAAA.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: allensu
-ms.openlocfilehash: 3e5e6cb55b86df8a48f96771fb2436afa8acaa18
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: daf7d09916d276130e337f7acea738228ee23707
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040365"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938777"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurer la méthode de routage à valeurs multiples dans Traffic Manager
 
@@ -43,7 +43,7 @@ Créez un profil Traffic Manager qui dirige le trafic utilisateur en l’envoyan
     
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
-    | Nom                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
+    | Name                   | Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.                                   |
     | Méthode de routage          | Sélectionnez la méthode de routage **Valeurs multiples**.                                       |
     | Subscription            | Sélectionnez votre abonnement.                          |
     | Resource group          | Sélectionnez *myResourceGroupTM1*. |
@@ -63,7 +63,7 @@ Ajoutez deux adresses IP comme point de terminaison externes au profil Traffic M
     | Paramètre                 | Valeur                                              |
     | ---                     | ---                                                |
     | Type                    | Point de terminaison externe                                   |
-    | Nom           | myEndpoint1                                        |
+    | Name           | myEndpoint1                                        |
     | Nom de domaine complet (FQDN) ou IP           | Saisir l’adresse IP publique du point de terminaison que vous voulez ajouter à ce profil Traffic Manager                         |
     |        |           |
 

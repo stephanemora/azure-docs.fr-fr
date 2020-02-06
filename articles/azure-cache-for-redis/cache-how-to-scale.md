@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433500"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714451"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Mise à l’échelle du cache Azure pour Redis
 Le cache Azure pour Redis offre différents types de caches, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
@@ -166,7 +166,7 @@ En cas d’échec d’une opération de mise à l’échelle, le service essaie 
 
 
 ### <a name="how-long-does-scaling-take"></a>Quelle est la durée d’une mise à l’échelle ?
-Une mise à l’échelle prend environ 20 minutes, selon la quantité de données dans le cache.
+Le temps de mise à l’échelle dépend de la quantité de données qui se trouvent dans le cache, les grandes quantités de données prenant plus de temps à traiter. La mise à l’échelle prend environ 20 minutes. Pour les caches en cluster, la mise à l’échelle prend environ 20 minutes par partition.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Comment savoir quand la mise à l’échelle est terminée ?
 Le déroulement de l’opération de mise à l’échelle est affiché dans le portail Azure. Une fois la mise à l’échelle terminée, le statut passe à **En cours d’exécution**.
@@ -176,6 +176,3 @@ Le déroulement de l’opération de mise à l’échelle est affiché dans le p
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

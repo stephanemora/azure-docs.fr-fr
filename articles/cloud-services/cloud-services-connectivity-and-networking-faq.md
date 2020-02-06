@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 22f7c0ba98390b391a79a121f120b8ab6172cfb9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845371"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019398"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : Forum Aux Questions (FAQ)
 
@@ -101,8 +101,8 @@ Vous pouvez bloquer le trafic entrant via l’URL/le nom par défaut de votre se
 
 Pour vous assurer que l’adresse IP publique de votre service cloud (également appelée adresse IP virtuelle) ne change jamais afin qu’elle puisse être mise en liste verte de façon ordinaire par quelques clients spécifiques, nous vous recommandons d’y associer une adresse IP réservée. Autrement, l’adresse IP virtuelle fournie par Azure est désallouée de votre abonnement si vous supprimez le déploiement. Pour que l’opération d’échange d’adresses IP virtuelles réussisse, vous devez disposer d’adresses IP réservées pour les emplacement de production et préproduction. À défaut, l’opération d’échange échoue. Pour réserver une adresse IP et l’associer à votre service cloud, suivez les instructions des articles suivants  :
 
-- [Réserver l’adresse IP d’un service cloud existant](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+- [Réserver l’adresse IP d’un service cloud existant](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+- [Associer une adresse IP réservée à un service cloud à l’aide d’un fichier de configuration de service](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 Tant que vous avez plus d’une instance pour vos rôles, l’association d’une adresse IP réservée à votre service cloud ne devrait pas occasionner de temps d’arrêt. Vous pouvez aussi ajouter la plage d’adresses IP de votre centre de données Azure à une liste verte. Vous pouvez trouver toutes les plages d’adresses IP Azure dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 

@@ -10,17 +10,22 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702519"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983093"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Limitations et restrictions des URL de réponse/URI de redirection
 
 Un URI de redirection ou une URL de réponse correspond à l'emplacement vers lequel le serveur d'autorisation enverra l'utilisateur une fois l'application autorisée et un code d'autorisation ou un jeton d'accès attribué. Le code ou le jeton est contenu dans l'URI de redirection ou le jeton de réponse. Il est donc important que vous inscriviez l'emplacement qui convient dans le cadre du processus d'inscription de l'application.
 
+ Les restrictions suivantes s’appliquent aux URL de réponse :
+
+    * L’URL de réponse doit commencer par le schéma `https`.
+    * L’URL de réponse respecte la casse. Sa casse doit correspondre à celle du chemin d’URL de votre application en cours d’exécution. Par exemple, si votre application comprend `.../abc/response-oidc` dans son chemin, ne spécifiez pas `.../ABC/response-oidc` dans l’URL de réponse. Étant donné que le navigateur web considère que les chemins respectent la casse, les cookies associés à `.../abc/response-oidc` peuvent être exclus s’ils sont redirigés vers l’URL `.../ABC/response-oidc` qui ne correspond pas à la casse.
+    
 ## <a name="maximum-number-of-redirect-uris"></a>Nombre maximal d'URI de redirection
 
 Le tableau suivant indique le nombre maximal d'URI de redirection que vous pouvez ajouter lorsque vous inscrivez votre application.

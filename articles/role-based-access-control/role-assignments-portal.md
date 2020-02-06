@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 17a325e96e9709b60da2f23d1dc68e3300fde80c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4003e11120c13624379cf7dad9334e896cd3a7a8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707866"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774703"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Ajouter ou supprimer des attributions de rôles avec le RBAC Azure et le portail Azure
 
@@ -27,15 +27,15 @@ ms.locfileid: "74707866"
 
 Si vous devez attribuer des rôles d’administrateur dans Azure Active Directory, consultez [Afficher et attribuer des rôles d’administrateur dans Azure Active Directory](../active-directory/users-groups-roles/directory-manage-roles-portal.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour ajouter ou supprimer des attributions de rôles, vous devez disposer :
 
 - d’autorisations `Microsoft.Authorization/roleAssignments/write` et `Microsoft.Authorization/roleAssignments/delete`, telles que [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) ou [Propriétaire de l’accès utilisateur](built-in-roles.md#owner)
 
-## <a name="overview-of-access-control-iam"></a>Vue d’ensemble du contrôle d’accès (IAM)
+## <a name="access-control-iam"></a>Contrôle d’accès (IAM)
 
-Le panneau **Contrôle d’accès (IAM)** vous permet d’attribuer des rôles. Il permet de gérer les identités et les accès et apparaît dans plusieurs emplacements du portail Azure. Voici un exemple de panneau Contrôle d'accès (IAM) pour un abonnement.
+Le panneau **Contrôle d’accès (IAM)** vous permet d’attribuer des rôles afin d’accorder l’accès aux ressources Azure. Il permet de gérer les identités et les accès et apparaît dans plusieurs emplacements du portail Azure. Voici un exemple de panneau Contrôle d'accès (IAM) pour un abonnement.
 
 ![Panneau Contrôle d’accès (IAM) pour un abonnement](./media/role-assignments-portal/access-control-subscription.png)
 
@@ -55,21 +55,25 @@ Pour utiliser le panneau Contrôle d’accès (IAM) avec une efficacité optimal
 
 ## <a name="add-a-role-assignment"></a>Ajouter une attribution de rôle
 
-Suivez ces étapes pour attribuer un rôle à différentes étendues.
+Dans Azure RBAC, vous devez ajouter une attribution de rôle pour accorder l’accès à une ressource Azure. Suivez ces étapes pour attribuer un rôle.
 
-1. Dans le portail Azure, cliquez sur **Tous les services**, puis sélectionnez l’étendue. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
+1. Dans le Portail Azure, cliquez sur **Tous les services**, puis sélectionnez l’étendue à laquelle vous souhaitez accorder l’accès. Par exemple, vous pouvez sélectionner **Groupes d’administration**, **Abonnements**, **Groupes de ressources**, ou une ressource.
 
-1. Cliquez sur la ressource spécifique.
+1. Cliquez sur la ressource spécifique pour cette étendue.
 
 1. Cliquez sur **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cette étendue.
+1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher les attributions de rôles pour cette étendue.
 
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
+    ![Contrôle d’accès (IAM) et onglet Attributions de rôles](./media/role-assignments-portal/role-assignments.png)
+
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle**.
 
    Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
    ![Ajoutez un menu](./media/role-assignments-portal/add-menu.png)
+
+    Le volet Ajouter une attribution de rôle s’ouvre.
 
    ![Volet Ajouter une attribution de rôle](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -81,23 +85,29 @@ Suivez ces étapes pour attribuer un rôle à différentes étendues.
 
    Après quelques instants, le principal de sécurité est attribué au rôle dans l’étendue sélectionnée.
 
+    ![Enregistrement Ajouter une attribution de rôle](./media/role-assignments-portal/add-role-assignment-save.png)
+
 ## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Attribuer à un utilisateur en tant qu’administrateur d’un abonnement
 
 Pour faire d’un utilisateur un administrateur d’un abonnement Azure, attribuez-lui le rôle [Propriétaire](built-in-roles.md#owner) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, notamment l’autorisation d’accorder l’accès à d’autres personnes. Ces étapes sont les mêmes que celles de n’importe quelle autre attribution de rôle.
 
 1. Dans le portail Azure, cliquez sur **Tous les services**, puis sur **Abonnements**.
 
-1. Cliquez sur l’abonnement auquel vous voulez ajouter une attribution de rôle.
+1. Cliquez sur l’abonnement pour lequel vous souhaitez accorder l’accès.
 
 1. Cliquez sur **Contrôle d’accès (IAM)** .
 
-1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher toutes les attributions de rôles pour cet abonnement.
+1. Cliquez sur l’onglet **Attributions de rôles** afin d’afficher les attributions de rôles pour cet abonnement.
 
-1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle** pour ouvrir le volet Ajouter une attribution de rôle.
+    ![Contrôle d’accès (IAM) et onglet Attributions de rôles](./media/role-assignments-portal/role-assignments.png)
+
+1. Cliquez sur **Ajouter** > **Ajouter une attribution de rôle**.
 
    Si vous n’avez pas les autorisations pour attribuer des rôles, l’option Ajouter une attribution de rôle sera désactivée.
 
    ![Ajoutez un menu](./media/role-assignments-portal/add-menu.png)
+
+    Le volet Ajouter une attribution de rôle s’ouvre.
 
    ![Volet Ajouter une attribution de rôle](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -111,7 +121,7 @@ Pour faire d’un utilisateur un administrateur d’un abonnement Azure, attribu
 
 ## <a name="remove-a-role-assignment"></a>Supprimer une attribution de rôle
 
-Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. Suivez ces étapes pour supprimer une attribution de rôle.
+Dans Azure RBAC, vous devez supprimer une attribution de rôle pour supprimer l’accès à une ressource Azure. Suivez ces étapes pour supprimer une attribution de rôle.
 
 1. Ouvrez **Contrôle d’accès (IAM)** dans une étendue, par exemple un groupe d’administration, un abonnement, un groupe de ressources ou une ressource pour lesquels vous souhaitez supprimer l’accès.
 
@@ -127,13 +137,13 @@ Dans le RBAC, vous supprimez une attribution de rôle pour supprimer un accès. 
 
 1. Dans le message d’attribution de rôle qui s’affiche, cliquez sur **Oui**.
 
-    Les attributions de rôle héritées ne peuvent pas être supprimées. Si vous avez besoin de supprimer une attribution de rôle héritée, vous devez le faire au niveau de l’étendue où l’affectation de rôle a été créée. Dans la colonne **Étendue**, en regard de **Hérité**, un lien vous dirige vers l’étendue à laquelle ce rôle a été affecté. Accédez à l’étendue répertoriée ici pour supprimer l’attribution de rôle.
+    Si vous voyez un message indiquant que les attributions de rôles héritées ne peuvent pas être supprimées, cela signifie que vous tentez de supprimer une attribution de rôle dans une étendue enfant. Vous devez ouvrir le contrôle d’accès (IAM) dans l’étendue où le rôle a été attribué, puis réessayer. Un moyen rapide d’ouvrir le contrôle d’accès (IAM) à l’étendue correcte consiste à examiner la colonne **Étendue**, puis à cliquer sur le lien à côté de **(Héritée)** .
 
    ![Supprimer le message d’attribution de rôle](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Lister les attributions de rôles à l’aide du RBAC Azure et du portail Azure](role-assignments-list-portal.md)
-- [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](quickstart-assign-role-user-portal.md)
+- [Tutoriel : Accorder un accès utilisateur aux ressources Azure à l’aide du contrôle RBAC et du portail Azure](quickstart-assign-role-user-portal.md)
 - [Résoudre des problèmes liés au contrôle d'accès en fonction du rôle pour les ressources Azure](troubleshooting.md)
 - [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/overview.md)

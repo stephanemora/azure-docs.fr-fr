@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 06b54c3038e8b4f5879a93b696920534c2199008
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414530"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748819"
 ---
 Cet article fournit une vue d’ensemble des fonctionnalités de disponibilité des machines virtuelles Azure.
 
@@ -54,7 +54,7 @@ Les groupes de machines virtuelles identiques vous permettent de spécifier le m
 
 |   | “orchestrationMode” : « VM » (VirtualMachine)| “orchestrationMode” : “ScaleSetVM” (VirtualMachineScaleSetVM) |
 |----|----|----|
-| Modèle de configuration des machines virtuelles| Aucune. VirtualMachineProfile n’est pas défini dans le modèle de groupe identique. | Requis. VirtualMachineProfile est renseigné dans le modèle de groupe identique. |
+| Modèle de configuration des machines virtuelles| Aucun. VirtualMachineProfile n’est pas défini dans le modèle de groupe identique. | Obligatoire. VirtualMachineProfile est renseigné dans le modèle de groupe identique. |
 | Ajout d’une nouvelle machine virtuelle à un groupe identique| Les machines virtuelles sont ajoutées explicitement au groupe identique lors de la création de la machine virtuelle. | Les machines virtuelles sont implicitement créées et ajoutées au groupe identique en fonction du modèle de configuration de machine virtuelle, du nombre d’instances et des règles de mise à l’échelle automatique. |
 | Zones de disponibilité| Prend en charge le déploiement régional ou les machines virtuelles dans une zone de disponibilité| Prend en charge le déploiement régional ou plusieurs zones de disponibilité ; peut définir la stratégie d’équilibrage de zone |
 | Domaines d’erreur| Peut définir le nombre de domaines d’erreur. 2 ou 3 en fonction du support régional, et 5 pour la zone de disponibilité. Le domaine d’erreur affecté à la machine virtuelle sera conservé tout au long du cycle de vie de la machine virtuelle, notamment lors de la désallocation et du redémarrage. | Vous pouvez définir 1, 2 ou 3 domaines d’erreur pour les déploiements non zonaux, et 5 pour les déploiements de zone de disponibilité. Le domaine d’erreur affecté à la machine virtuelle n’est pas persistant tout au long du cycle de vie ; le domaine d’erreur est affecté aux machines virtuelles au moment de l’allocation. |
@@ -62,7 +62,7 @@ Les groupes de machines virtuelles identiques vous permettent de spécifier le m
 
 **Domaines d’erreur et domaines de mise à jour**
 
-Les groupes de machines virtuelles identiques simplifient la conception pour la haute disponibilité en alignant les domaines d’erreur et les domaines de mise à jour. Vous avez uniquement à définir le nombre de domaines d’erreur pour le groupe identique. Le nombre de domaines d’erreur disponibles pour les groupes identiques peut varier selon la région. Voir [Nombre de domaines d’erreur par région](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
+Les groupes de machines virtuelles identiques simplifient la conception pour la haute disponibilité en alignant les domaines d’erreur et les domaines de mise à jour. Vous avez uniquement à définir le nombre de domaines d’erreur pour le groupe identique. Le nombre de domaines d’erreur disponibles pour les groupes identiques peut varier selon la région. Consultez [Gérer la disponibilité des machines virtuelles dans Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 
 ## <a name="availability-sets"></a>Groupes à haute disponibilité

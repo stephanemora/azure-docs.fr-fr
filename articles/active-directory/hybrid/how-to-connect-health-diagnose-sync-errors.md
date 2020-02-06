@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702553"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897195"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostiquer et corriger les erreurs de synchronisation d’attribut en double
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Allant plus loin dans la mise en évidence des erreurs de synchronisation, Azure Active Directory (Azure AD) Connect Health permet la correction en libre-service des erreurs. Il résout les erreurs de synchronisation d’attribut en double et corrige les objets qui sont orphelins à partir d’Azure AD.
 La fonctionnalité de diagnostic présente les avantages suivants :
 - Elle fournit une procédure de diagnostic qui limite les erreurs de synchronisation d’attribut en double. Elle fournit également des correctifs spécifiques.
@@ -109,7 +110,7 @@ Cette question vérifie si un utilisateur entrant en conflit et l’objet utilis
 1. L’objet en conflit vient d’être synchronisé avec Azure Active Directory. Comparez les attributs des objets :  
    - Nom d’affichage
    - Nom d’utilisateur principal
-   - ID objet
+   - ID de l'objet
 2. Si Azure AD ne parvient pas à les comparer, vérifiez si Active Directory contient des objets ayant les valeurs **UserPrincipalNames** indiquées. Répondez **Non** si vous trouvez les deux.
 
 Dans l’exemple suivant, les deux objets appartiennent au même utilisateur (**Joe Johnson**).
@@ -137,7 +138,7 @@ Un utilisateur avec un attribut en conflit dans Azure AD doit être effacé avan
 **La mise à jour de l'ancre source vers un utilisateur basé sur le cloud n'est pas prise en charge dans votre client.**  
 Un utilisateur basé sur le cloud dans Azure AD ne doit pas avoir d’ancre source. Dans ce cas, la mise à jour de l’ancre source n’est pas prise en charge. Une correction manuelle doit être effectuée localement. 
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 **Q.** Que se passe-t-il en cas d’échec de l’**application du correctif** ?  
 **A.** Si l’exécution échoue, il est possible qu’Azure AD Connect fasse l’objet d’une erreur d’exportation. Actualisez la page du portail et recommencez après la synchronisation suivante. Le cycle de synchronisation par défaut est de 30 minutes. 
 

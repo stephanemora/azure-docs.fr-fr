@@ -9,16 +9,16 @@ ms.date: 10/05/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 336b6157128468169264d6ffa9564da4d9338aae
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0aedeea2a6ad08e1627c2d1a6ebde6c91a4d02d9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991818"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841763"
 ---
 # <a name="configure-identity-for-the-event-grid-module"></a>Configurer l’identité du module Event Grid
 
-Cet article vous donne des exemples de configurations d’identité possibles pour un module Event Grid. Par défaut, le module Event Grid présente son certificat d’identité tel qu’il est configuré par le démon de sécurité IoT. Un certificat d’identité est présenté par le module Event Grid sur ses appels sortants, lorsqu’il remet des événements. L’abonné à un événement Event Grid peut alors choisir de valider que c’est bien le module Event Grid qui a envoyé l’événement avant d’accepter celui-ci.
+Cet article explique comment configurer l’identité de Grid sur Edge. Par défaut, le module Event Grid présente son certificat d’identité tel qu’il est configuré par le démon de sécurité IoT. Event Grid sur Edge présente son certificat d’identité avec ses appels sortants lorsqu’il livre des événements. Un abonné peut ensuite confirmer que c’est le module Event Grid qui a envoyé l’événement avant d’accepter.
 
 Consultez le guide [Sécurité et authentification](security-authentication.md) pour toutes les configurations possibles.
 
@@ -28,8 +28,8 @@ Voici un exemple de configuration pour toujours présenter un certificat d’ide
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge"
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge"
   ]
 }
  ```
@@ -40,7 +40,7 @@ Voici un exemple de configuration pour ne pas présenter un certificat d’ident
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=false"
+    "outbound__clientAuth__clientCert__enabled=false"
   ]
 }
  ```

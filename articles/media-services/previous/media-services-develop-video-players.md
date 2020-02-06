@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8d4ff3e833dcbe92802845796e3b826735b68ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39459267919747ed49e9fa3f05746294eaf741dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465641"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906826"
 ---
 # <a name="develop-video-player-applications"></a>Développement d’applications de lecteur vidéo
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Media Services fournit les outils dont vous avez besoin pour créer des applications de lecteur clientes riches et dynamiques pour la plupart des plateformes, notamment : appareils iOS, Android, Windows, Windows Phone, Xbox et décodeurs. Cette rubrique fournit également des liens vers les Kits de développement logiciel (SDK) et les infrastructures de lecteur que vous pouvez utiliser pour développer vos propres applications clientes afin d’utiliser la diffusion en continu de médias à partir d’Azure Media Services.
 
 >[!NOTE]
@@ -50,7 +50,7 @@ Vous pouvez également utiliser un des Kits de développement logiciel (SDK) sui
 * [Documentation de l’infrastructure de lecteur HTML5](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [Plug-in de diffusion en continu lisse Microsoft pour OSMF](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Licence du kit de portage du client de diffusion en continu lisse Microsoft®](https://aka.ms/sspk) 
-* [Développement d’applications vidéo pour XBOX](https://xbox.create.msdn.com/) 
+* [Développement d’applications vidéo pour XBOX](https://www.xbox.com/en-US/developers) 
 
 ## <a name="advertising"></a>Publicité
 Azure Media Services assure la prise en charge des insertions publicitaires via la plateforme Windows Media : Infrastructures de lecteur. Des infrastructures de lecteur avec prise en charge des publicités sont disponibles pour les périphériques Windows 8, Silverlight, Windows Phone 8 et iOS. Chaque infrastructure de lecteur contient un exemple de code qui montre comment implémenter une application de type lecteur. Il existe trois sortes de publicités différentes que vous pouvez insérer dans votre contenu multimédia :

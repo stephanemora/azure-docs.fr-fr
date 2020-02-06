@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: e3dcd9305a48b0d34f1bcbea64d6628efabc1235
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8e1f144fdf94df445fb64b9b489cba1e9998f381
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546059"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845621"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Fonctionnement d’Azure Machine Learning : Architecture et concepts
 
@@ -85,7 +85,7 @@ Les activités peuvent envoyer des notifications via le SDK ou l’interface uti
 ### <a name="compute-instance"></a>Instance de calcul (préversion)
 
 > [!NOTE]
-> Les instances de calcul sont disponibles uniquement pour les espaces de travail avec la région **USA Centre Nord** ou **Royaume-Uni Sud**.
+> Les instances de calcul ne sont disponibles que pour les espaces de travail associés aux régions **USA Centre Nord**, ** USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**.
 >Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place. 
 
 Une **instance de calcul Azure Machine Learning** (ancienne machine virtuelle Notebook) est une station de travail cloud complètement managée qui comprend plusieurs outils et environnements installés pour Machine Learning. Les instances de calcul peuvent être utilisées comme cible de calcul pour les travaux de formation et d’inférence. Pour les tâches volumineuses, les [clusters de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) avec des fonctionnalités de mise à l’échelle à plusieurs nœuds constituent un meilleur choix de cible de calcul.

@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: aaf3111270687e3921d542d87981a25868842f93
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ac0152d0164c3577ade3d862e9512b920c451518
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554916"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766504"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Alertes de sécurité Azure Security Center pour IoT
 
@@ -30,11 +30,11 @@ Une alerte sert d’indicateur de compromission potentielles et doit être exami
 
 Dans cet article, vous trouverez une liste d’alertes intégrées qui peuvent être déclenchées sur votre IoT Hub et/ou appareils IoT.
 Outre les alertes intégrées, Azure Security Center pour IoT vous permet de définir des alertes personnalisées basées sur le comportement attendu d’un Iot Hub et/ou d’un appareil.
-Pour plus d’informations, consultez [Créer des alertes personnalisées](quickstart-create-custom-alerts.md).
+Pour en savoir plus, consultez la section [Alertes personnalisées](concept-customizable-security-alerts.md).
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Alertes intégrées pour appareils IoT
 
-| Nom | severity | source de données | Description | Étapes de correction recommandées|                  
+| Name | severity | source de données | Description | Étapes de correction recommandées|                  
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |Niveau de gravité **Élevé**|  |  |  |
 |   Ligne de commande binaire   | Élevé | Agent | Détection d’un binaire Linux appelé/exécuté à partir de la ligne de commande. Ce processus peut représenter une activité légitime, ou indiquer que votre appareil est compromis.|   Évaluez la commande avec l’utilisateur qui l’a exécutée et vérifiez s’il s’agit d’une action qui devrait être exécutée de manière légitime sur l’appareil. Si ce n’est pas le cas, signalez l’alerte à votre équipe responsable de la sécurité des informations. |
@@ -85,7 +85,7 @@ Pour plus d’informations, consultez [Créer des alertes personnalisées](quick
 
 ## <a name="built-in-alerts-for-iot-hub"></a>Alertes intégrées pour IoT Hub
 
-| severity | Nom                                                                         | Description | Correction suggérée|
+| severity | Name                                                                         | Description | Correction suggérée|
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |Niveau de gravité **Moyen**|  |  |  |
 |  Ajout d’un nouveau certificat à un IoT Hub  | Moyenne                                     |Un certificat nommé \'%{DescCertificateName}\' a été ajouté à IoT Hub \'%{DescIoTHubName}\'. Si cette action a été effectuée par un tiers autorisé, cela peut être le signe d’une activité malveillante.| 1. Assurez-vous que le certificat a été ajouté par un tiers autorisé. <br> 2. S’il n’a pas été ajouté par un tiers autorisé, supprimez-le et signalez l’alerte à l’équipe responsable de la sécurité de l’organisation.  |

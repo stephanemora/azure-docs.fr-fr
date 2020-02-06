@@ -2,19 +2,19 @@
 title: 'Démarrage rapide : Reconnaître la voix d’un fichier audio, Python – Service Speech'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: chlandsi
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: chlandsi
-ms.openlocfilehash: 587a0e83eb6b8c96b44589f7f5701526c23e2aae
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/30/2020
+ms.author: dapine
+ms.openlocfilehash: bcf0679d83becfb3c4ae900769c0a42dc1359e5d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76037785"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909112"
 ---
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -23,8 +23,8 @@ Avant de commencer, assurez-vous de :
 > [!div class="checklist"]
 > * [Créer une ressource Azure Speech](../../../../get-started.md)
 > * [Créer une application LUIS et obtenir une clé de point de terminaison](../../../../quickstarts/create-luis.md)
-> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md)
-> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md)
+> * [Configurer votre environnement de développement](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
+> * [Créer un exemple de projet vide](../../../../quickstarts/create-project.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: d481df42220f9135010099f613c4c98e59935f4f
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 364daff7bd1b8b273b195e450960532144ac6292
+  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73889169"
+  ms.lasthandoff: 02/05/2020
+  ms.locfileid: "77026028"
 landingContent:
 - title: Créer des solutions énergétiques
   linkLists:
@@ -36,13 +36,13 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Configurer un modèle d’appareil
-      url: ../preview/howto-set-up-template.md
-    - text: Connecter un appareil IoT Plug-and-Play
-      url: ../preview/tutorial-connect-pnp-device.md
+      url: ../core/howto-set-up-template.md
+    - text: Connecter un appareil IoT Plug-and-Play (préversion)
+      url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
     - text: Préparer et connecter un kit de développement IoT MX Chip
-      url: ../preview/howto-connect-devkit.md
+      url: ../core/howto-connect-devkit.md
     - text: Connecter d’autres clouds IoT
       url: ../core/howto-build-iotc-device-bridge.md
 - title: Rester connecté
@@ -50,46 +50,46 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Utiliser des groupes d’appareils
-      url: ../preview/tutorial-use-device-groups.md
+      url: ../core/tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: Gestion de vos appareils
-      url: ../preview/howto-manage-devices.md
+      url: ../core/howto-manage-devices.md
     - text: Exécuter une tâche
       url: ../core/howto-run-a-job.md
     - text: Analyser les données de votre appareil
-      url: ../preview/howto-create-analytics.md
+      url: ../core/howto-create-analytics.md
 - title: Transformer
   linkLists:
   - linkListType: tutorial
     links:
     - text: Créer une règle
-      url: ../preview/quick-configure-rules.md
+      url: ../core/quick-configure-rules.md
     - text: Créer des règles de télémétrie
-      url: ../preview/tutorial-create-telemetry-rules.md
+      url: ../core/tutorial-create-telemetry-rules.md
     - text: Exporter vers le Stockage Blob
-      url: ../preview/howto-export-data.md
+      url: ../core/howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: Créer des règles personnalisées
-      url: ../preview/howto-create-custom-rules.md
+      url: ../core/howto-create-custom-rules.md
     - text: Créer une analyse personnalisée
-      url: ../preview/howto-create-custom-analytics.md
+      url: ../core/howto-create-custom-analytics.md
 - title: Administration
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Gérer votre application
-      url: ../preview/howto-administer.md
-    - text: Gérer des utilisateurs et des rôles
-      url: ../preview/howto-manage-users-roles.md
+      url: ../core/howto-administer.md
+    - text: Gérer les utilisateurs et les rôles
+      url: ../core/howto-manage-users-roles.md
     - text: Consulter votre facture
-      url: ../preview/howto-view-bill.md
+      url: ../core/howto-view-bill.md
     - text: Personnaliser l’interface utilisateur de l’application
-      url: ../preview/howto-customize-ui.md
+      url: ../core/howto-customize-ui.md
     - text: Configurer des tableaux de bord personnels
       url: ../core/howto-create-personal-dashboards.md
     - text: Utiliser des vignettes de tableau de bord
       url: ../core/howto-add-tiles-to-your-dashboard.md
     - text: Utiliser des modèles d’application
-      url: ../preview/howto-use-app-templates.md
+      url: ../core/howto-use-app-templates.md

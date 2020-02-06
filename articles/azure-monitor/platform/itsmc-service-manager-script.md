@@ -4,15 +4,15 @@ description: Créez une application web Service Manager à l’aide d’un scrip
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 443fe6aa7e97e666075a2fbb985a9b8b00baf81a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932251"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990927"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Créer l’application web Service Manager à l’aide du script automatisé
 
@@ -33,7 +33,7 @@ Enregistrez ces valeurs. Vous en aurez besoin lorsque vous créerez une connexio
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
  Windows Management Framework 5.0 ou version ultérieure.
 Par défaut, Windows 10 a la version 5.1. Vous pouvez télécharger l’infrastructure [ici](https://www.microsoft.com/download/details.aspx?id=50395) :

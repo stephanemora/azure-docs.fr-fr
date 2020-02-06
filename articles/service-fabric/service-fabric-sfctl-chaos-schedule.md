@@ -3,14 +3,14 @@ title: Interface CLI Azure Service Fabric - sfctl chaos schedule
 description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Inclut la liste des commandes liées à la planification de chaos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639171"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906189"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Permet d’obtenir et de définir la planification de chaos.
@@ -71,9 +71,10 @@ Chaos va planifier automatiquement les exécutions en fonction de la planificati
 
 ### <a name="examples"></a>Exemples
 
-La commande suivante définit une planification (en supposant que la planification actuelle a la version 0) qui démarre le 01-01-2016 et expire le 01-01-2038, et qui exécute Chaos 24 heures/24 et 7 jours/7. Chaos va être planifié sur le cluster pour ces dates.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+La commande suivante définit une planification (en supposant que la planification actuelle a la version 0) qui démarre le 01-01-2016 et expire le 01-01-2038, et qui exécute Chaos 24 heures/24 et 7 jours/7.
+Chaos va être planifié sur le cluster pour ces dates.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -134,6 +135,8 @@ La commande suivante définit une planification (en supposant que la planificati
         ]
     }
     ]
+```
+
 
 
 ## <a name="next-steps"></a>Étapes suivantes

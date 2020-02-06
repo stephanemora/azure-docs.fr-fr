@@ -9,23 +9,23 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100322"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844585"
 ---
-# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Didacticiel : Publier des événements et s’y abonner dans le cloud
+# <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Tutoriel : Publier des événements et s’y abonner dans le cloud
 
-Cet article vous guide tout au long des étapes nécessaires pour publier des événements avec et vous abonner en utilisant Event Grid sur IoT Edge.
+Cet article vous guide tout au long des étapes nécessaires pour publier des événements avec et vous abonner en utilisant Event Grid sur IoT Edge. Ce didacticiel utilise une fonction Azure comme gestionnaire d’événements. Pour accéder à d’autres types de destinations, consultez [Gestionnaires d’événements](event-handlers.md).
 
 Consultez [Concepts d’Event Grid](concepts.md) pour comprendre ce que sont une rubrique et un abonnement Event Grid avant de continuer.
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* **Abonnement Azure** : créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
+* **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
 * **Appareil Azure IoT Hub et IoT Edge** : suivez les étapes du guide de démarrage rapide pour les appareils [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) si vous n’en avez pas encore.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
@@ -88,7 +88,7 @@ En tant qu’éditeur d’un événement, vous devez créer une rubrique Event G
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2?api-version=2019-01-01-preview
     ```
 
-   Exemple de sortie :
+   Exemple de sortie :
 
    ```json
         [
@@ -108,6 +108,8 @@ En tant qu’éditeur d’un événement, vous devez créer une rubrique Event G
 
 Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. Pour recevoir des événements, les abonnés doivent créer un abonnement Event Grid sur une rubrique intéressante.
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
+
 1. Créez subscription2.json avec le contenu suivant. Pour plus d’informations sur la charge utile, voir la [documentation sur l’API](api.md).
 
     ```json
@@ -124,7 +126,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     ```
 
    >[!NOTE]
-   > La propriété **endpointType** spécifie que l’abonné est un webhook.  **endpointUrl** spécifie l’URL via laquelle l’abonné écoute les événements. Cette URL correspond à l’exemple de fonction Azure que vous avez configuré précédemment.
+   > La propriété **endpointType** spécifie que l’abonné est un webhook.  **endpointUrl** spécifie l’URL à laquelle l’abonné écoute les événements. Cette URL correspond à l’exemple de fonction Azure que vous avez configuré précédemment.
 2. Exécutez la commande suivante pour créer l’abonnement. Le code d’état HTTP 200 OK doit être retourné.
 
     ```sh
@@ -136,7 +138,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic2/eventSubscriptions/sampleSubscription2?api-version=2019-01-01-preview
     ```
 
-    Exemple de sortie :
+    Exemple de sortie :
 
    ```json
         {
@@ -203,3 +205,4 @@ Dans ce didacticiel, vous avez créé une rubrique Event Grid, un abonnement et 
 * Configurer la persistance du module Event Grid sur [Linux](persist-state-linux.md) ou [Windows](persist-state-windows.md)
 * Suivre la [documentation](configure-client-auth.md) pour configurer l’authentification du client
 * Transférer les événements vers Azure Event Grid dans le cloud en suivant ce [didacticiel](forward-events-event-grid-cloud.md)
+* [Superviser les rubriques et les abonnements à la périphérie](monitor-topics-subscriptions.md)

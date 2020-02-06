@@ -94,21 +94,17 @@
       href: user-help-device-remediation.md
 - name: Aide du portail MyApps
   items:
-    - name: "Accéder au portail Mes\_applications et l’utiliser"
+    - name: "Se connecter au portail Mes\_applications et l’utiliser"
       href: my-apps-portal-end-user-access.md
     - name: Mettre à jour vos informations de profil et de compte
       href: my-apps-portal-end-user-update-profile.md
     - name: Mettre à jour les informations de vos groupes
       href: my-apps-portal-end-user-groups.md
+    - name: Organiser des applications à l’aide de regroupements
+      href: my-applications-portal-workspaces.md
+    - name: Modifier ou révoquer des autorisations d’application
+      href: my-applications-portal-permissions-saved-accounts.md
     - name: Effectuer vos propres révisions d’accès
       href: my-apps-portal-end-user-access-reviews.md
     - name: Problèmes de dépannage
       href: my-apps-portal-end-user-troubleshoot.md
-- name: Aide sur le portail Mes applications (préversion)
-  items:
-    - name: "Accéder au portail Mes\_applications et l’utiliser"
-      href: my-applications-portal-access.md
-    - name: Accéder et utiliser les espaces de travail
-      href: my-applications-portal-workspaces.md
-    - name: Modifier ou révoquer des autorisations d’application
-      href: my-applications-portal-permissions-saved-accounts.md

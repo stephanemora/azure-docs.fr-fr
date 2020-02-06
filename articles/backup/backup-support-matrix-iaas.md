@@ -3,12 +3,12 @@ title: Tableau de prise en charge pour la sauvegarde de machines virtuelles Azur
 description: Fournit un récapitulatif des limitations et des paramètres de prise en charge de la sauvegarde de machines virtuelles Azure avec le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: c57f625e7f44dc5de6a801ec93bad5433e9a9a66
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 8475e90e247aa2a0c081d25486c4ada0854a9e89
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294284"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705392"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Tableau de prise en charge pour la sauvegarde de machines virtuelles Azure
 
@@ -33,16 +33,11 @@ Sauvegarder la machine virtuelle Azure sur le serveur de sauvegarde  | Sauvegard
 En savoir plus sur la sauvegarde [à l’aide d’un serveur de sauvegarde](backup-architecture.md#architecture-back-up-to-dpmmabs) et sur les [prérequis de la prise en charge](backup-support-matrix-mabs-dpm.md).
 
 >[!NOTE]
-> La Sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l’aide de la solution de sauvegarde de machine virtuelle Azure.
+> **Sauvegarde Azure prend désormais en charge la sauvegarde et la restauration sélectives de disque à l’aide de la solution de sauvegarde de machine virtuelle Azure.**
 >
->Aujourd’hui, la Sauvegarde Azure prend en charge la sauvegarde de tous les disques (de système d’exploitation et de données) d’une machine virtuelle à l’aide de la solution de sauvegarde de machines virtuelles. Avec la fonctionnalité d’exclusion de disque, vous avez la possibilité de sauvegarder un seul ou plusieurs des nombreux disques de données d’une machine virtuelle. Cela offre une solution efficace et économique pour vos besoins en sauvegarde et restauration. Chaque point de récupération contient des données des disques inclus dans l’opération de sauvegarde, ce qui vous permet par ailleurs de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné au cours de l’opération de restauration. Cela s’applique à la restauration aussi bien à partir de l’instantané que du coffre.
+>Aujourd’hui, Azure Backup prend en charge la sauvegarde de tous les disques (système d’exploitation et données) dans une machine virtuelle à l’aide de la solution de sauvegarde des machines virtuelles. Avec la fonctionnalité d’exclusion de disque, vous avez la possibilité de sauvegarder un seul ou plusieurs disques de données dans une machine virtuelle. Cela offre une solution efficace et économique pour vos besoins en sauvegarde et restauration. Chaque point de récupération contient des données des disques inclus dans l’opération de sauvegarde, ce qui vous permet de disposer d’un sous-ensemble de disques restaurés à partir du point de récupération donné au cours de l’opération de restauration. Cela s’applique à la restauration de la capture instantanée et du coffre.
 >
-> Cette solution est particulièrement utile dans les scénarios suivants :
->  
->1. Vous avez des données critiques à sauvegarder sur un seul disque et vous ne voulez pas sauvegarder les autres disques attachés à une machine virtuelle. Cela réduit les coûts de stockage de sauvegarde.  
->2. Vous disposez d’autres solutions de sauvegarde pour une partie des données de vos machines virtuelles. Par exemple, vous sauvegardez vos bases de données ou vos données avec une autre solution de sauvegarde de charge de travail, et vous souhaitez utiliser la sauvegarde au niveau de la machine virtuelle Azure pour le reste de vos disques et données afin de générer un système efficace et robuste en utilisant les meilleures fonctionnalités disponibles.
->
->Pour vous inscrire à la préversion, écrivez-nous à l’adresse AskAzureBackupTeam@microsoft.com
+>**Pour vous inscrire à la préversion, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com**
 
 ## <a name="supported-backup-actions"></a>Actions de sauvegarde prises en charge
 

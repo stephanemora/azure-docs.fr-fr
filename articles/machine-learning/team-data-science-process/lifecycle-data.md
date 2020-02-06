@@ -3,20 +3,20 @@ title: Acquisition de données et présentation du processus Team Data science P
 description: Objectifs, tâches et livrables associés à la phase d’acquisition des données et de compréhension de vos projets de science des données
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303515"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720501"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Acquisition de données et phase de présentation du processus Team Data science Process
 
@@ -52,12 +52,12 @@ Avant de former vos modèles, vous devez développer une parfaite compréhension
 
 Le processus TDSP fournit un utilitaire automatisé appelé [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), qui aide à visualiser les données et à préparer des rapports de synthèse de données. Nous vous recommandons de commencer par IDEAR pour explorer les données afin de développer une compréhension initiale des données de manière interactive sans codage. Vous pouvez ensuite écrire du code personnalisé pour l’exploration et la visualisation des données. Pour obtenir de l’aide sur le nettoyage des données, consultez [Tâches de préparation des données pour l’apprentissage automatique amélioré](prepare-data.md).  
 
-Une fois que vous êtes satisfait de la qualité des données nettoyées, l’étape suivante consiste à mieux comprendre les modèles inhérents aux données. Cela vous permet de choisir et de développer un modèle prédictif approprié pour votre cible. Recherchez la preuve indiquant à quel point les données sont bien appropriées à la cible. Déterminez ensuite s’il existe des données suffisantes pour passer aux étapes de modélisation suivantes. Là encore, ce processus est souvent itératif. Vous devrez peut-être rechercher de nouvelles sources de données avec des données plus précises ou mieux appropriées pour compléter le jeu de données identifié au cours de la phase précédente. 
+Une fois que vous êtes satisfait de la qualité des données nettoyées, l’étape suivante consiste à mieux comprendre les modèles inhérents aux données. Cette analyse des données vous permet de choisir et de développer un modèle prédictif approprié pour votre cible. Recherchez la preuve indiquant à quel point les données sont bien appropriées à la cible. Déterminez ensuite s’il existe des données suffisantes pour passer aux étapes de modélisation suivantes. Là encore, ce processus est souvent itératif. Vous devrez peut-être rechercher de nouvelles sources de données avec des données plus précises ou mieux appropriées pour compléter le jeu de données identifié au cours de la phase précédente. 
 
 ### <a name="set-up-a-data-pipeline"></a>Configurer un pipeline de données
-Outre l’ingestion et le nettoyage initiaux des données, vous devez généralement définir un processus pour noter les nouvelles données ou actualiser les données régulièrement dans le cadre d’un processus de formation continue. Pour ce faire, configurez un pipeline de données ou un flux de travail. L’article [Déplacement de données à partir d’un serveur SQL local vers Azure SQL Database avec Azure Data Factory](move-sql-azure-adf.md) contient un exemple de configuration d’un pipeline avec [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Outre l’ingestion et le nettoyage initiaux des données, vous devez généralement définir un processus pour noter les nouvelles données ou actualiser les données régulièrement dans le cadre d’un processus de formation continue. Le scoring peut être réalisé avec un pipeline de données ou un workflow. L’article [Déplacement de données à partir d’un serveur SQL local vers Azure SQL Database avec Azure Data Factory](move-sql-azure-adf.md) contient un exemple de configuration d’un pipeline avec [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
-Dans cette étape, vous développez une architecture de la solution du pipeline de données. Vous développez le pipeline parallèlement à l’étape suivante du projet de science des données. Suivant les besoins de votre entreprise et les contraintes de vos systèmes existants auxquels cette solution est en cours d’intégration, le pipeline peut être de type : 
+Dans cette étape, vous développez une architecture de la solution du pipeline de données. Vous développez le pipeline parallèlement à l’étape suivante du projet de science des données. Selon les besoins de votre entreprise et les contraintes de vos systèmes existants auxquels cette solution est en cours d’intégration, le pipeline peut être l’une des options suivantes : 
 
    * Par lot
    * En temps réel ou diffusion en continu 
@@ -80,6 +80,6 @@ Voici les liens vers chaque étape du cycle de vie TDSP :
    4. [Déploiement](lifecycle-deployment.md)
    5. [Acceptation du client](lifecycle-acceptance.md)
 
-Nous indiquons des procédures pas à pas complètes qui illustrent toutes les étapes du processus correspondant à des scénarios spécifiques. L’article [Example walkthroughs](walkthroughs.md) (Exemples de procédures pas à pas) contient une liste des scénarios ainsi que des liens et des descriptions de miniatures. Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente. 
+Nous fournissons des procédures pas à pas complètes qui illustrent toutes les étapes du processus correspondant à des scénarios spécifiques. L’article [Example walkthroughs](walkthroughs.md) (Exemples de procédures pas à pas) contient une liste des scénarios ainsi que des liens et des descriptions de miniatures. Les procédures pas à pas montrent comment combiner les outils et services dans le cloud et sur site dans un flux de travail ou un pipeline pour créer une application intelligente. 
 
 Pour obtenir des exemples sur l’exécution de procédures dans les processus TDSP utilisant Azure Machine Learning Studio, consultez [Utilisation du processus de science des données avec Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).

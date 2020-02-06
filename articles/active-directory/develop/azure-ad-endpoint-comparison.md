@@ -12,13 +12,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 882b4a8bfe951212d2d1fe081d16b25641dfa4d4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a05db11f48811f5ad6163447fae1dbb4ea31842c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843884"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712445"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Pourquoi mettre à jour à la plateforme d’identités Microsoft (v2.0) ?
 
@@ -114,7 +113,7 @@ Ces étendues vous permettent de coder votre application en divulguant le moins 
 Le point de terminaison de la Plateforme d’identités Microsoft émet un ensemble plus restreint de revendications dans ses jetons par défaut, pour limiter la taille des charges utiles. Si vous avez des applications et des services qui dépendent d’une revendication particulière dans un jeton v1.0 qui n’est plus fourni par défaut dans un jeton de la Plateforme d’identités Microsoft, envisagez d’utiliser la fonctionnalité des [revendications facultatives](active-directory-optional-claims.md) pour inclure cette revendication.
 
 > [!IMPORTANT]
-> Les jetons v1.0 et v2.0 peuvent être émis par les points de terminaison v1.0 et v2.0 ! id_tokens corresponde *toujours* au point de terminaison à partir duquel ils sont demandés, et les jetons d’accès correspondent *toujours* au format attendu par l’API Web que votre client appellera à l’aide de ce jeton.  Par conséquent, si l’application utilise le point de terminaison v2.0 pour récupérer un jeton permettant d’appeler Microsoft Graph, qui attend des jetons d’accès au format v1.0, elle reçoit un jeton au format v1.0.  
+> Les jetons v1.0 et v2.0 peuvent être émis par les points de terminaison v1.0 et v2.0 ! id_tokens corresponde *toujours* au point de terminaison à partir duquel ils sont demandés, et les jetons d’accès correspondent *toujours* au format attendu par l’API Web que votre client appellera à l’aide de ce jeton.  Par conséquent, si l’application utilise le point de terminaison v2.0 pour obtenir un jeton permettant d’appeler Microsoft Graph, qui attend des jetons d’accès au format v1.0, elle reçoit un jeton au format v1.0.  
 
 ## <a name="limitations"></a>Limites
 

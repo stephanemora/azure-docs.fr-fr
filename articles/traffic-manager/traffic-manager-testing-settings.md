@@ -2,20 +2,20 @@
 title: Vérifier les paramètres d’Azure Traffic Manager
 description: Dans cet article, découvrez comment vérifier vos paramètres Traffic Manager et tester la méthode de routage du trafic.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: ad74e5c51d5939218ebb546993d416b3df1cd04b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 94ab5e550f0053fa19b9b93f1d67690211543325
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023522"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938394"
 ---
 # <a name="verify-traffic-manager-settings"></a>Vérifier les paramètres Traffic Manager
 
@@ -33,7 +33,7 @@ Les exemples suivants vous aideront à tester votre profil Traffic Manager.
 
 1. Ouvrez une commande ou une invite de commandes Windows PowerShell en tant qu’administrateur.
 2. Entrez `ipconfig /flushdns` pour vider le cache de résolution DNS.
-3. Saisissez `nslookup <your Traffic Manager domain name>`. Par exemple, la commande suivante vérifie le nom de domaine doté du préfixe *myapp.contoso*
+3. Tapez `nslookup <your Traffic Manager domain name>`. Par exemple, la commande suivante vérifie le nom de domaine doté du préfixe *myapp.contoso*
 
         nslookup myapp.contoso.trafficmanager.net
 

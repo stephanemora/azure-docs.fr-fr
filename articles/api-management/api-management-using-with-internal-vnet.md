@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430594"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841861"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utiliser le service Gestion des API Azure avec un réseau virtuel interne
 Avec les réseaux virtuels Azure, la Gestion des API Azure peut gérer des API inaccessibles sur Internet. Plusieurs technologies VPN sont disponibles pour établir la connexion. La Gestion des API peut être déployée selon deux modes principaux à l’intérieur d’un réseau virtuel :
@@ -126,7 +126,7 @@ Si vous utilisez un serveur DNS personnalisé dans un réseau virtuel, vous pouv
 
 * Une adresse IP virtuelle *privée* à charge équilibrée de la plage de sous-réseau est réservée et utilisée pour accéder aux points de terminaison du service Gestion des API à partir du réseau virtuel. Cette adresse IP *privée* se trouve dans le panneau Vue d’ensemble du service sur le portail Azure. Cette adresse doit être inscrite sur les serveurs DNS utilisés par le réseau virtuel.
 * Une adresse IP *publique* à charge équilibrée (adresse IP virtuelle) est également réservée pour fournir l’accès au point de terminaison de service de gestion sur le port 3443. Cette adresse IP *publique* se trouve dans le panneau Vue d’ensemble du service sur le portail Azure. L’adresse IP *publique* est uniquement utilisée pour le trafic du plan de contrôle vers le point de terminaison `management` par le biais du port 3443, et peut être verrouillée sur la balise de service [ApiManagement][ServiceTags].
-* Les adresses IP de la plage d'adresses IP de sous-réseau (DIP) sont attribuées à chaque machine virtuelle du service et utilisées pour accéder aux ressources du réseau virtuel. Une adresse IP publique est utilisée pour accéder aux ressources extérieures au réseau virtuel. Si des listes de restriction d'adresses IP sont utilisées pour sécuriser les ressources au sein du réseau virtuel, la plage entière du sous-réseau où le service Gestion des API est déployé doit pouvoir accorder ou restreindre l'accès à partir du service.
+* Les adresses IP de la plage d’adresses IP de sous-réseau (DIP) sont attribuées à chaque machine virtuelle du service et utilisées pour accéder aux ressources au sein du réseau virtuel. Une adresse IP publique est utilisée pour accéder aux ressources extérieures au réseau virtuel. Si des listes de restriction d’adresses IP sont utilisées pour sécuriser les ressources au sein du réseau virtuel, la plage entière du sous-réseau où le service Gestion des API est déployé doit être spécifiée pour accorder ou restreindre l’accès à partir du service.
 * Les adresses IP privée et publique à charge équilibrée se trouvent dans le panneau Vue d’ensemble sur le portail Azure.
 * Les adresses IP attribuées pour un accès public et privé peuvent changer si le service est supprimé, puis rajouté au réseau virtuel. Dans ce cas, il peut être nécessaire de mettre à jour les enregistrements DNS, règles d'acheminement et listes de restriction d'adresses IP au sein du réseau virtuel.
 

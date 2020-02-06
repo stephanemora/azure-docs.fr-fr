@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 2ab07e55606533390f6f3d2da3caf3ceee981e14
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748754"
 ---
 ## <a name="trigger"></a>Déclencheur
 
@@ -28,26 +28,15 @@ Lorsque votre fonction est activée pour la première fois, il n’existe qu’u
 
 * **Les nouvelles instances de fonction ne sont pas nécessaires** : `Function_0` est capable de traiter l’ensemble des 1 000 événements avant que la logique de mise à l’échelle Functions ne prenne effet. Dans ce cas, l’intégralité des 1 000 messages sont traités par `Function_0`.
 
-* **Une instance de fonction supplémentaire est ajoutée** : la logique de mise à l’échelle Functions détermine que si `Function_0` a plus de messages qu’elle ne peut en traiter, une instance d’application de fonction (`Function_1`) est ajoutée. Cette nouvelle fonction a également une instance associée de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Comme les hubs d’événements sous-jacents détectent qu’une nouvelle instance de l’hôte tente de lire des messages, ils équilibrent la charge des partitions entre ses instances d’hôte. Par exemple, les partitions 0 à 4 peuvent être affectées à `Function_0`, et les partitions 5 à 9 à `Function_1`.
+* **Une instance de fonction supplémentaire est ajoutée** : la logique de mise à l’échelle Functions détermine que si `Function_0` a plus de messages qu’elle ne peut en traiter, une instance d’application de fonction (`Function_1`) est ajoutée. Cette nouvelle fonction a également une instance associée de [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor). Comme les Event Hubs sous-jacents détectent qu’une nouvelle instance d’hôte tente de lire des messages, ils équilibrent la charge des partitions entre les instances d’hôte. Par exemple, les partitions 0 à 4 peuvent être affectées à `Function_0`, et les partitions 5 à 9 à `Function_1`.
 
 * **N instances de fonction supplémentaires sont ajoutées** : Si la logique de mise à l’échelle de Functions détermine que `Function_0` et `Function_1` ont plus de messages qu’elles ne peuvent en traiter, de nouvelles instances d’application de fonction `Functions_N` sont créées.  Des applications sont créées jusqu’au point où `N` est supérieur au nombre de partitions de hub d’événements. Dans notre exemple, Event Hubs équilibre la charge des partitions, en l’occurrence, sur les instances `Function_0`...`Functions_9`.
 
-Quand Functions effectue une mise à l’échelle, `N` instances est un nombre supérieur à celui des partitions du hub d’événements. Ainsi, des instances [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) sont toujours disponibles pour obtenir des verrous sur les partitions, à mesure que celles-ci sont mises à disposition par les autres instances. Vous n’êtes facturé que pour les ressources utilisées lors de l’exécution de l’instance de la fonction. En d’autres mots, vous n’êtes pas facturé pour cet approvisionnement excessif.
+Au fur et à mesure de la mise à l’échelle, `N` instances est un nombre supérieur à celui des partitions du Event Hub. Ce modèle est utilisé pour garantir que les instances [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) sont toujours disponibles pour obtenir des verrous sur les partitions, à mesure que celles-ci sont mises à disposition par les autres instances. Vous n’êtes facturé que pour les ressources utilisées lors de l’exécution de l’instance de la fonction. En d’autres mots, vous n’êtes pas facturé pour cet approvisionnement excessif.
 
 Quand toutes les exécutions de fonction se terminent (avec ou sans erreurs), des points de contrôle sont ajoutés au compte de stockage associé. Une fois les points de contrôle correctement créés, les 1 000 messages ne sont plus jamais récupérés.
 
-## <a name="trigger---example"></a>Déclencheur - exemple
-
-Consultez l’exemple propre à un langage particulier :
-
-* [C#](#trigger---c-example)
-* [Script C# (.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Déclencheur - exemple C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 L’exemple suivant illustre un code [de fonction C#](../articles/azure-functions/functions-dotnet-class-library.md) qui consigne le corps du message du déclencheur de hub d’événements.
 
@@ -99,7 +88,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Déclencheur - exemple Script C#
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant illustre une liaison de déclencheur de hub d’événements dans un fichier *function.json* et une [fonction de script C#](../articles/azure-functions/functions-reference-csharp.md) qui utilise la liaison. La fonction consigne le corps du message du déclencheur de hub d’événements.
 
@@ -117,7 +106,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
 }
 ```
 
-#### <a name="version-1x"></a>Version 1.x
+### <a name="version-1x"></a>Version 1.x
 
 ```json
 {
@@ -180,44 +169,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-### <a name="trigger---f-example"></a>Déclencheur - exemple F#
-
-L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction F#](../articles/azure-functions/functions-reference-fsharp.md) qui utilise la liaison. La fonction consigne le corps du message du déclencheur de hub d’événements.
-
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. 
-
-#### <a name="version-2x-and-higher"></a>Versions 2.x et ultérieures
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "myEventHubMessage",
-  "direction": "in",
-  "eventHubName": "MyEventHub",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
-
-#### <a name="version-1x"></a>Version 1.x
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "myEventHubMessage",
-  "direction": "in",
-  "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
-
-Voici le code F# :
-
-```fsharp
-let Run(myEventHubMessage: string, log: TraceWriter) =
-    log.Log(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
-```
-
-### <a name="trigger---javascript-example"></a>Déclencheur - exemple JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction JavaScript](../articles/azure-functions/functions-reference-node.md) qui utilise la liaison. La fonction lit les [métadonnées d’événement](#trigger---event-metadata) et enregistre le message.
 
@@ -235,7 +187,7 @@ Les exemples suivants illustrent les données de liaison Event Hubs dans le fich
 }
 ```
 
-#### <a name="version-1x"></a>Version 1.x
+### <a name="version-1x"></a>Version 1.x
 
 ```json
 {
@@ -275,7 +227,7 @@ Pour recevoir les événements dans un lot, définissez `cardinality` sur `many`
 }
 ```
 
-#### <a name="version-1x"></a>Version 1.x
+### <a name="version-1x"></a>Version 1.x
 
 ```json
 {
@@ -305,7 +257,7 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-### <a name="trigger---python-example"></a>Déclencheur – Exemple Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction Python](../articles/azure-functions/functions-reference-python.md) qui utilise la liaison. La fonction lit les [métadonnées d’événement](#trigger---event-metadata) et enregistre le message.
 
@@ -335,7 +287,7 @@ def main(event: func.EventHubEvent):
     logging.info('  Offset =', event.offset)
 ```
 
-### <a name="trigger---java-example"></a>Déclencheur - exemple Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction Java](../articles/azure-functions/functions-reference-java.md) qui utilise la liaison. La fonction consigne le corps du message du déclencheur Event Hub.
 
@@ -361,9 +313,13 @@ public void eventHubProcessor(
  }
 ```
 
- Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `EventHubTrigger` sur les paramètres dont la valeur proviendrait d’Event Hub. Les paramètres ayant ces annotations entraînent l’exécution de la fonction quand un événement se produit.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de Optional\<T>.
+ Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `EventHubTrigger` sur les paramètres dont la valeur proviendrait d’Event Hub. Les paramètres ayant ces annotations entraînent l’exécution de la fonction quand un événement se produit.  Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de `Optional<T>`.
 
-## <a name="trigger---attributes"></a>Déclencheur - attributs
+ ---
+
+## <a name="trigger---attributes-and-annotations"></a>Déclencheur – Attributs et annotations
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](../articles/azure-functions/functions-dotnet-class-library.md), utilisez l’attribut [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs).
 
@@ -377,7 +333,25 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger---c-example).
+Pour obtenir un exemple complet, consultez [Déclencheur - exemple C#](#trigger).
+
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Les attributs ne sont pas pris en charge par le script C#.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Les attributs ne sont pas pris en charge par JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Les attributs ne sont pas pris en charge par Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+À partir de la [bibliothèque du runtime des fonctions](https://docs.microsoft.com/java/api/overview/azure/functions/runtime) Java, utilisez l’annotation [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) sur les paramètres dont la valeur proviendrait d’Event Hub. Les paramètres ayant ces annotations entraînent l’exécution de la fonction quand un événement se produit. Vous pouvez utiliser cette annotation avec des types Java natifs, des objets POJO ou des valeurs Null à l’aide de `Optional<T>`.
+
+---
 
 ## <a name="trigger---configuration"></a>Déclencheur - configuration
 
@@ -398,7 +372,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="trigger---event-metadata"></a>Déclencheur - métadonnées d’événement
 
-Le déclencheur Event Hubs fournit plusieurs [propriétés de métadonnées](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Ces propriétés peuvent être utilisées dans les expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Ce sont les propriétés de la classe [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
+Le déclencheur Event Hubs fournit plusieurs [propriétés de métadonnées](../articles/azure-functions/./functions-bindings-expressions-patterns.md). Les propriétés de métadonnées peuvent être utilisées dans le cadre d’expressions de liaison dans d’autres liaisons ou en tant que paramètres dans votre code. Les propriétés proviennent de la classe [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
 |Propriété|Type|Description|
 |--------|----|-----------|
@@ -410,7 +384,7 @@ Le déclencheur Event Hubs fournit plusieurs [propriétés de métadonnées](../
 |`SequenceNumber`|`Int64`|Le numéro de séquence logique de l’événement.|
 |`SystemProperties`|`IDictionary<String,Object>`|Les propriétés système, y compris les données d’événement.|
 
-Consultez les [exemples de code](#trigger---example) qui utilisent ces propriétés précédemment dans cet article.
+Consultez les [exemples de code](#trigger) qui utilisent ces propriétés précédemment dans cet article.
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
@@ -424,18 +398,7 @@ Utilisez la liaison de sortie Event Hubs pour écrire des événements dans un f
 
 Vérifiez que les références de package nécessaires sont en place avant d’essayer d’implémenter une liaison de sortie.
 
-## <a name="output---example"></a>Sortie - exemple
-
-Consultez l’exemple propre à un langage particulier :
-
-* [C#](#output---c-example)
-* [Script C# (.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [Java](#output---java-example)
-* [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>Sortie - exemple C#
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 L’exemple suivant illustre une [fonction C#](../articles/azure-functions/functions-dotnet-class-library.md) qui écrit un message dans un hub d’événements, en utilisant la valeur retournée par la méthode comme sortie :
 
@@ -469,7 +432,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="output---c-script-example"></a>Sortie - exemple Script C#
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
 
 L’exemple suivant illustre une liaison de déclencheur de hub d’événements dans un fichier *function.json* et une [fonction de script C#](../articles/azure-functions/functions-reference-csharp.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
@@ -521,41 +484,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-### <a name="output---f-example"></a>Sortie - exemple F#
-
-L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction F#](../articles/azure-functions/functions-reference-fsharp.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
-
-Les exemples suivants illustrent les données de liaison Event Hubs dans le fichier *function.json*. Le premier exemple concerne Functions 2.x et versions ultérieures, tandis que le second concerne Functions 1.x. 
-
-```json
-{
-    "type": "eventHub",
-    "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
-    "connection": "MyEventHubSendAppSetting",
-    "direction": "out"
-}
-```
-```json
-{
-    "type": "eventHub",
-    "name": "outputEventHubMessage",
-    "path": "myeventhub",
-    "connection": "MyEventHubSendAppSetting",
-    "direction": "out"
-}
-```
-
-Voici le code F# :
-
-```fsharp
-let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) =
-    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
-    log.LogInformation(msg);
-    outputEventHubMessage <- msg;
-```
-
-### <a name="output---javascript-example"></a>Sortie - exemple JavaScript
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction JavaScript](../articles/azure-functions/functions-reference-node.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
@@ -607,7 +536,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---python-example"></a>Sortie - Exemple Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 L’exemple suivant illustre une liaison de déclencheur Event Hub dans un fichier *function.json* et une [fonction Python](../articles/azure-functions/functions-reference-python.md) qui utilise la liaison. La fonction écrit un message dans un hub d’événements.
 
@@ -637,7 +566,7 @@ def main(timer: func.TimerRequest) -> str:
     return 'Message created at: {}'.format(timestamp)
 ```
 
-### <a name="output---java-example"></a>Sortie : exemple Java
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 L’exemple suivant illustre une fonction Java qui écrit un message contenant l’heure actuelle à l’attention d’un Event Hub.
 
@@ -652,7 +581,11 @@ public String sendTime(
 
 Dans la [bibliothèque du runtime des fonctions Java](/java/api/overview/azure/functions/runtime), utilisez l’annotation `@EventHubOutput` sur les paramètres dont la valeur serait publiée à l’attention d’Event Hub.  Le type de paramètre doit être `OutputBinding<T>`, où T désigne un POJO ou n’importe quel type Java natif.
 
-## <a name="output---attributes"></a>Sortie - attributs
+---
+
+## <a name="output---attributes-and-annotations"></a>Sortie – Attributs et annotations
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Dans les [bibliothèques de classes C#](../articles/azure-functions/functions-dotnet-class-library.md), utilisez l’attribut [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs).
 
@@ -667,7 +600,25 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output---c-example).
+Pour obtenir un exemple complet, consultez [Sortie - exemple C#](#output).
+
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Les attributs ne sont pas pris en charge par le script C#.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Les attributs ne sont pas pris en charge par JavaScript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Les attributs ne sont pas pris en charge par Python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Dans la [bibliothèque du runtime des fonctions Java](https://docs.microsoft.com/java/api/overview/azure/functions/runtime), utilisez l’annotation [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) sur les paramètres dont la valeur serait publiée à l’attention d’Event Hub. Le type de paramètre doit être `OutputBinding<T>`, où `T` désigne un POJO ou n’importe quel type Java natif.
+
+---
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
@@ -686,9 +637,35 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 ## <a name="output---usage"></a>Sortie - utilisation
 
-Dans C# et Script C#, envoyez des messages en utilisant un paramètre de méthode comme `out string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Pour écrire plusieurs messages, vous pouvez utiliser `ICollector<string>` ou `IAsyncCollector<string>` à la place de `out string`.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-Dans JavaScript, accédez à l’événement de sortie à l’aide de `context.bindings.<name>`. `<name>` est la valeur spécifiée dans la propriété `name` de *function.json*.
+Envoyez des messages en utilisant un paramètre de méthode comme `out string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Pour écrire plusieurs messages, vous pouvez utiliser `ICollector<string>` ou `IAsyncCollector<string>` à la place de `out string`.
+
+# <a name="c-scripttabcsharp-script"></a>[Script C#](#tab/csharp-script)
+
+Envoyez des messages en utilisant un paramètre de méthode comme `out string paramName`. Dans Script C#, `paramName` est la valeur spécifiée dans la propriété `name` de *function.json*. Pour écrire plusieurs messages, vous pouvez utiliser `ICollector<string>` ou `IAsyncCollector<string>` à la place de `out string`.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Accédez à l’événement de sortie à l’aide de `context.bindings.<name>` où `<name>` est la valeur spécifiée dans la propriété `name` de *function.json*.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Il existe deux options pour produire en sortie un message Event Hub à partir d’une fonction :
+
+- **Valeur de retour** : Définissez la propriété `name` dans *function.json* sur `$return`. Avec cette configuration, la valeur renvoyée de la fonction est conservée sous la forme d’un message Event Hub.
+
+- **Impératif** : Passez une valeur à la méthode [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) du paramètre déclaré en tant que type [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). La valeur transmise à `set` est conservée en tant que message d’Event Hub.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Il existe deux options pour produire en sortie un message Event hub à partir d’une fonction en utilisant l’annotation [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) :
+
+- **Valeur de retour** : En appliquant l’annotation à la fonction elle-même, la valeur de retour de la fonction est conservée sous la forme d’un message Event Hub.
+
+- **Impératif** : Pour définir explicitement la valeur du message, appliquez l’annotation à un paramètre spécifique du type [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), où `T` est un POJO ou n’importe quel type Java natif. Avec cette configuration, le passage d’une valeur à la méthode `setValue` rend la valeur persistante en tant que message Event Hub.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>Exceptions et codes de retour
 
@@ -722,6 +699,6 @@ Cette section décrit les paramètres de configuration globaux disponibles pour 
 
 |Propriété  |Default | Description |
 |---------|---------|---------|
-|maxBatchSize|64|Nombre d’événements maximal reçu par boucle de réception.|
-|prefetchCount|n/a|Valeur PrefetchCount par défaut qui est utilisée par l’instance EventProcessorHost sous-jacente.|
-|batchCheckpointFrequency|1|Nombre de lots d’événements à traiter avant de créer un point de contrôle de curseur EventHub.|
+|`maxBatchSize`|10|Nombre d’événements maximal reçu par boucle de réception.|
+|`prefetchCount`|300|Nombre de prérécupérations par défaut utilisé par le `EventProcessorHost` sous-jacent.|
+|`batchCheckpointFrequency`|1|Nombre de lots d’événements à traiter avant de créer un point de contrôle de curseur EventHub.|

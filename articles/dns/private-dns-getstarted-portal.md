@@ -2,17 +2,17 @@
 title: Démarrage rapide - Créer une zone Azure DNS privée avec le portail Azure
 description: Dans ce guide de démarrage rapide, vous allez créer et tester une zone DNS privée et un enregistrement DNS privé dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre zone et de votre enregistrement DNS à l’aide du portail Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
-ms.author: allensu
-ms.openlocfilehash: 48c5684dd491a91b6da212f78c535433ac2aecf7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8391d92a2e2970378c11c043ca9f5d4f6dc44696
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210750"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939365"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Démarrage rapide : Créer une zone Azure DNS privée avec le portail Azure
 
@@ -25,7 +25,7 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 > [!div class="checklist"]
 > * Créer une zone DNS privée
 > * Créez un réseau virtuel
-> * Liez le réseau virtuel
+> * Lier le réseau virtuel
 > * Créer des machines virtuelles de test
 > * Créer un enregistrement DNS supplémentaire
 > * Tester la zone privée
@@ -49,7 +49,7 @@ Une zone DNS contient les entrées DNS d’un domaine. Pour commencer à héberg
 1. Dans la page **Créer une zone DNS privée**, tapez ou sélectionnez les valeurs suivantes :
 
    - **Groupe de ressources** : Sélectionnez **Créer**, entrez *MyAzureResourceGroup*, puis sélectionnez **OK**. Le nom du groupe de ressources doit être unique au sein de l’abonnement Azure. 
-   -  **Nom** : Tapez *private.contoso.com* pour cet exemple.
+   -  **Name** : Tapez *private.contoso.com* pour cet exemple.
 1. Pour **Emplacement du groupe de ressources**, sélectionnez un **USA Centre-Ouest**.
 
 1. Sélectionnez **Vérifier + créer**.

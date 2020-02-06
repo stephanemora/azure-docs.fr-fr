@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 8d5377f7ec8de14f3d7d55bc109f6be731991051
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1fec2778ce8c839c5bac0c1d74085db0f8b283ce
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775267"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903003"
 ---
 # <a name="virtual-network-service-tags"></a>Balises de service du réseau virtuel 
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ Par défaut, les balises de service reflètent les plages pour l’ensemble du C
 | Tag | Objectif | Peut-elle utiliser le trafic entrant ou sortant ? | Peut-elle être étendue à une zone régionale ? | Peut-elle être utilisée avec le Pare-feu Azure ? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Trafic de gestion pour les déploiements dédiés de Gestion des API. | Les deux | Non | Oui |
-| **ApplicationInsightsAvailability** | Disponibilité d’Application Insights. | Les deux | Non | Non |
+| **ApplicationInsightsAvailability** | Disponibilité d’Application Insights. | Trafic entrant | Non | Non |
 | **AppService**    | Azure App Service Cette balise est recommandée pour les règles de sécurité sortantes vers les serveurs frontaux des applications web. | Règle de trafic sortant | Oui | Oui |
 | **AppServiceManagement** | Trafic de gestion pour les déploiements dédiés vers App Service Environment. | Les deux | Non | Oui |
 | **AzureActiveDirectory** | Azure Active Directory | Règle de trafic sortant | Non | Oui |

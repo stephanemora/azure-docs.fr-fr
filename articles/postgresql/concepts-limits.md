@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 01/28/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d74206ebdf35a8f5b353553cb89e954cb2313611
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 047e722a0e0ade60d1eb93a48e37333fffafd674
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768535"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836454"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Limites dans Azure Database pour PostgreSQL - Serveur unique
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données. Si vous souhaitez en savoir plus sur les niveaux de ressources (calcul, mémoire, stockage), consultez l'article [Niveaux de tarification](concepts-pricing-tiers.md).
 
 
 ## <a name="maximum-connections"></a>Nombre maximal de connexions
-Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant : 
+Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant : Le système Azure a besoin de cinq connexions pour effectuer le monitoring du serveur Azure Database pour PostgreSQL. 
 
 |**Niveau tarifaire**| **vCore(s)**| **Nombre maximal de connexions** | **Nombre maximal de connexions utilisateur** |
 |---|---|---|---|
@@ -29,7 +29,7 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 |Usage général| 4| 250| 245|
 |Usage général| 8| 480| 475|
 |Usage général| 16| 950| 945|
-|Usage général| 32| 1 500| 1495|
+|Usage général| 32| 1500| 1495|
 |Usage général| 64| 1900| 1895|
 |Mémoire optimisée| 2| 300| 295|
 |Mémoire optimisée| 4| 500| 495|
@@ -40,7 +40,10 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already
 
-Le système Azure a besoin de cinq connexions pour effectuer le monitoring du serveur Azure Database pour PostgreSQL. 
+> [!IMPORTANT]
+> Pour une expérience optimale, nous vous recommandons d’utiliser un regroupement de connexions comme pgBouncer pour gérer efficacement les connexions.
+
+Une connexion PostgreSQL, même inactive, peut utiliser environ 10 Mo de mémoire. De plus, la création de nouvelles connexions prend du temps. La plupart des applications requièrent de nombreuses connexions à courte durée, ce qui aggrave la situation. Par conséquent, il y a moins de ressources disponibles pour votre charge de travail réelle; ce qui entraîne une diminution des performances. Un regroupement de connexions qui réduit les connexions inactives et réutilise les connexions existantes permet d’éviter cela. Pour en savoir plus, consultez notre [billet de blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/not-all-postgres-connection-pooling-is-equal/ba-p/825717).
 
 ## <a name="functional-limitations"></a>Limitations fonctionnelles
 ### <a name="scale-operations"></a>Opérations de mise à l’échelle

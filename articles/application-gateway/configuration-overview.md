@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658336"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714857"
 ---
 # <a name="application-gateway-configuration-overview"></a>Présentation de la configuration d’Application Gateway
 
@@ -53,7 +53,7 @@ Les Groupes de sécurité réseau (NSG) sont pris en charge sur Application Gate
 - La connectivité Internet sortante ne peut pas être bloquée. Les règles de trafic sortant par défaut dans le groupe de sécurité réseau permettent une connectivité Internet. Nous vous recommandons :
 
   - De ne pas supprimer les règles de trafic sortant par défaut.
-  - De ne pas créer d’autres règles de trafic sortant qui refusent la connectivité Internet sortante.
+  - De ne pas créer d’autres règles de trafic sortant qui refusent toute connectivité sortante.
 
 - Le trafic en provenance de la balise **AzureLoadBalancer** doit être autorisé.
 

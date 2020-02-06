@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 12/23/2019
-ms.openlocfilehash: ccf7ba2fd27dabdb090be87c5438ad68471996da
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/01/2020
+ms.openlocfilehash: e85ef22542fc162648dbfc637892cf7e580c6aac
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497063"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964547"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Personnalisation l’installation du runtime d’intégration Azure-SSIS
 
@@ -131,19 +131,66 @@ Pour personnaliser votre IR Azure-SSIS, vous avez besoin de ce qui suit :
 
    ![Paramètres avancés avec des installations personnalisées](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
 
-   Lorsque vous approvisionnez ou reconfigurez votre Azure-SSIS IR avec PowerShell, vous pouvez ajouter/supprimer des installations personnalisées en exécutant la cmdlet `Set-AzDataFactoryV2IntegrationRuntime` avant de démarrer votre Azure-SSIS IR.
+1. Lorsque vous approvisionnez ou reconfigurez votre Azure-SSIS IR avec PowerShell, vous pouvez ajouter/supprimer des installations personnalisées en exécutant la cmdlet `Set-AzDataFactoryV2IntegrationRuntime` avant de démarrer votre Azure-SSIS IR.
    
-   Pour les installations personnalisées standard, vous pouvez fournir l’URI SAP de votre conteneur comme valeur pour le paramètre `SetupScriptContainerSasUri`. Par exemple :
-
    ```powershell
-   Set-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
-                                         -Name $MyAzureSsisIrName `
-                                         -ResourceGroupName $MyResourceGroupName `
-                                         -SetupScriptContainerSasUri $MySetupScriptContainerSasUri
+   $ResourceGroupName = "[your Azure resource group name]"
+   $DataFactoryName = "[your data factory name]"
+   $AzureSSISName = "[your Azure-SSIS IR name]"
+   # Custom setup info: Standard/express custom setups
+   $SetupScriptContainerSasUri = "" # OPTIONAL to provide a SAS URI of blob container for standard custom setup where your script and its associated files are stored
+   $ExpressCustomSetup = "[RunCmdkey|SetEnvironmentVariable|SentryOne.TaskFactory|oh22is.SQLPhonetics.NET|oh22is.HEDDA.IO or leave it empty]" # OPTIONAL to configure an express custom setup without script
 
-   Start-AzDataFactoryV2IntegrationRuntime -DataFactoryName $MyDataFactoryName `
-                                           -Name $MyAzureSsisIrName `
-                                           -ResourceGroupName $MyResourceGroupName
+   # Add custom setup parameters if you use standard/express custom setups
+   if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
+   {
+       Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+           -DataFactoryName $DataFactoryName `
+           -Name $AzureSSISName `
+           -SetupScriptContainerSasUri $SetupScriptContainerSasUri
+   }
+   if(![string]::IsNullOrEmpty($ExpressCustomSetup))
+   {
+       if($ExpressCustomSetup -eq "RunCmdkey")
+       {
+           $addCmdkeyArgument = "YourFileShareServerName or YourAzureStorageAccountName.file.core.windows.net"
+           $userCmdkeyArgument = "YourDomainName\YourUsername or azure\YourAzureStorageAccountName"
+           $passCmdkeyArgument = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourPassword or YourAccessKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.CmdkeySetup($addCmdkeyArgument, $userCmdkeyArgument, $passCmdkeyArgument)
+       }
+       if($ExpressCustomSetup -eq "SetEnvironmentVariable")
+       {
+           $variableName = "YourVariableName"
+           $variableValue = "YourVariableValue"
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.EnvironmentVariableSetup($variableName, $variableValue)
+       }
+       if($ExpressCustomSetup -eq "SentryOne.TaskFactory")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "oh22is.SQLPhonetics.NET")
+       {
+           $licenseKey = New-Object Microsoft.Azure.Management.DataFactory.Models.SecureString("YourLicenseKey")
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup, $licenseKey)
+       }
+       if($ExpressCustomSetup -eq "oh22is.HEDDA.IO")
+       {
+           $setup = New-Object Microsoft.Azure.Management.DataFactory.Models.ComponentSetup($ExpressCustomSetup)
+       }
+       # Create an array of one or more express custom setups
+       $setups = New-Object System.Collections.ArrayList
+       $setups.Add($setup)
+
+       Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+           -DataFactoryName $DataFactoryName `
+           -Name $AzureSSISName `
+           -ExpressCustomSetup $setups
+   }
+   Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+       -DataFactoryName $DataFactoryName `
+       -Name $AzureSSISName `
+       -Force
    ```
    
    Une fois votre installation personnalisée terminée et votre Azure-SSIS IR démarré, vous pouvez trouver la sortie standard de `main.cmd` et d’autres journaux d’exécution dans le dossier `main.cmd.log` de votre conteneur de stockage.

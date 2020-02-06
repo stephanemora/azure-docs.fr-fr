@@ -2,27 +2,27 @@
 title: Rôles et tâches du responsable de l’équipe Team Data Science Process
 description: Présentation des composants clés, rôles du personnel et tâches associées pour un groupe de science des données.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbc066f4b01a01a589849ad524b58a9b5d9dfae1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260652"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720008"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Rôles et tâches du responsable de l’équipe Team Data Science Process
 
 Team Data Science Process (TDSP) est une infrastructure développée par Microsoft qui fournit une méthodologie structurée pour créer efficacement des solutions d’analyse prédictive et des applications intelligentes. Cet article présente les rôles du personnel clé et les tâches qui incombent à une équipe de science des données dans le cadre de ce processus.
 
-Cet article introductif référence des tutoriels sur la façon de configurer l’environnement TDSP pour un groupe de science des données entier, les équipes de science des données et les projets TDSP. Les tutoriels fournissent des instructions détaillées sur l’utilisation d’Azure DevOps Projects, des dépôts Azure Repos et des outils de planification agile Azure Boards pour contrôler l’accès, héberger et partager du code et gérer les tâches d’équipe.
+Cet article d’introduction contient des liens vers des tutoriels expliquant comment configurer l’environnement TDSP. Ces tutoriels fournissent des instructions détaillées sur l’utilisation d’Azure DevOps Projects, des dépôts Azure Repos et d’Azure Boards.  L’objectif sous-jacent est le passage du concept à la modélisation et au déploiement.
 
 Les tutoriels recourent à Azure DevOps, car c’est la suite utilisée au sein de Microsoft pour l’implémentation du processus TDSP. Azure DevOps facilite la collaboration en intégrant la sécurité basée sur les rôles, la gestion et le suivi des éléments de travail ainsi que l’hébergement de code, le partage et le contrôle de code source. Les tutoriels utilisent également une [machine virtuelle Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) Azure comme bureau d’analytique, qui a plusieurs outils de science des données courants, préconfigurés et compatibles avec les logiciels Microsoft et services Azure. 
 

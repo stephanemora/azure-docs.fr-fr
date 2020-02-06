@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950814"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712855"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -28,7 +28,7 @@ Cet article fournit des exemples pour l’utilisation de transformations de reve
 
 Compare deux revendications et lève une exception si elles ne sont pas égales en fonction des éléments de comparaison inputClaim1, inputClaim2 et stringComparison spécifiés.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Type de la première revendication qui doit être comparée. |
 | InputClaim | inputClaim2 | string | Type de la deuxième revendication qui doit être comparée. |
@@ -36,7 +36,7 @@ Compare deux revendications et lève une exception si elles ne sont pas égales 
 
 La transformation de revendication **AssertStringClaimsAreEqual** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationStringsAreNotEqual** contrôlent le message d’erreur présenté à l’utilisateur.
 
-![Exécution d’AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
+![Exécution de AssertStringClaimsAreEqual](./media/string-transformations/assert-execution.png)
 
 Vous pouvez utiliser cette transformation de revendication pour vérifier que deux ClaimTypes ont la même valeur. Si ce n’est pas le cas, un message d’erreur est levé. L’exemple suivant vérifie que le ClaimType **strongAuthenticationEmailAddress** est égal au ClaimType **email**. Si ce n’est pas le cas, un message d’erreur est levé.
 
@@ -76,12 +76,12 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputClaim1** : someone@contoso.com
   - **inputClaim2** : someone@outlook.com
-    - Paramètres d’entrée :
+    - Paramètres d’entrée :
   - **stringComparison** : ordinalIgnoreCase
 - Résultat : Erreur levée
 
@@ -89,7 +89,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 
 Modifie la casse de la revendication fournie (minuscules ou majuscules) en fonction de l’opérateur.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | ClaimType à modifier. |
 | InputParameter | toCase | string | L’une des valeurs suivantes : `LOWER` ou `UPPER`. |
@@ -111,7 +111,7 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **email** : SomeOne@contoso.com
@@ -124,7 +124,7 @@ Utilisez cette transformation de revendication pour mettre un ClaimType en majus
 
 Crée une revendication de chaîne à partir du paramètre d’entrée fourni dans la stratégie.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 |----- | ----------------------- | --------- | ----- |
 | InputParameter | value | string | Chaîne à définir |
 | OutputClaim | createdClaim | string | ClaimType généré après que cette transformation de revendication a été appelée, avec la valeur spécifiée dans le paramètre d’entrée. |
@@ -142,7 +142,7 @@ Utilisez cette transformation de revendication pour définir une chaîne de vale
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Paramètre d’entrée :
     - **value** : Contoso terms of service...
@@ -153,7 +153,7 @@ Utilisez cette transformation de revendication pour définir une chaîne de vale
 
 Détermine si une revendication de chaîne est égale à une autre. Le résultat est un nouveau ClaimType booléen avec la valeur `true` ou `false`.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Premier type de revendication à comparer. |
 | InputClaim | inputClaim2 | string | Deuxième type de revendication à comparer. |
@@ -179,7 +179,7 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputClaim1** : someone@contoso.com
@@ -194,7 +194,7 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 
 Détermine si une valeur de revendication est égale à la valeur du paramètre d’entrée.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | Type de la revendication à comparer. |
 | InputParameter | operator | string | Valeurs possibles : `EQUAL` ou `NOT EQUAL`. |
@@ -220,7 +220,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 - Revendications d’entrée :
     - **inputClaim1** : v1
 - Paramètres d’entrée :
@@ -234,7 +234,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 
 Crée une chaîne aléatoire à l’aide du générateur de nombres aléatoires. Si le générateur de nombres aléatoires est de type `integer`, vous pouvez éventuellement spécifier un paramètre de départ et un nombre maximal. Un paramètre de format de chaîne facultatif permet de mettre en forme la sortie, et un paramètre base64 facultatif spécifie si la sortie est outputClaim (string) randomGeneratorType [guid, entier] encodée en base64.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | string | Spécifie la valeur aléatoire à générer, `GUID` (ID global unique) ou `INTEGER` (nombre). |
 | InputParameter | stringFormat | string | [Facultatif] Mettre en forme la valeur aléatoire. |
@@ -255,7 +255,7 @@ L’exemple suivant génère un ID unique global. Cette transformation de revend
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Paramètres d’entrée :
     - **randomGeneratorType** : GUID
@@ -278,7 +278,7 @@ L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Paramètres d’entrée :
     - **randomGeneratorType** : INTEGER
@@ -293,7 +293,7 @@ L’exemple suivant génère une valeur entière aléatoire comprise entre 0 et 
 
 Met en forme une revendication en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# `String.Format`.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string |ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
 | InputParameter | stringFormat | string | Format de chaîne, y compris le paramètre {0}. |
@@ -315,7 +315,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : 5164db16-3eee-4629-bfda-dcc3326790e9
@@ -328,7 +328,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 
 Met en forme deux revendications en fonction de la chaîne de format fournie. Cette transformation utilise la méthode C# **String.Format**.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |string | ClaimType qui agit en tant que paramètre {0} de format de chaîne. |
 | InputClaim | inputClaim | string | ClaimType qui agit en tant que paramètre {1} de format de chaîne. |
@@ -352,7 +352,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim1** : Joe
@@ -366,7 +366,7 @@ Utilisez cette transformation de revendication pour mettre en forme une chaîne 
 
 Recherche un élément dans une collection de revendications **Restriction**.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | mapFromClaim | string | Revendication qui contient le texte à rechercher dans les revendications **restrictionValueClaim** avec la collection **Restriction**.  |
 | OutputClaim | restrictionValueClaim | string | Revendication qui contient la collection **Restriction**. Une fois la transformation de revendications appelée, la valeur de cette revendication contient la valeur de l’élément sélectionné. |
@@ -379,7 +379,7 @@ L’exemple suivant recherche la description de message d’erreur en fonction d
   <DataType>string</DataType>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
@@ -398,18 +398,18 @@ La transformation de revendication recherche le texte de l’élément et retour
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **mapFromClaim** : B2C_V1_90001
 - Revendications de sortie :
-    - **restrictionValueClaim** : You cant sign in because you are a minor.
+    - **restrictionValueClaim** : Vous ne pouvez pas vous connecter parce que vous en êtes mineur.
 
 ## <a name="lookupvalue"></a>LookupValue
 
 Recherche une valeur de revendication dans une liste de valeurs en fonction de la valeur d’une autre revendication.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | string | Revendication qui contient la valeur de recherche |
 | InputParameter | |string | Collection d’inputParameters. |
@@ -435,7 +435,7 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputParameterId** : test.com
@@ -451,7 +451,7 @@ L’exemple suivant recherche le nom de domaine dans l’une des collections inp
 
 Nettoie la valeur d’une revendication donnée.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | claim_to_null | string | Revendication dont la valeur doit être NULL. |
 
@@ -474,7 +474,7 @@ Utilisez cette transformation de revendication pour supprimer des données inuti
 
 Obtient la partie domaine d’une adresse e-mail.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | string | ClaimType qui contient l’adresse e-mail. |
 | OutputClaim | domaine | string | ClaimType généré après que cette transformation de revendication a été appelée (le domaine). |
@@ -492,7 +492,7 @@ Utilisez cette transformation de revendication pour analyser le nom de domaine d
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **emailAddress** : joe@outlook.com
@@ -503,7 +503,7 @@ Utilisez cette transformation de revendication pour analyser le nom de domaine d
 
 Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo` sont égaux, et définit les revendications de sortie avec la valeur présente dans les paramètres d’entrée `stringMatchMsg` et `stringMatchMsgCode`, ainsi que la revendication de sortie de résultat de comparaison, qui est définie sur `true` ou `false` en fonction du résultat de la comparaison.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | string | Type de revendication à comparer. |
 | InputParameter | matchTo | string | Chaîne à comparer à `inputClaim`. |
@@ -534,7 +534,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : v1
@@ -552,7 +552,7 @@ Vous pouvez utiliser cette transformation de revendication pour vérifier si une
 
 Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo` sont égaux, et définit les revendications de sortie avec la valeur présente dans le paramètre d’entrée `outputClaimIfMatched`, ainsi que la revendication de sortie de résultat de comparaison, qui est définie sur `true` ou `false` en fonction du résultat de la comparaison.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | claimToMatch | string | Type de revendication à comparer. |
 | InputParameter | matchTo | string | Chaîne à comparer à inputClaim. |
@@ -580,7 +580,7 @@ Par exemple, la transformation de revendication suivante vérifie si la valeur d
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **claimToMatch** : Secondaire

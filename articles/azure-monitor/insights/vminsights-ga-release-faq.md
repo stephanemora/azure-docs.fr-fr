@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/05/2019
-ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/24/2020
+ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450701"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765761"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Questions fréquentes sur Azure Monitor pour machines virtuelles (version en disponibilité générale)
 
@@ -20,19 +20,28 @@ Ce FAQ sur la disponibilité générale couvre les modifications qui se produise
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>Mises à jour d’Azure Monitor pour machines virtuelles
 
-Nous prévoyons de publier une nouvelle version d’Azure Monitor pour machines virtuelles en janvier 2020. Les clients qui activeront Azure Monitor pour machines virtuelles après cette publication recevront automatiquement la nouvelle version, tandis que les clients existants qui utilisent déjà Azure Monitor pour machines virtuelles seront invités à effectuer une mise à niveau. Ce FAQ et notre documentation vous aideront à effectuer une mise à niveau à grande échelle si vos déploiements sont volumineux sur plusieurs espaces de travail.
+Nous avons publié une nouvelle version d'Azure Monitor pour machines virtuelles. Les clients qui activeront Azure Monitor pour machines virtuelles recevront désormais la nouvelle version, tandis que les clients existants qui utilisent déjà Azure Monitor pour machines virtuelles seront invités à effectuer une mise à niveau. Ce FAQ et notre documentation vous aideront à effectuer une mise à niveau à grande échelle si vos déploiements sont volumineux sur plusieurs espaces de travail.
 
-Avec cette mise à niveau, les données de performances d’Azure Monitor pour machines virtuelles sont stockées dans la même table `InsightsMetrics` qu’[Azure Monitor pour conteneurs](container-insights-overview.md), ce qui vous permet d’interroger plus facilement les deux jeux de données. De plus, cette table vous permet de stocker des jeux de données plus diversifiés que la table utilisée auparavant. Nos affichages sur les performances vont également être mis à jour pour utiliser cette nouvelle table.
+Avec cette mise à niveau, les données de performances d’Azure Monitor pour machines virtuelles sont stockées dans la même table *InsightsMetrics* que [Azure Monitor pour conteneurs](container-insights-overview.md), ce qui vous permet d’interroger plus facilement les deux jeux de données. De plus, cette table vous permet de stocker des jeux de données plus diversifiés que la table utilisée auparavant. 
 
-Nous allons utiliser de nouveaux types de données pour nos jeux de données de connexion. Cette modification se produira en décembre 2019 et sera annoncée dans un blog de mise à jour Azure. Les données actuellement stockées dans `ServiceMapComputer_CL` et `ServiceMapProcess_CL`, qui sont des tables de journaux personnalisées, vont être transférées vers les types de données dédiés `VMComputer` et `VMProcess`. Le transfert vers des types de données dédiés leur permet d’être prioritaires pour l’ingestion des données, mais permet aussi de standardiser le schéma de table pour l’ensemble des clients.
+D’ici une semaine ou deux, nos affichages sur les performances vont également être mis à jour pour utiliser cette nouvelle table.
 
 Conscients de la gêne occasionnée par la mise à niveau des workflows pour les clients existants, nous avons choisi d’effectuer ce changement maintenant dans le cadre de la Préversion publique plutôt que de le faire plus tard après la mise en disponibilité générale.
 
+
 ## <a name="what-is-changing"></a>Qu’est-ce qui change ?
 
-Actuellement, quand vous effectuez le processus d’intégration d’Azure Monitor pour machines virtuelles, vous activez la solution Service Map dans l’espace de travail où vous avez choisi de stocker vos données de supervision, puis vous configurez les compteurs de performances pour les données que nous collectons à partir de vos machines virtuelles. Nous allons publier une nouvelle solution, appelée **VMInsights**, qui offre des fonctionnalités supplémentaires pour la collecte des données, ainsi qu’un nouvel emplacement de stockage de ces données dans votre espace de travail Log Analytics.
+Nous avons publié une nouvelle solution, appelée VMInsights, qui offre des fonctionnalités supplémentaires pour la collecte des données ainsi qu’un nouvel emplacement de stockage de ces données dans votre espace de travail Log Analytics. 
 
-Dans notre processus actuel d’utilisation des compteurs de performances dans votre espace de travail Log Analytics, les données collectées sont envoyées dans la table `Perf`. La nouvelle solution envoie les données dans une table nommée `InsightsMetrics`, qui est déjà utilisée par Azure Monitor pour conteneurs. Le schéma de cette table nous permet de stocker des métriques et des jeux de données de service supplémentaires qui ne sont pas compatibles avec le format de la table Perf.
+Auparavant, nous avons activé la solution ServiceMap sur votre espace de travail et configuré les compteurs de performance dans votre espace de travail Log Analytics pour envoyer les données à la table de*Perf*. Cette nouvelle solution envoie les données dans une table nommée *InsightsMetrics*, qui est aussi utilisée par Azure Monitor pour conteneurs. Le schéma de cette table nous permet de stocker des indicateurs de performance et des jeux de données de service supplémentaires qui ne sont pas compatibles avec le format de la table *Perf*.
+
+
+## <a name="how-do-i-upgrade"></a>Comment effectuer la mise à niveau ?
+Chaque machine virtuelle nécessitant une mise à niveau est identifiée dans l’onglet **Prise en main** dans Azure Monitor pour machines virtuelles du portail Microsoft Azure. Vous pouvez mettre à niveau une seule machine virtuelle ou en sélectionner plusieurs pour les mettre à niveau ensemble. Utilisez la commande suivante pour effectuer la mise à niveau à l’aide de PowerShell :
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>Que faire avec les compteurs de performances de mon espace de travail si j’installe la solution VMInsights ?
 

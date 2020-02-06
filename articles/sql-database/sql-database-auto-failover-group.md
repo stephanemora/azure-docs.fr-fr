@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 73314cb2d3ac77347e0de720a6a3ab0084181218
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9b838edea4b5f47fe57305c593944ef5fa93a63c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732414"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768659"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Utiliser les groupes de basculement automatique pour permettre le basculement transparent et coordonné de plusieurs bases de données
 
@@ -71,6 +71,13 @@ Pour assurer vraiment la continuité des activités, l’ajout d’une redondanc
 - **Ajouter des bases de données d’un pool élastique au groupe de basculement**
 
   Vous pouvez placer une partie ou la totalité des bases de données d’un pool élastique dans le même groupe de basculement. Si la base de données primaire se trouve dans un pool élastique, la base de données secondaire est automatiquement créée dans le pool élastique du même nom (pool secondaire). Vérifiez que le serveur secondaire contient un pool élastique portant exactement le même nom et offrant une capacité disponible suffisante pour héberger les bases de données secondaires qui seront créées par le groupe de basculement. Si vous ajoutez une base de données dans le pool qui présente déjà une base de données secondaire dans le pool secondaire, ce lien de géoréplication est hérité par le groupe. Si vous ajoutez une base de données qui présente déjà une base de données secondaire sur un serveur ne faisant pas partie du groupe de basculement, une nouvelle base de données secondaire est créée dans le pool secondaire.
+  
+- **Amorçage initial** 
+
+  Lorsque vous ajoutez des bases de données, des pools élastiques ou des instances gérées à un groupe de basculement, il y a d’abord une phase d’amorçage initiale avant le démarrage de la réplication des données. La phase d’amorçage initiale est l’opération la plus longue et la plus coûteuse. Une fois l’amorçage initial terminé, les données sont synchronisées, puis seules les modifications de données ultérieures sont répliquées. Le temps nécessaire à la réalisation de l’amorçage initial dépend de la taille de vos données, du nombre de bases de données répliquées et de la vitesse de la liaison entre les entités dans le groupe de basculement. Dans des circonstances normales, la vitesse d’amorçage classique est de 50 à 500 Go par heure pour une seule base de données unique ou un seul pool élastique, et de 18 à 35 Go par heure pour une instance gérée. L’amorçage est effectué pour toutes les bases de données en parallèle. Vous pouvez utiliser la vitesse d’amorçage indiquée, ainsi que le nombre de bases de données et la taille totale des données pour estimer la durée de la phase d’amorçage initiale avant le début de la réplication des données.
+
+  Pour les instances gérées, la vitesse de la liaison Express Route entre les deux instances doit également être prise en compte lors de l’estimation de la durée de la phase d’amorçage initiale. Si la vitesse de la liaison entre les deux instances est plus lente que nécessaire, la durée de l’amorçage risque d’être sensiblement perturbée. Vous pouvez utiliser la vitesse d’amorçage indiquée, ainsi que le nombre de bases de données, la taille totale des données et la vitesse de liaison pour estimer la durée de la phase d’amorçage initiale avant le début de la réplication des données. Par exemple, pour une seule base de données de 100 Go, la phase initiale de la valeur initiale prendrait de 2,8 à 5,5 heures si la liaison peut atteindre 35 Go par heure. Si la liaison ne peut transférer que 10 Go par heure, l’amorçage d’une base de données de 100 Go prendra environ 10 heures. S’il faut répliquer plusieurs bases de données, l’amorçage est effectué en parallèle et, lorsqu’il est associé à une vitesse de liaison lente, la phase d’amorçage initiale peut prendre beaucoup plus de temps. Cela est particulièrement vrai si l’amorçage parallèle des données de toutes les bases de données est supérieur à la bande passante de liaison disponible. Si la bande passante réseau entre deux instances est limitée et que vous ajoutez plusieurs instances gérées à un groupe de basculement, ajoutez plusieurs instances gérées au groupe de basculement successivement, une par une.
+
   
 - **Zone DNS**
 
@@ -319,8 +326,8 @@ Si vous utilisez des [règles et points de terminaison de service de réseau vir
 Si votre plan de continuité d’activité nécessite un basculement à l’aide de groupes avec basculement automatique, vous pouvez restreindre l’accès à votre base de données SQL à l’aide des règles de pare-feu classiques. Pour prendre en charge le basculement automatique, effectuez les étapes suivantes :
 
 1. [Créez une adresse IP publique](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address).
-2. [Créez un équilibreur de charge public](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) et affectez-lui l’adresse IP publique.
-3. [Créez un réseau virtuel et les machines virtuelles](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) pour vos composants frontend.
+2. [Créez un équilibreur de charge public](../load-balancer/quickstart-load-balancer-standard-public-portal.md) et affectez-lui l’adresse IP publique.
+3. [Créez un réseau virtuel et les machines virtuelles](../load-balancer/quickstart-load-balancer-standard-public-portal.md) pour vos composants frontend.
 4. [Créez un groupe de sécurité réseau](../virtual-network/security-overview.md) et configurez les connexions entrantes.
 5. Vérifiez que les connexions sortantes sont ouvertes pour la base de données Azure SQL à l’aide de la [balise de service](../virtual-network/security-overview.md#service-tags) « Sql ».
 6. Créez une [règle de pare-feu de base de données SQL](sql-database-firewall-configure.md) pour autoriser le trafic entrant à partir de l’adresse IP publique que vous créez à l’étape 1.

@@ -3,7 +3,7 @@ title: Tutoriel - Configurer le routage du trafic prioritaire avec Azure Traffic
 description: Ce tutoriel explique comment configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,15 +11,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: d5d58ec39841274b78ababf9f73f00a262cc37be
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: ca223a19ff7ddeae95878f941f3cf295664e62b4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420291"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938724"
 ---
-# <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Didacticiel : Configurer la méthode de routage du trafic prioritaire dans Traffic Manager
+# <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>Tutoriel : Configurer la méthode de routage du trafic prioritaire dans Traffic Manager
 
 Indépendamment du mode de site web, Sites web Azure fournit des fonctionnalités basculement pour des sites web à l’intérieur d’un centre de données (également appelé région). Traffic Manager assure le basculement pour des sites web dans différents centres de données.
 
@@ -30,18 +30,18 @@ Dans le cadre du basculement des services, il est courant de diriger le trafic v
 1. Dans un navigateur, connectez-vous au [portail Azure](https://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free/). 
 2. Dans la barre de recherche du portail, recherchez les **profils Traffic Manager** et cliquez sur le nom du profil pour lequel vous souhaitez configurer la méthode de routage.
 3. Dans le panneau **Profil Traffic Manager**, vérifiez que les services cloud et les sites web que vous souhaitez inclure dans votre configuration sont présents.
-4. Dans la section **Paramètres**, cliquez sur **Configuration** et dans le panneau **Configuration**, procédez comme suit :
+4. Dans la section **Paramètres**, cliquez sur **Configuration** et dans le panneau **Configuration**, procédez comme suit :
     1. Pour les **paramètres de la méthode de routage de trafic**, vérifiez que la méthode de routage du trafic est **Priorité**. Si ce n’est pas le cas, cliquez sur **Priorité** dans la liste déroulante.
-    2. Définissez les **paramètres de surveillance de point de terminaison** de manière identique pour tous les points de terminaison dans ce profil comme suit :
+    2. Définissez l’option **Paramètres de surveillance des points de terminaison** de manière identique pour tous les points de terminaison de ce profil comme suit :
         1. Sélectionnez le **protocole** approprié et spécifiez le numéro du **port**. 
         2. Pour **Chemin d’accès**, entrez une barre oblique */* . Pour surveiller les points de terminaison, vous devez indiquer un chemin et un nom de fichier. Une barre oblique (« / ») est une entrée valide pour le chemin d’accès relatif. Elle implique que le fichier se trouve dans le répertoire racine (par défaut).
-        3. Au sommet de la page, cliquez sur **Enregistrer**.
+        3. En haut de la page, cliquez sur **Enregistrer**.
 5. Dans la section **Paramètres**, cliquez sur **Points de terminaison**.
 6. Dans le panneau **Points de terminaison**, passez en revue l’ordre de priorité des points de terminaison. Lorsque vous configurez la méthode de routage du trafic par **Priorité**, l’ordre des points de terminaison sélectionnés est important. Vérifiez l’ordre de priorité des points de terminaison.  Le point de terminaison principal doit se trouver en haut de la liste. Vérifiez l’ordre affiché. Toutes les demandes seront acheminées vers le premier point de terminaison et si Traffic Manager détecte que celui-ci n’est pas intègre, le trafic bascule automatiquement vers le point de terminaison suivant. 
 7. Pour modifier l’ordre de priorité des points de terminaison, cliquez sur un point de terminaison et dans le panneau **Point de terminaison** qui s’affiche, cliquez sur **Modifier** et modifiez la valeur **Priorité** en fonction de vos besoins. 
 8. Cliquez sur **Enregistrer** pour enregistrer les modifications des paramètres des points de terminaison.
 9. Une fois que vous avez terminé de modifier la configuration, cliquez sur **Enregistrer** en bas de la page.
-10. Testez les modifications dans votre configuration comme suit :
+10. Testez les modifications dans votre configuration comme suit :
     1.  Dans la barre de recherche du portail, recherchez le nom du profil Traffic Manager et cliquez sur le profil Traffic Manager dans les résultats affichés.
     2.  Dans le panneau du profil **Traffic Manager**, cliquez sur **Vue d’ensemble**.
     3.  Le panneau **Profil Traffic Manager** affiche le nom DNS de votre profil Traffic Manager nouvellement créé. Celui-ci peut être utilisé par tous les clients (par exemple, en y accédant à l’aide d’un navigateur web) pour être acheminés vers le point de terminaison correct, comme déterminé par le type de routage. Dans ce cas, toutes les demandes sont acheminées vers le premier point de terminaison et si Traffic Manager détecte que celui-ci n’est pas intègre, le trafic bascule automatiquement vers le point de terminaison suivant.

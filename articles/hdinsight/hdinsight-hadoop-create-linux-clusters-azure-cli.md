@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/24/2019
-ms.openlocfilehash: 80a13e504b7cb075692256d5c813a95c51002ab6
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/03/2020
+ms.openlocfilehash: 0921caa19ee86ddf2766642211d8204059550b02
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495124"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990689"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Créer des clusters HDInsight à l’aide de l’interface de ligne de commande Azure
 
@@ -46,7 +46,7 @@ Azure CLI. Si vous n'avez pas installé Azure CLI, consultez [Installer l'interf
 
     |Paramètre | Description |
     |---|---|
-    |`--size`| Nombre de nœuds Worker figurant dans le cluster. Cet article utilise la variable `clusterSizeInNodes` en tant que valeur passée à `--size`. |
+    |`--workernode-count`| Nombre de nœuds Worker figurant dans le cluster. Cet article utilise la variable `clusterSizeInNodes` en tant que valeur passée à `--workernode-count`. |
     |`--version`| Version du cluster HDInsight Cet article utilise la variable `clusterVersion` en tant que valeur passée à `--version`. Voir aussi : [Version de HDInsight prises en charge](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Type de cluster HDInsight, par exemple : hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  Cet article utilise la variable `clusterType` en tant que valeur passée à `--type`. Voir aussi : [Types de cluster et configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
     |`--component-version`|Versions des différents composants Hadoop, séparées par des espaces, au format « composant=version ». Cet article utilise la variable `componentVersion` en tant que valeur passée à `--component-version`. Voir aussi : [Composants Hadoop](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
@@ -120,12 +120,12 @@ Azure CLI. Si vous n'avez pas installé Azure CLI, consultez [Installer l'interf
         --http-password $httpCredential \
         --http-user admin \
         --location $location \
-        --size $clusterSizeInNodes \
+        --workernode-count $clusterSizeInNodes \
         --ssh-password $sshCredentials \
         --ssh-user sshuser \
         --storage-account $AZURE_STORAGE_ACCOUNT \
         --storage-account-key $AZURE_STORAGE_KEY \
-        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --storage-container $AZURE_STORAGE_CONTAINER \
         --version $clusterVersion
     ```
 
@@ -172,7 +172,6 @@ Vous avez créé un cluster HDInsight à l’aide de l’interface de ligne de c
 ### <a name="apache-hadoop-clusters"></a>Clusters Apache Hadoop
 
 * [Utilisation d’Apache Hive avec HDInsight](hadoop/hdinsight-use-hive.md)
-* [Utilisation d’Apache Pig avec HDInsight](hadoop/hdinsight-use-pig.md)
 * [Utilisation de MapReduce avec HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Clusters Apache HBase

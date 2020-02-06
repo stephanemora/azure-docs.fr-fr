@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268239"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887570"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Comprendre les redémarrages des machines virtuelles : maintenance et temps d’arrêt
 Il existe trois scénarios pouvant affecter une machine virtuelle dans Azure : maintenance matérielle non planifiée, temps d’arrêt imprévu et maintenance planifiée.
@@ -79,12 +79,13 @@ Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
-> Remarque : Dans certaines circonstances, il peut arriver que deux machines virtuelles appartenant au même AvailabilitySet partagent le même FaultDomain. Pour confirmer cela, accédez à votre AvailabilitySet et vérifiez la colonne « Domaine d’erreur ».
-> Ce comportement peut être observé lorsque la séquence suivante s’est produite lors du déploiement des machines virtuelles :
+> [!NOTE]
+> Dans certaines circonstances, deux machines virtuelles dans le même AvailabilitySet peuvent partager le même FaultDomain. Pour confirmer cela, accédez à votre groupe à haute disponibilité et vérifiez la colonne **Domaine d'erreur**
+> Cela peut être dû à la séquence suivante lors du déploiement des machines virtuelles :
 > - Déployer la première machine virtuelle
 > - Arrêtez/libérez la première machine virtuelle
 > - Déployez la deuxième machine virtuelle Dans ces circonstances, le disque du système d’exploitation de la deuxième machine virtuelle peut être créé sur le même domaine d’erreur que la première, et la deuxième machine virtuelle atterrira également sur le même FaultDomain. 
-> Pour éviter ce problème, il est recommandé de ne pas arrêter/libérer la machine virtuelle entre ses déploiements.
+> Pour éviter ce problème, il est recommandé de ne pas arrêter ou libérer la machine virtuelle entre ses déploiements.
 
 Si vous prévoyez d’utiliser des machines virtuelles avec des disques non managés, suivez les meilleures pratiques ci-dessous pour les comptes de stockage sur lesquels les disques durs virtuels (VHD) d’ordinateurs virtuels sont stockés en tant [qu’objets blob de pages](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 961a5cc3d8c90007e314f40ba98693d978fe8888
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0cd7625a8e89365ccb966c0aa847e5b337f33acc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76771946"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900200"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>Démarrage rapide : Entraîner un modèle Form Recognizer et extraire des données à partir de formulaires au moyen d’une API REST avec cURL
 
 Dans ce guide de démarrage rapide, vous utilisez l’API REST Azure Form Recognizer avec cURL pour entraîner et scorer des formulaires afin d’extraire des paires clé-valeur et des tables.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
-
-> [!IMPORTANT]
-> Ce guide de démarrage rapide utilise l’API Form Recognizer version 2.0. Si votre abonnement n’est pas dans la région `West US 2` ou `West Europe`, vous devez utiliser l’API version 1.0. Suivez le [guide de démarrage rapide pour la version 1.0](./curl-train-extract-v1.md) à la place.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

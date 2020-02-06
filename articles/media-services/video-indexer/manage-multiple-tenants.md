@@ -13,12 +13,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: a9b75c3454c67112b0e00c7ea4b4e8c676ebcc97
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18f2cf3daa281400151ba223e1735e7138d97e8e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65949471"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990502"
 ---
 # <a name="manage-multiple-tenants"></a>Gérer plusieurs locataires
 
@@ -45,7 +45,7 @@ Selon cette architecture, un compte Video Indexer est créé pour chaque locatai
 * Ce modèle est plus difficile à gérer, en raison de la présence de plusieurs comptes Video Indexer (et Media Services associés) par locataire.
 
 > [!TIP]
-> Créez un utilisateur administrateur pour votre système sur [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) et utilisez l’API d’autorisation pour fournir à vos locataires le [jeton d’accès au compte](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token) nécessaire.
+> Créez un utilisateur administrateur pour votre système sur [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/) et utilisez l’API d’autorisation pour fournir à vos locataires le [jeton d’accès au compte](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token) nécessaire.
 
 ## <a name="single-video-indexer-account-for-all-users"></a>Un compte Video Indexer unique pour tous les utilisateurs
 

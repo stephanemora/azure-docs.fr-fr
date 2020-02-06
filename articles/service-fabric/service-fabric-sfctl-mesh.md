@@ -3,14 +3,14 @@ title: Interface CLI Azure Service Fabric - sfctl mesh
 description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Inclut la liste des commandes liées à la gestion des applications Service Fabric Mesh.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 608efba614f17932b3bfb7852c16ffbeaca02457
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 40d0f70b0dabdc02434fa662663a2fd105431f0a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646073"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905896"
 ---
 # <a name="sfctl-mesh"></a>sfctl mesh
 Permet de supprimer et de gérer les applications Service Fabric Mesh.
