@@ -1,26 +1,26 @@
 ---
-title: 'Didacticiel : Créer un enregistrement d’alias pour prendre en charge les noms Apex de domaine – Traffic Manager'
+title: 'Tutoriel : Créer un enregistrement d’alias pour prendre en charge les noms Apex de domaine – Traffic Manager'
 titleSuffix: Azure DNS
 description: Ce tutoriel vous montre comment configurer un enregistrement d’alias Azure DNS pour prendre en charge l’utilisation du nom d’apex de votre domaine avec Traffic Manager.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 3834b782be054611de67b782b7fcd0c46cbf3a19
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.author: rohink
+ms.openlocfilehash: 749e5eae64aa0d33c90ef8694da9a093647b8a8b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082254"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937923"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Didacticiel : Configurer un enregistrement d’alias pour prendre en charge des noms de domaine d’apex avec Traffic Manager 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Tutoriel : Configurer un enregistrement d’alias pour prendre en charge des noms de domaine d’apex avec Traffic Manager 
 
 Vous pouvez créer un enregistrement d’alias pour l’apex de votre nom de domaine pour référencer un profil Azure Traffic Manager. contoso.com en est un exemple. Au lieu d’utiliser un service de redirection, vous pouvez configurer Azure DNS pour référencer un profil Traffic Manager directement à partir de votre zone. 
 
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une infrastructure de machines virtuelles hôtes et de réseau.
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Vous devez disposer d’un nom de domaine disponible, que vous pouvez héberger dans Azure DNS pour le test. Vous devez disposer d’un contrôle total de ce domaine. Le contrôle total comprend notamment la possibilité de définir les enregistrements de serveur de noms pour le domaine.
 
 Pour obtenir des instructions sur l’hébergement de votre domaine dans Azure DNS, consultez [Tutoriel : Héberger votre domaine dans Azure DNS](dns-delegate-domain-azure-dns.md).
@@ -113,7 +113,7 @@ Créez un enregistrement d’alias qui pointe vers le profil Traffic Manager.
 3. Ouvrez un nouveau navigateur web et accédez à nouveau à l’apex de votre nom de domaine.
 4. Vous voyez à nouveau la page web par défaut d’IIS, car Traffic Manager a géré la situation et dirigé le trafic vers **Web-02**.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Lorsque vous n’aurez plus besoin des ressources créées pour ce tutoriel, supprimez le groupe de ressources **RG-DNS-Alias-TM**.
 

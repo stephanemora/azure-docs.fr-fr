@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 6ecba85a859e902922dfa2b7563a3ceb96a9ef4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bff46c8584934ab8bcffce74763edc8363533d6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457457"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988241"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -141,13 +141,13 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--exclude-path** string Exclut ces chemins lors de la copie. Cette option ne prend pas en charge les caractères génériques (*). Vérifie le préfixe de chemin relatif (Par exemple : myFolder;myFolder/subDirName/file.pdf.) En cas d’utilisation combinée avec la traversée de comptes, les chemins n’incluent pas le nom du conteneur.
 
-**--exclude-pattern** string      Exclut les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName
+**--exclude-pattern** string      Exclut les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : \*.jpg;\*.pdf;exactName
 
 **-h, --help**                        Aide pour la synchronisation
 
 **--include-attributes** string   (Windows uniquement) Inclut uniquement les fichiers dont les attributs correspondent à la liste d’attributs. Par exemple :  A;S;R
 
-**--include-pattern** string      Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : *.jpg;* .pdf;exactName
+**--include-pattern** string      Inclut uniquement les fichiers dont le nom correspond à la liste de caractères génériques. Par exemple : \*.jpg;\*.pdf;exactName
 
 **--log-level** string            Définit le niveau de détail pour le fichier journal. Niveaux disponibles : INFO (toutes les requêtes et réponses), WARNING (réponses lentes), ERROR (uniquement les échecs de requêtes) et NONE (aucun journal de sortie). (par défaut : INFO) (par défaut : « INFO »)
 
