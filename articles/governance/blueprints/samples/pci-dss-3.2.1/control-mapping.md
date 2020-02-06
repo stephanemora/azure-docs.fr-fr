@@ -1,14 +1,14 @@
 ---
 title: Exemples de contrôles de blueprint PCI-DSS v3.2.1
 description: Mappage des contrôles de l'exemple de blueprint Payment Card Industry Data Security Standard v3.2.1 vers Azure Policy et RBAC.
-ms.date: 06/24/2019
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: 38db59a7f0b93e2c87b3c7acdfbcc2b8cbd11489
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: db21ac9d628e777b6ff2cc86516cfb1497f5a62f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546572"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905635"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Mappage des contrôles de l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -39,7 +39,7 @@ Ce blueprint vous aide à appliquer votre stratégie avec utilisation des contr�
 - Seules les connexions sécurisées à votre cache Redis doivent être activées
 - La sécurisation du transfert vers des comptes de stockage doit être activée
 - La propriété ClusterProtectionLevel doit être définie sur EncryptAndSign pour les clusters Service Fabric
-- La technologie Transparent Data Encryption sur les bases de données SQL doit être activée
+- La technologie Transparent Data Encryption doit être activée sur les bases de données SQL
 - Déployer le chiffrement transparent des données sur les bases de données SQL
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5.1, 6.2, 6.6 and 11.2.1 Analyse des vulnérabilités et mises à jour système
@@ -49,27 +49,27 @@ Ce blueprint vous permet de gérer les vulnérabilités du système d’informat
 - Superviser les agents Endpoint Protection manquants dans Azure Security Center
 - Déployer l’extension Microsoft IaaSAntimalware par défaut pour Windows Server
 - Déployer la détection de menaces sur les serveurs SQL
-- Les mises à jour système doivent être installées sur vos machines
+- Des mises à jour système doivent être installées sur vos machines
 - Les vulnérabilités de la configuration de sécurité sur vos machines doivent être corrigées
 - Les vulnérabilités de vos bases de données SQL doivent être éliminées
-- Les vulnérabilités doivent être corrigées à l’aide d’une solution d’évaluation des vulnérabilités
+- Les vulnérabilités doivent être corrigées avec une solution d’évaluation des vulnérabilités
 
 ## <a name="711-712-and-713-separation-of-duties"></a>7.1.1. 7.1.2 et 7.1.3 Séparation des tâches
 
 Le fait d’avoir un seul propriétaire d’abonnement Azure ne permet pas d’assurer la redondance administrative. À l’inverse, un nombre trop élevé de propriétaires d’abonnement Azure peut augmenter le risque d’une violation par le biais d’un compte de propriétaire compromis. Ce blueprint vous permet de maintenir un nombre approprié de propriétaires d’abonnement Azure en affectant des définitions [Azure Policy](../../../policy/overview.md) qui auditent le nombre de propriétaires pour les abonnements Azure. La gestion des autorisations des propriétaires d’abonnement peut vous aider à implémenter une séparation appropriée des tâches.
 
-- Plusieurs propriétaires doivent être attribués à votre abonnement
-- Trois propriétaires maximum doivent être désignés pour votre abonnement 
+- Plusieurs propriétaires doivent être affectés à votre abonnement
+- Trois propriétaires au plus doivent être désignés pour votre abonnement 
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1.a et 8.3.1.b Gestion des droits d’accès privilégié
 
 Ce blueprint vous permet de limiter et de contrôler les droits d’accès privilégié en affectant des définitions [Azure Policy](../../../policy/overview.md) pour auditer les comptes externes avec des autorisations de propriétaire et/ou en écriture et les comptes avec des autorisations de propriétaire et/ou en écriture pour lesquels l’authentification multifacteur n’est pas activée. Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour gérer qui a accès aux ressources Azure. Ces dernières étant non exemptes d’erreurs, le fait de savoir où elles sont implémentées peut vous aider à déterminer les besoins réels et l’implémentation appropriée. Ce blueprint affecte également des définitions [Azure Policy](../../../policy/overview.md) afin d’auditer l’utilisation de l’authentification Azure Active Directory pour les serveurs SQL. L’utilisation de l’authentification Azure Active Directory simplifie la gestion des autorisations et centralise la gestion centralisée des identités des utilisateurs de bases de données et d’autres services  
 Microsoft.
  
-- Les comptes externes disposant d’autorisations de type propriétaire doivent être supprimés de votre abonnement
+- Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
-- L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de type propriétaire de votre abonnement
+- L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations de propriétaire sur votre abonnement
 - L’authentification multifacteur doit être activée sur les comptes disposant d’autorisations d’écriture sur votre abonnement
 - L'authentification multifacteur doit être activée sur les comptes disposant d’autorisations de lecture de votre abonnement
 - Un administrateur Azure Active Directory doit être approvisionné pour les serveurs SQL
@@ -77,10 +77,10 @@ Microsoft.
 
 ## <a name="812-and-815-least-privilege-and-review-of-user-access-rights"></a>8.1.2 et 8.1.5 Privilège minimum et Revue des droits d’accès utilisateurs
 
-Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui permettent de déterminer les comptes devant en priorité faire l’objet d’une revue, notamment les comptes dépréciés et les comptes externes avec des autorisations élevées.
+Azure implémente un contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. À l’aide du portail Azure, vous pouvez passer en revue les utilisateurs ayant accès aux ressources Azure et leurs autorisations. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) qui permettent de déterminer les comptes devant en priorité faire l’objet d’une revue, notamment les comptes dépréciés et les comptes externes avec des autorisations élevées.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
+- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations d’écriture doivent être supprimés de votre abonnement
 - Les comptes externes disposant d’autorisations de lecture doivent être supprimés de votre abonnement
@@ -90,7 +90,7 @@ Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour vous 
 Azure implémente le contrôle d’accès en fonction du rôle (RBAC) pour vous aider à gérer qui a accès aux ressources dans Azure. Grâce à Azure Active Directory et RBAC, vous pouvez mettre à jour les rôles d’utilisateur pour refléter les changements organisationnels. Si nécessaire, vous pouvez empêcher des comptes de se connecter (ou les supprimer). Dans ce cas, les droits d’accès aux ressources Azure sont immédiatement supprimés. Ce blueprint affecte des définitions [Azure Policy](../../../policy/overview.md) pour auditer le compte déprécié dont la suppression doit être envisagée.
 
 - Les comptes déconseillés doivent être supprimés de votre abonnement
-- Les comptes déconseillés disposant d’autorisations de type propriétaire doivent être supprimés de votre abonnement
+- Les comptes dépréciés disposant d’autorisations de propriétaire doivent être supprimés de votre abonnement
 
 ## <a name="823ab-824ab-and-825-password-based-authentication"></a>8.2.3.a,b, 8.2.4.a,b et 8.2.5 Authentification basée sur un mot de passe
 
@@ -105,7 +105,7 @@ Ce blueprint vous aide à appliquer des mots de passe forts en affectant des dé
 
 ## <a name="103-and-1054-audit-generation"></a>10.3 et 10.5.4 Génération de l’audit
 
-Ce blueprint vous permet de garantir que les événements système sont journalisés. Il affecte pour cela des définitions [Azure Policy](../../../policy/overview.md) qui vérifient les paramètres de journalisation sur les ressources Azure.
+Ce blueprint vous permet de garantir que les événements système sont journalisés en affectant des définitions [Azure Policy](../../../policy/overview.md) qui vérifient les paramètres de journalisation sur les ressources Azure.
 Les journaux de diagnostic fournissent des insights sur les opérations effectuées dans vos ressources Azure. Les journaux Azure s’appuient sur les horloges internes synchronisées pour créer un enregistrement corrélé dans le temps des événements entre les ressources.
 
 - L’audit doit être activé sur les paramètres de sécurité des données avancés sur SQL Server

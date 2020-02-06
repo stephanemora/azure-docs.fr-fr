@@ -1,14 +1,14 @@
 ---
 title: Déployer l’exemple de blueprint PCI-DSS v3.2.1
 description: Étapes de déploiement de l’exemple de blueprint Payment Card Industry Data Security Standard v3.2.1, y compris les détails du paramètre d’artefact blueprint.
-ms.date: 06/24/2019
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: aa641b35f1a7533a13803e7984c83df2f3268de6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546548"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905561"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Déployer l’exemple de blueprint PCI-DSS v3.2.1
 
@@ -97,7 +97,7 @@ Le tableau suivant fournit la liste des paramètres d’artefact de blueprint :
 |Emplacements autorisés|Affectation de rôle|Liste des emplacements autorisés|Liste des emplacements de centre de données autorisés sur lesquels toutes vos ressources peuvent êtres déployées. Vous pouvez personnaliser cette liste pour indiquer les emplacements Azure de votre choix de manière globale. Sélectionnez les emplacements que vous voulez autoriser.| 
 |Emplacements autorisés pour les groupes de ressources|Affectation de rôle |Emplacement autorisé |Cette stratégie vous permet de restreindre les emplacements où votre organisation peut créer des groupes de ressources. Utilisez-la pour appliquer vos exigences de conformité géographique.| 
 |Déployer l’audit sur des serveurs SQL|Affectation de rôle|Jours de conservation|Rétention des données en nombre de jours. La valeur par défaut est 180, mais PCI nécessite une valeur de 365.| 
-|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage|L’audit écrit des événements de base de données dans un journal d’audit dans votre compte de stockage Azure (un compte de stockage sera créé dans chaque région où est créé un serveur SQL Server qui sera partagé par tous les serveurs de cette région).| 
+|Déployer l’audit sur des serveurs SQL|Affectation de rôle|Nom du groupe de ressources pour le compte de stockage|L’audit écrit des événements de base de données dans un journal d’audit dans votre compte Stockage Azure (un compte de stockage sera créé dans chaque région où est créé un serveur SQL Server qui sera partagé par tous les serveurs de cette région).| 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
