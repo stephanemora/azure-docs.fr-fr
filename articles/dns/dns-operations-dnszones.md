@@ -3,7 +3,7 @@ title: Gérer des zones DNS dans Azure DNS - PowerShell | Microsoft Docs
 description: Vous pouvez gérer des zones DNS à l’aide d’Azure Powershell. Cet article décrit comment mettre à jour, supprimer et créer des zones DNS sur Azure DNS.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: timlt
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
@@ -12,21 +12,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
-ms.author: allensu
-ms.openlocfilehash: 7a838f10d44f3be0af79bba5d303467884159cbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 0120501aab7f0a63721126bfb5b3d04d9deb42fb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211697"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936800"
 ---
 # <a name="how-to-manage-dns-zones-using-powershell"></a>Gestion des zones DNS à l'aide de PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](dns-operations-dnszones-portal.md)
+> * [Portail](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure Classic CLI](dns-operations-dnszones-cli-nodejs.md)
-> * [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
+> * [Azure CLI](dns-operations-dnszones-cli.md)
 
 Cet article vous montre comment gérer vos zones DNS avec Azure PowerShell. Vous pouvez également gérer vos zones DNS à l’aide de [l’interface de ligne de commande Azure](dns-operations-dnszones-cli.md) multiplateforme ou du portail Azure.
 
@@ -125,7 +125,7 @@ Lors de l’utilisation de `Set-AzureRmDnsZone` avec un objet $zone, les [vérif
 Les zones DNS peuvent être supprimées à l’aide de l’applet de commande `Remove-AzureRmDnsZone`.
 
 > [!NOTE]
-> Supprimer une zone DNS supprime également tous les enregistrements DNS de la zone. Il est impossible d’annuler cette opération. Si la zone DNS est en cours d’utilisation, les services utilisant la zone échouent lors de la suppression de la zone.
+> Supprimer une zone DNS supprime également tous les enregistrements DNS de la zone. Cette opération ne peut pas être annulée. Si la zone DNS est en cours d’utilisation, les services utilisant la zone échouent lors de la suppression de la zone.
 >
 >Pour vous protéger contre la suppression accidentelle de zones, consultez la page [Comment protéger des zones et enregistrements DNS](dns-protect-zones-recordsets.md).
 

@@ -5,17 +5,18 @@ services: active-directory
 author: msaburnley
 manager: daveba
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: c4d32522ef88504b96d262c654dac7c08c292761
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880508"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897455"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 
@@ -76,7 +77,7 @@ Pour mieux comprendre Azure AD et sa documentation, nous vous recommandons de p
 |Administrateur de comptes|Ce rôle d’administrateur d’abonnement classique est théoriquement le propriétaire du compte de facturation d’un abonnement. Ce rôle a accès au [Centre des comptes Azure](https://account.azure.com/Subscriptions) et vous permet de gérer tous les abonnements d’un compte. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, contrôle d’accès en fonction du rôle Azure (RBAC) et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Administrateur de services|Ce rôle d’administrateur d’abonnement classique vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle a un droit d’accès équivalent à celui d’un utilisateur qui se voit attribuer le rôle Propriétaire au niveau de l’étendue de l’abonnement. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Propriétaire|Ce rôle vous permet de gérer toutes les ressources Azure, notamment l’accès à celles-ci. Ce rôle est basé sur un système d’autorisation plus récent appelé « contrôle d’accès en fonction du rôle » (RBAC) qui permet de gérer avec précision l’accès aux ressources Azure. Pour plus d’informations, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Administrateur général Azure AD|Ce rôle d’administrateur est automatiquement attribué au créateur du locataire Azure AD. Les administrateurs généraux peuvent effectuer toutes les fonctions d’administration pour Azure AD et tout service fédéré sur Azure AD, comme Exchange Online, SharePoint Online et Skype Entreprise Online. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls les administrateurs généraux peuvent attribuer des rôles d’administrateur (notamment d’autres rôles Administrateur général) aux utilisateurs.<br><br>**Remarque :**<br>Ce rôle d’administrateur est appelé « administrateur général » dans le portail Azure, mais il a pour nom **administrateur d’entreprise** dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell.<br><br>Pour plus d’informations sur les rôles d’administrateur, consultez [Autorisations de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
+|Administrateur général Azure AD|Ce rôle d’administrateur est automatiquement attribué au créateur du locataire Azure AD. Les administrateurs généraux peuvent effectuer toutes les fonctions d’administration pour Azure AD et tout service fédéré sur Azure AD, comme Exchange Online, SharePoint Online et Skype Entreprise Online. Vous pouvez avoir plusieurs administrateurs généraux, mais seuls les administrateurs généraux peuvent attribuer des rôles d’administrateur (notamment d’autres rôles Administrateur général) aux utilisateurs.<br><br>**Remarque**<br>Ce rôle d’administrateur est appelé « administrateur général » dans le portail Azure, mais il a pour nom **administrateur d’entreprise** dans l’API Microsoft Graph, l’API Azure AD Graph et Azure AD PowerShell.<br><br>Pour plus d’informations sur les rôles d’administrateur, consultez [Autorisations de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Compte Microsoft (également appelé MSA)|Comptes personnels qui donnent accès à vos produits et services cloud Microsoft orientés consommateurs, comme Outlook, OneDrive, Xbox LIVE ou Office 365. Votre compte Microsoft est créé et stocké dans le système de comptes d’identité des consommateurs de Microsoft.|
 
 ## <a name="which-features-work-in-azure-ad"></a>Quelles sont les fonctionnalités disponibles dans Azure AD ?

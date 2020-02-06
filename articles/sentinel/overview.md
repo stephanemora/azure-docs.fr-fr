@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 964ba16fb7421c58f43d8b7d0d0d96f5cd377579
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5f3a8fa7b9619958db1d7213236e27d00b417c54
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261878"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939109"
 ---
 # <a name="what-is-azure-sentinel"></a>Qu’est-ce qu’Azure Sentinel ?
 
@@ -37,27 +37,27 @@ Azure Sentinel est votre observatoire global sur l’ensemble de l’entreprise 
 
 - **Répondez aux incidents rapidement** avec une orchestration et une automatisation intégrées des tâches courantes.
 
-
 ![Fonctionnalités principales d’Azure Sentinel](./media/overview/core-capabilities.png)
 
 S’appuyant sur la gamme complète des services Azure existants, Azure Sentinel intègre de façon native les éléments de base comme Log Analytics et Logic Apps. Azure Sentinel enrichit vos opérations d’investigation et de détection avec l’intelligence artificielle et fournit les flux d’informations sur les menaces venant de Microsoft et vous permet de mettre en place votre propre intelligence face aux menaces. 
 
- 
 ## <a name="connect-to-all-your-data"></a>Connexion à toutes vos données
 
 Pour intégrer Azure Sentinel, vous devez d’abord [vous connecter à vos sources de sécurité](connect-data-sources.md). Azure Sentinel est fourni avec plusieurs connecteurs pour les solutions Microsoft, disponibles par défaut et offrant une intégration en temps réel, y compris les solutions Microsoft Threat Protection, et les sources Microsoft 365, dont Office 365, Azure AD, Azure ATP et Microsoft Cloud App Security, et bien plus encore. En outre, il existe des connecteurs intégrés pour la connexion aux écosystèmes de sécurité élargis pour les solutions non Microsoft. Vous pouvez également utiliser le format d’événement commun, Syslog ou l’API REST pour connecter vos sources de données à Azure Sentinel.  
 
 ![Collecteurs de données](./media/collect-data/collect-data-page.png)
 
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
 ## <a name="workbooks"></a>Workbooks
 
-Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez superviser les données à l’aide de l’intégration Azure Sentinel avec des classeurs Azure Monitor, ce qui offre une grande souplesse lors de la création de classeurs personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de voir comment [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés grâce auxquels vous pouvez obtenir rapidement des insights sur vos données dès que vous connectez une source de données.
+Après avoir  [connecté vos sources de données](quickstart-onboard.md) à Azure Sentinel, vous pouvez superviser les données à l’aide de l’intégration Azure Sentinel avec des classeurs Azure Monitor, ce qui offre une grande souplesse lors de la création de classeurs personnalisés. Même si les classeurs s’affichent différemment dans Azure Sentinel, il peut être utile de voir comment [créer des rapports interactifs avec les classeurs Azure Monitor](../azure-monitor/app/usage-workbooks.md). Azure Sentinel vous permet de créer des classeurs personnalisés sur l’ensemble de vos données. Il est également fourni avec des modèles de classeurs intégrés avec lesquels vous obtenez rapidement des insights sur vos données dès que vous connectez une source de données.
 
 ![Tableaux de bord](./media/tutorial-monitor-data/access-workbooks.png)
 
 ## <a name="analytics"></a>Analytics
 
-Pour vous aider à réduire le niveau de bruit et à réduire le nombre d’alertes que vous devez examiner, Azure Sentinel utilise l’[analytique pour mettre en corrélation les alertes et les incidents](tutorial-detect-threats-built-in.md). Les **incidents** sont des groupes d’alertes liées qui, prises ensemble, constituent une menace exploitable que vous pouvez examiner et résoudre. Utilisez les règles de corrélation intégrées telles quelles ou utilisez-les comme point de départ pour créer vos propres règles. Azure Sentinel fournit également des règles d’apprentissage machine pour mettre définir le comportement de votre réseau et rechercher les possibles anomalies sur vos ressources. Ces analyses connectent ensuite les informations en transformant les alertes basse fidélité sur différentes entités en incidents de sécurité potentiels de haute fidélité.
+Pour vous aider à réduire le niveau de bruit et à réduire le nombre d’alertes que vous devez examiner, Azure Sentinel utilise l’[analytique pour mettre en corrélation les alertes et les incidents](tutorial-detect-threats-built-in.md). Les **incidents** sont des groupes d’alertes liées qui, prises ensemble, constituent une menace exploitable que vous pouvez examiner et résoudre. Utilisez les règles de corrélation intégrées telles quelles ou utilisez-les comme point de départ pour créer vos propres règles. Azure Sentinel fournit également des règles d’apprentissage machine pour mapper le comportement de votre réseau et rechercher les possibles anomalies sur vos ressources. Ces analyses connectent ensuite les informations en transformant les alertes basse fidélité sur différentes entités en incidents de sécurité potentiels de haute fidélité.
 
 ![Incidents](./media/tutorial-investigate-cases/incident-severity.png)
 
@@ -92,5 +92,5 @@ La communauté Azure Sentinel est une ressource importante pour l’automatisati
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour commencer à utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
+- Pour utiliser Azure Sentinel, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
 - Découvrez comment [intégrer vos données à Azure Sentinel](quickstart-onboard.md) et [obtenir une visibilité de vos données et des menaces potentielles](quickstart-get-visibility.md).

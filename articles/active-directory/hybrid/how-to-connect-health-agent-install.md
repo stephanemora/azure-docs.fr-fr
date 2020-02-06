@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,22 +16,22 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68249fc9a599ab49e8d5fd231fa63e91a6e3a21f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4e9468c0a0f6844c7522ff43761cf58f4beea27e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330105"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897355"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation de l'agent Azure AD Connect Health
 
 Ce document vous guide à travers l’installation et la configuration des agents Azure AD Connect Health. Vous pouvez télécharger les agents [ici](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent):
 
-## <a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Spécifications
 
 Le tableau qui suit est une liste d’exigences d’utilisation d’Azure AD Connect Health.
 
-| Prérequis | Description |
+| Condition requise | Description |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health est une fonctionnalité d’Azure AD Premium qui nécessite Azure AD Premium. <br /><br />Pour plus d'informations, consultez la section [Prise en main d’Azure AD Premium](../fundamentals/active-directory-get-started-premium.md) <br />Pour démarrer une période d’évaluation gratuite de 30 jours, consultez [Démarrer l’essai gratuit.](https://azure.microsoft.com/trial/get-started-active-directory/) |
 | Vous devez être administrateur général de votre instance Azure AD pour démarrer Azure AD Connect Health |Par défaut, seuls les administrateurs généraux peuvent installer et configurer les agents d’intégrité afin de permettre leur démarrage, accéder au portail et exécuter des opérations au sein d’Azure AD Connect Health. Pour plus d’informations, consultez l’article [Administration de votre annuaire Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> À l’aide du contrôle d’accès en fonction du rôle, vous pouvez accorder l’accès à Azure AD Connect Health à d’autres utilisateurs dans votre organisation. Pour plus d’informations, consultez [Contrôle d’accès en fonction du rôle pour Azure AD Connect Health.](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) <br /><br />**Important :** Le compte utilisé lors de l’installation des agents doit être un compte professionnel ou scolaire. Il ne peut pas s’agir d’un compte Microsoft. Pour plus d’informations, consultez [Inscription à Azure en tant qu’organisation](../fundamentals/sign-up-organization.md) |
@@ -342,7 +343,7 @@ Vous pouvez spécifier manuellement un serveur proxy sur chacun des serveurs qui
 
     Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress address:port
 
-Exemple : *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
+Exemple : *Set-AzureAdConnectHealthProxySettings -HttpsProxyAddress myproxyserver: 443*
 
 * « address » peut être un nom de serveur DNS pouvant être résolu ou une adresse IPv4
 * "port" peut être omis. Dans ce cas, 443 est choisi comme port par défaut.

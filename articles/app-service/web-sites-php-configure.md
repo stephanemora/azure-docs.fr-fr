@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688257"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016797"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Configurer PHP dans Azure App Service
 
@@ -21,7 +21,7 @@ ms.locfileid: "74688257"
 
 Ce guide vous explique comment configurer le runtime PHP intégré pour les applications web, back-ends mobiles et applications API dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714), fournir un runtime PHP personnalisé et activer des extensions. Pour utiliser App Service, souscrivez à la [version d’évaluation gratuite]. Pour tirer le meilleur parti de ce guide, commencez par créer une application PHP dans App Service.
 
-## <a name="how-to-change-the-built-in-php-version"></a>Activation Modifier la version intégrée de PHP
+## <a name="how-to-change-the-built-in-php-version"></a>Procédure : Modifier la version intégrée de PHP
 
 Par défaut, PHP 5.6 est installé et immédiatement utilisable lorsque vous créez une application App Service. Pour afficher la révision de version disponible, sa configuration par défaut et les extensions activées, la méthode idéale consiste à déployer un script qui appelle la fonction [phpinfo()] .
 
@@ -35,21 +35,7 @@ Les versions PHP 7.0 et PHP 7.2 sont également disponibles, mais ne sont pas ac
 
 3. Cliquez sur le bouton **Enregistrer** en haut du panneau **Paramètres généraux**.
 
-### <a name="azure-powershell-windows"></a>Azure PowerShell (Windows)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-1. Ouvrez Azure PowerShell, et connectez-vous à votre compte.
-
-        PS C:\> Connect-AzAccount
-2. Configurez la version PHP pour l’application.
-
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. La version de PHP est maintenant définie. Vous pouvez confirmer les paramètres suivants :
-
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
-
-### <a name="azure-cli"></a>D’Azure CLI 
+### <a name="azure-cli"></a>Azure CLI 
 
 Pour utiliser l’interface de ligne de commande Azure, vous devez [installer l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) sur votre ordinateur.
 
@@ -69,7 +55,7 @@ Pour utiliser l’interface de ligne de commande Azure, vous devez [installer l�
 
         az webapp show --name {app-name} --resource-group {resource-group-name}
 
-## <a name="how-to-change-the-built-in-php-configurations"></a>Activation Modifier les configurations PHP intégrées
+## <a name="how-to-change-the-built-in-php-configurations"></a>Procédure : Modifier les configurations PHP intégrées
 
 Quel que soit le runtime PHP intégré, vous pouvez changer toute option de configuration en procédant comme indiqué dans ces étapes. (Pour plus d’informations sur les directives de php.ini, consultez la page [Liste des directives de php.ini].)
 
@@ -100,7 +86,7 @@ Au lieu d’un fichier `.user.ini`, vous pouvez utiliser la fonction [ini_set()]
         wincache.maxfilesize=512
 1. Pour recharger les modifications, redémarrez votre application.
 
-## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Activation Activer les extensions dans le runtime PHP par défaut
+## <a name="how-to-enable-extensions-in-the-default-php-runtime"></a>Procédure : Activer les extensions dans le runtime PHP par défaut
 
 Comme indiqué dans la section précédente, la méthode idéale pour afficher la version PHP par défaut, sa configuration par défaut et les extensions activées consiste à déployer un script qui appelle [phpinfo()]. Pour activer des extensions supplémentaires, effectuez les étapes suivantes :
 
@@ -129,7 +115,7 @@ Comme indiqué dans la section précédente, la méthode idéale pour afficher l
 
 Les extensions Zend sont également prises en charge à l’aide d’une clé **PHP_ZENDEXTENSIONS**. Pour activer plusieurs extensions, insérez une liste de fichiers `.dll` séparés par des virgules pour la valeur de paramètre d’application.
 
-## <a name="how-to-use-a-custom-php-runtime"></a>Activation Utiliser un runtime PHP personnalisé
+## <a name="how-to-use-a-custom-php-runtime"></a>Procédure : Utiliser un runtime PHP personnalisé
 
 Au lieu du runtime PHP par défaut, App Service peut utiliser un runtime PHP que vous fournissez pour exécuter des scripts PHP. Le runtime en question peut être configuré par un fichier `php.ini` que vous avez également déclaré. Pour utiliser un runtime PHP personnalisé avec App Service, effectuez les étapes suivantes.
 
@@ -146,7 +132,7 @@ Au lieu du runtime PHP par défaut, App Service peut utiliser un runtime PHP que
 
 <a name="composer" />
 
-## <a name="how-to-enable-composer-automation-in-azure"></a>Activation Activer l’automatisation du Compositeur dans Azure
+## <a name="how-to-enable-composer-automation-in-azure"></a>Procédure : Activer l’automatisation du Compositeur dans Azure
 
 Par défaut, App Service ne fait rien avec composer.json, si vous en avez un dans votre projet PHP. Si vous utilisez le [déploiement Git](deploy-local-git.md), vous pouvez activer le traitement de composer.json pendant `git push` en activant l’extension du Compositeur.
 

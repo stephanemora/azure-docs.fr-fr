@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 8a6e8dad7549b3656d4387cfad1d0c3a44b13975
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b219b507ac14b2a66b23f93d9fb1035f56cb8164
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965974"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018684"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web Python
 
@@ -28,12 +28,12 @@ Dans ce guide de démarrage rapide, vous allez apprendre à intégrer une applic
 
 ![Fonctionnement de l’exemple d’application généré par ce guide de démarrage rapide](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 
 - [Python 2.7+](https://www.python.org/downloads/release/python-2713) or [Python 3+](https://www.python.org/downloads/release/python-364/)
-- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org//en/master/)
+- [Flask](http://flask.pocoo.org/), [Flask-Session](https://pythonhosted.org/Flask-Session/), [requests](https://requests.kennethreitz.org/en/master/)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
@@ -42,14 +42,14 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 >
 > Vous avez deux options pour démarrer votre application du guide de démarrage rapide : rapide (Option 1) et manuelle (Option 2)
 >
-> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
 >
 > 1. Accédez au [portail Azure - Inscriptions d’applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Sélectionnez **Nouvelle inscription**.
 > 1. Entrez un nom pour votre application, puis sélectionnez **Inscrire**.
 > 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option 2 : Inscrire et configurer manuellement vos application et exemple de code
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option n°2 : Inscrire et configurer manuellement vos application et exemple de code
 >
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrivez votre application
 >
@@ -80,7 +80,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le portail Azure
 >
 > Pour que l’exemple de code de ce guide de démarrage rapide fonctionne, vous devez :
 >
@@ -93,7 +93,7 @@ Pour exécuter cet exemple, vous avez besoin des éléments suivants :
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Déjà configuré](media/quickstart-v2-aspnet-webapp/green-check.png) Votre application est configurée avec cet attribut.
 
-#### <a name="step-2-download-your-project"></a>Étape 2 : Télécharger votre projet
+#### <a name="step-2-download-your-project"></a>Étape 2 : Télécharger votre projet
 
 [Télécharger l'exemple de code](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
@@ -132,7 +132,7 @@ AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
    > [!IMPORTANT]
    > Cette application de démarrage rapide utilise un secret client pour s’identifier en tant que client confidentiel. Le secret client étant ajouté en texte brut à vos fichiers projet, il est recommandé, pour des raisons de sécurité, d’utiliser un certificat au lieu d’un secret client avant de considérer l’application comme application de production. Pour savoir plus en détails comment utiliser un certificat, voir [ces instructions](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
 
-## <a name="more-information"></a>Plus d’informations
+## <a name="more-information"></a>Informations complémentaires
 
 ### <a name="getting-msal"></a>Obtention de MSAL
 MSAL est la bibliothèque utilisée pour connecter les utilisateurs et demander des jetons permettant d’accéder à une API protégée par la Plateforme d’identités Microsoft.

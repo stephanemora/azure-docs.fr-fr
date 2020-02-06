@@ -3,23 +3,23 @@ title: Personnaliser l’interface utilisateur Azure IoT Central | Microsoft D
 description: Comment personnaliser le thème et les liens d’aide pour votre application Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/26/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 829ea1bcca36dfba2da3e3946b48b7249f69ee62
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3afa86aae3b51ea20610dcbff5211e59fb341650
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942530"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018429"
 ---
 # <a name="customize-the-azure-iot-central-ui"></a>Personnaliser l’interface utilisateur d’Azure IoT Central
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+Cet article explique comment, en tant qu’administrateur, vous pouvez personnaliser l’interface utilisateur de votre application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisées. 
 
-Cet article explique comment, en tant qu’administrateur, vous pouvez personnaliser l’interface utilisateur de votre application en appliquant des thèmes personnalisés et en modifiant les liens d’aide pour pointer vers vos propres ressources d’aide personnalisées.
+
 
 La capture d’écran suivante montre une page utilisant le thème standard :
 
@@ -41,7 +41,7 @@ Dans cette page, vous pouvez personnaliser les aspects suivants de votre applica
 
 Une image PNG, ne dépassant pas 1 Mo, avec un fond transparent. Ce logo s’affiche à gauche sur la barre de titre de l’application IoT Central.
 
-Si l’image de votre logo inclut le nom de votre application, vous pouvez masquer le texte du nom de votre application. Pour en savoir plus, veuillez consulter la section [Gérer votre application](./howto-administer.md#change-application-name-and-url).
+Si l’image de votre logo inclut le nom de votre application, vous pouvez masquer le texte du nom de votre application. Pour en savoir plus, veuillez consulter la section [Gérer votre application](howto-administer.md#change-application-name-and-url).
 
 ### <a name="browser-icon-favicon"></a>Icône de navigateur (favicon)
 
@@ -78,4 +78,4 @@ Vous pouvez également ajouter de nouvelles entrées au menu d’aide et supprim
 Maintenant que vous avez découvert comment personnaliser l’interface utilisateur de votre application Azure IoT Central, voici quelques suggestions d’étapes suivantes :
 
 - [Administrer votre application](./howto-administer.md)
-- [Ajouter des vignettes à votre tableau de bord](./howto-add-tiles-to-your-dashboard.md)
+- [Ajouter des vignettes à votre tableau de bord](howto-add-tiles-to-your-dashboard.md)

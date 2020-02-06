@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec88caafa9a6168860a8e9e2ff9e2abe0cfd0e77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3e6c490ee9d8b6f7f07f52e70ceb8c7c49d699b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62096113"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897028"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure AD Connect Health
 Cet article répond aux questions fréquemment posées sur Azure Active Directory (Azure AD) Connect Health. Ces FAQ abordent l’utilisation du service, notamment le modèle de facturation, les fonctionnalités, les limitations et le support.
@@ -34,7 +35,7 @@ Pour basculer entre les différents locataires Azure AD, sélectionnez le **nom
 
 Le tableau suivant répertorie les rôles et les versions de système d’exploitation prises en charge.
 
-|Rôle| Système d’exploitation/version|
+|Role| Système d’exploitation/version|
 |--|--|
 |Active Directory Federation Services (AD FS)| <ul> <li> Windows Server 2008 R2 </li><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> </ul>|
 |Azure AD Connect | Version 1.0.9125 ou supérieure|
@@ -51,7 +52,7 @@ Notez que les fonctionnalités proposées par le service peuvent varier selon le
 
 Les informations relatives aux licences se trouvent également sur la [page Azure Active Directory Tarification](https://aka.ms/aadpricing).
 
-Exemple :
+Exemple :
 
 | Agents inscrits | Licences nécessaires | Exemple de configuration de surveillance |
 | ------ | --------------- | --- |
@@ -59,16 +60,16 @@ Exemple :
 | 2 | 26| 1 serveur Azure AD Connect et 1 contrôleur de domaine |
 | 3 | 51 | 1 serveur Active Directory Federation Services (AD FS), 1 proxy AD FS et 1 contrôleur de domaine |
 | 4 | 76 | 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
-| 5\. | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
+| 5 | 101 | 1 serveur Azure AD Connect, 1 serveur AD FS, 1 proxy AD FS et 2 contrôleurs de domaine |
 
 **Q : Azure AD Connect Health prend-il en charge Azure Cloud Germany ?**
 
 Azure AD Connect Health n’est pas pris en charge dans Germany Cloud à l’exception de la [fonctionnalité de rapport d’erreurs de synchronisation](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
-| contrôleur | Caractéristiques | Prise en charge dans Germany Cloud |
+| Rôles | Fonctionnalités | Prise en charge dans Germany Cloud |
 | ------ | --------------- | --- |
 | Connect Health pour la synchronisation | Supervision/Insight/Alertes/Analyse | Non |
-|  | Rapport d’erreurs de synchronisation | OUI |
+|  | Rapport d’erreurs de synchronisation | Oui |
 | Connect Health pour ADFS | Supervision/Insight/Alertes/Analyse | Non |
 | Connect Health pour ADDS | Supervision/Insight/Alertes/Analyse | Non |
 

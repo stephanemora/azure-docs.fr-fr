@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558632"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939435"
 ---
 # <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 
@@ -43,6 +43,8 @@ Pour vous aider à vous protéger contre ces problèmes, Security Center vous of
 
 -   **Être plus rapidement en sécurité** : Dans Security Center, toutes les opérations sont réalisées à la vitesse du cloud. Étant donné qu’il est intégré en mode natif, le déploiement de Security Center est facile, vous offrant un provisionnement automatique et une protection avec les services Azure.
 
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+
 ## <a name="architecture"></a>Architecture
 
 Security Center faisant nativement partie d’Azure, les services PaaS dans Azure (notamment Service Fabric, les bases de données SQL et les comptes de stockage) sont surveillés et protégés par Security Center sans qu’un déploiement ne soit nécessaire.
@@ -51,7 +53,7 @@ En outre, Security Center protège les serveurs et machines virtuelles autres qu
 
 Les événements collectés à partir des agents et d’Azure sont corrélés dans le moteur d’analyse de sécurité pour vous fournir des recommandations personnalisées (tâches de renforcement) à suivre pour vous assurer que vos charges de travail sont sécurisées. Des alertes de détection des menaces sont également mises en place. Vous devez examiner ces alertes dès que possible pour vous assurer qu’il n’y a pas d’attaques malveillantes en cours sur vos charges de travail.
 
-Quand vous activez Security Center, la stratégie de sécurité intégrée à Security Center est reflétée dans Azure Policy en tant qu’initiative intégrée sous la catégorie Security Center. L’initiative intégrée est automatiquement affectée à tous les abonnements Security Center inscrits (niveaux Gratuit ou Standard). L’initiative intégré contient uniquement les stratégies d’audit. Pour plus d’informations sur les stratégies Security Center dans Azure Policy, consultez [Utilisation des stratégies de sécurité](tutorial-security-policy.md).
+Quand vous activez Security Center, la stratégie de sécurité intégrée à Security Center est reflétée dans Azure Policy en tant qu’initiative intégrée sous la catégorie Security Center. L’initiative intégrée est automatiquement affectée à tous les abonnements Security Center inscrits (niveaux Gratuit ou Standard). L’initiative intégrée contient uniquement les stratégies d’audit. Pour plus d’informations sur les stratégies Security Center dans Azure Policy, consultez [Utilisation des stratégies de sécurité](tutorial-security-policy.md).
 
 ## <a name="strengthen-security-posture"></a>Renforcer la posture de sécurité
 

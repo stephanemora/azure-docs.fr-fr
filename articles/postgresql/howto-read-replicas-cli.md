@@ -5,22 +5,22 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/23/2020
+ms.openlocfilehash: b10ac3b4bc9dacd723b8b1265911df721b781189
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770116"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774803"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Créer et gérer des réplicas en lecture à partir d’Azure CLI ou de l’API REST
 
 Dans cet article, vous allez apprendre à créer et à gérer des réplicas en lecture dans Azure Database pour PostgreSQL à partir d’Azure CLI et de l’API REST. Pour en savoir plus sur les réplicas en lecture, consultez [vue d’ensemble](concepts-read-replicas.md).
 
-## <a name="azure-cli"></a>D’Azure CLI
+## <a name="azure-cli"></a>Azure CLI
 Vous pouvez créer et gérer des réplicas en lecture à l’aide d’Azure CLI.
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 - [Installation d’Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - Un [serveur Azure Database pour PostgreSQL](quickstart-create-server-up-azure-cli.md) qui représente le serveur maître.
@@ -37,6 +37,11 @@ Le paramètre `azure.replication_support` doit avoir la valeur **REPLICA** sur l
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
+> [!NOTE]
+> Si vous recevez l’erreur « Valeur non valide donnée » lors de la tentative de définition du paramètre azure.replication_support à partir d’Azure CLI, il est probable que REPLICA est déjà défini par défaut sur votre serveur. Un bogue empêche ce paramètre d’être correctement reflété sur les serveurs plus récents où REPLICA est la valeur interne par défaut. <br><br>
+> Vous pouvez ignorer les étapes maîtresses de préparation et passer à la création du réplica. <br><br>
+> Si vous souhaitez confirmer que votre serveur se trouve dans cette catégorie, accédez à la page de réplication du serveur dans le Portail Azure. L’option « Désactiver la réplication » sera grisée et celle « Ajouter un réplica » sera active dans la barre d’outils.
+
 2. Redémarrez le serveur pour appliquer les modifications.
 
    ```azurecli-interactive
@@ -47,10 +52,10 @@ Le paramètre `azure.replication_support` doit avoir la valeur **REPLICA** sur l
 
 La commande [az postgres server replica create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) exige les paramètres suivants :
 
-| Paramètre | Exemple de valeur | Description  |
+| Paramètre | Valeur d'exemple | Description  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  Groupe de ressources dans lequel le serveur réplica sera créé.  |
-| Nom | mydemoserver-replica | Nom du nouveau serveur réplica créé. |
+| name | mydemoserver-replica | Nom du nouveau serveur réplica créé. |
 | source-server | mydemoserver | Nom ou ID de ressource du serveur maître existant à partir duquel effectuer la réplication. |
 
 Dans l’exemple CLI ci-dessous, le réplica est créé dans la même région que le maître.

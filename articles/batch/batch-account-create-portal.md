@@ -3,8 +3,8 @@ title: Créer un compte dans le Portail Azure - Azure Batch | Microsoft Docs
 description: Apprenez à créer un compte Azure Batch dans le portail Azure pour exécuter des charges de travail parallèles à grande échelle dans le cloud
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db
 ms.service: batch
@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4eb6b0c64fc40dec48dc9103c67e8e4a0730d7e2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029808"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025894"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Créer un compte Batch avec le portail Azure
 

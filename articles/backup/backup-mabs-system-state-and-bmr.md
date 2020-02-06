@@ -3,12 +3,12 @@ title: Protection de la récupération de l’état du système et complète
 description: Utilisez le Serveur de sauvegarde Azure pour sauvegarder l’état de votre système et fournir une protection de récupération complète.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0e89b149fe8b06bdd70c72aa442f50125c5e3786
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172261"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025501"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Sauvegarder l’état du système et effectuer une récupération complète avec le Serveur de sauvegarde Azure
 
@@ -23,7 +23,7 @@ Le Serveur de sauvegarde Azure sauvegarde l’état de votre système et effectu
 
 Le tableau suivant résume ce que vous pouvez sauvegarder et récupérer. Pour plus d’informations sur les versions d’application qui peuvent être protégées avec l’état du système et une récupération complète, voir [Qu’est-ce que le Serveur de sauvegarde Azure ?](backup-mabs-protection-matrix.md).
 
-|Sauvegarde|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète|
+|Backup|Problème|Récupère à partir de la sauvegarde effectuée par le Serveur de sauvegarde Azure|Récupère à partir de la sauvegarde de l’état du système|Récupération complète|
 |----------|---------|---------------------------|------------------------------------|-------|
 |**Données de fichier**<br /><br />Sauvegarde des données régulières<br /><br />Récupération complète/sauvegarde de l’état du système|Données de fichiers perdues|O|N|N|
 |**Données de fichier**<br /><br />Sauvegarde effectuée par le Serveur de sauvegarde Azure des données de fichier<br /><br />Récupération complète/sauvegarde de l’état du système|Système d’exploitation perdu ou endommagé|N|O|O|
@@ -140,7 +140,7 @@ Configurez un groupe de protection comme décrit dans [Déployer des groupes de 
 
 12. Dans la page **Spécifier la stratégie de rétention en ligne**, sélectionnez la façon dont les points de récupération créés à partir des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles sont conservés dans Azure.
 
-13. Dans la page **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données doit se produire. Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. Pour plus d’informations, voir [Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure](backup-azure-backup-import-export.md).
+13. Dans la page **Choisir la réplication en ligne**, sélectionnez la façon dont la réplication initiale complète des données doit se produire. Vous pouvez répliquer sur le réseau ou effectuer une sauvegarde en mode hors connexion (essaimage hors connexion). La sauvegarde en mode hors connexion utilise la fonctionnalité Azure Import. Pour plus d’informations, voir [Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure](offline-backup-azure-data-box.md).
 
 14. Dans la page **Résumé**, vérifiez vos paramètres. Après que vous avez sélectionné **Créer un groupe**, la réplication initiale des données est effectuée. Une fois la réplication des données terminée, dans la page **État**, l’état du groupe de protection est **OK**. La sauvegarde a alors lieu conformément aux paramètres du groupe de protection.
 

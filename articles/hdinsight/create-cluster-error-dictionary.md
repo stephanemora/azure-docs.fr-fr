@@ -1,19 +1,19 @@
 ---
 title: Créer un dictionnaire d’erreurs de cluster
 description: Découvrez comment créer un dictionnaire d’erreurs de cluster.
-ms.reviewer: hrasheed
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
-ms.openlocfilehash: ee9ed5374b12c3130d952770a4be6a759e37339a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156860"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905479"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight : Erreurs lors de la création du cluster
 
@@ -210,7 +210,7 @@ En règle générale, cette erreur est générée en cas de problème temporaire
 
 ### <a name="resolution"></a>Résolution
 
-Consultez la page [Statut Azure](https://status.azure.com/status) pour les pannes d’Azure susceptibles d’avoir une incidence sur le déploiement du cluster. En cas d’absence de panne, réessayez le déploiement du cluster.
+Consultez la page [Statut Azure](https://status.azure.com) pour les pannes d’Azure susceptibles d’avoir une incidence sur le déploiement du cluster. En cas d’absence de panne, réessayez le déploiement du cluster.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

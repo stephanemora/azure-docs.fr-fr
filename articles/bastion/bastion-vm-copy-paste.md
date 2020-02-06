@@ -1,18 +1,18 @@
 ---
-title: 'Copier et coller vers et depuis une machine virtuelle : Azure Bastion | Microsoft Docs'
+title: 'Copier et coller vers et depuis une machine virtuelle : Azure Bastion'
 description: Dans cet article, découvrez comment copier et coller vers et depuis une machine virtuelle Azure à l’aide de Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ed8d52a4932271020dfb2a010392b312fa38703b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519351"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989533"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>Copier et coller vers une machine virtuelle : Azure Bastion
 
@@ -56,4 +56,4 @@ Une fois connecté à la machine virtuelle à l’aide du [portail Azure](https:
  
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez les [questions fréquentes (FAQ) sur Bastion](bastion-faq.md).
+Lisez les [questions fréquentes sur Bastion](bastion-faq.md).

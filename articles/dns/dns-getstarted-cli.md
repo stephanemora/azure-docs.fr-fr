@@ -3,17 +3,17 @@ title: 'Démarrage rapide : Créer un enregistrement et une zone Azure DNS – 
 titleSuffix: Azure DNS
 description: 'Démarrage rapide : découvrez comment créer une zone et un enregistrement DNS dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone et de votre premier enregistrement DNS à l’aide d’Azure CLI.'
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: 14d47a82ec6b5ec0ede626748216889a6943bfa6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072164"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937195"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Démarrage rapide : Créer un enregistrement et une zone Azure DNS avec Azure CLI
 
@@ -21,7 +21,7 @@ Cet article vous guide tout au long de la procédure de création de votre premi
 
 Une zone DNS permet d’héberger les enregistrements DNS d’un domaine particulier. Pour commencer à héberger votre domaine dans le DNS Azure, vous devez créer une zone DNS pour ce nom de domaine. Chaque enregistrement DNS pour votre domaine est ensuite créé à l’intérieur de cette zone DNS. Enfin, pour publier votre zone DNS sur Internet, vous devez configurer les serveurs de noms du domaine. Chacune de ces étapes est décrite ci-dessous.
 
-Azure DNS prend désormais également en charge les zones DNS privées. Pour en savoir plus sur les zones DNS privées, consultez la session relative à [l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md). Vous pouvez trouver un exemple de création d’une zone DNS privée sur la page [Créer une zone privée Azure DNS avec Azure CLI](./private-dns-getstarted-cli.md).
+Azure DNS prend également en charge les zones DNS privées. Pour en savoir plus sur les zones DNS privées, consultez la session relative à [l’utilisation d’Azure DNS pour les domaines privés](private-dns-overview.md). Vous pouvez trouver un exemple de création d’une zone DNS privée sur la page [Créer une zone privée Azure DNS avec Azure CLI](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

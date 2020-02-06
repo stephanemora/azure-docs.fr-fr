@@ -3,20 +3,20 @@ title: Utilisation de PowerShell pour gérer Traffic Manager dans Azure
 description: Avec ce parcours d’apprentissage, commencez à utiliser Azure PowerShell pour Traffic Manager.
 services: traffic-manager
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: f8dd01f22dec58c3345798b391c1c37c968d1025
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038121"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938510"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Utilisation de PowerShell pour gérer Traffic Manager
 
@@ -125,7 +125,7 @@ Dans chaque cas :
 * La spécification du paramètre « Pondération » est facultative. Les pondérations ne sont utilisées que si le profil est configuré pour utiliser la méthode de routage du trafic « Weighted ». Autrement, elles sont ignorées. S’il est spécifié, le paramètre doit avoir une valeur numérique comprise entre 1 et 1 000. La valeur par défaut est « 1 ».
 * La spécification du paramètre « Priorité » est facultative. Les priorités ne sont utilisées que si le profil est configuré pour utiliser la méthode d’acheminement de trafic « Priority ». Autrement, elles sont ignorées. Les valeurs valides vont de 1 à 1 000, les valeurs basses indiquant une priorité élevée. Si elles sont spécifiées pour un point de terminaison, elles doivent l’être pour tous les points de terminaison. En cas d’omission, les valeurs par défaut à partir de « 1 » sont appliquées dans l’ordre où les points de terminaison sont répertoriés.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Exemple 1 : Ajout de points de terminaison App Service à l’aide de `Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Exemple 1 : Ajout de points de terminaison App Service à l’aide de `Add-AzTrafficManagerEndpointConfig`
 
 Dans cet exemple, nous créons un profil Traffic Manager et ajoutons deux points de terminaison App Service à l’aide de l’applet de commande `Add-AzTrafficManagerEndpointConfig`.
 
@@ -137,7 +137,7 @@ $webapp2 = Get-AzWebApp -Name webapp2
 Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $TmProfile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Exemple 2 : Ajout d’un point de terminaison publicIpAddress à l’aide de `New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>Exemple 2 : Ajout d’un point de terminaison publicIpAddress à l’aide de `New-AzTrafficManagerEndpoint`
 
 Dans cet exemple, une ressource d’adresse IP publique est ajoutée au profil Traffic Manager. L’adresse IP publique doit avoir un nom DNS configuré et peut être liée à la carte réseau d’une machine virtuelle ou à un équilibreur de charge.
 
@@ -156,7 +156,7 @@ Lors de la spécification de points de terminaison externes :
 * Si la méthode de routage du trafic « Performance » est utilisée, le paramètre « EndpointLocation » doit être renseigné. Sinon, il est facultatif. La valeur doit être un [nom de région Azure valide](https://azure.microsoft.com/regions/).
 * Les paramètres « Weight » et « Priority » sont facultatifs.
 
-### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Exemple 1 : Ajout de points de terminaison externes à l’aide de `Add-AzTrafficManagerEndpointConfig` et `Set-AzTrafficManagerProfile`
+### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Exemple 1 : Ajout de points de terminaison externes à l’aide de `Add-AzTrafficManagerEndpointConfig` et `Set-AzTrafficManagerProfile`
 
 Dans cet exemple, nous créons un profil Traffic Manager, ajoutons deux points de terminaison externes et validons les modifications.
 
@@ -167,7 +167,7 @@ Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProf
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Exemple 2 : Ajout de points de terminaison externes à l’aide de `New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>Exemple 2 : Ajout de points de terminaison externes à l’aide de `New-AzTrafficManagerEndpoint`
 
 Dans cet exemple, nous ajoutons un point de terminaison externe à un profil existant. Le profil est spécifié en utilisant les noms de profil et de groupe de ressources.
 
@@ -186,7 +186,7 @@ Les points de terminaison imbriqués sont configurés sur le profil parent, à l
 * Les paramètres « Pondération » et « Priorité » sont facultatifs, comme pour les points de terminaison Azure.
 * Le paramètre « MinChildEndpoints » est facultatif. La valeur par défaut est « 1 ». Si le nombre de points de terminaison disponibles tombe sous ce seuil, le profil parent considère le profil enfant comme étant « dégradé » et dirige le trafic vers les autres points de terminaison du profil parent.
 
-### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Exemple 1 : Ajout de points de terminaison imbriqués à l’aide de `Add-AzTrafficManagerEndpointConfig` et `Set-AzTrafficManagerProfile`
+### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>Exemple 1 : Ajout de points de terminaison imbriqués à l’aide de `Add-AzTrafficManagerEndpointConfig` et `Set-AzTrafficManagerProfile`
 
 Dans cet exemple, nous créons des profils Traffic Manager enfant et parent, ajoutons l’enfant en tant que point de terminaison imbriqué au parent et validons les modifications.
 
@@ -199,7 +199,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $parent
 
 Par souci de concision, dans cet exemple, nous n’avons pas ajouté d’autres points de terminaison aux profils enfant ou parent.
 
-### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>Exemple 2 : Ajout de points de terminaison imbriqués à l’aide de `New-AzTrafficManagerEndpoint`
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>Exemple 2 : Ajout de points de terminaison imbriqués à l’aide de `New-AzTrafficManagerEndpoint`
 
 Dans cet exemple, nous ajoutons un profil enfant existant en tant que point de terminaison imbriqué à un profil parent existant. Le profil est spécifié en utilisant les noms de profil et de groupe de ressources.
 
@@ -227,7 +227,7 @@ Il existe deux façons de mettre à jour un point de terminaison Traffic Manager
 1. Obtenir le profil Traffic Manager à l’aide de `Get-AzTrafficManagerProfile`, mettre à jour les propriétés de point de terminaison dans le profil et valider les modifications apportées à l’aide de `Set-AzTrafficManagerProfile`. Cette méthode présente l’avantage de pouvoir mettre à jour plusieurs points de terminaison en une seule opération.
 2. Obtenir le point de terminaison Traffic Manager à l’aide de `Get-AzTrafficManagerEndpoint`, mettre à jour les propriétés de point de terminaison et valider les modifications apportées à l’aide de `Set-AzTrafficManagerEndpoint`. Cette méthode est plus simple, car elle ne nécessite pas d’indexation dans le tableau de points de terminaison dans le profil.
 
-### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>Exemple 1 : Mise à jour des points de terminaison à l’aide de `Get-AzTrafficManagerProfile` et `Set-AzTrafficManagerProfile`
+### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>Exemple 1 : Mise à jour des points de terminaison à l’aide de `Get-AzTrafficManagerProfile` et `Set-AzTrafficManagerProfile`
 
 Dans cet exemple, nous modifions l’ordre de priorité de deux points de terminaison dans un profil existant.
 
@@ -238,7 +238,7 @@ $TmProfile.Endpoints[1].Priority = 1
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Exemple 2 : Mise à jour d’un point de terminaison à l’aide de `Get-AzTrafficManagerEndpoint` et `Set-AzTrafficManagerEndpoint`
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>Exemple 2 : Mise à jour d’un point de terminaison à l’aide de `Get-AzTrafficManagerEndpoint` et `Set-AzTrafficManagerEndpoint`
 
 Dans cet exemple, nous modifions le poids d’un point de terminaison unique dans un profil existant.
 
@@ -253,7 +253,7 @@ Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
 Traffic Manager permet d’activer et de désactiver des points de terminaison individuels, tout en permettant l’activation et la désactivation des profils complets.
 Ces modifications peuvent être effectuées par obtention/mise à jour/définition du point de terminaison ou de ressources de profil. Pour rationaliser les opérations courantes, elles sont également prises en charge via les applets de commande dédiées.
 
-### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exemple 1 : Activation et désactivation d’un profil Traffic Manager
+### <a name="example-1-enabling-and-disabling-a-traffic-manager-profile"></a>Exemple 1 : Activation et désactivation d’un profil Traffic Manager
 
 Pour activer un profil Traffic Manager, utilisez `Enable-AzTrafficManagerProfile`. Le profil peut être spécifié à l’aide d’un objet de profil. L’objet de profil peut être transmis via le pipeline ou en utilisant le paramètre « -TrafficManagerProfile ». Dans cet exemple, nous spécifions le profil avec le nom de profil et le nom de groupe de ressources.
 
@@ -269,7 +269,7 @@ Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGro
 
 La cmdlet Disable-AzTrafficManagerProfile vous demande de confirmer l’opération. Ce message peut être supprimé en utilisant le paramètre « -Force ».
 
-### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exemple 2 : Activation et désactivation d’un point de terminaison Traffic Manager
+### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>Exemple 2 : Activation et désactivation d’un point de terminaison Traffic Manager
 
 Pour activer un point de terminaison Traffic Manager, utilisez `Enable-AzTrafficManagerEndpoint`. Il existe deux façons de spécifier le point de terminaison :
 

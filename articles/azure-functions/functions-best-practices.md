@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f808ff2a88a86df25b555f94257168e2d176e7f8
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433297"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963652"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Optimisation des performances et de la fiabilité d’Azure Functions
 
@@ -74,7 +74,9 @@ Réutilisez les connexions à des ressources externes chaque fois que possible. 
 
 ### <a name="avoid-sharing-storage-accounts"></a>Éviter le partage des comptes de stockage
 
-Lorsque vous créez une application de fonction, vous devez l’associer à un compte de stockage. La connexion au compte de stockage est conservée dans le [paramètre d’application AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). Pour optimiser les performances, utilisez un compte de stockage différent pour chaque application de fonction. Ceci est particulièrement important lorsque vous avez des fonctions Durable Functions ou des fonctions déclenchées par Event Hub, qui génèrent un volume élevé de transactions de stockage. Lorsque votre logique d’application interagit avec le stockage Azure, soit directement (à l’aide du SDK Stockage), soit via l’une des liaisons de stockage, vous devez utiliser un compte de stockage dédié. Par exemple, si vous avez une fonction déclenchée par Event Hub qui écrit des données dans le stockage d’objets blob, utilisez deux comptes de stockage : un pour l’application de fonction et un autre pour les objets blob stockés par la fonction.
+Lorsque vous créez une application de fonction, vous devez l’associer à un compte de stockage. La connexion au compte de stockage est conservée dans le [paramètre d’application AzureWebJobsStorage](./functions-app-settings.md#azurewebjobsstorage). 
+
+[!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>Ne pas mélanger code de test et code de production dans la même application de fonction
 

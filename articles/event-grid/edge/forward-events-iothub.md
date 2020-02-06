@@ -9,14 +9,14 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098675"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844698"
 ---
-# <a name="tutorial-forward-events-to-iothub"></a>Didacticiel : Transférer des événements vers IoT Hub
+# <a name="tutorial-forward-events-to-iothub"></a>Tutoriel : Transférer des événements vers IoT Hub
 
 Cet article vous guide tout au long des étapes nécessaires pour transférer des événements Event Grid vers d’autres modules IoT Edge, IoTHub à l’aide d’itinéraires. Vous pouvez le faire pour les raisons suivantes :
 
@@ -28,10 +28,10 @@ Pour suivre ce didacticiel, vous devez comprendre les concepts suivants :
 - [Concepts d’Event Grid](concepts.md)
 - [Hub IoT Edge](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>Prérequis 
+## <a name="prerequisites"></a>Conditions préalables requises 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* **Abonnement Azure** : créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
+* **Abonnement Azure** : Créez un [compte gratuit](https://azure.microsoft.com/free) si vous n’en avez pas encore. 
 * **Appareil Azure IoT Hub et IoT Edge** : suivez les étapes du guide de démarrage rapide pour les appareils [Linux](../../iot-edge/quickstart-linux.md) ou [Windows](../../iot-edge/quickstart.md) si vous n’en avez pas encore.
 
 [!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-deploy-iot-edge.md)]
@@ -62,7 +62,7 @@ En tant qu’éditeur d’un événement, vous devez créer une rubrique Event G
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4?api-version=2019-01-01-preview
     ```
 
-   Exemple de sortie :
+   Exemple de sortie :
 
    ```json
         [
@@ -81,6 +81,8 @@ En tant qu’éditeur d’un événement, vous devez créer une rubrique Event G
 ## <a name="create-event-subscription"></a>Créer un abonnement aux événements
 
 Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. Pour recevoir des événements, ils doivent créer un abonnement Event Grid sur une rubrique intéressante.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Créez subscription4.json avec le contenu ci-dessous. Pour plus d’informations sur la charge utile, voir la [documentation sur l’API](api.md).
 
@@ -110,7 +112,7 @@ Les abonnés peuvent s’inscrire aux événements publiés dans une rubrique. P
     curl -k -H "Content-Type: application/json" -X GET -g https://<your-edge-device-public-ip-here>:4438/topics/sampleTopic4/eventSubscriptions/sampleSubscription4?api-version=2019-01-01-preview
     ```
 
-    Exemple de sortie :
+    Exemple de sortie :
 
    ```json
         {
@@ -212,3 +214,4 @@ Dans ce didacticiel, vous avez créé une rubrique Event Grid, un abonnement Edg
 * Configurer la persistance du module Event Grid sur [Linux](persist-state-linux.md) ou [Windows](persist-state-windows.md)
 * Suivre la [documentation](configure-client-auth.md) pour configurer l’authentification du client
 * Transférer les événements vers Azure Event Grid dans le cloud en suivant ce [didacticiel](forward-events-event-grid-cloud.md)
+* [Superviser les rubriques et les abonnements à la périphérie](monitor-topics-subscriptions.md)

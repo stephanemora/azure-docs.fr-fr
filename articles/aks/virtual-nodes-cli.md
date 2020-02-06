@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 423f0866494054702330c8e51fb1ef45e74a0650
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2133d1aefe3363a2fb2af73c004e22ba0a0239ca
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845708"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901510"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Créer et configurer un cluster Azure Kubernetes Service (AKS) pour utiliser des nœuds virtuels à l’aide de l’interface de ligne de commande Azure
 
@@ -318,10 +318,6 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 ```
 
 À présent, supprimez les ressources réseau virtuelles et le groupe de ressources :
-
-
-> [!NOTE]
-> Si une erreur survient quand vous tentez de supprimer le profil réseau, comptez 3 ou 4 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si vous devez supprimer un profil réseau immédiatement, [ouvrez une demande de support](https://azure.microsoft.com/support/create-ticket/) en faisant référence au service Azure Container Instances.
 
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed

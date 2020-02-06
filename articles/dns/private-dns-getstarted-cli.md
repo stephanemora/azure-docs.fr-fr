@@ -2,17 +2,17 @@
 title: Démarrage rapide - Créer une zone Azure DNS privée avec l’interface Azure CLI
 description: Dans ce guide de démarrage rapide, vous allez créer et tester une zone DNS privée et un enregistrement DNS privé dans Azure DNS. Il s’agit d’un guide pas à pas pour la création et la gestion de votre première zone privée DNS et de votre premier enregistrement à l’aide d’Azure CLI.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
-ms.author: allensu
-ms.openlocfilehash: 3c580eebd19eb2f2028768059140731fa24f4664
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 34a9858ffbec2360a347b8c765d53551fd2d9fc0
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210924"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935428"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Démarrage rapide : Créer une zone Azure DNS privée avec l’interface Azure CLI
 

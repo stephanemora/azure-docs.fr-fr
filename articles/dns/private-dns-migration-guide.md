@@ -3,17 +3,17 @@ title: Migration des zones privées Azure DNS héritées vers le nouveau modèle
 titleSuffix: Azure DNS
 description: Ce guide fournit des instructions pas à pas pour migrer des zones DNS privées héritées vers le dernier modèle de ressource.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: allensu
-ms.openlocfilehash: 3beac014ee69120df518e0358a5fdbef5818f7cf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: d29885104d6f39a17b5bdeb786cda8f56f58d987
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076733"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939363"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migration des zones privées Azure DNS héritées vers le nouveau modèle de ressource
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Vérifiez que vous avez installé la version la plus récente d’Azure PowerShell. Pour plus d’informations sur Azure PowerShell (Az) et la manière de l’installer, visitez https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 

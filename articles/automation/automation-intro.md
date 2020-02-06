@@ -7,12 +7,12 @@ keywords: azure automation, DSC, powershell, configuration de l’état souhait�
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3359d99d7e20bbced8950171fa34592fd2612500
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421946"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930393"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -75,6 +75,8 @@ Azure Automation effectue la gestion tout au long du cycle de vie de votre infra
 * **Surveiller** - Permet d’identifier les modifications apportées aux machines à l’origine des problèmes et de corriger ou de faire remonter les informations aux systèmes de gestion.
 * **Protéger** - Permet de mettre une machine virtuelle en quarantaine en cas de déclenchement de l’alerte de sécurité. Définition d’exigences intégrées.
 * **Gouverner** - Permet de configurer un contrôle d’accès en fonction du rôle pour les équipes. Récupération de ressources qui ne sont pas utilisées.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="pricing-for-automation"></a>Tarif d’Automation
 

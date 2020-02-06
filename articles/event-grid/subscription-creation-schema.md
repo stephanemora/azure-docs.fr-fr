@@ -1,19 +1,18 @@
 ---
 title: Schéma d’abonnement à Azure Event Grid
-description: Décrit les propriétés d’abonnement à un événement avec Azure Event Grid.
+description: Cet article décrit les propriétés d’abonnement à un événement avec Azure Event Grid. Schéma d’abonnement à Event Grid.
 services: event-grid
 author: banisadr
-manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/02/2019
+ms.date: 01/23/2020
 ms.author: babanisa
-ms.openlocfilehash: 6129c7f498ce6c52fce4266f693c6a304642f8c3
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 4bb04d22b762f31a02515549b698030a5267e4cd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845461"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720756"
 ---
 # <a name="event-grid-subscription-schema"></a>Schéma d’abonnement à Event Grid
 
@@ -36,7 +35,7 @@ Le nom de l’abonnement aux événements doit contenir entre 3 et 64 caractère
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | destination | object | Objet qui définit le point de terminaison. |
-| filter | object | Champ facultatif pour filtrer les types d’événements. |
+| Filter | object | Champ facultatif pour filtrer les types d’événements. |
 
 ### <a name="destination-object"></a>objet de destination
 
@@ -49,7 +48,7 @@ Le nom de l’abonnement aux événements doit contenir entre 3 et 64 caractère
 
 | Propriété | Type | Description |
 | -------- | ---- | ----------- |
-| includedEventTypes | array | Affiche une correspondance lorsque le type d’événement du message d’événement correspond exactement à l’un de ces noms de type d’événement. Génère une erreur lorsque le nom de l’événement ne correspond pas aux noms de type d’événement inscrits pour la source d’événements. Génère une correspondance pour tous les types d’événements. |
+| includedEventTypes | tableau | Affiche une correspondance lorsque le type d’événement du message d’événement correspond exactement à l’un de ces noms de type d’événement. Génère une erreur lorsque le nom de l’événement ne correspond pas aux noms de type d’événement inscrits pour la source d’événements. Génère une correspondance pour tous les types d’événements. |
 | subjectBeginsWith | string | Filtre de correspondance de préfixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. | 
 | subjectEndsWith | string | Filtre de correspondance de suffixe appliqué au champ objet du message de l’événement. La chaîne vide ou par défaut représente une correspondance générale. |
 | isSubjectCaseSensitive | string | Contrôle la correspondance sensible à la casse pour les filtres. |

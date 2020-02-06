@@ -4,7 +4,7 @@ titleSuffix: Azure Traffic Manager
 description: Cet article explique la fonctionnalité des profils imbriqués d’Azure Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
-ms.author: allensu
-ms.openlocfilehash: a5444c05b59196f53c670a2ae782f2bda5527c54
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 282099cb274c1ea872a0df9c2753a939ef31421f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227751"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938571"
 ---
 # <a name="nested-traffic-manager-profiles"></a>Profils Traffic Manager imbriqués
 
@@ -28,7 +28,7 @@ Chaque profil Traffic Manager spécifie une seule méthode de routage du trafic.
 
 Les exemples suivants illustrent l’utilisation de profils Traffic Manager imbriqués dans divers scénarios.
 
-## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemple 1 : combinaison de routage du trafic « performant (Performance) » et « pondéré (Weighted) »
+## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>Exemple 1 : combinaison de routage du trafic « performant (Performance) » et « pondéré (Weighted) »
 
 Supposons que vous avez déployé une application dans les régions Azure suivantes : USA Ouest, Europe Ouest et Asie Est. Vous utilisez la méthode de routage du trafic « Performance » de Traffic Manager pour acheminer le trafic vers la région la plus proche de l’utilisateur.
 
@@ -46,9 +46,9 @@ Dans cette configuration, le trafic dirigé via le profil parent distribue le tr
 
 Lorsque le profil parent utilise la méthode de routage du trafic « Performance », un emplacement doit être assigné à chaque point de terminaison. L’emplacement est assigné lorsque vous configurez le point de terminaison. Choisissez la région Azure la plus proche de votre déploiement. Les régions Azure sont les valeurs d’emplacement prises en charge par la Table de latence Internet. Pour plus d’informations, voir [Méthode de routage du trafic « Performance » d’Azure Traffic Manager](traffic-manager-routing-methods.md#performance).
 
-## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exemple 2 : analyse de points de terminaison dans des profils imbriqués
+## <a name="example-2-endpoint-monitoring-in-nested-profiles"></a>Exemple 2 : analyse de points de terminaison dans des profils imbriqués
 
-Traffic Manager surveille activement l'intégrité de chaque point de terminaison de service. Si un point de terminaison n’est pas intègre, Traffic Manager dirige les utilisateurs vers d’autres points de terminaison pour préserver la disponibilité de votre service. Ce comportement de surveillance et de basculement des points de terminaison s’applique à toutes les méthodes de routage du trafic. Pour plus d’informations, consultez la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md). La surveillance des points de terminaison fonctionne différemment pour les profils imbriqués. Avec des profils imbriqués, le profil parent n’effectue pas de contrôles d’intégrité directement sur le profil enfant. Au lieu de cela, l’intégrité des points de terminaison du profil enfant est utilisée pour calculer l’intégrité globale du profil enfant. Ces informations d’intégrité sont propagées vers le haut de la hiérarchie de profils imbriqués. Le profil parent utilise cette intégrité agrégée pour déterminer s’il faut diriger le trafic vers le profil enfant. Pour plus d’informations sur la surveillance de l’intégrité des profils imbriqués, consultez le [FAQ](traffic-manager-FAQs.md#traffic-manager-nested-profiles).
+Traffic Manager surveille activement l'intégrité de chaque point de terminaison de service. Si un point de terminaison n’est pas intègre, Traffic Manager dirige les utilisateurs vers d’autres points de terminaison pour préserver la disponibilité de votre service. Ce comportement de surveillance et de basculement des points de terminaison s’applique à toutes les méthodes de routage du trafic. (pour plus d’informations, voir la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md)) ; La surveillance des points de terminaison fonctionne différemment pour les profils imbriqués. Avec des profils imbriqués, le profil parent n’effectue pas de contrôles d’intégrité directement sur le profil enfant. Au lieu de cela, l’intégrité des points de terminaison du profil enfant est utilisée pour calculer l’intégrité globale du profil enfant. Ces informations d’intégrité sont propagées vers le haut de la hiérarchie de profils imbriqués. Le profil parent utilise cette intégrité agrégée pour déterminer s’il faut diriger le trafic vers le profil enfant. Pour plus d’informations sur la surveillance de l’intégrité des profils imbriqués, consultez le [FAQ](traffic-manager-FAQs.md#traffic-manager-nested-profiles).
 
 En revenant à l’exemple précédent, supposons que le déploiement de production dans la région Europe Ouest est défaillant. Par défaut, le profil « enfant » dirige tout le trafic vers le déploiement de tests. Si le déploiement de tests échoue également, le profil parent détermine que le profil enfant ne doit pas recevoir de trafic, car aucun des points de terminaison enfants n’est intègre. Ensuite, le profil parent distribue le trafic aux autres régions.
 
@@ -63,7 +63,7 @@ Le schéma suivant illustre cette configuration :
 > [!NOTE]
 > La méthode de routage du trafic « Priorité » distribue tout le trafic vers un seul point de terminaison. Il est par conséquent peu utile de définir un paramètre MinChildEndpoints autre que « 1 » pour un profil enfant.
 
-## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemple 3 : basculement hiérarchisé des régions dans le routage du trafic de type « Performance »
+## <a name="example-3-prioritized-failover-regions-in-performance-traffic-routing"></a>Exemple 3 : basculement hiérarchisé des régions dans le routage du trafic de type « Performance »
 
 Le comportement par défaut de la méthode de routage « Performance » est que, lorsque vos points de terminaison se trouvent sur des emplacements géographiques différents, les utilisateurs finaux sont renvoyés au point de terminaison « le plus proche » en termes de latence réseau la plus faible.
 
@@ -75,7 +75,7 @@ Toutefois, supposons que vous préfériez basculer le trafic vers Europe Ouest p
 
 Vous pouvez répéter ce modèle pour toutes les régions. Remplacez les trois points de terminaison dans le profil parent par trois profils enfants, chacun offrant une séquence de basculement hiérarchisée.
 
-## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exemple 4 : contrôle du routage du trafic de type « Performance » entre plusieurs points de terminaison dans la même région
+## <a name="example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region"></a>Exemple 4 : contrôle du routage du trafic de type « Performance » entre plusieurs points de terminaison dans la même région
 
 Supposons que la méthode de routage du trafic « Performance » est utilisée dans un profil qui a plusieurs points de terminaison dans une région spécifique. Par défaut, le trafic dirigé vers cette région est réparti uniformément entre tous les points de terminaison disponibles dans cette région.
 

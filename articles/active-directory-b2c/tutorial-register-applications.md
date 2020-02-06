@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425480"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840109"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Tutoriel : Inscrire une application dans Azure Active Directory B2C
 
-Pour que vos [applications](active-directory-b2c-apps.md) puissent interagir avec Azure Active Directory B2C (Azure AD B2C), elles doivent être inscrites dans un locataire que vous gérez. Ce tutoriel vous montre comment inscrire une application web à l’aide du portail Azure.
+Pour que vos [applications](application-types.md) puissent interagir avec Azure Active Directory B2C (Azure AD B2C), elles doivent être inscrites dans un locataire que vous gérez. Ce tutoriel vous montre comment inscrire une application web à l’aide du portail Azure.
 
 Dans cet article, vous apprendrez comment :
 
@@ -41,7 +41,7 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
+1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
 1. Dans le Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Applications**, puis **Ajouter**.
 1. Entrez un nom pour l’application. Par exemple, *webapp1*.
@@ -60,8 +60,8 @@ Pour inscrire une application dans votre locataire Azure AD B2C, vous pouvez uti
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Inscriptions d’applications (préversion)](#tab/app-reg-preview/)
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
-1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez le répertoire qui contient votre locataire Azure AD B2C.
-1. Dans le Portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sélectionnez l’icône **Annuaire et abonnement** dans la barre d’outils du portail, puis sélectionnez l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
 1. Sélectionnez **Inscriptions d’applications (préversion)** , puis **Nouvelle inscription**.
 1. Entrez un **Nom** pour l’application. Par exemple, *webapp1*.
 1. Sélectionnez **Comptes dans un annuaire d’organisation ou un fournisseur d’identité**.
@@ -88,7 +88,7 @@ Une fois l’inscription de l’application terminée, activez le flux d’octro
 
 ## <a name="create-a-client-secret"></a>Créer une clé secrète client
 
-Si votre application échange un code contre un jeton, vous devez créer un secret d’application.
+Si votre application échange un code d’autorisation contre un jeton d’accès, vous devez créer un secret d’application.
 
 #### <a name="applicationstabapplications"></a>[Applications](#tab/applications/)
 

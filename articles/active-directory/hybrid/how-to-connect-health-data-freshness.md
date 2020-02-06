@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: SamuelD
 editor: ''
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41c1c102e88e1712d561874aef87a6f22ed250a9
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: a94bd07cf5020981cdf028ec0eccfa8fa531d240
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430215"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897170"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Les données du Service de contrôle d’intégrité ne sont pas mises à jour
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Les agents sur les machines locales supervisées par Azure AD Connect Health chargent périodiquement des données vers le service Azure AD Connect Health. Si le service ne reçoit pas de données d’un agent, les informations que le portail présente sont obsolètes. Pour mettre en évidence le problème, le service déclenche l’alerte **Les données du service de contrôle d’intégrité ne sont pas à jour**. Cette alerte est générée lorsque le service n’a pas reçu de données complètes au cours des deux dernières heures.  
 
