@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769167"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023546"
 ---
 # <a name="load-balancer-health-probes"></a>Sondes d’intégrité Load Balancer
 
@@ -257,6 +257,6 @@ Une instance Load Balancer publique de base expose l’état de la sonde d’int
 ## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [référence Standard de Load Balancer](load-balancer-standard-overview.md)
-- [Créez un équilibreur de charge public dans le Gestionnaire des ressources à l’aide de PowerShell](load-balancer-get-started-internet-arm-ps.md)
+- [Créez un équilibreur de charge public dans le Gestionnaire des ressources à l’aide de PowerShell](quickstart-create-standard-load-balancer-powershell.md)
 - [API REST pour les sondes d’intégrité](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Demander de nouvelles capacités de sonde d’intégrité avec le [UserVoice de Load Balancer](https://aka.ms/lbuservoice)

@@ -3,12 +3,12 @@ title: Tableau de prise en charge de Sauvegarde Azure
 description: Fournit un résumé des limitations et des paramètres de prise en charge pour le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: c424b905f44d6fd3a80a08ef925df4d0a06dd7d8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705375"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936248"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matrice de prise en charge pour Sauvegarde Azure
 
@@ -19,6 +19,8 @@ Autres matrices de prise en charge disponibles :
 - [Tableau de prise en charge](backup-support-matrix-iaas.md) de la sauvegarde de machines virtuelles Azure
 - Tableau de prise en charge de la sauvegarde à l'aide de [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
 - Tableau de prise en charge de la sauvegarde à l'aide de l'[agent MARS (Microsoft Azure Recovery Services)](backup-support-matrix-mars-agent.md)
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="vault-support"></a>Prise en charge des coffres
 

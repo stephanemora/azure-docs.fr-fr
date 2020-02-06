@@ -3,21 +3,21 @@ title: Configuration de la réplication système SAP HANA sur les machines virtu
 description: Créer une haute disponibilité de SAP HANA sur des machines virtuelles Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MSSedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 03/15/2019
-ms.author: sedusch
-ms.openlocfilehash: 62bb00c05359682503d2e99ef282f2523871147d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 01/28/2020
+ms.author: radeltch
+ms.openlocfilehash: fe4c3d8ea7aee0922ca29b9c0f475bfd9fa3c67a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721539"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837032"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure dans le système Red Hat Enterprise Linux
 
@@ -65,9 +65,9 @@ Commencez par lire les notes et publications SAP suivantes :
 * La note SAP [2243692] contient des informations sur les licences SAP sur Linux dans Azure.
 * La note SAP [1999351] contient des informations de dépannage supplémentaires pour l’extension d’analyse Azure améliorée pour SAP.
 * Le [WIKI de la communauté SAP](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) contient toutes les notes SAP requises pour Linux.
-* [Planification et implémentation de Machines virtuelles Azure pour SAP sur Linux][planning-guide]
+* [Planification et implémentation de machines virtuelles Azure pour SAP sur Linux][planning-guide]
 * [Déploiement de machines virtuelles Azure pour SAP sur Linux (cet article)][deployment-guide]
-* [Déploiement SGBD de Machines virtuelles Azure pour SAP sur Linux][dbms-guide]
+* [Déploiement SGBD de machines virtuelles Azure pour SAP sur Linux][dbms-guide]
 * [Réplication de système SAP HANA dans un cluster Pacemaker](https://access.redhat.com/articles/3004101)
 * Documentation RHEL générale
   * [Vue d’ensemble des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
@@ -78,7 +78,7 @@ Commencez par lire les notes et publications SAP suivantes :
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Installation de SAP HANA sur Red Hat Enterprise Linux pour une utilisation dans Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Pour atteindre la haute disponibilité, SAP HANA est installé sur deux machines virtuelles. Les données sont répliquées à l’aide de la réplication de système HANA.
 
@@ -116,14 +116,14 @@ Suivez ces étapes pour déployer le modèle :
 1. Créez un réseau virtuel.
 1. Créer un groupe à haute disponibilité.  
    Définir le domaine de mise à jour maximal.
-1. Créer un équilibrage de charge (interne). Nous vous recommandons [l’équilibreur de charge standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
+1. Créer un équilibrage de charge (interne). Nous vous recommandons [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview).
    * Sélectionnez le réseau virtuel créé à l’étape 2.
 1. Créez la machine virtuelle 1.  
    À utiliser pour Red Hat Enterprise Linux for SAP HANA, version 7.4 au moins. Cet exemple utilise l’image Red Hat Enterprise Linux 7.4 for SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
 1. Créez la machine virtuelle 2.  
    À utiliser pour Red Hat Enterprise Linux for SAP HANA, version 7.4 au moins. Cet exemple utilise l’image Red Hat Enterprise Linux 7.4 for SAP HANA <https://portal.azure.com/#create/RedHat.RedHatEnterpriseLinux75forSAP-ARM> Sélectionnez le groupe à haute disponibilité créé à l’étape 3.
 1. Ajoutez des disques de données.
-1. Si vous utilisez l’équilibreur de charge standard, suivez les étapes de configuration suivantes :
+1. Si vous utilisez Standard Load Balancer, suivez ces étapes de configuration :
    1. Commencez par créer un pool d’adresses IP frontales :
 
       1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
@@ -137,7 +137,7 @@ Suivez ces étapes pour déployer le modèle :
       1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
       1. Entrer le nom du nouveau pool principal (par exemple **hana-backend**).
       1. Cliquez sur **Ajouter une machine virtuelle**.
-      1. Sélectionnez **machine virtuelle**.
+      1. Sélectionnez **Machine virtuelle**.
       1. Sélectionnez les machines virtuelles du cluster SAP HANA et leurs adresses IP.
       1. Sélectionnez **Ajouter**.
 
@@ -151,17 +151,17 @@ Suivez ces étapes pour déployer le modèle :
    1. Ensuite, créez les règles d’équilibrage de charge :
    
       1. Ouvrez l’équilibrage de charge, sélectionnez **Règles d’équilibrage de charge**, puis cliquez sur **Ajouter**.
-      1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple **hana-lb**).
-      1. Sélectionnez l’adresse IP du serveur frontal, le pool principal et la sonde d’intégrité que vous avez créée précédemment (par exemple,**hana-frontend**, **hana-backend** et **hana-hp**).
+      1. Entrez le nom de la nouvelle règle d’équilibrage de charge (par exemple, **hana-lb**).
+      1. Sélectionnez l’adresse IP frontale, le pool principal et la sonde d’intégrité que vous avez créés (par exemple,**hana-frontend**, **hana-backend** et **hana-hp**).
       1. Sélectionnez **Ports HA**.
       1. Augmentez le **délai d’inactivité** à 30 minutes.
       1. Veillez à **activer l’IP flottante** .
       1. Sélectionnez **OK**.
 
    > [!Note]
-   > Lorsque des machines virtuelles sans adresses IP publiques sont placées dans le pool principal de l’équilibreur de charge Azure standard interne (aucune adresse IP publique), il n’y aura pas d’une connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour plus d’informations sur la façon de bénéficier d’une connectivité sortante, consultez [Connectivité du point de terminaison public pour les machines virtuelles à l’aide de l’équilibreur de charge Azure standard dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+   > Lorsque des machines virtuelles sans adresse IP publique sont placées dans le pool principal d’Azure Standard Load Balancer interne (aucune adresse IP publique), il n’y a pas de connectivité Internet sortante, sauf si une configuration supplémentaire est effectuée pour autoriser le routage vers des points de terminaison publics. Pour savoir plus en détails comment bénéficier d’une connectivité sortante, voir [Connectivité des points de terminaison publics pour les machines virtuelles avec Azure Standard Load Balancer dans les scénarios de haute disponibilité SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
 
-1. Si votre scénario dicte l’utilisation de l’équilibreur de charge de base, vous pouvez également suivre les étapes de configuration suivantes :
+1. Si à l’inverse votre scénario exige d’utiliser l’équilibreur de charge de base, suivez ces étapes de configuration :
    1. Configurez l’équilibrage de charge. Commencez par créer un pool d’adresses IP frontales :
 
       1. Ouvrez l’équilibrage de charge, sélectionnez le **Pool d’adresses IP frontales**, puis cliquez sur **Ajouter**.
@@ -222,7 +222,7 @@ Suivez ces étapes pour déployer le modèle :
 Pour plus d’informations sur les ports requis pour SAP HANA, consultez le chapitre [Connections to Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) (Connexions aux bases de données locataires) dans le guide [SAP HANA Tenant Databases](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) (Bases de données locataires SAP HANA) ou la [Note SAP 2388694][2388694].
 
 > [!IMPORTANT]
-> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, voir [Sondes d’intégrité Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview).
+> N’activez pas les timestamps TCP sur des machines virtuelles Azure placées derrière Azure Load Balancer. L’activation des timestamps TCP entraîne l’échec des sondes d’intégrité. Définissez le paramètre **net.ipv4.tcp_timestamps** sur **0**. Pour plus d’informations, consultez [Load Balancer health probes](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview) (Sondes d’intégrité Load Balancer).
 > Voir aussi la note SAP [2382421](https://launchpad.support.sap.com/#/notes/2382421). 
 
 ## <a name="install-sap-hana"></a>Installer SAP HANA
@@ -560,14 +560,21 @@ Tout d’abord, créez la topologie HANA. Exécutez les commandes suivantes sur 
 <pre><code>sudo pcs property set maintenance-mode=true
 
 # Replace the bold string with your instance number and HANA system ID
-sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> --clone clone-max=2 clone-node-max=1 interleave=true
+sudo pcs resource create SAPHanaTopology_<b>HN1</b>_<b>03</b> SAPHanaTopology SID=<b>HN1</b> InstanceNumber=<b>03</b> \
+op start timeout=600 op stop timeout=300 op monitor interval=10 timeout=600 \
+--clone clone-max=2 clone-node-max=1 interleave=true
 </code></pre>
 
 Ensuite, créez les ressources HANA :
 
 <pre><code># Replace the bold string with your instance number, HANA system ID, and the front-end IP address of the Azure load balancer.
 
-sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false master notify=true clone-max=2 clone-node-max=1 interleave=true
+sudo pcs resource create SAPHana_<b>HN1</b>_<b>03</b> SAPHana SID=<b>HN1</b> InstanceNumber=<b>03</b> PREFER_SITE_TAKEOVER=true DUPLICATE_PRIMARY_TIMEOUT=7200 AUTOMATED_REGISTER=false \
+op start timeout=3600 op stop timeout=3600 \
+op monitor interval=61 role="Slave" timeout=700 \
+op monitor interval=59 role="Master" timeout=700 \
+op promote timeout=3600 op demote timeout=3600 \
+master notify=true clone-max=2 clone-node-max=1 interleave=true
 
 sudo pcs resource create vip_<b>HN1</b>_<b>03</b> IPaddr2 ip="<b>10.0.0.13</b>"
 
@@ -583,6 +590,9 @@ sudo pcs property set maintenance-mode=false
 </code></pre>
 
 Vérifiez que l’état du cluster est OK et que toutes les ressources sont démarrées. Le nœud sur lequel les ressources s’exécutent n’a aucune importance.
+
+> [!NOTE]
+> Les délais d’expiration de la configuration ci-dessus sont simplement des exemples et doivent être adaptés à la configuration HANA spécifique. Par exemple, vous devrez peut-être augmenter le délai de démarrage, si le démarrage de la base de données SAP HANA prend plus de temps.  
 
 <pre><code>sudo pcs status
 

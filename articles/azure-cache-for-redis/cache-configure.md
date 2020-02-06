@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c4d5716c8a31ceccbe23c1f77ad3b88030ff3065
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972126"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714639"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Configuration du cache Azure pour Redis
 Cette rubrique décrit les configurations disponibles pour vos instances de cache Azure pour Redis. Cette rubrique décrit également la configuration par défaut du serveur Redis pour les instances de cache Azure pour Redis.
@@ -40,8 +40,8 @@ Vous pouvez afficher et configurer les paramètres suivants à l’aide du **Men
     * [Paramètres avancés](#advanced-settings)
     * [Cache Azure pour Redis Advisor](#azure-cache-for-redis-advisor)
     * [Mettre à l'échelle](#scale)
-    * [Taille du cluster Redis](#cluster-size)
-    * [Persistance des données Redis](#redis-data-persistence)
+    * [Taille du cluster](#cluster-size)
+    * [Persistance des données](#redis-data-persistence)
     * [Planification de mises à jour](#schedule-updates)
     * [Géoréplication](#geo-replication)
     * [Réseau virtuel](#virtual-network)
@@ -92,8 +92,8 @@ La section **Paramètres** vous permet d’accéder aux paramètres suivants et 
 * [Paramètres avancés](#advanced-settings)
 * [Cache Azure pour Redis Advisor](#azure-cache-for-redis-advisor)
 * [Mettre à l'échelle](#scale)
-* [Taille du cluster Redis](#cluster-size)
-* [Persistance des données Redis](#redis-data-persistence)
+* [Taille du cluster](#cluster-size)
+* [Persistance des données](#redis-data-persistence)
 * [Planification de mises à jour](#schedule-updates)
 * [Géoréplication](#geo-replication)
 * [Réseau virtuel](#virtual-network)
@@ -201,14 +201,9 @@ Cliquez sur **Mise à l’échelle** pour afficher ou modifier le niveau tarifai
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Taille du cluster Redis
-Cliquez sur **Taille du cluster Redis (PREVIEW)** pour changer la taille du cluster pour un cache de niveau Premium en cours d’exécution avec le clustering activé.
+Cliquez sur **Taille du cluster** afin de changer la taille du cluster pour un cache de niveau Premium en cours d’exécution avec le clustering activé.
 
-> [!NOTE]
-> Remarque : si le niveau Premium du cache Azure pour Redis a été publié en disponibilité générale, la fonctionnalité Taille du cluster Redis est actuellement en préversion.
->
->
-
-![Taille du cluster Redis](./media/cache-configure/redis-cache-redis-cluster-size.png)
+![Taille du cluster](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 Pour modifier la taille du cluster, utilisez le curseur ou entrez un nombre compris entre 1 et 10 dans la zone de texte **Nombre de partitions**, puis cliquez sur **OK** pour enregistrer.
 
@@ -219,7 +214,7 @@ Pour modifier la taille du cluster, utilisez le curseur ou entrez un nombre comp
 
 
 ### <a name="redis-data-persistence"></a>Persistance des données Redis
-Cliquez sur **Persistance des données Redis** pour activer, désactiver ou configurer la persistance des données de votre cache Premium. Le cache Azure pour Redis offre la persistance Redis grâce à la [persistance RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) et à la [persistance AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Cliquez sur **Persistance des données** pour activer, désactiver ou configurer la persistance des données de votre cache Premium. Le cache Azure pour Redis offre la persistance Redis grâce à la [persistance RDB](cache-how-to-premium-persistence.md#configure-rdb-persistence) et à la [persistance AOF](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Pour plus d’informations, consultez la page [Comment configurer la persistance pour un Cache Azure pour Redis Premium](cache-how-to-premium-persistence.md).
 

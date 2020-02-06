@@ -164,8 +164,6 @@
               href: concepts-data-flow-overview.md
             - name: Mode débogage
               href: concepts-data-flow-debug-mode.md
-            - name: Gestion de JSON
-              href: concepts-data-flow-json.md
             - name: Dérive de schéma
               href: concepts-data-flow-schema-drift.md
             - name: Modèles de colonne

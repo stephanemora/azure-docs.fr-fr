@@ -2,24 +2,24 @@
 title: Exécuter des tâches de science des données - Team Data Science Process
 description: Explique comment un scientifique des données peut réaliser un projet de science des données de manière traçable et collaborative, avec gestion de versions.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 984b03288b8dae644fc04a2cd78fb03a2e027f62
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772276"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722201"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Exécuter des tâches de science des données : exploration, modélisation et déploiement
 
-Les tâches courantes de science des données incluent l’exploration, la modélisation et le déploiement. Cet article explique comment recourir aux utilitaires **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** et **AMAR (Automated Modeling and Reporting)** pour effectuer plusieurs tâches courantes de science des données, telles que l’exploration des données, l’analyse des données et la création de rapports interactives, ainsi que la création de modèles. Il décrit également les options de déploiement d’un modèle sur un environnement de production à l’aide d’un éventail de kits de ressources et de plateformes de données, tels que les suivants :
+Les tâches courantes de science des données incluent l’exploration, la modélisation et le déploiement. Cet article explique comment recourir aux utilitaires **IDEAR (Interactive Data Exploration, Analysis, and Reporting)** et **AMAR (Automated Modeling and Reporting)** pour effectuer plusieurs tâches courantes de science des données, telles que l’exploration des données, l’analyse des données et la création de rapports interactives, ainsi que la création de modèles. Les options de déploiement d’un modèle dans un environnement de production peuvent inclure :
 
 - [Azure Machine Learning](../index.yml)
 - [SQL Server avec les services ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)

@@ -4,12 +4,12 @@ description: Dans cet article, découvrez comment sauvegarder des bases de donn�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: fc0c3127594fe3ca90b0a66ce548f471c55f4e5f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 8125f6d98151f91faaccef512e4bcfd2946fcdd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156469"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773115"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Sauvegarder des bases de données SQL Server sur des machines virtuelles Azure
 
@@ -24,6 +24,10 @@ Dans cet article, vous allez apprendre à :
 > * Créer et configurer un coffre
 > * Détecter des bases de données et configurer des sauvegardes
 > * Configurer la protection automatique de bases de données
+
+>[!NOTE]
+>**La suppression réversible pour SQL Server dans une machine virtuelle Azure et la suppression réversible pour SAP HANA dans les charges de travail de machine virtuelle Azure** sont maintenant disponibles en préversion.<br>
+>Pour vous inscrire à la version préliminaire, écrivez-nous à l’adresse suivante : AskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 

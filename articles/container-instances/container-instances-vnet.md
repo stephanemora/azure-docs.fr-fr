@@ -4,12 +4,12 @@ description: Découvrez comment déployer des groupes de conteneurs dans un rés
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845175"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901866"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Déployer des instance de conteneur dans un réseau virtuel Azure
 
@@ -259,10 +259,6 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Supprimer des ressources réseau
-
-
-> [!NOTE]
-> Si une erreur se produit lorsque vous tentez de supprimer le profil réseau, comptez 3 ou 4 jours pour que la plateforme résolve automatiquement le problème et tente à nouveau la suppression. Si vous devez supprimer un profil réseau immédiatement, [ouvrez une demande de support](https://azure.microsoft.com/support/create-ticket/) en faisant référence au service Azure Container Instances.
 
 Cette fonctionnalité nécessite pour le moment plusieurs commandes supplémentaires pour supprimer les ressources réseau que vous avez créées précédemment. Si vous avez utilisé les exemples de commande dans les sections précédentes de cet article pour créer votre réseau virtuel et votre sous-réseau, vous pouvez utiliser le script suivant pour supprimer ces ressources réseau.
 
