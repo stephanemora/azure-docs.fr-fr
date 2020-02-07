@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 5732df2551eafa74b81f9a918a1cb7cf5ac1395c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768038"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936403"
 ---
 # <a name="how-to-use-batch-transcription"></a>Guide d’utilisation de la transcription par lots
 
@@ -78,7 +78,7 @@ Les paramètres de configuration sont fournis au format JSON :
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
@@ -94,7 +94,7 @@ Utilisez les propriétés facultatives suivantes pour configurer la transcriptio
 | `AddWordLevelTimestamps` | Spécifie si les timestamps au niveau des mots doivent être ajoutés à la sortie. Les valeurs acceptées sont `true`, qui permet des timestamps au niveau des mots, et `false` (la valeur par défaut) pour les désactiver. |
 | `AddSentiment` | Spécifie le sentiment devant être ajouté à l’énoncé. Les valeurs acceptées sont `true` pour activer un sentiment par énoncé et `false` (valeur par défaut) pour désactiver celui-ci. |
 | `AddDiarization` | Spécifie que l’analyse de diarisation doit être effectuée sur l’entrée qui est censée être un canal unique contenant deux voix. Les valeurs acceptées sont `true` qui active la diarisation et `false` (valeur par défaut) qui désactive cette dernière. De plus, cela nécessite également que `AddWordLevelTimestamps` soit défini sur True.|
-|`TranscriptionResultsContainerUrl`|Jeton SAS facultatif vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur.
+|`TranscriptionResultsContainerUrl`|URL facultative avec [SAP de service](../../storage/common/storage-sas-overview.md) vers un conteneur accessible en écriture dans Azure. Le résultat est stocké dans ce conteneur.
 
 ### <a name="storage"></a>Stockage
 

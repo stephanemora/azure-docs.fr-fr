@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/30/2020
+ms.openlocfilehash: d0e0e8a5aa3a3e43997e3f9512525be9f51d2018
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844970"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934868"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Nouveauté dans Recherche cognitive Azure
 
@@ -29,13 +29,15 @@ Recherche Azure est maintenant renommé  **Recherche cognitive Azure** pour refl
 
 ### <a name="february-2020"></a>Février 2020
 
-+ [Détection PII](cognitive-search-skill-pii-detection.md) est une compétence cognitive utilisée lors de l'indexation qui extrait les informations d’identification personnelle d’un texte d’entrée et vous donne la possibilité de les y masquer de différentes façons.
++ La fonctionnalité [Détection PII (préversion) ](cognitive-search-skill-pii-detection.md) est une compétence cognitive utilisée lors de l’indexation, qui extrait des informations d’identification personnelle d’un texte en entrée, et vous donne la possibilité de les masquer dans ce texte de différentes façons.
+
++ La fonctionnalité [Recherche d’entité personnalisée (préversion)](cognitive-search-skill-custom-entity-lookup.md ) recherche du texte dans une liste personnalisée définie par l’utilisateur de mots et d’expressions. À l’aide de cette liste, elle étiquète tous les documents contenant des entités correspondantes. La compétence prend également en charge un degré de correspondance approximative qui peut être appliqué pour rechercher des correspondances similaires sans être rigoureusement exactes. 
 
 ### <a name="january-2020"></a>Janvier 2020
 
 + [Les clés de chiffrement gérées par le client](search-security-manage-encryption-keys.md) sont désormais mises à la disposition générale. Si vous utilisez REST, vous pouvez accéder à la fonctionnalité à l’aide de `api-version=2019-05-06`. Pour le code managé, le bon package est toujours la [version préliminaire 8.0 SDK .NET](search-dotnet-sdk-migration-version-9.md) même si la fonctionnalité n’est plus en préversion. 
 
-+ L’accès privé à un service Search est disponible par le biais de deux mécanismes :
++ Un accès privé à un service de recherche est disponible par le biais de deux mécanismes actuellement en préversion :
 
   + Vous pouvez restreindre l’accès à des adresses IP spécifiques à l’aide de l’API REST de gestion `api-version=2019-10-01-Preview` pour créer le service. L’API en préversion comprend de nouvelles propriétés **IpRule** et **NetworkRuleSet** dans [API CreateOrUpdate](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Cette fonctionnalité d’évaluation est disponible dans les régions sélectionnées. Pour plus d’informations, consultez la section [Utilisation de l’API REST de gestion](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 

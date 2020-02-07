@@ -2,13 +2,13 @@
 title: Nouveautés d’Azure Site Recovery
 description: Fournit un résumé des nouvelles fonctionnalités et des dernières mises à jour du service Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 4a9feff3b0bc98b5d9853268d033e60de55ea5ea
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/31/2020
+ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024829"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934939"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nouveautés de Site Recovery
 
@@ -24,17 +24,29 @@ Pour les composants Site Recovery, nous prenons en charge les versions N-4, où
 
 **Mettre à jour** |  **Installation unifiée** | **OVA du serveur de configuration** | **Agent du service Mobilité** | **Fournisseur Site Recovery** | **Agent Recovery Services**
 --- | --- | --- | --- | --- | ---
-[Cumul 43](https://support.microsoft.com/help/4531426/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
+[Cumul 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [Cumul 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [Cumul 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [Rollup 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [Correctif cumulatif 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-        
+
 
 [En savoir plus](service-updates-how-to.md) sur l’installation et la prise en charge des mises à jour.
 
 ## <a name="updates-january-2020"></a>Mises à jour (janvier 2020)
+
+### <a name="update-rollup-44"></a>Correctif cumulatif 44
+Le [correctif cumulatif 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) fournit les mises à jour suivantes.
+
+**Mettre à jour** | **Détails**
+--- | ---
+**Correctifs/améliorations** | Un certain nombre de mises à jour d’agents et fournisseurs Site Recovery (comme décrit dans le correctif cumulatif).
+
+### <a name="azure-vmware-disaster-recovery"></a>Récupération d’urgence d’Azure VMware
+
+L’offre Machines virtuelles Microsoft Azure prend désormais en charge les machines virtuelles activées pour le chiffrement au repos avec des clés gérées par le client. [Plus d’informations](azure-to-azure-how-to-enable-replication-cmk-disks.md)
+
 
 ### <a name="update-rollup-43"></a>Correctif cumulatif 43
 
@@ -58,7 +70,7 @@ La [mise à jour Cumul 42](https://support.microsoft.com/help/4531426/update-ro
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif)
 
 
-## <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
 
 Les nouvelles fonctionnalités de la reprise d’activité des machines virtuelles Azure sont résumées dans le tableau.
 
@@ -153,7 +165,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
 --- | ---
-Nouvelles alertes du serveur de processus | Nous avons ajouté de nouvelles alertes de serveur de processus. [Plus d’informations](vmware-physical-azure-monitor-process-server.md) 
+Nouvelles alertes du serveur de processus | Nous avons ajouté de nouvelles alertes de serveur de processus. [Plus d’informations](vmware-physical-azure-monitor-process-server.md)
 
 ### <a name="hyper-v-disaster-recovery"></a>Reprise d’activité Hyper-V
 
@@ -183,7 +195,7 @@ Les nouvelles fonctionnalités de la reprise d’activité des machines virtuell
 **Fonctionnalité** | **Détails**
 --- | ---
 **Chiffrement sans Azure AD** | Le chiffrement sans une application Azure AD est désormais pris en charge pour la réplication de machines virtuelles Azure vers des disques managés exécutant Windows.
-**Ressources réseau pour le basculement** | Lors du basculement vers une autre région, vous pouvez désormais attacher des paramètres de ressource réseau (groupes de sécurité réseau, équilibrage de charge, adresse IP publique) à une machine virtuelle. 
+**Ressources réseau pour le basculement** | Lors du basculement vers une autre région, vous pouvez désormais attacher des paramètres de ressource réseau (groupes de sécurité réseau, équilibrage de charge, adresse IP publique) à une machine virtuelle.
 
 ## <a name="updates-july-2019"></a>Mises à jour (juillet 2019)
 
@@ -255,7 +267,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
 --- | ---
-**Surveillance des serveurs de traitement** | Pour la récupération d’urgence des machines virtuelles VMware et des serveurs physiques locaux, surveillez et résolvez les problèmes liés aux serveurs de traitement grâce à des alertes et rapports améliorés sur l’intégrité des serveurs. [Plus d’informations](vmware-physical-azure-monitor-process-server.md) 
+**Surveillance des serveurs de traitement** | Pour la récupération d’urgence des machines virtuelles VMware et des serveurs physiques locaux, surveillez et résolvez les problèmes liés aux serveurs de traitement grâce à des alertes et rapports améliorés sur l’intégrité des serveurs. [Plus d’informations](vmware-physical-azure-monitor-process-server.md)
 
 
 
@@ -284,7 +296,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 ## <a name="updates-february-2019"></a>Mises à jour (février 2019)
 
-### <a name="update-rollup-34"></a>Correctif cumulatif 34 
+### <a name="update-rollup-34"></a>Correctif cumulatif 34
 
 Le [Correctif cumulatif 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) fournit les mises à jour suivantes.
 
@@ -294,7 +306,7 @@ Le [Correctif cumulatif 34](https://support.microsoft.com/help/4490016/update-ro
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif).
 
 
-### <a name="update-rollup-33"></a>Correctif cumulatif 33 
+### <a name="update-rollup-33"></a>Correctif cumulatif 33
 
 Le [Correctif cumulatif 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) fournit les mises à jour suivantes.
 
@@ -304,17 +316,19 @@ Le [Correctif cumulatif 33](https://support.microsoft.com/help/4489582/update-ro
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif).
 
 
-### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure 
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
+
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
 --- | ---
-**Mappage réseau** | Pour la récupération d’urgence de machines virtuelles Azure, vous pouvez maintenant utiliser n’importe quel réseau cible disponible lorsque vous activez la réplication. 
+**Mappage réseau** | Pour la récupération d’urgence de machines virtuelles Azure, vous pouvez maintenant utiliser n’importe quel réseau cible disponible lorsque vous activez la réplication.
 **SSD Standard** | Vous pouvez désormais configurer la récupération d’urgence pour les machines virtuelles Azure utilisant des [disques SSD standard](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd).
 **Espaces de stockage direct** | Vous pouvez configurer la récupération d’urgence pour les applis s’exécutant sur les applications de machine virtuelle Azure à l’aide de [Storage Spaces Direct](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) pour une haute disponibilité.  L’utilisation de Storage Spaces Direct (S2D) avec Site Recovery offre une protection complète aux charges de travail de machine virtuelle Azure. S2D vous permet d’héberger un cluster invité dans Azure. Cela est particulièrement utile lorsqu’une machine virtuelle héberge une application critique, comme la couche SAP ASCS, SQL Server ou un serveur de fichiers avec montée en puissance parallèle.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/récupération d’urgence de serveur physique
+
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
@@ -332,7 +346,7 @@ L’accélération réseau permet la virtualisation d’E/S de racine unique (SR
 
 [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
-### <a name="update-rollup-32"></a>Correctif cumulatif 32 
+### <a name="update-rollup-32"></a>Correctif cumulatif 32
 
 Le [Correctif cumulatif 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) fournit les mises à jour suivantes.
 
@@ -353,13 +367,13 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 ### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>Récupération d’urgence des machines virtuelles VMware/serveurs physiques
 
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
- 
+
 **Fonctionnalité** | **Détails**
 --- | ---
 **Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 7.6, RedHat Workstation 6/7, Oracle Linux 6.10 et Oracle Linux 7.6, et nouvelles versions de noyau pour Ubuntu, Debian et SUSE.
 
 
-### <a name="update-rollup-31"></a>Correctif cumulatif 31 
+### <a name="update-rollup-31"></a>Correctif cumulatif 31
 
 Le [Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) fournit les mises à jour suivantes.
 
@@ -368,8 +382,10 @@ Le [Correctif cumulatif 31](https://support.microsoft.com/help/4478871/update-ro
 **Fournisseurs et agents** | Une mise à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif).
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif).
 
-### <a name="vmware-vmsphysical-servers-replication"></a>Réplication des machines virtuelles VMware/serveurs physiques 
+### <a name="vmware-vmsphysical-servers-replication"></a>Réplication des machines virtuelles VMware/serveurs physiques
+
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
+
 **Fonctionnalité** | **Détails**
 --- | ---
 **Prise en charge de Linux** |  Nouvelle prise en charge d’Oracle Linux 6.8, Oracle Linux 6.9 et Oracle Linux 7.0 avec le noyau compatible Red Hat et pour le noyau Unbreakable Enterprise Kernel (UEK) Release 5.
@@ -380,6 +396,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Prise en charge du mode UEFI** | Les machines virtuelles Azure ne prennent pas en charge le mode de démarrage UEFI. Vous pouvez désormais migrer les serveurs physiques locaux avec UEFI vers Azure à l’aide de Site Recovery Site Recovery migre le serveur en convertissant le mode de démarrage en BIOS avant la migration. Site Recovery prenait auparavant en charge cette conversion pour les machines virtuelles uniquement. Les serveurs physiques exécutant Windows Server 2012 ou version ultérieure sont pris en charge.
 
 ### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
+
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
@@ -411,7 +428,7 @@ La récupération d’urgence des machines virtuelles Azure occasionne des coût
 
 ## <a name="updates-october-2018"></a>Mises à jour (octobre 2018)
 
-### <a name="update-rollup-30"></a>Correctif cumulatif 30 
+### <a name="update-rollup-30"></a>Correctif cumulatif 30
 
 Le [Correctif cumulatif 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) fournit les mises à jour suivantes.
 
@@ -431,7 +448,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Stockage avec pare-feu (PowerShell)** | Nouvelle prise en charge des [comptes de stockage avec pare-feu](https://docs.microsoft.com/azure/storage/common/storage-network-security).<br/><br/> Vous pouvez répliquer des machines virtuelles Azure avec des disques non managés sur des comptes de stockage avec pare-feu sur une autre région Azure pour les scénarios de récupération d’urgence.<br/><br/> Vous pouvez utiliser des comptes de stockage avec pare-feu en tant que comptes de stockage cibles pour des disques non managés.<br/><br/> Prise en charge avec PowerShell uniquement.
 
 
-### <a name="update-rollup-29"></a>Correctif cumulatif 29 
+### <a name="update-rollup-29"></a>Correctif cumulatif 29
 
 Le [Correctif cumulatif 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) fournit les mises à jour suivantes.
 
@@ -443,7 +460,7 @@ Le [Correctif cumulatif 29](https://support.microsoft.com/help/4466466/update-ro
 
 ## <a name="updates-august-2018"></a>Mises à jour (août 2018)
 
-### <a name="update-rollup-28"></a>Correctif cumulatif 28 
+### <a name="update-rollup-28"></a>Correctif cumulatif 28
 
 Le [Correctif cumulatif 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) fournit les mises à jour suivantes.
 
@@ -452,7 +469,7 @@ Le [Correctif cumulatif 28](https://support.microsoft.com/help/4460079/update-ro
 **Fournisseurs et agents** | Une mise à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif).
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif).
 
-### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure 
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
@@ -461,12 +478,12 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 **Prise en charge du cloud** | Prise en charge de la récupération d’urgence pour les machines virtuelles Azure dans le cloud allemand.
 **Récupération d’urgence entre abonnements** | Prise en charge de la réplication des machines virtuelles Azure d’une région vers une autre, dans un autre abonnement du même locataire Azure Active Directory. [Plus d’informations](https://aka.ms/cross-sub-blog)
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>Récupération d’urgence des machines virtuelles VMware/serveurs physiques 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Récupération d’urgence des machines virtuelles VMware/serveurs physiques
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
 **Fonctionnalité** | **Détails**
 --- | ---
-**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Les machines virtuelles Linux utilisant le style de partition GPT (GUID Partition Table) en mode de compatibilité avec un BIOS hérité sont désormais prises en charge. Consultez le [FAQ sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) pour plus d’informations. 
+**Prise en charge de Linux** | Nouvelle prise en charge de RedHat Enterprise Linux 6.10 ; CentOS 6.10.<br/><br/> Les machines virtuelles Linux utilisant le style de partition GPT (GUID Partition Table) en mode de compatibilité avec un BIOS hérité sont désormais prises en charge. Consultez le [FAQ sur les machines virtuelles Azure](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) pour plus d’informations.
 **Récupération d’urgence des machines virtuelles après la migration** | Prise en charge de la récupération d’urgence vers une région secondaire pour une machine virtuelle VMware locale migrée vers Azure, sans avoir à désinstaller le service de mobilité sur la machine virtuelle avant d’activer la réplication.
 **Windows Server 2008** | Prise en charge de la migration des machines exécutant Windows Server 2008 R2/2008 64 bits et 32 bits.<br/><br/> Migration uniquement (réplication et basculement). La restauration automatique n’est pas prise en charge.
 
@@ -481,7 +498,7 @@ Le [Correctif cumulatif 27](https://support.microsoft.com/help/4055712/update-ro
 **Fournisseurs et agents** | Une mise à jour des agents et des fournisseurs Site Recovery (comme décrit dans le correctif cumulatif).
 **Correctifs/améliorations** | Un certain nombre de correctifs et d’améliorations (comme décrit dans le correctif cumulatif).
 
-### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure 
+### <a name="azure-vm-disaster-recovery"></a>Récupération d’urgence de machine virtuelle Azure
 
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 
@@ -489,7 +506,7 @@ Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 --- | ---
 **Prise en charge de Linux** | Nouvelle prise en charge de Red Hat Enterprise Linux 7.5.
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>Récupération d’urgence des machines virtuelles VMware/serveurs physiques 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>Récupération d’urgence des machines virtuelles VMware/serveurs physiques
 
 Les fonctionnalités ajoutées ce mois-ci sont résumées dans le tableau.
 

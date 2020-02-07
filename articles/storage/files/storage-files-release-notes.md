@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 67f04b3873da020853c2523f6acc8c7dc7dcdedc
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d0e830aaca4f952f75c220b4f482ce831883b058
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749600"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905576"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Notes de publication de l’agent Azure File Sync
 Azure File Sync vous permet de centraliser les partages de fichiers de votre organisation dans Azure Files sans perdre la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Il transforme vos installations Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement (notamment SMB, NFS et FTPS). Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -35,9 +35,9 @@ Les versions suivantes de l’agent Azure File Sync sont prises en charge :
 | Correctif cumulatif de juin 2019 – [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | 13 juin 2019 | Prise en charge |
 | Correctif cumulatif de juin 2019 – [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 7 mai 2019 | Prise en charge |
 | Publication V6 – [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 21 avril 2019 | Prise en charge |
-| Correctif cumulatif d’avril 2019 – [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 avril 2019 | Prise en charge |
-| Correctif cumulatif de mars 2019 – [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 mars 2019 | Prise en charge |
-| Version V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 février 2019 | Prise en charge |
+| Correctif cumulatif d’avril 2019 – [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 4 avril 2019 | Pris en charge : la version de l’agent expirera le 12 février 2020 |
+| Correctif cumulatif de mars 2019 – [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 mars 2019 | Pris en charge : la version de l’agent expirera le 12 février 2020 |
+| Version V5 – [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 février 2019 | Pris en charge : la version de l’agent expirera le 12 février 2020 |
 | Version V4 | 4.0.1.0 - 4.3.0.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 6 novembre 2019 |
 | mise en production V3 | 3.1.0.0 - 3.4.0.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 19 août 2019 |
 | Agents antérieurs à la disponibilité générale | 1.1.0.0 - 3.0.13.0 | N/A | Non pris en charge : les versions de l’agent ont expiré le 1er octobre 2018 |

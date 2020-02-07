@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425431"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931233"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutoriel : Créer une approbation de forêt sortante vers un domaine local dans Azure Active Directory Domain Services (préversion)
 
@@ -45,7 +45,7 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
     * Si nécessaire, [créez et configurez une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Assurez-vous de créer un domaine Azure AD DS géré à l’aide d’une forêt de *ressources*. L’option par défaut crée une forêt d’*utilisateur*. Seules les forêts de ressources peuvent créer des approbations dans des environnements locaux AD DS.
+    > Assurez-vous de créer un domaine Azure AD DS géré à l’aide d’une forêt de *ressources*. L’option par défaut crée une forêt d’*utilisateur*. Seules les forêts de ressources peuvent créer des approbations dans des environnements locaux AD DS. Vous devez également utiliser une référence (SKU) minimale d’*Enterprise* pour votre domaine managé. Si nécessaire, [modifiez la référence (SKU) pour un domaine managé Azure AD DS][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
@@ -220,3 +220,4 @@ Pour plus d’informations conceptuelles sur les types de forêts dans Azure AD 
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
+[howto-change-sku]: change-sku.md

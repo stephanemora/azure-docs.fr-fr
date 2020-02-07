@@ -1,6 +1,6 @@
 ---
-title: Solution Azure VMware par CloudSimple - Configurer les tables et les règles de pare-feu
-description: Explique comment configurer des tables et des règles de pare-feu de cloud privé pour limiter le trafic sur les sous-réseaux et les VLAN.
+title: Azure VMware Solutions (AVS) – Configurer des tables et règles de pare-feu
+description: Explique comment configurer des tables et règles de pare-feu de cloud privé AVS pour limiter le trafic sur les sous-réseaux et les VLAN.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: d133f4d0ac8cc8b70060563ad07da35e9fdf2d37
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606451"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025280"
 ---
-# <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>Configurer des tables et des règles de pare-feu pour des clouds privés
+# <a name="set-up-firewall-tables-and-rules-for-avs-private-clouds"></a>Configurer des tables et règles de pare-feu pour des clouds privés AVS
 
 Les tables de pare-feu et les règles associées vous permettent de spécifier des restrictions à appliquer au trafic sur des sous-réseaux et des VLAN particuliers.
 
@@ -24,7 +24,7 @@ Les tables de pare-feu et les règles associées vous permettent de spécifier d
 
 ## <a name="add-a-new-firewall-table"></a>Ajouter une nouvelle table de pare-feu
 
-1. [Accédez au portail CloudSimple](access-cloudsimple-portal.md), puis sélectionnez **Network** (Réseau) dans le menu latéral.
+1. [Accédez au portail AVS](access-cloudsimple-portal.md), puis sélectionnez **Réseau** dans le menu latéral.
 2. Sélectionnez **Firewall Tables** (Tables de pare-feu).
 3. Sélectionnez **Create firewall table** (Créer une table de pare-feu).
 
@@ -51,7 +51,7 @@ Les règles de pare-feu déterminent la manière dont le pare-feu traite certain
 2. Configurez la règle comme suit :
     * **Nom**. Nommez la règle.
     * **Priorité**. Affectez une priorité à la règle. Les règles qui comportent des numéros inférieurs sont exécutées en premier.
-    * **Traffic type** (Type de trafic). Indiquez si la règle s’applique au trafic du cloud privé, au trafic Internet ou au trafic du VPN (sans état), ou si elle s’applique à une adresse IP publique (avec état).
+    * **Traffic type** (Type de trafic). Indiquez si la règle s’applique au trafic de cloud privé, Internet ou VPN (sans état) d’AVS, ou à une adresse IP publique (avec état).
     * **Protocole**. Sélectionnez le protocole couvert par la règle (TCP, UDP ou tout autre protocole).
     * **Direction**. Indiquez si la règle s’applique au trafic entrant ou sortant. Vous devez définir des règles distinctes pour le trafic entrant et sortant.
     * **Action**. Sélectionnez l’action à entreprendre si la règle a une correspondance (autoriser ou refuser).
@@ -75,5 +75,5 @@ Une fois que vous avez défini une table de pare-feu, vous pouvez spécifier les
 1. Dans la page **Network**(Réseau) > **Firewall Tables**(Tables de pare-feu), sélectionnez une table de pare-feu.
 2. Ouvrez l’onglet **Attached VLANs/Subnet** (VLAN/Sous-réseaux attachés).
 3. Cliquez sur **Attach to a VLAN/Subnet** (Attacher à un VLAN/sous-réseau).
-4. Sélectionnez le cloud privé et le VLAN. Le nom de sous-réseau associé et le bloc CIDR sont affichés.
+4. Sélectionnez le cloud privé AVS et le VLAN. Le nom de sous-réseau associé et le bloc CIDR sont affichés.
 5. Cliquez sur **Envoyer**.

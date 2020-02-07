@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760847"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988213"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Sécuriser l’expérimentation Azure Machine Learning et les travaux d’inférence au sein d’un réseau virtuel Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -136,7 +136,7 @@ Pour utiliser une instance de calcul Machine Learning Azure ou un cluster de cal
 > * Le sous-réseau spécifié pour l’instance ou le cluster de calcul doit avoir suffisamment d’adresses IP non attribuées pour toutes les machines virtuelles ciblées. Si le sous-réseau n’a pas suffisamment d’adresses IP non attribuées, le cluster de calcul est alloué partiellement.
 > * Vérifiez si vos stratégies ou verrous de sécurité sur l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations pour gérer le réseau virtuel. Si vous souhaitez sécuriser le réseau virtuel en limitant le trafic, laissez certains ports ouverts pour le service Capacité de calcul. Pour plus d’informations, voir la section [Ports requis](#mlcports).
 > * Si vous vous apprêtez à placer plusieurs instances ou clusters de calcul sur un réseau virtuel, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de vos ressources.
-> * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance ou le cluster de capacité de calcul Azure Machine Learning. Si vous créez une instance de calcul dans le même réseau virtuel, vous devez détacher le ou les comptes de stockage du réseau virtuel, créer l’instance de calcul dans le réseau virtuel, puis rattacher le ou les comptes de stockage au réseau virtuel.
+> * Si le ou les comptes de stockage Azure pour l’espace de travail sont également sécurisés dans un réseau virtuel, ils doivent se trouver dans le même réseau virtuel que l’instance ou le cluster de capacité de calcul Azure Machine Learning. 
 
 La capacité de calcul ou le cluster Machine Learning Azure alloue automatiquement des ressources réseau supplémentaires au groupe de ressources qui contient le réseau virtuel. Pour chaque instance ou cluster de calcul, le service alloue les ressources suivantes :
 
@@ -180,8 +180,8 @@ Si vous ne souhaitez pas utiliser les règles de trafic sortant par défaut et s
 - Refusez la connexion internet sortante à l’aide des règles NSG.
 
 - Pour une __instance de calcul__ ou un __cluster de calcul__, limitez le trafic sortant aux éléments suivants :
-   - Stockage Azure, à l’aide de la __balise de service__ du __stockage__
-   - Azure Container Registry, à l’aide de la __balise du service__ de __AzureContainerRegistry__
+   - Stockage Azure, en utilisant la __balise de service__ __Storage.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
+   - Azure Container Registry, en utilisant la __balise de service__ __AzureContainerRegistry.RegionName__. Où `{RegionName}` est le nom d’une région Azure.
    - Azure Machine Learning, à l’aide de la __balise du service__ de __AzureMachineLearning__
    
 - Pour une __instance de calcul__, ajoutez également les éléments suivants :

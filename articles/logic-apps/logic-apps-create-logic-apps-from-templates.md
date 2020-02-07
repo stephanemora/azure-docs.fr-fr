@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 58c0ff8cf8a579e2b97ebbe195f47e4baef4621a
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: aac0060527af7b7d880f971e7608be3fa44a2d15
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666820"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905117"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Créer des workflows d’application logique à partir de modèles prédéfinis
 
@@ -50,7 +50,7 @@ Si vous n’avez pas d’abonnement Azure, [créez un compte Azure gratuit](http
    | **Abonnement** | *nom-de-votre-abonnement-Azure* | Sélectionnez l’abonnement Azure que vous souhaitez utiliser. | 
    | **Groupe de ressources** | *nom-de-votre-groupe-de-ressources-Azure* | Créez ou sélectionnez un [groupe de ressources Azure](../azure-resource-manager/management/overview.md) pour cette application logique et pour organiser toutes les ressources associées à celle-ci. | 
    | **Lieu** | *région-de-votre-centre-de-données-Azure* | Sélectionnez la région du centre de données où déployer votre application logique, par exemple USA Ouest. | 
-   | **Log Analytics** | **Désactivé** (par défaut) ou **Activé** | Activez la [journalisation des diagnostics](../logic-apps/logic-apps-monitor-your-logic-apps.md#turn-on-diagnostics-logging-for-your-logic-app) pour votre application logique via [Journaux Azure Monitor](../log-analytics/log-analytics-overview.md). Pour cela, vous devez déjà disposer d’un espace de travail Log Analytics. | 
+   | **Log Analytics** | **Désactivé** (par défaut) ou **Activé** | Configurez la [journalisation des diagnostics](../logic-apps/monitor-logic-apps-log-analytics.md) pour votre application logique à l’aide de [journaux d’activité Azure Monitor](../log-analytics/log-analytics-overview.md). Pour cela, vous devez déjà disposer d’un espace de travail Log Analytics. | 
    |||| 
 
 4. Lorsque vous êtes prêt, sélectionnez **Épingler au tableau de bord**. De cette façon, votre application logique apparaît automatiquement sur votre tableau de bord Azure et s’ouvre après le déploiement. Cliquez sur **Créer**.

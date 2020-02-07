@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: yluiu
-ms.openlocfilehash: f5b524ca6156dab7c0d1e38ad320b721f40a49ef
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 40ca1dbf981c5a9025cf5a0bac6b007709d69a77
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169752"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934576"
 ---
 # <a name="specify-a-face-detection-model"></a>Spécifier un modèle de détection des visages
 
@@ -111,6 +111,7 @@ Dans cet article, vous avez appris comment spécifier le modèle de détection d
 
 * [SDK .NET Visage](../Quickstarts/csharp-sdk.md)
 * [Kit de développement logiciel (SDK) Face Python](../Quickstarts/python-sdk.md)
+* [Kit de développement logiciel (SDK) Go face Go](../Quickstarts/go-sdk.md)
 
 [Face - Detect]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d
 [Face - Find Similar]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237

@@ -3,14 +3,14 @@ title: Interface CLI Azure Service Fabric - sfctl rpm
 description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient la liste des commandes liées au service gestionnaire de réparation.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639086"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904944"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Interroge et envoie des commandes vers le service gestionnaire de réparation.
@@ -77,7 +77,7 @@ Cette API prend en charge la plateforme Service Fabric ; elle n’est pas cens
 |Argument|Description|
 | --- | --- |
 | --executor-filter | Nom de l’Exécuteur de réparations dont les tâches revendiquées doivent être incluses dans la liste. |
-| --state-filter | OR au niveau du bit des valeurs suivantes, qui spécifie les états de tâches qu’il convient d’inclure dans la liste des résultats. <br> 1 - Créé <br>2 - Revendiqué  <br>4 - Préparation  <br>8 - Approuvé  <br>16 - En cours d'exécution  <br>32 - Restauration  <br>64 - Terminé |
+| --state-filter | OR au niveau du bit des valeurs suivantes, qui spécifie les états de tâches qu’il convient d’inclure dans la liste des résultats. <ul><li>1 – Créée</li><li>2 – Revendiquée</li><li>4 – En cours de préparation</li><li>8 – Approuvée</li><li>16 – En cours d’exécution</li><li>32 – En cours de restauration</li><li>64 – Terminée</li></ul>
 | --task-id-filter | Préfixe d’ID de tâche de réparation à mettre en correspondance. |
 
 ### <a name="global-arguments"></a>Arguments globaux

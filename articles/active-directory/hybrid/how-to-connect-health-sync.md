@@ -7,6 +7,7 @@ author: zhiweiwangmsft
 manager: daveba
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abed56ee64cbca8646c1aa1d24fea292aa4d8de3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 61490f75d12967f7f396d5f767f2d2e696474572
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60245421"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897209"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
@@ -80,7 +81,7 @@ Cette fonctionnalité fournit un rapport sur les erreurs de synchronisation qui 
 ### <a name="categorization-of-errors"></a>Catégorisation des erreurs
 Le rapport classe les erreurs de synchronisation existantes dans les catégories suivantes :
 
-| Catégorie | Description |
+| Category | Description |
 | --- | --- |
 | Attribut en double |Erreurs quand Azure AD Connect tente de créer ou de mettre à jour des objets avec des valeurs dupliquées d’un ou plusieurs attributs dans Azure AD et qui doivent être uniques dans un client, par exemple proxyAddresses et UserPrincipalName. |
 | Incohérence de données |Erreurs quand la correspondance souple ne parvient pas à faire correspondre des objets qui génèrent des erreurs de synchronisation. |
@@ -116,7 +117,7 @@ Dans le cas spécifique d’une erreur de synchronisation d’attribut en double
 * [Résolution des erreurs lors de la synchronisation](tshoot-connect-sync-errors.md)
 * [Résilience d’attribut en double](how-to-connect-syncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
-* [Installation de l'agent Azure AD Connect Health](how-to-connect-health-agent-install.md)
+* [Installation de l’agent Azure AD Connect Health](how-to-connect-health-agent-install.md)
 * [Opérations Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md)
 * [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md)

@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760009"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905764"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Aperçu : Créer un modèle de générateur d’images Azure 
 
@@ -317,6 +317,8 @@ Propriétés de personnalisation :
 - **restartCheckCommand** - Commande pour vérifier si le redémarrage a réussi (facultatif). 
 - **restartTimeout** - Délai d’expiration de redémarrage spécifié sous forme de chaîne de magnitude et d’unité. Par exemple, `5m` (5 minutes) ou `2h` (2 heures). La valeur par défaut est : '5m'
 
+### <a name="linux-restart"></a>Redémarrage de Linux  
+Bien qu’il n’existe aucun personnalisateur de redémarrage de Linux, si vous installez des pilotes ou composants nécessitant un redémarrage, vous pouvez les installer et appeler un redémarrage à l’aide du personnalisateur de l’interpréteur de commandes. Il existe un délai d’expiration SSH de 20 minutes pour la machine virtuelle de build.
 
 ### <a name="powershell-customizer"></a>Personnalisateur PowerShell 
 Le personnalisateur PowerShell prend en charge l’exécution de scripts PowerShell et de commande en ligne. Les scripts doivent être accessibles publiquement pour que le générateur d’images puisse y accéder.

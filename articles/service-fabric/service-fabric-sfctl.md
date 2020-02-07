@@ -3,17 +3,17 @@ title: Interface CLI Azure Service Fabric - sfctl
 description: Apprenez-en plus sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Comprend une liste de commandes et de sous-groupes.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 518e60ee92a637533fdf5ab44053d1a1c8757bbe
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 56efa15a7de3414f9c535e66bd80c94594cd5038
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645240"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906224"
 ---
 # <a name="sfctl"></a>sfctl
-Commandes permettant de gérer les clusters et entités Service Fabric. Cette version est compatible avec le runtime Service Fabric 6.5.
+Commandes permettant de gérer les clusters et entités Service Fabric. Cette version est compatible avec le runtime Service Fabric 7.0.
 
 Les commandes suivent le modèle nom-verbe. Pour plus d’informations, consultez la section sur les sous-groupes.
 

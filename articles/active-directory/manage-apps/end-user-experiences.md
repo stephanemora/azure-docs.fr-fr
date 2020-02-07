@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274201"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896906"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Expériences d’utilisateurs finaux auprès des applications dans Azure Active Directory
 
@@ -36,7 +36,7 @@ Le volet d’accès à l’adresse https://myapps.microsoft.com est un portail w
 
 ![Capture d’écran montrant le portail du volet Azure AD](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des espaces de travail pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des espaces de travail pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, voir [Comment utiliser des espaces de travail Mes applications pour personnaliser des panneaux d’accès d’utilisateur (préversion)](access-panel-workspaces.md). 
+Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des collections pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des collections pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, voir [Comment utiliser des collections Mes applications pour personnaliser des panneaux d’accès utilisateur](access-panel-collections.md). 
 
 Le panneau d’accès est séparé du portail Azure. Pour y accéder, les utilisateurs n’ont pas besoin d’un abonnement Azure ou Office 365.
 

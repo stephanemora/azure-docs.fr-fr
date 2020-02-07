@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029998"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905507"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -37,7 +37,7 @@ Pour plus d’informations, consultez les exemples.
 ## <a name="related-conceptual-articles"></a>Articles conceptuels associés
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
-- [Transférer des données avec AzCopy et le stockage Blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 - [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
@@ -177,7 +177,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--cache-control** string                 Définir l’en-tête cache-control. Retourné au moment du téléchargement.
 
-**--check-length**                         Vérifier la longueur d’un fichier sur la destination après le transfert. En cas d’incompatibilité entre la source et la destination, le transfert est marqué comme ayant échoué. (par défaut : « true »).
+**--check-length**                         Vérifier la longueur d’un fichier sur la destination après le transfert. En cas d’incompatibilité entre la source et la destination, le transfert est marqué comme ayant échoué. (par défaut : true)
 
 **--check-md5** string                     Spécifie la manière dont les hachages MD5 doivent être validés lors du téléchargement. Disponible uniquement lors du téléchargement. Options disponibles : NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (par défaut « FailIfDifferent »)
 
@@ -201,7 +201,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--follow-symlinks**                      Suit les liens symboliques quand vous effectuez un chargement à partir d’un système de fichiers local.
 
-**--from-to** string                       (Facultatif) Spécifie la combinaison source-destination. Par exemple : LocalBlob, BlobLocal, LocalBlobFS.
+**--from-to** string                       (Facultatif) Spécifie la combinaison source-destination. Par exemple : LocalBlob, BlobLocal, LocalBlobFS.
 
 **-h, --help**                                 Aide pour la copie
 
@@ -217,7 +217,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--no-guess-mime-type**                   Empêche AzCopy de détecter le type de contenu (content-type) en fonction de l’extension ou du contenu du fichier.
 
-**--overwrite** string                     Si cet indicateur a la valeur true, remplace les fichiers et objets blob qui sont en conflit dans la destination. Les valeurs possibles sont « true », « false » et « prompt ». (par défaut : « true »)
+**--overwrite** string                     Si cet indicateur a la valeur true, remplace les fichiers et objets blob qui sont en conflit dans la destination. Les valeurs possibles sont « true », « false », « ifSourceNewer » et « prompt ». (par défaut : « true »)
 
 **--page-blob-tier** string               Charger un objet blob de pages dans Stockage Azure à l’aide de ce niveau d’objet blob. (par défaut : « None »).
 
@@ -233,7 +233,7 @@ Copier un sous-ensemble de compartiments en utilisant un caractère générique 
 
 **--s2s-preserve-access-tier**             Conserver le niveau d’accès lors d’une copie de service à service Pour vérifier si le compte de stockage de destination prend en charge la définition du niveau d’accès, consultez [Stockage Blob Azure : niveaux d’accès chaud, froid et archive](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). Si la définition du niveau d’accès n’est pas prise en charge, utilisez s2sPreserveAccessTier=false pour contourner la copie du niveau d’accès. (par défaut : true)
 
-**--s2s-preserve-properties**             Conserver l’intégralité des propriétés lors d’une copie de service à service. Pour une source de fichier non unique Azure Files et AWS S3, l’opération de liste ne retourne pas les propriétés complètes des objets et des fichiers. Pour conserver l’intégralité des propriétés, AzCopy doit envoyer une requête supplémentaire par objet ou fichier. (par défaut : « true »).
+**--s2s-preserve-properties**             Conserver l’intégralité des propriétés lors d’une copie de service à service. Pour une source de fichier non unique Azure Files et AWS S3, l’opération de liste ne retourne pas les propriétés complètes des objets et des fichiers. Pour conserver l’intégralité des propriétés, AzCopy doit envoyer une requête supplémentaire par objet ou fichier. (par défaut : true)
 
 ## <a name="options-inherited-from-parent-commands"></a>Options héritées des commandes parentes
 

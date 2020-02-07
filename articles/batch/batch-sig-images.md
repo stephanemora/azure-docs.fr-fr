@@ -2,18 +2,18 @@
 title: Utiliser Shared Image Gallery pour créer un pool personnalisé - Azure Batch | Microsoft Docs
 description: Créer un pool Batch avec Shared Image Gallery pour des images personnalisées vers des nœuds de calcul qui contiennent les logiciels et les données dont vous avez besoin pour votre application. Les images personnalisées sont un moyen efficace de configurer les nœuds de calcul pour exécuter vos charges de travail Batch.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: jushiman
-ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029651"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022934"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Utiliser Shared Image Gallery pour créer un pool personnalisé
 

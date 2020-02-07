@@ -1,14 +1,14 @@
 ---
 title: Gestion des ressources déléguées Azure
 description: Les offres de services managés permettent aux fournisseurs de services de vendre des offres de gestion des ressources à des clients sur la Place de marché Azure.
-ms.date: 01/17/2020
+ms.date: 01/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fc3d95b1becccc014afeb4621d17770a03e38a4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263912"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904322"
 ---
 # <a name="azure-delegated-resource-management"></a>Gestion des ressources déléguées Azure
 
@@ -44,7 +44,7 @@ De façon générale, voici comment fonctionne la gestion des ressources délég
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Support pour la gestion des ressources déléguées Azure
 
-Si vous avez besoin d’aide en lien avec la gestion des ressources déléguées Azure, vous pouvez ouvrir une demande de support sur le portail Azure. Pour **Type de problème**, choisissez **Technique**. Sélectionnez un abonnement, puis **Gestion des ressources déléguées** (sous **Surveillance et gestion**).
+Si vous avez besoin d’aide en lien avec la gestion des ressources déléguées Azure, vous pouvez ouvrir une demande de support sur le portail Azure. Pour **Type de problème**, choisissez **Technique**. Sélectionnez un abonnement, puis **Lighthouse** (sous **Surveillance et gestion**).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

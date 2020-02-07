@@ -4,15 +4,15 @@ description: Découvrez comment gérer les rôles et les utilisateurs sur un ser
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147012"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901491"
 ---
 # <a name="manage-database-roles-and-users"></a>Gérer les rôles et les utilisateurs de base de données
 
@@ -44,10 +44,10 @@ Les **groupes de sécurité** doivent être [à extension de messagerie](https:/
   
     |Autorisation|Description|  
     |----------------|-----------------|  
-    |**Aucun**|Les membres ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
+    |**Aucun**|Les membres ne peuvent pas lire ou modifier le schéma de modèle et ne peuvent pas interroger les données.|  
     |**Lire**|Les membres peuvent interroger des données (selon les filtres de lignes) mais ne peuvent pas modifier le schéma de modèle.|  
     |**Lecture et traitement**|Les membres peuvent interroger des données (selon les filtres au niveau des lignes) et exécuter des processus et traiter toutes les opérations, mais ne peuvent pas modifier le schéma de modèle.|  
-    |**Processus**|Les membres peuvent exécuter des processus et traiter toutes les opérations. Ils ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
+    |**Processus**|Les membres peuvent exécuter des processus et traiter toutes les opérations. Ils ne peuvent ni lire ou modifier le schéma de modèle, ni interroger les données.|  
     |**Administrateur**|Les membres peuvent modifier le schéma de modèle et interroger toutes les données.|   
   
 5.  Si le rôle que vous créez a l’autorisation de Lecture ou de Lecture et processus, vous pouvez ajouter des filtres de lignes à l’aide d’une formule DAX. Cliquez sur l’onglet **Filtres de lignes**, sélectionnez une table, puis cliquez sur le champ **Filtre DAX**, puis tapez une formule DAX.
@@ -74,7 +74,7 @@ Pour ajouter des rôles et des utilisateurs à une base de données du modèle d
    |Autorisation|Description|  
    |----------------|-----------------|  
    |**Contrôle total (administrateur)**|Les membres peuvent modifier le schéma de modèle, le processus et interroger toutes les données.| 
-   |**Base de données de processus**|Les membres peuvent exécuter des processus et traiter toutes les opérations. Ils ne peuvent pas modifier le schéma de modèle et ne peuvent pas interroger les données.|  
+   |**Base de données de processus**|Les membres peuvent exécuter des processus et traiter toutes les opérations. Impossible de modifier le schéma de modèle et d'interroger les données.|  
    |**Lire**|Les membres peuvent interroger des données (selon les filtres de lignes) mais ne peuvent pas modifier le schéma de modèle.|  
   
 4. Cliquez sur **Appartenance**, puis entrez un utilisateur ou un groupe dans votre client Azure AD par adresse e-mail.
@@ -129,15 +129,15 @@ Le module [SqlServer](https://docs.microsoft.com/analysis-services/powershell/an
 
 ## <a name="row-filters"></a>Filtres de lignes  
 
-Les filtres de lignes définissent les lignes d’une table qui peuvent être interrogées par les membres d’un rôle donné. Les filtres de lignes sont définis pour chaque table dans un modèle à l’aide de formules DAX.  
+Les filtres de lignes définissent les lignes d’une table qui peuvent être interrogées par les membres d’un rôle donné. Les filtres de lignes sont définis pour chaque table dans un modèle à l'aide de formules DAX.  
   
 Les filtres de lignes peuvent être définis uniquement pour les rôles avec des autorisations de Lecture et de Lecture et processus. Par défaut, si un filtre de lignes n’est pas défini pour une table en particulier, les membres peuvent interroger toutes les lignes de la table, sauf si le filtrage croisé s’applique à partir d’une autre table.
   
  Les filtres de lignes nécessitent une formule DAX, qui doit correspondre à une valeur TRUE/FALSE, pour définir les lignes qui peuvent être interrogées par les membres de ce rôle en particulier. Les lignes non incluses dans la formule DAX ne peuvent pas être interrogées. Par exemple, la table Clients avec l’expression de filtres de la ligne suivante, *=Customers [Country] = “USA”* , les membres du rôle Ventes peuvent voir uniquement les clients aux États-Unis.  
   
-Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes connexes. Lorsqu’une table possède plusieurs relations, les filtres appliquent la sécurité de la relation qui est active. Les filtres de lignes sont croisés avec d’autres filtres de lignes définis pour les tables associées, par exemple :  
+Les filtres de lignes s’appliquent aux lignes spécifiées et aux lignes connexes. Lorsqu'une table contient plusieurs relations, les filtres appliquent la sécurité de la relation qui est active. Les filtres de lignes sont croisés avec d’autres filtres de lignes définis pour les tables associées, par exemple :  
   
-|Table|Expression DAX|  
+|Table de charge de travail|Expression DAX|  
 |-----------|--------------------|  
 |Région|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  

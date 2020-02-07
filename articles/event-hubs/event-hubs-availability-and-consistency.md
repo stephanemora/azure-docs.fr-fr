@@ -4,7 +4,6 @@ description: Découvrez comment obtenir la quantité maximale de disponibilité 
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
-manager: timlt
 editor: ''
 ms.assetid: 8f3637a1-bbd7-481e-be49-b3adf9510ba1
 ms.service: event-hubs
@@ -12,19 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 01/29/2020
 ms.author: shvija
-ms.openlocfilehash: 425f4d9dbd6478af834bee6c88d0f13bdaa45b16
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 808e813ad90626acec893a021634566f091c895f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67273693"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904485"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilité et cohérence dans Event Hubs
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Azure Event Hubs utilise un [modèle de partitionnement](event-hubs-scalability.md#partitions) pour améliorer la disponibilité et la parallélisation dans un concentrateur d’événements unique. Par exemple, si un concentrateur d’événements a quatre partitions et que l’une de ces partitions est déplacée d’un serveur à l’autre dans une opération d’équilibrage de charge, vous pouvez quand même envoyer et recevoir à partir des trois autres partitions. En outre, avoir davantage de partitions vous permet d’avoir plus lecteurs pour traiter vos données simultanément, ce qui améliore le débit global. Comprendre les implications en matière de partitionnement et de classement dans un système distribué est un aspect essentiel de la conception de la solution.
 
 Pour expliquer le compromis entre classement et disponibilité, reportez-vous au [théorème CAP](https://en.wikipedia.org/wiki/CAP_theorem), également connu sous le nom de théorème de Brewer. Ce théorème discute le choix entre la cohérence, la disponibilité et la tolérance de la partition. Il stipule que pour les systèmes partitionnés par réseau, il existe toujours un compromis entre cohérence et disponibilité.
@@ -49,16 +47,53 @@ Avec cette configuration, gardez à l’esprit que si la partition particulière
 
 Pour garantir le classement tout en optimisant aussi le temps d’activité, vous pouvez regrouper les événements dans le cadre de votre application de traitement des événements. Pour cela, le moyen le plus simple consiste à marquer votre événement avec une propriété de numéro de séquence personnalisée. Le code suivant montre un exemple :
 
+#### <a name="azuremessagingeventhubs-500-or-latertablatest"></a>[Azure.Messaging.EventHubs (version 5.0.0 ou ultérieure)](#tab/latest)
+
 ```csharp
-// Get the latest sequence number from your application
+// create a producer client that you can use to send events to an event hub
+await using (var producerClient = new EventHubProducerClient(connectionString, eventHubName))
+{
+    // get the latest sequence number from your application
+    var sequenceNumber = GetNextSequenceNumber();
+
+    // create a batch of events 
+    using EventDataBatch eventBatch = await producerClient.CreateBatchAsync();
+
+    // create a new EventData object by encoding a string as a byte array
+    var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
+
+    // set a custom sequence number property
+    data.Properties.Add("SequenceNumber", sequenceNumber);
+
+    // add events to the batch. An event is a represented by a collection of bytes and metadata. 
+    eventBatch.TryAdd(data);
+
+    // use the producer client to send the batch of events to the event hub
+    await producerClient.SendAsync(eventBatch);
+}
+```
+
+#### <a name="microsoftazureeventhubs-410-or-earliertabold"></a>[Microsoft.Azure.EventHubs (version 4.1.0 ou ultérieure)](#tab/old)
+```csharp
+// Create an Event Hubs client
+var client = new EventHubClient(connectionString, eventHubName);
+
+//Create a producer to produce events
+EventHubProducer producer = client.CreateProducer();
+
+// Get the latest sequence number from your application 
 var sequenceNumber = GetNextSequenceNumber();
+
 // Create a new EventData object by encoding a string as a byte array
 var data = new EventData(Encoding.UTF8.GetBytes("This is my message..."));
+
 // Set a custom sequence number property
 data.Properties.Add("SequenceNumber", sequenceNumber);
+
 // Send single message async
-await eventHubClient.SendAsync(data);
+await producer.SendAsync(data);
 ```
+---
 
 L’exemple envoie votre événement à l’une des partitions disponibles dans votre concentrateur d’événements et définit le numéro de séquence correspondant à partir de votre application. Cette solution nécessite que l’état soit conservé par votre application de traitement, mais offre à vos expéditeurs un point de terminaison plus susceptible d’être disponible.
 

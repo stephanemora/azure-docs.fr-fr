@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225284"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934551"
 ---
 # <a name="outbound-connections-in-azure"></a>Connexions sortantes dans Azure
 
@@ -237,7 +237,7 @@ Si vous effectuez une montée en charge vers le niveau immédiatement supérieur
 
 ### <a name="idletimeout"></a>Utiliser des conservations de connexion active pour réinitialiser le délai d’inactivité en sortie
 
-Les connexions sortantes ont un délai d’inactivité de 4 minutes. Ce délai d’attente n’est pas ajustable. Cependant, vous pouvez utiliser un transport (par exemple, des conservations de connexion active TCP) ou des conservations de connexion active de couche Application pour actualiser un flux inactif et réinitialiser ce délai d’inactivité, si nécessaire.  
+Les connexions sortantes ont un délai d’inactivité de 4 minutes. Vous pouvez ajuster ce délai d’expiration à l’aide de [règles de trafic sortant](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Vous pouvez également utiliser un transport (par exemple, des conservations de connexion active TCP) ou des conservations de connexion active de couche Application pour actualiser un flux inactif et réinitialiser ce délai d’inactivité, si nécessaire.  
 
 Lorsque vous utilisez des conservations de connexion active TCP, il suffit de les activer sur un côté de la connexion. Par exemple, il suffit de les activer sur le côté serveur uniquement pour réinitialiser la minuterie d’inactivité ; il est inutile que les 2 côtés lancent des conservations de connexion active.  Des concepts similaires existent pour la couche d’application, notamment les configurations client-serveur de base de données.  Examinez le côté serveur à la recherche d’options de conservations de connexion active spécifiques aux applications.
 

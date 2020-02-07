@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911272"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933293"
 ---
 # <a name="add-controls-to-a-map"></a>Ajouter des commandes à une carte
 
-Cet article décrit comment ajouter des contrôles à une carte. Vous apprenez aussi à créer une carte avec tous les contrôles et un [sélecteur de styles](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+Cet article décrit comment ajouter des contrôles à une carte. Vous allez également apprendre à créer une carte avec tous les contrôles et un [sélecteur de styles](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Ajouter un contrôle de zoom
 
-Un contrôle de zoom ajoute des boutons pour effectuer un zoom avant et arrière sur la carte. L’exemple de code suivant crée une instance de la classe [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol) et l’ajoute à l’angle inférieur droit de la carte.
+Un contrôle de zoom ajoute des boutons pour effectuer un zoom avant et arrière sur la carte. L’exemple de code suivant crée une instance de la classe [ZoomControl](/javascript/api/azure-maps-control/atlas.control.zoomcontrol), puis l’ajoute dans l’angle inférieur droit de la carte.
 
 ```javascript
 //Construct a zoom control and add it to the map.
@@ -39,7 +39,7 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 
 ## <a name="add-pitch-control"></a>Ajouter un contrôle de tonalité
 
-Un contrôle de pas ajoute des boutons pour faire pivoter le pas de la carte par rapport à l’horizon. L’exemple de code suivant crée une instance de la classe [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) et l’ajoute à l’angle supérieur droit de la carte.
+Un contrôle de pas ajoute des boutons pour faire pivoter le pas de la carte par rapport à l’horizon. L’exemple de code suivant crée une instance de la classe [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol). Il ajoute le PitchControl dans l’angle supérieur droit de la carte.
 
 ```javascript
 //Construct a pitch control and add it to the map.
@@ -94,7 +94,7 @@ Voici un outil permettant de tester les différentes options de personnalisation
 Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/LwBZMx/'>Navigation control options</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Si vous souhaitez créer des contrôles de navigation personnalisés, créez une classe qui s’étend à partir de la classe `atlas.Control` ou créez un élément HTML et positionnez-le au-dessus de la balise div de la carte. Faire en sorte que ce contrôle d’interface utilisateur appelle la fonction `setCamera` de la carte pour déplacer la carte. 
+Si vous souhaitez créer des contrôles de navigation personnalisés, créez une classe qui s’étend à partir de la classe `atlas.Control` ou créez un élément HTML et positionnez-le au-dessus de la balise div de la carte. Faire en sorte que ce contrôle d’interface utilisateur appelle la fonction `setCamera` des carte pour déplacer la carte. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

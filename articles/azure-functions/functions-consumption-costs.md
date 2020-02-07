@@ -3,12 +3,12 @@ title: Estimation des coûts d’un plan Consommation dans Azure Functions
 description: Apprenez à mieux estimer les coûts induits par l’exécution de votre application de fonction dans un plan Consommation dans Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890318"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963986"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimation des coûts d’un plan Consommation
 
@@ -47,7 +47,7 @@ Lorsque vous estimez les coûts globaux de votre application de fonction et des 
 
 | Coût connexe | Description |
 | ------------ | ----------- |
-| **Compte de stockage** | Chaque application de fonction vous oblige à avoir un [compte de stockage Azure](../storage/common/storage-introduction.md#types-of-storage-accounts) universel associé, [facturé séparément](https://azure.microsoft.com/pricing/details/storage/). Ce compte est utilisé en interne par le runtime Functions, mais vous pouvez également l’utiliser pour les déclencheurs et les liaisons de stockage. Si vous n’avez pas de compte de stockage, un compte est créé pour vous lors de la création de l’application de fonction. Pour plus d’informations, consultez [Exigences pour le compte de stockage](functions-scale.md#storage-account-requirements).|
+| **Compte de stockage** | Chaque application de fonction vous oblige à avoir un [compte de stockage Azure](../storage/common/storage-introduction.md#types-of-storage-accounts) universel associé, [facturé séparément](https://azure.microsoft.com/pricing/details/storage/). Ce compte est utilisé en interne par le runtime Functions, mais vous pouvez également l’utiliser pour les déclencheurs et les liaisons de stockage. Si vous n’avez pas de compte de stockage, un compte est créé pour vous lors de la création de l’application de fonction. Pour plus d’informations, consultez [Exigences pour le compte de stockage](storage-considerations.md#storage-account-requirements).|
 | **Application Insights** | Functions s’appuie sur [Application Insights](../azure-monitor/app/app-insights-overview.md) pour fournir une expérience de supervision hautes performances à vos applications de fonction. Même si ce n’est pas obligatoire, il est préférable d’[activer l’intégration à Application Insights](functions-monitoring.md#enable-application-insights-integration). Un forfait gratuit de données de télémétrie est inclus chaque mois. Pour en savoir plus, consultez la [page des tarifs Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). |
 | **Bande passante réseau** | Vous ne payez pas le transfert de données entre les services Azure dans la même région. En revanche, des coûts peuvent être induits pour les transferts de données sortants vers une autre région ou en dehors d’Azure. Pour plus d’informations, consultez les [détails de la tarification de la bande passante](https://azure.microsoft.com/pricing/details/bandwidth/). |
 

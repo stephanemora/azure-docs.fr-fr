@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911286"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933663"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>Ajouter une couche de bulles à une carte
 
-Cet article vous montre comment vous pouvez afficher des données de point sur une carte à partir d’une source de données telle qu’une couche de bulles. Les couches de bulles affichent sur la carte des points sous la forme de cercles, avec un rayon de pixels fixe. 
+Cet article vous montre comment afficher des données de point sur une carte à partir d’une source de données telle qu’un calque de bulles sur une carte. Les couches de bulles affichent sur la carte des points sous la forme de cercles, avec un rayon de pixels fixe. 
 
 > [!TIP]
 > Les couches de bulles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous voulez également inclure les fonctionnalités MultiPoint.
 
 ## <a name="add-a-bubble-layer"></a>Ajouter un calque de bulles
 
-Le code suivant charge un tableau de points dans une source de données et le connecte à une [couche de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). La couche de bulles bénéficie d’options permettant d’afficher le rayon de chaque bulle à cinq pixels, le blanc comme couleur de remplissage, le bleu comme couleur de trait et une largeur de trait de six pixels. 
+Le code suivant charge un tableau de points dans une source de données. Ensuite, les points de données sont connectés à un [calque de bulles](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). Le calque de bulles affiche le rayon de chaque bulle avec cinq pixels, le blanc comme couleur de remplissage, le bleu comme couleur de trait et une largeur de trait de six pixels. 
 
 ```javascript
 //Add point locations.

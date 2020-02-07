@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772602"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906801"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server avec un partage de fichiers Premium sur des machines virtuelles Azure
 
@@ -185,7 +185,7 @@ Une fois que vous avez créé et configuré les machines virtuelles, vous pouvez
   > - Envisagez d’utiliser un partage de fichiers distinct pour les fichiers de sauvegarde pour préserver la capacité d’IOPS et d’espace de ce partage pour les fichiers de données et les fichiers journaux. Vous pouvez utiliser un partage de fichiers Premium ou Standard pour les fichiers de sauvegarde.
   > - Si vous utilisez Windows 2012 R2 ou versions antérieures, procédez de la même façon que pour monter votre partage de fichiers à utiliser comme témoin de partage de fichiers. 
 
-## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Étape 3 : Configurer le cluster de basculement avec le partage de fichiers
+## <a name="step-3-configure-the-failover-cluster"></a>Étape 3 : Configurer le cluster de basculement
 
 L’étape suivante consiste à configurer le cluster de basculement. Au cours de cette étape, vous allez effectuer les sous-étapes suivantes :
 

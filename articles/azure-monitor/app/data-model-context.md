@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 0351f4fe65745242da58d3c3fb2f9fbe5c722d06
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 893e1c3a58f4a62a1e0e9b734cc156b3d75d8779
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677455"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933064"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexte de télémétrie : Modèle de données Application Insights
 
@@ -96,7 +96,7 @@ Longueur maximale : 1 024
 
 ## <a name="account-id"></a>ID de compte
 
-Dans les applications multi-locataires, il s’agit de l’ID ou du nom du compte avec lequel l’utilisateur agit. C’est par exemple l’ID d’abonnement pour le portail Azure ou un nom de blogueur pour une plateforme de blog.
+Dans les applications multi-locataires, il s’agit de l’ID ou du nom du compte avec lequel l’utilisateur agit. C’est, par exemple, un ID d’abonnement pour le portail Azure ou un nom de blog pour une plateforme de blog.
 
 Longueur maximale : 1 024
 

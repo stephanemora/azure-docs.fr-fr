@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: c571a4f36372b250a05564182b240bc4007240a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977812"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899129"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Adresses IP utilisées par Application Insights et Log Analytics
 Le service [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) utilise plusieurs adresses IP. Vous devrez peut-être connaître ces adresses si l’application que vous surveillez est hébergée derrière un pare-feu.
@@ -56,6 +56,14 @@ Configuration de Status Monitor (nécessaire uniquement pour apporter des modifi
 
 ## <a name="availability-tests"></a>Tests de disponibilité
 Voici la liste des adresses à partir desquelles les [tests web de disponibilité](../../azure-monitor/app/monitor-web-app-availability.md) sont exécutés. Si vous souhaitez exécuter des tests web sur votre application, mais que votre serveur web est limité au service de clients spécifiques, vous devrez alors autoriser le trafic entrant depuis nos serveurs de test de disponibilité.
+
+Si vous utilisez des groupes de sécurité réseau Azure, ajoutez simplement une **règle de port d’entrée** pour autoriser le trafic à partir de tests de disponibilité Application Insights en sélectionnant **Balise de service** en tant que **Source**, et **ApplicationInsightsAvailability** en tant que **Balise du service source**.
+
+>[!div class="mx-imgBorder"]
+>![Sous Paramètres, sélectionnez Règles de sécurité de trafic entrant, puis Ajouter en haut de l’onglet ](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![Onglet Ajouter une règle de sécurité de trafic entrant](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Ouvrez les ports 80 (http) et 443 (https) pour le trafic entrant à partir de ces adresses (les adresses IP sont regroupées par emplacement) :
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 61bc77e7ac7671cd439eedea25eac11c91457aa9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3ea5b63642328db6996a322e64360c3af5d757b2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838715"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022475"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements de peering
 
@@ -45,7 +45,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Secteur public australien** |Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
 | **Europe** | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, Europe Ouest |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Genève, Londres, Londres2, Marseille, Milan, Munich, Newport(Pays de Galles), Oslo, Paris, Stavanger, Stockholm, Zurich |
 | **Amérique du Nord** |USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto |
-| **Asie** | Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Jakarta, Kuala Lumpur, Singapour, Singapour2, Taipei |
+| **Asie** | Asie Est, Asie Sud-Est | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapour, Singapour2, Taipei |
 | **Inde** | Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | Japon Ouest, Japon Est |Osaka, Tokyo |
 | **Océanie** | Australie Sud-Est, Australie Est |Auckland, Melbourne, Perth, Sydney, Sydney2 |
@@ -78,6 +78,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | --- | --- | --- | --- |
 | **[AARNet](https://www.aarnet.edu.au/network-and-services/connectivity-services/azure-expressroute)** |Prise en charge |Prise en charge |Melbourne, Sydney |
 | **[Airtel](https://www.airtel.in/business/#/)** | Prise en charge | Prise en charge | Chennai2, Mumbai2 |
+| **[AIS](http://business.ais.co.th/solution/microsoft-azure.html?category=cloud)** | Prise en charge | Prise en charge | Bangkok |
 | **[Aryaka Networks](https://www.aryaka.com/)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Hong Kong SAR, Sao Paulo, Seattle, Silicon Valley, Singapour, Tokyo, Washington DC |
 | **[Ascenty Data Centers](https://www.ascenty.com/en/cloud/microsoft-express-route)** |Prise en charge |Prise en charge |Sao Paulo |
 | **[AT&amp;T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Prise en charge |Prise en charge |Amsterdam, Chicago, Dallas, Londres, Silicon Valley, Singapour, Sydney, Tokyo, Toronto, Washington DC |
@@ -97,7 +98,7 @@ Le tableau suivant présente les emplacements, en fonction de chaque fournisseur
 | **du datamena** |Prise en charge |Prise en charge | Dubaï2 |
 | **eir** |Prise en charge |Prise en charge |Dublin|
 | **[Communications globales EPSILON](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Prise en charge |Prise en charge |Singapour, Singapour2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Prise en charge |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Genève, Hong Kong (R.A.S.), Londres, Londres2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapour, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Prise en charge |Prise en charge |Amsterdam, Atlanta, Chicago, Dallas, Dublin, Francfort, Genève, Hong Kong (R.A.S.), Londres, Londres2, Los Angeles, Melbourne, Miami, New York, Osaka, Paris, Sao Paulo, Seattle, Silicon Valley, Singapour, Stockholm, Sydney, Tokyo, Toronto, Washington DC |
 | **Etisalat UAE** |Prise en charge |Prise en charge |Dubaï|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Prise en charge |Prise en charge |Amsterdam, Amsterdam2, Dublin, Londres |
 | **FarEasTone** |Prise en charge |Prise en charge |Taipei|
@@ -210,6 +211,8 @@ Si votre fournisseur de connectivité ne se trouve pas dans la liste des section
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](https://www.nextdc.com/)
   * [PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure) 
+  * [Teraco](https://www.teraco.co.za/platform-teraco/africa-cloud-exchange/)
+
 * Demandez à votre fournisseur de connectivité d’étendre votre réseau à l’emplacement de peering de votre choix.
   * Vérifiez que votre fournisseur de connectivité étend votre connectivité avec une haute disponibilité pour éviter tout point de défaillance unique.
 * Commandez un circuit ExpressRoute avec échange en tant que fournisseur de connectivité pour se connecter à Microsoft.

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 02e2c0472a6ba7449229a5de5c6d8948be064644
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 511a8bb9d19caeb3e49105d7f94e75ddfe836f78
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845790"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019228"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partenaires ExpressRoute et emplacements de peering
 
@@ -44,7 +44,7 @@ Le tableau ci-dessous fournit une carte des régions Azure vers des emplacements
 | **Secteur public australien** | Australie Centre, Australie Centre 2 |Canberra, Canberra2 |
 | **Europe** | France Centre, France Sud, Allemagne Nord, Allemagne Centre-Ouest, Europe Nord, Norvège Est, Norvège Ouest, Suisse Nord, Suisse Ouest, Royaume-Uni Ouest, Royaume-Uni Sud, Europe Ouest |Amsterdam, Amsterdam2, Copenhague, Dublin, Francfort, Genève, Londres, Londres2, Marseille, Milan, Munich, Newport(Pays de Galles), Oslo, Paris, Stavanger, Stockholm, Zurich |
 | **Amérique du Nord** | USA Est, USA Ouest, USA Est 2, USA Ouest 2, USA Centre, USA Centre Sud, USA Centre Nord, USA Centre-Ouest, Canada Centre, Canada Est |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montréal, Québec, Toronto |
-| **Asie** | Asie Est, Asie Sud-Est |Hong Kong (R.A.S.), Jakarta, Kuala Lumpur, Singapour, Singapour2, Taipei |
+| **Asie** | Asie Est, Asie Sud-Est | Bangkok, Hong Kong, Hong Kong2, Jakarta, Kuala Lumpur, Singapour, Singapour2, Taipei |
 | **Inde** | Inde Ouest, Inde Centre, Inde Sud |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japon** | Japon Ouest, Japon Est |Osaka, Tokyo |
 | **Océanie** | Australie Sud-Est, Australie Est |Auckland, Melbourne, Perth, Sydney, Sydney2 | 
@@ -81,6 +81,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Amsterdam2** | [Interxion AMS8](https://www.interxion.com/Locations/amsterdam/schiphol/) | 1 | Europe Ouest | 10 G, 100 G | CenturyLink Cloud Connect, Colt, DE-CIX, euNetworks, Interxion, Orange, Vodafone |
 | **Atlanta** | [Equinix AT2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at2/) | 1 | n/a | n/a | Equinix, Megaport |
 | **Auckland** | [Vocus Group NZ Albany](https://www.vocus.co.nz/business/cloud-data-centres) | 2 | n/a | 10 G | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
+| **Bangkok** | [AIS](http://business.ais.co.th/solution/microsoft-azure.html?category=cloud) | 2 | n/a | 10 G | AIS |
 | **Busan** | [LG CNS](https://www.lgcns.com/datacenter) | 2 | Corée du Sud | n/a | LG CNS |
 | **Canberra** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Centre de l’Australie | 10 G, 100 G | CDC |
 | **Canberra2** | [CDC](https://cdcdatacentres.com.au/content/about-cdc) | 1 | Centre de l’Australie 2| 10 G, 100 G | CDC |
@@ -97,6 +98,7 @@ Le tableau suivant présente les emplacements de connectivité et les fournisseu
 | **Francfort** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Allemagne Centre-Ouest | 10 G, 100 G | Colt, DE-CIX, GEANT, Interxion, Megaport, Orange, Telia Carrier |
 | **Genève** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Suisse Ouest | 10 G, 100 G | Equinix, Megaport |
 | **Hong Kong (R.A.S.)** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asie Est | n/a | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, China Telecom Global, Equinix, InterCloud, Megaport, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telia Carrier, Verizon |
+| **Hong Kong2** | [MEGA-i](https://www.iadvantage.net/index.php/locations/mega-i) | 2 | n/a | 10 G | |
 | **Jakarta** | Telkom Indonesia | 4 | n/a | 10 G | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Afrique du Sud Nord | 10 G | British Telecom, Internet Solutions - Cloud Connect, Liquid Telecom, Orange, Teraco |
 | **Kuala Lumpur** | [TIME dotCom Menara AIMS](https://www.aims.com.my/co-location/points-of-presence.html) | 2 | n/a | n/a | TIME dotCom |
@@ -205,7 +207,7 @@ Si vous êtes à distance et que vous n’avez pas de connectivité par fibre ou
 | **Le Cap** | Teraco | MTN |
 | **Chicago** | Equinix| Crown Castle, Spectrum Enterprise, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Crown Castle, Data Foundry, Spectrum Enterprise, Transtelco |
-| **Francfort** | Interxion | BICS, Cinia, Nianet, QSC AG, Telekom Deutschland GmbH |
+| **Francfort** | Interxion | BICS, Cinia, Equinix, Nianet, QSC AG, Telekom Deutschland GmbH |
 | **Hambourg** | Equinix | Cinia |
 | **Hong Kong (R.A.S.)** | Equinix | Chief, Macroview Telecom |
 | **Johannesburg** | Teraco | MTN |

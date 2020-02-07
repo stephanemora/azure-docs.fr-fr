@@ -3,7 +3,7 @@ title: Gérer les enregistrements DNS dans Azure DNS avec Azure PowerShell | Mic
 description: Gestion des jeux d'enregistrements DNS et des enregistrements dans Azure DNS lorsque votre domaine est hébergé dans Azure DNS. Toutes les commandes PowerShell pour les opérations sur les jeux d'enregistrements et les enregistrements.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: allensu
-ms.openlocfilehash: c11a5c4a3cfe18fbc203ad641ab1de866915bcc4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211685"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932544"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gérer les enregistrements et jeux d’enregistrements DNS dans Azure DNS à l’aide d’Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](dns-operations-recordsets-portal.md)
 > * [Azure Classic CLI](dns-operations-recordsets-cli-nodejs.md)
-> * [Interface de ligne de commande Azure](dns-operations-recordsets-cli.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 Cet article explique comment gérer les enregistrements DNS pour votre zone DNS avec Azure PowerShell. Vous pouvez également gérer les enregistrements DNS à l’aide de l’[interface de ligne de commande Azure (Azure CLI)](dns-operations-recordsets-cli.md) multiplateforme ou via le [portail Azure](dns-operations-recordsets-portal.md).
@@ -110,7 +110,7 @@ New-AzDnsRecordSet -Name "test-caa" -RecordType CAA -ZoneName "contoso.com" -Res
 ### <a name="create-a-cname-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements CNAME avec un seul enregistrement
 
 > [!NOTE]
-> Les standards DNS n’autorisent pas la présence d’enregistrements CNAME ou de jeux d’enregistrements contenant plusieurs enregistrements à l’apex (sommet) d’une zone (`-Name '@'`).
+> Les normes DNS n’autorisent pas la présence d’enregistrements CNAME ou de jeux d’enregistrements contenant plusieurs enregistrements à l’apex (sommet) d’une zone (`-Name '@'`).
 > 
 > Pour plus d’informations, voir [Enregistrements CNAME](dns-zones-records.md#cname-records).
 
@@ -136,7 +136,7 @@ New-AzDnsRecordSet -Name "test-ns" -RecordType NS -ZoneName "contoso.com" -Resou
 
 ### <a name="create-a-ptr-record-set-with-a-single-record"></a>Créer un jeu d’enregistrements PTR avec un seul enregistrement
 
-Dans ce cas, « my-arpa-zone.com » indique la zone ARPA de recherche inversée représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP. Le nom d’enregistrement « 10 » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
+Dans ce cas, « my-arpa-zone.com » indique la zone ARPA de recherche inversée représentant votre plage d’adresses IP. Chaque enregistrement PTR défini dans cette zone correspond à une adresse IP figurant dans cette plage d’adresses IP. Le nom d’enregistrement « 10 » est le dernier octet de l’adresse IP dans cette plage d’IP représentée par cet enregistrement.
 
 ```powershell
 New-AzDnsRecordSet -Name 10 -RecordType PTR -ZoneName "my-arpa-zone.com" -ResourceGroupName "MyResourceGroup" -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -Ptrdname "myservice.contoso.com") 
@@ -230,7 +230,7 @@ Pour ajouter un enregistrement à un jeu d’enregistrements existant, suivez le
     Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-L’applet de commande `Set-AzDnsRecordSet` *remplace* le jeu d’enregistrements existant dans Azure DNS (et tous les enregistrements qu’il contient) par le jeu d’enregistrements spécifié. Des [vérifications ETag](dns-zones-records.md#etags) permettent d’éviter les conflits de modifications simultanées. Le commutateur facultatif `-Overwrite` permet de supprimer ces vérifications.
+La cmdlet `Set-AzDnsRecordSet` *remplace* le jeu d’enregistrements existant dans Azure DNS (et tous les enregistrements qu’il contient) par le jeu d’enregistrements spécifié. Des [vérifications ETag](dns-zones-records.md#etags) permettent d’éviter les conflits de modifications simultanées. Le commutateur facultatif `-Overwrite` permet de supprimer ces vérifications.
 
 Vous pouvez également *canaliser* cette séquence d’opérations, c’est-à-dire transmettre l’objet jeu d’enregistrements en utilisant le canal plutôt qu’en le transmettant en tant que paramètre :
 

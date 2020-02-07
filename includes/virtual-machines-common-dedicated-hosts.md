@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833899"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013904"
 ---
 ## <a name="limitations"></a>Limites
 
 - Actuellement, les hôtes dédiés ne prennent pas en charge les groupes de machines virtuelles identiques.
-- Les séries de machines virtuelles suivantes sont prises en charge : DSv3 et ESv3. 
+- Les séries de machines virtuelles suivantes sont prises en charge : DSv3, ESv3 et Fsv2. 
 
 ## <a name="benefits"></a>Avantages 
 
@@ -73,7 +73,7 @@ L’infrastructure qui prend en charge vos machines virtuelles peut parfois êtr
 **Le contrôle de maintenance** offre aux clients la possibilité d’ignorer les mises à jour régulières de la plateforme planifiées sur leurs hôtes dédiés, puis de les appliquer au moment de leur choix dans une fenêtre de 35 jours.
 
 > [!NOTE]
->  Le contrôle de maintenance est actuellement en phase de préversion limitée et nécessite un processus d’intégration. Demandez à essayer cette préversion en soumettant une [demande de nomination](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
+>  Le contrôle de maintenance est actuellement disponible en préversion publique. Pour plus d’informations, voir **Contrôler les mises à jour avec le contrôle de maintenance à l’aide de [CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) ou de [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)** .
 
 ## <a name="capacity-considerations"></a>Considérations relatives à la capacité
 

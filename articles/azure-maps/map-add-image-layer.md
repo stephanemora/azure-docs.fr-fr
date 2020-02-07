@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d2260e5c9e4125be1c4b0fa5e9d7c39a8e03d43f
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cfdf7dfd4c16f70065e338f8983d2124d3f6f0ef
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911191"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933210"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Ajouter une couche d’images à une carte
 
@@ -60,7 +60,7 @@ Voici l’exemple complet du code précédent.
 <iframe height='500' scrolling='no' title='Couche d’images simple' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/eQodRo/'>Simple Image Layer</a> Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="import-a-kml-ground-overlay"></a>Importer un calque de relief KML
+## <a name="import-a-kml-file-as-ground-overlay"></a>Importer un fichier KML en tant que calque de relief
 
 L’exemple suivant montre comment superposer les informations de calque de relief KML comme couche d’images sur la carte. Les calques de relief KML fournissent les coordonnées des points cardinaux ainsi qu’une rotation à gauche, alors que la couche d’images attend des coordonnées pour chaque angle de l’image. Le calque de relief KML de cet exemple est celui de la cathédrale de Chartres et a été tiré de [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 

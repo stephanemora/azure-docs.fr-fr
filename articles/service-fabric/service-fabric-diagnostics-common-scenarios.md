@@ -1,16 +1,14 @@
 ---
 title: Diagnostiquer des scénarios courants avec Azure Service Fabric
 description: Découvrez comment résoudre les problèmes liés aux scénarios de supervision et de diagnostic courants au sein des applications Azure Service Fabric.
-author: srrengar
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645784"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906949"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostiquer des scénarios courants avec Service Fabric
 
@@ -134,6 +132,7 @@ Consultez ces liens pour obtenir la liste complète des compteurs de performance
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* [Rechercher des erreurs d’activation du package de code commun](./service-fabric-diagnostics-code-package-errors.md)
 * [Configurer des alertes dans AI](../azure-monitor/app/alerts.md) pour être averti des changements de performances ou d’utilisation
 * La [détection intelligente dans Application Insights](../azure-monitor/app/proactive-diagnostics.md) effectue une analyse proactive de la télémétrie envoyée à AI pour vous avertir d’éventuels problèmes de performances
 * Découvrez plus en détail la [création d’alertes](../log-analytics/log-analytics-alerts.md) dans les journaux Azure Monitor pour faciliter la détection et les diagnostics.

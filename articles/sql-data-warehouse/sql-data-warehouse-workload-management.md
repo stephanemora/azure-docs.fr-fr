@@ -11,12 +11,12 @@ ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940580"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935410"
 ---
 # <a name="what-is-workload-management"></a>Qu’est-ce que la gestion des charges de travail ?
 
@@ -31,7 +31,7 @@ Le concept de « charge de travail d’entrepôt de données » fait référen
 - L’exportation de données à partir de l’entrepôt de données
 
 La capacité de performances d’un entrepôt de données est déterminée par les [unités de l’entrepôt de données](what-is-a-data-warehouse-unit-dwu-cdwu.md).
-- Pour afficher les ressources affectées pour tous les profils de performances, consultez [Limites de mémoire et de concurrencememory-concurrency-limits.md]).
+- Pour afficher les ressources allouées pour tous les profils de performances, voir [Limites de mémoire et de concurrence](memory-concurrency-limits.md).
 - Pour ajuster la capacité, vous pouvez [l’augmenter ou la réduire](quickstart-scale-compute-portal.md).
 
 

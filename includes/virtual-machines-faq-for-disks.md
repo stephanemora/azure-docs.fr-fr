@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887530"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961350"
 ---
 Dans cet article, nous allons répondre à certaines questions fréquentes sur Azure Disques managés et les disques SSD Premium Azure.
 
@@ -429,7 +429,7 @@ Oui.
 
 **Quelles sont les plus grandes tailles de disque prise en charge par Sauvegarde Azure et Azure Site Recovery ?**
 
-La plus grande taille de disque prise en charge par Sauvegarde Azure et Azure Site Recovery est de 4 Tio. La prise en charge de disques plus grands (jusqu’à 32 Tio) n’est pas encore disponible.
+La plus grande taille de disque prise en charge par Sauvegarde Azure est 32 Tio (4 Tio pour les disques chiffrés). La plus grande taille de disque prise en charge par Azure Site Recovery est 8 Tio. La prise en charge de disques plus grands (jusqu’à 32 Tio) n’est pas encore disponible dans Azure Site Recovery.
 
 **Quels sont les tailles de machines virtuelles recommandées pour les disques de grande taille (> 4 Tio) pour les disques SSD Standard et HDD Standard afin de bénéficier d’IOPS et d’une bande passante optimisées ?**
 

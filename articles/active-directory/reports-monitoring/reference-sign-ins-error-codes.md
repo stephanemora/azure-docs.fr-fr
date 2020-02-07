@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294097"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898888"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Codes d’erreur du rapport d’activité de connexion 
 
@@ -143,6 +143,7 @@ Vous pouvez également accéder par programme aux données de connexion à l’a
 |53002|L’application utilisée n’est pas une application approuvée pour l’accès conditionnel. L’utilisateur doit utiliser une des options de la liste des applications approuvées afin d’obtenir l’accès.|
 |53003|L’accès a été bloqué en raison de stratégies d’accès conditionnel.|
 |53004|L’utilisateur doit terminer le processus d’inscription de l’authentification multifacteur pour accéder à ce contenu. L’utilisateur doit s’inscrire à l’authentification multifacteur.|
+|53032|Le compte a été bloqué en raison des stratégies d’Azure AD Identity Protection.|
 |65 001|L’application X n’est pas autorisée à accéder à l’application Y, ou l’autorisation a été révoquée. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation interactive pour cet utilisateur et cette ressource. Ou l’utilisateur ou l’administrateur n’ont pas accepté d’utiliser l’application avec ID X. Envoyez une demande d’autorisation à l’administrateur du locataire pour agir au nom de l’application : Y pour la ressource : Z.|
 |65004|L’utilisateur a refusé de donner son consentement pour accéder à l’application. Demandez à l’utilisateur de réessayer de se connecter et de donner son consentement à l’application.|
 |65005|La liste d’accès aux ressources requise par l’application ne contient pas d’applications détectables par la ressource ; l’application cliente a demandé un accès à la ressource qui n’était pas spécifié dans sa liste d’accès aux ressources requise ; le service Graph a renvoyé une requête incorrecte ou la ressource est introuvable. Si l’application prend en charge SAML, vous avez peut-être configuré l’application avec un identificateur incorrect (entité). Testez la résolution décrite pour SAML en utilisant le lien ci-dessous : [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|

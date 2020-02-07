@@ -3,12 +3,12 @@ title: Ressources Azure – QnA Maker
 description: QnA Maker utilise plusieurs sources Azure, dont chacune a un objectif différent. Comprendre comment elles sont utilisées individuellement vous permet de planifier et de sélectionner le niveau tarifaire approprié ou de savoir quand modifier celui-ci. Comprendre comment elles sont utilisées en combinaison vous permet d’épingler et de résoudre des problèmes quand ils se produisent.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 2b3a06122ce6123cd8edcedf5dfbf38c3c12218a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77aced459c7731a2cac432538cfc66ed9ce83f9d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843492"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902067"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Ressources Azure pour QnA Maker
 
@@ -111,6 +111,10 @@ La première base de connaissances créée dans la ressource QnA Maker est utili
 La ressource QnA Maker donne accès aux API de création et de publication, ainsi qu’à la deuxième couche de classement (ranker #2) basé sur le traitement en langage naturel des ensembles de questions-réponses au moment de l’exécution.
 
 Le deuxième classement applique des filtres intelligents qui peuvent inclure des métadonnées et des invites de suivi.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>Paramètres de configuration de ressources QnA Maker
+
+Lorsque vous créez une base de connaissances dans le [portail QnA Maker](https://qnamaker.ai), le paramètre **Langue** est le seul appliqué au niveau de la ressource. Vous sélectionnez la langue lorsque vous créez la première base de connaissances pour la ressource. 
 
 ### <a name="app-service-and-app-service-plan"></a>App service et plan App service
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dc3bb6882963205e17e37f52ec9dcdffecdf9e21
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 00b8e6d44ed8449aa4ddf8716039c8c85c558b8f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843124"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901745"
 ---
 # <a name="manage-qna-maker-resources"></a>Gérer les ressources QnA Maker
 
@@ -97,7 +97,8 @@ Les clés de point de terminaison peuvent être gérées à partir du [portail Q
 
 2. Affichez ou réinitialisez vos clés :
 
-    ![Gestionnaire de la clé de point de terminaison](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+    > [!div class="mx-imgBorder"]
+    > [![Afficher, copier ou définir la clé de point de terminaison dans les Paramètres du service](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)](../media/qnamaker-how-to-key-management/Endpoint-keys1.png#lightbox)
 
     >[!NOTE]
     >Actualisez vos clés si vous pensez qu’elles ont été compromises. Cette opération peut nécessiter des modifications correspondantes de votre code de bot ou d’application cliente.
@@ -136,7 +137,7 @@ La ressource **App Service** de QnA Maker utilise la ressource Recherche cogniti
 1. Sélectionnez **Paramètres**, puis **Configuration**. Cela permet d’afficher tous les paramètres existants de l’App Service de QnA Maker.
 
     > [!div class="mx-imgBorder"]
-    > ![Capture d’écran du portail Azure montrant les paramètres de configuration d’App Service](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+    > [![Capture d’écran du portail Azure montrant les paramètres de configuration d’App Service](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png#lightbox)
 
 1. Modifiez les valeurs des clés suivantes :
 
@@ -146,7 +147,7 @@ La ressource **App Service** de QnA Maker utilise la ressource Recherche cogniti
 1. Pour utiliser les nouveaux paramètres, vous devez redémarrer l’App Service. Sélectionnez **Vue d’ensemble**, puis **Redémarrer**.
 
     > [!div class="mx-imgBorder"]
-    > ![Capture d’écran de Portail Azure redémarrant App Service après modification des paramètres de configuration](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
+    > [![Capture d’écran du Portail Azure redémarrant App Service après modification des paramètres de configuration](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Si vous créez un service QnA par le biais de modèles Azure Resource Manager, vous pouvez créer toutes les ressources et contrôler la création de l’App Service pour utiliser un service de recherche existant.
 
