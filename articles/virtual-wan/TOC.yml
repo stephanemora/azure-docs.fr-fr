@@ -4,6 +4,12 @@
   items:
     - name: À propos du WAN virtuel
       href: virtual-wan-about.md
+    - name: Architecture
+      items:
+        - name: Migrer vers Virtual WAN
+          href: migrate-from-hub-spoke-topology.md
+        - name: Architecture du réseau de transit global
+          href: virtual-wan-global-transit-network-architecture.md
 - name: Tutoriels
   items:
     - name: Créer une connexion de site à site
@@ -18,12 +24,6 @@
       href: virtual-wan-locations-partners.md
     - name: Stratégies IPsec
       href: virtual-wan-ipsec.md
-    - name: Architecture
-      items:
-        - name: Migrer vers Virtual WAN
-          href: migrate-from-hub-spoke-topology.md
-        - name: Architecture du réseau de transit global
-          href: virtual-wan-global-transit-network-architecture.md
 - name: Guides pratiques
   items:
     - name: Connecter une passerelle de réseau virtuel à Virtual WAN

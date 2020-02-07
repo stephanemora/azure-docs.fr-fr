@@ -5,10 +5,10 @@
   items:
     - name: "Qu’est-ce que la gestion d’applications cloud et l’authentification unique\_?"
       href: what-is-application-management.md
-    - name: "Qu’est-ce que le provisionnement d’application\_?"
-      href: user-provisioning.md
     - name: "Qu’est-ce que le Proxy d’application pour les applications locales\_?"
       href: what-is-application-proxy.md
+    - name: "Qu’est-ce que le provisionnement d’application\_?"
+      href: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
 - name: Démarrages rapides
   items:
     - name: Ajouter une application cloud à partir de la galerie
@@ -72,16 +72,6 @@
               href: howto-saml-token-encryption.md
             - name: Portails d’utilisateurs finaux
               href: end-user-experiences.md
-    - name: Provisionnement d’application (SCIM)
-      items:
-        - name: Comment fonctionne le provisionnement
-          href: how-provisioning-works.md
-        - name: Planifier un déploiement d’attribution automatique d’utilisateurs
-          href: plan-auto-user-provisioning.md
-    - name: Provisionnement HR cloud
-      items:
-        - name: Planifier un déploiement de provisionnement d’utilisateurs HR cloud
-          href: plan-cloud-hr-provision.md
     - name: Proxy d’application pour applications locales
       items:
         - name: Application Proxy (Proxy d’application)
@@ -237,60 +227,6 @@
                   href: access-panel-extension-problem-installing.md
                 - name: Erreur lors de l’utilisation de l’accès aux applications en libre-service
                   href: access-panel-troubleshoot-self-service-access.md
-    - name: Provisionnement d’application (SCIM)
-      items:
-        - name: Configurer le provisionnement pour une application de galerie
-          href: configure-automatic-user-provisioning-portal.md
-        - name: Créer un point de terminaison SCIM et configurer le provisionnement
-          href: use-scim-to-provision-users-and-groups.md
-        - name: Modifier les mappages d’attributs
-          items:
-            - name: Personnaliser des mappages d’attributs
-              href: Customize-application-attributes.md
-            - name: Écrire des expressions pour les mappages d’attributs
-              href: functions-for-customizing-application-data.md
-        - name: Inclure ou exclure des utilisateurs et des groupes de l’étendue
-          items:
-            - name: Étendue des utilisateurs ou des groupes à provisionner
-              href: define-conditional-rules-for-provisioning-user-accounts.md
-            - name: Ignorer la suppression pour les utilisateurs hors limites
-              href: skip-out-of-scope-deletions.md
-        - name: Superviser et créer des rapports sur le provisionnement
-          items:
-            - name: Superviser les performances et l’état de provisionnement
-              href: application-provisioning-when-will-provisioning-finish-specific-user.md
-            - name: Créer un rapport sur le provisionnement d’applications
-              href: check-status-user-account-provisioning.md
-            - name: Exporter et importer votre configuration
-              href: export-import-provisioning-configuration.md
-        - name: Automatiser la configuration avec MS Graph
-          href: application-provisioning-configure-api.md
-        - name: Résoudre les problèmes de provisionnement d’utilisateurs
-          items:
-            - name: Résoudre les problèmes de provisionnement d’applications
-              href: application-provisioning-config-problem.md
-            - name: État de la quarantaine
-              href: application-provisioning-quarantine-status.md
-            - name: Journaux d’approvisionnement
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
-            - name: Synchroniser un attribut pour le mappage - application de galerie
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Provisionnement très lent - application de galerie
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Problème d’autorisation (impossible d’enregistrer les informations d’identification de l’administrateur)
-              href: application-provisioning-config-problem-storage-limit.md
-            - name: Les utilisateurs ne sont pas provisionnés
-              href: application-provisioning-config-problem-no-users-provisioned.md
-            - name: Les mauvais utilisateurs ont été provisionnés
-              href: application-provisioning-config-problem-wrong-users-provisioned.md
-            - name: Travail de provisionnement en quarantaine
-              href: application-provisioning-quarantine-status.md
-            - name: Attribut source manquant
-              href: user-provisioning-sync-attributes-for-mapping.md
-            - name: Le travail de provisionnement est lent
-              href: application-provisioning-when-will-provisioning-finish.md
-            - name: Journaux d’approvisionnement
-              href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
     - name: Proxy d’application pour applications locales
       items:
         - name: Configurer des connecteurs
@@ -391,28 +327,10 @@
           href: secure-hybrid-access.md
 - name: Informations de référence
   items:
-    - name: Provisionnement d’application (SCIM)
-      items:
-        - name: Écrire des expressions pour les mappages d’attributs
-          href: functions-for-customizing-application-data.md
-        - name: Choix d’une méthode de provisionnement
-          href: isv-automatic-provisioning-multi-tenant-apps.md
-    - name: Provisionnement HR cloud
-      items:
-        - name: Informations de référence sur l’attribut SuccessFactors
-          href: sap-successfactors-attribute-reference.md
-        - name: Informations de référence sur l’attribut Workday
-          href: workday-attribute-reference.md
-    - name: Agent de provisionnement Azure AD Connect
-      items:
-        - name: Historique des versions de l’agent de provisionnement
-          href: provisioning-agent-release-version-history.md
-    - name: Proxy d’application pour applications locales
-      items:
-        - name: Questions fréquentes (FAQ) sur le proxy d’application
-          href: application-proxy-faq.md
-        - name: Historique des versions du proxy d’application
-          href: application-proxy-release-version-history.md
+    - name: Questions fréquentes (FAQ) sur le proxy d’application
+      href: application-proxy-faq.md
+    - name: Historique des versions du proxy d’application
+      href: application-proxy-release-version-history.md
 - name: Ressources
   items:
     - name: Options d’aide et de support pour les développeurs

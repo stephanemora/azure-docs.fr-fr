@@ -8,6 +8,8 @@
       href: terminology.md
     - name: Questions fréquentes (FAQ)
       href: faq.md
+    - name: Nouveautés
+      href: whats-new.md
 - name: Démarrages rapides
   items:
     - name: Superviser une ressource azure
