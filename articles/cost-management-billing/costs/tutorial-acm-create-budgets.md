@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/12/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 12735a9575328e404f5723fa305448eb21ca85b2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bb02c4903348a3b8c1d129f02be64109ec0f48eb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986213"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769815"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -87,6 +87,18 @@ Après avoir créé un budget, il est indiqué dans l’analyse des coûts. L’
 ![Exemple de budget et de dépenses affichés dans l’analyse des coûts](./media/tutorial-acm-create-budgets/cost-analysis.png)
 
 Dans l’exemple précédent, vous avez créé un budget pour un abonnement. Toutefois, vous pouvez également créer un budget pour un groupe de ressources. Si vous voulez créer un budget pour un groupe de ressources, accédez à **Gestion des coûts + facturation** &gt; **Abonnements** &gt; sélectionnez un abonnement > **Groupes de ressource** > sélectionnez un groupe de ressources > **Budgets** > puis **Ajouter** un budget.
+
+## <a name="costs-in-budget-evaluations"></a>Coûts des évaluations de budget
+
+Les évaluations des coûts budgétaires incluent désormais les données d’instance réservée et d’achat. Si les frais vous concernent, vous pouvez recevoir des alertes à mesure que des frais sont incorporés dans vos évaluations. Nous vous recommandons de vous connecter au [portail Azure](https://portal.azure.com) pour vérifier que les seuils budgétaires sont configurés correctement afin de tenir compte des nouveaux coûts. Vos frais facturés Azure ne changent pas. Les budgets sont désormais évalués pour un ensemble plus complet de vos coûts. Si les frais ne vous concernent pas, le comportement de votre budget reste inchangé.
+
+Si vous souhaitez filtrer les nouveaux coûts afin que les budgets soient évalués par rapport aux seuls frais de consommation Azure de premier tiers, ajoutez les filtres suivants à votre budget :
+
+- Type de serveur de publication : Azure
+- Type de frais : Usage
+
+Les évaluations des coûts budgétaires sont basées sur le coût réel. Elles n’incluent pas l’amortissement. Pour plus d’informations sur les options de filtrage mises à votre disposition dans les budgets, consultez [Comprendre les options de regroupement et de filtrage](quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options).
+
 
 ## <a name="trigger-an-action-group"></a>Déclencher un groupe d’actions
 

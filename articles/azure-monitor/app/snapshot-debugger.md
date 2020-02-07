@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
-ms.reviewer: brahmnes
-ms.openlocfilehash: 681190a23fd09402ae96c328b7d98044baf3444e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: cweining
+ms.openlocfilehash: 44b4a7bb5910f7f2d89a9f76e21ccfcacda667fb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406389"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932569"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
-Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.
+Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée d’[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](../../azure-monitor/app/asp-net-exceptions.md) dans le portail Application Insights.
 
 Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les instantanés avec Visual Studio 2019 Entreprise. Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
 
@@ -33,7 +33,7 @@ Les environnements suivants sont pris en charge :
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant la famille de systèmes d’exploitation 4 ou ultérieur
 * [Services Azure Service Fabric](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou ultérieur
 * [Machines virtuelles Azure et groupes de machines virtuelles identiques](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou ultérieur
-* [Machines locales physiques ou virtuelles](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou version ultérieure
+* [Machines locales physiques ou virtuelles](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) exécutant Windows Server 2012 R2 ou version ultérieure, ou Windows 8.1 ou version ultérieure
 
 > [!NOTE]
 > Les applications clientes (par exemple, WPF, Windows Forms ou UWP) ne sont pas prises en charge.

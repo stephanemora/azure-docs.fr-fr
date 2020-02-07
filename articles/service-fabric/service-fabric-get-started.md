@@ -3,14 +3,14 @@ title: Configurer un environnement de développement Windows
 description: Installez le runtime, le kit de développement logiciel et créez un cluster de développement local. Une fois la configuration terminée, vous serez prêt à générer des applications sur Windows.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/28/2020
 ms.custom: sfrev
-ms.openlocfilehash: e65ba228540529ec1f852442ebc838a60631fa5c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 70a819636b786cedce5bbd0abd0d2594738cbfb9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750212"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904108"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Préparer votre environnement de développement sur Windows
 
@@ -68,8 +68,8 @@ Si vous avez uniquement besoin du SDK, vous pouvez installer ce package :
 
 Les versions actuelles sont les suivantes :
 
-* Kit de développement logiciel (SDK) et outils Service Fabric 4.0.457
-* Runtime Service Fabric 7.0.457
+* Kit de développement logiciel (SDK) et outils Service Fabric 4.0.464
+* Runtime Service Fabric 7.0.464
 
 Pour obtenir la liste des versions prises en charge, consultez [Versions de Service Fabric](service-fabric-versions.md).
 

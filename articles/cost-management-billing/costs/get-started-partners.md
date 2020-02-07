@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/16/2020
+ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: aparnag
+ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293910"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76842416"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Prise en main d’Azure Cost Management pour les partenaires
 
@@ -100,9 +100,9 @@ Les partenaires peuvent utiliser l’étendue pour effectuer un rapprochement av
 
 ### <a name="customer-scope"></a>Étendue de client
 
-Les partenaires utilisent l’étendue pour gérer les coûts associés aux clients intégrés au contrat client Microsoft. L’étendue permet aux partenaires de voir les coûts avant impôts pour un client spécifique. Vous pouvez également filtrer les coûts avant impôts pour un abonnement, un groupe de ressources ou une ressource spécifique.
+Les partenaires utilisent l’étendue pour gérer les coûts associés aux clients intégrés au contrat client Microsoft. L’étendue permet aux partenaires de voir les coûts avant impôts pour un client spécifique dans une devise de facturation. Vous pouvez également filtrer les coûts avant impôts pour un abonnement, un groupe de ressources ou une ressource spécifique.
 
-L’étendue de client n’inclut pas les clients bénéficiant de l’offre CSP actuelle. L’étendue comprend uniquement les clients qui disposent d’un contrat client Microsoft. Les coûts de droit (et non les coûts d’utilisation d’Azure) pour les clients de l’offre CSP actuelle sont disponibles dans les étendues de compte de facturation et de profil de facturation quand vous appliquez le filtre client.
+L’étendue de client n’inclut pas les clients bénéficiant de l’offre CSP actuelle. L’étendue comprend uniquement les clients qui disposent d’un contrat client Microsoft. Les coûts de droit (et non les coûts d’utilisation d’Azure) pour les clients de l’offre CSP actuelle sont disponibles dans les étendues de compte de facturation et de profil de facturation quand vous appliquez le filtre client. Les budgets définis dans cette étendue sont exprimés dans la devise de facturation.
 
 ## <a name="partner-access-to-billing-scopes-in-cost-management"></a>Accès des partenaires aux étendues de facturation dans Cost Management
 
@@ -189,7 +189,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | productID | Identificateur du produit qui a accumulé des frais par consommation ou achat. Il s’agit de la clé concaténée de productID et SKuID, comme indiqué dans l’Espace partenaires. | ID du produit. |
 | product | Nom du produit qui a accumulé des frais par consommation ou achat, comme indiqué dans la facture. | Nom du produit dans le catalogue. |
 | serviceFamily | Affiche la famille de services du produit acheté ou facturé. Par exemple, le stockage ou le calcul. | N/A |
-| productOrderID | Identificateur de la ressource ou nom du plan Azure auquel appartient l’abonnement. Par exemple, « Azure Plan ». | N/A |
+| productOrderID | Identificateur de la ressource ou nom du plan Azure auquel appartient l’abonnement. Par exemple, « Azure Plan ». | CommerceSubscriptionID |
 | productOrderName | Nom du plan Azure auquel appartient l’abonnement. Par exemple, « Azure Plan ». | N/A|
 | consumedService | Service consommé (taxonomie héritée) tel qu’il est utilisé dans les détails sur l’utilisation d’EA hérités. | Service affiché dans l’Espace partenaires. Par exemple, Microsoft.Storage, Microsoft.Compute et microsoft.operationalinsights. |
 | meterID | Identificateur contrôlé pour la consommation mesurée. | ID du compteur utilisé. |
@@ -197,7 +197,7 @@ Les champs de données suivants sont disponibles dans les fichiers de détails s
 | meterCategory | Identifie le service de niveau supérieur pour l’utilisation. | Service de niveau supérieur pour l’utilisation. |
 | meterSubCategory | Définit le type ou la sous-catégorie de service Azure qui peuvent affecter le tarif. | Type de service Azure pouvant affecter le tarif.|
 | meterRegion | Identifie l’emplacement du centre de données pour certains services dont le prix est basé sur cet emplacement. | Emplacement régional du centre de données pour les services où cela s’avère possible et le cas échéant. |
-| ID d’abonnement | Identificateur unique de l’abonnement Azure généré par Microsoft. | N/A |
+| ID d’abonnement | Identificateur unique de l’abonnement Azure généré par Microsoft. | EntitlementID |
 | subscriptionName | Nom de l’abonnement Azure. | N/A |
 | Terme | Affiche le terme de validité de l’offre. Par exemple, les instances réservées affichent 12 mois d’une période annuelle de l’instance réservée. Pour les achats ponctuels ou récurrents, cette période indique un mois pour SaaS, la Place de marché Azure et le support. Cela ne s’applique pas à la consommation d’Azure. | N/A |
 | publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | Type de serveur de publication qui identifie le serveur de publication en tant que premier tiers, revendeur tiers ou agence tierce. | N/A |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: c170a6a1a731a648c16e0081e760947256df8a0e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f3a5232f8c5bfbf3f2e81ba52607406f8a038b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985369"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76843886"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organiser les coûts en personnalisant votre compte de facturation
 
@@ -59,13 +59,13 @@ Cette section décrit des scénarios courants pour organiser les coûts et les s
 
 |Scénario  |Structure  |
 |---------|---------|
-|Contoso est une petite entreprise qui a besoin d’une facture mensuelle unique, mais qui regroupe les coûts en fonction du service concerné : service marketing ou service financier.  | Un profil de facturation pour Contoso et une section de facture pour chaque service marketing et financier. |
+|Contoso est une petite entreprise qui a besoin d’une facture mensuelle unique, mais qui regroupe les coûts en fonction du service concerné : marketing ou ingénierie.  | Un profil de facturation pour Contoso et une section de facture pour chaque service marketing et ingénierie. |
 
 ![Graphique d’informations pour un scénario avec facturation simple](./media/mca-section-invoice/organize-billing-scenario2.png)
 
 |Scénario  |Structure  |
 |---------|---------|
-|Fabrikam est une entreprise de taille moyenne nécessitant des factures distinctes pour ses services d’ingénierie et de marketing. Pour le service d’ingénierie, elle souhaite regrouper les coûts en fonction des environnements : production et développement.  | Un profil de facturation pour chaque service marketing et financier. Pour le service marketing, une section de facture pour chaque environnement de production et de développement. |
+|Fabrikam est une entreprise de taille moyenne nécessitant des factures distinctes pour ses services d’ingénierie et de marketing. Pour le service d’ingénierie, elle souhaite regrouper les coûts en fonction des environnements : production et développement.  | Un profil de facturation pour chaque service marketing et ingénierie. Pour le service ingénierie, une section de facture pour chaque environnement de production et de développement. |
 
 ![Graphique d’informations pour un scénario avec facturation simple](./media/mca-section-invoice/organize-billing-scenario3.png)
 

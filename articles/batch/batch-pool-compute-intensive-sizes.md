@@ -2,8 +2,8 @@
 title: Utiliser des machines virtuelles Azure nécessitant beaucoup de ressources système avec Batch
 description: Découvrez comment tirer parti des tailles de machines virtuelles HPC et GPU dans des pools Azure Batch Apprenez-en davantage sur les dépendances du système d’exploitation et découvrez plusieurs exemples de scénarios.
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.author: jushiman
-ms.openlocfilehash: 1fb490c6db5115edf32ff2562e43cf1084e0a6c8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 17cd9db1e86a66630d3b93c8295915933abb1ec2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026799"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023597"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Utiliser des instances RDMA ou GPU dans des pools Batch
 

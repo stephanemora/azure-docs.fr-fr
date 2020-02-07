@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: banders
-ms.openlocfilehash: 2fadd0b6eb0951031a9d577b2fd3a3d497076dd8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: dfee9218f1e65189117c3d37808a303cf7568cd7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75985077"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76846229"
 ---
 # <a name="account-administrator-tasks-in-the-azure-portal"></a>Tâches d’administrateur de compte dans le portail Azure
 
@@ -29,13 +29,18 @@ Vous devez être l’administrateur de compte pour effectuer l’une de ces tâc
 
 ## <a name="navigate-to-your-subscriptions-payment-methods"></a>Accéder aux modes de paiement de votre abonnement
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur de compte. 
+
 1. Recherchez **Gestion des coûts + facturation**.
     
     ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/account-admin-tasks/search-bar.png)
 
-1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement auquel vous voulez ajouter la carte de crédit.
-    ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement auquel vous voulez ajouter la carte de crédit. 
+   
+   ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-billing-overview-x.png)
+   
+   > [!NOTE]
+   > Si certains de vos abonnements ne s’affichent pas ici, c’est peut-être parce que vous avez modifié le répertoire de l’abonnement à un moment donné. Pour ces abonnements, vous devez faire basculer le répertoire vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2. 
 
 1. Sélectionnez **Modes de paiement**.
 
@@ -119,10 +124,13 @@ La limite de dépense n’est pas disponible pour les abonnements impliquant un 
 
     ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/account-admin-tasks/search-bar.png)
 
-1. Dans la liste **Mes abonnements**, sélectionnez votre abonnement Visual Studio Enterprise.
-    
-    ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+1. Dans la liste **Mes abonnements**, sélectionnez votre abonnement Visual Studio Enterprise. 
 
+   ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > Si certains de vos abonnements Visual Studio ne s’affichent pas ici, c’est peut-être parce que vous avez modifié un répertoire d’abonnement à un moment donné. Pour ces abonnements, vous devez faire basculer le répertoire vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
+    
 1. Dans la vue d’ensemble de l’abonnement, cliquez sur la bannière orange pour supprimer la limite de dépense.
     
     ![Capture d’écran montrant la bannière de suppression de la limite de dépense](./media/account-admin-tasks/msdn-remove-spending-limit-banner-x.png)
@@ -144,10 +152,13 @@ Si vous disposez d’un abonnement Azure en licence Open, vous pouvez ajouter de
 
     ![Capture d’écran montrant une recherche relative à la gestion des coûts et à la facturation ](./media/account-admin-tasks/search-bar.png)
 
-1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement Azure dans Open.
-   
+1. Dans la liste **Mes abonnements**, sélectionnez l’abonnement Azure dans Open. 
+
     ![Capture d’écran montrant la grille Mes abonnements dans Vue d’ensemble](./media/account-admin-tasks/cost-management-overview-aio-x.png)
 
+   > [!NOTE]
+   > Si votre abonnement ne s’affiche pas ici, c’est peut-être parce que vous en avez modifié le répertoire à un moment donné. Vous devez faire basculer le répertoire de l’abonnement vers le répertoire d’origine (le répertoire dans lequel vous vous êtes inscrit initialement). Ensuite, répétez l’étape 2.
+    
 1. Sélectionnez **Historique de crédit**.
     
     ![Capture d’écran montrant l’historique de crédit](./media/account-admin-tasks/aio-credit-history-blade.png)

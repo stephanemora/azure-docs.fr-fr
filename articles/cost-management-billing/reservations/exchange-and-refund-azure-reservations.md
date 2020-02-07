@@ -8,14 +8,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/21/2020
+ms.date: 01/24/2020
 ms.author: banders
-ms.openlocfilehash: ea545919436201524a1c77b27e9b187f3b1c3b64
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314043"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773878"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Échanges et remboursements en libre-service de réservations Azure
 
@@ -29,14 +29,14 @@ Vous devez disposer d’un accès propriétaire à l’ordre de réservation pou
 
 Vous pouvez échanger votre réservation en trois étapes rapides dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade).
 
-1. Sélectionnez les réservations dont vous souhaitez obtenir le remboursement et cliquez sur **Échanger**.  
+1. Sélectionnez les réservations dont vous souhaitez obtenir le remboursement et sélectionnez **Échanger**.  
     ![Image illustrant des réservations à retourner](./media/exchange-and-refund-azure-reservations/exchange-refund-return.png)
 2. Sélectionnez le produit de machine virtuelle que vous voulez acheter et tapez une quantité. Assurez-vous que le nouveau total d’achat est supérieur au total du retour. [Déterminez la bonne taille avant d’effectuer l’achat](../../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Image illustrant le produit de machine virtuelle à acheter avec un échange](./media/exchange-and-refund-azure-reservations/exchange-refund-select-purchase.png)
 3. Vérifiez et finalisez la transaction.  
     ![Image illustrant le produit de machine virtuelle à acheter avec un échange, avec finalisation du retour](./media/exchange-and-refund-azure-reservations/exchange-refund-confirm-exchange.png)
 
-Pour obtenir le remboursement d’une réservation, accédez à **Détails de la réservation** et cliquez sur **Remboursement**.
+Pour obtenir le remboursement d’une réservation, accédez à **Détails de la réservation** et sélectionnez **Remboursement**.
 
 ## <a name="how-transactions-are-processed"></a>Mode de traitement des transactions
 
@@ -66,7 +66,7 @@ Azure dispose des stratégies suivantes pour les annulations, les échanges et l
 - Seuls les propriétaires de réservation peuvent traiter un échange. [Découvrez comment ajouter ou changer les utilisateurs qui peuvent gérer une réservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Un échange est traité comme un remboursement et un rachat : différentes transactions sont créées pour l’annulation et le nouvel achat. Le montant de la réservation au prorata est remboursé pour les réservations que vous échangez. Vous êtes facturé entièrement pour le nouvel achat. Le montant de la réservation au prorata est la valeur résiduelle au prorata quotidienne de la réservation qui fait l’objet d’un retour.
 - Vous pouvez échanger une réservation ou en obtenir le remboursement même si le contrat entreprise utilisé pour son achat a expiré et a été renouvelé sous la forme d’un nouveau contrat.
-- Vous pouvez modifier n’importe quelle propriété d’une réservation telle que la taille, la région, la quantité et la période avec un échange.
+- Vous pouvez modifier une propriété d’une réservation telle que la famille, la série, la version, la référence SKU, la région, la quantité et la période avec un échange.
 - Le nouveau total d’achat doit être égal ou supérieur au montant retourné.
 - La nouvelle réservation achetée dans le cadre d’un échange a une nouvelle période qui commence à la date de cet échange.
 - Il n’y a aucune pénalité ou limite annuelle pour les échanges.
@@ -81,7 +81,7 @@ Azure dispose des stratégies suivantes pour les annulations, les échanges et l
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>Échanger un stockage non Premium contre un stockage Premium
 
-Vous pouvez échanger une réservation achetée pour une taille de machine virtuelle qui ne prend pas en charge le stockage Premium au profit d’une taille de machine virtuelle correspondante qui assure cette prise en charge. Par exemple, une machine virtuelle _F1_ contre une machine virtuelle _F1s_. Pour effectuer l’échange, accédez à Détails de la réservation, puis cliquez sur **Échanger**. L’échange ne réinitialise pas la période de l’instance réservée et ne crée pas de transaction.
+Vous pouvez échanger une réservation achetée pour une taille de machine virtuelle qui ne prend pas en charge le stockage Premium au profit d’une taille de machine virtuelle correspondante qui assure cette prise en charge. Par exemple, une machine virtuelle _F1_ contre une machine virtuelle _F1s_. Pour effectuer l’échange, accédez à Détails de la réservation, puis sélectionnez **Échanger**. L’échange ne réinitialise pas la période de l’instance réservée et ne crée pas de transaction.
 
 ## <a name="need-help-contact-us"></a>Vous avez besoin d’aide ? Contactez-nous.
 

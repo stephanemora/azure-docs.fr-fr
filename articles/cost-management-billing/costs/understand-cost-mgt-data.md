@@ -5,27 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/13/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 75d414756d8818bd4e29fc0507af73eccf0e0e01
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75986201"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901764"
 ---
 # <a name="understand-cost-management-data"></a>Comprendre les données Cost Management
 
 Cet article vise à détailler les informations sur l’utilisation et les coûts incluses dans Azure Cost Management. Il indique la fréquence à laquelle les données sont traitées, collectées, affichées et fermées. L’utilisation d’Azure vous est facturée tous les mois. Bien que les cycles de facturation soient mensuels, les dates de début et de fin d’un cycle varient selon le type d’abonnement. La fréquence à laquelle Cost Management reçoit les données d’utilisation varie selon différents facteurs. Ces facteurs comprennent le temps nécessaire pour traiter les données et la fréquence à laquelle les services Azure envoient les données d’utilisation au système de facturation.
 
-Azure Cost Management inclut toutes les informations sur les activités et achats, y compris les réservations et les offres tierces associées aux comptes des Contrats entreprise. Les comptes des Contrats client Microsoft et les abonnements individuels avec des taux de paiement à l’utilisation portent uniquement sur l’utilisation des services de Place de marché et Azure. Les autres coûts, ainsi que les coûts liés au support, ne sont pas inclus. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée, et n’incluent pas les crédits.
+Azure Cost Management inclut toutes les informations sur les activités et achats, y compris les réservations et les offres tierces associées aux comptes des Contrats entreprise. Les comptes des Contrats client Microsoft et les abonnements individuels avec des taux de paiement à l’utilisation portent uniquement sur l’utilisation des services de Place de marché et Azure. Les coûts du support et les autres coûts ne sont pas inclus. Les coûts font l’objet d’une estimation tant qu’aucune facture n’a été générée et ne tiennent pas compte des crédits.
 
 ## <a name="supported-microsoft-azure-offers"></a>Offres Microsoft Azure prises en charge
 
-Les informations suivantes présentent les [offres Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) actuellement prises en charge dans Azure Cost Management. Une offre Azure correspond au type d’abonnement Azure que vous avez. Les données sont disponibles dans Cost Management à compter de la date indiquée dans **Données disponibles à partir de/du**. Si un abonnement change d’offre, les coûts avant la date de changement de l’offre ne sont pas disponibles.
+Les informations suivantes présentent les [offres Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) actuellement prises en charge dans Azure Cost Management. Une offre Azure correspond au type d’abonnement Azure que vous avez. Les données sont disponibles dans Cost Management à compter de la date indiquée dans **Données disponibles à partir de/du**. Si les offres d’un abonnement changent, les coûts avant la date de modification de l’offre ne sont pas disponibles.
 
 | **Catégorie**  | **Nom de l’offre** | **ID du quota** | **Numéro de l’offre** | **Données disponibles à partir de/du** |
 | --- | --- | --- | --- | --- |
@@ -52,7 +52,7 @@ _<sup>**1**</sup> Pour les données antérieures à mai 2014, visitez [Azure En
 
 _<sup>**2**</sup>Pour les données antérieures au 2 octobre 2018, visitez le [Centre des comptes Azure](https://account.azure.com/subscriptions)._
 
-_<sup>**3**</sup> Les Contrats client Microsoft ont commencé en mars 2019 et ne disposent pas de données historiques avant cette date._
+_<sup>**3**</sup> Les Contrats client Microsoft ont commencé en mars 2019 et ne disposent pas de données historiques préalables à cette date._
 
 _<sup>**4**</sup> Les données historiques des abonnements basés sur le crédit et avec règlement à l’avance peuvent ne pas correspondre à votre facture. Consultez [Les données historiques peuvent ne pas correspondre à la facture](#historical-data-might-not-match-invoice) ci-dessous._
 
@@ -77,7 +77,7 @@ Les offres suivantes ne sont pas encore prises en charge :
 | **Plans de support** | Support Developer Support Azure Government  | Default_2014-09-01 | MS-AZR-USGOV-0043P |
 
 ## <a name="determine-your-offer-type"></a>Déterminer le type de votre offre
-Si vous ne voyez pas de données pour un abonnement et que vous souhaitez déterminer si votre abonnement figure dans les offres prises en charge, vous pouvez valider que votre abonnement est pris en charge. Pour valider qu’un abonnement Azure est pris en charge, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez ensuite **Tous les services** dans le volet du menu de gauche. Dans la liste des services, sélectionnez **Abonnements**. Dans le menu de la liste des abonnements, cliquez sur l’abonnement que vous souhaitez vérifier. Votre abonnement est affiché sous l’onglet Vue d’ensemble et vous pouvez voir les éléments **Offre** et **ID de l’offre**. L’image suivante en montre un exemple.
+Si vous ne voyez pas de données pour un abonnement et que vous souhaitez déterminer si votre abonnement figure dans les offres prises en charge, vous pouvez valider que votre abonnement est pris en charge. Pour valider la prise en charge d’un abonnement Azure, connectez-vous au [portail Azure](https://portal.azure.com). Sélectionnez ensuite **Tous les services** dans le volet du menu de gauche. Dans la liste des services, sélectionnez **Abonnements**. Dans le menu de la liste des abonnements, sélectionnez l’abonnement que vous souhaitez vérifier. Votre abonnement est affiché sous l’onglet Vue d’ensemble et vous pouvez voir les éléments **Offre** et **ID de l’offre**. L’image suivante en montre un exemple.
 
 ![Exemple de l’onglet Vue d’ensemble de l’abonnement montrant l’offre et l’ID de l’offre](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
@@ -109,6 +109,10 @@ _<sup>**7**</sup> Les achats de réservation sont uniquement disponibles pour le
 
 _<sup>**8**</sup> Les étiquettes de ressources sont appliquées quand les données d’utilisation sont envoyées à partir de chaque service et ne sont pas disponibles rétroactivement pour l’historique d’utilisation._
 
+**Mise à niveau de l’évaluation gratuite vers un abonnement avec paiement à l’utilisation**
+
+Les clients bénéficiant d’une offre d’évaluation gratuite (044P) qui sera convertie en offre PAYG (003P) peuvent voir leur utilisation pendant la période d’évaluation gratuite. Toutefois, ils perdent la visibilité du traçage gratuit après la conversion. Après la conversion, seuls l’utilisation et les coûts PAYG sont affichés dans Cost Management.
+
 ## <a name="rated-usage-data-refresh-schedule"></a>Planification d’actualisation des données sur l’utilisation estimée
 
 Les données de coût et d’utilisation sont disponibles dans Gestion des coûts + facturation dans le portail Azure et les [API de prise en charge](../index.yml). Gardez à l’esprit les points suivants quand vous passez en revue les coûts :
@@ -139,7 +143,7 @@ Certains services envoient les données d’utilisation plus fréquemment que d�
 
 ## <a name="historical-data-might-not-match-invoice"></a>Les données historiques peuvent ne pas correspondre à la facture
 
-Les données historiques des offres basées sur le crédit et avec règlement à l’avance peuvent ne pas correspondre à votre facture. Certaines offres de paiement à l'utilisation, MSDN et Visual Studio peuvent entraîner l’application de crédits et paiements avancés Azure à la facture. Toutefois, les données historiques indiquées dans Azure Cost Management sont uniquement basées sur les frais de consommation estimés. Elles n’incluent pas les paiements et les crédits. Par conséquent, les données historiques indiquées pour les offres suivantes peuvent ne pas correspondre exactement à votre facture.
+Les données historiques des offres basées sur le crédit et avec règlement à l’avance peuvent ne pas correspondre à votre facture. Certaines offres de paiement à l'utilisation, MSDN et Visual Studio peuvent entraîner l’application de crédits et paiements avancés Azure à la facture. Toutefois, les données historiques indiquées dans Azure Cost Management sont uniquement basées sur les frais de consommation estimés. Elles n’incluent pas les paiements et les crédits. Les données historiques indiquées pour les offres suivantes peuvent donc ne pas correspondre exactement à votre facture.
 
 - Azure for Students (MS-AZR-0170P)
 - Azure dans Open (MS-AZR-0111P)
