@@ -4,8 +4,6 @@
   items:
     - name: "Qu’est-ce qu’Azure Monitor\_?"
       href: overview.md
-    - name: Changements terminologiques
-      href: terminology.md
     - name: Questions fréquentes (FAQ)
       href: faq.md
     - name: Nouveautés
@@ -1141,6 +1139,8 @@
       items:
         - name: schéma
           href: platform/diagnostics-extension-schema-1dot3.md
+    - name: Changements terminologiques
+      href: terminology.md
     - name: Application Insights
       items:
         - name: Collecte automatique de dépendance
