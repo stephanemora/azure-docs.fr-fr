@@ -1,28 +1,30 @@
 ---
-title: 'Azure Service Fabric : configurer un cluster Azure Service Fabric existant pour activer le support des identités managées'
-description: Cet article explique comment configurer un cluster Azure Service Fabric existant pour activer le support des identités managées
+title: Configurer la prise en charge des identités managées dans un cluster Service Fabric existant
+description: Voici comment activer la prise en charge des identités managées dans un cluster Azure Service Fabric existant
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351603"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934943"
 ---
-# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>Configurer un cluster Azure Service Fabric existant pour activer la prise en charge d’identités managées (préversion)
-Afin d’accéder à la fonctionnalité des identités managées pour les applications Azure Service Fabric, vous devez d’abord activer le **Service de jetons des identités managées** sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet de gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService**.
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>Configurer la prise en charge des identités managées dans un cluster Service Fabric existant (préversion)
+
+Pour utiliser des [identités managées pour des ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) dans vos applications Service Fabric, commencez par activer le *service de jeton d’identité managée* sur le cluster. Ce service est responsable de l’authentification des applications Service Fabric à l’aide de leurs identités managées et de l’obtention de jetons d’accès en leur nom. Une fois le service activé, vous pouvez le voir dans Service Fabric Explorer sous la section **Système** dans le volet de gauche, exécuté sous le nom **fabric:/System/ManagedIdentityTokenService**.
 
 > [!NOTE]
 > Le runtime Service Fabric version 6.5.658.9590 ou une version ultérieure est requis pour activer le **Service de jetons des identités managées**.  
-> 
+>
 > Vous pouvez rechercher la version Service Fabric d’un cluster à partir du Portail Azure en ouvrant la ressource de cluster et en vérifiant la propriété **version Fabric version** dans la section **Essentials**.
-> 
+>
 > Si le cluster est en mode de mise à niveau **Manuelle**, vous devez d’abord le mettre à niveau vers 6.5.658.9590 ou une version ultérieure.
 
+## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>Activer le *service de jeton d’identité managée* dans un cluster existant
 
-## <a name="enable-the-managed-identity-token-service-in-an-existing-cluster"></a>Activer le Service de jetons des identités managées dans un cluster existant
-Pour activer le Service de jetons des identités managées dans un cluster existant, vous devez lancer une mise à niveau du cluster en spécifiant deux modifications : activation du Service de jetons des identités managées et requête de redémarrage de chaque nœud. Pour ce faire, ajoutez les deux extraits de code suivants dans le modèle Azure Resource Manager :
+Pour activer le service de jeton d’identité managée dans un cluster existant, vous devez lancer une mise à niveau de cluster en spécifiant deux modifications : (1) activation du service de jeton d’identité managée et (2) demande de redémarrage de chaque nœud. Tout d’abord, ajoutez l’extrait de code suivant à votre modèle Azure Resource Manager de cluster :
 
 ```json
 "fabricSettings": [

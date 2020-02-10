@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 79bafb331cb7ad38ea7cad9e510b22886b647764
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 45d210725f7f09663b126528479655d7f4d9c19f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911147"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933351"
 ---
 # <a name="add-a-popup-to-the-map"></a>Ajouter une fenêtre contextuelle à la carte
 
@@ -22,7 +22,7 @@ Cet article vous explique comment ajouter une fenêtre contextuelle à un point 
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-Le code suivant ajoute une caractéristique de point, qui a des propriétés `name` et `description`, à la carte à l’aide d’un calque de symboles. Une instance de la [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) est créée, mais elle n’est pas affichée. Des événements de souris sont ajoutés au calque de symboles pour déclencher l’ouverture et la fermeture de la fenêtre contextuelle quand la souris pointe sur le marqueur de symbole. Quand vous survolez le symbole de marqueur, la propriété `position` de la fenêtre contextuelle est mise à jour avec la position du marqueur et l’option `content` est mise à jour avec du code HTML qui encapsule les propriétés `name` et `description` de la caractéristique de point survolée. La fenêtre contextuelle est ensuite affichée sur la carte à l’aide de sa fonction `open`.
+Le code suivant ajoute une caractéristique de point, qui a des propriétés `name` et `description`, à la carte à l’aide d’un calque de symboles. Une instance de la [classe Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) est créée, mais elle n’est pas affichée. Les événements de souris sont ajoutés au calque de symboles pour déclencher l’ouverture et la fermeture de la fenêtre contextuelle. Quand vous survolez le symbole de marqueur, la propriété `position` de la fenêtre contextuelle est mise à jour avec la position du marqueur et l’option `content` est mise à jour avec du code HTML qui encapsule les propriétés `name` et `description` de la caractéristique de point survolée. La fenêtre contextuelle est ensuite affichée sur la carte à l’aide de sa fonction `open`.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -85,7 +85,7 @@ Vous trouverez ci-dessous l’exemple de code d’exécution complet de la fonct
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Réutilisation d’une fenêtre contextuelle avec plusieurs points
 
-Si vous disposez d’un grand nombre de points et si vous souhaitez n’afficher qu’une seule fenêtre contextuelle à la fois, la meilleure solution consiste à créer une fenêtre contextuelle et à la réutiliser plutôt que de créer une fenêtre pour chaque caractéristique de point. La réutilisation de la fenêtre contextuelle permet de réduire considérablement le nombre d’éléments DOM créés par l’application, ce qui peut améliorer les performances. L’exemple suivant crée des caractéristiques à trois points. Si vous cliquez sur l’un d’eux, une fenêtre contextuelle s’affiche avec le contenu de ce point.
+Si vous disposez d’un grand nombre de points et si vous souhaitez n’afficher qu’une seule fenêtre contextuelle à la fois, la meilleure solution consiste à créer une fenêtre contextuelle et à la réutiliser. La réutilisation de la fenêtre contextuelle permet de réduire considérablement le nombre d’éléments DOM créés par l’application, ce qui peut améliorer les performances. L’exemple suivant crée des caractéristiques à trois points. Si vous cliquez sur l’un d’eux, une fenêtre contextuelle s’affiche avec le contenu de ce point.
 
 <br/>
 
@@ -94,7 +94,7 @@ Si vous disposez d’un grand nombre de points et si vous souhaitez n’afficher
 
 ## <a name="customizing-a-popup"></a>Personnalisation d’une fenêtre contextuelle
 
-Par défaut, la fenêtre contextuelle a un arrière-plan blanc, une flèche de pointeur en bas et un bouton Fermer dans le coin supérieur droit. L’exemple suivant change la couleur d’arrière-plan en noir à l’aide de l’option `fillColor` de la fenêtre contextuelle. Le bouton Fermer est supprimé en affectant la valeur false à l’option `shoCloseButton`. Le contenu HTML de la fenêtre contextuelle est placé à 10 pixels des bords de la fenêtre contextuelle, et le texte est affiché en blanc pour une meilleure lisibilité sur l’arrière-plan noir.  
+Par défaut, la fenêtre contextuelle a un arrière-plan blanc, une flèche de pointeur en bas et un bouton Fermer dans le coin supérieur droit. L’exemple suivant change la couleur d’arrière-plan en noir à l’aide de l’option `fillColor` de la fenêtre contextuelle. Le bouton Fermer est supprimé en affectant la valeur false à l’option `CloseButton`. Le contenu HTML de la fenêtre contextuelle utilise un remplissage de 10 pixels par rapport aux bords de la fenêtre contextuelle. Le texte de couleur blanche s’affiche correctement sur l’arrière-plan noir.  
 
 <br/>
 
@@ -104,7 +104,7 @@ Consultez la page <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>Customized 
 
 ## <a name="popup-events"></a>Événements de fenêtres contextuelles
 
-Les fenêtres contextuelles peuvent être ouvertes, fermées et déplacées. La classe popup fournit des événements pour aider les développeurs à réagir à ces actions. L’exemple suivant met en évidence les événements qui se déclenchent quand vous ouvrez, fermez ou faites glisser la fenêtre contextuelle. 
+Les fenêtres contextuelles peuvent être ouvertes, fermées et déplacées. La classe popup fournit des événements pour aider les développeurs à réagir à ces événements. L’exemple suivant met en évidence les événements qui se déclenchent lorsque l’utilisateur ouvre, ferme ou fait glisser la fenêtre contextuelle. 
 
 <br/>
 

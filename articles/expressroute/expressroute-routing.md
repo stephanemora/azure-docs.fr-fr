@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083313"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901582"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -175,6 +175,12 @@ Vous pouvez acheter plusieurs circuits ExpressRoute par région géopolitique. L
 | Ouest du Royaume-Uni | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | France Centre | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | France Sud | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
+| Suisse Nord | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Suisse Ouest | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Allemagne Nord | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Allemagne Centre-Ouest | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Norvège Est | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Norvège Ouest | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asie-Pacifique** | |
 | Asie Est | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Asie Sud-Est | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |

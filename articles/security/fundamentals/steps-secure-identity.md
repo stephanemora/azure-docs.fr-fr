@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973908"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903578"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
@@ -28,8 +28,8 @@ Cette liste de vérification vous aidera à déployer rapidement les actions rec
 * Renforcer vos informations d’identification.
 * Réduire votre surface d’attaque.
 * Automatiser la réponse aux menaces.
-* Augmenter votre connaissance de l’audit et du monitoring.
-* Permettre une sécurité de l’utilisateur plus prévisible et complète grâce à l’auto-assistance.
+* Utiliser l’intelligence cloud.
+* Activer le libre-service pour l’utilisateur final.
 
 Veillez à conserver la trace des fonctionnalités et étapes terminées lors de la lecture de cette liste de vérification.
 
@@ -116,7 +116,7 @@ En adoptant l’idée qu’une violation de la sécurité peut se produire, vous
 
 Il est important de comprendre les différentes [expériences de consentement d’application d’Azure AD](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), [les types d’autorisations et de consentement](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)et leurs implications sur la sécurité de votre organisation. Par défaut, tous les utilisateurs de Azure AD peuvent autoriser les applications qui tirent parti de la plateforme Microsoft Identity à accéder aux données de votre organisation. Ce consentement, qui permet aux utilisateurs d’acquérir facilement des applications utiles qui s’intègrent à Microsoft 365, à Azure et à d’autres services, peut cependant représenter un risque s’il n’est pas utilisé et surveillé avec précaution.
 
-Microsoft vous recommande de [désactiver toutes les opérations futures de consentement d'utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) peut aider à réduire votre surface d'exposition et à atténuer ce risque. Si le consentement de l’utilisateur final est désactivé, les autorisations de consentement préalables sont toujours respectées, mais toutes les opérations de consentement futures doivent être effectuées par un administrateur. Le consentement de l’administrateur peut être demandé par les utilisateurs via un flux de travail de demande d’autorisation d’administrateur [intégré](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) ou par le biais de vos propres processus de support. Avant de désactiver cette fonctionnalité, il est recommandé de consulter votre journal d’audit pour comprendre les applications auxquelles les utilisateurs accèdent et de planifier la modification en conséquence. Pour les applications auxquelles vous souhaitez autoriser l’accès à tous les utilisateurs, envisagez [d’accorder le consentement pour le compte de tous les utilisateurs](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), en vous assurant que les utilisateurs qui n’ont pas encore accepté individuellement pourront accéder à l’application. Si vous ne souhaitez pas que ces applications soient disponibles pour tous les utilisateurs dans tous les scénarios, utilisez [Affectation d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) et [Accès conditionnel ](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) pour restreindre l’accès des utilisateurs aux applications.
+Microsoft vous recommande de [désactiver toutes les opérations futures de consentement d'utilisateurs](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) peut aider à réduire votre surface d'exposition et à atténuer ce risque. Si le consentement de l’utilisateur final est désactivé, les autorisations de consentement préalables sont toujours respectées, mais toutes les opérations de consentement futures doivent être effectuées par un administrateur. Le consentement de l’administrateur peut être demandé par les utilisateurs via un flux de travail de demande d’autorisation d’administrateur [intégré](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) ou par le biais de vos propres processus de support. Avant de désactiver le consentement de l’utilisateur final, suivez nos [recommandations](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) pour planifier cette modification dans votre organisation. Pour les applications auxquelles vous souhaitez autoriser l’accès à tous les utilisateurs, envisagez [d’accorder le consentement pour le compte de tous les utilisateurs](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), en vous assurant que les utilisateurs qui n’ont pas encore accepté individuellement pourront accéder à l’application. Si vous ne souhaitez pas que ces applications soient disponibles pour tous les utilisateurs dans tous les scénarios, utilisez [Affectation d’application](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) et [Accès conditionnel ](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) pour restreindre l’accès des utilisateurs aux applications.
 
 Assurez-vous que les utilisateurs peuvent demander l’approbation de l’administrateur pour les nouvelles applications afin de réduire la friction des utilisateurs, de réduire le volume de support et d’empêcher les utilisateurs de s’inscrire aux applications en utilisant des informations d’identification différentes de celles d’Azure AD. Une fois que vous avez régulé vos opérations de consentement, les administrateurs doivent auditer régulièrement l’application et les autorisations accordées.
 
@@ -134,7 +134,7 @@ Un autre impact de la « violation supposée » est le besoin de réduire la p
 
 Activez Azure AD PIM, puis affichez les utilisateurs qui sont affectés à des rôles d’administration et supprimez les comptes inutiles dans ces rôles. Pour les autres utilisateurs privilégiés, déplacez-les de l’état permanent à l’état éligible. Enfin, établissez des stratégies appropriées pour vous assurer que lorsque ces utilisateurs ont besoin d’accéder à ces rôles privilégiés, ils peuvent le faire en toute sécurité, avec le contrôle nécessaire des modifications.
 
-Dans le cadre du déploiement de votre processus de compte privilégié, respectez les [meilleures pratiques pour créer au moins deux comptes d’urgence](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) pour être sûr de pouvoir accéder à Azure AD si vous êtes bloqué.
+Dans le cadre du déploiement de votre processus de compte privilégié, respectez les [meilleures pratiques pour créer au moins deux comptes d’urgence](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) afin d’être sûr de pouvoir toujours accéder à Azure AD si vous êtes bloqué.
 
 ## <a name="step-3---automate-threat-response"></a>Étape 3 - Automatiser la réponse aux menaces
 
@@ -152,7 +152,7 @@ Le risque à la connexion est la probabilité qu’une personne autre que le pro
 
 ![Connexion à partir d’adresses IP anonymes](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
-## <a name="step-4---increase-your-awareness"></a>Étape 4 - Augmenter votre connaissance
+## <a name="step-4---utilize-cloud-intelligence"></a>Étape 4 - Utiliser l’intelligence cloud
 
 L’audit et la journalisation des événements liés à la sécurité, de même que les alertes associées, constituent des composants essentiels dans une stratégie de protection efficace. Les journaux d’activité et les rapports de sécurité vous fournissent un enregistrement électronique des activités suspectes et vous aident à détecter les motifs pouvant indiquer une tentative d’intrusion ou une intrusion externe effective sur le réseau, ainsi que des attaques internes. Vous pouvez avoir recours aux audits pour surveiller les activités des utilisateurs, documenter la conformité aux exigences réglementaires, effectuer des analyses d’investigation, etc. Les alertes fournissent des notifications des événements de sécurité.
 
@@ -180,7 +180,7 @@ Azure AD Identity Protection fournit deux rapports importants que vous devez sur
 
 Les utilisateurs risquent d’entrer en contact à leur insu avec un site web ou des applications compromis qui pourront ainsi accéder aux informations de leur profil et à des données à caractère personnel telles que leur adresse e-mail. Un intervenant malveillant peut utiliser les autorisations accordées pour chiffrer le contenu de leur boîte aux lettres et leur demander une rançon pour récupérer les données de leur boîte aux lettres. [Les administrateurs doivent examiner et auditer](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) les autorisations accordées par les utilisateurs ou désactiver la capacité des utilisateurs à donner leur consentement par défaut.
 
-Outre l’audit des autorisations fournies par les utilisateurs, il peut être utile d’essayer de [localiser les applications OAuth risquées ou indésirables](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) spécifiquement (fonctionnalité disponible pour les environnements Premium).
+Outre l’audit des autorisations fournies par les utilisateurs, vous pouvez [localiser les applications OAuth risquées ou indésirables](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) dans les environnements Premium.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Étape 5 - Activer le libre-service pour l’utilisateur final
 
@@ -205,7 +205,7 @@ Une infrastructure d’identité sécurisée est composée de nombreux aspects, 
 * Renforcer vos informations d’identification.
 * Réduire votre surface d’attaque.
 * Automatiser la réponse aux menaces.
-* Augmenter votre connaissance de l’audit et du monitoring.
+* Utiliser l’intelligence cloud.
 * Permettre une sécurité de l’utilisateur plus prévisible et complète grâce à l’auto-assistance.
 
 Nous sommes heureux de l’importance que vous accordez à l’identité de sécurité et nous espérons que ce document constitue une feuille de route utile vers une position plus sécurisée pour votre organisation.

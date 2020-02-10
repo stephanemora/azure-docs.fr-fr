@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771613"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906268"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planification d’un déploiement Azure Files
 
@@ -201,49 +201,14 @@ Cette section s’applique uniquement aux partages de fichiers Standard. Tous le
 
 ### <a name="regional-availability"></a>Disponibilité régionale
 
-Le partage de fichiers Standard est disponible dans toutes les régions, jusqu’à 5 Tio. Dans certaines régions, il est disponible avec une limite de 100 Tio ; ces régions sont listées dans le tableau suivant :
+Les partages de fichiers standard avec une limite de capacité de 100 Tio sont disponibles globalement dans toutes les régions Azure.
 
-|Région |Redondance prise en charge |
-|-------|---------|
-|Centre de l’Australie    |LRS     |
-|Centre de l’Australie 2    |LRS     |
-|Australie Est |LRS     |
-|Sud-Australie Est|LRS |
-|Brésil Sud    |LRS     |
-|Centre du Canada  |LRS     |
-|Est du Canada     |LRS     |
-|Inde centrale  |LRS     |
-|USA Centre*   |LRS, ZRS    |
-|Asie Est      |LRS     |
-|USA Est*        |LRS, ZRS|
-|USA Est 2*      |LRS, ZRS     |
-|France Centre |LRS, ZRS|
-|France Sud   |LRS     |
-|Japon Est     |LRS     |
-|OuJapon Est     |LRS     |
-|Centre de la Corée  |LRS     |
-|Corée du Sud    |LRS     |
-|Centre-Nord des États-Unis |LRS   |
-|Europe Nord   |LRS     |
-|Inde Sud    |LRS     |
-|États-Unis - partie centrale méridionale |LRS     |
-|Asie Sud-Est |LRS, ZRS|
-|Suisse Nord    |LRS     |
-|Suisse Ouest    |LRS     |
-|Émirats arabes unis Centre    |LRS     |
-|Émirats arabes unis Nord    |LRS     |
-|Nord du Royaume-Uni   |LRS, ZRS    |
-|Sud du Royaume-Uni    |LRS     |
-|Ouest du Royaume-Uni    |LRS     |
-|Centre-USA Ouest|LRS     |
-|Europe Ouest*    |LRS, ZRS|
-|Inde Ouest   |LRS     |
-|USA Ouest        |LRS     |
-|USA Ouest 2      |LRS, ZRS|
+- LRS : Toutes les régions, à l’exception d’Afrique du Sud Nord et d’Afrique du Sud Ouest.
+   - Les clouds nationaux (Government, Allemagne, Chine) sont pris en charge via PowerShell et l’interface de ligne de commande (CLI) Azure. Aucune prise en charge du portail. 
+   - USA Est, USA Est2, Europe Ouest : Tous les nouveaux comptes sont pris en charge. Le processus de mise à niveau d’un petit nombre de comptes n’est pas terminé. Vous pouvez vérifier si vos comptes de stockage existants ont terminé le processus de mise à niveau en tentant d’[activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
 
-\* Pris en charge pour les nouveaux comptes ; les comptes existants n’ont pas tous terminé le processus de mise à niveau. Vous pouvez vérifier si vos comptes de stockage existants ont terminé le processus de mise à niveau en tentant d’[activer les partages de fichiers volumineux](storage-files-how-to-create-large-file-share.md).
-
-Pour nous aider à hiérarchiser les nouvelles régions et les nouvelles fonctionnalités, veuillez répondre à ce [sondage](https://aka.ms/azurefilesatscalesurvey).
+- ZRS : Toutes les régions, à l’exception Japon Est, Europe Nord et Afrique du Sud Nord.
+- GRS/GZRS : Non pris en charge.
 
 ### <a name="enable-and-create-larger-file-shares"></a>Activer et créer des partages de fichiers plus volumineux
 

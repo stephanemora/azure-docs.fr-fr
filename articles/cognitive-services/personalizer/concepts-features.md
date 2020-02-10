@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760825"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026147"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Les caractéristiques sont des informations sur les actions et sur le contexte
 
@@ -132,6 +132,8 @@ Les sections qui suivent portent sur les pratiques courantes permettant d’amé
 Il est possible d’améliorer vos ensembles de caractéristiques en les modifiant pour les agrandir, et pour les rendre plus ou moins denses.
 
 Par exemple, un horodatage avec une précision inférieure à la seconde est une caractéristique très éparse. Il peut être rendu plus dense (plus efficace) en classifiant les dates/heures en « matin », « mi-journée », « après-midi », etc.
+
+En général, la création de classifications plus larges est bénéfique pour les informations d’emplacement. Par exemple, des coordonnées de latitude et longitude telles que Lat : 47,67402° N, Long : 122,12154° O est trop précis et force le modèle à apprendre la latitude et la longitude en tant que dimensions distinctes. Lorsque vous essayez de personnaliser en fonction d’informations d’emplacement, il est utile de regrouper celles-ci dans des secteurs plus grands. Pour ce faire, une méthode aisée consiste à choisir une précision d’arrondi appropriée pour les valeurs de latitude et longitude, et de combiner celles-ci en « zones » dans une seule chaîne. Par exemple, un bon moyen de représenter 47,67402° N, long : 122,12154° O dans des régions approximatives de quelques kilomètres de large, est « Location » : « 34.3, 12,1 ».
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>Développer les ensembles de caractéristiques avec des informations extrapolées

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
-ms.openlocfilehash: 686b8bedfeb4ae5e1b2b7bf3b750b51074677990
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3c0fb29c5a4dd73135aa8352c97df29474c36caf
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288980"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904131"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recommandations de sécurité - Guide de référence
 
@@ -32,9 +32,10 @@ Votre score sécurisé est basé sur le nombre de recommandations Security Cente
 |Recommandation|Description et stratégie associée|severity|Correction rapide activée ? ([en savoir plus](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Type de ressource|
 |----|----|----|----|----|
 |**Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles**|Appliquez un contrôle d’accès de machine virtuelle juste-à-temps (JAT) pour bloquer définitivement l’accès aux ports sélectionnés, et permettez aux utilisateurs autorisés de les ouvrir, via JAT, pour une durée limitée.<br>(Stratégie associée : Le contrôle d’accès réseau juste-à-temps doit être appliqué sur les machines virtuelles)|Élevé|N|Machine virtuelle|
-|**Les groupes de sécurité réseau situés au niveau du sous-réseau doivent être activés**|Activez des groupes de sécurité réseau pour contrôler l'accès réseau des ressources déployées sur vos sous-réseaux.<br>(Stratégie associée : Les sous-réseaux doivent être associés à un groupe de sécurité réseau)|Élevé / Moyen|N|Subnet|
-|**Les machines virtuelles doivent être associées à un groupe de sécurité réseau**|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.<br>(Stratégie associée : Les machines virtuelles doivent être associées à un groupe de sécurité réseau)|Élevé / Moyen|N|Machine virtuelle|
-|**L’accès doit être limité pour les groupes de sécurité réseau permissifs avec machines virtuelles connectées à Internet**|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet, en limitant l'accès des règles d'autorisation existantes.<br>(Stratégie associée : Les règles de groupe de sécurité réseau pour les machines virtuelles connectées à Internet doivent être renforcées)|Élevé|N|Machine virtuelle|
+|**Les groupes de sécurité réseau situés au niveau du sous-réseau doivent être activés**|Activez des groupes de sécurité réseau pour contrôler l'accès réseau des ressources déployées sur vos sous-réseaux.<br>(Stratégie associée : les sous-réseaux doivent être associés à un groupe de sécurité réseau.<br>Cette stratégie est désactivée par défaut.)|Élevé / Moyen|N|Subnet|
+|**Les machines virtuelles accessibles à partir d’Internet doivent être protégées avec des groupes de sécurité réseau**|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.<br>(Stratégie associée : les machines virtuelles accessibles à partir d’Internet doivent être protégées avec des groupes de sécurité réseau)|Élevé / Moyen|N|Machine virtuelle|
+|**Tous les ports réseau doivent être limités sur le groupe de sécurité réseau associé à votre machine virtuelle**|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet, en limitant l'accès des règles d'autorisation existantes.<br>Cette recommandation est déclenchée lors de l’ouverture d’un port est ouvert pour *toutes* les sources (à l’exception des ports 22, 3389, 5985, 5986, 80 et 1443).<br>(Stratégie associée : L’accès via un point de terminaison accessible à partir d’Internet doit être limité)|Élevé|N|Machine virtuelle|
+|**Les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet**|Les clients au niveau tarifaire standard voient cette recommandation lorsque la fonctionnalité de renforcement de réseau adaptatif trouve une règle de groupe de sécurité réseau trop permissive.<br>(Stratégie associée : les recommandations de renforcement de réseau adaptatif doivent être appliquées sur les machines virtuelles accessibles à partir d’Internet)|Élevé|N|Machine virtuelle|
 |**Les règles relatives aux applications web doivent être renforcées sur les groupes de sécurité réseau IaaS**|Renforcez le groupe de sécurité réseau (NSG) des machines virtuelles qui exécutent des applications web lorsque les règles NSG sont trop permissives en ce qui concerne les ports des applications web.<br>(Stratégie associée : Les règles de groupe de sécurité réseau pour les applications web IaaS doivent être renforcées)|Élevé|N|Machine virtuelle|
 |**L’accès à App Services doit être limité**|Limitez l'accès à App Services en modifiant la configuration du réseau pour empêcher le trafic entrant provenant de plages trop larges.<br>(Stratégie associée : [Préversion] : L’accès à App Services doit être limité)|Élevé|N|App Service|
 |**Les ports de gestion doivent être fermés sur vos machines virtuelles**|Renforcez le groupe de sécurité réseau de vos machines virtuelles de manière à limiter l'accès aux ports de gestion.<br>(Stratégie associée : Les ports de gestion doivent être fermés sur vos machines virtuelles)|Élevé|N|Machine virtuelle|

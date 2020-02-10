@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 349587063c528fef1cbdb09d84e61e82443d45d1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112134"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906731"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Mettre à l’échelle les partitions et les réplicas en vue d’ajouter de la capacité pour les charges de travail de requête et d’index dans Azure Recherche cognitive
 
@@ -123,7 +123,7 @@ La haute disponibilité pour Recherche cognitive Azure se rapporte aux requêtes
 > [!NOTE]
 > Vous pouvez ajouter de nouveaux champs à un index Recherche cognitive Azure sans reconstruire l’index. La valeur du nouveau champ sera Null pour tous les documents déjà présents dans l’index.
 
-Pour maintenir la disponibilité de l’index pendant une reconstruction, vous devez disposer d’une copie de l’index avec un nom différent sur le même service ou d’une copie de l’index de même nom sur un autre service, et fournir la redirection ou la logique de basculement dans votre code.
+Lors de la reconstruction de l’index, un laps de temps s’écoule durant l’ajout des données au nouvel index. Si vous voulez maintenir la disponibilité de votre ancien index pendant ce temps, vous devez disposer d’une copie de celui-ci sous un autre nom sur le même service, ou sous le même nom sur un autre service, et fournir la logique de redirection ou de basculement dans votre code.
 
 ## <a name="disaster-recovery"></a>Récupération d'urgence
 Il n'existe actuellement aucun mécanisme intégré de récupération d'urgence. L’ajout de partitions ou de réplicas ne vous permettra pas d’atteindre les objectifs de récupération d'urgence qui ont été fixés. L’approche la plus courante consiste à intégrer la redondance au niveau du service en configurant un deuxième service de recherche dans une autre région. Comme avec la disponibilité pendant une reconstruction d’index, la redirection ou la logique de basculement doit provenir de votre code.

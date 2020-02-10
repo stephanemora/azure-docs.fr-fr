@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911187"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933478"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Ajouter un calque de lignes à la carte
 
-Vous pouvez utiliser un calque de lignes pour afficher des caractéristiques `LineString` et `MultiLineString` sous forme de chemins ou d’itinéraires sur la carte. Vous pouvez aussi utiliser un calque de lignes pour afficher le contour de caractéristiques `Polygon` et `MultiPolygon`. Une source de données est connectée à un calque de lignes afin de lui fournir les données à afficher. 
+Vous pouvez utiliser un calque de lignes pour afficher des caractéristiques `LineString` et `MultiLineString` sous forme de chemins ou d’itinéraires sur la carte. Vous pouvez aussi utiliser un calque de lignes pour afficher le contour de caractéristiques `Polygon` et `MultiPolygon`. Une source de données est connectée à une couche de lignes afin de lui fournir des données à afficher. 
 
 > [!TIP]
 > Les couches de lignes par défaut affichent les coordonnées de polygones ainsi que de lignes dans une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités LineString, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'LineString']` ou `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` si vous voulez également inclure les fonctionnalités MultiLineString.
 
-Le code suivant montre comment créer une ligne, l’ajouter à une source de données et l’afficher avec un calque de lignes à l’aide de la classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest).
+Le code suivant montre comment créer une ligne. Ajoutez la ligne à une source de données, puis affichez-la avec une couche de lignes à l’aide de la classe [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest).
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,7 +51,7 @@ Les calques de lignes peuvent être stylisés à l’aide de [LineLayerOptions](
 
 ## <a name="add-symbols-along-a-line"></a>Ajouter des symboles le long d’une ligne
 
-Cet exemple montre comment ajouter des icônes en forme de flèches le long d’une ligne sur la carte. Lors de l’utilisation d’une couche de symboles, définissez l’option « placement » sur « line ». cela affiche les symboles le long de la ligne et faire pivoter les icônes (0 degré = vers la droite).
+Cet exemple montre comment ajouter des icônes en forme de flèches le long d’une ligne sur la carte. Lorsque vous utilisez une couche de symboles, affectez à l’option « placement » la valeur « line ». Cette option affiche les symboles le long de la ligne et fait pivoter les icônes (0 degré = droite).
 
 <br/>
 
@@ -66,7 +66,7 @@ Consultez l’extrait de code <a href='https://codepen.io/azuremaps/pen/drBJwX/'
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Ajouter un dégradé de traits à une ligne
 
-En plus de pouvoir appliquer une couleur de trait unique à une ligne, vous pouvez également remplir une ligne avec un dégradé de couleurs afin de montrer la transition entre un segment de la ligne et le suivant. Par exemple, les dégradés de ligne peuvent être utilisés pour représenter des changements dans le temps et la distance, ou différentes températures sur une ligne d’objets connectés. Pour appliquer cette fonctionnalité à une ligne, la source de données doit avoir l’option `lineMetrics` définie sur true. Une expression de dégradé de couleurs peut alors être transmise à l’option `strokeColor` de la ligne. L’expression de dégradé de traits a pour référence l’expression de données `['line-progress']` qui expose les métriques de ligne calculées à l’expression.
+Vous pouvez appliquer une couleur de trait à une ligne. Vous pouvez également remplir une ligne avec un dégradé de couleurs pour représenter la transition d’un segment de ligne au segment suivant. Par exemple, les dégradés de ligne peuvent être utilisés pour représenter des changements dans le temps et la distance, ou différentes températures sur une ligne d’objets connectés. Pour appliquer cette fonctionnalité à une ligne, la source de données doit avoir l’option `lineMetrics` définie sur true. Une expression de dégradé de couleurs peut alors être transmise à l’option `strokeColor` de la ligne. L’expression de dégradé de traits a pour référence l’expression de données `['line-progress']` qui expose les métriques de ligne calculées à l’expression.
 
 <br/>
 

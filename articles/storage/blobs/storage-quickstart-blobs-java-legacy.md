@@ -3,38 +3,26 @@ title: 'Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v8 pour J
 description: Créez un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, utilisez la bibliothèque de client Stockage Azure v8 pour Java, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de lister les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 10/05/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 373875aee836485bb994d81e0945cec3a9b088eb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825375"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906492"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v8 pour Java
+# <a name="quickstart-manage-blobs-with-java-v8-sdk"></a>Démarrage rapide : Gérer les objets blob avec le Kit de développement logiciel (SDK) Java V8
 
-Bien démarrer avec la bibliothèque de client Stockage Blob Azure v8 pour Java. Le Stockage Blob Azure est la solution de stockage d’objets de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
+Ce guide de démarrage rapide explique comment gérer des objets blob à l’aide de Java. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des éléments multimédias de diffusion en continu et des données d’archive. Vous allez charger, télécharger et répertorier des objets blob. Vous allez également créer et supprimer des conteneurs, ainsi que définir des autorisations sur ceux-ci.
 
-Utilisez la bibliothèque de client Stockage Blob Azure pour Java afin de :
+## <a name="prerequisites"></a>Conditions préalables requises
 
-* Créez un conteneur.
-* Définir des autorisations sur un conteneur
-* Créer un objet blob dans le stockage Azure
-* Télécharger l’objet blob sur votre ordinateur local
-* Lister tous les objets blob d’un conteneur
-* Supprimer un conteneur
-
-## <a name="prerequisites"></a>Prérequis
-
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* Un IDE avec intégration Maven.
-* Vous pouvez aussi installer et configurer Maven pour qu’il fonctionne à partir de la ligne de commande.
-
-Ce guide utilise [Eclipse](https://www.eclipse.org/downloads/) avec la configuration « IDE Eclipse pour les développeurs Java ».
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
+- Un IDE avec intégration Maven. Ce guide utilise [Eclipse](https://www.eclipse.org/downloads/) avec la configuration « IDE Eclipse pour les développeurs Java ».
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 
@@ -48,7 +36,7 @@ git clone https://github.com/Azure-Samples/storage-blobs-java-quickstart.git
 
 Cette commande clone le dépôt dans votre dossier git local. Pour ouvrir le projet, lancez Eclipse et fermez l’écran d’accueil. Sélectionnez **Fichier**, puis **Open Projects from File System** (Ouvrir des projets à partir du système de fichiers). Vérifiez que l’option **Detect and configure project natures** (Détecter et configurer les natures de projet) est activée. Sélectionnez **Répertoire**, puis accédez à l’emplacement où vous avez stocké le référentiel cloné. Dans celui-ci, sélectionnez le dossier **blobAzureApp**. Vérifiez que le projet **blobAzureApp** s’affiche en tant que projet Eclipse, puis sélectionnez **Terminer**.
 
-Une fois l’importation du projet terminée, ouvrez **AzureApp.java** (situé dans **blobQuickstart.blobAzureApp** à l’intérieur de **src/main/java**) et remplacez `accountname` et `accountkey` dans la chaîne `storageConnectionString`. Puis exécutez l’application. Les instructions spécifiques pour effectuer ces tâches sont décrites dans les sections suivantes.
+Une fois l’importation du projet accomplie, ouvrez **AzureApp.java** (situé dans **blobQuickstart.blobAzureApp** à l’intérieur de **src/main/java**) et remplacez `accountname` et `accountkey` dans la chaîne `storageConnectionString`. Puis exécutez l’application. Les instructions spécifiques pour effectuer ces tâches sont décrites dans les sections suivantes.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -89,7 +77,7 @@ Avant de continuer, vérifiez votre répertoire par défaut (*C:\Users\<user>\Ap
   >[!NOTE]
   >Vous pouvez également utiliser un outil comme l’[Explorateur Stockage Azure](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) pour afficher les fichiers dans Stockage Blob. L’Explorateur Stockage Azure est un outil multiplateforme gratuit qui vous permet d’accéder aux informations de votre compte de stockage.
 
-Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour terminer la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier**AzureApp.java** pour examiner le code.
+Une fois que vous avez vérifié les fichiers, appuyez sur la touche **Entrée** pour accomplir la démonstration et supprimer les fichiers de test. Comme vous savez maintenant ce que fait l’exemple, ouvrez le fichier**AzureApp.java** pour examiner le code.
 
 ## <a name="understand-the-sample-code"></a>Comprendre l’exemple de code
 
@@ -183,7 +171,7 @@ downloadedFile = new File(sourceFile.getParentFile(), "downloadedFile.txt");
 blob.downloadToFile(downloadedFile.getAbsolutePath());
 ```
 
-### <a name="clean-up-resources"></a>Supprimer des ressources
+### <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des objets blob que vous avez chargés, vous pouvez supprimer le conteneur entier à l’aide de [CloudBlobContainer.DeleteIfExists](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.deleteifexists). Cette méthode permet de supprimer les fichiers du conteneur également.
 

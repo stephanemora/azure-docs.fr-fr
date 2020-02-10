@@ -1,7 +1,7 @@
 ---
 title: Effectuer des recherches dans Azure Data Lake Storage Gen2 (version préliminaire)
 titleSuffix: Azure Cognitive Search
-description: Découvrez comment indexer le contenu et les métadonnées dans Azure Data Lake Storage Gen2. Cette fonctionnalité est actuellement disponible en préversion publique
+description: Découvrez comment indexer le contenu et les métadonnées dans Azure Data Lake Storage Gen2. Cette fonctionnalité est actuellement en préversion publique.
 manager: nitinme
 author: markheff
 ms.author: maheff
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 628b8bb5c3cb83ae6038a7150420893d7abe61d5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112288"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905658"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indexation de documents dans Azure Data Lake Storage Gen2
 
@@ -30,11 +30,11 @@ Cet article explique comment prendre en main l’indexation des documents qui se
 
 Vous devez effectuer quelques étapes pour indexer le contenu de Data Lake Storage Gen2.
 
-### <a name="step-1-sign-up-for-the-preview"></a>Étape 1 : S’inscrire à la version préliminaire
+### <a name="step-1-sign-up-for-the-preview"></a>Étape 1 : S’inscrire à la version préliminaire
 
 Inscrivez-vous à la préversion de l’indexeur Data Lake Storage Gen2 en remplissant [ce formulaire](https://aka.ms/azure-cognitive-search/indexer-preview). Vous recevrez un e-mail de confirmation une fois que vous avez été accepté dans la préversion.
 
-### <a name="step-2-follow-the-azure-blob-storage-indexing-setup-steps"></a>Étape 2 : Suivre les étapes de configuration de l’indexation du stockage d’objets blob Azure
+### <a name="step-2-follow-the-azure-blob-storage-indexing-setup-steps"></a>Étape 2 : Suivre les étapes de configuration de l’indexation du stockage d’objets blob Azure
 
 Une fois que vous avez reçu la confirmation de la réussite de votre l’inscription à la préversion, vous êtes prêt à créer le pipeline d’indexation.
 
@@ -47,3 +47,10 @@ L’indexation du contenu dans Data Lake Storage Gen2 est identique à l’index
 Azure Data Lake Storage Gen2 implémente un [modèle de contrôle d’accès](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) qui prend en charge le contrôle d’accès en fonction du rôle (RBAC) Azure et les listes de contrôle d’accès (ACL) POSIX. Lorsque vous indexez du contenu à partir de Data Lake Storage Gen2, Recherche cognitive Azure n’extraira pas les informations RBAC et ACL du contenu. Par conséquent, ces informations ne seront pas incluses dans votre index Recherche cognitive Azure.
 
 Si la gestion du contrôle d’accès sur chaque document de l’index est importante, le développeur de l’application doit implémenter un [filtrage de sécurité](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
+
+## <a name="change-detection"></a>Détection des changements
+
+L’indexeur Data Lake Storage Gen2 prend en charge la détection des modifications. Cela signifie que, lorsque l’indexeur s’exécute, il réindexe uniquement les objets blob modifiés comme déterminé par l’horodateur `LastModified` de l’objet blob.
+
+> [!NOTE] 
+> Data Lake Storage Gen2 permet de renommer les répertoires. Quand un répertoire est renommé, les horodateurs des objets blob qu’il contient ne sont pas mis à jour. Par conséquent, l’indexeur ne réindexe pas ces objets blob. Si vous avez besoin que les objets blob d’un répertoire soient réindexés après le changement de nom de celui-ci parce que leurs URL ont changé, vous devez mettre à jour l’horodateur `LastModified` pour tous les objets blob dans l’annuaire afin que l’indexeur sache les réindexer lors d’une exécution ultérieure.
