@@ -1,0 +1,67 @@
+### YamlMime:Landing
+title: Documentation sur le provisionnement d’applications et de RH
+summary: Le provisionnement d’applications Azure Active Directory vous permet de créer et de gérer automatiquement des identités utilisateur dans vos applications (SaaS) cloud. Azure AD offre aussi le provisionnement d’applications de ressources humaines (RH) basées sur le cloud. Découvrez comment gérer et déployer le provisionnement d’applications et de RH cloud avec nos guides de démarrage rapide, nos tutoriels et nos conseils.
+metadata:
+  title: Documentation sur le provisionnement d’applications
+  description: Le provisionnement d’applications Azure Active Directory vous permet de créer et de gérer automatiquement des identités utilisateur dans vos applications (SaaS) cloud. Azure AD offre aussi le provisionnement d’applications de ressources humaines (RH) basées sur le cloud. Découvrez comment gérer et déployer le provisionnement d’applications et de RH cloud avec nos guides de démarrage rapide, nos tutoriels et nos conseils.
+  ms.service: active-directory
+  ms.subservice: app-mgmt
+  ms.workload: identity
+  ms.topic: landing-page
+  ms.date: 02/06/2020
+  author: msmimart
+  ms.author: mimart
+  manager: celested
+  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.translationtype: HT
+  ms.contentlocale: fr-FR
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77065499"
+landingContent:
+- title: Provisionner des utilisateurs et des groupes dans une application cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Qu’est-ce que le provisionnement d’application ?
+      url: user-provisioning.md
+    - text: Comment fonctionne le provisionnement
+      url: how-provisioning-works.md
+  - linkListType: tutorial
+    links:
+    - text: Provisionnement de SAP Cloud Platform Identity Authentication
+      url: /azure/active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisionnement d’Oracle Fusion ERP
+      url: /azure/active-directory/saas-apps/oracle-fusion-erp-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisionnement d’Atlassian Cloud
+      url: /azure/active-directory/saas-apps/atlassian-cloud-provisioning-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+  - linkListType: how-to-guide
+    links:
+    - text: Vous ajoutez application de la galerie ? Configurer le provisionnement dans une application
+      url: configure-automatic-user-provisioning-portal.md
+    - text: Personnaliser des mappages d’attributs
+      url: customize-application-attributes.md
+    - text: Utiliser des filtres d’étendue
+      url: define-conditional-rules-for-provisioning-user-accounts.md
+- title: Développer une application avec SCIM pour le provisionnement
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Provisionnement avec SCIM (blog sur les standards d’identité)
+      url: https://techcommunity.microsoft.com/t5/identity-standards-blog/provisioning-with-scim-getting-started/ba-p/880010
+  - linkListType: how-to-guide
+    links:
+    - text: Vous développez une application ? Utiliser SCIM pour le provisionnement automatique
+      url: use-scim-to-provision-users-and-groups.md
+- title: Gérer le provisionnement entrant de RH cloud
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Planifier un déploiement de provisionnement d’utilisateurs RH cloud
+      url: plan-cloud-hr-provision.md
+  - linkListType: tutorial
+    links:
+    - text: Provisionnement de Workday
+      url: /azure/active-directory/saas-apps/workday-inbound-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context
+    - text: Provisionnement de SAP SuccessFactors
+      url: /azure/active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial?context=azure/active-directory/app-provisioning/context/app-provisioning-context

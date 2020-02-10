@@ -110,6 +110,10 @@
               href: microsoft-compute-sizeselector.md
             - name: Zone de texte Nom d’utilisateur
               href: microsoft-compute-usernametextbox.md
+        - name: Identité managée
+          items:
+            - name: IdentitySelector
+              href: microsoft-managedidentity-identityselector.md
         - name: Réseau
           items:
             - name: Zone de liste modifiable Adresse IP publique

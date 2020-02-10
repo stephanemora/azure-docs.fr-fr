@@ -107,7 +107,7 @@
       href: iot-hub-event-grid-routing-comparison.md
     - name: Meilleures pratiques en matière de configuration d’appareil
       href: iot-hub-configuration-best-practices.md
-    - name: Prise en charge des plateformes par les kits SDK Azure IoT
+    - name: Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
       href: iot-hub-device-sdk-platform-support.md
     - name: Vue d’ensemble des flux d’appareil IoT Hub (préversion)
       href: iot-hub-device-streams-overview.md
@@ -160,7 +160,7 @@
           href: iot-hub-devguide-quotas-throttling.md
         - name: Exemples de tarification
           href: iot-hub-devguide-pricing.md
-        - name: Kits Device et Service SDK
+        - name: Kits de développement logiciel (SDK) de services et d’appareils
           href: iot-hub-devguide-sdks.md
         - name: Support MQTT
           href: iot-hub-mqtt-support.md
@@ -190,12 +190,12 @@
   items:
     - name: Développer
       items:
-        - name: Utiliser les kits Device et Service SDK
+        - name: Utiliser les Kits de développement logiciel (SDK) de services et d’appareils
           href: iot-hub-devguide-sdks.md
           items:
-            - name: Prise en charge des plateformes par les kits SDK Azure IoT
+            - name: Prise en charge des plateformes par les Kits de développement logiciel (SDK) Azure IoT
               href: iot-hub-device-sdk-platform-support.md
-            - name: Utiliser le kit IoT Device SDK pour C
+            - name: Utiliser le Kit de développement logiciel (SDK) Azure IoT device pour C
               href: iot-hub-device-sdk-c-intro.md
               items:
                 - name: Utiliser IoTHubClient
@@ -216,7 +216,7 @@
           href: iot-hub-query-avro-data.md
         - name: Commander des événements d’état de la connexion d’appareils à partir d’Event Grid
           href: iot-hub-how-to-order-connection-state-events.md
-        - name: Envoyer des messages cloud-à-appareil
+        - name: Envoi de messages cloud vers appareil
           items:
             - name: .NET
               href: iot-hub-csharp-csharp-c2d.md
@@ -303,7 +303,7 @@
           items:
             - name: Utiliser le portail Azure
               href: iot-hub-configure-file-upload.md
-            - name: Utiliser Azure PowerShell
+            - name: Utilisation d'Azure PowerShell
               href: iot-hub-configure-file-upload-powershell.md
             - name: "Utiliser l’interface de ligne de commande Microsoft\_Azure"
               href: iot-hub-configure-file-upload-cli.md
@@ -388,7 +388,7 @@
               href: iot-hub-troubleshoot-error-403006-devicemaximumactivefileuploadlimitexceeded.md
             - name: 404001 DeviceNotFound
               href: iot-hub-troubleshoot-error-404001-devicenotfound.md
-            - name: 404003 DeviceNotOnline
+            - name: 404103 DeviceNotOnline
               href: iot-hub-troubleshoot-error-404103-devicenotonline.md
             - name: 404104 DeviceConnectionClosedRemotely
               href: iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md
@@ -424,7 +424,7 @@
       href: 'https://docs.microsoft.com/javascript/api/azure-iot-device/'
     - name: Node.js (service)
       href: 'https://docs.microsoft.com/javascript/api/azure-iothub/'
-    - name: Kit Device SDK pour C
+    - name: C (Kit de développement logiciel (SDK) de l’appareil)
       href: 'https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/'
     - name: "Azure IoT\_Edge"
       href: 'http://azure.github.io/iot-edge/'
@@ -460,7 +460,7 @@
           href: /azure/iot-pnp
         - name: Service IoT Hub Device Provisioning
           href: /azure/iot-dps
-        - name: Kits SDK IoT Service
+        - name: Kits de développement logiciel (SDK) IoT Service
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Cartes
           href: /azure/azure-maps
@@ -470,7 +470,7 @@
       items:
         - name: "Azure IoT\_Edge"
           href: /azure/iot-edge
-        - name: Kits IoT Device SDK
+        - name: Kits de développement logiciel (SDK) IoT Device
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Ressources
   items:

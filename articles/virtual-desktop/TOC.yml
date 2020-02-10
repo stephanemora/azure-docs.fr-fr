@@ -64,7 +64,7 @@
           href: set-up-customize-master-image.md
         - name: Installer Office sur une image VHD principale
           href: install-office-on-wvd-master-image.md
-    - name: Mettre à l’échelle dynamiquement des hôtes de session
+    - name: Mettre à l’échelle des hôtes de session automatiquement
       href: set-up-scaling-script.md
     - name: Personnaliser un flux
       href: customize-feed-for-virtual-desktop-users.md

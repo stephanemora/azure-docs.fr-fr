@@ -39,6 +39,8 @@
           href: ./hdinsight-component-versioning.md
         - name: Composants haute disponibilité
           href: ./hdinsight-high-availability-components.md
+        - name: Apache Ambari dans Azure HDInsight
+          href: ./apache-ambari-usage.md
         - name: Machine Learning dans HDInsight
           href: ./hdinsight-machine-learning-overview.md
         - name: Diffusion en continu à l’échelle dans HDInsight
@@ -616,7 +618,7 @@
               href: ./hbase/apache-hbase-phoenix-zeppelin.md
             - name: Apache Phoenix dans HDInsight
               href: ./hdinsight-phoenix-in-hdinsight.md
-            - name: Utiliser le kit SDK REST du serveur de requête Apache Phoenix
+            - name: Utiliser le Kit de développement logiciel (SDK) REST du serveur de requête Apache Phoenix
               href: ./hbase/apache-hbase-using-phoenix-query-server-rest-sdk.md
             - name: Charger des données en bloc dans Apache Phoenix à l’aide de psql
               href: ./hbase/apache-hbase-phoenix-psql.md

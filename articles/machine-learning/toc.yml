@@ -25,6 +25,9 @@
         - name: Créer une expérience de machine learning automatisé
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+        - name: Prévoir la demande avec le ML automatisé (données de partage de vélo)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-automated-ml-forecast.md
     - name: Kit de développement logiciel (SDK) Python
       items:
         - name: Créer votre première expérience ML

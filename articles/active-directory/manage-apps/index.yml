@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 7ebb44ec1f3483b9bf3f29ddb6dc7a73266b8cea
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.openlocfilehash: 3bea7dda1cf44548ea924ffa84fb922410242f27
+  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75443364"
+  ms.lasthandoff: 02/07/2020
+  ms.locfileid: "77063470"
 landingContent:
 - title: À propos de la gestion des applications
   linkLists:
@@ -51,24 +51,18 @@ landingContent:
   linkLists:
   - linkListType: overview
     links:
-    - text: Qu’est-ce que le provisionnement utilisateur automatique ?
-      url: user-provisioning.md
-    - text: Comment fonctionne le provisionnement
-      url: how-provisioning-works.md
+    - text: Qu’est-ce que le provisionnement d’application ?
+      url: /azure/active-directory/app-provisioning/user-provisioning?context=azure/active-directory/manage-apps/context/manage-apps-context
   - linkListType: tutorial
     links:
     - text: Tutoriels sur le provisionnement des applications SaaS
       url: /azure/active-directory/saas-apps/
   - linkListType: how-to-guide
     links:
-    - text: Vous créez une application ? Utiliser SCIM pour le provisionnement automatique
-      url: use-scim-to-provision-users-and-groups.md
-    - text: Vous ajoutez application de la galerie ? Configurer le provisionnement dans une application
-      url: configure-automatic-user-provisioning-portal.md
-    - text: Personnaliser des mappages d’attributs
-      url: customize-application-attributes.md
-    - text: Utiliser des filtres d’étendue
-      url: define-conditional-rules-for-provisioning-user-accounts.md
+    - text: Vous créez une application ? Utiliser SCIM pour le provisionnement (documentation sur le provisionnement d’application)
+      url: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+    - text: Vous ajoutez application de la galerie ? Configurer le provisionnement (documentation sur le provisionnement d’application)
+      url: /azure/active-directory/app-provisioning/configure-automatic-user-provisioning-portal
 - title: Publier des applications locales avec le proxy d’application
   linkLists:
   - linkListType: overview
