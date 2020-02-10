@@ -137,8 +137,6 @@
               href: /visualstudio/azure/vs-azure-tools-intellitrace-debug-published-cloud-services?toc=/azure/cloud-services/toc.json
         - name: Échec d’allocation de service cloud
           href: cloud-services-allocation-failures.md
-        - name: "Les applications ne prennent pas en charge TLS\_1.2"
-          href: applications-dont-support-TLS-1-2.md
         - name: Causes courantes de recyclage des rôles de service cloud
           href: cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md
         - name: "L’application ne prend pas en charge TLS\_1.2"

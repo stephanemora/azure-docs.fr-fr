@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832308"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933857"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notes de publication d’Azure Media Services Video Indexer
 
@@ -29,6 +29,24 @@ Pour vous informer des développements les plus récents, cet article détaille 
 * Problèmes connus
 * Résolution des bogues
 * Fonctionnalités dépréciées
+
+## <a name="january-2020"></a>Janvier 2020
+ 
+### <a name="custom-language-support-for-additional-languages"></a>Prise en charge linguistique personnalisée pour d’autres langues
+
+Video Indexer prend désormais en charge des modèles de langage personnalisés pour les langues `ar-SY`, `en-UK` et `en-AU` (API uniquement).
+ 
+### <a name="delete-account-timeframe-action-update"></a>Mise à jour de la plage de temps de l’action de suppression de compte
+
+L’action de suppression de compte supprime désormais le compte dans les 90 jours au lieu des 48 heures.
+ 
+### <a name="new-video-indexer-github-repository"></a>Nouveau dépôt GitHub pour Video Indexer
+
+Un nouveau dépôt GitHub pour Video Indexer avec différents projets, des guides de prise en main et des exemples de code est désormais disponible : https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### <a name="swagger-update"></a>Mise à jour du fichier Swagger
+
+**Authentications** et **opérations** de Video Indexer unifiées dans une seule [Spécification OpenAPI de Video Indexer (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Les API sont disponibles sur le portail [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>Décembre 2019
 

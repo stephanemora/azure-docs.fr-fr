@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple – Configurer des sources d’identité vCenter sur le cloud privé
-description: Décrit comment configurer votre cloud privé vCenter pour s’authentifier auprès d’Active Directory afin que les administrateurs VMware accèdent à vCenter
+title: Azure VMware Solution (AVS) – Configurer des sources d’identité vCenter sur un cloud privé AVS
+description: Décrit comment configurer le vCenter de votre cloud privé AVS pour s’authentifier auprès d’Active Directory afin de permettre aux administrateurs VMware d’accéder à vCenter
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,27 +8,27 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eeced5205b836a15a43fbccfb8c6cb60b4bec29f
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ad4a7b2bc67b7d50d9e9a5f8337a09dbe77366ea
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76542863"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014213"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Configurer des sources d’identité vCenter pour utiliser Active Directory
 
 ## <a name="about-vmware-vcenter-identity-sources"></a>À propos des sources d’identité VMware vCenter
 
-VMware vCenter prend en charge différentes sources d’identité pour l’authentification des utilisateurs qui accèdent à vCenter.  Votre vCenter cloud privé CloudSimple peut être configuré pour s’authentifier auprès d’Active Directory pour que vos administrateurs VMware accèdent à vCenter. Une fois l’installation terminée, l’utilisateur **cloudowner** peut ajouter des utilisateurs de la source d’identité à vCenter.  
+VMware vCenter prend en charge différentes sources d’identité pour l’authentification des utilisateurs qui accèdent à vCenter. Vous pouvez configurer le vCenter de votre cloud privé AVS de façon à ce qu’il s’authentifie auprès d’Active Directory pour permettre à vos administrateurs VMware d’accéder à vCenter. Une fois l’installation terminée, l’utilisateur **cloudowner** peut ajouter des utilisateurs de la source d’identité à vCenter. 
 
 Vous pouvez configurer votre domaine Active Directory et vos contrôleurs de domaine de l’une des manières suivantes :
 
 * Domaine et contrôleurs de domaine Active Directory exécutés localement
 * Domaine et contrôleurs de domaine Active Directory exécutés sur Azure en tant que machines virtuelles dans votre abonnement Azure
-* Nouveaux domaine et contrôleurs de domaine Active Directory exécutés dans votre cloud privé
+* Nouveaux domaine et contrôleurs de domaine Active Directory s’exécutant dans votre cloud privé AVS
 * Service Azure Active Directory
 
-Ce guide explique les tâches à effectuer pour configurer un domaine et des contrôleurs de domaine Active Directory exécutés localement ou en tant que machines virtuelles dans vos abonnements.  Si vous souhaitez utiliser Azure AD comme source d’identité, consultez [Utiliser Azure AD comme fournisseur d’identité pour vCenter sur un cloud privé CloudSimple](azure-ad.md) pour obtenir des instructions détaillées sur la configuration de la source d’identité.
+Ce guide explique les tâches à effectuer pour configurer un domaine et des contrôleurs de domaine Active Directory exécutés localement ou en tant que machines virtuelles dans vos abonnements. Si vous souhaitez utiliser Azure AD comme source d’identité, voir [Utiliser Azure AD comme fournisseur d’identité pour vCenter sur un cloud privé AVS](azure-ad.md) pour obtenir des instructions détaillées sur la configuration de la source d’identité.
 
 Avant d’[ajouter une source d’identité](#add-an-identity-source-on-vcenter), [augmentez temporairement vos privilèges vCenter](escalate-private-cloud-privileges.md).
 
@@ -39,14 +39,14 @@ Avant d’[ajouter une source d’identité](#add-an-identity-source-on-vcenter)
 ## <a name="identity-source-options"></a>Options de la source d’identité
 
 * [Ajouter un domaine Active Directory local en tant que source d’identité d’authentification unique](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
-* [Configurer un nouveau domaine Active Directory sur un cloud privé](#set-up-new-active-directory-on-a-private-cloud)
+* [Configurer un nouveau domaine Active Directory sur un cloud privé AVS](#set-up-new-active-directory-on-an-avs-private-cloud)
 * [Configurer Active Directory sur Azure](#set-up-active-directory-on-azure)
 
 ## <a name="add-on-premises-active-directory-as-a-single-sign-on-identity-source"></a>Ajouter un domaine Active Directory local en tant que source d’identité d’authentification unique
 
 Pour configurer votre domaine Active Directory local en tant que source d’identité d’authentification unique, vous devez disposer des éléments suivants :
 
-* [Connexion VPN de site à site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) de votre centre de données local vers votre cloud privé
+* [Connexion VPN site à site](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) de votre centre de données local à votre cloud privé AVS.
 * Adresse IP du serveur DNS local ajoutée à vCenter et au contrôleur PSC (Platform Services Controller)
 
 Utilisez les informations du tableau suivant lors de la configuration de votre domaine Active Directory.
@@ -69,9 +69,9 @@ Une fois que vous avez les informations du tableau précédent, vous pouvez ajou
 > [!TIP]
 > Vous trouverez plus d’informations sur les sources d’identité d’authentification unique dans la [page de documentation VMware](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html).
 
-## <a name="set-up-new-active-directory-on-a-private-cloud"></a>Configurer un nouveau domaine Active Directory sur un cloud privé
+## <a name="set-up-new-active-directory-on-an-avs-private-cloud"></a>Configurer un nouveau domaine Active Directory sur un cloud privé AVS
 
-Vous pouvez configurer un nouveau domaine Active Directory sur votre cloud privé et l’utiliser comme source d’identité pour l’authentification unique.  Le domaine Active Directory peut faire partie d’une forêt Active Directory existante ou peut être configuré en tant que forêt indépendante.
+Vous pouvez configurer un nouveau domaine Active Directory sur votre cloud privé AVS et l’utiliser comme source d’identité pour l’authentification unique. Le domaine Active Directory peut faire partie d’une forêt Active Directory existante ou peut être configuré en tant que forêt indépendante.
 
 ### <a name="new-active-directory-forest-and-domain"></a>Nouvelle forêt et nouveau domaine Active Directory
 
@@ -100,15 +100,15 @@ Après avoir configuré le domaine Active Directory, vous pouvez [ajouter une so
 
 ## <a name="set-up-active-directory-on-azure"></a>Configurer Active Directory sur Azure
 
-Active Directory exécuté sur Azure est similaire à Active Directory exécuté localement.  Pour configurer Active Directory exécuté sur Azure en tant que source d’identité d’authentification unique sur vCenter, il faut que le serveur vCenter et le PSC disposent d’une connectivité au réseau virtuel Azure sur lequel s’exécutent les services Active Directory.  Vous pouvez établir cette connectivité avec la [connexion de réseau virtuel Azure à l’aide d’ExpressRoute](azure-expressroute-connection.md) allant du réseau virtuel Azure sur lequel Active Directory Services s’exécute au cloud privé CloudSimple.
+Active Directory exécuté sur Azure est similaire à Active Directory exécuté localement. Pour configurer Active Directory exécuté sur Azure en tant que source d’identité d’authentification unique sur vCenter, il faut que le serveur vCenter et le PSC disposent d’une connectivité au réseau virtuel Azure sur lequel s’exécutent les services Active Directory. Vous pouvez établir cette connectivité en utilisant une [connexion de réseau virtuel Azure avec ExpressRoute](azure-expressroute-connection.md) allant du réseau virtuel Azure sur lequel Active Directory Services s’exécute au cloud privé AVS.
 
-Une fois la connexion réseau établie, suivez les étapes fournies dans [Ajouter un domaine Active Directory local en tant que source d’identité d’authentification unique](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) pour l’ajouter en tant que source d’identité.  
+Une fois la connexion réseau établie, suivez les étapes fournies dans [Ajouter un domaine Active Directory local en tant que source d’identité d’authentification unique](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) pour l’ajouter en tant que source d’identité. 
 
 ## <a name="add-an-identity-source-on-vcenter"></a>Ajouter une source d’identité sur vCenter
 
-1. [Augmentez les privilèges](escalate-private-cloud-privileges.md) sur votre cloud privé.
+1. [Élevez les privilèges](escalate-private-cloud-privileges.md) sur votre cloud privé AVS.
 
-2. Connectez-vous à vCenter pour votre cloud privé.
+2. Connectez-vous au vCenter pour votre cloud privé AVS.
 
 3. Sélectionnez **Accueil > Administration**.
 

@@ -1,20 +1,19 @@
 ---
 title: Azure Service Fabric - Configurer les informations d’identification au référentiel de conteneurs
 description: Configurer les informations d’identification au référentiel pour télécharger des images du registre de conteneurs
-author: arya
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: arya
-ms.openlocfilehash: 25fe3c69b19d397137d1e1802e941e0433a1b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351669"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934992"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurer les informations d’identification au référentiel de votre applications pour télécharger des images du registre de conteneurs
 
-Configurez l’authentification au registre de conteneurs en ajoutant l’élément `RepositoryCredentials` à l’élément `ContainerHostPolicies` du fichier ApplicationManifest.xml. Ajoutez le compte et le mot de passe pour le registre de conteneurs myregistry.azurecr.io. Cela permet au service de télécharger l’image de conteneur à partir du référentiel.
+Configurez l’authentification du registre de conteneurs en ajoutant des `RepositoryCredentials` à la section `ContainerHostPolicies` du manifeste de votre application. Ajoutez le compte et le mot de passe de votre registre de conteneurs (*myregistry.azurecr.io* dans l’exemple ci-dessous). Cela permet au service de télécharger l’image conteneur à partir du référentiel.
 
 ```xml
 <ServiceManifestImport>
@@ -55,7 +54,7 @@ Service Fabric utilise ensuite les informations d’identification de référent
 * DefaultContainerRepositoryAccountName (chaîne)
 * DefaultContainerRepositoryPassword (chaîne)
 * IsDefaultContainerRepositoryPasswordEncrypted (valeur booléenne)
-* DefaultContainerRepositoryPasswordType (chaîne) --- Prise en charge par le runtime version 6.4 et supérieure
+* DefaultContainerRepositoryPasswordType (chaîne)
 
 Voici un exemple de ce qui peut être ajouté dans la section `Hosting` du fichier ClusterManifestTemplate.json. La section `Hosting` peut être ajoutée au moment de la création du cluster ou ultérieurement dans une mise à niveau de la configuration. Pour plus d’informations, consultez [Personnaliser les paramètres de cluster Service Fabric](service-fabric-cluster-fabric-settings.md) et [Gérer les secrets dans les applications Service Fabric](service-fabric-application-secret-management.md).
 
@@ -90,19 +89,19 @@ Voici un exemple de ce qui peut être ajouté dans la section `Hosting` du fichi
 ]
 ```
 
-## <a name="leveraging-the-managed-identity-of-the-virtual-machine-scale-set-by-using-managed-identity-service-msi"></a>Exploitation de l’identité managée du groupe de machines virtuelles identiques définie à l’aide du service Managed Identity Service (MSI)
+## <a name="use-tokens-as-registry-credentials"></a>Utiliser des jetons en tant qu’informations d’identification du Registre
 
-Service Fabric prend en charge l’utilisation de jetons en tant qu’informations d’identification pour télécharger des images pour vos conteneurs.  Cette fonctionnalité exploite l’identité managée du groupe de machines virtuelles identiques sous-jacent définie pour s’authentifier auprès du registre, ce qui évite d’avoir à gérer les informations d’identification des utilisateurs.  Consultez [Managed Service Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) pour en savoir plus sur MSI.  L’utilisation de cette fonctionnalité requiert les étapes suivantes :
+Service Fabric prend en charge l’utilisation de jetons en tant qu’informations d’identification pour télécharger des images pour vos conteneurs.  Cette fonctionnalité tire parti de l’*identité managée* du groupe de machines virtuelles identiques sous-jacent pour s’authentifier auprès du registre, ce qui évite d’avoir à gérer les informations d’identification des utilisateurs.  Pour plus d’informations, voir [Identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).  L’utilisation de cette fonctionnalité requiert les étapes suivantes :
 
-1.  Vérifier que l’option Identité managée affectée par le système est activée pour la machine virtuelle (voir capture d’écran ci-dessous)
+1. Vérifiez que l’option *Identité managée affectée par le système* est activée pour la machine virtuelle.
 
-    ![Créer une identité de groupe de machines virtuelles identiques](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+    ![Portail Azure : Créer une option d’identité de groupe de machines virtuelles identiques](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
 
-2.  Ensuite, accordez des autorisations au VMSS pour extraire/lire des images du registre.  Accédez à Access Control (IAM) de votre ACR via le panneau Azure et accordez les autorisations appropriées à votre VMSS, comme indiqué ci-dessous :
+2. Accordez au groupe de machines virtuelles identiques les autorisations nécessaires pour extraire/lire des images à partir du Registre. Dans le panneau Access Control (IAM) de votre Azure Container Registry sur le Portail Azure, ajoutez une *attribution de rôle* pour votre machine virtuelle :
 
     ![Ajouter un principal de machine virtuelle à ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3.  Une fois les étapes ci-dessus terminées, modifiez votre fichier applicationmanifest.xml.  Recherchez la balise « ContainerHostPolicies » et ajoutez l’attribut `‘UseTokenAuthenticationCredentials=”true”`.
+3. Ensuite, modifiez le manifeste de votre application. Dans la section `ContainerHostPolicies`, ajoutez l’attribut `‘UseTokenAuthenticationCredentials=”true”`.
 
     ```xml
       <ServiceManifestImport>
@@ -121,4 +120,4 @@ Service Fabric prend en charge l’utilisation de jetons en tant qu’informatio
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Apprenez-en davantage sur l’[authentification au registre de conteneurs](/azure/container-registry/container-registry-authentication).
+* Apprenez-en davantage sur l’[authentification au registre de conteneurs](../container-registry/container-registry-authentication.md).

@@ -1,6 +1,6 @@
 ---
-title: Solution Azure VMware de CloudSimple - Configurer le DNS pour le cloud privé CloudSimple
-description: Décrit comment configurer la résolution de noms DNS pour l’accès au serveur vCenter sur un cloud privé CloudSimple à partir de stations de travail locales
+title: Azure VMware Solutions (AVS) – Configurer DNS pour un cloud privé AVS
+description: Décrit comment configurer la résolution de noms DNS pour l’accès au serveur vCenter sur un cloud privé AVS à partir de stations de travail locales
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/14/2019
@@ -8,34 +8,34 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: c2d69d21eb46d502a45c9df1dfaaa947d26ef7c4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: eadedcea7e6010cf93d118b3781630053609d29f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108800"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019602"
 ---
-# <a name="configure-dns-for-name-resolution-for-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à vCenter sur cloud privé à partir de stations de travail locales
+# <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>Configurer DNS pour la résolution de noms pour l’accès à un vCenter de cloud privé AVS à partir de stations de travail locales
 
-Pour accéder au serveur vCenter sur un cloud privé CloudSimple à partir de stations de travail locales, vous devez configurer la résolution d’adresses DNS afin que le serveur vCenter puisse être désigné par nom d’hôte et par adresse IP.
+Pour accéder au serveur vCenter sur un cloud privé AVS à partir de stations de travail locales, vous devez configurer la résolution d’adresses DNS afin que le serveur vCenter puisse être désigné par nom d’hôte ainsi que par adresse IP.
 
-## <a name="obtain-the-ip-address-of-the-dns-server-for-your-private-cloud"></a>Obtenir l’adresse IP du serveur DNS pour votre cloud privé
+## <a name="obtain-the-ip-address-of-the-dns-server-for-your-avs-private-cloud"></a>Obtenir l’adresse IP du serveur DNS pour votre cloud privé AVS
 
-1. Connectez-vous au [portail CloudSimple](access-cloudsimple-portal.md).
+1. Connectez-vous au portail [AVS](access-cloudsimple-portal.md).
 
-2. Accédez à **Ressources** > **Clouds privés**, puis sélectionnez le cloud privé auquel vous souhaitez vous connecter.
+2. Accédez à **Ressources** > **Clouds privés AVS**, puis sélectionnez le cloud privé AVS auquel vous souhaitez vous connecter.
 
-3. Sur la page **Résumé** du cloud privé sous **Informations de base**, copiez l’adresse IP du serveur DNS du cloud privé.
+3. Sur la page **Résumé** du cloud privé AVS, sous **Informations de base**, copiez l’adresse IP du serveur DNS du cloud privé AVS.
 
-    ![Serveurs DNS de cloud privé](media/private-cloud-dns-server.png)
+    ![Serveurs DNS de cloud privé AVS](media/private-cloud-dns-server.png)
 
 
 Utilisez une de ces options pour la configuration DNS.
 
-* [Créer une zone sur le serveur DNS pour *.cloudsimple.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [Créer un redirecteur conditionnel sur votre serveur DNS local pour résoudre *.cloudsimple.io](#create-a-conditional-forwarder)
+* [Créer une zone sur le serveur DNS pour *.AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [Créer un redirecteur conditionnel sur votre serveur DNS local pour résoudre *.AVS.io](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>Créer une zone sur le serveur DNS pour *.cloudsimple.io
+## <a name="create-a-zone-on-the-dns-server-for-avsio"></a>Créer une zone sur le serveur DNS pour *.AVS.io
 
 Vous pouvez configurer une zone en tant que zone de stub et pointer vers les serveurs DNS sur le cloud privé pour la résolution de noms. Cette section fournit des informations sur l’utilisation d’un serveur DNS BIND ou d’un serveur DNS Microsoft Windows.
 
@@ -71,14 +71,14 @@ zone "az.cloudsimple.io"
 5. Entrez le nom de la zone, puis cliquez sur **Suivant**.
 
     ![Nouvelle zone](media/DNS05.png)
-6. Entrez les adresses IP des serveurs DNS de votre cloud privé que vous avez obtenues à partir du portail CloudSimple.
+6. Entrez les adresses IP des serveurs DNS de votre cloud privé AVS, que vous avez obtenues à partir du portail AVS.
 
     ![Nouvelle zone](media/DNS06.png)
 7. Cliquez sur **Suivant** si nécessaire pour terminer l’installation de l’assistant.
 
 ## <a name="create-a-conditional-forwarder"></a>Créer un redirecteur conditionnel
 
-Un redirecteur conditionnel transfère toutes les requêtes de résolution de noms DNS au serveur désigné. Avec cette configuration, toute requête pour *.cloudsimple.io est transférée aux serveurs DNS situés sur le cloud privé. Les exemples suivants montrent comment configurer des redirecteurs sur différents types de serveurs DNS.
+Un redirecteur conditionnel transfère toutes les requêtes de résolution de noms DNS au serveur désigné. Avec cette configuration, toute demande à *.AVS.io est transférée aux serveurs DNS situés sur le cloud privé AVS. Les exemples suivants montrent comment configurer des redirecteurs sur différents types de serveurs DNS.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>Créer un redirecteur conditionnel sur un serveur DNS BIND
 
@@ -99,4 +99,4 @@ zone "az.cloudsimple.io" {
 2. Cliquez avec le bouton droit sur **Redirecteurs conditionnels** et sélectionnez l’option permettant d’ajouter un nouveau redirecteur conditionnel.
 
     ![Redirecteur conditionnel 1 DNS Windows](media/DNS08.png)
-3. Entrez le domaine DNS et l’adresse IP des serveurs DNS dans le cloud privé, puis cliquez sur **OK**.
+3. Entrez le domaine DNS et l’adresse IP des serveurs DNS dans le cloud privé AVS, puis cliquez sur **OK**.
