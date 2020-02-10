@@ -8,16 +8,16 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 ms.service: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 739322feb8e844a197f2943f4ff050cacc0f2274
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e298aad6dc43f85f5b6c344eec56f5d8b37980d4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911293"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933300"
 ---
 # <a name="building-an-accessible-application"></a>Création d’une application accessible
 
-Jusqu’à 20 % des utilisateurs Internet ont besoin d’applications web accessibles. C’est pourquoi vous devez vous assurer que votre application est conçue de sorte que tout utilisateur puisse facilement s’en servir. Plutôt que de considérer l’accessibilité comme un ensemble de tâches à effectuer, envisagez-la dans le cadre de votre expérience utilisateur globale. Plus votre application est accessible, plus de personnes sont à même de l’utiliser. 
+Jusqu’à 20 % des utilisateurs Internet ont besoin d’applications web accessibles. C’est pourquoi il est important de vérifier que votre application est conçue pour que tout utilisateur puisse facilement s’en servir. Plutôt que de considérer l’accessibilité comme un ensemble de tâches à effectuer, envisagez-la dans le cadre de votre expérience utilisateur globale. Plus votre application est accessible, plus de personnes sont à même de l’utiliser. 
 
 Pour tout contenu interactif riche comme les cartes, vous devez prendre en considération les points suivants sur l’accessibilité :
 - Prendre en charge le lecteur d’écran pour les utilisateurs qui éprouvent des difficultés à voir l’application web.
@@ -84,7 +84,7 @@ La carte comporte un certain nombre de raccourcis clavier intégrés qui facilit
 | Signe moins, trait d’union (`-`) ou <sup>*</sup>trait de soulignement (`_`) | Faire un zoom arrière | 
 | `Shift` + glissement de la souris sur la carte pour dessiner la zone | Faire un zoom dans la zone |
 
-<sup>*</sup> Ces raccourcis de touche partagent généralement la même touche sur un clavier. Ils ont été ajoutés pour améliorer l’expérience utilisateur ; ainsi, peu importe que l’utilisateur utilise la touche Maj ou non pour ces raccourcis.
+<sup>*</sup> Ces raccourcis de touche partagent généralement la même touche sur un clavier. Ces raccourcis ont été ajoutés pour améliorer l’expérience utilisateur. Peu importe si l’utilisateur utilise la touche Maj ou non pour ces raccourcis.
 
 ## <a name="screen-reader-support"></a>Prise en charge du lecteur d’écran
 
@@ -94,9 +94,9 @@ Toutes les informations supplémentaires placées sur la carte de la base doiven
 
 ## <a name="make-popups-keyboard-accessible"></a>Rendre les fenêtres indépendantes accessibles par le biais du clavier
 
-Un marqueur ou un symbole est souvent utilisé pour représenter une position sur la carte. Des informations supplémentaires sur la position s’affichent généralement dans une fenêtre indépendante quand l’utilisateur interagit avec le marqueur. Dans la plupart des applications, les fenêtres indépendantes s’affichent quand un utilisateur clique ou appuie sur un marqueur, mais cela l’oblige à utiliser une souris ou un écran tactile. Une bonne pratique consiste à rendre les fenêtres indépendantes accessibles lors de l’utilisation d’un clavier. Pour ce faire, vous pouvez créer une fenêtre indépendante pour chaque point de données et l’ajouter à la carte. 
+Un marqueur ou un symbole est souvent utilisé pour représenter une position sur la carte. Des informations supplémentaires sur la position s’affichent généralement dans une fenêtre indépendante quand l’utilisateur interagit avec le marqueur. Dans la plupart des applications, des fenêtres contextuelles s’affichent quand l’utilisateur clique ou appuie sur un marqueur, à la condition qu’il utilise une souris ou un écran tactile. Une bonne pratique consiste à rendre les fenêtres indépendantes accessibles lors de l’utilisation d’un clavier. Cette fonctionnalité nécessite de créer une fenêtre contextuelle pour chaque point de données et de l’ajouter à la carte. 
 
-L’exemple suivant charge des points d’intérêt sur la carte à l’aide d’une couche de symboles et ajoute une fenêtre indépendante à la carte pour chaque point d’intérêt. Une référence à chaque fenêtre indépendante est stockée dans les propriétés de chaque point de données afin qu’elle puisse également être récupérée pour un marqueur, par exemple quand l’utilisateur clique sur un marqueur. Quand le focus est placé sur la carte, l’utilisateur peut passer de l’une à l’autre des fenêtres indépendantes de la carte à l’aide de la touche Tab.
+L’exemple suivant charge des points d’intérêt sur la carte à l’aide d’une couche de symboles et ajoute une fenêtre indépendante à la carte pour chaque point d’intérêt. Une référence à chaque menu contextuel est stockée dans les propriétés de chaque point de données. Il est également possible de la récupérer pour un marqueur, par exemple, en cas de clic sur celui-ci. Quand le focus est placé sur la carte, l’utilisateur peut passer de l’une à l’autre des fenêtres indépendantes de la carte à l’aide de la touche Tab.
 
 <br/>
 
@@ -106,9 +106,9 @@ L’exemple suivant charge des points d’intérêt sur la carte à l’aide d�
 
 ## <a name="additional-accessibility-tips"></a>Conseils supplémentaires sur l’accessibilité
 
-Voici quelques conseils supplémentaires pour améliorer l’accessibilité de votre application de carte web.
+Voici quelques conseils supplémentaires pour améliorer l’accessibilité de votre application de cartographie web.
 
-- Si vous affichez une grande quantité de données de points interactifs sur la carte, envisagez de réduire l’encombrement et d’utiliser le clustering. 
+- Si vous affichez une grande quantité de données de points interactifs sur la carte, envisagez de réduire l’encombrement et d’utiliser un clustering. 
 - Assurez-vous que le rapport de contraste des couleurs entre le texte/les symboles et les couleurs d’arrière-plan est au moins de 4,5 pour 1.
 - Veillez à ce que les messages de votre lecteur d’écran (attributs ARIA, alt et title) soient courts, descriptifs et explicites. Évitez les jargon et acronymes inutiles.
 - Essayez d’optimiser les messages envoyés au lecteur d’écran pour fournir des informations brèves explicites, faciles à déchiffrer pour l’utilisateur. Par exemple, si vous souhaitez mettre à jour le lecteur d’écran à une fréquence élevée, par exemple lors du déplacement de la carte, envisagez d’effectuer les opérations suivantes :
@@ -120,9 +120,9 @@ Voici quelques conseils supplémentaires pour améliorer l’accessibilité de v
     - Envisagez d’utiliser une couche de symboles avec différentes icônes pour différentes catégories de métriques, telles que des triangles, des étoiles et des carrés. La couche de symboles prend également en charge la mise à l’échelle de la taille de l’icône. Une étiquette de texte peut également être affichée.
     - Si vous affichez des données de ligne, la largeur peut être utilisée pour représenter la pondération ou la taille. Un modèle de tableau de tirets peut être utilisé pour représenter différentes catégories de lignes. Une couche de symboles peut être utilisée en combinaison avec une ligne pour superposer les icônes le long de la ligne. L’utilisation d’une icône représentant une flèche est utile pour indiquer le flux ou la direction de la ligne.
     - Si vous affichez des données de polygone, vous pouvez utiliser un modèle, tel que des bandes, à la place de la couleur. 
-- Certaines visualisations telles que les cartes thermiques, les couches de mosaïques et les couches d’images, ne sont pas accessibles aux utilisateurs ayant des troubles de la vision. Certaines considérations s’appliquent :
+- Certaines visualisations telles que les cartes thermiques, les couches de mosaïques et les couches d’images, ne sont pas accessibles aux utilisateurs atteints de troubles de la vision. Certaines considérations s’appliquent :
     - Faites en sorte que le lecteur d’écran décrive ce que la couche affiche quand elle est ajoutée à la carte. Par exemple, si une couche de mosaïques de radar météo s’affiche, faites en sorte que le lecteur d’écran indique quelque chose comme « données de radar météo sur la carte ».
-- Limitez la quantité de fonctionnalités qui nécessitent un pointage avec la souris. Elles sont inaccessibles aux utilisateurs qui utilisent un clavier ou un appareil tactile pour interagir avec votre application. Notez qu’il est toujours conseillé d’avoir un style de survol pour le contenu interactif, tel que les boutons, les liens et les icônes cliquables.
+- Limitez la quantité de fonctionnalités qui nécessitent un pointage avec la souris. Ces fonctionnalités sont inaccessibles aux utilisateurs qui utilisent un clavier ou un appareil tactile pour interagir avec votre application. Notez qu’il est toujours conseillé d’avoir un style de survol pour du contenu interactif, tel que des boutons, des liens et des icônes cliquables.
 - Essayez de naviguer dans votre application à l’aide du clavier. Assurez-vous que l’ordre de tabulation est logique.
 - Si vous créez des raccourcis clavier, essayez de les limiter à deux touches. 
 

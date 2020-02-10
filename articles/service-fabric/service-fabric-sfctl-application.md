@@ -3,14 +3,14 @@ title: Interface CLI Azure Service Fabric - sfctl application
 description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Inclut la liste des commandes liées à la gestion des applications.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645410"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906193"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Permet de créer, de supprimer et de gérer les applications et les types d’application.
@@ -529,10 +529,13 @@ Permet d’afficher éventuellement la progression du chargement pour chaque fic
 
 |Argument|Description|
 | --- | --- |
-| --path   [obligatoire] | Chemin d’accès au package d’application local. |
+| --path     [Obligatoire] | Chemin d’accès au package d’application local. |
+| --compress | S’applique uniquement aux packages d’applications Service Fabric. Créez un dossier contenant le package d’application compressé à l’emplacement par défaut ou à l’emplacement spécifié par le paramètre compressed-location, puis chargez le dossier nouvellement créé. <br><br> S’il existe un fichier compressé généré par sfctl, il est remplacé si cet indicateur est défini. Une erreur est retournée si le répertoire n’est pas un package d’application. S’il s’agit déjà d’un package d’application compressé, le dossier est copié dessus tel quel. Par défaut, le package d’application compressé nouvellement créé est supprimé après un chargement réussi. Si le chargement échoue, veuillez nettoyer manuellement le package compressé si nécessaire. La suppression ne supprime aucun répertoire vide qui a pu être créé si le paramètre d’emplacement compressé fait référence à des répertoires inexistants. |
+| --compressed-location | Emplacement où placer le package d’application compressé. <br><br> Si aucun emplacement n’est fourni, le package compressé est placé dans un dossier nouvellement créé appelé sfctl_compressed_temp sous le répertoire parent spécifié dans l’argument path. Par exemple, si l’argument path a la valeur C\:/FolderA/AppPkg, le package compressé est ajouté à C\:/FolderA/sfctl_compressed_temp/AppPkg. |
 | --imagestore-string | Magasin d’images de destination dans lequel charger le package d’application.  Valeur par défaut \: fabric\:ImageStore. <br><br> Pour effectuer un chargement vers un emplacement de fichier, faites commencer ce paramètre par « file\:». Dans le cas contraire, la valeur doit être la chaîne de connexion du magasin d’images, par exemple la valeur par défaut. |
+| --keep-compressed | Indique s’il faut ou non conserver le package compressé généré en cas de réussite du chargement. <br><br> Si la valeur n’est pas définie, en cas de réussite de l’opération, les packages d’applications compressés sont supprimés. Si le chargement a échoué, le package d’application est toujours conservé dans le répertoire de sortie pour re-chargement. |
 | --show-progress | Permet d’afficher la progression du chargement pour les packages volumineux. |
-| --timeout -t | Délai d’attente total en secondes. Le chargement échoue et retourne une erreur une fois la durée du délai d’attente écoulée. Ce délai d’attente s’applique à l’ensemble du package d’application, et les délais d’attente des différents fichiers correspondent à la durée restante du délai d’attente.  Par défaut \: 300. |
+| --timeout -t | Délai d’attente total en secondes. Le chargement échoue et retourne une erreur une fois la durée du délai d’attente écoulée. Ce délai d’attente s’applique à l’ensemble du package d’application, et les délais d’attente des différents fichiers correspondent à la durée restante du délai d’attente. Le délai d’attente n’inclut pas le temps nécessaire pour compresser le package d’application.  Par défaut \: 300. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 

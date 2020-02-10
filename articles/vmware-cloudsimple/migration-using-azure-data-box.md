@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 65167169248d83ebfec2c49c308673ec9315934e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f368ad7cf9b83195e35a2283de7a3644cc9fc317
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552912"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019755"
 ---
 # <a name="migrating-data-to-azure-vmware-solution-by-using-azure-data-box"></a>Migration de données vers une solution Azure VMware à l’aide d’Azure Data Box
 
 La solution cloud Microsoft Azure Data Box permet d’envoyer plusieurs téraoctets (To) de données vers Azure de façon rapide, économique et fiable. Le transfert de données sécurisé est accéléré par l’envoi à votre adresse d’un appareil de stockage Data Box propriétaire. Chaque appareil de stockage dispose d’une capacité de stockage maximale utile de 80 To et est acheminé vers votre centre de données par un transporteur régional. L'appareil dispose d'un caisson robuste afin de protéger et de sécuriser vos données pendant le transport.
 
-En utilisant la Data Box, vous pouvez migrer en bloc vos données VMware vers votre cloud privé. Les données de votre environnement VMware vSphere local sont copiées sur la Data Box via le protocole NFS (Network File System). La migration de données en bloc consiste à enregistrer une copie à un point dans le temps de machines virtuelles, de la configuration et des données associées sur la Data Box et à l’expédier manuellement à Azure.
+En utilisant une Data Box, vous pouvez migrer en bloc vos données VMware vers votre cloud privé AVS. Les données de votre environnement VMware vSphere local sont copiées sur la Data Box via le protocole NFS (Network File System). La migration de données en bloc consiste à enregistrer une copie à un point dans le temps de machines virtuelles, de la configuration et des données associées sur la Data Box et à l’expédier manuellement à Azure.
 
 Cet article porte sur les points suivants :
 
@@ -27,7 +27,7 @@ Cet article porte sur les points suivants :
 * Copie de données de l’environnement VMware local sur la Data Box via NFS.
 * Préparation du retour de la Data Box.
 * Préparation des données blob à copier dans la solution Azure VMware.
-* Copie des données d’Azure vers votre cloud privé.
+* Copie des données d’Azure vers votre cloud privé AVS.
 
 ## <a name="scenarios"></a>Scénarios
 
@@ -44,11 +44,11 @@ Servez-vous de la Data Box dans les scénarios de migration de données en bloc 
 
 * Créez un réseau virtuel et un compte de stockage dans la région où votre solution Azure VMware est provisionnée.
 
-* Créez une [connexion de réseau virtuel Azure](cloudsimple-azure-network-connection.md) entre votre cloud privé et le réseau virtuel où le compte de stockage a été créé en suivant les étapes décrites dans [Connecter un réseau virtuel Azure à CloudSimple à l’aide d’ExpressRoute](virtual-network-connection.md).
+* Créez une [connexion de réseau virtuel Azure](cloudsimple-azure-network-connection.md) entre votre cloud privé AVS et le réseau virtuel où le compte de stockage a été créé en suivant les étapes décrites dans [Connecter un réseau virtuel Azure à AVS à l’aide d’ExpressRoute](virtual-network-connection.md).
 
 ## <a name="set-up-data-box-for-nfs"></a>Configurer la Data Box pour NFS
 
-Connectez-vous à l’interface utilisateur web locale de votre Data Box en suivant les étapes décrites dans la section « Se connecter à l’appareil » du [Tutoriel : Branchement des câbles et connexion à une Azure Data Box](../databox/data-box-deploy-set-up.md).  Configurez la Data Box pour autoriser l’accès aux clients NFS :
+Connectez-vous à l’interface utilisateur web locale de votre Data Box en suivant les étapes décrites dans la section « Se connecter à l’appareil » du [Tutoriel : Branchement des câbles et connexion à une Azure Data Box](../databox/data-box-deploy-set-up.md). Configurez la Data Box pour autoriser l’accès aux clients NFS :
 
 1. Dans l’interface utilisateur web locale, accédez à la page **Connexion et copie**. En dessous de **Paramètres NFS**, sélectionnez **Accès au client NFS**. 
 
@@ -95,7 +95,7 @@ Le partage NFS de votre Data Box doit être monté en tant que magasin de donné
 
    ![Ajouter un nouveau magasin de données - Configuration de NFS](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. À l’étape 4 de l’Assistant, sélectionnez les hôtes ESXi sur lesquels vous voulez monter le magasin de données, puis sélectionnez **Next**.  Dans un cluster, sélectionnez tous les hôtes pour garantir la migration des machines virtuelles.
+6. À l’étape 4 de l’Assistant, sélectionnez les hôtes ESXi où vous voulez monter le magasin de données, puis sélectionnez **Next**. Dans un cluster, sélectionnez tous les hôtes pour assurer la migration des machines virtuelles.
 
    ![Ajouter un nouveau magasin de données - Sélectionner les hôtes](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -103,7 +103,7 @@ Le partage NFS de votre Data Box doit être monté en tant que magasin de donné
 
 ## <a name="copy-data-to-the-data-box-nfs-datastore"></a>Copier des données dans le magasin de données NFS Data Box
 
-Les machines virtuelles peuvent être migrées ou clonées vers le nouveau magasin de données.  Les machines virtuelles non utilisées peuvent éventuellement être migrées vers le magasin de données NFS Data Box à l’aide de l’option **storage vMotion**. Les machines virtuelles actives peuvent être clonées dans le magasin données NFS Data Box.
+Les machines virtuelles peuvent être migrées ou clonées vers le nouveau magasin de données. Les machines virtuelles non utilisées peuvent éventuellement être migrées vers le magasin de données NFS Data Box à l’aide de l’option **storage vMotion**. Les machines virtuelles actives peuvent être clonées dans le magasin données NFS Data Box.
 
 * Identifiez et listez les machines virtuelles qui peuvent être **déplacées**.
 * Identifiez et listez les machines virtuelles qui doivent être **clonées**.
@@ -157,7 +157,7 @@ Les machines virtuelles sont clonées et stockées dans le magasin de données N
 
 ### <a name="copy-iso-files-to-the-data-box-datastore"></a>Copier des fichiers ISO dans le magasin de données Data Box
 
-1. À partir de l’interface utilisateur web de votre vCenter local, accédez à **Storage** (Stockage).  Sélectionnez **Databox-Datastore** (Magasin de données DataBox), puis sélectionnez **Files** (Fichiers). Créez un dossier pour le stockage des fichiers ISO.
+1. À partir de l’interface utilisateur web de votre vCenter local, accédez à **Storage** (Stockage). Sélectionnez **Databox-Datastore** (Magasin de données DataBox), puis sélectionnez **Files** (Fichiers). Créez un dossier pour le stockage des fichiers ISO.
 
     ![Copier un fichier ISO - Créer un dossier](media/databox-migration-create-folder.png)
 
@@ -213,28 +213,28 @@ Suivez les étapes décrites dans l’article [Retourner l’appareil Azure Data
 
 ## <a name="copy-data-from-azure-storage-to-azure-vmware-solution"></a>Copier des données du stockage Azure vers la solution Azure VMware
 
-Les données copiées sur votre appareil Data Box sont disponibles sur votre compte de stockage Azure une fois que l’état de la commande de votre Data Box indique terminé. Les données peuvent dès lors être copiées dans votre solution Azure VMware. Les données du compte de stockage doivent être copiées dans le magasin de données vSAN de votre cloud privé en utilisant le protocole NFS. 
+Les données copiées sur votre appareil Data Box sont disponibles sur votre compte de stockage Azure une fois que l’état de la commande de votre Data Box indique terminé. Les données peuvent dès lors être copiées dans votre solution Azure VMware. Les données du compte de stockage doivent être copiées dans le magasin de données vSAN de votre cloud privé AVS en utilisant le protocole NFS. 
 
-Dans un premier temps, copiez les données du stockage Blob sur un disque managé de machine virtuelle Linux dans Azure avec **AzCopy**. Rendez le disque managé disponible via NFS, montez le partage NFS en tant que magasin de données sur votre cloud privé, puis copiez les données. Cette méthode permet de copier plus rapidement les données sur votre cloud privé.
+Dans un premier temps, copiez les données du stockage Blob sur un disque managé de machine virtuelle Linux dans Azure avec **AzCopy**. Rendez le disque managé disponible via NFS, montez le partage NFS en tant que magasin de données sur votre cloud privé AVS, puis copiez les données. Cette méthode permet de copier plus rapidement les données vers votre cloud privé AVS.
 
-### <a name="copy-data-to-your-private-cloud-using-a-linux-virtual-machine-and-managed-disks-and-then-export-as-nfs-share"></a>Copier des données sur votre cloud privé en utilisant une machine virtuelle Linux et des disques managés, puis les exporter en tant que partage NFS
+### <a name="copy-data-to-your-avs-private-cloud-using-a-linux-virtual-machine-and-managed-disks-and-then-export-as-nfs-share"></a>Copier des données vers votre cloud privé AVS en utilisant une machine virtuelle Linux et des disques managés, puis les exporter en tant que partage NFS
 
-1. Créez une [machine virtuelle Linux](../virtual-machines/linux/quick-create-portal.md) dans Azure, dans la même région que celle où votre compte de stockage a été créé et qui dispose d’une connexion de réseau virtuel Azure à votre cloud privé.
+1. Créez une [machine virtuelle Linux](../virtual-machines/linux/quick-create-portal.md) dans Azure, dans la même région que celle où votre compte de stockage a été créé, qui dispose d’une connexion de réseau virtuel Azure à votre cloud privé AVS.
 
-2. Créez un disque managé d’une capacité de stockage supérieure à la quantité de données blob, puis[attachez-le à votre machine virtuelle Linux](../virtual-machines/linux/attach-disk-portal.md).  Si la quantité de données blob est supérieure à la capacité du plus grand disque managé disponible, les données doivent être copiées en plusieurs étapes ou en utilisant plusieurs disques managés.
+2. Créez un disque managé d’une capacité de stockage supérieure à la quantité de données blob, puis[attachez-le à votre machine virtuelle Linux](../virtual-machines/linux/attach-disk-portal.md). Si la quantité de données blob est supérieure à la capacité du plus grand disque managé disponible, les données doivent être copiées en plusieurs étapes ou en utilisant plusieurs disques managés.
 
 3. Connectez-vous à la machine virtuelle Linux et montez le disque managé.
 
 4. Installez [AzCopy sur votre machine virtuelle Linux](../storage/common/storage-use-azcopy-v10.md).
 
-5. Téléchargez les données de votre stockage Blob Azure vers le disque managé avec AzCopy.  Syntaxe de la commande : `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`.  Remplacez `<storage-account-name>` par le nom de votre compte de stockage Azure et `<container-name>` par le conteneur qui contient les données copiées via la Data Box.
+5. Téléchargez les données de votre stockage Blob Azure vers le disque managé avec AzCopy. Syntaxe de la commande : `azcopy copy "https://<storage-account-name>.blob.core.windows.net/<container-name>/*" "<local-directory-path>/"`. Remplacez `<storage-account-name>` par le nom de votre compte de stockage Azure et `<container-name>` par le conteneur qui contient les données copiées via la Data Box.
 
 6. Installez le serveur NFS sur votre machine virtuelle Linux :
 
     - Sur une distribution Ubuntu/Debian : `sudo apt install nfs-kernel-server`.
     - Sur une distribution Enterprise Linux : `sudo yum install nfs-utils`.
 
-7. Changez l’autorisation du dossier sur votre disque managé où les données du stockage Blob Azure ont été copiées.  Changez les autorisations pour tous les dossiers que vous voulez exporter en tant que partage NFS.
+7. Changez l’autorisation du dossier sur votre disque managé où les données du stockage Blob Azure ont été copiées. Changez les autorisations pour tous les dossiers que vous voulez exporter en tant que partage NFS.
 
     ```bash
     chmod -R 755 /<folder>/<subfolder>
@@ -247,7 +247,7 @@ Dans un premier temps, copiez les données du stockage Blob sur un disque manag�
     sudo vi /etc/exports
     ```
     
-    Entrez les lignes suivantes dans le fichier pour chaque adresse IP de l’hôte ESXi de votre cloud privé.  Si vous créez des partages pour plusieurs dossiers, ajoutez tous les dossiers.
+    Entrez les lignes suivantes dans le fichier pour chaque adresse IP de l’hôte ESXi de votre cloud privé AVS. Si vous créez des partages pour plusieurs dossiers, ajoutez tous les dossiers.
 
     ```bash
     /<folder>/<subfolder> <ESXiNode1IP>(rw,sync,no_root_squash,no_subtree_check)
@@ -261,11 +261,11 @@ Dans un premier temps, copiez les données du stockage Blob sur un disque manag�
 10. Redémarrez le serveur du noyau NFS en utilisant la commande `sudo systemctl restart nfs-kernel-server`.
 
 
-### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-a-private-cloud-vcenter-cluster-and-then-copy-data"></a>Monter le partage NFS de la machine virtuelle Linux en tant que magasin de données sur un cluster vCenter de cloud privé et copier des données
+### <a name="mount-the-linux-virtual-machine-nfs-share-as-a-datastore-on-an-avs-private-cloud-vcenter-cluster-and-then-copy-data"></a>Monter le partage NFS de la machine virtuelle Linux en tant que magasin de données sur un cluster vCenter de cloud privé AVS, puis copier des données
 
-Le partage NFS de votre machine virtuelle Linux doit être monté en tant que magasin de données sur le cluster vCenter de votre cloud privé. Une fois qu’il est monté, les données peuvent être copiées du magasin de données NFS vers le magasin de données vSAN du cloud privé.
+Le partage NFS de votre machine virtuelle Linux doit être monté en tant que magasin de données sur le cluster vCenter de votre cloud privé AVS. Une fois qu’il est monté, les données peuvent être copiées du magasin de données NFS vers le magasin de données vSAN du cloud privé AVS.
 
-1. Connectez-vous au serveur vCenter de votre cloud privé.
+1. Connectez-vous au serveur vCenter de votre cloud privé AVS.
 
 2. Cliquez avec le bouton droit sur **Datacenter** (Centre de données), puis sélectionnez successivement **Storage** (Stockage), **New Datastore** (Nouveau magasin de données) et **Next** (Suivant).
 
@@ -279,11 +279,11 @@ Le partage NFS de votre machine virtuelle Linux doit être monté en tant que ma
 
    ![Ajouter un nouveau magasin de données - Version de NFS](media/databox-migration-add-datastore-nfs-version.png)
 
-5. À l’étape 3 de l’Assistant, spécifiez le nom du magasin de données, le chemin, puis le serveur.  Vous pouvez utiliser l’adresse IP de votre machine virtuelle Linux pour le serveur.  Le chemin du dossier doit être au format `/<folder>/<subfolder>/`.
+5. À l’étape 3 de l’Assistant, spécifiez le nom du magasin de données, le chemin, puis le serveur. Vous pouvez utiliser l’adresse IP de votre machine virtuelle Linux pour le serveur. Le chemin du dossier doit être au format `/<folder>/<subfolder>/`.
 
    ![Ajouter un nouveau magasin de données - Configuration de NFS](media/databox-migration-add-datastore-nfs-configuration.png)
 
-6. À l’étape 4 de l’Assistant, sélectionnez les hôtes ESXi où vous voulez monter le magasin de données, puis sélectionnez **Next**.  Dans un cluster, sélectionnez tous les hôtes pour assurer la migration des machines virtuelles.
+6. À l’étape 4 de l’Assistant, sélectionnez les hôtes ESXi où vous voulez monter le magasin de données, puis sélectionnez **Next**. Dans un cluster, sélectionnez tous les hôtes pour assurer la migration des machines virtuelles.
 
    ![Ajouter un nouveau magasin de données - Sélectionner les hôtes](media/databox-migration-add-datastore-nfs-select-hosts.png)
 
@@ -291,13 +291,13 @@ Le partage NFS de votre machine virtuelle Linux doit être monté en tant que ma
 
 ### <a name="add-virtual-machines-and-virtual-machine-templates-from-an-nfs-datastore-to-the-inventory"></a>Ajouter des machines virtuelles et des modèles de machine virtuelle d’un magasin de données NFS à l’inventaire
 
-1. À partir de l’interface utilisateur web du vCenter de votre cloud privé, accédez à **Storage** (Stockage).  Sélectionnez un magasin de données NFS de machine virtuelle Linux, puis sélectionnez **Files** (Fichiers).
+1. À partir de l’interface utilisateur web du vCenter de votre cloud privé AVS, accédez à **Storage** (Stockage). Sélectionnez un magasin de données NFS de machine virtuelle Linux, puis sélectionnez **Files** (Fichiers).
 
     ![Sélectionner des fichiers dans un magasin de données NFS](media/databox-migration-datastore-select-files.png)
 
-2. Sélectionnez un dossier qui contient une machine virtuelle ou un modèle de machine virtuelle.  Dans le volet d’informations, sélectionnez un fichier .vmx pour une machine virtuelle ou un fichier .vmtx pour un modèle de machine virtuelle.
+2. Sélectionnez un dossier qui contient une machine virtuelle ou un modèle de machine virtuelle. Dans le volet d’informations, sélectionnez un fichier .vmx pour une machine virtuelle ou un fichier .vmtx pour un modèle de machine virtuelle.
 
-3. Sélectionnez **Register VM** (Inscrire la machine virtuelle) pour inscrire la machine virtuelle sur le vCenter de votre cloud privé.
+3. Sélectionnez **Register VM** (Inscrire la machine virtuelle) pour inscrire la machine virtuelle sur le vCenter de votre cloud privé AVS.
 
     ![Inscrire une machine virtuelle](media/databox-migration-datastore-register-vm.png)
 
@@ -305,29 +305,29 @@ Le partage NFS de votre machine virtuelle Linux doit être monté en tant que ma
 
 4. Répétez les étapes 3 et 4 pour toutes les machines virtuelles et tous les modèles de machine virtuelle.
 
-5. Accédez au dossier qui contient les fichiers ISO.  Sélectionnez les fichiers ISO et **Copy to** pour copier les fichiers dans un dossier de votre magasin de données vSAN.
+5. Accédez au dossier qui contient les fichiers ISO. Sélectionnez les fichiers ISO et **Copy to** pour copier les fichiers dans un dossier de votre magasin de données vSAN.
 
-Les machines virtuelles et les modèles de machine virtuelle sont désormais disponibles sur le vCenter de votre cloud privé. Ces machines virtuelles doivent être déplacées du magasin de données NFS vers le magasin de données vSAN avant de les activer. Vous pouvez utiliser l’option **storage vMotion** et sélectionner le magasin de données vSAN comme cible pour les machines virtuelles.
+Les machines virtuelles et les modèles de machine virtuelle sont désormais disponibles sur le vCenter de votre cloud privé AVS. Ces machines virtuelles doivent être déplacées du magasin de données NFS vers le magasin de données vSAN avant de les activer. Vous pouvez utiliser l’option **storage vMotion** et sélectionner le magasin de données vSAN comme cible pour les machines virtuelles.
 
 Les modèles de machine virtuelle doivent être clonés à partir du magasin de données NFS de votre machine virtuelle Linux vers votre magasin de données vSAN.
 
 ### <a name="clean-up-your-linux-virtual-machine"></a>Nettoyer votre machine virtuelle Linux
 
-Une fois que toutes les données ont été copiées sur votre cloud privé, vous pouvez supprimer le magasin de données NFS de votre cloud privé :
+Une fois que toutes les données ont été copiées sur votre cloud privé AVS, vous pouvez supprimer le magasin de données NFS de votre cloud privé AVS :
 
 1. Vérifiez que toutes les machines virtuelles et tous les modèles sont déplacés et clonés dans votre magasin de données vSAN.
 
 2. Supprimez de l’inventaire tous les modèles de machine virtuelle à partir du magasin de données NFS.
 
-3. Démontez le magasin de données de la machine virtuelle Linux à partir du vCenter de votre cloud privé.
+3. Démontez le magasin de données de la machine virtuelle Linux à partir du vCenter de votre cloud privé AVS.
 
 4. Supprimez la machine virtuelle et le disque managé d’Azure.
 
-5. Si vous ne souhaitez pas conserver les données qui ont été transférées par la Data Box dans votre compte de stockage, supprimez le compte de stockage Azure.  
+5. Si vous ne souhaitez pas conserver les données qui ont été transférées par la Data Box dans votre compte de stockage, supprimez le compte de stockage Azure. 
     
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Apprenez-en davantage sur la [Data Box](../databox/data-box-overview.md).
-* Découvrez plus en détail les différentes options de [migration de charges de travail vers votre cloud privé](migrate-workloads.md).
+* Découvrez plus en détail les différentes options de [migration de charges de travail vers votre cloud privé AVS](migrate-workloads.md).
