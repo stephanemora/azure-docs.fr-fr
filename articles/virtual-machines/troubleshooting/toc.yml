@@ -6,6 +6,8 @@
       href: allocation-failure.md
     - name: Échecs d’allocation pour déploiements classiques
       href: allocation-failure-classic.md
+    - name: Groupes à haute disponibilité
+      href: virtual-machines-availability-set-supportability.md
 - name: RDP
   href: rdp.md
   items:
