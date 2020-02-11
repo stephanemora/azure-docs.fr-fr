@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911160"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933141"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Ajouter une couche de symboles à une carte
 
-Un symbole peut être connecté à une source de données et utilisé pour restituer une icône et/ou un texte à un point donné. Les couches de symboles sont rendues à l’aide de WebGL et peuvent être utilisées pour afficher de grandes collections de points sur la carte. Cette couche peut afficher beaucoup plus de données de point sur la carte, avec de bonnes performances, qu’à l’aide de marqueurs HTML. Toutefois, la couche de symboles ne prend pas en charge les éléments CSS et HTML traditionnels pour le style.  
+Symbole connecté à une source de données et utilisé pour afficher une icône et/ou un texte à un point donné. Les couches de symboles sont rendues à l’aide de WebGL et sont utilisées pour afficher de grandes collections de points sur la carte. Par rapport au marqueur HTML, le calque de symboles affiche un grand nombre de données de point sur la carte de façon plus performante. Toutefois, la couche de symboles ne prend pas en charge les éléments CSS et HTML traditionnels pour le style.  
 
 > [!TIP]
-> Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter la couche afin qu’elle n’affiche que les fonctionnalités de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si vous voulez également inclure les fonctionnalités MultiPoint.
+> Les couches de symboles par défaut affichent les coordonnées de toutes les données géométriques d’une source de données. Pour limiter le calque afin qu’il n’affiche que les caractéristiques de géométrie de point, définissez la propriété `filter` de la couche sur `['==', ['geometry-type'], 'Point']` ou `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]`. Si vous le voulez, vous pouvez également inclure des caractéristiques MultiPoint.
 
-Le gestionnaire de sprites d’images Maps, qui est utilisé pour charger les images personnalisées utilisées par le calque de symboles, prend en charge les formats d’image suivants :
+Le gestionnaire de sprites d’images de cartes charge les images personnalisées que la couche de symboles utilise. Il prend en charge les formats d’image suivants :
 
 - JPEG
 - PNG
@@ -33,7 +33,7 @@ Le gestionnaire de sprites d’images Maps, qui est utilisé pour charger les im
 
 ## <a name="add-a-symbol-layer"></a>Ajouter un calque de symboles
 
-Pour ajouter une couche de symboles à la carte et restituer des données, une source de données doit d’abord être créée et ajoutée à la carte. Une couche de symboles peut ensuite être créée et transmise dans la source de données à partir de laquelle récupérer les données. Enfin, les données doivent être ajoutées à la source de données pour qu’il y ait un rendu à afficher. Le code suivant affiche le code à ajouter au mappage après son chargement pour restituer un point unique sur la carte à l’aide d’une couche de symboles. 
+Avant de pouvoir ajouter une couche de symboles à la carte, vous devez effectuer quelques étapes. Commencez par créer une source de données et l’ajouter à la carte. Vous pouvez ensuite créer et transmettre une couche de symboles dans la source de données pour récupérer les données de la source de données. Enfin, vous devez ajouter des données à la source de données afin qu’il y ait quelque chose à afficher. Le code suivant affiche le code à ajouter à la carte après son chargement. Le code restitue un point unique sur la carte à l’aide d’une couche de symboles. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -50,14 +50,14 @@ map.layers.add(layer);
 dataSource.add(new atlas.data.Point([0, 0]));
 ```
 
-Il existe quatre types de données de point à qui peuvent être ajoutés à la carte :
+Quatre types de données de point peuvent être ajoutés à la carte :
 
 - Géométrie des points GeoJSON - cet objet contient uniquement une coordonnée d’un point et rien d’autre. La classe d’assistance `atlas.data.Point` peut être utilisée pour créer facilement ces objets.
 - Géométrie MultiPoint GeoJSON - cet objet contient les coordonnées de plusieurs points et rien d’autre. La classe d’assistance `atlas.data.MultiPoint` peut être utilisée pour créer facilement ces objets.
 - Fonctionnalité GeoJSON - cet objet se compose d’une géométrie GeoJSON et d’un ensemble de propriétés qui contiennent des métadonnées associées à la géométrie. La classe d’assistance `atlas.data.Feature` peut être utilisée pour créer facilement ces objets.
-- La classe `atlas.Shape` est similaire à la fonctionnalité GeoJSON, par le fait qu’elle se compose d’une géométrie GeoJSON et d’un ensemble de propriétés qui contiennent des métadonnées associées à la géométrie. Si un objet GeoJSON est ajouté à une source de données, il peut être facilement rendu dans une couche, toutefois, si la propriété des coordonnées de cet objet GeoJSON est mise à jour, la source de données et la carte ne changent pas, car il n’existe aucun mécanisme dans l’objet JSON pour déclencher une mise à jour. La classe Shape fournit des fonctions pour mettre à jour les données qu’elle contient, et lorsqu’une modification est apportée, la source de données et la carte sont automatiquement averties et mises à jour. 
+- La classe `atlas.Shape` est similaire à la caractéristique GeoJSON. Toutes deux consistent en une géométrie GeoJSON et un ensemble de propriétés contenant des métadonnées associées à la géométrie. En cas d’ajout d’un objet GeoJSON à une source de données, celui-ci peut être facilement affiché dans une couche. Toutefois, si la propriété des coordonnées de cet objet GeoJSON est mise à jour, la source de données et la carte ne changent pas. Cela est dû au fait qu’il n’existe aucun mécanisme dans l’objet JSON pour déclencher une mise à jour. La classe Shape fournit des fonctions permettant de mettre à jour les données qu’elle contient. Lors de l’apport d’une modification, la source de données et la carte sont automatiquement notifiées et mises à jour. 
 
-L’exemple de code suivant crée une géométrie de points GeoJSON et la transmet dans la classe `atlas.Shape` pour faciliter sa mise à jour. Le centre de la carte est initialement utilisé pour restituer un symbole. Un événement de clic est ajouté à la carte, de sorte que lorsqu’il est déclenché, les coordonnées de l’endroit où l’utilisateur a cliqué sont utilisées avec la fonction `setCoordinates` Shapes qui met à jour l’emplacement du symbole sur la carte.
+L’exemple de code suivant crée une géométrie de points GeoJSON et la transmet dans la classe `atlas.Shape` pour faciliter sa mise à jour. Le centre de la carte est initialement utilisé pour afficher un symbole. Un événement de clic est ajouté à la carte, qui a pour effet, lorsqu’il se déclenche, que les coordonnées de la souris sont utilisées avec la fonction `setCoordinates` des formes. Les coordonnées de la souris sont enregistrées lors du déclenchement de l’événement de clic. Ensuite, la fonction `setCoordinates` met à jour l’emplacement du symbole sur la carte.
 
 <br/>
 
@@ -65,11 +65,11 @@ L’exemple de code suivant crée une géométrie de points GeoJSON et la transm
 </iframe>
 
 > [!TIP]
-> Par défaut, pour améliorer les performances, les couches de symboles optimisent le rendu des symboles en masquant les symboles qui se chevauchent. Quand vous effectuez un zoom avant, les symboles masqués deviennent visibles. Pour désactiver cette fonctionnalité et afficher tous les symboles en permanence, définissez la propriété `allowOverlap` des options `iconOptions` sur `true`.
+> Par défaut, les couches de symboles optimisent l’affichage des symboles en masquant ceux qui se chevauchent. Quand vous effectuez un zoom avant, les symboles masqués deviennent visibles. Pour désactiver cette fonctionnalité et afficher tous les symboles en permanence, définissez la propriété `allowOverlap` des options `iconOptions` sur `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Ajouter une icône personnalisée à une couche de symboles
 
-Les couches de symboles sont affichées à l’aide de WebGL. Toutes les ressources, telles que les images d’icône, doivent donc être chargées dans le contexte de WebGL. Cet exemple montre comment ajouter une icône personnalisée dans les ressources de la carte, puis l’utiliser pour afficher les données de point avec un symbole personnalisé sur la carte. La propriété `textField` de la couche de symboles nécessite une expression. Dans le cas présent, nous voulons afficher la propriété de température, mais étant donné qu’il s’agit d’un nombre, elle doit être convertie en chaîne. De plus, nous voulons lui ajouter « °F ». Pour ce faire, une expression peut être utilisée : `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+Les couches de symboles sont affichées à l’aide de WebGL. Toutes les ressources, telles que les images d’icône, doivent donc être chargées dans le contexte de WebGL. Cet exemple montre comment ajouter une icône personnalisée aux ressources de carte. Cette icône est ensuite utilisée pour afficher des données de point avec un symbole personnalisé sur la carte. La propriété `textField` de la couche de symboles nécessite une expression. Dans ce cas, nous souhaitons afficher la propriété de température. La température étant un nombre, elle doit être convertie en chaîne. De plus, nous voulons y ajouter la mention « °F ». Pour effectuer cette concaténation, nous pouvons utiliser une expression : `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -89,7 +89,7 @@ Il y a de nombreuses options de style disponibles pour la couche de symboles. Vo
 </iframe>
 
 > [!TIP]
-> Lorsque vous souhaitez afficher uniquement le texte avec une couche de symboles, vous pouvez masquer l’icône en réglant la propriété `image` des options d’icône sur `'none'`.
+> Si vous souhaitez afficher uniquement le texte avec une couche de symboles, vous pouvez masquer l’icône en définissant la propriété `image` des options d’icône sur `'none'`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

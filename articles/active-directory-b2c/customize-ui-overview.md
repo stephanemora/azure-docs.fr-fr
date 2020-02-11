@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841231"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908930"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur dans Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Différentes méthodes sont disponibles pour personnaliser l’interface utilisa
 Si vous utilisez des [flux utilisateur](user-flow-overview.md), vous pouvez modifier l’apparence de vos pages de flux utilisateur en utilisant des *modèles de mise en page* prédéfinis ou en utilisant vos propres fichiers HTML et CSS. Les deux méthodes sont décrites plus loin dans cet article.
 
 Vous utilisez le [portail Azure](tutorial-customize-ui.md) pour configurer la personnalisation de l’interface utilisateur pour les flux utilisateur.
+
+> [!TIP]
+> Si vous souhaitez modifier uniquement le logo de la bannière, l’image d’arrière-plan et la couleur d’arrière-plan de vos pages de flux utilisateur, vous pouvez essayer la fonctionnalité [Marque de la société (préversion)](#company-branding-preview) décrite plus loin dans cet article.
 
 ### <a name="custom-policies"></a>Stratégies personnalisées
 
@@ -149,6 +152,60 @@ Le tableau suivant répertorie les fragments HTML qu’Azure AD B2C fusionne dan
 | Connexion ou inscription unifiée | Gère l’inscription et la connexion des clients qui peuvent utiliser des fournisseurs d’identité sociale tels que Facebook ou Google ou des comptes locaux. |
 | Authentification multifacteur | Les clients peuvent vérifier leur numéro de téléphone (par voie textuelle ou vocale) au cours de l’inscription ou de la connexion. |
 | Error | Fournit des informations d’erreur au client. |
+
+## <a name="company-branding-preview"></a>Marque de la société (préversion)
+
+Vous pouvez personnaliser vos pages de flux utilisateur avec un logo de bannière, une image d’arrière-plan et une couleur d’arrière-plan à l’aide de la fonctionnalité [Marque de la société](../active-directory/fundamentals/customize-branding.md) d’Azure Active Directory.
+
+Pour personnaliser vos pages de flux utilisateur, vous devez commencer par configurer la marque de la société dans Azure Active Directory, puis l’activer dans les mises en page de vos flux utilisateur dans Azure AD B2C.
+
+[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
+
+### <a name="configure-company-branding"></a>Configurer la marque de la société
+
+Commencez par définir le logo de bannière, l’image d’arrière-plan et la couleur d’arrière-plan dans **Marque de la société**.
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez le filtre **Annuaire et abonnement** dans le menu supérieur, puis l’annuaire qui contient votre locataire Azure AD B2C.
+1. Dans le portail Azure, recherchez et sélectionnez **Azure AD B2C**.
+1. Sous **Gérer**, sélectionnez **Marque de la société**.
+1. Suivez les étapes décrites dans [Personnaliser la page de connexion Azure Active Directory de votre organisation](../active-directory/fundamentals/customize-branding.md).
+
+Lorsque vous configurez la marque de la société dans Azure AD B2C, gardez à l’esprit les points suivants :
+
+* La personnalisation de la marque société dans Azure AD B2C est actuellement limitée à l’**image d’arrière-plan**, au **logo de bannière** et à la **couleur d’arrière-plan**. Les autres propriétés dans le volet Marque de la société, telles que les **Paramètres avancés**, ne sont *pas prises en charge*.
+* Dans vos pages de flux utilisateur, la couleur d’arrière-plan est affichée avant le chargement de l’image d’arrière-plan. Nous vous suggérons de choisir une couleur d’arrière-plan proche des couleurs de votre image d’arrière-plan pour offrir une expérience de chargement homogène.
+* Le logo de bannière apparaît dans les e-mails de vérification envoyés aux utilisateurs quand ceux-ci démarrent un flux utilisateur d’inscription.
+
+### <a name="enable-branding-in-user-flow-pages"></a>Activer la marque dans les pages de flux utilisateur
+
+Une fois que vous avez configuré la marque de la société, activez-la dans vos flux utilisateur.
+
+1. Dans le menu de gauche du portail Azure, sélectionnez **Azure AD B2C**.
+1. Sous **Stratégies**, sélectionnez **Flux utilisateur (stratégies)** .
+1. Sélectionnez le flux utilisateur pour lequel vous souhaitez activer la marque de la société. La marque de la société n’est **pas prise en charge** pour les types de flux utilisateur *Connexion v1* et *Modification de profil v1*.
+1. Sous **Personnaliser**, sélectionnez **Mises en page**, puis sélectionnez la mise en page à personnaliser. Par exemple, sélectionnez **Page de connexion ou d’inscription unifiée**.
+1. Pour **Version Mise en page (préversion)** , choisissez la version **1.2.0** ou version ultérieure.
+1. Sélectionnez **Enregistrer**.
+
+Si vous souhaitez personnaliser toutes les pages du flux utilisateur, définissez la version de mise en page pour chaque mise en page dans le flux utilisateur.
+
+![Sélection de mise en page dans Azure AD B2C sur le portail Azure](media/customize-ui-overview/portal-02-page-layout-select.png)
+
+Cet exemple annoté présente un logo de bannière et une image d’arrière-plan personnalisés sur une page de flux utilisateur *Inscription et connexion* qui utilise le modèle Bleu océan :
+
+![Page d’inscription/connexion personnalisée servie par Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+
+### <a name="use-company-branding-assets-in-custom-html"></a>Utiliser des ressources de marque de société dans du code HTML personnalisé
+
+Pour utiliser les ressources de marque de votre société dans du code HTML personnalisé, ajoutez les balises suivantes en dehors de la balise `<div id="api">` :
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
+La source de l’image est remplacée par celle de l’image d’arrière-plan et du logo de bannière. Comme décrit dans la section [Bien démarrer avec des fichiers HTML et CSS personnalisés](#get-started-with-custom-html-and-css), utilisez des classes CSS pour appliquer un style et une position aux ressources sur la page.
 
 ## <a name="localize-content"></a>Localiser le contenu
 
