@@ -1,28 +1,24 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités, C# – Service Speech'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: e2cb4f81e3de5e22bae3029e42ec2f67dae55424
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 353e849332aa04d26774cda22508b6f1c269df7e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761461"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900296"
 ---
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
-* S’il s’agit de votre premier projet C#, utilisez ce guide pour <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">créer un exemple de projet vide</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Installez le kit SDK Speech pour votre environnement de développement</a>.
+* S’il s’agit de votre premier projet C#, utilisez ce guide pour <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=dotnet" target="_blank">créer un exemple de projet vide<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=dotnet" target="_blank">Installez le SDK Speech pour votre environnement de développement<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Créer une application LUIS pour la reconnaissance de l’intention
 
@@ -92,7 +88,7 @@ Lorsque le résultat de la reconnaissance est retourné par le service de reconn
 
 ## <a name="check-your-code"></a>Vérifier votre code
 
-À ce stade, votre code doit ressembler à ceci :  
+À ce stade, votre code doit ressembler à ceci :
 
 > [!NOTE]
 > Nous avons ajouté des commentaires à cette version.
@@ -104,7 +100,7 @@ Lorsque le résultat de la reconnaissance est retourné par le service de reconn
 Vous êtes maintenant prêt à créer votre application et à tester la reconnaissance vocale à l’aide du service de reconnaissance vocale.
 
 1. **Compiler le code** : à partir de la barre de menus de Visual Studio, choisissez **Générer** > **Générer la solution**.
-2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur **F5**.
+2. **Démarrer votre application** : dans la barre de menus, choisissez **Déboguer** > **Démarrer le débogage**, ou appuyez sur <kbd>F5</kbd>.
 3. **Démarrer la reconnaissance** : vous êtes invité à prononcer une phrase. Celle-ci est envoyée au service de reconnaissance vocale, transcrite sous forme de texte, puis affichée sur la console.
 
 ## <a name="next-steps"></a>Étapes suivantes

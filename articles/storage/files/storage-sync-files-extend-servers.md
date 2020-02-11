@@ -7,14 +7,14 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f71a27ea4da6bce5832287e948e0731672280196
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: e3154b9635da889ed7f0484fc04c565c27e9241b
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699484"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031507"
 ---
-# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Didacticiel : Étendre les serveurs de fichiers Windows avec Azure File Sync
+# <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutoriel : Étendre les serveurs de fichiers Windows avec Azure File Sync
 
 Cet article montre les étapes de base à suivre pour étendre la capacité de stockage d’un serveur Windows à l’aide d’Azure File Sync. Le tutoriel utilise Windows Server comme une machine virtuelle Azure, mais ce processus s’applique sans problème à vos serveurs locaux. Pour savoir comment déployer Azure File Sync dans votre propre environnement, consultez l’article [Déployer Azure File Sync](storage-sync-files-deployment-guide.md).
 
@@ -32,7 +32,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au [Portail Azure](https://portal.azure.com).
+Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -105,7 +105,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
 
    1. Sélectionnez **OK**.
 1. Sélectionnez **Revoir + créer**.
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
    Vous pouvez sélectionner l’icône **Notifications** pour voir la **progression du déploiement**. La création d’une machine virtuelle peut prendre plusieurs minutes.
 
@@ -136,7 +136,7 @@ Après avoir déployé un compte de stockage Azure, vous créez un partage de fi
 
 Pour le serveur Windows Server 2016 Datacenter, désactivez la configuration de sécurité renforcée d’Internet Explorer. Cette étape est nécessaire uniquement pour l’inscription initiale du serveur. Vous pouvez réactiver cette configuration une fois que le serveur a été inscrit.
 
-Sur la machine virtuelle Windows Server 2016 Datacenter, le Gestionnaire de serveur s’ouvre automatiquement.  Si le Gestionnaire de serveur ne s’ouvre pas automatiquement, recherchez-le dans l’Explorateur de fichiers.
+Sur la machine virtuelle Windows Server 2016 Datacenter, le Gestionnaire de serveur s’ouvre automatiquement.  Si le Gestionnaire de serveur ne s’ouvre pas par défaut, recherchez-le dans le menu Démarrer.
 
 1. Dans le **Gestionnaire de serveur**, sélectionnez **Serveur Local**.
 
@@ -159,8 +159,8 @@ Vous pouvez maintenant ajouter le disque de données à la machine virtuelle.
     ![Disque de données](media/storage-sync-files-extend-servers/your-disk.png)
 
 1. Faites un clic droit sur le disque de 1 Go nommé **Msft Virtual Disk** et sélectionnez **Nouveau volume**.
-1. Terminez l’Assistant. Utilisez les paramètres par défaut et notez la lettre de lecteur assignée.
-1. Sélectionnez **Créer**.
+1. Terminez l'Assistant. Utilisez les paramètres par défaut et notez la lettre de lecteur assignée.
+1. Sélectionnez **Create** (Créer).
 1. Sélectionnez **Fermer**.
 
    À ce stade, vous avez mis le disque en ligne et créé un volume. Ouvrez l’Explorateur de fichiers sur la machine virtuelle Windows Server pour vérifier la présence du disque de données que vous venez d’ajouter.
@@ -289,7 +289,7 @@ Un groupe de synchronisation définit la topologie de synchronisation d’un ens
    | **Compte de stockage** | Choisissez **Sélectionner un compte de stockage**. Dans le volet qui s’affiche, sélectionnez le compte de stockage contenant le partage de fichiers Azure que vous avez créé. Utilisez le compte *afsstoracct101918* dans ce tutoriel. |
    | **Partage de fichiers Azure** | Nom du partage de fichiers Azure que vous avez créé. Utilisez le partage *afsfileshare* dans ce tutoriel. |
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 Si vous sélectionnez votre groupe de synchronisation, vous pouvez voir que vous disposez maintenant d’un **point de terminaison cloud**.
 
@@ -311,13 +311,13 @@ Un point de terminaison de serveur représente un emplacement spécifique sur un
    | **Hiérarchisation cloud** | Laissez le champ désactivé pour ce didacticiel. |
    | **Espace libre du volume** | Laissez le champ vide pour ce didacticiel. |
 
-1. Sélectionnez **Créer**.
+1. Sélectionnez **Create** (Créer).
 
 Vos fichiers sont maintenant synchronisés entre le partage de fichiers Azure et Windows Server.
 
 ![Le Stockage Azure s’est synchronisé avec succès](media/storage-sync-files-extend-servers/files-synced-in-azurestorage.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 [!INCLUDE [storage-files-clean-up-portal](../../../includes/storage-files-clean-up-portal.md)]
 

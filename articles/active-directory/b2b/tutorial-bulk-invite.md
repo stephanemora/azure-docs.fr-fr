@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425043"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908834"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Tutoriel : Inviter en bloc des utilisateurs Azure AD B2B Collaboration (préversion)
 
@@ -27,6 +27,7 @@ ms.locfileid: "75425043"
 
 > [!NOTE]
 > Depuis le 22/12/2019, la fonctionnalité d’invitation des utilisateurs en bloc (préversion) a été temporairement désactivée.
+> Il n’existe actuellement aucune date connue pour la réactivation de cette fonctionnalité. 
 
 Si vous utilisez Azure Active Directory (Azure AD) B2B Collaboration pour travailler avec des partenaires externes, vous pouvez inviter en même temps plusieurs utilisateurs invités pour votre organisation. Dans ce tutoriel, vous allez apprendre à utiliser le portail Azure pour envoyer des invitations en bloc à des utilisateurs externes. Vous effectuez les étapes suivantes :
 

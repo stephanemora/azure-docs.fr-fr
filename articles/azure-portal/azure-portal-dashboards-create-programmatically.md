@@ -1,6 +1,6 @@
 ---
-title: Créer par programmation des tableaux de bord Azure | Microsoft Docs
-description: Vous pouvez utiliser un tableau de bord dans le portail Azure comme modèle pour créer par programmation des tableaux de bord Azure. Comprend une référence JSON.
+title: Créer par programmation des tableaux de bord Azure
+description: Utilisez un tableau de bord du portail Azure comme modèle pour créer par programmation des tableaux de bord Azure. Comprend une référence JSON.
 services: azure-portal
 documentationcenter: ''
 author: adamabmsft
@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 09/01/2017
+ms.date: 01/29/2020
 ms.author: mblythe
-ms.openlocfilehash: 498e0255cfa289f7d8ccb93040980c362cf510a0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 414427c722b3531c994bb99dbd5d1332c5253dfd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640344"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900953"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Créer par programmation des tableaux de bord Azure
 
@@ -28,74 +28,84 @@ Ce document vous guide tout au long des processus de création par programmation
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Les tableaux de bord partagés dans Azure sont des [ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) tout comme les machines virtuelles et les comptes de stockage.  Ainsi, vous pouvez les gérer par programmation via les [API REST Azure Resource Manager](/rest/api/), l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure), les [commandes Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps) et de nombreuses fonctionnalités du [portail Azure](https://portal.azure.com) générées sur ces API pour faciliter la gestion des ressources.  
+Les tableaux de bord partagés du [portail Azure](https://portal.azure.com) sont des [ressources](../azure-resource-manager/management/overview.md), tout comme les machines virtuelles et les comptes de stockage. Vous pouvez gérer les ressources par programmation à l'aide des [API REST Azure Resource Manager](/rest/api/), de l'[interface de ligne de commande Azure (Azure CLI)](/cli/azure) et des [commandes Azure PowerShell](/powershell/azure/get-started-azureps).  
 
-Chacun de ces outils et API offre des moyens de créer, répertorier, récupérer, modifier et supprimer des ressources.  Étant donné que les tableaux de bord sont des ressources, vous pouvez choisir l’API/outil que vous préférez utiliser.
+De nombreuses fonctionnalités s'appuient sur ces API pour faciliter la gestion des ressources. Chacun de ces outils et API offre des moyens de créer, répertorier, récupérer, modifier et supprimer des ressources. Étant donné que les tableaux de bord sont des ressources, vous pouvez choisir l'API ou outil que vous souhaitez utiliser.
 
-Quel que soit l’outil utilisé, vous devez construire une représentation JSON de votre objet tableau de bord avant de pouvoir appeler une API de création de ressources. Cet objet contient des informations sur les parties (également appelées parties de contrôle) présentes sur le tableau de bord. Ces informations incluent les tailles, les positions, les ressources auxquelles elles sont liées et toutes les personnalisations de l’utilisateur.
+Quels que soient les outils que vous utilisez, vous devez créer une représentation JSON de votre objet de tableau de bord. Cet objet contient des informations sur les vignettes du tableau de bord. Ces informations incluent les tailles, les positions, les ressources auxquelles elles sont liées et toutes les personnalisations de l'utilisateur.
 
-La façon la plus pratique de créer ce document JSON consiste à utiliser [le portail](https://portal.azure.com/) pour ajouter et positionner vos parties de manière interactive. Vous exportez ensuite le document JSON. Enfin, vous créez un modèle à partir du résultat à des fins d’utilisation ultérieure dans des scripts, programmes et outils de déploiement.
+La méthode la plus pratique pour créer ce document JSON consiste à utiliser le portail Azure. Vous pouvez ajouter et positionner vos vignettes de manière interactive. Exportez ensuite le document JSON et créez un modèle à partir du résultat à des fins d'utilisation ultérieure dans des scripts, programmes et outils de déploiement.
 
 ## <a name="create-a-dashboard"></a>Création d’un tableau de bord
 
-Pour créer un tableau de bord, utilisez la commande Nouveau tableau de bord de l’écran principal du portail.
+Pour créer un tableau de bord, sélectionnez **Tableau de bord** dans le menu [Portail Azure](https://portal.azure.com), puis choisissez **Nouveau tableau de bord**.
 
 ![commande Nouveau tableau de bord](./media/azure-portal-dashboards-create-programmatically/new-dashboard-command.png)
 
-Vous pouvez ensuite utiliser la galerie de parties de contrôle pour rechercher et ajouter des parties. Les parties s’ajoutent par glisser-déposer. Certaines parties prennent en charge le redimensionnement via une poignée, tandis que d’autres ont des tailles fixes indiquées dans leur menu contextuel.
+Utilisez la galerie de vignettes pour rechercher et ajouter des vignettes. Les parties s’ajoutent par glisser-déposer. Certaines vignettes peuvent être redimensionnées à l'aide d'une poignée de redimensionnement.
 
-### <a name="drag-handle"></a>Poignée de redimensionnement
-![poignée de redimensionnement](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
+![poignée de redimensionnement permettant de modifier la taille](./media/azure-portal-dashboards-create-programmatically/drag-handle.png)
 
-### <a name="fixed-sizes-via-context-menu"></a>Tailles fixes via le menu contextuel
-![menu contextuel des tailles](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
+D'autres doivent être définies sur une taille fixe à choisir dans leur menu contextuel.
+
+![menu contextuel permettant de modifier la taille](./media/azure-portal-dashboards-create-programmatically/sizes-context-menu.png)
 
 ## <a name="share-the-dashboard"></a>Partager le tableau de bord
 
-Une fois que vous avez configuré le tableau de bord selon vos besoins, les étapes suivantes consistent à le publier (à l’aide de la commande Partager), puis à utiliser l’Explorateur de ressources pour extraire le document JSON.
+Après avoir configuré le tableau de bord, les étapes suivantes consistent à le publier à l'aide de la commande **Partager**, puis à utiliser l'Explorateur de ressources pour extraite le document JSON.
 
-![commande Partager](./media/azure-portal-dashboards-create-programmatically/share-command.png)
+![partager un tableau de bord](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Quand vous cliquez sur la commande Partager, une boîte de dialogue vous invite à choisir l’abonnement et le groupe de ressources dans lesquels publier. N’oubliez pas que [vous devez avoir accès en écriture](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) à l’abonnement et au groupe de ressources choisis.
+Si vous sélectionnez **Partager**, vous serez invité à choisir l'abonnement et le groupe de ressources dans lesquels vous souhaitez publier le tableau de bord. Vous devez disposer d'un accès en écriture à l'abonnement et au groupe de ressources que vous choisissez. Pour plus d'informations, consultez [Ajouter ou supprimer des attributions de rôles à l'aide du RBAC Azure et du portail Azure](../role-based-access-control/role-assignments-portal.md).
 
-![partage et accès](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
+![apporter des modifications au partage et à l'accès](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
 ## <a name="fetch-the-json-representation-of-the-dashboard"></a>Extraire la représentation JSON du tableau de bord
 
-La publication ne prend que quelques secondes.  Quand vous avez terminé, l’étape suivante consiste à accéder à l’[Explorateur de ressources](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) pour extraire le document JSON.
+La publication ne prend que quelques secondes.  L'étape suivante consiste à accéder à l'[Explorateur de ressources](https://portal.azure.com/#blade/HubsExtension/ArmExplorerBlade) pour extraire le document JSON.
 
-![parcourir l’Explorateur de ressources](./media/azure-portal-dashboards-create-programmatically/browse-resource-explorer.png)
+![parcourir l'Explorateur de ressources](./media/azure-portal-dashboards-create-programmatically/search-resource-explorer.png)
 
-À partir de l’Explorateur de ressources, accédez à l’abonnement et au groupe de ressources que vous avez choisis. Ensuite, cliquez sur la ressource de tableau de bord fraîchement publiée pour révéler le document JSON.
+À partir de l'Explorateur de ressources, accédez à l'abonnement et au groupe de ressources que vous avez choisis. Sélectionnez ensuite la ressource de tableau de bord fraîchement publiée pour révéler le document JSON.
 
-![JSON dans l’Explorateur de ressources](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json.png)
+![afficher le document JSON dans l'Explorateur de ressources](./media/azure-portal-dashboards-create-programmatically/resource-explorer-json-detail.png)
 
 ## <a name="create-a-template-from-the-json"></a>Créer un modèle à partir du document JSON
 
-L’étape suivante consiste à créer un modèle à partir de ce document JSON pour pouvoir le réutiliser par programmation avec les API de gestion des ressources, les outils en ligne de commande appropriés ou au sein du portail.
+L'étape suivante consiste à créer un modèle à partir de ce document JSON. Utilisez ce modèle par programmation avec les API de gestion des ressources ou outils en ligne de commande appropriés, ou au sein du portail.
 
-Il n’est pas nécessaire de comprendre entièrement la structure JSON du tableau de bord pour créer un modèle. Dans la plupart des cas, vous allez conserver la structure et la configuration de chaque partie, puis paramétrer l’ensemble des ressources Azure vers lesquelles elles pointent. Examinez votre tableau de bord JSON exporté et recherchez toutes les occurrences d’ID de ressource Azure. Notre exemple de tableau de bord comporte plusieurs parties de contrôle qui pointent toutes vers une seule machine virtuelle Azure. En effet, notre tableau de bord ne s’intéresse qu’à cette ressource unique. Si vous recherchez « /subscriptions » dans l’exemple de document JSON (inclus à la fin du document), vous trouvez plusieurs occurrences de cet ID.
+Il n'est pas nécessaire de comprendre entièrement la structure JSON du tableau de bord pour créer un modèle. Vous pouvez conserver la structure et la configuration de chaque vignette. Paramétrez ensuite l'ensemble de ressources Azure vers lequel les vignettes pointent. Examinez le tableau de bord JSON que vous avez exporté et recherchez toutes les occurrences des ID de ressource Azure. Notre exemple de tableau de bord comporte plusieurs parties de contrôle qui pointent toutes vers une seule machine virtuelle Azure. En effet, notre tableau de bord ne s'intéresse qu'à cette ressource. Si vous recherchez « /subscriptions » dans l'exemple JSON inclus à la fin du document, vous trouvez plusieurs occurrences de cet ID.
 
 `/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1`
 
-Pour publier ce tableau de bord pour toutes les prochaines machines virtuelles, vous devez paramétrer chaque occurrence de cette chaîne dans le document JSON. 
+Pour publier ce tableau de bord pour toutes les prochaines machines virtuelles, paramétrez chaque occurrence de cette chaîne dans le document JSON.
 
-Il existe deux types d’API qui créent des ressources dans Azure. Les [API impératives](https://docs.microsoft.com/rest/api/resources/resources) qui créent une seule ressource à la fois et un système de [déploiement basé sur un modèle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) capable d’orchestrer la création de plusieurs ressources dépendantes avec un seul appel d’API. Ce dernier prend en charge de manière native le paramétrage et la création de modèles ; c’est pour cela que nous l’utilisons pour notre exemple.
+Il existe deux approches pour les API qui créent des ressources dans Azure :
+
+* Les API impératives créent une ressource à la fois. Pour plus d’informations, consultez [Ressources](/rest/api/resources/resources).
+* Un système de déploiement basé sur un modèle crée plusieurs ressources dépendantes avec un seul appel d'API. Pour plus d'informations, consultez [Déployer des ressources à l'aide de modèles Resource Manager et d'Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+
+Le déploiement basé sur un modèle prend en charge le paramétrage et la création de modèles. Il s'agit de l'approche utilisée dans cet article.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Créer par programmation un tableau de bord à partir de votre modèle à l’aide d’un déploiement de modèle
 
-Azure offre la possibilité d’orchestrer le déploiement de plusieurs ressources. Vous créez un modèle de déploiement qui exprime l’ensemble des ressources à déployer, ainsi que les relations qui existent entre elles.  Le format JSON de chaque ressource est le même que si vous les créiez une par une. La différence est que le [langage de modèle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) ajoute quelques concepts comme les variables, les paramètres, les fonctions de base, etc. Cette syntaxe étendue est uniquement prise en charge dans le contexte d’un déploiement de modèle ; elle ne fonctionne pas si vous l’utilisez avec les API impératives mentionnées plus tôt.
+Azure offre la possibilité d’orchestrer le déploiement de plusieurs ressources. Vous créez un modèle de déploiement qui exprime l’ensemble des ressources à déployer et les relations qui existent entre elles.  Le format JSON de chaque ressource est le même que si vous les créiez une par une. La différence est que le langage de gabarit ajoute quelques concepts comme les variables, les paramètres, les fonctions de base, etc. Cette syntaxe étendue est uniquement prise en charge dans le cadre du déploiement d'un modèle. Elle ne fonctionne pas si elle est utilisée avec les API impératives mentionnées précédemment. Pour plus d'informations, consultez [Comprendre la structure et la syntaxe des modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
-Si vous faites ce choix, alors le paramétrage doit être effectué à l’aide de la syntaxe de paramètre du modèle.  Vous remplacez toutes les instances de l’ID de ressource que nous avons trouvé précédemment, comme indiqué ici.
+Le paramétrage doit être effectué en utilisant la syntaxe des paramètres du modèle.  Vous remplacez toutes les instances de l'ID de ressource que nous avons trouvé précédemment, comme indiqué ici.
 
-### <a name="example-json-property-with-hard-coded-resource-id"></a>Exemple de propriété JSON avec ID de ressource codé en dur
-`id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"`
+Exemple de propriété JSON avec ID de ressource codé en dur :
 
-### <a name="example-json-property-converted-to-a-parameterized-version-based-on-template-parameters"></a>Exemple de propriété JSON convertie en version paramétrable selon des paramètres de modèle
+```json
+id: "/subscriptions/6531c8c8-df32-4254-d717-b6e983273e5d/resourceGroups/contoso/providers/Microsoft.Compute/virtualMachines/myVM1"
+```
 
-`id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"`
+Exemple de propriété JSON convertie en version paramétrable selon des paramètres de modèle
 
-Vous devez également déclarer certaines métadonnées de modèle requises et les paramètres situés en haut du modèle json comme les suivants :
+```json
+id: "[resourceId(parameters('virtualMachineResourceGroup'), 'Microsoft.Compute/virtualMachines', parameters('virtualMachineName'))]"
+```
+
+Déclarez les métadonnées de modèle requises et les paramètres situés en haut du modèle JSON comme ceci :
 
 ```json
 
@@ -118,15 +128,20 @@ Vous devez également déclarer certaines métadonnées de modèle requises et l
     ... rest of template omitted ...
 ```
 
-__Vous pouvez voir le modèle complet à la fin de ce document.__
+Vous pouvez voir le modèle complet à la fin de ce document.
 
-Une fois que vous avez créé votre modèle, vous pouvez le déployer à l’aide des [API REST](https://docs.microsoft.com/rest/api/resources/deployments), de [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/group/deployment#az-group-deployment-create) ou de la [page de déploiement de modèle du portail](https://portal.azure.com/#create/Microsoft.Template).
+Après avoir configuré votre modèle, déployez-le en utilisant l'une des méthodes suivantes :
 
-Voici deux versions de notre exemple de document JSON de tableau de bord. La première est la version que nous avons exportée à partir du portail et qui était déjà liée à une ressource. La seconde est la version de modèle que vous pouvez lier par programmation à toute machine virtuelle et déployer à l’aide d’Azure Resource Manager.
+* [API REST](/rest/api/resources/deployments)
+* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+* [Azure CLI](/cli/azure/group/deployment#az-group-deployment-create)
+* [Page de déploiement du modèle sur le portail Azure](https://portal.azure.com/#create/Microsoft.Template)
 
-## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Représentation JSON de notre exemple de tableau de bord (avant la création du modèle)
+Voici deux versions de notre exemple de document JSON de tableau de bord. La première est la version que nous avons exportée à partir du portail et qui était déjà liée à une ressource. La seconde est la version de modèle que vous pouvez lier par programmation à toute machine virtuelle et déployer à l'aide d'Azure Resource Manager.
 
-Voici ce que vous pouvez vous attendre à obtenir si vous suivez les instructions précédentes pour extraire la représentation JSON d’un tableau de bord déjà déployé. Notez les identificateurs de ressource codée en dur qui indiquent que ce tableau de bord pointe vers une machine virtuelle Azure spécifique.
+## <a name="json-representation-of-our-example-dashboard-before-templating"></a>Représentation JSON de notre exemple de tableau de bord avant la création du modèle
+
+Cet exemple illustre le résultat que vous pouvez obtenir si vous avez suivi cet article. Les instructions ont exporté la représentation JSON d'un tableau de bord déjà déployé. Les identificateurs de ressources codés en dur indiquent que ce tableau de bord pointe vers une machine virtuelle Azure spécifique.
 
 ```json
 
@@ -380,9 +395,9 @@ Voici ce que vous pouvez vous attendre à obtenir si vous suivez les instruction
 
 ### <a name="template-representation-of-our-example-dashboard"></a>Représentation sous forme de modèle de notre exemple de tableau de bord
 
-La version du modèle du tableau de bord a défini trois paramètres appelés __virtualMachineName__, __virtualMachineResourceGroup__ et __dashboardName__.  Les paramètres vous permettent de faire pointer ce tableau de bord vers une autre machine virtuelle Azure à chaque déploiement. Les ID paramétrables sont mis en surbrillance pour indiquer que ce tableau de bord peut être configuré par programmation et déployé de sorte à pointer vers toute machine virtuelle Azure. Le moyen le plus simple de tester cette fonctionnalité consiste à copier le modèle suivant et à le coller dans la [page de déploiement de modèle du portail Azure](https://portal.azure.com/#create/Microsoft.Template). 
+La version du modèle du tableau de bord a défini trois paramètres appelés `virtualMachineName`, `virtualMachineResourceGroup`et `dashboardName`.  Les paramètres vous permettent de faire pointer ce tableau de bord vers une autre machine virtuelle Azure à chaque déploiement. Ce tableau de bord peut être configuré par programmation et déployé pour pointer vers n'importe quelle machine virtuelle Azure. Pour tester cette fonctionnalité, copiez le modèle suivant et collez-le sur la [page de déploiement de modèle du portail Azure](https://portal.azure.com/#create/Microsoft.Template).
 
-Cet exemple déploie un tableau de bord par lui-même, mais le langage de modèle vous permet de déployer plusieurs ressources et de regrouper un ou plusieurs tableaux de bord à leurs côtés. 
+Cet exemple déploie un tableau de bord par lui-même, mais le langage de modèle vous permet de déployer plusieurs ressources et de regrouper un ou plusieurs tableaux de bord à leurs côtés.
 
 ```json
 {

@@ -7,46 +7,49 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 93a77d73b5cc249c39609f98f055a7b1927dd6ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890673"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025484"
 ---
-# <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Didacticiel : Déployer et parcourir un modèle d’application du centre de distribution numérique
+# <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutoriel : Déployer et parcourir un modèle d’application du centre de distribution numérique
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Ce didacticiel vous montre comment prendre en main le déploiement d’un modèle d’application du **centre de distribution numérique** IoT Central. Vous allez apprendre à déployer le modèle, ce qui est inclus prêt à l’emploi et ce que vous pourriez vouloir faire ensuite.
 
-Dans ce didacticiel, vous apprendrez comment, 
+Ce didacticiel vous montre comment prendre en main le déploiement d’un modèle d’application du **centre de distribution numérique** IoT Central. Vous allez apprendre à déployer le modèle et découvrir les fonctionnalités prêtes à l’emploi incluses ainsi que les différentes possibilités qui s’offrent à vous.
+
+Ce tutoriel vous montre comment effectuer les opérations suivantes : 
 * créer une application pour un centre de distribution numérique 
 * examiner l’application 
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 * Aucune configuration requise spécifique n’est requise pour déployer cette application
 * Il est recommandé d’avoir un abonnement Azure, mais vous pouvez essayer sans
 
 ## <a name="create-digital-distribution-center-application-template"></a>Créer un modèle d’application pour un centre de distribution numérique
 
-Vous pouvez créer une application en suivant les étapes ci-dessous
+Vous pouvez créer une application à l’aide de la procédure suivante
 
 1. Accédez au site web du gestionnaire d’applications Azure IoT Central. Sélectionnez **Générer** dans la barre de navigation de gauche, puis cliquez sur l’onglet **Distribution**.
 
-> [!div class="mx-imgBorder"]
-> ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/iotc-retail-homepage.png)
 
-2. Sélectionnez l’onglet **Distribution** et sélectionnez **Créer une application** sous ** application du centre de distribution numérique **
+2. Sélectionnez l’onglet **Distribution** et **Créer une application** en dessous de **application de centre de distribution numérique**.
 
 3. **Créer une application** ouvre le nouveau formulaire d’application et remplit les détails demandés comme indiqué ci-dessous.
-   **Nom de l’application** : vous pouvez utiliser le nom suggéré par défaut ou entrer le nom convivial de votre application.
-   **URL** : vous pouvez utiliser l’URL par défaut suggérée ou entrer votre URL conviviale unique et facile à mémoriser. Ensuite, le paramètre par défaut est recommandé si vous disposez déjà d’un abonnement Azure. Sinon, vous pouvez démarrer avec une évaluation gratuite de sept jours et choisir de convertir le paiement à l’utilisation à tout moment avant l’expiration de l’évaluation gratuite.
+   **Nom de l’application** : vous pouvez utiliser le nom suggéré par défaut ou entrer le nom convivial de l’application.
+   **URL** : vous pouvez utiliser l’URL par défaut suggérée ou entrer votre URL conviviale unique et facile à mémoriser. Ensuite, le paramètre par défaut est recommandé si vous disposez déjà d’un abonnement Azure. Vous pouvez commencer avec le plan tarifaire d’essai gratuit de 7 jours pour ensuite le convertir en plan tarifaire standard à tout moment avant l’expiration de l’essai gratuit.
    **Informations de facturation** : Les informations sur le répertoire, l’abonnement Azure et la région sont requises pour configurer les ressources.
    **Créer** : Sélectionnez Créer en bas de la page pour déployer votre application.
 
-> [!div class="mx-imgBorder"]
-> ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-create.png)
+    > [!div class="mx-imgBorder"]
+    > ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-create.png)
+
+    > [!div class="mx-imgBorder"]
+    > ![Informations de facturation concernant la distribution numérique](./media/tutorial-iot-central-ddc/ddc-create-billinginfo.png)
 
 ## <a name="walk-through-the-application-dashboard"></a>Examiner le tableau de bord de l’application 
 
@@ -61,9 +64,9 @@ Le tableau de bord est structuré de manière logique pour afficher les fonction
 > [!div class="mx-imgBorder"]
 > ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-dashboard.png)
 
-## <a name="device-template"></a>Modèle d’appareil
+## <a name="device-template"></a>Modèle d'appareil
 
-Cliquez sur l’onglet Modèles d’appareil pour voir le modèle de fonctionnalités de la passerelle. Un modèle de fonctionnalités est structuré autour de deux interfaces différentes **Caméra** et **Passerelle de distribution numérique**
+Cliquez sur l’onglet Modèles d’appareils pour voir le modèle de capacité de la passerelle. Un modèle de fonctionnalités est structuré autour de deux interfaces différentes **Caméra** et **Passerelle de distribution numérique**
 
 > [!div class="mx-imgBorder"]
 > ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-devicetemplate1.png)
@@ -95,8 +98,8 @@ Sélectionnez l’onglet Règles pour afficher deux règles différentes qui exi
 > [!div class="mx-imgBorder"]
 > ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-rules.png)
 
-## <a name="jobs"></a>Tâches
-Sélectionnez l’onglet Tâches pour afficher cinq types de tâches disponibles dans le cadre de ce modèle d’application : Vous pouvez tirer parti de la fonctionnalité Travaux pour effectuer des opérations sur l’ensemble de la solution. Ici, les travaux du centre de distribution numérique utilisent les commandes de l’appareil et la fonctionnalité de jumeau pour effectuer des tâches telles que,
+## <a name="jobs"></a>travaux
+Sélectionnez l’onglet Tâches pour afficher cinq types de tâches disponibles dans le cadre de ce modèle d’application : Vous pouvez tirer parti de la fonctionnalité Tâches pour effectuer des opérations sur l’ensemble de la solution. Ici, les travaux du centre de distribution numérique utilisent les commandes de l’appareil et la fonctionnalité de jumeau pour effectuer des tâches telles que,
    * l’étalonnage de la caméra avant le lancement de la détection du package 
    * la mise à jour périodique du microprogramme de la caméra
    * la modification de l’intervalle de télémétrie pour gérer le chargement de données
@@ -104,8 +107,8 @@ Sélectionnez l’onglet Tâches pour afficher cinq types de tâches disponibles
 > [!div class="mx-imgBorder"]
 > ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-jobs.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
-Si vous n’envisagez pas de continuer à utiliser cette application, supprimez le modèle d’application en visitant **Administration** > **Paramètres de l’application**, puis cliquez sur **supprimer**.
+## <a name="clean-up-resources"></a>Nettoyer les ressources
+Si vous n’envisagez pas de continuer à utiliser cette application, supprimez le modèle d’application en accédant à **Administration** > **Paramètres de l’application**, puis cliquez sur **supprimer**.
 
 > [!div class="mx-imgBorder"]
 > ![Centre de distribution numérique](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
@@ -113,4 +116,4 @@ Si vous n’envisagez pas de continuer à utiliser cette application, supprimez 
 ## <a name="next-steps"></a>Étapes suivantes
 * En savoir plus sur l’architecture de la solution du centre de distribution numérique [concept du centre de distribution numérique](./architecture-digital-distribution-center-pnp.md)
 * En savoir plus sur d’autres [modèles de distribution IoT Central](./overview-iot-central-retail-pnp.md)
-* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../preview/overview-iot-central.md)
+* En savoir plus sur IoT Central en lisant [Vue d’ensemble d’IoT Central](../core/overview-iot-central.md)

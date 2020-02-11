@@ -7,17 +7,17 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 895b26fc7f35303cbef6c9df543c87ca435c2290
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326726"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984351"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Démarrage rapide : Créer un cluster et une base de données Azure Data Explorer
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portail](create-cluster-database-portal.md)
 > * [INTERFACE DE LIGNE DE COMMANDE](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -31,7 +31,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](http
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Connectez-vous au [Portail Azure](https://portal.azure.com/).
+Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 ## <a name="create-a-cluster"></a>Créer un cluster
 
@@ -65,7 +65,7 @@ Créez un cluster Azure Data Explorer avec un ensemble défini de ressources de 
 
     ![Accéder à la ressource](media/create-cluster-database-portal/notification-resource.png)
 
-## <a name="create-a-database"></a>Créer une base de données
+## <a name="create-a-database"></a>Création d'une base de données
 
 Vous êtes maintenant prêt pour la deuxième étape du processus : la création de la base de données.
 
@@ -112,7 +112,7 @@ Vous pouvez arrêter et redémarrer un cluster en fonction des besoins métier.
 
     Quand le cluster est redémarré, il faut compter environ 10 minutes avant qu’il ne soit disponible (comme quand il a été provisionné la première fois). Comptez aussi du temps pour charger les données dans le cache à chaud.  
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous envisagez de suivre d’autres tutoriels et guides de démarrage rapide, gardez les ressources que vous avez créées. Sinon, nettoyez votre groupe de ressources, pour éviter d’encourir des frais.
 
@@ -123,6 +123,6 @@ Si vous envisagez de suivre d’autres tutoriels et guides de démarrage rapide,
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
+> [Démarrage rapide : Ingérer des données Event Hub dans Azure Data Explorer](ingest-data-event-hub.md)
 
 

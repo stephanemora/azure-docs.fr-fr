@@ -3,33 +3,30 @@ title: 'Démarrage rapide : Bibliothèque de client de stockage blob Azure v2.1
 description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage v2.1 pour Python, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/11/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3e1adc9220dd9b49c49ff3fe5e798dfcc9d5c928
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122676"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906439"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Démarrage rapide : Bibliothèque de client de stockage blob Azure v2.1 pour Python
+# <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Démarrage rapide : Gérer des objets blob avec le SDK Python v2.1
 
-Dans cet article, vous allez utiliser Python pour charger, télécharger et lister des objets blob de blocs dans un conteneur du Stockage Blob Azure. Les objets blob sont simplement des objets qui peuvent contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des éléments multimédias en streaming et des données d’archive. Les objets blob de Stockage Azure sont différents des partages de fichiers, des tables sans schéma et des files d’attente de messages.  Pour plus d’informations, consultez [Présentation de Stockage Azure](/azure/storage/common/storage-introduction).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets blob avec Python. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des médias en streaming et des données d’archive. Vous allez charger, télécharger et lister des objets blob, et vous allez créer et supprimer des conteneurs.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/)
+- [SDK Stockage Azure pour Python](https://github.com/Azure/azure-sdk-for-python).
 
-Vérifiez que les prérequis suivants sont installés :
-
-* [Python](https://www.python.org/downloads/)
-
-* [Kit de développement logiciel (SDK) Stockage Azure pour Python](https://github.com/Azure/azure-sdk-for-python)
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 

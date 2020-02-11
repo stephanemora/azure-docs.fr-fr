@@ -12,13 +12,13 @@ ms.topic: quickstart
 ms.date: 02/05/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 860577938eab0f7561e9b66d0f58c9fc0d077b26
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: e4a4e9d8d1d100fe2e8c35053cea31c55b0f030d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704151"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023155"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Démarrage rapide : Configurer un locataire
 
@@ -57,7 +57,7 @@ Si vous ne disposez pas de locataire associé à votre compte, vous voyez un GUI
 
 ### <a name="create-a-new-azure-ad-tenant"></a>Créer un nouveau locataire Azure AD
 
-Si vous ne disposez pas déjà d’un locataire Azure AD ou si vous souhaitez en créer un autre à des fins de développement, suivez [l’expérience de création de répertoire](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Vous devez fournir les informations suivantes pour créer un locataire :
+Si vous ne disposez pas déjà d’un locataire Azure AD ou si vous souhaitez en créer un autre à des fins de développement, consultez le [guide de démarrage rapide](../fundamentals/active-directory-access-create-new-tenant.md) ou suivez simplement l’[expérience de création d’annuaire](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). Vous devez fournir les informations suivantes pour créer un locataire :
 
 - **Nom de l’organisation**
 - **Domaine initial** : il est ajouté à *.onmicrosoft.com. Vous pourrez personnaliser le domaine ultérieurement.

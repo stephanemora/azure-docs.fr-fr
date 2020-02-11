@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965933"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906701"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -360,9 +360,9 @@ Pour référence, voici un exemple d’un seul élément `@result()`, montrant l
 
 Vous pouvez utiliser les expressions décrites plus haut dans cet article pour exécuter différents modèles de gestion des exceptions. Vous pouvez choisir d’exécuter une seule action de gestion des exceptions en dehors de l’étendue qui accepte l’intégralité du tableau filtré d’échecs, et de supprimer l’action `For_each`. Vous pouvez également inclure d’autres propriétés utiles à partir de la réponse `\@result()` comme décrit précédemment.
 
-## <a name="azure-diagnostics-and-metrics"></a>Métriques et diagnostics Azure
+## <a name="set-up-azure-monitor-logs"></a>Configurer les journaux Azure Monitor
 
-Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. [Diagnostics Azure](../logic-apps/logic-apps-monitor-your-logic-apps.md) fournit un moyen simple d’envoyer tous les événements de workflow, notamment tous les états d’exécution et d’action, vers un compte Stockage Azure ou un hub d’événements créé avec [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+Les précédents modèles sont très utiles pour gérer les erreurs et les exceptions d’une exécution, mais vous pouvez également identifier les erreurs et y répondre indépendamment de l’exécution elle-même. [Azure Monitor](../azure-monitor/overview.md) vous permet d'envoyer facilement tous les événements du workflow, y compris les états d'exécution et d'action, à un [espace de travail Log Analytics](../azure-monitor/platform/data-platform-logs.md), à un [compte de stockage Azure](../storage/blobs/storage-blobs-overview.md) ou à [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Vous pouvez surveiller les journaux d’activité et les mesures ou les publier dans n’importe quel outil de supervision de votre choix pour évaluer les états d’exécution. Vous avez également la possibilité de transmettre tous les événements via Event Hubs à [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). Dans Stream Analytics, vous pouvez écrire des requêtes actives basées sur des anomalies, moyennes ou échecs dans les journaux de diagnostic. Vous pouvez utiliser Stream Analytics pour envoyer des informations à d’autres sources de données, telles que des files d’attente, des rubriques, SQL, Azure Cosmos DB ou Power BI.
 

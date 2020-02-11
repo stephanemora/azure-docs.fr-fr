@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 887c10097187f193f55c6e301be3e739a16d6bf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842714"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906907"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -1102,7 +1102,7 @@ Si la hiérarchisation des fichiers dans Azure Files échoue :
 | 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | La hiérarchisation du fichier a échoué en raison d’un problème de stockage Azure. | Si l’erreur persiste, ouvrez une demande de support. |
 | 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | Le fichier n’a pas pu être hiérarchisé car il a été rappelé en même temps. | Aucune action requise. Le fichier sera hiérarchisé quand le rappel sera terminé et que le fichier ne sera plus utilisé. |
 | 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Le fichier n’a pas pu être hiérarchisé car il n’a pas été synchronisé avec le partage de fichiers Azure. | Aucune action requise. Le fichier sera hiérarchisé une fois qu’il aura été synchronisé avec le partage de fichiers Azure. |
-| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Le fichier n’a pas pu être hiérarchisé car le pilote de filtre de hiérarchisation cloud (storagesync.sys) n’est pas en cours d’exécution. | Pour résoudre ce problème, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : fltmc load storagesync <br>Si le chargement du pilote de filtre storagesync échoue lors de l’exécution de la commande fltmc, désinstallez l’agent Azure File Sync, redémarrez le serveur et réinstallez l’agent Azure File Sync. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | Le fichier n’a pas pu être hiérarchisé car le pilote de filtre de hiérarchisation cloud (storagesync.sys) n’est pas en cours d’exécution. | Pour résoudre ce problème, ouvrez une invite de commandes avec élévation de privilèges et exécutez la commande suivante : `fltmc load storagesync`<br>Si le chargement du pilote de filtre storagesync échoue lors de l’exécution de la commande fltmc, désinstallez l’agent Azure File Sync, redémarrez le serveur et réinstallez l’agent Azure File Sync. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | La hiérarchisation du fichier a échoué car l’espace disque est insuffisant sur le volume où se trouve le point de terminaison de serveur. | Pour résoudre ce problème, libérez au moins 100 Mo d’espace disque sur le volume où se trouve le point de terminaison de serveur. |
 | 0x80070490 | -2147023728 | ERROR_NOT_FOUND | Le fichier n’a pas pu être hiérarchisé car il n’a pas été synchronisé avec le partage de fichiers Azure. | Aucune action requise. Le fichier sera hiérarchisé une fois qu’il aura été synchronisé avec le partage de fichiers Azure. |
 | 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | La hiérarchisation du fichier a échoué car il s’agit d’un point d’analyse non pris en charge. | Si le fichier est un point d’analyse de déduplication des données, effectuez les étapes décrites dans le [guide de planification](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) pour activer la prise en charge de la déduplication des données. Les fichiers avec des points d’analyse autres que la déduplication des données ne sont pas pris en charge et ne seront pas hiérarchisés.  |

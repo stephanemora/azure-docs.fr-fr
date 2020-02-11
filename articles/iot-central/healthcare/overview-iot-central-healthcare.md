@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: a5a8c8e52c4bebda4e22e592fefa3801449504e3
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 2aee5c56b267f9243b69a48dfd0f5f64196c5f23
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027454"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021484"
 ---
 # <a name="building-healthcare-solutions-with-azure-iot-central"></a>Création de solutions de santé avec Azure IoT Central 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Apprenez à créer des solutions de santé avec Azure IoT Central, à l'aide de modèles d'application.
 
@@ -26,15 +26,15 @@ Apprenez à créer des solutions de santé avec Azure IoT Central, à l'aide de 
 Dans l'espace IoT dédié à la santé, la Surveillance continue des patients est un élément clé pour réduire le risque de réadmission, gérer plus efficacement les maladies chroniques et améliorer les résultats des patients. La surveillance continue des patients peut être divisée en deux grandes catégories :
 
 1. La **surveillance des patients hospitalisés** : grâce à des dispositifs médicaux portables et à d'autres appareils disponibles à l'hôpital, les équipes de soins peuvent surveiller les constantes vitales et l'état de santé des patients. Il n'est ainsi plus nécessaire d'envoyer une infirmière au chevet du patient plusieurs fois par jour. Et des notifications permettent aux équipes de soins de déterminer quand un patient a besoin d'une attention particulière, ce qui les aide à mieux hiérarchiser leur temps.
-1. La **surveillance à distance des patients** : l'utilisation de dispositifs médicaux portables et des résultats rapportés par les patients pour surveiller ceux-ci en dehors de l'hôpital peut considérablement réduire le risque de réadmission. Les données des patients atteints de maladies chroniques et des patients en rééducation peuvent être recueillies pour s'assurer qu'ils respectent leur traitement et pour veiller à ce que les alertes de détérioration de leur état soient transmises aux équipes de soins avant que cet état ne devienne critique.
+1. La **surveillance à distance des patients** : l’utilisation de dispositifs médicaux portables et des résultats rapportés par les patients pour suivre ceux-ci en dehors de l’hôpital peut réduire le risque de réadmission. Les données des patients atteints de maladies chroniques et des patients en rééducation peuvent être recueillies pour s'assurer qu'ils respectent leur traitement et pour veiller à ce que les alertes de détérioration de leur état soient transmises aux équipes de soins avant que cet état ne devienne critique.
 
-Ce modèle d'application peut être utilisé pour créer des solutions dans les deux catégories de surveillance continue des patients. Il permet notamment de :
+Ce modèle d'application peut être utilisé pour créer des solutions dans les deux catégories de surveillance continue des patients. Voici les avantages :
 
-* Connecter en toute transparence différents types de dispositifs médicaux portables à une instance IoT Central
+* Connecter de façon continue différentes sortes de dispositifs médicaux portables à une instance IoT Central
 * Surveiller et gérer les appareils pour garantir leur intégrité
 * Créer des règles personnalisées pour les données des appareils afin de déclencher les alertes appropriées
 * Exporter les données médicales des patients vers l'API Azure pour FHIR, un magasin de données conforme
-* Exporter les insights agrégés vers des applications métier existantes ou nouvelles qui outillent les équipes de soins
+* Exporter les insights agrégés vers des applications métier existantes ou nouvelles
 
 >[!div class="mx-imgBorder"] 
 >![CPM-dashboard](media/in-patient-dashboard.png)

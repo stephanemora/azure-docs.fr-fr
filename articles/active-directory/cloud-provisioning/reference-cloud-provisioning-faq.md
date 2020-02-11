@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc3c4a943f24ba1f987aa1daf513b9e05ada65a7
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e2067bea25dae05c496c81929ae65d00565bf4f1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309997"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020758"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -31,6 +31,10 @@ L’exécution du provisionnement cloud est planifiée toutes les 2 minutes. To
 **Q : Je vois des échecs de synchronisation des hachages de mot de passe lors de la première exécution. Pourquoi ?**
 
 Ceci est normal. Ces échecs sont dus au fait que l’objet utilisateur n’est pas présent dans Azure AD. Une fois que l’utilisateur a été provisionné dans Azure AD, les hachages de mot de passe devraient être provisionnés lors de l’exécution suivante. Attendez après quelques exécutions et vérifiez que la synchronisation des hachages de mot de passe ne présente plus ces erreurs.
+
+**Q : Que se passe-t-il si l’instance d’Active Directory présente des attributs qui ne sont pas pris en charge par le provisionnement du cloud (par exemple, les extensions d’annuaire) ?**
+
+Le provisionnement du cloud s’exécute et provisionne les attributs pris en charge. Les attributs non pris en charge ne sont pas provisionnés vers Azure AD. Passez en revue les extensions d’annuaire dans Active Directory et assurez-vous que ces attributs n’ont pas besoin d’être transmis à Azure AD. Si un ou plusieurs attributs sont requis, envisagez d’utiliser une synchronisation Azure AD Connect ou de déplacer les informations requises vers l’un des attributs pris en charge (par exemple, les attributs d’extension 1 à 15).
 
 **Q : Quelle est la différence entre la synchronisation et le provisionnement cloud Azure AD Connect ?**
 

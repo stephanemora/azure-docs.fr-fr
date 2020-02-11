@@ -1,7 +1,7 @@
 ---
 title: 'Démarrage rapide : Bibliothèque cliente Analyse de texte v3 | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, détectez la langue à l’aide de l’API Analyse de texte d’Azure Cognitive Services.
+description: Utilisez ce guide de démarrage rapide pour connecter vos applications à l’API Analyse de texte d’Azure Cognitive Services.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,46 +10,79 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/23/2020
 ms.author: aahi
-zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 89680ad61296cd225bb87d2d6b46259586304da2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+zone_pivot_groups: programming-languages-text-analytics
+ms.openlocfilehash: 87cf5f226a8b2d1efcc0ee967d84f6e0002cb03d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774098"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987889"
 ---
-# <a name="quickstart-use-the-text-analytics-client-library-v3"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte v3
+# <a name="quickstart-use-the-text-analytics-client-library"></a>Démarrage rapide : Utiliser la bibliothèque de client Analyse de texte
 
 Découvrez comment utiliser la bibliothèque de client Analyse de texte. Suivez les étapes suivantes pour installer le package et essayer l’exemple de code pour les tâches de base.
 
-Utilisez la bibliothèque cliente Analyse de texte version `3.0-preview` dans le cadre des opérations suivantes :
+Utilisez la bibliothèque de client Analyse de texte dans le cadre des opérations suivantes :
 
-* Analyse des sentiments (préversion publique)
+* analyse de sentiments
 * Détection de la langue
-* Reconnaissance d’entité nommée (préversion publique)
+* Reconnaissance d’entité
 * Extraction d’expressions clés
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](../includes/quickstarts/v3/csharp.md)]
+> [!IMPORTANT]
+> * La dernière préversion de l’API Analyse de texte est `3.0-preview`. Elle inclut une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées. La dernière version stable est la version `2.1`.
+>    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
+> * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
+
+[!INCLUDE [C# quickstart](../includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](../includes/quickstarts/v3/python-sdk.md)]
+> [!IMPORTANT]
+> * La dernière préversion de l’API Analyse de texte est `3.0-preview`. Elle inclut une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées. La dernière version stable est la version `2.1`.
+>    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
+> * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous. 
+
+[!INCLUDE [Python quickstart](../includes/quickstarts/python-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java quickstart](../includes/quickstarts/v3/java-sdk.md)]
+> [!IMPORTANT]
+> * Ce guide de démarrage rapide concerne uniquement la version `3.0-preview` de la bibliothèque de client Analyse de texte, qui comprend une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées.
+>    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
+> * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
+
+[!INCLUDE [Java quickstart](../includes/quickstarts/java-sdk.md)]
 
 ::: zone-end
 
-::: zone pivot="programming-language-nodejs"
+::: zone pivot="programming-language-javascript"
 
-[!INCLUDE [NodeJS quickstart](../includes/quickstarts/v3/nodejs-sdk.md)]
+> [!IMPORTANT]
+> * La dernière préversion de l’API Analyse de texte est `3.0-preview`. Elle inclut une préversion publique des fonctionnalités [Analyse des sentiments](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) et [Reconnaissance d’entité nommée (NER)](../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features) améliorées. La dernière version stable est la version `2.1`.
+>    * Veillez à suivre uniquement les instructions concernant la version que vous utilisez.
+> * Le code indiqué dans cet article utilise des méthodes synchrones et un stockage d’informations d’identification non sécurisé pour des raisons de simplicité. Pour les scénarios de production, nous vous recommandons d’utiliser les méthodes asynchrones par lots afin d’optimiser les performances et l’extensibilité. Consultez la documentation de référence ci-dessous.
+
+[!INCLUDE [NodeJS quickstart](../includes/quickstarts/nodejs-sdk.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-other"
+
+## <a name="additional-language-support"></a>Prise en charge de langages supplémentaires
+
+Si vous avez cliqué sur cet onglet, c’est que vous n’avez probablement pas vu de démarrage rapide dans votre langage de programmation favori. Ne vous inquiétez pas, nous disposons d’autres guides de démarrage rapide. Utilisez le tableau pour rechercher l’exemple convenant à votre langage de programmation.
+
+| Langage | Version disponible | 
+|----------|------------------------|
+| Ruby     | [Version 2.1](ruby-sdk.md)          | 
+| Go       | [Version 2.1](go-sdk.md)          | 
 
 ::: zone-end
 

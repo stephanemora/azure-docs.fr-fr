@@ -11,26 +11,26 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: b85dd8d899a7e5d7d9f9d41ad7e2872249ee29c5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9dcb185ab8375d46c75a12e6adaeeae2358c13ac
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702013"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022084"
 ---
-# <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Didacticiel : Exporter des données à partir d’Azure IoT Central et visualiser des insights dans Power BI
+# <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutoriel : Exporter des données à partir d’Azure IoT Central et visualiser des insights dans Power BI
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Dans les deux didacticiels précédents, vous avez créé et personnalisé une application IoT Central à l’aide du modèle d’application **in-Store Analytics-Checkout**. Dans ce didacticiel, vous configurez votre application IoT Central pour exporter les données de télémétrie collectées à partir des appareils. Vous utilisez ensuite Power BI pour créer un tableau de bord personnalisé pour le responsable du magasin afin de visualiser les insights dérivés des données de télémétrie.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce didacticiel, vous apprendrez à :
 > [!div class="checklist"]
 > * Configurer une application IoT Central pour exporter des données de télémétrie vers un Event Hub.
 > * Utiliser Logic Apps pour envoyer des données d’un Event Hub vers un jeu de données de streaming Power BI.
 > * Créer un tableau de bord Power BI pour visualiser les données dans le jeu de données de streaming.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
@@ -42,7 +42,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 Avant de créer votre Event Hub et votre application logique, vous devez créer un groupe de ressources pour les gérer. Le groupe de ressources doit se trouver au même emplacement que votre application IoT Central **Analytique dans le magasin - Paiement**. Pour créer un groupe de ressources :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 1. Dans le volet de navigation de gauche, sélectionnez **Groupes de ressources**. Sélectionnez ensuite **Ajouter**.
 1. Sous **Abonnement**, sélectionnez le nom de l’abonnement Azure que vous avez utilisé pour créer votre application IoT Central.
 1. Pour le nom du **groupe de ressources**, entrez _retail-store-analysis_*.
@@ -57,7 +57,7 @@ Vous disposez maintenant d’un groupe de ressources appelé **retail-store-anal
 Avant de pouvoir configurer l’application de surveillance de la vente au détail pour exporter les données de télémétrie, vous devez créer un Event Hub pour recevoir les données exportées. Les étapes suivantes détaillent la création de votre Event Hub :
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** en haut à gauche de l’écran.
-1. Dans **Rechercher dans la Place de marché**, entrez _Event Hubs_, puis appuyez sur **Entrer**.
+1. Dans **Rechercher dans la Place de marché**, entrez _Event Hubs_, puis appuyez sur **Entrée**.
 1. Dans la page **Event Hubs**, sélectionnez **Créer**.
 1. Dans la page **Créer un espace de noms**, effectuez les étapes suivantes :
     * Entrez un nom unique pour l’espace de noms, par exemple _votrenom-Retail-Store-Analysis_. Le système vérifie si le nom est disponible.
@@ -66,7 +66,7 @@ Avant de pouvoir configurer l’application de surveillance de la vente au déta
     * Sélectionnez le groupe de ressources **retail-store-analysis**.
     * Sélectionnez le même emplacement que vous avez utilisé pour votre application IoT Central.
     * Sélectionnez **Create** (Créer). Vous devrez peut-être attendre quelques minutes pour que le système approvisionne les ressources.
-1. Dans le portail, accédez au groupe de ressources **retail-store-analysis**. Attendez que le déploiement se termine. Vous devrez peut-être sélectionner **Actualiser** pour mettre à jour l’état du déploiement. Vous pouvez également vérifier l’état de la création de l’espace de noms Event Hub dans les **notifications**.
+1. Dans le portail, accédez au groupe de ressources **retail-store-analysis**. Attendez la fin du déploiement. Vous devrez peut-être sélectionner **Actualiser** pour mettre à jour l’état du déploiement. Vous pouvez également vérifier l’état de la création de l’espace de noms Event Hub dans les **notifications**.
 1. Dans le groupe de ressources **retail-store-analysis**, sélectionnez **l’espace de noms Event Hubs**. La page d’accueil de votre **espace de noms Event Hubs** apparaît dans le portail.
 
 Maintenant que vous disposez d’un espace de noms **Event Hubs**, vous pouvez créer un **Event Hub** à utiliser avec votre application IoT Central :
@@ -161,7 +161,7 @@ Avant de créer l’application logique, vous avez besoin des ID d’appareil de
 Les étapes suivantes montrent comment créer l’application logique à partir du portail Azure :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com), sélectionnez **Créer une ressource** en haut à gauche de l’écran.
-1. Dans **Rechercher dans la Place de marché**, entrez _Application logique_, puis appuyez sur **Entrer**.
+1. Dans **Rechercher dans la Place de marché**, entrez _Logic App_, puis appuyez sur **Entrée**.
 1. Dans la page **Application logique**, sélectionnez **Créer**.
 1. Sur la page de création d’**application logique** :
     * Entrez un nom unique pour votre application logique, par exemple _votrenom-Retail-Store-Analysis_.
@@ -440,7 +440,7 @@ Ajoutez quatre vignettes de graphiques en courbes pour afficher la température 
 
 | Paramètre | Graphique #1 | Graphique #2 | Graphique #3 | Graphique #4 |
 | ------- | -------- | -------- | -------- | -------- |
-| Jeu de données | Capteur de zone 1 | Capteur de zone 1 | Capteur de zone 2 | Capteur de zone 2 |
+| Dataset | Capteur de zone 1 | Capteur de zone 1 | Capteur de zone 2 | Capteur de zone 2 |
 | Type de visualisation | Graphique en courbes | Graphique en courbes | Graphique en courbes | Graphique en courbes |
 | Axe | Timestamp | Timestamp | Timestamp | Timestamp |
 | Valeurs | Température | Humidité | Température | Humidité |
@@ -458,7 +458,7 @@ Ajoutez quatre vignettes de carte pour afficher les valeurs de température et d
 
 | Paramètre | Carte #1 | Carte #2 | Carte #3 | Carte #4 |
 | ------- | ------- | ------- | ------- | ------- |
-| Jeu de données | Capteur de zone 1 | Capteur de zone 1 | Capteur de zone 2 | Capteur de zone 2 |
+| Dataset | Capteur de zone 1 | Capteur de zone 1 | Capteur de zone 2 | Capteur de zone 2 |
 | Type de visualisation | Card | Card | Card | Card |
 | Champs | Température | Humidité | Température | Humidité |
 | Intitulé | Température (F) | Humidité (%) | Température (F) | Humidité (%) |
@@ -474,7 +474,7 @@ Ajoutez quatre vignettes de carte pour afficher la longueur de la file d’atten
 
 | Paramètre | Carte #1 | Carte #2 | Carte #3 | Carte #4 |
 | ------- | ------- | ------- | ------- | ------- |
-| Jeu de données | Capteur d’occupation | Capteur d’occupation | Capteur d’occupation | Capteur d’occupation |
+| Dataset | Capteur d’occupation | Capteur d’occupation | Capteur d’occupation | Capteur d’occupation |
 | Type de visualisation | Histogramme groupé | Histogramme groupé | Jauge | Jauge |
 | Axe    | Timestamp | Timestamp | N/A | N/A |
 | Valeur | Durée de maintien 1 | Durée de maintien 2 | Longueur de file d’attente 1 | Longueur de file d’attente 2 |
@@ -490,7 +490,7 @@ Vous pouvez ajouter des ressources graphiques supplémentaires pour personnalise
 
 ![Tableau de bord Power BI](./media/tutorial-in-store-analytics-visualize-insights-pnp/pbi-dashboard-graphics.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous avez terminé avec votre application IoT Central, vous pouvez la supprimer en vous connectant à l’application et en accédant à la page **Paramètres de l’application** dans la section **Administration**.
 

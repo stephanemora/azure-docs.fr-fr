@@ -11,20 +11,19 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: f9624f516d5f38f1db02c6a103c40d01f8dc26ca
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: fea3440dd7c017b85d6fffa2ec0fe5d26cd98b97
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702683"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022169"
 ---
-# <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Didacticiel :  Personnaliser le tableau de bord de l’opérateur et gérer les appareils dans Azure IoT Central
+# <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>Tutoriel :  Personnaliser le tableau de bord de l’opérateur et gérer les appareils dans Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Ce tutoriel vous montre, en tant que réalisateur de logiciel, comment personnaliser le tableau de bord de l’opérateur dans votre application d’analytique en magasin Azure IoT Central. Les opérateurs d’application peuvent utiliser le tableau de bord personnalisé pour exécuter l’application et gérer les appareils connectés.
+Dans ce tutoriel, vous allez découvrir comment vous pouvez, en tant que réalisateur de logiciel, personnaliser le tableau de bord de l’opérateur dans votre application d’analytique en magasin Azure IoT Central. Les opérateurs d’application peuvent utiliser le tableau de bord personnalisé pour exécuter l’application et gérer les appareils connectés.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 > [!div class="checklist"]
 > * Modifier le nom du tableau de bord
 > * Personnaliser les vignettes d’image sur le tableau de bord
@@ -33,14 +32,14 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Ajouter des vignettes de propriété pour afficher les détails de l’appareil
 > * Ajouter des vignettes de commande pour exécuter des commandes
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de commencer ce tutoriel, le réalisateur de logiciel doit terminer le premier tutoriel afin de créer l’application d’analytique en magasin Azure IoT Central et d’ajouter des appareils :
+Le réalisateur de logiciel doit terminer le tutoriel pour créer l’application d’analytique en magasin Azure IoT Central et ajouter des appareils :
 
 * [Créer une application d’analytique en magasin dans Azure IoT Central](./tutorial-in-store-analytics-create-app-pnp.md) (obligatoire)
 
 ## <a name="change-the-dashboard-name"></a>Modifier le nom du tableau de bord
-Pour personnaliser le tableau de bord de l’opérateur, vous devez modifier le tableau de bord par défaut dans votre application. Si vous le souhaitez, vous pouvez créer des tableaux de bord supplémentaires. La première étape pour personnaliser le tableau de bord dans votre application consiste à modifier le nom.
+Pour personnaliser le tableau de bord de l’opérateur, vous devez modifier le tableau de bord par défaut dans votre application. Vous pouvez aussi créer des tableaux de bord supplémentaires. La première étape pour personnaliser le tableau de bord dans votre application consiste à modifier le nom.
 
 1. Accédez au site web du [gestionnaire d’applications d’Azure IoT Central](https://aka.ms/iotcentral).
 
@@ -54,7 +53,7 @@ Pour personnaliser le tableau de bord de l’opérateur, vous devez modifier le 
 
 1. Entrez un nom convivial pour votre tableau de bord dans **Nom du tableau de bord**. Ce tutoriel utilise une société fictive nommée Contoso, et l’exemple de nom du tableau de bord est *Tableau de bord Contoso*. 
 
-1. Sélectionnez **Enregistrer**. Cela permet d’enregistrer les modifications apportées au tableau de bord et de désactiver le mode d’édition.
+1. Sélectionnez **Enregistrer**. Vos modifications sont enregistrées dans le tableau de bord et le mode d’édition est désactivé.
 
     ![Modification du nom de tableau de bord Azure IoT Central](./media/tutorial-in-store-analytics-customize-dashboard-pnp/dashboard-change-name.png)
 
@@ -185,7 +184,7 @@ Pour modifier la vignette **Fréquentation** afin d’afficher les données de t
 
 1. Dans **Données de télémétrie**, sélectionnez **nombre 1**, **nombre 2** et **nombre 3**. 
 
-1. Sélectionnez **Mettre à jour la configuration**. Cela efface la configuration existante sur la vignette. 
+1. Sélectionnez **Mettre à jour la configuration**. Cette opération efface la configuration existante de la vignette. 
 
 1. Sélectionnez à nouveau **Configurer** sur la vignette **Fréquentation**.
 
@@ -248,7 +247,7 @@ Pour ajouter une vignette de commande afin de redémarrer la passerelle :
 1. Si vous le souhaitez, sélectionnez la vignette **Redémarrer** pour exécuter la commande de redémarrage sur votre passerelle.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 * Modifier le nom du tableau de bord
 * Personnaliser les vignettes d’image sur le tableau de bord

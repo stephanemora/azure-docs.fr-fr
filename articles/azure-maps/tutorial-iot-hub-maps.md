@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: cf2c5aceae0112187949ded78bea8e93e8723084
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 24295e27a3b94f6960777a8704fdf448697da4e1
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910989"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987254"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>Tutoriel : Implémenter l’analytique spatiale IoT avec Azure Maps
 
-Le suivi et la capture d’événements pertinents qui se produisent dans l’espace et le temps constituent un scénario IoT courant. Par exemple, dans les applications de gestion de flotte, de suivi de ressources, de mobilité et de ville intelligente. Ce tutoriel explore le modèle de solution permettant d’utiliser des API Azure Maps sur des événements pertinents capturés par IoT Hub à l’aide du modèle d’abonnement aux événements fourni par Event Grid.
+Le suivi et la capture d’événements pertinents qui se produisent dans l’espace et le temps constituent un scénario IoT courant. Les applications de gestion de flotte, de suivi de ressources, de mobilité et de ville intelligente sont des exemples de scénarios. Ce tutoriel explore un modèle de solution permettant d’utiliser des API Azure Maps. Les événements pertinents sont capturés par IoT Hub à l’aide du modèle d’abonnement aux événements fourni par Event Grid.
 
 Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -34,9 +34,9 @@ Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
 ## <a name="use-case"></a>Cas d’utilisation
 
-Nous allons illustrer la solution pour un scénario dans lequel une société de location de voitures prévoit de superviser et de consigner les événements concernant ses voitures louées. Souvent, les sociétés de location de voitures louent des voitures pour une région géographique spécifique et doivent suivre leur localisation pendant qu’elles sont louées. Toutes les situations, ce qui implique une voiture quittant la région géographique désignée, doivent être journalisées afin que les politiques, frais et autres aspects commerciaux puissent être correctement gérés.
+Cette solution illustre un scénario dans lequel une société de location de voitures prévoit de superviser et de journaliser les événements relatifs à ses voitures de location. Souvent, les sociétés de location de voitures louent des voitures pour une région géographique spécifique et doivent suivre leur localisation pendant qu’elles sont louées. Les instances d’une voiture quittant la région géographique choisie doivent être journalisées. La journalisation des données garantit que les politiques, frais et autres aspects commerciaux seront correctement gérés.
 
-Dans notre cas d’utilisation, les voitures de location sont équipées d’appareils IoT qui envoient régulièrement des données de télémétrie à Azure IoT Hub. La télémétrie comprend l’emplacement actuel et indique si le moteur de la voiture tourne, ou non. Le schéma d’emplacement des appareils est conforme au [schéma Plug-and-Play des données géospatiales](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md) IoT. Le schéma de télémétrie des appareils de la voiture de location est semblable à ce qui suit :
+Dans notre cas d’utilisation, les voitures de location sont équipées d’appareils IoT qui envoient régulièrement des données de télémétrie à Azure IoT Hub. La télémétrie comprend la localisation actuelle et indique si le moteur de la voiture tourne. Le schéma de localisation des appareils est conforme au [schéma Plug-and-Play des données géospatiales](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md) IoT. Le schéma de télémétrie des appareils de la voiture de location est semblable à ce qui suit :
 
 ```JSON
 {
@@ -63,16 +63,18 @@ Dans notre cas d’utilisation, les voitures de location sont équipées d’app
 }
 ```
 
-La télémétrie des appareils embarqués peut être utilisée pour atteindre l’objectif. Notre objectif est d’exécuter des règles de geofencing et de les suivre de manière appropriée chaque fois qu’un événement indiquant que la voiture s’est déplacée est reçu. Pour ce faire, nous allons nous abonner aux événements de télémétrie de l’appareil à partir d’IoT Hub par le biais d’Event Grid, afin que la logique métier souhaitée du client puisse être exécutée uniquement quand cela est approprié. Il existe plusieurs façons de s’abonner à Event Grid. Dans ce tutoriel, nous allons utiliser Azure Functions. Azure Functions réagit aux événements publiés dans Event Grid et implémente la logique métier de location de voitures basée sur l’analytique spatiale Azure Maps. La fonction Azure consiste à vérifier si le véhicule a quitté la limite géographique et, le cas échéant, à collecter des informations supplémentaires telles que l’adresse associée à l’emplacement actuel. La fonction implémente également la logique pour stocker des données d’événement explicites dans un stockage d’objets blob de données qui permet de fournir une description précise des circonstances de l’événement à l’analyste de location de voitures ainsi qu’au client de location.
+Utilisons la télémétrie des appareils embarqués pour atteindre notre objectif. Nous voulons exécuter des règles de geofencing et répondre chaque fois que nous recevons un événement indiquant que la voiture s’est déplacée. Pour ce faire, nous allons nous abonner aux événements de télémétrie de l’appareil à partir d’IoT Hub par le biais d’Event Grid. Il existe plusieurs façons de s’abonner à Event Grid. Dans ce tutoriel, nous utilisons Azure Functions. Azure Functions réagit aux événements publiés dans Event Grid. Il implémente également la logique métier de location de voitures basée sur l’analytique spatiale Azure Maps. Le code à l’intérieur de la fonction Azure vérifie si le véhicule a quitté la limite géographique. Si tel est le cas, la fonction Azure collecte des informations supplémentaires telles que l’adresse associée à l’endroit actuel. La fonction implémente également la logique pour stocker des données d’événement significatives dans un stockage d’objets blob de données qui permet de fournir une description des circonstances de l’événement. Celles-ci peuvent être utiles à la société de location de voiture et au client de location.
 
 Le diagramme suivant vous offre une vue d’ensemble globale du système.
 
  
   <center>
 
-  ![Vue d’ensemble du système](./media/tutorial-iot-hub-maps/system-diagram.png)</center>
+  ![Vue d’ensemble du système](./media/tutorial-iot-hub-maps/system-diagram.png)
+  
+  </center>
 
-La figure ci-dessous représente la zone de la limite géographique mise en surbrillance en bleu et l’itinéraire du véhicule de location sous la forme d’une ligne verte.
+La figure suivante représente la zone de la limite géographique, mise en évidence en bleu, et l’itinéraire du véhicule de location, indiqué par une ligne verte.
 
   ![Itinéraire dans la limite géographique](./media/tutorial-iot-hub-maps/geofence-route.png)
 
@@ -81,7 +83,7 @@ La figure ci-dessous représente la zone de la limite géographique mise en surb
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
-Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un groupe de ressources dans le portail Azure. Pour créer un groupe de ressources, effectuez les étapes ci-dessous :
+Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un groupe de ressources dans le portail Azure. Pour créer un groupe de ressources, effectuez les actions suivantes :
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 
@@ -89,7 +91,7 @@ Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un groupe
     
    ![Groupes de ressources](./media/tutorial-iot-hub-maps/resource-group.png)
 
-3. Dans Groupes de ressources, sélectionnez **Ajouter**.
+3. Sous **Groupes de ressources**, sélectionnez **Ajouter**.
     
    ![Ajouter un groupe de ressource](./media/tutorial-iot-hub-maps/add-resource-group.png) 
 
@@ -100,19 +102,19 @@ Pour effectuer les étapes de ce tutoriel, vous devez d’abord créer un groupe
 
     ![Détails du groupe de ressources](./media/tutorial-iot-hub-maps/resource-details.png)
 
-    Cliquez sur **Vérifier + créer**, puis choisissez **Créer** dans la page suivante.
+    Sélectionnez **Vérifier + créer**, puis **Créer** dans la page suivante.
 
 ### <a name="create-an-azure-maps-account"></a>Créer un compte Azure Maps 
 
-Pour implémenter une logique métier basée sur l’analytique spatiale Azure Maps, nous devons créer un compte Azure Maps dans le groupe de ressources que nous avons créé. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+Pour implémenter une logique métier basée sur l’analytique spatiale Azure Maps, nous devons créer un compte Azure Maps dans le groupe de ressources que nous avons créé. Suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 
 
 ### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
-Pour journaliser des données d’événement, nous allons créer un compte **v2storage** à usage général dans le groupe de ressources « ContosoRental » pour stocker les données sous forme d’objets blob. Pour créer un compte de stockage, suivez les instructions mentionnées dans [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Nous devons ensuite créer un conteneur pour stocker les objets blob. Pour ce faire, suivez les étapes ci-dessous :
+Pour journaliser des données d’événement, nous allons créer un compte **v2storage** universel dans le groupe de ressources « ContosoRental » afin de stocker les données sous forme d’objets blob. Pour créer un compte de stockage, suivez les instructions mentionnées dans [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Nous devons ensuite créer un conteneur pour stocker les objets blob. Pour ce faire, suivez les étapes ci-dessous :
 
-1. Dans votre compte de stockage, accédez aux objets blob.
+1. Dans votre compte de stockage, accédez aux conteneurs.
 
     ![blobs](./media/tutorial-iot-hub-maps/blobs.png)
 
@@ -120,16 +122,16 @@ Pour journaliser des données d’événement, nous allons créer un compte **v2
 
     ![blob-container](./media/tutorial-iot-hub-maps/blob-container.png)
 
-3. Accédez au panneau **Clés d’accès** de votre compte de stockage, puis copiez le nom du compte et la clé d’accès. Nous les utiliserons plus tard.
+3. Accédez au panneau **Clés d’accès** de votre compte de stockage, puis copiez le « nom du compte de stockage » et la « clé d’accès ». Ils sont nécessaires dans une étape ultérieure.
 
     ![access-keys](./media/tutorial-iot-hub-maps/access-keys.png)
 
 
-Maintenant que nous disposons d’un compte de stockage et d’un conteneur pour journaliser les données d’événement, nous allons créer un hub IoT.
+Nous disposons désormais d’un compte de stockage et d’un conteneur pour journaliser les données d’événement. Nous allons à présent créer un hub IoT.
 
 ### <a name="create-an-iot-hub"></a>Création d’un IoT Hub
 
-Un hub IoT est un service géré dans le cloud qui agit comme un hub de messages central pour la communication bidirectionnelle entre une application IoT et les appareils qu’elle gère. Pour router les messages de télémétrie de l’appareil vers une instance Event Grid, nous allons créer un hub IoT dans le groupe de ressources « ContosoRental » et configurer une intégration de route de messages où nous filtrerons les messages en fonction de l’état du moteur de la voiture et enverrons les messages de télémétrie de l’appareil à Event Grid chaque fois que la voiture se déplacera. 
+Un hub IoT est un service managé dans le cloud qui fait office de hub de messages central pour la communication bidirectionnelle entre une application IoT et les appareils qu’elle gère. Pour router les messages de télémétrie de l’appareil vers une instance Event Grid, créez un hub IoT dans le groupe de ressources « ContosoRental ». Configurez une intégration de route de messages où nous filtrerons les messages en fonction de l’état du moteur de la voiture. Nous enverrons également les messages de télémétrie de l’appareil à Event Grid chaque fois que la voiture se déplacera.
 
 > [!Note] 
 > Les fonctionnalités d’IoT Hub permettant de publier des événements de télémétrie d’appareil sur Event Grid sont en préversion publique. Les fonctionnalités d’évaluation publique sont disponibles dans toutes les régions à l’exception des suivantes : **USA Est, USA Ouest, Europe Ouest, Azure Government, Azure Chine géré par 21Vianet** et **Azure Allemagne**. 
@@ -172,11 +174,11 @@ Ouvrez l’application Postman et suivez les étapes ci-dessous pour charger la 
    
     ![Paramètres clé/valeur dans Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
-4. Cliquez sur **Body** (Corps), sélectionnez le format d’entrée **raw** (brut), puis choisissez **JSON (application/text)** (JSON (application/texte)) comme format d’entrée dans la liste déroulante. Ouvrez le fichier de données JSON [ici](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4), puis copiez le fichier JSON dans la section de corps dans Postman comme données à charger, puis cliquez sur **Envoyer**.
+4. Cliquez sur **Body** (Corps), sélectionnez le format d’entrée **raw** (brut), puis choisissez **JSON (application/text)** (JSON (application/texte)) comme format d’entrée dans la liste déroulante. Ouvrez le fichier de données JSON [ici](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4), puis copiez le fichier JSON dans la section de corps comme données à charger, puis cliquez sur **Envoyer**.
     
     ![publier des données](./media/tutorial-iot-hub-maps/post-json-data.png)
     
-5. Passez en revue les en-têtes de réponse. Quand une requête réussit, l’en-tête **Location** (Emplacement) contient l’URI d’état qui sert à vérifier l’état actuel de la requête de chargement. L’URI d’état sera au format suivant. 
+5. Passez en revue les en-têtes de réponse. Quand une requête réussit, l’en-tête **Location** (Localisation) contient l’URI d’état qui sert à vérifier l’état actuel de la requête de chargement. L’URI d’état sera au format suivant. 
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
@@ -202,15 +204,17 @@ Nous allons ensuite créer une fonction Azure dans le groupe de ressources « C
 
 ## <a name="create-an-azure-function-and-add-an-event-grid-subscription"></a>Créer une fonction Azure et ajouter un abonnement Event Grid
 
-Azure Functions est un service de calcul serverless qui nous permet d’exécuter du code à la demande, sans qu’il soit nécessaire de provisionner ou de gérer explicitement l’infrastructure de calcul. Pour en savoir plus sur Azure Functions, consultez la documentation [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). La logique que nous implémentons dans la fonction utilise les données d’emplacement provenant de la télémétrie des appareils embarqués pour évaluer l’état de la limite géographique. Si un véhicule donné sort de la limite géographique, la fonction collecte des informations supplémentaires telles que l’adresse de l’emplacement à l’aide de l’[API de recherche d’adresses inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) qui convertit une coordonnée d’emplacement donnée en adresse postale compréhensible par les utilisateurs. Toutes les informations d’événement pertinentes sont ensuite stockées dans le magasin d’objets blob. L’étape 5 ci-dessous pointe vers le code exécutable qui implémente cette logique. Suivez les étapes ci-dessous pour créer une fonction Azure qui envoie des journaux de données au conteneur d’objets blob dans le compte de stockage et y ajouter un abonnement Event Grid.
+Azure Functions est un service de calcul serverless qui nous permet d’exécuter du code à la demande, sans qu’il soit nécessaire de provisionner ou de gérer explicitement l’infrastructure de calcul. Pour en savoir plus sur Azure Functions, consultez la documentation [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview). La logique que nous implémentons dans la fonction utilise les données de localisation provenant de la télémétrie des appareils embarqués pour évaluer l’état de la limite géographique. Si un véhicule donné sort de la limite géographique, la fonction collecte des informations supplémentaires telles que l’adresse de l’endroit à l’aide de l’[API de recherche d’adresses inverse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) qui convertit une coordonnée de localisation donnée en adresse postale compréhensible par les utilisateurs. Toutes les informations d’événement pertinentes sont ensuite stockées dans le magasin d’objets blob. L’étape 5 ci-dessous pointe vers le code exécutable qui implémente cette logique. Suivez les étapes ci-dessous pour créer une fonction Azure qui envoie des journaux de données au conteneur d’objets blob dans le compte de stockage et y ajouter un abonnement Event Grid.
 
 1. Dans le tableau de bord du portail Azure, sélectionnez Créer une ressource. Sélectionnez **Calcul** dans la liste des types de ressources disponibles, puis sélectionnez **Application de fonction**.
 
     ![create-resource](./media/tutorial-iot-hub-maps/create-resource.png)
 
-2. Dans la page de création d’application de fonction, nommez votre application de fonction. Sous **Groupe de ressources**, sélectionnez **Utiliser l’existant**, puis sélectionnez « ContosoRental » dans la liste déroulante. Sélectionnez « .NET Core » comme pile d’exécution. Sous **Stockage**, sélectionnez **Utiliser l’existant**. Sélectionnez ensuite « contosorentaldata » dans la liste déroulante, puis cliquez sur **Créer**.
+2. Dans la page de création **Function App**, nommez votre application de fonction. Sous **Groupe de ressources**, sélectionnez **Utiliser l’existant**, puis sélectionnez « ContosoRental » dans la liste déroulante. Sélectionnez « .NET Core » comme pile d’exécution. Sous **Stockage**, sélectionnez **Utiliser l’existant**, sélectionnez « contosorentaldata » dans la liste déroulante, puis sélectionnez **Vérifier + créer**.
     
     ![create-app](./media/tutorial-iot-hub-maps/rental-app.png)
+
+2. Passez en revue les détails de l’application de fonction, puis sélectionnez « Créer ».
 
 3. Une fois l’application créée, vous devez lui ajouter une fonction. Accédez à l’application de fonction, puis cliquez sur **Nouvelle fonction** pour ajouter une fonction. Choisissez **Dans le portail** comme environnement de développement, puis sélectionnez **Continuer**.
 
@@ -218,7 +222,7 @@ Azure Functions est un service de calcul serverless qui nous permet d’exécute
 
 4. Choisissez **Autres modèles**, puis cliquez sur **Terminer et afficher les modèles**. 
 
-5. Sélectionnez le modèle avec un **déclencheur Azure Event Grid**. Installez des extensions si vous y êtes invité, nommez la fonction, puis appuyez sur **Créer**.
+5. Sélectionnez le modèle avec un **déclencheur Azure Event Grid**. Installez des extensions si vous y êtes invité, nommez la fonction, puis sélectionnez **Créer**.
 
     ![function-template](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
 
@@ -227,13 +231,13 @@ Azure Functions est un service de calcul serverless qui nous permet d’exécute
 7. Dans le script C#, remplacez les paramètres suivants :
     * Remplacez **SUBSCRIPTION_KEY** par la clé primaire d’abonnement de votre compte Azure Maps.
     * Remplacez la valeur **UDID** par l’udId de la limite géographique que vous avez chargée. 
-    * La fonction **CreateBlobAsync** du script crée un objet blob par événement dans le compte de stockage de données. Remplacez les valeurs **ACCESS_KEY**, **ACCOUNT_NAME** et **STORAGE_CONTAINER_NAME** par la clé d’accès et le nom de votre compte de stockage, ainsi que par le conteneur de stockage de données.
+    * La fonction **CreateBlobAsync** du script crée un objet blob par événement dans le compte de stockage de données. Remplacez les valeurs **ACCESS_KEY**, **ACCOUNT_NAME** et **STORAGE_CONTAINER_NAME** par la clé d’accès de votre compte de stockage, son nom et le conteneur de stockage de données.
 
 10. Cliquez sur **Ajouter un abonnement Event Grid**.
     
     ![add-event-grid](./media/tutorial-iot-hub-maps/add-egs.png)
 
-11. Renseignez les détails de l’abonnement : sous **DÉTAILS DES ABONNEMENTS AUX ÉVÉNEMENTS**, nommez votre abonnement, et pour Schéma d’événement, choisissez « Schéma Event Grid ». Sous **DÉTAILS DE LA RUBRIQUE**, sélectionnez « Comptes Azure IoT Hub » comme Type de rubrique, choisissez le même abonnement que celui utilisé pour créer le groupe de ressources, sélectionnez « ContosoRenta l» comme « Groupe de ressources », puis le hub IoT que vous avez créé comme « Ressource ». Choisissez **Télémétrie d’appareil** comme Type d’événement. Une fois ces options choisies, le « Type de rubrique » devient automatiquement « IoT Hub ».
+11. Renseignez les détails de l’abonnement : sous **DÉTAILS DES ABONNEMENTS AUX ÉVÉNEMENTS**, nommez votre abonnement, et pour Schéma d’événement, choisissez « Schéma Event Grid ». Sous **DÉTAILS DE LA RUBRIQUE**, sélectionnez « Comptes Azure IoT Hub » comme Type de rubrique. Choisissez le même abonnement que celui utilisé pour créer le groupe de ressources, sélectionnez « ContosoRental » comme « Groupe de ressources », puis choisissez le hub IoT que vous avez créé comme « Ressource ». Choisissez **Télémétrie d’appareil** comme Type d’événement. Une fois ces options choisies, le « Type de rubrique » devient automatiquement « IoT Hub ».
 
     ![event-grid-subscription](./media/tutorial-iot-hub-maps/af-egs.png)
  
@@ -251,13 +255,13 @@ Dans notre exemple de scénario, nous voulons filtrer tous les messages où le v
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>Envoyer des données de télémétrie à IoT Hub
 
-Une fois que notre fonction Azure est opérationnelle, nous envoyons les données de télémétrie au hub IoT, qui les route vers Event Grid. Nous allons utiliser une application C# pour simuler des données de localisation d’un appareil embarqué d’une voiture de location. Pour exécuter l’application, votre machine de développement doit disposer du SDK .NET Core 2.1.0 ou version ultérieure. Effectuez les étapes ci-dessous pour envoyer les données de télémétrie simulées à IoT Hub.
+Une fois que notre fonction Azure est opérationnelle, nous pouvons envoyer les données de télémétrie au hub IoT, qui les route vers Event Grid. Utilisons une application C# pour simuler les données de localisation d’un appareil embarqué d’une voiture de location. Pour exécuter l’application, votre machine de développement doit disposer du SDK .NET Core 2.1.0 ou version ultérieure. Effectuez les étapes ci-dessous pour envoyer les données de télémétrie simulées à IoT Hub.
 
 1. Téléchargez le projet C# [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation). 
 
 2. Ouvrez le fichier simulatedCar.cs dans un éditeur de texte de votre choix, remplacez la valeur de `connectionString` par celle que vous avez enregistrée lors de l’inscription de l’appareil, puis enregistrez les changements apportés au fichier.
  
-3. Dans la fenêtre de votre terminal local, accédez au dossier racine du projet C#, puis exécutez la commande suivante pour installer les packages nécessaires pour l’application d’appareil simulé :
+3. Vérifiez que .NET Core est installé sur votre ordinateur. Dans la fenêtre de votre terminal local, accédez au dossier racine du projet C#, puis exécutez la commande suivante pour installer les packages nécessaires pour l’application d’appareil simulé :
     
     ```cmd/sh
     dotnet restore
@@ -273,7 +277,7 @@ Une fois que notre fonction Azure est opérationnelle, nous envoyons les donnée
 
   ![Sortie du terminal](./media/tutorial-iot-hub-maps/terminal.png)
 
-Si vous ouvrez le conteneur de stockage d’objets blob maintenant, vous devez voir quatre objets blob correspondant aux emplacements où le véhicule se trouvait hors de la limite géographique.
+Si vous ouvrez le conteneur de stockage d’objets blob maintenant, vous devez voir quatre objets blob correspondant aux endroits où le véhicule se trouvait hors de la limite géographique.
 
 ![Entrer un objet blob](./media/tutorial-iot-hub-maps/blob.png)
 

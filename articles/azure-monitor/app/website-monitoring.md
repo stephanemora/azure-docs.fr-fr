@@ -1,6 +1,6 @@
 ---
-title: Superviser des sites web avec Azure Monitor Application Insights
-description: Fournit des instructions permettant de configurer rapidement la supervision du site web côté client/navigateur avec Azure Monitor Application Insights
+title: 'Démarrage rapide : Superviser des sites web avec Azure Monitor Application Insights'
+description: Fournit des instructions de démarrage rapide permettant de configurer la supervision du site web côté client/navigateur avec Azure Monitor Application Insights
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
@@ -8,36 +8,30 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 54bd12db9a85cf237d6c22ad63e6f20f7d2b713a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770218"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963617"
 ---
-# <a name="start-monitoring-your-website"></a>Démarrer la surveillance de votre site web
+# <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Démarrage rapide : Commencez à superviser votre site web avec Azure Monitor Application Insights
+
+Dans ce guide de démarrage rapide, vous allez apprendre à ajouter le SDK JavaScript Application Insights open source à votre site web. Vous apprendrez également à mieux comprendre l’expérience côté client/navigateur pour les visiteurs de votre site web.
 
 Azure Monitor Application Insights vous permet de surveiller facilement la disponibilité, les performances et l’utilisation de votre site web. De plus, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. Application Insights offre des fonctionnalités de supervision côté serveur et côté client/navigateur.
 
-Ce guide de démarrage rapide vous accompagne tout au long du processus d’ajout du [SDK JavaScript Application Insight open source](https://github.com/Microsoft/ApplicationInsights-JS) qui vous permet de comprendre l’expérience côté client/navigateur pour les visiteurs de votre site web.
-
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce guide de démarrage rapide :
-
-- Vous avez besoin d’un abonnement Azure.
-
-Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
-
-Connectez-vous au [portail Azure](https://portal.azure.com/).
+* Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* Un site web auquel vous pouvez ajouter le SDK JavaScript Application Insights.
 
 ## <a name="enable-application-insights"></a>Activer Application Insights
 
 Application Insights permet de recueillir les données de télémétrie à partir de n’importe quelle application connectée à Internet, qu’elle soit exécutée localement ou dans le cloud. Suivez les étapes ci-dessous pour lancer l’affichage de ces données.
 
-1. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Application Insights**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
+2. Sélectionnez **Créer une ressource** > **Outils de gestion** > **Application Insights**.
 
    > [!NOTE]
    >Si c’est la première fois que vous créez une ressource Application Insights, vous pouvez en apprendre davantage en lisant l’article [Créer une ressource Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
@@ -47,10 +41,10 @@ Application Insights permet de recueillir les données de télémétrie à parti
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
    | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
-   | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources où héberger les données App Insights. Vous pouvez créer un groupe de ressources ou utiliser un groupe existant. |
+   | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights Vous pouvez créer un groupe de ressources ou utiliser un groupe existant. |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
 
-2. Cliquez sur **Créer**.
+3. Cliquez sur **Créer**.
 
 ## <a name="create-an-html-file"></a>Créer un fichier HTML
 
@@ -70,11 +64,11 @@ Application Insights permet de recueillir les données de télémétrie à parti
     </html>
     ```
 
-## <a name="configure-app-insights-sdk"></a>Configurer le Kit de développement logiciel (SDK) Application Insights
+## <a name="configure-application-insights-sdk"></a>Configurer le SDK Application Insights
 
 1. Sélectionnez **Vue d’ensemble** > **Éléments principaux** > copiez la **clé d’instrumentation** de votre application.
 
-   ![Formulaire de nouvelle ressource Application Insights](media/website-monitoring/instrumentation-key-001.png)
+   ![Nouveau formulaire ressource Application Insights](media/website-monitoring/instrumentation-key-001.png)
 
 2. Ajoutez le script suivant à votre ``hello_world.html`` avant la balise de fermeture ``</head>`` :
 
@@ -90,13 +84,13 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 3. Modifiez ``hello_world.html`` et ajoutez votre clé d’instrumentation.
 
-4. Ouvrez ``hello_world.html`` dans une session de navigateur locale. Cette opération crée un affichage de page unique. Vous pouvez actualiser votre navigateur pour générer plusieurs affichages de page de test.
+4. Ouvrez ``hello_world.html`` dans une session de navigateur locale. Cette action crée une seule vue de page. Vous pouvez actualiser votre navigateur pour générer plusieurs vues de page de test.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Démarrer l’analyse dans le portail Azure
 
-1. Vous pouvez à présent rouvrir la page de **présentation** d’Application Insights dans le portail Azure où vous avez récupéré votre clé d’instrumentation afin d’afficher les détails sur votre application en cours d’exécution. Les quatre graphiques par défaut sur la page de présentation sont limités aux données d’application côté serveur. Étant donné que nous instrumentons les interactions côté client/navigateur avec le Kit de développement logiciel (SDK) JavaScript, et à moins qu’un SDK côté serveur soit également installé, cet affichage particulier ne s’applique pas.
+1. Vous pouvez à présent rouvrir la page de **Vue d’ensemble** d’Application Insights dans le portail Azure afin d’afficher les détails sur votre application en cours d’exécution. La page **Vue d’ensemble** vous permet de récupérer votre clé d’instrumentation. Les quatre graphiques par défaut sur la page de présentation sont limités aux données d’application côté serveur. Étant donné que nous instrumentons les interactions côté client/navigateur avec le SDK JavaScript, et à moins qu’un SDK côté serveur soit également installé, cette vue particulière ne s’applique pas.
 
-2. Cliquez sur l’![icône Cartographie d’application](media/website-monitoring/006.png) **Analytics**.  Vous ouvrez ainsi **Analytics**, lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Pour afficher les données associées aux requêtes de navigateur côté client, exécutez la requête suivante :
+2. Cliquez sur l’![icône Cartographie d’application](media/website-monitoring/006.png) **Analytics**.  Cette action ouvre ainsi **Analytics**, lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Pour afficher les données associées aux requêtes de navigateur côté client, exécutez la requête suivante :
 
     ```kusto
     // average pageView duration by name
@@ -115,7 +109,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
    ![Graphique analytique des demandes d’utilisateur au cours d’une période donnée](./media/website-monitoring/analytics-query.png)
 
-3. Revenez à la page **Vue d’ensemble**. Cliquez sur **Navigateur** situé en dessous de l’en-tête **Examiner**, puis sélectionnez **Performances**. Vous y trouverez des mesures relatives aux performances de votre site web. Il existe également un affichage correspondante dédié à l’analyse des défaillances et des exceptions dans votre site web. Vous pouvez cliquer sur **Exemples** pour explorer les détails des transactions individuelles. À partir de là, vous pouvez accéder à l’expérience des [détails de la transaction de bout en bout](../../azure-monitor/app/transaction-diagnostics.md).
+3. Revenez à la page **Vue d’ensemble**. Cliquez sur **Navigateur** situé en dessous de l’en-tête **Examiner**, puis sélectionnez **Performances**. Vous y trouverez des mesures relatives aux performances de votre site web. Il existe également une vue correspondante dédiée à l’analyse des défaillances et des exceptions dans votre site web. Vous pouvez cliquer sur **Exemples** pour explorer les détails des transactions individuelles. À partir de là, vous pouvez accéder à l’expérience des [détails de la transaction de bout en bout](../../azure-monitor/app/transaction-diagnostics.md).
 
    ![Graphique des métriques de serveur](./media/website-monitoring/browser-performance.png)
 
@@ -131,7 +125,7 @@ Pour en savoir plus les configurations plus complexes pour la supervision des si
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
-Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées dans ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées lors de ce démarrage rapide dans le portail Azure.
+Si vous souhaitez continuer à utiliser d’autres guides de démarrage rapide ou les tutoriels, ne nettoyez pas les ressources créées dans le cadre de ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées dans le cadre de ce guide de démarrage rapide dans le portail Azure.
 
 > [!NOTE]
 > Si vous avez utilisé un groupe de ressources existant, les instructions ci-dessous ne s’appliquent pas ; vous devrez simplement supprimer la ressource Application Insights individuelle. N’oubliez pas que lorsque vous supprimez un groupe de ressources, toutes les ressources sous-jacentes qui sont membres de ce groupe seront également supprimées.

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1254c3d241befdd0842dd68c8f34291f148c7ee6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 34a92a11880d61ff3e75e0b2a982b6375841b4b7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291462"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Tutoriel : Intégration de l’authentification unique (SSO) Azure Active Directory à Cornerstone OnDemand
 
@@ -45,7 +45,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 
 * Cornerstone OnDemand prend en charge l’authentification unique initiée par **SP**
 * Cornerstone OnDemand prend en charge [l’approvisionnement d’utilisateurs automatique](cornerstone-ondemand-provisioning-tutorial.md)
-* Après avoir configuré Cornerstone OnDemand, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Cornerstone OnDemand, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Ajout de Cornerstone OnDemand à partir de la galerie
 
@@ -160,5 +160,3 @@ Lorsque vous cliquez sur la vignette Cornerstone OnDemand dans le volet d’acc�
 - [Essayer Cornerstone OnDemand avec Azure AD](https://aad.portal.azure.com)
 
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger Cornerstone OnDemand avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

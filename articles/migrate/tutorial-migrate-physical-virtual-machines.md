@@ -1,27 +1,23 @@
 ---
-title: Migrer des machines physiques locales ou des machines virtualisées vers Azure avec Azure Migrate Server Migration | Microsoft Docs
-description: Cet article explique comment effectuer la migration de machines physiques locales ou de machines virtualisées vers Azure avec Azure Migrate Server Migration.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+title: Migrez les machines en tant que serveurs physiques vers Azure avec Azure Migrate.
+description: Cet article explique comment migrer des machines physiques vers Azure avec Azure Migrate.
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.author: raynew
+ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 4a6e33770f93c365d5ccd034803c7c7f247d528a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028803"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989754"
 ---
-# <a name="migrate-physical-or-virtualized-servers-to-azure"></a>Migrer des serveurs physiques ou virtualisés vers Azure 
+# <a name="migrate-machines-as-physical-servers-to-azure"></a>Migrer des machines en tant que serveurs physiques vers Azure
 
-Cet article explique comment migrer des serveurs physiques ou virtualisés vers Azure. L’outil Azure Migrate Server Migration permet d’effectuer la migration de serveurs physiques ou virtualisés, à l’aide de la réplication basée sur l’agent. Avec cet outil, vous pouvez effectuer la migration d’une large gamme de machines vers Azure :
+Cet article explique comment migrer des machines en tant que serveurs physiques vers Azure à l’aide de l’outil Azure Migrate : Server Migration. La migration de machines en les traitant comme des serveurs physiques est utile dans plusieurs scénarios :
 
 - Serveurs physiques locaux
 - Machines virtuelles virtualisées par des plateformes telles que Xen ou KVM
-- Machines virtuelles Hyper-V ou VMware. Une telle migration s’avère utile si, pour une raison ou une autre, vous ne parvenez pas à utiliser le flux de migration standard proposé par Azure Migrate Server Migration pour les migrations [Hyper-V](tutorial-migrate-hyper-v.md), les migrations [sans agent VMware](tutorial-migrate-vmware.md) ou les migrations [VMware basées sur l’agent](tutorial-migrate-vmware-agent.md).
+- Machines virtuelles Hyper-V ou VMware. Une telle migration s’avère utile si, pour une raison ou une autre, vous ne pouvez pas utiliser le processus de migration standard pour migrer les machines [Hyper-V](tutorial-migrate-hyper-v.md) ou [VMware ](server-migrate-overview.md).
 - Machines virtuelles exécutées dans des clouds privés
 - Machines virtuelles exécutées dans des clouds publics tels qu’Amazon Web Services (AWS) ou Google Cloud Platform (GCP).
 
@@ -175,7 +171,7 @@ La première étape de la migration consiste à configurer l’appliance de rép
 
 ### <a name="download-the-replication-appliance-installer"></a>Télécharger le programme d’installation de l’appliance de réplication
 
-1. Dans le projet Azure Migrate > **Serveurs**, dans ***Azure Migrate : Server Migration**, cliquez sur **Découvrir**.
+1. Dans le projet Azure Migrate > **Serveurs**, dans **Azure Migrate : Server Migration**, cliquez sur **Découvrir**.
 
     ![Détection des machines virtuelles](./media/tutorial-migrate-physical-virtual-machines/migrate-discover.png)
 
@@ -266,8 +262,7 @@ Vous devez installer l’agent Mobility Service sur les machines qui feront l’
 
 2. Dans **Répliquer** > **Paramètres de la source** > **Vos machines sont-elles virtualisées ?** , sélectionnez **Non virtualisé/autre**.
 3. Dans **Appliance locale**, sélectionnez le nom de l’appliance Azure Migrate que vous avez configurée.
-4. Dans **vCenter Server**, spécifiez le nom du serveur vCenter qui gère les machines virtuelles ou du serveur vSphere sur lequel les machines virtuelles sont hébergées.
-5. Dans **Process Server**, sélectionnez le nom de l’appliance de réplication.
+4. Dans **Process Server**, sélectionnez le nom de l’appliance de réplication.
 6. Dans **Informations d’identification de l’invité**, spécifiez le compte d’administrateur de machine virtuelle qui sera utilisé pour l’installation Push de Mobility Service. Dans ce tutoriel, nous allons installer manuellement Mobility Service pour que vous puissiez ajouter un compte factice. Cliquez ensuite sur **Suivant : Machines virtuelles**.
 
     ![Répliquer des machines virtuelles](./media/tutorial-migrate-physical-virtual-machines/source-settings.png)

@@ -1,27 +1,27 @@
 ---
-title: Gérer les autorisations des applications à partir du portail Mes applications (préversion) - Azure Active Directory | Microsoft Docs
-description: Découvrez comment gérer les autorisations les applications cloud de votre organisation et les utiliser à partir du portail Mes applications (version préliminaire).
+title: Gérer les autorisations des applications à partir du portail Mes applications - Azure Active Directory | Microsoft Docs
+description: Découvrez comment gérer les autorisations des applications cloud de votre organisation et les utiliser à partir du portail Mes applications.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: kasimpso
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 10/30/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 36abbee0bf25550425f4e476e6a4e7b75df815a6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bac33386371b13950163727497cabd0f262df135
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705052"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022407"
 ---
-# <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Modifier ou révoquer des autorisations d’application dans le portail Mes applications (préversion)
+# <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Modifier ou révoquer des autorisations d’application dans le portail Mes applications
 
-Lorsque vous utilisez des applications organisationnelles dans le portail **Mes applications** (version préliminaire), vous accordez des autorisations et enregistrez des informations de compte fréquemment. Pour sécuriser vos données, vous souhaiterez peut-être examiner et révoquer des autorisations ou effacer les informations d’identification de compte enregistrées. La suppression des autorisations ou comptes peut perturber certaines fonctionnalités de l’application. Si vous avez des problèmes après avoir supprimé des autorisations ou des comptes, contactez le support technique de votre organisation pour obtenir une assistance supplémentaire.
+Quand vous utilisez des applications de l’organisation dans le portail **Mes applications**, vous accordez des autorisations et enregistrez des informations de compte fréquemment. Pour sécuriser vos données, vous souhaiterez peut-être examiner et révoquer des autorisations ou effacer les informations d’identification de compte enregistrées. La suppression des autorisations ou comptes peut perturber certaines fonctionnalités de l’application. Si vous avez des problèmes après avoir supprimé des autorisations ou des comptes, contactez le support technique de votre organisation pour obtenir une assistance supplémentaire.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 
@@ -46,11 +46,11 @@ La partie inférieure de la fenêtre Autorisations indique ce que votre administ
 
 Une fois que vous avez géré les autorisations d’application et les comptes enregistrés dans le portail **Mes applications**, vous pouvez :
 
-- Organiser vos applications dans les différentes catégories créées et fournies par votre organisation. Pour plus d’informations, consultez [Accéder aux espaces de travail et les utiliser sur le portail Mes applications (préversion)](my-applications-portal-workspaces.md).
+- Organiser vos applications dans les différentes catégories créées et fournies par votre organisation. Pour plus d’informations, consultez [Accéder aux collections sur le portail Mes applications et les utiliser](my-applications-portal-workspaces.md).
 
 ## <a name="related-articles"></a>Articles connexes
 
-- [Mettre à jour vos informations de profil et de compte](my-account-portal-overview.md). Instructions sur la façon de mettre à jour vos informations personnelles qui s’affichent dans la page **Mon profil** du portail (préversion).
+- [Mettre à jour vos informations de profil et de compte](my-account-portal-overview.md). Instructions sur la façon de mettre à jour vos informations personnelles qui s’affichent dans la page **Mon profil** du portail.
 
 - [Gérer vos organisations](my-account-portal-organizations-page.md). Instructions sur la façon d’afficher et de gérer les informations relatives à votre organisation dans la page **Organisations** du portail **Mon profil**.
 

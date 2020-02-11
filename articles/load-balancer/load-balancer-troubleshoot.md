@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843920"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935474"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Résoudre les problèmes liés à Azure Load Balancer
 
-Cette page contient des informations de résolution des problèmes liés aux questions courantes relatives à Azure Load Balancer. Lorsque la connectivité de l’équilibreur de charge n’est pas disponible, les symptômes les plus courants sont les suivants : 
+Cette page contient des informations pour résoudre les problèmes courants liés à Azure Load Balancer (versions De base et Standard). Pour plus d’informations sur Standard Load Balancer, consultez la [présentation de Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+
+Lorsque la connectivité de l’équilibreur de charge n’est pas disponible, les symptômes les plus courants sont les suivants : 
+
 - Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas aux sondes d’intégrité 
 - Les machines virtuelles situées derrière l’équilibreur de charge ne répondent pas au trafic sur le port configuré
 
@@ -124,6 +127,10 @@ Si l’application hébergée sur la machine virtuelle principale d’un équili
 Si un serveur Load Balancer interne est configuré au sein d’un réseau virtuel, et si l’une des machines virtuelles principales participantes essaie d’accéder au serveur frontal Load Balancer interne, des défaillances peuvent se produire lorsque le flux est mappé à la machine virtuelle d’origine. Ce scénario n'est pas pris en charge. Vérifiez les [limites](concepts-limitations.md#limitations) pour en savoir plus.
 
 **Résolution** Il existe plusieurs façons pour débloquer ce scénario, notamment l’utilisation d’un proxy. Évaluez Application Gateway ou d’autres proxies tiers (par exemple, nginx ou haproxy). Pour plus d’informations sur Application Gateway, consultez la page [Vue d’ensemble de la passerelle Application Gateway](../application-gateway/application-gateway-introduction.md).
+
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Symptôme : Impossible de modifier le port principal pour la règle d'équilibrage de charge existante d'un équilibreur de charge qui dispose d'un groupe de machines virtuelles identiques déployé dans le pool principal. 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Cause : Le port principal ne peut pas être modifié lorsqu'une règle d'équilibrage de charge est utilisée par une sonde d'intégrité pour l'équilibreur de charge référencé par le groupe de machines virtuelles identiques.
+**Résolution** Pour modifier le port, vous pouvez supprimer la sonde d'intégrité en mettant à jour le groupe de machines virtuelles identiques, puis mettre à jour le port et reconfigurer la sonde d'intégrité.
 
 ## <a name="additional-network-captures"></a>Captures de réseau supplémentaires
 Si vous décidez d’ouvrir un dossier de support, collectez les informations suivantes pour accélérer la résolution du problème. Choisissez une machine virtuelle principale unique pour effectuer les tests suivants :

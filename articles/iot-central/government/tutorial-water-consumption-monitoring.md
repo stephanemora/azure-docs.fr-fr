@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Créer une application de suivi de la consommation d’eau avec Azure IoT Central'
-description: 'Didacticiel : Découvrez comment créer une application de suivi de la consommation d’eau à l’aide de modèles d’application Azure IoT Central.'
+title: 'Tutoriel : Créer une application de suivi de la consommation d’eau avec Azure IoT Central'
+description: 'Tutoriel : Découvrez comment créer une application de suivi de la consommation d’eau à l’aide de modèles d’application Azure IoT Central.'
 author: miriambrus
 ms.author: miriamb
 ms.date: 11/12/2019
@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 0b100e0bebc7c5b26449e396650da5434334075d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1bad4ab6320e757ac766776a95b8dbe6ebaa3259
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112623"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016423"
 ---
-# <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Didacticiel : Créer une application de suivi de la consommation d’eau dans IoT Central
+# <a name="tutorial-create-a-water-consumption-monitoring-application-in-iot-central"></a>Tutoriel : Créer une application de suivi de la consommation d’eau dans IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Ce tutoriel vous guide dans la création d’une application de suivi de la consommation d’eau Azure IoT Central à partir du modèle d’application IoT Central Suivi de la consommation d’eau. 
 
-Ce tutoriel vous apprend à effectuer les opérations suivantes : 
+Dans ce didacticiel, vous apprendrez à : 
 
 > [!div class="checklist"]
 > * Utiliser le modèle Azure IoT Central **Water consumption monitoring** (Suivi de la consommation d’eau) pour créer votre application de suivi de la consommation d’eau
@@ -32,14 +32,14 @@ Ce tutoriel vous apprend à effectuer les opérations suivantes :
 > * Configuration des travaux
 > * Personnaliser le marquage de votre application à l’aide d’une étiquette blanche
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour suivre ce tutoriel, vous devez disposer des éléments suivants :
+Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 -  Un abonnement Azure est recommandé. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-water-consumption-monitoring-app-in-iot-central"></a>Créer une application de suivi de la consommation d’eau dans IoT Central
 
-Dans cette section, nous allons utiliser le modèle Azure IoT Central **Water consumption monitoring** (Suivi de la consommation d’eau) pour créer une application de suivi de la consommation d’eau dans IoT Central.
+Dans cette section, vous utilisez le modèle Azure IoT Central **Water consumption monitoring** (Suivi de la consommation d’eau) pour créer votre application de suivi de la consommation d’eau dans IoT Central.
 
 Pour créer une application Azure IoT Central de suivi de la consommation d’eau :  
 
@@ -60,11 +60,13 @@ Pour créer une application Azure IoT Central de suivi de la consommation d’ea
     * **URL** : IoT Central génère automatiquement une URL basée sur le nom de l’application. Vous pouvez choisir de mettre à jour l’URL à votre convenance. Vous pouvez également modifier ultérieurement l’URL. 
     * Si vous disposez d’un abonnement Azure, entrez vos informations *Répertoire, Abonnement Azure et Région*. Si vous n’avez pas d’abonnement, vous pouvez activer une **version d’évaluation gratuite de 7 jours** et remplir les coordonnées requises.  
 
-    Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../preview/quick-deploy-iot-central.md).
+    Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](../core/quick-deploy-iot-central.md).
 
 5. Cliquez sur le bouton **Create** (Créer) en bas de la page. 
 
     ![Page de création d’une application Azure IoT Central](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring.png)
+
+    ![Création d’une application Azure IoT Central, informations de facturation](./media/tutorial-waterconsumptionmonitoring/new-application-waterconsumptionmonitoring-billinginfo.png)
 
 6. Vous avez désormais créé une application de suivi de la consommation d’eau à l’aide du modèle Azure IoT Central **Water consumption monitoring** (Suivi de la consommation d’eau).
 
@@ -93,7 +95,7 @@ Le tableau de bord est constitué de différents types de vignettes :
 
 * **Vignette d’indicateur de performance clé de débit moyen d’eau** : la vignette de KPI est configurée pour afficher comme exemple *la moyenne sur les 30 dernières minutes*. Vous pouvez personnaliser les vignettes de KPI et définir un type et une plage de temps différents.
 
-* Le tableau de bord intègre des vignettes de *commande de l’appareil* pour fermer la vanne (**Close valve**), ouvrir la vanne (**Open valve**) ou définir la position de la vanne (**Set valve position**). Cliquez sur les commandes pour afficher la page de commande d’appareil de l’appareil simulé. Dans IoT Central, une *commande* est un type de *fonctionnalité d’appareil* que nous explorerons plus loin dans la **section sur le modèle d’appareil** de ce tutoriel.
+* Le tableau de bord intègre des vignettes de *commande de l’appareil* pour fermer la vanne (**Close valve**), ouvrir la vanne (**Open valve**) ou définir la position de la vanne (**Set valve position**). Cliquez sur les commandes pour accéder à la page des commandes de l’appareil simulé. Dans IoT Central, une *commande* est un type de *capacité d’appareil* que vous pouvez explorer plus loin dans la **section sur le modèle d’appareil** de ce tutoriel.
 
 *  **Water distribution area map** (Carte des zones de distribution d’eau) : la carte utilise Azure Maps, que vous pouvez configurer directement dans Azure IoT Central. La vignette de carte affiche l’emplacement des appareils. Essayez de survoler la carte et essayez les contrôles sur la carte, comme le *zoom avant*, le *zoom arrière* ou *développer*. 
 
@@ -105,7 +107,7 @@ Le tableau de bord est constitué de différents types de vignettes :
 
 * **Vignette de contenu Reset alert threshold** (Réinitialiser le seuil d’alerte) : vous pouvez inclure des vignettes de contenu d’invite à l’action incorporant le lien vers une page d’action. Dans ce cas, la vignette de réinitialisation du seuil d’alerte vous permet d’accéder aux **travaux** de l’application, où vous pouvez exécuter des mises à jour sur les propriétés des appareils, que nous explorerons ultérieurement dans la section **Configurer des travaux** de ce tutoriel.
 
-* **Vignettes de propriétés** : le tableau de bord affiche **Valve operational info** (Informations opérationnelles de la vanne), **Flow alert thresholds** (Seuils d’alerte de débit) et **Maintenance info** (Informations de maintenance), qui sont des propriétés des appareils.  
+* **Vignettes de propriétés** : le tableau de bord affiche **Valve operational info** (Informations opérationnelles de la vanne), **Flow alert thresholds** (Seuils d’alerte de débit) et **Maintenance info** (Informations de maintenance). 
 
 
 ### <a name="customize-dashboard"></a>Personnaliser le tableau de bord 
@@ -126,7 +128,7 @@ L’application **Water consumption monitoring** (Suivi de la consommation d’e
 Pour afficher ce modèle d’appareil :
 
 1. Cliquez sur **Modèles d’appareil** dans le volet de navigation gauche de votre application dans IoT Central. 
-    Dans la liste Modèles d’appareil, vous pouvez voir deux modèles d’appareil **Flow meter** (Débitmètre) et **Smart Valve** (Vanne intelligente).
+    Dans la liste Modèles d’appareil, vous pouvez voir deux modèles d’appareil : **Flow meter** (Débitmètre) et **Smart Valve** (Vanne intelligente).
 
    ![Modèle d'appareil](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-devicetemplate.png)
 
@@ -146,7 +148,7 @@ Essayez de personnaliser les éléments suivants :
 ### <a name="add-a-cloud-property"></a>Ajouter une propriété cloud 
 1. Accédez à **Cloud properties** (Propriétés cloud) via le menu du modèle d’appareil.
 2. Ajoutez une nouvelle propriété cloud en cliquant sur **+ Add Cloud Property** (Ajouter une propriété cloud). 
-    Dans IoT Central, vous pouvez ajouter une propriété qui s’applique à l’appareil. Par exemple, une propriété cloud peut être un seuil d’alerte spécifique à la zone d’installation, aux informations sur les ressources, aux informations de maintenance, etc. 
+    Dans IoT Central, vous pouvez ajouter une propriété qui s’applique à l’appareil. Par exemple, une propriété cloud peut être un seuil d’alerte spécifique à la zone d’installation, aux informations sur les ressources ou à d’autres informations de maintenance. 
 3. Enregistrez (**Save**) les modifications. 
  
 ### <a name="views"></a>Les vues 
@@ -192,7 +194,7 @@ L’application de **suivi de la consommation d’eau** que vous avez créée a 
 
    ![Règles](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-rules.png)
 
-2. Sélectionnez et cliquez sur **High flow alert** (Alerte de débit élevé), qui est l’une des règles préconfigurées dans l’application.
+2. Sélectionnez et cliquez sur **High pH alert** (Alerte de pH élevé), qui est une des règles préconfigurées dans l’application.
 
      ![Alerte de débit élevé](./media/tutorial-waterconsumptionmonitoring/waterconsumptionmonitoring-highflowalert.png)
 
@@ -203,7 +205,7 @@ L’application de **suivi de la consommation d’eau** que vous avez créée a 
 Pour ajouter une action à la règle :
 
 1. Sélectionnez **+ E-mail**. 
-1. Entrez *Alerte de débit élevé* comme nom d’affichage (**Display name**) convivial pour l’action.
+1. Entrez *Alerte de conteneur plein* comme nom d’affichage (**Display name**) convivial pour l’action.
     * Entrez l’adresse e-mail associée à votre compte IoT Central dans **To** (À). 
 1. Si vous le souhaitez, entrez une note à inclure dans le texte de l’e-mail.
 1. Sélectionnez **Terminé** pour terminer l’action.
@@ -239,7 +241,7 @@ En tant que réalisateur de logiciel, vous pouvez modifier plusieurs paramètres
 2. Enfin, vous pouvez également modifier le **thème** en cliquant sur **Paramètres** sur le titre de l’application. 
 
   
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez votre application en procédant comme suit :
 

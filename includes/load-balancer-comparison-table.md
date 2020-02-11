@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 4b419bd8c19cffaf84582cb4fa9e46592746da3f
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 4219df03f74f737c5f2435f9bc0842189dc1fd49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751506"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909129"
 ---
 | | Référence SKU standard | Référence SKU De base |
 | --- | --- | --- |
-| Taille de pool de serveur principal | Prend en charge jusqu’à 1 000 instances. | Prend en charge jusqu’à 100 instances. |
+| Taille de pool de serveur principal | Prend en charge jusqu’à 1 000 instances. | Prend en charge jusqu’à 300 instances. |
 | Points de terminaison du pool du serveur principal | Toute machine virtuelle dans un seul réseau virtuel, y compris la combinaison de machines virtuelles, de groupes à haute disponibilité et de groupes de machines virtuelles identiques. | Machines virtuelles dans un groupe à haute disponibilité ou un groupe de machines virtuelles identiques unique. |
 | [Sondes d’intégrité](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Comportement en cas de panne de sonde d’intégrité](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | Les connexions TCP restent actives sur une sonde d’instance en panne __et__ sur toutes les sondes en panne. | Les connexions TCP restent actives sur une sonde d’instance en panne. Toutes les connexions TCP s'arrêtent quand toutes les sondes sont en panne. |

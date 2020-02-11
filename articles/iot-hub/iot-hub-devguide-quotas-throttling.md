@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457067"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906985"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Référence - Quotas et limitation IoT Hub
 
@@ -107,6 +107,7 @@ IoT Hub impose d’autres limites opérationnelles :
 | Configurations automatiques d’appareils et de modules<sup>1</sup> | 100 configurations par hub de référence SKU payant. 20 configurations par hub de référence SKU gratuit. |
 | Déploiement automatique IoT Edge<sup>1</sup> | 20 modules par déploiement. 100 déploiements (déploiements en couches inclus) par hub de référence SKU payant. 10 déploiements par hub de référence SKU gratuit. |
 | Jumeaux<sup>1</sup> | La taille maximale des sections de propriétés souhaitées et de propriétés signalées est de 32 Ko chacune. La taille maximale de la section des étiquettes est de 8 Ko. |
+| Stratégies d’accès partagé | Le nombre maximum de stratégies d'accès partagé est de 16 |
 
 <sup>1</sup>Cette fonctionnalité n’est pas disponible dans le niveau de base d’IoT Hub. Pour plus d’informations, consultez [Comment choisir le bon IoT Hub](iot-hub-scaling.md).
 

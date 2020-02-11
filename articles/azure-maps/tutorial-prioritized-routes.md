@@ -3,22 +3,22 @@ title: 'Tutoriel : Trouver plusieurs routes en fonction du mode de transport | 
 description: Dans ce tutoriel, vous allez apprendre à trouver des routes pour différents modes de transport à l’aide de Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 258572d4451be6d9a1090c032467e85889148d14
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910864"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989652"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutoriel : Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
-Ce didacticiel montre comment utiliser votre compte Azure Maps et Route Service pour trouver l’itinéraire vers le point d’intérêt de votre choix, en fonction de votre mode de déplacement. Vous affichez deux itinéraires différents sur votre carte, un dédié aux voitures et l’autre aux camions, qui peuvent présenter des restrictions relatives à la hauteur, au poids ou aux chargements dangereux. Dans ce tutoriel, vous allez apprendre à :
+Ce tutoriel montre comment utiliser votre compte Azure Maps et le service d’itinéraire. Le service d’itinéraire peut trouver l’itinéraire vers le point d’intérêt de votre choix, en hiérarchisant le mode de déplacement, en fonction de votre mode de déplacement. Vous pouvez afficher deux itinéraires différents sur votre carte, un pour les voitures et l’autre pour les camions. Le service d’itinéraire prend en compte les limitations liées à la hauteur et au poids du véhicule, ou au transport de chargements dangereux. Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer une page web à l’aide de l’API Map Control
@@ -27,7 +27,7 @@ Ce didacticiel montre comment utiliser votre compte Azure Maps et Route Service 
 > * Afficher plusieurs itinéraires sur votre carte
 
 ## <a name="prerequisites"></a>Conditions préalables requises
-Avant de poursuivre, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+Avant de continuer, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps), puis sélectionnez le niveau tarifaire S1. Effectuez les étapes décrites dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) pour obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Créer une carte
 
@@ -123,7 +123,7 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
 
 ## <a name="define-how-the-route-will-be-rendered"></a>Définir le rendu de l’itinéraire
 
-Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte. Un itinéraire utilise des routes accessibles aux voitures et l’autre des routes accessibles aux camions. Lors du rendu, nous allons afficher une icône de symbole pour le départ et l’arrivée de l’itinéraire, et des lignes de couleurs différentes pour chaque tracé d’itinéraire.
+Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte. Un itinéraire utilise des routes accessibles aux voitures et l’autre des routes accessibles aux camions. Lors du rendu, nous affichons une icône de symbole pour le départ et l’arrivée de l’itinéraire, et des lignes de couleurs différentes pour chaque tracé d’itinéraire.
 
 1. Une fois la carte initialisée, ajoutez le code JavaScript suivant au gestionnaire d’événements `ready` des cartes.
 
@@ -158,7 +158,7 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
     });
     ```
     
-    Dans le gestionnaire d’événements `ready` des cartes, une source de données est créée pour stocker les lignes d’itinéraire ainsi que les points de départ et d’arrivée. Une couche de ligne est créée et jointe à la source de données pour définir le rendu de la ligne d’itinéraire. Des expressions sont utilisées pour récupérer la largeur et la couleur de ligne des propriétés de la fonctionnalité de ligne d’itinéraire. Lors de l’ajout de la couche sur la carte, un deuxième paramètre avec la valeur `'labels'` est transmis et spécifie le rendu de cette couche sous les étiquettes de carte. Cela garantit que la ligne d’itinéraire ne couvre pas les étiquettes de route. Une couche de symbole est créée et jointe à la source de données. Cette couche spécifie comment les points de départ et d’arrivée sont affichés, dans ce cas des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés de chaque objet de point. 
+    Dans le gestionnaire d’événements `ready` des cartes, une source de données est créée pour stocker les tracés d’itinéraire, ainsi que les points de départ et d’arrivée. Une couche de ligne est créée et jointe à la source de données pour définir le rendu de la ligne d’itinéraire. Des expressions sont utilisées pour récupérer la largeur et la couleur de ligne des propriétés de la fonctionnalité de ligne d’itinéraire. Lors de l’ajout de la couche sur la carte, un deuxième paramètre avec la valeur `'labels'` est transmis et spécifie le rendu de cette couche sous les étiquettes de carte. Cela garantit que la ligne d’itinéraire ne couvre pas les étiquettes de route. Une couche de symbole est créée et jointe à la source de données. Ce calque spécifie la manière dont les points de départ et d’arrivée sont affichés. Dans le cas présent, des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés de chaque objet de point. 
     
 2. Pour ce didacticiel, définissez le point de départ sur une entreprise fictive de Seattle appelée Fabrikam et le point d’arrivée sur un siège Microsoft. Dans le gestionnaire d’événements `ready` des cartes, ajoutez le code suivant.
 
@@ -192,7 +192,7 @@ Dans ce didacticiel, deux itinéraires sont calculés et affichés sur la carte.
 
     Les points de départ et d’arrivée sont ajoutés à la source de données. Le rectangle englobant des points de départ et d’arrivée est calculé à l’aide de la fonction `atlas.data.BoundingBox.fromData`. Ce rectangle englobant est utilisé pour définir la vue de caméra de la carte sur l’itinéraire entier à l’aide de la fonction `map.setCamera`. Une marge intérieure est ajoutée pour compenser les dimensions en pixels des icônes de symbole.
 
-4. Enregistrez le fichier et actualisez votre navigateur afin d’afficher les repères sur votre carte. Désormais, la carte est centrée sur Seattle, et vous pouvez observer le repère rond bleu marquant le point de départ et l’autre repère bleu marquant le point d’arrivée.
+4. Enregistrez le fichier et actualisez votre navigateur afin d’afficher les repères sur votre carte. À présent, la carte est centrée sur Seattle. Vous pouvez observer le repère rond bleu marquant le point de départ et l’autre repère bleu marquant le point d’arrivée.
 
    ![Afficher la carte avec les points de départ et d’arrivée](./media/tutorial-prioritized-routes/pins-map.png)
 
@@ -244,7 +244,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
     });
     ```
 
-    L’extrait de code ci-dessus interroge le service d’itinéraire d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La ligne d’itinéraire est ensuite extraite de la collection de fonctionnalités GeoJSON à partir de la réponse extraite à l’aide de la méthode `geojson.getFeatures()`. La ligne d’itinéraire est ensuite ajoutée à la source de données. Un index de 0 est également ajouté pour s’assurer que la ligne est rendue avant toutes les autres lignes dans la source de données. Ceci est dû au fait que le calcul d’itinéraire réservé aux camions est généralement plus lent qu’un calcul d’itinéraire réservé aux voitures et que, si la ligne d’itinéraire réservé aux camions est ajoutée à la source de données après l’itinéraire réservé aux voitures, il s’affiche au-dessus de celui-ci. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux camions : un trait de couleur bleue et une épaisseur de trait de neuf pixels.
+    L’extrait de code ci-dessus interroge le service d’itinéraire d’Azure Maps via la méthode [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest). La ligne d’itinéraire est ensuite extraite de la collection de fonctionnalités GeoJSON à partir de la réponse extraite à l’aide de la méthode `geojson.getFeatures()`. La ligne d’itinéraire est ensuite ajoutée à la source de données. Un index de 0 garantit que la ligne est affichée avant toutes les autres lignes dans la source de données. Ceci est dû au fait que le calcul d’itinéraire réservé aux camions est généralement plus lent qu’un calcul d’itinéraire réservé aux voitures et que, si la ligne d’itinéraire réservé aux camions est ajoutée à la source de données après l’itinéraire réservé aux voitures, il s’affiche au-dessus de celui-ci. Deux propriétés sont ajoutées à la ligne d’itinéraire réservé aux camions : un trait de couleur bleue et une épaisseur de trait de neuf pixels.
 
 3. Ajoutez le code JavaScript suivant pour construire un itinéraire pour une voiture et afficher les résultats.
 

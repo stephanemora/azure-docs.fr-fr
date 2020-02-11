@@ -1,16 +1,16 @@
 ---
 title: CLI Azure Service Fabric - Déploiement mesh sfctl
-description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient une liste de commandes pour la création de ressources Service Fabric Mesh.
+description: Apprenez-en davantage sur sfctl, l'interface de ligne de commande d'Azure Service Fabric. Contient une liste de commandes pour la création de ressources Service Fabric Mesh.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 6512cce075906fc8708a39fa0747ec27be33e961
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645359"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906028"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Créer des ressources Service Fabric Mesh.
@@ -28,8 +28,8 @@ Crée un déploiement de ressources Service Fabric Mesh.
 
 |Argument|Description|
 | --- | --- |
-| --input-yaml-files [obligatoire] | Chemins d’accès relatifs/absolus, séparés par des virgules, de tous les fichiers yaml ou chemin d’accès relatif/absolu du répertoire (récursif) qui contient les fichiers yaml. |
-| --parameters | Chemin d’accès relatif/absolu du fichier yaml ou d’un objet json qui contient les paramètres devant être remplacés. |
+| --input-yaml-files [obligatoire] | Chemins d'accès relatifs ou absolus, séparés par des virgules, de tous les fichiers yaml, ou chemin d'accès relatif ou absolu du répertoire (récursif) qui contient les fichiers yaml. |
+| --parameters | Chemin d'accès relatif ou absolu du fichier yaml ou d'un objet json qui contient les paramètres à remplacer. |
 
 ### <a name="global-arguments"></a>Arguments globaux
 
@@ -55,7 +55,7 @@ Consolide et déploie toutes les ressources d’un répertoire en cluster en rem
 sfctl mesh deployment create --input-yaml-files ./resources --parameters ./param.yaml
 ```
 
-Consolide et déploie toutes les ressources d’un répertoire en cluster en remplaçant les paramètres mentionnés, qui sont transmis directement sous forme d’objet json
+Consolide et déploie toutes les ressources d'un répertoire en cluster en remplaçant les paramètres mentionnés, qui sont transmis directement sous forme d'objet json
 ``` 
 sfctl mesh deployment create --input-yaml-files ./resources --parameters "{ 'my_param' :    
 {'value' : 'my_value'} }"   

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edb543a85779fb083b6990a58dc5ec0b8ef3eb9c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c58ff181ec144dcd0b1089b0e53f868f241be73f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291411"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985252"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Workplace by Facebook
 
@@ -50,7 +50,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * Workplace by Facebook prend en charge **l’approvisionnement juste-à-temps**
 * Workplace by Facebook prend en charge **[l’approvisionnement automatique d’utilisateurs](workplacebyfacebook-provisioning-tutorial.md)**
 * L’application mobile Workplace by Facebook peut désormais être configurée avec Azure AD pour activer l’authentification unique. Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
-* Après avoir configuré Workplace by Facebook, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré Workplace by Facebook, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-workplace-by-facebook-from-the-gallery"></a>Ajout de Workplace by Facebook à partir de la galerie
 
@@ -248,4 +248,3 @@ Le fait de cliquer sur la vignette Workplace by Facebook dans le panneau d’acc
 
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [Guide pratique pour protéger Workplace by Facebook avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

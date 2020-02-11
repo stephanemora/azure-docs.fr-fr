@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132283"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021642"
 ---
-# <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Didacticiel : Créer un tableau de bord des fournisseurs Power BI
+# <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutoriel : Créer un tableau de bord des fournisseurs Power BI
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Lors de l'élaboration de votre solution de surveillance continue des patients, vous pouvez également créer un tableau de bord permettant à une équipe soignante de visualiser les données des patients. Ce didacticiel vous aidera à créer tableau de bord de diffusion en temps réel Power BI à partir de votre modèle d'application de surveillance continue des patients IoT Central.
+
+Lors de l’élaboration de votre solution de surveillance continue des patients, vous pouvez également créer un tableau de bord permettant à une équipe soignante de visualiser les données des patients. Dans ce tutoriel, vous allez apprendre à créer un tableau de bord de streaming en temps réel Power BI à partir de votre modèle d’application de surveillance continue des patients IoT Central.
 
 >[!div class="mx-imgBorder"]
 >![GIF du tableau de bord](media/dashboard-gif-3.gif)
@@ -29,7 +29,7 @@ L'architecture de base suivra cette structure :
 >[!div class="mx-imgBorder"] 
 >![Tableau de bord de triage des fournisseurs](media/dashboard-architecture.png)
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Exporter des données d'Azure IoT Central vers Azure Event Hubs
@@ -38,7 +38,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Diffuser des données vers Power BI à partir de votre application logique
 > * Créer un tableau de bord en temps réel pour les données vitales des patients
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Un abonnement Azure. Si vous n’avez pas d’abonnement Azure, [inscrivez-vous pour bénéficier d’un compte Azure gratuit](https://azure.microsoft.com/free/).
 
@@ -51,7 +51,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 * Un compte de service Power BI. Si vous n'en avez pas encore, vous pouvez [créer un compte d'essai gratuit pour le service Power BI](https://app.powerbi.com/). Si vous n'avez encore jamais utilisé Power BI, n'hésitez pas à consulter [Prise en main de Power BI](https://docs.microsoft.com/power-bi/service-get-started).
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Configurer une exportation continue des données vers Azure Event Hubs
-Vous devez d'abord configurer une exportation continue des données de votre modèle d'application Azure IoT Central vers Azure Event Hubs dans le cadre de votre abonnement. Pour ce faire, suivez les étapes d'[exportation vers Event Hubs](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data) décrites dans ce didacticiel Azure IoT Central. Vous aurez uniquement besoin d'exporter les données de télémétrie aux fins de ce didacticiel.
+Vous devez d'abord configurer une exportation continue des données de votre modèle d'application Azure IoT Central vers Azure Event Hubs dans le cadre de votre abonnement. Pour ce faire, suivez les étapes d'[exportation vers Event Hubs](https://docs.microsoft.com/azure/iot-central/core/howto-export-data) décrites dans ce didacticiel Azure IoT Central. Vous aurez uniquement besoin d'exporter les données de télémétrie aux fins de ce didacticiel.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Créer un jeu de données de streaming Power BI
 
@@ -86,12 +86,12 @@ Pour connecter votre application logique à Azure Event Hubs, vous pouvez suivre
 À la fin de cette étape, votre Concepteur d'applications logiques doit se présenter comme suit :
 
 >[!div class="mx-imgBorder"] 
->![Les applications logiques se connectent à Event Hubs](media/eh-logic-app.png)
+>![Logic Apps se connecte à Event Hubs](media/eh-logic-app.png)
 
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>Diffuser des données vers Power BI à partir de votre application logique
 L'étape suivante consistera à analyser les données provenant de votre hub d'événements pour les diffuser dans les jeux de données Power BI que vous avez créés précédemment.
 
-1. Avant cela, vous devez comprendre la charge utile JSON envoyée de votre appareil vers votre hub d'événements. Pour ce faire, vous pouvez consulter cet [exemple de schéma](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry) et le modifier afin qu'il corresponde à votre schéma, ou utiliser l'[explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) pour inspecter les messages. Si vous utilisez les applications de surveillance continue des patients, vos messages se présenteront comme suit :
+1. Avant cela, vous devez comprendre la charge utile JSON envoyée de votre appareil vers votre hub d'événements. Pour ce faire, vous pouvez consulter cet [exemple de schéma](https://docs.microsoft.com/azure/iot-central/core/howto-export-data#telemetry) et le modifier afin qu'il corresponde à votre schéma, ou utiliser l'[explorateur Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer) pour inspecter les messages. Si vous utilisez les applications de surveillance continue des patients, vos messages se présenteront comme suit :
 
 **Données de télémétrie du dispositif Smart Vitals Patch**
 
@@ -143,8 +143,8 @@ L'étape suivante consistera à analyser les données provenant de votre hub d'�
 
     |Paramètre|Valeur|
     |---|---|
-    |Nom|Nom de l'interface|
-    |Type|Chaîne|
+    |Name|Nom de l'interface|
+    |Type|String|
 
     Cliquez sur **Enregistrer**. 
 
@@ -197,7 +197,7 @@ Sélectionnez les trois points dans la barre de navigation supérieure, puis sé
 
 Choisissez le type de vignette que vous souhaitez ajouter et personnalisez votre application comme vous le souhaitez.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez vos ressources en procédant comme suit :
 

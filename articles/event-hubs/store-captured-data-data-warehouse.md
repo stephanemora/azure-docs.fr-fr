@@ -1,22 +1,22 @@
 ---
-title: 'Didacticiel : Migrer des données d’événement vers SQL Data Warehouse – Azure Event Hubs'
-description: 'Didacticiel : Ce didacticiel vous montre comment capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une grille d’événements.'
+title: 'Tutoriel : Migrer des données d’événement vers SQL Data Warehouse – Azure Event Hubs'
+description: 'Tutoriel : Ce didacticiel vous montre comment capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une grille d’événements.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a83d65e497688fa97fbb2bdb5a4a72c6d29d81ae
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718892"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905689"
 ---
-# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Didacticiel : Migrer des données Event Hubs capturées vers SQL Data Warehouse à l'aide d'Event Grid et d'Azure Functions
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Tutoriel : Migrer des données Event Hubs capturées vers SQL Data Warehouse à l'aide d'Event Grid et d'Azure Functions
 
 Event Hubs [Capture](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview) est le moyen le plus simple pour fournir automatiquement les données diffusées en continu d’Event Hubs à un compte de stockage Blob Azure ou Azure Data Lake Store. Vous pouvez ensuite traiter et fournir les données vers n’importe quelle destination de stockage de votre choix, SQL Data Warehouse ou Cosmos DB par exemple. Dans ce didacticiel, vous allez apprendre à capturer des données de votre Event Hub dans SQL Data Warehouse à l’aide d’une fonction Azure déclenchée par une [grille d’événements](https://docs.microsoft.com/azure/event-grid/overview).
 
@@ -35,14 +35,16 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 > * Diffuser en continu des exemples de données dans le Event Hub. 
 > * Vérifier les données capturées dans un SQL Data Warehouse
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs/). Au cours de l’installation, assurez-vous d’installer les charges de travail suivantes : le développement de bureau .NET, le développement Azure, le développement ASP.NET et web, le développement Node.js et le développement Python
-- Téléchargez [l’exemple de Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). L’exemple de solution contient les éléments suivants :
+- Téléchargez l’exemple [Git](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/EventHubsCaptureEventGridDemo) L’exemple de solution contient les composants suivants :
     - *WindTurbineDataGenerator* – un éditeur simple qui envoie des données exemples de turbine de vent vers un Event Hub avec la capture activée
     - *FunctionDWDumper* – une Azure Function qui reçoit une notification de Event Grid lorsqu’un fichier Avro est capturé dans l’objet blob de stockage Azure. Elle reçoit le chemin de l’URI de l’objet blob, lit son contenu et envoie ces données vers un SQL Data Warehouse.
+
+    Cet exemple utilise le package Azure.Messaging.EventHubs le plus récent. Vous trouverez l’ancien exemple qui utilise le package Microsoft.Azure.EventHubs [ici](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo). 
 
 ### <a name="deploy-the-infrastructure"></a>Déployer l’infrastructure
 Utilisez Azure PowerShell ou Azure CLI pour déployer l’infrastructure nécessaire à ce didacticiel en utilisant ce [modèle Azure Resource Manager](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/EventHubsDataMigration.json). Ce modèle crée les ressources suivantes :
@@ -68,7 +70,7 @@ Les sections suivantes fournissent des commandes Azure CLI et Azure PowerShell p
 
 Ces scripts prennent un certain temps pour créer tous les artefacts Azure. Attendez que le script se termine avant de continuer. Si le déploiement échoue pour une raison quelconque, supprimez le groupe de ressources, corrigez le problème signalé et réexécutez la commande. 
 
-#### <a name="azure-cli"></a>D’Azure CLI
+#### <a name="azure-cli"></a>Azure CLI
 Pour déployer le modèle à l’aide d’Azure CLI, exécutez les commandes suivantes :
 
 ```azurecli-interactive

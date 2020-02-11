@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/30/2019
-ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 01/29/2020
+ms.openlocfilehash: b75b760704511627c74301ae3fff82c24a262e17
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563453"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904888"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Démarrage rapide : Créer une base de connaissances Recherche cognitive Azure dans le portail Azure
 
@@ -81,7 +81,7 @@ Dans la page Vue d’ensemble du service de recherche, cliquez sur **Importer de
 Dans cette étape de l’Assistant, vous allez créer un ensemble de compétences par enrichissement des compétences cognitives. Les données sources sont constituées des évaluations des clients dans plusieurs langues. Les compétences pertinentes pour ce jeu de données incluent l’extraction d’expressions clés, la détection de sentiments et la traduction de texte. Dans une étape ultérieure, ces enrichissements seront « projetés » dans une base de connaissances en tant que tables Azure.
 
 1. Développez **Attacher Cognitive Services**. **Gratuit (enrichissements limités)** est sélectionné par défaut. Vous pouvez utiliser cette ressource, car le nombre d’enregistrements dans HotelReviews-Free.csv est de 19, et cette ressource gratuite autorise jusqu’à 20 transactions par jour.
-1. Développez **Ajouter des compétences cognitives**.
+1. Développez **Ajouter des enrichissements**.
 1. Pour **Nom de l’ensemble de compétences**, entrez `hotel-reviews-ss`.
 1. Pour **Champ de données source**, sélectionnez **reviews_text**.
 1. Pour **Niveau de précision d’enrichissement**, sélectionnez **Pages (segments de 5 000 caractères)**
@@ -93,11 +93,11 @@ Dans cette étape de l’Assistant, vous allez créer un ensemble de compétence
       ![Créer un ensemble de compétences](media/knowledge-store-create-portal/hotel-reviews-ss.png "Créer un ensemble de compétences")
 
 1. Développez **Enregistrer les enrichissements dans une base de connaissances**.
-1. Entrez la **Chaîne de connexion du compte de stockage**, que vous avez enregistrée à une étape précédente.
 1. Sélectionnez les **projections de table Azure** suivantes :
     + **Documents**
     + **Pages**
     + **Phrases clés**
+1. Entrez la **Chaîne de connexion du compte de stockage**, que vous avez enregistrée à une étape précédente.
 
     ![Configurer la base de connaissances](media/knowledge-store-create-portal/hotel-reviews-ks.png "Configurer la base de connaissances")
 

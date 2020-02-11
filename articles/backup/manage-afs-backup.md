@@ -1,26 +1,18 @@
 ---
 title: Gérer les sauvegardes de partage de fichiers Azure
-description: Cet article décrit les tâches courantes de gestion et de surveillance des partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
+description: Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service Sauvegarde Azure.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: a5477d021b6e3600693e183d8707e11592b7cc38
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294891"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936056"
 ---
 # <a name="manage-azure-file-share-backups"></a>Gérer les sauvegardes de partage de fichiers Azure
 
-Cet article décrit les tâches courantes de gestion et de surveillance des partages de fichiers Azure sauvegardés par le service [Sauvegarde Microsoft Azure](https://docs.microsoft.com/azure/backup/backup-overview). Vous allez apprendre à exécuter les tâches de gestion suivantes dans le coffre Microsoft Azure Recovery Services :
-
-* [Surveiller des travaux](#monitor-jobs)
-* [Créer une nouvelle stratégie](#create-a-new-policy)
-* [Modifier la stratégie](#modify-policy)
-* [Arrêter la protection sur un partage de fichiers](#stop-protection-on-a-file-share)
-* [Reprendre la protection sur un partage de fichiers](#resume-protection-on-a-file-share)
-* [Supprimer des données de sauvegarde](#delete-backup-data)
-* [Annuler l’inscription du compte de stockage](#unregister-storage-account)
+Cet article décrit les tâches courantes de gestion et de supervision des partages de fichiers Azure sauvegardés par le service [Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-overview). Vous allez apprendre à effectuer des tâches de gestion dans le coffre Recovery Services.
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
 
@@ -28,35 +20,35 @@ Lorsque vous déclenchez une opération de sauvegarde ou de restauration, le ser
 
 Pour ouvrir la page **Travaux de sauvegarde** :
 
-1. Ouvrez le coffre Microsoft Azure Recovery Services que vous avez utilisé pour configurer la sauvegarde de vos partages de fichiers. Dans le panneau de **Vue d’ensemble**, cliquez sur **Tâches de sauvegarde** dans la section **Analyse**.
+1. Ouvrez le coffre Microsoft Azure Recovery Services que vous avez utilisé pour configurer la sauvegarde de vos partages de fichiers. Dans le volet **Vue d'ensemble**, accédez à la section **Supervision** et sélectionnez **Tâches de sauvegarde**.
 
    ![Travaux de sauvegarde dans la section analyse](./media/manage-afs-backup/backup-jobs.png)
 
-2. Lorsque vous cliquez sur OK, le **Panneau des tâches de sauvegarde** s’affiche et indique l’état de toutes les tâches. Vous pouvez cliquer sur le nom de la charge de travail correspondant au partage de fichiers que vous souhaitez surveiller.
+1. Après avoir sélectionné **OK**, le volet **Travaux de sauvegarde** répertorie l'état de tous les travaux. Sélectionnez le nom de la charge de travail correspondant au partage de fichiers à superviser.
 
    ![Nom de la charge de travail](./media/manage-afs-backup/workload-name.png)
 
 ## <a name="create-a-new-policy"></a>Créer une nouvelle stratégie
 
-Vous pouvez créer une nouvelle stratégie de sauvegarde des partages de fichiers Azure à partir des **Stratégies de sauvegarde** du coffre Recovery Services. Toutes les stratégies créées lorsque vous avez configuré la sauvegarde pour les partages de fichiers s’affichent avec le type de stratégie en tant que partage de fichiers Azure.
+Vous pouvez créer une nouvelle stratégie de sauvegarde des partages de fichiers Azure à partir de la section **Stratégies de sauvegarde** du coffre Recovery Services. Toutes les stratégies créées lors de la configuration de la sauvegarde des partages de fichiers sont définies sur le **Type de stratégie** **Partage de fichiers Azure**.
 
-Pour afficher les stratégies de sauvegarde existantes :
+Pour afficher les stratégies de sauvegarde existantes :
 
-1. Ouvrez le coffre Recovery Services que vous avez utilisé pour configurer la sauvegarde du partage de fichiers. Puis, dans le menu coffre Recovery Services, cliquez sur **Stratégies de sauvegarde** sous la section gérer. Toutes les stratégies de sauvegarde configurées dans le coffre sont répertoriées.
+1. Ouvrez le coffre Recovery Services que vous avez utilisé pour configurer la sauvegarde du partage de fichiers. Dans le menu du coffre Recovery Services, accédez à la section **Gestion** et sélectionnez **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde configurées dans le coffre apparaissent.
 
    ![Toutes les stratégies de sauvegarde](./media/manage-afs-backup/all-backup-policies.png)
 
-2. Pour afficher les stratégies spécifiques au partage de fichiers Azure, sélectionnez **Partage de fichiers Azure** dans la liste déroulante en haut à droite.
+1. Pour afficher les stratégies spécifiques au **Partage de fichiers Azure**, sélectionnez **Partage de fichiers Azure** dans la liste déroulante située en haut à droite.
 
-   ![Choisir le partage de fichiers Azure](./media/manage-afs-backup/azure-file-share.png)
+   ![Sélectionner Partage de fichiers Azure](./media/manage-afs-backup/azure-file-share.png)
 
-Pour créer une nouvelle stratégie de sauvegarde :
+Pour créer une nouvelle stratégie de sauvegarde :
 
-1. Cliquez sur **+A ajouter** dans le panneau Stratégies de sauvegarde.
+1. Dans le volet **Stratégies de sauvegarde**, sélectionnez **+ Ajouter**.
 
    ![Nouvelle stratégie de sauvegarde](./media/manage-afs-backup/new-backup-policy.png)
 
-2. Sélectionnez **Partage de fichiers Azure** comme **Type de stratégie** dans le panneau **Ajouter**. Le menu stratégie de sauvegarde pour le partage de fichiers Azure s’ouvre. Spécifiez le nom de la stratégie, la fréquence de sauvegarde et la durée de rétention des points de récupération. Lorsque vous avez défini la stratégie, cliquez sur **OK**.
+1. Dans le volet **Ajouter**, sélectionnez **Partage de fichiers Azure** comme **Type de stratégie**. Le volet **Stratégie de sauvegarde** du **Partage de fichiers Azure** s'ouvre. Spécifiez le nom de la stratégie, la fréquence de sauvegarde et la durée de rétention des points de récupération. Une fois la stratégie définie, sélectionnez **OK**.
 
    ![Définir la stratégie de sauvegarde](./media/manage-afs-backup/define-backup-policy.png)
 
@@ -66,15 +58,15 @@ Vous pouvez modifier une stratégie de sauvegarde pour modifier la fréquence de
 
 Pour modifier une stratégie :
 
-1. Ouvrez le coffre Recovery Services que vous avez utilisé pour configurer la sauvegarde du partage de fichiers. Puis, dans le menu coffre Recovery Services, cliquez sur **Stratégies de sauvegarde** dans la section gérer. Toutes les stratégies de sauvegarde configurées dans le coffre sont répertoriées.
+1. Ouvrez le coffre Recovery Services que vous avez utilisé pour configurer la sauvegarde du partage de fichiers. Dans le menu du coffre Recovery Services, accédez à la section **Gestion** et sélectionnez **Stratégies de sauvegarde**. Toutes les stratégies de sauvegarde configurées dans le coffre apparaissent.
 
    ![Toutes les stratégies de sauvegarde dans le coffre](./media/manage-afs-backup/all-backup-policies-modify.png)
 
-2. Pour afficher les stratégies spécifiques au partage de fichiers Azure, sélectionnez **Partage de fichiers Azure** dans la liste déroulante en haut à droite. Cliquez sur la stratégie de sauvegarde que vous souhaitez modifier.
+1. Pour afficher les stratégies propres à un partage de fichiers Azure, sélectionnez **Partage de fichiers Azure** dans la liste déroulante située en haut à droite. Sélectionnez la stratégie de sauvegarde que vous souhaitez modifier.
 
    ![Partage de fichiers Azure à modifier](./media/manage-afs-backup/azure-file-share-modify.png)
 
-3. Le panneau de **Planification** s’ouvre. Modifiez la planification de sauvegarde ou la durée de rétention en fonction des besoins, puis cliquez sur **Enregistrer**. Vous verrez le message « mise à jour en cours » s’afficher dans le panneau, et lorsque les modifications de la stratégie seront correctement mises à jour, vous verrez le message « mise à jour réussie de la stratégie de sauvegarde ».
+1. Le volet **Planification** s'ouvre. Modifiez la **planification de la sauvegarde** et la **durée de conservation** en fonction de vos besoins, puis sélectionnez **Enregistrer**. Le message « Mise à jour en cours » s'affiche dans le volet. Une fois la mise à jour de la stratégie effectuée, le message « Stratégie de sauvegarde mise à jour avec succès » s'affiche.
 
    ![Enregistrer la stratégie modifiée](./media/manage-afs-backup/save-policy.png)
 
@@ -82,95 +74,95 @@ Pour modifier une stratégie :
 
 Il existe deux façons de suspendre la protection des partages de fichiers Azure :
 
-* Arrêter toutes les futures tâches de sauvegarde, et *Supprimer tous les points de récupération*
-* Arrêter toutes les futures tâches de sauvegarde, mais *Conserver les points de récupération*
+* Arrêter tous les travaux de sauvegarde à venir et *supprimer tous les points de récupération*
+* Arrêter tous les travaux de sauvegarde à venir mais *conserver les points de récupération*
 
-Il peut y avoir un coût résultant de la conservation des points de récupération dans le stockage, car les instantanés sous-jacents créés par la sauvegarde Azure seront conservés. Mais elle a l’avantage de vous permettre de restaurer ultérieurement le partage de fichiers, si vous le souhaitez. Pour plus d’informations sur le coût de sortie des points de récupération, consultez les [Détails de tarification](https://azure.microsoft.com/pricing/details/backup/). Si vous choisissez de supprimer tous les points de récupération, vous ne pourrez pas restaurer le partage de fichiers.
+Le fait de laisser des points de récupération dans l'espace de stockage peut avoir un coût car les instantanés sous-jacents créés par Sauvegarde Azure sont conservés. La conservation des points de récupération présente l'avantage de vous permettre de restaurer le partage de fichiers par la suite. Pour plus d’informations sur les coûts de conservation des points de récupération, voir les [détails de la tarification](https://azure.microsoft.com/pricing/details/backup/). Si vous décidez de supprimer tous les points de récupération, vous ne pouvez plus restaurer le partage de fichiers.
 
 Pour arrêter la protection d’un partage de fichiers Azure :
 
-1. Ouvrez le coffre Recovery Services qui contient les points de récupération de partage de fichiers, puis cliquez sur **Éléments de sauvegarde** dans la section éléments protégés. La liste des types d’éléments de sauvegarde s’affiche.
+1. Ouvrez le coffre Recovery Services contenant les points de récupération du partage de fichiers. Sélectionnez **Éléments sauvegardés** dans la section **Éléments protégés**. La liste des types d'éléments de sauvegarde s'affiche.
 
    ![Éléments de sauvegarde](./media/manage-afs-backup/backup-items.png)
 
-2. Dans la liste **Type de gestion de sauvegarde**, sélectionnez **Stockage Azure (fichiers Azure)** . La liste des **Éléments de sauvegarde pour (stockage Azure [Azure Files])** s’affiche.
+1. Dans la liste **Type de gestion de sauvegarde**, sélectionnez **Stockage Azure (fichiers Azure)** . La liste **Éléments de sauvegarde (Stockage Azure [Azure Files])** s'affiche.
 
    ![Sélectionner le stockage Azure (Azure Files)](./media/manage-afs-backup/azure-storage-azure-files.png)
 
-3. Dans la liste des **Éléments de sauvegarde (stockage Azure (Azure Files))** , sélectionnez l’élément de sauvegarde que vous ne souhaitez plus protéger.
+1. Dans la liste **Éléments de sauvegarde (Stockage Azure (Azure Files))** , sélectionnez l'élément de sauvegarde que vous ne souhaitez plus protéger.
 
-4. Sélectionnez l’option **Arrêter la sauvegarde** dans le menu d’**Élément de sauvegarde**.
+1. Sélectionnez l'option **Arrêter la sauvegarde**.
 
    ![Sélectionner Arrêter la sauvegarde](./media/manage-afs-backup/stop-backup.png)
 
-5. Dans le panneau **Arrêter la sauvegarde**, choisissez de **Conserver les données de sauvegarde** ou **Supprimer les données de sauvegarde**, puis cliquez sur **Arrêter la sauvegarde**.
+1. Dans le volet **Arrêter la sauvegarde**, sélectionnez **Conserver les données de sauvegarde** ou **Supprimer les données de sauvegarde**. Puis sélectionnez **Arrêter la sauvegarde**.
 
-    ![Choisissez de conserver ou de supprimer les données de sauvegarde](./media/manage-afs-backup/retain-or-delete-backup-data.png)
+    ![Sélectionner Conserver les données de sauvegarde ou Supprimer les données de sauvegarde](./media/manage-afs-backup/retain-or-delete-backup-data.png)
 
 ## <a name="resume-protection-on-a-file-share"></a>Reprendre la protection sur un partage de fichiers
 
-Si vous avez choisi l’option **Conserver les données de sauvegarde** au moment de l’arrêt de la protection du partage de fichiers, vous avez alors la possibilité de restaurer la protection. Si vous avez choisi l’option **Supprimer les données de sauvegarde**, vous ne pourrez pas restaurer la protection du partage de fichiers.
+Si vous avez sélectionné l'option **Conserver les données de sauvegarde** au moment de l'arrêt de la protection du partage de fichiers, vous avez la possibilité de restaurer la protection. Si vous avez sélectionné l'option **Supprimer les données de sauvegarde**, vous ne pourrez pas restaurer la protection du partage de fichiers.
 
 Pour reprendre la protection d’un partage de fichiers Azure :
 
-1. Ouvrez le coffre Recovery Services qui contient les points de récupération de partage de fichiers, puis cliquez sur **Éléments de sauvegarde** dans la section éléments protégés. La liste des types d’éléments de sauvegarde s’affiche.
+1. Ouvrez le coffre Recovery Services contenant les points de récupération du partage de fichiers. Sélectionnez **Éléments sauvegardés** dans la section **Éléments protégés**. La liste des types d'éléments de sauvegarde s'affiche.
 
    ![Éléments de sauvegarde pour restauration](./media/manage-afs-backup/backup-items-resume.png)
 
-2. Dans la liste **Type de gestion de sauvegarde**, sélectionnez **Stockage Azure (fichiers Azure)** . La liste des **Éléments de sauvegarde pour (stockage Azure [Azure Files])** s’affiche.
+1. Dans la liste **Type de gestion de sauvegarde**, sélectionnez **Stockage Azure (fichiers Azure)** . La liste **Éléments de sauvegarde (Stockage Azure [Azure Files])** s'affiche.
 
    ![Liste des stockages Azure (Azure Files)](./media/manage-afs-backup/azure-storage-azure-files.png)
 
-3. Dans la liste des **Éléments de sauvegarde (stockage Azure (Azure Files))** , sélectionnez l’élément de sauvegarde que vous ne souhaitez plus protéger.
+1. Dans la liste **Éléments de sauvegarde (Stockage Azure (Azure Files))** , sélectionnez l'élément de sauvegarde pour lequel vous souhaitez rétablir la protection.
 
-4. Sélectionnez l’option **Arrêter la sauvegarde** dans le menu d’**Élément de sauvegarde**.
+1. Sélectionnez l'option **Reprendre la sauvegarde**.
 
-   ![Sélectionnez Reprendre la sauvegarde](./media/manage-afs-backup/resume-backup.png)
+   ![Sélectionner Reprendre la sauvegarde](./media/manage-afs-backup/resume-backup.png)
 
-5. La **Stratégie de sauvegarde** s’ouvre et vous pouvez choisir la stratégie de votre choix pour reprendre la sauvegarde.
+1. Le volet **Stratégie de sauvegarde** s'ouvre. Sélectionnez la stratégie pour laquelle vous souhaitez reprendre la sauvegarde.
 
-6. Cliquez sur **Enregistrer** après avoir sélectionné la**Stratégie de sauvegarde** souhaitée. Vous verrez un message « mise à jour en cours » sur le portail. Une fois la sauvegarde reprise, vous verrez le message « stratégie de sauvegarde mise à jour avec succès pour le partage de fichiers Azure protégé ».
+1. Après avoir sélectionné une stratégie de sauvegarde, sélectionnez **Enregistrer**. Le message « Mise à jour en cours » s'affiche sur le portail. Une fois la sauvegarde reprise, le message « Stratégie de sauvegarde mise à jour pour le partage de fichiers Azure protégé » s'affiche.
 
    ![Stratégie de sauvegarde mise à jour avec succès](./media/manage-afs-backup/successfully-updated.png)
 
 ## <a name="delete-backup-data"></a>Supprimer les données de sauvegarde
 
-Vous pouvez supprimer la sauvegarde d’un partage de fichiers pendant la tâche d’**Arrêt la sauvegarde**, ou à tout moment après avoir arrêté la protection. Il peut même être préférable d’attendre plusieurs jours ou semaines avant de supprimer les points de récupération. Lorsque vous supprimez des données de sauvegarde, vous ne pouvez pas choisir de points de récupération spécifiques à supprimer. Si vous choisissez de supprimer vos données de sauvegarde, vous supprimez tous les points de récupération associés au partage de fichiers.
+Vous pouvez supprimer la sauvegarde d'un partage de fichiers pendant la tâche **Arrêter la sauvegarde** ou à tout moment après avoir mis fin à la protection. Il est préférable d'attendre quelques jours, voire quelques semaines, avant de supprimer les points de récupération. Lorsque vous supprimez des données de sauvegarde, vous ne pouvez pas choisir de points de récupération spécifiques à supprimer. Si vous décidez de supprimer vos données de sauvegarde, vous supprimerez tous les points de récupération associés au partage de fichiers.
 
-La procédure suivante suppose que le partage de fichiers n’est plus protégé.
+La procédure suivante suppose que le partage de fichiers n'est plus protégé.
 
-Pour supprimer les données de sauvegarde pour le partage de fichiers  Azure :
+Pour supprimer les données de sauvegarde du partage de fichiers Azure :
 
-1. Une fois la tâche de sauvegarde arrêtée, les options **Reprendre la sauvegarde** et **Supprimer les données de sauvegarde** sont accessibles dans le tableau de bord **Élément de sauvegarde**. Cliquez sur l’option **Supprimer les données de sauvegarde** dans le menu de l’**Élément de sauvegarde**.
+1. Une fois la tâche de sauvegarde arrêtée, les options **Reprendre la sauvegarde** et **Supprimer les données de sauvegarde** sont accessibles dans le tableau de bord **Élément de sauvegarde**. Sélectionnez l'option **Supprimer les données de sauvegarde**.
 
    ![Supprimer les données de sauvegarde](./media/manage-afs-backup/delete-backup-data.png)
 
-2. Le panneau **supprimer les données de sauvegarde** s’ouvre. Tapez le nom du partage de fichiers pour en confirmer la suppression. Vous pouvez, si vous le souhaitez, indiquer une **Raison** pour la suppression ou un **Commentaire**. Cliquez sur **Supprimer** lorsque que vous souhaitez vraiment supprimer les données de la sauvegarde.
+1. Le volet **Supprimer les données de sauvegarde** s'ouvre. Entrez le nom du partage de fichiers pour en confirmer la suppression. Vous pouvez également entrer des informations supplémentaires dans les zones **Motif** ou **Commentaires**. Si vous êtes bien sûr de vouloir supprimer les données de sauvegarde, sélectionnez **Supprimer**.
 
    ![Confirmer la suppression des données](./media/manage-afs-backup/confirm-delete-data.png)
 
-## <a name="unregister-storage-account"></a>Annuler l’inscription du compte de stockage
+## <a name="unregister-a-storage-account"></a>Annuler l’inscription d’un compte de stockage
 
-Si vous souhaitez protéger vos partages de fichiers dans un compte de stockage particulier à l’aide d’un coffre Recovery Services différent, commencez par [Arrêter la protection de tous les partages de fichiers](#stop-protection-on-a-file-share) dans ce compte de stockage. Désinscrivez ensuite le compte du coffre Recovery Services utilisé pour la protection.
+Pour protéger vos partages de fichiers sur un compte de stockage particulier à l'aide d'un coffre Recovery Services distinct, commencez par [mettre fin à la protection de tous les partages de fichiers](#stop-protection-on-a-file-share) de ce compte de stockage. Désinscrivez ensuite le compte du coffre Recovery Services utilisé pour la protection.
 
-La procédure suivante suppose que la protection a été arrêtée pour tous les partages de fichiers dans le compte de stockage dont vous souhaitez vous désinscrire.
+La procédure suivante part du principe que la protection a été interrompue pour tous les partages de fichiers du compte de stockage dont vous souhaitez annuler l'inscription.
 
 Pour annuler l’inscription du compte de stockage :
 
 1. Ouvrez le coffre Recovery Services dans lequel votre compte de stockage est inscrit.
-2. Cliquez sur l’option d’**Infrastructure de sauvegarde** sous la section **Gestion** du **Panneau de vue d’ensemble**.
+1. Dans le volet **Vue d'ensemble**, accédez à la section **Gestion** et sélectionnez l'option **Infrastructure de sauvegarde**.
 
-   ![Cliquez sur infrastructure de sauvegarde](./media/manage-afs-backup/backup-infrastructure.png)
+   ![Choisir Infrastructure de sauvegarde](./media/manage-afs-backup/backup-infrastructure.png)
 
-3. Le panneau d’**infrastructure de sauvegarde** s’ouvre. Cliquez sur **Comptes de stockage** dans la section **Comptes de stockage Azure** dans ce panneau.
+1. Le volet **Infrastructure de sauvegarde** s'ouvre. Sélectionnez **Comptes de stockage** dans la section **Comptes de stockage Azure**.
 
-   ![Cliquez sur Comptes de stockage](./media/manage-afs-backup/storage-accounts.png)
+   ![Sélectionner Comptes de stockage](./media/manage-afs-backup/storage-accounts.png)
 
-4. Une fois que vous avez cliqué sur **Comptes de stockage**, une liste de comptes de stockage inscrits avec le coffre s’affiche.
-5. Cliquez avec le bouton droit sur le compte de stockage dont vous souhaitez annuler l’inscription, puis choisissez **Annuler l’inscription**.
+1. Une fois que vous avez sélectionné **Comptes de stockage**, la liste des comptes de stockage inscrits auprès du coffre apparaît.
+1. Cliquez avec le bouton droit sur le compte de stockage dont vous souhaitez annuler l'inscription, puis sélectionnez **Annuler l'inscription**.
 
-   ![Sélectionnez désinscrire](./media/manage-afs-backup/select-unregister.png)
+   ![Sélectionner Annuler l'inscription](./media/manage-afs-backup/select-unregister.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations, consultez [détecter un problème de sauvegarde/restauration de défaillance pour les partages de fichiers Azure](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files)
+Pour plus d'informations, consultez [Résoudre les problèmes liés à la sauvegarde des partages de fichiers Azure](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).

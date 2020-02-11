@@ -1,33 +1,32 @@
 ---
-title: 'Démarrage rapide : Envoyer et recevoir des événements à l’aide de Python - Azure Event Hubs'
-description: 'Démarrage rapide : Cette procédure pas à pas montre comment créer et exécuter des scripts Python qui envoient des événements à ou reçoivent des événements à partir d’Azure Event Hubs.'
+title: Recevoir des événements d’Azure Event Hubs ou lui en envoyer en utilisant Python (ancienne version)
+description: Cette procédure pas à pas vous montre comment créer et exécuter des scripts Python qui reçoivent des événements d’Azure Event Hubs ou lui en envoient à l’aide de l’ancien package azure-eventhub version 1.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.author: shvija
-ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.date: 01/15/2020
+ms.author: spelluru
+ms.openlocfilehash: 654ccd6352dc0b671cc3becdafd2f1e1102dd39e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939948"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902940"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Démarrage rapide : Envoyer et recevoir des événements avec Event Hubs à l’aide de Python
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Démarrage rapide : Envoyer et recevoir des événements avec Event Hubs en utilisant Python (azure-eventhub version 1)
 
 Azure Event Hubs est une plateforme de streaming Big Data et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie de logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour plus d’informations sur Event Hubs, consultez [Azure Event Hubs](event-hubs-about.md) et [Fonctionnalités et terminologie dans Azure Event Hubs](event-hubs-features.md).
 
 Ce démarrage rapide montre comment créer des applications Python pour recevoir des événements à partir d’un hub d’événements et lui en envoyer. 
 
-> [!IMPORTANT]
-> Ce guide de démarrage rapide utilise la version 1 du Kit de développement logiciel (SDK) Azure Event Hubs Python. Si vous débutez avec Azure Event Hubs, utilisez la version 5 du SDK Python. Pour un démarrage rapide qui utilise la version 5 du SDK Python, consultez [cet article](get-started-python-send-v2.md). Pour effectuer la migration du code existant de la version 1 vers la version 5, consultez le [guide de migration](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+> [!WARNING]
+> Ce guide de démarrage rapide concerne la version 1 du SDK Azure Event Hubs Python. Nous vous recommandons de [migrer](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md) votre code vers la [version 5 du SDK Python](get-started-python-send-v2.md).
 
-
-> [!NOTE]
-> Au lieu de passer par le démarrage rapide, vous pouvez télécharger et exécuter les [exemples d’application](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) à partir de GitHub. Remplacez les chaînes `EventHubConnectionString` et `EventHubName` par vos valeurs Event Hub. 
+ 
+ 
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
@@ -40,15 +39,16 @@ Pour effectuer ce démarrage rapide, vous avez besoin de ce qui suit :
 - Le package Python pour Event Hubs. Pour installer le package, exécutez la commande suivante dans une invite de commandes dont le chemin contient Python : 
   
   ```cmd
-  pip install azure-eventhub
+  pip install azure-eventhub==1.3.*
   ```
-  
-  > [!NOTE]
-  > Le code de ce démarrage rapide utilise la version stable actuelle 1.3.1 du kit de développement logiciel (SDK) Event Hubs. Pour un exemple de code qui utilise la préversion du Kit de développement logiciel (SDK), consultez [https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples).
+
 
 ## <a name="send-events"></a>Envoyer des événements
 
 Pour créer une application Python qui envoie des événements à un hub d’événements :
+
+> [!NOTE]
+> Au lieu de passer par le démarrage rapide, vous pouvez télécharger et exécuter les [exemples d’application](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) à partir de GitHub. Remplacez les chaînes `EventHubConnectionString` et `EventHubName` par vos valeurs Event Hub.
 
 1. Ouvrez votre éditeur Python favori, tel que [Visual Studio Code](https://code.visualstudio.com/).
 2. Créez un nouveau fichier appelé *send.py*. Ce script envoie 100 événements à votre hub d’événements.

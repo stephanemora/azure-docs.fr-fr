@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Créer une application web monopage - API Recherche Web Bing'
+title: 'Tutoriel : Créer une application web monopage - API Recherche Web Bing'
 titleSuffix: Azure Cognitive Services
 description: Cette application monopage montre comment l’API Recherche Web Bing peut être utilisée pour récupérer, analyser et afficher des résultats de recherche pertinents dans une application monopage.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: bing-web-search
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: aahi
-ms.openlocfilehash: ec6c1ef31b6cf92629be600b3b139bb2e1a0d3ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 1acc17f9c2fbeb53b992891174866433d14f128d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977248"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986659"
 ---
-# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Didacticiel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
+# <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutoriel : Créer une application web monopage à l’aide de l’API Recherche Web Bing
 
 Cette application monopage montre comment récupérer, analyser et afficher des résultats de recherche à partir de l’API Recherche Web Bing. Le tutoriel utilise du code HTML et CSS réutilisable, et se concentre sur le code JavaScript. Les fichiers HTML, CSS et JS sont disponibles sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/Tutorials/Bing-Web-Search) avec des instructions de démarrage rapide.
 
@@ -32,7 +32,7 @@ Cet exemple d’application peut :
 
 Pour utiliser cette application, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec des API Recherche Bing. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) pour obtenir une clé d’abonnement.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Voici quelques éléments dont vous aurez besoin pour exécuter l’application :
 
@@ -105,7 +105,7 @@ function bingSearchOptions(form) {
     // Where option.
     options.push("mkt=" + form.where.value);
     // SafeSearch option.
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
     // Freshness option.
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -128,7 +128,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-`SafeSearch` peut être défini sur `strict`, `moderate` ou `off`, avec `moderate` qui est le paramètre par défaut pour la Recherche Web Bing. Ce formulaire utilise une case à cocher qui a deux états. Dans cet extrait de code, l’option Filtre adulte est définie sur `strict` ou `off`. `moderate` n’est pas utilisé.
+`SafeSearch` peut être défini sur `strict`, `moderate` ou `off`, avec `moderate` qui est le paramètre par défaut pour la Recherche Web Bing. Ce formulaire utilise une case à cocher avec deux états possibles : `strict` ou `moderate`.
 
 Si l’une des cases **Promouvoir** est cochée, le paramètre `answerCount` est ajouté à la requête. `answerCount` est requis lorsque vous utilisez le paramètre `promote`. Dans cet extrait de code, la valeur est définie sur `9` pour retourner tous les types de résultats disponibles.
 > [!NOTE]

@@ -8,18 +8,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 639a61cddde27b0d989e5a3dd4c599c353182a73
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720162"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982587"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Tutoriel : Prédire le prix de voitures avec le concepteur (version préliminaire)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Dans ce tutoriel en deux parties, vous découvrez comment utiliser le concepteur d’Azure Machine Learning pour développer et déployer une solution d’analytique prédictive qui prédit le prix de n’importe quel véhicule.
+Dans ce tutoriel en deux parties, vous découvrez comment utiliser le concepteur d’Azure Machine Learning pour entraîner et déployer un modèle Machine Learning qui prédit le prix des voitures. Le concepteur est un outil de type glisser-déposer avec lequel vous créez des modèles Machine Learning sans écrire une seule ligne de code.
 
 Dans la première partie du tutoriel, vous allez apprendre à :
 
@@ -45,13 +45,15 @@ Pour créer un pipeline Azure Machine Learning, vous devez disposer d’un espac
 
 ### <a name="create-a-new-workspace"></a>Créer un espace de travail
 
+Pour utiliser le concepteur, vous avez d’abord besoin d’un espace de travail Azure Machine Learning. L’espace de travail est la ressource de niveau supérieur pour Azure Machine Learning. Il fournit un emplacement centralisé où vous interagissez avec tous les artefacts que vous créez dans Azure Machine Learning.
+
 Si vous avez un espace de travail Azure Machine Learning édition Entreprise, [passez à la section suivante](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Créer le pipeline
 
-1. Connectez-vous à [ml.azure.com](https://ml.azure.com), puis sélectionnez l’espace de travail à utiliser.
+1. Connectez-vous à <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.azure.com</a>, puis sélectionnez l’espace de travail à utiliser.
 
 1. Sélectionnez **Concepteur**.
 
@@ -60,6 +62,30 @@ Si vous avez un espace de travail Azure Machine Learning édition Entreprise, [p
 1. Sélectionnez **Modules prédéfinis faciles à utiliser**.
 
 1. En haut du canevas, sélectionnez le nom de pipeline par défaut **Pipeline-Created-on**. Renommez-le *Automobile price prediction*. Le nom n’a pas besoin d’être unique.
+
+## <a name="set-the-default-compute-target"></a>Définir la cible de calcul par défaut
+
+Un pipeline s’exécute sur une cible de calcul, qui est une ressource de calcul attachée à votre espace de travail. Une fois que vous avez créé une cible de calcul, vous pouvez la réutiliser pour d’autres exécutions ultérieures.
+
+Vous pouvez définir une **cible de calcul par défaut** pour le pipeline entier si vous souhaitez que tous les modules utilisent la même cible de calcul par défaut. Toutefois, vous pouvez définir des cibles de calcul différentes selon les modules.
+
+1. À côté du nom du pipeline, sélectionnez l’**icône d’engrenage** ![Capture d’écran de l’icône d’engrenage](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) en haut du canevas pour ouvrir le volet **Paramètres**.
+
+1. Dans le volet **Paramètres** à droite du canevas, sélectionnez **Sélectionner une cible de calcul**.
+
+    Si vous avez déjà une cible de calcul, vous pouvez la sélectionner pour exécuter ce pipeline.
+
+    > [!NOTE]
+    > Le concepteur ne peut exécuter des expériences que sur des cibles Capacité de calcul Azure Machine Learning. Les autres cibles de calcul ne sont pas affichées.
+
+1. Entrez un nom pour la ressource de calcul.
+
+1. Sélectionnez **Enregistrer**.
+
+    > [!NOTE]
+    > La création d’une ressource de calcul prend environ cinq minutes. Une fois que la ressource a été créée, vous pouvez la réutiliser pour les exécutions ultérieures, ce qui vous évite ce temps d’attente.
+    >
+    > Afin de réduire vos coûts, la ressource de calcul est automatiquement mise à l’échelle à zéro nœud quand elle est inactive. Quand vous la réutilisez après un temps d’inactivité, vous pourriez encore avoir à attendre environ cinq minutes pendant le scale-up de la ressource de calcul.
 
 ## <a name="import-data"></a>Importer des données
 
@@ -77,7 +103,7 @@ Vous pouvez visualiser les données pour comprendre le jeu de données que vous 
 
 1. Sélectionnez le module **Automobile price data (Raw)** .
 
-1. Dans le volet de propriétés à droite du canevas, sélectionnez **Outputs** (Sorties).
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Outputs** (Sorties).
 
 1. Sélectionnez l’icône de graphique pour visualiser les données.
 
@@ -93,9 +119,9 @@ Les jeux de données nécessitent généralement un prétraitement avant l’ana
 
 ### <a name="remove-a-column"></a>Supprimer une colonne
 
-Quand vous entraînez un modèle, vous devez traiter le problème des données manquantes. Dans ce jeu de données, il manque beaucoup de valeurs dans la colonne **normalized-losses** (pertes normalisées). Vous excluez donc cette colonne du modèle.
+Quand vous entraînez un modèle, vous devez traiter le problème des données manquantes. Dans ce jeu de données, la colonne **normalized-losses** (pertes normalisées) a de nombreuses valeurs manquantes : vous allez donc l’exclure du modèle.
 
-1. Dans la zone de recherche située en haut de la palette, entrez **Select** pour rechercher le module **Select Columns in Dataset** (Sélectionner des colonnes dans le jeu de données).
+1. Dans la palette des modules à gauche du canevas, développez la section **Data Transformation** (Transformation des données) et recherchez le module **Select Columns in Dataset** (Sélectionner les colonnes dans le jeu de données).
 
 1. Faites glisser le module **Select Columns in Dataset** vers le canevas. Déposez-le sous le module de jeu de données.
 
@@ -109,11 +135,13 @@ Quand vous entraînez un modèle, vous devez traiter le problème des données m
 
 1. Sélectionnez le module **Select Columns in Dataset**.
 
-1. Dans le volet de propriétés à droite du canevas, sélectionnez **Toutes les colonnes**.
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Edit column** (Modifier une colonne).
+
+1. Développez la liste déroulante **Column names** (Noms des colonnes) à côté de **Include** (Inclure), puis sélectionnez **All columns** (Toutes les colonnes).
 
 1. Sélectionnez le signe **+** pour ajouter une règle.
 
-1. Dans le menu déroulant, sélectionnez **Exclure** et **Noms des colonnes**.
+1. Dans les menus déroulants, sélectionnez **Exclude** (Exclure) et **Column names** (Noms des colonnes).
     
 1. Entrez *normalized-losses* (pertes normalisées) dans la zone de texte.
 
@@ -123,7 +151,7 @@ Quand vous entraînez un modèle, vous devez traiter le problème des données m
 
 1. Sélectionnez le module **Select Columns in Dataset**. 
 
-1. Dans le volet de propriétés, sélectionnez la zone de texte **Comment** (Commentaire) et entrez *Exclude normalized losses* (Exclure les pertes normalisées).
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez la zone de texte **Comment** (Commentaire) et entrez *Exclure les pertes normalisées*.
 
     Les commentaires sont affichés sur le graphe pour vous aider à organiser votre pipeline.
 
@@ -134,13 +162,15 @@ Il manque encore des valeurs dans votre jeu de données après la suppression de
 > [!TIP]
 > Le nettoyage des valeurs manquantes dans les données d’entrée est un prérequis pour l’utilisation de la plupart des modules dans le concepteur.
 
-1. Entrez **Clean** dans la zone de recherche pour rechercher le module **Clean Missing Data**.
+1. Dans la palette des modules à gauche du canevas, développez la section **Data Transformation** (Transformation des données) et recherchez le module **Clean Missing Data**.
 
 1. Faites glisser le module **Clean Missing Data** vers le canevas du pipeline. Connectez-le au module **Select Columns in Dataset**. 
 
-1. Dans le volet de propriétés, sélectionnez **Remove entire row** (Supprimer la ligne entière) sous **Cleaning mode** (Mode de nettoyage).
+1. Sélectionnez le module **Clean Missing Data**.
 
-1. Dans la zone **Comment** du volet de propriétés, entrez *Remove missing value rows* (Supprimer les lignes avec des valeurs manquantes). 
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Remove entire row** (Supprimer la ligne entière) sous **Cleaning mode** (Mode de nettoyage).
+
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez la zone de texte **Comment** (Commentaire) et entrez *Supprimer les lignes avec des valeurs manquantes*. 
 
     Votre pipeline doit maintenant se présenter comme ceci :
     
@@ -156,26 +186,28 @@ Comme vous voulez prédire un prix, à savoir un nombre, vous pouvez utiliser un
 
 Le fractionnement des données est une tâche courante de Machine Learning. Vous allez diviser vos données en deux jeux de données distincts. Un jeu de données entraîne le modèle et l’autre teste les performances du modèle.
 
-1. Entrez **split data** (diviser les données) dans la zone de recherche pour trouver le module **Split Data** (Diviser les données). Connectez le port de gauche du module **Clean Missing Data** au module **Split Data**.
+1. Dans la palette de modules, développez la section **Data Transformation** et recherchez le module **Split Data** (Fractionner les données).
+
+1. Faites glisser le module **Split Data** vers le canevas du pipeline.
+
+1. Connectez le port de gauche du module **Clean Missing Data** au module **Split Data**.
 
     > [!IMPORTANT]
     > Vérifiez que le port de sortie de gauche de **Clean Missing Data** est connecté à **Split Data**. Le port de gauche contient les données nettoyées. Le port de droite contient les données ignorées.
 
 1. Sélectionnez le module **Fractionner les données**.
 
-1. Dans le volet de propriétés, affectez à l’option **Fraction of rows in the first output dataset** (Fraction de lignes du premier jeu de données de sortie) la valeur 0.7 (0,7).
+1. Dans le volet d’informations du module à droite du canevas, définissez l’option **Fraction of rows in the first output dataset** (Fraction de lignes dans le premier jeu de données de sortie) à la valeur 0,7.
 
     Cette option permet de diviser les données afin d’en utiliser 70 % pour entraîner le modèle et 30 % pour tester ce dernier. Le jeu de données comprenant 70 % des données est accessible par le biais du port de sortie de gauche. Les données restantes sont disponibles par le biais du port de sortie de droite.
 
-1. Dans la zone **Comment** du volet de propriétés, entrez *Diviser le jeu de données en un jeu d’entraînement (0,7) et un jeu de test (0,3)* .
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez la zone de texte **Comment** (Commentaire) et entrez *Diviser le jeu de données en un jeu d’entraînement (0,7) et un jeu de test (0,3)* .
 
 ### <a name="train-the-model"></a>Effectuer l’apprentissage du modèle
 
 Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L’algorithme construit un modèle qui explique la relation entre les caractéristiques et le prix dans les données d’entraînement.
 
-1. Pour sélectionner l’algorithme d’apprentissage, effacez le contenu de la zone de recherche de votre palette de modules.
-
-1. Développez **Algorithmes de Machine Learning**.
+1. Dans la palette des modules, développez **Machine Learning Algorithms** (Algorithmes Machine Learning).
     
     Cette option affiche plusieurs catégories de module qui vous permettent d’initialiser les algorithmes d’apprentissage.
 
@@ -192,9 +224,11 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 
     ![Capture d’écran montrant la configuration correcte du module Entraîner le modèle Le module Régression linéaire se connecte au port gauche du module Entraîner le modèle et le module Fractionner les données se connecte au port droit du module Entraîner le modèle.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
+1. Dans la palette des modules, développez la section **Module training** (Entraînement de module), puis faites glisser le module **Train Model** (Entraîner le modèle) vers le canevas.
+
 1. Sélectionnez le module **Entraîner le modèle**.
 
-1. Dans le volet de propriétés, sélectionnez le sélecteur **Edit column** (Modifier la colonne).
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Edit column** (Modifier une colonne).
 
 1. Dans la boîte de dialogue **Label column** (Étiqueter une colonne), développez le menu déroulant, puis sélectionnez **Column names** (Noms de colonnes). 
 
@@ -204,7 +238,7 @@ Entraînez le modèle en lui fournissant un jeu de données incluant le prix. L�
 
     ![Capture d’écran montrant la configuration correcte du pipeline après l’ajout du module Entraîner le modèle.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="score-a-machine-learning-model"></a>Attribuer un score à un modèle Machine Learning
+### <a name="add-the-score-model-module"></a>Ajoutez le module Score Model (Noter le modèle)
 
 Une fois que vous avez entraîné votre modèle à l’aide de 70 % des données, vous pouvez l’utiliser pour attribuer un score aux 30 % de données restants, et vérifier ainsi son bon fonctionnement.
 
@@ -212,7 +246,7 @@ Une fois que vous avez entraîné votre modèle à l’aide de 70 % des donnée
 
 1. Connectez la sortie du module **Entraîner le modèle** au port d’entrée de gauche du module **Scorer le modèle**. Connectez la sortie des données de test (port de droite) du module **Fractionner les données** au port d’entrée de droite du module **Scorer le modèle**.
 
-## <a name="evaluate-a-machine-learning-model"></a>Évaluer un modèle Machine Learning
+### <a name="add-the-evaluate-model-module"></a>Ajouter le module Évaluer le modèle
 
 Utilisez le module **Evaluate Model** (Évaluer le modèle) pour évaluer le score attribué par votre modèle au jeu de données de test.
 
@@ -226,7 +260,20 @@ Utilisez le module **Evaluate Model** (Évaluer le modèle) pour évaluer le sco
 
 ## <a name="run-the-pipeline"></a>Exécuter le pipeline
 
-[!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
+Maintenant que vous avez terminé la configuration de votre pipeline, vous pouvez lancer l’exécution du pipeline.
+
+1. En haut du canevas, sélectionnez **Run** (Exécuter).
+
+1. Dans la boîte de dialogue **Set up pipeline run** (Configurer l’exécution du pipeline), sélectionnez **+ Nouvelle expérience** pour **Expérience**.
+
+    > [!NOTE]
+    > Les expériences regroupent les exécutions de pipeline similaires. Si vous exécutez un pipeline plusieurs fois, vous pouvez sélectionner la même expérience pour les exécutions successives.
+
+    1. Entrez un nom descriptif pour le **Nom d’expérience**.
+
+    1. Sélectionnez **Exécuter**.
+    
+    Vous pouvez voir l’état et les détails de l’exécution en haut à droite du canevas.
 
 ### <a name="view-scored-labels"></a>Afficher les étiquettes de score
 
@@ -234,7 +281,7 @@ Une fois l’exécution terminée, vous pouvez voir les résultats de l’exécu
 
 1. Sélectionnez le module **Score Model** pour afficher sa sortie.
 
-1. Dans le volet de propriétés, sélectionnez **Sorties** > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Outputs** (Sorties) > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
 
     Vous pouvez voir ici les prix prédits et les prix réels des données à partir des données de test.
 
@@ -246,7 +293,7 @@ Utilisez **Evaluate Model** pour voir ce que donne le modèle entraîné sur le 
 
 1. Sélectionnez le module **Evaluate Model** pour afficher sa sortie.
 
-1. Dans le volet de propriétés, sélectionnez **Sortie** > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
+1. Dans le volet d’informations du module à droite du canevas, sélectionnez **Output** (Sortie) > icône de graphe ![icône de visualisation](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) pour voir les résultats.
 
 Les statistiques suivantes s’affichent pour votre modèle :
 
@@ -260,16 +307,11 @@ Pour chacune des statistiques liées aux erreurs, les valeurs les plus petites s
 
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 
+Ignorez cette section si vous souhaitez passer à la deuxième partie du tutoriel sur le [déploiement de modèles](tutorial-designer-automobile-price-deploy.md).
+
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans cette première partie du tutoriel, vous avez effectué les tâches suivantes :
-
-* Créer un pipeline
-* Préparer les données
-* Effectuer l’apprentissage du modèle
-* Scorer et évaluer le modèle
 
 Dans la deuxième partie, vous allez découvrir comment déployer votre modèle en tant que point de terminaison en temps réel.
 

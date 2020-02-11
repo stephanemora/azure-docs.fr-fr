@@ -3,24 +3,26 @@ title: 'Démarrage rapide : Bibliothèque de client Stockage Blob Azure v10 pou
 description: Créez, chargez et supprimez des objets blob et des conteneurs en Node.js avec la bibliothèque de client Stockage Azure v10 pour JavaScript.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/24/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: dd59dec65f75a17c35750140349101c600a92636
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862847"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906476"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Démarrage rapide : Bibliothèque de client Stockage Blob Azure v10 pour JavaScript
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Démarrage rapide : Gérer des objets blob avec le SDK JavaScript v10 en Node.js
 
-Dans ce guide de démarrage rapide, vous apprenez à utiliser le [kit SDK Azure Storage v10 pour JavaScript](https://github.com/Azure/azure-sdk-for-js) avec Node.js pour charger, télécharger, lister et supprimer des objets blob, et gérer des conteneurs.
+Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets blob avec Node.js. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des médias en streaming et des données d’archive. Vous allez charger, télécharger, lister et supprimer des objets blob, et vous allez gérer des conteneurs.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="download-the-sample-application"></a>Téléchargement de l'exemple d'application
 

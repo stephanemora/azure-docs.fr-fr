@@ -5,29 +5,29 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: cd3db902d713910de5a8199df85089d62569f9d7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757564"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906632"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # <a name="tutorial-host-a-static-website-on-blob-storage"></a>Tutoriel : Héberger un site web statique dans le stockage Blob
 
-Ce tutoriel est la première partie d’une série d’étapes. Vous y découvrirez comment créer et déployer un site web statique sur Stockage Azure. Une fois que vous aurez terminé, vous aurez un site web statique accessible par tous. 
+Dans ce tutoriel, vous allez apprendre à créer et déployer un site web statique sur Stockage Azure. Une fois que vous aurez terminé, vous aurez un site web statique accessible par tous. 
 
-Dans ce premier volet, vous apprenez à :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
-> * Configurer l’hébergement de site web statique.
-> * Déployer un site web Hello World.
+> * Configurer l’hébergement de site web statique
+> * Déployer un site web Hello World
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -99,9 +99,9 @@ Vous avez terminé le tutoriel et déployé un site web statique sur Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans la première partie de ce tutoriel, vous avez découvert comment configurer votre compte Stockage Azure pour l’hébergement de site web statique, et comment créer et déployer un site web statique sur un point de terminaison Azure.
+Dans ce tutoriel, vous avez appris à configurer votre compte Stockage Azure pour l’hébergement de site web statique, puis à créer et déployer un site web statique sur un point de terminaison Azure.
 
-Passez maintenant à la deuxième partie, où vous allez configurer un domaine personnalisé avec SSL pour votre site web statique avec Azure CDN.
+Découvrez maintenant comment configurer un domaine personnalisé avec votre site web statique.
 
 > [!div class="nextstepaction"]
-> [Utiliser Azure CDN pour activer un domaine personnalisé avec SSL pour un site web statique](storage-blob-static-website-custom-domain.md)
+> [Mapper un domaine personnalisé à un point de terminaison du Stockage Blob Azure](storage-custom-domain-name.md)

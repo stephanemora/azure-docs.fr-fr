@@ -9,20 +9,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 46764fdae89d5af4c9dedf4037d07dc48d1cda83
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703679"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931641"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Didacticiel : Créer et configurer une instance Azure Active Directory Domain Services avec des options de configuration avancées
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services avec des options de configuration avancées
 
 Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP, et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory. Vous consommez ces services de domaine sans déployer, gérer et mettre à jour avec des correctifs les contrôleurs de domaine vous-même. Azure AD DS s’intègre à votre locataire Azure AD existant. Cette intégration permet aux utilisateurs de se connecter en utilisant leurs informations d’identification d’entreprise, et vous pouvez utiliser des groupes et des comptes d’utilisateur existants pour sécuriser l’accès aux ressources.
 
 Vous pouvez [créer un domaine managé avec des options de configuration par défaut][tutorial-create-instance] pour la mise en réseau et la synchronisation, ou définir manuellement ces paramètres. Ce tutoriel vous montre comment définir des options de configuration avancées pour créer et configurer une instance Azure AD DS avec le portail Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Configurer les paramètres de réseau virtuel et DNS pour un domaine managé
@@ -32,7 +32,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -56,7 +56,7 @@ Dans ce tutoriel, vous créez et vous configurez une instance Azure AD DS avec l
 
 Pour lancer l’Assistant **Activer Azure AD Domain Services**, procédez comme suit :
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 1. Entrez *Domain Services* dans la barre de recherche, puis choisissez *Azure AD Domain Services* dans les suggestions de recherche.
 1. Dans la page Azure AD Domain Services, cliquez sur le bouton **Créer**. L’Assistant **Activer Azure AD Domain Services** est lancé.
 1. Sélectionnez l’**Abonnement** Azure dans lequel vous souhaitez créer le domaine managé.
@@ -94,6 +94,9 @@ Renseignez les champs de la fenêtre *De base* du portail Azure pour créer une 
 
     Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, consultez [Que sont les zones de disponibilité dans Azure ?][availability-zones]
 
+1. La référence **SKU** détermine les performances, la fréquence de sauvegarde et le nombre maximal d’approbations de forêt que vous pouvez créer. Vous pouvez changer la référence SKU après la création du domaine managé en cas de changement des besoins métier. Pour plus d’informations, consultez [Concepts relatifs aux références SKU dans Azure AD DS][concepts-sku].
+
+    Pour ce tutoriel, sélectionnez la référence SKU *Standard*.
 1. Une *forêt* est une construction logique utilisée par Active Directory Domain Services pour regrouper un ou plusieurs domaines. Par défaut, un domaine managé Azure AD DS est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Les forêts de ressources sont actuellement en préversion. Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].
 
     Pour ce tutoriel, choisissez de créer une forêt d’*utilisateurs*.
@@ -102,9 +105,9 @@ Renseignez les champs de la fenêtre *De base* du portail Azure pour créer une 
 
 1. Pour configurer manuellement des options supplémentaires, choisissez **Suivant - Réseau**. Sinon, sélectionnez **Vérifier + créer** pour accepter les options de configuration par défaut, puis passez à la section [Déployer votre domaine managé](#deploy-the-managed-domain). Quand vous choisissez cette option de création, les paramètres par défaut suivants sont configurés :
 
-* Crée un réseau virtuel nommé *aadds-vnet* qui utilise la plage d’adresses IP *10.0.1.0/24*.
-* Crée un sous-réseau appelé *aadds-subnet* qui utilise la plage d’adresses IP *10.0.1.0/24*.
-* Synchronise *tous* les utilisateurs entre Azure AD et le domaine managé Azure AD DS.
+    * Crée un réseau virtuel nommé *aadds-vnet* qui utilise la plage d’adresses IP *10.0.1.0/24*.
+    * Crée un sous-réseau appelé *aadds-subnet* qui utilise la plage d’adresses IP *10.0.1.0/24*.
+    * Synchronise *tous* les utilisateurs entre Azure AD et le domaine managé Azure AD DS.
 
 ## <a name="create-and-configure-the-virtual-network"></a>Créer et configurer le réseau virtuel
 
@@ -125,7 +128,7 @@ Renseignez les champs de la fenêtre *Réseau* comme suit :
     1. Si vous choisissez de créer un réseau virtuel, entrez un nom pour ce nouveau réseau, comme *myVnet*, puis spécifiez une plage d’adresses, par exemple *10.0.1.0/24*.
     1. Créez un sous-réseau dédié avec un nom explicite, par exemple *DomainServices*. Spécifiez une plage d’adresses, par exemple *10.0.1.0/24*.
 
-    ![Créer un réseau virtuel et un sous-réseau pour une utilisation avec Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)
+    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Veillez à choisir une plage d’adresses qui se trouve dans votre plage d’adresses IP privée. Les plages d’adresses IP qui ne vous appartiennent pas et qui se trouvent dans l’espace d’adressage public provoquent des erreurs dans Azure AD DS.
 
@@ -223,7 +226,7 @@ Une fois que vous avez changé votre mot de passe, quelques minutes sont nécess
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Configurer les paramètres de réseau virtuel et DNS pour un domaine managé
@@ -248,5 +251,6 @@ Pour voir ce domaine managé en action, créez et joignez une machine virtuelle 
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration d’Azure Active Directory à Egnyte | Microsoft Docs'
+title: 'Tutoriel : Intégration d’Azure Active Directory à Egnyte | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Egnyte.
 services: active-directory
 documentationCenter: na
@@ -11,35 +11,32 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 2/4/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7201b7d3f9f7e8333b18a087f58b6211101b1304
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7f8eb0f0d566d656436da11141ea7f6c521b7b82
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233554"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983671"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-egnyte"></a>Didacticiel : Intégration d’Azure Active Directory à Egnyte
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-egnyte"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Egnyte
 
-Dans ce didacticiel, vous allez apprendre à intégrer Egnyte à Azure Active Directory (Azure AD).
-L’intégration d’Egnyte dans Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer Egnyte à Azure Active Directory (Azure AD). Quand vous intégrez Egnyte à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Egnyte.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Egnyte (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à Egnyte.
+* Permettre à vos utilisateurs de se connecter automatiquement à Egnyte avec leur compte Azure AD.
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour configurer l’intégration d’Azure AD avec Egnyte, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un essai d’un mois [ici](https://azure.microsoft.com/pricing/free-trial/).
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Egnyte pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -47,28 +44,18 @@ Pour configurer l’intégration d’Azure AD avec Egnyte, vous avez besoin des
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Egnyte prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Après avoir configuré Egnyte, vous pouvez appliquer un contrôle de session qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-egnyte-from-the-gallery"></a>Ajout d’Egnyte à partir de la galerie
 
 Pour configurer l’intégration d’Egnyte avec Azure AD, vous devez ajouter Egnyte à votre liste d’applications SaaS gérées à partir de la galerie.
 
-**Pour ajouter Egnyte à partir de la galerie, procédez comme suit :**
-
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](common/select-azuread.png)
-
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application](common/add-new-app.png)
-
-4. Dans la zone de recherche, tapez **Egnyte**, sélectionnez **Egnyte** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-     ![Egnyte dans la liste des résultats](common/search-new-app.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Egnyte** dans la zone de recherche.
+1. Sélectionnez **Egnyte** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -77,14 +64,16 @@ Pour que l’authentification unique fonctionne, vous devez associer l’utilisa
 
 Pour configurer et tester l’authentification unique Azure AD avec Egnyte, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Egnyte](#configure-egnyte-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Egnyte](#create-egnyte-test-user)** pour obtenir un équivalent de Britta Simon dans Egnyte qui soit lié à la représentation Azure AD associée.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+Pour configurer et tester l’authentification unique Azure AD avec Egnyte, suivez les indications des sections ci-après :
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Egnyte](#configure-egnyte-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Egnyte](#create-egnyte-test-user)** pour obtenir un équivalent de B.Simon dans Egnyte qui soit lié à la représentation Azure AD associée.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
+
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
@@ -125,7 +114,58 @@ Pour configurer l’authentification unique Azure AD avec Egnyte, effectuez les
 
     c. URL de déconnexion
 
-### <a name="configure-egnyte-single-sign-on"></a>Configurer l’authentification unique Egnyte
+### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
+
+L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
+
+1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
+
+    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
+
+2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
+
+    ![Bouton Nouvel utilisateur](common/new-user.png)
+
+3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
+
+    ![Boîte de dialogue Utilisateur](common/user-properties.png)
+
+    a. Dans le champ **Nom**, entrez **BrittaSimon**.
+  
+    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
+    Par exemple : BrittaSimon@contoso.com
+
+    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
+
+    d. Cliquez sur **Créer**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+
+Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Egnyte.
+
+1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Egnyte**.
+
+    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
+
+2. Dans la liste des applications, sélectionnez **Egnyte**.
+
+    ![Lien Egnyte dans la liste des applications](common/all-applications.png)
+
+3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+
+    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
+
+4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+
+    ![Volet Ajouter une attribution](common/add-assign-user.png)
+
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+
+7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
+
+## <a name="configure-egnyte-sso"></a>Configurer l’authentification unique Egnyte
 
 1. Dans une autre fenêtre de navigateur web, connectez-vous à votre site d’entreprise Egnyte en tant qu’administrateur.
 
@@ -161,60 +201,9 @@ Pour configurer l’authentification unique Azure AD avec Egnyte, effectuez les
    
     h. Cliquez sur **Enregistrer**.
 
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
-
-L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
-
-1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
-
-    ![Liens « Utilisateurs et groupes » et « Tous les utilisateurs »](common/users.png)
-
-2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
-
-    ![Bouton Nouvel utilisateur](common/new-user.png)
-
-3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
-
-    ![Boîte de dialogue Utilisateur](common/user-properties.png)
-
-    a. Dans le champ **Nom**, entrez **BrittaSimon**.
-  
-    b. Dans le champ **Nom d’utilisateur**, tapez **brittasimon\@domainedevotreentreprise.extension**.  
-    Par exemple, BrittaSimon@contoso.com
-
-    c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
-
-    d. Cliquez sur **Créer**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
-
-Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à Egnyte.
-
-1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, **Toutes les applications**, puis **Egnyte**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-2. Dans la liste des applications, sélectionnez **Egnyte**.
-
-    ![Lien Egnyte dans la liste des applications](common/all-applications.png)
-
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
-
-    ![Lien « Utilisateurs et groupes »](common/users-groups-blade.png)
-
-4. Cliquez sur le bouton **Ajouter un utilisateur**, puis sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
-
-    ![Volet Ajouter une attribution](common/add-assign-user.png)
-
-5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-6. Si vous attendez une valeur de rôle dans l’assertion SAML, dans la boîte de dialogue **Sélectionner un rôle**, sélectionnez le rôle approprié pour l’utilisateur dans la liste, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
-
-7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
-
 ### <a name="create-egnyte-test-user"></a>Créer un utilisateur de test Egnyte
 
-Pour se connecter à Egnyte, les utilisateurs d’Azure AD doivent être approvisionnés dans Egnyte. Dans le cas de Egnyte, l’approvisionnement est une tâche manuelle.
+Pour pouvoir se connecter à Egnyte, les utilisateurs d’Azure AD doivent être provisionnés dans Egnyte. Dans le cas de Egnyte, l’approvisionnement est une tâche manuelle.
 
 **Pour approvisionner un compte d’utilisateur, procédez comme suit :**
 
@@ -246,7 +235,7 @@ Pour se connecter à Egnyte, les utilisateurs d’Azure AD doivent être approvi
 >Vous pouvez utiliser tout autre outil ou API de création de compte d’utilisateur Egnyte fourni par Egnyte pour provisionner des comptes d’utilisateur Azure AD.
 >
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-sso"></a>Tester l’authentification unique (SSO)
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -260,3 +249,4 @@ Lorsque vous cliquez sur la vignette Egnyte dans le volet d’accès, vous devez
 
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -8,20 +8,20 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 97a215d8f111753c8fcc857fe4c48956c1236b3b
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027442"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77021285"
 ---
-# <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Didacticiel : Déployer et parcourir pas à pas un modèle d’application de surveillance continue des patients
+# <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutoriel : Déployer et parcourir pas à pas un modèle d’application de surveillance continue des patients
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Ce tutoriel vous montre comment vous lancer, en votre qualité de générateur de solutions, en déployant un modèle d’application de surveillance continue des patients IoT Central. Vous allez apprendre à déployer le modèle, découvrir les fonctionnalités prêtes à l’emploi qui vous sont proposées et les différentes possibilités qui s’offrent à vous.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce tutoriel vous montre comment vous lancer, en votre qualité de générateur de solutions, en déployant un modèle d’application de surveillance continue des patients IoT Central. Vous allez apprendre à déployer le modèle, mais aussi découvrir les fonctionnalités prêtes à l’emploi qui vous sont proposées et les différentes possibilités qui s’offrent à vous.
+
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Créer un modèle d’application
@@ -34,16 +34,17 @@ Accédez au [site web du gestionnaire d’applications Azure IoT Central](https:
 >[!div class="mx-imgBorder"] 
 >![Gestionnaire d’applications – Healthcare](media/app-manager-health.png)
 
-Cliquez sur le bouton **Create app** (Créer une application) pour commencer à créer votre application, puis connectez-vous avec un compte Microsoft personnel, professionnel ou scolaire. Cela vous amène à la page **New application** (Nouvelle application).
+Cliquez sur le bouton **Create app** (Créer une application) pour commencer à créer votre application, puis connectez-vous avec un compte Microsoft personnel, professionnel ou scolaire. Cela vous amène la page **New application** (Nouvelle application).
 
->[!div class="mx-imgBorder"] 
->![Créer une application de santé](media/app-manager-health-create.png)
+![Créer une application Healthcare](media/app-manager-health-create.png)
+
+![Créer une application de santé, informations de facturation](media/app-manager-health-create-billinginfo.png)
 
 Pour créer votre application :
 
 1. Azure IoT Central suggère automatiquement un nom d’application basé sur le modèle que vous avez sélectionné. Vous pouvez accepter ce nom ou entrer le nom d’application convivial de votre choix, par exemple **Surveillance continue des patients**. Azure IoT Central génère aussi un préfixe d’URL unique basé sur le nom de l’application. Si vous le souhaitez, vous pouvez remplacer ce préfixe d’URL par une chaîne plus facile à mémoriser.
 
-2. Vous pouvez choisir de créer une application en essai gratuit (**Trial**) ou une application avec paiement à l’utilisation (**Pay-As-You-Go**). Les applications **Trial** sont gratuites pendant sept jours avant expiration et autorisent une utilisation sur cinq appareils gratuits. Elles peuvent être passées en paiement à l’utilisation à tout moment avant leur expiration. Si vous créez une application en essai gratuit (Trial), entrez vos coordonnées et indiquez si vous souhaitez recevoir des informations et des conseils de la part de Microsoft. Les applications avec paiement à l’utilisation (**Pay-As-You-Go**) prennent en charge jusqu’à deux appareils gratuits et nécessitent vos informations d’abonnement Azure.
+2. Vous pouvez choisir de créer l’application avec le plan tarifaire *gratuit* ou avec l’un des plans tarifaires *standard*. Les applications créées avec le plan gratuit sont utilisables gratuitement pendant sept jours et sur cinq appareils avant leur expiration. Vous pouvez transférer une application du plan gratuit vers un plan tarifaire standard à tout moment avant son expiration. Si vous choisissez le plan gratuit, entrez vos coordonnées et indiquez si vous souhaitez recevoir des informations et des conseils de la part de Microsoft. Les applications créées avec un plan tarifaire standard peuvent être utilisées gratuitement sur deux appareils au maximum et nécessitent vos informations d’abonnement Azure pour la facturation.
 
 3. Sélectionnez **Create** (Créer) au bas de la page pour déployer votre application.
 
@@ -77,7 +78,7 @@ Les deux tableaux de bord proposent des liens pour revenir à cette documentatio
 
 Si vous cliquez sur l’onglet **Device templates** (Modèles d’appareils), vous constaterez qu’il existe deux types d’appareil dans le modèle :
 
-* **Smart Vitals Patch** : cet appareil se présente sous la forme d’un patch qui mesure divers signes vitaux susceptibles de servir à la surveillance des patients dans et en dehors de l’hôpital. Si vous cliquez sur le modèle, vous constaterez qu’en plus d’envoyer des données sur l’appareil comme le niveau de charge de la batterie et la température de l’appareil, le patch envoie aussi des données sur la santé des patients comme la fréquence respiratoire et la pression artérielle.
+* **Smart Vitals Patch** : cet appareil se présente sous la forme d’un patch qui mesure différents types de signes vitaux. Il peut servir à la surveillance des patients dans et en dehors de l’hôpital. Si vous cliquez sur le modèle, vous constaterez qu’en plus d’envoyer des données sur l’appareil comme le niveau de charge de la batterie et la température de l’appareil, le patch envoie aussi des données sur la santé des patients comme la fréquence respiratoire et la pression artérielle.
 
 * **Smart Knee Brace** : cet appareil se présente sous la forme d’une attelle de genou que les patients peuvent utiliser à la suite d’une opération de reconstruction du genou. Si vous cliquez sur ce modèle, outre les données de l’appareil, vous trouverez des informations sur certaines aptitudes, comme l’amplitude de mouvement et la mobilité.
 
@@ -101,7 +102,7 @@ En accédant à l’onglet de règles, vous constaterez la présence de trois r�
 
 ### <a name="devices"></a>Appareils
 
-Cliquez sur l’onglet **Devices** (Appareils), puis sélectionnez une instance de **Smart Knee Brace**. Vous constatez alors qu’il existe trois vues qui permettent d’explorer les informations sur l’appareil que vous avez sélectionné. Ces vues sont créées et publiées au moment de générer le modèle de l’appareil. Cela signifie qu’elles sont identiques sur tous les appareils que vous connectez ou simulez.
+Cliquez sur l’onglet **Devices** (Appareils), puis sélectionnez une instance de **Smart Knee Brace**. Vous constatez alors qu’il existe trois vues qui permettent d’explorer les informations sur l’appareil que vous avez sélectionné. Ces vues sont créées et publiées au moment de générer le modèle de l’appareil, ce qui signifie qu’elles sont identiques sur tous les appareils que vous connectez ou simulez.
 
 La vue **Dashboard** (Tableau de bord) offre une vue d’ensemble des données de télémétrie et des propriétés de l’appareil destinées aux opérateurs.
 
@@ -112,7 +113,7 @@ L’onglet **Commands** (Commandes) vous permet d’exécuter des commandes qui 
 >[!div class="mx-imgBorder"] 
 >![Vues de l’attelle de genou Smart Knee Brace](media/knee-brace-dashboard.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’envisagez pas de continuer à utiliser cette application, supprimez-la en accédant à **Administration > Application settings** (Administration > Paramètre d’application), puis cliquez sur **Delete** (Supprimer).
 

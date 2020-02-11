@@ -1,28 +1,24 @@
 ---
-title: 'Démarrage rapide : Reconnaître la voix, les intentions et les entités, Java – Service Speech'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5d70bba32df5940d929482e37317d40bd496676
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a6bf8bb558e82fefbbe6ff306f628a4b449a4e83
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761456"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900552"
 ---
 ## <a name="prerequisites"></a>Conditions préalables requises
 
 Avant de commencer :
 
-* S’il s’agit de votre premier projet Java (JRE), utilisez ce guide pour <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">créer un exemple de projet vide</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Installez le kit SDK Speech pour votre environnement de développement</a>.
+* S’il s’agit de votre premier projet Java (JRE), utilisez ce guide pour <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">créer un exemple de projet vide<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Installez le SDK Speech pour votre environnement de développement<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Créer une application LUIS pour la reconnaissance de l’intention
 
@@ -96,7 +92,7 @@ Il est important de libérer les ressources lorsque vous avez fini de les utilis
 
 ## <a name="check-your-code"></a>Vérifier votre code
 
-À ce stade, votre code doit ressembler à ceci :  
+À ce stade, votre code doit ressembler à ceci :
 
 > [!NOTE]
 > Nous avons ajouté des commentaires à cette version.
@@ -105,7 +101,7 @@ Il est important de libérer les ressources lorsque vous avez fini de les utilis
 
 ## <a name="build-and-run-your-app"></a>Générer et exécuter votre application
 
-Appuyez sur F11 ou sélectionnez **Run (Exécuter)**  > **Debug (Déboguer)** .
+Appuyez sur <kbd>F11</kbd> ou sélectionnez **Run** (Exécuter) > **Debug** (Déboguer).
 Les 15 secondes suivantes de saisie vocale provenant de votre microphone seront reconnues et enregistrées dans la fenêtre console.
 
 ## <a name="next-steps"></a>Étapes suivantes

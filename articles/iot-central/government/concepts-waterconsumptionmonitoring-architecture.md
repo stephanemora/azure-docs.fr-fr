@@ -7,16 +7,16 @@ ms.date: 10/23/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: d979c4210c7de4588338c8e3c30b179056102d0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3a64ca5b0c2a092f895873e097ea6beb9a235a37
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498799"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017698"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Architecture de référence d’une solution de suivi de la consommation d’eau 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Vous pouvez créer des solutions de suivi de la consommation d’eau avec le **modèle d’application Azure IoT Central** en tant qu’application IoT de démarrage. Cet article fournit des conseils d’ordre général sur l’architecture de référence d’une solution de bout en bout. 
 
@@ -32,7 +32,7 @@ Concepts :
 Intéressons-nous aux composants clés qui sont généralement impliqués dans une solution de suivi de la consommation d’eau.
 
 ## <a name="devices-and-connectivity"></a>Appareils et connectivité 
-Dans cette section, nous appellerons « systèmes d’eau intelligents » les appareils utilisés pour le suivi de la qualité de l’eau ou le suivi de la consommation d’eau. Les systèmes d’eau intelligents peuvent être des débitmètres, des moniteurs de qualité de l’eau, des vannes intelligentes, des détecteurs de fuite, etc.
+Cette section nomme généralement « systèmes d’eau intelligents » les appareils utilisés pour le suivi de la qualité de l’eau ou le suivi de la consommation d’eau. Les systèmes d’eau intelligents peuvent être des débitmètres, des moniteurs de qualité de l’eau, des vannes intelligentes, des détecteurs de fuite, etc.
 
 Les appareils utilisés dans les systèmes d’eau intelligents sont généralement connectés via des réseaux LPWAN, via un opérateur réseau tiers. Pour ces types d’appareils, vous pouvez utiliser [Azure IoT Central Device Bridge](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge) pour envoyer les données de votre appareil à votre application IoT dans Azure IoT Central. Vous pouvez également utiliser des passerelles d’appareil compatibles IP et capables de se connecter directement à IoT Central.
 
@@ -44,14 +44,14 @@ Une fois que vous avez connecté vos systèmes d’eau intelligents à IoT Centr
 ## <a name="extensibility-and-integrations"></a>Extensibilité et intégrations 
 Vous pouvez étendre votre application IoT dans IoT Central et si vous le souhaitez :
 * Transformer et intégrer vos données IoT en vue d’une analytique avancée, par exemple en entraînant des modèles Machine Learning via l’exportation continue de données à partir d’une application IoT Central
-* Automatiser les workflows d’autres systèmes en déclenchant des actions via Microsoft Flow ou des webhooks à partir d’une application IoT Central
+* Automatiser des workflows dans d’autres systèmes en déclenchant des actions via Microsoft Flow ou des webhooks à partir d’une application IoT Central
 * Accéder programmatiquement à votre application IoT dans IoT Central via des API IoT Central
 
 ## <a name="business-applications"></a>Applications métier 
-Les données IoT peuvent être utilisées pour alimenter diverses applications métier au sein de la solution. Pour savoir comment connecter votre application de suivi de la consommation d’eau IoT Central à Field Services, suivez le tutoriel qui explique [comment intégrer une application à Dynamics 365 Field Services](./how-to-configure-connected-field-services.md). 
+Les données IoT peuvent être utilisées pour alimenter différentes sortes d’applications métier au sein d’une solution. Pour savoir comment connecter votre application de suivi de la consommation d’eau IoT Central à Field Services, suivez le tutoriel qui explique [comment intégrer une application à Dynamics 365 Field Services](./how-to-configure-connected-field-services.md). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [créer une application IoT Central pour le suivi de la consommation d’eau](./tutorial-water-consumption-monitoring.md)
-* En savoir plus sur les [modèles IoT Central Government](./overview-iot-central-government.md)
+* Apprenez-en davantage sur les [modèles IoT Central Government](./overview-iot-central-government.md)
 * Pour plus d’informations sur IoT Central, consultez la [vue d’ensemble d’IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)

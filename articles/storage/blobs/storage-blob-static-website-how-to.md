@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4214c4eb9fbe1d3e39d1ee16289f30b893b94653
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489093"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906603"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Héberger un site web statique dans Stockage Azure
 
@@ -22,9 +22,9 @@ Cet article explique comment activer l’hébergement de site web statique avec 
 
 <a id="portal" />
 
-## <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+## <a name="portaltabazure-portal"></a>[Portail](#tab/azure-portal)
 
-Pour un didacticiel pas à pas, voir [Didacticiel : Héberger un site web statique sur le Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
+Pour obtenir un tutoriel pas à pas, consultez [Tutoriel : Héberger un site web statique sur le Stockage Blob](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host).
 
 Après avoir activé l’hébergement de site web statique, vous pouvez afficher les pages de votre dans un navigateur en utilisant l’URL publique du site web.
 
@@ -38,7 +38,7 @@ Dans le volet qui s’affiche en regard de la page de Vue d’ensemble du compte
 
 <a id="cli" />
 
-## <a name="azure-clitabazure-cli"></a>[Interface de ligne de commande Azure](#tab/azure-cli)
+## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Vous pouvez activer l’hébergement de site web statique à l’aide de l’[interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) (Azure CLI).
 
@@ -221,10 +221,5 @@ Une fois les métriques activées, les statistiques de trafic relatives aux fich
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Hébergement de sites web statiques dans le service Stockage Azure](storage-blob-static-website.md)
-* [Utiliser Azure CDN pour accéder aux objets Blob avec des domaines personnalisés via HTTPs](storage-https-custom-domain-cdn.md)
-* [Configurer un nom de domaine personnalisé pour le point de terminaison de votre objet blob ou web](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [Générer votre première application web sans serveur](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Tutoriel : Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* Apprenez à configurer un domaine personnalisé avec votre site web statique. Consultez [Mapper un domaine personnalisé à un point de terminaison de Stockage Blob Azure](storage-custom-domain-name.md).
+

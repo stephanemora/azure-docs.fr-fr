@@ -9,20 +9,20 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703650"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931582"
 ---
-# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Didacticiel : Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure Active Directory Domain Services
+# <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Tutoriel : Créer une machine virtuelle de gestion pour configurer et administrer un domaine managé Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP, et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory. Vous administrez ce domaine managé avec les mêmes outils d’administration de serveur distant (RSAT, Remote Server Administration Tool) qu’avec un domaine Active Directory Domain Services local. Comme Azure AD DS est un service managé, vous ne pouvez pas effectuer certaines tâches d’administration, comme utiliser le protocole RDP (Remote Desktop Protocol) pour vous connecter aux contrôleurs de domaine.
 
 Ce tutoriel vous montre comment créer une machine virtuelle Windows Server dans Azure et comment installer les outils nécessaires à l’administration d’un domaine Azure AD DS managé.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Comprendre les tâches d’administration disponibles dans un domaine managé Azure AD DS
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -40,9 +40,9 @@ Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges s
 * Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
     * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
 * Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
-    * Si nécessaire, le premier tutoriel [crée et configure une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+    * Si nécessaire, consultez le premier tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
 * Une machine virtuelle Windows Server jointe au domaine managé Azure AD DS.
-    * Si nécessaire, le tutoriel précédent [crée une machine virtuelle Windows Server et la joint à un domaine managé][create-join-windows-vm].
+    * Si nécessaire, consultez le tutoriel précédent pour [créer et joindre une machine virtuelle Windows Server à un domaine managé][create-join-windows-vm].
 * Un compte d’utilisateur membre du groupe *Administrateurs Azure AD DC* dans votre locataire Azure AD.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
@@ -105,7 +105,7 @@ Pour installer les outils d’administration Active Directory sur une machine vi
 1. Dans le volet *Tableau de bord* de la fenêtre **Gestionnaire de serveur**, sélectionnez **Ajouter des rôles et des fonctionnalités**.
 1. Dans la page **Avant de commencer** de l’*Assistant Ajout de rôles et de fonctionnalités*, sélectionnez **Suivant**.
 1. Pour le *Type d’installation*, laissez l’option **Installation basée sur un rôle ou une fonctionnalité** cochée et sélectionnez **Suivant**.
-1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle actuelle dans le pool de serveurs, par exemple *myvm.aadds.contoso.com*, puis sélectionnez **Suivant**.
+1. Dans la page **Sélection du serveur**, choisissez la machine virtuelle active dans le pool de serveurs, par exemple *myvm.aadds.contoso.com*, puis sélectionnez **Suivant**.
 1. Sur la page **Rôles de serveurs**, cliquez sur **Suivant**.
 1. Dans la page **Fonctionnalités**, développez le nœud **Outils d’administration de serveur distant**, puis développez le nœud **Outils d’administration de rôles**.
 
@@ -143,7 +143,7 @@ Vous pouvez également utiliser le *Module Active Directory pour Windows PowerSh
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Comprendre les tâches d’administration disponibles dans un domaine managé Azure AD DS

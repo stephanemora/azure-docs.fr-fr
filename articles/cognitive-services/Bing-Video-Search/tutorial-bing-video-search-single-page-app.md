@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: tutorial
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 7c8485a5521709452217fb4ab1832b6a42cce9ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb989825ed27cc83c14c36e6394e37ae2db2c12a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382461"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988258"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutoriel : Application monopage pour la recherche de vidéos
 L’API Recherche de vidéos Bing vous permet de parcourir le web et d’obtenir des résultats de vidéos relatifs à une requête de recherche. Dans ce didacticiel, nous allons générer une application web à page unique qui utilise l’API Recherche de vidéos Bing pour afficher les résultats de la recherche sur la page. L’application inclut des composants HTML, CSS et JavaScript.
@@ -120,7 +120,7 @@ function bingSearchOptions(form) {
 
     var options = [];
     options.push("mkt=" + form.where.value);
-    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "off"));
+    options.push("SafeSearch=" + (form.safe.checked ? "strict" : "moderate"));
 
     if (form.when.value.length) options.push("freshness=" + form.when.value);
     var what = [];
@@ -138,7 +138,7 @@ function bingSearchOptions(form) {
 }
 ```
 
-Par exemple, le paramètre `SafeSearch` dans un appel d’API réel peut être `strict`, `moderate` ou `off`, `moderate` étant la valeur par défaut. Notre formulaire, cependant, utilise une case à cocher qui a seulement deux états. Le code JavaScript convertit ce paramètre en la valeur `strict` ou `off` (`moderate` n’est pas utilisé).
+Par exemple, le paramètre `SafeSearch` dans un appel d’API réel peut être `strict` ou `moderate`, `moderate` étant la valeur par défaut.
 
 ## <a name="performing-the-request"></a>Exécution de la requête
 Selon la requête, la chaîne d’options et la clé d’API, la fonction `BingWebSearch` utilise un objet `XMLHttpRequest` pour effectuer la requête au point de terminaison Recherche Bing. Vous pouvez utiliser le point de terminaison global ci-dessous, ou le point de terminaison de [sous-domaine personnalisé](../../cognitive-services/cognitive-services-custom-subdomains.md) affiché dans le portail Azure pour votre ressource.

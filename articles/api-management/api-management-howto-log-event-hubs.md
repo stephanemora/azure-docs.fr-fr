@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: apimpm
-ms.openlocfilehash: 646d9206ec82d5f35ccab9365e76276ff779d225
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2f07f6a27e78ee4df8c64a09918758d02c28c6d4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073484"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898792"
 ---
 # <a name="how-to-log-events-to-azure-event-hubs-in-azure-api-management"></a>Comment enregistrer des événements sur Azure Event Hubs dans Gestion des API Azure
 Les concentrateurs d'événements Azure sont un service d'entrée de données hautement évolutif qui peut traiter des millions d'événements par seconde afin que vous puissiez traiter et analyser les grandes quantités de données générées par vos périphériques connectés et vos applications. Les concentrateurs d'événements fonctionnent comme la « porte d'entrée » d’un pipeline d’événements, et une fois que les données sont collectées dans un concentrateur d'événements, elles peuvent être transformées et stockées à l'aide de n'importe quel fournisseur d'analyse en temps réel ou d’adaptateurs de traitement par lot ou de stockage. Les concentrateurs d'événements dissocient la production d'un flux d'événements de la consommation de ces événements, de manière à ce que les consommateurs d'événements puissent accéder aux événements selon leur propre planification.
@@ -30,60 +30,9 @@ Cet article, qui complète la vidéo [Intégrer la gestion des API Azure avec Ev
 Vous trouverez des instructions détaillées pour créer un hub d’événements et obtenir les chaînes de connexion nécessaires pour envoyer et recevoir des événements sur le hub dans la section [Créer un espace de noms et un hub d’événements Event Hubs avec le Portail Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-api-management-logger"></a>Créer un enregistreur d’événements de gestion des API
-Maintenant que vous disposez d’un hub d’événements, l’étape suivante consiste à configurer un [enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity) dans votre service Gestion des API afin qu’il puisse enregistrer des événements dans le hub d’événements.
+Maintenant que vous disposez d’un hub d’événements, l’étape suivante consiste à configurer un [enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger) dans votre service Gestion des API afin qu’il puisse enregistrer des événements dans le hub d’événements.
 
-Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](https://aka.ms/smapi). Avant d’utiliser l’API REST pour la première fois, passez en revue les [conditions préalables](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest) et assurez-vous que vous avez [activé l’accès à l’API REST](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/api-management-rest#EnableRESTAPI).
-
-Pour créer un enregistreur d’événements, effectuez une requête HTTP PUT suivant ce modèle d’URL :
-
-`https://{your service}.management.azure-api.net/loggers/{new logger name}?api-version=2017-03-01`
-
-* Remplacez `{your service}` par le nom de votre instance de service Gestion des API.
-* Remplacez `{new logger name}` par le nom souhaité pour votre nouvel enregistreur d’événements. Ce nom servira de référence lors de la configuration de la stratégie [log-to-eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub).
-
-Ajoutez les en-têtes suivants à la requête :
-
-* Type de contenu : application/json
-* Autorisation : SharedAccessSignature 58...
-  * Pour obtenir des instructions sur la génération de `SharedAccessSignature` , consultez [Authentification de l’API REST Gestion des API Azure](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-authentication).
-
-Spécifiez le corps de la requête suivant ce modèle :
-
-```json
-{
-  "loggerType" : "AzureEventHub",
-  "description" : "Sample logger description",
-  "credentials" : {
-    "name" : "Name of the Event Hub from the portal",
-    "connectionString" : "Endpoint=Event Hub Sender connection string"
-    }
-}
-```
-
-* `loggerType` doit être défini sur `AzureEventHub`.
-* `description` fournit une description facultative de l’enregistreur d’événements et peut être une chaîne vide si vous le souhaitez.
-* `credentials` contient les valeurs `name` et `connectionString` de votre hub d’événements Azure.
-
-Lorsque vous créez la requête, si l’enregistreur d’événements est créé, un code d’état `201 Created` est renvoyé. Vous trouverez ci-dessous un exemple de réponse basé sur l’exemple de requête ci-dessus.
-
-```json
-{
-    "id": "/loggers/{new logger name}",
-    "loggerType": "azureEventHub",
-    "description": "Sample logger description",
-    "credentials": {
-        "name": "Name of the Event Hub from the Portal",
-        "connectionString": "{{Logger-Credentials-xxxxxxxxxxxxxxx}}"
-    },
-    "isBuffered": true,
-    "resourceId": null
-}
-```
-
-> [!NOTE]
-> Pour connaître les autres codes de retour possibles et leurs raisons, consultez [Créer un enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity#PUT). Pour savoir comment effectuer d’autres opérations, notamment la création de listes, la mise à jour et la suppression, consultez la documentation de l’entité [Enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity).
->
->
+Les enregistreurs d’événements de gestion des API peuvent être configurés à l’aide de l’ [API REST Gestion des API](https://aka.ms/apimapi). Pour obtenir des exemples détaillés de requêtes, consultez [Créer des enregistreurs d'événements](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger/createorupdate).
 
 ## <a name="configure-log-to-eventhubs-policies"></a>Configurer des stratégies Enregistrer sur event hub
 
@@ -116,7 +65,7 @@ Cliquez sur **Enregistrer** pour enregistrer la configuration de la stratégie m
   * [Réception de messages avec EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
   * [Guide de programmation Event Hubs](../event-hubs/event-hubs-programming-guide.md)
 * En savoir plus sur l’intégration de Gestion des API et Event Hubs
-  * [Référence d’entité d’enregistreur](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
+  * [Référence d’entité d’enregistreur](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/logger)
   * [Référence de stratégie log-to-eventhub](https://docs.microsoft.com/azure/api-management/api-management-advanced-policies#log-to-eventhub)
   * [Surveiller des API avec la Gestion des API Azure, Event Hubs et Moesif](api-management-log-to-eventhub-sample.md)  
 * En savoir plus sur [l’intégration avec Azure Application Insights](api-management-howto-app-insights.md)

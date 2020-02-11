@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 09/17/2019
+ms.date: 02/03/2020
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c17f1094e562960e851204b40281f5b04c1d40ce
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 559050d11b6b85a9842c679b94e0e5b2fd5dd0f8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186057"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987711"
 ---
 # <a name="azure-media-services-v3-overview"></a>Vue d’ensemble d’Azure Media Services v3
 
@@ -32,6 +32,14 @@ Les kits SDK Media Services v3 sont basés sur la [spécification OpenAPI (Swag
 
 > [!NOTE]
 > Actuellement, vous ne pouvez pas utiliser le portail Azure pour gérer des ressources v3. Utilisez l’[API REST](https://aka.ms/ams-v3-rest-ref), l’interface [CLI](https://aka.ms/ams-v3-cli-ref) ou l’un des kits [SDK](media-services-apis-overview.md#sdks) pris en charge.
+
+## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
+ 
+Pour rappel, vous devez vous soumettre à toutes les lois applicables dans le cadre de votre utilisation d’Azure Media Services et vous n’êtes pas autorisé à utiliser Azure Media Services ou tout autre service Azure d’une manière qui porterait atteinte aux droits des tiers ou qui leur serait préjudiciable. 
+
+Avant de charger des vidéos et/ou des images, y compris des données biométriques, sur Media Services à des fins de traitement et de stockage, vous devez (1) disposer de tous les droits appropriés sur les vidéos/images ; et (2) avoir obtenu le consentement des personnes présentes dans les vidéos pour autoriser l’utilisation et le stockage de leurs données biométriques dans Media Services. 
+
+Pour en savoir plus sur la conformité, la protection des données personnelles et la façon dont Microsoft protège et sécurise vos données dans Azure Media Services, visitez le [Centre de confidentialité](https://www.microsoft.com/trust-center/?rtc=1) Azure. Pour connaître les obligations de Microsoft en matière de protection des données personnelles et de traitement de vos données, consultez la [déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations sur la conservation et la suppression des données client sont disponibles dans le DPA. En utilisant Azure Media Services, vous consentez à être lié par les dispositions de l’OST, du DPA et de la déclaration de confidentialité.
 
 ## <a name="what-can-i-do-with-media-services"></a>Que puis-je faire avec Media Services ?
 

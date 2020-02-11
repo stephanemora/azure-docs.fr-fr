@@ -3,18 +3,18 @@ title: 'Tutoriel : Trouver une route vers une position | Microsoft Azure Maps'
 description: Ce tutoriel vous montre comment afficher la route vers une position (point d’intérêt) sur une carte à l’aide du service de routage Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 3fedb045773cb975d37e2d866862e7863a6232e3
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910836"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989635"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Tutoriel : Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
@@ -27,7 +27,7 @@ Ce didacticiel montre comment utiliser votre compte Azure Maps et le SDK Route S
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-Avant de poursuivre, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps) pour créer un abonnement de compte Azure Maps avec le niveau tarifaire S1 et effectuez les étapes indiquées dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) afin d’obtenir la clé primaire pour votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, consultez [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
+Avant de continuer, suivez les instructions mentionnées dans [Créer un compte](quick-demo-map-app.md#create-an-account-with-azure-maps). Vous avez besoin d’un abonnement au niveau tarifaire S1. Effectuez les étapes décrites dans [Obtenir la clé primaire](quick-demo-map-app.md#get-the-primary-key-for-your-account) pour obtenir la clé primaire de votre compte. Pour plus d’informations sur l’authentification dans Azure Maps, voir [Gérer l’authentification dans Azure Maps](how-to-manage-authentication.md).
 
 <a id="getcoordinates"></a>
 
@@ -139,7 +139,7 @@ Dans ce tutoriel, un itinéraire simple sera affiché à l’aide d’une icône
     });
     ```
     
-    Dans le gestionnaire d’événements `ready` des cartes, une source de données est créée pour stocker la ligne d’itinéraire ainsi que les points de départ et d’arrivée. Une couche de ligne est créée et jointe à la source de données pour définir le rendu de la ligne d’itinéraire. La ligne de l’itinéraire sera affichée en un beau bleu avec une largeur de 5 pixels et jonction de lignes arrondie et en majuscules. Lors de l’ajout de la couche sur la carte, un deuxième paramètre avec la valeur `'labels'` est transmis et spécifie le rendu de cette couche sous les étiquettes de carte. Cela garantit que la ligne d’itinéraire ne couvre pas les étiquettes de route. Une couche de symbole est créée et jointe à la source de données. Cette couche spécifie comment les points de départ et d’arrivée sont affichés, dans ce cas des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés de chaque objet de point. 
+    Dans le gestionnaire d’événements `ready` des cartes, une source de données est créée pour stocker le tracé d’itinéraire, ainsi que les points de départ et d’arrivée. Une couche de ligne est créée et jointe à la source de données pour définir le rendu de la ligne d’itinéraire. La ligne de l’itinéraire est affichée dans une belle nuance de bleu. Elle aura une largeur de cinq pixels, des jonctions de lignes arrondies et des majuscules. Lors de l’ajout de la couche sur la carte, un deuxième paramètre avec la valeur `'labels'` est transmis et spécifie le rendu de cette couche sous les étiquettes de carte. Cela garantit que la ligne d’itinéraire ne couvre pas les étiquettes de route. Une couche de symbole est créée et jointe à la source de données. Ce calque spécifie la manière dont les points de départ et d’arrivée sont affichés. Dans le cas présent, des expressions ont été ajoutées pour récupérer les informations d’image d’icône et d’étiquette de texte des propriétés de chaque objet de point. 
     
 2. Pour ce tutoriel, définissez Microsoft comme point de départ, et une station-service de Seattle comme point de destination. Dans le gestionnaire d’événements `ready` des cartes, ajoutez le code suivant.
 
@@ -164,7 +164,7 @@ Dans ce tutoriel, un itinéraire simple sera affiché à l’aide d’une icône
     });
     ```
 
-    Ce code crée deux [objets point GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) pour représenter les points de départ et d’arrivée de l’itinéraire, et ajoute ceux-ci à la source de données. Une propriété `title` et `icon` est ajoutée à chaque point. Le dernier bloc définit la vue de l’appareil photo sur la base des informations de latitude et longitude des points de départ et d’arrivée, à l’aide de la propriété [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
+    Ce code crée deux [objets point GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) pour représenter les points de départ et d’arrivée de l’itinéraire, et ajoute ceux-ci à la source de données. Une propriété `title` et `icon` est ajoutée à chaque point. Le dernier bloc définit la vue de l’appareil photo sur la base de la latitude et de la longitude des points de départ et d’arrivée, à l’aide de la propriété [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) de la carte.
 
 3. Enregistrez le fichier **MapRoute.html** et actualisez votre navigateur. À présent, la carte est centrée sur Seattle, et vous pouvez observer l’épingle bleue marquant le point de départ et l’épingle bleue arrondie marquant le point d’arrivée.
 
@@ -174,9 +174,9 @@ Dans ce tutoriel, un itinéraire simple sera affiché à l’aide d’une icône
 
 ## <a name="get-directions"></a>Obtenir les directions
 
-Cette section montre comment utiliser les API Route Service d’Azure Maps pour rechercher l’itinéraire entre un point de départ et un point d’arrivée donnés. Route Service fournit les API dédiées à la planification des itinéraires les plus *rapides*, *courts*, *économiques*, ou *intéressants* entre deux emplacements. Grâce à la base de données de trafic historique complète d’Azure, il permet également aux utilisateurs de planifier des itinéraires, durées comprises, pour n’importe quels jour et heure. Pour plus d’informations, voir [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires). Toutes les fonctionnalités suivantes doivent être ajoutées **dans l’EventListener ready de la carte** pour garantir que les ressources de carte sont accessibles.
+Cette section montre comment utiliser l’API de service d’itinéraire Azure Maps. L’API de service d’itinéraire Azure Maps recherche l’itinéraire entre un point de départ et un point d’arrivée donnés. Ce service comprend des API dédiées à la planification des itinéraires *les plus rapides*, *les plus courts*, *économiques* ou *intéressants* entre deux emplacements. Avec la base de données de trafic historique complète d’Azure, ce service permet également aux utilisateurs de planifier des itinéraires. Les utilisateurs peuvent voir la prédiction des durées d’itinéraire pour n’importe quels jour et heure choisis. Pour plus d’informations, voir [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires). Toutes les fonctionnalités suivantes doivent être ajoutées **dans l’EventListener ready de la carte** pour garantir que les ressources de carte sont accessibles.
 
-1. Dans la fonction GetMap, ajoutez le code JavaScript suivant.
+1. Dans la fonction GetMap, ajoutez le code suivant au code JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key

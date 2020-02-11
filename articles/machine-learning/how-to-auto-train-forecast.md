@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 78654dfd5a11219d39d53b4042157333656f9aa3
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834752"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905700"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entraîner automatiquement un modèle de prévision de série chronologique
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -124,7 +124,7 @@ L’objet [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-a
 
 Pour plus d’informations, consultez la [documentation de référence](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig).
 
-Créez les paramètres de série chronologique en tant qu’objet de dictionnaire. Définissez l’élément `time_column_name` sur le champ `day_datetime` dans le jeu de données. Définissez le paramètre `grain_column_names` pour vous assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; un pour le magasin A et B. Enfin, définissez l’élément `max_horizon` sur 50 afin de prédire le jeu de test complet. Définissez une fenêtre de prévision sur 10 périodes avec `target_rolling_window_size`, et spécifiez un décalage unique sur les valeurs cibles pour deux périodes futures avec le paramètre `target_lags`. Nous vous recommandons d’affecter la valeur « auto » à `max_horizon`, `target_rolling_window_size` et `target_lags` ; ces valeurs seront détectées automatiquement pour vous. Dans l’exemple ci-dessous, les paramètres « auto » ont été utilisés pour ces paramètres. 
+Créez les paramètres de série chronologique en tant qu’objet de dictionnaire. Définissez l’élément `time_column_name` sur le champ `day_datetime` dans le jeu de données. Définissez le paramètre `grain_column_names` pour vous assurer que **deux groupes de séries chronologiques distincts** sont créés pour les données ; un pour le magasin A et B. Enfin, définissez l’élément `max_horizon` sur 50 afin de prédire le jeu de test complet. Définissez une fenêtre de prévision sur 10 périodes avec `target_rolling_window_size`, et spécifiez un décalage unique sur les valeurs cibles pour deux périodes futures avec le paramètre `target_lags`. Nous vous recommandons d’affecter la valeur « auto » à `max_horizon`, `target_rolling_window_size` et `target_lags` ; ces valeurs seront détectées automatiquement pour vous. Dans l'exemple ci-dessous, « auto » a été utilisé pour ces paramètres. 
 
 ```python
 time_series_settings = {
@@ -226,7 +226,7 @@ Calculez la racine carrée de l’erreur quadratique moyenne (REQM) entre les va
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
+rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 

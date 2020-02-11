@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 12c2f1bd2a3185d26eae02b5cd756392b5b87c16
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: e7717cdeec33a32f926cb5ef4c1f6d28c25f9d93
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533288"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989080"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 
@@ -83,7 +83,8 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
 
 5. Copiez l’une des clés (sans les guillemets) pour enregistrer le runtime d’intégration auto-hébergé que vous allez installer sur votre ordinateur à l’étape suivante.  
 
-## <a name="install-the-integration-runtime"></a>Installer le runtime d’intégration
+## <a name="install-the-integration-runtime-tool"></a>Installer l’outil Integration Runtime
+
 1. Si le runtime d’intégration est déjà installé sur votre machine, désinstallez-le à l’aide de **Ajouter ou supprimer des programmes**. 
 
 2. [Téléchargez](https://www.microsoft.com/download/details.aspx?id=39717) le runtime d’intégration auto-hébergé sur un ordinateur Windows local. Exécutez l’installation.
@@ -135,5 +136,4 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
     h. Cliquez sur **Tester** pour vérifier que le runtime d’intégration se connecte à SQL Server. Une coche verte apparaît si la connexion est établie. Un message d’erreur apparaît si la connexion échoue. Corrigez les problèmes et assurez-vous que le runtime d’intégration peut se connecter au serveur SQL Server.    
 
     > [!NOTE]
-    > Notez les valeurs pour le type d’authentification, le serveur, la base de données, l’utilisateur et le mot de passe. Vous les utiliserez ultérieurement dans ce didacticiel. 
-    
+    > Notez les valeurs pour le type d’authentification, le serveur, la base de données, l’utilisateur et le mot de passe. Vous les utiliserez ultérieurement dans ce didacticiel.

@@ -10,20 +10,20 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 02/02/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f803bcafb1966e32e894b4caeaa8fafb5f73e8e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: abd4a3a3a3e8494ea325e65a78eea7fb56b78f94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186282"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988360"
 ---
-# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Didacticiel : Analyser des vidéos avec Media Services v3
+# <a name="tutorial-analyze-videos-with-media-services-v3"></a>Tutoriel : Analyser des vidéos avec Media Services v3
 
 > [!NOTE]
-> Bien que ce tutoriel utilise les exemples du [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), les étapes générales sont les mêmes pour l’[API REST](https://docs.microsoft.com/rest/api/media/liveevents), l’[interface CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [SDK](media-services-apis-overview.md#sdks) pris en charge.
+> Ce tutoriel utilise les exemples du [SDK .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), mais les étapes générales sont les mêmes pour l’[API REST](https://docs.microsoft.com/rest/api/media/liveevents), l’[interface CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) et d’autres [SDK](media-services-apis-overview.md#sdks) pris en charge.
 
 Ce didacticiel vous montre comment analyser des vidéos avec Azure Media Services. Il existe plusieurs scénarios dans lesquels vous pouvez souhaiter obtenir des informations détaillées sur vos vidéos enregistrées ou vos contenus audio. Par exemple, pour obtenir une satisfaction plus élevée des clients, les organisations peuvent exécuter un traitement de reconnaissance vocale pour convertir les enregistrements du support client en un catalogue pouvant faire l’objet de recherches, avec des index et des tableaux de bord. Ensuite, elles peuvent obtenir des insights sur leur activité, par exemple, la liste des réclamations courantes avec leurs sources, et d’autres informations utiles.
 
@@ -38,7 +38,11 @@ Ce didacticiel vous explique les procédures suivantes :
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
+ 
+Il est important de vous rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre de votre utilisation de Video Indexer, et que vous n’êtes pas autorisé à utiliser Video Indexer ou tout autre service Azure d’une façon qui porte atteinte aux droits d’autrui ou qui soit préjudiciable à autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, Vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement de chaque personne apparaissant dans les vidéos. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation de Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../video-indexer/faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
+
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Si vous n’avez pas installé Visual Studio, obtenez [Visual Studio Community 2017](https://www.visualstudio.com/thank-you-downloading-visual-studio/?sku=Community&rel=15).
 - [Créer un compte Media Services](create-account-cli-how-to.md).<br/>Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
@@ -120,7 +124,7 @@ Dans cet exemple, l’entrée de la tâche est une vidéo locale.
 
 ### <a name="wait-for-the-job-to-complete"></a>Attendre la fin du travail
 
-Ce travail prend un certain temps. Dans ce cas, vous voulez en être averti. Il existe différentes options pour être prévenu de l’achèvement du [travail](https://docs.microsoft.com/rest/api/media/jobs). L’option la plus simple (indiquée ici) est d’utiliser l’interrogation.
+Ce travail prend un certain temps. Vous voulez être averti de la fin du travail. Il existe différentes options pour être prévenu de l’achèvement du [travail](https://docs.microsoft.com/rest/api/media/jobs). L’option la plus simple (indiquée ici) est d’utiliser l’interrogation.
 
 L’interrogation ne relève pas d'une pratique recommandée pour les applications de production en raison de la latence potentielle. L’interrogation peut être limitée si elle est utilisée de façon excessive sur un compte. À la place, les développeurs doivent utiliser Event Grid.
 
@@ -142,7 +146,7 @@ La fonction suivante télécharge les résultats de la [ressource](https://docs.
 
 ### <a name="clean-up-resource-in-your-media-services-account"></a>Supprimer les ressources de votre compte Media Services
 
-En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous réutilisez les transformations et conservez les éléments StreamingLocators). Si vous voulez que votre compte soit propre après les expériences, supprimez les ressources que vous n’avez pas l’intention de réutiliser. Par exemple, le code suivant supprime les travaux :
+En règle générale, vous devez supprimer tous les éléments à l’exception des objets que vous envisagez de réutiliser (habituellement, vous réutilisez les transformations et conservez les éléments StreamingLocators). Si vous voulez que votre compte soit propre après les expériences, supprimez les ressources dont vous n’avez plus besoin. Par exemple, le code suivant supprime les travaux :
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/AnalyzeVideos/Program.cs#CleanUp)]
 
@@ -156,7 +160,7 @@ Lorsque nous exécutons le programme, le travail génère des miniatures pour ch
 
 Le fichier de sortie de l’analyse de vidéos est nommé insights.json. Ce fichier contient des insights sur votre vidéo. Vous trouverez une description des éléments trouvés au sein du fichier json dans l’article [Intelligence multimédia](intelligence-concept.md).
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.
 

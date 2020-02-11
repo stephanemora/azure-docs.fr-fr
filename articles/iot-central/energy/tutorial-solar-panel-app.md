@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Créer une application de suivi des panneaux solaires avec IoT Central'
-description: "Didacticiel : Apprenez à créer une application de suivi des panneaux solaires à l'aide de modèles d'application Azure IoT Central."
+title: 'Tutoriel : Créer une application de suivi des panneaux solaires avec IoT Central'
+description: "Tutoriel : Apprenez à créer une application de suivi des panneaux solaires à l'aide de modèles d'application Azure IoT Central."
 author: op-ravi
 ms.author: omravi
 ms.date: 11/12/2019
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 5560cb31e31f7cf33ac8ae71d649e88be3dbb6e6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d5ea3d3420cb598693ccaede7ee10d2f8c4fd839
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112506"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025773"
 ---
-# <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Didacticiel : Créer et découvrir pas à pas le modèle d'application de suivi des panneaux solaires 
+# <a name="tutorial-create-and-walk-through-the-solar-panel-monitoring-app-template"></a>Tutoriel : Créer et découvrir pas à pas le modèle d'application de suivi des panneaux solaires 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Ce didacticiel vous guide tout au long du processus de création de l'application de suivi des panneaux solaires, qui comprend un exemple de modèle d'appareil avec des données simulées. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
 
@@ -25,13 +25,13 @@ Ce didacticiel vous guide tout au long du processus de création de l'applicatio
 > [!div class="checklist"]
 > * Créer gratuitement l'application de suivi des panneaux solaires
 > * Découvrir l'application pas à pas
-> * Supprimer des ressources
+> * Nettoyer les ressources
 
 
-Si vous n'avez pas d'abonnement, [créez un compte d'essai gratuit](https://azure.microsoft.com/free)
+Si vous n’avez pas d’abonnement, [créez un compte d’essai gratuit](https://azure.microsoft.com/free)
 
-## <a name="prerequisites"></a>Prérequis
-- Aucun
+## <a name="prerequisites"></a>Conditions préalables requises
+- None
 - Pour l'essai, un abonnement Azure est recommandé, mais pas obligatoire
 
 
@@ -49,16 +49,17 @@ Vous pouvez créer cette application en trois étapes simples :
 3. La commande **Créer une application** ouvre le formulaire **Nouvelle application**. Entrez les détails demandés, comme illustré dans la figure ci-dessous :
     * **Nom de l'application** : choisissez un nom pour votre application IoT Central. 
     * **URL** : choisissez une URL IoT Central. La plateforme vérifie son unicité.
-    * **Essai gratuit de 7 jours** : si vous disposez déjà d'un abonnement Azure, le paramètre par défaut est recommandé. Si vous n'avez pas d'abonnement Azure, commencez avec l'essai gratuit.
+    * **Essai gratuit de 7 jours** : si vous disposez déjà d'un abonnement Azure, le paramètre par défaut est recommandé. Si vous n’avez pas d’abonnement Azure, commencez avec l’évaluation gratuite.
     * **Informations de facturation** : l'application proprement dite est gratuite. Les champs Annuaire, Abonnement Azure et Région doivent obligatoirement être renseignés pour l'approvisionnement des ressources de votre application.
     * Cliquez sur bouton **Créer** en bas de la page pour créer votre application. L'opération prend environ une minute.
-        > [!div class="mx-imgBorder"]
-        > ![Formulaire Nouvelle application](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        ![Formulaire Nouvelle application](media/tutorial-iot-central-solar-panel/solar-panel-create-app.png)
+        
+        ![Informations de facturation du formulaire Nouvelle application](media/tutorial-iot-central-solar-panel/solar-panel-create-app-billinginfo.png)
 
 
 ### <a name="verify-the-application-and-simulated-data"></a>Vérifier l'application et les données simulées
 
-L'application pour panneaux solaires qui vient d'être créée vous appartient. Vous pouvez donc la modifier à tout moment. Avant de modifier l'application, vérifions qu'elle est déployée et qu'elle fonctionne comme prévu.
+L'application pour panneaux solaires qui vient d'être créée vous appartient. Vous pouvez donc la modifier à tout moment. Avant de modifier l’application, vérifions qu’elle est déployée et qu’elle fonctionne comme prévu.
 
 Pour vérifier la création de l'application et la simulation des données, accédez au **Tableau de bord**. Si vous voyez les vignettes et les données qu'elles contiennent, cela signifie que le déploiement de votre application a abouti. Soyez patient, car la simulation des données peut prendre 1 à 2 minutes. 
 
@@ -95,7 +96,7 @@ Cliquez sur l'onglet **Modèles d'appareils** pour afficher le modèle de pannea
 > ![Modèle de panneau solaire](media/tutorial-iot-central-solar-panel/solar-panel-device-templates.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous décidez de ne pas continuer à utiliser cette application, supprimez-la en procédant comme suit :
 
 1. Dans le volet gauche, ouvrez l'onglet Administration.

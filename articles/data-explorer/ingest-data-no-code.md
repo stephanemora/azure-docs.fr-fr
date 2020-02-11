@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Ingérer des données de supervision dans Azure Data Explorer sans une seule ligne de code'
+title: 'Tutoriel : Ingérer des données de supervision sans code - Azure Data Explorer'
 description: Dans ce tutoriel, vous allez apprendre à ingérer des données de supervision dans Azure Data Explorer sans une seule ligne de code et découvrir comment interroger ces données.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 01/29/2020
-ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 24e09f6578431e6b7f2a83be13bae59bf2e707de
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836557"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986204"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Tutoriel : Ingérer et interroger des données de supervision dans Azure Data Explorer 
 

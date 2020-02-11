@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 42eb603be0152b9e8cfb36d02e8f0602c40afe54
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028671"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031201"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Préparer les serveurs physiques à une évaluation et à une migration vers Azure
 
@@ -41,10 +41,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous devez définir des autorisations pour le déploiement Azure Migrate.
 
-- Autorisations pour permettre à votre compte Azure de créer un projet Azure Migrate.
-- Autorisations pour permettre à votre compte d’inscrire l’appliance Azure Migrate. L’appliance est utilisée pour la détection et la migration Hyper-V. Lors de l’inscription de l’appliance, Azure Migrate crée deux applications Azure Active Directory (Azure AD) qui identifient de façon unique l’appliance :
-    - La première application communique avec les points de terminaison de service Azure Migrate.
-    - La seconde application accède à un coffre de clés Azure Key Vault créé pendant l’inscription pour stocker les informations Azure AD App et les paramètres de configuration de l’appliance.
+**Tâche** | **autorisations**
+--- | ---
+**Créer un projet Azure Migrate** | Votre compte Azure doit être autorisé à créer un projet.
+**Inscrire l’appliance Azure Migrate** | Azure Migrate utilise une appliance Azure Migrate légère pour découvrir et évaluer les serveurs physiques à l’aide d’Azure Migrate Server Assessment. Cette appliance effectue la découverte des serveurs, puis envoie les métadonnées et les données de performances de ces derniers à Azure Migrate.<br/><br/>Lors de l’inscription de l’appliance, les fournisseurs de ressources suivants sont inscrits dans l’abonnement choisi dans l’appliance : Microsoft.OffAzure, Microsoft.Migrate et Microsoft.KeyVault. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Pour inscrire les fournisseurs de ressources, vous avez besoin d’un rôle Contributeur ou Propriétaire sur l’abonnement.<br/><br/> Dans le cadre de l’intégration, Azure Migrate crée une application Azure Active Directory (Azure AD) :<br/> \- L’application Azure AD est utilisée pour la communication (authentification et autorisation) entre les agents exécutés sur l’appliance et leurs services respectifs exécutés sur Azure. Cette application n’a pas les privilèges nécessaires pour effectuer des appels ARM ou des accès RBAC sur une ressource.
 
 
 
@@ -61,15 +61,14 @@ Vérifiez que vous disposez des autorisations nécessaires pour créer un projet
 
 ### <a name="assign-permissions-to-register-the-appliance"></a>Affecter des autorisations pour inscrire l’appliance
 
-Vous pouvez affecter des autorisations pour permettre à Azure Migrate de créer les applications Azure AD durant l’inscription d’appliance, à l’aide de l’une des méthodes suivantes :
+Vous pouvez attribuer des autorisations pour permettre à Azure Migrate de créer l’application Azure AD pendant l’inscription de l’appliance, à l’aide de l’une des méthodes suivantes :
 
 - L’administrateur général ou le locataire peuvent accorder des autorisations aux utilisateurs du locataire pour créer et inscrire des applications Azure AD.
 - L’administrateur général ou le locataire peuvent attribuer au compte le rôle Développeur d’applications (qui dispose des autorisations appropriées).
 
-Il est intéressant de noter que :
-
-- Les applications n’ont aucune autre autorisation d’accès sur l’abonnement que celles décrites ci-dessus.
-- Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance. Vous pouvez supprimer les autorisations, une fois l’appliance configurée.
+> [!NOTE]
+> - L’application n’a aucune autre autorisation d’accès sur l’abonnement que celles décrites ci-dessus.
+> - Vous avez uniquement besoin de ces autorisations pour inscrire une nouvelle appliance. Vous pouvez supprimer les autorisations, une fois l’appliance configurée.
 
 
 #### <a name="grant-account-permissions"></a>Accorder des autorisations au compte

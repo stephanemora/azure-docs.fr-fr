@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3022303f319ba7955f80ae0b52783fa9b5d411f2
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 01f969c3bc6f546025b3bbe5826181efdfa69be0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290068"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983630"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à DocuSign
 
@@ -48,7 +48,7 @@ Dans ce tutoriel, vous allez configurer et tester l’authentification unique Az
 * DocuSign prend en charge le provisionnement d’utilisateurs *juste-à-temps*.
 
 * DocuSign prend en charge le [provisionnement automatique d’utilisateurs](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial).
-* Après avoir configuré DocuSign, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Après avoir configuré DocuSign, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>Ajout de DocuSign à partir de la galerie
 
@@ -238,8 +238,6 @@ Quand vous sélectionnez la vignette DocuSign dans le volet d’accès, vous dev
 - [Essayer DocuSign avec Azure AD](https://aad.portal.azure.com/)
 
 - [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Guide pratique pour protéger DocuSign avec une visibilité et des contrôles avancés](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

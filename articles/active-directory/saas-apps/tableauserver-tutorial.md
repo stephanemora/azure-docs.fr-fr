@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Tableau Server | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Tableau Server | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Tableau Server.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b07c6d6317d8ca284008d271f507b965414bfbc1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d19a7cc8d81f9e6e913f147b24c5cce03ff82027
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257496"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986731"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Tableau Server
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-tableau-server"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Tableau Server
 
 Dans ce tutoriel, vous allez apprendre à intégrer Tableau Server à Azure Active Directory (Azure AD). Quand vous intégrez Tableau Server à Azure AD, vous pouvez :
 
@@ -33,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à intégrer Tableau Server à Azure Acti
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -45,6 +44,7 @@ Pour commencer, vous devez disposer de ce qui suit :
 Dans ce tutoriel, vous allez configurer et tester l’authentification unique Azure AD dans un environnement de test.
 
 * Tableau Server prend en charge l’authentification unique lancée par le **fournisseur de services**
+* Après avoir configuré Tableau Server, vous pouvez appliquer le contrôle de session, qui protège l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Le contrôle de session est étendu à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-tableau-server-from-the-gallery"></a>Ajout de Tableau Server à partir de la galerie
 
@@ -135,11 +135,11 @@ Dans cette section, vous allez autoriser B.Simon à utiliser l’authentificatio
 
 2. Sur l’onglet **CONFIGURATION**, sélectionnez **User Identity & Access** (Identité utilisateur et accès), puis l’onglet de la méthode d’**authentification**.
 
-    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
+    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-auth.png)
 
 3. Dans la page **CONFIGURATION**, effectuez les étapes suivantes :
 
-    ![Configurer l'authentification unique](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
+    ![Configure Single Sign-On](./media/tableauserver-tutorial/tutorial-tableauserver-config.png)
 
     a. Pour **Méthode d’authentification**, sélectionnez SAML.
 
@@ -184,3 +184,5 @@ Quand vous cliquez sur la vignette Tableau Server dans le panneau d’accès, vo
 - [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Essayer tableau Server avec Azure AD](https://aad.portal.azure.com/)
+
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

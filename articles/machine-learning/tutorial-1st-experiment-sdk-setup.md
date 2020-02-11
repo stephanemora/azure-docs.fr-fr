@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 84fa6b1d7f48ac7aea44e693a7df8945ba180d29
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 125cde85d3caa6fd1a33045e85c5383f83a669bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658642"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982532"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>Tutoriel : Bien démarrer avec la création de votre première expérience ML avec le SDK Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -101,7 +101,7 @@ Vous effectuez les étapes de configuration et d’exécution d’expérience su
 Si vous avez des widgets personnalisés ou préférez utiliser Jupyter/JupyterLab, sélectionnez la liste déroulante **Jupyter** à l’extrême droite, puis sélectionnez **Jupyter** ou **JupyterLab**. La nouvelle fenêtre de navigateur s’ouvre.
 
 > [!NOTE]
-> Les instances de calcul (préversion) sont actuellement disponibles uniquement pour les espaces de travail situés dans les régions **USA Centre Nord** ou **Royaume-Uni Sud**. D’autres régions seront bientôt prises en charge.
+> Les instances de calcul (préversion) ne sont actuellement disponibles que pour les espaces de travail dans les régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** et **Royaume-Uni Sud**. D’autres régions seront bientôt prises en charge.
 >Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place.  Vous pouvez utiliser une machine virtuelle Notebook ou une instance de calcul pour exécuter votre notebook. Une machine virtuelle continue à s’exécuter et à engendrer des frais, sauf si vous l’arrêtez. Vous pouvez l’arrêter manuellement à partir de l’onglet **Calcul** dans Studio ou consulter le [billet de blog](https://techcommunity.microsoft.com/t5/educator-developer-blog/azure-virtual-machine-auto-shutdown/ba-p/379342) sur l’activation de l’arrêt automatique planifié pour les machines virtuelles Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes

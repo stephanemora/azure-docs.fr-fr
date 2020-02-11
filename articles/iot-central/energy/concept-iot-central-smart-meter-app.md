@@ -1,5 +1,5 @@
 ---
-title: Concepts d’architecture dans Azure IoT Central - Énergie | Microsoft Docs
+title: Concepts d’architecture dans Azure IoT Central - Énergie | Microsoft Docs
 description: Cet article présente les concepts clés relatifs à l’architecture du modèle d’application d’énergie Azure IoT Central
 author: op-ravi
 ms.author: omravi
@@ -8,27 +8,27 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: cab593990369bb8a4135e82534a2eb409b574e96
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8f3772c1d65780337c421cfaaa7b70d7ac7186cf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582763"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024311"
 ---
 # <a name="azure-iot-central---smart-meter-app-architecture"></a>Azure IoT Central - Architecture d’application pour compteurs intelligents
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Cet article fournit une vue d’ensemble de l’architecture du modèle d’application de suivi des compteurs intelligents. Le diagramme ci-dessous illustre une architecture couramment utilisée pour l’application de compteur intelligent sur Azure à l’aide de la plateforme IoT Central.
 
 > [!div class="mx-imgBorder"]
-> ![architecture pour compteurs intelligents](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
+> ![architecture pour panneau solaire](media/concept-iot-central-smart-meter/smart-meter-app-architecture.png)
 
 Cette architecture est constituée des composants suivants. Certaines solutions peuvent ne pas avoir besoin de tous les composants listés ici.
 
 ## <a name="smart-meters-and-connectivity"></a>Compteurs intelligents et connectivité 
 
-Un compteur intelligent est un des appareils les plus importants parmi l’ensemble des ressources énergétiques. Il enregistre et communique les données de consommation d’énergie aux services publics pour le suivi et d’autres cas d’usage, tels que la facturation et la réponse à la demande. En fonction du type de compteur, il peut se connecter à IoT Central via des passerelles ou d’autres appareils ou systèmes intermédiaires, tels que des appareils de périmètre et des systèmes principaux. Créez un pont IoT Central pour connecter des appareils qui ne peuvent pas être connectés directement. Le pont IoT Central est une solution open source ; vous pouvez trouver des informations complètes à son sujet [ici](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Un compteur intelligent est un des appareils les plus importants parmi l’ensemble des ressources énergétiques. Il enregistre et communique les données de consommation d’énergie aux services publics pour le suivi et d’autres cas d’usage, tels que la facturation et la réponse à la demande. Selon le type du compteur, il peut se connecter à IoT Central via des passerelles ou d’autres appareils ou systèmes intermédiaires, tels que des appareils de périmètre et des systèmes de tête de réseau. Créez un pont d’appareil IoT Central pour connecter les appareils qui ne peuvent pas être connectés directement. Le pont IoT Central est une solution open source ; vous pouvez trouver des informations complètes à son sujet [ici](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 ## <a name="iot-central-platform"></a>Plateforme IoT Central

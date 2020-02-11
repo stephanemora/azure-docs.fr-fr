@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 12/17/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: c085ce4aba6760b09dcc3eaf2f6232c5cc904706
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 922e8a71a22db975685cb82bbd51a125c619ccf2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466762"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989488"
 ---
 ### <a name="regions"></a>Quelles régions sont disponibles ?
 
@@ -21,7 +21,7 @@ ms.locfileid: "75466762"
 
 ### <a name="publicip"></a>Ai-je besoin d’une adresse IP publique sur ma machine virtuelle ?
 
-Vous n’avez PAS besoin d’une adresse IP publique sur la machine virtuelle Azure à laquelle vous êtes connecté avec le service Azure Bastion. Le service Bastion va ouvrir la session/connexion RDP/SSH à votre machine virtuelle sur l’adresse IP privée de celle-ci, au sein de votre réseau virtuel.
+Quand vous vous connectez à une machine virtuelle avec Azure Bastion, vous n’avez PAS besoin d’une adresse IP publique sur la machine virtuelle Azure à laquelle vous vous connectez. Le service Bastion va ouvrir la session/connexion RDP/SSH à votre machine virtuelle sur l’adresse IP privée de celle-ci, au sein de votre réseau virtuel.
 
 ### <a name="is-ipv6-supported"></a>IPv6 est-il pris en charge ?
 
@@ -62,7 +62,7 @@ Azure Bastion prend actuellement en charge la disposition de clavier en-US-QWERT
 ### <a name="udr"></a>Le routage défini par l’utilisateur (UDR) est-il pris en charge sur un sous-réseau Azure Bastion ?
 
 Non. Le routage UDR n’est pas pris en charge sur un sous-réseau Azure Bastion.
-Pour les scénarios qui incluent Azure Bastion et Pare-feu Azure/Appliance virtuelle réseau (NVA) dans le même réseau virtuel, vous n’avez pas besoin de forcer le trafic d’un sous-réseau Azure Bastion vers le Pare-feu Azure, car la communication entre Azure Bastion et vos machines virtuelles est privée. Pour plus d’informations, consultez [Accessing VMs behind Azure Firewall with Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
+Pour les scénarios qui incluent Azure Bastion et Pare-feu Azure/Appliance virtuelle réseau (NVA) dans le même réseau virtuel, vous n’avez pas besoin de forcer le trafic d’un sous-réseau Azure Bastion vers le Pare-feu Azure, car la communication entre Azure Bastion et vos machines virtuelles est privée. Pour plus d’informations, consultez [Accès aux machines virtuelles derrière le pare-feu Azure avec Bastion](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/).
 
 ### <a name="filetransfer"></a>Le transfert de fichiers est-il pris en charge avec une session RDP Azure Bastion ?
 

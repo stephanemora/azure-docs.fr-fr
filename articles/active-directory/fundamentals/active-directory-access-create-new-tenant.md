@@ -10,14 +10,14 @@ ms.workload: identity
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: ajburnle
-ms.custom: it-pro, seodec18
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ef577f5d086b22779392cd6d8b5d43a340f7329
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de205beaf9800c2061cc41343b4153bd0e2b5dc7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423097"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024600"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Démarrage rapide : Créer un locataire dans Azure Active Directory
 Vous pouvez effectuer toutes vos tâches d’administration à l’aide du portail Azure Active Directory (Azure AD), notamment la création d’un locataire pour votre organisation. 
@@ -31,7 +31,7 @@ Une fois connecté au portail Azure, vous pouvez créer un locataire pour votre 
 
 ### <a name="to-create-a-new-tenant"></a>Pour créer un locataire
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) de votre organisation avec un compte d’administrateur général.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) de votre organisation.
 
 1. Dans le menu du Portail Azure, sélectionnez **Créer une ressource**.  
 
@@ -58,6 +58,7 @@ Votre nouveau locataire est créé avec le domaine contoso.onmicrosoft.com.
 ## <a name="clean-up-resources"></a>Nettoyer les ressources
 Si vous ne pensez pas continuer à utiliser cette application, vous pouvez supprimer le locataire en procédant comme suit :
 
+- Veillez à être connecté à l’annuaire que vous souhaitez supprimer via le filtre **Répertoire + abonnement** dans le portail Azure, puis basculez vers l’annuaire cible si nécessaire.
 - Sélectionnez **Azure Active Directory** puis, dans la page **Contoso - Vue d’ensemble**, sélectionnez **Supprimer l’annuaire**.
 
     Le locataire et ses informations associées sont supprimés.

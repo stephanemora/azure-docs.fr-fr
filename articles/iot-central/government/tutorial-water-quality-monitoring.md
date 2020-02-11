@@ -1,6 +1,6 @@
 ---
-title: 'Didacticiel : Créer une application de suivi de la qualité de l’eau avec Azure IoT Central'
-description: 'Didacticiel : Découvrez comment créer une application de suivi de la qualité de l’eau à l’aide de modèles d’application Azure IoT Central.'
+title: 'Tutoriel : Créer une application de suivi de la qualité de l’eau avec Azure IoT Central'
+description: 'Tutoriel : Découvrez comment créer une application de suivi de la qualité de l’eau à l’aide de modèles d’application Azure IoT Central.'
 author: miriambrus
 ms.author: miriamb
 ms.date: 11/12/2019
@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 7014882e7da9eb7ab7df65cd20403982a46018a3
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d738868e0e4ca7599f4aaf8d6e09d22f26a8db92
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112606"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016372"
 ---
-# <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Didacticiel : Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
+# <a name="tutorial-create-a-water-quality-monitoring-application-in-azure-iot-central"></a>Tutoriel : Créer une application de suivi de la qualité de l’eau dans Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Ce tutoriel vous guide tout au long de la création d’une application de suivi de la qualité de l’eau dans Azure IoT Central. Vous créez l’application à partir du modèle d’application Azure IoT Central **Water quality monitoring** (Suivi de la qualité de l’eau).
 
@@ -32,7 +32,7 @@ Ce didacticiel vous apprend à effectuer les opérations suivantes :
 > * Configurer des travaux.
 > * Personnaliser le marquage de l’application à l’aide d’une étiquette blanche.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Nous vous recommandons d’avoir un abonnement Azure pour suivre ce tutoriel. Si vous n’avez pas d’abonnement Azure, vous pouvez en créer un sur la [page d’inscription à Azure](https://aka.ms/createazuresubscription).
 
@@ -63,6 +63,8 @@ Dans cette section, vous utilisez le modèle Azure IoT Central **Water quality m
 1. Sélectionnez le bouton **Create** (Créer) en bas à gauche de la page.
 
     ![Page de création d’une application Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1.png)
+
+    ![Informations de facturation d’une nouvelle application Azure IoT Central](./media/tutorial-waterqualitymonitoring/new-application-waterqualitymonitoring1-billinginfo.png)
 
 Vous avez désormais créé une application de suivi de la qualité de l’eau à l’aide du modèle Azure IoT Central **Water quality monitoring** (Suivi de la qualité de l’eau).
 
@@ -235,7 +237,7 @@ En tant que réalisateur de logiciel, vous pouvez modifier plusieurs paramètres
 1. Sous **Couleurs du navigateur**, vous pouvez remplacer les valeurs par défaut par des codes couleur hexadécimaux HTML.
 1. Sélectionnez **Paramètres** pour modifier la valeur de **Thème**.
 
-   ![Personnalisation de votre application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
+   ![Personnaliser votre application](./media/tutorial-waterqualitymonitoring/waterqualitymonitoring-customize-your-application1.png)
 
 ### <a name="update-the-application-image"></a>Mettre à jour l’image de l’application
 
@@ -243,7 +245,7 @@ En tant que réalisateur de logiciel, vous pouvez modifier plusieurs paramètres
 
 1. Utilisez le bouton **Sélectionner une image** pour choisir une image à télécharger en tant qu’image de l’application.
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Si vous ne pensez pas continuer à utiliser cette application, supprimez l’application en procédant comme suit :
 

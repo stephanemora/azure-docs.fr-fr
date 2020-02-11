@@ -7,22 +7,22 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a862a221f9fe2db5448473bddcca2a9932716e0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464086"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016508"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Création de solutions pour le secteur public avec Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-Commencez à créer des solutions de ville intelligente à l’aide des modèles d’application Azure IoT Central. Commencez dès maintenant avec les modèles **Suivi de la qualité de l’eau**, **Suivi de la consommation d’eau** et **Gestion connectée des déchets**.
+
+Lancez-vous dans la génération de solutions de ville intelligente à l’aide de modèles d’application Azure IoT Central. Commencez dès maintenant avec les modèles **Suivi de la qualité de l’eau**, **Suivi de la consommation d’eau** et **Gestion connectée des déchets**.
 
 ## <a name="what-is-water-quality-monitoring-application-template"></a>Qu’est-ce que le modèle d’application Suivi de la qualité de l’eau ?   
 
-La surveillance de la qualité de l’eau repose sur des techniques d’échantillonnage manuelles et l’analyse en laboratoire de terrain, ce qui est laborieux et coûteux. La surveillance à distance de la qualité de l’eau en temps réel permet de gérer les problèmes de qualité d’eau avant que des citoyens soient affectés. De plus, avec l’analytique avancée, les distributeurs d’eau et les agences environnementales peuvent réagir à des avertissements précoces concernant des problèmes potentiels de qualité de l’eau et planifier le traitement de l’eau.  
+La surveillance de la qualité de l’eau repose sur des techniques d’échantillonnage manuelles et l’analyse en laboratoire de terrain, ce qui est laborieux et coûteux. La supervision à distance de la qualité de l’eau en temps réel permet de gérer les problèmes de qualité de l’eau avant que des citoyens soient affectés. De plus, avec l’analytique avancée, les distributeurs d’eau et les agences environnementales peuvent réagir à des avertissements précoces concernant des problèmes potentiels de qualité de l’eau et planifier le traitement de l’eau.  
 
 L’application Suivi de la qualité de l’eau est un modèle d’application IoT Central destiné à vous aider à démarrer rapidement le développement de votre solution IoT et à permettre aux distributeurs d’eau de surveiller numériquement la qualité de l’eau dans des villes intelligentes. 
 
@@ -40,14 +40,14 @@ Prise en main avec le [didacticiel d’application Suivi de la qualité de l’e
 
 ## <a name="what-is-water-consumption-monitoring-application-template"></a>Qu’est-ce que le modèle d’application Suivi de la consommation d’eau ? 
 
-Le suivi traditionnel de la consommation d’eau repose sur les distributeurs d’eau qui relèvent manuellement les compteurs de consommation d’eau sur le terrain. De plus en plus de villes remplacent les compteurs traditionnels par des compteurs intelligents avancés permettant une surveillance à distance de la consommation, ainsi qu’un contrôle à distance des vannes pour maîtriser le débit d’eau. Le suivi de la consommation d’eau combiné avec un message de commentaire numérique adressé au consommateur peut contribuer à sensibiliser à la consommation d’eau et à la réduction de celle-ci. 
+Le suivi traditionnel de la consommation d’eau repose sur les distributeurs d’eau qui relèvent manuellement les compteurs de consommation d’eau sur le terrain. De plus en plus de villes remplacent les compteurs traditionnels par des compteurs intelligents avancés permettant une supervision à distance de la consommation, ainsi qu’un contrôle à distance des vannes pour maîtriser le débit d’eau. Le suivi de la consommation d’eau combiné avec un message de commentaire numérique adressé au consommateur peut contribuer à sensibiliser à la consommation d’eau et à la réduction de celle-ci. 
 
 
 L’application Suivi de la consommation d’eau est un modèle d’application IoT Central destiné à vous aider à démarrer rapidement le développement de votre solution IoT et à permettre aux distributeurs d’eau et aux villes de surveiller et contrôler à distance le début d’eau afin de réduire la consommation. 
 
   ![Modèle d’application Suivi de la consommation d’eau](./media/overview-iotcentral-government/waterconsumptionmonitoring-dashboardfull.png)
 
-Le modèle d’application Suivi de la consommation d’eau est constitué de composants préconfigurés :
+Le modèle d’application Suivi de la consommation d’eau est constitué des composants préconfigurés suivants :
 * Exemples de tableaux de bord d’opérateur
 * Exemples de modèles d’appareil de surveillance de la qualité de l’eau
 * Appareils de surveillance de la qualité de l’eau simulés

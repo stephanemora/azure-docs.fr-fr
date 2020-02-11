@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773053"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022135"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Création de solutions de vente au détail avec Azure IoT Central
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 Azure IoT Central est une plateforme d’application IoT qui réduit les charges et les coûts associés au développement, à la gestion et à la maintenance de solutions IoT de qualité professionnelle. Le fait de créer avec Azure IoT Central vous offre la possibilité de consacrer du temps, de l’argent et de l’énergie à transformer votre activité avec des données IoT, plutôt qu’à simplement gérer et mettre à jour une infrastructure IoT complexe et en constante évolution.
 
@@ -78,7 +78,7 @@ Pour plus d’informations, consultez le tutoriel [Déployer et parcourir un mod
 
 Pour de nombreux détaillants, les bonnes conditions ambiantes dont bénéficient leurs magasins est ce qui les distingue de leurs concurrents. Les détaillants ont intérêt à maintenir des conditions ambiantes agréables dans leurs magasins pour le bien-être de leurs clients.  
 
-En tant que créateur de solutions, vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Surveillance des conditions » d’IoT Central afin de créer une solution de bout en bout. Le modèle d’application vous permet de connecter et de superviser numériquement l’environnement d’un magasin de détail à l’aide de divers capteurs. Ces capteurs génèrent des données de télémétrie que vous pouvez convertir en insights métier afin d’aider le détaillant à réduire ses coûts d’exploitation et à fournir une expérience optimale pour ses clients.
+En tant que créateur de solutions, vous pouvez utiliser le modèle d’application « Analytique dans le magasin – Surveillance des conditions » d’IoT Central afin de créer une solution de bout en bout. Le modèle d’application vous permet de connecter et de superviser numériquement l’environnement d’un magasin de détail en utilisant différentes sortes de capteurs. Ces capteurs génèrent des données de télémétrie que vous pouvez convertir en insights métier afin d’aider le détaillant à réduire ses coûts d’exploitation et à fournir une expérience optimale pour ses clients.
 
 Utilisez le modèle d’application pour :
 
@@ -149,8 +149,8 @@ Le modèle d’application Centre de microtraitement d’IoT Central permet aux
 
 Ce modèle d’application vous permet de : 
 
-- Connecter de façon simple une série de capteurs IoT (tels que des robots ou des capteurs de supervision des conditions ambiantes) à une instance d’application IoT Central
-- Superviser et gérer l’intégrité du réseau de capteurs, ainsi que les appareils de passerelle de l’environnement
+- Connecter de façon continue différentes sortes de capteurs IoT comme des robots ou des capteurs de supervision des conditions ambiantes à une instance d’application IoT Central
+- Superviser et gérer l’intégrité du réseau de capteurs et les éventuels appareils de passerelle de l’environnement
 - Créer des règles personnalisées en lien avec les conditions ambiantes au sein d’un centre de traitement afin de déclencher les alertes nécessaires
 - Convertir les conditions ambiantes du centre de traitement en insights exploitables par l’équipe de l’entrepôt
 - Exporter des insights agrégés dans des applications métier existantes ou nouvelles à l’intention des vendeurs

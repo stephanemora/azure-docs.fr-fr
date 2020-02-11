@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514553"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935206"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Qu’est-ce que l’instance managée Azure SQL Database ?
 
@@ -303,7 +303,7 @@ Le diagramme suivant présente la compatibilité de la surface d’exposition da
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Principales différences entre une instance SQL Server locale et une instance managée
 
-L’option de déploiement d’instance managée est toujours à jour dans le cloud, ce qui signifie que certaines fonctionnalités de l’instance locale de SQL Server peuvent quant à elles être obsolètes, mises hors service ou remplacées par d’autres. Dans certains cas, les outils ont besoin de reconnaître qu’une fonctionnalité particulière agit de façon légèrement différente ou que le service n’est pas exécuté dans un environnement que vous ne contrôlez pas entièrement :
+L’option de déploiement d’instance managée est toujours à jour dans le cloud, ce qui signifie que certaines fonctionnalités de l’instance locale de SQL Server peuvent quant à elles être obsolètes, mises hors service ou remplacées par d’autres. Dans certains cas, les outils doivent reconnaître qu'une fonctionnalité particulière agit de façon légèrement différente ou que le service est exécuté dans un environnement que vous ne contrôlez pas entièrement :
 
 - La haute disponibilité est intégrée et préconfigurée avec une technologie similaire aux [groupes de disponibilité AlwaysOn](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Les sauvegardes sont automatisées et la restauration dans le temps limitée. Le client peut lancer des sauvegardes `copy-only` qui n’interfèrent pas avec la chaîne de sauvegarde automatique.

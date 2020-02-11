@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 0e841b1f386d45ddb4af8598855d8e739750307e
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 1f6f282406c6813b2b126c300f21bda21e8f9464
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910740"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988972"
 ---
 # <a name="migrate-from-google-maps-to-azure-maps"></a>Migrer de Google Maps vers Azure Maps
 
@@ -22,11 +22,11 @@ Ce didacticiel fournit des insights sur la migration d’applications web, mobil
 
 ## <a name="azure-maps-platform-overview"></a>Vue d’ensemble de la plateforme Azure Maps
 
-Azure Maps offre aux développeurs de tous les secteurs d’activité de puissantes fonctionnalités géospatiales comprenant les données cartographiques régulièrement mises à jour pour fournir un contexte géographique aux applications mobiles et web. Azure Maps est un jeu d’API REST conforme à l’API Azure One pour les cartes, la recherche, le routage, le trafic, les fuseaux horaires, la géolocalisation, le geofencing, les données cartographiques, la météo, la mobilité et les opérations spatiales. Il est accompagné de kits SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
+Azure Maps offre aux développeurs de tous les secteurs d’activité de puissantes fonctionnalités géospatiales comprenant les données cartographiques régulièrement mises à jour pour fournir un contexte géographique aux applications mobiles et web. Azure Maps dispose d’un ensemble d’API REST conformes à l’API Azure One. Ces API REST offrent les fonctionnalités de cartes, de recherche, d’itinéraires, de trafic, de fuseaux horaires, de géolocalisation, de geofencing, de données cartographiques, de météo, de mobilité et d’opérations spatiales. Les opérations sont accompagnées de SDK web et Android pour rendre le développement facile, flexible et portable sur de nombreuses plateformes.
 
 ## <a name="high-level-platform-comparison"></a>Comparaison générale de plateformes
 
-Le tableau suivant fournit une liste générale des fonctionnalités de Google Maps et la prise en charge relative de ces fonctionnalités dans Azure Maps. Cette liste n’inclut pas d’autres fonctionnalités Azure Maps telles que l’accessibilité, les API de geofencing, les isochrones, les opérations spatiales, l’accès direct aux mosaïques, les services Batch et les comparaisons de couverture de données (par exemple, la couverture d’image).
+Le tableau suivant fournit une liste générale des fonctionnalités Azure Maps, lesquelles correspondent aux fonctionnalités Google Maps. Cette liste n’affiche pas toutes les fonctionnalités Azure Maps. Les autres fonctionnalités Azure Maps sont notamment l’accessibilité, les API de geofencing, les isochrones, les opérations spatiales, l’accès direct aux mosaïques de carte, les services Batch et les comparaisons de couverture de données (autrement dit, la couverture d’imagerie).
 
 | Fonctionnalité Google Maps         | Support Azure Maps                     |
 |-----------------------------|:--------------------------------------:|
@@ -44,19 +44,19 @@ Le tableau suivant fournit une liste générale des fonctionnalités de Google M
 | Photos des lieux               | N/A                                    |
 | Autocomplétion des lieux          | ✓                                      |
 | Cartes statiques                 | ✓                                      |
-| Affichage des rues statiques          | N/A                                    |
+| Vue statique des rues          | N/A                                    |
 | Time Zone (Fuseau horaire)                   | ✓                                      |
 | API Incorporation de cartes           | N/A                                    |
 | URL de cartes                    | N/A                                    |
 
-Google Maps fournit une authentification basée sur les clés de base. Azure Maps fournit une authentification basée sur les clés de base, ainsi qu’une authentification Azure Active Directory hautement sécurisée.
+Google Maps fournit l’authentification basée sur les clés de base. Azure Maps fournit l’authentification basée sur les clés de base et l’authentification Azure Active Directory hautement sécurisée.
 
 ## <a name="licensing-considerations"></a>Considérations relatives aux licences
 
 Lors de la migration vers Azure Maps à partir de Google Maps, les points suivants doivent être pris en compte en ce qui concerne les licences.
 
-- Azure Maps facture l’utilisation de cartes interactives en fonction du nombre de mosaïques chargées, tandis que Google Maps facture le chargement du contrôle de carte. Dans les kits de développement logiciel (SDK) Azure Maps interactifs, les mosaïques sont automatiquement mises en cache pour réduire le coût du développeur. Une transaction Azure Maps est générée toutes les 15 mosaïques qui sont chargées. Les kits de développement logiciel (SDK) Azure Maps interactifs utilisent des mosaïques de 512 pixels et génèrent en moyenne une transaction ou moins par vue de page.
-- Il est souvent beaucoup plus économique de remplacer les images de carte statiques des services web Google Maps par le kit de développement logiciel (SDK) web Azure Maps, car il utilise des mosaïques et, à moins que l’utilisateur n’effectue un panoramique et un zoom sur la carte, elles génèrent souvent uniquement une fraction de transaction par chargement de carte. Le kit de développement logiciel (SDK) web Azure Maps dispose d’options pour désactiver le panoramique et le zoom. En outre, le kit de développement logiciel (SDK) web Azure Maps offre beaucoup plus d’options de visualisation qu’un service web de cartes statiques.
+- Azure Maps facture l’utilisation de cartes interactives, qui sont basées sur le nombre de mosaïques de carte chargées, mais Google Maps facture le chargement du contrôle de carte. Dans les kits de développement logiciel (SDK) Azure Maps interactifs, les mosaïques sont automatiquement mises en cache pour réduire le coût du développeur. Une transaction Azure Maps est générée toutes les 15 mosaïques qui sont chargées. Les kits de développement logiciel (SDK) Azure Maps interactifs utilisent des mosaïques de 512 pixels et génèrent en moyenne une transaction ou moins par vue de page.
+- Il est souvent beaucoup plus économique de remplacer les images de carte statiques des services web Google Maps par le SDK web Azure Maps. Ce dernier utilise des mosaïques de carte et, sauf si l’utilisateur effectue des panoramiques et des zooms sur la carte, il ne génère souvent qu’une fraction de transaction par charge de carte. Le kit de développement logiciel (SDK) web Azure Maps dispose d’options pour désactiver le panoramique et le zoom. En outre, le kit de développement logiciel (SDK) web Azure Maps offre beaucoup plus d’options de visualisation qu’un service web de cartes statiques.
 - Azure Maps permet de stocker les données de sa plateforme dans Azure. Elles peuvent également être mises en cache ailleurs pendant six mois au maximum, en fonction des [conditions d’utilisation](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=46).
 
 Voici quelques ressources associées pour Azure Maps :

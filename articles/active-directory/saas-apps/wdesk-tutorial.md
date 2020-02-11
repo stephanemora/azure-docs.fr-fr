@@ -1,5 +1,5 @@
 ---
-title: "Didacticiel : Intégration d'Azure Active Directory à Wdesk | Microsoft Docs"
+title: "Tutoriel : Intégration d'Azure Active Directory à Wdesk | Microsoft Docs"
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Wdesk.
 services: active-directory
 documentationCenter: na
@@ -11,34 +11,31 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/28/2019
+ms.date: 01/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 0f614838ae44b5c4263bc9eac81e43fd13f87baa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4cfcf20fc7a6a3532f65c3e797da6c876844d2c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087283"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985507"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-wdesk"></a>Didacticiel : Intégration d'Azure Active Directory à Wdesk
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Wdesk
 
-Ce didacticiel vous montrera comment intégrer Wdesk à Azure Active Directory (Azure AD).
-L’intégration de Wdesk dans Azure AD vous offre les avantages suivants :
+Dans ce tutoriel, vous allez découvrir comment intégrer Wdesk à Azure Active Directory (Azure AD). Quand vous intégrez Wdesk à Azure AD, vous pouvez :
 
-* Dans Azure AD, vous pouvez contrôler qui a accès à Wdesk.
-* Vous pouvez permettre aux utilisateurs de se connecter automatiquement à Wdesk (par le biais de l’authentification unique) avec leur compte Azure AD.
-* Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
+* Contrôler dans Azure AD qui a accès à Wdesk.
+* Permettre aux utilisateurs de se connecter automatiquement à Wdesk avec leur compte Azure AD
+* Gérer vos comptes à un emplacement central : le Portail Azure.
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
-Pour configurer l’intégration d’Azure AD avec Wdesk, vous avez besoin des éléments suivants :
+Pour commencer, vous devez disposer de ce qui suit :
 
-* Un abonnement Azure AD Si vous n’avez pas d’environnement Azure AD, vous pouvez obtenir un [compte gratuit](https://azure.microsoft.com/free/)
+* Un abonnement Azure AD Si vous ne disposez d’aucun abonnement, vous pouvez obtenir [un compte gratuit](https://azure.microsoft.com/free/).
 * Un abonnement Wdesk pour lequel l’authentification unique est activée
 
 ## <a name="scenario-description"></a>Description du scénario
@@ -46,44 +43,34 @@ Pour configurer l’intégration d’Azure AD avec Wdesk, vous avez besoin des 
 Dans ce didacticiel, vous configurez et testez l’authentification unique Azure AD dans un environnement de test.
 
 * Wdesk prend en charge l’authentification unique lancée par **le fournisseur de services** et le **fournisseur d’identité**
+* Après avoir configuré Wdesk, vous pouvez appliquer des contrôles de session qui protègent l’exfiltration et l’infiltration des données sensibles de votre organisation en temps réel. Les contrôles de session sont étendus à partir de l’accès conditionnel. [Découvrir comment appliquer un contrôle de session avec Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-wdesk-from-the-gallery"></a>Ajout de Wdesk depuis la galerie
 
 Pour configurer l’intégration de Wdesk avec Azure AD, vous devez ajouter Wdesk à partir de la galerie à votre liste d’applications SaaS gérées.
 
-**Pour ajouter Wdesk à partir de la galerie, procédez comme suit :**
-
-1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)** , cliquez sur l’icône **Azure Active Directory**.
-
-    ![Bouton Azure Active Directory](common/select-azuread.png)
-
-2. Accédez à **Applications d’entreprise**, puis sélectionnez l’option **Toutes les applications**.
-
-    ![Panneau Applications d’entreprise](common/enterprise-applications.png)
-
-3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
-
-    ![Bouton Nouvelle application](common/add-new-app.png)
-
-4. Dans la zone de recherche, tapez **Wdesk**, sélectionnez **Wdesk** dans le volet de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
-
-     ![Wdesk dans la liste des résultats](common/search-new-app.png)
+1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+1. Dans le panneau de navigation gauche, sélectionnez le service **Azure Active Directory**.
+1. Accédez à **Applications d’entreprise**, puis sélectionnez **Toutes les applications**.
+1. Pour ajouter une nouvelle application, sélectionnez **Nouvelle application**.
+1. Dans la section **Ajouter à partir de la galerie**, tapez **Wdesk** dans la zone de recherche.
+1. Sélectionnez **Wdesk** dans le volet de résultats, puis ajoutez l’application. Patientez quelques secondes pendant que l’application est ajoutée à votre locataire.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
 Dans cette section, vous allez configurer et tester l’authentification unique Azure AD auprès de Wdesk, avec un utilisateur de test appelé **Britta Simon**.
 Pour que l’authentification unique fonctionne, une relation entre l’utilisateur Azure AD et l’utilisateur Wdesk associé doit être établie.
 
-Pour configurer et tester l’authentification unique Azure AD avec Wdesk, vous devez suivre les indications des sections suivantes :
+Pour configurer et tester l’authentification unique Azure AD avec Wdesk, suivez les indications des sections ci-après :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Configurer l’authentification unique Wdesk](#configure-wdesk-single-sign-on)** pour configurer les paramètres de l’authentification unique côté application.
-3. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Créer un utilisateur de test Wdesk](#create-wdesk-test-user)** pour avoir un équivalent de Britta Simon dans Wdesk lié à la représentation Azure AD de l’utilisateur.
-6. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-sso)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+    1. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec B. Simon.
+    1. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à B. Simon d’utiliser l’authentification unique Azure AD.
+1. **[Configurer l’authentification unique Wdesk](#configure-wdesk-sso)** pour configurer les paramètres de l’authentification unique côté application.
+    1. **[Créer un utilisateur de test Wdesk](#create-wdesk-test-user)** pour avoir un équivalent de B.Simon dans Wdesk lié à la représentation Azure AD de l’utilisateur.
+1. **[Tester l’authentification unique](#test-sso)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+### <a name="configure-azure-ad-sso"></a>Configurer l’authentification unique Azure AD
 
 Dans cette section, vous activez l’authentification unique Azure AD dans le portail Azure.
 
@@ -132,42 +119,6 @@ Pour configurer l’authentification unique Azure AD auprès de Wdesk, effectue
 
     c. URL de déconnexion
 
-### <a name="configure-wdesk-single-sign-on"></a>Configurer l’authentification unique Wdesk
-
-1. Ouvrez une autre fenêtre de navigateur web, puis connectez-vous à Wdesk en tant qu’administrateur de la sécurité.
-
-2. En bas à gauche, cliquez sur **administrateur** et sélectionnez **Administrateur de compte** :
- 
-     ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
-
-3. Dans Administrateur Wdesk, accédez à **Sécurité**, puis **SAML** > **Paramètres SAML** :
-
-    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
-
-4. Dans **Paramètres généraux**, cochez l’option **Activer l’authentification unique SAML** :
-
-    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
-
-5. Dans **Détails sur le fournisseur de services**, procédez comme suit :
-
-    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
-
-      a. Copiez l’**URL de connexion** et collez-la dans la zone de texte **URL d’authentification** sur le portail Azure.
-   
-      b. Copiez l’**URL de métadonnée** et collez-la dans la zone de texte **Identificateur** sur le portail Azure.
-       
-      c. Copiez l’**URL de consommateur** et collez-la dans la zone de texte **URL de réponse** sur le portail Azure.
-   
-      d. Cliquez sur **Enregistrer** sur le portail Azure pour enregistrer les modifications.      
-
-6. Cliquez sur **Configurer les paramètres du fournisseur d’identité** pour ouvrir la boîte de dialogue **Modifier les paramètres du fournisseur d’identité**. Cliquez sur **Choisir un fichier** pour trouver le fichier **Metadata.xml** que vous avez enregistré depuis le portail, puis chargez-le.
-    
-    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
-  
-7. Cliquez sur **Save changes**.
-
-    ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
-
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD 
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
@@ -186,7 +137,7 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
-    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple, BrittaSimon@contoso.com
+    b. Dans le champ **Nom d’utilisateur**, tapez brittasimon@yourcompanydomain.extension. Par exemple : BrittaSimon@contoso.com
 
     c. Cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
@@ -218,6 +169,42 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 
 7. Dans la boîte de dialogue **Ajouter une attribution**, cliquez sur le bouton **Attribuer**.
 
+## <a name="configure-wdesk-sso"></a>Configurer l’authentification unique Wdesk
+
+1. Ouvrez une autre fenêtre de navigateur web, puis connectez-vous à Wdesk en tant qu’administrateur de la sécurité.
+
+2. En bas à gauche, cliquez sur **administrateur** et sélectionnez **Administrateur de compte** :
+ 
+     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+
+3. Dans Administrateur Wdesk, accédez à **Sécurité**, puis **SAML** > **Paramètres SAML** :
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
+
+4. Dans **Paramètres généraux**, cochez l’option **Activer l’authentification unique SAML** :
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
+
+5. Dans **Détails sur le fournisseur de services**, procédez comme suit :
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
+
+      a. Copiez l’**URL de connexion** et collez-la dans la zone de texte **URL d’authentification** sur le portail Azure.
+   
+      b. Copiez l’**URL de métadonnée** et collez-la dans la zone de texte **Identificateur** sur le portail Azure.
+       
+      c. Copiez l’**URL de consommateur** et collez-la dans la zone de texte **URL de réponse** sur le portail Azure.
+   
+      d. Cliquez sur **Enregistrer** sur le portail Azure pour enregistrer les modifications.      
+
+6. Cliquez sur **Configurer les paramètres du fournisseur d’identité** pour ouvrir la boîte de dialogue **Modifier les paramètres du fournisseur d’identité**. Cliquez sur **Choisir un fichier** pour trouver le fichier **Metadata.xml** que vous avez enregistré depuis le portail, puis chargez-le.
+    
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
+  
+7. Cliquez sur **Save changes**.
+
+    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
+
 ### <a name="create-wdesk-test-user"></a>Créer un utilisateur de test Wdesk
 
 Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être provisionnés dans Wdesk. Dans Wdesk, l’approvisionnement est une tâche manuelle.
@@ -228,7 +215,7 @@ Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être provisi
 
 2. Accédez à **Administrateur** > **Compte Administrateur**.
 
-     ![Configurer l'authentification unique](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 3. Dans **Personnes**, cliquez sur **Membres**.
 
@@ -254,7 +241,7 @@ Pour se connecter à Wdesk, les utilisateurs d’Azure AD doivent être provisi
 
     ![Création d’un utilisateur de test Azure AD](./media/wdesk-tutorial/createuser5.png)
 
-### <a name="test-single-sign-on"></a>Tester l’authentification unique 
+### <a name="test-sso"></a>Tester l’authentification unique (SSO) 
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
@@ -266,5 +253,6 @@ Lorsque vous cliquez sur la vignette Wdesk dans le volet d’accès, vous devez 
 
 - [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Qu’est-ce que l’accès conditionnel dans Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Qu’est-ce que le contrôle de session dans Microsoft Cloud App Security ?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 367f6253f228e963edb7b178f8b25da259a5e2c7
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 031890b389e78c4ca01e6d6ae52430db865ede2f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700564"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931058"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plateforme d’identités Microsoft et flux de code d’autorisation OAuth
 
@@ -45,7 +45,7 @@ Le flux de code d’autorisation OAuth 2.0 est décrit dans la [section 4.1 des 
 
 ## <a name="request-an-authorization-code"></a>Demander un code d’autorisation
 
-Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette requête, le client indique les autorisations dont il a besoin d’obtenir auprès de l’utilisateur :
+Le flux de code d'autorisation commence par le client dirigeant l'utilisateur vers le point de terminaison `/authorize` . Dans cette requête, le client demande les autorisations `openid`, `offline_access` et `https://graph.microsoft.com/mail.read ` à l'utilisateur.  Certaines autorisations sont limitées par l'administrateur, par exemple l'écriture de données dans le répertoire d'une organisation à l'aide de `Directory.ReadWrite.All`. Si votre application requiert l’accès à l’une de ces autorisations d’un utilisateur de l’organisation, ce dernier recevra un message d’erreur indiquant qu’il n’est pas autorisé à donner son consentement pour les permissions de votre application. Pour demander l'accès aux étendues limitées par l'administrateur, vous devez vous adresser directement à un administrateur d'entreprise.  Pour plus d'informations, consultez [Autorisations limitées par l'administrateur](v2-permissions-and-consent.md#admin-restricted-permissions).
 
 ```
 // Line breaks for legibility only
@@ -55,13 +55,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &response_type=code
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
-&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
+&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &state=12345
 ```
 
 > [!TIP]
 > Cliquez sur le lien ci-dessous pour exécuter cette requête ! Une fois que vous êtes connecté, votre navigateur doit être redirigé vers `https://localhost/myapp/` avec une valeur `code` dans la barre d’adresse.
-> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
+> <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fmail.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
 | Paramètre    | Obligatoire ou facultatif | Description |
 |--------------|-------------|--------------|
@@ -140,7 +140,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
@@ -170,7 +170,7 @@ Une réponse de jeton réussie se présente ainsi :
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
@@ -253,7 +253,7 @@ Host: https://login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read
+&scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &grant_type=refresh_token
 &client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
@@ -281,7 +281,7 @@ Une réponse de jeton réussie se présente ainsi :
     "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...",
     "token_type": "Bearer",
     "expires_in": 3599,
-    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fuser.read",
+    "scope": "https%3A%2F%2Fgraph.microsoft.com%2Fmail.read",
     "refresh_token": "AwABAAAAvPM1KaPlrEqdFSBzjqfTGAMxZGUTdM0t4B4...",
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }

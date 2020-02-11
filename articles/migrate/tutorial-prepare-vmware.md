@@ -1,18 +1,15 @@
 ---
 title: Préparer des machines virtuelles VMware pour les évaluer et les migrer avec Azure Migrate
 description: Découvrez comment préparer l’évaluation/la migration des machines virtuelles VMware avec Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f00d5ba4841427098b0ab79ad1930e357008b6e0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028910"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030793"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Préparer l’évaluation de machines virtuelles VMware et leur migration vers Azure
 
@@ -41,8 +38,12 @@ Vous devez disposer des autorisations suivantes.
 **Tâche** | **autorisations**
 --- | ---
 **Créer un projet Azure Migrate** | Votre compte Azure doit être autorisé à créer un projet.
-**Inscrire l’appliance Azure Migrate** | Azure Migrate utilise une appliance Azure Migrate légère pour évaluer les machines virtuelles VMware avec Azure Migrate Server Assessment et pour exécuter la [migration sans agent](server-migrate-overview.md) des machines virtuelles VMware avec Azure Migrate Server Migration. Cette appliance effectue la découverte des machines virtuelles et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate.<br/><br/>Durant l’inscription, Azure Migrate crée deux applications Azure AD (Azure Active Directory) qui identifient cette appliance de façon unique et doit être autorisé à créer ces applications.<br/> - La première application communique avec les points de terminaison de service Azure Migrate.<br/> - La seconde application accède à un coffre de clés Azure Key Vault créé pendant l’inscription pour stocker les informations sur l’application Azure AD et les paramètres de configuration de l’appliance.
+**Inscrire l’appliance Azure Migrate** | Azure Migrate utilise une appliance Azure Migrate légère pour évaluer les machines virtuelles VMware avec Azure Migrate Server Assessment et pour exécuter la [migration sans agent](server-migrate-overview.md) des machines virtuelles VMware avec Azure Migrate Server Migration. Cette appliance effectue la découverte des machines virtuelles et envoie les métadonnées et les données de performances des machines virtuelles à Azure Migrate.<br/><br/>Lors de l’inscription de l’appliance, les fournisseurs de ressources suivants sont inscrits dans l’abonnement choisi dans l’appliance : Microsoft.OffAzure, Microsoft.Migrate et Microsoft.KeyVault. L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. Pour inscrire les fournisseurs de ressources, vous avez besoin d’un rôle Contributeur ou Propriétaire sur l’abonnement.<br/><br/> Dans le cadre de l’intégration, Azure Migrate crée deux applications Azure Active Directory (Azure AD) :<br/> - La première application est utilisée pour la communication (authentification et autorisation) entre les agents exécutés sur l’appliance et leurs services respectifs exécutés sur Azure. Cette application n’a pas les privilèges requis pour effectuer des appels ARM ou des accès RBAC sur une ressource.<br/> - La deuxième application est exclusivement utilisée pour accéder au coffre Key Vault créé dans l’abonnement de l’utilisateur pour la migration sans agent. Elle est fournie avec un accès RBAC sur le coffre Azure Key Vault (créé dans le locataire du client) lorsque la découverte est lancée à partir de l’appliance.
 **Créer un coffre de clés** | Pour migrer des machines virtuelles VMware avec Azure Migrate Server Migration, Azure Migrate crée un coffre de clés afin de gérer les clés d’accès au compte de stockage de réplication de votre abonnement. Pour créer le coffre, vous devez disposer d’autorisations d’attribution de rôle sur le groupe de ressources dans lequel réside le projet Azure Migrate.
+
+
+
+
 
 
 ### <a name="assign-permissions-to-create-project"></a>Attribuer des autorisations pour créer un projet
@@ -80,9 +81,9 @@ L’administrateur général ou le locataire peuvent octroyer des autorisations 
 
 L’administrateur général ou le locataire peuvent attribuer à un compte le rôle Développeur d’applications. [Plus d’informations](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)
 
-### <a name="assign-role-assignment-permissions"></a>Affecter des autorisations d’attribution de rôle
+### <a name="assign-permissions-to-create-a-key-vault"></a>Attribuer des autorisations pour créer un coffre Key Vault
 
-Pour permettre à Azure Migrate de créer un coffre de clés, affectez des autorisations d’affectation de rôles comme suit :
+Pour permettre à Azure Migrate de créer un coffre Key Vault, attribuez les autorisations suivantes :
 
 1. Dans le groupe de ressources du portail Azure, sélectionnez **Contrôle d’accès (IAM)** .
 2. Dans **Vérifier l’accès**, recherchez le compte approprié, puis cliquez dessus pour voir les autorisations correspondantes.

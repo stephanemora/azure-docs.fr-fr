@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543560"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932394"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Déployer des modèles avec Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -220,17 +220,23 @@ Le tableau suivant indique la valeur de la variable AZUREML_MODEL_DIR en fonctio
 | Modèle unique | Chemin du dossier contenant le modèle. |
 | Modèles multiples | Chemin du dossier contenant tous les modèles. Les modèles sont localisés par nom et version dans ce dossier (`$MODEL_NAME/$VERSION`) |
 
-Pour obtenir le chemin d’un fichier dans un modèle, combinez la variable d’environnement avec le nom de fichier que vous recherchez.
-Les noms des fichiers de modèles sont conservés lors de l’inscription et du déploiement. 
+Pendant l'inscription et le déploiement des modèles, ceux-ci sont placés à l'emplacement AZUREML_MODEL_DIR et ils conservent leur nom de fichier d'origine.
+
+Pour obtenir le chemin d'accès à un fichier modèle dans votre script d'entrée, combinez la variable d'environnement avec le chemin du fichier que vous recherchez.
 
 **Exemple avec un modèle unique**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Exemple avec des modèles multiples**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path

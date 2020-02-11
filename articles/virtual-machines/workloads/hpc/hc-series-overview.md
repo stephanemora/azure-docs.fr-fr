@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: 6cdb539846104f70dabf684925685fb062fea8af
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797545"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906746"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Vue d’ensemble des machines virtuelles série HC
 
@@ -31,7 +31,7 @@ La topologie ci-dessus s’applique aussi à la configuration de l’hyperviseur
 
 La machine virtuelle ne sait pas que les pCores 0-1 et 24-25 ne lui ont pas été attribués. Par conséquent, elle expose chaque vNUMA comme si elle avait 22 cœurs en mode natif.
 
-Les UC Intel Xeon Platinum, Gold et Silver inaugurent également un réseau maillé 2D on-die pour la communication interne et externe au socket de l’UC. Nous recommandons vivement le brochage de processus (process pinning) à des fins de performances optimales. Le brochage de processus fonctionne sur les machines virtuelles série HC, car le silicium sous-jacent est exposé comme tel à la machine virtuelle invitée. Pour plus d’informations, consultez [Architecture Intel Xeon SP](https://bit.ly/2RCYkiE).
+Les UC Intel Xeon Platinum, Gold et Silver inaugurent également un réseau maillé 2D on-die pour la communication interne et externe au socket de l’UC. Nous recommandons vivement l’épinglage de processus (process pinning) à des fins de performances optimales. Le brochage de processus fonctionne sur les machines virtuelles série HC, car le silicium sous-jacent est exposé comme tel à la machine virtuelle invitée. Pour plus d’informations, consultez [Architecture Intel Xeon SP](https://bit.ly/2RCYkiE).
 
 Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyperviseur Azure et la machine virtuelle série HC.
 
@@ -41,7 +41,7 @@ Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyp
 
 | Spécifications matérielles          | Machine virtuelle série HC                     |
 |----------------------------------|----------------------------------|
-| Cœurs                            | 40 (HT désactivé)                 |
+| Cœurs                            | 44 (HT désactivé)                 |
 | UC                              | Intel Xeon Platinum 8168*        |
 | Fréquence de l’UC (non AVX)          | 3,7 GHz (simple cœur) 2,7-3,4 GHz (tous les cœurs) |
 | Mémoire                           | 8 Go/cœur (352 total)            |
@@ -53,13 +53,13 @@ Le diagramme suivant illustre la répartition des cœurs réservés pour l’hyp
 
 | Spécifications logicielles     | Machine virtuelle série HC          |
 |-----------------------------|-----------------------|
-| Taille de travail MPI max            | 4 400 cœurs (100 groupe de machines virtuelles identiques), 8 800 cœurs (200 groupe de machines virtuelles identiques) |
+| Taille de travail MPI max            | 13200 cœurs (300 machines virtuelles dans un seul VMSS avec singlePlacementGroup=true) |
 | Prise en charge MPI                 | MVAPICH2, OpenMPI, MPICH, Platform MPI, Intel MPI  |
 | Frameworks supplémentaires       | Unified Communication X, libfabric, PGAS |
 | Prise en charge de Stockage Azure       | Std + Premium (4 disques max) |
 | Prise en charge du système d’exploitation pour SRIOV RDMA   | CentOS/RHEL 7.6+, SLES 12 SP4+, WinServer 2016+ |
-| Prise en charge d’Azure CycleCloud    | OUI                         |
-| Prise en charge d’Azure Batch         | OUI                         |
+| Prise en charge d’Azure CycleCloud    | Oui                         |
+| Prise en charge d’Azure Batch         | Oui                         |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

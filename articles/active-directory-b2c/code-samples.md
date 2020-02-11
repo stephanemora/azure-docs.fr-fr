@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 01/23/2018
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 5db3b978193ab51fc60f1bcb97d83b4d24037b54
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: 69e6b7beecb95c0e89b60640353155fc7802a881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66511400"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982940"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemples de code Azure Active Directory B2C
 
@@ -41,6 +41,7 @@ Les tableaux suivants fournissent des liens vers des exemples pour des applicati
 | [openidconnect-nodejs](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-NodeJS) | Une application Node.js qui offre un moyen simple et rapide pour configurer une application web avec Express à l’aide d’OpenID Connect. |
 | [javascript-nodejs-webapp](https://github.com/AzureADQuickStarts/active-directory-b2c-javascript-nodejs-webapp) | Un serveur node.js qui offre un moyen simple et rapide pour configurer un service API REST à l’aide du protocole OAuth2. |
 | [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | Une petite API web node.js pour Azure AD B2C qui montre comment protéger votre API web et accepter les jetons d’accès B2C à l’aide de passport.js. |
+| [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Illustre comment intégrer B2C de la Plateforme d’identités Microsoft à une application web Python.  |
 
 ## <a name="single-page-apps"></a>Applications à page unique
 

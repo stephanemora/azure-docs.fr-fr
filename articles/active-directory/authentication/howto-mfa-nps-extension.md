@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712524"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908851"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Intégrer votre infrastructure NPS existante dans Azure Multi-Factor Authentication
 
@@ -192,6 +192,23 @@ Si votre certificat d’ordinateur précédent est arrivé à expiration, et qu�
 
 > [!NOTE]
 > Si vous utilisez vos propres certificats au lieu de générer des certificats avec le script PowerShell, vous devez veiller à ce qu’ils respectent la convention de nommage du serveur NPS. Le nom de l’objet doit être **CN=\<ID_locataire\>,OU= Extension NPS Microsoft**. 
+
+### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government - Étapes supplémentaires
+
+Pour les clients qui utilisent le cloud Azure Government, les étapes de configuration supplémentaires suivantes sont requises sur chaque serveur NPS :
+
+1. Ouvrez l'**Éditeur du Registre** sur le serveur NPS.
+1. Accédez à `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Définissez les valeurs de clé suivantes :
+
+    | Clé de Registre       | Valeur |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Répétez les deux étapes précédentes afin de définir les valeurs de clé de Registre pour chaque serveur NPS.
+1. Redémarrez le service NPS pour chaque serveur NPS.
+
+    Pour un impact minimal, retirez un par un les différents serveurs NPS de la rotation NLB (équilibrage de la charge réseau) et attendez que toutes les connexions soient drainées.
 
 ### <a name="certificate-rollover"></a>Substitution de certificat
 

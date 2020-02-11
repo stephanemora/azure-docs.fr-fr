@@ -8,13 +8,13 @@ ms.author: shvija
 ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
-ms.date: 12/20/2019
-ms.openlocfilehash: 1fc791519fd32b35bdbe3a69caec3c64e3ce3178
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/15/2020
+ms.openlocfilehash: 8fa123772ae380cd000c414c63bdf3908d279751
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437142"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906387"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Tutoriel : Visualiser les anomalies des données dans les événements en temps réel envoyés à Azure Event Hubs
 
@@ -156,14 +156,14 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>Exécuter une application pour produire des données d’événements de test
 
-Les [exemples Event Hubs sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluent une [application de détection d’anomalies](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector) qui produit des données de test pour vous. Elle simule l’utilisation de cartes de crédit en écrivant des transactions par carte de crédit dans le hub d’événements, en y incluant parfois l’écriture de plusieurs transactions pour la même carte de crédit à plusieurs emplacements, de sorte qu’elles soient marquées comme anomalies. Pour exécuter cette application, suivez ces étapes : 
+Les [exemples Event Hubs sur GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet) incluent une application de détection d’anomalies qui produit des données de test pour vous. Elle simule l’utilisation de cartes de crédit en écrivant des transactions par carte de crédit dans le hub d’événements, en y incluant parfois l’écriture de plusieurs transactions pour la même carte de crédit à plusieurs emplacements, de sorte qu’elles soient marquées comme anomalies. Pour exécuter cette application, suivez ces étapes : 
 
 1. Téléchargez les [exemples Azure Event Hubs](https://github.com/Azure/azure-event-hubs/archive/master.zip) depuis GitHub et décompressez-les localement.
+2. Accédez au dossier **\azure-event-hubs-master\samples\DotNet\\** . 
+3. Accédez au dossier **Azure.Messaging.EventHubs\AnomalyDetector\\** et double-cliquez sur **AnomalyDetector.sln** pour ouvrir la solution dans Visual Studio. 
 
-2. Accédez au dossier \azure-event-hubs-master\samples\DotNet\AnomalyDetector\ et double-cliquez sur AnomalyDetector.sln pour ouvrir la solution dans Visual Studio. 
-
+    Pour utiliser l’ancienne version de l’exemple qui utilise l’ancien package Microsoft.Azure.EventHubs, ouvrez la solution à partir du dossier **Microsoft.Azure.EventHubs\AnomalyDetector**. 
 3. Ouvrez le fichier Program.cs et remplacez **Event Hubs connection string** par la chaîne de connexion que vous avez enregistrée lors de l’exécution du script. 
-
 4. Remplacez **Event Hub name** par le nom de votre hub d’événements. Appuyez sur F5 pour exécuter l’application. Elle commence à envoyer des événements à votre hub d’événements et continue jusqu’à atteindre 1 000 événements. Il existe quelques cas où l’application doit être en cours d’exécution pour que vous puissiez récupérer des données. Ces cas sont précisés dans les instructions suivantes, quand c’est nécessaire.
 
 ## <a name="set-up-azure-stream-analytics"></a>Configurer Azure Stream Analytics
@@ -306,7 +306,7 @@ Dans la tâche Stream Analytics, cliquez sur **Démarrer**, **Maintenant**, puis
 
    ![Capture d’écran de la spécification du nom du tableau de bord.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-name.png)
 
-7. Dans la page Tableau de bord, cliquez sur **Ajouter une vignette**, sélectionnez **Données de streaming personnalisées** dans la section **Données en temps réel**, puis cliquez sur **Suivant**.
+7. Dans la page Tableau de bord, cliquez sur **Ajouter une vignette**, sélectionnez **Données de streaming personnalisées** dans la section **DONNÉES EN TEMPS RÉEL**, puis cliquez sur **Suivant**.
 
    ![Capture d’écran de la spécification de la source pour la vignette.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-real-time-data.png)
 

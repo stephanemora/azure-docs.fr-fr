@@ -6,29 +6,29 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 08/29/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 7d481b115650c72df95f7516bb3b39411201bf83
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 257af309ebdb9080c3cd60b8b89a2c992ecf5145
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862898"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906506"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Démarrage rapide : Charger, lister et supprimer des objets blob à l’aide du SDK v10 Stockage Azure pour JavaScript/HTML dans le navigateur
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Démarrage rapide : Gérer les objets blob avec le SDK JavaScript v10 dans le navigateur
 
-Dans ce démarrage rapide, vous allez apprendre à utiliser la bibliothèque [SDK V10 Stockage Azure pour JavaScript - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) pour gérer des objets blob à partir du code JavaScript s’exécutant entièrement dans le navigateur. L’approche utilisée ici montre comment utiliser des mesures de sécurité requises pour sécuriser l’accès à votre compte de stockage Blob.
+Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets blob avec du code JavaScript exécuté entièrement dans le navigateur. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des médias en streaming et des données d’archive. Vous utiliserez des mesures de sécurité nécessaires pour sécuriser l’accès à votre compte de stockage Blob.
 
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
-
-Les bibliothèques clientes JavaScript Stockage Azure ne fonctionnent pas directement depuis le système de fichiers et doivent être prises en charge à partir d’un serveur web. Cette rubrique utilise [Node.js](https://nodejs.org) pour lancer un serveur de base. Si vous ne souhaitez pas installer Node, vous pouvez utiliser tout autre moyen permettant d’exécuter un serveur web local.
-
-Pour suivre les étapes sur le débogage, vous aurez besoin de [Visual Studio Code](https://code.visualstudio.com) et de l’extension [Débogueur pour Chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou [Débogueur pour Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
+- Un serveur web local. Cet article utilise [Node.js](https://nodejs.org) pour ouvrir un serveur de base.
+- [Visual Studio Code](https://code.visualstudio.com).
+- Une extension de VS Code pour le débogage de navigateur, par exemple [Débogueur pour chrome](vscode:extension/msjsdiag.debugger-for-chrome) ou [Débogueur pour Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Configuration des règles CORS du compte de stockage
 

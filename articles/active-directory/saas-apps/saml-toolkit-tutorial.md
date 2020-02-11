@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : Intégration de l’authentification unique Azure Active Directory à Azure AD SAML Toolkit | Microsoft Docs'
+title: 'Tutoriel : Intégration de l’authentification unique Azure Active Directory à Azure AD SAML Toolkit | Microsoft Docs'
 description: Découvrez comment configurer l’authentification unique entre Azure Active Directory et Azure AD SAML Toolkit.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83e5790a036a93c947a79bc2848e7be6febf30b6
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122034"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983870"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Didacticiel : Intégration de l’authentification unique Azure Active Directory à Azure AD SAML Toolkit
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>Tutoriel : Intégration de l’authentification unique Azure Active Directory à Azure AD SAML Toolkit
 
 Dans ce didacticiel, vous allez apprendre à intégrer Azure AD SAML Toolkit avec Azure Active Directory (Azure AD). Quand vous intégrez Azure AD SAML Toolkit avec Azure AD, vous pouvez :
 
@@ -33,7 +33,7 @@ Dans ce didacticiel, vous allez apprendre à intégrer Azure AD SAML Toolkit ave
 
 Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour commencer, vous devez disposer de ce qui suit :
 
@@ -76,17 +76,17 @@ Effectuez les étapes suivantes pour activer l’authentification unique Azure A
 
 1. Dans le [Portail Azure](https://portal.azure.com/), accédez à la page d’intégration de l’application **Azure AD SAML Toolkit**, recherchez la section **Gérer** et sélectionnez **Authentification unique**.
 1. Dans la page **Sélectionner une méthode d’authentification unique**, sélectionnez **SAML**.
-1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres.
+1. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône de modification/stylet de **Configuration SAML de base** pour modifier les paramètres. Vous pouvez récupérer des paramètres à l’aide de la page de configuration SAML de SAML Toolkit. 
 
    ![Modifier la configuration SAML de base](common/edit-urls.png)
 
 1. Dans la boîte de dialogue **Configuration SAML de base**, entrez les valeurs pour les champs suivants :
 
-    a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://samltoolkit.azurewebsites.net/`
+    a. Dans la zone de texte **URL de connexion**, tapez une URL : `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
 
     b. Dans la zone de texte **Identificateur (ID d’entité)** , saisissez une URL : `https://samltoolkit.azurewebsites.net`
 
-    c. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://samltoolkit.azurewebsites.net/SAML/Consume`
+    c. Dans la zone de texte **URL de réponse**, tapez l’URL : `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>`
 
 1. Dans la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, recherchez **Certificat (brut)** , puis sélectionnez **Télécharger** pour télécharger le certificat et l’enregistrer sur votre ordinateur.
 

@@ -7,22 +7,22 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8905f2a0a306ec4c9c6e19479c6adb96a6ed39ca
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703690"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931270"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Didacticiel : Créer et configurer une instance Azure Active Directory Domain Services
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Tutoriel : Créer et configurer une instance Azure Active Directory Domain Services
 
 Azure Active Directory Domain Services (Azure AD DS) fournit des services de domaine managés, comme la jonction de domaine, la stratégie de groupe, le protocole LDAP, et l’authentification Kerberos/NTLM entièrement compatible avec Windows Server Active Directory. Vous consommez ces services de domaine sans déployer, gérer et mettre à jour avec des correctifs les contrôleurs de domaine vous-même. Azure AD DS s’intègre à votre locataire Azure AD existant. Cette intégration permet aux utilisateurs de se connecter en utilisant leurs informations d’identification d’entreprise, et vous pouvez utiliser des groupes et des comptes d’utilisateur existants pour sécuriser l’accès aux ressources.
 
 Vous pouvez créer un domaine managé avec des options de configuration par défaut pour le réseau et la synchronisation, ou [définir ces paramètres manuellement][tutorial-create-instance-advanced]. Ce tutoriel vous montre comment utiliser les options par défaut pour créer et configurer une instance Azure AD DS avec le portail Azure.
 
-Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Dans ce tutoriel, vous allez apprendre à :
 
 > [!div class="checklist"]
 > * Comprendre les exigences DNS pour un domaine managé
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Pour effectuer ce tutoriel, vous avez besoin des ressources et des privilèges suivants :
 
@@ -55,7 +55,7 @@ Dans ce tutoriel, vous créez et vous configurez une instance Azure AD DS avec l
 
 Pour lancer l’Assistant **Activer Azure AD Domain Services**, procédez comme suit :
 
-1. Dans le menu du portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
+1. Dans le menu du Portail Azure ou dans la page **Accueil**, sélectionnez **Créer une ressource**.
 1. Entrez *Domain Services* dans la barre de recherche, puis choisissez *Azure AD Domain Services* dans les suggestions de recherche.
 1. Dans la page Azure AD Domain Services, cliquez sur le bouton **Créer**. L’Assistant **Activer Azure AD Domain Services** est lancé.
 1. Sélectionnez l’**Abonnement** Azure dans lequel vous souhaitez créer le domaine managé.
@@ -93,6 +93,9 @@ Renseignez les champs de la fenêtre *De base* du portail Azure pour créer une 
 
     Vous ne devez rien configurer pour la répartition d’Azure AD DS entre les zones. La plateforme Azure gère automatiquement la répartition de zone des ressources. Pour plus d’informations et pour connaître la disponibilité régionale, consultez [Que sont les zones de disponibilité dans Azure ?][availability-zones]
 
+1. La référence **SKU** détermine les performances, la fréquence de sauvegarde et le nombre maximal d’approbations de forêt que vous pouvez créer. Vous pouvez changer de référence SKU après la création du domaine managé en cas de changement des besoins métier. Pour plus d’informations, consultez [Concepts relatifs aux références SKU dans Azure AD DS][concepts-sku].
+
+    Pour ce tutoriel, sélectionnez la référence SKU *Standard*.
 1. Une *forêt* est une construction logique utilisée par Active Directory Domain Services pour regrouper un ou plusieurs domaines. Par défaut, un domaine managé Azure AD DS est créé en tant que forêt d’*utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Une forêt de *ressources* synchronise uniquement les utilisateurs et les groupes créés directement dans Azure AD. Les forêts de ressources sont actuellement en préversion. Pour plus d’informations sur les forêts de *ressources*, notamment sur la raison pour laquelle vous pouvez en utiliser une et comment créer des approbations de forêts avec des domaines AD DS locaux, consultez [Vue d’ensemble des forêts de ressources Azure AD DS][resource-forests].
 
     Pour ce tutoriel, choisissez de créer une forêt d’*utilisateurs*.
@@ -105,7 +108,7 @@ Pour créer rapidement un domaine managé Azure AD DS, vous pouvez sélectionne
 * Crée un sous-réseau appelé *aadds-subnet* qui utilise la plage d’adresses IP *10.0.1.0/24*.
 * Synchronise *tous* les utilisateurs entre Azure AD et le domaine managé Azure AD DS.
 
-1. Sélectionnez **Vérifier + créer** pour accepter ces options de configuration par défaut.
+Sélectionnez **Vérifier + créer** pour accepter ces options de configuration par défaut.
 
 ## <a name="deploy-the-managed-domain"></a>Déployer le domaine managé
 
@@ -173,7 +176,7 @@ Une fois que vous avez changé votre mot de passe, quelques minutes sont nécess
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce didacticiel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Comprendre les exigences DNS pour un domaine managé
@@ -200,6 +203,7 @@ Avant de joindre des machines virtuelles au domaine et de déployer des applicat
 [skus]: overview.md
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

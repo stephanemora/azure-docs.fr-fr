@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: b2b0fff225eee52f8ffe308317f06793728e5d1f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 44171a08e69cfa058e0a9e75e3220fb996b7789d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585324"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018004"
 ---
 # <a name="azure-iot-central---solar-panel-app-architecture"></a>Azure IoT Central - Architecture d’application pour panneau solaire
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 Cet article fournit une vue d’ensemble de l’architecture du modèle d’application de suivi de panneau solaire. Le diagramme ci-dessous illustre une architecture couramment utilisée pour l’application de panneau solaire sur Azure à l’aide de la plateforme IoT Central.
@@ -29,7 +29,7 @@ Cette architecture est constituée des composants suivants. Certaines applicatio
 
 ## <a name="solar-panels-and-connectivity"></a>Panneaux solaires et connectivité 
 
-Les panneaux solaires sont l’une des principales sources d’énergie renouvelable. Selon le type de panneau solaire et sa configuration, vous pouvez le connecter via des passerelles ou d’autres appareils intermédiaires et systèmes propriétaires. Il vous faudra peut-être créer un pont IoT Central pour connecter des appareils qui ne peuvent pas être connectés directement. Le pont IoT Central est une solution open source ; vous pouvez trouver des informations complètes à son sujet [ici](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
+Les panneaux solaires sont l’une des principales sources d’énergie renouvelable. Selon le type de panneau solaire et sa configuration, vous pouvez le connecter via des passerelles ou d’autres appareils intermédiaires et systèmes propriétaires. Vous pouvez être amené à créer un pont d’appareil IoT Central pour connecter les appareils qui ne peuvent pas être connectés directement. Le pont IoT Central est une solution open source ; vous pouvez trouver des informations complètes à son sujet [ici](https://docs.microsoft.com/azure/iot-central/core/howto-build-iotc-device-bridge). 
 
 
 

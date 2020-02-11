@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7336260d7565697b0559419ae502848bcff9424c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e5ccc9d427755ea4274e836e81e3e324fffa39d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892853"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937805"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Démarrage rapide : Charger, télécharger et lister les objets blob avec le portail Azure
 
 Dans ce démarrage rapide, vous apprenez à utiliser le [portail Azure](https://portal.azure.com/) pour créer un conteneur dans le stockage Azure, ainsi que pour charger et télécharger des objets blob de blocs dans ce conteneur.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -45,13 +45,14 @@ Pour charger un objet blob de blocs dans votre nouveau conteneur dans le portail
 
 1. Dans le portail Azure, accédez au conteneur que vous avez créé dans la section précédente.
 2. Sélectionnez le conteneur pour afficher une liste des objets blob qu’il contient. Dans la mesure où ce conteneur est nouveau, il ne contient pas encore d’objets blob.
-3. Cliquez sur le bouton **Charger** pour charger un objet blob dans le conteneur.
-4. Naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs, puis cliquez sur **Charger**.
+3. Sélectionnez le bouton **Charger** pour ouvrir le panneau Charger
+4. Naviguez dans votre système de fichiers local pour rechercher un fichier à charger en tant qu’objet blob de blocs
      
     ![Capture d’écran montrant comment charger un objet blob à partir de votre disque local](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Spécifiez le **Type d’authentification**. La valeur par défaut est **SAP**.
-6. Chargez autant d’objets blob que vous le souhaitez en suivant cette méthode. Vous verrez que les nouveaux objets blob sont maintenant répertoriés dans le conteneur.
+5. Si vous le souhaitez, développez la section Avancé pour définir d’autres paramètres, comme le type d’authentification, le niveau d’accès ou le chemin du dossier virtuel.
+6. Sélectionnez le bouton **Charger** pour valider le chargement
+7. Chargez autant d’objets blob que vous le souhaitez en suivant cette méthode. Vous verrez que les nouveaux objets blob sont maintenant répertoriés dans le conteneur.
 
 ## <a name="download-a-block-blob"></a>Télécharger un objet blob de blocs
 
@@ -60,7 +61,7 @@ Vous pouvez télécharger un objet blob de blocs à afficher dans le navigateur 
 1. Accédez à la liste d’objets blob que vous avez chargée dans la section précédente. 
 2. Cliquez avec le bouton droit sur l’objet blob que vous souhaitez télécharger, puis sélectionnez **Télécharger**. 
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Nettoyer les ressources
 
 Pour supprimer les ressources que vous avez créées dans ce démarrage rapide, vous pouvez supprimer le conteneur. Tous les objets blob dans le conteneur seront également supprimés.
 

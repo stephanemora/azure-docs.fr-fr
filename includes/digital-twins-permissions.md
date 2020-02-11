@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/23/2020
+ms.date: 02/03/2020
 ms.custom: include file
-ms.openlocfilehash: a1576e4a97af5de0b936c662de636aae542a19b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cfe3eb4c0ac1378b7c519b3b34094945612d8508
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748872"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029315"
 ---
 >[!NOTE]
 >Cette section fournit les instructions sur [l’inscription de l'application Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -27,24 +27,40 @@ ms.locfileid: "76748872"
 
     [![Sélectionner le bouton Nouvelle inscription](./media/digital-twins-permissions/aad-app-register.png)](./media/digital-twins-permissions/aad-app-register.png#lightbox)
 
-1. Dans la zone **Nom**, donnez un nom convivial à l’inscription de cette application. Sous la section **URI de redirection (facultatif)** , choisissez **Client public/natif (mobile et bureau)** dans le menu déroulant de gauche, puis entrez `https://microsoft.com` dans la zone de texte à droite. Sélectionnez **Inscription**.
+1. Dans la zone **Nom**, donnez un nom convivial à l’inscription de cette application. 
+
+    1. Sous la section **URI de redirection (facultatif)** , entrez `https://microsoft.com` dans la zone de texte.     
+
+    1. Vérifiez quels comptes et locataires sont pris en charge par votre application Azure Active Directory.
+
+    1. Sélectionnez **Inscription**.
 
     [![Volet Créer](./media/digital-twins-permissions/aad-app-reg-create.png)](./media/digital-twins-permissions/aad-app-reg-create.png#lightbox)
 
-1. Pour vous assurer que [l’application est inscrite comme **client public**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration), ouvrez le volet **Authentification** de votre inscription d’application, et faites défiler vers le bas dans ce volet. Dans la section **Type de client par défaut**, choisissez **Oui** pour **Considérer l’application comme un client public** et appuyez sur **Enregistrer**.
+1. Le panneau **Authentification** spécifie les paramètres importants de configuration d’authentification. 
+
+    1. Ajoutez des **URI de redirection** et configurez des **Jetons d’accès** en sélectionnant **+ Ajouter une plateforme**.
+
+    1. Sélectionnez **Oui** pour indiquer que l’application est un **client public**.
+
+    1. Vérifiez quels comptes et locataires sont pris en charge par votre application Azure Active Directory.
+
+    [![Paramètres de configuration du client public](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+
+1. Après avoir sélectionné la plateforme appropriée, configurez vos **URI de redirection** et **Jetons d’accès** dans le volet latéral situé à droite de l’interface utilisateur.
 
     1. **L’URI de redirection** doit correspondre à l’adresse fournie par la requête d’authentification :
 
-        * Pour les applications hébergées dans un environnement de développement local, sélectionnez **Client public (mobile et bureau)** . Veillez à définir **Type de client par défaut** sur Oui.
-        * Pour les applications à page unique hébergées sur Azure App Service, sélectionnez **Web**.
+        * Pour les applications hébergées dans un environnement de développement local, sélectionnez **Client public (mobile et bureau)** . Veillez à affecter la valeur **Oui** à **Client public**.
+        * Pour les applications monopages hébergées sur Azure App Service, sélectionnez **Web**.
 
-        Sélectionnez **Client public (mobile et bureau)** , puis entrez `http://localhost:8080/`.
+    1. Déterminez si une **URL de déconnexion** est appropriée.
 
-        [![Configurer les URI de redirection](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+    1. Activez le flux d’octroi implicite en cochant les **Jeton d'accès** ou **Jetons d'ID**.
+                
+    [![Configurer les URI de redirection](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
 
-    1. Cochez la case **Jetons d’accès** pour affecter au paramètre **oauth2AllowImplicitFlow** la valeur `true` dans le fichier **manifeste** JSON de votre ressource.
-
-        [![Paramètres de configuration du client public](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+    Cliquez sur **Configurer**, puis sur **Enregistrer**.
 
 1.  Ouvrez le volet **Vue d’ensemble** de votre application inscrite, et copiez les valeurs des entités suivantes dans un fichier temporaire. Ces valeurs vous permettront de configurer votre exemple d’application dans les sections suivantes.
 

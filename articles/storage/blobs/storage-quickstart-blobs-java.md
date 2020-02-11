@@ -3,42 +3,34 @@ title: 'Démarrage rapide : Bibliothèque de stockage d’objets Blob Azure v12
 description: Ce guide de démarrage rapide explique comment utiliser la bibliothèque de client d’Azure Storage Blob version 12 pour Java afin de créer un conteneur et un blob dans un stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ffd91bbcc33ef313d496e793c8263126db81b685
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a76b1c8688a6458dc55a106525c77c5979e2e011
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863942"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906523"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Démarrage rapide : Bibliothèque de client Azure Storage Blob v12 pour Java
+# <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Démarrage rapide : Gérer les objets blob avec le SDK Java v12
 
-Bien démarrer avec la bibliothèque de client Azure Storage Blob v12 pour Java. Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
-
-> [!NOTE]
-> Pour une bonne prise en main de la version précédente du kit de développement logiciel (SDK), consultez [Démarrage rapide : Bibliothèque de client Azure Storage Blob pour Java](storage-quickstart-blobs-java-legacy.md).
-
-Utilisez la bibliothèque de client Azure Storage Blob pour Java v12 pour :
-
-* Créez un conteneur.
-* Charger un blob dans le stockage Azure
-* Lister tous les objets blob d’un conteneur
-* Télécharger un objet blob sur votre ordinateur local
-* Supprimer un conteneur
+Ce guide de démarrage rapide explique comment gérer des objets blob avec Java. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des médias en streaming et des données d’archive. Vous allez charger, télécharger et lister des objets blob, et vous allez créer et supprimer des conteneurs.
 
 [Documentation de référence sur l’API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) | [Code source de la bibliothèque](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-blob?repo=jcenter) | [Exemples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* [Kit de développement Java (JDK)](/java/azure/jdk/?view=azure-java-stable), version 8 ou ultérieure
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
+- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 ou ultérieure.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+
+> [!NOTE]
+> Pour une bonne prise en main de la version précédente du kit de développement logiciel (SDK), consultez [Démarrage rapide : Gérer des objets blob avec le SDK Java v8](storage-quickstart-blobs-java-legacy.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configuration
 
@@ -48,7 +40,7 @@ Cette section vous guide tout au long de la préparation d’un projet à utilis
 
 Créez une application Java nommée *blob-quickstart-v12*.
 
-1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *blob-quickstart-v12*. Tapez la commande **mvn** suivante pour créer un projet Java simple « Hello World ! ».
+1. Dans une fenêtre de console (par exemple cmd, PowerShell ou Bash), utilisez Maven pour créer une application de console nommée *blob-quickstart-v12*. Tapez la commande **mvn** suivante pour créer un projet Java « Hello World ! ».
 
    ```console
    mvn archetype:generate -DgroupId=com.blobs.quickstart \
@@ -287,7 +279,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 Le code suivant nettoie les ressources créées par l’application en supprimant le conteneur tout entier à l’aide de la méthode [supprimer](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--). Il supprime également les fichiers locaux créés par l’application.
 
-L’application s’interrompt pour une entrée de l’utilisateur en appelant `System.console().readLine()` avant de supprimer l’objet blob, le conteneur et les fichiers locaux. C’est l’occasion de vérifier que les ressources ont bien été créées avant d’être supprimées.
+L’application s’interrompt pour une entrée de l’utilisateur en appelant `System.console().readLine()` avant de supprimer l’objet blob, le conteneur et les fichiers locaux. C’est l’occasion de vérifier que les ressources ont été créées correctement, avant d’être supprimées.
 
 Ajoutez ce code à la fin de la méthode `Main` :
 
@@ -363,4 +355,4 @@ Pour afficher des exemples d’applications de stockage blob, passez à :
 > [Exemples de stockage d’objets blob du Kit de développement logiciel (SDK) Java v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Pour plus d’informations, consultez le [Kit de développement logiciel (SDK) Azure pour Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
-* Pour obtenir des didacticiels, des exemples, des démarrages rapides et d’autres documents, visitez [Azure pour les développeurs cloud Java](/azure/java/).
+* Pour obtenir des tutoriels, des exemples, des guides de démarrage rapide et d’autres documents, visitez [Azure pour les développeurs cloud Java](/azure/java/).

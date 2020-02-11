@@ -1,5 +1,5 @@
 ---
-title: Enregistrer le flux du trafic réseau vers et depuis une machine virtuelle - Tutoriel - Portail Azure | Microsoft Docs
+title: Enregistrer le flux du trafic réseau vers et depuis une machine virtuelle - Didacticiel - Portail Azure | Microsoft Docs
 description: Découvrez comment enregistrer le flux du trafic réseau vers et depuis une machine virtuelle à l’aide de la fonctionnalité des journaux de flux NSG de Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f3448765eecf4a586e13155903f1c093607781dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841010"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896435"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutoriel : journaliser le trafic réseau à destination et en provenance d’une machine virtuelle à l’aide du portail Azure
 
@@ -97,10 +97,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
     | Location       | Sélectionnez **USA Est**.                                           |
     | Resource group | Sélectionnez **Utiliser l’existant**, puis **myResourceGroup**. |
 
-    La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Si vous utilisez un compte de stockage existant au lieu d’en créer un, veillez à en sélectionner un pour lequel l’option **Tous les réseaux** (par défaut) est sélectionnée pour **Pare-feux et réseaux virtuels**, sous **PARAMÈTRES** pour le compte de stockage. Dans tous les cas, le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau (NSG).
-
-    > [!NOTE]
-    > Bien que les fournisseurs Microsoft.Insight et Microsoft.Network soient actuellement pris en charge en tant que services Microsoft approuvés pour Stockage Azure, les journaux de flux NSG ne sont toujours pas entièrement intégrés. Pour activer la journalisation de flux NSG, l’option **Tous les réseaux** doit toujours être sélectionnée jusqu’à ce que cette fonctionnalité soit entièrement intégrée. 
+    La création du compte de stockage peut prendre environ une minute. Ne passez pas aux étapes restantes tant que la création du compte de stockage n’est pas terminée. Dans tous les cas, le compte de stockage doit se trouver dans la même région que le groupe de sécurité réseau (NSG).
 4. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 5. Sous **JOURNAUX D’ACTIVITÉ**, sélectionnez **Journaux de flux NSG**, comme illustré dans l’image suivante :
 
@@ -114,9 +111,7 @@ L’enregistrement du flux NSG nécessite le fournisseur **Microsoft.Insights**.
 
 9. Sélectionnez le compte de stockage que vous avez créé à l’étape 3.
    > [!NOTE]
-   > Les journaux de flux NSG ne fonctionnent pas avec les comptes de stockage dans les cas suivants :
-   > * Un pare-feu est activé pour les comptes de stockage.
-   > * L’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) est activé pour les comptes de stockage.
+   > Les journaux de flux NSG ne sont pas disponibles pour les comptes de stockage qui ont l’[espace de noms hiérarchique](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) activé.
 1. En haut à gauche du portail, sélectionnez **Tous les services**. Dans la zone **Filtre**, entrez *Network Watcher*. Quand la mention **Network Watcher** apparaît dans les résultats de recherche, sélectionnez-la.
 10. Définissez le paramètre **Rétention (jours)** sur 5, puis sélectionnez **Enregistrer**.
 
@@ -228,4 +223,4 @@ La valeur de la zone **mac** dans la sortie précédente est l’adresse MAC de 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à activer la journalisation d’un flux de trafic pour un groupe de sécurité réseau. Vous avez également découvert comment télécharger et afficher les données enregistrées dans un fichier. Les données brutes du fichier JSON peuvent être difficiles à interpréter. Pour visualiser les données des journaux de flux, vous pouvez utiliser [Azure Traffic Analytics](traffic-analytics.md), [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) ou d’autres outils. Vous pouvez essayer d’autres méthodes d’activation des journaux de flux NSG, telles que [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), l’[API REST](network-watcher-nsg-flow-logging-rest.md) et les [modèles ARM](network-watcher-nsg-flow-logging-azure-resource-manager.md).
+Dans ce didacticiel, vous avez appris à activer la journalisation d’un flux de trafic pour un groupe de sécurité réseau. Vous avez également découvert comment télécharger et afficher les données enregistrées dans un fichier. Les données brutes du fichier JSON peuvent être difficiles à interpréter. Pour visualiser les données des journaux de flux, vous pouvez utiliser [Azure Traffic Analytics](traffic-analytics.md), [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) ou d’autres outils. Vous pouvez essayer d’autres méthodes d’activation des journaux de flux NSG, telles que [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), l’[API REST](network-watcher-nsg-flow-logging-rest.md) et les [modèles ARM](network-watcher-nsg-flow-logging-azure-resource-manager.md).

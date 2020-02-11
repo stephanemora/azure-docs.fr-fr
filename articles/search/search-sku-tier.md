@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427033"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899848"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Choisir un niveau tarifaire pour Recherche cognitive Azure
 
@@ -21,15 +21,20 @@ Lorsque vous créez un service Recherche cognitive Azure, une [ressource est cr�
 
 La plupart des clients commencent par le niveau Gratuit qui leur permet d’évaluer le service. Une fois l’évaluation terminée, il est courant de créer un deuxième service à l’un des niveaux supérieurs pour les déploiements de développement et de production.
 
-Bien que tous les niveaux, y compris le niveau Gratuit, offrent généralement la parité des fonctionnalités, des charges de travail plus importantes peuvent nécessiter des niveaux supérieurs. Par exemple, [l’enrichissement de l’IA](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est restreint.
+## <a name="feature-availability-by-tier"></a>Disponibilité des fonctionnalités par niveau
 
-> [!NOTE] 
-> Les [indexeurs](search-indexer-overview.md), qui ne sont pas disponibles sur S3 HD, constituent une exception à la parité des fonctionnalités.
->
+Les fonctionnalités sont quasiment toutes disponibles à tous les niveaux, notamment au niveau Gratuit, mais une fonctionnalité ou un flux de travail gourmand en ressources peut ne pas fonctionner correctement si vous ne lui accordez pas les capacités suffisantes. Par exemple, [l’enrichissement de l’IA](cognitive-search-concept-intro.md) implique des qualifications à long terme qui dépassent le délai d’attente sur un service gratuit, sauf si le jeu de données est restreint.
 
-## <a name="available-tiers"></a>Niveaux disponibles
+Le tableau suivant décrit les contraintes de fonctionnalité liées aux niveaux.
 
-Les niveaux reflètent les caractéristiques du matériel qui héberge le service (plutôt que les fonctionnalités) et se distinguent en fonction de ce qui suit :
+| Fonctionnalité | Limites |
+|---------|-------------|
+| [indexeurs](search-indexer-overview.md) | Les indexeurs ne sont pas disponibles sur S3 HD. |
+| [Clés de chiffrement gérées par le client](search-security-manage-encryption-keys.md) | Non disponibles au niveau Gratuit. |
+
+## <a name="tiers-skus"></a>Niveaux (références SKU)
+
+Les niveaux se différencient par :
 
 + Quantité d’index et d’indexeurs que vous pouvez créer
 + Taille et la vitesse des partitions (stockage physique)
@@ -97,9 +102,9 @@ Le tarif de facturation est un tarif horaire par SU. Le tarif augmente progressi
 
 La plupart des clients mettent seulement une partie de la capacité totale en ligne et gardent le reste en réserve. Pour la facturation, le nombre de partitions et de réplicas que vous mettez en ligne, calculé à l’aide de la formule SU, détermine le tarif horaire qui vous est facturé.
 
-## <a name="how-to-manage-and-reduce-costs"></a>Comment gérer et réduire les coûts
+## <a name="how-to-manage-costs"></a>Gestion des coûts
 
-Outre les suggestions suivantes, voir [Facturation et gestion des coûts](https://docs.microsoft.com/azure/billing/billing-getting-started).
+Les suggestions suivantes peuvent vous aider à maintenir les coûts au minimum :
 
 - Créez toutes les ressources dans la même région ou dans le moins de régions possible afin de réduire ou d’éliminer les coûts liés à la bande passante.
 
@@ -109,7 +114,11 @@ Outre les suggestions suivantes, voir [Facturation et gestion des coûts](https:
 
 - Montez en puissance pour les opérations gourmandes en ressources, telles que l’indexation, puis réajustez à la baisse les charges de travail de requête régulières. Commencez avec la configuration minimale pour Recherche cognitive Azure (une unité de stockage composée d’une partition et un réplica), puis surveillez l’activité de l’utilisateur pour identifier des modèles d’utilisation qui indiqueraient un besoin de capacité supplémentaires. Si un modèle est prévisible, vous pouvez peut-être synchroniser l’échelle avec l’activité (vous devez écrire du code pour automatiser ce comportement).
 
-Vous ne pouvez pas arrêter un service de recherche en vue de réduire votre facture. Les ressources dédiées sont toujours opérationnelles et sont allouées pour votre usage exclusif pendant pour la durée de vie de votre service. En ce qui concerne le service lui-même, le seul moyen de réduire votre facture consiste à réduire le nombre de réplicas et de partitions à un niveau offrant garantissant encore des performances acceptables et la [conformité au SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), ou à créer un service de niveau inférieur (les taux horaires du niveau S1 sont inférieurs à ceux des niveaux S2 ou S3). En supposant que vous approvisionniez votre service à la limite inférieure de vos prévisions de charge, si vous dépassez le service, vous pouvez créer un second service de niveau supérieur, régénérer vos index sur ce second service, puis supprimer le premier.
+Consultez également la page [Facturation et gestion des coûts](https://docs.microsoft.com/azure/billing/billing-getting-started) pour en savoir plus sur les outils et fonctionnalités intégrés liés aux dépenses.
+
+L'arrêt temporaire d'un service de recherche est impossible. Les ressources dédiées sont toujours opérationnelles et sont allouées pour votre usage exclusif pendant pour la durée de vie de votre service. La suppression d'un service est définitive, et elle entraîne également la suppression des données associées à celui-ci.
+
+En ce qui concerne le service lui-même, le seul moyen de réduire votre facture consiste à réduire le nombre de réplicas et de partitions à un niveau offrant garantissant encore des performances acceptables et la [conformité au SLA](https://azure.microsoft.com/support/legal/sla/search/v1_0/), ou à créer un service de niveau inférieur (les taux horaires du niveau S1 sont inférieurs à ceux des niveaux S2 ou S3). En supposant que vous approvisionniez votre service à la limite inférieure de vos prévisions de charge, si vous dépassez le service, vous pouvez créer un second service de niveau supérieur, régénérer vos index sur ce second service, puis supprimer le premier.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Comment évaluer les besoins en capacité
 

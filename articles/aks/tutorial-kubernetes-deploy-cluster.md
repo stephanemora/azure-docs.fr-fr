@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 8ad542a3614253e11331e9b49513a887aff65890
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 130cb973f2de1de0d4c4636a4752a06e22edf65b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512933"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932562"
 ---
-# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Didacticiel : Déployer un cluster Azure Kubernetes Service (AKS)
+# <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>Tutoriel : Déployer un cluster Azure Kubernetes Service (AKS)
 
 Kubernetes fournit une plateforme distribuée destinée aux applications en conteneur. Avec AKS, vous pouvez créer rapidement un cluster Kubernetes prêt pour la production. Dans ce tutoriel (troisième d’une série de sept), un cluster Kubernetes est déployé dans AKS. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -32,7 +32,7 @@ Dans les tutoriels précédents, une image conteneur a été créée et chargée
 
 Ce tutoriel vous demande d'exécuter Azure CLI version 2.0.75 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][azure-cli-install].
 
-## <a name="create-a-kubernetes-cluster"></a>Créer un cluster Kubernetes
+## <a name="create-a-kubernetes-cluster"></a>Créer un cluster Kubernetes
 
 Les clusters AKS peuvent utiliser les contrôles d’accès en fonction des rôles Kubernetes (RBAC). Ces contrôles vous permettent de définir l’accès aux ressources en fonction des rôles attribués aux utilisateurs. Des autorisations sont combinées si plusieurs rôles sont attribués à un utilisateur, et les autorisations peuvent être limitées à un seul espace de noms ou accordées à l’ensemble du cluster. Par défaut, l’interface de ligne de commande Azure active automatiquement RBAC lorsque vous créez un cluster AKS.
 
@@ -70,7 +70,7 @@ Pour configurer `kubectl` afin de vous connecter à votre cluster Kubernetes, ex
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get nodes][kubectl-get] :
+Pour vérifier la connexion à votre cluster, exécutez la commande [kubectl get nodes][kubectl-get] pour retourner la liste des nœuds de cluster :
 
 ```
 $ kubectl get nodes
@@ -81,7 +81,7 @@ aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, un cluster Kubernetes a été déployé dans ACS, et vous avez configuré `kubectl` pour qu’il s’y connecte. Vous avez appris à effectuer les actions suivantes :
+Dans ce tutoriel, un cluster Kubernetes a été déployé dans ACS, et vous avez configuré `kubectl` pour qu’il s’y connecte. Vous avez appris à :
 
 > [!div class="checklist"]
 > * Déployer un cluster Kubernetes AKS qui peut s’authentifier auprès d’un registre de conteneurs Azure

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965916"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935332"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Journaux Azure Monitor pour une instance publique de Basic Load Balancer
 
@@ -156,11 +156,11 @@ Ce journal n’est généré que si vous l’avez activé au niveau de chaque é
 
 La sortie JSON apparaît dans le champ des propriétés des informations de base pour l'état des sondes d’intégrité. La propriété *dipDownCount* indique le nombre total d’instances sur le back-end qui ne reçoivent pas le trafic réseau en raison d’une absence de réponse de la part de la sonde.
 
-### <a name="view-and-analyze-the-audit-log"></a>Afficher et analyser le journal d’audit
+### <a name="view-and-analyze-the-activity-log"></a>Afficher et analyser le journal d’activité
 
-Vous pouvez afficher et analyser les données du journal d’audit en utilisant l’une des méthodes suivantes :
+Vous pouvez afficher et analyser les données du journal d’activité en utilisant l’une des méthodes suivantes :
 
-* **Outils Azure** : Récupérez les informations des journaux d’audit par le biais d’Azure PowerShell, de l’interface de ligne de commande (CLI) Azure, de l’API REST Azure ou du portail Azure. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
+* **Outils Azure** : Récupérez les informations du journal d'activité par le biais d'Azure PowerShell, de l'interface de ligne de commande (CLI) Azure, de l'API REST Azure ou du portail Azure. Des instructions détaillées pour chaque méthode sont détaillées dans l’article [Opérations d’audit avec Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
 * **Power BI :** si vous n’avez pas encore de compte [Power BI](https:// .microsoft.com/pricing), vous pouvez l’essayer gratuitement. À l’aide du [pack de contenus des journaux d’activité d’audit Azure pour Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs), vous pouvez analyser vos données avec des tableaux de bord préconfigurés ou personnaliser les vues selon vos besoins.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Afficher et analyser les journaux des sondes d’intégrité et des événements

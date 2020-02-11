@@ -3,41 +3,33 @@ title: 'Démarrage rapide : Bibliothèque de stockage d’objets Blob Azure v12
 description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente Stockage Blob Azure version 12 pour Python afin de créer un conteneur et un objet blob dans le stockage (d’objets) blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: faa73874d7e662eb23e85d46ecaf21a11d10ce73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03f298b49e6a1eba84e8adf5ca6039df0bfe1abd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443737"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906417"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-python"></a>Démarrage rapide : Bibliothèque cliente Stockage Blob Azure v12 pour Python
+# <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Démarrage rapide : Gérer des objets blob avec le SDK Python v12
 
-Bien démarrer avec la bibliothèque de client Stockage Blob Azure v12 pour Python. Le stockage Blob Azure est la solution de stockage d’objet de Microsoft pour le cloud. Suivez les étapes pour installer le package et essayer l’exemple de code pour les tâches de base. Le stockage Blob est optimisé pour stocker de grandes quantités de données non structurées.
-
-> [!NOTE]
-> Pour une bonne prise en main de la version précédente du kit de développement logiciel (SDK), consultez [Démarrage rapide : Bibliothèque cliente Stockage Blob Azure pour Python](storage-quickstart-blobs-python-legacy.md).
-
-Utilisez la bibliothèque cliente Stockage Blob Azure afin de :
-
-* Créez un conteneur.
-* Charger un blob dans le stockage Azure
-* Lister tous les objets blob d’un conteneur
-* Télécharger l’objet blob sur votre ordinateur local
-* Supprimer un conteneur
+Dans ce guide de démarrage rapide, vous découvrez comment gérer des objets blob avec Python. Les objets blob sont des objets pouvant contenir de grandes quantités de texte ou de données binaires, notamment des images, des documents, des médias en streaming et des données d’archive. Vous allez charger, télécharger et lister des objets blob, et vous allez créer et supprimer des conteneurs.
 
 [Documentation de référence de l’API](/python/api/azure-storage-blob) | [Code source bibliothèqueC](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [Package (Index package Python)](https://pypi.org/project/azure-storage-blob/) | [Exemples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Conditions préalables requises
 
-* Abonnement Azure : [créez-en un gratuitement](https://azure.microsoft.com/free/)
-* Compte de stockage Azure : [créez un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Python](https://www.python.org/downloads/) pour votre système d’exploitation - 2.7, 3.5 ou version ultérieure
+- Compte Azure avec un abonnement actif. [Créez un compte gratuitement](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Un compte de stockage Azure. [Créer un compte de stockage](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/) 2.7, 3.5 ou ultérieur.
+
+> [!NOTE]
+> Pour une bonne prise en main de la version précédente du kit de développement logiciel (SDK), consultez [Démarrage rapide : Gérer des objets blob avec le SDK Python v2.1](storage-quickstart-blobs-python-legacy.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Configuration
 
@@ -81,7 +73,7 @@ Cette commande installe la bibliothèque cliente de stockage d’objets Blob Azu
 
 1. Ouvrez un nouveau fichier texte dans votre éditeur de code
 1. Ajoutez les instructions `import`
-1. Créez la structure du programme, y compris la gestion des exceptions de base
+1. Créer la structure du programme, y compris la gestion des exceptions de base
 
     Voici le code :
 
@@ -234,7 +226,7 @@ with open(download_file_path, "wb") as download_file:
 
 Le code suivant nettoie les ressources créées par l’application en supprimant l’ensemble du conteneur avec la méthode [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-). Si vous voulez, vous pouvez aussi supprimer les fichiers locaux.
 
-L’application s’interrompt pour une entrée de l’utilisateur en appelant `input()` avant de supprimer l’objet blob, le conteneur et les fichiers locaux. C’est l’occasion de vérifier que les ressources ont bien été créées avant d’être supprimées.
+L’application s’interrompt pour une entrée de l’utilisateur en appelant `input()` avant de supprimer l’objet blob, le conteneur et les fichiers locaux. C’est l’occasion de vérifier que les ressources ont été créées correctement, avant d’être supprimées.
 
 Ajoutez ce code à la fin du bloc `try` :
 
@@ -298,4 +290,4 @@ Pour afficher des exemples d’applications de stockage blob, passez à :
 > [Exemples Python du kit de développement logiciel (SDK) du stockage d’objets Blob Azure v12](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * Pour plus d’informations, consultez le [Kit de développement logiciel (SDK) Azure pour Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
-* Pour obtenir des didacticiels, des exemples, des démarrages rapides et d’autres documents, visitez [Azure pour les développeurs Python](/azure/python/).
+* Pour des tutoriels, des exemples, des guides de démarrage rapide et autre documentation, visitez [Azure pour les développeurs Python](/azure/python/).

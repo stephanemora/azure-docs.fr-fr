@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034081"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905282"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -39,7 +39,7 @@ azcopy login [flags]
 ## <a name="related-conceptual-articles"></a>Articles conceptuels associés
 
 - [Bien démarrer avec AzCopy](storage-use-azcopy-v10.md)
-- [Transférer des données avec AzCopy et Stockage Blob](storage-use-azcopy-blobs.md)
+- [Transférer des données avec AzCopy et le Stockage Blob](storage-use-azcopy-blobs.md)
 - [Transférer des données avec AzCopy et le stockage de fichiers](storage-use-azcopy-files.md)
 - [Configurer, optimiser et dépanner AzCopy](storage-use-azcopy-configure.md)
 
@@ -101,6 +101,8 @@ Veillez à traiter /path/to/my/cert comme le chemin d’un fichier PEM ou PKCS
 
 |Option|Description|
 |--|--|
+|--aad-endpoint|Point de terminaison Azure Active Directory (Azure AD) à utiliser. L'adresse par défaut (https://login.microsoftonline.com) est correcte pour le cloud Azure public. Définissez ce paramètre lors de l'authentification dans un cloud national. Consultez [Points de terminaison d'authentification Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+Cet indicateur n'est pas nécessaire pour Managed Service Identity.|
 |--application-id (chaîne)|ID d’application de l’identité affectée par l’utilisateur. Obligatoire pour l’authentification du principal de service.|
 |--certificate-path (chaîne)|Chemin du certificat pour l’authentification SPN. Obligatoire pour l’authentification du principal de service basée sur les certificats.|
 |-h, --help|Affiche l’aide de la commande login.|

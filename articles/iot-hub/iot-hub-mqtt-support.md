@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 150927ac05cba058d1d152ce568d7a462043d076
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890438"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937761"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -49,6 +49,24 @@ Le tableau suivant contient des liens vers des exemples de code pour chaque lang
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Prend toujours en charge MQTT par défaut |
+
+### <a name="default-keep-alive-timeout"></a>Délai de maintien de connexion par défaut 
+
+Pour maintenir la connexion entre un client et IoT Hub, le service et le client s'envoient régulièrement une requête ping de *maintien de connexion*. Le client qui utilise le kit de développement logiciel (SDK) IoT envoie une requête ping de maintien de connexion à l'intervalle défini dans le tableau ci-dessous :
+
+|Langage  |Intervalle de maintien de connexion par défaut  |Configurable  |
+|---------|---------|---------|
+|Node.js     |   180 secondes      |     Non    |
+|Java     |    230 secondes     |     Non    |
+|C     | 240 secondes |  [Oui](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
+|C#     | 300 secondes |  [Oui](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
+|Python (V2)   | 60 secondes |  Non   |
+
+Selon la [spécification MQTT](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081), l'intervalle des requêtes ping de maintien de connexion d'IoT Hub équivaut à 1,5 fois la valeur de maintien de connexion du client. Cependant, IoT Hub limite le délai d'expiration maximal côté serveur à 29,45 minutes (1 767 secondes) car tous les services Azure sont liés au délai d'inactivité TCP de l'équilibreur de charge Azure, qui est de 29,45 minutes. 
+
+Par exemple, un appareil utilisant le kit de développement logiciel (SDK) Java envoie une requête ping de maintien de connexion, puis perd la connectivité réseau. 230 secondes plus tard, l'appareil manque la requête ping de maintien de connexion car il est hors connexion. Toutefois, IoT Hub ne ferme pas immédiatement la connexion. Il attend `(230 * 1.5) - 230 = 115` secondes de plus avant de déconnecter l'appareil en renvoyant l'erreur [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md). 
+
+La valeur de maintien de connexion maximale que vous pouvez définir pour le client est de `1767 / 1.5 = 1177` secondes. Tout trafic réinitialisera le maintien de la connexion. Par exemple, une actualisation de jeton SAS réussie réinitialisera le maintien de la connexion.
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migration d’une application d’appareil d’AMQP vers MQTT
 
@@ -153,7 +171,7 @@ Mosquitto_subscribe : pour voir les événements qui se produisent dans un hub 
 
 La connexion à IoT Hub via MQTT à l’aide d’une identité de module est similaire à celle de l’appareil (décrite [ci-dessus](#using-the-mqtt-protocol-directly-as-a-device)) mais vous devez utiliser ce qui suit :
 
-* Définissez l’ID de client sur `{device_id}/{module_id}`.
+* Définissez l'ID client sur `{device_id}/{module_id}`.
 
 * Si vous vous authentifiez avec un nom d’utilisateur et un mot de passe, définissez le nom d’utilisateur sur `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30` et utilisez le jeton SAS associé à l’identité du module comme mot de passe.
 
@@ -230,10 +248,6 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-Voici les instructions d’installation des prérequis.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 Pour vous authentifier à l’aide d’un certificat d’appareil, mettez à jour l’extrait de code ci-dessus avec les modifications suivantes (consultez [Guide pratique pour obtenir un certificat d’autorité de certification X.509](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) sur la préparation de l’authentification basée sur les certificats) :
 
 ```python
@@ -281,7 +295,7 @@ Pour recevoir des messages d’IoT Hub, l’appareil doit s’abonner en utilisa
 
 L’appareil ne reçoit aucun message d’IoT Hub tant qu’il ne s’est pas abonné à son point de terminaison spécifique d’appareil, représenté par le filtre de rubrique `devices/{device_id}/messages/devicebound/#`. Une fois qu’un abonnement a été établi, l’appareil reçoit les messages cloud-à-appareil qui lui ont été envoyés après l’abonnement. Si l’appareil se connecte avec l’indicateur **CleanSession** défini sur **0**, l’abonnement est rendu persistant entre les différentes sessions. Dans ce cas, la prochaine fois que l’appareil se connecte avec **CleanSession 0**, il reçoit les messages en attente qui lui ont été envoyés quand il était déconnecté. Si l’appareil utilise l’indicateur **CleanSession** défini sur **1**, il ne reçoit pas les messages à partir d’IoT Hub jusqu’à ce qu’il s’abonne à son point de terminaison d’appareil.
 
-IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` quand il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$** , tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
+IoT Hub remet les messages avec le **Nom de la rubrique** `devices/{device_id}/messages/devicebound/`, ou `devices/{device_id}/messages/devicebound/{property_bag}` lorsqu'il y a des propriétés de message. `{property_bag}` contient des paires clé/valeur codées URL de propriétés de message. Seules les propriétés d’application et les propriétés système définissables par l’utilisateur (comme **messageId** ou **correlationId**) sont incluses dans le jeu de propriétés. Les noms de propriété système ont le préfixe **$** , tandis que les noms de propriété d’application ne sont précédés d’aucun préfixe.
 
 Quand une application d’appareil s’abonne à une rubrique avec **QoS 2**, IoT Hub accorde le niveau QoS 1 maximal dans le paquet **SUBACK**. Après cela, IoT Hub remet les messages à l’appareil à l’aide de QoS 1.
 
@@ -319,7 +333,7 @@ Pour plus d’informations, consultez le [Guide du développeur - Jumeaux d’ap
 
 ## <a name="update-device-twins-reported-properties"></a>Mettre à jour les propriétés signalées du jumeau d’appareil
 
-Pour mettre à jour les propriétés signalées, l’appareil émet une demande à destination d’IoT Hub via une publication sur une rubrique MQTT désignée. Après avoir traité la demande, IoT Hub répond en indiquant l’état de réussite ou d’échec de l’opération de mise à jour via une publication sur une autre rubrique. L’appareil peut souscrire à cette rubrique pour être informé du résultat de sa demande de mise à jour dans le jumeau. Pour implémenter ce type d’interaction demande/réponse dans MQTT, nous tirons parti de la notion d’ID de demande (`$rid`) fournie initialement par l’appareil dans sa demande de mise à jour. Cet ID de demande est également inclus dans la réponse d’IoT Hub pour autoriser l’appareil à mettre en corrélation la réponse avec sa demande antérieure particulière.
+Pour mettre à jour les propriétés signalées, l’appareil émet une demande à destination d’IoT Hub via une publication sur une rubrique MQTT désignée. Après avoir traité la demande, IoT Hub répond en indiquant l’état de réussite ou d’échec de l’opération de mise à jour via une publication sur une autre rubrique. L’appareil peut souscrire à cette rubrique pour être informé du résultat de sa demande de mise à jour dans le jumeau. Pour implémenter ce type d'interaction demande/réponse dans MQTT, nous tirons parti de la notion d'ID de demande (`$rid`) fournie initialement par l'appareil dans sa demande de mise à jour. Cet ID de demande est également inclus dans la réponse d'IoT Hub pour autoriser l'appareil à mettre en corrélation la réponse avec sa demande antérieure particulière.
 
 La séquence suivante décrit comment un appareil met à jour les propriétés déclarées dans le jumeau d’appareil IoT Hub :
 

@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/06/2019
-ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/03/2020
+ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460430"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984549"
 ---
 1. Dans le [portail Azure](https://ms.portal.azure.com/), sélectionnez **Azure Active Directory** > **Inscriptions des applications** > **Nouvelle inscription**.
 
@@ -34,18 +34,30 @@ ms.locfileid: "75460430"
 
 1. Le panneau **Authentification** spécifie les paramètres importants de configuration d’authentification. 
 
+    1. Ajoutez des **URI de redirection** et configurez des **Jetons d’accès** en sélectionnant **+ Ajouter une plateforme**.
+
+    1. Spécifiez si l’application est un **client public** en sélectionnant **Oui** ou **Non**.
+
+    1. Vérifiez quels comptes et locataire sont pris en charge.
+
+    [![Configurer l’octroi implicite](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+
+1. Après avoir sélectionné la plateforme appropriée, configurez vos **URI de redirection** et **Jetons d’accès** dans le volet latéral situé à droite de l’interface utilisateur.
+
     1. **L’URI de redirection** doit correspondre à l’adresse fournie par la requête d’authentification :
 
-        * Pour les applications hébergées dans un environnement de développement local, sélectionnez **Client public (mobile et bureau)** . Veillez à définir **Type de client par défaut** sur Oui.
-        * Pour les applications à page unique hébergées sur Azure App Service, sélectionnez **Web**.
+        * Pour les applications hébergées dans un environnement de développement local, sélectionnez **Client public (mobile et bureau)** . Veillez à affecter la valeur **Oui** à **Client public**.
+        * Pour les applications monopages hébergées sur Azure App Service, sélectionnez **Web**.
+
+    1. Déterminez si une **URL de déconnexion** est appropriée.
 
     1. Activez le flux d’octroi implicite en cochant les **Jeton d'accès** ou **Jetons d'ID**.
 
-   [![Créer des URI de redirection et configurer l’octroi implicite](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+    [![Créer des URI de redirection](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-   Cliquez sur **Enregistrer**.
+    Cliquez sur **Configurer**, puis sur **Enregistrer**.
 
-1. Sélectionnez **Certificats et secrets**, puis **Nouveau secret client** pour créer un mot de passe d’application que le client peut utiliser pour prouver son identité.
+1. Sélectionnez **Certificats et secrets**, puis **Nouveau secret client** pour créer un mot de passe d’application que votre application cliente peut utiliser pour prouver son identité.
 
    [![Créer une nouvelle clé secrète client](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 

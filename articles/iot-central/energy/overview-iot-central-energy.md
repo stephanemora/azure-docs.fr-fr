@@ -8,16 +8,16 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 8c7d2481fe3ef361386bacc652d87744c1c790bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581501"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016560"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Créer des solutions énergétiques avec IoT Central 
 
-[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
+
 
 
 Les compteurs intelligents et les panneaux solaires jouent un rôle important dans la transformation du secteur de l'énergie. Les compteurs intelligents offrent davantage de contrôles et d'insights en temps réel sur la consommation d'énergie, et la croissance des panneaux solaires stimule la production d'énergies renouvelables. Les applications de suivi des compteurs intelligents et des panneaux solaires sont des exemples de modèles permettant d'illustrer les différentes fonctionnalités. Les partenaires peuvent utiliser ces modèles pour créer des solutions énergétiques avec IoT Central afin de répondre à leurs besoins spécifiques. Le déploiement et l'utilisation de ces applications ne requièrent aucun nouveau code et n'entraînent aucun coût supplémentaire. Découvrez-en plus sur les modèles d'applications énergétiques et leurs fonctionnalités.
@@ -26,7 +26,7 @@ Les compteurs intelligents et les panneaux solaires jouent un rôle important da
 ## <a name="what-is-the-smart-meter-monitoring-application"></a>Qu'est-ce que l'application de suivi des compteurs intelligents ?
  Les compteurs intelligents permettent d'automatiser la facturation et offrent des fonctionnalités avancées, telles que les relevés en temps réel et la communication bidirectionnelle. Le modèle d'application de suivi des compteurs intelligents permet aux fournisseurs d'énergie et aux partenaires de suivre l'état et les données des compteurs intelligents, et de définir des alarmes et des notifications. Il propose des exemples de commandes, pour déconnecter les compteurs et mettre à jour les logiciels par exemple. Les données des compteurs peuvent être configurées pour être transférées vers d'autres applications métier et pour développer des solutions personnalisées. 
 
-Fonctionnalités clés de l'application : 
+Fonctionnalités clés de l’application : 
 
 * Modèle d'exemple de compteur 
 * Informations sur le compteur et état en temps réel 
@@ -47,7 +47,7 @@ Une fois l'application déployée, les données simulées des compteurs apparais
 ## <a name="what-is-the-solar-panel-monitoring-application"></a>Qu'est-ce que l'application de suivi des panneaux solaires ?
 L'application de suivi des panneaux solaires permet aux fournisseurs d'énergie et aux partenaires de suivre quasiment en temps la production d'énergie et l'état de connexion des panneaux solaires. Elle peut envoyer des notifications en fonction de critères de seuil définis. Elle propose des exemples de commandes, pour mettre à jour le microprogramme et pour définir d'autres propriétés par exemple. Les données des panneaux solaires peuvent être configurées pour être transférées vers d'autres applications métier et pour développer des solutions personnalisées. 
 
-Fonctionnalités clés de l'application : 
+Fonctionnalités clés de l’application : 
 
 * Modèle d'exemple de panneau solaire 
 * Informations sur le panneau solaire et état en temps réel
