@@ -1,6 +1,6 @@
 - name: Documentation Azure Lighthouse
   href: index.yml
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’Azure Lighthouse\_?"
       displayName: 'management at scale, service providers'
@@ -44,6 +44,9 @@
     - name: Voir et gérer les clients
       displayName: my customers
       href: ./how-to/view-manage-customers.md
+    - name: Utiliser les journaux Azure Monitor à grande échelle
+      displayName: 'log, analytics, analyze, activity'
+      href: ./how-to/monitor-at-scale.md
     - name: Intégration d’Azure Policy
       items:
         - name: Déployer une stratégie à grande échelle
@@ -62,7 +65,7 @@
           href: ./how-to/view-service-provider-activity.md
 - name: Informations de référence
   items:
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/managedservices?view=azure-cli-latest'
     - name: Azure PowerShell
       href: 'https://docs.microsoft.com/powershell/module/az.managedservices/?view=azps-2.4.0#managed_services'

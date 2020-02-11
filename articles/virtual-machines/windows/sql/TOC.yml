@@ -1,4 +1,4 @@
-- name: Vue d'ensemble
+- name: Vue d’ensemble
   items:
     - name: "Qu’est-ce qu’une machine virtuelle SQL\_Server\_?"
       href: virtual-machines-windows-sql-server-iaas-overview.md
@@ -14,15 +14,15 @@
       href: quickstart-sql-vm-create-powershell.md
 - name: Concepts
   items:
-    - name: Bonnes pratiques
+    - name: Meilleures pratiques
       items:
-        - name: Bonnes pratiques concernant les performances
+        - name: Meilleures pratiques relatives aux performances
           href: virtual-machines-windows-sql-performance.md
         - name: Considérations relatives à la sécurité
           href: virtual-machines-windows-sql-security.md
         - name: Modèles d’application
           href: virtual-machines-windows-sql-server-app-patterns-dev-strategies.md
-    - name: Continuité des activités
+    - name: Continuité de l’activité
       items:
         - name: Options de haute disponibilité
           href: virtual-machines-windows-sql-high-availability-dr.md
@@ -34,7 +34,7 @@
           href: virtual-machines-windows-sql-automated-backup.md
         - name: "Sauvegarde automatisée de SQL\_Server\_2016+"
           href: virtual-machines-windows-sql-automated-backup-v2.md
-    - name: gestion
+    - name: Gestion
       items:
         - name: Hôte dédié
           href: virtual-machines-windows-sql-dedicated-host.md
@@ -69,7 +69,7 @@
           href: virtual-machines-windows-sql-register-with-resource-provider.md
         - name: Inscrire en bloc plusieurs machines virtuelles
           href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
-    - name: gérer
+    - name: Gérer
       items:
         - name: Modèle de licence
           displayName: 'ahb, ahub, payg, change, modify, update'
@@ -97,9 +97,11 @@
               href: virtual-machines-windows-sql-availability-group-quickstart-template.md
             - name: Plusieurs régions
               href: virtual-machines-windows-portal-sql-availability-group-dr.md
+            - name: Indépendant du domaine (groupe de travail)
+              href: virtual-machines-windows-sql-workgroup-availability-group.md
             - name: Configurer manuellement
               items:
-                - name: Prérequis
+                - name: Conditions préalables requises
                   href: virtual-machines-windows-portal-sql-availability-group-prereq.md
                 - name: Didacticiel
                   href: virtual-machines-windows-portal-sql-availability-group-tutorial.md
@@ -117,7 +119,7 @@
   items:
     - name: Azure PowerShell
       href: /powershell/azure/overview
-    - name: D’Azure CLI
+    - name: Azure CLI
       href: /cli/azure/
     - name: T-SQL
       href: 'https://docs.microsoft.com/sql/t-sql/language-reference'
@@ -127,11 +129,11 @@
       href: /rest/api/
 - name: Ressources
   items:
-    - name: Forum Aux Questions
+    - name: Questions fréquentes (FAQ)
       href: virtual-machines-windows-sql-server-iaas-faq.md
     - name: Tarifs
       href: virtual-machines-windows-sql-server-pricing-guidance.md
-    - name: Outils SQL Server Data Tools (SSDT)
+    - name: SQL Server Data Tools (SSDT)
       href: 'https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt'
     - name: SQL Server Management Studio (SSMS)
       href: 'https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms'
