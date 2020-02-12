@@ -165,6 +165,18 @@
           href: storage-python-how-to-use-file-storage.md
     - name: Sécuriser
       items:
+        - name: Gérer les clés de chiffrement du compte de stockage
+          items:
+            - name: Vérifier le modèle de clé de chiffrement du compte
+              href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+            - name: Configurer des clés de chiffrement gérées par le client
+              items:
+                - name: Portail
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Configurer des pare-feu et des réseaux virtuels
           href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Exiger un transfert sécurisé
@@ -281,13 +293,13 @@
         - name: Téléchargez l’Explorateur Stockage
           href: 'https://azure.microsoft.com/features/storage-explorer/'
         - name: Prise en main de l’Explorateur Stockage
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Notes de version de l’Explorateur de stockage
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Résoudre les problèmes de l’Explorateur de stockage
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
         - name: Accessibilité de l’Explorateur Stockage Azure
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Forum Internet du Stockage Azure
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
     - name: Stockage Azure sur Stack Overflow

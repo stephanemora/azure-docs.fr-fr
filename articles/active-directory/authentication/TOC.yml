@@ -9,8 +9,8 @@
   items:
     - name: Activer la réinitialisation du mot de passe libre-service
       href: tutorial-enable-sspr.md
-    - name: Activer l’authentification multifacteur (MFA) pour les applications
-      href: tutorial-mfa-applications.md
+    - name: Activation d’Azure Multi-Factor Authentication
+      href: tutorial-enable-azure-mfa.md
     - name: Activer l’intégration locale SSPR
       href: tutorial-enable-writeback.md
     - name: Intégrer Azure Identity Protection
