@@ -9,21 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 36914240caf3c1321dfa0102bd87cb29173f8b1d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f01e07ea2bbfd0f6b3b0cc19dd219d71984a0d45
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911066"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988564"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Ajouter une couche d’extrusion de polygone à la carte
 
-Cet article explique comment utiliser la couche d’extrusion de polygone pour afficher des zones d’entités géométriques `Polygon` et `MultiPolygon` en tant que formes extrudées sur la carte. Le SDK web Azure Maps prend également en charge la création de géométries Circle comme défini dans le [schéma GeoJSON étendu](extend-geojson.md#circle). Ces cercles sont transformés en polygones une fois rendus sur la carte. Toutes les géométries de fonctionnalité peuvent aussi être facilement mises à jour si elles sont encapsulées avec la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
-
+Cet article explique comment utiliser la couche d’extrusion de polygone pour afficher des zones d’entités géométriques `Polygon` et `MultiPolygon` en tant que formes extrudées. Le Kit de développement logiciel (SDK) web Azure Maps prend également en charge le rendu de géométries Circle comme défini dans le [schéma GeoJSON étendu](extend-geojson.md#circle). Ces cercles peuvent être transformés en polygones une fois rendus sur la carte. Toutes les entités géométriques peuvent facilement être mises à jour lorsqu’elles sont enveloppées dans la classe [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 
 ## <a name="use-a-polygon-extrusion-layer"></a>Utiliser une couche d’extrusion de polygone
 
-Lorsqu’une [couche d’extrusion de polygone](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) est connectée à la source de données et chargée sur la carte, elle affiche les zones des entités `Polygon` et `MultiPolygon` en tant que formes extrudées. Les propriétés `height` et `base` de la couche d’extrusion de polygone définissent la distance de base par rapport au sol et la hauteur de la forme extrudée en **mètres**. Le code suivant montre comment créer un polygone, l’ajouter à une source de données et l’afficher à l’aide de la classe Couche d’extrusion de polygone.
+Connectez la [couche d’extrusion de polygone](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) à une source de données. Ensuite, chargez-la sur la carte. La couche d’extrusion de polygone restitue les zones des entités `Polygon` et `MultiPolygon` en tant que formes extrudées. Les propriétés `height` et `base` de la couche d’extrusion de polygone définissent la distance de base par rapport au sol et la hauteur de la forme extrudée en **mètres**. Le code suivant montre comment créer un polygone, l’ajouter à une source de données et l’afficher à l’aide de la classe Couche d’extrusion de polygone.
 
 > [!Note]
 > La valeur de `base` définie dans la couche d’extrusion de polygone doit être inférieure ou égale à la valeur de `height`.
@@ -34,9 +33,9 @@ Lorsqu’une [couche d’extrusion de polygone](https://docs.microsoft.com/javas
 Consultez le stylet <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>Extruded polygon</a> (Polygone extrudé) d’Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.</iframe>
 
 
-## <a name="add-data-driven-multipolygons"></a>Ajouter des multipolygones pilotés par des données
+## <a name="add-data-driven-polygons"></a>Ajouter des polygones pilotés par des données
 
-Une carte choroplèthe peut être affichée avec la couche d’extrusion de polygone en définissant ses propriétés `height` et `fillColor` de façon proportionnelle à la mesure de la variable statistique dans les géométries d’entités `Polygon` et `MultiPolygon`. L’exemple de code suivant montre une carte choroplèthe extrudée des États-Unis basée sur la mesure de la densité de population de chaque État.
+Une carte choroplèthe peut être rendue à l’aide de la couche d’extrusion de polygone. Définissez les propriétés `height` et `fillColor` de la couche d’extrusion sur la mesure de la variable statistique dans les entités géométriques `Polygon` et `MultiPolygon`. L’exemple de code suivant montre une carte choroplèthe extrudée des États-Unis basée sur la mesure de la densité de population de chaque État.
 
 <br/>
 
@@ -62,7 +61,7 @@ Azure Maps utilise une version étendue du schéma GeoJSON qui fournit une défi
 } 
 ```
 
-Le kit SDK web Azure Maps convertit en arrière-plan ces entités `Point` en entités `Polygon` et peut les afficher sur la carte à l’aide d’une couche d’extrusion de polygone, comme indiqué dans l’exemple de code suivant.
+Le Kit de développement logiciel (SDK) web Azure Maps convertit en coulisses ces entités `Point` en entités `Polygon`. Ces entités `Point` peuvent être rendues sur la carte à l’aide de la couche d’extrusion de polygone, comme illustré dans l’exemple de code suivant.
 
 <br/>
 
@@ -72,7 +71,7 @@ Consultez le stylet <a href='https://codepen.io/azuremaps/pen/zYYYrxo'>Drone air
 
 ## <a name="customize-a-polygon-extrusion-layer"></a>Personnaliser une couche d’extrusion de polygone
 
-La couche d’extrusion de polygone a plusieurs options de style. Voici un outil qui va vous permettre de les essayer.
+La couche d’extrusion de polygone comporte plusieurs options de style. Voici un outil qui va vous permettre de les essayer.
 
 <br/>
 

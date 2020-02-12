@@ -14,12 +14,12 @@ ms.date: 12/18/2019
 ms.author: ryanwi
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 15fa6b9c7b9c84cd17b67c53dd65acd54ea63910
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 7b42676fa387914bc4825e2850b3d2f032827a79
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699221"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962116"
 ---
 # <a name="microsoft-identity-platform-application-authentication-certificate-credentials"></a>Informations d’identification de certificat d’authentification d’application de la Plateforme d’identités Microsoft
 
@@ -130,6 +130,6 @@ Dans l’inscription d’application Azure pour l’application cliente :
 ## <a name="code-sample"></a>Exemple de code
 
 > [!NOTE]
-> Vous devez calculer l’en-tête X5T en utilisant le hachage du certificat et en le convertissant en une chaîne base64. En C#, le résultat pourrait ressembler à ce qui suit : `System.Convert.ToBase64String(cert.GetCertHash());`
+> Vous devez calculer l’en-tête X5T en le convertissant en une chaîne base64 à l’aide du hachage du certificat. Le code pour effectuer cette opération en C# est le suivant : `System.Convert.ToBase64String(cert.GetCertHash());`
 
 L’exemple de code dans [Authentification auprès de la Plateforme d’identités Microsoft dans les applications de démon avec certificats](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) montre comment une application utilise ses propres informations d’identification pour l’authentification. Il montre comment vous pouvez [créer un certificat auto-signé](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate) à l’aide de la commande PowerShell `New-SelfSignedCertificate`. Vous pouvez également utiliser les [scripts de création d’application](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md) pour créer les certificats, calculer l’empreinte, etc.

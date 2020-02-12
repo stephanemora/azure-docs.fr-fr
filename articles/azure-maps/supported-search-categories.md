@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: de44d07b5ebc6a898e3c098f16e553e9d4a46150
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 9dbcae6e3947576a7d2bc204c2a3a6fb2e95953d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910408"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988283"
 ---
 # <a name="azure-maps-supported-categories"></a>Catégories prises en charge dans Azure Maps
 
-Lorsque vous effectuez une [recherche par catégorie ](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) pour les points d’intérêt, il existe plus d’une centaine de catégories prises en charge. Voici la liste des codes de catégorie pour les noms de catégorie pris en charge. Les codes de catégorie sont générés pour les catégories de premier niveau. Toutes les sous-catégories partagent le même code de catégorie. Veuillez noter que cette liste de catégories est susceptible de changer à chaque nouvelle publication de données.
+Lorsque vous effectuez une [recherche par catégorie ](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) pour les points d’intérêt, il existe plus d’une centaine de catégories prises en charge. Voici la liste des codes de catégorie pour les noms de catégorie pris en charge. Les codes de catégorie sont générés pour les catégories de premier niveau. Toutes les sous-catégories partagent le même code de catégorie. Cette liste de catégories est susceptible de changer à chaque nouvelle publication de données.
 
 <br/>
 

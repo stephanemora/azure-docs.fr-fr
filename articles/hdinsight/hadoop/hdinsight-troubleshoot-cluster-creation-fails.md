@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: ea60faf5b5689fa674095201d3db18422d3e0f1b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980498"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937903"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Résoudre les problèmes de création de cluster avec Azure HDInsight
 
@@ -64,7 +64,7 @@ Si vous utilisez ExpressRoute ou votre propre serveur DNS personnalisé, consult
 
 ## <a name="resources-locks"></a>Verrous de ressources  
 
-Vérifiez qu’il n’y aucun [verrou sur votre réseau virtuel ou groupe de ressources](../../azure-resource-manager/management/lock-resources.md).  
+Vérifiez qu’il n’y aucun [verrou sur votre réseau virtuel ou groupe de ressources](../../azure-resource-manager/management/lock-resources.md). Les clusters ne peuvent pas être créés ou supprimés si le groupe de ressources est verrouillé. 
 
 ## <a name="unsupported-component-versions"></a>Versions de composants non prises en charge
 
@@ -78,7 +78,7 @@ D’autres restrictions concernant l’attribution de noms s’appliquent égale
 
 ## <a name="service-outages"></a>Interruptions de service
 
-Pour les éventuels problèmes de service ou interruptions, vérifiez l’[état Azure](https://status.azure.com/status).
+Pour les éventuels problèmes de service ou interruptions, vérifiez l’[état Azure](https://status.azure.com).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

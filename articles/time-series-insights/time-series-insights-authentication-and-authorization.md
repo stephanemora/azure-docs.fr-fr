@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863476"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984550"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Authentification et autorisation pour l’API Insights Azure Time Series
 
@@ -93,7 +93,7 @@ Comme indiqué à l'**étape 3**, séparer les informations d'identification de
 
    1. Le jeton peut ensuite être passé dans l’en-tête `Authorization` lorsque l’application appelle l’API Insights Azure Time Series.
 
-* Les développeurs peuvent également choisir de s’authentifier à l’aide de la bibliothèque MSAL. Pour en savoir plus, consultez [Migration vers MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration). 
+* Les développeurs peuvent également choisir de s’authentifier à l’aide de la bibliothèque MSAL. Pour en savoir plus, lisez notre rubrique sur la [migration vers MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) et consultez notre article [Gérer des données de référence pour un environnement Azure Time Series Insights en C#](time-series-insights-manage-reference-data-csharp.md). 
 
 ## <a name="common-headers-and-parameters"></a>Paramètres et en-têtes communs
 

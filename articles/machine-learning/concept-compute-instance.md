@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769114"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984844"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Qu’est-ce qu’une instance de calcul Azure Machine Learning ?
 
@@ -27,7 +27,7 @@ Utilisez une instance de calcul comme environnement de développement complètem
 Les instances de calcul sont généralement utilisées comme environnements de développement.  Elles peuvent également être utilisées comme cible de calcul pour la formation et l’inférence à des fins de développement et de test.  Pour les tâches volumineuses, un [cluster de calcul Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) avec des fonctionnalités de mise à l’échelle à plusieurs nœuds est un meilleur choix de cible de calcul.
 
 > [!NOTE]
-> Les instances de calcul sont actuellement disponibles uniquement pour les espaces de travail dans les régions **USA Centre Nord** ou **Royaume-Uni Sud**, mais d’autres régions seront bientôt prises en charge.
+> Les instances de calcul ne sont actuellement disponibles que pour les espaces de travail dans les régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** et **Royaume-Uni Sud**. D’autres régions seront bientôt prises en charge.
 >Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place. 
 
 ## <a name="why-use-a-compute-instance"></a>Pourquoi créer une instance de calcul ?

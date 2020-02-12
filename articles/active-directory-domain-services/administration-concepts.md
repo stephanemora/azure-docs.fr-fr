@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481020"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931563"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Concepts de gestion pour les comptes d’utilisateur, les mots de passe et l’administration dans Azure Active Directory Domain Services
 
@@ -32,9 +32,9 @@ Dans Azure AD DS, les contrôleurs de domaine (DC) qui contiennent toutes les re
 Les comptes d’utilisateurs peuvent être créés dans Azure AD DS de plusieurs façons. La plupart des comptes d’utilisateurs sont synchronisés à partir d’Azure AD, qui peuvent également inclure un compte d’utilisateur synchronisé à partir d’un environnement AD DS local. Vous pouvez également créer manuellement des comptes directement dans Azure AD DS. Certaines caractéristiques, telles que la synchronisation de mot de passe initiale ou la stratégie de mot de passe, se comportent différemment selon le mode et l’emplacement de création des comptes d’utilisateur.
 
 * Le compte d’utilisateur peut être synchronisé à partir d’Azure AD. Cela comprend les comptes d’utilisateurs uniquement dans le cloud créés directement dans Azure AD, et les comptes d’utilisateur hybrides synchronisés à partir d’un environnement AD DS local à l’aide d’Azure AD Connect.
-    * La majorité des comptes d’utilisateurs dans Azure AD DS sont créés par le biais du processus de synchronisation à partir d’Azure AD.
+    * La majorité des comptes d’utilisateur dans Azure AD DS sont créés par le biais du processus de synchronisation à partir d’Azure AD.
 * Le compte d’utilisateur peut être créé manuellement dans un domaine managé Azure AD DS et n’existe pas dans Azure AD.
-    * Si vous avez besoin de créer des comptes de service pour des applications qui s’exécutent uniquement dans Azure AD DS, vous pouvez les créer manuellement dans le domaine managé. Étant donné que la synchronisation est unidirectionnelle à partir d’Azure AD, les comptes d’utilisateurs créés dans Azure AD DS ne sont pas resynchronisés avec Azure AD.
+    * Si vous avez besoin de créer des comptes de service pour des applications qui s’exécutent uniquement dans Azure AD DS, vous pouvez les créer manuellement dans le domaine managé. La synchronisation étant unidirectionnelle à partir d’Azure AD, les comptes d’utilisateurs créés dans Azure AD DS ne sont pas resynchronisés avec Azure AD.
 
 ## <a name="password-policy"></a>Stratégie de mot de passe
 
@@ -60,7 +60,7 @@ Pour les utilisateurs synchronisés à partir d’un environnement AD DS local �
 Une fois configurés de façon appropriée, les hachages de mot de passe utilisables sont stockés dans le domaine managé Azure AD DS. Si vous supprimez le domaine managé Azure AD DS, tout hachage de mot de passe stocké à ce stade est également supprimé. Les informations d’identification synchronisées dans Azure AD ne peuvent pas être réutilisées si vous créez par la suite un domaine managé Azure AD DS : vous devez reconfigurer la synchronisation de hachage de mot de passe pour stocker à nouveau les hachages de mot de passe. Les machines virtuelles ou les utilisateurs auparavant joints à un domaine ne pourront pas s’authentifier immédiatement : Azure AD doit générer et stocker les hachages de mot de passe dans le nouveau domaine managé Azure AD DS. Pour plus d’informations, consultez [Processus de synchronisation du hachage de mot de passe pour Azure AD DS et Azure AD Connect][azure-ad-password-sync].
 
 > [!IMPORTANT]
-> Azure AD Connect ne peut être installé et configuré que pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets vers Azure AD.
+> Azure AD Connect doit uniquement être installé et configuré pour la synchronisation avec des environnements AD DS locaux. L’installation d’Azure AD Connect n’est pas prise en charge dans un domaine managé Azure AD DS pour resynchroniser des objets sur Azure AD.
 
 ## <a name="forests-and-trusts"></a>Forêts et approbations
 
@@ -68,11 +68,41 @@ Une *forêt* est une construction logique utilisée par Active Directory Domain 
 
 Dans Azure AD DS, la forêt ne contient qu’un seul domaine. Les forêts AD DS locales contiennent souvent de nombreux domaines. Dans les grandes organisations, en particulier après des fusions et acquisitions, vous pouvez vous retrouver avec plusieurs forêts locales qui contiennent chacune plusieurs domaines.
 
-Par défaut, un domaine managé Azure AD DS est créé en tant que forêt *d’utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, y compris les comptes d’utilisateur créés dans un environnement AD DS local. Les comptes d’utilisateur peuvent directement s’authentifier auprès du domaine managé Azure AD DS, par exemple pour se connecter à une machine virtuelle jointe à un domaine. Une forêt d’utilisateurs fonctionne lorsque les hachages de mot de passe peuvent être synchronisés et que les utilisateurs n’utilisent pas de méthode de connexion exclusive, comme l’authentification par carte à puce.
+Par défaut, un domaine managé Azure AD DS est créé en tant que forêt *d’utilisateurs*. Ce type de forêt synchronise tous les objets d’Azure AD, notamment les comptes d’utilisateur créés dans un environnement AD DS local. Les comptes d’utilisateur peuvent directement s’authentifier auprès du domaine managé Azure AD DS, par exemple pour se connecter à une machine virtuelle jointe à un domaine. Une forêt d’utilisateurs fonctionne lorsque les hachages de mot de passe peuvent être synchronisés et que les utilisateurs n’utilisent pas de méthode de connexion exclusive, comme l’authentification par carte à puce.
 
 Dans une forêt Azure AD DS de *ressources*, les utilisateurs s’authentifient sur une forêt à *approbation* unique à partir de leur AD DS local. Avec cette approche, les objets utilisateur et les hachages de mot de passe ne sont pas synchronisés avec Azure AD DS. Les objets utilisateur et les informations d’identification existent uniquement dans l’instance AD DS locale. Cette approche permet aux entreprises d’héberger des ressources et des plateformes d’application dans Azure qui dépendent de l’authentification classique, par exemple LDAPS, Kerberos ou NTLM, en éliminant les problèmes et craintes en matière d’authentification. Les forêts de ressources Azure AD DS sont actuellement en préversion.
 
 Pour plus d’informations sur les types de forêts dans Azure AD DS, consultez [Qu’est-ce que des forêts de ressources ?][concepts-forest] et [Comment faire fonctionner des approbations de forêts dans Azure AD DS ?][concepts-trust]
+
+## <a name="azure-ad-ds-skus"></a>Références SKU Azure AD DS
+
+Dans Azure AD DS, les performances et fonctionnalités disponibles sont basées sur la référence SKU. Vous sélectionnez une référence SKU lorsque vous créez le domaine managé et pouvez changer de références SKU au fil des besoins de votre entreprise, une fois le domaine managé déployé. Le tableau suivant présente les références SKU disponibles ainsi que leurs différences :
+
+| Nom de la référence (SKU)   | Nombre maximal d'objets | Fréquence de sauvegarde | Nombre maximal d’approbations de forêts sortantes |
+|------------|----------------------|------------------|----|
+| standard   | Illimité            | Tous les 7 jours     | 0  |
+| Entreprise | Illimité            | Tous les 3 jours     | 5  |
+| Premium    | Illimité            | Quotidien            | 10 |
+
+Avant ces références SKU Azure AD DS, un modèle de facturation basé sur le nombre d’objets (comptes d’utilisateurs et d’ordinateurs) dans le domaine managé Azure AD DS était utilisé. Il n’existe plus de tarification variable en fonction du nombre d’objets du domaine managé.
+
+Pour plus d’informations, consultez la [page de tarification Azure AD DS][pricing].
+
+### <a name="managed-domain-performance"></a>Performances du domaine managé
+
+Les performances du domaine varient selon la manière dont l’authentification est implémentée pour une application. Des ressources de calcul supplémentaires peuvent contribuer à améliorer le temps de réponse aux requêtes et réduire le délai des opérations de synchronisation. Plus le niveau de référence SKU augmente, plus les ressources de calcul disponibles pour le domaine managé augmentent aussi. Surveillez les performances de vos applications et planifiez les ressources requises.
+
+Si les besoins de votre entreprise ou de vos applications évoluent et qu'il vous faut une puissance de calcul supplémentaire pour votre domaine managé Azure AD DS, vous pouvez opter pour une autre référence SKU.
+
+### <a name="backup-frequency"></a>Fréquence de sauvegarde
+
+La fréquence de sauvegarde détermine la fréquence de prise d'un instantané du domaine managé. Les sauvegardes relèvent d'un processus automatisé managé par la plateforme Azure. En cas de problème lié à votre domaine managé, le support Azure peut vous aider à procéder à une restauration à partir d'une sauvegarde. La synchronisation étant unidirectionnelle *depuis* Azure AD, les problèmes survenant dans un domaine managé Azure AD DS n’ont pas d’impact sur Azure AD ou les environnements et fonctionnalités AD DS locaux.
+
+Plus le niveau de référence SKU augmente, plus la fréquence de ces instantanés de sauvegarde augmente aussi. Examinez les besoins de votre entreprise et l’objectif de point de récupération afin de déterminer la fréquence de sauvegarde requise pour votre domaine managé. Si les besoins de votre entreprise ou de vos applications évoluent et que vous avez besoin de sauvegardes plus fréquentes, vous pouvez opter pour une autre référence SKU.
+
+### <a name="outbound-forests"></a>Forêts sortantes
+
+La section précédente a décrit en détail les approbations de forêts sortantes unidirectionnelles d’un domaine managé Azure AD DS vers un environnement AD DS local (actuellement en préversion). La référence SKU détermine nombre maximal d’approbations de forêt que vous pouvez créer pour un domaine managé Azure AD DS. Examinez les exigences de votre entreprise et de vos applications pour déterminer le nombre d’approbations dont vous avez réellement besoin, puis choisissez la référence SKU Azure AD DS appropriée. Là encore, si les exigences de votre entreprise évoluent et qu'il vous faut créer des approbations de forêts supplémentaires, vous pouvez opter pour une autre référence SKU.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -87,3 +117,6 @@ Pour commencer, [créons un domaine managé Azure AD DS][create-instance].
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
+
+<!-- EXTERNAL LINKS -->
+[pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/

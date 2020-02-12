@@ -8,44 +8,43 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 04ee592122d7c76396f091f8d249518976682004
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b441eb1e6531030a998fe628ae833b29a5d9fe5a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446594"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902059"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 
-La migration d’une base de connaissances nécessite l’exportation d’une base de connaissances, puis l’importation dans une autre. 
+La migration d’une base de connaissances nécessite l’exportation d’une base de connaissances, puis l’importation dans une autre.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 * Avant de commencer, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Configurer un nouveau [service QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
 ## <a name="migrate-a-knowledge-base-from-qna-maker"></a>Migrer une base de connaissances à partir de QnA Maker
 1. Connectez-vous au [portail QnA Maker](https://qnamaker.ai).
-1. Sélectionnez la base de connaissances que vous souhaitez migrer.
+1. Sélectionnez la base de connaissances d'origine que vous souhaitez migrer.
 
-1. Dans la page **Settings** (Paramètres), sélectionnez **Export knowledge base** (Exporter la base de connaissances) pour télécharger un fichier .tsv qui contient le contenu de votre base de connaissances : questions, réponses, métadonnées et nom des sources de données à partir desquelles elles ont été extraites.
+1. Sur la page **Paramètres**, sélectionnez **Exporter la base de connaissances** pour télécharger un fichier .tsv qui contient le contenu de votre base de connaissances : questions, réponses, métadonnées, invites de suivi et noms des sources de données à partir desquelles elles ont été extraites.
 
-1. Sélectionnez **Créer une base de connaissances** dans le menu supérieur, puis créez une base de connaissances vide. 
+1. Sélectionnez **Créer une base de connaissances** dans le menu supérieur, puis créez une base de connaissances _vide_. Elle est vide car lorsque vous la créez, vous n'y ajoutez ni URL ni fichiers. Ceux-ci sont ajoutés lors de l’étape d’importation, après la création.
 
-    ![Définir les sources de données](../media/qnamaker-how-to-create-kb/set-data-sources.png)
+    Configurez la base de connaissances. Définissez le nom de la nouvelle base de connaissances uniquement. Les noms dupliqués et les caractères spéciaux sont acceptés.
 
-    - Donnez un **nom** à votre service. Les noms dupliqués et les caractères spéciaux sont acceptés.
+    Ne sélectionnez rien à l’étape 4, car ces valeurs seront remplacées lorsque vous importerez le fichier.
 
-1. Sélectionnez **Créer**.
+1. À l’étape 5, sélectionnez **Créer**.
 
-    ![Créer la base de connaissances](../media/qnamaker-how-to-create-kb/create-kb.png)
+1. Dans cette nouvelle base de connaissances, ouvrez l’onglet **Paramètres**, puis sélectionnez **Importer une base de connaissances**. Cette action importe les questions, les réponses, les métadonnées et les invites de suivi, tout en conservant le nom des sources de données à partir desquelles elles ont été extraites.
 
-1. Dans cette nouvelle base de connaissances, ouvrez l’onglet **Paramètres**, puis sélectionnez **Importer une base de connaissances**. Cette action importe les questions, les réponses et les métadonnées, tout en conservant le nom des sources de données à partir desquelles elles ont été extraites.
-
-   ![Importer une base de connaissances](../media/qnamaker-how-to-migrate-kb/Import.png)
+   > [!div class="mx-imgBorder"]
+   > [![Importer une base de connaissances](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)
 
 1. **Testez** la nouvelle base de connaissances à l’aide du panneau de test. Découvrez comment [tester votre base de connaissances](../How-To/test-knowledge-base.md).
 1. **Publiez** la base de connaissances. Découvrez comment [publier votre base de connaissances](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
@@ -53,12 +52,12 @@ La migration d’une base de connaissances nécessite l’exportation d’une ba
 
     ![Valeurs QnA Maker](../media/qnamaker-how-to-migrate-kb/qnamaker-settings-kbid-key.png)
 
-    À ce stade, tout le contenu de la base de connaissances (questions, réponses et métadonnées, ainsi que le nom des fichiers sources et les URL) est importé dans la nouvelle base de connaissances. 
+    À ce stade, tout le contenu de la base de connaissances (questions, réponses et métadonnées, ainsi que le nom des fichiers sources et les URL) est importé dans la nouvelle base de connaissances.
 
 ## <a name="chat-logs-and-alterations"></a>Conversations et modifications
 Les modifications qui ne respectent pas la casse (synonymes) ne sont pas importées automatiquement. Utilisez les [API V4](https://go.microsoft.com/fwlink/?linkid=2092179) pour déplacer les modifications dans nouvelle la base de connaissances.
 
-Il n’existe aucun moyen de migrer les conversations, étant donné que la nouvelle base de connaissances utilise Application Insights pour le stockage des conversations. 
+Il n’existe aucun moyen de migrer les conversations, étant donné que la nouvelle base de connaissances utilise Application Insights pour le stockage des conversations.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

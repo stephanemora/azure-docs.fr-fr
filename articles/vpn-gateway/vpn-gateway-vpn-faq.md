@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895980"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016746"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -68,14 +68,15 @@ Les passerelles basées sur des stratégies implémentent des VPN basés sur des
 
 Les passerelles basées sur des itinéraires implémentent les VPN basés sur des itinéraires. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic pour les VPN basés sur l'itinéraire sont configurés comme universels (ou en caractères génériques).
 
-### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
+
 Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
 1. Supprimez toutes connexions associées à la passerelle que vous comptez supprimer.
 1. Supprimez la passerelle :
-1. [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure PowerShell - Classique](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Créer une passerelle du type souhaité et terminer la configuration VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+   - [Azure portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell - Classic](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Créez une passerelle du type souhaité et terminer la configuration VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway).
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>Ai-je besoin d’un « sous-réseau de passerelle » ?
 
@@ -89,11 +90,15 @@ Non.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Puis-je obtenir mon adresse IP de passerelle VPN avant de la créer ?
 
-Non. Vous devez d’abord créer votre passerelle pour obtenir l'adresse IP. L’adresse IP change si vous supprimez et recréez votre passerelle VPN.
+Les passerelles zonales et redondantes interzone (références SKU de passerelle avec _AZ_ dans leur nom) reposent sur une ressource IP publique Azure de _référence SKU Standard_. Les ressources IP publiques de référence SKU Standard Azure doivent utiliser une méthode d’allocation statique. Ainsi, vous disposez de l’adresse IP publique de votre passerelle VPN dès que vous créez la ressource IP publique de référence SKU Standard que vous prévoyez d’utiliser pour celle-ci.
+
+Pour les passerelles non zonales et non redondantes interzone (références SKU de passerelle _sans_ _AZ_ dans leur nom), vous ne pouvez pas obtenir l’adresse IP de la passerelle VPN avant sa création. L’adresse IP change uniquement si vous supprimez et recréez votre passerelle VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Puis-je demander une adresse IP publique statique pour ma passerelle VPN ?
 
-Non. Seule l’affectation d’adresses IP dynamiques est prise en charge. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP de la passerelle VPN change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle VPN n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN. 
+Comme indiqué ci-dessus, les passerelles zonales et redondantes interzone (références SKU de passerelle avec _AZ_ dans leur nom) reposent toutes deux sur une ressource IP publique Azure de _référence SKU standard_. Les ressources IP publiques de référence SKU Standard Azure doivent utiliser une méthode d’allocation statique.
+
+Pour les passerelles non zonales et non redondantes interzone (références SKU de passerelle _sans_ _AZ_ dans leur nom), seule l’attribution d’adresse IP dynamique est prise en charge. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP de la passerelle VPN change uniquement lorsque la passerelle est supprimée, puis recréée. L’adresse IP publique de la passerelle VPN ne change pas lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Comment mon tunnel VPN est-il authentifié ?
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 6172b5da60037051517a43b1b3b8b91b50ab2aac
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 13e4923bc5d49843710c9df4523992f541f1d343
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895900"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988020"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>Aperçu : Contrôler les mises à jour avec le contrôle de maintenance et Azure CLI
 
@@ -31,13 +31,13 @@ Avec le contrôle de maintenance, vous pouvez :
 > [!IMPORTANT]
 > Le contrôle de maintenance est actuellement disponible en préversion publique.
 > Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Pour plus d’informations, consultez [Conditions d’Utilisation Supplémentaires relatives aux Évaluations Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> 
+>
 
 ## <a name="limitations"></a>Limites
 
 - Les machines virtuelles doivent se trouver sur un [hôte dédié](./linux/dedicated-hosts.md) ou être créées à l’aide d’une [taille de machine virtuelle isolée](./linux/isolation.md).
 - Après 35 jours, une mise à jour est automatiquement appliquée.
-- L’utilisateur doit disposer d’un accès de **propriétaire de ressource**.
+- L’utilisateur doit disposer d’un accès **Contributeur de ressource**.
 
 
 ## <a name="install-the-maintenance-extension"></a>Installer l’extension de maintenance
@@ -151,6 +151,23 @@ az maintenance assignment list \
 
 Utilisez `az maintenance update list` pour voir s’il existe des mises à jour en attente. Mettez à jour --subscription comme l’ID de l’abonnement contenant la machine virtuelle.
 
+S’il n’y a aucune mise à jour, la commande retourne un message d’erreur qui contient le texte suivant : `Resource not found...StatusCode: 404`.
+
+S’il existe des mises à jour, une seule est retournée, même si plusieurs mises à jour sont en attente. Les données de cette mise à jour seront retournées dans un objet :
+
+```text
+[
+  {
+    "impactDurationInSec": 9,
+    "impactType": "Freeze",
+    "maintenanceScope": "Host",
+    "notBefore": "2020-03-03T07:23:04.905538+00:00",
+    "resourceId": "/subscriptions/9120c5ff-e78e-4bd0-b29f-75c19cadd078/resourcegroups/DemoRG/providers/Microsoft.Compute/hostGroups/demoHostGroup/hosts/myHost",
+    "status": "Pending"
+  }
+]
+  ```
+
 ### <a name="isolated-vm"></a>Machine virtuelle isolée
 
 Recherchez les mises à jour en attente pour une machine virtuelle isolée. Dans cet exemple, la sortie est mise en forme en tant que tableau pour faciliter la lecture.
@@ -182,7 +199,7 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>Appliquer des mises à jour
 
-Utilisez `az maintenance apply update` pour appliquer les mises à jour en attente.
+Utilisez `az maintenance apply update` pour appliquer les mises à jour en attente. En cas de réussite, cette commande renverra un fichier JSON contenant les détails de la mise à jour.
 
 ### <a name="isolated-vm"></a>Machine virtuelle isolée
 
@@ -191,7 +208,7 @@ Créez une demande d’application des mises à jour à une machine virtuelle is
 ```azurecli-interactive
 az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myMaintenanceRG\
+   --resource-group myMaintenanceRG \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute
@@ -205,7 +222,7 @@ Appliquez les mises à jour à un hôte dédié.
 ```azurecli-interactive
 az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myHostResourceGroup \
+   --resource-group myHostResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
@@ -217,9 +234,9 @@ az maintenance applyupdate create \
 
 Vous pouvez vérifier la progression des mises à jour à l’aide de `az maintenance applyupdate get`. 
 
-### <a name="isolated-vm"></a>Machine virtuelle isolée
+Vous pouvez utiliser `default` comme nom de mise à jour pour afficher les résultats de la dernière mise à jour ou remplacer `myUpdateName` par le nom de la mise à jour qui a été retournée lors de l’exécution de `az maintenance applyupdate create`.
 
-Remplacez `myUpdateName` par le nom de la mise à jour qui a été retourné lorsque vous avez exécuté `az maintenance applyupdate create`.
+### <a name="isolated-vm"></a>Machine virtuelle isolée
 
 ```azurecli-interactive
 az maintenance applyupdate get \
@@ -227,7 +244,7 @@ az maintenance applyupdate get \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
-   --apply-update-name myUpdateName 
+   --apply-update-name default 
 ```
 
 ### <a name="dedicated-host"></a>Hôte dédié
@@ -241,7 +258,7 @@ az maintenance applyupdate get \
    --provider-name Microsoft.Compute \
    --resource-parent-name myHostGroup \ 
    --resource-parent-type hostGroups \
-   --apply-update-name default \
+   --apply-update-name myUpdateName \
    --query "{LastUpdate:lastUpdateTime, Name:name, ResourceGroup:resourceGroup, Status:status}" \
    --output table
 ```

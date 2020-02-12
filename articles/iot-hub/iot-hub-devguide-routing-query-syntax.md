@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890497"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934631"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
@@ -24,7 +24,7 @@ Le routage de messages vous permet d’interroger les propriétés et le corps d
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Requête de routage de messages en fonction des propriétés de message 
 
-IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour tous les envois de messages appareil-à-cloud à des fins d’interopérabilité entre les protocoles. Le message IoT Hub suppose la représentation JSON suivante du message. Les propriétés système sont ajoutées pour tous les utilisateurs et identifient le contenu du message. Les utilisateurs peuvent ajouter de façon sélective des propriétés de l’application au message. La messagerie appareil-à-cloud IoT Hub ne respectant pas la casse, nous recommandons d’utiliser des noms de propriété uniques. Par exemple, si vous avez plusieurs propriétés portant le même nom, IoT Hub n’envoie qu’une seule de ces propriétés.  
+IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour tous les envois de messages appareil-à-cloud à des fins d'interopérabilité entre les protocoles. Le message IoT Hub suppose la représentation JSON suivante du message. Les propriétés système sont ajoutées pour tous les utilisateurs et identifient le contenu du message. Les utilisateurs peuvent ajouter de façon sélective des propriétés de l’application au message. La messagerie appareil-à-cloud IoT Hub ne respectant pas la casse, nous recommandons d’utiliser des noms de propriété uniques. Par exemple, si vous avez plusieurs propriétés portant le même nom, IoT Hub n’envoie qu’une seule de ces propriétés.  
 
 ```json
 { 
@@ -163,7 +163,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Requête de routage de messages en fonction du jumeau d’appareil 
 
-Le routage de messages vous permet d’interroger les étiquettes et les propriétés d’un [Jumeau d’appareil](iot-hub-devguide-device-twins.md), qui sont des objets JSON. L’interrogation d’un jumeau de module n’est pas prise en charge. Un exemple d’étiquettes et de propriétés de jumeau d’appareil est détaillé ci-dessous.
+Le routage de messages vous permet d’interroger les étiquettes et les propriétés d’un [Jumeau d’appareil](iot-hub-devguide-device-twins.md), qui sont des objets JSON. L’interrogation d’un jumeau de module est également prise en charge. Un exemple d’étiquettes et de propriétés de jumeau d’appareil est détaillé ci-dessous.
 
 ```JSON
 {
@@ -196,7 +196,7 @@ Le routage de messages vous permet d’interroger les étiquettes et les propri�
 
 ### <a name="query-expressions"></a>Expressions de requête
 
-Une requête sur le corps de message doit avoir pour préfixe `$twin`. Votre expression de requête peut également combiner une référence à une étiquette ou à une propriété de jumeau avec une référence au corps, aux propriétés système de message et aux propriétés de l’application de messagerie. La requête ne respectant pas la casse, nous recommandons d’utiliser des noms uniques dans les balises et les propriétés. Évitez également l’utilisation de `twin`, `$twin`, `body` ou `$body`, comme noms de propriété. Par exemple, toutes les expressions de requête suivantes sont valides : 
+Une requête sur le corps de message doit avoir pour préfixe `$twin`. Votre expression de requête peut également combiner une référence à une étiquette ou à une propriété de jumeau avec une référence au corps, aux propriétés système de message et aux propriétés de l’application de messagerie. La requête ne respectant pas la casse, nous recommandons d’utiliser des noms uniques dans les balises et les propriétés. Cela s’applique aux jumeaux d'appareil ainsi qu'aux jumeaux de module. Évitez également l’utilisation de `twin`, `$twin`, `body` ou `$body`, comme noms de propriété. Par exemple, toutes les expressions de requête suivantes sont valides : 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

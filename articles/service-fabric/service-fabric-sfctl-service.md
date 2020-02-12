@@ -3,14 +3,14 @@ title: Interface CLI Azure Service Fabric - sfctl service
 description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient la liste des commandes permettant de gérer les services, les types de services et les packages de services.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 24ba7fea2ed51ea57c0a44e3c1f26b5df6043e1e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639069"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906240"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Permet de créer, de supprimer et de gérer le service, les types de service et les packages de services.
@@ -110,7 +110,7 @@ Permet de créer le service Service Fabric spécifié.
 | --int-scheme-low | Début de la plage de clés de type entier, si vous utilisez un schéma de partition d’entier uniforme. |
 | --load-metrics | Liste de mesures, encodée au format JSON, utilisée lors de l’équilibrage de charge des services entre les nœuds. |
 | --min-replica-set-size | Taille minimale du jeu de réplicas en tant que nombre. Cela s’applique uniquement aux services avec état. |
-| --move-cost | Spécifie le coût du déplacement du service. Valeurs possibles \: « Zero », « Low », « Medium », « High ». |
+| --move-cost | Spécifie le coût du déplacement du service. Les valeurs possibles sont\: « Zero », « Low », « Medium », « High » et « VeryHigh ». |
 | --named-scheme | Indique que le service doit comporter plusieurs partitions nommées. |
 | --named-scheme-list | Liste de noms, encodée au format JSON, de partition du service si vous utilisez le schéma de partition nommé. |
 | --no-persisted-state | Si cet argument est défini sur True, cela indique que le service n’a pas d’état persistant stocké sur le disque local ou qu’il stocke l’état uniquement en mémoire. |
@@ -118,6 +118,7 @@ Permet de créer le service Service Fabric spécifié.
 | --quorum-loss-wait | Durée maximale, en secondes, pendant laquelle une partition est autorisée à être à l’état de perte de quorum. Cela s’applique uniquement aux services avec état. |
 | --replica-restart-wait | Durée, en secondes, entre l’arrêt d’un réplica et la création d’un nouveau réplica. Cela s’applique uniquement aux services avec état. |
 | --scaling-policies | Liste, encodée au format JSON, des stratégies de mise à l’échelle pour ce service. |
+| --service-placement-time | Durée pendant laquelle les réplicas peuvent rester InBuild avant d'indiquer que la build est bloquée. Cela s’applique uniquement aux services avec état. |
 | --singleton-scheme | Indique que le service doit avoir une seule partition ou être un service non partitionné. |
 | --stand-by-replica-keep | Durée maximale, en secondes, pendant laquelle les réplicas StandBy sont conservés avant d’être supprimés. Cela s’applique uniquement aux services avec état. |
 | --stateful | Indique qu’il s’agit d’un service avec état. |
@@ -562,11 +563,12 @@ Met à jour le service spécifié à l’aide de la description de la mise à jo
 | --instance-count | Nombre d’instances. Cela s’applique uniquement aux services sans état. |
 | --load-metrics | Liste de métriques, encodée au format JSON, utilisée lors de l’équilibrage de charge des services entre les nœuds. |
 | --min-replica-set-size | Taille minimale du jeu de réplicas en tant que nombre. Cela s’applique uniquement aux services avec état. |
-| --move-cost | Spécifie le coût du déplacement du service. Valeurs possibles \: « Zero », « Low », « Medium », « High ». |
+| --move-cost | Spécifie le coût du déplacement du service. Les valeurs possibles sont\: « Zero », « Low », « Medium », « High » et « VeryHigh ». |
 | --placement-policy-list | Liste, encodée au format JSON, de stratégies de placement pour le service, et les noms de domaine associés. Les stratégies peuvent être les suivantes (une ou plusieurs) \: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
 | --quorum-loss-wait | Durée maximale, en secondes, pendant laquelle une partition est autorisée à être à l’état de perte de quorum. Cela s’applique uniquement aux services avec état. |
 | --replica-restart-wait | Durée, en secondes, entre l’arrêt d’un réplica et la création d’un nouveau réplica. Cela s’applique uniquement aux services avec état. |
 | --scaling-policies | Liste, encodée au format JSON, des stratégies de mise à l’échelle pour ce service. |
+| --service-placement-time | Durée pendant laquelle les réplicas peuvent rester InBuild avant d'indiquer que la build est bloquée. Cela s’applique uniquement aux services avec état. |
 | --stand-by-replica-keep | Durée maximale, en secondes, pendant laquelle les réplicas StandBy sont conservés avant d’être supprimés. Cela s’applique uniquement aux services avec état. |
 | --stateful | Indique que le service cible est un service avec état. |
 | --stateless | Indique que le service cible est un service sans état. |

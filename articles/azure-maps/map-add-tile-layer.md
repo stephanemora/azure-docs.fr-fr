@@ -9,38 +9,38 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 61d7a11df499e6b740adb45968721b6a9bb1af22
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911087"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988598"
 ---
 # <a name="add-a-tile-layer-to-a-map"></a>Ajouter une couche de mosaïques à une carte
 
-Cet article vous montre comment vous pouvez superposer une couche de mosaïques à une carte. Les couches de mosaïques vous permettent de superposer des images à des mosaïques de carte de base Azure Maps. Vous trouverez plus d’informations sur le système de mosaïques Azure Maps dans la documentation [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
+Cet article vous montre comment superposer une couche de mosaïques sur une carte. Les couches de mosaïques vous permettent de superposer des images à des mosaïques de carte de base Azure Maps. Pour plus d’informations sur le système de mosaïques Azure Maps, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
-Un calque de mosaïques charge des mosaïques à partir d’un serveur. Ces images peuvent être préaffichées et stockées comme toute autre image sur un serveur, à l’aide d’une convention de nommage que la couche de mosaïques comprend, ou à l’aide d’un service dynamique qui génère les images à la volée. Trois conventions de nommage de service de mosaïques sont prises en charge par la classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) d’Azure Maps : 
+Un calque de mosaïques charge des mosaïques à partir d’un serveur. Ces images peuvent être prérendues ou rendues dynamiquement. Les images prérendues sont stockées comme toute autre image sur un serveur à l’aide d’une convention d’affectation de noms compréhensible par la couche de mosaïques. Les images rendues dynamiquement utilisent un service pour charger les images presque en temps réel. Trois conventions de nommage de service de mosaïques sont prises en charge par la classe [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) d’Azure Maps : 
 
-* Notation de zoom X, Y : selon le niveau de zoom, x correspond à la position de colonne et y à la position de ligne de la mosaïque dans la grille mosaïque.
-* Notation Quadkey : combinaison d’informations de zoom x, y au sein d’une valeur de chaîne qui correspond à l’identificateur unique de la mosaïque.
-* Rectangle englobant : les coordonnées du rectangle englobant peuvent servir à spécifier une image au format `{west},{south},{east},{north}`, qui est couramment utilisé par [Web Mapping Services (WMS)](https://www.opengeospatial.org/standards/wms).
+* X, Y et notation de zoom : X correspond à la position de colonne et Y à la position de ligne de la mosaïque dans la grille mosaïque, et la valeur de la notation de zoom est basée sur le niveau de zoom.
+* Notation Quadkey : combine les informations x, y et de zoom en une valeur de chaîne unique. Cette valeur de chaîne devient un identificateur unique pour une seule mosaïque.
+* Cadre englobant : spécifiez une image au format de coordonnées du cadre englobant : `{west},{south},{east},{north}`. Ce format est couramment utilisé par les [services de mappage web (WMS)](https://www.opengeospatial.org/standards/wms).
 
 > [!TIP]
-> Une [couche de mosaïques](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) est un excellent moyen de visualiser des jeux de données volumineux sur une carte. Non seulement elle peut être générée à partir d’une image, mais les données vectorielles peuvent également être affichées sous la forme d’une couche de mosaïques. En affichant des données vectorielles sous forme de couche de mosaïques, le contrôle de carte doit uniquement charger les mosaïques, qui peuvent être beaucoup plus petites que les données vectorielles qu’elles représentent. Cette technique est couramment utilisée pour afficher des millions de lignes de données sur une carte.
+> Une [couche de mosaïques](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) est un excellent moyen de visualiser des jeux de données volumineux sur une carte. Non seulement elle peut être générée à partir d’une image, mais les données vectorielles peuvent également être affichées sous la forme d’une couche de mosaïques. En affichant des données vectorielles sous forme de couche de mosaïques, le contrôle de carte doit uniquement charger les mosaïques dont la taille de fichier est inférieure à celle des données vectorielles qu’elles représentent. Cette technique est couramment utilisée pour afficher des millions de lignes de données sur une carte.
 
-L’URL de la mosaïque passée à une couche de mosaïques doit être l’URL HTTP/HTTPS d’une ressource TileJSON ou d’un modèle d’URL de mosaïque qui utilise les paramètres suivants : 
+L’URL de la mosaïque transmise à une couche de mosaïques doit être l’URL http ou https d’une ressource TileJSON ou d’un modèle d’URL de mosaïque qui utilise les paramètres suivants : 
 
 * `{x}` - position X de la mosaïque. Nécessite également `{y}` et `{z}`.
 * `{y}` - position Y de la mosaïque. Nécessite également `{x}` et `{z}`.
 * `{z}` - niveau de zoom de la mosaïque. Nécessite également `{x}` et `{y}`.
 * `{quadkey}` - identificateur quadkey de la mosaïque basé sur la convention de nommage du système de mosaïques de Bing Maps.
 * `{bbox-epsg-3857}` - chaîne de rectangle englobant au format `{west},{south},{east},{north}` du système SRID EPSG 3857.
-* `{subdomain}` - espace réservé où les valeurs de sous-domaine sont ajoutées, si spécifiées.
+* `{subdomain}` - espace réservé pour les valeurs de sous-domaine ; si spécifié, le `subdomain` sera ajouté.
 
 ## <a name="add-a-tile-layer"></a>Ajouter un calque de vignettes
 
- Cet exemple montre comment créer une couche de mosaïques qui pointe vers un ensemble de mosaïques qui utilisent le système de zoom de mosaïques x, y. La source de cette couche de mosaïques est un calque de radar météo issu de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Lors de l’affichage des données radar, dans l’idéal les utilisateurs doivent voir clairement les étiquettes des villes quand ils parcourent la carte, ce qui peut être fait en insérant le calque de mosaïques sous le calque `labels`.
+ Cet exemple montre comment créer une couche de mosaïques qui pointe vers un ensemble de mosaïques. Cet exemple utilise le système de mosaïques x, y et zoom. La source de cette couche de mosaïques est un calque de radar météo issu de [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). Lors de la visualisation des données radar, l’idéal serait que les utilisateurs voient clairement les étiquettes des villes lorsqu’ils naviguent sur la carte. Ce comportement peut être implémenté en insérant la couche de mosaïques sous la couche `labels`.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.

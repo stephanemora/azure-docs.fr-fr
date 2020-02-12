@@ -3,12 +3,12 @@ title: Modifier les paramètres de cluster Azure Service Fabric
 description: Cet article décrit les paramètres de structure et les stratégies de mise à niveau de la structure que vous pouvez personnaliser.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772123"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986187"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personnaliser les paramètres de cluster Service Fabric
 Cet article décrit les différents paramètres de structure personnalisables d’un cluster Service Fabric. Pour des clusters hébergés dans Azure, vous pouvez personnaliser les paramètres via le [portail Azure](https://portal.azure.com) ou en utilisant un modèle Azure Resource Manager. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster Azure](service-fabric-cluster-config-upgrade-azure.md). Pour personnaliser les paramètres d’un cluster autonome, mettez à jour le fichier *ClusterConfig.json* et effectuez une mise à niveau de configuration sur le cluster. Pour plus d’informations, voir [Mettre à niveau la configuration d’un cluster autonome](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -89,6 +89,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |TargetReplicaSetSize |Entier (valeur par défaut : 7) |Non autorisée|Paramètre TargetReplicaSetSize pour ClusterManager. |
 |UpgradeHealthCheckInterval |Durée en secondes, la valeur par défaut est 60 |Dynamique|Fréquence des contrôles de l’état d’intégrité durant une mise à niveau de l’application surveillée |
 |UpgradeStatusPollInterval |Durée en secondes, la valeur par défaut est 60 |Dynamique|Fréquence d’interrogation de l’état de mise à niveau de l’application. Cette valeur détermine le taux de mise à jour pour tout appel GetApplicationUpgradeProgress |
+|CompleteClientRequest | Valeur booléenne (valeur par défaut : false) |Dynamique| Termine la requête du client lorsqu’elle est acceptée par CM. |
 
 ## <a name="common"></a>Courant
 
@@ -568,6 +569,8 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 |ValidatePlacementConstraint | Valeur booléenne (valeur par défaut : true) |Dynamique| Spécifie si l’expression PlacementConstraint d’un service est validée lors de la mise à jour du paramètre ServiceDescription d’un service. |
 |ValidatePrimaryPlacementConstraintOnPromote| Valeur booléenne, valeur par défaut : TRUE |Dynamique|Spécifie si l’expression PlacementConstraint pour un service est évaluée ou non pour la préférence principale lors du basculement. |
 |VerboseHealthReportLimit | Entier (valeur par défaut : 20) | Dynamique|Définit le nombre de fois que le placement d’un réplica doit être annulé avant qu’un avertissement d’intégrité ne soit émis (si le rapport d’intégrité détaillé est activé). |
+|NodeLoadsOperationalTracingEnabled | Valeur booléenne (valeur par défaut : true) |Dynamique|Configuration qui active la trace structurelle opérationnelle du chargement de nœuds dans le magasin d’événements. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, la valeur par défaut est Common::TimeSpan::FromSeconds(20) | Dynamique|Spécifiez la durée en secondes. Intervalle avec lequel tracer les chargements de nœuds dans le magasin d’événements pour chaque domaine de service. |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 
@@ -828,7 +831,7 @@ Voici une liste des paramètres Fabric que vous pouvez personnaliser, classés p
 | **Paramètre** | **Valeurs autorisées** | **Stratégie de mise à niveau** | **Conseils ou brève description** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|Chaîne (valeur par défaut : "")| statique |Le nom du réseau à utiliser lors de la configuration d’un réseau de conteneur.|
-|ContainerNetworkSetup|valeur booléenne, valeur par défaut : FALSE| statique |Spécifie si un réseau de conteneur doit être configuré.|
+|ContainerNetworkSetup|bool, la valeur par défaut est FALSE pour Linux et TRUE pour Windows| statique |Spécifie si un réseau de conteneur doit être configuré.|
 |FabricDataRoot |String | Non autorisée |Répertoire racine des données Service Fabric. La valeur par défaut pour Azure est d:\svcfab |
 |FabricDataRoot |String | Non autorisée |Répertoire racine du journal Service Fabric. Il s’agit de l’emplacement des journaux d’activité et des traces de SF. |
 |NodesToBeRemoved|Chaîne (valeur par défaut : "")| Dynamique |Les nœuds qui doivent être supprimés dans le cadre de la mise à niveau de la configuration. (Uniquement pour les déploiements autonomes)|

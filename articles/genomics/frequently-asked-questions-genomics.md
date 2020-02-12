@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476435"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986034"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics : Questions courantes
 
@@ -24,6 +24,8 @@ Cet article répertorie les principales questions relatives à Microsoft Genomic
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Comment exécuter des flux de travail GATK4 sur Microsoft Genomics ?
 Dans le fichier config.txt du service Microsoft Genomics, définissez l'argument process_name sur `gatk4`. Notez que vous serez facturé au tarif standard.
 
+## <a name="how-do-i-enable-output-compression"></a>Comment activer la compression de sortie ?
+Vous pouvez compresser le fichier VCF ou GVCF de sortie à l’aide d’un argument facultatif pour la compression de sortie. Cela équivaut à exécuter `-bgzip` suivi de `-tabix` sur la sortie vcf ou gvcf afin de produire des fichiers `.gz` (sortie bgzip) et `.tbi` (sortie tabix). `bgzip` compresse le fichier vcf ou gvcf, et `tabix` crée un index pour le fichier compressé. L’argument est une valeur booléenne, qui est définie sur `false` par défaut pour la sortie vcf, et sur `true` par défaut pour la sortie gcvf. Pour l’utiliser sur la ligne de commande, spécifiez `-bz` ou `--bgzip-output` comme `true` (exécuter bgzip et tabix) ou `false`. Pour utiliser cet argument dans le fichier config.txt, ajoutez `bgzip_output: true` ou `bgzip_output: false` au fichier.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Quel contrat de niveau de service utiliser pour Microsoft Genomics ?
 Dans 99,9 % des cas, nous garantissons que le service Microsoft Genomics sera disponible pour recevoir des demandes d’API de workflow. Pour plus d’informations, consultez [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/).

@@ -1,30 +1,33 @@
 ---
-title: Mettre sur liste fiable les URL du portail Microsoft Azure | Microsoft Docs
+title: Mettre sur liste fiable les URL du portail Microsoft Azure sur votre pare-feu ou serveur proxy
 description: Ajouter ces URL au contournement du serveur proxy pour communiquer avec le portail Microsoft Azure et ses services
 services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 09/13/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3f81d41bc6d8ce07ea4e7b11c7c48f9b68d70466
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310563"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900659"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>Mettre sur liste fiable les URL du portail Microsoft Azure sur votre pare-feu ou serveur proxy
 
-Pour bénéficier d’une connectivité et de performances de qualité entre votre réseau local ou WAN et le cloud Azure, configurez des appareils de sécurité en local pour contourner les restrictions de sécurité pour les URL du portail Microsoft Azure. Les administrateurs réseau déploient souvent des serveurs proxy, des pare-feu ou d’autres périphériques pour vous aider à sécuriser et contrôler l’accès à Internet des utilisateurs. Toutefois, les règles conçues pour protéger les utilisateurs peuvent parfois bloquer ou ralentir le trafic Internet lié aux activités professionnelles, y compris les communications entre vous et Azure. Pour optimiser la connectivité entre votre réseau et le portail Microsoft Azure et ses services, nous vous recommandons de mettre sur liste fiable les URL du portail Microsoft Azure.
+Vous pouvez configurer des appareils de sécurité en local afin de contourner les restrictions de sécurité pour les URL du portail Microsoft Azure. Cette configuration permet d'améliorer les performances et la connectivité entre votre réseau local ou étendu et le cloud Azure.
+
+Les administrateurs réseau déploient souvent des serveurs proxy, des pare-feu ou autres périphériques. Ces périphériques contribuent à sécuriser et à contrôler la manière dont les utilisateurs accèdent à Internet. Les règles conçues pour protéger les utilisateurs peuvent parfois bloquer ou ralentir le trafic Internet lié aux activités professionnelles. Ce trafic comprend les communications entre vous et Azure. Pour optimiser la connectivité entre votre réseau et le portail Microsoft Azure et ses services, nous vous recommandons de mettre sur liste fiable les URL du portail Microsoft Azure.
 
 ## <a name="azure-portal-urls-for-proxy-bypass"></a>URL du portail Microsoft Azure pour le contournement du proxy
 
-Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azure sont spécifiques au cloud Azure sur lequel votre organisation est déployée. Sélectionnez votre cloud, puis ajoutez la liste d’URL à votre serveur proxy ou pare-feu pour autoriser le trafic réseau vers ces points de terminaison afin de contourner les restrictions.
+Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azure sont spécifiques au cloud Azure sur lequel votre organisation est déployée. Pour autoriser le trafic réseau vers ces points de terminaison à contourner les restrictions, sélectionnez votre cloud. Ajoutez ensuite la liste des URL à votre serveur proxy ou pare-feu.
 
 #### <a name="public-cloudtabpublic-cloud"></a>[Cloud public](#tab/public-cloud)
+
 ```
 *.aadcdn.microsoftonline-p.com
 *.aka.ms
@@ -48,6 +51,7 @@ Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azu
 ```
 
 #### <a name="us-government-cloudtabus-government-cloud"></a>[U.S. U.S. Government](#tab/us-government-cloud)
+
 ```
 *.azure.us
 *.loganalytics.us
@@ -60,6 +64,7 @@ Les points de terminaison d’URL à mettre sur liste fiable pour le portail Azu
 ```
 
 #### <a name="china-government-cloudtabchina-government-cloud"></a>[Cloud China Government](#tab/china-government-cloud)
+
 ```
 *.azure.cn
 *.microsoft.cn

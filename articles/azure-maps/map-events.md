@@ -1,6 +1,6 @@
 ---
 title: Gérer les événements cartographiques | Microsoft Azure Maps
-description: Dans cet article, vous allez apprendre à créer une carte SDK web interactive avec des événements cartographiques à l’aide du SDK web Microsoft Azure Maps.
+description: Dans cet article, vous allez apprendre à créer une carte SDK web interactive avec des événements cartographiques à l’aide du Kit de développement logiciel (SDK) web Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 09/10/2019
@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 06fdb9733ad9c173c88936e5502214b58f5d10ee
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911076"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985915"
 ---
 # <a name="interact-with-the-map"></a>Interagir avec la carte
 
-Cet article vous montre comment utiliser la propriété [events de la classe Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) pour mettre en évidence des événements sur la carte et sur différentes couches de la carte. Il montre également comment utiliser cette propriété pour mettre en évidence des événements lorsque vous interagissez avec un marqueur HTML.
+Cet article explique comment utiliser la [classe d’événements cartographiques](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events). La propriété met en surbrillance les événements sur la carte et sur les différentes couches de la carte. Vous pouvez également mettre en surbrillance des événements lorsque vous interagissez avec un marqueur HTML.
 
 ## <a name="interact-with-the-map"></a>Interagir avec la carte
 
-Manipulez la carte ci-dessous et observez les événements de souris correspondants mis en surbrillance sur la droite. Cliquez sur l’**onglet JS** pour afficher et modifier le code JavaScript. Vous pouvez également cliquer sur le bouton de **modification sur CodePen** afin de modifier le code par ce biais.
+Manipulez la carte ci-dessous et observez les événements de souris correspondants mis en surbrillance sur la droite. Cliquez sur l’**onglet JS** pour afficher et modifier le code JavaScript. Vous pouvez également cliquer sur **Modifier sur CodePen** afin de modifier le code par ce biais.
 
 <br/>
 
@@ -31,7 +31,7 @@ Manipulez la carte ci-dessous et observez les événements de souris corresponda
 
 ## <a name="interact-with-map-layers"></a>Interagir avec les couches de la carte
 
-Le code suivant met en évidence le nom des événements qui sont déclenchés quand vous interagissez avec la couche de symboles. Les couches de symboles, de bulles, de lignes et de polygones prennent toutes en charge le même ensemble d’événements. Les couches de carte thermique et de mosaïques ne prennent en charge aucun de ces événements.
+Le code suivant met en évidence l’événement déclenché lorsque vous interagissez avec la couche de symboles. Les couches de symboles, de bulles, de lignes et de polygones prennent toutes en charge le même ensemble d’événements. La carte thermique et les couches de mosaïques ne prennent en charge aucun de ces événements.
 
 <br/>
 

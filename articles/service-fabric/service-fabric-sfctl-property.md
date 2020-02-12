@@ -3,14 +3,14 @@ title: 'Interface CLI Azure Service Fabric : sfctl property'
 description: Apprenez-en davantage sur sfctl, l’interface de ligne de commande d’Azure Service Fabric. Contient une liste de commandes pour stocker et interroger les propriétés.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639103"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905835"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Stocke et interroge des propriétés avec des noms Service Fabric.
@@ -105,7 +105,7 @@ Crée ou met à jour la propriété Service Fabric spécifiée sous un nom donn�
 | --- | --- |
 | --name-id       [Requis] | Nom Service Fabric, sans le schéma d’URI 'fabric\:'. |
 | --property-name [Requis] | Nom de la propriété Service Fabric. |
-| --value         [Requis] | Décrit une valeur de propriété Service Fabric. Il s’agit d’une chaîne JSON. <br><br> La chaîne json a deux champs, le type ('kind') de données et la valeur ('value') des données. La valeur 'Kind' doit être le premier élément à afficher dans la chaîne JSON et peut être les valeurs 'Binary', 'Int64', 'Double', 'String' ou 'Guid'. La valeur doit pouvoir être sérialisée pour les types donnés. Les valeurs 'Kind' et 'Data' doivent être fournies sous forme de chaînes. |
+| --value         [Requis] | Décrit une valeur de propriété Service Fabric. Il s’agit d’une chaîne JSON. <br><br> La chaîne json a deux champs, le type (« kind ») de données et la valeur, entrée sous forme « Data » des données. La valeur 'Kind' doit être le premier élément à afficher dans la chaîne JSON et peut être les valeurs 'Binary', 'Int64', 'Double', 'String' ou 'Guid'. La valeur doit pouvoir être sérialisée pour les types donnés. Les valeurs 'Kind' et 'Data' doivent être fournies sous forme de chaînes. |
 | --custom-id-type | ID du type personnalisé de la propriété. Avec cette propriété, l’utilisateur peut marquer le type de la valeur de la propriété. |
 | --timeout -t | Valeur par défaut \: 60. |
 

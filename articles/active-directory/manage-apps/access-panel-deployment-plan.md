@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512849"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897078"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planifier le déploiement d’un panneau d’accès Azure Active Directory
 
@@ -227,9 +227,9 @@ Planifiez l’ordre dans lequel vous allez ajouter des applications au lanceur M
 
 Toutes les applications Azure AD compatibles avec l’authentification unique peuvent être ajoutées au lanceur My Apps. Les autres applications sont ajoutées à l’aide de l’option Authentification unique liée. Vous pouvez configurer une vignette d’application qui établit un lien vers l’URL de votre application web existante. L’authentification unique liée vous permet de commencer à diriger les utilisateurs vers le portail My Apps sans avoir à migrer toutes les applications vers l’authentification unique Azure AD. Vous pouvez migrer vers des applications avec authentification unique Azure AD configurée sans interrompre l’expérience des utilisateurs.
 
-#### <a name="use-my-apps-workspaces-preview"></a>Utiliser des espaces de travail Mes applications (préversion)
+#### <a name="use-my-apps-collections"></a>Utiliser des collections Mes applications
 
-Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des espaces de travail pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des espaces de travail pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, voir [Comment utiliser des espaces de travail Mes applications pour personnaliser des panneaux d’accès d’utilisateur (préversion)](access-panel-workspaces.md). 
+Par défaut, toutes les applications sont répertoriées sur une seule page. Toutefois, vous pouvez utiliser des collections pour regrouper des applications associées, puis les présenter sous un onglet distinct, ce qui les rend plus faciles à trouver. Par exemple, vous pouvez utiliser des collections pour créer des regroupements logiques d’applications pour des rôles de travail, des tâches, des projets, et autres ressources spécifiques. Pour plus d’informations, consultez [Comment utiliser des collections Mes applications pour personnaliser des panneaux d’accès utilisateur](access-panel-collections.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Choisir d’utiliser My Apps ou un portail existant
 

@@ -3,12 +3,12 @@ title: Informations de référence sur les paramètres d’application d’Azure
 description: Documentation de référence pour les paramètres d’application ou les variables d’environnement d’Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 87852d940204f574350321e2690b70c9835093d9
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921089"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963697"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
@@ -32,14 +32,14 @@ Dans la version 2.x et les versions ultérieures du runtime Functions, configur
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-Chaîne de connexion du compte de stockage facultatif pour stocker des journaux d’activité et les afficher dans l’onglet **Surveiller** du portail. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Consultez les sections [Compte de stockage](functions-infrastructure-as-code.md#storage-account) et [Conditions requises pour le compte de stockage](functions-create-function-app-portal.md#storage-account-requirements).
+Chaîne de connexion du compte de stockage facultatif pour stocker des journaux d’activité et les afficher dans l’onglet **Surveiller** du portail. Ce paramètre n’est valide que pour les applications qui ciblent la version 1.x du runtime Azure Functions. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Pour plus d’informations, consultez [Exigences pour le compte de stockage](storage-considerations.md#storage-account-requirements).
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>|
 
-> [!TIP]
-> Pour améliorer les performances et l’expérience, il est recommandé d’utiliser APPINSIGHTS_INSTRUMENTATIONKEY et App Insights pour la supervision, plutôt qu’AzureWebJobsDashboard.
+> [!NOTE]
+> Pour de meilleures performances et une meilleure expérience, le runtime version 2.x et les versions ultérieures utilisent APPINSIGHTS_INSTRUMENTATIONKEY et App Insights pour la supervision au lieu de `AzureWebJobsDashboard`.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -79,7 +79,7 @@ Spécifie le référentiel ou le fournisseur à utiliser pour le stockage de cl�
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Le runtime d’Azure Functions utilise cette chaîne de connexion de compte de stockage pour toutes les fonctions à l’exception de celles qui sont déclenchées par HTTP. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Consultez les sections [Compte de stockage](functions-infrastructure-as-code.md#storage-account) et [Conditions requises pour le compte de stockage](functions-create-function-app-portal.md#storage-account-requirements).
+Le runtime d’Azure Functions utilise cette chaîne de connexion de compte de stockage pour toutes les fonctions à l’exception de celles qui sont déclenchées par HTTP. Le compte de stockage doit être à usage général. Il prend en charge les objets blob, les files d’attente et les tables. Consultez les sections [Compte de stockage](functions-infrastructure-as-code.md#storage-account) et [Conditions requises pour le compte de stockage](storage-considerations.md#storage-account-requirements).
 
 |Clé|Exemple de valeur|
 |---|------------|

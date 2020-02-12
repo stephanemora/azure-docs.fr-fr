@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bde2fcad6f84e4a2df5268d1135e88a263b65ee0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: b831a3175e1dc8b19395d1c923b076ac9428690c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949114"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982906"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 
@@ -27,7 +27,7 @@ Cet article fournit des exemples pour l’utilisation de transformations de reve
 
 Vérifie qu’une revendication de date et d’heure (type de données string) est postérieure à une deuxième revendication de date et d’heure (type de données string) et lève une exception.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | leftOperand | string | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
 | InputClaim | rightOperand | string | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
@@ -78,7 +78,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **leftOperand** : 2018-10-01T15:00:00.0000000Z
@@ -89,9 +89,9 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 
 Convertit un ClaimType **Date** en un ClaimType **DateTime**. La transformation des revendications convertit le format d’heure et ajoute 12:00:00 AM à la date.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | date | Le ClaimType à convertir. |
+| InputClaim | inputClaim | Date | Le ClaimType à convertir. |
 | OutputClaim | outputClaim | dateTime | ClaimType généré après l’appel de cette ClaimsTransformation. |
 
 L’exemple suivant illustre la conversion de la revendication `dateOfBirth` (type de données de date) en une autre revendication `dateOfBirthWithTime` (type de données date/heure).
@@ -107,18 +107,47 @@ L’exemple suivant illustre la conversion de la revendication `dateOfBirth` (ty
   </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : 2019-06-01
 - Revendications de sortie :
     - **outputClaim** : 1559347200 (1er juin 2019 12:00:00)
 
+## <a name="convertdatetimetodateclaim"></a>ConvertDateTimeToDateClaim 
+
+Convertit un ClaimType **DateTime** en un ClaimType **Date**. La transformation de revendications supprime le format d’heure de la date.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | dateTime | Le ClaimType à convertir. |
+| OutputClaim | outputClaim | Date | ClaimType généré après l’appel de cette ClaimsTransformation. |
+
+L’exemple suivant illustre la conversion de la revendication `systemDateTime` (type de données dateTime ) en une autre revendication `systemDate` (type de données date).
+
+```XML
+<ClaimsTransformation Id="ConvertToDate" TransformationMethod="ConvertDateTimeToDateClaim">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="systemDateTime" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="systemDate" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+  - **inputClaim** : 1559347200 (1er juin 2019 12:00:00)
+- Revendications de sortie :
+  - **outputClaim** : 2019-06-01
+
 ## <a name="getcurrentdatetime"></a>GetCurrentDateTime
 
 Obtient la date et l’heure UTC actuelles et ajoute la valeur à un ClaimType.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | OutputClaim | currentDateTime | dateTime | ClaimType généré après l’appel de cette ClaimsTransformation. |
 
@@ -130,7 +159,7 @@ Obtient la date et l’heure UTC actuelles et ajoute la valeur à un ClaimType.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 * Revendications de sortie :
     * **currentDateTime** : 1534418820 (16 août 2018 11:27:00)
@@ -139,7 +168,7 @@ Obtient la date et l’heure UTC actuelles et ajoute la valeur à un ClaimType.
 
 Détermine si un dateTime est postérieur, antérieur ou égal à un autre. Le résultat est un nouveau booléen ClaimType avec une valeur `true` ou `false`.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | dateTime | La première valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la deuxième valeur dateTime. Une valeur null lève une exception. |
 | InputClaim | secondDateTime | dateTime | La deuxième valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la première valeur dateTime. La valeur NULL est considérée comme la valeur datetTime actuelle. |
@@ -166,7 +195,7 @@ Pour exécuter la transformation de revendication,vous devez d’abord obtenir l
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **firstDateTime** : 2018-01-01T00:00:00.100000Z

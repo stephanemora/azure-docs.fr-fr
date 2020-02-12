@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712855"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982755"
 ---
 # <a name="string-claims-transformations"></a>Transformations de revendications de chaînes
 
@@ -499,6 +499,47 @@ Utilisez cette transformation de revendication pour analyser le nom de domaine d
 - Revendications de sortie :
     - **domain** : outlook.com
 
+## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
+
+Vérifie qu’une revendication de chaîne `claimToMatch` et un paramètre d’entrée `matchTo` sont égaux, et définit les revendications de sortie avec la valeur présente dans le paramètre d’entrée `outputClaimIfMatched`, ainsi que la revendication de sortie de résultat de comparaison, qui est définie sur `true` ou `false` en fonction du résultat de la comparaison.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| inputClaim | claimToMatch | string | Type de revendication à comparer. |
+| InputParameter | matchTo | string | Expression régulière à mettre en correspondance. |
+| InputParameter | outputClaimIfMatched | string | Valeur à définir si les chaînes sont égales. |
+| OutputClaim | outputClaim | string | Si l’expression régulière correspond, cette revendication de sortie contient la valeur du paramètre d’entrée `outputClaimIfMatched`. Si aucune correspondance n’est trouvée, la valeur sera Null. |
+| OutputClaim | regexCompareResultClaim | boolean | Type de revendication de la sortie de résultat de correspondance d’expression régulière, qui doit être défini sur `true` ou `false` en fonction du résultat de la correspondance. |
+
+Par exemple, vérifie si le numéro de téléphone fourni est valide, selon le modèle d’expression régulière de numéro de téléphone.  
+
+```XML
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isPhone" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" TransformationClaimType="regexCompareResultClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **claimToMatch** : "64854114520"
+- Paramètres d’entrée :
+    - **matchTo** : "^[0-9]{4,16}$"
+    - **outputClaimIfMatched** : "isPhone"
+- Revendications de sortie :
+    - **outputClaim** : "isPhone"
+    - **regexCompareResultClaim** : true
+
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
 Vérifie qu’une revendication de chaîne et un paramètre d’entrée `matchTo` sont égaux, et définit les revendications de sortie avec la valeur présente dans les paramètres d’entrée `stringMatchMsg` et `stringMatchMsgCode`, ainsi que la revendication de sortie de résultat de comparaison, qui est définie sur `true` ou `false` en fonction du résultat de la comparaison.
@@ -592,3 +633,188 @@ Par exemple, la transformation de revendication suivante vérifie si la valeur d
     - **isMinorResponseCode** : B2C_V1_90001
     - **isMinor** : true
 
+
+## <a name="stringcontains"></a>StringContains
+
+Détermine si une sous-chaîne spécifiée apparaît dans la revendication d’entrée. Le résultat est un nouveau ClaimType booléen avec la valeur `true` ou `false`. `true` si le paramètre de valeur se produit dans cette chaîne ; sinon, `false`.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Type de revendication dans lequel effectuer la recherche. |
+|InputParameter|contains|string|Valeur à rechercher.|
+|InputParameter|ignoreCase|string|Spécifie si cette comparaison doit ignorer la casse de la chaîne comparée.|
+| OutputClaim | outputClaim | string | ClaimType généré après l’appel de cette ClaimsTransformation. Indicateur booléen si la sous-chaîne apparaît dans la revendication d’entrée. |
+
+Utilisez cette transformation de revendication pour vérifier si un type de revendication de chaîne contient une sous-chaîne. L’exemple suivant vérifie si le type de revendication de chaîne `roles` contient la valeur **admin**.
+
+```XML
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="contains" DataType="string" Value="admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **inputClaim** : "Admin, Approver, Editor"
+- Paramètres d’entrée :
+    - **contains** : "admin,"
+    - **ignoreCase** : true
+- Revendications de sortie :
+    - **outputClaim** : true 
+
+## <a name="stringsubstring"></a>StringSubstring
+
+Extrait des parties d’un type de revendication de chaîne, en commençant au caractère à la position spécifiée et retourne le nombre spécifié de caractères.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Type de revendication qui contient la chaîne. |
+| InputParameter | index_début | int | Position du caractère de départ de base zéro d’une sous-chaîne de cette instance. |
+| InputParameter | length | int | Nombre de caractères dans la sous-chaîne. |
+| OutputClaim | outputClaim | boolean | Chaîne équivalente à la sous-chaîne de longueur, longueur qui commence au niveau de startIndex dans cette instance, ou Empty si startIndex est égal à la longueur de cette instance et que la longueur est égale à zéro. |
+
+Par exemple, obtenir le préfixe du pays du numéro de téléphone.  
+
+
+```XML
+<ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="startIndex" DataType="int" Value="0" />
+  <InputParameter Id="length" DataType="int" Value="2" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phonePrefix" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **inputClaim** : "+1644114520"
+- Paramètres d’entrée :
+    - **startIndex** : 0
+    - **length** :  2
+- Revendications de sortie :
+    - **outputClaim** : "+1"
+
+## <a name="stringreplace"></a>StringReplace
+
+Recherche une valeur spécifiée dans une chaîne de type de revendication et retourne une nouvelle chaîne de type de revendication dans laquelle toutes les occurrences d’une chaîne spécifiée dans la chaîne actuelle sont remplacées par une autre chaîne spécifiée.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Type de revendication qui contient la chaîne. |
+| InputParameter | oldValue | string | Chaîne dans laquelle effectuer la recherche. |
+| InputParameter | newValue | string | Chaîne permettant de remplacer toutes les occurrences de `oldValue`. |
+| OutputClaim | outputClaim | boolean | Chaîne équivalente à la chaîne actuelle, sauf que toutes les instances de oldValue sont remplacées par newValue. Si oldValue est introuvable dans l’instance actuelle, la méthode retourne l’instance actuelle sans modification. |
+
+Par exemple, normalisez un numéro de téléphone en supprimant les caractères `-`  
+
+
+```XML
+<ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="oldValue" DataType="string" Value="-" />
+  <InputParameter Id="newValue" DataType="string" Value="" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **inputClaim** : "+164-411-452-054"
+- Paramètres d’entrée :
+    - **oldValue** : "-"
+    - **length** : ""
+- Revendications de sortie :
+    - **outputClaim** : "+164411452054"
+
+## <a name="stringjoin"></a>StringJoin
+
+Concatène les éléments d’un type de revendication de collection de chaînes spécifié, en utilisant le séparateur spécifié entre chaque élément ou membre.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | Collection qui contient les chaînes à concaténer. |
+| InputParameter | delimiter | string | Chaîne à utiliser comme séparateur, telle que la virgule `,`. |
+| OutputClaim | outputClaim | string | Chaîne composée des membres de la collection de chaînes `inputClaim`, délimitée par le paramètre d’entrée `delimiter`. |
+  
+L’exemple suivant prend une collection de chaînes de rôles d’utilisateur et la convertit en chaîne délimitée par des virgules. Vous pouvez utiliser cette méthode pour stocker une collection de chaînes dans un compte d’utilisateur Azure AD. Plus tard, lorsque vous lirez le compte à partir du répertoire, utilisez le paramètre `StringSplit` pour reconvertir la chaîne délimitée par des virgules en collection de chaînes.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
+  <InputClaims>
+   <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter DataType="string" Id="delimiter" Value="," />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="rolesCommaDelimiterConverted" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+  - **inputClaim** : [ "Admin", "Author", "Reader" ]
+- Paramètres d’entrée :
+  - **delimiter** : ","
+- Revendications de sortie :
+  - **outputClaim** : "Admin,Author,Reader"
+
+
+## <a name="stringsplit"></a>StringSplit
+
+Retourne un tableau de chaînes qui contient les sous-chaînes de cette instance, séparées par les éléments d’une chaîne spécifiée.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | string | Type de revendication de chaîne qui contient les sous-chaînes à fractionner. |
+| InputParameter | delimiter | string | Chaîne à utiliser comme séparateur, telle que la virgule `,`. |
+| OutputClaim | outputClaim | stringCollection | Collection de chaînes dont les éléments contiennent les sous-chaînes de cette chaîne, qui sont délimitées par le paramètre d’entrée `delimiter`. |
+  
+L’exemple suivant prend une chaîne délimitée par des virgules de rôles d’utilisateur et la convertit en collection de chaînes.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+  <InputParameter DataType="string" Id="delimiter" Value="," />
+    </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="roles" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+  - **inputClaim** : "Admin,Author,Reader"
+- Paramètres d’entrée :
+  - **delimiter** : ","
+- Revendications de sortie :
+  - **outputClaim** : [ "Admin", "Author", "Reader" ]

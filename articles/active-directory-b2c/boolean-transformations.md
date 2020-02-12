@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dcebcc3e2021938f3fd3bde236ef08e4f26b8a97
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: f0d6d74271cc4ff0be4a653b389cc70ad5c56ef9
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949889"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983076"
 ---
 # <a name="boolean-claims-transformations"></a>Transformations de revendications booléennes
 
@@ -28,7 +28,7 @@ Cet article fournit des exemples pour l’utilisation de transformations de reve
 
 Effectue une opération And de deux inputClaims booléennes et définit outputClaim avec le résultat de l’opération.
 
-| Item  | TransformationClaimType  | Type de données  | Notes |
+| Élément  | TransformationClaimType  | Type de données  | Notes |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | Premier ClaimType à évaluer. |
 | InputClaim | inputClaim2  | boolean | Deuxième ClaimType à évaluer. |
@@ -48,7 +48,7 @@ La transformation de revendication suivante montre comment exécuter une opérat
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim1** : true
@@ -61,14 +61,14 @@ La transformation de revendication suivante montre comment exécuter une opérat
 
 Vérifie que les valeurs booléennes de deux revendications sont égales et lève une exception si elles ne le sont pas.
 
-| Item | TransformationClaimType  | Type de données  | Notes |
+| Élément | TransformationClaimType  | Type de données  | Notes |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | ClaimType à évaluer. |
 | InputParameter |valueToCompareTo | boolean | Valeur à comparer (true ou false). |
 
 La transformation de revendication **AssertBooleanClaimIsEqualToValue** est toujours exécutée à partir d’un [profil technique de validation](validation-technical-profile.md) qui est appelé par un [profil technique autodéclaré](self-asserted-technical-profile.md). Les métadonnées de profil technique autodéclaré **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** contrôlent le message d’erreur présenté à l’utilisateur par le profil technique.
 
-![Exécution d’AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
+![Exécution de AssertStringClaimsAreEqual](./media/boolean-transformations/assert-execution.png)
 
 La transformation de revendication suivante montre comment vérifier la valeur d’un ClaimType booléen avec une valeur `true`. Si la valeur du ClaimType `accountEnabled` est false, un message d’erreur est levé.
 
@@ -107,18 +107,56 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : false
     - **valueToCompareTo** : true
 - Résultat : Erreur levée
 
+## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
+
+Vérifie que la valeur booléenne d’une revendication est égale à `true` ou `false`, et retourne le résultat de la compression. 
+
+| Élément | TransformationClaimType  | Type de données  | Notes |
+| ---- | ------------------------ | ---------- | ----- |
+| inputClaim | inputClaim | boolean | ClaimType à évaluer. |
+| InputParameter |valueToCompareTo | boolean | Valeur à comparer (true ou false). |
+| OutputClaim | inputClaim | boolean | ClaimType généré après l’appel de cette ClaimsTransformation. |
+
+
+La transformation de revendication suivante montre comment vérifier la valeur d’un ClaimType booléen avec une valeur `true`. Si la valeur du ClaimType `IsAgeOver21Years` est égale à `true`, la transformation de revendication retourne la valeur `true`, sinon `false`.
+
+```XML
+<ClaimsTransformation Id="AssertAccountEnabled" TransformationMethod="CompareBooleanClaimToValue">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="IsAgeOver21Years" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="valueToCompareTo" DataType="boolean" Value="true" />
+  </InputParameters>
+  <OutputClaims>
+      <OutputClaim  ClaimTypeReferenceId="accountEnabled" TransformationClaimType="compareResult"/>
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **inputClaim** : false
+- Paramètres d’entrée :
+    - **valueToCompareTo** : true
+- Revendications de sortie :
+    - **compareResult** : false 
+
+
+
 ## <a name="notclaims"></a>NotClaims
 
 Effectue une opération Not de l’inputClaim booléen et définit outputClaim avec le résultat de l’opération.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | Revendication à traiter. |
 | OutputClaim | outputClaim | boolean | ClaimTypes qui sont produits après l’appel de cette ClaimsTransformation (true ou false). |
@@ -135,7 +173,7 @@ Utilisez cette transformation de revendication pour effectuer une négation logi
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim** : false
@@ -146,7 +184,7 @@ Utilisez cette transformation de revendication pour effectuer une négation logi
 
 Calcule une opération Or de deux inputClaims booléennes et définit outputClaim avec le résultat de l’opération.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | Premier ClaimType à évaluer. |
 | InputClaim | inputClaim2 | boolean | Deuxième ClaimType à évaluer. |
@@ -167,11 +205,10 @@ La transformation de revendication suivante montre comment effectuer une opérat
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
     - **inputClaim1** : true
     - **inputClaim2** : false
 - Revendications de sortie :
     - **outputClaim** : true
-

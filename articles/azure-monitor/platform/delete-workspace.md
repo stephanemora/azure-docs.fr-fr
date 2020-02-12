@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: fabb2524547bd7837d3644d79f0023311ddccdfc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 038cfe04193b734bd26ed0ffd4dec5ae9b267c22
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845557"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901279"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Supprimer et restaurer un espace de travail Azure Log Analytics
 
@@ -23,7 +23,7 @@ Cet article décrit le concept de suppression réversible d'un espace de travail
 Lorsque vous supprimez un espace de travail Log Analytics, une opération de suppression réversible est lancée pour permettre la récupération de l'espace de travail, y compris de ses données et des agents connectés, dans un délai de 14 jours, que la suppression ait été accidentelle ou intentionnelle. À l’issue de cette période de suppression réversible, la ressource d’espace de travail et ses données deviennent irrécupérables : ses données sont mises en file d’attente pour une suppression définitive et sont complètement supprimées dans un délai de 30 jours. Le nom de l’espace de travail est « libéré » et vous pouvez l’utiliser pour créer un espace de travail.
 
 > [!NOTE]
-> Si vous souhaitez modifier le comportement de suppression réversible et supprimer votre espace de travail définitivement, suivez les étapes décrites dans [Suppression d’espace de travail permanent](#Permanent workspace delete).
+> Si vous souhaitez modifier le comportement de suppression réversible et supprimer votre espace de travail définitivement, suivez les étapes décrites dans [Suppression d’espace de travail permanent](#permanent-workspace-delete).
 
 Soyez prudent lorsque vous supprimez un espace de travail, car celui-ci peut contenir une configuration et des données importantes dont la suppression peut avoir un impact négatif sur le fonctionnement de votre service. Examinez les agents, les solutions ainsi que les autres services et sources Azure qui stockent leurs données dans Log Analytics, comme :
 
@@ -63,7 +63,7 @@ La méthode de suppression réversible peut ne pas convenir dans certains cas, p
 
 
 > [!IMPORTANT]
-> Soyez prudent lorsque vous supprimez définitivement votre espace de travail car, l’opération étant irréversible, l’espace de travail et ses données seront ensuite irrécupérables.
+> Utilisez l’opération de suppression définitive de l'espace de travail avec précaution, car elle est irréversible et vous ne pourrez récupérer ni votre espace de travail ni ses données.
 
 La suppression définitive de l’espace de travail peut actuellement être effectuée via une API REST.
 
@@ -80,6 +80,7 @@ Pour supprimer définitivement votre espace de travail, utilisez l’appel d’A
 > DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
 > Authorization: Bearer eyJ0eXAiOiJKV1Qi….
 > ```
+Où « eyJ0eXAiOiJKV1Qi… » représente le jeton d’autorisation complet.
 
 ## <a name="recover-workspace"></a>Récupérer un espace de travail
 

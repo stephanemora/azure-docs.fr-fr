@@ -17,19 +17,19 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242378"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931005"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Confidentialité des utilisateurs et authentification directe Azure Active Directory
 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 L’authentification directe Azure AD crée les types de journaux suivants, qui peuvent contenir des données personnelles :
 
@@ -73,7 +73,7 @@ Pour afficher les journaux d’activité relatifs à l’agent d’authentificat
 
 ### <a name="delete-authentication-agent-trace-log-files"></a>Supprimer les fichiers journaux des traces de l’Agent d’authentification
 
-Vous devez régulièrement vérifier le contenu de <strong>%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\< et supprimer le contenu de ce dossier toutes les 48 heures. 
+Vous devez régulièrement vérifier le contenu de **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\** et supprimer le contenu de ce dossier toutes les 48 heures. 
 
 >[!IMPORTANT]
 >Si le service Agent d’authentification est en cours d’exécution, vous ne pourrez pas supprimer le fichier journal actuel dans le dossier. Arrêtez le service avant de réessayer. Pour éviter les échecs de connexion de l’utilisateur, vous devez déjà avoir configuré l’authentification directe pour une [haute disponibilité](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).

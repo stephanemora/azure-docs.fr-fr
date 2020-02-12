@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174679"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897618"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Modifier les paramètres de demande et d’approbation d’un package d’accès dans la gestion des droits d’utilisation Azure AD
 
@@ -42,6 +42,9 @@ Pour choisir les personnes autorisées à demander un package d'accès, utilisez
 | Je souhaite autoriser les utilisateurs de mon annuaire et également les utilisateurs en dehors de mon annuaire à demander un package d’accès | Multiple |
 | Je souhaite spécifier différents paramètres d’approbation pour certains utilisateurs | Multiple |
 | Je veux que certains utilisateurs accèdent aux affectations de packages d’accès qui expirent alors que d’autres utilisateurs peuvent étendre leur accès | Multiple |
+
+Pour plus d’informations sur la logique de priorité utilisée lorsque plusieurs stratégies s’appliquent, consultez [Stratégies multiples](entitlement-management-troubleshoot.md#multiple-policies
+).
 
 ### <a name="open-an-existing-policy-of-request-and-approval-settings"></a>Ouvrir une stratégie existante de paramètres de demande et d’approbation
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045578"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898835"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Vue d’ensemble du portail des développeurs Gestion des API Azure
 
@@ -213,6 +213,18 @@ Cette erreur s’affiche lorsqu’un appel `GET` à `https://<management-endpoin
 Si votre service de gestion des API est un réseau virtuel, reportez-vous à la question sur la connectivité du réseau virtuel ci-dessus.
 
 L’échec de l’appel peut également être dû au fait qu’un certificat SSL attribué à un domaine personnalisé ne soit pas approuvé par le navigateur. Pour remédier à ce problème, vous pouvez supprimer le domaine personnalisé de point de terminaison de gestion. La gestion des API reviendra au point de terminaison par défaut avec un certificat approuvé.
+
+### <a name="whats-the-browser-support-for-the-portal"></a>Quelle est la prise en charge du navigateur pour le portail ?
+
+| Browser                     | Prise en charge       |
+|-----------------------------|-----------------|
+| Apple Safari                | Oui<sup>1</sup> |
+| Google Chrome               | Oui<sup>1</sup> |
+| Microsoft Edge              | Oui<sup>1</sup> |
+| Microsoft Internet Explorer | Non              |
+| Mozilla Firefox             | Oui<sup>1</sup> |
+
+ <small><sup>1</sup> Pris en charge dans les deux dernières versions de production.</small>
 
 ## <a name="next-steps"></a>Étapes suivantes
 

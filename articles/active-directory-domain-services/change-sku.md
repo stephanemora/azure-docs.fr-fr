@@ -1,0 +1,74 @@
+---
+title: Modifier la référence SKU pour Azure AD Domain Services | Microsoft Docs
+description: En savoir plus sur le niveau de référence SKU d’un domaine managé Azure Active Directory Domain Services si les besoins de votre entreprise évoluent
+services: active-directory-ds
+author: iainfoulds
+manager: daveba
+ms.service: active-directory
+ms.subservice: domain-services
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 01/31/2020
+ms.author: iainfou
+ms.openlocfilehash: 46557d802222190c0ed82f6243dd2a9b997ecaa5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76960222"
+---
+# <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>Modifier la référence SKU d'un domaine managé Azure AD Domain Services existant
+
+Dans Azure Active Directory Domain Services (Azure AD DS), les performances et fonctionnalités disponibles sont basées sur le type de référence SKU. Ces différences de fonctionnalités incluent la fréquence de sauvegarde ou le nombre maximal d’approbations de forêts sortantes unidirectionnelles (actuellement en préversion). Vous sélectionnez une référence SKU lorsque vous créez le domaine managé, et vous pouvez changer de références SKU lorsque les besoins de votre entreprise évoluent, après déploiement du domaine managé. Les besoins de l'entreprise évoluent notamment lorsqu'il lui faut effectuer des sauvegardes plus fréquentes ou créer des approbations de forêts supplémentaires. Pour plus d’informations sur les limites et la tarification des différentes références SKU, consultez les pages [Concepts relatifs aux références SKU Azure AD][concepts-sku] et [Tarification Azure AD DS][pricing].
+
+Cet article vous explique comment modifier la référence SKU d'un domaine managé Azure AD DS à l’aide du portail Azure.
+
+## <a name="before-you-begin"></a>Avant de commencer
+
+Pour faire ce qui est décrit dans cet article, vous avez besoin des ressources et des privilèges suivants :
+
+* Un abonnement Azure actif.
+    * Si vous n’avez pas d’abonnement Azure, [créez un compte](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Un locataire Azure Active Directory associé à votre abonnement, synchronisé avec un annuaire local ou un annuaire cloud uniquement.
+    * Si nécessaire, [créez un locataire Azure Active Directory][create-azure-ad-tenant] ou [associez un abonnement Azure à votre compte][associate-azure-ad-tenant].
+* Un domaine managé Azure Active Directory Domain Services activé et configuré dans votre locataire Azure AD.
+    * Si nécessaire, suivez le tutoriel pour [créer et configurer une instance Azure Active Directory Domain Services][create-azure-ad-ds-instance].
+
+## <a name="sku-change-limitations"></a>Limitations relatives aux changements de références SKU
+
+Il existe des limitations en termes de changements de références SKU si vous utilisez une forêt de ressources (actuellement en préversion) et avez créé des approbations de forêts sortantes unidirectionnelles entre Azure AD DS et un environnement de AD DS local. Les références SKU *Premium* et *Entreprise* définissent une limite quant au nombre d’approbations que vous pouvez créer. Vous ne pouvez pas opter pour une référence SKU dont la limite maximale est inférieure à celle que vous avez configurée.
+
+Par exemple, si vous avez créé deux approbations de forêts sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU *Standard*. La référence SKU *Standard*ne prend pas en charge les approbations de forêts. De même, si vous avez créé sept approbations sur la référence SKU *Premium*, vous ne pouvez pas opter pour la référence SKU *Entreprise*. La référence SKU *Entreprise* prend en charge un maximum de cinq approbations.
+
+Pour plus d’informations sur ces limites, consultez [Fonctionnalités et limites des références SKU Azure AD DS][concepts-sku].
+
+## <a name="select-a-new-sku"></a>Sélectionner une nouvelle référence SKU
+
+Pour modifier la référence SKU d'un domaine managé Azure AD DS à l'aide du portail Azure, procédez comme suit :
+
+1. Sur le Portail Microsoft Azure, recherchez et sélectionnez **Azure AD Domain Services**. Sélectionnez votre domaine managé dans la liste, par exemple *aadds.contoso.com*.
+1. Dans le menu gauche de la page Azure AD DS, sélectionnez **Paramètres > Référence SKU**.
+
+    ![Sélectionner l'option de menu de la référence SKU pour votre domaine managé Azure AD DS dans le portail Azure](media/change-sku/overview-change-sku.png)
+
+1. Dans le menu déroulant, sélectionnez la référence SKU souhaitée pour votre domaine managé Azure AD DS. Si vous disposez d’une forêt de ressources, vous ne pouvez pas sélectionner la référence SKU *Standard* car les approbations de forêts sont uniquement disponibles sur la référence SKU *Entreprise* ou supérieure.
+
+    Sélectionnez la référence SKU de votre choix dans le menu déroulant, puis **Enregistrer**.
+
+    ![Sélectionner la référence SKU requise dans le menu déroulant du portail Azure](media/change-sku/change-sku-selection.png)
+
+Le changement de type de référence SKU peut prendre une ou deux minutes.
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Si vous disposez d’une forêt de ressources et souhaitez créer des approbations supplémentaires une fois la référence SKU modifiée, consultez [Créer une approbation de forêt sortante vers un domaine local dans Azure AD DS (préversion)][create-trust].
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
+[create-trust]: tutorial-create-forest-trust.md
+
+<!-- EXTERNAL LINKS -->
+[pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/

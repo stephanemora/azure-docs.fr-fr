@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910627"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988938"
 ---
 # <a name="azure-maps-routing-coverage"></a>Couverture de routage Azure Maps
 
-Cet article fournit des informations sur la couverture de routage Azure Maps. Lorsque vous recherchez un itinéraire optimal du lieu A vers le lieu B, Azure Maps peut fournir des temps de trajet extrêmement précis, des informations de voyage ainsi que des instructions relatives au trajet mises à jour automatiquement. L’itinéraire prend en compte des termes de recherche supplémentaires tels que le trafic en cours, le type de véhicule et les problèmes à éviter. La capacité d’optimiser l’itinéraire dépend de la région donnée, car Azure Maps possède des niveaux d’informations et de précision différents qui varient en fonction des régions. Le tableau suivant répertorie les régions et le type d’informations que vous pouvez demander pour chacune d’elles.
+Cet article fournit des informations sur la couverture de routage Azure Maps. Lors d’une recherche, Azure Maps retourne un itinéraire optimal de l’emplacement A à l’emplacement B. Vous recevez des temps de trajet précis, des mises à jour automatiques des informations de voyage et des instructions sur l’itinéraire. Vous pouvez également ajouter des paramètres de recherche supplémentaires tels que le trafic actuel, le type de véhicule et les conditions à éviter. L’optimisation de l’itinéraire dépend de la région. En effet, Azure Maps offre différents niveaux d’informations et d’exactitude selon les régions. Le tableau suivant répertorie les régions et le type d’informations que vous pouvez demander pour chacune d’elles.
  
 Consultez la couverture du [**géocodage**](geocoding-coverage.md).       
 Consultez la couverture du [**trafic**](traffic-coverage.md).  

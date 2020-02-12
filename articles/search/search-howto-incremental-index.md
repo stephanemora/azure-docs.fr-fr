@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 1eaf4e7b2d769217ceace3ece339adff727c7835
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 66bac2a063a3257a2101ca2f30e5946264adb9ae
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832060"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989550"
 ---
 # <a name="how-to-configure-caching-for-incremental-enrichment-in-azure-cognitive-search"></a>Guide de configuration de la mise en cache pour l’enrichissement incrémentiel dans Recherche cognitive Azure
 
@@ -36,7 +36,9 @@ Si vous avez un indexeur existant qui est déjà doté d’un ensemble de compé
 
 ### <a name="step-1-get-the-indexer-definition"></a>Étape 1 : Obtenir la définition de l’indexeur
 
-Démarrez par un indexeur valide existant qui contient les composants suivants : source de données, ensemble de compétences, index. Votre indexeur doit être exécutable. À l’aide d’un client d’API, créez une [requête GET Indexer](https://docs.microsoft.com/rest/api/searchservice/get-indexer) pour obtenir la configuration actuelle de l’indexeur.
+Démarrez par un indexeur valide existant qui contient les composants suivants : source de données, ensemble de compétences, index. Votre indexeur doit être exécutable. 
+
+À l’aide d’un client d’API, créez une [requête GET Indexer](https://docs.microsoft.com/rest/api/searchservice/get-indexer) pour obtenir la configuration actuelle de l’indexeur. Lorsque vous utilisez la version préliminaire de l’API pour faire une requête GET sur l’indexeur, une propriété `cache` définie sur Null est ajoutée aux définitions.
 
 ```http
 GET https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
@@ -48,12 +50,12 @@ Copiez la définition de l’indexeur à partir de la réponse.
 
 ### <a name="step-2-modify-the-cache-property-in-the-indexer-definition"></a>Étape 2 : Modifier la propriété du cache dans la définition de l’indexeur
 
-Par défaut, la propriété `cache`est Null. Utilisez un client d’API pour ajouter la configuration du cache (le portail ne prend pas en charge cette mise à jour particulaire). 
+Par défaut, la propriété `cache`est Null. Utilisez un client d’API pour définir la configuration du cache (le portail ne prend pas en charge cette mise à jour particulière). 
 
 Modifiez l’objet cache pour inclure les propriétés obligatoires et facultatives suivantes : 
 
 + La propriété `storageConnectionString` est obligatoire et doit être définie sur une chaîne de connexion de stockage Azure. 
-+ La propriété booléenne `enableReprocessing` est facultative (`true` par défaut) et indique que l’enrichissement incrémentiel est activé. Vous pouvez la définir sur `false` pour interrompre le traitement incrémentiel pendant que d’autres opérations gourmandes en ressources, telles que l’indexation de nouveaux documents, sont en cours d’exécution, puis la rétablir sur `true` plus tard.
++ La propriété booléenne `enableReprocessing` est facultative (`true` par défaut) et indique que l’enrichissement incrémentiel est activé. Si nécessaire, vous pouvez la définir sur `false` pour interrompre le traitement incrémentiel pendant que d’autres opérations gourmandes en ressources, telles que l’indexation de nouveaux documents, sont en cours d’exécution, puis la rétablir sur `true` plus tard.
 
 ```json
 {
@@ -83,7 +85,7 @@ api-key: [YOUR-ADMIN-KEY]
 
 ### <a name="step-4-save-the-updated-definition"></a>Étape 4 : Enregistrer la définition mise à jour
 
-Mettez à jour la définition de l’indexeur à l’aide d’une requête PUT. Le corps de la requête doit contenir la définition de l’indexeur mis à jour doté de la propriété du cache. Si vous recevez une erreur 400, vérifiez la définition de l’indexeur pour vous assurer que toutes les exigences sont satisfaites (source de données, ensemble de compétences, index).
+[Mettez à jour l’indexeur](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) à l’aide d’une requête PUT. Le corps de la requête doit contenir la définition mise à jour de l’indexeur dotée de la propriété du cache. Si vous recevez une erreur 400, vérifiez la définition de l’indexeur pour vous assurer que toutes les exigences sont satisfaites (source de données, ensemble de compétences, index).
 
 ```http
 PUT https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]?api-version=2019-05-06-Preview
@@ -109,9 +111,9 @@ Si vous émettez à présent une autre requête GET sur l’indexeur, la répons
 
 ### <a name="step-5-run-the-indexer"></a>Étape 5 : Exécuter l’indexeur
 
-Pour exécuter l’indexeur, vous pouvez également utiliser le portail. Dans la liste des indexeurs, sélectionnez l’indexeur souhaité, puis cliquez sur **Exécuter**. L’un des avantages à utiliser le portail est que vous pouvez surveiller l’état de l’indexeur, noter la durée du travail et connaître le nombre de documents traités. Les pages du portail sont actualisées à des intervalles de quelques minutes.
+Pour exécuter l’indexeur, vous pouvez utiliser le portail ou l’API. Dans le portail, à partir de la liste des indexeurs, sélectionnez l’indexeur souhaité, puis cliquez sur **Exécuter**. L’un des avantages à utiliser le portail est que vous pouvez surveiller l’état de l’indexeur, noter la durée du travail et connaître le nombre de documents traités. Les pages du portail sont actualisées à des intervalles de quelques minutes.
 
-Vous pouvez également utiliser REST pour exécuter l’indexeur :
+Vous pouvez également utiliser REST pour [exécuter l’indexeur](https://docs.microsoft.com/rest/api/searchservice/run-indexer) :
 
 ```http
 POST https://[YOUR-SEARCH-SERVICE].search.windows.net/indexers/[YOUR-INDEXER-NAME]/run?api-version=2019-05-06-Preview
@@ -119,7 +121,7 @@ Content-Type: application/json
 api-key: [YOUR-ADMIN-KEY]
 ```
 
-Après l’exécution de l’indexeur, vous trouverez le cache dans le stockage d’objets blob Azure. Le nom du conteneur respecte le format suivant : `ms-az-search-indexercache-<YOUR-CACHE-ID>`
+Après l’exécution de l’indexeur, vous trouverez le cache dans Stockage Blob Azure. Le nom du conteneur respecte le format suivant : `ms-az-search-indexercache-<YOUR-CACHE-ID>`
 
 > [!NOTE]
 > Une réinitialisation et une réexécution de l’indexeur entraînent une régénération complète afin que le contenu puisse être mis en cache. Tous les enrichissements cognitifs sont réexécutés sur tous les documents.
@@ -127,13 +129,13 @@ Après l’exécution de l’indexeur, vous trouverez le cache dans le stockage 
 
 ### <a name="step-6-modify-a-skillset-and-confirm-incremental-enrichment"></a>Étape 6 : Modifier un ensemble de compétences et confirmer l’enrichissement incrémentiel
 
-Pour modifier un ensemble de compétences, vous pouvez utiliser le portail afin de modifier la définition JSON. Par exemple, si vous utilisez la traduction de texte, une simple modification inlined de `en` à `es` ou une autre langue suffit pour tester la preuve de concept de l’enrichissement incrémentiel.
+Pour modifier un ensemble de compétences, vous pouvez utiliser le portail ou l’API. Par exemple, si vous utilisez la traduction de texte, une simple modification inlined de `en` à `es` ou une autre langue suffit pour tester la preuve de concept de l’enrichissement incrémentiel.
 
 Réexécutez l’indexeur. Seules les parties d’une arborescence enrichie de documents sont mises à jour. Si vous avez utilisé le [démarrage rapide du portail](cognitive-search-quickstart-blob.md) comme preuve de concept, en modifiant la compétence de traduction de texte en « es », vous remarquerez que seuls 8 documents sont mis à jour au lieu des 14 originaux. Les fichiers image non concernés par le processus de traduction sont réutilisés à partir du cache.
 
 ## <a name="enable-caching-on-new-indexers"></a>Activer la mise en cache sur les nouveaux indexeurs
 
-Pour configurer l’enrichissement incrémentiel d’un nouvel indexeur, il vous suffit d’inclure la propriété `cache` dans la charge utile de la définition de l’indexeur lors de l’appel de [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)(Créer l’indexeur). N’oubliez pas de spécifier la version `2019-05-06-Preview` de l’API lors de la création d’un indexeur avec cette propriété. 
+Pour configurer l’enrichissement incrémentiel d’un nouvel indexeur, il vous suffit d’inclure la propriété `cache` dans la charge utile de la définition de l’indexeur lors de l’appel de [Create Indexer (2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer). 
 
 
 ```json
@@ -167,10 +169,10 @@ Le tableau suivant récapitule la relation entre différentes API et le cache :
 
 | API           | Impact du cache     |
 |---------------|------------------|
-| [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer) | Crée et exécute un indexeur lors de la première utilisation, y compris la création d’un cache si la définition de votre indexeur le spécifie. |
-| [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Exécute un pipeline d’enrichissement à la demande. Cette API lit le cache, le cas échéant, ou crée un cache si vous avez ajouté la mise en cache à une définition d’indexeur mise à jour. Lorsque vous exécutez un indexeur pour lequel la mise en cache est activée, l’indexeur omet des étapes si la sortie mise en cache peut être utilisée. |
-| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Efface toutes les informations d’indexation incrémentielles présentes dans l’indexeur. L’exécution suivante de l’indexeur (à la demande ou planifiée) est un retraitement complet à partir de zéro, y compris la réexécution de tous les ensembles de compétences et la recréation du cache. Sur le plan fonctionnel, cela équivaut à supprimer l’indexeur et à le recréer. |
-| [Reset Skills](preview-api-resetskills.md) | Spécifie les compétences à réexécuter lors de l’exécution suivante de l’indexeur, même si vous n’avez modifié aucune compétence. Le cache est mis à jour en conséquence. Les sorties, telles qu’une banque de connaissances ou un index de recherche, sont actualisées à l’aide de données réutilisables provenant du cache et du nouveau contenu selon la compétence mise à jour. |
+| [Create Indexer (2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) | Crée et exécute un indexeur lors de la première utilisation, y compris la création d’un cache si la définition de votre indexeur le spécifie. |
+| [Run Indexer](https://docs.microsoft.com/rest/api/searchservice/run-indexer) | Exécute un pipeline d’enrichissement à la demande. Cette API lit le cache, le cas échéant, ou crée un cache si vous avez ajouté la mise en cache à une définition d’indexeur mise à jour. Lorsque vous exécutez un indexeur pour lequel la mise en cache est activée, l’indexeur omet des étapes si la sortie mise en cache peut être utilisée. Vous pouvez utiliser la version généralement disponible ou la préversion de cette API.|
+| [Reset Indexer](https://docs.microsoft.com/rest/api/searchservice/reset-indexer)| Efface toutes les informations d’indexation incrémentielles présentes dans l’indexeur. L’exécution suivante de l’indexeur (à la demande ou planifiée) est un retraitement complet à partir de zéro, y compris la réexécution de tous les ensembles de compétences et la recréation du cache. Sur le plan fonctionnel, cela équivaut à supprimer l’indexeur et à le recréer. Vous pouvez utiliser la version généralement disponible ou la préversion de cette API.|
+| [Reset Skills (2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) | Spécifie les compétences à réexécuter lors de l’exécution suivante de l’indexeur, même si vous n’avez modifié aucune compétence. Le cache est mis à jour en conséquence. Les sorties, telles qu’une banque de connaissances ou un index de recherche, sont actualisées à l’aide de données réutilisables provenant du cache et du nouveau contenu selon la compétence mise à jour. |
 
 Pour plus d’informations sur le contrôle de ce qui se passe dans le cache, consultez [Gestion du cache](cognitive-search-incremental-indexing-conceptual.md#cache-management).
 

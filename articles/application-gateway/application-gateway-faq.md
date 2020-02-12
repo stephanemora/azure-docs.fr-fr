@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770082"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986000"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Forum aux questions sur Application Gateway
 
@@ -68,7 +68,9 @@ Si vous utilisez une adresse IP publique en tant que point de terminaison, vous 
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quels sont les paramètres du délai de maintien de connexion et du délai d’inactivité TCP ?
 
- Dans la référence SKU Application Gateway v1, le délai de maintien de connexion est de 120 secondes. Le délai de maintien de connexion de la référence SKU v2 est de 75 secondes. Par défaut, le délai d'inactivité TCP est de 4 minutes sur l'adresse IP virtuelle du serveur frontal d'Application Gateway.
+Le *délai d’expiration Keep-Alive* régit la durée pendant laquelle Application Gateway attend qu’un client envoie une autre requête HTTP sur une connexion permanente avant de la réutiliser ou de la fermer. Le *délai d’inactivité TCP* régit la durée pendant laquelle une connexion TCP est maintenue ouverte en cas d’absence d’activité. 
+
+Le *délai d’expiration Keep-Alive* est de 120 secondes dans la référence SKU Application Gateway v1 et de 75 secondes dans la référence SKU v2. Par défaut, le *délai d’inactivité TCP* est de 4 minutes sur l’adresse IP virtuelle du serveur frontal des SKU v1 et v2 d’Application Gateway. 
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?
 

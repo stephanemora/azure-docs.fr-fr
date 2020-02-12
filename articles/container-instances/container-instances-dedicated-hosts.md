@@ -1,15 +1,16 @@
 ---
-title: Déployer sur des hôtes dédiés
-description: Utiliser des hôtes dédiés pour obtenir une véritable isolation au niveau de l’hôte pour vos charges de travail
+title: Déployer sur un hôte dédié
+description: Utiliser un hôte dédié à des fins d'isolation au niveau de l’hôte pour vos charges de travail Azure Container Instances
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
-ms.openlocfilehash: 619a39f4d08a4308cb0f566bc50860e9562bf9e4
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
+ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903550"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934148"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Déployer sur des hôtes dédiés
 
@@ -17,22 +18,49 @@ ms.locfileid: "75903550"
 
 La référence SKU dédiée est appropriée pour les charges de travail de conteneur qui requièrent l’isolation de la charge de travail du point de vue du serveur physique.
 
-## <a name="using-the-dedicated-sku"></a>Utilisation de la référence SKU dédiée
+## <a name="prerequisites"></a>Conditions préalables requises
+
+* La limite par défaut d’un abonnement pour utiliser la référence SKU dédiée est 0. Si vous souhaitez utiliser cette référence SKU pour vos déploiements de conteneur de production, créez une [demande de support Azure][azure-support] afin d'augmenter la limite.
+
+## <a name="use-the-dedicated-sku"></a>Utiliser la référence SKU dédiée
 
 > [!IMPORTANT]
-> L’utilisation de la référence SKU dédiée est uniquement disponible dans la dernière version de l’API (2019-12-01) qui est en cours de déploiement. Spécifiez cette version d’API dans votre modèle de déploiement. En outre, la limite par défaut d’un abonnement pour utiliser la référence SKU dédiée est 0. Si vous souhaitez utiliser cette référence SKU pour vos déploiements de conteneur de production, veuillez créer une [demande de support Azure][azure-support]
+> L’utilisation de la référence SKU dédiée est uniquement disponible dans la dernière version de l’API (2019-12-01) qui est en cours de déploiement. Spécifiez cette version d’API dans votre modèle de déploiement.
+>
 
-À partir de la version de l’API 2019-12-01, il existe une propriété « SKU » dans la section Propriétés du groupe de conteneurs d’un modèle de déploiement qui est nécessaire pour un déploiement ACI. Actuellement, vous pouvez utiliser cette propriété dans le cadre d’un modèle de déploiement Azure Resource Manager pour ACI. Pour en savoir plus sur le déploiement de ressources ACI à l’aide d’un modèle, consultez le [Tutoriel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+À partir de la version de l’API 2019-12-01, il existe une propriété `sku` dans la section Propriétés du groupe de conteneurs d’un modèle de déploiement qui est nécessaire pour un déploiement ACI. Actuellement, vous pouvez utiliser cette propriété dans le cadre d’un modèle de déploiement Azure Resource Manager pour ACI. Apprenez-en davantage sur le déploiement de ressources ACI à l’aide d’un modèle dans le [Tutoriel : Déployer un groupe de plusieurs conteneurs avec un modèle Resource Manager](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-La propriété SKU peut avoir les valeurs suivantes :
-* Standard : le choix de déploiement ACI standard, qui garantit toujours la sécurité au niveau de l’hyperviseur 
-* Dédié : utilisé pour l’isolation au niveau de la charge de travail avec des hôtes physiques dédiés pour le groupe de conteneurs
+La propriété `sku` peut présenter l'une des valeurs suivantes :
+* `Standard` : le choix de déploiement ACI standard, qui garantit toujours la sécurité au niveau de l’hyperviseur 
+* `Dedicated` : utilisé pour l’isolation au niveau de la charge de travail avec des hôtes physiques dédiés pour le groupe de conteneurs
 
 ## <a name="modify-your-json-deployment-template"></a>Modifier votre modèle de déploiement JSON
 
-Dans votre modèle de déploiement, où la ressource du groupe de conteneurs est spécifiée, assurez-vous du réglage suivant : `"apiVersion": "2019-12-01",`. Dans la section Propriétés de la ressource du groupe de conteneurs, définissez comme suit : `"sku": "Dedicated",`.
+Dans votre modèle de déploiement, modifiez ou ajoutez les propriétés suivantes :
+* Sous `resources`, définissez `apiVersion` sur `2012-12-01`.
+* Sous les propriétés du groupe de conteneurs, ajoutez une propriété `sku` avec la valeur `Dedicated`.
 
 Voici un exemple d’extrait de code pour la section Ressources d’un modèle de déploiement pour groupe de conteneurs qui utilise la référence SKU dédiée :
+
+```json
+[...]
+"resources": [
+    {
+        "name": "[parameters('containerGroupName')]",
+        "type": "Microsoft.ContainerInstance/containerGroups",
+        "apiVersion": "2019-12-01",
+        "location": "[resourceGroup().location]",    
+        "properties": {
+            "sku": "Dedicated",
+            "containers": {
+                [...]
+            }
+        }
+    }
+]
+```
+
+Voici un modèle complet qui déploie un exemple de groupe de conteneurs exécutant une instance de conteneur unique :
 
 ```json
 {
@@ -91,9 +119,8 @@ Voici un exemple d’extrait de code pour la section Ressources d’un modèle d
                     ],
                     "type": "Public"
                 },
-                "osType": "Linux",
+                "osType": "Linux"
             },
-            "location": "eastus2euap",
             "tags": {}
         }
     ]
@@ -116,7 +143,7 @@ Déployez ensuite le modèle avec la commande [az group deployment create][az-gr
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
-Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure. Une fois le déploiement terminé, toutes les données qui y sont associées et qui sont conservées par le service ACI sont chiffrées à l’aide de la clé que vous avez fournie.
+Après quelques secondes, vous devriez recevoir une réponse initiale d’Azure. Un déploiement réussi intervient sur un hôte dédié.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create

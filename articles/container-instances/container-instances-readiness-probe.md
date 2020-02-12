@@ -2,13 +2,13 @@
 title: Configurer la probe readiness sur l’instance de conteneur
 description: Découvrez comment configurer une sonde afin que les conteneurs dans Azure Container Instances ne reçoivent des demandes que quand ils sont prêts
 ms.topic: article
-ms.date: 10/17/2019
-ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.date: 01/30/2020
+ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533559"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935677"
 ---
 # <a name="configure-readiness-probes"></a>Configurer les probe readiness
 
@@ -18,9 +18,12 @@ Cet article explique comment déployer un groupe de conteneurs qui comprend une 
 
 Azure Container Instances prend également en charge les [sondes probe liveness](container-instances-liveness-probe.md), que vous pouvez configurer pour provoquer le redémarrage automatique d’un conteneur défectueux.
 
+> [!NOTE]
+> Actuellement, vous ne pouvez pas utiliser de sonde probe readiness dans un groupe de conteneurs déployé sur un réseau virtuel.
+
 ## <a name="yaml-configuration"></a>Configuration YAML
 
-Par exemple, créez un fichier `readiness-probe.yaml` avec l’extrait de code suivant qui comprend une sonde probe readiness. Ce fichier définit un groupe de conteneurs qui se compose d’un conteneur exécutant une petite application web. L’application est déployée à partir de l’image `mcr.microsoft.com/azuredocs/aci-helloworld` publique. Cette application de conteneur est également illustrée dans des guides de démarrage rapide, tels que [Déployer une instance de conteneur dans Azure à l’aide d’Azure CLI](container-instances-quickstart.md).
+Par exemple, créez un fichier `readiness-probe.yaml` avec l’extrait de code suivant qui comprend une sonde probe readiness. Ce fichier définit un groupe de conteneurs qui se compose d’un conteneur exécutant une petite application web. L’application est déployée à partir de l’image `mcr.microsoft.com/azuredocs/aci-helloworld` publique. Cette application conteneurisée est également illustrée dans [Déployer une instance de conteneur dans Azure à l’aide d’Azure CLI](container-instances-quickstart.md) ainsi que dans d'autres démarrages rapides.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -60,7 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>Commande de démarrage
 
-Le fichier YAML comprend une commande de démarrage à exécuter au démarrage du conteneur, définie par la propriété `command` qui prend en entrée un tableau de chaînes. Cette commande simule une heure d’exécution de l’application web, mais le conteneur n’est pas prêt. Tout d’abord, elle démarre une session de l’interpréteur de commandes et exécute une commande `node` pour démarrer l’application web. Elle démarre également une commande pour se mettre en veille pendant 240 secondes, délai au terme duquel elle crée un fichier appelé `ready` dans le répertoire `/tmp` :
+Le déploiement comprend une propriété `command` définissant une commande de démarrage qui s’exécute lors du premier démarrage du conteneur. Cette propriété accepte un tableau de chaînes. Cette commande simule une heure d’exécution de l’application web, mais le conteneur n’est pas prêt. 
+
+Tout d’abord, elle démarre une session de l’interpréteur de commandes et exécute une commande `node` pour démarrer l’application web. Elle démarre également une commande pour se mettre en veille pendant 240 secondes, délai au terme duquel elle crée un fichier appelé `ready` dans le répertoire `/tmp` :
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

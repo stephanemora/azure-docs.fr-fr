@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: b5c323bf3d5ff55c2c30961003e8c456cbe39c82
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823660"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987020"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
 
@@ -24,7 +24,7 @@ Ce document présente l’expérience du développeur dans la [bibliothèque cli
 
 ## <a name="elastic-database-tools-for-java"></a>Outils de base de données élastique pour Java
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 * JDK (Java Developer Kit) version 1.8 ou ultérieure
 * [Maven](https://maven.apache.org/download.cgi)
@@ -70,7 +70,7 @@ Pour ajouter la bibliothèque cliente à votre propre projet Maven, ajoutez la d
 
 ## <a name="elastic-database-tools-for-net"></a>Outils de base de données élastique pour .NET
 
-### <a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Conditions préalables requises
 
 * Visual Studio 2012 ou ultérieur avec C#. Téléchargez une version gratuite à la page [Téléchargements Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou ultérieur. Pour obtenir la toute dernière version, consultez la page [Installation de NuGet](https://docs.nuget.org/docs/start-here/installing-nuget).
@@ -81,17 +81,17 @@ Pour installer la bibliothèque, accédez à [Microsoft.Azure.SqlDatabase.Elasti
 
 Pour télécharger et exécuter les exemples, procédez comme suit : 
 
-1. Téléchargez l[’exemple Outils de base de données pour base de données SQL Azure - Bien démarrer](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) à partir de MSDN. Décompressez l’exemple à l’emplacement de votre choix.
+1. Téléchargez l’[exemple Outils de base de données élastique pour SQL Azure – Prise en main](https://github.com/Azure/elastic-db-tools). Décompressez l’exemple à l’emplacement de votre choix.
 
 2. Pour créer un projet, ouvrez la solution *ElasticScaleStarterKit.sln* dans le répertoire *C#* .
 
 3. Dans la solution de l’exemple de projet, ouvrez le fichier *app.config*. Suivez alors les instructions incluses dans le fichier pour ajouter le nom du serveur Azure SQL Database et vos informations de connexion (nom d’utilisateur et mot de passe).
 
-4. Générez et exécutez l'application. À l’invite, autorisez Visual Studio à restaurer les packages NuGet de la solution. Cette action permet de télécharger la dernière version de la bibliothèque cliente de bases de données élastiques à partir de NuGet.
+4. Générez et exécutez l’application. À l’invite, autorisez Visual Studio à restaurer les packages NuGet de la solution. Cette action permet de télécharger la dernière version de la bibliothèque cliente de bases de données élastiques à partir de NuGet.
 
 5. Pour découvrir les fonctionnalités de la bibliothèque cliente, essayez les différentes options. Notez les étapes suivies par l’application dans la sortie de la console. N’hésitez pas à explorer le code en arrière-plan.
    
-    ![Progression][4]
+    ![Progress][4]
 
 Félicitations ! Vous avez correctement conçu et exécuté votre première application partitionnée à l’aide des outils de base de données élastique sur SQL Database. Utilisez Visual Studio ou SQL Server Management Studio pour vous connecter à votre base de données SQL, et regardez rapidement les partitions créées dans l’exemple. Vous remarquerez de nouveaux exemples de bases de données de partitions, ainsi que la base de données de gestionnaire de carte de partitions créée par l’exemple.
 
@@ -127,7 +127,7 @@ Pour plus d’informations sur la tarification, consultez la page [Tarification 
 Pour plus d’informations sur les outils de base de données élastique, consultez les articles suivants :
 
 * Exemples de code : 
-  * Outils de base de données élastique ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * Outils de base de données élastique ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Outils de base de données élastique pour Azure SQL - Intégration Entity Framework](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Partitionner l’élasticité sur le centre de scripts](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog : [Annonce de la mise à l’échelle élastique](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)

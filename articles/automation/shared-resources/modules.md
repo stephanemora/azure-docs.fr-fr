@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 12/03/2019
+ms.date: 01/31/2020
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65759b32889f9a99b0322823bb8a4924788e8c09
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e300bc0f29808215673407d21b65fe329e50ad45
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786467"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930436"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Gérer les modules dans Azure Automation
 
@@ -60,11 +60,11 @@ Vous pouvez aussi importer des modules PowerShell Gallery directement à partir 
 
 ## <a name="delete-modules"></a>Supprimer des modules
 
-Si vous rencontrez des difficultés avec un module ou si vous avez besoin de revenir à une version précédente d’un module, vous pouvez le supprimer de votre compte Automation. Vous ne pouvez pas supprimer la version d’origine des [modules par défaut](#default-modules) qui sont importés au moment de créer un compte Automation. Si le module que vous souhaitez supprimer est une version plus récente de l’un des [modules par défaut](#default-modules) installés, la version qui a été installée avec votre compte Automation est restaurée. Sinon, tout module que vous supprimez de votre compte Automation est bel et bien supprimé.
+Si vous rencontrez des difficultés avec un module ou si vous avez besoin de revenir à une version précédente d’un module, vous pouvez le supprimer de votre compte Automation. Vous ne pouvez pas supprimer la version d’origine des [modules par défaut](#default-modules) qui sont importés lors de la création d'un compte Automation. Si le module que vous souhaitez supprimer est une version plus récente de l’un des [modules par défaut](#default-modules) installés, la version installée avec votre compte Automation est restaurée. Sinon, tout module que vous supprimez de votre compte Automation est bel et bien supprimé.
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Sur le portail Azure, accédez à votre compte Automation et sélectionnez **Modules** sous **Ressources partagées**. Sélectionnez le module que vous souhaitez supprimer. Dans la page **Module**, cliquez sur **Supprimer**. Si ce module fait partie des [modules par défaut](#default-modules), la version qui était présente au moment où le compte Automation a été créé est restaurée.
+Sur le portail Azure, accédez à votre compte Automation et sélectionnez **Modules** sous **Ressources partagées**. Sélectionnez le module que vous souhaitez supprimer. Dans la page **Module**, sélectionnez **Supprimer**. Si ce module fait partie des [modules par défaut](#default-modules), la version qui était présente au moment où le compte Automation a été créé est restaurée.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -79,10 +79,10 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 La liste ci-dessous recense les applets de commande du module interne `Orchestrator.AssetManagement.Cmdlets` qui est importé dans chaque compte Automation. Ces applets de commande sont accessibles dans vos runbooks et les configurations DSC et vous permettent d’interagir avec les ressources de votre compte Automation. Par ailleurs, les applets de commande internes vous permettent de récupérer des secrets à partir des valeurs de **Variable** chiffrées, des **informations d’identification** et des champs **Connexion** chiffrés. Les applets de commande Azure PowerShell ne peuvent pas récupérer ces secrets. Ces applets de commande ne vous obligent pas à vous connecter implicitement à Azure quand vous les utilisez, par exemple à utiliser un compte d’identification pour vous authentifier auprès d’Azure.
 
 >[!NOTE]
->Ces cmdlets internes ne sont pas disponibles sur un Runbook Worker hybride. Elles sont accessibles uniquement à partir de runbooks s’exécutant dans Azure. Utilisez les modules [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) ou [Az](../az-modules.md) correspondants pour les runbooks exécutés directement sur l’ordinateur ou sur des ressources de votre environnement. 
+>Ces cmdlets internes sont disponibles sur un Runbook Worker hybride Windows, mais pas sur un Runbook Worker hybride Linux. Utilisez les modules [AzureRM.Automation](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) ou [Az](../az-modules.md) correspondants pour les runbooks exécutés directement sur l’ordinateur ou sur des ressources de votre environnement. 
 >
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |

@@ -7,31 +7,28 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: 95660f764d28172ecb55a4952b785fea5f2aa4bb
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f48b683044bc727cda461fb64a743c055188962a
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186711"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934646"
 ---
 # <a name="configure-bot-protection-for-web-application-firewall-preview"></a>Configurer la protection bot pour le pare-feu d’applications web (préversion)
-Cet article vous montre comment configurer une règle de protection bot dans un pare-feu d’applications web (WAF) pour Front Door à l’aide d’Azure CLI, d’Azure PowerShell ou d’un modèle Azure Resource Manager.
-
-Un ensemble de règles de protection bot managées peut être activé pour votre stratégie WAF afin d’effectuer des actions personnalisées sur les requêtes provenant d’adresses IP malveillantes. Ces adresses IP proviennent du flux Microsoft Threat Intelligence. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) alimente Microsoft Threat Intelligence et est utilisé par de nombreux services, dont Azure Security Center.
+Cet article explique comment configurer une règle de protection bot dans le pare-feu d’applications web (WAF) Azure pour Front Door à l’aide du Portail Azure. Une règle de protection bot peut également être configurée à l’aide de CLI, d'Azure PowerShell ou du modèle Azure Resource Manager.
 
 > [!IMPORTANT]
-> Un ensemble de règles de protection bot est actuellement disponible en préversion publique et fourni avec un contrat de niveau de service. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Un ensemble de règles de protection bot, actuellement disponible en préversion publique, est fourni avec un contrat de niveau de service en préversion. Certaines fonctionnalités peuvent être limitées ou non prises en charge.  Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Créez une stratégie de pare-feu d’applications web (WAF) de base pour Front Door en suivant les instructions décrites dans [Créer une stratégie WAF pour Azure Front Door à l’aide du portail Azure](waf-front-door-create-portal.md).
 
 ## <a name="enable-bot-protection-rule-set"></a>Activer un ensemble de règles de protection bot
 
-1. Dans la page de la stratégie de base créée dans la section précédente, sous **Paramètres**, cliquez sur **Règles**.
-2. Dans la page de détails, sous la section **Gérer les règles**, dans le menu déroulant, cochez la case située devant la règle **BotProtection-preview-0.1**, puis sélectionnez **Enregistrer** au-dessus.
-    
-   ![Règle de protection bot](.././media/waf-front-door-configure-bot-protection/botprotect2.png)
+Dans la page **Règles managées** lors de la création d’une stratégie de pare-feu d’applications web, commencez par rechercher la section **Ensemble de règles managées**, cochez la case située devant la règle **Microsoft_BotManager_1.0** du menu déroulant, puis sélectionnez **Vérifier + créer**.
+
+   ![Règle de protection bot](.././media/waf-front-door-configure-bot-protection/botmanager112019.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

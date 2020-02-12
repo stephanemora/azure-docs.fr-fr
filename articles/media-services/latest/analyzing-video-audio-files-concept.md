@@ -10,14 +10,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 09/21/2019
+ms.date: 01/30/2020
 ms.author: juliako
-ms.openlocfilehash: 23d546d6adcdb91b4ef4702b81fe77536fe9f3d3
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1d28fc37b98493322b9e201ac899b7911dd1d705
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186258"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988343"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analyser des fichiers vidéo et audio avec Azure Media Services
 
@@ -27,6 +27,10 @@ Pour analyser votre contenu à l’aide des préréglages Media Services v3, vou
 
 > [!NOTE]
 > Lorsque vous utilisez des présélections pour l’analyseur vidéo ou audio, utilisez le Portail Azure pour paramétrer votre compte de sorte à ce qu’il dispose de 10 unités réservées Multimédia S3. Pour plus d’informations, consultez [Vue d’ensemble de la mise à l’échelle du traitement multimédia](media-reserved-units-cli-how-to.md).
+
+## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
+
+Il est important de vous rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre de votre utilisation de Video Indexer, et que vous n’êtes pas autorisé à utiliser Video Indexer ou tout autre service Azure d’une façon qui porte atteinte aux droits d’autrui ou qui soit préjudiciable à autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, Vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement de chaque personne apparaissant dans les vidéos. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation de Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de Microsoft en matière de confidentialité et de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](../video-indexer/faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
 
 ## <a name="built-in-presets"></a>Préréglages intégrés
 
@@ -63,14 +67,14 @@ La sortie inclut un fichier JSON (insights.json) contenant tous les insights tro
 
 ### <a name="transcript"></a>transcription
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la ligne.|
 |text|La transcription proprement dite.|
 |langage|La langue de la transcription. Permet de prendre en charge la transcription lorsque chaque ligne peut avoir une langue différente.|
 |instances|Liste des intervalles de temps pendant lesquels cette ligne est apparue. Si l’instance est un attribut transcript, il n’y a qu’une seule instance.|
 
-Exemple :
+Exemple :
 
 ```json
 "transcript": [
@@ -101,7 +105,7 @@ Exemple :
 
 ### <a name="ocr"></a>ocr
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la ligne ROC.|
 |text|Texte de l’OCR.|
@@ -144,10 +148,10 @@ Exemple :
 
 ### <a name="faces"></a>visages
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID du visage.|
-|Nom|Nom du visage. Il peut s'agir de la valeur « Unknown #0 », d’une célébrité identifiée ou d'une personne formée par le client.|
+|name|Nom du visage. Il peut s'agir de la valeur « Unknown #0 », d’une célébrité identifiée ou d'une personne formée par le client.|
 |confidence|Degré de confiance de l’identification du visage.|
 |description|Description de la célébrité. |
 |thumbnailId|ID de la miniature de ce visage.|
@@ -189,7 +193,7 @@ Exemple :
 
 ### <a name="shots"></a>captures
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de la capture.|
 |keyFrames|Liste des images clés au sein de la capture (chacune possède un ID et une liste d’intervalles de temps d’instances). Les instances des images clés comptent un champ thumbnailId pourvu de l’ID de miniature de l’élément keyFrame.|
@@ -244,9 +248,9 @@ Exemple :
   ]
 ```
 
-### <a name="statistics"></a>statistics
+### <a name="statistics"></a>statistiques
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |CorrespondenceCount|Nombre de correspondances contenues dans la vidéo.|
 |WordCount|Nombre de mots par intervenant.|
@@ -259,7 +263,7 @@ Exemple :
 
 Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/négatif). Par exemple, 0-0.1, 0.1-0.2.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID du sentiment.|
 |averageScore |Moyenne de tous les résultats obtenus pour toutes les instances de ce type de sentiment : neutre/positif/négatif|
@@ -294,10 +298,10 @@ Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/nég
 
 ### <a name="labels"></a>étiquettes
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de l’étiquette.|
-|Nom|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
+|name|Nom de l’étiquette (par exemple, « ordinateur », « TV »).|
 |langage|Langue du nom de l’étiquette (si traduction). BCP-47|
 |instances|Liste des intervalles de temps au cours desquels cette étiquette est apparue (une étiquette peut apparaître plusieurs fois). Chaque instance possède un champ de confiance. |
 
@@ -352,7 +356,7 @@ Les sentiments sont regroupés par leur champ sentimentType (neutre/positif/nég
 
 ### <a name="keywords"></a>mots clés
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID du mot clé.|
 |text|Texte du mot clé.|
@@ -403,7 +407,7 @@ Le bloc visualContentModeration contient des intervalles de temps qui sont susce
 
 Les vidéos trouvées qui contiennent des éléments pour adultes ou choquants peuvent être disponibles pour un affichage privé uniquement. Les utilisateurs peuvent soumettre une demande de révision manuelle du contenu, auquel cas l’attribut `IsAdult` contient le résultat de la révision manuelle.
 
-|Nom|Description|
+|Name|Description|
 |---|---|
 |id|ID de modération du contenu visuel.|
 |adultScore|Degré du contenu pour adultes (d’après Content Moderator).|

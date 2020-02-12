@@ -4,16 +4,16 @@ description: Utiliser des déploiements automatiques dans Azure IoT Edge pour g�
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/12/2019
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 406830add1891a058e9b43fccb8435aa4d339ed0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548677"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76895969"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Comprendre les déploiements automatiques IoT Edge pour un seul ou de nombreux appareils
 
@@ -61,7 +61,7 @@ La condition cible est évaluée en permanence sur toute la durée de vie du dé
 
 Prenons l’exemple d’un déploiement comportant une condition cible tags.environment = ’prod’. Au lancement du déploiement, il y a 10 appareils de production. Les modules sont correctement installés sur ces 10 appareils. L’état de l’agent IoT Edge affiche 10 appareils au total, 10 réponses correctes, 0 réponse erronée et 0 réponse en attente. On ajoute maintenant cinq appareils avec tags.environment = 'prod'. Le service détecte la modification, et l’état de l’agent IoT Edge devient : 15 appareils au total, 10 réponses correctes, 0 réponse erronée et 5 réponses en attente quand il déploie sur cinq nouveaux appareils.
 
-Utilisez une condition booléenne sur des balises des jumeaux d’appareils ou deviceId pour sélectionner les appareils cibles. Si vous souhaitez utiliser une condition avec des balises, vous devez ajouter les propriétés "tags":{} dans le jumeau d’appareil au même niveau. [En savoir plus sur les balises dans le jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md)
+Utilisez une condition booléenne sur des balises de jumeaux d’appareils, propriétés signalées de jumeaux d'appareils ou deviceId pour sélectionner les appareils cibles. Si vous souhaitez utiliser une condition avec des balises, vous devez ajouter les propriétés "tags":{} dans le jumeau d’appareil au même niveau. [En savoir plus sur les balises dans le jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exemples de conditions cibles :
 
@@ -70,10 +70,11 @@ Exemples de conditions cibles :
 * tags.environment = ’prod’ AND tags.location = ’westus’
 * tags.environment = ’prod’ OR tags.location = ’westus’
 * tags.operator = ’John’ AND tags.environment = ’prod’ NOT deviceId = ’linuxprod1’
+* properties.reported.devicemodel = '4000x'
 
-Voici quelques-unes des contraintes qui s’appliquent à la création d’une condition cible :
+Prenez en compte les contraintes suivantes lorsque vous créez une condition cible :
 
-* Dans le jumeau d’appareil, seuls les balises et deviceId permettent de créer une condition cible.
+* Dans le jumeau d’appareil, seuls les balises, propriétés signalées et deviceId permettent de créer une condition cible.
 * Les guillemets doubles ne sont autorisés nulle part dans la condition cible. Utilisez des guillemets simples.
 * Les guillemets simples représentent les valeurs de la condition cible. Par conséquent, vous devez échapper le guillemet simple avec un autre guillemet simple s’il fait partie du nom de l’appareil. Par exemple, pour cibler un appareil nommé `operator'sDevice`, écrivez `deviceId='operator''sDevice'`.
 * Les nombres, les lettres et les caractères suivants sont autorisés dans les valeurs de la condition cible : `-:.+%_#*?!(),=@;$`.
@@ -92,8 +93,8 @@ Par défaut, tous les déploiements rapportent quatre métriques :
 
 * **Ciblé** affiche les périphériques IoT Edge qui correspondent à la condition de ciblage du déploiement.
 * **Appliqué** affiche les appareils IoT Edge ciblés qui ne sont pas ciblés par un autre déploiement de priorité plus élevée.
-* **Signalement d'une réussite** affiche les appareils IoT Edge ayant signalé au service que les modules ont été déployés correctement.
-* **Signalement d’un échec** affiche les appareils IoT Edge ayant signalé au service qu’un ou plusieurs modules n’ont pas été déployés correctement. Pour examiner l’erreur plus en détail, connectez-vous à distance à ces appareils et consultez les fichiers journaux.
+* **Signalement d'une réussite** affiche les appareils IoT Edge ayant signalé le bon déploiement des modules.
+* **Signalement d’un échec** affiche les appareils IoT Edge ayant signalé l'échec de déploiement d'un ou plusieurs modules. Pour examiner l’erreur plus en détail, connectez-vous à distance à ces appareils et consultez les fichiers journaux.
 
 En outre, vous pouvez définir vos propres mesures personnalisées pour faciliter la surveillance et la gestion du déploiement.
 
@@ -112,7 +113,7 @@ Les déploiements en couches sont des déploiements automatiques qui peuvent êt
 
 Les déploiements en couches possèdent les mêmes composants de base que n’importe quel déploiement automatique. Ils ciblent les appareils en fonction des balises présentes dans les jumeaux d'appareil et fournissent les mêmes fonctionnalités en termes d'étiquettes, de métriques et de rapports d’état. Les déploiements en couches sont également associés à des priorités et celles-ci sont utilisées pour déterminer le classement de plusieurs déploiements sur un appareil, et non le déploiement à lui appliquer. Par exemple, si deux déploiements en couches présentent un module ou un itinéraire portant le même nom, le déploiement en couches doté de la priorité la plus élevée est appliqué et remplace la priorité la plus faible.
 
-Les modules d’exécution du système, edgeAgent et edgeHub, ne sont pas configurés dans le cadre d’un déploiement en couches. Tout appareil IoT Edge ciblé par un déploiement en couches doit d'abord faire l'objet d'un déploiement automatique standard qui fait office de base sur laquelle ajouter les déploiements en couches.
+Les modules d’exécution du système, edgeAgent et edgeHub, ne sont pas configurés dans le cadre d’un déploiement en couches. Tout appareil IoT Edge ciblé par un déploiement en couches doit d'abord faire l'objet d'un déploiement automatique standard. Ce déploiement automatique fait office de base sur laquelle ajouter les déploiements en couches.
 
 Un appareil IoT Edge ne peut appliquer qu'un seul déploiement automatique standard, mais peut appliquer plusieurs déploiements automatiques en couches. Les déploiements en couches ciblant un appareil doivent avoir une priorité plus élevée que le déploiement automatique pour cet appareil.
 
@@ -141,7 +142,7 @@ Par exemple, dans un déploiement standard, vous pouvez ajouter le module de cap
 }
 ```
 
-Dans un déploiement en couches ciblant les mêmes appareils, ou un sous-ensemble des mêmes appareils, vous pouvez ajouter une propriété supplémentaire indiquant au capteur simulé d’envoyer 1 000 messages, puis de s’arrêter. Pour ne pas remplacer les propriétés existantes, vous créez une section dans les propriétés souhaitées appelée `layeredProperties`, contenant la nouvelle propriété :
+Dans un déploiement en couches ciblant tout ou partie des appareils identiques, vous pouvez ajouter une propriété indiquant au capteur simulé d’envoyer 1 000 messages, puis de s’arrêter. Pour ne pas remplacer les propriétés existantes, vous créez une section dans les propriétés souhaitées appelée `layeredProperties`, contenant la nouvelle propriété :
 
 ```json
 "SimulatedTemperatureSensor": {

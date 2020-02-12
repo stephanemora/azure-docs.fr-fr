@@ -3,12 +3,12 @@ title: Vue d’ensemble d’ACR Tasks
 description: Introduction à ACR Tasks, une suite de fonctionnalités d’Azure Container Registry qui permet la création ; la gestion et la mise à jour corrective d’images de conteneur sécurisées et automatisées dans le cloud.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840763"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938875"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatiser la création et la maintenance des images de conteneur avec ACR Tasks
 
@@ -58,7 +58,7 @@ ACR Tasks prend en charge les déclencheurs suivants lorsque vous définissez un
 
 | Déclencheur | Activée par défaut |
 | ------- | ------------------ |
-| Validation | OUI |
+| Commit | Oui |
 | Demande de tirage (pull request) | Non |
 
 Pour configurer un déclencheur de mise à jour du code source, vous devez fournir à la tâche un jeton d’accès personnel (PAT) pour définir le webhook dans le référentiel GitHub ou Azure DevOps, qu’il soit public ou privé.
@@ -101,12 +101,12 @@ Les tâches multiétapes permettent la définition et l’exécution basées sur
 
 Par exemple, vous pouvez créer une tâche à plusieurs étapes qui automatise les opérations suivantes :
 
-1. Générer (build) une image de l’application web
+1. Compiler une image d’application web
 1. Exécuter le conteneur d’application web
 1. Compiler une image test d’application web
 1. Exécuter le conteneur de test de l’application web qui effectue des tests sur le conteneur d’application en cours d’exécution
 1. Si les tests réussissent, compilez un package d’archivage du graphique Helm
-1. Exécutez la commande `helm upgrade` à l’aide du nouveau package d’archivage du graphique Helm
+1. Effectuer un `helm upgrade` à l’aide du nouveau package d’archivage du graphique Helm
 
 Les tâches à plusieurs étapes vous permettent de fractionner la génération, l’exécution et le test d’une image en étapes plus composables, avec prise en charge des dépendances entre chacune d’elles. Grâce aux tâches à plusieurs étapes d’ACR Tasks, vous contrôlez plus finement la génération d’images, le test la mise à jour corrective du système d’exploitation et du framework.
 
@@ -116,12 +116,13 @@ Pour en savoir plus sur les tâches à plusieurs étapes, consultez [Run multi-s
 
 Le tableau suivant présente quelques exemples d’emplacements de contexte pris en charge pour ACR Tasks :
 
-| Emplacement du contexte | Description | Exemples |
+| Emplacement du contexte | Description | Exemple |
 | ---------------- | ----------- | ------- |
 | Système de fichiers local | Fichiers dans un répertoire sur le système de fichiers local. | `/home/user/projects/myapp` |
 | Branche principale GitHub | Fichiers dans la branche maître (ou autre branche par défaut) d’un référentiel GitHub public ou privé.  | `https://github.com/gituser/myapp-repo.git` |
 | Branche GitHub | Branche spécifique d’un référentiel GitHub public ou privé.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | Sous-dossier de GitHub | Fichiers dans un sous-dossier d’un référentiel GitHub public ou privé. L’exemple affiche la combinaison de spécifications de branche et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Validation GitHub | Validation spécifique d’un référentiel GitHub public ou privé. L’exemple affiche la combinaison de spécifications de hachage de validation (SHA) et de sous-dossier. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Sous-dossier Azure DevOps | Fichiers dans le sous-dossier d’un référentiel Azure public ou privé. L’exemple montre la combinaison de spécifications de branche et de sous-dossier. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Tarball distant | Fichiers dans une archive compressée sur un serveur Web à distance. | `http://remoteserver/myapp.tar.gz` |
 

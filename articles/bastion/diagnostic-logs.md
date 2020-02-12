@@ -1,18 +1,18 @@
 ---
-title: Activer et utiliser les journaux de diagnostic Azure Bastion | Microsoft Docs
+title: Activer et utiliser les journaux de diagnostic Azure Bastion
 description: Dans cet article, découvrez comment activer et utiliser les journaux de diagnostic Azure Bastion.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8ae421b48f3cfa8055f636052c990f99e0c775b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510150"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989448"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>Activer et utiliser les journaux de diagnostic Bastion
 
@@ -79,4 +79,4 @@ Pour accéder à vos journaux de diagnostic, vous pouvez utiliser directement le
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez les [questions fréquentes (FAQ) sur Bastion](bastion-faq.md).
+Lisez les [questions fréquentes sur Bastion](bastion-faq.md).

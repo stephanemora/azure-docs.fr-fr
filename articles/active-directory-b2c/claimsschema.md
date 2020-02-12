@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1e72e100bcb3d06403af1514dea13de59c623310
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3c3bb0cb6726326cda7ede46ba09fa6d17c2ba2c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713076"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983042"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -50,8 +50,8 @@ L’élément **ClaimType** contient les éléments suivants :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Titre présenté aux utilisateurs sur différents écrans. La valeur peut être [localisée](localization.md). |
-| DataType | 0:1 | Type de la revendication. Vous pouvez utiliser les types de données boolean, date, dateTime, int, long, string, stringCollection et alternativeSecurityIdCollection. |
+| DisplayName | 1:1 | Titre présenté aux utilisateurs sur différents écrans. La valeur peut être [localisée](localization.md). |
+| DataType | 1:1 | Type de la revendication. Vous pouvez utiliser les types de données suivantes : boolean, date, dateTime, int, long, string et stringCollection. Le type de données primitif représente l’équivalent d’un type de données variable en C#. stringCollection représente une collection de chaînes. Pour plus d’informations, consultez [Types et variables C#](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables). La date respecte la convention ISO 8601. |
 | DefaultPartnerClaimTypes | 0:1 | Types de revendications par défaut de partenaire à utiliser pour un protocole spécifié. La valeur peut être substituée dans le **PartnerClaimType** spécifié dans l’élément **InputClaim** ou **OutputClaim**. Utilisez cet élément pour spécifier le nom par défaut d’un protocole.  |
 | Mask | 0:1 | Chaîne facultative de caractères de masquage qui peuvent être appliqués lors de l’affichage de la revendication. Par exemple, le numéro téléphone 324-232-4343 peut être masqué comme suit : XXX-XXX-4343. |
 | UserHelpText | 0:1 | Description du type de revendication qui peut aider les utilisateurs à comprendre sa raison d’être. La valeur peut être [localisée](localization.md). |
@@ -65,7 +65,7 @@ PredicateValidationReference| 0:1 | Référence à un élément **PredicateValid
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| Protocol | 0:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
+| Protocol | 1:n | Liste de protocoles avec leur nom de type de revendication de partenaire par défaut. |
 
 L’élément **Protocol** contient les attributs suivants :
 

@@ -9,20 +9,33 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 01/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2bdd11c3b53b650e636d53942fcb94142de556b2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: cf5f89197798f95dced5bfd8817f1df050297048
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772823"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76961997"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>Gérer des données de référence pour un environnement Azure Time Series Insights en C#
 
 Cet article explique comment combiner C#, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) et Azure Active Directory pour créer des demandes d’API programmatiques à l’[API Reference Data Management](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) d’Azure Time Series Insights en disponibilité générale.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+> [!TIP]
+> Consultez des exemples de code C# en disponibilité générale sur [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+
+## <a name="summary"></a>Résumé
+
+L’exemple de code ci-dessous illustre les fonctionnalités suivantes :
+
+* Acquisition d’un jeton d’accès à l’aide de [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**
+* Opérations séquentielles CREATE, READ, UPDATE et DELETE exécutées sur l’[API Reference Data Management](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) en disponibilité générale
+* Codes de réponse courants, y compris les [codes d’erreur courants](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)
+    
+    L’API Reference Data Management traite chaque élément individuellement. De fait, si une erreur se produit au niveau d’un élément, cela n’empêche pas les autres de se terminer correctement. Par exemple, si votre requête contient 100 éléments et que l’un d’eux contient une erreur, 99 éléments seront écrits et 1 élément sera rejeté.
+
+## <a name="prerequisites-and-setup"></a>Composants requis et configuration
 
 Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de code :
 
@@ -42,9 +55,6 @@ Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de 
 1. Modifiez l’exemple de code ci-dessous en remplaçant chaque espace réservé **#PLACEHOLDER#** par l’identificateur d’environnement qui convient.
 
 1. Exécutez `dotnet run` dans le répertoire racine de votre projet. Lorsque vous y êtes invité, utilisez votre profil utilisateur pour vous connecter à Azure. 
-
-> [!TIP]
-> * Consultez les autres exemples de code C# en disponibilité générale sur [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Dépendances du projet
 
@@ -296,16 +306,6 @@ namespace CsharpTsiMsalGaSample
     }
 }
 ```
-
-## <a name="summary"></a>Résumé
-
-L’exemple de code ci-dessus illustre les fonctionnalités suivantes :
-
-* Acquisition d’un jeton d’accès à l’aide de [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **PublicClientApplication**
-* Opérations séquentielles CREATE, READ, UPDATE et DELETE exécutées sur l’[API Reference Data Management](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) en disponibilité générale
-* Codes de réponse courants, y compris les [codes d’erreur courants](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)
-    
-    L’API Reference Data Management traite chaque élément individuellement. De fait, si une erreur se produit au niveau d’un élément, cela n’empêche pas les autres de se terminer correctement. Par exemple, si votre requête contient 100 éléments et que l’un d’eux contient une erreur, 99 éléments seront écrits et 1 élément sera rejeté.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

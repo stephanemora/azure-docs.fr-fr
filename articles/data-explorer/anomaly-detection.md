@@ -1,5 +1,5 @@
 ---
-title: Détection et prévision des anomalies de série chronologique dans Azure Data Explorer
+title: Détection et prévision des anomalies de série chronologique – Azure Data Explorer
 description: Découvrez comment analyser des données de séries chronologiques pour la détection et la prévision des anomalies à l’aide d’Azure Data Explorer.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e06569a3a6948836201b333501bf2de0416d4ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 4a7463d6149a921a4a29b43eaebb78a01543323a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766036"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985823"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Détection et prévision des anomalies dans Azure Data Explorer
 
@@ -20,7 +20,7 @@ Azure Data Explorer effectue une collecte continue de données de télémétrie 
 
 Cet article décrit en détail les fonctionnalités de détection et de prévision des anomalies de série chronologique Azure Data Explorer. Les fonctions de série chronologique applicables sont basées sur un modèle de décomposition connu robuste, dans lequel chaque série chronologique d’origine est décomposée en composants résiduels, de tendances et saisonnières. Les anomalies sont détectées par les valeurs hors norme sur le composant résiduel, tandis que la prévision est réalisée en extrapolant les composants de tendances et saisonnières. L’implémentation d’Azure Data Explorer améliore considérablement le modèle de décomposition de base grâce à la détection de saisonnalité automatique, l’analyse des valeurs hors norme robustes et l’implémentation vectorisée pour traiter des milliers de séries chronologiques en quelques secondes.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Lisez [Analyse des séries chronologiques dans Azure Data Explorer](/azure/data-explorer/time-series-analysis) pour obtenir une vue d’ensemble des fonctionnalités de séries chronologiques.
 

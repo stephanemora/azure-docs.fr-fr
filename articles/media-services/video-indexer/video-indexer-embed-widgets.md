@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ed3e2cf9830e3776886e662fd27f43f76728d6b2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545889"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988717"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Incorporer des widgets Video Indexer dans vos applications
 
@@ -86,9 +86,9 @@ Pour incorporer une vidéo privée, vous devez passer un jeton d’accès dans l
     
 Pour obtenir le contenu du widget Cognitive Insights, utilisez l’une des API suivantes :<br/>
 - [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget).<br/>
-- [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). Ajoutez-la en tant que paramètre de requête à l’URL. Spécifiez cette URL en tant que valeur **src** pour l’iframe comme indiqué précédemment.
+- [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). Ajoutez-la en tant que paramètre de requête à l’URL. Spécifiez cette URL en tant que valeur **src** pour l’iframe comme indiqué précédemment.
 
-Pour fournir des fonctionnalités de modification d’insights dans votre widget incorporé, vous devez transmettre un jeton d’accès contenant les autorisations de modification. Utilisez l’API [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) avec `&allowEdit=true`. 
+Pour fournir des fonctionnalités de modification d’insights dans votre widget incorporé, vous devez transmettre un jeton d’accès contenant les autorisations de modification. Utilisez l’API [Get Insights Widget](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) ou [Get Video Access Token](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) avec `&allowEdit=true`. 
 
 ## <a name="widgets-interaction"></a>Interaction de widgets
 
@@ -264,6 +264,23 @@ Si vous souhaitez désactiver les sous-titres, vous pouvez passer la valeur `fal
 
 #### <a name="autoplay"></a>Lecture automatique
 Par défaut, le lecteur démarre la lecture de la vidéo. Vous pouvez empêcher cette action en passant `&autoplay=false` à l’URL incorporée précédente.
+
+## <a name="code-samples"></a>Exemples de code
+
+Consultez le référentiel d’[exemples de code](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) qui contient des exemples pour l’API Video Indexer et des widgets :
+
+| Fichier/Dossier                       | Description                                |
+|-----------------------------------|--------------------------------------------|
+| `azure-media-player`              | Charge la vidéo Video Indexer dans un Lecteur multimédia Azure personnalisé                        |
+| `azure-media-player-vi-insights`  | Incorporation de VI Insights à un Lecteur multimédia Azure personnalisé                             |
+| `control-vi-embedded-player`      | Incorporation de VI Player avec ses commandes à l’extérieur                                    |
+| `custom-index-location`           | Incorporation de VI Insights à partir d’un emplacement externe personnalisé (peut être un blob de client)     |
+| `embed-both-insights`             | Utilisation de base de VI Insights, lecteur et insights                            |
+| `embed-insights-with-AMP`         | Incorporation du widget VI Insights à un Lecteur multimédia Azure personnalisé                      |
+| `customize-the-widgets`           | Incorporation des widgets VI avec options personnalisées                                     |
+| `embed-both-widgets`              | Incorporation de VI Player et VI Insights et communication entre les deux                      |
+| `url-generator`                   | Génère des widgets avec URL d’incorporation personnalisée en fonction des options spécifiées par l’utilisateur             |
+| `html5-player`                    | Incorporation de VI Insights avec un lecteur vidéo HTML5 par défaut                            |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

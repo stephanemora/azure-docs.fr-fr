@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fbbd7b4bdddf2b58e66cb1203414b5a63eec2f27
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951001"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982294"
 ---
 # <a name="stringcollection-claims-transformations"></a>Transformations de revendications StringCollection
 
@@ -28,11 +28,11 @@ Cet article fournit des exemples pour l’utilisation des transformations de rev
 
 Ajoute une revendication de chaîne à une nouvelle revendication stringCollection.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | item | string | ClaimType à ajouter à la revendication de sortie. |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
-| OutputClaim | collection | stringCollection | ClaimTypes qui sont générés après l’appel de cette ClaimsTransformation. |
+| OutputClaim | collection | stringCollection | ClaimTypes générés après l’appel de cette ClaimsTransformation. |
 
 Utilisez cette transformation de revendication pour ajouter une chaîne à un objet stringCollection nouveau ou existant. Elle est couramment utilisée dans un profil technique **AAD-UserWriteUsingAlternativeSecurityId**. Avant la création d’un compte social, la transformation de revendication **CreateOtherMailsFromEmail** lit le ClaimType et ajoute la valeur au ClaimType **otherMails**.
 
@@ -50,7 +50,7 @@ La transformation de revendication suivante ajoute le ClaimType **e-mail** au Cl
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com"]
@@ -62,7 +62,7 @@ La transformation de revendication suivante ajoute le ClaimType **e-mail** au Cl
 
 Ajoute un paramètre de chaîne à une nouvelle revendication stringCollection.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [Facultatif] Si spécifié, la transformation de revendication copie les éléments de cette collection et ajoute l’élément à la fin de la revendication de collection de sortie. |
 | InputParameter | item | string | Valeur à ajouter à la revendication de sortie. |
@@ -84,7 +84,7 @@ Utilisez cette transformation de revendication pour ajouter une valeur de chaîn
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com"]
@@ -97,7 +97,7 @@ Utilisez cette transformation de revendication pour ajouter une valeur de chaîn
 
 Obtient le premier élément de la collection de chaînes fournie.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | ClaimTypes qui sont utilisés par la transformation de revendication pour obtenir l’élément. |
 | OutputClaim | extractedItem | string | ClaimTypes générés après l’appel de cette ClaimsTransformation. Premier élément de la collection. |
@@ -115,10 +115,48 @@ L’exemple suivant lit la revendication **otherMails** et retourne le premier �
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **collection** : ["someone@outlook.com", "someone@contoso.com"]
 - Revendications de sortie :
   - **extractedItem** : "someone@outlook.com"
+
+
+## <a name="stringcollectioncontains"></a>StringCollectionContains
+
+Vérifie si un type de revendication StringCollection contient un élément
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | Type de revendication dans lequel effectuer la recherche. |
+|InputParameter|item|string|Valeur à rechercher.|
+|InputParameter|ignoreCase|string|Spécifie si cette comparaison doit ignorer la casse des chaînes comparées.|
+| OutputClaim | outputClaim | boolean | ClaimType généré après l’appel de cette ClaimsTransformation. Indicateur booléen si la collection contient une telle chaîne |
+
+L’exemple suivant vérifie si le type de revendication stringCollection `roles` contient la valeur **admin**.
+
+```XML
+<ClaimsTransformation Id="IsAdmin" TransformationMethod="StringCollectionContains">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="item" DataType="string" Value="Admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+- Revendications d’entrée :
+    - **inputClaim** : ["reader", "author", "admin"]
+- Paramètres d’entrée :
+    - **item** : "Admin"
+    - **ignoreCase** : "true"
+- Revendications de sortie :
+    - **outputClaim** : "true"
+
 

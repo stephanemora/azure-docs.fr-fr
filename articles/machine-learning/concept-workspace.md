@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: d013fc257bc03d7961a4f2d5ae52d0fde12c83bb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f3c2b1aa8f41b382bea96b33108d23bf09850c78
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844073"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984759"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Qu’est-ce qu’un espace de travail Azure Machine Learning ?
 
@@ -79,7 +79,7 @@ Vous pouvez également effectuer les tâches de gestion de l’espace de travail
 | Créer une machine virtuelle de notebooks |   | **&check;** | |     |
 
 > [!NOTE]
-> Des instances de calcul ne sont disponibles que pour des espaces de travail dans les régions **USA Centre Nord**, ** USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**.
+> Les instances de calcul sont disponibles uniquement pour les espaces de travail dans les régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**, mais d’autres régions seront bientôt prises en charge.
 >Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place.
 
 ## <a name='create-workspace'></a> Créer un espace de travail
@@ -92,6 +92,9 @@ Il existe plusieurs moyens de créer un espace de travail :
 * Utilisez le [kit SDK Azure Machine Learning pour Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) pour créer un espace de travail à la volée à partir de scripts Python ou de notebooks Jupyter
 * Utilisez un [modèle Azure Resource Manager](how-to-create-workspace-template.md) ou l’[interface CLI Azure Machine Learning](reference-azure-machine-learning-cli.md) lorsque vous devez automatiser ou personnaliser la création avec des normes de sécurité d’entreprise.
 * Si vous travaillez dans Visual Studio Code, utilisez l'[extension VS Code](tutorial-setup-vscode-extension.md).
+
+> [!NOTE]
+> Le nom de l’espace de travail n’est pas sensible à la casse.
 
 ## <a name="upgrade"></a> Mise à jour vers l’édition Enterprise
 

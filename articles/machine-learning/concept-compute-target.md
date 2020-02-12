@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 15bf6533106fe826c56b38cfb345c509d6d67966
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3d6439424f2a39bf5b5477cebd5fadb23a6370b0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844090"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984810"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Qu’est-ce qu’une cible de calcul dans Azure Machine Learning ? 
 
@@ -58,7 +58,7 @@ Vous pouvez créer des instances de calcul Azure Machine Learning (préversion) 
 Une fois créées, ces instances de calcul font automatiquement partie de votre espace de travail, contrairement à d’autres types de cibles de calcul.
 
 > [!NOTE]
-> Les instances de calcul ne sont disponibles que pour les espaces de travail associés aux régions **USA Centre Nord**, ** USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**.
+> Les instances de calcul sont disponibles uniquement pour les espaces de travail dans les régions **USA Centre Nord**, **USA Est 2**, **Europe Nord** ou **Royaume-Uni Sud**, mais d’autres régions seront bientôt prises en charge.
 >Si votre espace de travail se trouve dans une autre région, vous pouvez continuer à créer et à utiliser une [machine virtuelle Notebook](concept-compute-instance.md#notebookvm) à la place. 
 
 ### <a name="compute-clusters"></a>Clusters de calcul

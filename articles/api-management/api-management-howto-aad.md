@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 131621e05d7800e59ce3bbdec5c11c1da9facf11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df640f11e8a0e8af22c96a662a602e0de508715c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442794"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985048"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -53,10 +53,10 @@ Cet article explique comment activer l’accès au portail des développeurs pou
 12. Sous **Gérer**, sélectionnez **Inscriptions des applications**.
 13. Sélectionnez **Nouvelle inscription**. Sur la page **Inscrire une application**, définissez les valeurs comme suit :
     
-* Choisissez un nom explicite pour le champ **Nom**. Exemple : *developer-portal*
-* Définissez **Types de comptes pris en charge** sur **Comptes dans cet annuaire organisationnel**. 
-* Associez la valeur que vous avez obtenue à l’étape 9 à l’**URI de redirection**. 
-* Choisissez **Inscrire**. 
+    * Choisissez un nom explicite pour le champ **Nom**. Exemple : *developer-portal*
+    * Définissez **Types de comptes pris en charge** sur **Comptes dans cet annuaire organisationnel**. 
+    * Associez la valeur que vous avez obtenue à l’étape 9 à l’**URI de redirection**. 
+    * Choisissez **Inscrire**. 
 
 14.  Une fois que l’application est inscrite, copiez l’**ID (client) d’application** à partir de la page **Vue d’ensemble**. 
 15. Retournez à votre instance Gestion des API. Dans la fenêtre **Ajouter le fournisseur d’identité**, collez la valeur de **l’ID (client) d’application** dans la zone **ID client**.
@@ -71,10 +71,10 @@ Cet article explique comment activer l’accès au portail des développeurs pou
 
 19. La fenêtre **Ajouter le fournisseur d’identité** contient également la zone de texte **Locataires autorisés**. Spécifiez les domaines des instances Azure AD auxquelles vous souhaitez accorder l’accès aux API de l’instance de service Gestion des API. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
 
-> [!NOTE]
-> Vous pouvez spécifier plusieurs domaines dans la section **Locataires autorisés**. Pour qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit d’abord accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit : a. Accédez à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent).
-> b. Taper le nom de domaine du locataire Azure AD auquel il souhaite autoriser l’accès.
-> c. Sélectionnez **Envoyer**. 
+    > [!NOTE]
+    > Vous pouvez spécifier plusieurs domaines dans la section **Locataires autorisés**. Pour qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit d’abord accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit : a. Accédez à `https://<URL of your developer portal>/aadadminconsent` (par exemple, https://contoso.portal.azure-api.net/aadadminconsent).
+    > b. Taper le nom de domaine du locataire Azure AD auquel il souhaite autoriser l’accès.
+    > c. Sélectionnez **Envoyer**. 
 
 20.  Après avoir spécifié la configuration désirée, sélectionnez **Ajouter**.
 
@@ -95,7 +95,7 @@ Vous pouvez maintenant ajouter des groupes Azure AD externes à partir de l’on
 
 1. Sélectionnez l’onglet **Groupes** .
 2. Sélectionnez le bouton **Ajouter un groupe AAD**.
-   ![Bouton Ajouter un groupe AAD](./media/api-management-howto-aad/api-management-with-aad008.png)
+    ![Bouton Ajouter un groupe AAD](./media/api-management-howto-aad/api-management-with-aad008.png)
 3. Sélectionnez le groupe à ajouter.
 4. Appuyez sur le bouton **Sélectionner**.
 
@@ -105,11 +105,11 @@ Les utilisateurs de l’instance Azure AD configurée peuvent à présent se con
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> Portail des développeurs : ajouter l’authentification de compte Azure AD
 
-Dans le portail des développeurs, il est possible de se connecter avec AAD à l’aide du widget **Boutons OAuth**. Le widget est déjà inclus dans la page de connexion du contenu du portail des développeurs par défaut.
-
-![Widget Boutons AAD](./media/api-management-howto-aad/portal-oauth-widget.png)
+Dans le portail des développeurs, il est possible de se connecter avec AAD à l’aide du widget **Bouton de connexion : OAuth**. Le widget est déjà inclus dans la page de connexion du contenu du portail des développeurs par défaut.
 
 Bien qu’un compte soit automatiquement créé chaque fois qu’un utilisateur se connecte avec AAD, vous pouvez envisager d’ajouter le même widget à la page d’inscription.
+
+Le widget **Formulaire d’inscription : OAuth** représente un formulaire utilisé pour s’inscrire à l’aide d’OAuth.
 
 > [!IMPORTANT]
 > Vous devez [republier le portail](api-management-howto-developer-portal-customize.md#publish) pour que les modifications apportées à AAD prennent effet.

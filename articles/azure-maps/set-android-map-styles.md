@@ -1,6 +1,6 @@
 ---
 title: Définir un style de carte avec le kit Android SDK Azure Maps | Microsoft Azure Maps
-description: Dans cet article, vous allez découvrir les fonctionnalités liées aux styles Microsoft Azure Maps pour le kit Android SDK.
+description: Dans cet article, vous découvrirez les fonctionnalités Microsoft Azure Maps liées aux styles pour le kit Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4adb38148acc0c18ac73709efbe7628ca9497897
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910481"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988955"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Définir le style de carte à l’aide d'Android SDK Azure Maps
 
@@ -59,7 +59,7 @@ L'attribut `mapcontrol_style` ci-dessus définit le style de carte sur **graysca
 
 ## <a name="set-map-style-in-the-activity-class"></a>Définir le style de carte dans la classe d’activité
 
-Le style de carte peut être défini dans la classe d’activité. Copiez l’extrait de code suivant dans la méthode **onCreate()** de votre classe `MainActivity.java`. Cela définit le style de carte sur **satellite_road_labels**.
+Le style de carte peut être défini dans la classe d’activité. Copiez l’extrait de code suivant dans la méthode **onCreate()** de votre classe `MainActivity.java`. Ce code définit le style de carte sur **satellite_road_labels**.
 
 ```Java
 mapControl.onReady(map -> {

@@ -9,34 +9,71 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3729bedf7591ffecc558b88660486f7e336fa717
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9f7819974e3548baf5e10f0bf9a2d656d9412beb
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705909"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987969"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Interroger des données à partir d’un environnement GA Azure Time Series Insights en utilisant C#
 
-Cet exemple de code C# montre comment interroger des données à partir d’un environnement GA Azure Time Series Insights.
+Cet exemple de code C# montre comment utiliser les [API de requête en disponibilité générale](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) pour interroger des données à partir d’environnements Azure Time Series Insights en disponibilité générale.
 
-L’exemple montre plusieurs exemples de base de l’utilisation de l’API de requête :
+> [!TIP]
+> Consultez des exemples de code C# en disponibilité générale sur [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
-1. En guise de préparation, obtenez le jeton d’accès via l’API Azure Active Directory. Transmettez le jeton dans l’en-tête `Authorization` de chaque demande de l’API de requête. Pour configurer les applications non interactives, voir [Authentification et autorisation](time-series-insights-authentication-and-authorization.md). Vérifiez aussi que toutes les constantes définies au début de l’exemple sont correctement configurées.
-1. La liste des environnements auxquels l’utilisateur a accès est obtenue. L’un des environnements est récupéré en tant qu’environnement d’intérêt, et les autres données sont interrogées pour cet environnement.
-1. Exemple de demande HTTPS : les données de disponibilité sont demandées pour l’environnement d’intérêt.
-1. Exemple de demande de socket web : les données d’agrégats d’évènement sont demandées pour l’environnement d’intérêt. Des données sont demandées pour l’intégralité de la période de disponibilité.
+## <a name="summary"></a>Résumé
 
-> [!NOTE]
-> Cet exemple de code est disponible à l’adresse [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+L’exemple de code ci-dessous illustre les fonctionnalités suivantes :
+
+* Comment acquérir un jeton d’accès via Azure Active Directory à l’aide de [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).
+
+* Comment passer ce jeton d’accès acquis dans l’en-tête `Authorization` des requêtes ultérieures d’API de requête. 
+
+* L’exemple appelle chacune des API de requête en disponibilité générale illustrant la façon dont les requêtes HTTP sont adressées aux API :
+    * [API Get Environments](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) pour retourner les environnements auxquels l’utilisateur a accès
+    * [API Get Environment Availability](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
+    * [API Get Environment Metadata](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) pour récupérer les métadonnées d’environnement
+    * [API Get Environments Events](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)
+    * [API Get Environment Aggregates](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
+    
+* Comment interagir avec les API de requête en disponibilité générale à l’aide de WSS pour envoyer un message aux API :
+
+   * [API Get Environment Events Streamed](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
+   * [API Get Environment Aggregates Streamed](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
+
+## <a name="prerequisites-and-setup"></a>Composants requis et configuration
+
+Effectuez les étapes suivantes avant de compiler et d'exécuter l’exemple de code :
+
+1. [Provisionner un environnement Azure Time Series Insights en disponibilité générale](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Configurez votre environnement Azure Time Series Insights pour Azure Active Directory, comme décrit dans [Authentification et autorisation](time-series-insights-authentication-and-authorization.md). 
+1. Installez les dépendances de projet nécessaires.
+1. Modifiez l’exemple de code ci-dessous en remplaçant chaque espace réservé **#DUMMY#** par l’identificateur d’environnement qui convient.
+1. Exécutez le code dans Visual Studio.
 
 ## <a name="project-dependencies"></a>Dépendances du projet
 
-Ajoutez les packages NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` et `Newtonsoft.Json`.
+Il est recommandé d’utiliser la version la plus récente de Visual Studio :
 
-## <a name="c-example"></a>Exemple en code C#
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) - Version 16.4.2+
+
+L’exemple de code comporte deux dépendances obligatoires :
+
+* [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/), package 3.13.9.
+* [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json), package 9.0.1.
+
+Téléchargez les packages dans Visual Studio 2019 en sélectionnant l’option **Générer** > **Générer la solution**.
+
+Vous pouvez également ajouter les packages à l’aide de [NuGet 2.12+](https://www.nuget.org/) :
+
+* `dotnet add package Newtonsoft.Json --version 9.0.1`
+* `dotnet add package Microsoft.IdentityModel.Clients.ActiveDirectory --version 3.13.9`
+
+## <a name="c-sample-code"></a>Exemple de code C#
 
 [!code-csharp[csharpquery-example](~/samples-tsi/csharp-tsi-ga-sample/Program.cs)]
 

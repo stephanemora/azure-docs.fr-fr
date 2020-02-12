@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895381"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964615"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Problèmes de pulsations Apache Ambari dans Azure HDInsight
 
@@ -82,6 +82,21 @@ Les alertes sont provoquées par l’agent Ambari qui n’est pas en cours d’e
     ```
 
     Si les services du contrôleur de basculement ne sont pas en cours d’exécution, il est probable qu’un problème empêche l’agent HDInsight de démarrer le contrôleur de basculement. Vérifiez le journal de l’agent HDInsight à partir du fichier `/var/log/hdinsight-agent/hdinsight-agent.out`.
+
+## <a name="scenario-heartbeat-lost-for-ambari"></a>Scénario : Pulsation perdue pour Ambari
+
+### <a name="issue"></a>Problème
+
+L’agent de pulsation Ambari a été perdu.
+
+### <a name="cause"></a>Cause :
+
+Les journaux OMS sont à l’origine d’une utilisation élevée de l’UC.
+
+### <a name="resolution"></a>Résolution
+
+* Désactivez la journalisation OMS à l’aide du module PowerShell [Disable-AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0). 
+* Supprimez le fichier journal `mdsd.warn`
 
 ---
 

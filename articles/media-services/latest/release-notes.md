@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719838"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962941"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3
 
@@ -36,6 +36,13 @@ Pour vous informer des développements les plus récents, cet article détaille 
 
 Pour plus d’informations, consultez [Conseils de migration pour le passage de Media Services v2 à Media Services v3](migrate-from-v2-to-v3.md#known-issues).
 
+## <a name="january-2020"></a>Janvier 2020
+
+### <a name="improvements-in-media-processors"></a>Améliorations apportées aux processeurs multimédias
+
+- Amélioration de la prise en charge des sources entrelacées dans l’analyse vidéo : ces contenus sont désormais désentrelacés correctement avant d’être envoyés aux moteurs d’inférence.
+- Lors de la génération de miniatures avec le mode « optimal », l’encodeur effectue désormais une recherche au-delà de 30 secondes pour sélectionner une image qui n’est pas monochrome.
+ 
 ## <a name="november-2019"></a>Novembre 2019
 
 ### <a name="live-transcription-preview"></a>Transcription en direct (préversion)

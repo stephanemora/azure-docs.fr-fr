@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4d91eecc6168ae195fecdf788f091fd70b785f05
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 8bbbd8248c7418b667e34389cb47bd3f6b4f06ab
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937134"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963816"
 ---
 # <a name="send-security-messages-sdk"></a>Envoyer des messages de sécurité à l’aide du SDK
 
@@ -192,14 +192,21 @@ function SendSecurityMessage(messageContent)
 
 #### <a name="python-api"></a>API Python
 
+Pour utiliser l’API Python, vous devez installer le package [azure-iot-device](https://pypi.org/project/azure-iot-device/).
+
+Lorsque vous utilisez l’API Python, vous pouvez envoyer le message de sécurité via le module ou via l’appareil à l’aide de la chaîne de connexion unique de l’appareil ou du module. Lorsque vous utilisez l’exemple de script Python suivant, pour un appareil, utilisez **IoTHubDeviceClient** et pour un module, utilisez **IoTHubModuleClient**. 
+
 ```python
+from azure.iot.device.aio import IoTHubDeviceClient, IoTHubModuleClient
+from azure.iot.device import Message
+
 async def send_security_message_async(message_content):
     conn_str = os.getenv("<connection_string>")
     device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
     await device_client.connect()
     security_message = Message(message_content)
     security_message.set_as_security_message()
-    await device_client.send_d2c_message(security_message)
+    await device_client.send_message(security_message)
     await device_client.disconnect()
 ```
 
@@ -220,7 +227,7 @@ public void SendSecurityMessage(string message)
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Lire la [Vue d’ensemble](overview.md) du service Microsoft Azure Security Center pour IoT
-- En savoir plus sur [l’architecture](architecture.md) d’Azure Security Center pour IoT
+- En savoir plus sur l’[architecture](architecture.md) d’Azure Security Center pour IoT
 - Activer le [service](quickstart-onboard-iot-hub.md)
 - Consulter les [Questions fréquentes (FAQ)](resources-frequently-asked-questions.md)
 - Découvrir comment accéder aux [données de sécurité brutes](how-to-security-data-access.md)

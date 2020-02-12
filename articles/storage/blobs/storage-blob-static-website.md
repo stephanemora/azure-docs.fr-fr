@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708160"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906595"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
 
@@ -81,22 +81,16 @@ Par exemple, si vous modifiez le niveau d’accès public du conteneur **$web** 
 
 Toutefois, l’accès public au point de terminaison principal du service Blob `https://contosoblobaccount.blob.core.windows.net/$web/index.html` passe, lui, de privé à public. Désormais, les utilisateurs peuvent ouvrir ce fichier à l’aide, au choix, d’un de ces deux points de terminaison.
 
-## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Prise en charge de la couche SSL (Secure Socket Layer) et du réseau de distribution de contenu (CDN)
+## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mappage d’un domaine personnalisé à une URL de site web statique
 
-Pour faire en sorte que vos fichiers de site web statique soient accessibles sur votre domaine personnalisé et HTTPS, consultez l’article [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md). Dans le cadre de ce processus, vous devez pointer votre CDN sur le point de terminaison principal du *site web statique* plutôt que sur le point de terminaison principal du *service Blob*. Vous devrez peut-être patienter quelques minutes avant que votre contenu soit visible, car la configuration du CDN n’est pas exécutée immédiatement.
+Vous pouvez rendre votre site web statique disponible via un domaine personnalisé. 
 
-Lorsque vous mettez à jour votre site web statique, veillez à effacer le contenu mis en cache sur les serveurs Edge du CDN en vidant le point de terminaison CDN. Pour plus d’informations, consultez [Purger un point de terminaison CDN Azure](../../cdn/cdn-purge-endpoint.md).
+Stockage Azure prenant en charge votre domaine personnalisé en mode natif, l'accès HTTP est plus facile à activer. Pour activer HTTPS, vous devez utiliser Azure CDN car Stockage Azure ne prend pas encore en charge HTTPS avec les domaines personnalisés en mode natif. Pour obtenir des instructions pas à pas, consultez [Mapper un domaine personnalisé à un point de terminaison du Stockage Blob Azure](storage-custom-domain-name.md).
 
-> [!NOTE]
-> Le protocole HTTPS étant pris en charge en mode natif via le point de terminaison web du compte, le point de terminaison web est accessible via les deux protocoles, HTTP et HTTPS. Toutefois, si le compte de stockage est configuré pour exiger un transfert sécurisé via HTTPS, les utilisateurs doivent utiliser le point de terminaison HTTPS. Pour plus d’informations, consultez [Exiger un transfert sécurisé dans Stockage Azure](../common/storage-require-secure-transfer.md).
->
-> L’utilisation de domaines personnalisés sur HTTPS nécessite d’avoir recours à Azure CDN pour l’instant.
+Si le compte de stockage est configuré pour [exiger un transfert sécurisé](../common/storage-require-secure-transfer.md) via HTTPS, les utilisateurs doivent utiliser le point de terminaison HTTPS. 
 
-## <a name="custom-domain-names"></a>Noms de domaine personnalisés
-
-Vous pouvez rendre votre site web statique disponible via un domaine personnalisé. Pour plus d’informations, consultez [Configurer un nom de domaine personnalisé pour votre compte de Stockage Azure](storage-custom-domain-name.md).
-
-Pour découvrir la procédure détaillée d’hébergement de votre domaine sur Azure, consultez [Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+> [!TIP]
+> Envisagez l'hébergement de votre domaine sur Azure. Pour plus d’informations, consultez [Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Tarifs
 
@@ -111,8 +105,7 @@ Pour activer les métriques sur les pages de votre site web statique, consultez 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Héberger un site web statique dans le stockage Azure](storage-blob-static-website-how-to.md)
-* [Utiliser Azure CDN pour accéder aux objets Blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md)
-* [Configurer un nom de domaine personnalisé pour le point de terminaison de votre objet blob ou web](storage-custom-domain-name.md)
+* [Mapper un domaine personnalisé à un point de terminaison du Stockage Blob Azure](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Générer votre première application web sans serveur](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

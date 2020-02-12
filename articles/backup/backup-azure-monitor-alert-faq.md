@@ -4,50 +4,49 @@ description: Dans cet article, découvrez les réponses aux questions les plus f
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172925"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989567"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Alerte de supervision de Sauvegarde Azure - Questions fréquentes (FAQ)
 
-Cet article répond aux questions courantes sur l’alerte de supervision d’Azure.
+Cet article répond aux questions courantes sur la supervision et la création de rapports avec Sauvegarde Azure.
 
 ## <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>Comment vérifier si les données de rapports ont commencé à arriver dans un compte de stockage ?
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Comment vérifier si les données de rapports ont commencé à arriver dans un espace de travail Log Analytics (LA) ?
 
-Accédez au compte de stockage que vous avez configuré et sélectionnez les conteneurs. Si le conteneur a une entrée insights-logs-azurebackupreport, cela signifie que les données de rapports ont commencé à arriver.
+Accédez à l’espace de travail LA que vous avez configuré, accédez à l’élément de menu **Journaux** et exécutez la requête CoreAzureBackup | take 1. Si vous voyez un enregistrement retourné, cela signifie que les données ont commencé à arriver dans l’espace de travail. Le Push de données initial peut prendre jusqu’à 24 heures.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Quelle est la fréquence des Push de données vers un compte de stockage et le pack de contenu de la Sauvegarde Azure dans Power BI ?
+### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Quelle est la fréquence de Push de données à un espace de travail LA ?
 
-  Pour les nouveaux utilisateurs, il faut environ 24 heures pour effectuer une transmission des données de type push vers un compte de stockage. Une fois cette transmission de type push initiale terminée, les données sont actualisées selon la fréquence indiquée dans la figure suivante.
+Les données de diagnostic provenant du coffre sont injectées dans l’espace de travail Log Analytics avec un certain décalage. Chaque événement arrive dans l’espace de travail Log Analytics 20 à 30 minutes après son envoi (push) depuis le coffre Recovery Services. Voici plus d’informations sur le décalage :
 
-* Les données relatives aux **Travaux**, **Alertes**, **Éléments de sauvegarde**, **Coffres**, **Serveurs protégés** et **Stratégies** sont transmises au compte de stockage client au fur et à mesure qu’elles sont consignées.
+* Dans toutes les solutions, les alertes intégrées du service de sauvegarde sont envoyées (push) dès qu’elles sont créées. Elles apparaissent donc généralement dans l’espace de travail Log Analytics après 20 à 30 minutes.
+* Dans toutes les solutions, les travaux de sauvegarde et les travaux de restauration à la demande sont envoyés (push) dès qu’ils se terminent.
+* Pour toutes les solutions, à l’exception de la sauvegarde SQL, les travaux de sauvegarde planifiés sont envoyés (push) dès qu’ils se terminent.
+* Pour la sauvegarde SQL, comme des sauvegardes de journal peuvent se produire toutes les 15 minutes, les informations pour tous les travaux de sauvegarde planifiés terminés, y compris les journaux, sont traitées par lot et envoyées (push) toutes les 6 heures.
+* Dans toutes les solutions, d’autres informations, comme l’élément de sauvegarde, la stratégie de sauvegarde, les points de récupération de sauvegarde, le stockage de sauvegarde, etc., sont envoyées (push) au moins une fois par jour.
+* Une modification dans la configuration de sauvegarde (comme la stratégie de changement ou de modification) déclenche un envoi (push) de toutes les informations de sauvegarde associées.
 
-* Les données relatives au **Stockage** sont transmises à un compte de stockage client toutes les 24 heures.
+### <a name="how-long-can-i-retain-reporting-data"></a>Combien de temps puis-je conserver les données des rapports ?
 
-    ![Fréquence des Push de données des rapports de la Sauvegarde Azure](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+Après avoir créé un espace de travail LA, vous pouvez choisir de conserver les données pendant deux ans maximum. Par défaut, un espace de travail LA conserve les données pendant 31 jours.
 
-* Power BI effectue une [actualisation planifiée une fois par jour](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed). Vous pouvez effectuer une actualisation manuelle des données dans Power BI pour le pack de contenu.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>Verrai-je toutes mes données dans des rapports après avoir configuré l’espace de travail LA ?
 
-### <a name="how-long-can-i-retain-reports"></a>Combien de temps puis-je conserver les rapports ?
-
-Lorsque vous configurez un compte de stockage, vous pouvez sélectionner une période de rétention pour les données de rapport dans le compte de stockage. Suivez l’étape 6 dans la section [Configurer le compte de stockage pour les rapports](backup-azure-configure-reports.md#configure-storage-account-for-reports). Vous pouvez également [analyser les rapports sous Excel](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/) et les enregistrer pour allonger la période de rétention en fonction de vos besoins.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>Verrai-je toutes mes données dans des rapports après avoir configuré le compte de stockage ?
-
- Toutes les données générées après que vous ayez configuré un compte de stockage sont transmises au compte de stockage et sont disponibles dans les rapports. Les travaux En cours ne sont pas transmis pour la création de rapports. Une fois que la tâche se termine ou échoue, elle est envoyée aux rapports.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>Si j’ai déjà configuré le compte de stockage pour afficher les rapports, puis-je modifier la configuration afin d’utiliser un autre compte de stockage ?
-
-Oui, vous pouvez modifier la configuration de façon à pointer vers un autre compte de stockage. Utilisez le compte de stockage qui vient d’être configuré pour vous connecter au pack de contenu de la Sauvegarde Azure. En outre, une fois qu’un autre compte de stockage est configuré, les nouvelles données arrivent dans ce compte de stockage. Les données plus anciennes (précédents à votre modification de la configuration) restent dans le compte de stockage précédent.
+ Toutes les données générées après la configuration des paramètres de diagnostic sont envoyées (push) à l’espace de travail LA et sont disponibles dans les rapports. Les travaux En cours ne sont pas transmis pour la création de rapports. Une fois que la tâche se termine ou échoue, elle est envoyée aux rapports.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>Puis-je afficher des rapports sur différents coffres et abonnements ?
 
-Oui, vous pouvez configurer le même compte de stockage sur différents coffres pour afficher des rapports multicoffres. Vous pouvez également configurer le même compte de stockage pour des coffres de différents abonnements. Vous pouvez ensuite utiliser ce compte de stockage pour vous connecter au pack de contenu de la Sauvegarde Azure dans Power BI afin d’afficher les rapports. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
+Oui, vous pouvez afficher des rapports sur différents coffres et abonnements, ainsi que sur différentes régions. Vos données peuvent résider dans un espace de travail LA unique ou dans un groupe d’espaces de travail LA.
+
+### <a name="can-i-view-reports-across-tenants"></a>Puis-je afficher les rapports de différents locataires ?
+
+Si vous êtes un utilisateur [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) doté d’un accès délégué aux abonnements ou aux espaces de travail LA de vos clients, vous pouvez utiliser des rapports de sauvegarde pour consulter les données de tous vos locataires.
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Combien de temps faut-il pour que l’état du travail de l’agent de sauvegarde Azure apparaisse dans le portail ?
 

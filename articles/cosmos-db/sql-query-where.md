@@ -1,17 +1,17 @@
 ---
 title: Clause WHERE dans Azure Cosmos DB
 description: Découvrez la clause SQL WHERE pour Azure Cosmos DB
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 02/03/2020
+ms.author: tisande
+ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326640"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982227"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Clause WHERE dans Azure Cosmos DB
 
@@ -36,7 +36,7 @@ WHERE <filter_condition>
    Expression représentant la valeur à calculer. Consultez la [Expressions scalaires](sql-query-scalar-expressions.md) pour plus d’informations.  
   
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
   
   Pour que le document soit retourné, une expression spécifiée en tant que filtre de condition doit correspondre à la valeur true. Seule la valeur booléenne true satisfait la condition. Les autres valeurs : undefined, null, false, nombre, tableau ou objet ne satisfont pas la condition. 
 
@@ -70,11 +70,11 @@ Vous pouvez utiliser les opérateurs binaires pris en charge suivants :
 
 |**Type d’opérateur**  | **Valeurs** |
 |---------|---------|
-|Opérateurs arithmétiques | +,-,*,/,% |
-|Opérateurs au niveau du bit    | \|, &, ^, <<, >>, >>> (décalage vers la droite avec remplissage de zéros) |
-|Opérateurs logiques    | AND, OR, NOT      |
-|Opérateurs de comparaison | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|Chaîne     |  \|\| (concaténer) |
+|Arithmétique | +,-,*,/,% |
+|Au niveau du bit    | \|, &, ^, <<, >>, >>> (décalage vers la droite avec remplissage de zéros) |
+|Logical    | AND, OR, NOT      |
+|Comparaison | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
+|String     |  \|\| (concaténer) |
 
 Les requêtes suivantes utilisent des opérateurs binaires :
 
@@ -104,10 +104,10 @@ Vous pouvez également utiliser les opérateurs unaires +,-, ~ et NOT dans les r
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Vous pouvez également utiliser des références de propriété dans les requêtes. Par exemple, `SELECT * FROM Families f WHERE f.isRegistered` retourne l’élément JSON contenant la propriété `isRegistered` dont la valeur est égale à `true`. Toute autre valeur, telle que `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` ou `<array>`, exclut l’élément du résultat. 
+Vous pouvez également utiliser des références de propriété dans les requêtes. Par exemple, `SELECT * FROM Families f WHERE f.isRegistered` retourne l’élément JSON contenant la propriété `isRegistered` dont la valeur est égale à `true`. Toute autre valeur, telle que `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` ou `<array>`, exclut l’élément du résultat.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Prise en main](sql-query-getting-started.md)
-- [Exemples .NET Azure Cosmos DB](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [Bien démarrer](sql-query-getting-started.md)
+- [Mot clé IN](sql-query-keywords.md#in)
 - [Clause FROM](sql-query-from.md)

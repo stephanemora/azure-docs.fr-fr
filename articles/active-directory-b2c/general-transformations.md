@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/27/2019
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 639277177bf63e659e5b0ea804eca5e20f956831
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 98d9730168764f0ba683a246f9ac224c13d3bf31
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948837"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982804"
 ---
 # <a name="general-claims-transformations"></a>Transformations de revendications générales
 
@@ -24,11 +24,40 @@ ms.locfileid: "74948837"
 
 Cet article fournit des exemples pour l’utilisation de transformations de revendications générales du schéma Identity Experience Framework dans Azure Active Directory B2C (Azure AD B2C). Pour plus d’informations, voir [ClaimsTransformations](claimstransformations.md).
 
+## <a name="copyclaim"></a>CopyClaim
+
+Copie la valeur d’une revendication dans une autre. Les deux revendications doivent être du même type.
+
+| Élément | TransformationClaimType | Type de données | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | chaîne, int | Type de revendication à copier. |
+| OutputClaim | outputClaim | chaîne, int | ClaimType généré après l’appel de cette ClaimsTransformation. |
+
+Utilisez cette transformation de revendications pour copier la valeur d’une revendication de chaîne ou numérique dans une autre revendication. L’exemple suivant copie la valeur de revendication externalEmail dans la revendication d’e-mail.
+
+```XML
+<ClaimsTransformation Id="CopyEmailAddress" TransformationMethod="CopyClaim"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="externalEmail" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="email" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemple
+
+- Revendications d’entrée :
+    - **inputClaim** : bob@contoso.com
+- Revendications de sortie :
+    - **outputClaim** : bob@contoso.com 
+
 ## <a name="doesclaimexist"></a>DoesClaimExist
 
 Vérifie si l’**inputClaim** existe, et définit **outputClaim** sur true ou false en conséquence.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |Quelconque | Revendication d’entrée dont l’existence doit être vérifiée. |
 | OutputClaim | outputClaim | boolean | ClaimType généré après l’appel de cette ClaimsTransformation. |
@@ -46,7 +75,7 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **inputClaim** : someone@contoso.com
@@ -57,7 +86,7 @@ Utilisez cette transformation de revendication pour vérifier si une revendicati
 
 Hache le texte brut fourni à l’aide de la valeur salt et d’un secret. L’algorithme de hachage utilisé est SHA-256.
 
-| Item | TransformationClaimType | Type de données | Notes |
+| Élément | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | plaintext | string | Revendication d’entrée à chiffrer. |
 | InputClaim | salt | string | Paramètre salt. Vous pouvez créer une valeur aléatoire à l’aide de la transformation des revendication `CreateRandomString`. |
@@ -79,7 +108,7 @@ Hache le texte brut fourni à l’aide de la valeur salt et d’un secret. L’a
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 - Revendications d’entrée :
   - **plaintext** : MyPass@word1

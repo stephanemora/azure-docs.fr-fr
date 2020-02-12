@@ -5,33 +5,29 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 910b582cb40b9f8aff6a553621b4677d6b019826
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834233"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963884"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Comment résoudre les messages « functions runtime is unreachable »
 
-
-## <a name="error-text"></a>Texte d’erreur
-Cet article est destiné à résoudre les problèmes liés à l’affichage de l’erreur suivante dans le portail Functions.
+Cet article vise à résoudre le message d’erreur « Le runtime Functions est inaccessible » lorsqu’il est affiché dans le Portail Azure. Lorsque cette erreur se produit, vous voyez s’afficher la chaîne d’erreur suivante dans le portail.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>Résumé
-Ce problème se produit lorsque le Runtime d’Azure Functions ne peut pas démarrer. Cette erreur se produit le plus souvent lorsque l’application de fonction perd l’accès à son compte de stockage. [En savoir plus sur les exigences concernant les comptes de stockage ici](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+Cela se produit lorsque le runtime d’Azure Functions ne peut pas démarrer. Cette erreur se produit le plus souvent lorsque l’application de fonction perd l’accès à son compte de stockage. Pour plus d’informations, consultez [Exigences pour le compte de stockage](storage-considerations.md#storage-account-requirements).
 
-### <a name="troubleshooting"></a>Dépannage
-Nous allons étudier les quatre cas d’erreur les plus courants, et découvrir comment les identifier et les résoudre.
+Le reste de cet article vous aide à détecter le problème pour les causes suivantes de cette erreur, notamment la façon d’identifier et de résoudre chaque cas.
 
-1. Compte de stockage supprimé
-1. Paramètres d’application du compte de stockage supprimés
-1. Informations d’identification du compte de stockage invalides
-1. Compte de stockage inaccessible
-1. Quota d’exécution quotidienne atteint
-1. Application située derrière un pare-feu
++ [Compte de stockage supprimé](#storage-account-deleted)
++ [Paramètres d’application du compte de stockage supprimés](#storage-account-application-settings-deleted)
++ [Informations d’identification du compte de stockage non valides](#storage-account-credentials-invalid)
++ [Compte de stockage inaccessible](#storage-account-inaccessible)
++ [Quota d’exécution quotidien dépassé](#daily-execution-quota-full)
++ [Votre application se trouve derrière un pare-feu](#app-is-behind-a-firewall)
 
 
 ## <a name="storage-account-deleted"></a>Compte de stockage supprimé
@@ -60,9 +56,9 @@ Dans l’étape précédente, si vous ne disposiez pas d’une chaîne de connex
 
 ### <a name="guidance"></a>Assistance
 
-* N’activez pas le « paramètre d’emplacement » pour ces paramètres. Lorsque vous échangez les emplacements de déploiement, la fonction s’interrompt.
-* Ne modifiez pas ces paramètres lors de déploiements automatisés.
-* Ces paramètres doivent être fournis et valides au moment de la création. Un déploiement automatisé sans ces paramètres rend l’application non fonctionnelle et ce, même si les paramètres sont ajoutés après coup.
+* N’activez pas le « paramètre d’emplacement » pour ces paramètres. Lorsque vous échangez les emplacements de déploiement, l’application de fonction s’arrête.
+* Ne modifiez pas ces paramètres dans le cadre de déploiements automatisés.
+* Ces paramètres doivent être fournis et valides au moment de la création. Un déploiement automatisé sans ces paramètres produit une application de fonction qui ne s’exécute pas et ce, même si les paramètres sont ajoutés ultérieurement.
 
 ## <a name="storage-account-credentials-invalid"></a>Informations d’identification du compte de stockage invalides
 
@@ -70,36 +66,31 @@ Les chaînes de connexion de compte de stockage ci-dessus doivent être mises à
 
 ## <a name="storage-account-inaccessible"></a>Compte de stockage inaccessible
 
-Votre Function App doit être en mesure d’accéder au compte de stockage. Les problèmes courants qui bloquent l’accès d’une Function à un compte de stockage sont :
+Votre application de fonction doit être en mesure d’accéder au compte de stockage. Les problèmes courants qui bloquent l’accès d’une Function à un compte de stockage sont :
 
-* Des Function Apps déployées sur les environnements App Service sans les règles de réseau appropriées pour autoriser le trafic vers et depuis le compte de stockage
-* Le pare-feu de compte de stockage est activé et pas configuré pour autoriser le trafic vers et à partir des Functions. [En savoir plus sur la configuration du pare-feu de compte de stockage ici](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
++ Des applications de fonction déployées sur des App Service Environments (ASE) sans les règles de réseau appropriées pour autoriser le trafic vers et depuis le compte de stockage.
 
-## <a name="daily-execution-quota-full"></a>Quota d’exécution quotidienne atteint
++ Le pare-feu du compte de stockage est activé et non configuré pour autoriser le trafic vers et depuis des fonctions. Pour plus d’informations, consultez [Configurer les pare-feu et les réseaux virtuels dans le Stockage Azure](../storage/common/storage-network-security.md).
 
-Si vous avez configuré un quota d’exécution quotidien, votre Function App sera temporairement désactivée et la plupart des contrôles du portail seront indisponibles. 
+## <a name="daily-execution-quota-full"></a>Quota d’exécution quotidien atteint
 
-* Pour vérifier, ouvrez Fonctionnalités de la plateforme > Paramètres Function App dans le portail. Le message suivant s’affiche si vous avez dépassé votre quota :
-    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-* Supprimer le quota et redémarrez votre application pour résoudre le problème.
+Si vous avez configuré un quota d’exécution quotidien, votre application de fonction sera temporairement désactivée et la plupart des commandes du portail seront indisponibles. 
+
++ Pour vérifier dans le [Portail Azure](https://portal.azure.com), ouvrez **Fonctionnalités de la plateforme** > **Paramètres de l’application de fonction** dans votre application de fonction. Lorsque vous aurez dépassé le **quota d’utilisation quotidien** que vous avez défini, le message suivant s’affiche :
+
+    `The function app has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+
++ Pour résoudre ce problème, supprimez ou augmentez le quota quotidien et redémarrez votre application. Dans le cas contraire, l’exécution de votre application sera bloquée jusqu’au jour suivant.
 
 ## <a name="app-is-behind-a-firewall"></a>Application située derrière un pare-feu
 
 Le runtime de votre fonction sera inaccessible si votre application de fonction est hébergée dans un [environnement ASE de charge équilibrée en interne](../app-service/environment/create-ilb-ase.md) et si elle est configurée pour bloquer le trafic Internet entrant, ou si des [restrictions d’adresse IP entrantes](functions-networking-options.md#inbound-ip-restrictions) sont configurées pour bloquer l’accès à Internet. Le portail Azure appelle directement l’application en cours d’exécution pour extraire la liste des fonctions, et il effectue un appel HTTP vers le point de terminaison KUDU. Les paramètres définis au niveau de la plateforme sous l’onglet `Platform Features` seront toujours disponibles.
 
-* Pour vérifier votre configuration ASE, accédez au groupe de sécurité réseau du sous-réseau où se trouve l’environnement ASE, puis validez les règles de trafic entrant pour autoriser le trafic provenant de l’adresse IP publique de l’ordinateur sur lequel vous accédez à l’application. Vous pouvez également utiliser le portail à partir d’un ordinateur connecté au réseau virtuel où est exécutée votre application, ou à partir d’une machine virtuelle exécutée sur votre réseau virtuel. [En savoir plus sur la configuration des règles de trafic entrant](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
+Pour vérifier votre configuration ASE, accédez au groupe de sécurité réseau du sous-réseau où se trouve l’environnement ASE, puis validez les règles de trafic entrant pour autoriser le trafic provenant de l’adresse IP publique de l’ordinateur sur lequel vous accédez à l’application. Vous pouvez également utiliser le portail à partir d’un ordinateur connecté au réseau virtuel où est exécutée votre application, ou à partir d’une machine virtuelle exécutée sur votre réseau virtuel. [En savoir plus sur la configuration des règles de trafic entrant](../app-service/environment/network-info.md#network-security-groups)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que votre Function App est de nouveau opérationnelle, examinons les démarrages rapides et références développeur pour être à nouveau opérationnel !
+En savoir plus sur la supervision de vos applications de fonction :
 
-* [Créer votre première fonction Azure](functions-create-first-azure-function.md)  
-  vous permet de créer votre première fonction à l’aide du démarrage rapide d’Azure Functions. 
-* [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md)  
-  fournit des informations techniques supplémentaires sur l’exécution d’Azure Functions, ainsi qu’une référence pour le codage de fonctions et la définition des déclencheurs et des liaisons.
-* [Test d’Azure Functions](functions-test-a-function.md)  
-  décrit plusieurs outils et techniques permettant de tester vos fonctions.
-* [Comment mettre à l’échelle Azure Functions](functions-scale.md)  
-  Présente les plans de service disponibles pour Azure Functions, dont le plan d’hébergement de consommation, et explique comment choisir le plan adapté à vos besoins. 
-* [En savoir plus sur Azure App Service](../app-service/overview.md)  
-  Azure Functions s’appuie sur Azure App Service pour les fonctionnalités essentielles comme les déploiements, les variables d’environnement et les diagnostics. 
+> [!div class="nextstepaction"]
+> [Superviser Azure Functions](functions-monitoring.md)

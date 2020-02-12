@@ -4,18 +4,18 @@ description: Comment gérer et mettre à jour Azure HPC Cache à l’aide du Por
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867077"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988849"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Gérer votre cache à partir du Portail Azure
 
-La page aperçu du cache du Portail Azure affiche les détails du projet, l’état du cache et les statistiques de base de votre cache. Elle dispose également de contrôles pour supprimer le cache, vider les données dans un stockage à long terme ou mettre à jour des logiciels.
+La page aperçu du cache du Portail Azure affiche les détails du projet, l’état du cache et les statistiques de base de votre cache. Elle dispose également de contrôles pour arrêter ou démarrer le cache, supprimer le cache, vider les données dans un stockage à long terme et mettre à jour les logiciels.
 
 Pour ouvrir la page d’aperçu, sélectionnez votre ressource de cache dans le Portail Azure. Par exemple, chargez la page **Toutes les ressources** et cliquez sur le nom du cache.
 
@@ -23,12 +23,29 @@ Pour ouvrir la page d’aperçu, sélectionnez votre ressource de cache dans le 
 
 Les boutons situés en haut de la page peuvent vous aider à gérer le cache :
 
+* **Démarrer** et [**Arrêter**](#stop-the-cache) : interrompt l’opération de mise en cache
 * [**Vider**](#flush-cached-data) : écrit les données modifiées dans les cibles de stockage
 * [**Mettre à niveau**](#upgrade-cache-software) : met à jour le logiciel de cache
 * **Actualiser** : recharge la page d’aperçu
 * [**Supprimer**](#delete-the-cache) : supprime définitivement le cache
 
 Apprenez-en davantage sur ces options ci-dessous.
+
+## <a name="stop-the-cache"></a>Arrêter le cache
+
+Vous pouvez arrêter le cache pour réduire les coûts pendant une période inactive. Vous n’êtes pas facturé pour la durée de fonctionnement lorsque le cache est arrêté, mais vous l’êtes pour le stockage sur disque alloué au cache. (Pour plus d’informations, voir la page de [tarification](https://aka.ms/hpc-cache-pricing).)
+
+Un cache arrêté ne répond pas aux requêtes des clients. Vous devez démonter les clients avant d’arrêter le cache.
+
+Le bouton **Arrêter** interrompt un cache actif. Le bouton **Arrêter** est disponible lorsque l’état d’un cache est **Sain** ou **Détérioré**.
+
+![capture d’écran des boutons du haut avec Arrêter mis en surbrillance et un message contextuel décrivant l’action d’arrêt et demandant « voulez-vous continuer ? » avec les boutons Oui (par défaut) et Non](media/stop-cache.png)
+
+Une fois que vous avez cliqué sur Oui pour confirmer l’arrêt du cache, le cache vide automatiquement son contenu dans les cibles de stockage. Ce processus peut prendre un certain temps, mais il garantit la cohérence des données. Enfin, l’état du cache passe à **Arrêté**.
+
+Pour réactiver un cache arrêté, cliquez sur le bouton **Démarrer**. Aucune confirmation n’est nécessaire.
+
+![capture d’écran des boutons du haut avec Démarrer mis en surbrillance](media/start-cache.png)
 
 ## <a name="flush-cached-data"></a>Vider les données en cache
 
@@ -68,13 +85,14 @@ Les volumes de stockage back-end utilisés comme cibles de stockage ne sont pas 
 > [!NOTE]
 > Azure HPC Cache n’écrit pas automatiquement les données modifiées du cache sur les systèmes de stockage back-end avant de supprimer le cache.
 >
-> Pour vous assurer que toutes les données du cache ont été écrites dans un stockage à long terme, appliquez la procédure suivante :
+> Pour vous assurer que toutes les données du cache ont été écrites dans un stockage à long terme, [arrêtez le cache](#stop-the-cache) avant de le supprimer. Assurez-vous qu’il affiche l’état **Arrêté** avant de cliquer sur le bouton de suppression.
+<!--... written to long-term storage, follow this procedure:
 >
-> 1. [Supprimez](hpc-cache-edit-storage.md#remove-a-storage-target) chaque cible de stockage d’Azure HPC Cache à l’aide du bouton Supprimer présent dans la page Cibles de stockage. Le système écrit automatiquement toutes les données modifiées du cache dans le système de stockage back-end avant de supprimer la cible.
-> 1. Attendez la suppression complète de la cible de stockage. Le processus peut prendre une heure ou plus s’il y a beaucoup de données à écrire à partir du cache. Une fois l’opération terminée, une notification du portail signale que l’opération de suppression a réussi et la cible de stockage disparaît de la liste.
-> 1. Une fois que toutes les cibles de stockage affectées ont été supprimées, vous pouvez supprimer le cache en toute sécurité.
+> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
+> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
+> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
 >
-> Vous pouvez également utiliser l’option [Vider](#flush-cached-data) pour enregistrer les données mises en cache, mais il existe un faible risque de perte de travail si un client écrit une modification dans le cache après la fin du vidage mais avant la destruction de l’instance de cache.
+> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>Mesures et supervision du cache
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/01/2020
+ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973524"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964768"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>Choisir entre les modèles d’achat vCore et DTU
 
@@ -47,9 +47,9 @@ Le tableau et le graphique suivants comparent ces deux modèles d’achat :
 
 Dans le niveau de calcul approvisionné, le coût du calcul reflète la capacité de calcul totale approvisionnée pour l’application.
 
-Dans le niveau de service Critique pour l’entreprise, nous allouons automatiquement au moins 3 réplicas. Pour refléter cette allocation supplémentaire de ressources de calcul, le prix du modèle d’achat vCore du niveau de service Critique pour l’entreprise est approximativement 2,7 fois supérieur à celui du niveau de service Usage général. Pour la même raison, le prix plus élevé du stockage par Go dans le niveau de service Critique pour l’entreprise reflète le nombre important d’E/S et la faible latence du stockage SSD.
+Dans le niveau de service Critique pour l’entreprise, nous allouons automatiquement au moins 3 réplicas. Pour refléter cette allocation supplémentaire de ressources de calcul, le prix du modèle d’achat vCore du niveau de service Critique pour l’entreprise est approximativement 2,7 fois supérieur à celui du niveau de service Usage général. Pour la même raison, le prix plus élevé du stockage par Go dans le niveau de service Critique pour l’entreprise reflète les limites d’E/S plus élevées et la latence plus faible du stockage SSD.
 
-Le coût du stockage de sauvegarde est le même pour les niveaux de service Critique pour l’entreprise et Usage général, car les deux niveaux utilisent un stockage standard.
+Le coût du stockage de sauvegarde est le même pour les niveaux de service Critique pour l’entreprise et Usage général, car les deux niveaux utilisent un stockage standard pour les sauvegardes.
 
 ### <a name="serverless-compute-costs"></a>Coûts de calcul serverless
 
@@ -67,7 +67,7 @@ Pour plus d’informations sur les prix du stockage, consultez la page [Tarifica
 
 Un vCore représente une UC logique et offre la possibilité de choisir entre plusieurs générations de matériel et caractéristiques physiques de matériel (par exemple, le nombre de cœurs, la mémoire et la taille de stockage). Le modèle d’achat vCore apporte flexibilité, contrôle et transparence pour la consommation des ressources individuelles. C’est aussi un moyen facile de traduire les exigences des charges de travail locales pour le cloud. Ce modèle permet de sélectionner les ressources de calcul, de mémoire et de stockage en fonction des besoins de votre charge de travail.
 
-Avec le modèle d’achat vCore, vous avez le choix entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l’entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [pools élastiques](sql-database-elastic-pool.md) et les [instances managées](sql-database-managed-instance.md). Pour les bases de données uniques, vous pouvez également choisir le [niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).
+Avec le modèle d’achat vCore, vous avez le choix entre les niveaux de service [Usage général](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) et [Critique pour l’entreprise](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) pour les [bases de données uniques](sql-database-single-database-scale.md), les [pools élastiques](sql-database-elastic-pool.md) et les [instances gérées](sql-database-managed-instance.md). Pour les bases de données uniques, vous pouvez également choisir le [niveau de service Hyperscale](sql-database-service-tier-hyperscale.md).
 
 Le modèle d’achat vCore vous permet de choisir les ressources de calcul et de stockage indépendamment les unes des autres, d’égaler les performances d’une exécution locale et d’optimiser les coûts. Dans le modèle d’achat vCore, vous payez pour :
 
@@ -83,8 +83,8 @@ Si votre base de données unique ou votre pool élastique consomme plus de 300 
 
 Pour passer du modèle d’achat DTU au modèle d’achat vCore, sélectionnez la taille de calcul en suivant les règles élémentaires ci-dessous :
 
-- Chaque tranche de 100 DTU au niveau Standard nécessite au moins 1 vCore au niveau de service Usage général.
-- Chaque tranche de 120 DTU au niveau Premium nécessite au moins 1 vCore au niveau de service Critique pour l’entreprise.
+- Chaque tranche de 100 DTU au niveau Standard nécessite au moins 1 vCore au niveau de service Usage général.
+- Chaque tranche de 125 DTU au niveau Premium nécessite au moins 1 vCore au niveau de service Critique pour l’entreprise.
 
 ## <a name="dtu-based-purchasing-model"></a>Modèle d’achat DTU
 
@@ -125,7 +125,19 @@ Vous pouvez ajouter des eDTU à un pool existant sans que les bases de données 
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>Déterminer le nombre de DTU requises par une charge de travail
 
-Si vous souhaitez migrer une charge de travail de machine virtuelle SQL Server ou locale existante vers Azure SQL Database, utilisez la [calculatrice de DTU](https://dtucalculator.azurewebsites.net/) pour évaluer approximativement le nombre de DTU requises. Dans le cas d’une charge de travail Azure SQL Database existante, utilisez l’[analyse des performances des requêtes](sql-database-query-performance.md) pour évaluer la consommation de ressources (DTU) de votre base de données et obtenir une analyse plus approfondie afin d’optimiser votre charge de travail. La vue de gestion dynamique (DMV) [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) vous permet de voir la consommation des ressources au cours de la dernière heure. La vue de catalogue [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) affiche la consommation des ressources au cours des 14 derniers jours, mais avec une précision inférieure (moyennes de cinq minutes).
+Si vous souhaitez migrer une charge de travail de machine virtuelle SQL Server ou locale existante vers Azure SQL Database, utilisez la [calculatrice de DTU](https://dtucalculator.azurewebsites.net/) pour évaluer approximativement le nombre de DTU requises. Dans le cas d’une charge de travail Azure SQL Database existante, utilisez l’[analyse des performances des requêtes](sql-database-query-performance.md) pour évaluer la consommation de ressources (DTU) de votre base de données et obtenir une analyse plus approfondie afin d’optimiser votre charge de travail. La vue de gestion dynamique (DMV) [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) vous permet de voir la consommation des ressources au cours de la dernière heure. La vue de catalogue [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) affiche la consommation des ressources au cours des 14 derniers jours, mais avec une précision inférieure (moyennes de cinq minutes).
+
+### <a name="determine-dtu-utilization"></a>Déterminer l’utilisation de DTU
+
+Pour déterminer le pourcentage moyen d’utilisation de DTU/eDTU par rapport à la limite DTU/eDTU d’une base de données ou d’un pool élastique, utilisez la formule suivante :
+
+`avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
+
+Les valeurs d’entrée pour cette formule peuvent être obtenues à partir des DMV [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) et [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database). En d’autres termes, pour déterminer le pourcentage d’utilisation de DTU/eDTU par rapport à la limite DTU/eDTU d’une base de données ou d’un pool élastique, choisissez la plus grande valeur de pourcentage parmi les valeurs suivantes à un moment donné : `avg_cpu_percent`, `avg_data_io_percent` et `avg_log_write_percent`.
+
+> [!NOTE]
+> La limite DTU d’une base de données est déterminée par l’UC, les lectures, les écritures et la mémoire disponibles pour la base de données. Toutefois, étant donné que le moteur de base de données SQL Server utilise généralement toute la mémoire disponible pour son cache de données afin d’améliorer les performances, la valeur `avg_memory_usage_percent` est généralement proche de 100 %, quelle que soit la charge actuelle de la base de données. Par conséquent, même si la mémoire influence indirectement la limite DTU, elle n’est pas utilisée dans la formule d’utilisation de DTU.
+>
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>Charges de travail tirant avantage d’un pool élastique de ressources
 

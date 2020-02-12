@@ -3,12 +3,12 @@ title: Développer Azure Functions avec Visual Studio Code
 description: Découvrez comment développer et tester Azure Functions à l’aide de l’extension Azure Functions pour Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7e533d5826d429a716ad1592d75159782ed43fa7
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845409"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964009"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Développer Azure Functions avec Visual Studio Code
 
@@ -79,6 +79,8 @@ L’extension Functions vous permet de créer un projet d’application de fonct
 
     ![Modèle de fonction déclenchée via HTTP dans Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
 
+### <a name="generated-project-files"></a>Fichiers projet générés
+
 Le modèle de projet crée un projet dans le langage choisi, et installe les dépendances voulues. Pour tous les langages, le nouveau projet comporte ces fichiers :
 
 * **host.json** : vous permet de configurer l’hôte Functions. Ces paramètres s’appliquent lorsque vous exécutez des fonctions localement, et lorsque vous les exécutez dans Azure. Pour plus d’informations, consultez l’article de référence sur [host.json](functions-host-json.md).
@@ -87,6 +89,30 @@ Le modèle de projet crée un projet dans le langage choisi, et installe les dé
 
     >[!IMPORTANT]
     >Étant donné que le fichier local.settings.json peut contenir des secrets, vous devez l’exclure du contrôle de code source du projet.
+
+Selon votre langage de programmation, ces autres fichiers sont créés :
+
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+* Un [fichier bibliothèque de classes HttpExample.cs](functions-dotnet-class-library.md#functions-class-library-project), qui implémente la fonction.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+* Un fichier package.json dans le dossier racine.
+
+* Un dossier HttpExample, qui contient le [fichier de définition function.json](functions-reference-node.md#folder-structure) et le [fichier index.js](functions-reference-node.md#exporting-a-function), un fichier Node.js qui contient le code de fonction.
+
+<!-- # [PowerShell](#tab/powershell)
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+ 
+# [Python](#tab/python)
+    
+* A project-level requirements.txt file that lists packages required by Functions.
+    
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
+     -->
+---
 
 À ce stade, vous pouvez ajouter des liaisons d’entrée et de sortie à votre fonction en [modifiant le fichier function.json](#add-a-function-to-your-project), ou en [ajoutant un paramètre à une fonction de bibliothèque de classes C#](#add-a-function-to-your-project).
 

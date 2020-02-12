@@ -2,13 +2,13 @@
 title: Configurer la probe liveness sur l’instance de conteneur
 description: Découvrez comment configurer les sondes probe liveness pour redémarrer les conteneurs non intègres dans Azure Container Instances.
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 01/30/2020
+ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481679"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934156"
 ---
 # <a name="configure-liveness-probes"></a>Configurer les probe liveness
 
@@ -17,6 +17,9 @@ Les applications conteneurisées peuvent s’exécuter sur de longues périodes,
 Cet article explique comment déployer un groupe de conteneurs avec probe liveness, illustrant le redémarrage automatique d’un conteneur non intègre simulé.
 
 Azure Container Instances prend également en charge les [sondes probe readiness](container-instances-readiness-probe.md), que vous pouvez configurer pour vous assurer que le trafic atteint un conteneur uniquement quand ce dernier est prêt.
+
+> [!NOTE]
+> Actuellement, vous ne pouvez pas utiliser de sonde probe liveness dans un groupe de conteneurs déployé sur un réseau virtuel.
 
 ## <a name="yaml-deployment"></a>Déploiement YAML
 
@@ -60,41 +63,41 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Commande de démarrage
 
-Le déploiement définit une commande de démarrage à lancer quand le conteneur s’exécute pour la première fois, définie par la propriété `command` qui prend en entrée un tableau de chaînes. Dans cet exemple, il démarre une session Bash et crée un fichier nommé `healthy` dans le répertoire `/tmp` en exécutant cette commande :
+Le déploiement comprend une propriété `command` définissant une commande de démarrage qui s’exécute lors du premier démarrage du conteneur. Cette propriété accepte un tableau de chaînes. Cette commande simule le conteneur présentant un état non sain.
+
+Il commence par démarrer une session bash et crée un fichier appelé `healthy` dans le répertoire `/tmp`. Il se met ensuite en veille pendant 30 secondes avant de supprimer le fichier, puis se remet en veille pendant 10 minutes :
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Il se met ensuite en veille pendant 30 secondes avant de supprimer le fichier, puis se remet en veille pendant 10 minutes.
-
 ### <a name="liveness-command"></a>Commande d’activité
 
-Ce déploiement définit une `livenessProbe` prenant en charge une commande d’activité `exec` qui joue le rôle de vérification de l’activité. Si cette commande se termine sur une valeur différente de zéro, le conteneur sera arrêté et redémarré, avec un message signalant que le fichier `healthy` est introuvable. Si cette commande se termine correctement avec le code de sortie 0, aucune action ne sera entreprise.
+Ce déploiement définit une `livenessProbe` prenant en charge une commande d’activité `exec` qui joue le rôle de vérification de l’activité. Si cette commande se termine sur une valeur différente de zéro, le conteneur est arrêté et redémarré, avec un message signalant que le fichier `healthy` est introuvable. Si cette commande se termine correctement avec le code de sortie 0, aucune action n'est entreprise.
 
 La propriété `periodSeconds` signifie que la commande d’activité doit s’exécuter toutes les 5 secondes.
 
 ## <a name="verify-liveness-output"></a>Vérifier la sortie d’activité
 
-Pendant les 30 premières secondes, le fichier `healthy` créé par la commande de démarrage existe. Lorsque la commande d’activité vérifie l’existence du fichier `healthy`, le code d’état retourne un zéro, ce qui signale une réussite ; par conséquent, aucun redémarrage ne se produit.
+Pendant les 30 premières secondes, le fichier `healthy` créé par la commande de démarrage existe. Lorsque la commande d’activité vérifie l’existence du fichier `healthy`, le code d’état retourne 0, ce qui signale une réussite et dès lors, aucun redémarrage n'intervient.
 
-Après 30 secondes, `cat /tmp/healthy` commence à échouer, ce qui provoque l’apparition d’événements non intègres et l’arrêt d’événements.
+Après 30 secondes, la commande `cat /tmp/healthy` commence à échouer, ce qui provoque l’apparition d’événements non sains et l’arrêt d’événements.
 
 Vous pouvez voir ces événements dans le portail Azure et dans Azure CLI.
 
 ![Événement non intègre sur le Portail][portal-unhealthy]
 
-Si l’on consulte les événements sur le Portail Azure, les événements de type `Unhealthy` seront déclenchés à l’échec d’une commande d’activité. L’événement suivant sera de type `Killing`, ce qui signifie la suppression d’un conteneur, permettant ainsi le lancement d’un redémarrage. Le nombre de redémarrages du conteneur s’incrémente à chaque occurrence de cet événement.
+Si l’on consulte les événements sur le Portail Azure, les événements de type `Unhealthy` sont déclenchés à l’échec d’une commande d’activité. L’événement suivant est de type `Killing`, ce qui signifie la suppression d’un conteneur, permettant ainsi le lancement d’un redémarrage. Le nombre de redémarrages du conteneur s’incrémente à chaque occurrence de cet événement.
 
 Les redémarrages sont effectués sur place afin de préserver les ressources comme les adresses IP publiques et les contenus propres aux nœuds.
 
 ![Compteur de redémarrages sur le Portail][portal-restart]
 
-Si la sonde probe liveness échoue constamment et déclenche trop de redémarrages, votre conteneur accusera un retard exponentiel.
+Si la sonde probe liveness échoue constamment et déclenche trop de redémarrages, votre conteneur accuse un retard exponentiel.
 
 ## <a name="liveness-probes-and-restart-policies"></a>Probe liveness et stratégies de redémarrage
 
-Les stratégies de redémarrage annulent et remplacent le comportement de redémarrage déclenché par les sondes probe liveness. Par exemple, si vous définissez `restartPolicy = Never` *et* une sonde probe liveness, le groupe de conteneurs ne redémarre pas en raison de l’échec de la vérification de l’activité. Il respectera en revanche sa stratégie de redémarrage, soit `Never`.
+Les stratégies de redémarrage annulent et remplacent le comportement de redémarrage déclenché par les sondes probe liveness. Par exemple, si vous définissez `restartPolicy = Never` *et* une sonde probe liveness, le groupe de conteneurs ne redémarre pas en raison de l’échec de la vérification de l’activité. Il respecte en revanche sa stratégie de redémarrage, soit `Never`.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,33 +4,18 @@ description: Dans cet article, vous apprendrez à créer et gérer des stratégi
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554885"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963850"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Créer des stratégies de sauvegarde Azure Recovery Services à l’aide de l’API REST
 
 Les étapes de création d’une stratégie de sauvegarde pour un coffre Azure Recovery Services sont décrites dans la [documentation sur l’API REST policy](/rest/api/backup/protectionpolicies/createorupdate). Nous allons utiliser ce document comme référence pour créer une stratégie pour la sauvegarde de machine virtuelle Azure.
 
-## <a name="backup-policy-essentials"></a>Principes de base de la stratégie de sauvegarde
-
-- Une stratégie de sauvegarde est créée par coffre.
-- Une stratégie de sauvegarde peut être créée pour la sauvegarde des charges de travail suivantes
-  - Azure VM
-  - SQL dans une machine virtuelle Azure
-  - Partage de fichiers Azure
-- Une stratégie peut être attribuée à de nombreuses ressources. Une stratégie de sauvegarde de machine virtuelle Azure peut être utilisée pour protéger plusieurs machines virtuelles Azure.
-- Une stratégie est constituée de deux composants
-  - Planification : quand effectuer la sauvegarde
-  - Conservation : la durée de conservation de chaque sauvegarde.
-- La planification peut être définie comme « quotidienne » ou « hebdomadaire » avec un point de temps spécifique.
-- La rétention peut être définie pour les points de sauvegarde « quotidienne », « hebdomadaire », « mensuelle », « annuelle ».
-- « hebdomadaire » fait référence à une sauvegarde un jour donné de la semaine, « mensuelle » fait référence à une sauvegarde un jour donné du mois et « année » fait référence à une sauvegarde un jour donné de l’année.
-- La rétention pour les points de sauvegarde « mensuelle », « annuelle » est appelée « LongTermRetention ».
-- Quand un coffre est créé, une stratégie pour les sauvegardes de machine virtuelle Azure appelée « DefaultPolicy » est également créée et peut être utilisée pour sauvegarder des machines virtuelles Azure.
+## <a name="create-or-update-a-policy"></a>Créer ou mettre à jour une stratégie
 
 Pour créer ou mettre à jour une stratégie de sauvegarde Azure, utilisez l’opération *PUT* suivante
 
@@ -44,7 +29,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 Par exemple, voici les composants du corps de la requête pour une stratégie de sauvegarde de machine virtuelle Azure.
 
-|Nom  |Obligatoire  |Type  |Description  |
+|Name  |Obligatoire  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy :[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Propriétés de ProtectionPolicyResource        |
 |tags     |         | Object        |  Balises de ressource       |
@@ -152,7 +137,7 @@ La création/mise à jour de la stratégie de sauvegarde est une [opération asy
 
 Elle retourne deux réponses : 202 (Accepté) lors de la création d’une autre opération, puis 200 (OK) quand cette opération est terminée.
 
-|Nom  |type  |Description  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |200 OK     |    [Protection PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 Accepté     |         |     Acceptée    |

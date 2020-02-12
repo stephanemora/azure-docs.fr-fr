@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719334"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901915"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
 Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
@@ -69,7 +69,7 @@ Nous allons maintenant déployer notre premier modèle.
    ![Capture d’écran de l’interface utilisateur du déploiement de modèle](./media/create-website/TemplateDeployment6.png)
 7. Une fois le déploiement terminé, le volet Groupe de ressources s’ouvre.
    ![Capture d’écran du volet Groupe de ressources](./media/create-website/TemplateDeployment7.png)  
-8. Pour utiliser l’application, accédez à l’URL de l’application web (dans l’exemple ci-dessus, l’URL doit être http://mydemodocdbwebapp.azurewebsites.net).  Vous verrez l'application web suivante :
+8. Pour utiliser l’application, accédez à l’URL de l’application web (dans l’exemple ci-dessus, l’URL doit être `http://mydemodocdbwebapp.azurewebsites.net`).  Vous verrez l'application web suivante :
    
    ![Exemple d’application Todo](./media/create-website/image2.png)
 9. Continuez et créez deux tâches dans l’application web, puis revenez dans le volet Groupe de ressources du portail Azure. Cliquez sur la ressource de compte Azure Cosmos DB dans la liste des ressources, puis cliquez sur **Explorateur de données**.

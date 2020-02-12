@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d2e6ad9aa9692efa4ea5633dff78b262bb1917be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7ec2d24c399e44bf973fc1ee78466dbee26f0394
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66512026"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983178"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ L’élément **UserJourney** contient l’attribut suivant :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Identificateur d’un parcours utilisateur qui peut être utilisé pour le référencer à partir d’autres éléments dans la stratégie. L’élément **DefaultUserJourney** de la [stratégie de partie de confiance](relyingparty.md) pointe vers cet attribut. |
+| Id | Oui | Identificateur d’un parcours utilisateur qui peut être utilisé pour le référencer à partir d’autres éléments dans la stratégie. L’élément **DefaultUserJourney** de la [stratégie de partie de confiance](relyingparty.md) pointe vers cet attribut. |
 
 L’élément **UserJourney** contient les éléments suivants :
 
@@ -63,8 +63,8 @@ L’élément **OrchestrationSteps** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Order` | OUI | Ordre des étapes d’orchestration. | 
-| `Type` | OUI | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
+| `Order` | Oui | Ordre des étapes d’orchestration. | 
+| `Type` | Oui | Type de l’étape d’orchestration. Valeurs possibles : <ul><li>**ClaimsProviderSelection** : indique que l’étape d’orchestration présente divers fournisseurs de revendications à l’utilisateur afin qu’il en sélectionne un.</li><li>**CombinedSignInAndSignUp** : indique que l’étape d’orchestration présente une page combinée d’inscription de compte local et de connexion au fournisseur d’identité sociale.</li><li>**ClaimsExchange** : indique que l’étape d’orchestration échange des revendications avec un fournisseur de revendications.</li><li>**SendClaims** : indique que l’étape d’orchestration envoie les revendications à la partie de confiance avec un jeton émis par un émetteur de revendications.</li></ul> | 
 | ContentDefinitionReferenceId | Non | Identificateur de la [définition de contenu](contentdefinitions.md) associée à cette étape d’orchestration. L’identificateur de référence de définition de contenu est généralement défini dans le profil technique autodéclaré, mais il existe certains cas où Azure AD B2C doit afficher quelque chose sans profil technique, Il existe deux exemples : si le type de l’étape d’orchestration est une des suivantes : `ClaimsProviderSelection` ou `CombinedSignInAndSignUp`, Azure AD B2C doit afficher la sélection du fournisseur d’identité sans avoir de profil technique. | 
 | CpimIssuerTechnicalProfileReferenceId | Non | Le type de l’étape d’orchestration est `SendClaims`. Cette propriété définit l’identificateur de profil technique du fournisseur de revendications qui émet le jeton pour la partie de confiance.  Si elle est absente, aucun jeton de partie de confiance n’est créé. |
 
@@ -83,7 +83,7 @@ L’élément **Preconditions** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- | 
-| Precondition | 0:n | En fonction du profil technique utilisé, redirige le client d’après la sélection de fournisseur de revendications ou effectue un appel au serveur pour échanger des revendications. | 
+| Precondition | 1:n | En fonction du profil technique utilisé, redirige le client d’après la sélection de fournisseur de revendications ou effectue un appel au serveur pour échanger des revendications. | 
 
 
 #### <a name="precondition"></a>Precondition
@@ -92,8 +92,8 @@ L’élément **Precondition** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| `Type` | OUI | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
-| `ExecuteActionsIf` | OUI | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. | 
+| `Type` | Oui | Type de vérification ou de requête à exécuter pour cette condition préalable. La valeur peut être **ClaimsExist**, qui indique que les actions doivent être effectuées si les revendications spécifiées existent dans le jeu de revendications actuel de l’utilisateur, ou **ClaimEquals**, qui indique que les actions doivent être effectuées si la revendication spécifiée existe et que sa valeur est égale à la valeur spécifiée. |
+| `ExecuteActionsIf` | Oui | Utilisez un test true ou false pour décider si les actions mentionnées dans la condition préalable doivent être effectuées. | 
 
 L’élément **Precondition** contient les éléments suivants :
 
@@ -162,11 +162,17 @@ Plusieurs conditions préalables peuvent être vérifiées. L’exemple suivant 
 
 Une étape d’orchestration de type `ClaimsProviderSelection` ou `CombinedSignInAndSignUp` peut contenir une liste de fournisseurs de revendications avec lesquels un utilisateur peut se connecter. L’ordre des éléments à l’intérieur des éléments `ClaimsProviderSelections` détermine l’ordre des fournisseurs d’identité présentés à l’utilisateur.
 
-L’élément **ClaimsProviderSelection** contient l’élément suivant :
+L’élément **ClaimsProviderSelections** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ClaimsProviderSelection | 0:n | Fournit la liste des fournisseurs de revendications qui peuvent être sélectionnés.|
+| ClaimsProviderSelection | 1:n | Fournit la liste des fournisseurs de revendications qui peuvent être sélectionnés.|
+
+L’élément **ClaimsProviderSelections** contient les attributs suivants : 
+
+| Attribut | Obligatoire | Description |
+| --------- | -------- | ----------- |
+| DisplayOption| Non | Contrôle le comportement d’un cas où une sélection unique de fournisseur de revendications est disponible. Valeurs possibles :  `DoNotShowSingleProvider` (valeur par défaut), l’utilisateur est redirigé immédiatement vers le fournisseur d’identité fédérée. Ou  `ShowSingleProvider` Azure AD B2C affiche la page de connexion avec la sélection unique de fournisseur d’identité. Pour utiliser cet attribut, la [version de la définition de contenu](page-layout.md) doit être  `urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0` ou une version ultérieure.| 
 
 L’élément **ClaimsProviderSelection** contient les attributs suivants : 
 
@@ -218,11 +224,11 @@ L’élément **ClaimsExchanges** contient l’élément suivant :
 
 | Élément | Occurrences | Description |
 | ------- | ----------- | ----------- |
-| ClaimsExchange | 0:n | En fonction du profil technique utilisé, redirige le client conformément à l’élément ClaimsProviderSelection sélectionné, ou effectue un appel au serveur pour échanger des revendications. | 
+| ClaimsExchange | 1:n | En fonction du profil technique utilisé, redirige le client conformément à l’élément ClaimsProviderSelection sélectionné, ou effectue un appel au serveur pour échanger des revendications. | 
 
 L’élément **ClaimsExchange** contient les attributs suivants :
 
 | Attribut | Obligatoire | Description |
 | --------- | -------- | ----------- |
-| ID | OUI | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
-| TechnicalProfileReferenceId | OUI | Identificateur du profil technique qui doit être exécuté. |
+| Id | Oui | Identificateur de l’étape d’échange de revendications. L’identificateur est utilisé pour référencer l’échange de revendications à partir d’une étape de sélection de fournisseur de revendications dans la stratégie. | 
+| TechnicalProfileReferenceId | Oui | Identificateur du profil technique qui doit être exécuté. |

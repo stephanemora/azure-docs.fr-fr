@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846137"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989516"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Configurer Azure Monitor pour votre application Python (préversion)
 
@@ -336,9 +336,9 @@ Voici les exportateurs fournis par OpenCensus, mappés aux types de données de 
         main()
     ```
 
-6. Vous pouvez également ajouter des dimensions personnalisées à vos journaux. Celles-ci s’affichent sous forme de paires clé-valeur dans `customDimensions`, dans Azure Monitor.
+6. Vous pouvez également ajouter des propriétés personnalisées à vos messages de journal dans l’argument de mot clé *supplémentaire* à l’aide du champ custom_dimensions. Celles-ci s’affichent sous forme de paires clé-valeur dans `customDimensions`, dans Azure Monitor.
 > [!NOTE]
-> Pour que cette fonctionnalité fonctionne, vous devez passer un dictionnaire en tant qu’argument à vos journaux ; toute autre structure de données sera ignorée. Pour conserver la mise en forme des chaînes, stockez-les dans un dictionnaire et passez-les en tant qu’arguments.
+> Pour que cette fonctionnalité fonctionne, vous devez passer un dictionnaire au champ custom_dimensions. Si vous passez des arguments de tout autre type, l’enregistreur d’événements les ignorera.
 
     ```python
     import logging
@@ -350,7 +350,17 @@ Voici les exportateurs fournis par OpenCensus, mappés aux types de données de 
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+    # Use properties in logging statements
+    logger.warning('action', extra=properties)
+
+    # Use properties in exception logs
+    try:
+        result = 1 / 0  # generate a ZeroDivisionError
+    except Exception:
+    logger.exception('Captured an exception.', extra=properties)
     ```
 
 7. Pour plus d’informations sur l’enrichissement de vos journaux avec les données de contexte de trace, consultez [Intégration des journaux](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation) OpenCensus Python.

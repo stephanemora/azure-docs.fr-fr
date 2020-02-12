@@ -7,12 +7,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 6ad612d56b25da9e092070198e321e7fca8ad96b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 901f2b56bc045dc9a9837dd18b2e6ce7169aa3b9
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490560"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964224"
 ---
 # <a name="troubleshoot-common-issues-in-azure-data-share"></a>Résoudre les problèmes courants dans Azure Data Share 
 
@@ -24,53 +24,72 @@ Dans certains cas, quand un nouvel utilisateur clique sur **Accepter l’invitat
 
 ![Aucune invitation](media/no-invites.png)
 
-L’erreur ci-dessus est un problème connu avec le service et est actuellement en cours de résolution. Pour une solution de contournement, suivez les étapes ci-dessous. 
+Cela peut être dû aux raisons suivantes :
 
-1. Dans le portail Azure, accédez à **Abonnements**
-1. Sélectionnez l’abonnement que vous utilisez pour Azure Data Share
-1. Cliquez sur **Fournisseurs de ressources**
-1. Recherchez Microsoft.DataShare
-1. Cliquez sur **S’inscrire**
+* **Le service Azure Data Share n’est pas inscrit en tant que fournisseur de ressources d’un abonnement Azure dans le locataire Azure.** Vous rencontrerez ce problème si votre locataire Azure ne contient aucune ressource Data Share. Lorsque vous créez une ressource Azure Data Share, celle-ci inscrit automatiquement le fournisseur de ressources dans votre abonnement Azure. Vous pouvez également inscrire manuellement le service Data Share en procédant comme suit. Vous devez disposer du rôle de contributeur Azure pour effectuer ces étapes.
 
-Vous devez disposer du [rôle RBAC de contributeur Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) pour effectuer ces étapes. 
+    1. Dans le portail Azure, accédez à **Abonnements**
+    1. Sélectionner l’abonnement que vous souhaitez utiliser pour créer une ressource Azure Data Share
+    1. Cliquez sur **Fournisseurs de ressources**
+    1. Recherchez **Microsoft.DataShare**
+    1. Cliquez sur **S’inscrire** 
 
-Si vous ne parvenez toujours pas à voir une invitation de partage de données, contactez votre fournisseur de données et assurez-vous qu’il l’a bien envoyée à votre adresse e-mail de connexion Azure et *pas* à votre alias de messagerie. 
+    Vous devez disposer du [rôle RBAC de contributeur Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) pour effectuer ces étapes. 
 
-> [!IMPORTANT]
-> Si vous avez déjà accepté une invitation Azure Data Share et que vous avez quitté le service avant de configurer le stockage, suivez les instructions détaillées du guide de procédure [Configurer un mappage de jeu de données](how-to-configure-mapping.md) pour savoir comment terminer la configuration de votre partage de données reçues et commencer à recevoir des données. 
+* **L’invitation est envoyée à votre alias de messagerie au lieu de votre e-mail de connexion Azure.** Si vous avez enregistré le service Azure Data Share ou si vous avez déjà créé une ressource Data Share dans le locataire Azure, mais que vous ne voyez toujours pas l’invitation, cela peut être dû au fait que le fournisseur a entré votre alias de messagerie en tant que destinataire au lieu de votre adresse e-mail de connexion Azure. Contactez votre fournisseur de données et assurez-vous qu’il a bien envoyée l’invitation à votre adresse e-mail de connexion Azure et non à votre alias de messagerie.
 
-## <a name="error-when-creating-or-receiving-a-new-data-share"></a>Erreur lors de la création ou de la réception d’un nouveau partage de données
+* **L’invitation a déjà été acceptée.** Le lien inclut dans l’e-mail vous amène à la page Invitation Data Share dans le Portail Azure, qui répertorie uniquement les invitations en attente. Si vous avez déjà accepté l’invitation, elle n’apparaît plus dans la page Invitation Data Share. Accédez à la ressource Data Share dans laquelle vous avez accepté l’invitation pour afficher les partages de fichiers reçus et configurer votre paramètre de cluster Azure Data Explorer cible.
 
-« Erreur : L’opération a retourné un code d’état non valide "BadRequest" »
+## <a name="error-when-creating-or-receiving-a-new-share"></a>Erreur lors de la création ou de la réception d’un nouveau partage de fichiers
 
-« Erreur : AuthorizationFailed »
+« Échec de l’ajout de jeux de données »
 
-« Erreur : Attribution de rôle au compte de stockage »
+« Échec du mappage des jeux de données »
 
-![Erreur de privilège](media/error-write-privilege.png)
+« Impossible d’accorder à la ressource Data Share x l’accès à y »
 
-Si vous recevez une des erreurs ci-dessus lors de la création d’un nouveau partage de données ou lors de la réception d’un nouveau partage de données, la raison en est que les autorisations sont insuffisantes pour le compte de stockage. L’autorisation requise est *Microsoft.Authorization/attributions de rôle/écrire*, qui existe dans le rôle de propriétaire du stockage ou qui peut être attribuée à un rôle personnalisé. Même si vous avez créé le compte de stockage, cela ne fait PAS automatiquement de vous le propriétaire de celui-ci. Suivez ces étapes pour vous accorder à vous-même la propriété du compte de stockage. Une autre possibilité est de créer un rôle personnalisé avec cette autorisation et de vous y ajouter vous-même.  
+« Vous ne disposez pas des autorisations appropriées sur x »
 
-1. Accéder à un compte de stockage dans le portail Azure
-1. Sélectionnez **Contrôle d’accès (IAM)**
-1. Cliquez sur **Ajouter**.
-1. Ajoutez-vous en tant que propriétaire.
+« Nous n’avons pas pu ajouter d’autorisations d’écriture pour le compte Azure Data Share à une ou plusieurs de vos ressources sélectionnées »
+
+Si vous rencontrez l’une des erreurs ci-dessus lors de la création d’un nouveau partage de fichiers ou du mappage de jeux de données, cela peut être dû à des autorisations insuffisantes pour le magasin de données Azure. Consultez [Rôles et conditions requises](concepts-roles-permissions.md) pour obtenir les autorisations requises. 
+
+Vous avez besoin d’une autorisation d’écriture pour partager ou recevoir des données à partir d’un magasin de données Azure, qui existe généralement dans le rôle Contributeur. 
+
+S’il s’agit de la première fois que vous partagez ou recevez des données à partir du magasin de données Azure, vous devez également obtenir l’autorisation *Microsoft.Authorization/role assignments/write*, qui existe généralement dans le rôle Propriétaire. Même si vous avez créé la ressource de magasin de données Azure, cela ne fait PAS automatiquement de vous le propriétaire de la ressource. Avec l’autorisation appropriée, le service Azure Data Share accorde automatiquement à l’identité managée de la ressource de partage de données l’accès au magasin de données. La prise d’effet de ce processus peut prendre quelques minutes. Si vous rencontrez un problème en raison de ce délai, réessayez après quelques minutes.
+
+Le partage basé sur SQL nécessite des autorisations supplémentaires. Pour plus d’informations, consultez Résolution des problèmes de partage basé sur SQL.
 
 ## <a name="troubleshooting-sql-based-sharing"></a>Résolution des problèmes de partage basé sur SQL
 
-«Erreur : x jeux de données n’ont pas été ajoutés car vous ne disposez pas des autorisations nécessaires pour le partager. »
+« L’utilisateur x n’existe pas dans la base de données SQL »
 
-Si vous recevez ce message d’erreur lors de l’ajout d’un jeu de données à partir d’une source SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour le fichier MSI Azure Data Share sur votre instance SQL Server.  Pour résoudre ce problème, exécutez le script suivant :
+Si vous recevez ce message d’erreur lors de l’ajout d’un jeu de données à partir d’une source SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour l’identité managée Azure Data Share sur votre instance SQL Server.  Pour résoudre ce problème, exécutez le script suivant :
 
 ```sql
-    create user <share_acct_name> from external provider;     
-    exec sp_addrolemember db_owner, <share_acct_name>; 
+    create user "<share_acct_name>" from external provider; 
+    exec sp_addrolemember db_datareader, "<share_acct_name>";
 ```      
-Notez que *<share_acc_name>* est le nom de votre compte Data Share. Si vous n’avez pas encore créé de compte Data Share, vous pouvez le faire plus tard.         
+Si vous recevez ce message d’erreur lors du mappage du jeu de données à une cible SQL, cela peut être dû au fait que vous n’avez pas créé d’utilisateur pour l’identité managée Azure Data Share sur votre instance SQL Server.  Pour résoudre ce problème, exécutez le script suivant :
 
-Assurez-vous que vous avez suivi toutes les conditions préalables indiquées dans le didacticiel [Partager vos données](share-your-data.md).
+```sql
+    create user "<share_acc_name>" from external provider; 
+    exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+    exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+    exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+```
+Notez que *<share_acc_name>* est le nom de votre ressource Data Share.      
+
+Assurez-vous que vous avez suivi toutes les conditions préalables indiquées dans les didacticiels [Partager vos données](share-your-data.md) et [Accepter et recevoir des données](subscribe-to-data-share.md).
+
+## <a name="snapshot-failed"></a>Échec de la capture instantanée
+La capture instantanée peut échouer pour différentes raisons. Vous trouverez un message d’erreur détaillé en cliquant sur l’heure de début de la capture instantanée, puis sur l’état de chaque jeu de données. 
+
+Si le message d’erreur est lié à l’autorisation, vérifiez que le service Data Share dispose de l’autorisation requise. Pour plus d’informations, consultez [Rôles et conditions requises](concepts-roles-permissions.md). Si c’est la première fois que vous prenez une capture instantanée, il peut falloir quelques minutes pour que la ressource Data Share soit autorisée à accéder au magasin de données Azure. Patientez quelques minutes et réessayez.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour découvrir comment commencer à partager des données, passez au tutoriel [Partager vos données](share-your-data.md).
+Pour découvrir comment commencer à partager des données, passez au tutoriel [Partager vos données](share-your-data.md). 
+
+Pour savoir comment recevoir des données, passez au didacticiel [Accepter et recevoir des données](subscribe-to-data-share.md).
 

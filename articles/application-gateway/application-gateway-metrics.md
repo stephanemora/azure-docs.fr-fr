@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: a8882a810d18d06b33d6382bd8bd86ffe75b39d8
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 695507b0d6997870dbea392e73e4f4470248d26c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766805"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985881"
 ---
 # <a name="metrics-for-application-gateway"></a>Métriques pour Application Gateway
 
@@ -94,7 +94,7 @@ Pour Application Gateway, les métriques suivantes sont disponibles :
 
 - **Connexions en cours**
 
-   Nombre de connexions courantes établies avec Application Gateway
+   Nombre total de connexions simultanées actives de clients à Application Gateway
 
 - **Requêtes ayant échoué**
 

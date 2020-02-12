@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715937"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986816"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Questions fréquemment posées sur Azure Monitor
 
@@ -100,7 +100,7 @@ Vous pouvez déplacer un espace de travail entre groupes de ressources ou abonne
 
 Les boutons **Explorateur de requêtes**, **Enregistrer** et **Nouvelle règle d’alerte** ne sont pas disponibles lorsque l’[étendue de la requête](log-query/scope.md) est définie sur une ressource spécifique. Pour créer des alertes, ainsi qu’enregistrer ou charger une requête, Log Analytics doit avoir une étendue définie sur un espace de travail. Pour ouvrir Log Analytics dans le contexte d’un espace de travail, sélectionnez **Journaux** dans le menu **Azure Monitor**. Le dernier espace de travail utilisée est sélectionné, mais vous pouvez sélectionner n’importe quel autre espace de travail. Voir [Étendue de requête de journal et intervalle de temps dans la fonctionnalité Log Analytics d’Azure Monitor](log-query/scope.md)
 
-### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Pourquoi l’erreur « Inscrivez le fournisseur de ressources ’Microsoft.Insights’ pour cet abonnement afin d’activer cette requête » s’affiche-t-elle lors de l’ouverture de Log Analytics à partir d’une machine virtuelle ? 
+### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Pourquoi l’erreur : « Inscrivez le fournisseur de ressources ’Microsoft.Insights’ pour cet abonnement afin d’activer cette requête » s’affiche-t-elle lors de l’ouverture de Log Analytics à partir d’une machine virtuelle ? 
 De nombreux fournisseurs de ressources sont inscrits automatiquement, mais il se peut que vous deviez en inscrire certains manuellement. L’étendue pour l’inscription est toujours l’abonnement. Pour plus d’informations, consultez [Fournisseurs et types de ressources](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
 ### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Pourquoi un message d’erreur indiquant une absence d’accès s’affiche-t-il lors de l’ouverture de Log Analytics à partir d’une machine virtuelle ? 
@@ -326,6 +326,11 @@ Vous pouvez [utiliser Power BI](app/export-power-bi.md ) pour afficher les donn�
 
 ### <a name="data"></a>Combien de temps les données sont-elles conservées dans le portail ? Sont-elles sécurisées ?
 Consultez [Rétention de données et confidentialité][data].
+
+### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>Qu’advient-il de la télémétrie d’Application Insight lorsqu’un serveur ou un appareil perd la connexion avec Azure ?
+
+Tous nos Kits de développement logiciel (SDK), y compris le Kit de développement logiciel (SDK) web, incluent le protocole « reliable transport » ou « robust transport ». Lorsque le serveur ou l’appareil perd la connexion avec Azure, la télémétrie est [stockée localement sur le système de fichiers](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) (Kits de développement logiciel [SDK] de serveur) ou dans le stockage de session HTML5 (Kit de développement logiciel [SDK] web). Le Kit de développement logiciel (SDK) réessaiera régulièrement d’envoyer cette télémétrie jusqu’à ce que notre service d’ingestion la considère « obsolète » (48 heures pour les journaux, 30 minutes pour les métriques). La télémétrie obsolète sera supprimée. Dans certains cas, par exemple lorsque le stockage local est plein, aucune nouvelle tentative ne se produit.
+
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>Est-ce que des informations personnelles peuvent être envoyées dans les données de télémétrie ?
 

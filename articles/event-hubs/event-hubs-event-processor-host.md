@@ -12,16 +12,24 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 07/16/2019
+ms.date: 01/10/2020
 ms.author: shvija
-ms.openlocfilehash: 312800482405530d57ce7b0b1e77b91c2ad069ce
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 7533c2a4d5ef2bb3e6f66e116d3ff3937ddd77b3
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772154"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899974"
 ---
 # <a name="event-processor-host"></a>Hôte du processeur d’événements
+> [!NOTE]
+> Cet article s’applique à l’ancienne version du kit de développement logiciel (SDK) Azure Event Hubs. Pour savoir comment migrer votre code vers la version la plus récente du kit de développement logiciel (SDK), consultez ces guides de migration. 
+> - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md)
+> - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
+> - [Script Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
+>
+> Consultez également [Équilibrer la charge de partition sur plusieurs instances de votre application](event-processor-balance-partition-load.md).
 
 Azure Event Hubs est un puissant service d’ingestion de télémétrie qui permet de diffuser des millions d’événements à moindre coût. Cet article décrit comment consommer les événements ingérés à l’aide de l’*hôte de processeur d’événements* (EPH) ; un agent consommateur intelligent qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.  
 
@@ -92,7 +100,7 @@ Ensuite, créez une instance [EventProcessorHost](/dotnet/api/microsoft.azure.ev
 Enfin, les consommateurs inscrivent l’instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) auprès du service Event Hubs. L’inscription d’une classe de processeur d’événements avec une instance EventProcessorHost entraîne le démarrage du traitement des événements. L’inscription ordonne au service Event Hubs d’attendre que l’application consommateur consomme les événements provenant de certaines de ses partitions, puis d’appeler le code d’implémentation [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) chaque fois qu’il envoie (push) des événements à consommer. 
 
 
-### <a name="example"></a>Exemples
+### <a name="example"></a>Exemple
 
 Par exemple, imaginez qu’il y a 5 machines virtuelles dédiées à la consommation d’événements et une simple application console dans chaque machine virtuelle, qui effectue les tâches de consommation proprement dites. Chaque application console crée alors une instance [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) et l’inscrit auprès du service Event Hubs.
 

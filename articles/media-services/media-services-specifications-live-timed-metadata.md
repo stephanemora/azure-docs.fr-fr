@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 03b40dea4949bb50c30f7755b56294ac53107403
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514236"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905247"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalisation de métadonnées chronométrées dans une vidéo en flux continu 
 
@@ -249,7 +249,7 @@ La section suivante présente la charge utile du « mode simple » RTMP, utili
  
 #### <a name="example-mpeg-dash-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exemple de sortie de manifeste MPEG DASH lors de l’utilisation du mode simple Adobe RTMP
 
-Consultez l’exemple [3.3.2.1 pour MPEG DASH .mpd EventStream utilisant le mode simple Adobe](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
+Consultez l’exemple [3.3.2.1 MPEG DASH .mpd EventStream utilisant le mode simple Adobe](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
 Consultez l’exemple [3.3.3.1 manifeste DASH avec une période unique et le mode simple Adobe ](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
@@ -280,7 +280,7 @@ Dans ce scénario, la charge utile suivante DOIT être envoyée à partir de l�
 Consultez [Section 3.3.3.2 exemple de manifeste DASH avec SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
 
 #### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Exemple de manifeste HLS .m3u8 avec signal en mode SCTE-35
-Consultez [exemple 3.3.1.1 exemple de manifeste HLS avec SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+Consultez [Section 3.2.1.1 exemple de manifeste HLS avec SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
 
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 Signalisation de signal publicitaire RTMP avec « onCuePoint » pour Elemental Live
 

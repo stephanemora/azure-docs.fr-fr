@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713331"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932589"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Créer un cluster Azure Kubernetes Service privé (préversion)
 
@@ -131,7 +131,7 @@ Le point de terminaison du serveur d’API n’a pas d’adresse IP publique. P
 * Pour utiliser un serveur DNS personnalisé, déployez un serveur AD avec DNS à transférer à cette adresse IP : 168.63.129.16.
 
 ## <a name="limitations"></a>Limites 
-* La fonctionnalité Zones de disponibilité n’est actuellement pas prise en charge
+* Les Zones de disponibilité sont actuellement prises en charge uniquement pour les régions USA Est 2 et USA Ouest 2.
 * Les [limitations du service Azure Private Link][private-link-service] s’appliquent aux clusters privés, aux points de terminaison privés Azure et aux points de terminaison de service de réseau virtuel qui ne sont actuellement pas pris en charge dans le même réseau virtuel.
 * Aucune prise en charge des nœuds virtuels dans un cluster privé pour faire tourner des Azure Container Instances privées dans un réseau virtuel Azure privé
 * Aucune prise en charge de l’intégration d’Azure DevOps avec les clusters privés.

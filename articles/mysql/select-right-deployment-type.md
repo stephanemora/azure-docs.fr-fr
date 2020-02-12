@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8cff61d547e75b186869b3ab4d57c5eb12e6e2f5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770456"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935459"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Choisir l’option MySQL Server appropriée dans Azure
 
@@ -36,7 +36,7 @@ Le tableau suivant liste les principales différences entre ces options :
 | Contrat de niveau de service (SLA)                | Offre un contrat SLA garantissant une disponibilité de 99,99 %| Disponibilité jusqu’à 99,95 % avec deux instances ou plus dans le même groupe à haute disponibilité.<br/><br/>Disponibilité de 99,9 % avec une machine virtuelle à instance unique utilisant le stockage Premium.<br/><br/>Disponibilité de 99,99 % à l’aide de zones de disponibilité avec plusieurs instances dans plusieurs groupes à haute disponibilité.<br/><br/>Consultez le [SLA pour machines virtuelles](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). |
 | Mise à jour corrective du système d’exploitation        | Automatique  | Géré par les clients |
 | Mise à jour corrective de MySQL     | Automatique  | Géré par les clients |
-| Haute disponibilité | Le modèle de haute disponibilité (HA) repose sur des mécanismes de basculement intégrés au cas où une interruption se produirait au niveau du nœud. Dans ce cas, le service crée automatiquement une instance et attache le stockage à cette nouvelle instance. | Les clients conçoivent, implémentent, testent et maintiennent la haute disponibilité. Les fonctionnalités peuvent inclure le clustering de basculement AlwaysOn, la réplication de groupe AlwaysOn, la copie des journaux de transactions ou la réplication transactionnelle.|
+| Haute disponibilité | Le modèle de haute disponibilité (HA) repose sur des mécanismes de basculement intégrés au cas où une interruption se produirait au niveau du nœud. Dans ce cas, le service crée automatiquement une instance et attache le stockage à cette nouvelle instance. | Les clients conçoivent, implémentent, testent et maintiennent la haute disponibilité. Les fonctionnalités peuvent inclure le clustering, la réplication, etc.|
 | Redondance de zone | Actuellement non pris en charge | Les machines virtuelles Azure peuvent être configurées pour s’exécuter dans différentes zones de disponibilité. Pour une solution locale, les clients doivent créer et gérer leur propre centre de données secondaire.|
 | Scénarios hybrides | La [réplication des données entrantes](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication) vous permet de synchroniser les données d’un serveur MySQL externe dans le service Azure Database pour MySQL. Le serveur externe peut être hébergé localement, dans des machines virtuelles, ou il peut s'agir d'un service de base de données hébergé par d'autres fournisseurs de services cloud.<br/><br/> La fonctionnalité de [réplica en lecture](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) vous permet de répliquer des données d’un serveur maître Azure Database pour MySQL sur jusqu’à cinq serveurs réplicas en lecture seule. Les réplicas se trouvent dans la même région Azure ou dans plusieurs régions. Les réplicas en lecture seule sont mis à jour de manière asynchrone à l’aide de la technologie de réplication binlog.| Géré par les clients
 | Sauvegarde et restauration | Crée automatiquement des [sauvegardes de serveur](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) et les conserve dans un stockage configuré par l’utilisateur qui est redondant localement ou géoredondant. Le service accepte les sauvegardes complètes, différentielles et de fichier journal. | Géré par les clients |
