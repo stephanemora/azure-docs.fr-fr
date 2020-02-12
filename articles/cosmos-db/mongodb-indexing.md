@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: e51e96c0c553bcf37284878cab11f3ec592ddd05
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c8879884cf3d882e6a6b441244ed139072bedeeb
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753392"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029467"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Indexation à l’aide de l’API pour MongoDB d’Azure Cosmos DB
 
@@ -32,6 +32,89 @@ Pour les comptes desservant la version 3.6 du protocole Wire, le seul index par 
 Les véritables index composés sont pris en charge pour les comptes utilisant le protocole Wire 3.6. La commande suivante crée un index composé sur les champs « a » et « b » : `db.coll.createIndex({a:1,b:1})`
 
 Les index composés peuvent être utilisés pour trier efficacement sur plusieurs champs à la fois, par exemple : `db.coll.find().sort({a:1,b:1})`
+
+### <a name="track-the-index-progress"></a>Suivre la progression de l’index
+
+La version 3.6 de l’API d’Azure Cosmos DB pour les comptes MongoDB prend en charge la commande `currentOp()`, laquelle permet de suivre la progression de l’index sur une instance de base de données. Cette commande retourne un document qui contient des informations sur les opérations en cours sur une instance de base de données. La commande `currentOp` permet de suivre toutes les opérations en cours en MongoDB natif, tandis qu’elle ne prend en charge que le suivi de l’opération d’index dans l’API d’Azure Cosmos DB pour MongoDB.
+
+Voici quelques exemples qui montrent comment utiliser la commande `currentOp` pour suivre la progression de l’index :
+
+• Obtenir la progression de l’index pour une collection :
+
+   ```shell
+   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
+   ```
+
+• Obtenir la progression de l’index pour toutes les collections d’une base de données :
+
+  ```shell
+  db.currentOp({"command.$db": <databaseName>})
+  ```
+
+• Obtenir la progression de l’index pour toutes les bases de données et collections d’un compte Azure Cosmos :
+
+  ```shell
+  db.currentOp({"command.createIndexes": { $exists : true } })
+  ```
+
+Les détails de la progression de l’index contiennent le pourcentage de progression pour l’opération d’index active. L’exemple suivant montre le format du document de sortie pour les différentes étapes de la progression de l’index :
+
+1. Si le pourcentage de complétion de l’opération d’index sur une collection « foo » et une base de données « bar » est de 60 %, le document de sortie suivant est généré. `Inprog[0].progress.total` indique 100 comme complétion cible.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 60 %",
+                "progress" : {
+                        "done" : 60,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+        "ok" : 1
+   }
+   ```
+
+2. Pour une opération d’index qui vient de démarrer sur une collection « foo » et une base de données « bar », le document de sortie peut indiquer une progression de 0 % jusqu’à ce qu’un niveau mesurable soit atteint.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 0 %",
+                "progress" : {
+                        "done" : 0,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+       "ok" : 1
+   }
+   ```
+
+3. Une fois l’opération d’index en cours terminée, le document de sortie indique des opérations en cours vides.
+
+   ```json
+   {
+      "inprog" : [],
+      "ok" : 1
+   }
+   ```
 
 ## <a name="indexing-for-version-32"></a>Indexation pour la version 3.2
 
@@ -101,7 +184,7 @@ Dans l’exemple ci-dessus, si la clause ```"university":1``` a été omise, une
 
 Pour activer l’expiration de document dans une collection particulière, un [« index TTL » (index de durée de vie)](../cosmos-db/time-to-live.md) doit être créé. Un index TTL est un index sur le champ _ts avec une valeur « expireAfterSeconds ».
 
-Exemple :
+Exemple :
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})

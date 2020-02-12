@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 02/02/2020
 ms.author: juliako
-ms.openlocfilehash: a942277b5616f3e8220e7fc0fd00f7d660d76d3e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: aee4390d9b892eddbd7dc59887f5268e4c35d3f7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892700"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989788"
 ---
 # <a name="what-is-video-indexer"></a>Qu’est-ce que Video Indexer ?
 
@@ -26,6 +26,10 @@ Pour commencer à extraire des insights avec Video Indexer, vous devez créer un
 Le diagramme suivant est une illustration et non une explication technique de la façon dont Video Indexer fonctionne dans le back-end.
 
 ![Diagramme de flux Azure Media Services Video Indexer](./media/video-indexer-overview/model-chart.png)
+
+## <a name="compliance-privacy-and-security"></a>Conformité, confidentialité et sécurité
+ 
+Il est important de vous rappeler que vous devez vous conformer à toutes les lois applicables dans le cadre de votre utilisation de Video Indexer, et que vous n’êtes pas autorisé à utiliser Video Indexer ou tout autre service Azure d’une façon qui porte atteinte aux droits d’autrui ou qui soit préjudiciable à autrui. Avant de charger des vidéos, y compris des données biométriques, vers le service Video Indexer à des fins de traitement et de stockage, Vous devez disposer de tous les droits appropriés sur les vidéos, y compris avoir obtenu le consentement de chaque personne apparaissant dans les vidéos. Pour en savoir plus sur la conformité, la confidentialité et la sécurité dans Video Indexer, consultez les [Conditions générales d’utilisation de Microsoft Cognitive Services](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/). Pour connaître les obligations de confidentialité de Microsoft et le mode de traitement de vos données, consultez la [Déclaration de confidentialité](https://privacy.microsoft.com/PrivacyStatement), les [Conditions d’utilisation des services en ligne](https://www.microsoft.com/licensing/product-licensing/products) (« OST ») et l’[Addenda au traitement des données](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) (« DPA ») de Microsoft. Des informations complémentaires sur la confidentialité, notamment sur la conservation, la suppression et la destruction des données, sont disponibles dans l’OST et [ici](faq.md). En utilisant Video Indexer, vous acceptez de vous conformer aux Conditions d’utilisation de Cognitive Services, à l’OST, au DPA et à la Déclaration de confidentialité.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>Que puis-je faire avec Video Indexer ?
 
@@ -38,7 +42,7 @@ Les insights de Video Indexer peuvent être appliqués à de nombreux scénarios
 * *Modération du contenu* : Utilisez des modèles de modération de contenu textuel et visuel afin de protéger vos utilisateurs contre le contenu inapproprié et de vous assurer que le contenu que vous publiez correspond aux valeurs de votre organisation. Vous pouvez bloquer automatiquement certaines vidéos ou alerter vos utilisateurs au sujet du contenu.
 * *Suggestions* : les insights vidéo peuvent être utilisés pour améliorer l’engagement utilisateur en soulignant les moments intéressants d’une vidéo. En marquant chaque vidéo avec des métadonnées supplémentaires, vous pouvez recommander aux utilisateurs les vidéos les plus pertinentes et mettre en évidence la partie de la vidéo qui répondra à leurs besoins.
 
-## <a name="features"></a>Caractéristiques
+## <a name="features"></a>Fonctionnalités
 
 La liste suivante présente les insights que vous pouvez récupérer à partir de vos vidéos à l’aide des modèles vidéo et audio de Video Indexer :
 

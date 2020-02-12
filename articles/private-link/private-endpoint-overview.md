@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cd06d4cbf62078c2c7a5def4a0032ddce97d67f0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cbb5882950636e281d311bf0536acf5b92cf11ea
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842450"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018599"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Qu’est-ce qu’Azure Private Endpoint ?
 
@@ -61,6 +61,7 @@ Une ressource Private Link est la cible de destination d’une instance Private 
 |**Azure Database pour PostgreSQL – Serveur unique** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
 |**Azure Database pour MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure Key Vault** | Microsoft.KeyVault/vaults    | coffre |
  
 ## <a name="network-security-of-private-endpoints"></a>Sécurité réseau de Private Endpoint 
 Lorsque vous utilisez Private Endpoint pour les services Azure, le trafic est sécurisé vers une ressource Private Link spécifique. La plateforme effectue un contrôle d’accès pour valider les connexions réseau qui atteignent uniquement la ressource Private Link spécifiée. Pour accéder à des ressources supplémentaires au sein du même service Azure, des instances Private Endpoint supplémentaires sont requises. 
@@ -118,6 +119,7 @@ Pour les services Azure, utilisez les noms de zone recommandés comme indiqué d
 |Azure Database pour PostgreSQL – Serveur unique (Microsoft.DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
 |Azure Database pour MySQL (Microsoft.DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Azure Database pour MariaDB (Microsoft.DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
+|Azure Key Vault (Microsoft.KeyVault/vaults)|coffre|privatelink.vaultcore.azure.net|
  
 Azure créera un enregistrement DNS de nom canonique (CNAME) sur le DNS public pour rediriger la résolution vers les noms de domaine suggérés. Vous serez en mesure de remplacer la résolution par l’adresse IP privée de vos instances Private Endpoint. 
  
@@ -130,9 +132,7 @@ Le tableau suivant répertorie les limitations connues lors de l’utilisation d
 
 |Limitation |Description |Limitation des risques  |
 |---------|---------|---------|
-|Les règles de groupe de sécurité réseau et les routes définies par l’utilisateur ne s’appliquent pas au point de terminaison privé.    |Le groupe de sécurité réseau n’est pas pris en charge sur Private Endpoint. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau. Les routes sur un sous-réseau client, quel qu’il soit, utiliseront un préfixe /32. La modification du comportement de routage par défaut nécessite une UDR similaire.  | Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source. Déployez des routes individuelles avec le préfixe /32 pour remplacer les routes de points de terminaison privés.        |
-|  Un réseau virtuel appairé avec uniquement des points de terminaison privés n’est pas pris en charge   |   Quand la connexion à des points de terminaison privés sur un réseau virtuel appairé sans aucune autre charge de travail n’est pas prise en charge       | Déployez une machine virtuelle unique sur le réseau virtuel appairé pour activer la connectivité. |
-|Les charges de travail spécialisées ne peuvent pas accéder à Private Endpoint    |   Les services suivants déployés dans votre réseau virtuel ne peuvent pas accéder à une ressource Private Link à l’aide de Private Endpoint :<br>Plan App Service</br>Azure Container Instance</br>Azure NetApp Files</br>Module de sécurité matériel (HSM) dédié Azure<br>       |   Aucune atténuation pendant la préversion.       |
+|Les règles de groupe de sécurité réseau et les routes définies par l’utilisateur ne s’appliquent pas au point de terminaison privé.    |Le groupe de sécurité réseau n’est pas pris en charge sur Private Endpoint. Si les sous-réseaux contenant Private Endpoint peuvent être associés à un groupe de sécurité réseau, les règles ne sont pas effectives sur le trafic traité par Private Endpoint. Vous devez [désactiver l’application des stratégies réseau](disable-private-endpoint-network-policy.md) pour déployer Private Endpoint dans un sous-réseau. Le groupe de sécurité réseau est toujours appliqué sur les autres charges de travail hébergées sur le même sous-réseau. Les routes sur un sous-réseau client, quel qu’il soit, utiliseront un préfixe /32. La modification du comportement de routage par défaut nécessite une UDR similaire.  | Contrôlez le trafic à l’aide de règles de groupe de sécurité réseau pour le trafic sortant sur les clients source. Déployez des routes individuelles avec le préfixe /32 pour remplacer les routes de points de terminaison privés. Les journaux de trafic NSG et les informations de supervision pour les connexions sortantes sont toujours pris en charge et peuvent être utilisés.        |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

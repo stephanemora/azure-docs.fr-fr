@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 33b3f9292a2fd185ea5487c0111dc294a6f163cf
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546348"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030810"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notes de publication d’Azure Machine Learning
 
@@ -23,6 +23,25 @@ Dans cet article, découvrez les versions d’Azure Machine Learning.  Pour obte
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
+## <a name="2020-02-04"></a>2020-02-04
+
+### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>SDK Azure Machine Learning pour Python v1.1.0rc0
+
++ **Résolutions de bogue et améliorations**
+  + **azureml-automl-runtime**
+    + Augmentation de la vitesse de caractérisation.
+    + Correction de la vérification de fréquence lors du scoring. Désormais, dans les tâches de prévision, nous n’exigeons plus une équivalence stricte de fréquence entre l’entraînement et le jeu de test.
+  + **azureml-core**
+    + L’utilisateur peut désormais spécifier une valeur pour la clé d’authentification lorsqu’il regénère les clés de services web.
+  + **azureml-interpret**
+    + Mise à jour d’azureml-interpret pour dépendre désormais d’interpret-community 0.5.0
+  + **azureml-pipeline-core**
+    + Correction d’un bogue entraînant une réutilisation incorrecte des résultats PythonScriptStep malgré la modification de la liste d’arguments
+  + **azureml-pipeline-steps**
+    + Ajout d’un exemple de documentation pour le jeu de données sous la forme d’une entrée PythonScriptStep
+  + **azureml-contrib-pipeline-steps**
+    + Les paramètres passés dans ParallelRunConfig peuvent désormais être remplacés en passant des paramètres de pipeline. De nouveaux paramètres de pipeline sont pris en charge : aml_mini_batch_size, aml_error_threshold, aml_logging_level, aml_run_invocation_timeout (aml_node_count et aml_process_count_per_node faisaient déjà partie de la précédente version).
+  
 ## <a name="2020-01-21"></a>2020-01-21
 
 ### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Kit de développement logiciel (SDK) Azure Machine Learning pour Python v1.0.85
@@ -1236,7 +1255,7 @@ Le [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-c
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning v1.1.2
 
-Remarque : Le kit de développement logiciel (SDK) de préparation des données Python n’installe plus les packages `numpy` et `pandas`. Consultez les [instructions d’installation mises à jour](https://aka.ms/aml-data-prep-installation).
+Remarque : Le kit de développement logiciel (SDK) de préparation des données Python n’installe plus les packages `numpy` et `pandas`. Consultez les [instructions d’installation mises à jour](https://github.com/Microsoft/AMLDataPrepDocs).
 
 + **Nouvelles fonctionnalités**
   + Vous pouvez maintenant utiliser la transformation Pivot.

@@ -2,22 +2,22 @@
 title: 'Mettre à jour les informations relatives à vos groupes sur le portail Mes applications : Azure AD'
 description: Apprenez à afficher et à mettre à jour les informations relatives à vos groupes, notamment à afficher la liste des groupes dont vous êtes propriétaire, à créer des groupes, à afficher la liste des groupes dont vous êtes membre et à rejoindre des groupes dont vous ne faites pas encore partie.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704950"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022294"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>Mettre à jour les informations relatives à vos groupes sur le portail Mes applications
 
@@ -36,7 +36,7 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 - **En tant que propriétaire d'un groupe.** Afficher les informations, créer un groupe, ajouter ou supprimer des membres, ou supprimer votre groupe.
 
-### <a name="to-view-your-groups-information"></a>Pour afficher les informations relatives à vos groupes
+### <a name="to-view-your-groups-information"></a>Pour voir les informations sur vos groupes
 
 1. Connectez-vous à votre compte professionnel ou scolaire.
 
@@ -98,8 +98,6 @@ Si votre administrateur vous a donné l'autorisation d'afficher la vignette **Gr
 
 Après avoir créé un groupe, vous pouvez modifier les détails de celui-ci, y compris mettre à jour des informations existantes.
 
-### <a name="to-edit-your-details"></a>Pour modifier vos détails
-
 1. Sélectionnez le groupe que vous souhaitez modifier sur la page **Groupes**, puis choisissez **Modifier les détails** sur la page *&lt;nom_groupe&gt;* .
 
     La boîte de dialogue **Modifier les détails** s'affiche et vous pouvez mettre à jour les informations que vous avez ajoutées lors de la création du groupe.
@@ -108,9 +106,7 @@ Après avoir créé un groupe, vous pouvez modifier les détails de celui-ci, y 
 
 ## <a name="add-or-remove-a-member"></a>Ajouter ou supprimer un membre
 
-Vous pouvez ajouter ou supprimer des membres des groupes dont vous êtes propriétaire.
-
-### <a name="to-add-or-remove-a-member"></a>Pour ajouter ou supprimer un membre
+Vous pouvez ajouter ou supprimer des membres pour tous les groupes dont vous êtes propriétaire.
 
 1. Sélectionnez le groupe auquel vous souhaitez ajouter des membres, puis choisissez **+** sur la page *&lt;nom_groupe&gt;* .
 
@@ -130,8 +126,6 @@ Vous pouvez ajouter ou supprimer des membres des groupes dont vous êtes propri�
 
 Si votre organisation l'autorise, vous pouvez renouveler un groupe Office 365 en repoussant la date d'expiration.
 
-### <a name="to-renew-a-group"></a>Pour renouveler un groupe
-
 1. Sélectionnez le groupe Office 365 que vous souhaitez renouveler, puis choisissez **Renouveler un groupe**.
 
     ![Renouveler un groupe Office 365, en repoussant la date d'expiration](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -144,8 +138,6 @@ Si votre organisation l'autorise, vous pouvez renouveler un groupe Office 365 e
 
 Vous pouvez à tout moment supprimer un groupe dont vous êtes propriétaire. Toutefois, si vous supprimez un groupe par erreur, vous devrez à nouveau le créer et y ajouter des membres.
 
-### <a name="to-delete-the-group"></a>Pour supprimer le groupe
-
 1. Sélectionnez le groupe que vous souhaitez définitivement supprimer, puis choisissez **Supprimer le groupe** sur la page *&lt;nom_groupe&gt;* .
 
     ![Page <nom_groupe> avec le lien Supprimer le groupe mis en évidence](media/my-apps-portal/my-apps-portal-delete-group-link.png)
@@ -156,9 +148,7 @@ Vous pouvez à tout moment supprimer un groupe dont vous êtes propriétaire. To
 
 ## <a name="join-an-existing-group"></a>Rejoindre un groupe existant
 
-Vous pouvez rejoindre un groupe existant à partir de la page **Groupes**.
-
-### <a name="to-join-or-leave-a-group"></a>Pour rejoindre ou quitter un groupe
+Vous pouvez rejoindre ou quitter un groupe existant à partir de la page **Groupes**.
 
 1. Sur la page **Groupes**, sélectionnez **Rejoindre le groupe** à partir de la zone **Groupes dont je suis membre**.
 
@@ -172,7 +162,7 @@ Vous pouvez rejoindre un groupe existant à partir de la page **Groupes**.
 
 3. Si vous avez rejoint un groupe par erreur ou si vous ne souhaitez plus en être membre, vous pouvez sélectionner son nom sur la page **Rejoindre des groupes**, puis choisir **Quitter le groupe**.
 
-    ![Page Rejoindre des groupes, avec le bouton Quitter le groupe mis en évidence](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![Page Rejoindre des groupes, avec le bouton Quitter le groupe mis en évidence](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

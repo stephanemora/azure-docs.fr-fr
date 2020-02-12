@@ -1,6 +1,6 @@
 ---
 title: Couverture du rendu | Microsoft Azure Maps
-description: Dans cet article, vous découvrirez les régions avec une couverture de rendu Microsoft Azure Maps, ainsi que leur niveau de détails de rendu.
+description: Dans cet article, découvrez les régions avec une couverture de rendu Microsoft Azure Maps, ainsi que leur niveau de détails de rendu.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 04e7aeddaa4e3aba38f1bf08893b0b0487109653
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910669"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025450"
 ---
 # <a name="azure-maps-render-coverage"></a>Couverture du rendu Azure Maps
 
-Azure Maps utilise des vignettes Raster et Vecteurs pour créer des cartes. Dans la résolution la plus faible, le monde entier tient sur une seule vignette. Dans la résolution la plus élevée, une seule vignette représente 38 mètres carrés. Lorsque vous effectuez un zoom avant sur une carte, vous pouvez voir de plus en plus de détails sur les continents, les régions, les villes et les rues. Pour plus d’informations, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
+Azure Maps utilise des vignettes Raster et Vecteurs pour créer des cartes. Dans la résolution la plus faible, le monde entier tient sur une seule vignette. Dans la résolution la plus élevée, une seule vignette représente 38 mètres carrés. Quand vous effectuez un zoom avant, vous voyez plus de détails sur les continents, les régions, les villes et les rues individuelles. Pour plus d’informations sur les vignettes, consultez [Niveaux de zoom et grille mosaïque](zoom-levels-and-tile-grid.md).
 
-Toutefois, Maps n’a pas le même niveau d’information et de précision pour toutes les régions. Les tableaux suivants fournissent des informations sur le niveau de détail rendu que vous pouvez attendre pour chaque région.
+Toutefois, Maps n’a pas le même niveau d’information et de précision pour toutes les régions. Les tableaux suivants détaillent le niveau d’informations que vous pouvez afficher pour chaque région.
 
 ## <a name="legend"></a>Légende
 

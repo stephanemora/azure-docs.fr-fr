@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 01/21/2020
-ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715847"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016253"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Mettre à jour la collecte et l'exportation du journal d'activité Azure
 Le [journal d’activité Azure](platform-logs-overview.md) est un [journal de plateforme](platform-logs-overview.md) qui fournit un aperçu de tous les événements de niveau d’abonnement qui se sont produits dans Azure. La méthode d'envoi des entrées du journal d'activité vers [un hub d'événements ou un compte de stockage](activity-log-export.md) ou vers un [espace de travail Log Analytics](activity-log-collect.md) a changé pour utiliser les [paramètres de diagnostic](diagnostic-settings.md). Cet article compare les méthodes, et explique comment effacer les paramètres hérités en vue de passer aux paramètres de diagnostic.
@@ -53,6 +53,9 @@ La colonne suivante a été ajoutée :
 - Authorization_d
 - Claims_d
 - Properties_d
+
+> [!IMPORTANT]
+> Dans certains cas, les valeurs de ces colonnes peuvent être en majuscules. Si vous avez une requête qui inclut ces colonnes, vous devez utiliser l’[opérateur =~](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) pour effectuer une comparaison non sensible à la casse.
 
 ## <a name="work-with-legacy-settings"></a>Utiliser des paramètres hérités
 Les paramètres hérités pour la collecte du journal d’activité continuent de fonctionner si vous ne choisissez pas de substituer un paramètre de diagnostic. Utilisez la méthode suivante pour gérer le profil de journal lié à un abonnement.

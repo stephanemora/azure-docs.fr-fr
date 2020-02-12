@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bcf100236d4a2a707a007a24e9e51105cc9ca0ac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911023"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991195"
 ---
 # <a name="weather-services-in-azure-maps"></a>Services météo dans Azure Maps
 
@@ -21,7 +21,7 @@ Cet article présente les concepts qui s’appliquent aux [Services météo d’
 
 ## <a name="unit-types"></a>Types d’unités
 
-Certaines API du service météo permettent à l’utilisateur de spécifier si les données sont retournées soit en unités métriques, soit en unités impériales. La réponse renvoyée pour ces API comprend également unitType, une valeur numérique qui peut être utilisée pour les conversions d’unités. Pour interpréter ces valeurs, consultez le tableau ci-dessous.
+Certaines API du service météo permettent à l’utilisateur de spécifier si les données sont retournées soit en unités métriques, soit en unités impériales. Les réponses renvoyées pour ces API comprennent unitType et une valeur numérique qui peut être utilisée pour les conversions d’unités. Pour interpréter ces valeurs, consultez le tableau ci-dessous.
 
 |unitType|Description         |
 |--------|--------------------|
@@ -52,7 +52,7 @@ Certaines API du service météo permettent à l’utilisateur de spécifier si 
 
 ## <a name="weather-icons"></a>Icônes météo
 
-Certaines API du service météo retournent des codes d’icône (iconCode) dans la réponse, une valeur numérique qui peut être utilisée pour définir l’icône. Ne créez pas de lien direct vers ces images à partir de vos applications, les URL peuvent changer et elles le feront.
+Certaines API de service Météo retournent `iconCode` dans la réponse. `iconCode` est une valeur numérique utilisée pour définir l’icône. Ne créez pas de lien direct avec ces images à partir de vos applications, les URL peuvent changer et changeront.
 
 | Numéro d’icône |Icône| jour | Nuit | Texte |
 |-------------|:----:|-----|-------|------|
@@ -100,7 +100,7 @@ Certaines API du service météo retournent des codes d’icône (iconCode) dans
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Mise à l’échelle de couleurs des images radar et par satellite
 
-Via l’[API Get Map Tile v2](https://aka.ms/AzureMapsWeatherTiles), les utilisateurs peuvent demander les images radar et infra-rouges par satellite les plus récentes. Veuillez consulter le guide ci-dessous pour interpréter les couleurs utilisées pour les mosaïques de radars et de satellites.
+Via l’[API Get Map Tile v2](https://aka.ms/AzureMapsWeatherTiles), les utilisateurs peuvent demander les images radar et infra-rouges par satellite les plus récentes. Consultez le guide ci-dessous pour interpréter les couleurs utilisées pour les vignettes radar et satellite.
 
 ### <a name="radar-images"></a>Images radar
 

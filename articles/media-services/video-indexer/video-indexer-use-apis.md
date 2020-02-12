@@ -8,16 +8,16 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892683"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989771"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Didacticiel : Utiliser l’API Video Indexer
+# <a name="tutorial-use-the-video-indexer-api"></a>Tutoriel : Utiliser l’API Video Indexer
 
 Video Indexer consolide plusieurs technologies audio et vidéo d’intelligence artificielle (IA) proposées par Microsoft dans un seul service intégré, ce qui simplifie le développement. Les API sont conçues pour permettre aux développeurs de se concentrer sur l’utilisation des technologies d’intelligence artificielle multimédia sans vous soucier de la mise à l’échelle, de la portée mondiale, de la disponibilité ou de la fiabilité des plateformes cloud. Vous pouvez utiliser l’API, entre autres, pour charger vos fichiers, obtenir des aperçus détaillés des vidéos et obtenir les URL des widgets intégrables de lecteur et des informations.
 
@@ -86,7 +86,7 @@ Le paramètre ID de compte est requis dans tous les appels d’API opérationnel
 
 * Utilisez le **Portail des développeurs Video Indexer** pour obtenir l’ID de compte par programmation.
 
-    Utilisez l’API [Obtenir les comptes](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?).
+    Utilisez l’API [Get account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?).
 
     > [!TIP]
     > Vous pouvez générer des jetons d’accès pour les comptes en définissant `generateAccessTokens=true`.
@@ -214,4 +214,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Examiner les détails de la sortie JSON](video-indexer-output-json-v2.md)
+- [Examiner les détails de la sortie JSON](video-indexer-output-json-v2.md)
+- Consultez l’[exemple de code](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) qui illustre un aspect important du chargement et de l’indexation d’une vidéo. Ce code vous permettra de voir comment utiliser les fonctionnalités de base de notre API. Veillez à lire les commentaires et nos conseils de bonnes pratiques.
+

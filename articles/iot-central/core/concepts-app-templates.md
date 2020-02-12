@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867455"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019041"
 ---
 # <a name="what-are-application-templates"></a>Présentation des modèles d’application
 
@@ -26,33 +26,16 @@ Les modèles d’applications se décomposent ainsi :
 - Règles et travaux préconfigurés
 - Documentation complète comprenant des tutoriels et des guides pratiques
 
-## <a name="preview-templates"></a>Modèles d’aperçus
+Vous choisissez le modèle d’application lorsque vous créez votre application. Vous ne pouvez pas changer le modèle une fois l’application créée.
 
-Le modèle d’application que vous choisissez détermine si votre application utilise des fonctionnalités d’évaluation IoT Central, telles que Plug-and-Play pour les appareils.
+## <a name="custom-templates"></a>Modèles personnalisés
 
-Actuellement, le modèle d’application qui utilise les fonctionnalités _généralement disponibles_ est le suivant :
+Si vous souhaitez créer votre application à partir de zéro, choisissez l’un des deux modèles d’application personnalisés suivants :
 
-- Application personnalisée > Application héritée
+- Application personnalisée
+- Application personnalisée (hérité)
 
-
-Actuellement, les modèles d’application qui utilisent les fonctionnalités en _préversion publique_ sont :
-
-- Application personnalisée > Application en préversion
-- Distribution > Logistique connectée
-- Distribution > Centre de distribution numérique
-- Distribution > Analytique dans le magasin - Surveillance des conditions
-- Distribution > Analytique dans le magasin - Paiement
-- Distribution > Centre de microtraitement
-- Distribution > Gestion des stocks intelligente
-- Energie > Surveillance des compteurs intelligents
-- Energie > Surveillance des panneaux solaires
-- Gouvernement > Gestion connectée des déchets
-- Gouvernement > Surveillance de la consommation d’eau
-- Gouvernement > Surveillance de la qualité de l’eau
-- Santé > Surveillance continue des patients
-
-> [!NOTE]
-> Les modèles **application héritée** sont actuellement disponibles dans les emplacements **États-Unis**, **Australie**, **Asie-Pacifique** ou **Europe**, alors que d’autres modèles sont actuellement disponibles uniquement dans les emplacements **Europe** et **USA**.
+Choisissez le modèle **Application personnalisée**, sauf si vous avez une raison particulière d’utiliser le modèle hérité.
 
 ## <a name="industry-focused-templates"></a>Modèles sectoriels
 

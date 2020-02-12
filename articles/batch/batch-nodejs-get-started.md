@@ -3,7 +3,7 @@ title: 'Didacticiel : utiliser la bibliothèque cliente Azure Batch pour Node.
 description: Découvrez les concepts de base d’Azure Batch et créez une solution simple à l’aide de Node.js.
 services: batch
 author: shwetams
-manager: gwallace
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
-ms.openlocfilehash: a6895773e0109aa0fb643e4fadf8a31ac5b1a33a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323398"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023648"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Bien démarrer avec le Kit de développement logiciel (SDK) Batch pour Node.js
 
 Découvrez les concepts de base de création d’un client Batch dans Node.js à l’aide du [Kit de développement logiciel (SDK) Node.js pour Azure Batch](/javascript/api/overview/azure/batch). Nous allons présenter pas à pas un scénario pour une application Batch, puis la configurer à l’aide d’un client Node.js.  
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Cet article suppose que vous avez acquis une connaissance pratique de Node.js et que vous êtes familiarisé avec Linux. Il suppose également que vous disposez d’un compte Azure configuré avec des droits d’accès pour créer des services Batch et Stockage.
 
 Nous vous recommandons de lire [Présentation technique d’Azure Batch](batch-technical-overview.md) avant d’effectuer les étapes présentées dans cet article.
@@ -65,9 +65,9 @@ Cette commande installe la dernière version du Kit de développement logiciel (
 >
 >
 
-### <a name="step-2-create-an-azure-batch-account"></a>Étape 2 : Créer un compte Azure Batch
+### <a name="step-2-create-an-azure-batch-account"></a>Étape 2 : Créer un compte Azure Batch
 
-Vous pouvez le créer à partir du [portail Azure](batch-account-create-portal.md) ou de la ligne de commande ([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
+Vous pouvez le créer à partir du [portail Azure](batch-account-create-portal.md) ou de la ligne de commande ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure)).
 
 Ci-après figurent les commandes permettant d’en créer un via Azure CLI.
 
@@ -85,7 +85,7 @@ Chaque compte Batch possède ses clés d’accès correspondantes. Ces clés son
 
 Copiez et stockez la clé à utiliser dans les étapes suivantes.
 
-### <a name="step-3-create-an-azure-batch-service-client"></a>Étape 3 : créer un client du service Azure Batch
+### <a name="step-3-create-an-azure-batch-service-client"></a>Étape 3 : créer un client du service Azure Batch
 L’extrait de code suivant importe tout d’abord le module Node.js pour Azure Batch, puis crée un client du service Batch. Vous devez d’abord créer un objet SharedKeyCredentials avec la clé du compte Batch copiée à l’étape précédente.
 
 ```nodejs
@@ -119,7 +119,7 @@ Reportez-vous à la capture d’écran :
 
 
 
-### <a name="step-4-create-an-azure-batch-pool"></a>Étape 4 : créer un pool Azure Batch
+### <a name="step-4-create-an-azure-batch-pool"></a>Étape 4 : créer un pool Azure Batch
 Un pool Azure Batch se compose de plusieurs machines virtuelles (également appelées nœuds Batch). Le service Azure Batch déploie les tâches sur ces nœuds et les gère. Vous pouvez définir les paramètres de configuration suivants pour le pool.
 
 * Type d’image de machine virtuelle
@@ -254,7 +254,7 @@ Ci-après figure un exemple d’objet de résultat retourné par la fonction poo
 ```
 
 
-### <a name="step-4-submit-an-azure-batch-job"></a>Étape 4 : soumettre un travail Azure Batch
+### <a name="step-4-submit-an-azure-batch-job"></a>Étape 4 : soumettre un travail Azure Batch
 Un travail Azure Batch est un groupe logique de tâches similaires. Dans notre scénario, il s’agit du travail « Process csv to JSON ». Ici, chaque tâche peut traiter les fichiers csv présents dans chaque conteneur Stockage Azure.
 
 Ces tâches sont exécutées en parallèle et déployées sur plusieurs nœuds, et orchestrées par le service Azure Batch.
@@ -279,7 +279,7 @@ Vous pouvez charger le script sur un compte de stockage Azure et générer un UR
 
 Une tâche de préparation est spécifiée lors de la soumission d’un travail Azure Batch. Ci-après figurent les paramètres de configuration de tâche de préparation :
 
-* **ID** : identificateur unique de la tâche de préparation
+* **ID** : identificateur unique de la tâche de préparation
 * **commandLine** : ligne de commande pour exécuter la tâche exécutable
 * **resourceFiles** : tableau des objets qui fournissent des détails des fichiers qui doivent être téléchargés pour l’exécution de cette tâche.  Ses options sont les suivantes :
     - blobSource : URI SAS du fichier

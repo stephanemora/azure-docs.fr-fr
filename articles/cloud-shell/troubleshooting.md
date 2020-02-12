@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961551"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024277"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Résolution des problèmes et limitations d’Azure Cloud Shell
 
@@ -36,8 +36,8 @@ Les solutions connues pour la résolution des problèmes d’Azure Cloud Shell s
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>Désactiver Cloud Shell dans un environnement réseau verrouillé
 
-- **Détails** : les administrateurs peuvent être amenés à désactiver l’accès à Cloud Shell pour les utilisateurs. Cloud Shell utilise l’accès au domaine `ux.console.azure.com`, qui peut être refusé, interrompant tout accès aux points d’entrée de Cloud Shell, y compris portal.azure.com, shell.azure.com, l’extension de compte Azure Visual Studio Code et docs.microsoft.com.
-- **Résolution** : limitez l’accès de `ux.console.azure.com` à votre environnement par le biais des paramètres réseau. L’icône Cloud Shell reste présente sur portal.azure.com, mais ne permettra pas la connexion au service.
+- **Détails** : les administrateurs peuvent être amenés à désactiver l’accès à Cloud Shell pour les utilisateurs. Cloud Shell utilise l’accès au domaine `ux.console.azure.com`, qui peut être refusé, interrompant tout accès aux points d’entrée de Cloud Shell, y compris portal.azure.com, shell.azure.com, l’extension de compte Azure Visual Studio Code et docs.microsoft.com. Dans le cloud US Government, le point d’entrée est `ux.console.azure.us` ; il n’y a pas de shell.azure.us correspondant.
+- **Résolution** : limitez l’accès à `ux.console.azure.com` ou à `ux.console.azure.us` à votre environnement par le biais des paramètres réseau. L’icône Cloud Shell reste présente dans le portail Azure, mais ne permet pas de se connecter au service.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>Boîte de dialogue Stockage – Erreur : 403 RequestDisallowedByPolicy
 
@@ -163,7 +163,7 @@ Azure Cloud Shell prend très au sérieux vos données personnelles ; les donné
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-### <a name="export"></a>Exportation
+### <a name="export"></a>Exporter
 Pour **exporter** les paramètres utilisateur que Cloud Shell enregistre pour vous, tels que l’interpréteur de commandes, la taille de police et le type de police par défaut, exécutez les commandes suivantes.
 
 1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
@@ -176,14 +176,14 @@ Bash :
   curl https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token" -s | jq
   ```
 
-PowerShell :
+PowerShell :
 
   ```powershell
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token
   ((Invoke-WebRequest -Uri https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -Headers @{Authorization = "Bearer $token"}).Content | ConvertFrom-Json).properties | Format-List
 ```
 
-### <a name="delete"></a>Supprimer
+### <a name="delete"></a>DELETE
 Pour **supprimer** vos paramètres utilisateur que Cloud Shell enregistre pour vous, tels que l’interpréteur de commandes, la taille de police et le type de police par défaut, exécutez les commandes suivantes. Au prochain démarrage de Cloud Shell, vous serez invité à réintégrer un partage de fichiers. 
 
 >[!Note]
@@ -199,7 +199,7 @@ Bash :
   curl -X DELETE https://management.azure.com/providers/Microsoft.Portal/usersettings/cloudconsole?api-version=2017-12-01-preview -H Authorization:"$token"
   ```
 
-PowerShell :
+PowerShell :
 
   ```powershell
   $token= ((Invoke-WebRequest -Uri "$env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata='true'}).content |  ConvertFrom-Json).access_token

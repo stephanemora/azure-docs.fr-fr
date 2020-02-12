@@ -3,18 +3,18 @@ title: Informations de référence sur le fichier host.json pour Azure Functions
 description: Documentation de référence pour le fichier host.json d’Azure Functions avec le runtime v2.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3ad3682e301eb98d48372c3955c6ff049422c517
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978813"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024668"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informations de référence sur le fichier host.json pour Azure Functions 2.x et ultérieur 
 
 > [!div class="op_single_selector" title1="Sélectionnez la version du runtime Azure Functions que vous utilisez : "]
 > * [Version 1](functions-host-json-v1.md)
-> * [Version 2](functions-host-json.md)
+> * [Version 2+](functions-host-json.md)
 
 Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article liste les paramètres disponibles à compter de la version 2.x du runtime Azure Functions.  
 
@@ -27,7 +27,7 @@ Certains paramètres host.json sont uniquement utilisés lors de l’exécution 
 
 ## <a name="sample-hostjson-file"></a>Exemple de fichier host.json
 
-L’exemple de fichier *host.json* suivant contient toutes les options possibles spécifiées (sauf celles qui sont destinées à un usage interne uniquement).
+L’exemple de fichier *host.json* suivant pour la version 2.x+ contient toutes les options possibles spécifiées (sauf celles qui sont destinées à un usage interne uniquement).
 
 ```json
 {
@@ -74,10 +74,10 @@ L’exemple de fichier *host.json* suivant contient toutes les options possibles
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
               "maxSamplingPercentage": 0.1,
-              "movingAverageRatio": 1.0
+              "movingAverageRatio": 1.0,
+              "excludedTypes" : "Dependency;Event",
+              "includedTypes" : "PageView;Trace"
             },
-            "samplingExcludedTypes" : "Dependency;Event",
-            "samplingIncludedTypes" : "PageView;Trace",
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            
@@ -377,7 +377,7 @@ Paramètres de configuration du comportement de verrouillage Singleton. Pour plu
 
 ## <a name="version"></a>version
 
-La chaîne de version `"version": "2.0"` est requise pour une application de fonction qui cible le runtime v2.
+Cette valeur indique la version de schéma de host.json. La chaîne de version `"version": "2.0"` est nécessaire pour une application de fonction qui cible le runtime v2 ou une version ultérieure. Il n’y a aucune modification du schéma host.json entre v2 et v3.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

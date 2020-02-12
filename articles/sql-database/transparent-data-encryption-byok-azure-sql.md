@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 11/19/2019
-ms.openlocfilehash: 4f1fe1ea031cd7831ffb24ee4302d6834a8d9976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/03/2019
+ms.openlocfilehash: 305af8e8acd7e7a54fae8c831d36bee0aad4ad6b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981886"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990978"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption Azure SQL avec une clé managée par le client
 
@@ -124,7 +124,7 @@ Après la restauration de l’accès à la clé, la sauvegarde de la base de don
 
 - Si l’accès à la clé est restauré dans un délai de 8 heures, la base de données sera automatiquement réparée dans l’heure suivante.
 
-- Si l’accès à la clé est restauré dans un délai supérieur à 8 heures, la réparation automatique n’est pas possible et la restauration de la base de données peut prendre beaucoup de temps en fonction de la taille de la base de données et nécessite l’ouverture d’un ticket de support. Une fois la base de données de nouveau en ligne, les paramètres précédemment configurés au niveau du serveur, tels que la configuration du [groupe de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), l’historique de la limite de restauration dans le temps ainsi que les balises seront perdus. Par conséquent, il est recommandé d’implémenter un système de notification qui vous permet d’identifier et de résoudre les problèmes d’accès aux clés sous-jacentes dans un délai de 8 heures.
+- Si l’accès à la clé est restauré dans un délai supérieur à huit heures, la réparation automatique n’est pas possible et la restauration de la base de données nécessite des étapes supplémentaires dans le portail et peut prendre beaucoup de temps, en fonction de la taille de la base de données. Une fois la base de données de nouveau en ligne, les paramètres précédemment configurés au niveau du serveur, tels que la configuration du [groupe de basculement](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), l’historique de la limite de restauration dans le temps ainsi que les balises **seront perdus**. Par conséquent, il est recommandé d’implémenter un système de notification qui vous permet d’identifier et de résoudre les problèmes d’accès aux clés sous-jacentes dans un délai de 8 heures.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>Révocation accidentelle de l’accès au protecteur TDE
 

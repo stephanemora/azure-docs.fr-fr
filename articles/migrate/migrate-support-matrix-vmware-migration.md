@@ -3,12 +3,12 @@ title: Prise en charge de la migration VMware dans Azure Migrate
 description: Découvrez la prise en charge de la migration VMware dans Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: e33811563063c0f8eb94b9927d07596d51cd45e4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e5a2f40611f6b358a8b5ff1dfb99cadebae4fab6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030924"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77013992"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Tableau de prise en charge pour la migration VMware
 
@@ -123,7 +123,15 @@ Quand vous configurez l’appliance de réplication en utilisant le modèle OVA 
 
 - En savoir plus sur les [conditions requises de l’appliance de réplication](migrate-replication-appliance.md#appliance-requirements) pour VMware.
 - MySQL doit être installé sur l’appliance. En savoir plus sur les [options d’installation](migrate-replication-appliance.md#mysql-installation).
-- En savoir plus sur les [URL](migrate-replication-appliance.md#url-access) auxquelles l’appliance de réplication doit accéder.
+- Découvrez les [URL](migrate-replication-appliance.md#url-access) et les [ports](migrate-replication-appliance.md#port-access) auxquels l’appliance de réplication doit accéder.
+
+## <a name="agent-based-ports"></a>Ports basés sur un agent
+
+**Appareil** | **Connection**
+--- | ---
+Machines virtuelles | Le service Mobility en cours d’exécution sur des machines virtuelles communique avec l'appliance de réplication locale (serveur de configuration) via le port HTTPS 443 entrant, pour la gestion de la réplication.<br/><br/> Les machines virtuelles envoient des données de réplication au serveur de traitement (s’exécutant sur l’ordinateur du serveur de configuration) sur le port HTTPS 9443 entrant. Ce port peut être modifié.
+Appliance de réplication | L’appliance de réplication orchestre la réplication avec Azure sur le port HTTPS 443 sortant.
+Serveur de traitement | Le serveur de traitement reçoit les données de réplication, les optimise et les chiffre, puis les envoie au stockage Azure via le port 443 sortant.<br/> Le serveur de processus s’exécute par défaut sur l’appliance de réplication.
 
 ## <a name="azure-vm-requirements"></a>Exigences des machines virtuelles Azure
 

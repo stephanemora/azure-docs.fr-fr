@@ -1,18 +1,18 @@
 ---
 title: Meilleures pratiques – Azure Batch
 description: Découvrez les meilleures pratiques et des conseils utiles pour le développement de votre solution Azure Batch.
-author: ju-shim
-ms.author: jushiman
+author: LauraBrenner
+ms.author: labrenne
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
-manager: gwallace
-ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+manager: evansma
+ms.openlocfilehash: 16fb2786f180b1e28b76d9246d599a871278d00d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026146"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022730"
 ---
 # <a name="azure-batch-best-practices"></a>Meilleures pratiques relatives à Azure Batch
 
@@ -152,3 +152,15 @@ Bien que cela soit rare, une tâche peut être retentée en interne en raison de
 ### <a name="security-isolation"></a>Isolation à des fins de sécurité
 
 À des fins d’isolation, si votre scénario nécessite l’isolation des travaux les uns des autres, vous devez isoler ces derniers en les plaçant dans des pools distincts. Un pool est la limite d’isolation de sécurité dans Batch et, par défaut, deux pools ne sont pas visibles l’un par l’autre ni en mesure de communiquer entre eux. Évitez d’utiliser des comptes Batch distincts comme méthode d’isolation.
+
+## <a name="moving"></a>Déplacement
+
+### <a name="move-batch-account-across-regions"></a>Déplacer un compte Batch entre régions 
+
+Il existe différents scénarios dans lesquels vous pouvez être amené à déplacer votre compte Batch existant d’une région à une autre. Par exemple, vous pouvez le déplacer vers une autre région dans le cadre de la planification d’une reprise d’activité après sinistre.
+
+Vous ne pouvez pas déplacer des comptes Azure Batch d’une région à l’autre. Toutefois, vous pouvez utiliser un modèle Azure Resource Manager pour exporter la configuration existante de votre compte Batch.  Vous pouvez ensuite déplacer la ressource dans une autre région en exportant le compte Batch vers un modèle, en modifiant les paramètres pour qu’ils correspondent à la région de destination, puis en déployant le modèle dans la nouvelle région. Après avoir chargé le modèle dans la nouvelle région, vous devrez recréer les certificats, les planifications des travaux et les packages d’application. Pour valider les changements et terminer le déplacement du compte Batch, n’oubliez pas de supprimer le groupe de ressources ou le compte Batch d’origine.  
+
+Pour plus d’informations sur Resource Manager et les modèles, consultez [Démarrage rapide : Créer et déployer des modèles Azure Resource Manager à l’aide du portail Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

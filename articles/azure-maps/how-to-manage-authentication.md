@@ -3,17 +3,17 @@ title: Gérer l’authentification | Microsoft Azure Maps
 description: Vous pouvez utiliser le portail Azure pour gérer l’authentification dans Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 01/16/2020
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1f7f128898089292a8ccd92686af5d68fe328f3c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f856aebe5e3acaca142e460d18ec8c6498b18787
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766076"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989208"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gérer l’authentification dans Azure Maps
 
@@ -21,40 +21,40 @@ Suite à la création d’un compte Azure Maps, un ID client et des clés sont c
 
 ## <a name="view-authentication-details"></a>Afficher les détails de l’authentification
 
-Après la création du compte Azure Maps, les clés primaires et secondaires sont générées. Utilisez la clé primaire comme clé d’abonnement. Parfois, ces noms sont utilisés de manière interchangeable. La clé secondaire est utilisable dans des scénarios tels que des changements de clé constants. Dans les deux cas, une clé est nécessaire pour appeler Azure Maps. Ce processus est appelé [authentification par clé partagée](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Pour en savoir plus sur l’authentification par clé partagée et l’authentification Azure AD, voir [Authentification avec Azure Maps](https://aka.ms/amauth).
+Après la création du compte Azure Maps, les clés primaires et secondaires sont générées. Il est recommandé d’utiliser la clé primaire comme clé d’abonnement lors de l’appel d’Azure Maps à l’aide de l’[authentification par clé partagée](https://docs.microsoft.com/azure/azure-maps/azure-maps-authentication#shared-key-authentication). Une clé secondaire peut être utilisée dans des scénarios tels que la modification de clés de substitution. Pour en savoir plus, voir [Authentification avec Azure Maps](https://aka.ms/amauth).
 
 Vous pouvez afficher les détails de votre authentification sur le portail Microsoft Azure. Accédez à votre compte, puis sélectionnez **Authentification** dans le menu **Paramètres**.
 
 ![Informations sur l’authentification](./media/how-to-manage-authentication/how-to-view-auth.png)
 
 
-## <a name="set-up-azure-ad-app-registration"></a>Configurer l’inscription d’application Azure AD
+## <a name="configure-azure-ad-app-registration"></a>Configurer l’inscription Azure AD App
 
-Dès lors qu’un compte Azure Map est créé, vous devez établir un lien entre votre locataire Azure AD et la ressource Azure Maps.
-
-1. Dans le menu du portail, sélectionnez **Azure Active Directory**. Donnez un nom à l’inscription. Cliquez sur **Inscriptions d’applications**, puis sur **Nouvelle inscription**. Dans la zone **URI de redirection**, indiquez la page d’accueil de l’application web. Par exemple : https://localhost/. Si vous disposez déjà d’une application inscrite, passez à l’étape 2.
+1. Sélectionnez **Azure Active Directory** dans la liste des services Azure dans le Portail Azure.  Sélectionnez **Inscriptions d’applications** et cliquez sur **Nouvelle inscription**.  Ensuite, Entrez **Nom**, choisissez **Type de compte pris en charge**, puis cliquez sur **Inscrire**.  Si vous disposez déjà d’une application inscrite, passez à l’étape 2. 
 
     ![Inscription d'application](./media/how-to-manage-authentication/app-registration.png)
 
     ![Détails de l’inscription d’application](./media/how-to-manage-authentication/app-create.png)
 
-2. Pour attribuer des autorisations d’API déléguées à Azure Maps, accédez à l’application sous **Inscriptions d’applications**, puis sélectionnez **Paramètres**. Sélectionnez **Ajouter une autorisation**. Recherchez et sélectionnez **Azure Maps** sous **Sélectionner une API**.
+2. Pour attribuer des autorisations d’API déléguées à Azure Maps, accédez à l’application sous **Inscriptions d’applications**. Sélectionnez ensuite **Autorisations d’API**, puis **Ajouter une autorisation**. Recherchez et sélectionnez **Azure Maps** sous **API utilisées par mon organisation**.
 
     ![Autorisations de l’API de l’application](./media/how-to-manage-authentication/app-permissions.png)
 
-3. Sous **Sélectionnez des autorisations**, activez la case à cocher **Emprunter l’identité de l’utilisateur**, puis cliquez sur le bouton **Sélectionner** en bas.
+3. Cochez **Accéder à Azure Maps**, puis cliquez sur **Ajouter des autorisations**.
 
     ![Sélection des autorisations de l’API de l’application](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Effectuez l’étape a ou b, selon la méthode d’authentification choisie.
+4. Effectuez l’étape a ou b, selon la méthode d’authentification choisie. 
 
-    1. Si votre application utilise l’authentification du jeton utilisateur avec le Kit de développement logiciel (SDK) Azure Maps, activez `oauth2AllowImplicitFlow` en lui affectant la valeur true dans la section Manifeste de votre inscription d’application.
+    1. Si votre application utilise l’authentification par jeton d’utilisateur avec le Kit de développement logiciel (SDK) web Azure Maps, activez `oauth2AllowImplicitFlow`. Pour activer `oauth2AllowImplicitFlow`, définissez le paramètre sur true dans la section Manifeste de l’inscription de votre application. 
     
        ![Manifeste de l’application](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. Si votre application utilise l’authentification du serveur ou de l’application, accédez au panneau **Certificats et secrets** de l’inscription de l’application, puis créez un mot de passe ou chargez un certificat de clé publique dans l’inscription d’application. Si vous créez un mot de passe, stockez-le en toute sécurité pour une utilisation ultérieure. Vous utiliserez ce mot de passe pour acquérir des jetons à partir d’Azure AD.
+    2. Si votre application utilise l’authentification du serveur ou de l’application, accédez au panneau **Certificats et secrets** de l’inscription de votre application, puis créez un mot de passe en cliquant sur **Nouvelle clé secrète client** ou chargez un certificat de clé publique dans l’inscription d’application. Si vous créez un mot de passe, après avoir cliqué sur **Ajouter**, copiez le mot de passe pour une utilisation ultérieure et stockez-le en toute sécurité. Vous utiliserez ce mot de passe pour acquérir des jetons à partir d’Azure AD.
 
        ![Clés de l’application](./media/how-to-manage-authentication/app-keys.png)
+
+       ![Ajouter une clé](./media/how-to-manage-authentication/add-key.png)
 
 
 ## <a name="grant-role-based-access-control-rbac-to-azure-maps"></a>Accorder un contrôle d’accès en fonction du rôle (RBAC) à Azure Maps

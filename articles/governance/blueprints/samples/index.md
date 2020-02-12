@@ -1,14 +1,14 @@
 ---
 title: Index des exemples de blueprint
 description: Index d’exemples de conformité et standard pour le déploiement d’environnements, de stratégies et de bases du Framework d’adoption du cloud avec Azure Blueprints.
-ms.date: 01/10/2020
+ms.date: 02/11/2020
 ms.topic: sample
-ms.openlocfilehash: fa5f02af6a0e59359d6bc3c2d24515fea535a0fa
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 88dde10efefd8153eff9aa6ad2ea47a1e00e2c87
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938308"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150457"
 ---
 # <a name="azure-blueprints-samples"></a>Exemples Azure Blueprints
 
@@ -20,6 +20,7 @@ Le tableau suivant inclut des liens vers des exemples pour Azure Blueprints. Cha
 |---------|---------|
 | [PBMM fédéral du Canada](./canada-federal-pbmm/index.md) | Propose des garde-fous pour la conformité au profil PBMN (Protected B, Medium Integrity, Medium Availability) fédéral du Canada. |
 | [CIS Microsoft Azure Foundations Benchmark](./cis-azure-1.1.0/index.md)| Fournit un ensemble de stratégies pour vous aider à vous conformer aux recommandations de CIS Microsoft Azure Foundations Benchmark. |
+| [DoD Impact Level 4](./dod-impact-level-4/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à DoD Impact Level 4. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | Fournit un ensemble de stratégies pour vous aider à vous conformer à FedRAMP Moderate. |
 | [FedRAMP High](./fedramp-h/index.md) | Fournit un ensemble de stratégies vous permettant de vous conformer à FedRAMP High. |
 | [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | Fournit un ensemble de stratégies permettant de se conformer à HIPAA HITRUST. |

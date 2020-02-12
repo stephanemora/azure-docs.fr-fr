@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772034"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990706"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Résoudre les problèmes d’appliance et de découverte Azure Migrate
 
@@ -39,14 +39,7 @@ Si vous recevez l’erreur « Le fichier manifeste indiqué n’est pas valide�
 Cela peut se produire si l’ordinateur de l’appliance se trouve derrière un proxy.
 
 - Veillez à fournir les informations d’identification pour l’autorisation si le proxy en a besoin.
-- Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, ajoutez ces URL à une liste verte :
-
-    - [URL pour l’évaluation VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL pour l’évaluation Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-    - [URL pour la migration sans agent VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL pour la migration basée sur l’agent VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [URL pour la migration Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-
+- Si vous utilisez un proxy de pare-feu basé sur des URL pour contrôler la connectivité sortante, ajoutez [ces URL](migrate-appliance.md#url-access) à une liste verte.
 - Si vous utilisez un proxy d’interception pour vous connecter à Internet, importez le certificat de proxy sur la machine virtuelle de l’appliance en suivant [ces étapes](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
 ##  <a name="datetime-synchronization-error"></a>Erreur de synchronisation de date/heure

@@ -3,7 +3,7 @@ title: Documentation de Language Understanding (LUIS)
 summary: Découvrez comment le service LUIS (Language Understanding) permet à vos applications de comprendre le sens des propos d’une personne.
 metadata:
   ms.topic: landing-page
-  ms.date: 11/22/2019
+  ms.date: 02/11/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -12,12 +12,12 @@ metadata:
   title: Documentation Language Understanding (LUIS)
   titleSuffix: Azure Cognitive Services
   description: Le service LUIS (Language Understanding) permet à votre application de comprendre le sens des propos d’une personne. Le service LUIS utilise l’apprentissage automatique pour permettre aux développeurs de créer des applications qui peuvent recevoir une entrée d’utilisateur dans un langage naturel et en extraire du sens.
-  ms.openlocfilehash: f45461b49b51d6d25464ffa7d2084b1bbb1f9e0e
-  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+  ms.openlocfilehash: 1d9b17bcf6817d3c94d191d54be26ce0ff1f14c2
+  ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/17/2020
-  ms.locfileid: "76169655"
+  ms.lasthandoff: 02/11/2020
+  ms.locfileid: "77137347"
 landingContent:
 - title: À propos de Language Understanding (LUIS)
   linkLists:
@@ -39,8 +39,8 @@ landingContent:
       url: whats-new.md
   - linkListType: video
     links:
-    - text: 'Tournée d’intelligence artificielle : LUIS'
-      url: https://azure.microsoft.com/resources/videos/whats-new-with-language-understanding-service-luis
+    - text: 'Ignite 2019 : Modèles NLU (Natural Language Understanding) avancés avec LUIS'
+      url: https://www.youtube.com/watch?v=JdJEV2jV0_Y
 - title: Créer des intentions, des entités et des fonctionnalités
   linkLists:
   - linkListType: concept

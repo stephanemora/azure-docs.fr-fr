@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2d12fa85fbc134ba2578795619db89f4a5058b26
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934756"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990587"
 ---
 # <a name="overview-of-azure-security-controls"></a>Vue d’ensemble des contrôles de sécurité Azure
 
@@ -51,4 +51,5 @@ Vos commentaires détaillés et votre participation active à la réussite du be
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Reportez-vous au premier contrôle de sécurité : [Sécurité du réseau](security-control-network-security.md)
+- Consultez l’[Introduction aux benchmarks de sécurité Azure](introduction.md)
 - Téléchargez la [feuille de calcul Excel de benchmark de sécurité Azure v1](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets)

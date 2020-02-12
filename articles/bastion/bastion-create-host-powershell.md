@@ -5,18 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6cae6d258da2ddf0c3bfaade65ae74f1201b67b7
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c3e4c2f2bac45f2e366764473a34b0536bb4cc44
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121076"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990451"
 ---
 # <a name="create-an-azure-bastion-host-using-azure-powershell"></a>Créer un hôte Azure Bastion à l’aide d’Azure PowerShell
 
-Dans cet article, découvrez comment créer un hôte Azure Bastion. Une fois que vous avez provisionné le service Azure Bastion dans votre réseau virtuel, l’expérience fluide RDP/SSH est disponible pour toutes vos machines virtuelles sur le même réseau virtuel. Ce déploiement est effectué par réseau virtuel et non par abonnement/compte ou machine virtuelle.
+Dans cet article, découvrez comment créer un hôte Azure Bastion à l’aide de PowerShell. Une fois que vous avez provisionné le service Azure Bastion dans votre réseau virtuel, l’expérience fluide RDP/SSH est disponible pour toutes les machines virtuelles du même réseau virtuel. Le déploiement Azure Bastion est effectué par réseau virtuel et non par abonnement/compte ou machine virtuelle.
+
+Vous pouvez éventuellement créer un hôte Azure Bastion à l’aide du [portail Azure](bastion-create-host-portal.md).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -28,7 +30,7 @@ Assurez-vous de disposer d’un abonnement Azure. Si vous ne disposez pas déjà
 
 Cette section vous permet de créer une ressource Azure Bastion à l’aide d’Azure PowerShell.
 
-1. Créez un réseau virtuel et un sous-réseau Azure Bastion associé. Vous devez créer un sous-réseau Azure Bastion à l’aide de la valeur de nom **AzureBastionSubnet**. Cette valeur permet à Azure de savoir dans quel sous-réseau déployer les ressources Bastion. Ceci est différent d’un sous-réseau de passerelle. Vous devez utiliser un sous-réseau d’au moins /27 ou plus grand (/27,/26, etc.). Créez le sous-réseau **AzureBastionSubnet** sans tables de routage ou délégations. Lorsque vous utilisez des groupes de sécurité réseau sur le sous-réseau **AzureBastionSubnet**, consultez la rubrique [Travailler avec des groupes de sécurité réseau](bastion-nsg.md).
+1. Créez un réseau virtuel et un sous-réseau Azure Bastion associé. Vous devez créer un sous-réseau Azure Bastion à l’aide de la valeur de nom **AzureBastionSubnet**. Cette valeur permet à Azure de savoir dans quel sous-réseau déployer les ressources Bastion. Ceci est différent d’un sous-réseau de passerelle. Vous devez utiliser un sous-réseau d’au moins /27 ou plus grand (/27, /26, etc.). Créez le sous-réseau **AzureBastionSubnet** sans tables de routage ou délégations. Si vous utilisez des groupes de sécurité réseau sur le sous-réseau **AzureBastionSubnet**, reportez-vous à l’article [Utiliser des groupes de sécurité réseau](bastion-nsg.md).
 
    ```azurepowershell-interactive
    $subnetName = "AzureBastionSubnet"
@@ -50,4 +52,6 @@ Cette section vous permet de créer une ressource Azure Bastion à l’aide d’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lisez les [questions fréquentes (FAQ) sur Bastion](bastion-faq.md).
+* Pour plus d’informations, lisez les [questions fréquentes (FAQ) sur Bastion](bastion-faq.md).
+
+* Pour utiliser des groupes de sécurité réseau avec le sous-réseau Azure Bastion, consultez [Utiliser des groupes de sécurité réseau](bastion-nsg.md).

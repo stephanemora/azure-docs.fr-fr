@@ -3,23 +3,21 @@ title: Créer des webhooks sur des règles dans Azure IoT Central | Microsoft Do
 description: Créer des webhooks dans Azure IoT Central pour informer automatiquement les autres applications lorsque des règles se déclenchent.
 author: viv-liu
 ms.author: viviali
-ms.date: 06/16/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: peterpr
-ms.openlocfilehash: 5c2bef7f3eb8d6f8d6d78755d839a33556259b65
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+manager: corywink
+ms.openlocfilehash: db4e48a7bff9127810b051a9ab63bbe9d78cf6da
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942554"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022424"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Créer des actions de webhook sur des règles dans Azure IoT Central
 
 *Cette rubrique s’applique aux créateurs et aux administrateurs.*
-
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
 Les webhooks vous permettent de connecter votre application IoT Central à d’autres applications et services à des fins de surveillance à distance et de notification. Les webhooks informent automatiquement les autres applications et services connectés dès lors qu’une règle est déclenchée dans votre application IoT Central. Votre application IoT Central envoie une requête POST à l’autre point de terminaison HTTP de l’application chaque fois qu’une règle est déclenchée. La charge utile contient les détails de l’appareil et les détails du déclencheur de la règle.
 
@@ -31,7 +29,7 @@ Dans cet exemple, vous vous connectez au point de terminaison RequestBin pour ê
 
 1. Créez un point de terminaison RequestBin et copiez **l’URL du fichier Bin**.
 
-1. Créez une [règle de télémétrie](howto-create-telemetry-rules.md) ou une [règle d’événement](howto-create-event-rules.md). Enregistrez la règle et ajoutez une nouvelle action.
+1. Créez une [règle de télémétrie](tutorial-create-telemetry-rules.md). Enregistrez la règle et ajoutez une nouvelle action.
 
     ![Écran de création d’un webhook](media/howto-create-webhooks/webhookcreate.png)
 
@@ -43,55 +41,44 @@ Quand la règle est déclenchée, une nouvelle requête apparaît dans RequestBi
 
 ## <a name="payload"></a>Payload
 
-Lorsqu’une règle est déclenchée, une requête HTTP POST est envoyée à l’URL de rappel contenant une charge utile json avec des mesures et les détails de l’appareil, de la règle et de l’application. Pour une règle de télémétrie, la charge utile se présente comme suit :
+Quand une règle est déclenchée, une requête HTTP POST est envoyée à l’URL de rappel contenant une charge utile json avec les détails de la télémétrie, de l’appareil, de la règle et de l’application. La charge utile peut ressembler à ceci :
 
 ```json
 {
-    "id": "ID",
-    "timestamp": "date-time",
-    "device" : {
-        "id":"ID",
-        "name":  "Refrigerator1",
-        "simulated" : true,
-        "deviceId": "deviceID",
-        "deviceTemplate":{
-            "id": "ID",
-            "version":"1.0.0"
-        },
-        "properties":{
-            "device":{
-                "firmwareversion":"1.0"
-            },
-            "cloud":{
-                "location":"One Microsoft Way"
-            }
-        },
-        "measurements":{
-            "telemetry":{
-                "temperature":20,
-                "pressure":10
-            }
-        }
-
-    },
+    "id": "<id>",
+    "displayName": "Webhook 1",
+    "timestamp": "2019-10-24T18:27:13.538Z",
     "rule": {
-        "id": "ID",
-        "name": "High temperature alert",
-        "enabled": true,
-        "deviceTemplate": {
-            "id":"GUID",
-            "version":"1.0.0"
-        }
+        "id": "<id>",
+        "displayName": "High temp alert",
+        "enabled": true
     },
+    "device": {
+        "id": "mx1",
+        "displayName": "MXChip IoT DevKit - mx1",
+        "instanceOf": "<device-template-id>",
+        "simulated": true,
+        "provisioned": true,
+        "approved": true
+    },
+    "data": [{
+        "@id": "<id>",
+        "@type": ["Telemetry"],
+        "name": "temperature",
+        "displayName": "Temperature",
+        "value": 66.27310467496761,
+        "interfaceInstanceName": "sensors"
+    }],
     "application": {
-        "id": "ID",
-        "name": "Contoso app",
-        "subdomain":"contoso-app"
+        "id": "<id>",
+        "displayName": "x - Store Analytics Checkout---PnP",
+        "subdomain": "<subdomain>",
+        "host": "<host>"
     }
 }
 ```
 
-## <a name="known-limitations"></a>Limites connues
+## <a name="known-limitations"></a>Limitations connues
 
 Actuellement, il n’existe aucun moyen de s’abonner/se désabonner de ces webhooks via une API de programmation.
 
@@ -99,4 +86,4 @@ Si vous avez des idées pour améliorer cette fonctionnalité, publiez vos sugge
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez découvert comment configurer et utiliser des webhooks, l’étape suivante suggérée est d’explorer comment [créer des workflows dans Microsoft Flow](howto-add-microsoft-flow.md).
+À présent que vous avez découvert comment configurer et utiliser des webhooks, l’étape suivante suggérée est de découvrir la [configuration des Groupes d’actions Azure Monitor](howto-use-action-groups.md).
