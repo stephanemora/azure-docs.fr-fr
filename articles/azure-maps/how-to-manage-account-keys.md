@@ -3,17 +3,17 @@ title: Gérer votre compte Azure Maps dans le portail Azure | Microsoft Azure Ma
 description: Dans cet article, vous allez apprendre à gérer votre compte Microsoft Azure Maps à l’aide du portail Azure.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 01/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 92c76780473372c3e2ef87cdf4da0f21a22d9ac6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: a983eab03e948d092af652962d75211eb8ee3e7b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911496"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025603"
 ---
 # <a name="manage-your-azure-maps-account"></a>Gérer votre compte Azure Maps
 
@@ -31,13 +31,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 4. Saisissez les informations associées au nouveau compte.
 
-![Entrer les informations du compte Azure Maps dans le portail Azure](./media/how-to-manage-account-keys/new-account-portal.png)
+[![Entrer les informations du compte Azure Maps dans le portail Azure](./media/how-to-manage-account-keys/new-account-portal.png)](./media/how-to-manage-account-keys/new-account-portal.png#lightbox)
 
 ## <a name="delete-an-account"></a>Supprimer un compte
 
 Vous pouvez supprimer un compte à partir du portail Azure. Accédez à la page de vue d’ensemble du compte, puis sélectionnez **Supprimer**.
 
-![Supprimer votre compte Azure Maps dans le portail Azure](./media/how-to-manage-account-keys/account-delete-portal.png)
+[![Supprimer votre compte Azure Maps dans le portail Azure](./media/how-to-manage-account-keys/account-delete-portal.png)](./media/how-to-manage-account-keys/account-delete-portal.png#lightbox)
 
 Une page de confirmation s’affiche. Vous pouvez confirmer la suppression de votre compte en saisissant son nom.
 

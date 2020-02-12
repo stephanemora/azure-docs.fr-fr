@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028514"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024141"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Présentation de l’enrichissement incrémentiel et de la mise en cache dans Recherche cognitive Azure
 
@@ -26,7 +26,7 @@ L’enrichissement incrémentiel ajoute la mise en cache et l’état à un pipe
 
 L’enrichissement incrémentiel ajoute un cache au pipeline d’enrichissement. Cet indexeur met en cache les résultats du craquage de document, ainsi que les résultats de chaque compétence pour chaque document. Quand un ensemble de compétences est mis à jour, seules les compétences ayant changé ou situées en aval sont réexécutées. Les résultats mis à jour sont écrits dans le cache. Le document est mis à jour dans l’index ou dans la base de connaissances.
 
-Physiquement, le cache est stocké dans un conteneur d’objets blob de votre compte de stockage Azure. Tous les index d’un service de recherche peuvent partager le même compte de stockage pour le cache de l’indexeur. Chaque indexeur se voir affecté un identificateur de cache unique et non modifiable au conteneur qu’il utilise.
+Physiquement, le cache est stocké dans un conteneur d’objets blob de votre compte de stockage Azure. Le cache utilise également le stockage table pour un enregistrement interne des mises à jour de traitement. Tous les index d’un service de recherche peuvent partager le même compte de stockage pour le cache de l’indexeur. Chaque indexeur se voir affecté un identificateur de cache unique et non modifiable au conteneur qu’il utilise.
 
 ## <a name="cache-configuration"></a>Configuration du cache
 
@@ -97,7 +97,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 L’objectif du cache est d’éviter les traitements inutiles, mais supposons que vous apportiez une modification à une compétence que l’indexeur ne détecte pas (par exemple, en modifiant un texte dans du code externe, par exemple une compétence personnalisée).
 
-Dans ce cas, vous pouvez utiliser les [compétences de réinitialisation](preview-api-resetskills.md) pour forcer le retraitement d’une compétence en particulier, y compris les compétences en aval qui dépendent du résultat de cette compétence. Cette API accepte la requête POST avec une liste de compétences qui doit être invalidée et marquée pour retraitement. Après avoir réinitialisé les compétences, exécutez l’indexeur pour appeler le pipeline.
+Dans ce cas, vous pouvez utiliser les [compétences de réinitialisation](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) pour forcer le retraitement d’une compétence en particulier, y compris les compétences en aval qui dépendent du résultat de cette compétence. Cette API accepte la requête POST avec une liste de compétences qui doit être invalidée et marquée pour retraitement. Après avoir réinitialisé les compétences, exécutez l’indexeur pour appeler le pipeline.
 
 ## <a name="change-detection"></a>Détection des changements
 
@@ -136,39 +136,27 @@ Le traitement incrémentiel évalue la définition de votre ensemble de compéte
 * Apport de changements aux projections de la base de connaissances, qui entraînent une reprojection des documents
 * Changements des mappages de champs de sortie d’un indexeur, qui entraînent une reprojection des documents dans l’index
 
-## <a name="api-reference-content-for-incremental-enrichment"></a>Informations de référence sur l’API pour l’enrichissement incrémentiel
+## <a name="api-reference"></a>Informations de référence sur l'API
 
-REST `api-version=2019-05-06-Preview` fournit les API pour l’enrichissement incrémentiel, avec des ajouts aux indexeurs, aux ensembles de compétences et aux sources de données. La [documentation de référence officielle](https://docs.microsoft.com/rest/api/searchservice/) concerne les API disponibles publiquement et ne concerne pas les fonctionnalités en préversion. La section suivante fournit des informations de référence sur les API affectées.
+La version `2019-05-06-Preview` de l’API REST fournit un enrichissement incrémentiel par le biais de propriétés supplémentaires sur des indexeurs, des ensembles de compétences et des sources de données. En plus de la documentation de référence, consultez [Configurer la mise en cache pour l’enrichissement incrémentiel](search-howto-incremental-index.md) pour plus d’informations sur la façon d’appeler les API.
 
-Pour plus d’informations sur l’utilisation et les exemples, consultez [Configurer la mise en cache pour l’enrichissement incrémentiel](search-howto-incremental-index.md).
++ [Créer un indexeur (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-### <a name="indexers"></a>Indexeurs
++ [Mettre à jour un indexeur (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-[Créer un indexeur](https://docs.microsoft.com/rest/api/searchservice/create-indexer) et [Mettre à jour l’indexeur](https://docs.microsoft.com/rest/api/searchservice/update-indexer) exposent désormais de nouvelles propriétés relatives au cache :
++ [Mettre à jour un ensemble de compétences (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (nouveau paramètre d’URI sur la requête)
 
-+ `StorageAccountConnectionString`: Chaîne de connexion au compte de stockage servant à mettre en cache les résultats intermédiaires.
++ [Réinitialiser les compétences (api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ `EnableReprocessing`: A la valeur `true` par défaut. Quand il a la valeur `false`, les documents continuent d’être écrits dans le cache, mais aucun document existant n’est retraité en fonction des données du cache.
++ Indexeurs de base de données (SQL Azure, Cosmos DB). Certains indexeurs récupèrent les données par le biais de requêtes. Pour les requêtes qui récupèrent des données, [Mettre à jour la source de données](https://docs.microsoft.com/rest/api/searchservice/update-data-source) prend en charge un nouveau paramètre de requête **ignoreResetRequirement**, qui doit avoir la valeur `true` quand votre action de mise à jour ne doit pas invalider le cache. 
 
-+ `ID` (lecture seule) : `ID` est l’identificateur du conteneur dans le compte de stockage `annotationCache` qui est utilisé en tant que cache pour cet indexeur. Ce cache est unique pour cet indexeur. Si ce dernier est supprimé et recréé avec le même nom, `ID` est regénéré. `ID` ne peut pas être défini, il est toujours généré par le service.
-
-### <a name="skillsets"></a>Ensemble de compétences
-
-+ [Mettre à jour l’ensemble de compétences](https://docs.microsoft.com/rest/api/searchservice/update-skillset) prend en charge un nouveau paramètre dans la requête, `disableCacheReprocessingChangeDetection` qui doit être défini sur `true` lorsque vous ne voulez pas mettre à jour les documents existants en fonction de l’action actuelle.
-
-+ [Réinitialiser l’ensemble de compétences](preview-api-resetskills.md) est une nouvelle opération utilisée pour invalider un ensemble de compétences.
-
-### <a name="datasources"></a>Sources de données
-
-+ Certains indexeurs récupèrent les données par le biais de requêtes. Pour les requêtes qui récupèrent des données, [Mettre à jour la source de données](https://docs.microsoft.com/rest/api/searchservice/update-data-source) prend en charge un nouveau paramètre de requête `ignoreResetRequirement`, qui doit avoir la valeur `true` quand votre action de mise à jour ne doit pas invalider le cache.
-
-Utilisez la méthode `ignoreResetRequirement` avec parcimonie, car cela peut entraîner une incohérence involontaire de vos données, qui n’est pas facile à détecter.
+  Utilisez **ignoreResetRequirement** avec modération, car cela peut entraîner une incohérence involontaire de vos données, qui n’est pas facilement détectée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-L’enrichissement incrémentiel est une fonctionnalité puissante qui étend le suivi aux ensembles de compétences et à l’enrichissement par IA. Au fur et à mesure que vos ensembles de compétences évoluent, l’enrichissement incrémentiel vous permet d’effectuer le moins de travail possible tout en maintenant la cohérence de vos documents.
+L’enrichissement incrémentiel est une fonctionnalité puissante qui étend le suivi aux ensembles de compétences et à l’enrichissement par IA. L’enrichissement incrémentiel permet de réutiliser le contenu traité existant au fur et à mesure que vous itérez au sein de la conception de compétences.
 
-Pour commencer, ajoutez un cache à un indexeur existant, ou ajoutez le cache au moment de la définition d’un nouvel indexeur.
+En guise d’étape suivante, activez la mise en cache sur un indexeur existant ou ajoutez un cache lors de la définition d’un nouvel indexeur.
 
 > [!div class="nextstepaction"]
 > [Configurer la mise en cache pour l’enrichissement incrémentiel](search-howto-incremental-index.md)

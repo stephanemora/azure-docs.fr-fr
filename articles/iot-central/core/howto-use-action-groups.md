@@ -4,28 +4,26 @@ description: Exécutez plusieurs actions à partir d’une même règle IoT Cent
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: cc89033cedcdf185ce7e18c3981045e2a20569f5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7c60728ab501d03e9c40928e730225575e76efbc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942094"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023818"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Regrouper plusieurs actions à exécuter à partir d’une ou plusieurs règles
 
 *Cet article s’applique aux créateurs et aux administrateurs.*
 
-[!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
+Dans Azure IoT Central, vous créez des règles pour exécuter des actions quand une condition est satisfaite. Les règles sont basées sur la télémétrie des appareils ou sur des événements. Par exemple, vous pouvez avertir un opérateur quand la température d’un appareil dépasse un certain seuil. Cet article explique comment utiliser des *groupes d’actions* [Azure Monitor](../../azure-monitor/overview.md) pour attacher plusieurs actions à une règle IoT Central. Vous pouvez attacher un groupe d’actions à plusieurs règles. Un [groupe d’actions](../../azure-monitor/platform/action-groups.md) est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure.
 
-Dans Azure IoT Central, vous créez des règles pour exécuter des actions quand une condition est satisfaite. Les règles sont basées sur la télémétrie des appareils ou sur des événements. Par exemple, vous pouvez avertir un opérateur quand la température dans un appareil dépasse un certain seuil. Cet article décrit comment utiliser des *groupes d’actions* [Azure Monitor](../../azure-monitor/overview.md) pour attacher plusieurs actions à une règle IoT Central. Vous pouvez attacher un groupe d’actions à plusieurs règles. Un [groupe d’actions](../../azure-monitor/platform/action-groups.md) est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure.
+## <a name="prerequisites"></a>Conditions préalables requises
 
-## <a name="prerequisites"></a>Prérequis
-
-- Application avec paiement à l'utilisation
+- Application créée avec un plan tarifaire Standard
 - Un compte et un abonnement Azure pour créer et gérer des groupes d’actions Azure Monitor
 
 ## <a name="create-action-groups"></a>Créer des groupes d’actions
@@ -45,7 +43,7 @@ Pour utiliser un groupe d’actions dans une règle IoT Central, le groupe d’a
 
 ## <a name="use-an-action-group"></a>Utiliser un groupe d’actions
 
-Pour utiliser un groupe d’actions dans votre application IoT Central, créez d’abord une règle de télémétrie ou d’événement. Quand vous ajoutez une action à la règle, sélectionnez **Groupes d’actions Azure Monitor** :
+Pour utiliser un groupe d’actions dans votre application IoT Central, commencez par créer une règle. Quand vous ajoutez une action à la règle, sélectionnez **Groupes d’actions Azure Monitor** :
 
 ![Choisir une action](media/howto-use-action-groups/chooseaction.png)
 
@@ -59,57 +57,16 @@ Sélectionnez **Enregistrer**. Le groupe d’actions apparaît maintenant dans l
 
 Le tableau suivant récapitule les informations envoyées aux types d’actions pris en charge :
 
-| Type d’action | Format de sortie |
+| Type d'action | Format de sortie |
 | ----------- | -------------- |
 | Email       | Modèle d’e-mail standard IoT Central |
 | sms         | Alerte Azure IoT Central : ${nom_application} - « ${nom_règle} » déclenchée sur « ${nom_appareil} » le ${date_déclenchement} ${date_déclenchement} |
 | Voix       | Alerte Azure I.O.T Central : règle « ${nom_règle} » déclenchée sur l’appareil « ${nom_appareil} » le ${date_déclenchement} ${date_déclenchement}, dans l’application ${nom_application} |
-| webhook     | { « schemaId » : « AzureIoTCentralRuleWebhook », « données » : {[charge utile de webhook régulier](#payload)} } |
+| webhook     | { « schemaId » : "AzureIoTCentralRuleWebhook", "data": {[charge utile normale du webhook](howto-create-webhooks.md#payload)}} |
 
 Le texte suivant est un exemple de message SMS provenant d’un groupe d’actions :
 
-`iotcentral: Azure IoT Central alert: Sample Contoso 22xu4spxjve - "Low pressure alert" triggered on "Refrigerator 2" at March 20, 2019 10:12 UTC`
-
-<a id="payload"></a> Le JSON suivant montre une exemple de charge utile d’actions de webhook :
-
-```json
-{
-  "schemaId":"AzureIoTCentralRuleWebhook",
-  "data":{
-    "id":"97ae27c4-17c5-4e13-9248-65c7a2c57a1b",
-    "timestamp":"2019-03-20T10:53:17.059Z",
-    "rule":{
-      "id":"031b660e-528d-47bb-b33d-f1158d7e31bf",
-      "name":"Low pressure alert",
-      "enabled":true,
-      "deviceTemplate":{
-        "id":"c318d580-39fc-4aca-b995-843719821049",
-        "version":"1.0.0"
-      }
-    },
-    "device":{
-      "id":"2383d8ba-c98c-403a-b4d5-8963859643bb",
-      "name":"Refrigerator 2",
-      "simulated":true,
-      "deviceId":"2383d8ba-c98c-403a-b4d5-8963859643bb",
-      "deviceTemplate":{
-        "id":"c318d580-39fc-4aca-b995-843719821049",
-        "version":"1.0.0"
-      },
-      "measurements":{
-        "telemetry":{
-           "pressure":343.269190673549
-        }
-      }
-    },
-    "application":{
-      "id":"8e70742b-0d5c-4a1d-84f1-4dfd42e61c7b",
-      "name":"Sample Contoso",
-      "subdomain":"sample-contoso"
-    }
-  }
-}
-```
+`iotcentral: Azure IoT Central alert: Contoso - "Low pressure alert" triggered on "Motion sensor 2" at March 20, 2019 10:12 UTC`
 
 ## <a name="next-steps"></a>Étapes suivantes
 

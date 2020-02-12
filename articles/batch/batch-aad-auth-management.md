@@ -1,10 +1,10 @@
 ---
-title: Utiliser Azure Active Directory pour l’authentification de solutions de gestion Batch | Microsoft Docs
-description: Les applications créées avec Azure Resource Manager et le fournisseur de ressources Batch s’authentifient auprès d’Azure AD.
+title: Utiliser Azure Active Directory pour authentifier des solutions Batch Management
+description: Découvrez comment utiliser Azure Active Directory pour l’authentification à partir d’applications qui utilisent la bibliothèque Batch Management .NET.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: jushiman
-ms.openlocfilehash: 19aac0e25f9a036ce52d72a51e1ab7270eaaf3e5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: f1f47df841b61599b6aed8cd4d6715decd27a288
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029836"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025977"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Authentification de solutions de gestion Batch avec Active Directory
 

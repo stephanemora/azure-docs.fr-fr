@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 40c5f612b5b1571bb3d39f452d64a7005701f7c1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453973"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023801"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Créer et gérer une application Azure IoT Central sur le portail des CSP
 
@@ -23,27 +23,31 @@ En tant que fournisseur de solutions cloud, vous pouvez créer et gérer des app
 
 Pour commencer, connectez-vous à votre compte sur le portail des partenaires Microsoft et sélectionnez un client pour lequel vous voulez créer une application Azure IoT Central. Accédez à Gestion des services pour le client dans la barre de navigation de gauche.
 
-![Microsoft Partner Center, vue Client](media/howto-create-application-csp/image1.png)
+![Microsoft Partner Center, vue Client](media/howto-create-and-manage-applications-csp/image1.png)
 
 Azure IoT Central apparaît en tant que service pouvant être administré. Sélectionnez le lien Azure IoT Central sur la page pour créer des applications ou pour gérer des applications existantes pour ce client.
 
-![Azure IoT Central disponible pour la gestion](media/howto-create-application-csp/image2.png)
+![Azure IoT Central disponible pour la gestion](media/howto-create-and-manage-applications-csp/image2.png)
 
 Vous êtes dirigé vers la page Gestionnaire d’applications d’Azure IoT Central. Azure IoT Central conserve le contexte indiquant que vous venez du Microsoft Partner Center et que vous voulez gérer ce client particulier. Vous pouvez le constater d’après l’en-tête de la page Gestionnaire d’applications. Vous pouvez soit accéder à une application que vous avez déjà créée pour que ce client la gère, soit lui en créer une nouvelle.
 
-![Gestionnaire de création pour les fournisseurs de services cloud](media/howto-create-application-csp/image3.png)
+![Gestionnaire de création pour les fournisseurs de services cloud](media/howto-create-and-manage-applications-csp/image3.png)
 
 Pour créer une application Azure IoT Central, sélectionnez **Créer** dans le menu de gauche. Choisissez l’un des modèles sectoriels ou **Application héritée** pour créer une application à partir de zéro. Ceci charge la page de création d’application. Vous devez renseigner tous les champs de cette page, puis choisir **Créer**. Vous pouvez trouver plus d’informations sur chacun des champs ci-dessous.
 
-![Page Créer une application pour les fournisseurs de solutions cloud](media/howto-create-application-csp/image4.png)
+![Page Créer une application pour les fournisseurs de solutions cloud](media/howto-create-and-manage-applications-csp/image4.png)
 
-![Page Créer une application pour les fournisseurs de solutions cloud](media/howto-create-application-csp/image4-1.png)
+![Page Créer une application pour les fournisseurs de solutions cloud](media/howto-create-and-manage-applications-csp/image4-1.png)
 
-## <a name="payment-plan"></a>Plan de paiement
+![Page Créer une application pour les fournisseurs de solutions cloud - Informations de facturation](media/howto-create-and-manage-applications-csp/image4-2.png)
 
-En tant que fournisseur de solutions cloud, vous ne pouvez créer que des applications avec paiement au fur et à mesure. Pour faire une démonstration d’Azure IoT Central à votre client, vous pouvez créer une application d’essai à part. Pour plus d’informations sur les applications d’essai et les applications avec paiement au fur et à mesure, voir la [page des tarifs d’Azure IoT Central ](https://azure.microsoft.com/pricing/details/iot-central/).
+## <a name="pricing-plan"></a>Plan tarifaire
 
-## <a name="application-name"></a>Nom de l’application
+En tant que fournisseur de solutions cloud, vous pouvez uniquement créer des applications qui utilisent un plan tarifaire Standard. Pour faire une démonstration d’Azure IoT Central à votre client, vous pouvez créer séparément une application qui utilise le plan tarifaire Gratuit. Découvrez plus en détail les plans tarifaires Gratuit et Standard dans la [page des prix Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+
+En tant que fournisseur de solutions cloud, vous pouvez uniquement créer des applications qui utilisent un plan tarifaire Standard. Pour faire une démonstration d’Azure IoT Central à votre client, vous pouvez créer séparément une application qui utilise le plan tarifaire Gratuit. Découvrez plus en détail les plans tarifaires Gratuit et Standard dans la [page des prix Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
+
+## <a name="application-name"></a>Nom de l'application
 
 Le nom de votre application est affiché sur la page **Gestionnaire d’application** et dans chaque application Azure IoT Central. Vous pouvez choisir n’importe quel nom pour votre application Azure IoT Central. Choisissez un nom évocateur pour vous et les autres personnes de votre organisation.
 
@@ -71,10 +75,7 @@ Pour plus d’informations, consultez [Abonnements Azure](https://docs.microsoft
 
 ## <a name="region"></a>Région
 
-Choisissez la région ou la [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/) où vous voulez créer votre application Azure IoT Central. D’une façon générale, pour bénéficier de performances optimales, il est recommandé de choisir la région qui est physiquement la plus proche de vos appareils.
-
-> [!NOTE]
-> Les modèles d’application en préversion sont actuellement disponibles uniquement dans les emplacements en **Europe** et **États-Unis**.
+Choisissez la région ou la [zone géographique](https://azure.microsoft.com/global-infrastructure/geographies/) où vous voulez créer votre application Azure IoT Central. D’une façon générale, pour bénéficier de performances optimales, il est recommandé de choisir la région qui est physiquement la plus proche de vos appareils.
 
 Pour plus d’informations, voir [Régions Azure](https://azure.microsoft.com/global-infrastructure/regions/) et [Zones géographiques Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
@@ -85,11 +86,7 @@ Vous pouvez voir les régions dans lesquelles Azure IoT Central est disponible d
 
 ## <a name="application-template"></a>Modèle d’application
 
-Vous pouvez choisir le modèle d’application ci-dessous pour votre nouvelle application Azure IoT Central.
-
-| Modèle d’application | Description |
-| -------------------- | ----------- |
-| Application héritée   | Crée une application vide, que vous pouvez remplir avec vos propres modèles d’appareil et vos propres appareils. |
+Choisissez le modèle d’application que vous souhaitez utiliser pour votre application.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

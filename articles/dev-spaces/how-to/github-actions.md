@@ -1,17 +1,17 @@
 ---
 title: Actions GitHub & Azure Kubernetes Service
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
 description: Passez en revue et testez les modifications à partir d’une demande de tirage (pull request) directement dans Azure Kubernetes Service avec des actions GitHub et Azure Dev Spaces.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs, Actions GitHub, Helm, service Mesh, routage du service Mesh, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 7d96726e829154847744d9aec07a9cb0938f75de
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771119"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026096"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Actions GitHub & Azure Kubernetes Service (préversion)
 
@@ -58,7 +58,6 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 Enregistrez la sortie JSON, car elle est utilisée à une étape ultérieure.
 
-
 Utilisez [az aks show][az-aks-show] pour afficher l’*ID* de votre cluster AKS :
 
 ```cmd
@@ -93,7 +92,6 @@ Accédez à votre référentiel dupliqué, puis cliquez sur *Paramètres*. Cliqu
 1. *CLUSTER_NAME* : le nom de votre cluster AKS, dans cet exemple *MyAKS*.
 1. *CONTAINER_REGISTRY*: le *loginServer* pour l’ACR.
 1. *HOST* : l’hôte pour votre espace de développement, avec la forme *<MASTER_SPACE>.<APP_NAME>.<HOST_SUFFIX>* , dans cet exemple *dev.bikesharingweb.fedcab0987.eus.azds.io*.
-1. *HOST_SUFFIX* : le suffixe d’hôte pour votre espace de développement, dans cet exemple *fedcab0987.eus.azds.io*.
 1. *IMAGE_PULL_SECRET* : nom de la clé secrète que vous souhaitez utiliser, par exemple *demo-secret*.
 1. *MASTER_SPACE* : le nom de votre espace de développement parent, dans cet exemple *dev*.
 1. *REGISTRY_USERNAME* : le *clientId* à partir de la sortie JSON de la création du principal de service.
@@ -101,6 +99,8 @@ Accédez à votre référentiel dupliqué, puis cliquez sur *Paramètres*. Cliqu
 
 > [!NOTE]
 > Tous ces secrets sont utilisés par l’action GitHub et sont configurés dans [.gitHub/workflows/bikes.yml][github-action-yaml].
+
+Si vous souhaitez mettre à jour l’espace maître après la fusion de votre demande de tirage (pull request), ajoutez le secret *GATEWAY_HOST* au format *<ESPACE_MAÎTRE>.gateway.<SUFFIXE_HÔTE>* , comme dans l’exemple *dev.gateway.fedcab0987.eus.azds.io*. Une fois que vous avez fusionné vos modifications dans la branche maître de votre duplication (fork), une autre action est exécutée pour regénérer et exécuter l’intégralité de votre application dans l’espace de développement maître. Dans cet exemple, l’espace maître est *dev*. Cette action est configurée dans [.gitHub/workflows/bikesharing.yml][github-action-bikesharing-yaml].
 
 ## <a name="create-a-new-branch-for-code-changes"></a>Créer une branche pour les modifications de code
 

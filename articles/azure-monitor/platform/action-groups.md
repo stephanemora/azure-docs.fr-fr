@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659829"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030742"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 Un groupe d’actions est une collection de préférences de notification définies par le propriétaire d’un abonnement Azure. Les alertes Azure Monitor et Service Health utilisent des groupes d’actions pour avertir les utilisateurs qu’une alerte a été déclenchée. Plusieurs alertes peuvent utiliser le même groupe d’actions ou des groupes d’actions différents selon les besoins de l’utilisateur. Vous pouvez configurer jusqu'à 2 000 groupes d'actions au sein d'un abonnement.
@@ -62,7 +62,7 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
 ## <a name="manage-your-action-groups"></a>Gérer des groupes d’actions
 
-Après sa création, un groupe d’actions apparaît dans la section **Groupes d’actions** du volet **Moniteur**. Sélectionnez le groupe d’actions que vous souhaitez gérer pour :
+Une fois que vous avez créé un groupe d’actions, vous pouvez voir les **groupes d’actions** en sélectionnant **Gérer les actions** dans la page d’arrivée **Alertes** du volet **Monitor**. Sélectionnez le groupe d’actions que vous souhaitez gérer pour :
 
 * Ajouter, modifier ou supprimer des actions.
 * Supprimer le groupe d’actions.
@@ -94,7 +94,7 @@ Envoyer un message aux membres du rôle de l’abonnement.
 Vous pouvez avoir un nombre limité d’actions d’e-mail par groupe d’actions. Consultez l’article [Informations de limitation du débit](./../../azure-monitor/platform/alerts-rate-limiting.md).
 
 ### <a name="function"></a>Fonction
-Les touches de fonction de Function Apps, qui sont configurées comme actions, sont lues par le biais de l’API Functions, ce qui nécessite actuellement l’utilisation d’applications de fonction v2 pour définir le paramètre d’application AzureWebJobsSecretStorageType sur « files » (fichiers). Consultez [Modifications apportées à la gestion de clés dans les fonctions V2]( https://aka.ms/funcsecrets) pour plus d’informations.
+Appelle un point de terminaison de déclencheur HTTP existant dans [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 Vous pouvez avoir un nombre limité d’actions de fonction par groupe d’actions.
 

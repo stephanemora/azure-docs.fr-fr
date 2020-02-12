@@ -11,12 +11,12 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d51213402f852daee8fe4a6b5dbbd473afda659
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 3170ca428b0b06f3d76bfd6037f75f345a2a466a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122455"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989669"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notes de publication pour Azure SQL Data Warehouse
 
@@ -38,6 +38,7 @@ Utilisez la version identifiée pour confirmer la version qui a été appliquée
 | --- | --- |
 |**Métriques du portail de gestion des charges de travail**|Depuis le lancement de la préversion de la fonctionnalité d'[isolation des charges de travail](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) en octobre dernier, les utilisateurs peuvent créer leurs propres [groupes de charges de travail](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) pour gérer efficacement les ressources système et garantir le respect des contrats SLA d'entreprise.  Dans le cadre des améliorations globales apportées à la [gestion des charges de travail](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) d'Azure Synapse Analytics, de nouvelles [métriques de supervision de la gestion des charges de travail](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) sont désormais disponibles.</br> </br> La supervision de votre charge de travail est désormais plus claire grâce aux métriques suivantes : </br> - Pourcentage de ressources limitées réelles  </br> - Pourcentage minimal de ressources réelles </br> - Requêtes actives du groupe de charge de travail </br> - Allocation du groupe de charge de travail par pourcentage maximal de ressources </br> - Allocation du groupe de charge de travail par pourcentage système </br> - Délais d'expiration des requêtes du groupe de charge de travail </br> - Requêtes en file d'attente du groupe de charge de travail </br></br> Utilisez ces métriques pour identifier les [goulots d'étranglement des groupes de charges de travail](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) ou les groupes de charges de travail configurés avec une [isolation de charge de travail sous-utilisée](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation).  Ces métriques peuvent être utilisées sur le portail Azure, qui permet le fractionnement par groupe de charge de travail.  Filtrez et épinglez vos graphiques favoris sur un tableau de bord pour accéder rapidement aux insights.|
 |**Métriques de supervision du portail**| Les métriques suivantes ont été ajoutées au portail pour superviser l'activité globale des requêtes : </br> - Requêtes actives </br> - Requêtes mises en file d'attente </br> </br>Ces métriques sont décrites avec les métriques existantes dans la [documentation relative à la supervision de l'utilisation des ressources et de l'activité des requêtes](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
+|**Nom du produit**|D’ici juin 2020, le nom du produit retourné par SELECT @@VERSION passera de Microsoft Azure SQL Data Warehouse à Azure Synapse Analytics. Nous publierons le calendrier dans nos notes de mise à jour. Ce changement s’applique aux clients qui analysent le nom du produit à partir du résultat de SELECT @@VERSION dans leur code d’application. Pour éviter les modifications du code d’application dues à la repersonnalisation du produit, utilisez ces commandes pour demander à SERVERPROPERTY le nom et la version du produit de base de données. </br> Pour retourner le numéro de version DW XX.X.XXXXX.X (sans nom de produit), exécutez cette commande : SELECT SERVERPROPERTY(’ProductVersion’) </br> Pour retourner l’édition du moteur, exécutez cette commande qui retourne 6 pour Azure Synapse Analytics (anciennement SQL Data Warehouse) : SELECT SERVERPROPERTY(’EngineEdition’)|
 
 ## <a name="october-2019"></a>2 octobre 2019
 
@@ -156,7 +157,7 @@ Utilisez la version identifiée pour confirmer la version qui a été appliquée
 ## <a name="more-information"></a>Informations complémentaires
 
 - [Blog – Azure SQL Data Warehouse](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [Blogs de l’équipe de conseil clientèle](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [Blogs de l’équipe de conseil clientèle](https://docs.microsoft.com/archive/blogs/sqlcat/)
 - [Témoignages de clients](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Forum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

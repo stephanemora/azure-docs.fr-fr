@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440219"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023512"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Transformation de la source d’un mappage de flux de données 
 
@@ -44,6 +44,8 @@ Une fois que vous avez ajouté une source, configurez-la à l’aide de l’ongl
 
 ![Onglet Paramètres de la source](media/data-flow/source1.png "Onglet Paramètres de la source")
 
+**Tester la connexion :** Faites un test pour déterminer si le service Spark du flux de données peut se connecter au service lié utilisé dans votre jeu de données source. Le mode de débogage doit être activé pour que cette fonctionnalité soit activée.
+
 **Dérive de schéma :** La [dérive de schéma](concepts-data-flow-schema-drift.md) est la capacité de la fabrique de données à gérer nativement des schémas flexibles dans vos flux de données sans avoir besoin de définir explicitement des changements de colonnes.
 
 * Cochez la case **Autoriser la dérive de schéma** si les colonnes sources sont amenées à changer souvent. Ce paramètre autorise tous les champs sources entrants à circuler jusqu’au récepteur, par le biais des transformations.
@@ -69,13 +71,17 @@ Comme les schémas des jeux de données, la projection d’une source définit l
 
 ![Paramètres de l’onglet Projection](media/data-flow/source3.png "Projection")
 
-Si votre fichier texte ne comporte aucun schéma défini, sélectionnez **Détecter le type de données** afin que Data Factory échantillonne et déduise les types de données. Sélectionnez **Définir le format par défaut** pour détecter automatiquement les formats de données par défaut. 
+Si votre fichier texte ne comporte aucun schéma défini, sélectionnez **Détecter le type de données** afin que Data Factory échantillonne et déduise les types de données. Sélectionnez **Définir le format par défaut** pour détecter automatiquement les formats de données par défaut.
+
+**Réinitialiser le schéma** réinitialise la projection en fonction de ce qui est défini dans le jeu de données référencé.
 
 Vous pouvez modifier les types de données des colonnes lors d’une transformation de colonne dérivée en aval. Utilisez une transformation de sélection pour modifier les noms de colonnes.
 
 ### <a name="import-schema"></a>Importer un schéma
 
-Les jeux de données, tels que Avro et CosmosDB, qui prennent en charge des structures de données complexes n’ont pas besoin de définitions de schéma pour exister dans le jeu de données. Par conséquent, vous pouvez cliquer sur le bouton **Importer un schéma** sous l’onglet **Projection** de ces types de sources.
+Le bouton **Importer un schéma** sous l’onglet **Projection** vous permet d’utiliser un cluster de débogage actif pour créer une projection de schéma. Disponible dans chaque type de source, l’importation du schéma ici remplace la projection définie dans le jeu de données. L’objet de jeu de données ne sera pas changé.
+
+Cela est utile dans les jeux de données tels que Avro et CosmosDB qui prennent en charge des structures de données complexes et qui n’ont pas besoin de définitions de schéma pour exister dans le jeu de données.
 
 ## <a name="optimize-the-source-transformation"></a>Optimiser la transformation de la source
 

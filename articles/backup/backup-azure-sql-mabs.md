@@ -3,12 +3,12 @@ title: Sauvegarde SQL Server avec le serveur de sauvegarde Azure
 description: Dans cet article, vous allez découvrir les étapes de configuration de la sauvegarde des bases de données SQL Server à l’aide du serveur de sauvegarde Microsoft Azure.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: d5e0c49e2cad77e42960fafec9311b31d4cf2601
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 461faa2c88b8db9c1e3b2f9af19783b7d6b7fa07
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172661"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024005"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Sauvegarder des données SQL Server vers Azure à l’aide du serveur de sauvegarde Azure
 
@@ -51,7 +51,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
    >
    >
 
-8. Cliquez sur **Suivant**
+8. Cliquez sur **Suivant**.
 
     Le serveur de sauvegarde Microsoft Azure affiche l’espace de stockage global disponible et l’utilisation potentielle de l’espace disque.
 
@@ -101,7 +101,7 @@ Avant de commencer, assurez-vous d’avoir [installé et préparé le serveur de
 14. Cliquez sur **Suivant** et sélectionnez l'option appropriée pour le transfert de la copie de sauvegarde initiale vers Azure. Vous pouvez choisir **Automatiquement sur le réseau** ou **Sauvegarde hors connexion**.
 
     * **Automatiquement sur le réseau** transfère les données de sauvegarde vers Azure en respectant la planification de sauvegarde sélectionnée.
-    * Le fonctionnement de la **Sauvegarde en mode hors connexion** est décrit à dans la section [Flux de travail de sauvegarde en mode hors connexion dans Azure Backup](backup-azure-backup-import-export.md).
+    * Le fonctionnement de la **sauvegarde hors connexion** est expliqué dans [Vue d’ensemble de la sauvegarde hors connexion](offline-backup-overview.md).
 
     Choisissez le mécanisme de transfert adapté à l'envoi de la copie de sauvegarde initiale vers Azure, puis cliquez sur **Suivant**.
 15. Après avoir passé en revue les détails de la stratégie dans l’écran **Résumé**, cliquez sur le bouton **Créer un groupe** pour terminer le flux de travail. Vous pouvez cliquer sur le bouton **Fermer** et surveiller la progression du travail d'analyse de l'espace de travail.

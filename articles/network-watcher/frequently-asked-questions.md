@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 1cc3664ff8472a6b5a73fa89588611f59ac27e6a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: de644e49d998ad260532078de5c93c482cbc6fbc
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720264"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029489"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Questions fréquentes (FAQ) sur Azure Network Watcher
 Le service [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre une suite d’outils permettant de superviser, diagnostiquer, consulter des métriques, ainsi qu’activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure. Cet article répond aux questions courantes sur le service.
@@ -54,17 +54,29 @@ Visitez la page [Tarification](https://azure.microsoft.com/pricing/details/netwo
 ### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Dans quelles régions Network Watcher est-il pris en charge/disponible ?
 Vous pouvez consulter la disponibilité régionale la plus récente sur la [page de disponibilité des services Azure](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher)
 
-### <a name="what-are-resource-limits-on-network-watcher"></a>Quelles sont les limites des ressources sur Network Watcher ?
-Consultez la page [Limites du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) pour connaître toutes les limites.  
+### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Quelles sont les autorisations nécessaires pour utiliser Network Watcher ?
+Consultez la liste des [autorisations RBAC nécessaires pour utiliser Network Watcher](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions). Pour déployer des ressources, vous devez disposer d’autorisations de contributeur sur NetworkWatcherRG (voir ci-dessous).
 
-### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Pourquoi une seule instance de Network Watcher est-elle autorisée par région ?
-Network Watcher n’a besoin d’être activé qu’une seule fois au niveau d’un abonnement pour que ses fonctionnalités soient utilisables ; il ne s’agit pas d’une limite de service.
+### <a name="how-do-i-enable-network-watcher"></a>Comment faire pour activer Network Watcher ?
+Le service Network Watcher est [activé automatiquement](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) pour chaque abonnement.
+
+### <a name="what-is-the-network-watcher-deployment-model"></a>Qu’est-ce que le modèle de déploiement Network Watcher ?
+La ressource parente Network Watcher est déployée avec une instance unique sur chaque région. Format de nommage : NetworkWatcher_NomRégion. Exemple : NetworkWatcher_centralus est la ressource Network Watcher pour la région « USA Centre ».
+
+### <a name="what-is-the-networkwatcherrg"></a>Qu’est-ce que NetworkWatcherRG ?
+Les ressources Network Watcher se trouvent dans le groupe de ressources **NetworkWatcherRG** masqué, qui est créé automatiquement. Par exemple, la ressource Journaux de flux NSG est une ressource enfant de Network Watcher, qui est activée dans NetworkWatcherRG.
 
 ### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Pourquoi dois-je installer l’extension Network Watcher ? 
 L’extension Network Watcher est requise pour toute fonctionnalité qui doit générer ou intercepter le trafic à partir d’une machine virtuelle. 
 
 ### <a name="which-features-require-the-network-watcher-extension"></a>Quelles fonctionnalités nécessitent l’extension Network Watcher ?
-Seule la capture de paquets, la résolution des problèmes de connexion et du moniteur de connexion requièrent que l’extension Network Watcher soit présente.
+Les fonctionnalités Capture de paquets, Résolution des problèmes de connexion et Moniteur de connexion nécessitent la présence de l’extension Network Watcher.
+
+### <a name="what-are-resource-limits-on-network-watcher"></a>Quelles sont les limites des ressources sur Network Watcher ?
+Consultez la page [Limites du service](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) pour connaître toutes les limites.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>Pourquoi une seule instance de Network Watcher est-elle autorisée par région ?
+Network Watcher n’a besoin d’être activé qu’une seule fois au niveau d’un abonnement pour que ses fonctionnalités soient utilisables ; il ne s’agit pas d’une limite de service.
 
 ## <a name="nsg-flow-logs"></a>Journaux de flux NSG
 
@@ -85,7 +97,7 @@ Vous pouvez consulter les journaux de stockage au bout de quelques minutes. Vous
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>Comment utiliser des journaux de flux NSG sur un compte de stockage derrière un point de terminaison de service ?
 
-Les journaux de flux NSG sont compatibles avec des points de terminaison de service et ne nécessitent pas de configuration supplémentaire. Consultez le [tutoriel sur l’activation des points de terminaison de service](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) dans votre réseau virtuel.
+Les journaux de flux NSG sont compatibles avec les points de terminaison de service et ne nécessitent aucune configuration supplémentaire. Consultez le [tutoriel sur l’activation des points de terminaison de service](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) dans votre réseau virtuel.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Quelle est la différence entre les versions 1 et 2 des journaux de flux ?

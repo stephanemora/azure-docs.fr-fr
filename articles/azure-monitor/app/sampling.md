@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281068"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989975"
 ---
 # <a name="sampling-in-application-insights"></a>Échantillonnage dans Application Insights
 
@@ -34,7 +34,7 @@ Lorsque les métriques sont présentées dans le portail, elles sont renormalis�
 
 Le tableau suivant récapitule les types d’échantillonnage disponibles pour chaque SDK et chaque type d’application :
 
-| Kit SDK Application Insights | Échantillonnage adaptatif pris en charge | Échantillonnage à fréquence fixe pris en charge | Échantillonnage d’ingestion pris en charge |
+| Kit de développement logiciel (SDK) Application Insights | Échantillonnage adaptatif pris en charge | Échantillonnage à fréquence fixe pris en charge | Échantillonnage d’ingestion pris en charge |
 |-|-|-|-|
 | ASP.NET | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-aspnet-applications) | [Oui](#configuring-fixed-rate-sampling-for-aspnet-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
 | ASP.NET Core | [Oui (activé par défaut)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Oui](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Seulement si aucun autre échantillonnage n’est appliqué |
@@ -347,12 +347,13 @@ Voici les types de données de télémétrie qu’il est possible d’inclure ou
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>Configuration de l’échantillonnage à fréquence fixe pour les applications OpenCensus Python
 
-1. Instrumentez votre application avec les derniers [exportateurs OpenCensus Azure Monitor](../../azure-monitor/app/opencensus-python.md).
+Instrumentez votre application avec les derniers [exportateurs OpenCensus Azure Monitor](../../azure-monitor/app/opencensus-python.md).
 
 > [!NOTE]
-> L’échantillonnage à taux fixe est uniquement disponible à l’aide de l’exportateur de traces. Cela signifie que les demandes entrantes et sortantes sont les seuls types de télémétrie où l’échantillonnage peut être configuré.
+> L’échantillonnage à fréquence fixe n’est pas disponible pour l’exportateur de métriques. Cela signifie que les métriques personnalisées sont les seuls types de données de télémétrie dans lesquels l’échantillonnage ne peut PAS être configuré. L’exportateur de métriques envoie toutes les données de télémétrie qu’il suit.
 
-2. Vous pouvez spécifier un `sampler` dans le cadre de votre configuration `Tracer`. Si aucun échantillonneur explicite n’est fourni, `ProbabilitySampler` est utilisé par défaut. `ProbabilitySampler` utilise par défaut un taux de 1/10 000 par défaut, ce qui signifie qu’une requête sur 10 000 est envoyée à Application Insights. Si vous souhaitez spécifier un taux d’échantillonnage, voir ci-dessous.
+#### <a name="fixed-rate-sampling-for-tracing"></a>Échantillonnage à fréquence fixe pour le suivi ####
+Vous pouvez spécifier un `sampler` dans le cadre de votre configuration `Tracer`. Si aucun échantillonneur explicite n’est fourni, `ProbabilitySampler` est utilisé par défaut. `ProbabilitySampler` utilise par défaut un taux de 1/10 000 par défaut, ce qui signifie qu’une requête sur 10 000 est envoyée à Application Insights. Si vous souhaitez spécifier un taux d’échantillonnage, voir ci-dessous.
 
 Pour spécifier un taux d’échantillonnage, vérifiez que votre `Tracer` spécifie un échantillonneur avec un taux d’échantillonnage compris entre 0,0 et 1,0 (inclusivement). Un taux d’échantillonnage de 1,0 représente 100 %, ce qui signifie que toutes vos requêtes sont envoyées sous forme de télémétrie à Application Insights.
 
@@ -362,6 +363,16 @@ tracer = Tracer(
         instrumentation_key='00000000-0000-0000-0000-000000000000',
     ),
     sampler=ProbabilitySampler(1.0),
+)
+```
+
+#### <a name="fixed-rate-sampling-for-logs"></a>Échantillonnage à fréquence fixe pour les journaux ####
+Vous pouvez configurer l’échantillonnage à fréquence fixe pour `AzureLogHandler` en modifiant l’argument facultatif `logging_sampling_rate`. Si aucun argument n’est fourni, un taux d’échantillonnage de 1,0 est utilisé. Un taux d’échantillonnage de 1,0 représente 100 %, ce qui signifie que toutes vos requêtes sont envoyées sous forme de télémétrie à Application Insights.
+
+```python
+exporter = metrics_exporter.new_metrics_exporter(
+    instrumentation_key='00000000-0000-0000-0000-000000000000',
+    logging_sampling_rate=0.5,
 )
 ```
 
@@ -531,7 +542,7 @@ La précision de l’approximation dépend en grande partie du pourcentage d’�
 
 *Je souhaite que certains événements rares soient toujours affichés. Comment faire en sorte qu’ils soient disponibles hors du module d’échantillonnage ?*
 
-* La meilleure façon d’y parvenir consiste à écrire un [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) personnalisé qui définit le `SamplingPercentage` sur 100 sur l’élément de télémétrie que vous souhaitez conserver, comme indiqué ci-dessous. Les initialiseurs étant assurés d’être exécutés avant les processeurs de télémétrie (échantillonnage compris), toutes les techniques d’échantillonnage ignorent cet élément des considérations d’échantillonnage.
+* La meilleure façon d’y parvenir consiste à écrire un [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) personnalisé qui définit le `SamplingPercentage` sur 100 sur l’élément de télémétrie que vous souhaitez conserver, comme indiqué ci-dessous. Les initialiseurs étant assurés d’être exécutés avant les processeurs de télémétrie (échantillonnage compris), toutes les techniques d’échantillonnage ignorent cet élément des considérations d’échantillonnage. Des initialiseurs de données de télémétrie personnalisés sont disponibles dans les kits SDK ASP.NET, ASP.NET Core, JavaScript et Java. Par exemple, vous pouvez configurer un initialiseur de données de télémétrie à l’aide du SDK ASP.NET :
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer

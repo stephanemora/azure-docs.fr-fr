@@ -1,4 +1,4 @@
-- name: Documentations Azure Blueprints
+- name: Documentation Azure Blueprints
   href: index.yml
 - name: Vue d’ensemble
   items:
@@ -52,6 +52,17 @@
         - name: Étapes de déploiement
           displayName: 'standards, cis'
           href: ./samples/cis-azure-1.1.0/deploy.md
+    - name: "DoD Impact Level\_4"
+      items:
+        - name: Vue d’ensemble
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/index.md
+        - name: Correspondance des contrôles
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/control-mapping.md
+        - name: Étapes de déploiement
+          displayName: 'standards, DoD, IL4'
+          href: ./samples/dod-impact-level-4/deploy.md
     - name: FedRAMP Niveau modéré
       items:
         - name: Vue d’ensemble

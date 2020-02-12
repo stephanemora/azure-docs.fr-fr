@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: bba4196547bda3d3ddcf3344032de5b9286639a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996746"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026113"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -96,7 +96,7 @@ New Supported Version List
 * Pour les nouvelles versions **mineures** de Kubernetes
   * Tous les utilisateurs sont informés publiquement de la nouvelle version et de la version qui sera supprimée.
   * Lorsqu’une nouvelle version de patch est publiée, la version la plus ancienne est supprimée en même temps.
-  * Les clients ont **60 jours** à compter de la date de notification publique pour mettre à niveau vers une version mineure prise en charge.
+  * Les clients ont **30 jours** à partir de la date de notification publique pour effectuer une mise à niveau vers une version mineure prise en charge.
 * Pour les nouvelles versions de **correctif** de Kubernetes
   * Tous les utilisateurs sont informés de la sortie de la nouvelle version du correctif et de la mise à niveau vers la dernière version du correctif.
   * Les utilisateurs ont **30 jours** pour mettre à niveau vers une nouvelle version de patch supportée. Les utilisateurs ont **30 jours** pour mettre à niveau vers une version de correctif prise en charge avant que le plus ancien ne soit supprimé.
@@ -135,7 +135,7 @@ Pour savoir quelles sont les versions disponibles pour vos abonnement et région
 az aks get-versions --location eastus --output table
 ```
 
-## <a name="faq"></a>Forum Aux Questions
+## <a name="faq"></a>Questions fréquentes (FAQ)
 
 **Que se passe-t-il quand un client met à niveau un cluster Kubernetes avec une version mineure qui n’est pas prise en charge ?**
 

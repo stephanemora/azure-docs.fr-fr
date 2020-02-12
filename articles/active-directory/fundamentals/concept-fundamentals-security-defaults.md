@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fbb6170aa54c286a5a2d8353c1dd951859fdf8a0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978905"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024583"
 ---
 # <a name="what-are-security-defaults"></a>Présentation des paramètres de sécurité par défaut
 
@@ -94,6 +94,8 @@ Il est important de vérifier l’identité des utilisateurs qui souhaitent acc�
 Une fois que vous avez activé les paramètres de sécurité par défaut dans votre locataire, tout utilisateurs accédant au Portail Azure, à Azure PowerShell ou à Azure CLI doit effectuer une authentification supplémentaire. Cette stratégie s’applique à tous les utilisateurs accédant à Azure Resource Manager, qu’ils soient administrateurs ou utilisateurs. 
 
 Si l’utilisateur n’est pas inscrit pour Multi-Factor Authentication, celui-ci devra s’inscrire à l’aide de l’application d’authentification Microsoft Authenticator pour continuer. Aucune période d’inscription Multi-Factor Authentication de 14 jours n’est fournie.
+
+L’authentification moderne est désactivée par défaut pour les locataires Exchange Online antérieurs à 2017. Pour éviter la possibilité d’une boucle de connexion lors de l’authentification par le biais de ces locataires, vous devez [activer l’authentification moderne](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > Le compte de synchronisation Azure AD Connect est exclu des paramètres de sécurité par défaut et ne sera pas invité à s’inscrire ou à effectuer une authentification multifacteur. Les organisations ne doivent pas utiliser ce compte à d’autres fins.

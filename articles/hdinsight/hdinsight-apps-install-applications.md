@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: hrasheed
-ms.openlocfilehash: 68bbe22a4a6f7697c2bfab291412aae85efc32e9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 9643e1f77be400a89a8dfaecdc2f7e1205a1938b
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70917002"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031308"
 ---
 # <a name="install-third-party-apache-hadoop-applications-on-azure-hdinsight"></a>Installer des applications Apache Hadoop tierces sur Azure HDInsight
 
@@ -26,7 +26,7 @@ La liste suivante affiche les applications publiées :
 |Application |Type(s) de cluster(s) | Description |
 |---|---|---|
 |[AtScale Intelligence Platform](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/atscale.atscale) |Hadoop |AtScale transforme votre cluster HDInsight en serveur OLAP scale-out, qui vous permet d’interroger des milliards de lignes de données de manière interactive à l’aide des outils décisionnels que vous connaissez et utilisez déjà, tels que Microsoft Excel, Power BI, Tableau Software et QlikView. |
-|[CDAP for HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP est la première plateforme d’intégration unifiée pour le Big Data à offrir un retour sur investissement accéléré pour Hadoop et à permettre aux équipes informatiques de proposer des données en libre-service. Disponible en open source et extensible, CDAP élimine les obstacles à l’innovation. Requirements: 4 nœuds de région, D3 v2 minimum. |
+|[CDAP for HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/cask.cdap-for-hdinsight) |hbase |CDAP est la première plateforme d’intégration unifiée pour le Big Data à offrir un retour sur investissement accéléré pour Hadoop et à permettre aux équipes informatiques de proposer des données en libre-service. Disponible en open source et extensible, CDAP élimine les obstacles à l’innovation. Conditions requises : 4 nœuds de région, D3 v2 minimum. |
 |[Datameer](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/datameer.datameer) |Hadoop |La plateforme évolutive en libre-service de Datameer pour la préparation, l’exploration et la gouvernance des données à des fins d’analytique accélère la transformation des données complexes issues de plusieurs sources en informations utiles prêtes à l’emploi. Vous bénéficiez ainsi d’insights plus rapides et pertinents à l’échelle de l’entreprise. |
 |[Dataiku DSS on HDInsight](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/dataiku.dss-on-hdi) |Hadoop, Spark |Dataiku DSS est une plateforme de science des données d’entreprise qui permet aux scientifiques des données et aux analyses de données de collaborer plus efficacement sur la conception et l’exécution de nouveaux produits et services de données, convertissant ainsi les données brutes en prédictions percutantes. |
 |[WANdisco Fusion HDI App](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.fusion-hdi-app) |Hadoop, Spark, HBase, Storm, Kafka |Parvenir à garantir la cohérence des données dans un environnement distribué représente un véritable défi au niveau des opérations de données volumineuses. WANdisco Fusion, une plateforme logicielle d’entreprise, résout ce problème en assurant la cohérence des données non structurées au sein de n’importe quel environnement. |
@@ -43,7 +43,7 @@ La liste suivante affiche les applications publiées :
 
 Les instructions fournies dans cet article utilisent le portail Azure. Vous pouvez également exporter le modèle Azure Resource Manager à partir du portail ou obtenir une copie de ce modèle auprès des fournisseurs et utiliser Azure PowerShell et Azure Classic CLI pour déployer le modèle.  Consultez [Créer des clusters Apache Hadoop dans HDInsight avec des modèles Resource Manager](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 Pour installer des applications HDInsight sur un cluster HDInsight existant, vous devez disposer d’un cluster HDInsight. Pour en créer un, consultez [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster). Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster HDInsight.
 
 ## <a name="install-applications-to-existing-clusters"></a>Installer des applications dans des clusters existants
@@ -51,7 +51,7 @@ La procédure suivante montre comment installer des applications HDInsight dans 
 
 **Installer une application HDInsight**
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
 3. Sélectionnez un cluster HDInsight dans la liste.  Si vous ne disposez pas d’un tel cluster, vous devez d’abord en créer un.  Consultez la page [Créer des clusters](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster).
 4. Sous la catégorie **Paramètres**, sélectionnez **Applications**. Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
@@ -65,14 +65,17 @@ La procédure suivante montre comment installer des applications HDInsight dans 
 Vous pouvez vérifier l’état de l’installation de l’application dans les notifications du portail (sélectionnez l’icône en forme de cloche en haut du portail). L’application installée s’affiche dans la liste Applications installées.
 
 ## <a name="install-applications-during-cluster-creation"></a>Installer des applications lors de la création du cluster
-Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster. Au cours du processus, les applications HDInsight sont installées une fois le cluster créé et en cours d’exécution. Pour installer les applications pendant la création d’un cluster à l’aide du Portail Azure, utilisez l’option **Personnalisé**, et non l’option par défaut **Création rapide**.
+
+Vous pouvez également installer des applications HDInsight lorsque vous créez un cluster. Au cours du processus, les applications HDInsight sont installées une fois le cluster créé et en cours d’exécution. Pour installer des applications pendant la création du cluster à l’aide du portail Azure, à partir de l’onglet **Configuration + prix**, sélectionnez **+ Ajouter une application**.
+
+![Portail Azure - Configuration des clusters - Applications](./media/hdinsight-apps-install-applications/azure-portal-cluster-configuration-applications.png)
 
 ## <a name="list-installed-hdinsight-apps-and-properties"></a>Répertorier les applications HDInsight installées et les propriétés
 Le portail affiche une liste des applications HDInsight installées pour un cluster et les propriétés de chaque application installée.
 
 **Répertorier une application HDInsight et afficher des propriétés**
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, accédez à **Tous les services** > **Analytique** > **Clusters HDInsight**.
 3. Sélectionnez un cluster HDInsight dans la liste.
 4. Sous la catégorie **Paramètres**, sélectionnez **Applications**. Vous pouvez consulter la liste des applications installées dans la fenêtre principale. 
@@ -95,7 +98,7 @@ Vous pouvez vous connecter au nœud de périmètre à l’aide de HTTP et SSH. V
 
 Les informations d’identification du point de terminaison HTTP sont les informations d’identification de l’utilisateur HTTP configurées pour le cluster HDInsight ; les informations d’identification du point de terminaison SSH sont les informations d’identification SSH configurées pour le cluster HDInsight.
 
-## <a name="troubleshoot"></a>Résolution des problèmes
+## <a name="troubleshoot"></a>Dépanner
 Consultez [Dépanner l’installation](hdinsight-apps-install-custom-applications.md#troubleshoot-the-installation).
 
 ## <a name="next-steps"></a>Étapes suivantes

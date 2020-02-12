@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bd1c3d27ebedfb8479b9f30ac08d8132b2a44a04
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827399"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023461"
 ---
 # <a name="toggle-live-chat"></a>Activer ou désactiver les conversations en direct
 
 Cet article explique comment activer/désactiver les conversations en direct dans votre application IoT Central. Vous pouvez utiliser les conversations en direct pour accéder au support technique.
 
 > [!NOTE]
-> L’option de conversation en direct est disponible uniquement pour les abonnements d’essai.
+> L’option conversation est disponible uniquement pour les applications créées avec le plan tarifaire Gratuit.
 
 ## <a name="chat-with-us"></a>Discutez avec nous
 

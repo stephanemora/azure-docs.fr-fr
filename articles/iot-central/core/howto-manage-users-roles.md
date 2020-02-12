@@ -1,26 +1,27 @@
 ---
 title: Gérer les utilisateurs et rôles dans votre application Azure IoT Central | Microsoft Docs
 description: Comment gérer les rôles et utilisateurs de votre application Azure IoT Central en qualité d’administrateur
-author: v-krghan
-ms.author: v-krghan
-ms.date: 07/29/2019
+author: lmasieri
+ms.author: lmasieri
+ms.date: 12/05/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: philmea
-ms.openlocfilehash: 937c4a4dbf976564cbf8dc562bdec3b328fc2bc0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+manager: corywink
+ms.openlocfilehash: 8826ec5b8876a3f9e5b613641cc0d759545f04c4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72941454"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018946"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application"></a>Gérer les utilisateurs et rôles dans votre application Azure IoT Central
 
-Cet article explique comment, en tant qu’administrateur, vous pouvez ajouter, modifier et supprimer des utilisateurs dans votre application Azure IoT Central et comment gérer des rôles dans votre application Azure IoT Central.
+
+
+Cet article explique comment, en tant qu’administrateur, vous pouvez ajouter, modifier et supprimer des utilisateurs dans votre application Azure IoT Central. L’article explique également comment gérer des rôles dans votre application Azure IoT Central.
 
 Pour accéder à la section **Administration** et l’utiliser, vous devez avoir le rôle **Administrateur** dans l’application Azure IoT Central. Si vous créez une application Azure IoT Central, le rôle **Administrateur** vous est automatiquement attribué pour cette application.
-
 
 ## <a name="add-users"></a>Ajouter des utilisateurs
 
@@ -29,17 +30,19 @@ Chaque utilisateur doit avoir un compte d’utilisateur avant de pouvoir se conn
 Pour plus d’informations, consultez les sections [Aide sur le compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account) et [Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
 
 1. Pour ajouter un utilisateur à une application IoT Central, accédez à la page **Utilisateurs** dans la section **Administration**.
-
-    ![Liste des utilisateurs](media/howto-administer/image1.png)
+    
+    > [!div class="mx-imgBorder"]
+    >![Gestion des utilisateurs](media/howto-manage-users-roles/manage-users-pnp.png)
 
 1. Pour ajouter un utilisateur, dans la page **Utilisateurs**, choisissez **+ Ajouter un utilisateur**.
 
 1. Choisissez un rôle pour l’utilisateur dans la liste déroulante **Rôle**. En savoir plus sur les rôles dans la section [Gérer les rôles](#manage-roles) de cet article.
 
-    ![Sélection de rôle](media/howto-administer/image3.png)
+    > [!div class="mx-imgBorder"]
+    >![Ajouter un utilisateur et sélectionner un rôle](media/howto-manage-users-roles/add-user-pnp.png)
 
     > [!NOTE]
-    >  Pour ajouter des utilisateurs en nombre, entrez les ID de tous les utilisateurs à ajouter en les séparant par des points-virgules. Choisissez un rôle dans le menu déroulant **Rôle**. Ensuite, sélectionnez **Enregistrer**.
+    > Un utilisateur qui se trouve dans un rôle personnalisé qui lui accorde l’autorisation d’ajouter d’autres utilisateurs peut uniquement ajouter des utilisateurs à un rôle avec des autorisations identiques ou moins nombreuses que son propre rôle.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>Modifier les rôles attribués aux utilisateurs
 
@@ -54,22 +57,210 @@ Pour supprimer des utilisateurs, sélectionnez une ou plusieurs cases à cocher 
 
 ## <a name="manage-roles"></a>Gérer les rôles
 
-Les rôles vous permettent de contrôler qui, au sein de votre organisation, peut effectuer différentes tâches dans IoT Central. Vous pouvez attribuer trois rôles différents aux utilisateurs de votre application.
+Les rôles vous permettent de contrôler qui, au sein de votre organisation, peut effectuer différentes tâches dans IoT Central. Vous pouvez attribuer trois rôles intégrés aux utilisateurs de votre application. Vous pouvez également [créer des rôles personnalisés](#create-a-custom-role) si vous avez besoin d’un contrôle plus fin.
+
+> [!div class="mx-imgBorder"]
+> ![Gérer la sélection de rôles](media/howto-manage-users-roles/manage-roles-pnp.png)
 
 ### <a name="administrator"></a>Administrateur
 
-Les utilisateurs dotés du rôle d’**Administrateur** ont accès à toutes les fonctionnalités d’une application.
+Les utilisateurs du rôle **Administrateur** peuvent gérer et contrôler toutes les parties de l’application, notamment la facturation.
 
 L’utilisateur qui crée une application reçoit automatiquement le rôle **Administrateur**. Le rôle **Administrateur** doit toujours être attribué à au moins un utilisateur.
 
-### <a name="application-builder"></a>Concepteur d’applications
+### <a name="builder"></a>Générateur
 
-Les utilisateurs dotés du rôle de **Concepteur d’applications** peuvent tout faire dans une application, sauf l’administrer. Les concepteurs peuvent créer, modifier et supprimer des modèles d’appareils et des appareils, gérer des ensembles d’appareils et exécuter les analyses et les tâches. Les concepteurs n’auront pas accès à la section **Administration** de l’application.
+Les utilisateurs du rôle **Créateur** peuvent gérer toutes les parties de l’application, mais ne peuvent pas changer les onglets Administration ou Exportation continue des données.
 
-### <a name="application-operator"></a>Opérateur d’application
+### <a name="operator"></a>Opérateur
 
-Les utilisateurs dans le rôle d’**Opérateur d’application** ne peuvent ni apporter des modifications aux modèles d’appareils, ni administrer l’application. Les opérateurs peuvent ajouter et supprimer des appareils, gérer des ensembles d’appareils et exécuter des analytiques et des travaux. Les opérateurs n’auront pas accès aux pages **Concepteur d’application** et **Administration**.
+Les utilisateurs du rôle **Opérateur** peuvent surveiller l’intégrité et l’état des appareils. Ils ne sont pas autorisés à apporter des modifications aux modèles d’appareils ni à administrer l’application. Les opérateurs peuvent ajouter et supprimer des appareils, gérer des ensembles d’appareils et exécuter des analytiques et des travaux. 
+
+## <a name="create-a-custom-role"></a>Créer un rôle personnalisé
+
+Si votre solution nécessite des contrôles d’accès plus précis, vous pouvez créer des rôles personnalisés avec des ensembles d’autorisations personnalisés. Pour créer un rôle personnalisé, accédez à la page **Rôle** dans la section **Administration** de votre application. Sélectionnez ensuite **+ Nouveau rôle**, puis ajoutez un nom et une description pour votre rôle. Sélectionnez les autorisations requises par votre rôle, puis choisissez **Enregistrer**.
+
+Vous pouvez ajouter des utilisateurs à votre rôle personnalisé de la même façon que vous ajoutez des utilisateurs à un rôle intégré.
+
+> [!div class="mx-imgBorder"]
+> ![Créer un rôle personnalisé](media/howto-manage-users-roles/create-custom-role-pnp.png)
+
+### <a name="custom-role-options"></a>Options de rôle personnalisé
+
+Lorsque vous définissez un rôle personnalisé, vous choisissez le jeu d’autorisations qu’un utilisateur reçoit s’il est membre du rôle. Certaines autorisations dépendent les unes des autres. Par exemple, si vous ajoutez l’autorisation **Mettre à jour les tableaux de bord d’application** à un rôle, l’autorisation **Afficher les tableaux de bord d’application** est automatiquement ajoutée. Les tableaux suivants résument les autorisations disponibles et leurs dépendances, que vous pouvez utiliser lors de la création de rôles personnalisés.
+
+#### <a name="managing-devices"></a>Gestion des appareils
+
+**Autorisations du modèle d’appareil**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Gérer | Affichage <br/> Autres dépendances : Afficher les instances de service  |
+| Contrôle total | Afficher, Gérer <br/> Autres dépendances : Afficher les instances de service |
+
+**Autorisations des instances d’appareils**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils |
+| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
+| Créer | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareil et les groupes d’appareils  |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
+| Exécuter des commandes | Mettre à jour, Afficher <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter des commandes <br/> Autres dépendances : Afficher les modèles d’appareil et les groupes d’appareils  |
+
+**Autorisations des groupes d’appareils**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils |
+| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils   |
+| Créer | Afficher, Mettre à jour <br/> Autres dépendances :  Afficher les modèles d’appareil et les instances d’appareils   |
+| DELETE | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareil et les instances d’appareils   |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareil et les instances d’appareils |
+
+**Autorisations de gestion de la connectivité des appareils**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Lire l’instance | None <br/> Autres dépendances : Afficher les modèles d’appareil, les groupes d’appareils et les instances d’appareils |
+| Gérer l’instance | None |
+| Lire au niveau global | None   |
+| Gérer au niveau global | Lire au niveau global |
+| Contrôle total | Lire l’instance, Gérer l’instance, Lire au niveau global, Gérer au niveau global. <br/> Autres dépendances : Afficher les modèles d’appareil, les groupes d’appareils et les instances d’appareils |
+
+**Autorisations de travaux**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
+| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
+| Créer | Afficher, Mettre à jour <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
+| DELETE | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils |
+| Execute | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils ; Mettre à jour les instances d’appareils ; Exécuter des commandes sur des instances d’appareils |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer, Exécuter <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils et les groupes d’appareils ; Mettre à jour les instances d’appareils ; Exécuter des commandes sur des instances d’appareils |
+
+**Autorisations de règles**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None <br/> Autres dépendances : Afficher les modèles d’appareils |
+| Update | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils |
+| Créer | Afficher, Mettre à jour <br/> Autres dépendances :  Afficher les modèles d’appareils |
+| DELETE | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareils |
+
+#### <a name="managing-the-app"></a>Gestion de l’application
+
+**Autorisations des paramètres d’application**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Update | Affichage   |
+| Copier | Affichage <br/> Autres dépendances : Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
+| DELETE | Affichage   |
+| Contrôle total | Afficher, Mettre à jour, Copier, Supprimer <br/> Autres dépendances : Afficher les modèles d’appareils, les groupes d’appareils, les tableaux de bord d’application, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
+
+**Autorisations d’exportation du modèle d’application**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Exporter | Affichage <br/> Autres dépendances :  Afficher les modèles d’appareils, les instances d’appareils, les groupes d’appareils, les tableaux de bord, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
+| Contrôle total | Afficher, Exporter <br/> Autres dépendances :  Afficher les modèles d’appareils, les groupes d’appareils, les tableaux de bord d’application, l’exportation de données, la personnalisation, les liens d’aide, les rôles personnalisés et les règles |
+
+**Autorisations de facturation**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Gérer | None     |
+| Contrôle total | Gérer |
+
+#### <a name="managing-users-and-roles"></a>Gestion des utilisateurs et des rôles
+
+**Autorisations de rôles personnalisés**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None |
+| Update | Affichage |
+| Créer | Afficher, Mettre à jour |
+| DELETE | Affichage |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer |
+
+**Autorisations de gestion des utilisateurs**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None <br/> Autres dépendances : Afficher les rôles personnalisés |
+| Ajouter | Affichage <br/> Autres dépendances :  Afficher les rôles personnalisés |
+| DELETE | Affichage <br/> Autres dépendances :  Afficher les rôles personnalisés |
+| Contrôle total | Afficher, Ajouter, Supprimer <br/> Autres dépendances :  Afficher les rôles personnalisés |
+
+> [!NOTE]
+> Un utilisateur qui se trouve dans un rôle personnalisé qui lui accorde l’autorisation d’ajouter d’autres utilisateurs peut uniquement ajouter des utilisateurs à un rôle avec des autorisations identiques ou moins nombreuses que son propre rôle.
+
+#### <a name="customizing-the-app"></a>Personnalisation de l’application
+
+**Autorisations des tableaux de bord d’applications**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Update | Affichage   |
+| Créer | Afficher, Mettre à jour |
+| DELETE | Affichage   |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer |
+
+**Autorisations des tableaux de bord personnels**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Update | Affichage   |
+| Créer | Afficher, Mettre à jour   |
+| DELETE | Affichage   |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer |
+
+**Autorisations Marque, Icône favorite et Couleurs**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Update | Affichage   |
+| Contrôle total | Afficher, Mettre à jour |
+
+**Autorisations de liens d’aide**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Update | Affichage   |
+| Contrôle total | Afficher, Mettre à jour |
+
+#### <a name="extending-the-app"></a>Extension de l’application
+
+**Autorisations d’exportation de données**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Update | Affichage   |
+| Créer | Afficher, Mettre à jour  |
+| DELETE | Affichage   |
+| Contrôle total | Afficher, Mettre à jour, Créer, Supprimer |
+
+**Autorisations de jeton d’API**
+
+| Name | Les dépendances |
+| ---- | -------- |
+| Affichage | None     |
+| Créer | Affichage   |
+| DELETE | Affichage   |
+| Contrôle total | Afficher, Créer, Supprimer |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous avez appris à gérer les utilisateurs et les rôles dans Azure IoT Central, l’étape suivante suggérée consiste à en savoir plus sur l’[affichage de votre facture](howto-view-bill.md) dans Azure IoT Central.
+Maintenant que vous avez appris à gérer les utilisateurs et les rôles dans votre application Azure IoT Central, l’étape suivante suggérée est d’apprendre à [gérer votre facture](howto-view-bill.md).

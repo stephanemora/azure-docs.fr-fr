@@ -9,12 +9,12 @@ metadata:
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: e1520aa235daf415a9bb0e94c19bdac7cdacdac2
-  ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+  ms.openlocfilehash: 11554fe04f452b412d626123a36d84735114ffbd
+  ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
   ms.translationtype: HT
   ms.contentlocale: fr-FR
-  ms.lasthandoff: 01/29/2020
-  ms.locfileid: "76834227"
+  ms.lasthandoff: 02/12/2020
+  ms.locfileid: "77160863"
 landingContent:
 - title: À propos de la plateforme d’identités Microsoft
   linkLists:
@@ -22,10 +22,10 @@ landingContent:
     links:
     - text: Évolution de la plateforme d’identités Microsoft
       url: about-microsoft-identity-platform.md
-    - text: Plateforme d’identités Microsoft (v2.0)
+    - text: Plateforme d’identité Microsoft (v2.0)
       url: v2-overview.md
     - text: Azure Active Directory pour les développeurs (v1.0)
-      url: v1-overview.md
+      url: ../azuread-dev/v1-overview.md
   - linkListType: concept
     links:
     - text: Principes fondamentaux de l’authentification
@@ -36,7 +36,7 @@ landingContent:
       url: identity-platform-integration-checklist.md
   - linkListType: learn
     links:
-    - text: One Dev Minute - Plateforme d’identités Microsoft
+    - text: One Dev Minute - Plateforme d’identité Microsoft
       url: https://youtu.be/y_fgJAatVhk
 - title: Générer une application monopage
   linkLists:

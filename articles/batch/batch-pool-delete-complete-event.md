@@ -1,22 +1,22 @@
 ---
-title: Événement de fin de suppression de pool Azure Batch | Microsoft Docs
-description: Référence pour l’événement de fin de suppression de pool Batch.
+title: Événement de fin de suppression de pool Azure Batch
+description: Référence pour l’événement de fin de suppression de pool Batch. Cet événement est émis quand une opération de suppression de pool est terminée.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: bcbfe009e2880c0155a067305cc28317678cbfa6
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: d317d7395a8246c109073a72338b55960cb50954
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026697"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023614"
 ---
 # <a name="pool-delete-complete-event"></a>Événement de fin de suppression de pool
 

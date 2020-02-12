@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 5f6825243b7e410b49b54d04a028b5d71610ea68
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: b373691a6b9649a43d68c9da93b49fd20536c42b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561952"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024634"
 ---
 # <a name="azure-functions-premium-plan"></a>Plan Premium Azure Functions
 
@@ -37,7 +37,7 @@ Les fonctionnalités suivantes sont disponibles pour les applications de fonctio
 
 ### <a name="pre-warmed-instances"></a>Instances chauffées au préalable
 
-Si aucun événement ou exécution ne se produit aujourd’hui dans le Plan Consommation, il se peut que votre application descende en puissance jusqu’à atteindre zéro instance. Quand un nouvel événement se produit, une nouvelle instance doit être spécialisée avec votre application s’exécutant sur celle-ci.  La spécialisation d’une nouvelle instance peut prendre un certain temps en fonction de l’application.  Cette latence supplémentaire du premier appel est souvent appelée démarrage à froid d’application.
+Si aucun événement ou aucune exécution ne se produisent aujourd’hui dans le plan Consommation, il se peut que votre application effectue un scale-in jusqu’à zéro instance. Quand un nouvel événement se produit, une nouvelle instance doit être spécialisée avec votre application s’exécutant sur celle-ci.  La spécialisation d’une nouvelle instance peut prendre un certain temps en fonction de l’application.  Cette latence supplémentaire du premier appel est souvent appelée démarrage à froid d’application.
 
 Dans le plan Premium, vous pouvez disposer de votre application chauffée au préalable sur un nombre spécifié d’instances, jusqu’à la taille minimale de votre plan.  Les instances chauffées au préalable vous permettent également de mettre à l’échelle une application avant une charge élevée. Lorsque l’application monte en charge, elle commence par se mettre à l’échelle dans les instances chauffées au préalable. Des instances supplémentaires continuent de s’ajouter en mémoire tampon et à chauffer immédiatement en vue de la prochaine opération de mise à l’échelle. Le fait de disposer d’un tampon d’instances chauffées au préalable vous permet d’éviter efficacement les latences de démarrage à froid.  Les instances chauffées au préalable caractérisent le plan Premium et vous devez conserver au moins une instance opérationnelle et disponible aussi longtemps que le plan est actif.
 

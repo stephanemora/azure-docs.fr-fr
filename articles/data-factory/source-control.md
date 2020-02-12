@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646895"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031627"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Contrôle de code source dans Azure Data Factory
 
@@ -157,7 +157,7 @@ Le volet de configuration affiche les paramètres du dépôt GitHub suivants :
 
 - L’intégration de GitHub aux outils de création visuelle Data Factory ne fonctionne que dans la version généralement disponible de Data Factory.
 
-- Un maximum de 1 000 entités par type de ressource (par exemple, des pipelines et des jeux de données) peut être extrait à partir d’une seule branche GitHub. Si cette limite est atteinte, il est suggéré de fractionner vos ressources en fabriques distinctes.
+- Un maximum de 1 000 entités par type de ressource (par exemple, des pipelines et des jeux de données) peut être extrait à partir d’une seule branche GitHub. Si cette limite est atteinte, il est suggéré de fractionner vos ressources en fabriques distinctes. Azure DevOps Git n’a pas cette limitation.
 
 ## <a name="switch-to-a-different-git-repo"></a>Passer à un autre dépôt Git
 
@@ -249,8 +249,13 @@ Si la branche de publication n’est pas synchronisée avec la branche principal
 
 1. Supprimez votre dépôt Git actuel
 1. Reconfigurez Git avec les mêmes paramètres, mais vérifiez que l’option**Import existing Data Factory resources to repository** (Importer des ressources Data Factory existantes dans le dépôt) est sélectionnée et choisissez **Nouvelle branche**
-1. Supprimez toutes les ressources de votre branche de collaboration
 1. Créez une demande de tirage pour fusionner les modifications apportées à la branche de collaboration 
+
+Voici quelques exemples de situations qui peuvent provoquer une branche de publication obsolète :
+- Un utilisateur a plusieurs branches. Dans une branche de fonctionnalité, l’utilisateur a supprimé un service lié qui n’est pas associé à AKV (les services liés non-AKV sont publiés immédiatement, qu’ils soient dans Git ou non) et n’a jamais fusionné la branche de fonctionnalité dans la branche de collaboration.
+- Un utilisateur a modifié la fabrique de données à l’aide du SDK ou de PowerShell.
+- Un utilisateur a déplacé toutes les ressources vers une nouvelle branche et a essayé de publier pour la première fois. Les services liés doivent être créés manuellement au moment de l’importation des ressources.
+- Un utilisateur charge manuellement un service lié non-AKV ou un fichier JSON Integration Runtime. Il fait référence à cette ressource à partir d’une autre ressource telle qu’un jeu de données, un service lié ou un pipeline. Un service lié non-AKV créé par le biais de l’expérience utilisateur est publié immédiatement parce que les informations d’identification doivent être chiffrées. Si vous chargez un jeu de données qui fait référence à ce service lié et essayez de le publier, l’expérience utilisateur autorise cette opération puisqu’il existe dans l’environnement git. Il est rejeté au moment de la publication dans la mesure où il n’existe pas dans le service de fabrique de données.
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 Sélectionnez **Feedback** (Commentaire) pour donner votre avis sur les fonctionnalités ou informer Microsoft de problèmes avec l’outil :

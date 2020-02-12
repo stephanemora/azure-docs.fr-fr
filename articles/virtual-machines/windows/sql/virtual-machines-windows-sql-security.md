@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2f9853c2699b69a0c9be13e6925a4b30f358f7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102025"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031354"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Considérations relatives à la sécurité de SQL Server sur les machines virtuelles Azure
 
@@ -56,6 +56,10 @@ Outre les règles de groupe de sécurité réseau pour limiter le trafic réseau
 Lorsque vous utilisez des points de terminaison avec le modèle de déploiement classique, supprimez-les sur la machine virtuelle si vous n’en avez pas besoin. Pour obtenir des instructions sur l’utilisation de listes ACL avec des points de terminaison, voir [Gestion de l’ACL sur un point de terminaison](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint) Cela n’est pas nécessaire pour les machines virtuelles qui utilisent le Gestionnaire des ressources.
 
 Enfin, pensez à activer l’option de connexion chiffrée pour l’instance du moteur de base de données SQL Server dans votre machine virtuelle Azure. Configurez l’instance SQL Server avec un certificat signé. Pour plus d’informations, voir [Activation des connexions chiffrées dans le moteur de base de données](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) et [Syntaxe de la chaîne de connexion](https://msdn.microsoft.com/library/ms254500.aspx).
+
+## <a name="encryption"></a>Chiffrement
+
+Les disques managés offrent un chiffrement côté serveur et Azure Disk Encryption. Le [chiffrement côté serveur](/azure/virtual-machines/windows/disk-encryption) assure le chiffrement au repos et la protection de vos données pour assurer le respect des engagements de votre organisation en matière de sécurité et de conformité. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) utilise la technologie BitLocker ou DM-Crypt, et s’intègre à Azure Key Vault pour chiffrer les disques de données et de système d’exploitation. 
 
 ## <a name="use-a-non-default-port"></a>Utiliser un port non défini par défaut
 
@@ -93,9 +97,14 @@ Il n’est pas souhaitable que les intrus puissent deviner facilement les noms d
 
   - Si vous devez utiliser la connexion **SA**, activez la connexion après l’approvisionnement et assignez un nouveau mot de passe sécurisé.
 
-## <a name="follow-on-premises-best-practices"></a>Suivre les meilleures pratiques locales
+## <a name="additional-best-practices"></a>Bonnes pratiques supplémentaires
 
-Outre les pratiques décrites dans cette rubrique, nous vous recommandons d’examiner et de mettre en œuvre les pratiques de sécurité locales traditionnelles, le cas échéant. Pour plus d’informations, consultez [Considérations sur la sécurité pour une installation SQL Server](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation)
+Outre les pratiques décrites dans cette rubrique, nous vous recommandons de consulter et d’implémenter les bonnes pratiques en matière de sécurité, à la fois les pratiques de sécurité locales traditionnelles et les bonnes pratiques en matière de sécurité des machines virtuelles. 
+
+Pour plus d’informations sur les pratiques de sécurité locales, consultez [Considérations sur la sécurité pour une installation SQL Server](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) et le [Centre de sécurité](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database). 
+
+Pour plus d’informations sur la sécurité des machines virtuelles, consultez la [vue d’ensemble de la sécurité des machines virtuelles](/azure/security/fundamentals/virtual-machines-overview).
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

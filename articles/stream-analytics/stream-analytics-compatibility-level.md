@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 02/03/2020
+ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925642"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989856"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Niveau de compatibilité pour les travaux Azure Stream Analytics
 
@@ -27,7 +27,7 @@ Azure Stream Analytics prend actuellement en charge trois niveaux de compatibili
 
 * 1.0 : comportement précédent
 * 1.1 : comportement par défaut
-* 1.2 (préversion) : nouveau comportement intégrant les dernières améliorations en phase d’évaluation
+* 1.2 : comportement le plus récent avec les améliorations les plus récentes
 
 Le niveau de compatibilité 1.0 initial a été introduit dans la version en disponibilité générale d’Azure Stream Analytics voici quelques années.
 
@@ -47,9 +47,9 @@ Pour mettre à jour le niveau de compatibilité du travail dans le Portail Azure
 
 ![Niveau de compatibilité Stream Analytics dans le portail Azure](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-Lorsque vous mettez à jour le niveau de compatibilité, le compilateur T-SQL valide le travail avec la syntaxe correspondant au niveau de compatibilité sélectionné.
+Quand vous mettez à jour le niveau de compatibilité, le compilateur T valide le travail avec la syntaxe correspondant au niveau de compatibilité sélectionné.
 
-## <a name="compatibility-level-12-preview"></a>Niveau de compatibilité 1.2 (préversion)
+## <a name="compatibility-level-12"></a>Niveau de compatibilité 1.2
 
 Les principales modifications introduites dans le niveau de compatibilité 1.2 sont les suivantes :
 
@@ -123,7 +123,7 @@ Voici les principales modifications introduites dans le niveau de compatibilité
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**Niveau 1.1 :** le contenu du message renferme directement le flux sans aucune balise supplémentaire. Par exemple : `{ "SensorId":"1", "Temperature":64}`
+**Niveau 1.1 :** le contenu du message renferme directement le flux sans aucune balise supplémentaire. Par exemple : `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>Conservation de la casse des noms de champ
 

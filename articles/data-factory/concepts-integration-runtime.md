@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2019
-ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/28/2020
+ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927149"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990519"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Infrastructure Integration Runtime dans Azure Data Factory
 IR est l’infrastructure de calcul utilisée par Azure Data Factory pour fournir les fonctionnalités d’intégration de données suivantes entre différents environnements réseau :
@@ -42,7 +42,7 @@ Type de runtime | Réseau public | Réseau privé
 ------- | -------------- | ---------------
 Azure | Data Flow<br/>Déplacement des données<br/>Répartition des activités | &nbsp;
 Auto-hébergé | Déplacement des données<br/>Répartition des activités | Déplacement des données<br/>Répartition des activités
-Azure-SSIS | Exécution des packages SSIS | Exécution des packages SSIS
+Azure-SSIS | Exécution de package SSIS | Exécution de package SSIS
 
 Le schéma suivant montre comment les différents runtimes d’intégration peuvent être utilisés conjointement pour offrir des fonctionnalités d’intégration de données et un environnement réseau riches :
 
@@ -104,7 +104,7 @@ Pour en savoir plus, consultez l’article « Comment créer et configurer le ru
 Pour plus d’informations sur le runtime Azure-SSIS, voir les articles suivants : 
 
 - [Didacticiel : deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md) (Déployer des packages SSIS vers Azure). Cet article fournit des instructions détaillées pour créer un runtime d’intégration Azure-SSIS qui utilise une base de données Azure SQL pour héberger le catalogue SSIS. 
-- [Guide pratique : Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le tutoriel et fournit des instructions sur la façon d’utiliser Azure SQL Database Managed Instance et de joindre le runtime d’intégration à un réseau virtuel. 
+- [Procédure : Créer un runtime d’intégration Azure-SSIS](create-azure-ssis-integration-runtime.md). Cet article s’appuie sur le tutoriel et fournit des instructions sur la façon d’utiliser Azure SQL Database Managed Instance et de joindre le runtime d’intégration à un réseau virtuel. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime) (Surveiller le runtime d’intégration Azure-SSIS). Cet article explique comment récupérer des informations sur un runtime d’intégration Azure-SSIS ainsi que des descriptions d’état dans les informations renvoyées. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md) (Gérer un runtime d’intégration Azure-SSIS). Cet article vous explique comment arrêter, démarrer ou supprimer un runtime d’intégration Azure-SSIS. Il vous montre également comment le faire évoluer en lui ajoutant des nœuds supplémentaires. 
 - [Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel](join-azure-ssis-integration-runtime-virtual-network.md). Cet article fournit des informations conceptuelles sur la façon d’attacher un runtime d’intégration Azure-SSIS à un réseau virtuel Azure. Il décrit également les étapes nécessaires pour utiliser le portail Azure afin de configurer le réseau virtuel de sorte que le runtime d’intégration Azure-SSIS puisse le rejoindre. 
@@ -131,7 +131,7 @@ Si vous choisissez d’utiliser la **résolution automatique du runtime d’int�
 Vous pouvez surveiller quel emplacement du runtime d'intégration prend effet lors de l’exécution de l’activité dans la vue de surveillance de l’activité du pipeline sur l’interface utilisateur, ou dans la charge utile de la surveillance de l’activité.
 
 >[!TIP]
->Si vos exigences en termes de conformité des données sont strictes et que vous avez besoin de vous assurer que les données restent dans une certaine zone géographique, vous pouvez explicitement créer un runtime d'intégration Azure dans une région donnée et diriger le service lié vers ce runtime d'intégration via la propriété ConnectVia. Par exemple, si vous voulez copier des données depuis Blob dans la région Sud du Royaume-Uni vers SQL DW dans la région Sud du Royaume-Uni et souhaitez vous assurer que les données ne quittent pas le Royaume-Uni, créez un runtime d'intégration dans la région Sud du Royaume-Uni et liez les deux services liés à ce runtime.
+>Si vos exigences en termes de conformité des données sont strictes et que vous avez besoin de vous assurer que les données restent dans une certaine zone géographique, vous pouvez explicitement créer un runtime d'intégration Azure dans une région donnée et diriger le service lié vers ce runtime d'intégration via la propriété ConnectVia. Par exemple, si vous voulez copier des données depuis Blob dans la région Sud du Royaume-Uni vers SQL DW dans la région Sud du Royaume-Uni et souhaitez vous assurer que les données ne quittent pas le Royaume-Uni, créez un runtime d'intégration dans la région Royaume-Uni Sud et liez les deux services liés à ce runtime.
 
 ### <a name="self-hosted-ir-location"></a>Emplacement du runtime d’intégration auto-hébergé
 Le runtime d’intégration auto-hébergé est logiquement enregistré auprès de la fabrique de données. Quant à vous, il vous revient de fournir le calcul utilisé pour prendre en charge ses fonctionnalités. Par conséquent, il n’existe aucune propriété d’emplacement explicite pour le runtime d’intégration auto-hébergé. 
@@ -141,9 +141,9 @@ Lorsqu’il est utilisé pour procéder au déplacement des données, le runtime
 ### <a name="azure-ssis-ir-location"></a>Emplacement du runtime d’intégration Azure SSIS
 Le choix de l’emplacement pour votre runtime d’intégration Azure SSIS est essentiel pour parvenir à un niveau de performance élevé dans vos flux de travail ETL (extraction, transformation et chargement).
 
-- L’emplacement de votre runtime d’intégration Azure-SSIS ne doit pas nécessairement être identique à l’emplacement de votre fabrique de données, mais il doit être le même que l’emplacement de votre serveur Azure SQL Database/Managed Instance où SSISDB doit être hébergé. De cette manière, le runtime d’intégration Azure SSIS peut facilement accéder au SSISDB sans être entravé par le trafic entre les différents emplacements.
-- Si vous n’avez pas de serveur Azure SQL Database/Managed Instance pour héberger SSISDB, mais que vous avez des sources/destinations de données locales, vous devez créer un serveur Azure SQL Database/Managed Instance là où un réseau virtuel est connecté à votre réseau local.  Ainsi, vous pouvez créer votre runtime d’intégration Azure-SSIS en utilisant le nouveau serveur Azure SQL Database/Managed Instance et en associant ce réseau virtuel, au même endroit, afin de réduire efficacement les déplacements de données entre les différents emplacements.
-- Si l’emplacement de votre serveur Azure SQL Database/Managed Instance où SSISDB est hébergé n’est pas le même que l’emplacement où un réseau virtuel est connecté à votre réseau local, créez d’abord votre runtime d’intégration Azure-SSIS en utilisant Azure SQ Database/Managed Instance et en associant un autre réseau virtuel situé au même emplacement. Ensuite, configurez une connexion entre deux réseaux virtuels situés à différents emplacements.
+- L’emplacement de votre runtime d’intégration Azure-SSIS ne doit pas nécessairement être identique à l’emplacement de votre fabrique de données, mais il doit être le même que l’emplacement de votre serveur Azure SQL Database ou Managed Instance où SSISDB doit être hébergé. De cette manière, le runtime d’intégration Azure SSIS peut facilement accéder au SSISDB sans être entravé par le trafic entre les différents emplacements.
+- Si vous n’avez pas de serveur Azure SQL Database ou Managed Instance pour héberger SSISDB, mais que vous avez des sources/destinations de données locales, vous devez créer un serveur Azure SQL Database ou Managed Instance là où un réseau virtuel est connecté à votre réseau local.  Ainsi, vous pouvez créer votre runtime d’intégration Azure-SSIS en utilisant le nouveau serveur Azure SQL Database ou Managed Instance et en associant ce réseau virtuel, au même endroit, afin de réduire efficacement les déplacements de données entre les différents emplacements.
+- Si l’emplacement de votre serveur Azure SQL Database ou Managed Instance où SSISDB est hébergé n’est pas le même que l’emplacement où un réseau virtuel est connecté à votre réseau local, créez d’abord votre runtime d’intégration Azure-SSIS en utilisant Azure SQ Database ou Managed Instance et en associant un autre réseau virtuel situé au même emplacement. Ensuite, configurez une connexion entre deux réseaux virtuels situés à différents emplacements.
 
 Le schéma suivant représente les paramètres d’emplacement de Data Factory et de ses runtimes d’intégration :
 
@@ -163,16 +163,16 @@ Dans le cas d’une activité de copie, les services liés source et récepteur 
 
 L’activité Lookup/GetMetadata est exécutée sur le runtime d'intégration associé au service lié de la banque de données.
 
-### <a name="transformation-activity"></a>Activités de transformation
+### <a name="external-transformation-activity"></a>Activité de transformation externe
 
-Chaque activité de transformation a un service de calcul cible lié qui pointe vers un runtime d’intégration. Cette instance du runtime d’intégration se trouve au point d’envoi de l’activité de transformation.
+Chaque activité de transformation externe qui utilise un moteur de calcul externe a un service de calcul cible lié qui pointe vers un runtime d’intégration. Cette instance du runtime d’intégration détermine l’emplacement à partir duquel l’activité de transformation externe codée manuellement est distribuée.
 
 ### <a name="data-flow-activity"></a>Activité Data Flow
 
-L’activité Data Flow est exécutée sur le runtime d’intégration qui lui est associé. 
+Les activités Data Flow sont exécutées sur le runtime d’intégration Azure associé à celles-ci. Le calcul Spark utilisé par les flux de données est déterminé par les propriétés du flux de données dans votre Azure Integration Runtime et est entièrement géré par ADF.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Consultez les articles suivants :
+Voir les articles suivants :
 
 - [Créer un runtime d’intégration Azure](create-azure-integration-runtime.md)
 - [Créer un runtime d’intégration auto-hébergé](create-self-hosted-integration-runtime.md)

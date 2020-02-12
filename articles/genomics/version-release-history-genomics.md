@@ -9,22 +9,25 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: 03bbbed53cd0494e8507a156d0fadac8dcd4297a
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 20475e2cde1b42790740889cf341b3a0a0afccc0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249151"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991080"
 ---
 # <a name="version-release-history"></a>Historique de publication des versions
 L’équipe Microsoft Genomics met régulièrement à jour le client Python Microsoft Genomics à l’aide de correctifs et de nouvelles fonctionnalités. 
 
 ## <a name="latest-release"></a>Dernière version
-Le client Python actuel correspond à la version 0.8.1. Cette version a été publiée le 3 décembre 2018 et prend en charge des flux de travail en cours d'exécution avec GATK 3.5 et GATK4. Elle prend également en charge la sortie gVCF.
+La version du client Python est la version 0.9.0. Cette version a été publiée le 6 février 2019 et prend en charge les workflows exécutés avec GATK 3.5 et GATK4. Elle prend en charge la sortie gVCF et peut accepter un argument facultatif pour la compression de la sortie.
 
 
-## <a name="release-history"></a>Historique de publication 
-De nouvelles versions du client Python Microsoft Genomics sont publiées environ deux fois par an. Au fur et à mesure de leur publication, la liste des correctifs et des fonctionnalités est mise à jour ici. Quand de nouvelles versions sont publiées, la prise en charge des versions antérieures est maintenue pendant au moins 90 jours. Les versions antérieures qui ne sont plus prises en charge sont répertoriées sur cette page. 
+## <a name="release-history"></a>Historique des mises en production 
+De nouvelles versions du client Python Microsoft Genomics sont publiées une fois par an environ. Au fur et à mesure de leur publication, la liste des correctifs et des fonctionnalités est mise à jour ici. Quand de nouvelles versions sont publiées, la prise en charge des versions antérieures est maintenue pendant au moins 90 jours. Les versions antérieures qui ne sont plus prises en charge sont répertoriées sur cette page. 
+
+### <a name="version-090"></a>Version 0.9.0
+La version 0.9.0 comprend la prise en charge de la compression de la sortie. Cela équivaut à exécuter `-bgzip` puis `-tabix` dans la sortie vcf ou gvcf. Pour plus d’informations, consultez les [Questions fréquentes (FAQ)](frequently-asked-questions-genomics.md). 
 
 ### <a name="version-081"></a>Version 0.8.1
 La version 0.8.1 inclut des correctifs mineurs.  

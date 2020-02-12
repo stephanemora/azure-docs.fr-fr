@@ -4,12 +4,12 @@ description: Découvrir comment l’agent MARS prend en charge les scénarios de
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: d558a19b3025ab1400e873f97b0ce5e5a860c75a
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 348980b840b814c09ce46627f286489d4caa9f8f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902862"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023954"
 ---
 # <a name="about-the-microsoft-azure-recovery-services-mars-agent"></a>À propos de l’agent Microsoft Azure Recovery Services (MARS)
 
@@ -58,8 +58,7 @@ L’agent MARS prend en charge les scénarios de restauration suivants :
 ### <a name="additional-scenarios"></a>Autres cas de figure
 -   **Sauvegarder des fichiers et des dossiers spécifiques au sein de machines virtuelles Azure** : la méthode principale pour sauvegarder des machines virtuelles Azure consiste à utiliser une extension Sauvegarde Azure sur la machine virtuelle. L’extension sauvegarde la totalité de la machine virtuelle. Si vous souhaitez sauvegarder des fichiers et des dossiers spécifiques au sein d’une machine virtuelle, vous pouvez installer l’agent MARS sur les machines virtuelles Azure. Pour plus d’informations, consultez [Architecture : Sauvegarde de machine virtuelle Azure prédéfinie](https://docs.microsoft.com/azure/backup/backup-architecture#architecture-built-in-azure-vm-backup).
 
--   **Amorçage hors connexion** : les sauvegardes complètes initiales des données dans Azure transfèrent généralement de grandes quantités de données et nécessitent plus de bande passante réseau. Les sauvegardes suivantes transfèrent uniquement le volume de données delta (ou incrémentiel). La sauvegarde Azure compresse les sauvegardes initiales. Par l’intermédiaire du processus d’*amorçage hors connexion*, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure. Pour plus d’informations, consultez [Workflow de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export-).
-
+-   **Amorçage hors connexion** : les sauvegardes complètes initiales des données dans Azure transfèrent généralement de grandes quantités de données et nécessitent plus de bande passante réseau. Les sauvegardes suivantes transfèrent uniquement le volume de données delta (ou incrémentiel). La sauvegarde Azure compresse les sauvegardes initiales. Par l’intermédiaire du processus d’*amorçage hors connexion*, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde initiale compressées hors connexion dans Azure. Pour plus d’informations, consultez [Sauvegarde Azure hors connexion avec Azure Data Box](offline-backup-azure-data-box.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Matrice de prise en charge de l’agent MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)

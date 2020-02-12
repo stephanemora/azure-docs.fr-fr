@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921909"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024651"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Échelle et hébergement dans Azure Functions
 
@@ -26,7 +26,7 @@ Les plans Consommation et Premium ajoutent automatiquement de la puissance de ca
 
 Le plan Premium fournit des fonctionnalités supplémentaires, telles que des instances de calcul premium, la possibilité de conserver les instances chaudes indéfiniment et la connectivité de réseau virtuel.
 
-Le plan App Service vous permet d’exploiter l’infrastructure dédiée que vous gérez. L’échelle de votre Function App ne change pas en fonction des événements, un scale-down jusqu’à zéro est donc impossible. ([Always On](#always-on) doit être activé.)
+Le plan App Service vous permet d’exploiter l’infrastructure dédiée que vous gérez. La mise à l’échelle de votre application de fonction ne dépend pas des événements, un scale-in jusqu’à zéro est donc impossible. ([Always On](#always-on) doit être activé.)
 
 ## <a name="hosting-plan-support"></a>Prise en charge du plan d’hébergement
 
@@ -152,7 +152,7 @@ L’unité d’échelle pour Azure Functions est la Function App. Quand les inst
 
 La mise à l’échelle peut varier en fonction de certains facteurs et selon le déclencheur et le langage sélectionnés. Il est nécessaire de connaître certaines subtilités relatives aux comportements de mise à l’échelle :
 
-* Une application de fonction peut évoluer jusqu’à 200 instances maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.
+* Une application de fonction peut faire l’objet d’un scale-out jusqu’à 200 instances au maximum. Une seule instance, par contre, peut traiter plusieurs messages ou requêtes à la fois, ainsi il n’y a pas de limite définie sur le nombre d’exécutions simultanées.
 * Pour les déclencheurs HTTP, les nouvelles instances sont allouées une fois par seconde au maximum.
 * Pour les déclencheurs non HTTP, les nouvelles instances sont allouées une fois toutes les 30 secondes au maximum.
 

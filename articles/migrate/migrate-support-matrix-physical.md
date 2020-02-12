@@ -3,12 +3,12 @@ title: Prise en charge pour l’évaluation de serveurs physiques à l’aide d�
 description: Découvrez la prise en charge pour l’évaluation de serveurs physiques à l’aide d’Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 489f95bbbbeb261b56f1a3a86da44f5fcce0adf5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2698d0ff046147599a8c5c791a0980a54090932
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846574"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990332"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Tableau de prise en charge pour l’évaluation de serveurs physiques 
 
@@ -38,7 +38,7 @@ Pour évaluer des machines locales pour une migration vers Azure avec cet articl
 | **Support**                | **Détails**               
 | :-------------------       | :------------------- |
 | **Déploiement de serveur physique**       | Le serveur physique peut être autonome ou déployé dans un cluster. |
-| **autorisations**           | **Windows :** Configurez un compte d’utilisateur local sur tous les serveurs Windows que vous souhaitez inclure dans la découverte. Le compte d’utilisateur doit être ajouté à ces groupes : utilisateurs du Bureau à distance, utilisateurs de l’Analyseur de performances et utilisateurs du journal des performances. <br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. |
+| **autorisations**           | **Windows :** Configurez un compte d’utilisateur local ou de domaine sur tous les serveurs Windows à inclure dans la découverte. Le compte d’utilisateur doit être ajouté à ces groupes : utilisateurs du Bureau à distance, utilisateurs de l’Analyseur de performances et utilisateurs du journal des performances. <br/> **Linux :** Vous devez disposer d’un compte racine sur les serveurs Linux que vous souhaitez découvrir. |
 | **Système d’exploitation** | Tous les systèmes d'exploitation [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) et [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) sont pris en charge, à l’exception des suivants :<br/> Windows Server 2003 <br/> SUSE Linux|
 
 

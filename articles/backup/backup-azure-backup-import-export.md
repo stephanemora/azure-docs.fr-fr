@@ -4,12 +4,12 @@ description: Découvrez comment la sauvegarde Azure vous permet d’envoyer des 
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 47d4c4fb63c2aa0e2944456048b06070e235f012
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 162d129eaea83ef6623daaa063e8a088c021e25d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997358"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022611"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 
@@ -42,7 +42,7 @@ Les charges de travail ou fonctionnalités de sauvegarde Azure suivantes prennen
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
   > [!NOTE]
   > Les prérequis et le flux de travail suivants s’appliquent uniquement à une sauvegarde hors connexion des fichiers et dossiers à l’aide de [la dernière version de l’agent Microsoft Azure Recovery Services](https://aka.ms/azurebackup_agent). Pour effectuer des sauvegardes hors connexion pour des charges de travail à l’aide de System Center DPM ou du serveur de sauvegarde Azure, reportez-vous à [cet article](backup-azure-backup-server-import-export-.md).
@@ -75,6 +75,15 @@ Cette section décrit le flux de travail de sauvegarde hors connexion qui permet
 
     ![Écran d’importation](./media/backup-azure-backup-import-export/offlinebackup_inputs.png)
 
+2. Sélectionnez l’option **Transfert à l’aide de mes propres disques**.
+
+    >[!NOTE]
+    >Nous vous recommandons d’utiliser l’option Azure Data Box pour transférer des données de sauvegarde initiales hors connexion. Cette option réduit les efforts nécessaires pour trouver vos propres disques compatibles avec Azure en vous livrant des appareils Azure Data Box, appartenant à Microsoft, sécurisés et inviolables, sur lesquels les données de sauvegarde peuvent être écrites directement par l’agent MARS.
+
+3. Cliquez sur **Suivant** et renseignez les entrées avec soin :
+
+    ![Entrer les détails de votre disque](./media/backup-azure-backup-import-export/your-disk-details.png)
+
    Les champs sont décrits ci-dessous :
 
     * **Emplacement intermédiaire** : Emplacement de stockage temporaire dans lequel la copie de sauvegarde initiale est écrite. L’emplacement intermédiaire peut être sur un partage réseau ou un ordinateur local. Si l’ordinateur de copie et l’ordinateur source sont différents, nous vous recommandons de spécifier le chemin d’accès réseau complet de l’emplacement intermédiaire.
@@ -85,15 +94,15 @@ Cette section décrit le flux de travail de sauvegarde hors connexion qui permet
   
    Renseignez les champs à l’écran et cliquez sur **Suivant**. Enregistrez *l’emplacement intermédiaire* fourni et le *Nom de la tâche d’importation Azure*. Ces informations sont nécessaires pour la préparation des disques.
 
-2. Lorsque vous y êtes invité, connectez-vous à votre abonnement Azure. Vous devez vous connecter afin que le service de sauvegarde Azure puisse créer l’application Azure Active Directory et fournir les autorisations requises pour accéder au service d’importation Azure.
+4. Lorsque vous y êtes invité, connectez-vous à votre abonnement Azure. Vous devez vous connecter afin que le service de sauvegarde Azure puisse créer l’application Azure Active Directory et fournir les autorisations requises pour accéder au service d’importation Azure.
 
-    ![Sauvegarder maintenant](./media/backup-azure-backup-import-export/azurelogin.png)
+    ![Sauvegarder maintenant](./media/backup-azure-backup-import-export/azure-login.png)
 
-3. Exécutez le flux de travail, puis, dans la console de l’agent de sauvegarde Azure, cliquez sur **Sauvegarder maintenant**.
+5. Exécutez le flux de travail, puis, dans la console de l’agent de sauvegarde Azure, cliquez sur **Sauvegarder maintenant**.
 
     ![Sauvegarder maintenant](./media/backup-azure-backup-import-export/backupnow.png)
 
-4. Dans la page de confirmation de l’Assistant, cliquez sur **Sauvegarder**. La sauvegarde initiale est écrite dans la zone intermédiaire tel que cela a été configuré.
+6. Dans la page de confirmation de l’Assistant, cliquez sur **Sauvegarder**. La sauvegarde initiale est écrite dans la zone intermédiaire tel que cela a été configuré.
 
    ![Confirmez que vous êtes prêt à sauvegarder maintenant](./media/backup-azure-backup-import-export/backupnow-confirmation.png)
 
@@ -206,4 +215,3 @@ Une fois la sauvegarde initiale terminée, vous pouvez supprimer sans risque les
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour toute question au sujet du flux de travail Azure Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage/common/storage-import-export-service.md).
-

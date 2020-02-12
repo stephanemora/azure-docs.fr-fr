@@ -1,10 +1,10 @@
 ---
-title: Haute disponibilité et récupération d'urgence - Azure Batch | Microsoft Docs
-description: Apprenez à concevoir votre application Azure Batch afin de faire face à une panne régionale
+title: Haute disponibilité et reprise d’activité après sinistre - Azure Batch
+description: Apprenez à concevoir votre application Azure Batch afin de faire face à une panne régionale. Les charges de travail doivent basculer vers une autre région ou être réparties entre deux régions ou plus.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -12,13 +12,13 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: jushiman
-ms.openlocfilehash: f30d2d8e7d08277a5782c3fc39c10fcdff9463f2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 84b0cce9557b4ae05586579f175cd0f5db14fdfc
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029557"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026079"
 ---
 # <a name="design-your-application-for-high-availability"></a>Concevoir votre application à des fins de haute disponibilité
 
@@ -49,5 +49,5 @@ Lors de la conception d'une solution capable de basculer, tenez compte des point
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- En savoir plus sur la création de comptes Batch avec le [portail Azure](batch-account-create-portal.md), l'interface [Azure CLI](cli-samples.md), [Powershell](batch-powershell-cmdlets-get-started.md) ou l'[API Gestion du service Batch](batch-management-dotnet.md).
+- Découvrez-en plus sur la création de comptes Batch avec le [portail Azure](batch-account-create-portal.md), l’interface [Azure CLI](cli-samples.md), [PowerShell](batch-powershell-cmdlets-get-started.md) ou l’[API Gestion du service Batch](batch-management-dotnet.md).
 - Des quotas par défaut sont associés à un compte Batch ; [cet article](batch-quota-limit.md) détaille les valeurs des quotas par défaut et explique comment augmenter les quotas.

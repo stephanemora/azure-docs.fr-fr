@@ -3,12 +3,12 @@ title: Créer des stratégies pour les propriétés de tableau sur des ressource
 description: Apprenez à gérer des paramètres de tableau et des expressions de langage de tableau, à évaluer l’alias [*] et à ajouter des éléments avec des règles de définition de stratégie Azure.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 915f50945e0c2520fbda09c4db1b581c9381073b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873095"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023189"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Créer des stratégies pour les propriétés de tableau sur des ressources Azure
 
@@ -16,7 +16,7 @@ Les propriétés Azure Resource Manager sont généralement définies comme des 
 
 - Le type d’un [paramètre de définition](../concepts/definition-structure.md#parameters), pour fournir plusieurs options
 - Une partie d’une [règle de stratégie](../concepts/definition-structure.md#policy-rule) utilisant les conditions **In** ou **notIn**
-- Il s’agit d’une partie d’une règle de stratégie qui évalue l’alias [\[\*\] ](../concepts/definition-structure.md#understanding-the--alias) pour évaluer ce qui suit :
+- Il s’agit d’une partie d’une règle de stratégie qui évalue l’alias [\[\*\]](../concepts/definition-structure.md#understanding-the--alias) pour évaluer ce qui suit :
   - Scénarios tels que **None** (Aucun), **Any** (N’importe lequel) ou **All** (Tout)
   - Scénarios complexes avec **count**
 - Dans [l’effet Append](../concepts/effects.md#append) pour remplacer ou ajouter à un tableau existant
@@ -75,7 +75,7 @@ Cette nouvelle définition de paramètre accepte plusieurs valeurs lors de l’a
 
 ### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Passer des valeurs à un tableau de paramètres lors de l’attribution
 
-Lors de l’affectation de la stratégie via le portail Azure, un paramètre de **type** _tableau_ s’affiche comme une zone de texte unique. L’indicateur indique « Utiliser ’;’ pour séparer des valeurs. (par exemple, Londres;New York) ». Pour passer les valeurs d’emplacement autorisées de _eastus2_, _eastus_ et _westus2_ au paramètre, utilisez la chaîne suivante :
+Lors de l’affectation de la stratégie via le portail Azure, un paramètre de **type** _tableau_ s’affiche sous la forme d’une zone de texte unique. L’indicateur indique « Utiliser ’;’ pour séparer des valeurs. (par exemple, Londres;New York) ». Pour passer les valeurs d’emplacement autorisées de _eastus2_, _eastus_ et _westus2_ au paramètre, utilisez la chaîne suivante :
 
 `eastus2;eastus;westus2`
 
@@ -95,7 +95,7 @@ Le format de la valeur du paramètre est différent lorsque vous utilisez Azure 
 
 Pour utiliser cette chaîne avec chaque kit SDK, utilisez les commandes suivantes :
 
-- Interface de ligne de commande Azure : Commande [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) avec le paramètre **params**
+- Azure CLI : Commande [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) avec le paramètre **params**
 - Azure PowerShell : Applet de commande [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) avec le paramètre **PolicyParameter**
 - API REST : Dans l’opération _PUT_ [create](/rest/api/resources/policyassignments/create) en tant que partie intégrante du corps de la demande en tant que valeur d’une propriété **properties.parameters**
 
@@ -136,11 +136,12 @@ Une tentative de création de cette définition de stratégie via le portail Azu
 
 - « La stratégie '{GUID}' ne peut pas être paramétrée en raison d’erreurs de validation. Vérifiez si les paramètres de stratégie sont correctement définis. L’exception interne « Résultat d’évaluation de l’expression de langage '[parameters('allowedLocations')]' est de type « Tableau », le type attendu est « String ». »
 
-Le **type** attendu de la condition `equals` est _chaîne_. Dans la mesure où **allowedLocations** est défini de **type** _Tableau_, le moteur de stratégie évalue l’expression de langage et génère l’erreur. Avec les conditions `in` et `notIn`, le moteur de stratégie attend le **type** _Tableau_ dans l’expression de langage. Pour résoudre ce message d’erreur, remplacez `equals` par `in` ou `notIn`.
+Le **type** attendu de la condition `equals` est _chaîne_. Dans la mesure où **allowedLocations** est de **type** _tableau_, le moteur de stratégie évalue l’expression de langage et affiche l’erreur. Avec les conditions `in` et `notIn`, le moteur de stratégie attend le **type** _tableau_ dans l’expression de langage. Pour résoudre ce message d’erreur, remplacez `equals` par `in` ou `notIn`.
 
 ### <a name="evaluating-the--alias"></a>Évaluation de l’alias [*]
 
-Les alias ayant **\[\*\]** attaché à leur nom indiquent que le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **\[\*\]** permet d’en évaluer chaque élément. Il existe trois scénarios standards au sein desquels cette évaluation par élément est utile : « None », « Any », et « All ». Pour les scénarios complexes, utilisez [count](../concepts/definition-structure.md#count).
+Les alias ayant **\[\*\]** attaché à leur nom indiquent que le **type** est un _tableau_. Au lieu d’évaluer la valeur de l’intégralité du tableau, **\[\*\]** permet d’évaluer chacun des éléments qu’il contient, avec un ET logique entre eux. Il existe trois scénarios standards au sein desquels cette évaluation par élément est utile : en cas de correspondance avec _aucun élément_, _n’importe quel élément_ ou _tous les éléments_.
+Pour les scénarios complexes, utilisez [count](../concepts/definition-structure.md#count).
 
 Le moteur de stratégie déclenche l’**effet** dans **then** uniquement lorsque la règle **if** est évaluée comme True.
 Il est important de comprendre ce point dans le contexte de la façon dont **\[\*\]** évalue chaque élément individuel du tableau.
@@ -183,16 +184,16 @@ Pour chaque exemple de condition ci-dessous, remplacez `<field>` par `"field": "
 
 Les résultats suivants viennent de la combinaison de la condition et de l’exemple de règle de stratégie et le tableau des valeurs existantes ci-dessus :
 
-|Condition |Résultat |Explication |
-|-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |Rien |Un élément du tableau est évalué comme false (127.0.0.1 ! = 127.0.0.1) et un autre comme true (127.0.0.1 ! = 192.168.1.1), donc la condition **notEquals** est _false_ et l’effet n’est pas déclenché. |
-|`{<field>,"notEquals":"10.0.4.1"}` |Effet de la stratégie |Les éléments du tableau sont évalués comme true (10.0.4.1 != 127.0.0.1 et 10.0.4.1 != 192.168.1.1), donc la condition **notEquals** est _true_ et l’effet est déclenché. |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |Effet de la stratégie |Un élément du tableau est évalué comme true (127.0.0.1 == 127.0.0.1) et un autre comme false (127.0.0.1 == 192.168.1.1), donc la condition **Equals** est _false_. L’opérateur logique est évalué comme true (**pas** _false_), de sorte que l’effet est déclenché. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |Effet de la stratégie |Les deux éléments du tableau sont évalués comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), donc la condition **Equals** est _false_. L’opérateur logique est évalué comme true (**pas** _false_), de sorte que l’effet est déclenché. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effet de la stratégie |Un élément du tableau est évalué comme false (127.0.0.1 != 127.0.0.1) et un autre comme true (127.0.0.1 != 192.168.1.1), donc la condition **notEquals** est _false_. L’opérateur logique est évalué comme true (**pas** _false_), de sorte que l’effet est déclenché. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |Rien |Les deux éléments du tableau sont évalués comme false (10.0.4.1 != 127.0.0.1 et 10.0.4.1 != 192.168.1.1), donc la condition **notEquals** est _true_. L’opérateur logique est évalué comme false (**pas** _true_), de sorte que l’effet est déclenché. |
-|`{<field>,"Equals":"127.0.0.1"}` |Rien |Un élément du tableau est évalué comme true (127.0.0.1 == 127.0.0.1) et un autre comme true (127.0.0.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
-|`{<field>,"Equals":"10.0.4.1"}` |Rien |Les deux éléments du tableau sont évalués comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
+|Condition |Résultat | Scénario |Explication |
+|-|-|-|-|
+|`{<field>,"notEquals":"127.0.0.1"}` |Rien |Aucun ne correspond |Un élément du tableau est évalué comme false (127.0.0.1 ! = 127.0.0.1) et un autre comme true (127.0.0.1 ! = 192.168.1.1), donc la condition **notEquals** est _false_ et l’effet n’est pas déclenché. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Effet de la stratégie |Aucun ne correspond |Les éléments du tableau sont évalués comme true (10.0.4.1 != 127.0.0.1 et 10.0.4.1 != 192.168.1.1), donc la condition **notEquals** est _true_ et l’effet est déclenché. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Effet de la stratégie |Un ou plusieurs correspondent |Un élément du tableau est évalué comme false (127.0.0.1 != 127.0.0.1) et un autre comme true (127.0.0.1 != 192.168.1.1), donc la condition **notEquals** est _false_. L’opérateur logique est évalué comme true (**non** _false_), de sorte que l’effet est déclenché. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Rien |Un ou plusieurs correspondent |Les deux éléments du tableau sont évalués comme false (10.0.4.1 != 127.0.0.1 et 10.0.4.1 != 192.168.1.1), donc la condition **notEquals** est _true_. L’opérateur logique est évalué comme false (**non** _true_), de sorte que l’effet n’est pas déclenché. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Effet de la stratégie |Tous ne correspondent pas |Un élément du tableau est évalué comme true (127.0.0.1 == 127.0.0.1) et un autre comme false (127.0.0.1 == 192.168.1.1), donc la condition **Equals** est _false_. L’opérateur logique est évalué comme true (**non** _false_), de sorte que l’effet est déclenché. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Effet de la stratégie |Tous ne correspondent pas |Les deux éléments du tableau sont évalués comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), donc la condition **Equals** est _false_. L’opérateur logique est évalué comme true (**non** _false_), de sorte que l’effet est déclenché. |
+|`{<field>,"Equals":"127.0.0.1"}` |Rien |Tous correspondent |Un élément du tableau est évalué comme true (127.0.0.1 == 127.0.0.1) et un autre comme true (127.0.0.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
+|`{<field>,"Equals":"10.0.4.1"}` |Rien |Tous correspondent |Les deux éléments du tableau sont évalués comme false (10.0.4.1 == 127.0.0.1 et 10.0.4.1 == 192.168.1.1), donc la condition **Equals** est _false_ et l’effet n’est pas déclenché. |
 
 ## <a name="the-append-effect-and-arrays"></a>L’effet Append et les tableaux
 

@@ -15,12 +15,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fc68626959daaccb5ddc05ce6148c5948052d41
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549378"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022492"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Comprendre le schéma Azure AD
 Dans Azure Active Directory (Azure AD), un objet (par exemple, un annuaire) est une construction de données globale programmatique qui représente des éléments, tels que des utilisateurs, des groupes et des contacts. Lorsque vous créez un utilisateur ou un contact dans Azure AD, vous créez une instance de cet objet. Ces instances peuvent être différenciées en fonction de leurs propriétés.
@@ -72,7 +72,7 @@ Pour afficher le schéma et le vérifier, effectuez les étapes suivantes.
 1.  Accédez à l’[Explorateur Graph](https://developer.microsoft.com/graph/graph-explorer).
 1.  Connectez-vous avec votre compte d’administrateur général.
 1.  Sur la gauche, sélectionnez **Modifier les autorisations** et vérifiez que l’autorisation **Directory.ReadWrite.All** est *Acceptée*.
-1.  Exécutez la requête https://graph.microsoft.com/beta/serviceprincipals/. Cette requête retourne une liste de principaux de service.
+1.  Exécutez la requête https://graph.microsoft.com/beta/serviceprincipals/? $filter=startswith(Displayname,’Active’). Cette requête retourne une liste filtrée de principaux de service.
 1.  Recherchez `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"` et notez la valeur pour `"id"`.
     ```
     "value": [

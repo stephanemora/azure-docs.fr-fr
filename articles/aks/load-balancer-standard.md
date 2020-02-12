@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9633975f53b3e398537067b17a870f621d9a7435
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 03daafd383810a5e6cf086ca8e546981b06fa6eb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045048"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025705"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utiliser un équilibreur de charge de référence (SKU) Standard dans Azure Kubernetes Service (AKS)
 
@@ -26,7 +26,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.74 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
+Si vous choisissez d’installer et d’utiliser l’interface CLI localement, cet article vous demande d’exécuter Azure CLI version 2.0.81 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI][install-azure-cli].
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
@@ -162,9 +162,14 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
-## <a name="show-the-outbound-rule-for-your-load-balancer"></a>Afficher la règle de sortie pour votre équilibreur de charge
+## <a name="configure-outbound-ports-and-idle-timeout"></a>Configurer les ports de sortie et le délai d’inactivité
 
-Pour afficher la règle de sortie créée dans l'équilibreur de charge, utilisez [az network lb outbound-rule list][az-network-lb-outbound-rule-list] et spécifiez le groupe de ressources du nœud de votre cluster AKS :
+> [!WARNING]
+> La section suivante concerne les scénarios avancés de réseau à plus grande échelle ou de résolution des problèmes d’épuisement de la traduction d’adresses réseau sources (SNAT) avec les configurations par défaut. Vous devez disposer d’un inventaire précis du quota disponible pour les machines virtuelles et les adresses IP avant de modifier les valeurs par défaut de *AllocatedOutboundPorts* ou *IdleTimeoutInMinutes* afin de conserver des clusters sains.
+> 
+> La modification des valeurs de *AllocatedOutboundPorts* et *IdleTimeoutInMinutes* peut modifier considérablement le comportement de la règle de trafic sortant pour votre équilibreur de charge. Passez en revue les [règles de trafic sortant de l’équilibreur de charge][azure-lb-outbound-rules-overview], les [règles de trafic entrant de l’équilibreur de charge][azure-lb-outbound-rules] et les [connexions sortantes dans Azure][azure-lb-outbound-connections] avant de mettre à jour ces valeurs pour bien comprendre l’impact de vos modifications.
+
+Les ports de sortie alloués et leurs délais d’inactivité sont utilisés pour la [traductions d’adresses réseau sources (SNAT)][azure-lb-outbound-connections]. Par défaut, l’équilibreur de charge de la référence SKU *Standard* utilise l’[affectation automatique pour le nombre de ports de sortie en fonction de la taille du pool back-end][azure-lb-outbound-preallocatedports] et un délai d’inactivité de 30 minutes pour chaque port. Pour voir ces valeurs, utilisez [az network lb outbound-rule list][az-network-lb-outbound-rule-list] pour afficher la règle de trafic sortant de l’équilibreur de charge :
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
@@ -179,7 +184,46 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-Dans l'exemple de sortie, *AllocatedOutboundPorts* est 0. La valeur *AllocatedOutboundPorts* signifie que l'allocation des ports SNAT retourne à l'attribution automatique basée sur la taille du pool de serveur principal. Voir [Règles de trafic sortant dans Load Balancer][azure-lb-outbound-rules] et [Connexions sortantes dans Azure][azure-lb-outbound-connections] pour plus de détails.
+L’exemple de sortie montre la valeur par défaut pour *AllocatedOutboundPorts* et *IdleTimeoutInMinutes*. La valeur 0 pour *AllocatedOutboundPorts* définit le nombre de ports de sortie à l’aide de l’attribution automatique pour le nombre de ports de sortie en fonction de la taille du pool principal. Par exemple, si le cluster a 50 nœuds ou moins, 1 024 ports sont alloués pour chaque nœud.
+
+Envisagez de modifier le paramètre *allocatedOutboundPorts* ou *IdleTimeoutInMinutes* si vous pensez être confronté à l’épuisement de la traduction d’adresses réseau sources (SNAT) compte tenu de la configuration par défaut ci-dessus. Chaque adresse IP supplémentaire active 64 000 ports supplémentaires pour l’allocation, mais Azure Standard Load Balancer n’augmente pas automatiquement les ports par nœud quand d’autres adresses IP sont ajoutées. Vous pouvez modifier ces valeurs en définissant les paramètres *load-balancer-outbound-ports* et *load-balancer-idle-timeout*. Par exemple :
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+> [!IMPORTANT]
+> Pour éviter les problèmes de connectivité ou de mise à l’échelle, vous devez [calculer votre quota nécessaire][calculate-required-quota] avant de personnaliser *allocatedOutboundPorts*. La valeur que vous spécifiez pour *allocatedOutboundPorts* doit également être un multiple de 8.
+
+Vous pouvez aussi utiliser les paramètres *load-balancer-outbound-ports* et *load-balancer-idle-timeout* lors de la création d’un cluster. Toutefois, vous devez également spécifier *load-balancer-managed-outbound-ip-count*, *load-balancer-outbound-ips* ou *load-balancer-outbound-ip-prefixes*.  Par exemple :
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-managed-outbound-ip-count 2 \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+Quand vous modifiez les valeurs par défaut des paramètres *load-balancer-outbound-ports* et *load-balancer-idle-timeout*, cela affecte le comportement du profil d’équilibreur de charge, ce qui a un impact sur l’ensemble du cluster.
+
+### <a name="required-quota-for-customizing-allocatedoutboundports"></a>Quota nécessaire à la personnalisation du paramètre allocatedOutboundPorts
+Vous devez disposer d’une capacité d’adresses IP sortantes suffisante pour le nombre de machines virtuelles de votre nœud et les ports de sortie alloués souhaités. Pour vérifier que vous avez suffisamment de capacité d’adresses IP sortantes, utilisez la formule suivante : 
+ 
+*adressesIPsortantes* \* 64 000 \> *machinesVirtuellesdeNœud* \* *portsDeSortieAllouésSouhaités*.
+ 
+Par exemple, si vous avez 3 *machinesVirtuellesdeNœud*et 50 000 *portsDeSortieAllouésSouhaités*, vous avez besoin d’au moins 3 *adressesIPsortantes*. Il est recommandé d’intégrer une capacité d’adresses IP sortantes plus élevée que vos besoins. De plus, vous devez tenir compte de la mise à l’échelle automatique du cluster et de la possibilité de mettre à niveau les pools de nœuds lors du calcul de la capacité d’adresses IP sortantes. Pour la mise à l’échelle automatique du cluster, examinez le nombre de nœuds actuel et le nombre maximal de nœuds, puis utilisez la valeur la plus élevée. Pour la mise à niveau, comptez une machine virtuelle de nœud supplémentaire pour chaque pool de nœuds qui autorise la mise à niveau.
+ 
+Lorsque vous définissez *IdleTimeoutInMinutes* sur une valeur différente de la valeur par défaut égale à 30 minutes, réfléchissez à la durée pendant laquelle vos charges de travail auront besoin d’une connexion sortante. Tenez également compte de la valeur du délai d’expiration par défaut d’un équilibreur de charge de la référence SKU *Standard* utilisé en dehors d’AKS qui s’élève à 4 minutes. Une valeur *IdleTimeoutInMinutes* qui reflète plus précisément votre charge de travail AKS spécifique peut contribuer à réduire l’épuisement SNAT provoqué par la liaison des connexions qui ne sont plus utilisées.
 
 ## <a name="restrict-access-to-specific-ip-ranges"></a>Restreindre l’accès à certaines plages d’adresses IP
 
@@ -239,9 +283,12 @@ En savoir plus sur les services Kubernetes dans la [documentation des services K
 [azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
+[azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
+[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[calculate-required-quota]: #required-quota-for-customizing-allocatedoutboundports

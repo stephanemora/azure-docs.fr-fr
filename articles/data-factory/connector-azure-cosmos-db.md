@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 52bec8bba7bb3ddf545e3bd1866775f0964c6ad3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893139"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025807"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Copier et transformer des données dans Azure Cosmos DB (API SQL) à l’aide d’Azure Data Factory
 
@@ -268,6 +268,18 @@ Les paramètres spécifiques à Azure Cosmos DB sont disponibles dans l'onglet *
 **Débit :** définissez une valeur facultative du nombre de RU que vous souhaitez appliquer à votre collection CosmosDB pour chaque exécution de ce flux de données pendant l’opération de lecture. La valeur minimale est 400.
 
 **Régions préférées :** choisissez les régions de lecture privilégiées pour ce processus.
+
+#### <a name="json-settings"></a>Paramètres JSON
+
+**Un seul document :** sélectionnez cette option si ADF doit traiter l’intégralité du fichier comme un document JSON unique.
+
+**Noms de colonnes sans guillemets :** sélectionnez cette option si les noms de colonnes dans le fichier JSON ne sont pas entre guillemets.
+
+**A des commentaires :** utilisez cette sélection si vos documents JSON comportent des commentaires dans les données.
+
+**Entre guillemets simples :** sélectionnez cette option si les colonnes et les valeurs de votre document sont placées entre guillemets simples.
+
+**Barres obliques inverses d’échappement :** si vous utilisez des barres obliques inverses pour échapper des caractères dans votre fichier JSON, choisissez cette option.
 
 ### <a name="sink-transformation"></a>Transformation du récepteur
 

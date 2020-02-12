@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 02/03/2020
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: ecc55c0d41f552d2c29fe5c964a7c40ab9e382ba
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701380"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022628"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Procédure : Configurer l’authentification unique sur macOS et iOS
 
@@ -71,7 +71,9 @@ Pour que la plateforme d’identités Microsoft sache quelles applications peuve
 
 La plateforme d’identités Microsoft distingue les applications qui utilisent le même ID d’application par leurs **URI de redirection**. Chaque application peut posséder plusieurs URI de redirection inscrits sur le portail d’intégration. Chacune des applications de votre suite présente un URI de redirection propre. Par exemple :
 
-URI de redirection App1 : `msauth.com.contoso.mytestapp1://auth` URI de redirection App2 : `msauth.com.contoso.mytestapp2://auth` URI de redirection App3 : `msauth.com.contoso.mytestapp3://auth`
+URI de redirection App1 : `msauth.com.contoso.mytestapp1://auth`  
+URI de redirection App2 : `msauth.com.contoso.mytestapp2://auth`  
+URI de redirection App3 : `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > Le format des URI de redirection doit être compatible avec le format pris en charge par MSAL, qui est documenté dans [Spécifications du format d’URI de redirection MSAL](redirect-uris-ios.md#msal-redirect-uri-format-requirements).
@@ -96,6 +98,18 @@ Une fois les droits configurés correctement, vous verrez un fichier `entitlemen
 </plist>
 ```
 
+#### <a name="add-a-new-keychain-group"></a>Ajouter un nouveau groupe de trousseaux
+
+Ajoutez un nouveau groupe de trousseaux aux **fonctionnalités** de votre projet. Le groupe de trousseaux doit être :
+* `com.microsoft.adalcache` sur iOS 
+* `com.microsoft.identity.universalstorage` sur macOS
+
+![exemple de trousseau](media/single-sign-on-macos-ios/keychain-example.png)
+
+Pour plus d’informations, consultez [Groupes de trousseaux](howto-v2-keychain-objc.md).
+
+## <a name="configure-the-application-object"></a>Configurer l’objet d’application
+
 Une fois que vous avez activé le droit au trousseau dans chacune de vos applications et que vous êtes prêt à utiliser l’authentification unique, configurez `MSALPublicClientApplication` avec votre groupe d’accès au trousseau comme dans l’exemple suivant :
 
 Objective-C :
@@ -113,16 +127,14 @@ Swift :
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
 config.cacheConfig.keychainSharingGroup = "my.keychain.group"
-        
+
 do {
-    let application = try MSALPublicClientApplication(configuration: config)
-  // continue on with application          
+   let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
 } catch let error as NSError {
   // handle error here
-}       
+}
 ```
-
-
 
 > [!WARNING]
 > Quand vous partagez un trousseau entre vos applications, n’importe quelle application peut supprimer des utilisateurs ou même l’ensemble des jetons de votre application.
@@ -206,7 +218,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
-    
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 En savoir plus sur les [Flux d’authentification et scénarios d’applications](authentication-flows-app-scenarios.md)

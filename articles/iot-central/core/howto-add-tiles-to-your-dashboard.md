@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35965f238ed5b7768dd174788453838c917adb32
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435124"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023223"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurer le tableau de bord de l’application
 
@@ -47,7 +47,6 @@ Désormais, quand un opérateur affiche le tableau de bord de l’application pa
 
 > [!div class="mx-imgBorder"]
 > ![Onglet « Tableau de bord » affichant les paramètres et les propriétés de la vignette](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
-
 
 ## <a name="edit-tiles"></a>Modifier des vignettes
 
@@ -87,4 +86,4 @@ Le tableau suivant résume l’utilisation des vignettes dans Azure IoT Central 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-À présent que vous avez découvert comment configurer votre tableau de bord d’application par défaut d’Azure IoT Central, vous pouvez [Découvrir comment préparer et charger des images](howto-prepare-images.md).
+À présent que vous savez comment configurer votre tableau de bord d’application par défaut Azure IoT Central, découvrez comment [Créer un tableau de bord personnel](howto-create-personal-dashboards.md).

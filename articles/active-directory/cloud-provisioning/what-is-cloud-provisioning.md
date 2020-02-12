@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef73abdd6bfdadd0078c30ad1b0145cdae41722
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 69b8cbdba018b9d03dca67573b1f4fe6efa546b6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767601"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024039"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Qu’est-ce que le provisionnement cloud Azure AD Connect ?
 Le provisionnement cloud Azure AD Connect est un nouvel agent Microsoft conçu pour répondre à vos objectifs d’identité hybrides, et vous permettre de les atteindre en matière de synchronisation des utilisateurs, des groupes et des contacts sur Azure AD.  Il peut être utilisé avec la synchronisation Azure AD Connect, et offre les avantages suivants :
@@ -46,6 +46,8 @@ Le tableau suivant présente une comparaison entre Azure AD Connect et le provis
 | Prise en charge des objets contact |● |● |
 | Prise en charge des objets appareil |● | |
 | Autorisation de la personnalisation de base pour les flux d’attributs |● |● |
+| Synchronisation des attributs Exchange Online |● |● |
+| Synchronisation des attributs d’extension 1-15 |● |● |
 | Synchronisation des attributs Active Directory définis par le client (extensions d’annuaire) |● | |
 | Prise en charge de la synchronisation de hachage de mot de passe |●|●|
 | Prise en charge de l’authentification directe |●||
@@ -60,7 +62,7 @@ Le tableau suivant présente une comparaison entre Azure AD Connect et le provis
 | Autorisation de la personnalisation avancée pour les flux d’attributs |● | |
 | Prise en charge de la réécriture (mots de passe, appareils, groupes) |● | |
 | Support Azure AD Domain Services|● | |
-| Configuration Exchange hybride |● | |
+| [Écriture différée Exchange hybride](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | Prise en charge de plus de 50 000 objets par domaine AD |● | |
 
 ## <a name="next-steps"></a>Étapes suivantes 

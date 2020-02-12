@@ -3,13 +3,13 @@ title: Sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 description: Découvrez comment la Sauvegarde Azure vous permet d’envoyer des données en dehors du réseau à l’aide du service Azure Import/Export. Cet article explique le flux de travail de sauvegarde hors connexion pour DPM et serveur de sauvegarde Azure (MABS).
 ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 05/08/2018
-ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 1/28/2020
+ms.openlocfilehash: 6be75062ab0ce06784d8cd7c833e0070476acf60
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996321"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022577"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Flux de travail de la sauvegarde hors connexion pour DPM et le serveur de sauvegarde Azure
 
@@ -21,7 +21,7 @@ Le processus d’amorçage hors connexion de la sauvegarde Azure est étroitemen
 > Le processus de sauvegarde en mode hors connexion pour l’agent Microsoft Azure Recovery Services (MARS) est distinct de celui de System Center DPM et du serveur de sauvegarde Azure. Pour plus d’informations sur l’utilisation de la sauvegarde en mode hors connexion avec l’agent MARS, consultez [cet article](backup-azure-backup-import-export.md). La sauvegarde hors connexion n’est pas prise en charge pour les sauvegardes d’état du système effectuées à l’aide de l’agent Sauvegarde Azure.
 >
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Grâce à la fonction d’amorçage hors connexion de la sauvegarde Azure et à Azure Import/Export, vous pouvez charger facilement les données dans Azure hors connexion à l’aide de disques. Le processus de sauvegarde en mode hors connexion inclut les étapes suivantes :
 
@@ -43,7 +43,7 @@ La sauvegarde en mode hors connexion est prise en charge pour tous les modèles 
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec Microsoft System Center Data Protection Manager
 > * Sauvegarde de l’ensemble des charges de travail et fichiers avec Serveur Sauvegarde Microsoft Azure
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 Assurez-vous que les prérequis suivants sont disponibles avant de lancer le flux de travail de sauvegarde en mode hors connexion
 
@@ -56,13 +56,74 @@ Assurez-vous que les prérequis suivants sont disponibles avant de lancer le flu
     | États-Unis | [Lien](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | Chine | [Lien](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* Un compte de stockage Azure avec un modèle de déploiement *classique* a été créé dans l’abonnement à partir duquel vous avez téléchargé le fichier de paramètres de publication, comme indiqué ci-dessous :
+* Un compte de stockage Azure avec un modèle de déploiement *Resource Manager* a été créé dans l’abonnement à partir duquel vous avez téléchargé le fichier de paramètres de publication, comme indiqué ci-dessous :
 
-  ![Création d’un compte de stockage classique](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![Création d’un compte de stockage avec développement Resource Manager](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
 * Un emplacement intermédiaire est créé. Il peut s’agir d’un partage réseau ou de tout lecteur supplémentaire, interne ou externe, sur l’ordinateur offrant suffisamment d’espace disque pour conserver votre copie initiale. Par exemple, si vous tentez de sauvegarder un serveur de fichiers de 500 Go, assurez-vous que la zone intermédiaire dispose d’au moins 500 Go (bien qu’une quantité inférieure soit utilisée en raison de la compression).
 * En ce qui concerne les disques qui seront envoyés à Azure, assurez-vous que seuls des disques durs internes SSD de 2,5 pouces ou SATA II/III de 2,5 ou 3,5 pouces sont utilisés. La capacité maximale par disque dur est de 10 To. Consultez la [documentation sur le service Azure Import/Export](../storage/common/storage-import-export-requirements.md#supported-hardware) pour connaître la dernière série de disques pris en charge par le service.
 * Les disques SATA doivent être connectés à un ordinateur (appelé *ordinateur de copie*) à partir duquel est effectuée la copie des données de sauvegarde de l’*emplacement intermédiaire* vers les disques SATA. Vérifiez que BitLocker est activé sur l'*ordinateur de copie*
+
+## <a name="prepare-the-server-for-the-offline-backup-process"></a>Préparer le serveur au processus de sauvegarde hors connexion
+
+>[!NOTE]
+> Si vous ne trouvez pas les utilitaires listés comme *AzureOfflineBackupCertGen.exe* dans votre installation de l’agent MARS, écrivez à AskAzureBackupTeam@microsoft.com pour pouvoir y accéder.
+
+* Ouvrez une invite de commandes avec élévation de privilèges sur le serveur, puis exécutez la commande suivante :
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
+    ```
+
+    L’outil crée une application AD de sauvegarde hors connexion Azure, si aucune n’existe déjà.
+
+    Si une application existe déjà, cet exécutable vous invite à charger manuellement le certificat sur l’application dans le locataire. Suivez les étapes ci-dessous dans [cette section](#manually-upload-offline-backup-certificate) pour charger le certificat manuellement sur l’application.
+
+* L’outil AzureOfflineBackup.exe génère un fichier OfflineApplicationParams.xml.  Copiez ce fichier sur le serveur avec MABS ou DPM.
+* Installez l’[agent MARS le plus récent](https://aka.ms/azurebackup_agent) sur le serveur DPM/Sauvegarde Azure (MABS).
+* Inscrivez le serveur sur Azure.
+* Exécutez la commande suivante :
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    ```
+
+* La commande ci-dessus crée le fichier `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`.
+
+## <a name="manually-upload-offline-backup-certificate"></a>Charger manuellement le certificat de sauvegarde hors connexion
+
+Suivez les étapes ci-dessous pour charger manuellement le certificat de sauvegarde hors connexion sur une application Azure Active Directory précédemment créée, destinée à la sauvegarde hors connexion.
+
+1. Connectez-vous au portail Azure.
+2. Accédez à **Azure Active Directory** > **Inscriptions des applications**.
+3. Accédez à l’onglet **Applications détenues** et recherchez une application au format de nom d’affichage `AzureOfflineBackup _<Azure User Id` comme illustré ci-dessous :
+
+    ![Localiser l’application sous l’onglet Applications détenues](./media/backup-azure-backup-import-export/owned-applications.png)
+
+4. Cliquez sur l’application. Sous l’onglet **Gérer** dans le volet gauche, accédez à **Certificats et secrets**.
+5. Vérifiez s’il existe déjà des certificats ou des clés publiques. S’il n’en existe pas, vous pouvez supprimer l’application en toute sécurité en cliquant sur le bouton **Supprimer** dans la page **Vue d’ensemble** de l’application. Ensuite, vous pouvez réessayer les étapes permettant de [préparer le serveur à la sauvegarde hors connexion](#prepare-the-server-for-the-offline-backup-process) et ignorer les étapes ci-dessous. Sinon, exécutez les étapes suivantes à partir du serveur DPM/serveur de sauvegarde Azure (MABS) sur lequel vous voulez configurer la sauvegarde hors connexion.
+6. Ouvrez l’onglet **Gérer l’application de certificat d’ordinateur** > **Personnel** et recherchez le certificat portant le nom `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
+7. Sélectionnez le certificat ci-dessus, cliquez avec le bouton droit sur **Toutes les tâches** et **exportez**-le, sans clé privée, au format .cer.
+8. Accédez à l’application de sauvegarde hors connexion Azure dans le portail Azure.
+9. Cliquez sur **Gérer** > **Certificats et secrets** > **Charger un certificat**, puis chargez le certificat exporté à l’étape précédente.
+
+    ![Téléchargement du certificat](./media/backup-azure-backup-import-export/upload-certificate.png)
+10. Sur le serveur, ouvrez le Registre en tapant **regedit** dans la fenêtre Exécuter.
+11. Accédez à l’entrée de Registre *Ordinateur\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider*.
+12. Cliquez avec le bouton droit sur **CloudBackupProvider** et ajoutez une nouvelle valeur de chaîne portant le nom `AzureADAppCertThumbprint_<Azure User Id>`.
+
+    >[!NOTE]
+    > Remarque : Pour trouver l’ID d’utilisateur Azure, effectuez l’une des étapes suivantes :
+    >
+    >1. À partir du PowerShell connecté à Azure, exécutez la commande `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”`.
+    >2. Accédez au chemin du Registre : `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`
+
+13. Cliquez avec le bouton droit sur la chaîne ajoutée à l’étape précédente, puis sélectionnez **Modifier**. Dans la valeur, fournissez l’empreinte du certificat que vous avez exporté à l’étape 7, puis cliquez sur **OK**.
+14. Pour obtenir la valeur de l’empreinte, double-cliquez sur le certificat, sélectionnez l’onglet **Détails** et faites défiler le contenu jusqu’à ce que le champ de l’empreinte apparaisse. Cliquez sur **Empreinte** et copiez la valeur.
+
+    ![Copier la valeur du champ de l’empreinte](./media/backup-azure-backup-import-export/thumbprint-field.png)
+
+15. Passez à la section [Workflow](#workflow) pour reprendre le processus de sauvegarde hors connexion.
 
 ## <a name="workflow"></a>Workflow
 
@@ -104,7 +165,7 @@ Les informations de cette section vous permettent d’effectuer le flux de trava
 
 L’utilitaire *AzureOfflineBackupDiskPrep* sert à préparer les disques SATA qui sont envoyés au centre de données Azure le plus proche. Cet utilitaire est disponible dans le répertoire d’installation de l’agent Recovery Services dont le chemin d’accès est le suivant :
 
-    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
+`*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
 1. Accédez au répertoire, puis copiez le répertoire **AzureOfflineBackupDiskPrep** vers un ordinateur de copie auquel les disques SATA à préparer sont connectés. Vérifiez les points suivants concernant l’ordinateur de copie :
 
@@ -218,4 +279,3 @@ Lors de la sauvegarde planifiée suivante, Sauvegarde Azure effectue une sauvega
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour toute question au sujet du flux de travail Azure Import/Export, voir [Transfert de données vers le stockage d’objets blob à l’aide du service Microsoft Azure Import/Export](../storage/common/storage-import-export-service.md).
-

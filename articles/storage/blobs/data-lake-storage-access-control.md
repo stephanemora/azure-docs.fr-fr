@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037237"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026130"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Contrôle d’accès dans Azure Data Lake Storage Gen2
 
@@ -33,7 +33,7 @@ Pour savoir comment affecter des rôles aux entités de sécurité dans l’éte
 
 Même si l’affectation de rôle RBAC est un mécanisme puissant pour contrôler les autorisations d’accès, il s’agit d’un mécanisme grossier par rapport aux listes de contrôle d’accès. La précision la plus haute que gère la fonction RBAC se trouve au niveau du conteneur, et cela sera évalué en priorité par rapport aux ACL. Par conséquent, si vous attribuez un rôle à un principal de sécurité dans l’étendue d’un conteneur, ce principal de sécurité a le niveau d’autorisation associé à ce rôle pour TOUS les répertoires et fichiers de ce conteneur, indépendamment des attributions d’ACL.
 
-Quand un principal de service reçoit des autorisations RBAC d’accès aux données via un [rôle prédéfini](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les attributions RBAC du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification supplémentaire n’est réalisée au niveau des ACL. Si le principal de sécurité n’a pas de rôle RBAC attribué ou si l’exécution de la demande ne correspond pas à l’autorisation accordée, des vérifications ACL sont effectuées pour déterminer si le principal de sécurité est autorisé à exécuter l’opération demandée.
+Quand un principal de service reçoit des autorisations RBAC d’accès aux données via un [rôle prédéfini](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues), ou via un rôle personnalisé, ces autorisations sont évaluées en premier lors de l’autorisation d’une demande. Si l’opération demandée est autorisée par les attributions RBAC du principal de sécurité, l’autorisation est immédiatement résolue et aucune vérification supplémentaire n’est réalisée au niveau des ACL. Sinon, si le principal de sécurité n’a pas d’attribution RBAC ou si l’opération de la demande ne correspond pas à l’autorisation affectée, les vérifications de liste de contrôle d’accès sont effectuées pour déterminer si le principal de sécurité est autorisé à effectuer l’opération demandée.
 
 > [!NOTE]
 > Si l’attribution de rôle intégré Propriétaire des données de Stockage Blob est affectée au principal de sécurité, le principal de sécurité est considéré comme un *super utilisateur* et il bénéficie d’un accès complet à toutes les opérations de mutation, notamment la définition du propriétaire d’un répertoire ou d’un fichier ainsi que des ACL pour les répertoires et fichiers dont ils ne sont pas propriétaires. L’accès de super utilisateur constitue la seule manière autorisée de modifier le propriétaire d’une ressource.
@@ -58,10 +58,15 @@ Vous ne pouvez pas utiliser les listes de contrôle d’accès pour fournir un n
 
 Pour définir des autorisations au niveau des fichiers et des répertoires, consultez l’un des articles suivants :
 
-|Si vous souhaitez utiliser cet outil :    |Lisez l’article :    |
+|||
 |--------|-----------|
-|Explorateur de stockage Azure    |[Définir des autorisations au niveau de fichiers et de répertoires à l'aide de l'Explorateur Stockage Azure avec Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|API REST    |[Chemin d’accès – Mise à jour](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Explorateur de stockage Azure |[Utiliser l’Explorateur Stockage Azure pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|.NET |[Utiliser .NET pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Utilisez Java pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Utilisez Python pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-python.md)|
+|PowerShell|[Utiliser PowerShell pour gérer les répertoires, les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-powershell.md)|
+|Azure CLI|[Utiliser Azure CLI pour les fichiers et les listes de contrôle d’accès dans Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|API REST |[Chemin d’accès – Mise à jour](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > Si le principal de sécurité est un principal de *service*, il est important d’utiliser l’ID d’objet du principal du service et non l’ID d’objet de l’inscription d’application connexes. Pour obtenir l’ID d’objet du principal du service, ouvrez l’interface Azure CLI, puis utilisez cette commande : `az ad sp show --id <Your App ID> --query objectId`. Veillez à remplacer l’espace réservé `<Your App ID>` par l’ID d’application de l’inscription de votre application.
@@ -99,7 +104,7 @@ Les autorisations sur un objet conteneur sont **Lecture**, **Écriture** et **Ex
 | Forme numérique | Forme abrégée |      Signification     |
 |--------------|------------|------------------------|
 | 7            | `RWX`        | Lecture + Écriture + Exécution |
-| 5\.            | `R-X`        | Lecture + Exécution         |
+| 5            | `R-X`        | Lecture + Exécution         |
 | 4            | `R--`        | Lire                   |
 | 0            | `---`        | Aucune autorisation         |
 
@@ -281,7 +286,7 @@ Utilisez toujours les groupes de sécurité Azure AD comme principal affecté da
 
 - L’appelant dispose des autorisations de « super utilisateur »,
 
-Ou
+ou
 
 - L’utilisateur doit disposer des autorisations Écriture + Exécution sur le répertoire parent.
 - L’utilisateur doit disposer des autorisations Lecture + Écriture + Exécution sur le répertoire à supprimer et sur tous ses sous-répertoires.

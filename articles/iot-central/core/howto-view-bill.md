@@ -1,53 +1,73 @@
 ---
-title: Affichez votre facture et convertissez votre essai gratuit en offre assortie d’un paiement à l’utilisation dans l’application Azure IoT Central | Microsoft Docs
-description: En tant qu’administrateur, apprenez à afficher votre facture et à convertir votre essai gratuit en offre assortie d’un paiement à l’utilisation dans l’application Azure IoT Central.
+title: Gérer sa facture et passer du plan Gratuit au plan Standard dans l’application Azure IoT Central | Microsoft Docs
+description: En tant qu’administrateur, découvrez comment gérer votre facture et passer du plan tarifaire Gratuit au plan Standard dans votre application Azure IoT Central
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 16a58bfc3fa245ed1ede19b0439419ab4590234e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 58503784f28a3ba0a6290a2209ce9fdccc14b4e4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72942218"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023767"
 ---
-# <a name="view-your-bill-in-iot-central-application"></a>Afficher votre facture dans l’application IoT Central
+# <a name="manage-your-bill-in-an-iot-central-application"></a>Gérer sa facture dans une application IoT Central
 
-Cet article explique comment, en tant qu’administrateur, vous pouvez afficher votre facture dans la section Administration de l’application Azure IoT Central, ainsi que la façon dont vous pouvez convertir votre version d’évaluation en version assortie d’un paiement à l’utilisation.
+Cet article explique aux administrateurs comment gérer les factures dans la section Administration de l’application Azure IoT Central. Vous verrez comment faire passer une application du plan tarifaire Gratuit au plan Standard, et comment passer à un niveau tarifaire inférieur ou supérieur.
 
-Pour accéder à la section **Administration** et l’utiliser, vous devez avoir le rôle **Administrateur** dans l’application Azure IoT Central. Si vous créez une application Azure IoT Central, le rôle **Administrateur** vous est automatiquement attribué pour cette application.
+Pour accéder à la section **Administration** et l’utiliser, vous devez disposer du rôle *Administrateur* ou d’un *rôle d’utilisateur personnalisé* permettant de voir les factures dans l’application Azure IoT Central. Si vous créez une application Azure IoT Central, le rôle **Administrateur** vous est automatiquement attribué pour cette application.
 
-## <a name="view-your-bill"></a>Consulter votre facture
+## <a name="move-from-free-to-standard-pricing-plan"></a>Passer du plan tarifaire Gratuit au plan Standard
 
-Pour consulter votre facture, accédez à la page **Facturation** de la section **Administration**. La page de facturation Azure s’ouvre dans un nouvel onglet où figure la facture de chacune de vos applications Azure IoT Central.
-
-## <a name="convert-your-trial-to-pay-as-you-go"></a>Convertir votre version d'évaluation en abonnement avec paiement à l’utilisation
-
-- Les applications **à l’essai** sont gratuites pendant sept jours avant leur expiration. Elles peuvent être passées en paiement à l’utilisation à tout moment avant leur expiration.
-- Les applications assorties d’un **paiement à l’utilisation** sont facturées par appareil, les 5 premiers appareils étant gratuits, par abonnement.
+- Les applications qui utilisent le plan Gratuit sont gratuites pendant sept jours, puis elles expirent. Pour ne pas perdre vos données, vous pouvez les déplacer vers un plan tarifaire Standard avant leur expiration.
+- Les applications qui utilisent un plan tarifaire Standard sont facturées par appareil. Cependant, chaque application est gratuite pour les deux premiers appareils qui l’utilisent.
 
 Apprenez-en davantage au sujet de la tarification sur la [page de tarification d’Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/).
 
-Dans la section facturation, vous pouvez convertir vos applications à l’essai en applications assorties d’un paiement à l’utilisation.
+Dans la section des tarifs, vous pouvez faire passer votre application du plan tarifaire Gratuit au plan Standard.
 
 Pour mener à bien ce processus en libre-service, effectuez ces étapes :
 
-1. Accédez à la page **Facturation** de la section **Administration**.
+1. Accédez à la page **Tarifs** de la section **Administration**.
 
-    ![État de la version d'évaluation](media/howto-administer/freetrialbilling.png)
+    ![État de la version d'évaluation](media/howto-view-bill/freetrialbilling.png)
 
-1. Sélectionnez **Convertir en paiement à l’utilisation**.
+1. Sélectionnez **Convert to a paid plan** (Passer à un plan payant).
 
-    ![Convertir la version d'évaluation](media/howto-administer/convert.png)
+    ![Convertir la version d'évaluation](media/howto-view-bill/convert.png)
 
-1. Sélectionnez le service Azure Active Directory approprié, ainsi que l’abonnement Azure à utiliser pour votre application avec paiement à l'utilisation.
+1. Sélectionnez le service Azure Active Directory approprié, ainsi que l’abonnement Azure à utiliser pour l’application associée au plan payant.
 
-1. Dès que vous sélectionnez **Convertir**, votre application est une application assortie d’un paiement à l’utilisation et vous commencez à être facturé.
+1. Lorsque vous sélectionnez **Convertir**, votre application devient payante et son utilisation vous est donc facturée.
+
+> [!Note]
+> Par défaut, vous passez à un plan tarifaire *Standard 2*.
+
+## <a name="how-to-change-your-application-pricing-plan"></a>Modifier le plan tarifaire de votre application
+
+Les applications qui utilisent un plan tarifaire Standard sont facturées par appareil. Cependant, chaque application est gratuite pour les deux premiers appareils qui l’utilisent.
+
+Dans la section des tarifs, vous pouvez passer à un niveau tarifaire Azure IoT inférieur ou supérieur à celui dont vous disposez actuellement.
+
+1. Accédez à la page **Tarifs** de la section **Administration**.
+
+    ![État de la version d'évaluation](media/howto-view-bill/pricing.png)
+
+1. Sélectionnez le **Plan**, puis cliquez sur **Enregistrer** pour changer de niveau tarifaire.
+
+## <a name="view-your-bill"></a>Consulter votre facture
+
+1. Sélectionnez le service Azure Active Directory approprié, ainsi que l’abonnement Azure à utiliser pour l’application associée au plan payant.
+
+1. Lorsque vous sélectionnez **Convertir**, votre application devient payante et son utilisation vous est donc facturée.
+
+> [!Note]
+> Par défaut, vous passez à un plan tarifaire *Standard 2*.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Maintenant que vous savez comment afficher votre facture dans l’application Azure IoT Central, l’étape suivante suggérée est d’en apprendre davantage sur la [personnalisation de l’interface utilisateur de l’application](howto-customize-ui.md) dans Azure IoT Central.
+Maintenant que vous savez comment gérer votre facture dans l’application Azure IoT Central, nous vous conseillons de découvrir comment [Personnaliser l’interface utilisateur de l’application](howto-customize-ui.md) dans Azure IoT Central.

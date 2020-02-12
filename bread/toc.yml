@@ -27,6 +27,9 @@
         - name: Développer
           tocHref: /azure/active-directory/develop/
           topicHref: /azure/active-directory/develop/
+        - name: "Azure\_AD pour développeurs"
+          tocHref: /azure/active-directory/azuread-dev/
+          topicHref: /azure/active-directory/azuread-dev/
         - name: Privileged Identity Management
           tocHref: /azure/active-directory/privileged-identity-management/
           topicHref: /azure/active-directory/privileged-identity-management/
@@ -152,9 +155,6 @@
     - name: Container Registry
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
-    - name: Cost Management
-      tocHref: /azure/cost-management/
-      topicHref: /azure/cost-management/
     - name: Fonctions
       tocHref: /azure/azure-functions/
       topicHref: /azure/azure-functions/
@@ -261,9 +261,6 @@
     - name: Batch AI
       tocHref: /azure/batch-ai/
       topicHref: /azure/batch-ai/
-    - name: Facturation + gestion des coûts
-      tocHref: /azure/billing/
-      topicHref: /azure/billing/
     - name: BizTalk Services
       tocHref: /azure/biztalk-services/
       topicHref: /azure/biztalk-services/
@@ -798,3 +795,19 @@
     - name: Windows Virtual Desktop
       tocHref: /azure/virtual-desktop/
       topicHref: /azure/virtual-desktop/
+    - name: Cost Management et facturation
+      tocHref: /azure/cost-management-billing/
+      topicHref: /azure/cost-management-billing/
+      items:
+        - name: Bien démarrer
+          tocHref: /azure/cost-management-billing/understand/
+          topicHref: /azure/cost-management-billing/understand/
+        - name: Gérer les coûts et l’utilisation
+          tocHref: /azure/cost-management-billing/costs/
+          topicHref: /azure/cost-management-billing/costs/
+        - name: Gérer les comptes et les abonnements
+          tocHref: /azure/cost-management-billing/manage/
+          topicHref: /azure/cost-management-billing/manage/
+        - name: Réservations
+          tocHref: /azure/cost-management-billing/reservations/
+          topicHref: /azure/cost-management-billing/reservations/

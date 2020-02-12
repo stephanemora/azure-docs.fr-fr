@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18510bd7ace6ca87278b5bf68f79b372251ac0e1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807821"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025739"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>Authentification unique avec mise au coffre des mots de passe par le biais du proxy d’application
 
@@ -34,6 +34,8 @@ Vous devez avoir déjà publié et testé votre application avec le proxy d’ap
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
 1. Sélectionnez **Azure Active Directory** > **Applications d’entreprise** > **Toutes les applications**.
 1. Dans la liste, sélectionnez l’application pour laquelle vous voulez configurer l’authentification unique.  
+1. Sélectionnez **Proxy d’application**. 
+1. Choisissez **Passthrough** comme **Type de pré-authentification**, puis sélectionnez **Enregistrer**. Vous pouvez très bien repasser au type **Azure Active Directory** par la suite. 
 1. Sélectionnez **Authentification unique**.
 
    ![Sélectionner l’authentification unique à partir de la page de présentation de l’application](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
@@ -44,6 +46,17 @@ Vous devez avoir déjà publié et testé votre application avec le proxy d’ap
    ![Choisissez Authentification par mot de passe et entrez votre URL.](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
 1. Sélectionnez **Enregistrer**.
+1. Sélectionnez **Proxy d’application**. 
+1. Choisissez **Azure Active Directory** comme **Type de pré-authentification**, puis sélectionnez **Enregistrer**. 
+1. Sélectionnez **Users and Groups**.
+1. Affectez des utilisateurs à l’application. Pour cela, sélectionnez **Ajouter un utilisateur**. 
+1. Si vous souhaitez prédéfinir des informations d’identification pour un utilisateur, cochez la case devant le nom d’utilisateur et sélectionnez **Mettre à jour les informations d’identification**.
+1. Sélectionnez **Azure Active Directory** > **Inscriptions des applications** > **Toutes les applications**.
+1. Dans la liste, sélectionnez l’application que vous avez configurée avec l’authentification unique par mot de passe.
+1. Sélectionnez **Personnalisation**. 
+1. Mettez à jour l’**URL de la page d’accueil** avec l’**URL de connexion** à partir de la page d’authentification unique par mot de passe, puis sélectionnez **Enregistrer**.  
+
+
 
 <!-- Need to repro?
 7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
@@ -51,7 +64,7 @@ Vous devez avoir déjà publié et testé votre application avec le proxy d’ap
 
 ## <a name="test-your-app"></a>Test de l'application
 
-Accédez à l’URL externe que vous avez configurée pour l’accès à distance à votre application. Connectez-vous avec vos informations d’identification associées à cette application (ou celles d’un compte de test pour lequel vous avez configuré un accès). Une fois que vous êtes connecté, vous devez pouvoir quitter l’application et revenir sans entrer à nouveau vos informations d’identification.
+Accédez au portail Mes applications. Connectez-vous avec vos informations d’identification (ou celles d’un compte de test pour lequel vous avez configuré un accès). Une fois que vous êtes connecté, cliquez sur l’icône de l’application. Cela peut déclencher l’installation de l’extension de navigateur de connexion sécurisée à Mes applications. Si votre utilisateur a des informations d’identification prédéfinies, l’authentification auprès de l’application doit être automatique ; sinon, vous devez spécifier le nom d’utilisateur ou le mot de passe pour la première fois. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

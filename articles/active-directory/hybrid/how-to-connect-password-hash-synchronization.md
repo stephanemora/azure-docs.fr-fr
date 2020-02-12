@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d3a76b06c08d670cfb3ab0757e8c46dac0988c5f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833362"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025178"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -124,7 +124,7 @@ Inconvénient : si des comptes synchronisés doivent avoir des mots de passe sa
 > [!NOTE]
 > Cette fonctionnalité est actuellement en préversion publique.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>Préversion publique de la synchronisation des mots de passe temporaires et « Forcer la réinitialisation de mot de passe à la prochaine ouverture de session »
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>Préversion publique de la synchronisation des mots de passe temporaires et « Forcer la modification du mot de passe à la prochaine ouverture de session »
 
 Il est courant de forcer un utilisateur à modifier son mot de passe lors de sa première ouverture de session, en particulier après la réinitialisation d’un mot de passe d’administrateur.  Il s’agit généralement de définir un mot de passe « temporaire ». Vous devez pour cela sélectionner l’indicateur « L’utilisateur doit changer le mot de passe à la prochaine ouverture de session » sur un objet utilisateur dans Active Directory (AD).
   

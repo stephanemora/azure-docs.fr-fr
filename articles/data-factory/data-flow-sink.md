@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440261"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020044"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformation du récepteur dans le flux de données de mappage
 
@@ -52,6 +52,12 @@ Après avoir ajouté un récepteur, configurez-le via l'onglet **Récepteur**. S
 Comme pour une transformation de sélection (Select), l'onglet **Mappage** du récepteur vous permet de choisir les colonnes entrantes dans lesquelles l'écriture interviendra. Par défaut, toutes les colonnes d'entrée, y compris les colonnes dérivées, sont mappées. C'est ce qu'on appelle le **mappage automatique**.
 
 Lorsque vous désactivez le mappage automatique, vous avez la possibilité d'ajouter des mappages basés sur des colonnes ou des mappages basés sur des règles. Les mappages basés sur des règles vous permettent d'écrire des expressions avec critères spéciaux, tandis que le mappage fixe mappe les noms de colonnes logiques et physiques. Pour plus d'informations sur le mappage basé sur des règles, consultez [Modèles de colonne dans le flux de données de mappage](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
+
+## <a name="custom-sink-ordering"></a>Ordre des récepteurs personnalisé
+
+Par défaut, les données sont écrites dans plusieurs récepteurs selon un ordre non déterministe. Le moteur d’exécution écrit les données en parallèle à l’issue de la logique de transformation et l’ordre des récepteurs peut varier d’une exécution à l’autre. Pour spécifier l’ordre exact des récepteurs, activez **Ordre des récepteurs personnalisé** sous l’onglet Général du flux de données. Quand cette option est activée, les récepteurs sont écrits séquentiellement dans l’ordre croissant.
+
+![Ordre des récepteurs personnalisé](media/data-flow/custom-sink-ordering.png "Ordre des récepteurs personnalisé")
 
 ## <a name="data-preview-in-sink"></a>Aperçu des données dans le récepteur
 

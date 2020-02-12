@@ -6,13 +6,13 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 472fe621fc7a95317f143ef96a1d7f8b5adfe581
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688286"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016967"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Intégrer une application à un réseau Azure Virtual Network
 Ce document décrit la fonctionnalité d’intégration au réseau virtuel d’Azure App Service et explique comment la configurer avec des applications dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Les [réseaux virtuels Azure][VNETOverview] vous permettent de placer un grand nombre de vos ressources Azure dans un réseau routable non-Internet.  
@@ -26,7 +26,7 @@ Ce document passe en revue les deux fonctionnalités d’intégration au réseau
 
 La fonctionnalité d’intégration au réseau virtuel se présente sous deux formes :
 
-1. La première version permet une intégration aux réseaux virtuels d’une même région. Sous cette forme, la fonctionnalité nécessite un sous-réseau dans un réseau virtuel de la même région. Bien que cette fonctionnalité soit toujours en préversion, elle est prise en charge pour les charges de travail de production d’applications Windows. Il existe cependant certaines restrictions qui sont mentionnées ci-dessous.
+1. La première version permet une intégration aux réseaux virtuels d’une même région. Sous cette forme, la fonctionnalité nécessite un sous-réseau dans un réseau virtuel de la même région. Bien que cette fonctionnalité soit toujours en préversion, elle est prise en charge pour les charges de travail de production des applications Windows. Il existe cependant certaines restrictions qui sont mentionnées ci-dessous.
 2. L’autre version permet une intégration à des réseaux virtuels d’autres régions ou à des réseaux virtuels classiques. Cette version de la fonctionnalité nécessite le déploiement d'une passerelle de réseau virtuel dans votre réseau virtuel. Il s’agit de la fonctionnalité VPN point à site et elle est uniquement prise en charge par les applications Windows.
 
 Une application ne peut utiliser qu'une seule forme de la fonctionnalité d'intégration au réseau virtuel à la fois. Il convient donc de déterminer quelle fonctionnalité utiliser. Les deux peuvent être utilisées dans des cas divers et variés. Il existe néanmoins des facteurs de différenciation clairs :
@@ -40,7 +40,7 @@ Une application ne peut utiliser qu'une seule forme de la fonctionnalité d'int�
 
 Aucune des fonctionnalités ne vous permet d'accéder à des adresses non compatibles avec RFC 1918 via ExpressRoute. Pour cela, vous devez pour le moment utiliser un environnement ASE.
 
-L'utilisation de l'intégration au réseau virtuel régional n'a pas pour effet de connecter votre réseau virtuel à des ressources locales ou de configurer des points de terminaison de service. Il s'agit d'une configuration de mise en réseau distincte. L’intégration au réseau virtuel régional permet simplement à votre application d’effectuer des appels via ces types de connexion.
+L'utilisation de l'intégration au réseau virtuel régional n'a pas pour effet de connecter votre réseau virtuel à des ressources locales ou de configurer des points de terminaison de service. Il s'agit d'une configuration de mise en réseau distincte. L'intégration au réseau virtuel régional permet simplement à votre application de passer des appels via ces types de connexion.
 
 Quelle que soit la version utilisée, l’intégration au réseau virtuel permet à votre application web d’accéder aux ressources de votre réseau virtuel, mais n’accorde pas d’accès privé entrant à votre application web à partir du réseau virtuel. L’accès au site privé fait référence au fait de rendre votre application accessible uniquement à partir d’un réseau privé, par exemple à partir d’un réseau virtuel Azure. L'intégration au réseau virtuel sert uniquement à passer des appels sortants de votre application vers votre réseau virtuel. 
 
@@ -74,7 +74,7 @@ Bien que cette fonctionnalité soit disponible en préversion, elle est prise en
 * Vous pouvez seulement accédez aux adresses qui se trouvent dans la plage RFC 1918. Il s’agit des adresses qui se trouvent dans les blocs d’adresses 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16.
 * Vous ne pouvez pas accéder à des ressources via des connexions de peering mondial.
 * Vous ne pouvez pas définir d’itinéraires pour le trafic en provenance de votre application et à destination de votre réseau virtuel.
-* La fonctionnalité n’est disponible qu’à partir des unités d’échelle App Service récentes qui prennent en charge les plans App Service PremiumV2.
+* La fonctionnalité n’est disponible qu’à partir des unités d’échelle App Service récentes qui prennent en charge les plans App Service PremiumV2. Notez que cela ne signifie pas que votre application doit s’exécuter sur une référence SKU PremiumV2, mais qu’elle doit seulement s’exécuter sur un plan App Service où l’option PremiumV2 est disponible (ce qui signifie qu’il s’agit d’une unité d’échelle plus récente où cette fonctionnalité d’intégration au réseau virtuel est également disponible).
 * Le sous-réseau d’intégration ne peut être utilisé que par un seul plan App Service
 * La fonctionnalité ne peut pas être utilisée par des applications de plan Isolé qui se trouvent dans un environnement ASE.
 * La fonctionnalité nécessite un sous-réseau inutilisé /27 avec 32 adresses ou d’une taille supérieure dans votre réseau virtuel Resource Manager.
@@ -248,7 +248,7 @@ L’utilisation de la fonctionnalité d’intégration au réseau virtuel avec p
 * Coûts liés à la passerelle VPN : la passerelle de réseau virtuel nécessaire au VPN de point à site engendre des coûts. Les détails se trouvent sur la page [Tarification des passerelles VPN][VNETPricing].
 
 
-## <a name="troubleshooting"></a>Résolution de problèmes
+## <a name="troubleshooting"></a>Dépannage
 Même si cette fonctionnalité est facile à configurer, il se peut que vous rencontriez certains problèmes. Si vous rencontrez des difficultés pour accéder au point de terminaison souhaité, certains utilitaires vous permettent de tester la connectivité à partir de la console de l’application. Vous pouvez utiliser deux consoles : la console Kudu et la console du portail Azure. Pour accéder à la console Kudu à partir de votre application, accédez à Outils -> Kudu. Vous pouvez également accéder à la console Kudo via le site [nom du site].scm.azurewebsites.net. Une fois le site chargé, accédez à l'onglet Console de débogage. Pour accéder à la console hébergée par le portail Azure, à partir de votre application, accédez à outils -> Console. 
 
 #### <a name="tools"></a>Outils

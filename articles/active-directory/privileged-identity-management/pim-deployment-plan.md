@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 02/04/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021851"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025994"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Déployer Azure AD Privileged Identity Management (PIM)
 
@@ -99,7 +99,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Participants : Privileged Identity Management pour les rôles Azure AD
 
-| Nom | Role | Action |
+| Name | Role | Action |
 | --- | --- | --- |
 | Nom et e-mail | **Architecte de l’identité ou administrateur général Azure**<br/>Représentant de l’équipe de gestion des identités responsable de la définition de l’alignement de cette modification sur l’infrastructure principale de gestion des identités dans votre organisation. | SO/R/I |
 | Nom et e-mail | **Propriétaire de service / Supérieur hiérarchique**<br/>Représentant des propriétaires du service informatique d’un service ou d’un groupe de services. Ils sont essentiels à la prise de décisions et au déploiement de Privileged Identity Management pour leur équipe. | SO/R/I |
@@ -109,7 +109,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>Participants : Azure AD Privileged Identity Management pour les rôles de ressources Azure
 
-| Nom | Role | Action |
+| Name | Role | Action |
 | --- | --- | --- |
 | Nom et e-mail | **Propriétaire de l’abonnement / de la ressource**<br/>Un représentant des propriétaires du service informatique de chaque abonnement ou ressource pour lequel ou laquelle vous voulez déployer Privileged Identity Management | SO/R/I |
 | Nom et e-mail | **Responsable de la sécurité**<br/>Représentant de l’équipe de sécurité qui peut valider que le plan répond aux exigences de sécurité de votre organisation. | SO/R |
@@ -120,7 +120,7 @@ La section suivante vous permet d’identifier tous les participants impliqués 
 
 Dans le cadre du processus de planification, vous devez d’abord accepter et activer Privileged Identity Management en suivant notre article [commencer à utiliser Privileged Identity Management](pim-getting-started.md). L’activation de Privileged Identity Management vous donne accès à certaines fonctionnalités qui sont spécifiquement conçues pour faciliter votre déploiement.
 
-Si votre objectif est de déployer Privileged Identity Management pour les ressources Azure, vous devez suivre notre article [découvrir les ressources Azure à gérer dans Privileged Identity Management](pim-resource-roles-discover-resources.md). Seuls les propriétaires de chaque ressource, groupe de ressources et abonnement sont en mesure de les découvrir à l’intérieur de Privileged Identity Management. Si vous êtes un administrateur général qui tente de déployer Privileged Identity Management pour vos ressources Azure, vous pouvez [élever l’accès pour gérer tous les abonnements Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) afin d’obtenir l’accès à toutes les ressources Azure dans l’annuaire pour la découverte. Toutefois, il est conseillé d’obtenir l’approbation de chacun des propriétaires d’abonnements avant de gérer leurs ressources avec Privileged Identity Management.
+Si votre objectif est de déployer Privileged Identity Management pour les ressources Azure, vous devez suivre notre article [découvrir les ressources Azure à gérer dans Privileged Identity Management](pim-resource-roles-discover-resources.md). Seuls les propriétaires d’abonnements et de groupes d’administration peuvent découvrir et intégrer ces ressources dans Privileged Identity Management. Au terme de l’intégration, la fonctionnalité PIM est accessible aux propriétaires à tous les niveaux, notamment le groupe d’administration, l’abonnement, le groupe de ressources et la ressource. Si vous êtes un administrateur général qui tente de déployer Privileged Identity Management pour vos ressources Azure, vous pouvez [élever l’accès pour gérer tous les abonnements Azure](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) afin d’obtenir l’accès à toutes les ressources Azure dans l’annuaire pour la découverte. Toutefois, il est conseillé d’obtenir l’approbation de chacun des propriétaires d’abonnements avant de gérer leurs ressources avec Privileged Identity Management.
 
 ### <a name="enforce-principle-of-least-privilege"></a>Appliquer le principe des privilèges minimum
 
@@ -198,7 +198,7 @@ S’il existe des rôles avec des utilisateurs invités affectés, ils sont part
 > [!TIP]
 > :heavy_check_mark: **Microsoft recommande** de gérer tous les rôles avec des utilisateurs invités à l’aide de Privileged Identity Management pour réduire les risques associés à des comptes d’utilisateurs invités compromis.
 
-Les rôles de lecteur comme Lecteur d’annuaire, Lecteur du Centre de messages et Lecteur de sécurité sont parfois considérés comme étant moins importants par rapport à d’autres rôles parce qu’ils ne disposent pas d’autorisation en écriture. Toutefois, nous avons vu que certains clients protègent également ces rôles, car les intrus qui ont obtenu l’accès à ces comptes peuvent être en mesure de lire des données sensibles, telles que des informations d’identification personnelle (PII). Vous devez prendre ce point en considération quand vous décidez si les rôles de lecteur dans votre organisation doivent être gérés à l’aide de Privileged Identity Management.
+Les rôles de lecteur comme Lecteur d’annuaire, Lecteur du Centre de messages et Lecteur de sécurité sont parfois considérés comme étant moins importants par rapport à d’autres rôles parce qu’ils ne disposent pas d’autorisation en écriture. Toutefois, nous avons vu que certains clients protègent également ces rôles, car les attaquants qui ont obtenu l’accès à ces comptes peuvent être en mesure de lire des données sensibles, telles que des données personnelles. Vous devez prendre ce point en considération quand vous décidez si les rôles de lecteur dans votre organisation doivent être gérés à l’aide de Privileged Identity Management.
 
 #### <a name="azure-resource-roles"></a>Rôles de ressources Azure
 
@@ -243,16 +243,16 @@ Avant d’implémenter votre solution Privileged Identity Management, il est con
 | Role | Exiger une authentification multifacteur | Notification | Ticket d’incident | Exiger une approbation | Approbateur | Durée d’activation | Administrateur permanent |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Administrateur général | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Autres administrateurs généraux | 1 heure | Comptes d’accès d’urgence |
-| Administrateur Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Aucun | 2 heures | Aucun |
-| Administrateur du support technique | :x: | :x: | :heavy_check_mark: | :x: | Aucun | 8 heures | Aucun |
+| Administrateur Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2 heures | None |
+| Administrateur du support technique | :x: | :x: | :heavy_check_mark: | :x: | None | 8 heures | None |
 
 #### <a name="privileged-identity-management-settings-for-azure-resource-roles"></a>Paramètres Privileged Identity Management pour les rôles de ressource Azure
 
 | Role | Exiger une authentification multifacteur | Notification | Exiger une approbation | Approbateur | Durée d’activation | Administrateur actif | Expiration active | Expiration éligible |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Propriétaire d’abonnements critiques | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Autres propriétaires de l’abonnement | 1 heure | Aucun | n/a | 3 mois |
-| Administrateur de l’accès utilisateur d’abonnements moins critiques | :heavy_check_mark: | :heavy_check_mark: | :x: | Aucun | 1 heure | Aucun | n/a | 3 mois |
-| Contributeur de machine virtuelle | :x: | :heavy_check_mark: | :x: | Aucun | 3 heures | Aucun | n/a | 6 mois |
+| Propriétaire d’abonnements critiques | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Autres propriétaires de l’abonnement | 1 heure | None | n/a | 3 mois |
+| Administrateur de l’accès utilisateur d’abonnements moins critiques | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1 heure | None | n/a | 3 mois |
+| Contributeur de machine virtuelle | :x: | :heavy_check_mark: | :x: | None | 3 heures | None | n/a | 6 mois |
 
 Le tableau suivant décrit chacun des paramètres.
 
@@ -350,7 +350,7 @@ Si Privileged Identity Management ne fonctionne pas comme vous le souhaitez dans
 
 #### <a name="azure-ad-roles"></a>Rôles Azure AD
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Ouvrez **Azure AD Privileged Identity Management**.
 1. Cliquez sur **Rôles Azure AD**, puis sur **Rôles**.
 1. Pour chaque rôle que vous avez configuré, cliquez sur les points de suspension ( **...** ) pour tous les utilisateurs avec une affectation éligible.
@@ -358,7 +358,7 @@ Si Privileged Identity Management ne fonctionne pas comme vous le souhaitez dans
 
 #### <a name="azure-resource-roles"></a>Rôles de ressources Azure
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Ouvrez **Azure AD Privileged Identity Management**.
 1. Cliquez sur **Ressources Azure**, puis sur un abonnement ou une ressource que vous souhaitez restaurer.
 1. Cliquez sur **Rôles**.
@@ -373,7 +373,7 @@ Le déploiement réussi de Privileged Identity Management en production est une 
 
 Vous devez employer la fonctionnalité d’alerte intégrée de Privileged Identity Management pour mieux protéger votre abonné. Pour plus d’informations, consultez [Alertes de sécurité](pim-how-to-configure-security-alerts.md#security-alerts). Ces alertes incluent notamment les suivantes : les administrateurs n’utilisent pas les rôles privilégiés, les rôles sont affectés en dehors de Privileged Identity Management, les rôles sont activés trop fréquemment, et bien plus encore. Pour protéger entièrement votre organisation, vous devez parcourir régulièrement votre liste d’alertes et résoudre les problèmes. Vous pouvez afficher et résoudre vos alertes de la façon suivante :
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+1. Connectez-vous au [portail Azure](https://portal.azure.com/).
 1. Ouvrez **Azure AD Privileged Identity Management**.
 1. Cliquez sur **Rôles Azure AD**, puis sur **Alertes**.
 
